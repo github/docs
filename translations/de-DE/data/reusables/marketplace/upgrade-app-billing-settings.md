@@ -1,0 +1,1 @@
+1. Verwende das **Edit** (Bearbeiten) Dropdownmenü und klicke auf **Change plan** (Plan ändern). ![Dropdownmenü „Edit" (Bearbeiten) im Abschnitt Marktplatz-Käufe der Abrechnungseinstellungen Deines persönlichen Kontos](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

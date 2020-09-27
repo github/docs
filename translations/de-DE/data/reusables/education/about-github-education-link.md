@@ -1,0 +1,1 @@
+Bevor Du einen individuellen Rabatt anwendest, solltest Du überprüfen, ob Deine Lerngemeinschaft bereits mit uns als {{ site.data.variables.product.prodname_education }}-Bildungseinrichtung zusammenarbeitet. Weitere Informationen findest Du unter „[Informationen zu {{ site.data.variables.product.prodname_education }}](https://education.github.com/partners/schools)“.

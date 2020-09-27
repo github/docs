@@ -1,0 +1,2 @@
+
+ドラフトのプルリクエストは、{{ site.data.variables.product.prodname_free_user }}及び{{ site.data.variables.product.prodname_free_team }}のOrganizationのパブリックリポジトリ、{{ site.data.variables.product.prodname_pro }}、レガシーのリポジトリごとの支払いプラン、{{ site.data.variables.product.prodname_team }} のパブリックおよびプライベートリポジトリ{% if currentVersion != "free-pro-team@latest" %}、{{ site.data.variables.product.prodname_ghe_server }}2.17+{% endif %}、{{ site.data.variables.product.prodname_ghe_cloud }} で利用できます。 {% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.gated-features.more-info }}{% endif %}

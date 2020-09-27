@@ -1,0 +1,1 @@
+1. "Payment history（支払い履歴）"の下で、過去の支払いをレビューしてください。 特定の支払いの領収書をダウンロードするには{% octicon "download" aria-label="The download icon" %} をクリックしてください。 ![領収書のダウンロードボタン](/assets/images/help/settings/settings-download-receipt.png)

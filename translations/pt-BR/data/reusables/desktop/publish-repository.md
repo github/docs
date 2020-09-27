@@ -1,0 +1,1 @@
+3. Clique no botão **Publish Repository** (Publicar repositório) na barra de ferramentas. ![Botão Publish repository (Publicar repositório) na barra de ferramentas](/assets/images/help/desktop/publish-repository-toolbar-button.png)

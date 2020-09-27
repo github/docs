@@ -1,0 +1,1 @@
+1. Oberhalb der Liste der Issues oder Pull Requests klicke auf **Labels** (Kennzeichnungen). ![Registerkarte „Labels" (Kennzeichnungen) auf der Issue- oder Pull-Request-Seite eines Repository](/assets/images/help/issues/issues_labels_button.png)

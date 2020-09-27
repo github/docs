@@ -1,0 +1,11 @@
+{
+  "ext": "js,json,yml,md,html,scss",
+  "ignore": [
+    "assets",
+    "scripts",
+    "translations",
+    "dist",
+    "javascripts",
+    "stylesheets"
+  ]
+}

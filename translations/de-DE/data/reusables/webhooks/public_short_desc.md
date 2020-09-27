@@ -1,0 +1,1 @@
+When a private repository is made public.  Without a doubt: the best {{ site.data.variables.product.product_name }} event. 

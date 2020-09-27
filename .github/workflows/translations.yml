@@ -1,0 +1,56 @@
+name: Translations
+
+on:
+  schedule:
+   - cron: "20 19 * * *"  # once a day at 19:20 UTC / 11:20 PST
+
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+jobs:
+  prepare:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+    - if: ${{ env.FREEZE == 'true' }}
+      run: |
+        echo 'The repo is currently frozen! Exiting this workflow.'
+        exit 1 # prevents further steps from running
+    - name: Find original Pull Request
+      uses: juliangruber/find-pull-request-action@v1
+      id: pr
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        branch: translations
+    - if: ${{ steps.pr.outputs.number }}
+      name: Check if already labeled
+      uses: actions/github-script@0.9.0
+      id: has-label
+      with:
+        script: |
+          const { data: labels } = await github.issues.listLabelsOnIssue({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: ${{ steps.pr.outputs.number }}
+          })
+          if (labels.find(label => label.name === 'automerge')) {
+            return 'ok'
+          }
+    - if: ${{ !steps.has-label.outputs.result }}
+      name: Approve Pull Request
+      uses: juliangruber/approve-pull-request-action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: ${{ steps.pr.outputs.number }}
+    - if: ${{ !steps.has-label.outputs.result }}
+      name: Add automerge label
+      uses: actions/github-script@0.9.0
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          github.issues.addLabels({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: ${{ steps.pr.outputs.number }},
+            labels: ['automerge']
+          })

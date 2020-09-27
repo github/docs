@@ -1,0 +1,1 @@
+1. Überprüfe die Eingaben für Deine Stufe, dann klicke auf **Publish tier** (Stufe veröffentlichen). ![Schaltfläche „Publish tier" (Stufe veröffentlichen)](/assets/images/help/sponsors/publish-tier-button.png)

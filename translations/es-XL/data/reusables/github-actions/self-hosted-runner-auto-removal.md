@@ -1,0 +1,1 @@
+Un ejecutor auto-hospedado se eliminará automáticamente de {{ site.data.variables.product.product_name }} si no se ha conectado a {{ site.data.variables.product.prodname_actions }} por más de 30 días.

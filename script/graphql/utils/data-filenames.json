@@ -1,0 +1,14 @@
+{
+  "schemas": {
+    "dotcom": "schema.docs.graphql",
+    "enterprise": "schema.docs-enterprise.graphql"
+  },
+  "previews": {
+    "dotcom": "graphql_previews.yml",
+    "enterprise": "graphql_previews.enterprise.yml"
+  },
+  "upcomingChanges": {
+    "dotcom": "graphql_upcoming_changes.public.yml",
+    "enterprise": "graphql_upcoming_changes.public-enterprise.yml"
+  }
+}

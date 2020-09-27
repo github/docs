@@ -1,0 +1,1 @@
+コンおエンドポイントは[通知](/articles/about-notifications/)をトリガします。 このエンドポイントを使ってあまりに速くコンテンツを作成すると、不正利用レート制限にかかるかもしれません。 See "[Abuse rate limits](/v3/#abuse-rate-limits)"{% if currentVersion == "free-pro-team@latest" %} and "[Dealing with abuse rate limits](/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)"{% endif %} for details.

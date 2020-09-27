@@ -1,0 +1,1 @@
+{{ site.data.variables.product.prodname_insights }} is available with {{ site.data.variables.product.prodname_ghe_one }}. For more information, see "[{{ site.data.variables.product.prodname_dotcom }}'s products](/articles/githubs-products)."

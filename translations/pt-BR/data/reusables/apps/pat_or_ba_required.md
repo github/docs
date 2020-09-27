@@ -1,0 +1,1 @@
+Você deve usar um token de acesso pessoal (que pode criar através da [command line](/articles/creating-a-personal-access-token-for-the-command-line/) ou da [OAuth Authorizations API](/v3/oauth_authorizations/#create-a-new-authorization)) ou [Basic Authentication](/v3/auth/#basic-authentication) para acessar este ponto de extremidade.

@@ -1,0 +1,1 @@
+1. Klicke unter "Days" (Tage) auf **Weekdays** (Wochentage) {% octicon "triangle-down" aria-label="The down triangle icon" %}, um einen oder mehrere Tage auszuwählen, an denen Du geplante Erinnerungen erhalten möchtest. ![Dropdownmenü „Days" (Tage)](/assets/images/help/settings/scheduled-reminders-days.png)

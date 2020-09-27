@@ -1,0 +1,1 @@
+1. 在“Authentication（身份验证）”下，选择 **Require two-factor authentication for everyone in your organization（对您组织中的每个人要求双重身份验证）**，然后单击 **Save（保存）**。 ![需要 2FA 复选框](/assets/images/help/organizations/require-2fa-checkbox.png)

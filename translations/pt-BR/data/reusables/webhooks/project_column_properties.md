@@ -1,0 +1,7 @@
+| Tecla                 | Tipo      | Descrição                                                                                                                           |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Ação`                | `string`  | The action that was performed on the project column. Can be one of `created`, `edited`, `moved` or `deleted`.                       |
+| `alterações`          | `objeto`  | The changes to the project column if the action was `edited`.                                                                       |
+| `changes[name][from]` | `string`  | A versão anterior do nome se a ação foi `editada`.                                                                                  |
+| `after_id`            | `inteiro` | The id of the column that this column now follows if the action was "moved". Will be `null` if it is the first column in a project. |
+| `project_column`      | `objeto`  | The [project column](/v3/projects/columns) itself.                                                                                  |

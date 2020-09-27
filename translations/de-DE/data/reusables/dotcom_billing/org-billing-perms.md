@@ -1,0 +1,1 @@
+Nur Organisationsmitglieder mit der Rolle [*Owner*](/articles/permission-levels-for-an-organization) (Inhaber) oder [*Billing Manager*](/articles/adding-a-billing-manager-to-your-organization) (Abrechnungsmanager) können auf die Abrechnungseinstellungen Deiner Organisation zugreifen oder diese ändern.

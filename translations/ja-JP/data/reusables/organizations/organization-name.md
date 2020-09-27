@@ -1,0 +1,1 @@
+1. "Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}account{% endif %} name（Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}アカウント{% endif %}名）"の下で、Organizationアカウントの名前を入力してください。 ![Organization名の入力フィールド](/assets/images/help/organizations/new-org-name.png)

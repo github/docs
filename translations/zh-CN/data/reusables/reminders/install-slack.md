@@ -1,0 +1,1 @@
+如果要在所有仓库安装 Slack，请选择 **All repositories（所有仓库）**。 如果只想在选择的仓库中安装 Slack，则选择 **Only select repositories（仅选定仓库）**。 然后，查看您允许 Slack 访问的权限列表并单击 **Install（安装）**。 ![安装 Slack 按钮](/assets/images/help/settings/scheduled-reminders-install-slack.png)

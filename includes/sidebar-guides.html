@@ -1,0 +1,33 @@
+<ul class="sidebar-categories">
+  {% for category in product[1].categories %}
+  <li class="sidebar-category {% if breadcrumbs.category.href == category[1].href %}active{% endif %}">
+    <a href="/{{currentLanguage}}{{category[1].href}}">{{ category[1].title }}</a>
+    <!-- some categories have topics with child articles -->
+    {% if category[1].maptopics %}
+    <ul class="sidebar-maptopics">
+      {% for maptopic in category[1].maptopics %}
+      <li class="sidebar-maptopic {% if breadcrumbs.maptopic.href == maptopic[1].href %}active{% endif %}">
+        <a href="/{{currentLanguage}}{{maptopic[1].href}}">{{ maptopic[1].title }}</a>
+        <ul class="sidebar-articles">
+          {% for article in maptopic[1].articles %}
+          <li class="sidebar-article {% if currentPath == article[1].href %}active{% endif %}">
+            <a href="/{{currentLanguage}}{{article[1].href}}">{{ article[1].title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+    <!-- some categories have no maptopics, only articles -->
+    {% else %}
+    <ul class="sidebar-articles">
+      {% for article in category[1].articles %}
+      <li class="sidebar-article{% if currentPath == article[1].href %} active{% endif %}">
+        <a href="/{{currentLanguage}}{{article[1].href}}">{{ article[1].title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

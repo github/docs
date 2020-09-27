@@ -1,0 +1,1 @@
+Wähle optional **Allow built-in authentication** (Integrierte Authentifizierung zulassen) um Benutzer zur Verwendung der integrierten Authentifizierung einzuladen, wenn sie nicht zum Identitätsanbieter von {{ site.data.variables.product.product_location_enterprise }} gehören.

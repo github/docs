@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+# This script wraps tests/links-and-images.js and provides an option to output results to a file.
+#
+# For more information, see `tests/README.md#broken-link-test`.
+# [end-readme]
+
+# check if npx is installed
+command -v npx >/dev/null 2>&1 || { echo -e "npx is not installed. Run:\n\n\$ npm install -g npx" >&2; exit 1; }
+
+while getopts "h?f:" opt; do
+  case "${opt}" in
+    h|\?) echo "Usage:"
+          echo "    script/check-internal-links [OPTIONS]"
+          echo ""
+          echo "    script/check-internal-links -f [FILENAME]  Output the results of tests/links-and-images to a file."
+          echo "    script/check-internal-links -h             Display this help message."
+          exit 0
+          ;;
+    f) FILENAME="${OPTARG}"
+       ;;
+  esac
+done
+shift $((OPTIND -1))
+
+if [ "${FILENAME}" = "" ]
+then
+  npx jest links-and-images
+else
+  echo -e "Running tests/links-and-images.js\n"
+
+  npx jest links-and-images --no-color > ${FILENAME} 2>&1
+
+  echo "Done! Results in ${FILENAME}."
+fi

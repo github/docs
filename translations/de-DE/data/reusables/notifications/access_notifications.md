@@ -1,0 +1,1 @@
+1. Klicke in der oberen rechten Ecke einer beliebigen Seite auf {% octicon "bell" aria-label="The notifications bell" %}. ![Benachrichtigung, die auf eine ungelesene Mitteilung hinweist](/assets/images/help/notifications/notifications_general_existence_indicator.png)

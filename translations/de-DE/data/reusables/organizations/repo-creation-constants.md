@@ -1,0 +1,1 @@
+Organisationsinhaber können immer jede beliebige Art von Repository erstellen und externe Mitarbeiter können niemals irgendeine Art von Repository erstellen. Weitere Informationen findest Du unter „[Über Sichtbarkeit von Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."

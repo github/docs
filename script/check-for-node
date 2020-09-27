@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# This script is run automatically when you run the server locally. It checks whether Node.js is installed.
+#
+# [end-readme]
+
+if which node 2>/dev/null; then
+  echo "✔ Node.js is installed."
+else
+  echo "✘ Node.js is not installed"
+  echo "Visit nodejs.org to download the latest LTS installer"
+  exit 1
+fi

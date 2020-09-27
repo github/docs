@@ -1,0 +1,1 @@
+1. Unter "Minimum staleness" (minimale Veraltung) gib die Zeit seit der letzten Aktivität auf einem Pull Request in Stunden ein. Geplante Erinnerungen werden keine Pull Requests beinhalten, deren letzte Aktivität aktueller war als dieses Zeitspanne. ![Feld Minimum „staleness" (Minimale Veraltung)](/assets/images/help/settings/scheduled-reminders-min-staleness-field.png)

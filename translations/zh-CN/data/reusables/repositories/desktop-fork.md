@@ -1,0 +1,1 @@
+您可以使用 {{ site.data.variables.product.prodname_desktop }} 复刻仓库。 更多信息请参阅“[从 {{ site.data.variables.product.prodname_desktop }} 克隆和复刻仓库](/desktop/contributing-to-projects/cloning-and-forking-repositories-from-github-desktop)”。

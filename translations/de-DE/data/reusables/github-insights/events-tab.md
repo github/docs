@@ -1,0 +1,1 @@
+1. Klicke unter **{% octicon "gear" aria-label="The gear icon" %} Settings** (Einstellungen) auf **Events** (Ereignisse). ![Registerkarte „Events" (Ereignisse)](/assets/images/help/insights/events-tab.png)

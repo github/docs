@@ -1,0 +1,1 @@
+1. Klicken Sie auf der linken Seitenleiste auf **Security** (Sicherheit). ![Registerkarte „Security“ (Sicherheit) auf der Seitenleiste mit den Einstellungen des Enterprise-Kontos](/assets/images/help/business-accounts/enterprise-account-settings-security-tab.png)

@@ -1,0 +1,1 @@
+1. 如果您是项目维护员，可以[将议题分配给某人](/articles/assigning-issues-and-pull-requests-to-other-github-users)、[将其添加到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board/#adding-issues-and-pull-requests-to-a-project-board-from-the-sidebar)、[将其与里程碑关联](/articles/associating-milestones-with-issues-and-pull-requests)或[应用标签](/articles/applying-labels-to-issues-and-pull-requests)。

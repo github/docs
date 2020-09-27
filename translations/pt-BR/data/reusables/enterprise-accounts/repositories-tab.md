@@ -1,0 +1,1 @@
+1. Em "{% octicon "law" aria-label="The law icon" %} Políticas", clique em **Repositories**. ![Aba Repositories (Repositórios) na barra lateral configurações da conta corporativa](/assets/images/help/business-accounts/policies-repositories-tab.png)

@@ -1,0 +1,1 @@
+A atribuição de revisão de código está disponível com {{ site.data.variables.product.prodname_team }}{% if currentVersion ver_gt "enterprise-server@2.19" %}, {{ site.data.variables.product.prodname_ghe_server }} 2.20+,{% endif %} E {{ site.data.variables.product.prodname_ghe_cloud }}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".

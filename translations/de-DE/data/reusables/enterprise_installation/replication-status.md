@@ -1,0 +1,1 @@
+1. Führe auf der Replikatinstanz den Befehl `ghe-repl-status` aus, um sicherzustellen, dass die Replikationsdienste ordnungsgemäß ausgeführt werden. Dieser Befehl gibt für alle Dienste `OK` zurück, wenn eine erfolgreiche Replikation verarbeitet wird und für das Replikat ein Upgrade durchgeführt wurde.

@@ -1,0 +1,1 @@
+最多可以将 25 个仓库链接到组织或用户拥有的项目板。 链接仓库后，添加问题和拉取请求更容易，可以使用**{% octicon "plus" aria-label="The Plus icon" %} 添加卡**{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或者从议题或拉取请求侧边栏{% endif %} 添加。

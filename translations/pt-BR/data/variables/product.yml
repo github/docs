@@ -1,0 +1,158 @@
+---
+#Contains versioned and unversioned variables for all of our product names
+## WARNING: Versioned variables don't work as expected in articles under "content/enterprise/admin/". Use unversioned variables instead.
+#Company
+company_short: 'GitHub'
+#GitHub's flagship products
+## Until we have versioning to support GitHub Enterprise Cloud content, avoid using this variable if the output should specifically be GitHub Enterprise Cloud or GitHub Enterprise Server
+product_name: >-
+  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}GitHub Enterprise{% endif %}
+## Use this variable when the output should always be GitHub, regardless of the product the user is using
+prodname_dotcom: 'GitHub'
+## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
+prodname_enterprise: 'GitHub Enterprise'
+## Use this variable only when the output should specifically be GitHub.com, to distinguish from GitHub the company or other GitHub products (e.g. connecting GHE to GitHub.com)
+prodname_dotcom_the_website: 'GitHub.com'
+## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
+prodname_ghe_server: 'GitHub Enterprise Server'
+prodname_ghe_cloud: 'GitHub Enterprise Cloud'
+prodname_ghe_one: 'GitHub One'
+## Use these variables when referring specifically to a location within a product
+product_location: >-
+  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}sua instância do GitHub Enterprise Server{% endif %}
+product_location_enterprise: 'sua instância do GitHub Enterprise Server'
+prodname_free_user: 'GitHub Free'
+prodname_pro: 'GitHub Pro'
+prodname_team: 'GitHub Team'
+prodname_free_team: 'GitHub Free'
+prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities'
+#GitHub Connect (enterprise accounts, other unified features)
+## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.
+prodname_github_connect: 'GitHub Connect'
+prodname_unified_contributions: 'contribuições unificadas'
+prodname_unified_search: 'pesquisa unificada'
+#GitHub Education
+prodname_education: 'GitHub Education'
+prodname_education_community: 'Education Community'
+prodname_classroom: 'GitHub Classroom'
+prodname_student_pack: 'GitHub Student Developer Pack'
+#GitHub CLI
+prodname_cli: 'GitHub CLI'
+#GitHub Desktop
+prodname_desktop: 'GitHub Desktop'
+desktop_link: 'https://desktop.github.com/'
+#GitHub for Mobile
+prodname_mobile: 'GitHub para dispositivos móveis'
+prodname_ios: 'GitHub para iOS'
+prodname_android: 'GitHub para Android'
+#GitHub Pages
+prodname_pages: 'GitHub Pages'
+#CodeQL
+prodname_codeql: 'CodeQL'
+prodname_ql: 'QL'
+#Apps, GitHub Marketplace, and integrations
+prodname_marketplace: 'GitHub Marketplace'
+prodname_github_app: 'aplicativo GitHub'
+prodname_github_apps: 'Aplicativos do GitHub'
+prodname_oauth_app: 'aplicativo OAuth'
+#API and developer docs
+prodname_dev_docs: 'documentação do GitHub Developer'
+prodname_enterprise_api: 'API do GitHub Enterprise Server'
+prodname_support_forum: 'Fórum de Suporte e Desenvolvimento de API GitHub'
+prodname_support_forum_with_url: '[Fórum de Suporte e Desenvolvimento de API GitHub](https://github.community/c/github-api-development-and-support/37)'
+prodname_unfurls: 'Anexos do conteúdo'
+prodname_component_kit: 'Kit de componente GitHub'
+#GitHub Actions
+## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
+prodname_actions: 'GitHub Actions'
+#GitHub Debug
+prodname_debug: 'GitHub Debug'
+#GitHub Packages
+prodname_registry: 'GitHub Package Registry'
+prodname_github_container_registry: 'GitHub Container Registry'
+prodname_container_registry: 'container registry'
+#GitHub Insights
+prodname_insights: 'GitHub Insights'
+#GitHub Sponsors
+prodname_sponsors: 'GitHub Sponsors'
+prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
+#GitHub Advanced Security
+prodname_advanced_security: 'Segurança Avançada'
+#Codespaces
+prodname_codespaces: 'Codespaces'
+prodname_vscode: 'Visual Studio Code'
+prodname_vs_codespaces: 'Espaços de códigos Visual Studio'
+prodname_vs: 'Visual Studio'
+#GitHub resources: blog, jobs, Learning Lab
+prodname_gcf: 'Suporte à Comunidade GitHub'
+prodname_blog: 'GitHub Blog'
+prodname_jobs: 'GitHub Jobs'
+prodname_learning: 'GitHub Learning Lab'
+prodname_learning_link: 'https://lab.github.com/'
+prodname_roadmap: 'GitHub public roadmap'
+prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
+#GitHub support
+premium_support_plan: 'Plano Premium'
+premium_plus_support_plan: 'Plano Premium Plus / GitHub Engineering Direct '
+microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
+support_ticket_priority_urgent: 'Urgente'
+support_ticket_priority_high: 'Alto'
+support_ticket_priority_normal: 'Normal'
+support_ticket_priority_low: 'Baixo'
+#Security features / code scanning platform / Security Lab
+prodname_security: 'Laboratório de Segurança GitHub'
+prodname_security_link: 'https://securitylab.github.com/'
+prodname_security_advisories: 'Consultoria de segurança GitHub'
+#Security features and code scanning platform
+prodname_secret_scanning: 'varredura secreta'
+prodname_secret_scanning_caps: 'Varredura secreta'
+prodname_code_scanning: 'Varredura de código'
+prodname_code_scanning_capc: 'Varredura de código'
+prodname_codeql_runner: 'CodeQL runner'
+prodname_advisory_database: 'Banco de Dados Consultivo GitHub'
+prodname_codeql_workflow: 'CodeQL Analysis workflow'
+#GitHub Dependabot
+prodname_dependabot: 'GitHub Dependabot'
+prodname_dependabot_short: 'Dependabot'
+prodname_dependabot_alerts: 'Alertas GitHub Dependabot'
+prodname_dependabot_security_updates: 'Atualizações de segurança do GitHub Dependabot'
+prodname_dependabot_version_updates: 'Atualizações de versão do GitHub Dependabot'
+#GitHub Policies
+prodname_policies: 'GitHub Policies'
+#GitHub Archive Program
+prodname_archive: 'Programa Arquivo do GitHub'
+prodname_arctic_vault: 'Arctic Code Vault'
+#Links
+product_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
+pricing_url: 'https://github.com/pricing'
+signin_link: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Entrar (`https://[hostname]/login`){% endif %}
+signout_link: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sair (`https://[hostname]/logout`){% endif %}
+raw_github_com: >-
+  {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
+#GitHub Enterprise Server past versions
+current-340-version: '11.10.354'
+#Developer site product variables
+#Use this inside command-line and other code blocks
+doc_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://developer.github.com{% else %}https://developer.github.com/enterprise/{{currentVersion}}{% endif %}
+#Use this inside command-line code blocks
+api_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% else %}http(s)://<em>[hostname]</em>/api/v3{% endif %}
+#Use this inside command-line code blocks
+#Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
+oauth_host_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://github.com{% else %}http(s)://[hostname]{% endif %}
+device_authorization_url: >-
+  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}[`https://github.com/login/device`](https://github.com/login/device){% else %}`http(s)://[hostname]/login/device`{% endif %}
+#Use this all other code blocks
+api_url_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com{% else %}http(s)://[hostname]/api/v3{% endif %}
+#Use this inside command-line code blocks
+graphql_url_pre: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% else %}http(s)://<em>[hostname]</em>/api/graphql{% endif %}
+#Use this all other code blocks
+graphql_url_code: >-
+  {% if currentVersion == "free-pro-team@latest" %}https://api.github.com/graphql{% else %}http(s)://[hostname]/api/graphql{% endif %}

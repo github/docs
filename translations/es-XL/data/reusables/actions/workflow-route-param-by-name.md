@@ -1,0 +1,1 @@
+También puedes reemplazar `:workflow_id` con `:workflow_file_name`. Por ejemplo, puedes utilizar `main.yml`.

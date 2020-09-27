@@ -1,0 +1,143 @@
+/* global page */
+require('../../lib/feature-flags')
+const sleep = require('await-sleep')
+
+const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
+const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
+
+describe('homepage', () => {
+  testFeatureNewVersions('should be titled "GitHub Documentation"', async () => {
+    await page.goto('http://localhost:4001')
+    await expect(page.title()).resolves.toMatch('GitHub Documentation')
+  })
+
+  testFeatureOldVersions('should be titled "GitHub.com Help"', async () => {
+    await page.goto('http://localhost:4001')
+    await expect(page.title()).resolves.toMatch('GitHub.com Help')
+  })
+})
+
+describe('algolia browser search', () => {
+  it('works on the homepage', async () => {
+    await page.goto('http://localhost:4001/en')
+    await page.click('#search-input-container input[type="search"]')
+    await page.type('#search-input-container input[type="search"]', 'actions')
+    await page.waitForSelector('.ais-Hits')
+    const hits = await page.$$('.ais-Hits-item')
+    expect(hits.length).toBeGreaterThan(5)
+  })
+
+  it('works on article pages', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+    await page.click('#search-input-container input[type="search"]')
+    await page.type('#search-input-container input[type="search"]', 'workflows')
+    await page.waitForSelector('.ais-Hits')
+    const hits = await page.$$('.ais-Hits-item')
+    expect(hits.length).toBeGreaterThan(5)
+  })
+
+  it('works on 404 error page', async () => {
+    await page.goto('http://localhost:4001/en/404')
+    await page.click('#search-input-container input[type="search"]')
+    await page.type('#search-input-container input[type="search"]', 'actions')
+    await page.waitForSelector('.ais-Hits')
+    const hits = await page.$$('.ais-Hits-item')
+    expect(hits.length).toBeGreaterThan(5)
+  })
+
+  it('removes `algolia-query` query param after page load', async () => {
+    await page.goto('http://localhost:4001/en?algolia-query=helpme')
+
+    // check that the query is still present at page load
+    let location = await getLocationObject(page)
+    expect(location.search).toBe('?algolia-query=helpme')
+
+    // query removal is in a setInterval, so wait a bit
+    await sleep(1000)
+
+    // check that the query has been removed after a bit
+    location = await getLocationObject(page)
+    expect(location.search).toBe('')
+  })
+
+  it('does not remove hash when removing `algolia-query` query', async () => {
+    await page.goto('http://localhost:4001/en?algolia-query=helpme#some-header')
+
+    // check that the query is still present at page load
+    let location = await getLocationObject(page)
+    expect(location.search).toBe('?algolia-query=helpme')
+
+    // query removal is in a setInterval, so wait a bit
+    await sleep(1000)
+
+    // check that the query has been removed after a bit
+    location = await getLocationObject(page)
+    expect(location.search).toBe('')
+    expect(location.hash).toBe('#some-header')
+  })
+})
+
+describe('google analytics', () => {
+  it('is set on page load with expected properties', async () => {
+    await page.goto('http://localhost:4001/en/actions')
+
+    // check that GA global object exists and is a function
+    const gaObjectType = await page.evaluate(() => typeof window.ga)
+    expect(gaObjectType).toBe('function')
+
+    // check that default tracker is set
+    // https://developers.google.com/analytics/devguides/collection/analyticsjs/ga-object-methods-reference#getByName
+    const gaDefaultTracker = await page.evaluate(() => window.ga.getByName('t0'))
+    expect('filters' in gaDefaultTracker).toBe(true)
+    expect(Object.keys(gaDefaultTracker)).toHaveLength(3)
+
+    // check that default cookies are set
+    // https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage#analyticsjs
+    const cookies = await page.cookies()
+    expect(cookies.some(cookie => cookie.name === '_gat')).toBe(true)
+    expect(cookies.some(cookie => cookie.name === '_gid')).toBe(true)
+  })
+})
+
+describe('helpfulness', () => {
+  it('sends an event to /events when submitting form', async () => {
+    // Visit a page that displays the prompt
+    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+
+    // Track network requests
+    await page.setRequestInterception(true)
+    page.on('request', request => {
+      // Ignore GET to google analytics
+      if (!/\/events/.test(request.method())) return request.continue()
+      expect(request.method()).toMatch(/POST|PUT/)
+      request.respond({
+        contentType: 'application/json',
+        body: JSON.stringify({ id: 'abcd1234' }),
+        status: 200
+      })
+    })
+
+    // When I click the "Yes" button
+    await page.click('#helpfulness-sm [for=helpfulness-yes-sm]')
+    // (sent a POST request to /events)
+    // I see the request for my email
+    await page.waitForSelector('#helpfulness-sm [type="email"]')
+
+    // When I fill in my email and submit the form
+    await page.type('#helpfulness-sm [type="email"]', 'test@example.com')
+
+    await sleep(1000)
+
+    await page.click('#helpfulness-sm [type="submit"]')
+    // (sent a PUT request to /events/{id})
+    // I see the feedback
+    await page.waitForSelector('#helpfulness-sm [data-help-end]')
+  })
+})
+
+async function getLocationObject (page) {
+  const location = await page.evaluate(() => {
+    return Promise.resolve(JSON.stringify(window.location, null, 2))
+  })
+  return JSON.parse(location)
+}

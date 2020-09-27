@@ -1,0 +1,1 @@
+Qualquer pessoa com acesso de leitura ao repositório pode usar este ponto de extremidade. Se o repositório for privado, você deverá usar um token de acesso com o escopo `repo`.

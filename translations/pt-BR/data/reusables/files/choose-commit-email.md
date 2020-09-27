@@ -1,0 +1,3 @@
+{% if currentVersion == "free-pro-team@latest" %}
+1. Abaixo dos campos de mensagem de commit, clique no menu suspenso de endereço de e-mail e escolha um endereço de e-mail do autor do Git. Apenas endereços de e-mail verificados aparecem neste menu suspenso. Se você ativou a privacidade do endereço de e-mail, então `<username>@users.noreply.github.com` é o endereço de e-mail do autor de commit padrão.  Para obter mais informações, consulte "[Setting your commit email address](/articles/setting-your-commit-email-address)." ![Escolha um endereço de e-mail commit](/assets/images/help/repository/choose-commit-email-address.png)
+{% endif %}

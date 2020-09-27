@@ -1,0 +1,5 @@
+- 使用空格代替制表符。
+- 对每个键值对在 `:` 后包含一个空格，如 `timezone: Africa/Nairobi`。
+- 仅使用 UTF-8 字符。
+- 引用 `:` 等特殊字符，如 `title: "my awesome site: an adventure in parse errors"`。
+- 对于多行值，请使用 `|` 创建换行符，使用 `>` 忽略换行符。

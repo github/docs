@@ -1,0 +1,3 @@
+| 键        | 类型    | 描述                                                                                                                              |
+| -------- | ----- | ------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作内容. This can be one of `created`, `cancelled`, `edited`, `tier_changed`, `pending_cancellation`, or `pending_tier_change`. |

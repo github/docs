@@ -1,0 +1,1 @@
+1. "{% octicon "gear" aria-label="The Settings gear" %} Setteings（{{ octicon-gear The Settings gear }}設定）"の下で、**Messages（メッセージ）**をクリックしてください。 ![Enterprise設定サイドバー内のメッセージタブ](/assets/images/enterprise/business-accounts/settings-messages-tab.png)

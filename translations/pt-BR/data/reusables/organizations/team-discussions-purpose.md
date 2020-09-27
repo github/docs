@@ -1,0 +1,1 @@
+Na página da sua equipe você pode usar discussões de equipe para conversas que abrangem projetos ou repositórios que não pertencem a um problema ou pull request específico. Em vez de abrir uma issue em um repositório para discutir uma ideia, você pode incluir toda a equipe tendo uma conversa em uma discussão de equipe.

@@ -1,0 +1,120 @@
+---
+header:
+  github_docs: GitHub Docs
+  contact: 연락처
+  notices:
+    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    localization_complete: 문서에 대한 업데이트가 자주 게시되며, 이 페이지의 번역이 아직 진행 중일 수 있습니다. 최신 정보는<a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오. 이 페이지에서 번역에 문제가 있는 경우 <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">알려주십시오</a>.
+    localization_in_progress: 안녕하세요! 이 페이지는 현재 개발 중이거나 아직 번역 중입니다. 정확한 최신 정보를 확인하려면 <a id="to-english-doc" href="/en">영어 설명서</a>를 방문하십시오.
+    product_in_progress: '👋 안녕하세요! 이 페이지는 현재 개발 중입니다. 정확한 최신 정보는 <a href="https://developer.github.com">개발자 설명서</a>를 방문하십시오.'
+search:
+  need_help: 도움이 필요하십니까?
+  placeholder: 검색 주제, 제품...
+homepage:
+  explore_by_product: 제품별 탐색
+  version_picker: 버전
+toc:
+  getting_started: 시작하기
+  popular_articles: 인기 문서
+  guides: 안내서
+pages:
+  article_version: "문서 버전:"
+  miniToc: 기사 내용
+errors:
+  oops: 이런!
+  something_went_wrong: 뭔가 잘못된 것 같습니다.
+  we_track_errors: 우리는 자동으로 이러한 오류를 추적하지만, 문제가 지속되면 저희에게 연락 주시기 바랍니다.
+  page_doesnt_exist: 이 페이지가 존재하지 않는 것처럼 보입니다.
+support:
+  still_need_help: Still need help?
+  contact_support: Contact support
+  ask_community: Ask the GitHub community
+helpfulness:
+  able_to_find: 이 문서가 도움이 되었습니까?
+  yes: true
+  no: false
+  yes_feedback: 새로운 문서 기능 및 업데이트에 대해 배우고 싶으십니까? 업데이트에 가입하십시오!
+  email_placeholder: email@example.com
+  no_feedback: 지속적으로 문서를 개선하고 있습니다. 더욱 잘 개선할 수 있도록 고객의 의견을 듣고 싶습니다.
+  category_label: 어떤 문제가 있었습니까?
+  category_default: 옵션 선택
+  category_unclear: 정보가 불분명했습니다.
+  category_confusing: 콘텐츠가 혼란스러웠습니다.
+  category_unhelpful: 문서는 내 질문에 대답을 주지 않았습니다.
+  category_other: 기타
+  comment_label: 개선할 점을 알려주십시오.
+  optional: 선택 사항
+  required: 필수 사항
+  email_label: 더 많은 질문이 생기면 연락드려도 되겠습니까?
+  send: 보내기
+  feedback: 감사합니다! 고객님의 피드백이 제출되었습니다.
+contribution_cta:
+  title: Help us make these docs great!
+  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  button: Make a contribution
+  or: Or,
+  to_guidelines: learn how to contribute.
+products:
+  graphql:
+    reference:
+      fields: 필드
+      arguments: 인자
+      name: 이름
+      type: 유형
+      description: 설명
+      input_fields: 입력 필드
+      return_fields: 반환 필드
+      implemented_by: 구현자
+      values: 값
+      possible_types: 가능한 유형
+      preview_notice: 미리 보기 알림
+      deprecation_notice: 감하 통지
+  rest:
+    reference:
+      parameters: 매개변수
+      response: 응답
+      code_sample: 코드 샘플
+      code_samples: 코드 샘플
+      preview_notice: 미리 보기 알림
+      preview_notices: 미리 보기 알림
+      see_preview_notice: 미리 보기 알림 참조
+      see_preview_notices: 미리 보기 알림 참조
+      preview_header_is_required: 이 헤더는 <strong>필수</strong>입니다.
+footer:
+  all_rights_reserved: 모든 권리 보유
+  terms: 약관
+  privacy: 개인 정보 보호
+  security: 보안
+  product:
+    heading: 제품
+    links:
+      features: 기능
+      security: 보안
+      enterprise: Enterprise
+      case_studies: 사례 연구
+      pricing: 가격 책정
+      resources: 리소스
+  platform:
+    heading: 플랫폼
+    links:
+      developer_api: 개발자 API
+      partners: 파트너
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: 지원
+    links:
+      help: Help
+      community_forum: 커뮤니티 포럼
+      training: 연습
+      status: 상태
+      contact_github: GitHub에 문의하기
+  company:
+    heading: 회사
+    links:
+      about: 정보
+      blog: 블로그
+      careers: 채용
+      press: 보도 자료
+      shop: 쇼핑

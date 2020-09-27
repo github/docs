@@ -1,0 +1,18 @@
+files:
+  - source: /content/**/*.md
+    translation: /translations/%locale%/%original_path%/%original_file_name%
+    ignore: [
+      "/content/README.md"
+    ]
+  - source: /data/**/*.yml
+    translation: /translations/%locale%/%original_path%/%original_file_name%
+  - source: /data/**/*.md
+    translation: /translations/%locale%/%original_path%/%original_file_name%
+    ignore: [
+      "data/README.md",
+      "data/reusables/README.md",
+      "data/variables/product.yml",
+      "data/variables/README.md",
+      "data/graphql",
+      "data/products.yml"
+      ]

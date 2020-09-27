@@ -1,0 +1,1 @@
+Du kannst Dich direkt aus {{ site.data.variables.product.prodname_vscode }} mit Deinem Codespace verbinden. Weitere Informationen findest Du unter „[Aus {{ site.data.variables.product.prodname_vscode }} zu Deinem Codespace verbinden](/github/developing-online-with-codespaces/connecting-to-your-codespace-from-visual-studio-code)."

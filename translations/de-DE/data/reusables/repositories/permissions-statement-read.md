@@ -1,0 +1,1 @@
+Personen mit Lesezugriff auf das Repository können diese Schritte ausführen.

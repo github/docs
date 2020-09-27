@@ -1,0 +1,1 @@
+4. No canto superior direito do {{ site.data.variables.enterprise.management_console }}, clique em **Support** (Suporte). ![Botão para acessar a área de Suporte](/assets/images/enterprise/management-console/support-link.png)

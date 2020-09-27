@@ -1,0 +1,1 @@
+Setting a webhook secret allows you to ensure that `POST` requests sent to the payload URL are from GitHub. When you set a secret, you'll receive the `X-Hub-Signature` header in the webhook `POST` request. For more details on how to use the secret and the `X-Hub-Signature` header to secure your webhook payloads, see "[Securing your webhooks](/webhooks/securing/)."

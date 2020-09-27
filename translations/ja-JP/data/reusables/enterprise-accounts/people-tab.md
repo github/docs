@@ -1,0 +1,1 @@
+1. Enterpriseアカウントのサイドバーで、{% octicon "person" aria-label="The People icon" %}**People（人）**をクリックしてください。 ![Enterpriseアカウントサイドバー内のPeopleタブ](/assets/images/help/business-accounts/business-account-people-tab.png)

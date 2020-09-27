@@ -1,0 +1,1 @@
+Se uma pessoa tiver várias vias de acesso a um quadro de projeto da organização (individualmente, por uma equipe ou como integrante de uma organização), o nível de permissão mais alto do quadro de projeto substituirá os níveis mais baixos de permissão.

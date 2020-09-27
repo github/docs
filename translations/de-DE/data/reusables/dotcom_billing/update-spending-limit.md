@@ -1,0 +1,1 @@
+1. Wenn Du Deine Ausgaben begrenzen willst, gib ein Limit ein unter „Limit spending" (Ausgaben begrenzen) und klicke dann **Update limit** (Limit anpassen). ![Feld zum Eingeben von Ausgabenlimits und Schaltfläche „Update limit" (Limit aktualisieren)](/assets/images/help/billing/update-limit.png)

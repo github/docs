@@ -1,0 +1,1 @@
+Du kannst nach dem Datum auch optionale Zeitinformationen `THH:MM:SS+00:00` hinzufügen, um nach der Stunde, Minute und Sekunde zu suchen. Das ist `T`, gefolgt von `HH:MM:SS` (Stunden:Minuten:Sekunden) und einem UTC-Offset (`+00:00`). 

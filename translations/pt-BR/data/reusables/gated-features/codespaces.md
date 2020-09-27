@@ -1,0 +1,1 @@
+Os espaços de códigos estão disponíveis para contas de usuário usando {{ site.data.variables.product.prodname_free_user }} ou {{ site.data.variables.product.prodname_pro }}. {{ site.data.reusables.gated-features.more-info-org-products }}

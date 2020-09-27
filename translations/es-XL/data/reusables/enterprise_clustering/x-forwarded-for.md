@@ -1,0 +1,1 @@
+Usa el protocolo X-Forwarded-For **solo** cuando el protocolo PROXY no esté disponible. El encabezado `X-Forwarded-For` solo funciona con HTTP y HTTPS. La dirección IP informada para las conexiones de Git a través de SSH mostrarán la IP del balanceador de carga.

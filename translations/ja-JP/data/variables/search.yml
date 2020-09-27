@@ -1,0 +1,11 @@
+---
+advanced_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[高度な検索](https://github.com/search/advanced) ページ{% else %}高度な検索ページ (`https://[hostname]/search/advanced`){% endif %}
+search_page_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[検索](https://github.com/search) ページ{% else %}検索ページ (`https://[hostname]/search`){% endif %}
+search_highlighting_link: >-
+  ハイライトされた検索結果を受信する方法の詳細については、[テキストマッチメタデータ](#text-match-metadata)を参照してください。
+search_query_description: >-
+  クエリには1つ以上の検索キーワードと修飾子が含まれます。修飾子を使うと、検索をGitHubの特定の領域に限定できます。REST APIはGitHub.comと同じ修飾子をサポートします。クエリのフォーマットについてさらに学ぶには、[検索クエリの構築](#constructing-a-search-query)を参照してください。
+order_description: >-
+  返される最初の検索結果が、マッチが最も多かったもの（'desc'）になるか、マッチが最も少なかったもの（'asc'）になるかを決めます。このパラメータは、'sort'を渡していないかぎり無視されます。デフォルト:'desc'

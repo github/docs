@@ -1,0 +1,1 @@
+After all required reviewers have approved a pull request, you won't be able to merge it if there are other open pull requests with pending or rejected reviews and those pull requests have a head branch pointing to the same commit. Someone with *write* or *admin* permissions will need to approve or dismiss the blocking review on the other pull requests before you can merge.

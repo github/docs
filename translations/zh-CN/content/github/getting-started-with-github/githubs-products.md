@@ -1,0 +1,102 @@
+---
+title: GitHub 的产品
+redirect_from:
+  - /articles/github-s-products
+  - /articles/githubs-products
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+---
+
+{{ site.data.variables.product.prodname_dotcom }} 提供免费和付费产品。 您可以在 <{{ site.data.variables.product.pricing_url }}> 上查看每款产品的价格和完整功能列表。 {{ site.data.reusables.products.product-roadmap }}
+
+### 用户帐户的 {{ site.data.variables.product.prodname_free_user }}
+
+通过用户帐户的 {{ site.data.variables.product.prodname_free_team }}，可与无限的协作者合作处理功能完全的无限公共仓库，或者是功能有限的无限私有仓库，
+
+通过 {{ site.data.variables.product.prodname_free_user }}，用户帐户可包含：
+- {{ site.data.variables.product.prodname_gcf }}
+- {{ site.data.variables.product.prodname_dependabot_alerts }}
+- 双重身份验证
+- 2,000 {{ site.data.variables.product.prodname_actions }} 分钟
+- 500MB {{ site.data.variables.product.prodname_registry }} 存储空间
+
+### {{ site.data.variables.product.prodname_pro }}
+
+除了可用于用户帐户的 {{ site.data.variables.product.prodname_free_user }} 的功能之外，{{ site.data.variables.product.prodname_pro }} 还包含：
+- 通过电子邮件提供的 {{ site.data.variables.contact.github_support }}
+- 3,000 {{ site.data.variables.product.prodname_actions }} 分钟
+- 2GB {{ site.data.variables.product.prodname_registry }} 存储空间
+- 私有仓库中的高级工具和洞察力：
+  - 必需拉取请求审查
+  - 多个拉取请求审查者
+  - 自动链接的引用
+  - {{ site.data.variables.product.prodname_pages }}
+  - Wikis
+  - 受保护分支
+  - 代码所有者
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
+
+### 组织的 {{ site.data.variables.product.prodname_free_team }}
+
+通过组织的 {{ site.data.variables.product.prodname_free_team }}，可与无限的协作者合作处理功能完全的无限公共仓库，或者是功能有限的无限私有仓库，
+
+除了可用于用户帐户的 {{ site.data.variables.product.prodname_free_user }} 的功能之外，组织的 {{ site.data.variables.product.prodname_free_team }} 还包含：
+- {{ site.data.variables.product.prodname_gcf }}
+- 团队讨论
+- 用于管理组的团队访问权限控制
+- 2,000 {{ site.data.variables.product.prodname_actions }} 分钟
+- 500MB {{ site.data.variables.product.prodname_registry }} 存储空间
+
+### {{ site.data.variables.product.prodname_team }}
+
+除了可用于组织的 {{ site.data.variables.product.prodname_free_team }} 的功能之外，{{ site.data.variables.product.prodname_team}} 还包含：
+- 通过电子邮件提供的 {{ site.data.variables.contact.github_support }}
+- 3,000 {{ site.data.variables.product.prodname_actions }} 分钟
+- 2GB {{ site.data.variables.product.prodname_registry }} 存储空间
+- 私有仓库中的高级工具和洞察力：
+  - 必需拉取请求审查
+  - 多个拉取请求审查者
+  - {{ site.data.variables.product.prodname_pages }}
+  - Wikis
+  - 受保护分支
+  - 代码所有者
+  - 仓库洞察图：脉冲、贡献者、流量、提交、代码频率、网络和复刻
+  - 草稿拉取请求
+  - 团队拉取请求审查
+  - 预定提醒
+
+{{ site.data.reusables.github-actions.actions-billing }}
+
+### {{ site.data.variables.product.prodname_enterprise }}
+
+{{ site.data.variables.product.prodname_enterprise }} includes two deployment options: cloud-hosted and self-hosted.
+
+In addition to the features available with {{ site.data.variables.product.prodname_team }}, {{ site.data.variables.product.prodname_enterprise }} includes:
+- {{ site.data.variables.contact.enterprise_support }}
+- 更多安全、合规和部署控件
+- SAML 单点登录进行身份验证
+- 使用 SAML 或 SCIM 进行配置
+- {{ site.data.variables.product.prodname_github_connect }}
+
+{{ site.data.variables.product.prodname_ghe_cloud }} 还包括：
+- {{ site.data.variables.contact.enterprise_support }}. 更多信息请参阅“<a href="/articles/github-enterprise-cloud-support" class="dotcom-only">{{ site.data.variables.product.prodname_ghe_cloud }} 支持</a>”和“<a href="/articles/github-enterprise-cloud-addendum" class="dotcom-only">{{ site.data.variables.product.prodname_ghe_cloud }} 附录</a>”。
+- 50,000 {{ site.data.variables.product.prodname_actions }} 分钟
+- 50GB {{ site.data.variables.product.prodname_registry }} 存储空间
+- 99.95% 月持续运行时间的服务等级协议
+- 通过企业帐户集中管理多个 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
+
+You can set up a trial to evaluate {{ site.data.variables.product.prodname_ghe_cloud }}. 更多信息请参阅“[设置 {{ site.data.variables.product.prodname_ghe_cloud }} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
+
+有关托管理您自己的 [{{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com) 实例的更多信息，请联系 {{ site.data.variables.contact.contact_enterprise_sales }}。 {{ site.data.reusables.enterprise_installation.request-a-trial }}
+
+### {{ site.data.variables.product.prodname_ghe_one }}
+
+{{ site.data.variables.product.prodname_ghe_one }} includes [{{ site.data.variables.product.prodname_enterprise }}](#github-enterprise), plus:
+
+- {{ site.data.variables.contact.github_support }} {{ site.data.variables.product.premium_plus_support_plan }}
+- {{ site.data.variables.product.prodname_insights }}
+- {{ site.data.variables.product.prodname_advanced_security }}
+- [组织的 {{ site.data.variables.product.prodname_learning }}](https://lab.github.com/organizations)
+
+For more information about signing up for {{ site.data.variables.product.prodname_ghe_one }}, contact [{{ site.data.variables.product.product_name }}'s Sales team](https://enterprise.github.com/contact).

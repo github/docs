@@ -1,0 +1,1 @@
+1. 在“Add seats”（添加席位）下，输入要添加的席位数。 ![Add seats input](/assets/images/help/billing/add-seats-amount.png)

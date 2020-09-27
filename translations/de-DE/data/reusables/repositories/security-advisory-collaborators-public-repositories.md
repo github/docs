@@ -1,0 +1,1 @@
+Wenn Du einen Benutzer aus einem Repository oder einer Organisation entfernst und der Benutzer auch ein Mitarbeiter eines Sicherheitshinweises ist, hat der Benutzer weiterhin Zugriff auf den Sicherheitshinweis.

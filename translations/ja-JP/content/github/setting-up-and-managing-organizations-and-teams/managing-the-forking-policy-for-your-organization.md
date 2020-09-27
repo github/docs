@@ -1,0 +1,29 @@
+---
+title: Organization のフォークポリシーを管理する
+intro: 'Organization が所有するプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}および内部{% endif %}リポジトリのフォークを許可または禁止できます。'
+redirect_from:
+  - /articles/allowing-people-to-fork-private-repositories-in-your-organization
+  - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
+permissions: Organization のオーナーは、Organization のフォークポリシーを管理できます。
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+---
+
+デフォルトでは、新しい Organization はプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}および内部{% endif %}リポジトリのフォークを禁止するように設定されます。
+
+Organization レベルでプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} および内部{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}または内部{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
+
+{{ site.data.reusables.organizations.internal-repos-enterprise }}
+
+{{ site.data.reusables.profile.access_profile }}
+{{ site.data.reusables.profile.access_org }}
+{{ site.data.reusables.organizations.org_settings }}
+{{ site.data.reusables.organizations.member-privileges }}
+5. [Repository forking] で、[**Allow forking of private repositories**] または [**Allow forking of private and internal repositories**] を選択します。 ![Organization でフォークを許可または禁止するチェックボックス](/assets/images/help/repository/allow-disable-forking-organization.png)
+6. [**Save**] をクリックします。
+
+### 参考リンク
+
+- [フォークについて](/articles/about-forks)
+- [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)

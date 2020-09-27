@@ -1,0 +1,1 @@
+Enterpriseアカウントは、{{ site.data.variables.product.prodname_ghe_cloud }}及び{{ site.data.variables.product.prodname_ghe_server }}で利用できます。 {% if currentVersion == "free-pro-team@latest" %}詳しい情報については「[Enterpriseアカウントについて](/articles/about-enterprise-accounts)」を参照してください。{% endif %}

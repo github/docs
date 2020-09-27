@@ -1,0 +1,1 @@
+1. Klicke oberhalb der Liste der Dateien auf {% octicon "git-branch" aria-label="The branch icon" %} ** <em>NUMBER</em>-Branches**. ![Branches-Link auf der Übersichtsseite](/assets/images/help/branches/branches-link.png)

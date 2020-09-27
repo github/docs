@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, para ver suas notificações salvas, clique em **Saved for later** (Salvar para mais tarde). ![Botão Salvar para uso futuro](/assets/images/help/notifications/saved-for-later-tab.png)

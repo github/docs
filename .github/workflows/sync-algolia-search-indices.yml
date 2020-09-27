@@ -1,0 +1,39 @@
+name: Algolia
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  updateIndices:
+    name: Update indices
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+    - name: cache node modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: npm ci
+      run: npm ci
+    - name: sync indices
+      env:
+        ALGOLIA_APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+        ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run sync-search
+    - name: Send slack notification if workflow run fails
+      uses: rtCamp/action-slack-notify@v2.1.0
+      if: failure()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
+        SLACK_MESSAGE: The last Algolia workflow run for ${{github.repository}} failed. See https://github.com/github/docs-internal/actions?query=workflow%3AAlgolia

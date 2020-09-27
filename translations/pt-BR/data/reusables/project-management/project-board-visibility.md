@@ -1,0 +1,1 @@
+Por padrão, o quadro de projeto é privado e fica visível apenas para pessoas com permissões de leitura, gravação ou de administrador ao quadro de projeto. Um quadro de projeto público fica visível para qualquer pessoa com o URL do quadro de projeto.

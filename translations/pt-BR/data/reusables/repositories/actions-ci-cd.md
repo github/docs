@@ -1,0 +1,1 @@
+Com o {{ site.data.variables.product.prodname_actions }}, você pode criar recursos completos de integração contínua (CI, Continuous Integration) e implantação contínua (CD, Continuous Deployment) diretamente no seu repositório.

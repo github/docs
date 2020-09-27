@@ -1,0 +1,1 @@
+Um in eine Communityprofil-Checkliste aufgenommen zu werden, müssen sich Issuevorlagen im `.github/ISSUE_TEMPLATE`-Verzeichnis befinden und müssen gültige `name:` und `about:` YAML-Titelei-Werte beinhalten.

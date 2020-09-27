@@ -1,0 +1,1 @@
+自动链接可用于具有 {{ site.data.variables.product.prodname_pro }}、{{ site.data.variables.product.prodname_team }}、{{ site.data.variables.product.prodname_ghe_cloud }} 和 {{ site.data.variables.product.prodname_ghe_server }} 的仓库。 {% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.gated-features.more-info }}{% endif %}

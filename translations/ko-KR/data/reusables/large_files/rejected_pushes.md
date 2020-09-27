@@ -1,0 +1,1 @@
+Users cannot push {{ site.data.variables.large_files.product_name_short }} assets to {{ site.data.variables.product.prodname_ghe_server }} if {{ site.data.variables.large_files.product_name_short }} is disabled on the appliance or repository.

@@ -1,0 +1,1 @@
+1. Klicke unter "**{% octicon "gear" aria-label="The gear icon" %} Settings**" (Einstellungen) auf **Repositories** (Repositorys). ![Registerkarte „Repositories“ (Repositorys)](/assets/images/help/insights/repositories-tab.png)

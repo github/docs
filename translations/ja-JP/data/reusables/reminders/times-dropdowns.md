@@ -1,0 +1,1 @@
+1. "Select Time(s)（時間の選択）"の下で、**9:00 AM** {% octicon "triangle-down" aria-label="The down triangle icon" %} をクリックし、スケジュールされたリマインダーを受信したい1つ以上の時間を選択してください。 あるいは、タイムゾーンを変更するには現在のタイムゾーンの隣の{% octicon "triangle-down" aria-label="The down triangle icon" %}をクリックし、別のタイムゾーンを選択してください。 ![時間の選択ドロップダウン](/assets/images/help/settings/scheduled-reminders-times.png)

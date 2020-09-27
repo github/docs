@@ -1,0 +1,1 @@
+1. Klicke in der oberen linken Ecke einer beliebigen Seite auf <span aria-label="the Octocat icon" class="octicon octicon-mark-github"></span>. ![Octocat-Symbol](/assets/images/enterprise/navigation/octocat-icon.png)

@@ -1,0 +1,1 @@
+Uma equipe que está [synced to an LDAP group](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) é indicada com um emblema LDAP especial. A lista de membros de uma equipe sincronizada com LDAP só pode ser gerenciada a partir do grupo LDAP que está mapeado.

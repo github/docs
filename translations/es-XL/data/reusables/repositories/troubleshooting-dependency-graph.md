@@ -1,0 +1,1 @@
+Si tu proyecto tiene dependencias pero éstas no se detectan en tu gráfica, puede que haya un problema con el archivo que contiene las dependencias. Verifica el archivo de tu proyecto para garantizar que se formateó correctamente para el tipo de archivo.

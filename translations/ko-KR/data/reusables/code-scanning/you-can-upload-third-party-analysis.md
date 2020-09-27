@@ -1,0 +1,1 @@
+You can upload SARIF files generated outside {{ site.data.variables.product.prodname_dotcom }} and see {{ site.data.variables.product.prodname_code_scanning }} alerts from third-party tools in your repository.

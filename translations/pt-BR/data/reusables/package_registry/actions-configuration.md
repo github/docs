@@ -1,0 +1,1 @@
+As etapas de configuração variam de acordo com o cliente do pacote. Para obter informações gerais sobre a configuração de um fluxo de trabalho para {{ site.data.variables.product.prodname_actions }}, consulte "[Configurar um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/configuring-a-workflow)."

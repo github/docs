@@ -1,0 +1,1 @@
+{{ site.data.variables.product.company_short }}は、{{ site.data.variables.product.prodname_dotcom_the_website }}を利用するすべての人のためにベースラインの行動規範を提供しています。 詳しい情報については「[{{ site.data.variables.product.company_short }}の利用規約](/github/site-policy/github-terms-of-service)」及び「[{{ site.data.variables.product.company_short }}のコミュニティガイドライン](/github/site-policy/github-community-guidelines)」を参照してください。

@@ -1,0 +1,1 @@
+プルリクエストをIssueにリンクして、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}修復が進んでいることを示すことや、{% endif %}誰かがプルリクエストをマージしたときにIssueを自動的にクローズすることができます。 詳しい情報については「[プルリクエストのIssueへのリンク](/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue)」を参照してください。

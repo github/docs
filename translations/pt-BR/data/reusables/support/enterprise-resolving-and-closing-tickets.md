@@ -1,0 +1,5 @@
+{{ site.data.variables.contact.enterprise_support }} may consider a ticket solved after providing an explanation, recommendation, usage instructions, workaround instructions, or by advising you of an available release that addresses the issue.
+
+Se você usar um plugin, módulo ou código personalizado incompatível, o {{ site.data.variables.contact.enterprise_support }} solicitará a remoção desse item incompatível durante a tentativa de solução do problema. Se o problema for corrigido quando o plugin, módulo ou código personalizado incompatível for removido, o {{ site.data.variables.contact.enterprise_support }} poderá considerar o tíquete resolvido.
+
+O {{ site.data.variables.contact.enterprise_support }} poderá encerrar tíquetes se estiverem fora do escopo de suporte ou se várias tentativas de entrar em contato com você não tiverem sido bem-sucedidas. Se {{ site.data.variables.contact.enterprise_support }} encerrar um tíquete por falta de resposta, você poderá solicitar que {{ site.data.variables.contact.enterprise_support }} reabra o tíquete.

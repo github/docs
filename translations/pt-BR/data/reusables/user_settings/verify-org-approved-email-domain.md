@@ -1,0 +1,1 @@
+If an organization you're a member of restricts email notifications to an approved email domain, you'll need to verify an email address in that domain to receive email notifications about activity in the organization. Para obter mais informações, consulte "[Restringir notificações de e-mail a um domínio aprovado](/articles/restricting-email-notifications-to-an-approved-domain)."

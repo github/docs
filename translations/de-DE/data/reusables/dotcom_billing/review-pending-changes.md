@@ -1,0 +1,1 @@
+1. Unter „Subscriptions" (Abonnements) überprüfe Deine ausstehenden Änderungen. ![Abschnitt „Subscriptions“ (Abonnements) der Abrechnungseinstellungen mit aufgelisteten ausstehenden Abonnementänderungen](/assets/images/help/billing/review-pending-subscription-changes.png)

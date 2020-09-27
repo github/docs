@@ -1,0 +1,1 @@
+SAMLあるいはCASを利用する場合、{{ site.data.variables.product.prodname_ghe_server }}上では2要素認証はサポートあるいは管理されませんが、外部の認証プロバイダではサポートされることがあります。 Organizationでの2要素認証の強制はできません。 Organizationにおける2要素認証の強制に関する詳しい情報については「[Organizationにおける2要素認証の要求](/enterprise/{{ currentVersion }}/user/articles/requiring-two-factor-authentication-in-your-organization/)」を参照してください。

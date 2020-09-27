@@ -1,0 +1,1 @@
+11. あるいは、コラボレータの名前の隣にあるドロップダウン メニューを使って、目的の権限レベルを**Read（読み取り）**、**Write（書き込み）**、**Admin（管理）**から選択します。 ![読み取り、書き込み、管理の選択肢を持つコラボレータの権限ドロップダウンメニュー](/assets/images/help/projects/org-project-collaborators-choose-permissions.png)

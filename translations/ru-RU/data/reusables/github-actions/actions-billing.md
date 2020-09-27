@@ -1,0 +1,1 @@
+{{ site.data.variables.product.prodname_actions }} usage is free for public repositories. For private repositories, each {{ site.data.variables.product.prodname_dotcom }} account receives a certain amount of free minutes and storage, depending on the product used with the account.

@@ -1,0 +1,1 @@
+1. 在页面底部，输入一条简短、有意义的提交消息，描述您对文件所作的更改。 您可以在提交消息中将提交归于多个作者。 更多信息请参阅“[创建有多个合作作者的提交](/articles/creating-a-commit-with-multiple-authors)”。 ![有关更改的提交消息](/assets/images/help/repository/write-commit-message-quick-pull.png)

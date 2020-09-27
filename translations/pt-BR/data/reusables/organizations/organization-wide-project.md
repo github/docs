@@ -1,0 +1,1 @@
+1. No nome da sua organização, clique em {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projetos). ![Aba de projetos para sua organização](/assets/images/help/organizations/organization-projects-tab.png)

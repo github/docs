@@ -1,0 +1,1 @@
+2. Klicke unter **{% octicon "graph" aria-label="The graph icon" %} Key metrics** (Schlüsselmetriken) auf den Namen der Metrik, die Du anzeigen möchtest. ![Liste der Schlüsselmetriken](/assets/images/help/insights/key-metrics-list.png)

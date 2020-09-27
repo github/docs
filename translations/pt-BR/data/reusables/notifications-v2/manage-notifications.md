@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, na lista de repositórios, use a caixa de seleção "Gerenciar notificações" para clicar em **Configurações de notificação**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)

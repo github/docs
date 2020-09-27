@@ -1,0 +1,510 @@
+---
+upcoming_changes:
+- location: Migration.uploadUrlTemplate
+  description: "`uploadUrlTemplate` will be removed. Use `uploadUrl` instead."
+  reason: "`uploadUrlTemplate` is being removed because it is not a standard URL and
+    adds an extra user step."
+  date: '2019-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling
+- location: ContributionOrder.field
+  description: "`field` will be removed. Only one order field is supported."
+  reason: "`field` will be removed."
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Issue.timeline
+  description: "`timeline` will be removed. Use Issue.timelineItems instead."
+  reason: "`timeline` will be removed"
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: mikesea
+- location: Organization.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: PullRequest.timeline
+  description: "`timeline` will be removed. Use PullRequest.timelineItems instead."
+  reason: "`timeline` will be removed"
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: mikesea
+- location: RepositoryOwner.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: User.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: AssignedEvent.user
+  description: "`user` will be removed. Use the `assignee` field instead."
+  reason: Assignees can now be mannequins.
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling
+- location: EnterpriseBillingInfo.availableSeats
+  description: "`availableSeats` will be removed. Use EnterpriseBillingInfo.totalAvailableLicenses
+    instead."
+  reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide
+    more clarity on the value being returned"
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: BlakeWilliams
+- location: EnterpriseBillingInfo.seats
+  description: "`seats` will be removed. Use EnterpriseBillingInfo.totalLicenses instead."
+  reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on
+    the value being returned"
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: BlakeWilliams
+- location: UnassignedEvent.user
+  description: "`user` will be removed. Use the `assignee` field instead."
+  reason: Assignees can now be mannequins.
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling
+- location: Organization.registryPackages
+  description: "`registryPackages` will be removed. Use the `PackageOwner` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Organization.registryPackagesForQuery
+  description: "`registryPackagesForQuery` will be removed. Use the `PackageSearch`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.color
+  description: "`color` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.latestVersion
+  description: "`latestVersion` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.name
+  description: "`name` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.nameWithOwner
+  description: "`nameWithOwner` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.packageFileByGuid
+  description: "`packageFileByGuid` will be removed. Use the `Package` object."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.packageFileBySha256
+  description: "`packageFileBySha256` will be removed. Use the `Package` object."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.packageType
+  description: "`packageType` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.preReleaseVersions
+  description: "`preReleaseVersions` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.registryPackageType
+  description: "`registryPackageType` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.repository
+  description: "`repository` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.statistics
+  description: "`statistics` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.tags
+  description: "`tags` will be removed. Use the `Package` object."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.topics
+  description: "`topics` will be removed. Use the `Package` object."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.version
+  description: "`version` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.versionByPlatform
+  description: "`versionByPlatform` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.versionBySha256
+  description: "`versionBySha256` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.versions
+  description: "`versions` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackage.versionsByMetadatum
+  description: "`versionsByMetadatum` will be removed. Use the `Package` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageDependency.dependencyType
+  description: "`dependencyType` will be removed. Use the `PackageDependency` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageDependency.name
+  description: "`name` will be removed. Use the `PackageDependency` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageDependency.version
+  description: "`version` will be removed. Use the `PackageDependency` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.guid
+  description: "`guid` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.md5
+  description: "`md5` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.metadataUrl
+  description: "`metadataUrl` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.name
+  description: "`name` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.packageVersion
+  description: "`packageVersion` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.sha1
+  description: "`sha1` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.sha256
+  description: "`sha256` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.size
+  description: "`size` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageFile.url
+  description: "`url` will be removed. Use the `PackageFile` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageOwner.registryPackages
+  description: "`registryPackages` will be removed. Use the `PackageOwner` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageSearch.registryPackagesForQuery
+  description: "`registryPackagesForQuery` will be removed. Use the `PackageSearch`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageStatistics.downloadsThisMonth
+  description: "`downloadsThisMonth` will be removed. Use the `PackageStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageStatistics.downloadsThisWeek
+  description: "`downloadsThisWeek` will be removed. Use the `PackageStatistics` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageStatistics.downloadsThisYear
+  description: "`downloadsThisYear` will be removed. Use the `PackageStatistics` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageStatistics.downloadsToday
+  description: "`downloadsToday` will be removed. Use the `PackageStatistics` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageStatistics.downloadsTotalCount
+  description: "`downloadsTotalCount` will be removed. Use the `PackageStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageTag.name
+  description: "`name` will be removed. Use the `PackageTag` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageTag.version
+  description: "`version` will be removed. Use the `PackageTag` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.dependencies
+  description: "`dependencies` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.fileByName
+  description: "`fileByName` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.files
+  description: "`files` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.installationCommand
+  description: "`installationCommand` will be removed. Use the `PackageVersion` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.manifest
+  description: "`manifest` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.platform
+  description: "`platform` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.preRelease
+  description: "`preRelease` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.readme
+  description: "`readme` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.readmeHtml
+  description: "`readmeHtml` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.registryPackage
+  description: "`registryPackage` will be removed. Use the `PackageVersion` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.release
+  description: "`release` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.sha256
+  description: "`sha256` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.size
+  description: "`size` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.statistics
+  description: "`statistics` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.summary
+  description: "`summary` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.updatedAt
+  description: "`updatedAt` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.version
+  description: "`version` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersion.viewerCanEdit
+  description: "`viewerCanEdit` will be removed. Use the `PackageVersion` object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersionStatistics.downloadsThisMonth
+  description: "`downloadsThisMonth` will be removed. Use the `PackageVersionStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersionStatistics.downloadsThisWeek
+  description: "`downloadsThisWeek` will be removed. Use the `PackageVersionStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersionStatistics.downloadsThisYear
+  description: "`downloadsThisYear` will be removed. Use the `PackageVersionStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersionStatistics.downloadsToday
+  description: "`downloadsToday` will be removed. Use the `PackageVersionStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: RegistryPackageVersionStatistics.downloadsTotalCount
+  description: "`downloadsTotalCount` will be removed. Use the `PackageVersionStatistics`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Repository.registryPackages
+  description: "`registryPackages` will be removed. Use the `PackageOwner` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Repository.registryPackagesForQuery
+  description: "`registryPackagesForQuery` will be removed. Use the `PackageSearch`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Sponsorship.maintainer
+  description: "`maintainer` will be removed. Use `Sponsorship.sponsorable` instead."
+  reason: "`Sponsorship.maintainer` will be removed."
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: antn
+- location: User.registryPackages
+  description: "`registryPackages` will be removed. Use the `PackageOwner` object
+    instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: User.registryPackagesForQuery
+  description: "`registryPackagesForQuery` will be removed. Use the `PackageSearch`
+    object instead."
+  reason: Renaming GitHub Packages fields and objects.
+  date: '2020-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi

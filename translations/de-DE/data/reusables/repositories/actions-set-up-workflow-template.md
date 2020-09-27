@@ -1,0 +1,1 @@
+1. Klicke unter dem Namen der zu verwendenden Vorlage auf **Set up this workflow** (Workflow einrichten). ![Empfehlungen für Node.js-Vorlage](/assets/images/help/repository/actions-recommended-workflow-template.png)

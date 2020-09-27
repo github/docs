@@ -1,0 +1,1 @@
+1. Em "Repository visibility change" (Mudança de visibilidade do repositório), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de política de visibilidade do repositório](/assets/images/help/business-accounts/repository-visibility-policy-drop-down.png)

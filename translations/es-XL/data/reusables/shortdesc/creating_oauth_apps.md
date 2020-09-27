@@ -1,0 +1,1 @@
+Puedes crear y registrar una App de OAuth bajo tu cuenta personal o bajo cualquier organización en la que tengas acceso administrativo. Cuando ceras tu app de OAuth, recuerda proteger tu privacidad al utilizar únicamente la información que consideras pública.

@@ -1,0 +1,1 @@
+1. Klicke unter „Billing overview“ (Abrechnungsübersicht) auf **View payment history** (Zahlungsverlauf anzeigen). ![Link zum Anzeigen des Zahlungsverlaufs](/assets/images/help/billing/view-payment-history-link.png)

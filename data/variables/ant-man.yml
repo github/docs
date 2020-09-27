@@ -1,0 +1,5 @@
+deployments-ant-man-parameter-note: >-
+  {% if currentVersion == "free-pro-team@latest" %}**Note:** This parameter requires you to use
+  the
+  [`application/vnd.github.ant-man-preview+json`](/v3/previews/#enhanced-deployments)
+  custom media type.{% endif %}

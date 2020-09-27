@@ -1,0 +1,3 @@
+| 键        | 类型    | 描述                                                                                                                                                                                                                         |
+| -------- | ----- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action` | `字符串` | 执行的操作内容. Can be one of `opened`, `edited`, `deleted`, `pinned`, `unpinned`, `closed`, `reopened`, `assigned`, `unassigned`, `labeled`, `unlabeled`, `locked`, `unlocked`,  `transferred`, `milestoned`, or `demilestoned`. |

@@ -1,0 +1,1 @@
+1. Zuoberst auf der Teamseite klicke auf {% octicon "comment-discussion" aria-label="The discussion icon" %} **Discussions** (Diskussionen). ![Registerkarte „Team discussions " (Teamdiskussionen)](/assets/images/help/teams/org-team-page-discussions-tab.png)

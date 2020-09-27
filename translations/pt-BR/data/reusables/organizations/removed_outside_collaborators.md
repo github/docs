@@ -1,0 +1,1 @@
+1. Se solicitado, leia as informações sobre membros e colaboradores externos que serão removidos da organização. Digite o nome da sua organização para confirmar a alteração e clique em **Remover membros & exigir autenticação de dois fatores**. ![Caixa Confirm two-factor enforcement (Confirmar exigência de dois fatores)](/assets/images/help/organizations/confirm-require-2fa.png)

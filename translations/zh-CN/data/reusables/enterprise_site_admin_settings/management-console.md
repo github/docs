@@ -1,0 +1,1 @@
+1. 在左侧边栏中，单击 **{{ site.data.variables.enterprise.management_console }}**。 ![左侧边栏中的 {{ site.data.variables.enterprise.management_console }} 选项卡](/assets/images/enterprise/management-console/management-console-tab.png)

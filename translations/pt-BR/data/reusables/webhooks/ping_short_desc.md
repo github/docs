@@ -1,0 +1,1 @@
+When you create a new webhook, we'll send you a simple `ping` event to let you know you've set up the webhook correctly. This event isnt stored so it isn't retrievable via the [Events API](/v3/activity/events/). You can trigger a `ping` again by calling the [Ping a repository webhook](/v3/repos/hooks/#ping-a-repository-webhook) endpoint.

@@ -1,0 +1,23 @@
+---
+title: '{{ site.data.variables.product.prodname_codespaces }} を使用してオンラインで開発する'
+shortTitle: Codespaces
+intro: '{{ site.data.variables.product.prodname_dotcom }} の統合開発環境 (IDE) である {{ site.data.variables.product.prodname_codespaces }} を使用して、完全にクラウドで開発できます。'
+product: '{{ site.data.reusables.gated-features.codespaces }}'
+redirect_from:
+  - /github/developing-online-with-github-codespaces
+versions:
+  free-pro-team: '*'
+---
+
+{{ site.data.reusables.codespaces.release-stage }}
+
+### 目次
+
+{% link_in_list /about-codespaces %}
+{% link_in_list /configuring-codespaces-for-your-project %}
+{% link_in_list /creating-a-codespace %}
+{% link_in_list /developing-in-a-codespace %}
+{% link_in_list /personalizing-codespaces-for-your-account %}
+{% link_in_list /deleting-a-codespace %}
+{% link_in_list /troubleshooting-your-codespace %}
+{% link_in_list /connecting-to-your-codespace-from-visual-studio-code %}

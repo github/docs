@@ -1,0 +1,174 @@
+/* Override Primer styles
+------------------------------------------------------------------------------*/
+
+.markdown-body {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: $font-mktg;
+    font-weight: $font-weight-semibold;
+    padding-top: $spacer-3;
+  }
+}
+
+.markdown-body ol > li {
+  padding: $spacer-2 0 $spacer-2 $spacer-7;
+  border: 0;
+
+  &:before {
+    top: 2px;
+    font-size: $spacer-3;
+    width: $spacer-4;
+  }
+
+  p:not(:first-child) {
+    margin-top: 15px;
+  }
+
+  .extended-markdown {
+    margin-top: 15px;
+  }
+
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+// needs specificity to override
+.markdown-body .lead-mktg p {
+  color: $gray-900;
+}
+
+.extended-markdown p {
+  margin: 0;
+}
+
+.extended-markdown p:not(:first-child) {
+  margin-top: 15px;
+}
+
+.extended-markdown.note pre {
+  background: none;
+  padding: 10px 10px 10px 0;
+  margin-bottom: 0;
+}
+
+.extended-markdown.note pre code {
+  color: $text-gray-dark;
+}
+
+.product-callout p {
+  margin: 0;
+}
+
+.markdown-body table {
+  display: table;
+  table-layout: fixed;
+  line-height: 1.5;
+}
+
+div.light-bg a,
+div.light-bg a h4 {
+  color: $text-gray-dark;
+}
+
+div.light-bg a p {
+  color: $text-gray;
+}
+
+div.dark-bg a,
+div.dark-bg a h4 {
+  color: $white;
+}
+
+div.dark-bg a p {
+  color: $white-fade-70;
+}
+
+li.nestedTocItem {
+  margin-left: 2em;
+  list-style-type: circle;
+}
+
+/* Getting Started and Popular Articles sections in article layout */
+.markdown-body div.featured-links {
+  padding-bottom: 30px;
+}
+
+.markdown-body div.featured-links-heading {
+  padding-top: 24px;
+}
+
+.markdown-body div.featured-links p.link-with-intro-intro {
+  margin-bottom: 5px;
+}
+
+.markdown-body div.featured-links h4.link-with-intro-title {
+  margin-top: 0;
+}
+
+.octicon {
+  display: inline-block;
+  vertical-align: text-top;
+  fill: currentColor;
+}
+
+/* code styles */
+pre .redbox {
+  border: 2px solid #d9534f;
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+pre .greenbox {
+  border: 2px solid #5cb85c;
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+pre .bluebox {
+  border: 2px solid #428bca;
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 2px;
+}
+
+/* Accessibility color contrast */
+.btn-mktg {
+  background-color: $blue-500;
+}
+
+/* Accessibility color contrast */
+.btn-outline-mktg {
+  background-color: white;
+  color: $blue-500;
+}
+
+/* Accessibility color contrast */
+.bg-red-light a {
+  color: $blue-600;
+}
+
+/* Accessibility color contrast */
+.markdown-body .bg-blue-light blockquote {
+  color: $gray-600;
+}
+
+/* Helpfulness survey override */
+:checked + .x-radio-label {
+  background: $blue-500;
+
+  svg {
+    fill: $white;
+  }
+}

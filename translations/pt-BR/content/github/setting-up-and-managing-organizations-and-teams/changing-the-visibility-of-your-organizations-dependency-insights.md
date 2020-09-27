@@ -1,0 +1,20 @@
+---
+title: Alterar a visibilidade de informações de dependência da organização
+intro: Você pode permitir que todos os integrantes da organização exibam informações de dependência da sua organização ou limitar a exibição aos proprietários da organização.
+product: '{{ site.data.reusables.gated-features.org-insights }}'
+redirect_from:
+  - /articles/changing-the-visibility-of-your-organizations-dependency-insights
+versions:
+  free-pro-team: '*'
+---
+
+Os proprietários da organização podem definir limitações para exibir informações de dependência da organização. Todos os integrantes de uma organização podem exibir informações de dependência da organização por padrão.
+
+Os proprietários corporativos podem definir limitações para exibir informações de dependência da organização em todas as organizações da sua conta corporativa. Para obter mais informações, consulte "[Aplicar uma política nas informações de dependência de sua conta corporativa](/articles/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".
+
+{{ site.data.reusables.profile.access_profile }}
+{{ site.data.reusables.profile.access_org }}
+{{ site.data.reusables.organizations.org_settings }}
+{{ site.data.reusables.organizations.member-privileges }}
+5. Em "Member organization permissions" (Permissões da organização do integrante), marque ou desmarque **Allow members to view dependency insights** (Permitir que integrantes exibam informações de dependência). ![Caixa de seleção para permitir que integrantes exibam informações](/assets/images/help/organizations/allow-members-to-view-insights.png)
+6. Clique em **Salvar**.

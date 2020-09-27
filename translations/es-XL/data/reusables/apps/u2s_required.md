@@ -1,0 +1,1 @@
+Debes utilizar un [Token de acceso OAuth de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), que se haya creado para un usuario que haya autorizado tu GitHub App, para acceder a esta terminal.

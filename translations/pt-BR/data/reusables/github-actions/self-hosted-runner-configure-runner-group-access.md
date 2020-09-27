@@ -1,0 +1,2 @@
+1. Na seção **Runners auto-hospedados** da página de configurações, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} ao lado do grupo de runner que deseja configurar, em seguida, clique em **Editar nome e acessar [organização|repositório]**. ![Gerenciar permissões do repositório](/assets/images/help/settings/actions-runner-manage-permissions.png)
+1. Selecione uma nova política a partir da lista suspensa ou modifique o nome do grupo de runner.

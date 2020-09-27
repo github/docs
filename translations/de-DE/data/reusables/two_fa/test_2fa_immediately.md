@@ -1,0 +1,1 @@
+1. Nachdem Du Deine Wiederherstellungscodes gespeichert und 2FA aktiviert hast, empfehlen wir Dir, Dich abzumelden und wieder bei Deinem Konto anzumelden. Bei Problemen wie einem vergessenen Passwort oder einem Tippfehler in Deiner E-Mail-Adresse kannst Du Wiederherstellungscodes verwenden, um auf Dein Konto zuzugreifen und das Problem zu beheben.

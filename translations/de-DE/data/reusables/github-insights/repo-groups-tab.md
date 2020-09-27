@@ -1,0 +1,1 @@
+1. Klicke unter **{% octicon "gear" aria-label="The gear icon" %} Settings** (Einstellungen) auf **Repo groups** (Repo-Gruppen). ![Registerkarte „Repo groups" (Repo-Gruppen)](/assets/images/help/insights/repo-groups-tab.png)

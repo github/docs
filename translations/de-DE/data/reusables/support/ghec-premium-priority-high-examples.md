@@ -1,0 +1,1 @@
+<ul><li>Ein Organisations- oder Unternehmensinhaber hat unbeabsichtigt eine Organisation gelöscht</li><li>Ein Organisations- oder Unternehmensmitglied hat sensitive Daten in einem Commit, einem Issue, einem Pull Request oder einem Issueanhang hochgeladen</li></ul>

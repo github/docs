@@ -1,0 +1,1 @@
+Represents an attempted build of a GitHub Pages site, whether successful or not. A push to a GitHub Pages enabled branch (`gh-pages` for project pages, `master` for user and organization pages) triggers this event.

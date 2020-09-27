@@ -1,0 +1,92 @@
+# NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
+
+name: Node.js Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches-ignore:
+      - translations
+
+env:
+  CI: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npx standard
+
+      - name: Check dependencies
+        run: npm run check-deps
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test-group: [content, meta, rendering, routing, unit, links-and-images]
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.npm-cache.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build script
+        run: npm run build
+
+      - name: Run tests
+        run: npx jest tests/${{ matrix.test-group }}/
+
+      - name: Send Slack notification if workflow fails
+        uses: rtCamp/action-slack-notify@master
+        if: failure() && github.ref == 'early-access'
+        env:
+          SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
+          SLACK_MESSAGE: "Tests are failing on the `early-access` branch. https://github.com/github/docs-internal/tree/early-access"

@@ -1,0 +1,1 @@
+1. Unter „Monthly spending limit" (Monatliche Ausgabengrenze) begrenze die Ausgaben oder erlaube unbegrenzte Ausgaben. ![Optionsfelder, um Ausgaben zu begrenzen oder unbegrenzte Ausgaben zu ermöglichen](/assets/images/help/billing/limit-or-unlimited.png)

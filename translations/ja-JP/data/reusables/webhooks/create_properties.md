@@ -1,0 +1,6 @@
+| キー              | 種類       | 説明                                                                                                                                                                                 |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ref`           | `string` | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`git ref`](/v3/git/refs/#get-a-reference)リソース。{% else %}[`git ref`](/v3/git/refs/#get-a-reference)リソース。{% endif %}
+| `ref_type`      | `string` | リポジトリで作成されたGit refオブジェクトの種類。 `branch`もしくは`tag`になる。                                                                                                                                 |
+| `master_branch` | `string` | リポジトリのデフォルトブランチの名前（通常は`master`）。                                                                                                                                                   |
+| `説明`            | `string` | リポジトリの現在の説明。                                                                                                                                                                       |

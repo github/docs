@@ -1,0 +1,1 @@
+Geplante Erinnerungen für Pull Requests befinden sich derzeit in der Beta-Version und können jederzeit geändert werden. Um Zugriff auf die nächste Beta-Version für geplante Erinnerungen anzufordern, trittst Du der Warteliste unter [GitHub Scheduled Reminders](https://github.com/features/reminders/signup) (GitHub Geplante Erinnerungen) bei.

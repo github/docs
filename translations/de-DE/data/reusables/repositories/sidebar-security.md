@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Repository-Namen auf **{% octicon "shield" aria-label="The shield symbol" %} Security** (Sicherheit). ![Registerkarte „Security“ (Sicherheit)](/assets/images/help/repository/security-tab.png)

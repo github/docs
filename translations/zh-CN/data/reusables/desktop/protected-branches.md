@@ -1,0 +1,1 @@
+仓库管理员可对分支启用保护。 如果您处理的是受保护分支，将无法删除或强制推送到该分支。 Repository administrators can enable other protected branch settings to enforce specific workflows before a branch can be merged. 更多信息请参阅“[关于受保护分支](/articles/about-protected-branches)”。

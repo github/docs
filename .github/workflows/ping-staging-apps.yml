@@ -1,0 +1,21 @@
+name: Ping staging apps
+
+on:
+  schedule:
+    - cron:  "*/20 * * * *" # every twenty minutes
+
+jobs:
+  ping_staging_apps:
+    name: Ping
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    env:
+      HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
+    steps:
+    - uses: actions/checkout@v2
+    - name: npm ci
+      run: npm ci
+    - name: npm run build
+      run: npm run build
+    - name: Run script
+      run: script/ping-staging-apps.js

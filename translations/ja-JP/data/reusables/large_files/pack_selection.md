@@ -1,0 +1,1 @@
+1. アカウントに追加したいデータパック数を入力してください。 各パックのコストは{{ site.data.variables.large_files.pack_monthly_price }}で、{{ site.data.variables.large_files.pack_monthly_bandwidth }}の帯域と{{ site.data.variables.large_files.pack_monthly_storage }}のストレージを提供します。 ![データパックの追加購入ボタン](/assets/images/help/billing/data-pack-quantity-selector.png)

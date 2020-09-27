@@ -1,0 +1,1 @@
+4. Wähle, ob Du via E-Mail Aktualisierungen von der unterstützten Organisation erhalten möchtest, und aktiviere oder deaktiviere dann „Receive updates from _ORGANIZATION_" (Aktualisierungen von der Organisation erhalten) ![Kontrollkästchen um Aktualisierungen von unterstützten Organisation zu erhalten](/assets/images/help/sponsors/org-updates-checkbox-manage.png)

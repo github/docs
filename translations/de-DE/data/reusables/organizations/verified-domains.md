@@ -1,0 +1,1 @@
+1. In der linken Seitenleiste klicke auf **Verified domains** (Überprüfte Domänen). ![Schaltfläche „Verified domains" (Überprüfte Domänen)](/assets/images/help/organizations/verified-domains-button.png)

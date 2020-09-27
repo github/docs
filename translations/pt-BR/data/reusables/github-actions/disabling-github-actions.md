@@ -1,0 +1,1 @@
+By default, {{ site.data.variables.product.prodname_actions }} is enabled on all repositories and organizations. You can choose to disable {{ site.data.variables.product.prodname_actions }} or limit them to private actions only, which means that people can only use actions that exist in your repository.

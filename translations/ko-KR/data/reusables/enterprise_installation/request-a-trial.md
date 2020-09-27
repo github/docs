@@ -1,0 +1,1 @@
+You can request a trial to evaluate {{ site.data.variables.product.prodname_ghe_server }}. For more information, see "[Setting up a trial of {{ site.data.variables.product.prodname_ghe_server }}](/articles/setting-up-a-trial-of-github-enterprise-server)."

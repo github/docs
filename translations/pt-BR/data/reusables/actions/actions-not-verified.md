@@ -1,0 +1,1 @@
+Qualquer pessoa pode publicar uma ação em {{ site.data.variables.product.prodname_marketplace }} desde que cumpram os termos de serviço. Ao contrário dos aplicativos, {{ site.data.variables.product.prodname_actions }} listados em {{ site.data.variables.product.prodname_marketplace }} não são verificados por {{ site.data.variables.product.prodname_dotcom }}.

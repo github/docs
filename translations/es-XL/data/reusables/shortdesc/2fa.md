@@ -1,0 +1,1 @@
+Si tienes una configuración de autenticación de dos factores, la autenticación básica para esta terminal requerirá que utilices una contraseña de única vez (OTP) y tu nombre de usuario y contraseña en vez de los tokens. Para obtener más información, consulta la sección "[Trabajar con autenticaciones de dos factores](/v3/auth/#working-with-two-factor-authentication)".

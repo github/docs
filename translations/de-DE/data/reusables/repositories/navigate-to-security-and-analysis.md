@@ -1,0 +1,1 @@
+1. Klicke in der linken Seitenleiste auf **Security & analysis** (Sicherheit und Analysen). ![Registerkarte "Security & analysis" (Sicherheit und Analysen) in den Repository-Einstellungen](/assets/images/help/repository/security-and-analysis-tab.png)

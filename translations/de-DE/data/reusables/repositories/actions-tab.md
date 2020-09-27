@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Repository-Namen auf **Actions** (Aktionen). ![Registerkarte „Actions" (Aktionen) auf der Navigationsleiste des Haupt-Repository](/assets/images/help/repository/actions-tab.png)

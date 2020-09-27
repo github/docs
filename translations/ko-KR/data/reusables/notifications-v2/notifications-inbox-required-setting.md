@@ -1,0 +1,1 @@
+To use the notifications inbox on {{ site.data.variables.product.prodname_dotcom }} and {{ site.data.variables.product.prodname_mobile }}, you must enable web and mobile notifications in your notification settings.

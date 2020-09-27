@@ -1,0 +1,1 @@
+1. Em "Repository deletion and transfer" (exclusão e transferência de repositório), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de política de exclusão de repositório](/assets/images/help/business-accounts/repository-deletion-policy-drop-down.png)

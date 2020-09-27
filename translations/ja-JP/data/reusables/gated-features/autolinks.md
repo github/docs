@@ -1,0 +1,1 @@
+Autolinksは{{ site.data.variables.product.prodname_pro }}、{{ site.data.variables.product.prodname_team }}、{{ site.data.variables.product.prodname_ghe_cloud }}、{{ site.data.variables.product.prodname_ghe_server }}のリポジトリで利用できます。 {% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.gated-features.more-info }}{% endif %}

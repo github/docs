@@ -1,0 +1,1 @@
+Você pode criar uma configuração padrão de codespace para o seu repositório que determina o ambiente de cada novo codespace que alguém criar para esse repositório. The configuration defines a development container that can include frameworks, tools, extensions, and port forwarding. 

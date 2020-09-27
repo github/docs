@@ -1,0 +1,1 @@
+Para criar segredos usando a API REST, você deve ter acesso à gravação ao repositório. Para obter mais informações, consulte "[{{ site.data.variables.product.prodname_actions }} secrets API](/v3/actions/secrets/)."

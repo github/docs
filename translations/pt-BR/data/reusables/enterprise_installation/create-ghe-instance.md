@@ -1,0 +1,1 @@
+Para criar a instância, você precisará importar a imagem {{ site.data.variables.product.prodname_ghe_server }} para sua máquina virtual e anexar um volume de armazenamento adicional para os dados de sua instância. Para obter mais informações, consulte "[Considerações de hardware](#hardware-considerations)".

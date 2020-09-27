@@ -1,0 +1,1 @@
+1. Clique em **Add seats** (Adicionar estações). ![Add seats button](/assets/images/help/billing/add-seats-button.png)

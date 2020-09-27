@@ -1,0 +1,1 @@
+1. Klicke auf der Seitenleiste mit den Geschäftseinstellungen auf **Member privileges** (Mitgliederberechtigungen). ![Registerkarte „Member privileges“ (Mitgliederberechtigungen) auf der Seitenleiste mit den Einstellungen des Geschäftskontos](/assets/images/help/business-accounts/settings-member-privileges-tab.png)

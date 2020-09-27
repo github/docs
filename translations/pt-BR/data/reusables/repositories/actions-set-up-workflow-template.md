@@ -1,0 +1,1 @@
+1. Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Node.js template recommendations](/assets/images/help/repository/actions-recommended-workflow-template.png)

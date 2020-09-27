@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# Starts the local development server with all of the available languages enabled.
+#
+# [end-readme]
+
+source script/check-for-node
+
+npm run start-all-languages

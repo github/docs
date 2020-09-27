@@ -1,0 +1,1 @@
+1. Wähle optional unter "Automation" (Automatisierung) eine Automatisierungs-Voreinstellung über das Dropdownmenü aus. ![Voreinstellung für Automatisierung aus Menü auswählen](/assets/images/help/projects/select-automation.png)

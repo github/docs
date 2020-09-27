@@ -1,0 +1,1 @@
+1. No canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}. ![Notificação indicando qualquer mensagem não lida](/assets/images/help/notifications/notifications_general_existence_indicator.png)

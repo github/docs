@@ -1,0 +1,3 @@
+1. Decide si seleccionar una única línea o un rango:
+    - Para seleccionar una única línea del código, haz clic en el número de línea para resaltarla. ![Archivo con una única línea del código seleccionada](/assets/images/help/repository/highlight-line-of-code.png)
+      - Para seleccionar un rango de código, haz clic en el número de la primera línea del rango para resaltar la línea del código. Luego lleva el puntero hasta la última línea del rango del código, presiona <kbd>Shift</kbd> y haz clic en el número de línea para resaltar el rango. ![Archivo con un rango del código seleccionado](/assets/images/help/repository/highlight-range-of-code.png)

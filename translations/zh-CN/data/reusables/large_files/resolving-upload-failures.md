@@ -1,0 +1,1 @@
+如果有引用的 {{ site.data.variables.large_files.product_name_short }} 文件未成功上传，您将收到一条错误消息。 更多信息请参阅“[解决 {{ site.data.variables.large_files.product_name_long }} 上传失败](/articles/resolving-git-large-file-storage-upload-failures)”。

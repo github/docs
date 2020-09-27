@@ -1,0 +1,1 @@
+3. Klicke im Abschnitt „Payment method“ (Zahlungsmethode) unter Deiner Zahlungsmethode auf **Remove** (Entfernen). ![Schaltfläche zum Ändern des Plans in der Abrechnungsübersicht](/assets/images/help/settings/remove_billing_info.png)

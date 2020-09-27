@@ -1,0 +1,217 @@
+---
+- 
+  title: パッケージのバージョン削除へのアクセス
+  description: >-
+    このプレビューは、プライベートパッケージバージョンの削除を有効化する、DeletePackageVersionのミューテーションのサポートを追加します。
+  toggled_by: ':package-deletes-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.deletePackageVersion
+  owning_teams:
+    - '@github/pe-package-registry'
+- 
+  title: デプロイメント
+  description: >-
+    このプレビューは、デプロイメントのミューテーションと新しいデプロイメントの機能を追加します。
+  toggled_by: ':flash-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - DeploymentStatus.environment
+    - Mutation.createDeploymentStatus
+    - CreateDeploymentStatusInput
+    - CreateDeploymentStatusPayload
+    - Mutation.createDeployment
+    - CreateDeploymentInput
+    - CreateDeploymentPayload
+  owning_teams:
+    - '@github/ecosystem-api'
+- 
+  title: チェック
+  description: このプレビューは、GitHub Appsによって作成された読み取りチェックのサポートを追加します。
+  toggled_by: ':antiope-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - CheckAnnotationRange
+    - CheckAnnotationPosition
+    - CheckAnnotationSpan
+    - CheckAnnotation
+    - CheckAnnotationConnection.nodes
+    - CheckAnnotationData
+    - CheckAnnotationEdge.node
+    - CheckAnnotationLevel
+    - CheckConclusionState
+    - CheckStatusState
+    - CheckSuiteAutoTriggerPreference
+    - CheckRun
+    - CheckRunConnection.nodes
+    - CheckRunEdge.node
+    - CheckRunAction
+    - CheckRunFilter
+    - CheckRunOutput
+    - CheckRunOutputImage
+    - CheckRunType
+    - CheckSuite
+    - CheckSuiteConnection.nodes
+    - CheckSuiteEdge.node
+    - CheckSuiteFilter
+    - CreateCheckRunInput
+    - CreateCheckRunPayload
+    - CreateCheckSuiteInput
+    - CreateCheckSuitePayload
+    - Commit.checkSuites
+    - Mutation.createCheckRun
+    - Mutation.createCheckSuite
+    - Mutation.rerequestCheckSuite
+    - Mutation.updateCheckRun
+    - Mutation.updateCheckSuitePreferences
+    - Push
+    - RequestableCheckStatusState
+    - RerequestCheckSuiteInput
+    - RerequestCheckSuitePayload
+    - UpdateCheckRunInput
+    - UpdateCheckRunPayload
+    - UpdateCheckSuitePayload.checkSuite
+    - UpdateCheckSuitePreferencesInput
+    - UpdateCheckSuitePreferencesPayload
+  owning_teams:
+    - '@github/ce-extensibility'
+- 
+  title: >-
+    MergeInfoPreview - プルリクエストのマージ状態に関する詳細な情報。
+  description: >-
+    このプレビューは、プルリクエストのマージ状態に関する詳細な情報を提供するフィールドへのアクセスのサポートを追加します。
+  toggled_by: ':merge-info-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - PullRequest.canBeRebased
+    - PullRequest.mergeStateStatus
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: UpdateRefsPreview - 1回の操作で複数の参照を更新します。
+  description: このプレビューは、1回の操作による複数の参照の更新のサポートを追加します。
+  toggled_by: ':update-refs-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.updateRefs
+    - GitRefname
+    - RefUpdate
+    - UpdateRefsInput
+    - UpdateRefsPayload
+  owning_teams:
+    - '@github/pe-repos'
+- 
+  title: リポジトリの依存関係グラフへのアクセス
+  description: このプレビューは、リポジトリの依存関係グラフの読み取りのサポートを追加します。
+  toggled_by: ':hawkgirl-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - DependencyGraphManifest
+    - Repository.dependencyGraphManifests
+    - DependencyGraphManifestEdge
+    - DependencyGraphManifestConnection
+    - DependencyGraphDependency
+    - DependencyGraphDependencyEdge
+    - DependencyGraphDependencyConnection
+    - DependencyGraphPackageRelease.dependencies
+  owning_teams:
+    - '@github/dsp-dependency-graph'
+- 
+  title: プロジェクトイベントの詳細
+  description: >-
+    このプレビューは、プロジェクト関連のIssueイベントに対し、プロジェクト、プロジェクトカード、プロジェクト列の詳細を追加します。
+  toggled_by: ':starfox-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - AddedToProjectEvent.project
+    - AddedToProjectEvent.projectCard
+    - AddedToProjectEvent.projectColumnName
+    - ConvertedNoteToIssueEvent.project
+    - ConvertedNoteToIssueEvent.projectCard
+    - ConvertedNoteToIssueEvent.projectColumnName
+    - MovedColumnsInProjectEvent.project
+    - MovedColumnsInProjectEvent.projectCard
+    - MovedColumnsInProjectEvent.projectColumnName
+    - MovedColumnsInProjectEvent.previousProjectColumnName
+    - RemovedFromProjectEvent.project
+    - RemovedFromProjectEvent.projectColumnName
+  owning_teams:
+    - '@github/github-projects'
+- 
+  title: コンテンツ添付ファイルの作成
+  description: このプレビューは、コンテンツ添付ファイルの作成のサポートを追加します。
+  toggled_by: ':corsair-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.createContentAttachment
+  owning_teams:
+    - '@github/ce-extensibility'
+- 
+  title: ピン止めされたIssueのプレビュー
+  description: このプレビューは、ピン止めされたIssueのサポートを追加します。
+  toggled_by: ':elektra-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Repository.pinnedIssues
+    - PinnedIssue
+    - PinnedIssueEdge
+    - PinnedIssueConnection
+    - Mutation.pinIssue
+    - Mutation.unpinIssue
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: ラベルのプレビュー
+  description: >-
+    このプレビューは、ラベルの追加、更新、作成、削除のサポートを追加します。
+  toggled_by: ':bane-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.createLabel
+    - CreateLabelPayload
+    - CreateLabelInput
+    - Mutation.deleteLabel
+    - DeleteLabelPayload
+    - DeleteLabelInput
+    - Mutation.updateLabel
+    - UpdateLabelPayload
+    - UpdateLabelInput
+  owning_teams:
+    - '@github/pe-pull-requests'
+- 
+  title: プロジェクトのインポート
+  description: このプレビューは、プロジェクトのインポートのサポートを追加します。
+  toggled_by: ':slothette-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.importProject
+  owning_teams:
+    - '@github/pe-issues-projects'
+- 
+  title: Teamレビューの割り当てプレビュー
+  description: >-
+    このプレビューは、Teamレビューの割り当て設定の更新サポートを追加します
+  toggled_by: ':stone-crop-preview'
+  announcement: null
+  updates: null
+  toggled_on:
+    - Mutation.updateTeamReviewAssignment
+    - UpdateTeamReviewAssignmentInput
+    - TeamReviewAssignmentAlgorithm
+    - Team.reviewRequestDelegationEnabled
+    - Team.reviewRequestDelegationAlgorithm
+    - Team.reviewRequestDelegationMemberCount
+    - Team.reviewRequestDelegationNotifyTeam
+  owning_teams:
+    - '@github/pe-pull-requests'

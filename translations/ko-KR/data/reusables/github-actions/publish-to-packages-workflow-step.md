@@ -1,0 +1,1 @@
+Runs the `mvn -B deploy` command to publish to {{ site.data.variables.product.prodname_registry }}. The `GITHUB_TOKEN` environment variable will be set with the contents of the `GITHUB_TOKEN` secret.

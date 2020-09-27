@@ -1,0 +1,1 @@
+Projects maintained and managed by one sole organization owner can easily become inaccessible if the organization owner is unreachable. We recommend an organization have at least two people with *owner* permissions to ensure no one will lose access to a project.

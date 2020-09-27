@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Organisationsnamen auf {% octicon "project" aria-label="The Projects icon" %} **Projects** (Projekte). ![Registerkarte „Projects" für Deine Organisation](/assets/images/help/organizations/organization-projects-tab.png)

@@ -1,0 +1,1 @@
+1. Klicke in {{ site.data.variables.product.prodname_insights }} auf **{% octicon "graph" aria-label="The graph icon" %} Key Metrics** (Schlüsselmetriken). ![Registerkarte „Key metrics" (Schlüsselmetriken)](/assets/images/help/insights/key-metrics-tab.png)

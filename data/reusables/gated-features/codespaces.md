@@ -1,0 +1,1 @@
+Codespaces is available for user accounts using {{ site.data.variables.product.prodname_free_user }} or {{ site.data.variables.product.prodname_pro }}. {{ site.data.reusables.gated-features.more-info-org-products }}

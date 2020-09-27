@@ -1,0 +1,1 @@
+**Requerido si proporcionas un `completed_at` o un `status` de `completed`**. La conclusión final de la verificación. Puede ser una de entre `success`, `failure`, `neutral`, `cancelled`, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}`skipped`, {% endif %}`timed_out`, o `action_required`.

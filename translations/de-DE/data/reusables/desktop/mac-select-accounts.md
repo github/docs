@@ -1,0 +1,1 @@
+1. Wähle **Accounts** (Konten) im Fenster „Preferences“ (Voreinstellungen) aus. ![Der Bereich „Accounts“ (Konten) im Fenster „Preferences“ (Voreinstellungen)](/assets/images/help/desktop/mac-select-accounts-pane.png)

@@ -1,0 +1,1 @@
+1. 单击 **Add seats（添加席位）**。 ![Add seats button](/assets/images/help/billing/add-seats-button.png)

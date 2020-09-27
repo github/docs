@@ -1,0 +1,1 @@
+1. No nome da sua organização, clique em {% octicon "organization" aria-label="The People icon" %} **People** (Pessoas). ![A aba Pessoas](/assets/images/help/organizations/organization-people-tab.png)

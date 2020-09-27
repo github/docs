@@ -1,0 +1,1 @@
+1. Beschreibe, wie Du {{ site.data.variables.product.prodname_dotcom }} verwenden möchtest. ![Feld „Description“ (Beschreibung) zur Angabe, wie Du {{ site.data.variables.product.prodname_dotcom }} verwenden möchtest](/assets/images/help/education/purpose-for-github-education.png)

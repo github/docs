@@ -1,0 +1,18 @@
+---
+title: Desabilitar discussões de equipe da sua organização
+intro: Os proprietários da organização podem optar por desabilitar ou habilitar discussões de equipe na organização.
+redirect_from:
+  - /articles/disabling-team-discussions-for-your-organization
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+---
+
+{{ site.data.reusables.organizations.team-discussions-default }} Consulte "[Sobre discussões de equipe](/articles/about-team-discussions)" para obter mais informações sobre esse assunto.
+
+{{ site.data.reusables.profile.access_profile }}
+{{ site.data.reusables.profile.access_org }}
+{{ site.data.reusables.organizations.org_settings }}
+{{ site.data.reusables.organizations.teams_sidebar }}
+5. Em "Team discussions" (Discussões de equipe), desmarque **Enable team discussions for this organization** (Habilitar discussões de equipe desta organização). ![Caixa de seleção para habilitar ou desabilitar discussões de equipe de uma organização](/assets/images/help/settings/enable-team-discussions-for-org-checkbox.png)
+6. Clique em **Salvar**.

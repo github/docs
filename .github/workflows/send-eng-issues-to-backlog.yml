@@ -1,0 +1,28 @@
+name: Send Issue to EPD backlog
+
+on: 
+  issues: 
+    types: [labeled, reopened]
+    
+jobs:
+  triage:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+    - name: Add issues with engineering label to project board
+      if: contains(github.event.issue.labels.*.name, 'engineering') || contains(github.event.issue.labels.*.name, 'design') || contains(github.event.issue.labels.*.name, 'Design')
+      uses: actions/github-script@v2
+      with:
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }} 
+          script: |
+            var column_id = 9659080;
+            try {
+              github.projects.createCard({
+                column_id: column_id,
+                content_id: context.payload.issue.id,
+                content_type: "Issue"
+              });
+            } catch (error) {
+              console.log(error);
+            }

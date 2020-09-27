@@ -1,0 +1,1 @@
+1. Verwende das Dropdownmenü unter „Edit your plan" (Deinen Plan bearbeiten) und klicke auf einen neuen Plan. ![Dropdownmenü mit allen verfügbaren Plänen der App](/assets/images/help/marketplace/marketplace-choose-new-plan.png)

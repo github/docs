@@ -1,0 +1,1 @@
+1. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, danach auf **Settings** (Einstellungen). ![Einstellungsoption im Dropdownmenü auf der Projektboard-Seitenleiste](/assets/images/help/projects/project-board-settings.png)

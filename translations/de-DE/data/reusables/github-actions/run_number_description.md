@@ -1,0 +1,1 @@
+Eine eindeutige Nummer für jede Ausführung eines bestimmten Workflows in einem Repository. Diese Nummer beginnt bei 1 für die erste Ausführung des Workflows und erhöht sich mit jeder neuen Ausführung. Diese Nummer ändert sich nicht, wenn Du den Workflowablauf erneut ausführst.

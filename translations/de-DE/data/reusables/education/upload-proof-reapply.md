@@ -1,0 +1,1 @@
+Wenn Du Dich erneut bewirbst, lade ein Bild Deiner Bildungseinrichtungs-ID, Deines akademischen Zeugnisses oder eines anderen, Deinen akademischen Status nachweisenden Dokuments hoch, das mindestens ein Datum deutlich zeigt.

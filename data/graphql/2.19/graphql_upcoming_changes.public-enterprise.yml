@@ -1,0 +1,60 @@
+---
+upcoming_changes:
+- location: Migration.uploadUrlTemplate
+  description: "`uploadUrlTemplate` will be removed. Use `uploadUrl` instead."
+  reason: "`uploadUrlTemplate` is being removed because it is not a standard URL and
+    adds an extra user step."
+  date: '2019-04-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling
+- location: ContributionOrder.field
+  description: "`field` will be removed. Only one order field is supported."
+  reason: "`field` will be removed."
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: dinahshi
+- location: Issue.timeline
+  description: "`timeline` will be removed. Use Issue.timelineItems instead."
+  reason: "`timeline` will be removed"
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: mikesea
+- location: Organization.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: PullRequest.timeline
+  description: "`timeline` will be removed. Use PullRequest.timelineItems instead."
+  reason: "`timeline` will be removed"
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: mikesea
+- location: RepositoryOwner.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: User.pinnedRepositories
+  description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems
+    instead."
+  reason: pinnedRepositories will be removed
+  date: '2019-10-01T00:00:00+00:00'
+  criticality: breaking
+  owner: cheshire137
+- location: AssignedEvent.user
+  description: "`user` will be removed. Use the `assignee` field instead."
+  reason: Assignees can now be mannequins.
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling
+- location: UnassignedEvent.user
+  description: "`user` will be removed. Use the `assignee` field instead."
+  reason: Assignees can now be mannequins.
+  date: '2020-01-01T00:00:00+00:00'
+  criticality: breaking
+  owner: tambling

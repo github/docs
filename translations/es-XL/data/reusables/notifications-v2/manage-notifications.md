@@ -1,0 +1,1 @@
+1. En la barra lateral, debajo de la lista de repositorios, utiliza el menú desplegable "Administrar notificaciones" para dar clic en **Configuración de notificaciones**. ![Opciones del menú desplegable "Administrar notificaciones"](/assets/images/help/notifications-v2/manage-notifications-options.png)

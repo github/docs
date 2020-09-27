@@ -1,0 +1,4 @@
+{% if currentVersion == "free-pro-team@latest" %}1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user and optionally add them to some teams, then click **Send invitation**.
+  ![Role and team options and send invitation button](/assets/images/help/organizations/add-role-send-invitation.png){% else %}
+1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose a role for the user, and optionally add them to some teams, then click **Add member**. ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member.png){% else %}
+1. Choose a role for the user, and optionally add them to some teams, then click **Add member**. ![Role and team options and add member button](/assets/images/help/organizations/add-role-add-member-2.7-lower.png){% endif %}

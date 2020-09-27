@@ -1,0 +1,3 @@
+{% if currentVersion == "free-pro-team@latest" %}
+1. Klicke unterhalb der Commit-Mitteilungsfelder auf das Dropdownmenü für E-Mail-Adressen, und wähle die Git-Autor-E-Mail-Adresse aus. Nur verifizierte E-Mail-Adressen werden in diesem Dropdownmenü angezeigt. Wenn Du den Datenschutz für E-Mail-Adressen aktiviert hast, dann ist `<username>@users.noreply.github.com` die standardmäßige Commit-Autor-E-Mail-Adresse.  Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address).“ ![Wähle Commit E-Mail-Adressen](/assets/images/help/repository/choose-commit-email-address.png)
+{% endif %}

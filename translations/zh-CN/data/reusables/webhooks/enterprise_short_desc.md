@@ -1,0 +1,1 @@
+A site or repository administrator enables or disables anonymous Git read access. See "[Allowing admins to enable anonymous Git read access to public repositories](/enterprise/admin/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)" for more details. This event is not available in the Events API.

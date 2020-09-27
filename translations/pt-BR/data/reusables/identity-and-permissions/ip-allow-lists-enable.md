@@ -1,0 +1,1 @@
+Para fazer cumprir a lista de permissões de IP, você deve primeiro adicionar endereços IP à lista, e então habilitar a lista de permissões de IP. É preciso adicionar o endereço IP atual ou um intervalo correspondente antes de habilitar a lista de permissões de IP.

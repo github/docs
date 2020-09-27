@@ -1,0 +1,1 @@
+1. Wähle unter „Upgrade summary“ (Upgrade-Übersicht) aus, ob Du monatlich oder jährlich bezahlen möchtest. ![Optionsfelder mit der Auswahl der monatlichen oder jährlichen Abrechnung](/assets/images/help/billing/choose-monthly-or-yearly-billing.png)

@@ -1,0 +1,1 @@
+Por exemplo, você pode permitir o acesso somente a partir do endereço IP da rede do escritório. A lista de permissão para endereços IP irá bloquear o acesso através da web, API, e Git de qualquer endereço IP que não esteja na lista de permissões.

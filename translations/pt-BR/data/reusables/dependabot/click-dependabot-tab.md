@@ -1,0 +1,1 @@
+4. Em "Dependência gráfica", clique em **{{ site.data.variables.product.prodname_dependabot_short }}**. ![Aba do gráfico de dependência, {{ site.data.variables.product.prodname_dependabot_short }}](/assets/images/help/dependabot/dependabot-tab-beta.png)

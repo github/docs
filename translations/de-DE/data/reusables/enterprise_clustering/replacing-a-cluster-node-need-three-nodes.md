@@ -1,0 +1,1 @@
+1. Wenn Du einen Knoten offline nimmst, für den in der Datei „cluster.conf“ der Wert `git-server = true` festgelegt ist, evakuiere den Knoten. Weitere Informationen findest Du unter „[Clusterknoten evakuieren](/enterprise/{{ currentVersion }}/admin/clustering/evacuating-a-cluster-node)“.

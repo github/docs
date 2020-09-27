@@ -1,0 +1,1 @@
+Optionally, select **Allow built-in authentication** to invite users to use built-in authentication if they don’t belong to {{ site.data.variables.product.product_location_enterprise }}'s identity provider.

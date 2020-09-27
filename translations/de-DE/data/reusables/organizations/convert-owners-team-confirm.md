@@ -1,0 +1,1 @@
+1. Klicke unter der Beschreibung der neuen Inhaberrolle auf **Okay, got it** (Okay, verstanden). ![Beschreibung der neuen Inhaberrolle mit hervorgehobener „Okay, verstanden" Schaltfläche](/assets/images/help/teams/okay-got-it.png)

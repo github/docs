@@ -1,0 +1,15 @@
+engineering:
+  - lib/*
+  - lib/**/*
+  - layouts/*
+  - layouts/**/*
+  - middleware/*
+  - middleware/**/*
+  - tests/*
+  - tests/**/*
+  - stylesheets/*
+  - stylesheets/**/*
+  - script/*
+  - script/**/*
+  - javascripts/*
+  - javascripts/**/*

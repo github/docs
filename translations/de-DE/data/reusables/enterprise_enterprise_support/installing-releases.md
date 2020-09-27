@@ -1,0 +1,3 @@
+### {{ site.data.variables.product.prodname_ghe_server }}-Releases installieren
+
+Um sicherzustellen, dass {{ site.data.variables.product.product_location_enterprise }} stabil ist, musst Du {{ site.data.variables.product.prodname_ghe_server }}-Releases installieren und implementieren. Die Installation von {{ site.data.variables.product.prodname_ghe_server }}-Releases stellt sicher, dass Du über die neuesten Features, Änderungen und Verbesserungen sowie über alle Updates von Features, Codekorrekturen, Patches oder andere allgemeine Updates und Korrekturen von {{ site.data.variables.product.prodname_ghe_server }} verfügst.

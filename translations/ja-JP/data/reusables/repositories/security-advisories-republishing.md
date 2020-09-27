@@ -1,0 +1,1 @@
+{{ site.data.variables.product.prodname_security_advisories }}を使い、すでに別の場所で公開したセキュリティ脆弱性の詳細をコピーして新しいセキュリティアドバイザリに貼り付けることにより、その詳細を再度公開できます。

@@ -1,0 +1,1 @@
+Você pode solicitar uma versão de avaliação para avaliar {{ site.data.variables.product.prodname_ghe_server }}. Para obter mais informações, consulte "[Configurar uma versão de avaliação do {{ site.data.variables.product.prodname_ghe_server }}](/articles/setting-up-a-trial-of-github-enterprise-server)".

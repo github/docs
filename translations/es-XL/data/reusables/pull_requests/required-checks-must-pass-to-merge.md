@@ -1,0 +1,1 @@
+Si un repositorio requiere verificaciones de estado, éstas deben pasar antes de que fusiones tu rama con la rama protegida. Para obtener más información, consulta "[Acerca de las verificaciones de estado requeridas ](/articles/about-required-status-checks)".

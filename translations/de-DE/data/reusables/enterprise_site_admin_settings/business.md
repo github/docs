@@ -1,0 +1,1 @@
+1. Klicken Sie auf der linken Seitenleiste auf **Enterprise**. ![Registerkarte „Enterprise“ in den Einstellungen des Websiteadministrators](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

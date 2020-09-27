@@ -1,0 +1,1 @@
+1. Um auf Deinem neuen Projektboard eine neue Spalte hinzuzufügen, benutze **Add a column** (Spalte Hinzufügen). ![Schaltfläche „Add a column" (Spalte hinzufügen) auf einem leeren Projektboard](/assets/images/help/projects/add-column.png)

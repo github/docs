@@ -1,0 +1,1 @@
+您可以使用内部仓库充分利用{% if currentVersion == "free-pro-team@latest" %}企业帐户{% else %}实例{% endif %}中的“内部资源”。 {% if currentVersion == "free-pro-team@latest" %}企业帐户{% else %}实例上任何组织{% endif %}的成员可使用开源方法进行协作，而无需公开共享专有信息{% if currentVersion != "free-pro-team@latest" %}，即使禁用了私有模式{% endif %}。

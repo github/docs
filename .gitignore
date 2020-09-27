@@ -1,0 +1,11 @@
+.algolia-cache
+.DS_Store
+.env
+node_modules
+npm-debug.log
+coverage
+
+# blc: broken link checker
+blc_output.log
+blc_output_internal.log
+dist

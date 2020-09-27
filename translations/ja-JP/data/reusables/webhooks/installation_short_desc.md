@@ -1,0 +1,1 @@
+Activity related to a GitHub App installation. {{ site.data.reusables.webhooks.action_type_desc }} For more information, see the "[GitHub App installation](/v3/apps/)" REST API.

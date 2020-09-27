@@ -1,0 +1,5 @@
+    - 选择 **Accounts（帐户）**添加或删除 {{ site.data.variables.product.prodname_dotcom }} 或 {{ site.data.variables.product.prodname_enterprise }} 帐户。
+    - 选择 **Integrations（集成）**可选择外部编辑器或 shell。
+    - 选择 **Git** 可编辑 Git 配置。
+    - 选择 **Appearance（外观）**可在浅色或深色主题之间进行切换。
+    - 选择 **Advanced（高级）**查看更多配置选项。

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# Starts the local development server. Equivalent of `npm start`.
+# 
+# To keep things snappy, only English and Japanese are enabled.
+# To run the server with all languages enabled, run script/server-all-languages
+#
+# [end-readme]
+
+source script/check-for-node
+
+npm start

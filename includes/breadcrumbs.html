@@ -1,0 +1,6 @@
+<nav class="breadcrumbs f5" aria-label="Breadcrumb">
+  {% for breadcrumb in breadcrumbs %}
+  <a title="{{ breadcrumb[0]}}: {{breadcrumb[1].title}}" href="/{{currentLanguage}}{{breadcrumb[1].href}}" class="d-inline-block {% if breadcrumb[1].href == currentPathWithoutLanguage %}text-gray-light{% endif %}">
+    {{breadcrumb[1].title}}</a>
+  {% endfor %}
+</nav>

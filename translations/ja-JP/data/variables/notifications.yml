@@ -1,0 +1,5 @@
+---
+no_reply_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`noreply@github.com`{% else %}サイト管理者が設定した no-reply メールアドレス{% endif %}
+cc_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`@noreply.github.com`{% else %}サイト管理者が設定した no-reply メールアドレスに基づく{% endif %}

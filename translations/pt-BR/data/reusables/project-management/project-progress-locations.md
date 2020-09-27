@@ -1,0 +1,1 @@
+Quando a automação do quadro de projeto está habilitada, uma barra de progresso aparece acima do quadro de projeto, na página de listagem de projetos, na barra lateral do problema e nas referências ao projeto em outros quadros de projeto.

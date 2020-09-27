@@ -1,0 +1,1 @@
+1. Klicke **Complete order and begin installation** (Bestellung abschließen und Installation beginnen). ![Schaltfläche „Complete order and begin installation" (Bestellung abschließen und Installation beginnen)](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png)

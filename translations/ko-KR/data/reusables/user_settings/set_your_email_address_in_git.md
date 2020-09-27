@@ -1,0 +1,1 @@
+Set an email address in Git. You can use {% if currentVersion == "free-pro-team@latest"%}your [{{ site.data.variables.product.product_name }}-provided `no-reply` email address](/articles/setting-your-commit-email-address) or {% endif %}any email address.

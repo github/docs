@@ -1,0 +1,1 @@
+1. "Billing information（支払い情報）"の下で、個人アカウントにアプリケーションをインストールしようとしていることを確認してください。 ![あなたの名前、アバター、"Personal account" というテキスト、そして支払いアカウントの切り替えのドロップダウンメニュー](/assets/images/help/marketplace/marketplace-confirm-personal-account.png)

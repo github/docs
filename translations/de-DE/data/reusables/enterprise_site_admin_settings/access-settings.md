@@ -1,0 +1,1 @@
+1. Klicke in der oberen rechten Ecke einer beliebigen Seite auf {% octicon "rocket" aria-label="The rocket ship" %}. ![Raumschiffsymbol für den Zugriff auf die Einstellungen des Websiteadministrators](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

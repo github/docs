@@ -1,0 +1,1 @@
+1. Gehe auf der Seite [Organisation Upgrades](https://education.github.com/toolbox/offers/github-org-upgrades) (Organisation aktualisieren) zu „Upgrade your organization" (Aktualisiere Deine Organisation).

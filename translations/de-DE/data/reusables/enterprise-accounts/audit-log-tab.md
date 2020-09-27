@@ -1,0 +1,1 @@
+1. Klicken Sie unter {% octicon "gear" aria-label="The Settings gear" %} „Settings“ (Einstellungen) auf **Audit log** (Auditprotokoll). ![Registerkarte „Audit log“ (Auditprotokoll) auf der Seitenleiste des Enterprise-Kontos](/assets/images/help/business-accounts/enterprise-account-settings-audit-log-tab.png)

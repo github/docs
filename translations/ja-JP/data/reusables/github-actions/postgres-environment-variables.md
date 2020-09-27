@@ -1,0 +1,1 @@
+*client.js*スクリプトは、クライアントを作成するために環境変数の`POSTGRES_HOST`と`POSTGRES_PORT`を探します。 ワークフローは、これら2つの環境変数を"Connect to PostgreSQL"ステップの一部として設定し、*client.js*スクリプトから利用できるようにします。 このスクリプトに関する詳しい情報については「[PostgreSQLサービスコンテナのテスト](#testing-the-postgresql-service-container)」を参照してください。

@@ -1,0 +1,1 @@
+1. Klicke unter {% octicon "law" aria-label="The law icon" %} „Policies“ (Richtlinien) auf **Repositories** (Repositorys). ![Registerkarte „Repositories“ (Repositorys) auf der Seitenleiste mit den Einstellungen des Enterprise-Kontos](/assets/images/help/business-accounts/policies-repositories-tab.png)

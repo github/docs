@@ -1,0 +1,1 @@
+Debes utilizar un token de acceso personal (el cual puedes crear a través de la [línea de comandos](/articles/creating-a-personal-access-token-for-the-command-line/) o de la [API de Autorizaciones OAuth](/v3/oauth_authorizations/#create-a-new-authorization)) o una [Autenticación Básica](/v3/auth/#basic-authentication) para acceder a esta terminal.

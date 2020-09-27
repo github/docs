@@ -1,0 +1,5 @@
+---
+no_reply_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`noreply@github.com`{% else %}endereço de e-mail no-reply configurado pelo administrador do seu site{% endif %}
+cc_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`@noreply.github.com`{% else %}com base no endereço de e-mail no-reply configurado pelo administrador do seu site{% endif %}

@@ -1,0 +1,15 @@
+- Bundler: `bundler`
+- Cargo: `cargo`
+- Composer: `composer`
+- Docker: `docker`
+- Elm: `elm`
+- gitサブモジュール:`gitsubmodule`
+- GitHub Actions: `github-actions`
+- Goモジュール:`gomod`
+- Gradle: `gradle`
+- Maven: `maven`
+- Mix: `mix`
+- npm: `npm`
+- NuGet: `nuget`
+- pip: `pip`
+- Terraform: `terraform`

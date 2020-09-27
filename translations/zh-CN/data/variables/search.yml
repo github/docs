@@ -1,0 +1,11 @@
+---
+advanced_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[高级搜索](https://github.com/search/advanced) 页面{% else %}高级搜索页面(`https://[hostname]/search/advanced`){% endif %}
+search_page_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[搜索](https://github.com/search) 页面{% else %}搜索页面 (`https://[hostname]/search`){% endif %}
+search_highlighting_link: >-
+  有关如何接收突出显示的搜索结果的更多详情，请参阅[文本匹配元数据](#text-match-metadata)。
+search_query_description: >-
+  查询包含一个或多个搜索关键词和限定词。限定词可将搜索限定于 GitHub 的特定区域。REST API 支持与 GitHub.com 相同的限定词。要了解更多关于查询格式的信息，请参阅[构建搜索查询](#constructing-a-search-query)。
+order_description: >-
+  确定返回的第一个搜索结果是否匹配次数最多 (`desc`) 或最少 (`asc`)。除非提供 `sort`，否则此参数将被忽略。默认值：`desc`

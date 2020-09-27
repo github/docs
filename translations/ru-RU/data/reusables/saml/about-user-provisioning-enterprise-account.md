@@ -1,0 +1,1 @@
+If you use Okta as your IdP, you can use SCIM to manage organization membership in your enterprise account. SCIM automatically invites people to or removes people from organizations in your enterprise account based on whether they are members of the group that corresponds to each organization in your IdP.

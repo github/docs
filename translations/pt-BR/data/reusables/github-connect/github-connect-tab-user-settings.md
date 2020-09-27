@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **{{ site.data.variables.product.prodname_github_connect }}**. ![Aba do GitHub Connect na barra lateral de configurações do usuário](/assets/images/help/settings/github-connect-tab-user-settings.png)

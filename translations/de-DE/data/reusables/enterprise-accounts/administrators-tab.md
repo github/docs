@@ -1,0 +1,1 @@
+1. Klicken Sie unter {% octicon "person" aria-label="The People icon" %} „People“ (Personen) auf **Administrators** (Administratoren). ![Registerkarte „Administrators“ (Administratoren)](/assets/images/help/business-accounts/business-accounts-admin-tab.png)

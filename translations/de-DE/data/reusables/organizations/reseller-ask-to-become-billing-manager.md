@@ -1,0 +1,1 @@
+Wenn Du kein Abrechnungsmanager für die Organisation bist, bitte Deinen Kunden, einen *Inhaber* der Organisation aufzufordern, [Dich als Abrechnungsmanager zur Organisation hinzuzufügen](/articles/adding-a-billing-manager-to-your-organization).

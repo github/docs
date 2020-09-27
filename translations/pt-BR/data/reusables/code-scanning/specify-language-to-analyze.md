@@ -1,0 +1,1 @@
+Se o seu repositório contiver código em várias linguagens, você poderá especificar as linguagens que você deseja analisar. Há vários motivos para impedir que uma linguagem seja analisada. Por exemplo, o projeto pode ter dependências em uma linguagem diferente do texto principal do seu código, e você pode preferir não ver os alertas para essas dependências.

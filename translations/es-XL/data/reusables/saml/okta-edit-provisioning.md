@@ -1,0 +1,5 @@
+10. A la derecha de "Aprovisionar a la App", da clic en **Editar**. ![Botón "Editar" para las opciones de aprovisionamiento de la aplicación de Okta](/assets/images/help/saml/okta-provisioning-to-app-edit-button.png)
+11. A la derecha de "Crear Usuarios", selecciona **Habilitar**. ![Casilla "Habilitar" para la opción de "Crear Usuarios" de la aplicación de Okta](/assets/images/help/saml/okta-provisioning-enable-create-users.png)
+12. A la derecha de "Actualizar Atributos de Usuario", selecciona **Habilitar**. ![Casilla "Habilitar" para la opción de "Actualizar Atributos de Usuario" de la aplicación de Okta](/assets/images/help/saml/okta-provisioning-enable-update-user-attributes.png)
+13. A la derecha de "Desactivar Usuarios", selecciona **Habilitar**. ![Casilla "Habilitar" para la opción de "Desactivar Usuarios" de la aplicación de Okta](/assets/images/help/saml/okta-provisioning-enable-deactivate-users.png)
+14. Haz clic en **Save (Guardar)**. ![Botón "Guardar" ára la configuración de aprovisionamiento de la aplicación de Okta](/assets/images/help/saml/okta-provisioning-save.png)

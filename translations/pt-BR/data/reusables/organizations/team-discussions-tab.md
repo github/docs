@@ -1,0 +1,1 @@
+1. No topo da página da equipe, clique em {% octicon "comment-discussion" aria-label="The discussion icon" %} **Discussions**. ![Aba de discussões em equipe](/assets/images/help/teams/org-team-page-discussions-tab.png)

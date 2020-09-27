@@ -1,0 +1,45 @@
+contact_ent_support: '[GitHub Enterprise Support](https://enterprise.githubsupport.com/hc/en-us) or [GitHub Premium Support](https://premium.githubsupport.com)'
+
+contact_support: >-
+  {% if currentVersion == "free-pro-team@latest" %}[GitHub Support](https://support.github.com/contact) or [GitHub Premium Support](https://premium.githubsupport.com){% else %}your GitHub Enterprise site administrator{% endif %}
+
+report_abuse: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Report abuse](https://github.com/contact/report-abuse){% endif %}
+
+report_content: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Report content](https://github.com/contact/report-content){% endif %}
+
+contact_dmca: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Copyright claims form](https://github.com/contact/dmca){% endif %}
+
+contact_privacy: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Privacy contact form](https://github.com/contact/privacy){% endif %}
+
+contact_enterprise_sales: '[GitHub''s Sales team](https://enterprise.github.com/contact)'
+
+contact_feedback_actions: '[Feedback form for GitHub Actions](https://support.github.com/contact/feedback?contact[category]=actions)'
+
+contact_partner_engineering: '[partnerengineering@github.com](mailto:partnerengineering@github.com)'
+
+# The team that provides Standard Support
+enterprise_support: 'GitHub Enterprise Support'
+
+# The larger team that includes Enterprise Support and Premium Support
+github_support: 'GitHub Support'
+
+# The team that provides Premium Support
+premium_support: 'GitHub Premium Support'
+
+# Enterprise Support portal
+enterprise_portal: 'GitHub Enterprise Support portal'
+contact_enterprise_portal: '[GitHub Enterprise Support portal](https://enterprise.githubsupport.com/hc/en-us)'
+
+# GitHub Support portal (for dotcom)
+support_portal: 'GitHub Support portal'
+contact_support_portal: '[GitHub Support portal](https://support.github.com/contact)'
+
+# The team that provides GitHub Community Support on the GitHub Community forum (for GitHub Free)
+community_support: 'GitHub Community Support'
+
+# The GitHub Community forum
+community_support_forum: '[GitHub Community forum](https://github.community/)'

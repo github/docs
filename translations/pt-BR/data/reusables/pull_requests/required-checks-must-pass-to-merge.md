@@ -1,0 +1,1 @@
+If status checks are required for a repository, the required status checks must pass before you can merge your branch into the protected branch. Para obter mais informações, consulte "[Sobre verificações de status obrigatórias](/articles/about-required-status-checks)".

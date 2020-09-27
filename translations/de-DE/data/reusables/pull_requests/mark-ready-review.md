@@ -1,0 +1,1 @@
+Wenn Du bereit bist, Feedback zu Deinem Pull Request zu erhalten, kannst Du Deinen Entwurf des Pull Requests als zur Überprüfung bereit markieren. Wenn Du einen Pull Request als bereit zur Überprüfung markierst, werden Reviews von allen Codeinhabern angefordert.

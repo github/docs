@@ -1,0 +1,2 @@
+1. If prompted, type your {{ site.data.variables.enterprise.management_console }} password.
+  ![{{ site.data.variables.enterprise.management_console }} unlock screen](/assets/images/enterprise/management-console/unlock-password.png)

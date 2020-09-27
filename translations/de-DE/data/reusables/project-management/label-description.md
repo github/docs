@@ -1,0 +1,1 @@
+1. Unter „Description" (Beschreibung) gibst Du eine Beschreibung ein, damit andere Deine Kennzeichnung verstehen und verwenden können. ![Feld zur Eingabe einer Kennzeichnungsbeschreibung](/assets/images/help/issues/label-description-field.png)

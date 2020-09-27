@@ -1,0 +1,34 @@
+[
+  {
+    "kind":"queries",
+    "type":"QueryTypeDefinition"
+  },
+  {
+    "kind":"mutations",
+    "type":"Mutation"
+  },
+  {
+    "kind":"objects",
+    "type":"ObjectTypeDefinition"
+  },
+  {
+    "kind":"interfaces",
+    "type":"InterfaceTypeDefinition"
+  },
+  {
+    "kind":"enums",
+    "type":"EnumTypeDefinition"
+  },
+  {
+    "kind":"unions",
+    "type":"UnionTypeDefinition"
+  },
+  {
+    "kind":"inputObjects",
+    "type":"InputObjectTypeDefinition"
+  },
+  {
+    "kind":"scalars",
+    "type":"ScalarTypeDefinition"
+  }
+]

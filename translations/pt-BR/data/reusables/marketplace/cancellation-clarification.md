@@ -1,0 +1,1 @@
+Quando um cliente cancela uma assinatura do {{ site.data.variables.product.prodname_marketplace }}, o GitHub não desinstala automaticamente o aplicativo, então o cliente pode esperar que os recursos gratuitos continuem funcionando.

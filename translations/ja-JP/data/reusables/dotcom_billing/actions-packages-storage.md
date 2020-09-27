@@ -1,0 +1,1 @@
+1. "Storage for Actions and Packages（アクションとパッケージのためのストレージ）"の下で、{{ site.data.variables.product.prodname_actions }}及び{{ site.data.variables.product.prodname_registry }}を組み合わせたストレージの利用状況の詳細を見てください。 ストレージの利用状況のデータは、1時間ごとに同期されます。 ![ストレージの利用状況の詳細](/assets/images/help/billing/actions-packages-storage.png)

@@ -1,0 +1,15 @@
+---
+product_name_long: 'Git Large File Storage'
+product_name_short: 'Git LFS'
+warning_size: '50 MB'
+max_github_size: '100 MB'
+max_github_browser_size: '25 MB'
+initial_bandwidth_quota: '1 GB'
+initial_storage_quota: '1 GB'
+max_lfs_size: '2 GB'
+max_file_size: '2 GB'
+command_name: lfs
+version_name: https://git-lfs.github.com/spec/v1
+pack_monthly_price: '$5 per month'
+pack_monthly_bandwidth: '50 GB'
+pack_monthly_storage: '50 GB'

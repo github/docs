@@ -1,0 +1,5 @@
+{% note %}
+
+**注釈:** {{ site.data.variables.product.prodname_codespaces }} は現在限定パブリックベータであり、変更されることがあります。 ベータ期間中、 {{ site.data.variables.product.prodname_dotcom }} は {{ site.data.variables.product.prodname_codespaces }} の可用性について一切の保証を行いません。 ベータへの参加に関する詳しい情報については「[{{ site.data.variables.product.prodname_codespaces }}について](/github/developing-online-with-codespaces/about-codespaces#joining-the-beta)」を参照してください。
+
+{% endnote %}

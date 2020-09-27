@@ -1,0 +1,1 @@
+1. Se você escolheu limitar os gastos, em "Limit spending" (Limitar gastos) digite um limite, depois clique em **Update limit** (Atualizar limite). ![Campo para digitar o limite de gastos e atualizar botão de limite](/assets/images/help/billing/update-limit.png)

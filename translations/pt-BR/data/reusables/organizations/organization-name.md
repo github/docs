@@ -1,0 +1,1 @@
+1. Under "Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} account{% endif %} name", digite um nome para a sua conta de organização.![Campo para digitar um nome de organização](/assets/images/help/organizations/new-org-name.png)

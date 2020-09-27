@@ -1,0 +1,1 @@
+1. Lies die Warnung und klicke dann **I understand, restore this repository** (Ich verstehe, stelle dieses Repository wieder her). ![Schaltfläche zur Bestätigung der Wiederherstellung](/assets/images/help/settings/confirm-restoration-button.png)

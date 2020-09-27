@@ -1,0 +1,1 @@
+**在提供 `completed_at` 或 `completed` 的 `status` 时需要**。 检查的最后结论。 Can be one of `success`, `failure`, `neutral`, `cancelled`, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}`skipped`, {% endif %}`timed_out`, or `action_required`.

@@ -1,0 +1,87 @@
+#!/bin/bash
+
+# Stitches and unstitches the github/github OpenAPI description via rest-api-operations to produce a local preview in docs-internal. This script should be placed in the directory that contains all three repos.
+
+# Options:
+# stitch: stitches the repos together and does the npm builds
+# unstitch: unstitches the repos and reverts them to their pre-stitched state
+
+# exit if there is any failure
+set -e
+
+function check_repos () {
+  REPOS=("github" "rest-api-operations" "docs-internal")
+
+  for i in "${REPOS[@]}"; do
+    if [ ! -d "$i" ]; then
+      echo "Repo directory $i does not exist"
+      echo "Make sure that all the required repos (${REPOS[*]}) are all in the same directory."
+      exit 1
+    fi
+  done
+}
+
+# main below here
+
+OPTION=$1
+# The script could be run from anywhere, so we need to get our bearings so we know where the dirs are.
+# get the directory of the script (should be docs-internal/script). (from https://stackoverflow.com/a/246128/6348342)
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+# change the script's context to the script dir
+cd $SCRIPT_DIR
+# change two levels up (i.e. to the parent of the docs-internal repo)
+cd ../../
+# Check that all the required local repos exist
+check_repos
+if [[ $OPTION == "stitch" ]]; then
+  read -r -p "❓Are you sure your github/github and docs-internal repos are on the branches you want to preview? [y/N] " response
+  if ! [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+  then
+    echo "Aborted! Nothing was changed."
+    exit 1
+  fi
+  
+  echo "🧵 🧶 🧷 Stitching together the repos..."
+  set -o xtrace
+  
+  # Generate the deferenced OpenAPI files from github/github
+  cd github
+  bin/dump-openapi-description /tmp/dump
+
+  # Copy the derefrenced json files into rest-api-operations and build them
+  cd ../rest-api-operations
+  find /tmp/dump -type f -name "*.deref.json" -exec cp {} descriptions \;
+  npm run build
+
+  # Install the modified local rest-api-operations npm module into docs-internal
+  cd ../docs-internal
+  npm install ../rest-api-operations
+
+  set +o xtrace
+  echo "👗 👘 👔  Finished stitching the repos!"
+  echo "🎉 🎉 You can now start a local development server to see the changes."
+elif [[ $OPTION == "unstitch" ]]; then
+  read -r -p "❓Unstitching will revert the rest-api-operations and docs-internal repos to their last commit. Are you sure? [y/N] " response
+  if ! [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
+  then
+    echo "Aborted! Nothing was changed."
+    exit 1
+  fi
+  echo "🔥 🔥  Unstitching the repos..."
+  set -o xtrace
+
+  cd docs-internal
+  git reset --hard HEAD
+  npm install
+
+  cd ../rest-api-operations
+  git reset --hard HEAD
+  npm install
+
+  set +o xtrace
+  echo "🏁 🏁  Finished unstitching the repos!"
+else
+  echo "Please provide a valid option. One of: stitch, rebuild, unstitch:"
+  echo "  stitch: stitches the repos together and does the npm builds"
+  echo "  unstitch: unstitches the repos and reverts them to their pre-stitched state"
+fi

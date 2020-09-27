@@ -1,0 +1,1 @@
+1. No canto superior direito de qualquer página, clique em {% octicon "rocket" aria-label="The rocket ship" %}. ![Ícone de foguete para acessar as configurações de administrador do site](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

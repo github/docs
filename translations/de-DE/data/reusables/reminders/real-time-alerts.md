@@ -1,0 +1,1 @@
+1. Um optional Slack-Nachrichten zu erhalten, sobald ein bestimmtes Ereignis eintritt, wähle **Enable real-time alerts** (Echtzeit-Benachrichtigungen aktivieren) und wähle die Ereignisse, für die Du Echtzeit-Benachrichtigungen erhalten willst.

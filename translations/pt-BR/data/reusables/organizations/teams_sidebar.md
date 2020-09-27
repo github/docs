@@ -1,0 +1,1 @@
+1. Na barra lateral de configurações, clique em **Teams** (Equipes). ![Aba de equipes na barra lateral de configurações da organização](/assets/images/help/settings/settings-sidebar-team-settings.png)

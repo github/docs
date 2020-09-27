@@ -1,0 +1,48 @@
+---
+title: XenServer で GitHub Enterprise Server をインストールする
+intro: '{{ site.data.variables.product.prodname_ghe_server }} を XenServer にインストールするには、{{ site.data.variables.product.prodname_ghe_server }} のディスクイメージを XenServer ホストに配備する必要があります。'
+redirect_from:
+  - /enterprise/admin/guides/installation/installing-github-enterprise-on-xenserver/
+  - /enterprise/admin/installation/installing-github-enterprise-server-on-xenserver
+versions:
+  enterprise-server: '*'
+---
+
+### 必要な環境
+
+- {{ site.data.reusables.enterprise_installation.software-license }}
+- {{ site.data.variables.product.prodname_ghe_server }} の仮想マシン (VM) を実行するマシンに、XenServer Hypervisor をインストールする必要があります。 バージョン 6.0 から 7.0 までをサポートしています。
+- 初期セットアップには、XenCenter Windows Management Consoleを使うことをおすすめします。 以下にXenCenter Windows Management Consoleの使い方を示します。 詳しい情報については、Citrixのガイド"[How to Download and Install a New Version of XenCenter](https://support.citrix.com/article/CTX118531)"を参照してください。
+
+### ハードウェアについて
+
+{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+
+### {{ site.data.variables.product.prodname_ghe_server }} イメージをダウンロードする
+
+{{ site.data.reusables.enterprise_installation.enterprise-download-procedural }}
+{{ site.data.reusables.enterprise_installation.download-license }}
+{{ site.data.reusables.enterprise_installation.download-appliance }}
+4. {{ site.data.variables.product.prodname_dotcom }}オンプレミスを選択し、続いて**XenServer (VHD)**をクリックしてください。
+5. ライセンスファイルをダウンロードするには**Download license（ライセンスのダウンロード）**をクリックしてください。
+
+### {{ site.data.variables.product.prodname_ghe_server }} インスタンスを作成する
+
+{{ site.data.reusables.enterprise_installation.create-ghe-instance }}
+
+1. XenCenter で、ダウンロードした {{ site.data.variables.product.prodname_ghe_server }} のイメージをインポートします。 手順については、XenCenter ガイドの「[ディスクイメージをインポートする](https://docs.citrix.com/en-us/xencenter/current-release/vms-importdiskimage.html)」を参照してください。
+    - "Enable Operating System Fixup"のステップでは、**Don't use Operating System Fixup**を選択してください。
+    - 終了したら、VMの電源をオフのままにしておいてください。
+{{ site.data.reusables.enterprise_installation.create-attached-storage-volume }} 手順については、XenCenter ガイドの「[仮想ディスクを追加する](https://docs.citrix.com/en-us/xencenter/current-release/vms-storage-addnewdisk.html)」を参照してください。
+
+### {{ site.data.variables.product.prodname_ghe_server }} インスタンスを設定する
+
+{{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
+{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
+{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }}詳しい情報については、「[{{ site.data.variables.product.prodname_ghe_server }} アプライアンスを設定する](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
+{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
+{{ site.data.reusables.enterprise_installation.visit-your-instance }}
+
+### 参考リンク
+
+ - "[システムの概要](/enterprise/admin/guides/installation/system-overview)"

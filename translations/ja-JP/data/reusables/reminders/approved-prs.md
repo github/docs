@@ -1,0 +1,1 @@
+1. あるいは、すでにレビューされて承認されたプルリクエストに対するスケジュールされたリマインダーをオフにするには、**Ignore approved pull requests（承認済みのプルリクエストを無視）**を選択してください。 そして、プルリクエストが無視されるために必要な承認数を選択するために**Ignore with 1 or more approvals（1つ以上の承認で無視）**をクリックしてください。 ![承認されたプルリクエストの無視のチェックボックス](/assets/images/help/settings/scheduled-reminders-ignore-approved-prs.png)

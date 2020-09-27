@@ -1,0 +1,131 @@
+header:
+  github_docs: GitHub Docs
+  contact: Contact
+  notices:
+    ghe_release_candidate:
+      GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    localization_complete:
+      We publish frequent updates to our documentation, and translation of this page may still be in progress.
+      For the most current information, please visit the
+      <a id="to-english-doc" href="/en">English documentation</a>.
+      If there's a problem with translations on this page, please
+      <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">let us know</a>.
+    localization_in_progress:
+      Hello, explorer! This page is under active development or
+      still in translation. For the most up-to-date and accurate information,
+      please visit our
+      <a id="to-english-doc" href="/en">English documentation</a>.
+    product_in_progress:
+      👋 Hello, explorer! This page is under active development. For the
+      most up-to-date and accurate information, please visit our <a href="https://developer.github.com">developer documentation</a>.
+search:
+  need_help: Need help?
+  placeholder: Search topics, products...
+homepage:
+  explore_by_product: Explore by product
+  version_picker: Version
+toc:
+  getting_started: Getting started
+  popular_articles: Popular articles
+  guides: Guides
+pages:
+  article_version: "Article version:"
+  miniToc: In this article
+errors:
+  oops: Ooops!
+  something_went_wrong: It looks like something went wrong.
+  we_track_errors: We track these errors automatically, but if the problem persists please feel free to contact us.
+  page_doesnt_exist: It looks like this page doesn't exist.
+support:
+  still_need_help: Still need help?
+  contact_support: Contact support
+  ask_community: Ask the GitHub community
+helpfulness:
+  able_to_find: Did this doc help you?
+  yes: Yes
+  no: No
+  yes_feedback: Want to learn about new docs features and updates? Sign up for updates!
+  email_placeholder: email@example.com
+  no_feedback: We're continually improving our docs. We'd love to hear how we can do better.
+  category_label: What problem did you have?
+  category_default: Choose an option
+  category_unclear: Information was unclear
+  category_confusing: The content was confusing
+  category_unhelpful: The article didn't answer my question
+  category_other: Other
+  comment_label: Let us know what we can do better
+  optional: Optional
+  required: Required
+  email_label: Can we contact you if we have more questions?
+  send: Send
+  feedback: Thank you! Your feedback has been submitted.
+contribution_cta:
+  title: Help us make these docs great!
+  body: All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+  button: Make a contribution
+  or: Or,
+  to_guidelines: learn how to contribute.
+products:
+  graphql:
+    reference:
+      fields: Fields
+      arguments: Arguments
+      name: Name
+      type: Type
+      description: Description
+      input_fields: Input fields
+      return_fields: Return fields
+      implemented_by: Implemented by
+      values: Values
+      possible_types: Possible types
+      preview_notice: Preview notice
+      deprecation_notice: Deprecation notice
+  rest:
+    reference:
+      parameters: Parameters
+      response: Response
+      code_sample: Code sample
+      code_samples: Code samples
+      preview_notice: Preview notice
+      preview_notices: Preview notices
+      see_preview_notice: See preview notice
+      see_preview_notices: See preview notices
+      preview_header_is_required: This header is <strong>required</strong>
+footer:
+  all_rights_reserved: All rights reserved
+  terms: Terms
+  privacy: Privacy
+  security: Security
+  product:
+    heading: Product
+    links:
+      features: Features
+      security: Security
+      enterprise: Enterprise
+      case_studies: Case Studies
+      pricing: Pricing
+      resources: Resources
+  platform:
+    heading: Platform
+    links:
+      developer_api: Developer API
+      partners: Partners
+      atom: Atom
+      electron: Electron
+      github_desktop: GitHub Desktop
+  support:
+    heading: Support
+    links:
+      help: Help
+      community_forum: Community Forum
+      training: Training
+      status: Status
+      contact_github: Contact GitHub
+  company:
+    heading: Company
+    links:
+      about: About
+      blog: Blog
+      careers: Careers
+      press: Press
+      shop: Shop

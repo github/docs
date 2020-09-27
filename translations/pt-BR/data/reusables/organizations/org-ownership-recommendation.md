@@ -1,0 +1,1 @@
+Projetos mantidos e gerenciados por um único proprietário da organização podem facilmente tornar-se inacessíveis se o proprietário da organização não estiver acessível. Recomendamos que uma organização tenha pelo menos duas pessoas com permissões de *owner* (proprietário) para garantir que ninguém perca o acesso a um projeto.

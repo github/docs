@@ -1,0 +1,1 @@
+1. Klicke unter Deinem Repositorynamen auf {% octicon "issue-opened" aria-label="The issues icon" %} **Issues** oder {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests**. ![Auswahl der Issue- und Pull-Request-Registerkarten](/assets/images/help/repository/repo-settings-issues-pull-requests.png)

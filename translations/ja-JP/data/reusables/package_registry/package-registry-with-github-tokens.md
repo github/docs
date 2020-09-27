@@ -1,0 +1,1 @@
+{{ site.data.variables.product.prodname_actions }}ワークフローを使っているなら、`GITHUB_TOKEN`を使い、個人アクセストークンを保存したり管理したりする必要なく{{ site.data.variables.product.prodname_registry }}内のパッケージの公開や利用ができます。 詳しい情報については「[`GITHUB_TOKEN`での認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。

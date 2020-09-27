@@ -1,0 +1,1 @@
+1. **Install it for free（無料でインストール）**、**Buy with {{ site.data.variables.product.prodname_dotcom }}（{{ site.data.variables.product.prodname_dotcom }}で購入）**、**Try free for 14 days（14日間無料トライアル）**のいずれかをクリックしてください。 ![{{ site.data.variables.product.prodname_dotcom }}で購入ボタン](/assets/images/help/marketplace/marketplace-buy-with-github-button.png)

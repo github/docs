@@ -1,0 +1,1 @@
+Os repositórios internos estão disponíveis com {{ site.data.variables.product.prodname_ghe_cloud }} e {{ site.data.variables.product.prodname_ghe_server }} 2.20+. Para obter mais informações, consulte os "<a href="/articles/githubs-products" class="dotcom-only">Produtos do GitHub</a>".

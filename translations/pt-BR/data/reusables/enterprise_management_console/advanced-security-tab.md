@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **{{ site.data.variables.product.prodname_advanced_security }}**. ![Barra lateral de segurança avançada](/assets/images/enterprise/management-console/sidebar-advanced-security.png)

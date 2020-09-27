@@ -1,0 +1,1 @@
+1. Collect the name and email address for each co-author.{% if currentVersion == "free-pro-team@latest" %} If a person chooses to keep their email address private, you should use their {{ site.data.variables.product.product_name }}-provided `no-reply` email to protect their privacy.{% endif %}

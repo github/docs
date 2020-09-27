@@ -1,0 +1,1 @@
+1. Selecione **Initialize this repository with a README** (Inicializar este repositório com um LEIAME). ![Caixa de seleção Initialize this repository with a README (Inicializar este repositório com um LEIAME)](/assets/images/help/repository/initialize-with-readme.png)

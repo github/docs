@@ -1,0 +1,1 @@
+Se o seu balanceador de carga puder apoiá-lo, recomendamos fortemente a implementação do protocolo PROXY. Quando não há suporte PROXY disponível, também é possível carregar o saldo das portas HTTP e HTTPS usando o cabeçalho `X-Forwarded-For`.

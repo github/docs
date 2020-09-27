@@ -1,0 +1,11 @@
+---
+title: Trabalhar com bifurcações
+intro: 'As bifurcações costumam ser usadas no desenvolvimento de código aberto no {{ site.data.variables.product.product_name }}.'
+mapTopic: true
+redirect_from:
+  - /articles/working-with-forks
+versions:
+  free-pro-team: '*'
+  enterprise-server: '*'
+---
+

@@ -1,0 +1,1 @@
+1. Sob o nome da sua conta, clique em {% octicon "gear" aria-label="The Settings gear" %} **Settings**. ![Aba de configurações na página do perfil da empresa](/assets/images/help/business-accounts/business-account-settings-tab.png)

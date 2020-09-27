@@ -1,0 +1,1 @@
+1. Unter „Code scanning“ (Code durchsuchen) klicke auf die Warnung, die Du anzeigen möchtest. ![Liste der Warnungen von {{ site.data.variables.product.prodname_code_scanning }}](/assets/images/help/repository/code-scanning-click-alert.png)

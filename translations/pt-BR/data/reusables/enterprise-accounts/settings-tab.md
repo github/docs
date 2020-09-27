@@ -1,0 +1,1 @@
+1. Na barra lateral da conta corporativa, clique em {% octicon "gear" aria-label="The Settings gear" %} **Settings**. ![Aba de configurações na barra lateral de contas corporativas](/assets/images/help/business-accounts/enterprise-account-settings-tab.png)

@@ -1,0 +1,1 @@
+1. Klicke neben der ausstehenden Änderung, die Du abbrechen möchtest, auf **Cancel** (Abbrechen). ![Link „Cancel“ (Abbrechen) neben einer ausstehenden Abonnementänderung](/assets/images/help/billing/cancel-pending-changes-link.png)

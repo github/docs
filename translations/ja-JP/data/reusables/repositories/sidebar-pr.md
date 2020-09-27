@@ -1,0 +1,1 @@
+1. リポジトリ名の下にある {% octicon "git-pull-request" aria-label="The pull request icon" %}**Pull requests（プルリクエスト）**をクリックしてください。 ![Issue とプルリクエストのタブの選択](/assets/images/help/repository/repo-tabs-pull-requests.png)

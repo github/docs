@@ -1,0 +1,1 @@
+1. Klicke auf der linken Seitenleiste auf **License** (Lizenz). ![Registerkarte „License" (Lizenz) auf der Seitenleiste der Einstellungen von 'Enterprise Server'](/assets/images/enterprise/business-accounts/license-tab.png)

@@ -1,0 +1,1 @@
+Apenas integrantes da organização com função de [*proprietário*](/articles/permission-levels-for-an-organization) ou [*gerente de cobrança*](/articles/adding-a-billing-manager-to-your-organization) podem acessar ou alterar as configurações de cobrança da organização.

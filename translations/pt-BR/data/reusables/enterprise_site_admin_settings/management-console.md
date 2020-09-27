@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **{{ site.data.variables.enterprise.management_console }}**. ![{{ site.data.variables.enterprise.management_console }} aba na barra lateral esquerda](/assets/images/enterprise/management-console/management-console-tab.png)

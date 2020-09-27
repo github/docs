@@ -1,0 +1,1 @@
+1. Clique em **Discard Changes** (Descartar alterações) ou **Discard Selected Changes** (Descartar alterações selecionadas) para descartar as alterações em um ou mais arquivos ou clique em **Discard All Changes** (Descartar todas as alterações) para descartar alterações em todos os arquivos desde o último commit.

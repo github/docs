@@ -1,0 +1,1 @@
+1. Klicke beim Pull Request auf {% octicon "diff" aria-label="The file diff icon" %} **Files changed** (Dateien geändert). ![Registerkarte „Files Changed" (Dateien geändert)](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)

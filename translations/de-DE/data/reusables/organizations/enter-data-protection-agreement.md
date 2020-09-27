@@ -1,0 +1,1 @@
+Eine Entität, die den Unternehmensnutzungsbedingungen für eine Organisation zugestimmt hat, kann eine Datenschutzvereinbarung mit {{ site.data.variables.product.prodname_dotcom }} in Bezug auf die Einhaltung der Datenschutz-Grundverordnung (DSGVO) abschließen.

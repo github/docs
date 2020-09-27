@@ -1,0 +1,1 @@
+When you disable {{ site.data.variables.product.prodname_actions }}, no workflows run in your repository.

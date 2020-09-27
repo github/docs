@@ -1,0 +1,3 @@
+5. Um die Teamsynchronisierung zu bestätigen:
+    - Wenn Du IdP-Zugriff hast, klicke auf **Enable team synchronization** (Teamsynchronisierung aktivieren). Du wirst auf die SAML SSO-Seite Deines Identity Providers weitergeleitet und dort zur Auswahl Deines Kontos und zur Überprüfung der angeforderten Berechtigungen aufgefordert.
+    - Wenn Du keinen IdP-Zugriff hast, kopiere den IdP-Weiterleitungs-Link und teile ihm mit Deinem IdP-Administrator, um weiterhin die Teamsynchronisierung aktivieren zu können. ![Weiterleitungs-Schaltfläche „Enable team synchronization" (Aktivieren der Teamsynchronisierung)](/assets/images/help/teams/confirm-team-synchronization-redirect.png)

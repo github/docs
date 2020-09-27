@@ -1,0 +1,1 @@
+A configuração desta opção também afetará as pull requests para atualizações de segurança nos arquivos de manifesto deste gerenciador de pacotes, a menos que você use `target-branch` para verificar se há atualizações de versão em um branch não-padrão.

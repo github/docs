@@ -1,0 +1,36 @@
+name: Check all English links
+
+on:
+  schedule:
+    - cron:  "40 19 * * *" # once a day at 19:40 UTC / 11:40 PST
+
+jobs:
+  check_all_english_links:
+    name: Check all links
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: npm ci
+      run: npm ci
+    - name: npm run build
+      run: npm run build
+    - name: Run script
+      run: script/check-external-links en > broken_links.md
+    - name: Check if any broken links
+      id: check
+      run: |
+        if [ "$(grep 'All links are good' broken_links.md)" ]; then
+          echo ::set-output name=continue::no
+        else
+          echo "::set-output name=continue::yes"
+          echo "::set-output name=title::$(grep 'found on help.github.com' broken_links.md)"
+        fi
+    - if: ${{ steps.check.outputs.continue == 'yes' }}
+      name: Create issue from file
+      uses: peter-evans/create-issue-from-file@v2
+      with:
+        token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+        title: ${{ steps.check.outputs.title }}
+        content-filepath: ./broken_links.md
+        labels: broken link report

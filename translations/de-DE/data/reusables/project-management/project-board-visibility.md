@@ -1,0 +1,1 @@
+Standardmäßig ist Dein Projektboard privat und nur für Personen mit Lese-, Schreib- oder Administratorberechtigungen für das Projektboard sichtbar. Ein öffentliches Projektboard ist für jeden sichtbar, der die URL des Projektboards hat.

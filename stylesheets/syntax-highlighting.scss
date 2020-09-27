@@ -1,0 +1,100 @@
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+from https://unpkg.com/highlight.js@9.15.8/styles/github.css
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: $gray-900;
+  background: $gray-000;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: $gray-500;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: $gray-900;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: $green-700;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: $blue-600;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: $red-800;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: $blue-700;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: $blue-700;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: $green-700;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: $purple-500;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: $blue-700;
+}
+
+.hljs-meta {
+  color: $gray-500;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: $red-200;
+}
+
+.hljs-addition {
+  background: $green-200;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

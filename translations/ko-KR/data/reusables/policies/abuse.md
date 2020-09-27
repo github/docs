@@ -1,0 +1,1 @@
+{{ site.data.variables.product.prodname_dotcom }} does not tolerate abuse.{% if currentVersion == "free-pro-team@latest" %} For more information on {{ site.data.variables.product.prodname_dotcom }}'s policies, see our [Terms of Service](/articles/github-terms-of-service) and [Community Guidelines](/articles/github-community-guidelines).{% endif %}

@@ -1,0 +1,134 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+# The script is run once per day via a scheduled GitHub Action to check all links in the site. It automatically opens an issue if it finds broken links.
+# To exclude a URL from the link check, add it to `lib/excluded-links.js`.
+#
+# For checking internal links, see `script/check-internal-links`.
+# [end-readme]
+
+internal=""
+while getopts "h?i" opt; do
+  case "${opt}" in
+    h|\?) echo "Usage:"
+          echo "    script/check-external-links [OPTIONS] [two-letter language code]"
+          echo ""
+          echo "    script/check-external-links -i              Check internal links. Without this flag, check all links."
+          echo "    script/check-external-links -h              Display this help message."
+          exit 0
+          ;;
+    i) internal=" --internalOnly"
+       ;;
+  esac
+done
+shift $((OPTIND -1))
+
+if [ -z "${1}" ]
+then
+  echo "error: must provide two-letter language code"
+  exit 1
+fi
+
+languageCode=${1}
+
+# Pass options to script to construct blc command
+blcCommand="$(./script/get-blc-command.js ${internal} --language ${languageCode})"
+
+# Exit if script returned an error
+if test $? -eq 1
+then
+	exit 1
+fi
+
+# Determine logfile name based on options
+logfile=""
+if [ -z "${internal}" ]
+then
+  logfile="blc_output.log"
+else
+  logfile="blc_output_internal.log"
+fi
+
+# Kill any server running in the background, then start the server
+killall node >/dev/null 2>&1
+node server.js >/dev/null &
+sleep 5
+
+host="http://localhost:4000"
+
+# Check whether localhost is accessible
+hostStatus=$(curl -I --silent "${host}" | head -1)
+isHostOK=$(echo "${hostStatus}" | grep "[2|3][0-9][0-9]")
+if [ -z "${isHostOK}" ]
+then
+  echo "Can't connect to ${host}!"
+  echo ${hostStatus}
+  echo ${isHostOK}
+  exit 1
+fi
+
+# Execute blc and save output
+${blcCommand[@]} > ${logfile}
+
+# We're done with the server now, so end the process
+# killall node will also terminate this script, so find and kill the specific pid
+pid=$(ps aux | grep "node server.js" | grep -v "grep" | awk '{ print $2 }'); kill -INT $pid >/dev/null 2>&1
+
+# Recheck "403 Forbidden" results due to a bug
+# https://github.com/stevenvachon/broken-link-checker/issues/58
+# Also recheck "429" GitHub results
+urlsToRecheck=$(egrep "HTTP_4(03|29)" ${logfile} | grep -o "http.* ")
+
+if [ ! -z "${urlsToRecheck}" ]
+then
+  for url in ${urlsToRecheck}
+  do
+    # Curl each URL and grep for 4xx or 5xx in status code response
+    status=$(curl -I --silent "${url}" | head -1 | grep "[4|5][0-9][0-9]")
+    if [ -z "${status}" ]
+    then
+      # If no 4/5xx found, the link is NOT really broken, so remove it from the list
+      # This command needs to work in all implementations of sed (Mac/GNU/etc)
+      sed -i'.bak' -e "s|^.*$url.*$||" ${logfile}
+      # Remove backup file
+      find . -name "${logfile}.bak" | xargs rm
+    fi
+  done
+fi
+
+# Count number of broken links in output
+# Ignore "308 Permanent Redirect" results, which are not actually broken
+numberOfBrokenLinks=$(grep "BROKEN" ${logfile} | grep -vc HTTP_308)
+brokenLinks=$(grep "BROKEN" ${logfile} | grep -v HTTP_308)
+
+# If broken links are found, exit with status 1 so the check run fails
+if [ ${numberOfBrokenLinks} -gt 0 ]
+then
+  # Print "links" or "link" in message depending on the number found
+  if [ ${numberOfBrokenLinks} -gt 1 ]
+  then
+    linkOrLinks="links"
+  else
+    linkOrLinks="link"
+  fi
+  echo -e "\n${numberOfBrokenLinks} broken ${linkOrLinks} found on help.github.com\n"
+  echo -e "Note: links that start with 'http://localhost:4000/' are internal links.\n"
+
+  # List broken links
+  echo "${brokenLinks}"
+
+  # Update final number of broken links
+  echo -e "\n$(tail -2 ${logfile})" | sed "s|. [0-9]* broken.|. ${numberOfBrokenLinks} broken.|"
+
+  # Exit without failure when checking all links so script/open-broken-links-issue can run
+  if [ -z "${internal}" ]
+  then
+    exit 0
+  else
+    exit 1
+  fi
+else
+  echo "All links are good!"
+  echo -e "\n$(tail -2 ${logfile})"
+  exit 0
+fi

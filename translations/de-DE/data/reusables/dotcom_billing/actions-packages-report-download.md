@@ -1,0 +1,1 @@
+1. Optional klicke auf **Get usage report** (Nutzungsbericht abrufen) um einen CSV-Bericht zur Speichernutzung für {{ site.data.variables.product.prodname_actions }} und {{ site.data.variables.product.prodname_registry }} an die primäre E-Mail-Adresse des Kontos zu senden. ![CSV-Bericht herunterladen](/assets/images/help/billing/actions-packages-report-download.png)

@@ -1,0 +1,1 @@
+Permitir que los miembros vean los nombres de perfil en los autores de comentarios se encuentra disponible con {{ site.data.variables.product.prodname_team }}, {{ site.data.variables.product.prodname_ghe_server }} 2.18+, y {{ site.data.variables.product.prodname_ghe_cloud }}. Para obtener más información, consulta la sección "[Productos de GitHub](/articles/githubs-products)".

@@ -1,0 +1,1 @@
+Nachdem Du einen Codespace eröffnet hast, kannst Du mithilfe von {{ site.data.variables.product.prodname_vscode }}-Funktionen wie Textbearbeitung, Fehlersuche und Git-Befehlen weiterentwickeln. Weitere Informationen findest Du in der [{{ site.data.variables.product.prodname_vscode }}-Dokumentation](https://code.visualstudio.com/docs).

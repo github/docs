@@ -1,0 +1,3 @@
+Si no estás seguro si {{ site.data.variables.product.prodname_ghe_server }}, {{ site.data.variables.product.prodname_ghe_cloud }}, o ambos son la mejor opción para tu organización, contacta a {{ site.data.variables.contact.contact_enterprise_sales }}.
+
+Las organizaciones con 12 o más programadores normalmente se benefician más con {{ site.data.variables.product.prodname_enterprise }}. Si tu organización tiene 11 o menos desarrolladores, considera {{ site.data.variables.product.prodname_team }}. Para obtener más información, consulta los productos de "<a href="/articles/githubs-products/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }}</a>"

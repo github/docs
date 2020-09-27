@@ -1,0 +1,1 @@
+Las cuentas empresariales se encuentran disponibles con {{ site.data.variables.product.prodname_ghe_cloud }} y {{ site.data.variables.product.prodname_ghe_server }}. {% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta la sección "[Acerca de las cuentas empresariales](/articles/about-enterprise-accounts)".{% endif %}

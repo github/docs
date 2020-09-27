@@ -1,0 +1,1 @@
+You can create a branch rule in a repository for a specific branch, all branches, or any branch that matches a naming pattern specified with the fnmatch syntax. For example, to require any branch containing the word `release` to have at least two pull request reviews before merging, you can create a branch rule for `*release*`.

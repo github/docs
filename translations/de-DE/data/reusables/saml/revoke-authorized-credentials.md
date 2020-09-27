@@ -1,0 +1,1 @@
+1. Um Anmeldeinformationen zu widerrufen, klicke rechts neben den Anmeldeinformationen, die Du widerrufen möchtest, auf „**Revoke**" (Widerrufen). ![Schaltfläche „Revoke" (Widerrufen)](/assets/images/help/saml/revoke-credentials.png)

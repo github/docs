@@ -1,0 +1,1 @@
+Password-based authentication for Git is deprecated, and we recommend using a personal access token (PAT) when prompted for a password instead, which is more secure. Treat your token just like a password. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."

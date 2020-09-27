@@ -1,0 +1,1 @@
+1. Klicke auf **Discard Changes** (Änderungen verwerfen) oder **Discard Selected Changes** (Ausgewählte Änderungen verwerfen), um Änderungen in mindestens einer Datei zu verwerfen, oder klicke auf **Discard All Changes** (Alle Änderungen verwerfen), um die seit dem letzten Commit an allen Dateien vorgenommenen Änderungen zu verwerfen.

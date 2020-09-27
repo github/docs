@@ -1,0 +1,1 @@
+5. Um Deine E-Mail-Adresse bei webbasierten Git-Operationen privat zu halten, klicke auf **Keep my email address private** (Meine E-Mail-Adresse privat halten). ![Bild des Kontrollkästchens, um Deine E-Mail-Adresse privat zu halten](/assets/images/help/settings/email_privacy.png)

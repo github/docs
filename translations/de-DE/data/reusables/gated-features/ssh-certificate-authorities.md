@@ -1,0 +1,1 @@
+Unterstützung für SSH-Zertifizierungsstellen ist verfügbar mit {{ site.data.variables.product.prodname_ghe_cloud }} und {{ site.data.variables.product.prodname_ghe_server }} 2.19+. Weiter Informationen findest Du unter „[GitHub Produkte](/articles/githubs-products)."

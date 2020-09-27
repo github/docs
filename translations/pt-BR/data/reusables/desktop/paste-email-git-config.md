@@ -1,0 +1,1 @@
+1. No campo **Email** (E-mail), cole o endereço de e-mail que você copiou das suas configurações de conta do {{ site.data.variables.product.prodname_dotcom }} ou do {{ site.data.variables.product.prodname_enterprise }}.

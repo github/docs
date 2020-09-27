@@ -1,0 +1,10 @@
+| Inhalt     | emoji      |
+| ---------- | ---------- |
+| `+1`       | :+1:       |
+| `-1`       | :-1:       |
+| `lachen`   | :smile:    |
+| `verwirrt` | :confused: |
+| `heart`    | :heart:    |
+| `jubeln`   | :tada:     |
+| `Rakete`   | :rocket:   |
+| `Augen`    | :eyes:     |

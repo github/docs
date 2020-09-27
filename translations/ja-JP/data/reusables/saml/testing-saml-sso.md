@@ -1,0 +1,1 @@
+Organization で SAML SSO をセットアップする場合には、**Require SAML SSO authentication for all members of the _organization name_ organization（organization name Organization の全メンバーに対して SAML SSO 認証を必須とする）**のチェックを外したままにおくことによって、Organization のメンバーに影響を与えることなく実装をテストできます。

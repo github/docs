@@ -1,0 +1,1 @@
+Konten- oder Sicherheitsprobleme mit Deiner Organisation oder Deinem Unternehmen auf {{ site.data.variables.product.prodname_ghe_cloud }} haben nur begrenzte Auswirkungen auf Dein Unternehmen.

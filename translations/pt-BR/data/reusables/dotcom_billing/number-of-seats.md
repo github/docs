@@ -1,0 +1,1 @@
+1. Em "Add seats" (Adicionar estações), digite o número de estações que você deseja adicionar. ![Add seats input](/assets/images/help/billing/add-seats-amount.png)

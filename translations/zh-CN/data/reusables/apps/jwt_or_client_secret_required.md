@@ -1,0 +1,1 @@
+GitHub 应用程序必须使用 [JWT](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) 才能访问此端点。 OAuth 应用程序必须使用[基本身份验证](/v3/auth/#basic-authentication)及其客户端 ID 和客户端密钥才能访问此端点。

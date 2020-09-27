@@ -1,0 +1,1 @@
+Por motivos de segurança, o suporte do {{ site.data.variables.product.product_name }} pode não conseguir restaurar o acesso a contas com a autenticação de dois fatores habilitada caso você perca as suas credenciais da autenticação de dois fatores ou o acesso aos seus métodos de recuperação de conta.

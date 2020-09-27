@@ -1,0 +1,1 @@
+Si las confirmaciones que haces en {{ site.data.variables.product.prodname_desktop }} se asocian con la cuenta incorrecta de {{ site.data.variables.product.product_name }}, actualiza la dirección de correo electrónico en tu configuración de Git utilizando {{ site.data.variables.product.prodname_desktop }}.

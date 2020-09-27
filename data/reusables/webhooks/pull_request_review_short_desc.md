@@ -1,0 +1,1 @@
+Activity related to pull request reviews. {{ site.data.reusables.webhooks.action_type_desc }} For more information, see the "[pull request reviews](/v3/pulls/reviews/)" REST API.

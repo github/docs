@@ -1,0 +1,1 @@
+Depois de abrir um código, você pode desenvolver usando recursos do {{ site.data.variables.product.prodname_vscode }}, como edição de texto, depuração e comandos Git. For more information, see the [{{ site.data.variables.product.prodname_vscode }} documentation](https://code.visualstudio.com/docs).

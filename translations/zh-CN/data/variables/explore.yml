@@ -1,0 +1,7 @@
+---
+explore_github: >-
+  {% if currentVersion == "free-pro-team@latest" %}[探索 GitHub](https://github.com/explore){% else %}探索 GitHub (`https://[hostname]/explore`){% endif %}
+your_stars_page: >-
+  {% if currentVersion == "free-pro-team@latest" %}[星级页面](https://github.com/stars){% else %}星级页面 (`https://[hostname]/stars`){% endif %}
+trending_page: >-
+  {% if currentVersion == "free-pro-team@latest" %}[趋势页面](https://github.com/trending){% else %}趋势页面 (`https://[hostname]/trending`){% endif %}

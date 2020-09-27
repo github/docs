@@ -1,0 +1,1 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果你的仓库中有需要线性提交历史记录的受保护分支规则，必须允许压缩合并和/或变基合并。 更多信息请参阅“[需要线性提交历史记录](/github/administering-a-repository/requiring-a-linear-commit-history)”。{% endif %}

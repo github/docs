@@ -1,0 +1,11 @@
+---
+advanced_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}Seite für [erweiterte Suche](https://github.com/search/advanced){% else %}Seite für erweiterte Suche („https://[Hostname]/search/advanced“){% endif %}
+search_page_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Suchseite](https://github.com/search){% else %}Suchseite („https://[Hostname]/search“){% endif %}
+search_highlighting_link: >-
+  Für weitere Details, wie man hervorgehobene Suchergebnisse erhält, siehe [Textübereinstimmung mit Metadaten](#text-match-metadata).
+search_query_description: >-
+  Die Suchanfrage enthält ein oder mehrere Suchbegriffe und Qualifizierer. Qualifizierer erlauben Dir, die Suche auf spezifische Bereiche auf GitHub einzuschränken. Das REST-API unterstützt die gleichen Qualifizierer wie GitHub.com. Um mehr über das Format der Abfrage zu erfahren, siehe [Eine Suchanfrage erstellen](#constructing-a-search-query).
+order_description: >-
+  Legt fest, ob das erste zurückgegebene Suchergebnis die höchste Anzahl von Übereinstimmungen (`desc`) (absteigend) oder die niedrigste Anzahl von Übereinstimmungen (`asc`) (aufsteigend) enthält. Dieser Parameter wird ignoriert, es sei denn, Du gibst `sort` mit. Der Standardwert ist `desc` (absteigend)

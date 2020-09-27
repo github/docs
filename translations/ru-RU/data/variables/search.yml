@@ -1,0 +1,11 @@
+---
+advanced_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[advanced search](https://github.com/search/advanced) page{% else %}advanced search page (`https://[hostname]/search/advanced`){% endif %}
+search_page_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search) page{% else %}search page (`https://[hostname]/search`){% endif %}
+search_highlighting_link: >-
+  For more details about how to receive highlighted search results, see [Text match metadata](#text-match-metadata).
+search_query_description: >-
+  The query contains one or more search keywords and qualifiers. Qualifiers allow you to limit your search to specific areas of GitHub. The REST API supports the same qualifiers as GitHub.com. To learn more about the format of the query, see [Constructing a search query](#constructing-a-search-query).
+order_description: >-
+  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`. Default: `desc`

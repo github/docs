@@ -1,0 +1,1 @@
+1. Under "Ignored terms", type a comma-separated list of terms that may appear in titles of pull requests. Scheduled reminders won't include any pull requests that contain one or more of these terms in their titles. ![Ignored terms field](/assets/images/help/settings/scheduled-reminders-ignored-terms-field.png)

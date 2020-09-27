@@ -1,0 +1,1 @@
+Llama a esta terminal utilizando el marcador `-v`, el cual habilita la salida verbosa y te permite ver la URL de descarga en el encabezado. Para descargar el archivo en el directorio de trabajo actual, especifica el nombre de archivo utilizando el marcador `-o`.

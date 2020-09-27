@@ -1,0 +1,1 @@
+Support for SSH certificate authorities is available with {{ site.data.variables.product.prodname_ghe_cloud }} and {{ site.data.variables.product.prodname_ghe_server }} 2.19+. For more information, see "[GitHub's products](/articles/githubs-products)."

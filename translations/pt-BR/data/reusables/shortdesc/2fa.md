@@ -1,0 +1,1 @@
+Se você tiver configuração de autenticação de dois fatores, a autenticação básica para este ponto de extremidade exigirá que você use uma senha única (OTP) e seu nome de usuário e senha em vez de tokens. Para obter mais informações, consulte "[Trabalhando com autenticação de dois fatores](/v3/auth/#working-with-two-factor-authentication)".

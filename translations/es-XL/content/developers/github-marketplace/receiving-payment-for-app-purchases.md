@@ -1,0 +1,20 @@
+---
+title: Recibir pagos por las compras de las apps
+intro: 'Al final de cada mes, recibiras los pagos de tus listados de {{ site.data.variables.product.prodname_marketplace }}.'
+redirect_from:
+  - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
+  - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
+  - /apps/marketplace/pricing-payments-and-free-trials/receiving-payment-for-a-github-marketplace-listing/
+  - /apps/marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings/
+  - /marketplace/selling-your-app/receiving-payment-for-github-marketplace-listings
+versions:
+  free-pro-team: '*'
+---
+
+
+
+Después de que se cree y apruebe tu listado de {{ site.data.variables.product.prodname_marketplace }}, proporcionaras los detalles de pago a {{ site.data.variables.product.product_name }} como parte del proceso de incorporación.
+
+Una vez que tu ganancia alcance un mínimo de $500 dólares. S. Durante el mes, recibirás un pago electrónico de {{ site.data.variables.product.product_name }} por 75% del precio de las ventas.
+
+{{ site.data.reusables.apps.marketplace_revenue_share }}

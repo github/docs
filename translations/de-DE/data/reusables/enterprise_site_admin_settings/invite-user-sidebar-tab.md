@@ -1,0 +1,1 @@
+1. Klicke in der linken Seitenleiste auf **Invite user** (Benutzer einladen). ![Registerkarte „Invite user" (Benutzer einladen) in der Websiteadministrator-Konsole](/assets/images/enterprise/site-admin-settings/invite-user.png)

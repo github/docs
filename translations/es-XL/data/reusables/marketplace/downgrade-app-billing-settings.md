@@ -1,0 +1,1 @@
+1. Debajo de "Tu suscripción", junto a la aplicación a la cual quieres bajar, utiliza el menú desplegable de Editar y da clic en **Cambiar plan** o **Cancelar plan**. ![Enlace de editar en la sección de Compras de Marketplace para la configuración de facturación en tu cuenta personal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

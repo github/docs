@@ -1,0 +1,1 @@
+1. Under the name of the application, click **Sign on**. ![Okta 应用程序的"Sign on（登录）"选项卡](/assets/images/help/saml/okta-sign-on-tab.png)

@@ -1,0 +1,1 @@
+1. Under the name of the application, click **Provisioning**. ![Okta 应用程序的"Provisioning（配置）"选项卡](/assets/images/help/saml/okta-provisioning-tab.png)

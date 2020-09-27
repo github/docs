@@ -1,0 +1,1 @@
+リポジトリ管理者は、ブランチの保護を有効化できます。 保護されたブランチで作業しているなら、ブランチを削除したり、ブランチにフォースプッシュしたりすることはできません。 Repository administrators can enable other protected branch settings to enforce specific workflows before a branch can be merged. 詳しい情報については[保護されたブランチについて](/articles/about-protected-branches)を参照してください。

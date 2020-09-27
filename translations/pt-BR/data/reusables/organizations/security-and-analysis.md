@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **Security & analysis** (Segurança e análise). !["Security & analysis" (Segurança e análise) aba nas configurações da organização](/assets/images/help/organizations/org-settings-security-and-analysis.png)

@@ -1,0 +1,1 @@
+Por padrão, o cliente {{ site.data.variables.large_files.product_name_long }} armazena grandes ativos no mesmo servidor que hospeda o repositório Git. Quando o {{ site.data.variables.large_files.product_name_short}} é ativado no appliance {{ site.data.variables.product.prodname_ghe_server }} grandes ativos são armazenados na partição de dados em `/data/user/storage`.

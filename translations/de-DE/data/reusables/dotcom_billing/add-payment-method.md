@@ -1,0 +1,1 @@
+1. Klicke unter „Billing information“ (Abrechnungsinformationen) auf **Add a payment method** (Zahlungsmethode hinzufügen). ![Link zum Hinzufügen einer Zahlungsmethode](/assets/images/help/billing/add-payment-method.png)

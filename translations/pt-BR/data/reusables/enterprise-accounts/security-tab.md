@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **Security** (Segurança). ![Security tab in the enterprise account settings sidebar](/assets/images/help/business-accounts/enterprise-account-settings-security-tab.png)

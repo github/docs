@@ -1,0 +1,1 @@
+4. Wähle, ob Du via E-Mail Aktualisierungen vom unterstützten Entwickler erhalten möchtest, und aktiviere oder deaktiviere dann „Receive updates from _DEVELOPER_" (Aktualisierungen vom Entwickler erhalten) ![Kontrollkästchen für den Empfang von Aktualisierungen von unterstützten Entwicklern](/assets/images/help/sponsors/updates-checkbox-manage.png)

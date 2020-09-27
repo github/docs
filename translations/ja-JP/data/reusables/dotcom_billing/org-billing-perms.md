@@ -1,0 +1,1 @@
+[*オーナー*](/articles/permission-levels-for-an-organization)あるいは[*支払いマネージャー*](/articles/adding-a-billing-manager-to-your-organization)ロールを持っている Organization のメンバーだけが、Organization の支払い設定へのアクセスあるいは変更が可能です。

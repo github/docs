@@ -1,0 +1,1 @@
+Du überwachst automatisch alle Repositorys, die Du erstellst und die Deinem Benutzerkonto gehören. Du kannst auch automatisch alle Repositorys überwachen, auf die Du Push-Zugriff hast, mit Ausnahme von Forks. Alle anderen Repositorys kannst Du manuell überwachen.

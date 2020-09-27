@@ -1,0 +1,1 @@
+1. Überprüfe unter „Payment history“ (Zahlungsverlauf) Deine vergangenen Zahlungen. Klicke zum Herunterladen einer Quittung für eine bestimmte Zahlung auf {% octicon "download" aria-label="The download icon" %}. ![Schaltfläche „Download Receipt" (Herunterladen der Quittung)](/assets/images/help/settings/settings-download-receipt.png)

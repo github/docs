@@ -1,0 +1,1 @@
+1. Se você estiver usando um nó offline que tenha `git-server = true` definido em cluster.conf, remova o nó. Para obter mais informações, consulte "[Evacuating a cluster node](/enterprise/{{ currentVersion }}/admin/clustering/evacuating-a-cluster-node)."

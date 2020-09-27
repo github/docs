@@ -1,0 +1,10 @@
+| conteúdo   | emoji      |
+| ---------- | ---------- |
+| `+1`       | :+1:       |
+| `-1`       | :-1:       |
+| `laugh`    | :smile:    |
+| `confused` | :confused: |
+| `coração`  | :heart:    |
+| `hooray`   | :tada:     |
+| `rocket`   | :rocket:   |
+| `eyes`     | :eyes:     |

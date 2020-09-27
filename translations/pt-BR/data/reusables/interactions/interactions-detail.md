@@ -1,0 +1,1 @@
+Quando as restrições são ativadas, apenas o grupo especificado de {{ site.data.variables.product.product_name }} os usuários serão capazes de participar de interações. As restrições expiram 24 horas a partir do momento que são estabelecidas.

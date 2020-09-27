@@ -1,0 +1,181 @@
+/* Grid-based layout
+------------------------------------------------------------------------------*/
+
+.article-grid-container {
+  max-width: 720px;
+
+  @include breakpoint(xl) {
+    max-width: none;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: minmax(500px, 720px) minmax(220px, 1fr);
+    grid-template-areas:
+    'top right-sidebar'
+    'bottom right-sidebar';
+    column-gap: $spacer-6;
+  }
+
+  @include breakpoint(xl) {
+    column-gap: $spacer-9;
+  }
+}
+
+.article-grid-toc {
+  grid-area: right-sidebar;
+}
+
+.article-grid-toc-content {
+  @include breakpoint(xl) {
+    position: sticky;
+    top: $spacer-4;
+    max-height: calc(100vh - #{$spacer-4});
+    overflow-y: auto;
+    padding-bottom: $spacer-4;
+  }
+}
+
+.article-grid-head {
+  grid-area: top;
+}
+
+.article-grid-body {
+  grid-area: bottom;
+}
+
+/* Deprecation banner
+------------------------------------------------------------------------------*/
+.deprecation-banner {
+
+  & + .alert {
+    margin-top: 5px;
+  }
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  + #bootcamp {
+    margin-top: 20px;
+  }
+
+  b,
+  strong {
+    font-weight: bold;
+  }
+
+  p {
+   margin: 0;
+  }
+}
+
+/* Code style overrides
+------------------------------------------------------------------------------*/
+
+.markdown-body .highlight pre, .markdown-body pre {
+  margin-top: 10px;
+}
+
+.height-constrained-code-block pre {
+  max-height: 500px;
+  overflow: auto;
+}
+
+/* Breadcrumbs
+------------------------------------------------------------------------------*/
+
+.breadcrumbs a:not(:last-child)::after{
+  content: '/';
+  color: $gray-400;
+  padding-right: $spacer-1;
+  padding-left: $spacer-2;
+  display:inline-block;
+}
+
+/* Numbered procedures (step 1, step 2, ...)
+------------------------------------------------------------------------------*/
+
+.markdown-body ol {
+  counter-reset: li;
+  list-style: none;
+  position: relative;
+  padding-bottom: 10px;
+  padding-left: 0;
+}
+
+.markdown-body ol > li {
+  padding: 15px 0 15px 55px;
+  position: relative;
+  margin-bottom: 5px;
+  border-top: 3px solid #EEE;
+}
+
+.markdown-body ol > li:before {
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 100%;
+  width: 30px;
+  padding: 0 10px 0 0;
+  color: #999;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: right;
+}
+
+.markdown-body ol > li > p {
+  margin: 0;
+}
+
+.markdown-body ol > li > p:first-child {
+  margin-top: 0;
+}
+
+.markdown-body ol > li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.procedural-image-wrapper {
+  display: block;
+  padding: 10px 0;
+  margin: 20px auto 0 auto;
+}
+
+.procedural-image-wrapper img {
+  border-radius: 5px;
+  border: 2px solid #EEE;
+  width: auto;
+  height: auto;
+  max-height: 500px;
+}
+
+// make sure images that contain emoji render at the expected size
+img[src*="https://github.githubassets.com/images/icons/emoji"] {
+  height: 20;
+  width: 20;
+  align: absmiddle;
+}
+
+/* Notes, tips, warning, and danger styles
+------------------------------------------------------------------------------*/
+
+.note,
+.tip,
+.warning,
+.danger {
+  // remove extra space under lists inside of notes
+  ul, ol {
+    margin-bottom: 0;
+  }
+}

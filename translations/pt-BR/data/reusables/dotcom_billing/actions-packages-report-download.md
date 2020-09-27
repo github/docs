@@ -1,0 +1,1 @@
+1. Opcionalmente, clique em **Get usage report** (Obter relatório de uso) para enviar um relatório CSV de armazenamento para {{ site.data.variables.product.prodname_actions }} e {{ site.data.variables.product.prodname_registry }} para o endereço de e-mail principal da conta. ![Baixar relatório em CSV](/assets/images/help/billing/actions-packages-report-download.png)

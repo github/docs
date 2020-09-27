@@ -1,0 +1,4 @@
+1. Unter "Was ist Dein Ziel?", wähle **Anzahl der Sponsoren** oder **Sponsorenbeitrag pro Monat**. ![Verfügbare Ziel-Typen ](/assets/images/help/sponsors/select-goal-type.png)
+2. Gib die Anzahl der Sponsoren ein, die Du haben möchtest, oder den gewünschten monatlichen Betrag, den Du anstrebst.
+3. Gib unter „Describe your goal" (Beschreibe Dein Ziel) eine Beschreibung für Dein Ziel ein. ![Zielsetzungen](/assets/images/help/sponsors/goal-settings.png)
+5. Wenn Du ein Ziel basierend auf Sponsoren-Beiträgen pro Monat auswählst, wähle „I understand that this will publicly display how much sponsorship funds I receive each month" (Ich verstehe, dass dies öffentlich anzeigt, wie viele Sponsoren-Beiträge ich monatlich erhalte). ![Kontrollkästchen, dass Du verstehst, dass Dein Sponsoring-Fonds veröffentlicht wird](/assets/images/help/sponsors/sponsorships-published-checkbox.png)

@@ -1,0 +1,1 @@
+1. Em "Billing information" (Informações de faturamento), use o menu suspenso da conta de cobrança do Switch e escolha a organização na qual você gostaria de instalar o aplicativo. ![Menu suspenso para mudar a conta de faturamento e o nome e avatar da organização escolhida](/assets/images/help/marketplace/marketplace-confirm-org.png)

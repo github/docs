@@ -1,0 +1,1 @@
+1. コメントを追加したいコードの行の上にカーソルを移動し、青いコメントアイコンをクリックしてください。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}複数行にコメントを追加するには、クリックしてからドラッグで行の範囲を選択し、続いて青いコメントアイコンをクリックしてください。{% endif %} ![青いコメントアイコン](/assets/images/help/commits/hover-comment-icon.gif)

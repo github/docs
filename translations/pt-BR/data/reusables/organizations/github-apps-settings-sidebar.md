@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **{{ site.data.variables.product.prodname_github_app }}s**. ![{{ site.data.variables.product.prodname_github_app }}s configurações](/assets/images/help/organizations/github-apps-settings-sidebar.png)

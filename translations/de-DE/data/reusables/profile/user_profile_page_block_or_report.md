@@ -1,0 +1,1 @@
+1. Klicke in der linken Seitenleiste unter dem Benutzer-Profilbild auf **Block or report user** (Blockiere oder melde Benutzer). ![Link „Block or report user" (Blockiere oder melde einen Benutzer)](/assets/images/help/profile/profile-block-or-report-button.png)

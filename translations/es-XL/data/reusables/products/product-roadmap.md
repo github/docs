@@ -1,0 +1,1 @@
+Para obtener más información sobre los planes y las características planeados, consulta la sección [{{ site.data.variables.product.prodname_roadmap }}]({{ site.data.variables.product.prodname_roadmap_link }}).

@@ -1,0 +1,1 @@
+O usuário autenticado tem permissão explícita para acessar os repositórios que eles possuem, repositórios onde são colaboradores e repositórios que podem acessar por meio de uma associação à organização.

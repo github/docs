@@ -1,0 +1,3 @@
+If you're not sure whether {{ site.data.variables.product.prodname_ghe_server }}, {{ site.data.variables.product.prodname_ghe_cloud }}, or both are best for your organization, contact {{ site.data.variables.contact.contact_enterprise_sales }}.
+
+Organizations with 12 or more developers typically benefit the most from {{ site.data.variables.product.prodname_enterprise }}. If your organization has 11 or fewer developers, consider {{ site.data.variables.product.prodname_team }}. For more information, see "<a href="/articles/githubs-products/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }}'s products</a>."

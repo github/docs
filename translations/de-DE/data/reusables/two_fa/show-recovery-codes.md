@@ -1,0 +1,1 @@
+1. Klicke neben „Recovery codes" (Wiederherstellungscodes) auf **Show** (Anzeigen). ![Schaltfläche „Show recovery codes" (Wiederherstellungscodes anzeigen)](/assets/images/help/2fa/show-recovery-codes-button.png)

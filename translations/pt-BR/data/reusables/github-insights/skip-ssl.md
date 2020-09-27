@@ -1,0 +1,1 @@
+1. Se você não forneceu um certificado SSL durante a instalação, selecione **Skip SSL Certificate Check**. ![Caixa de seleção para pular a verificação de certificado SSL](/assets/images/help/insights/skip-ssl.png)

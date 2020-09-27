@@ -1,0 +1,1 @@
+1. Sob a descrição da função do novo proprietário, clique em **Okay, got it** (Ok, entendi). ![Descrição da função dos novos proprietários com o botão destacado "Okay, entendi"](/assets/images/help/teams/okay-got-it.png)

@@ -1,0 +1,1 @@
+Para utilizar la bandeja de notificaciones en {{ site.data.variables.product.prodname_dotcom }} y {{ site.data.variables.product.prodname_mobile }}, debes habilitar las notificaciones web y móviles en tu configuración de notificaciones.

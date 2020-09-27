@@ -1,0 +1,1 @@
+Aplicativos não verificados não precisam atender aos "[Requisitos para listar um aplicativo no GitHub Marketplace](/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/)" ou passar pelo processo de "[Processo de revisão de segurança](/marketplace/getting-started/security-review-process/)."

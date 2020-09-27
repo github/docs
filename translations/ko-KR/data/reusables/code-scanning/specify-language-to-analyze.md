@@ -1,0 +1,1 @@
+If your repository contains code in multiple languages, you can specify the languages you want to analyze. There are several reasons you might want to prevent a language being analyzed. For example, the project might have dependencies in a different language to the main body of your code, and you might prefer not to see alerts for those dependencies.

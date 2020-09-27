@@ -1,0 +1,1 @@
+インターナルリポジトリを使って、{% if currentVersion == "free-pro-team@latest" %}Enterpriseアカウント{% else %}インスタンス{% endif %}内での「インナーソース」を実践できます。 {% if currentVersion == "free-pro-team@latest" %}Enterpriseアカウント{% else %}インスタンス内の任意のOrganization{% endif %}のメンバーは、{% if currentVersion != "free-pro-team@latest" %}プライベートモードを無効化することもせず、{% endif %}プロプライエタリな情報をパブリックに共有することなく、オープンソースの方法論を用いてコラボレートできます。

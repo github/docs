@@ -1,0 +1,2 @@
+1. Klicke unter „Payment information“ (Zahlungsinformationen) unter „Extra information“ (Zusätzliche Informationen) auf **Add information** (Informationen hinzufügen). ![Schaltfläche mit zusätzlichen Informationen zur Abrechnung](/assets/images/help/billing/settings_billing_add_billing_extra.png)
+1. Gib die gewünschten zusätzlichen Informationen auf Deiner Quittung ein, und klicke anschließend auf **Save contact information** (Kontaktinformationen speichern). ![Feld mit Kontaktinformationen](/assets/images/help/settings/Billing-extra-info-field.png)

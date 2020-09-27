@@ -1,0 +1,1 @@
+If you have admin permissions to a repository, you can change the default branch to another existing branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."

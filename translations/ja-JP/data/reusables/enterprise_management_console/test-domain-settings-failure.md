@@ -1,0 +1,1 @@
+1. すべてのエントリの隣に緑のチェックマークが付かない場合は、失敗した設定をレビューしてください。 詳しい情報については「[DNSネームサーバの設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)」を参照してください。 ![DNS及びSSL設定のステータスを示す表](/assets/images/enterprise/management-console/domain-dns-ssl-settings-check.png)

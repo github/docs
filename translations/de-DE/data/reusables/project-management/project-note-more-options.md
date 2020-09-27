@@ -1,0 +1,1 @@
+1. Klicke in der oberen rechten Ecke der Hinweise auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Symbol „horizontal kebab" in der oberen rechten Ecke der Hinweise](/assets/images/help/projects/note-more-options.png)

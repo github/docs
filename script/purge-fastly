@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# [start-readme]
+#
+# Run this script to manually purge the [Fastly cache](https://github.com/github/docs-internal#fastly-cdn).
+# Note this script requires a `FASTLY_SERVICE_ID` and `FASTLY_TOKEN` in your `.env` file.
+#
+# [end-readme]
+
+usage()
+{
+  echo "Error! Unable to purge the Fastly cache"
+  echo ""
+  echo "Add FASTLY_SERVICE_ID and FASTLY_TOKEN to the environment or create a .env file in the project root and set these values:"
+  echo ""
+  echo "FASTLY_SERVICE_ID=<value-goes-here>"
+  echo "FASTLY_TOKEN=<value-goes-here>"
+  exit
+}
+
+# attempt to load from .env if Fastly config is not already in ENV
+if [ -z "$FASTLY_SERVICE_ID" ] || [ -z "$FASTLY_TOKEN" ]; then
+  # abort if .env file doesn't exist
+  [ -f .env ] || usage
+
+  # load config from .env
+  export $(cat .env | xargs)
+fi
+
+if [ -z "$FASTLY_SERVICE_ID" ] || [ -z "$FASTLY_TOKEN" ]; then
+  usage
+else
+  curl -H "fastly-key: $FASTLY_TOKEN" -H "accept: application/json" -H "fastly-soft-purge: 1" -X POST "https://api.fastly.com/service/$FASTLY_SERVICE_ID/purge/all-the-things"
+fi

@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **Security & analysis** (Segurança e análise). !["Security & analysis" tab in repository settings](/assets/images/help/repository/security-and-analysis-tab.png)

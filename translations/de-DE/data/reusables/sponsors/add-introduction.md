@@ -1,0 +1,1 @@
+1. Gib unter "Introduction" (Einführung) eine Beschreibung der Arbeit ein, die Du mit Deinen Sponsorenbeiträgen leisten wirst. ![Textfeld „Profile details" (Profildetails)](/assets/images/help/sponsors/introduction-box.png)

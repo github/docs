@@ -1,0 +1,1 @@
+GitHub Enterprise release 2.17 and higher no longer allows admins to install GitHub Services. Please see the [Replacing GitHub Services guide](/v3/guides/replacing-github-services) for details.

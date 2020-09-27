@@ -1,0 +1,1 @@
+Você pode enviar um aplicativo não verificado e verificado. Isso permitirá que você inicie com uma versão gratuita do seu aplicativo. Assim que o GitHub verificar o seu aplicativo, seu anúncio mudará de não verificado para verificado em {{ site.data.variables.product.prodname_marketplace }} e o GitHub publicará os seus novos planos de preços.

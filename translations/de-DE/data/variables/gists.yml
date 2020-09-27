@@ -1,0 +1,7 @@
+---
+gist_homepage: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Gist-Startseite](https://gist.github.com/){% else %}Gist-Startseite, „http(s)://[hostname]/gist“ oder „http(s)://gist.[hostname]“ bei aktivierten Subdomains {% endif %}
+gist_search_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Gist-Suche](https://gist.github.com/search){% else %}Gist-Suche, „http(s)://[hostname]/gist/search“ oder „http(s)://gist.[hostname]/search“ bei aktivierten Subdomains{% endif %}
+discover_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Discover (Erkunden)](https://gist.github.com/discover){% else %}Discover (Erkunden), „http(s)://[hostname]/gist/discover“ oder „http(s)://gist.[hostname]/discover“ bei aktivierten Subdomains{% endif %}

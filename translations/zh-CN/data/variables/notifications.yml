@@ -1,0 +1,5 @@
+---
+no_reply_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`noreply@github.com`{% else %}或由站点管理员配置的无需回复电子邮件地址{% endif %}
+cc_address: >-
+  {% if currentVersion == "free-pro-team@latest" %}`@noreply.github.com`{% else %}基于站点管理员配置的无需回复电子邮件地址{% endif %}

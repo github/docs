@@ -1,0 +1,54 @@
+// Import modules needed from Primer (stored in local `node_modules` directory)
+@import "@primer/css/support/index.scss";
+
+// BEGIN CUSTOM CORE IMPORT
+// Normally we would just import @primer/css/core/index.scss, but that file
+// currently imports @primer/css/layout/index.scss, which in turn imports
+// @primer/css/layout/columns.scss, which has deprecated styles that litter
+// the logs with warnings. We're not using those styles, so the warnings are
+// avoided here by not importing the file.
+//
+// TODO: Use a simple core import when https://github.com/primer/css/issues/741 is resolved
+@import "@primer/css/base/index.scss";
+@import "@primer/css/box/index.scss";
+@import "@primer/css/buttons/index.scss";
+@import "@primer/css/forms/index.scss";
+
+// BEGIN CUSTOM LAYOUT IMPORT
+@import "@primer/css/support/index.scss";
+@import "@primer/css/layout/container.scss";
+// @import "@primer/css/layout/columns.scss"; <-- deprecated and unused
+@import "@primer/css/layout/grid.scss";
+@import "@primer/css/layout/grid-offset.scss";
+// END CUSTOM LAYOUT IMPORT
+
+@import "@primer/css/navigation/index.scss";
+@import "@primer/css/pagination/index.scss";
+@import "@primer/css/tooltips/index.scss";
+@import "@primer/css/truncate/index.scss";
+@import "@primer/css/utilities/index.scss";
+// END CUSTOM CORE IMPORT
+
+@import "@primer/css/markdown/index.scss";
+@import "@primer/css/forms/index.scss";
+@import "@primer/css/navigation/index.scss";
+@import "@primer/css/labels/index.scss";
+
+$marketing-font-path: "/dist/fonts/";
+@import "@primer/css/marketing/index.scss";
+
+// Additional styles
+@import "new-mktg.scss";
+@import "type.scss";
+@import "nav.scss";
+@import "directory.scss";
+@import "article.scss";
+@import "search.scss";
+@import "overrides.scss";
+@import "sidebar.scss";
+@import "explorer.scss";
+// from https://unpkg.com/highlight.js@9.15.8/styles/github.css
+@import "syntax-highlighting.scss";
+@import "tables.scss";
+@import "opacity.scss";
+@import "print.scss";

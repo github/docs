@@ -1,0 +1,1 @@
+1. Em "Billing overview" (Visão geral de cobrança), clique em **Change to yearly billing** (Alterar para cobrança anual) ou **Change to monthly billing** (Alterar para cobrança mensal). ![Botão de alteração de plano na visão geral de cobrança](/assets/images/help/billing/change-plan-duration-link.png)

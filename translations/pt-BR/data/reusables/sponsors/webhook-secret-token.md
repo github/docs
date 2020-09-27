@@ -1,0 +1,1 @@
+5. Type a secret token. Para obter mais informações, consulte "[Protegendo seus webhooks](/webhooks/securing/#securing-your-secret-token)". ![Fields for secret token and other customization options](/assets/images/help/sponsors/webhook-secret-token.png)

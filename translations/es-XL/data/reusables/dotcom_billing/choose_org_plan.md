@@ -1,0 +1,1 @@
+1. Si estás actualizando desde {{ site.data.variables.product.prodname_free_team }}, dentro de "Actualizando a", selecciona un producto. ![Botón Upgrade (Bajar de categoría)](/assets/images/help/billing/upgrade-to-product.png)

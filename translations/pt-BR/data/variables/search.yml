@@ -1,0 +1,11 @@
+---
+advanced_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[advanced search](https://github.com/search/advanced) página{% else %}página de pesquisa avançada (`https://[hostname]/search/advanced`){% endif %}
+search_page_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[search](https://github.com/search) página{% else %}página de pesquisa (`https://[hostname]/search`){% endif %}
+search_highlighting_link: >-
+  Para obter mais detalhes sobre como receber resultados de pesquisa destacados, consulte [Metadados de correspondência de texto](#text-match-metadados).
+search_query_description: >-
+  A consulta contém uma ou mais palavras-chave de pesquisa e qualificadores. Os qualificadores permitem limitar sua pesquisa a áreas específicas do GitHub. A API REST suporta os mesmos qualificadores que GitHub.com. Para saber mais sobre o formato da consulta, veja [Construindo uma consulta de pesquisa](#constructing-a-search-query).
+order_description: >-
+  Determines whether the first search result returned is the highest number of matches (`desc`) or lowest number of matches (`asc`). This parameter is ignored unless you provide `sort`. Default: `desc`

@@ -1,0 +1,6 @@
+| Clave        | Tipo        | Descripción                                                                                                                                                                     |
+| ------------ | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Acción`     | `secuencia` | La acción que se realizó. This can be one of `created`, `reopened_by_user`, `closed_by_user`, `fixed`, `appeared_in_branch`, or `reopened`.                                     |
+| `alerta`     | `objeto`    | The code scanning alert involved in the event.                                                                                                                                  |
+| `ref`        | `secuencia` | The Git reference of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`,  the event was triggered by the `sender` and this value will be empty. |
+| `commit_oid` | `secuencia` | The commit SHA of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`,  the event was triggered by the `sender` and this value will be empty.    |

@@ -1,0 +1,1 @@
+1. Klicke unter „IP allow list" (IP-Zulassungsliste) rechts neben dem zu bearbeitenden Eintrag auf **Edit** (Bearbeiten). ![Schaltfläche „Edit allowed IP address" (Bearbeiten einer zulässigen IP-Adresse)](/assets/images/help/security/ip-address-edit-button.png)

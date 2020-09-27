@@ -1,0 +1,7 @@
+---
+gist_homepage: >-
+  {% if currentVersion == "free-pro-team@latest" %}[gist 主页](https://gist.github.com/){% else %}gist 主页，`http(s)://[hostname]/gist` 或 `http(s)://gist.[hostname]`，如果启用了子域 {% endif %}
+gist_search_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Gist 搜索](https://gist.github.com/search){% else %}Gist 搜索，`http(s)://[hostname]/gist/search` 或 `http(s)://gist.[hostname]/search`，如果启用了子域{% endif %}
+discover_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% else %}发现，`http(s)://[hostname]/gist/discover` 或 `http(s)://gist.[hostname]/discover`，如果启用了子域{% endif %}

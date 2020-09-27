@@ -1,0 +1,6 @@
+| 键            | 类型    | 描述                                                                                                                                                                              |
+| ------------ | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`     | `字符串` | 执行的操作内容. This can be one of `created`, `reopened_by_user`, `closed_by_user`, `fixed`, `appeared_in_branch`, or `reopened`.                                                      |
+| `警报`         | `对象`  | The code scanning alert involved in the event.                                                                                                                                  |
+| `ref`        | `字符串` | The Git reference of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`,  the event was triggered by the `sender` and this value will be empty. |
+| `commit_oid` | `字符串` | The commit SHA of the code scanning alert. When the action is `reopened_by_user` or `closed_by_user`,  the event was triggered by the `sender` and this value will be empty.    |

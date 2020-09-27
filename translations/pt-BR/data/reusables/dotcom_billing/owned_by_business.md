@@ -1,0 +1,2 @@
+1. Opcionalmente, se a sua organização pertence a uma empresa ou instituição, selecione **This account is owned by a business** (Esta conta pertence a uma empresa). ![Caixa de seleção para organizações que são propriedade de um negócio](/assets/images/help/organizations/organization-belongs-to.png)
+2. Se sua organização é propriedade de uma empresa ou instituição, digite o nome da empresa ou instituição. ![Campo nome da empresa ou instituição](/assets/images/help/organizations/name-of-business.png)

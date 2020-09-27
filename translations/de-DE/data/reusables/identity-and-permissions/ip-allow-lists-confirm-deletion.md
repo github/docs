@@ -1,0 +1,1 @@
+1. Um den Eintrag endgültig zu löschen, klicke auf **Yes, delete this IP allow list entry** (Ja, lösche diesen Eintrag zugelassener IP-Adressen). ![Schaltfläche „Permanently delete IP allow list entry" (Endgültiges Löschen des IP-Zulassungslisten-Eintrags)](/assets/images/help/security/perm-delete-allowlist-entry-button.png)

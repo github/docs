@@ -1,0 +1,1 @@
+1. Autenticar para {{ site.data.variables.product.prodname_registry }}. Para obter mais informações, consulte "[Authenticating to {{ site.data.variables.product.prodname_registry }}](#authenticating-to-github-packages)."

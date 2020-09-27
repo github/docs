@@ -1,0 +1,1 @@
+<ul><li>OrganizationあるいはEnterpriseのオーナーが、意図せずOrganizationを削除した。</li><li>OrganizationあるいはEnterpriseのメンバーが、コミット、Issue、プルリクエスト、Issueへの添付ファイル内でセンシティブなデータをアップロードした。</li></ul>

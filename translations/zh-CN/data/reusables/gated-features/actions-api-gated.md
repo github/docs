@@ -1,0 +1,5 @@
+{% if currentVersion == "free-pro-team@latest" %}
+
+{{ site.data.variables.product.prodname_actions }} 可用于 {{ site.data.variables.product.prodname_free_user }}、{{ site.data.variables.product.prodname_pro }}、组织的 {{ site.data.variables.product.prodname_free_team }}、{{ site.data.variables.product.prodname_team }}、{{ site.data.variables.product.prodname_ghe_cloud }} 和 {{ site.data.variables.product.prodname_ghe_one }}。 {{ site.data.variables.product.prodname_actions }} 不适用于使用旧版按仓库计划的帐户所拥有的私有仓库。 {% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.gated-features.more-info }}{% endif %}
+
+{% endif %}

@@ -1,0 +1,12 @@
+---
+title: Navegar entre o GitHub Enterprise e o GitHub Insights
+intro: ''
+product: '{{ site.data.reusables.gated-features.github-insights }}'
+permissions: 'Qualquer pessoa com acesso ao {{ site.data.variables.product.prodname_insights }} pode navegar entre {{ site.data.variables.product.prodname_enterprise }} e {{ site.data.variables.product.prodname_insights }}.'
+versions:
+  enterprise-server: '>=2.19'
+---
+
+Antes de poder navegar entre {{ site.data.variables.product.prodname_enterprise }} e {{ site.data.variables.product.prodname_insights }}, um administrador do site deve habilitar o link entre {{ site.data.variables.product.prodname_insights }} e {{ site.data.variables.product.prodname_enterprise }}. Para obter mais informações, consulte "[Habilitar um link entre {{ site.data.variables.product.prodname_insights }} e {{ site.data.variables.product.prodname_enterprise }}](/insights/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise)".
+
+1. No canto superior direito de qualquer página, clique na sua foto de perfil e, em seguida, clique em **GitHub Insights**. ![Link para o GitHub Insights](/assets/images/help/insights/github-insights-link.png)

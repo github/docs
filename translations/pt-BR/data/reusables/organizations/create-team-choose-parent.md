@@ -1,0 +1,1 @@
+6. Opcionalmente, se você estiver criando uma [child team](/articles/about-teams#nested-teams) (equipe secundária), use o menu suspenso para escolher uma equipe principal para sua nova equipe. ![Menu suspenso listando as equipes existentes da organização](/assets/images/help/teams/choose-parent-team.png)

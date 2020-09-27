@@ -1,0 +1,1 @@
+You must use a [user-to-server OAuth access token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), created for a user who has authorized your GitHub App, to access this endpoint.

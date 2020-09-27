@@ -1,0 +1,1 @@
+1. あるいは、レビューのリクエストが満たされた後にプルリクエストの作者にリマインダーを送信するには、**Remind authors after reviews（レビュー後に作者にリマインド）**を選択して、リマインダーを送信するまでに必要なレビューの数を選択してください。 ![レビュー後の作者へのリマインドのチェックボックス](/assets/images/help/settings/scheduled-reminders-remind-authors.png)

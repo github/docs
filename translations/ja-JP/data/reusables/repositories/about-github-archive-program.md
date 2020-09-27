@@ -1,0 +1,1 @@
+デフォルトでは、すべてのパブリックリポジトリは{{ site.data.variables.product.prodname_dotcom }}とSoftware Heritage FoundationやInternet Archiveといった組織との間の、世界中のオープンソースソフトウェアの長期的な保管を行うためのパートナーシップである{{ site.data.variables.product.prodname_archive }}に含まれます。

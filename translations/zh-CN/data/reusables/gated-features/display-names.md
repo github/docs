@@ -1,0 +1,1 @@
+允许成员查看评论作者的个人资料名称可用于 {{ site.data.variables.product.prodname_team }}、{{ site.data.variables.product.prodname_ghe_server }} 2.18+ 和 {{ site.data.variables.product.prodname_ghe_cloud }}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

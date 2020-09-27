@@ -1,0 +1,1 @@
+1. Klicken Sie in der Seitenleiste des Enterprise-Kontos auf {% octicon "person" aria-label="The People icon" %} **People** (Personen). ![Registerkarte „People“ (Personen) auf der Seitenleiste des Enterprise-Kontos](/assets/images/help/business-accounts/business-account-people-tab.png)

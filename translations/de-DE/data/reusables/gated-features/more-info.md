@@ -1,0 +1,1 @@
+{% if currentVersion == "free-pro-team@latest" %}Weitere Informationen findest Du unter „[{{ site.data.variables.product.prodname_dotcom }}-Produkte](/articles/github-s-products)".{% endif %}

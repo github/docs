@@ -1,0 +1,1 @@
+Add the email address to your {{ site.data.variables.product.product_name }} account by [setting your commit email address](/articles/setting-your-commit-email-address), so that your commits are attributed to you and appear in your contributions graph.

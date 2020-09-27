@@ -1,0 +1,1 @@
+Para usar a caixa de entrada de notificações no {{ site.data.variables.product.prodname_dotcom }} e no {{ site.data.variables.product.prodname_mobile }}, você precisa habilitar notificações web e móveis nas suas configurações de notificação.

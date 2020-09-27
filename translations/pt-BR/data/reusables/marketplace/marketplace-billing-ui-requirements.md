@@ -1,0 +1,9 @@
+- Os clientes que cancelarem um plano pago comprado em {{ site.data.variables.product.prodname_marketplace }} devem ser automaticamente rebaixados para o plano gratuito do aplicativo, se ele existir. {{ site.data.reusables.marketplace.cancellation-clarification }} é altamente recomendável permitir que os clientes reativem seu plano anterior.
+- Os clientes devem ser capazes de atualizar a partir da interface de usuário do seu aplicativo, se você fornecer um [upgrade URL](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/#about-upgrade-urls) neste formato: `https://www.github.com/marketplace/<LISTING_NAME>/upgrade/<LISTING_PLAN_NUMBER>/<CUSTOMER_ACCOUNT_ID>`
+- Os clientes devem ser capazes de modificar quais usuários têm acesso ao seu aplicativo a partir do site do seu aplicativo, caso tenham comprado assentos (por plano de preços unitários) ou que o plano ofereça colaboradores ilimitados.
+- Os clientes devem poder ver as seguintes alterações em sua conta imediatamente na faturação, perfil ou seção de configurações de conta do site:
+  - Plano e preço atuais.
+  - Novos planos comprados.
+  - Upgrades, downgrades, cancelamentos e o número de dias restantes em uma avaliação gratuita.
+  - Alterações nos ciclos de faturamento (mensal ou anual).
+  - Uso e recursos restantes para planos fixos e por unidade. Por exemplo, se o plano de preços é por unidade, o site do aplicativo deve mostrar unidades usadas e unidades disponíveis.

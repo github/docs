@@ -1,0 +1,1 @@
+1. Em {{ site.data.variables.product.prodname_vscode }}, na barra lateral esquerda, clique no ícone Remote Explorer. ![O ícone do Remote Explorer em {{ site.data.variables.product.prodname_vscode }}](/assets/images/help/codespaces/click-remote-explorer-icon-vscode.png)

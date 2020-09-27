@@ -1,0 +1,1 @@
+You can use a project board template to create a project board with automation already configured. Para obter mais informações, consulte "[Sobre quadros de projeto](/articles/about-project-boards#templates-for-project-boards)".

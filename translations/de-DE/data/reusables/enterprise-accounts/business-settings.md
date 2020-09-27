@@ -1,0 +1,1 @@
+1. Klicke unter dem Namen Deines Geschäftskontos auf {% octicon "gear" aria-label="The Settings gear" %} **Settings** (Einstellungen). ![Registerkarte „Settings“ (Einstellungen) auf der Geschäftskonto-Profilseite](/assets/images/help/business-accounts/business-account-settings-tab.png)

@@ -1,0 +1,1 @@
+1. Resuelve cualquier conflicto de fusión que se produzca de la manera que prefieras, usando un editor de texto, la línea de comando o cualquier otra herramienta. Para obtener más información, consulta "[Abordar conflictos de fusión](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."

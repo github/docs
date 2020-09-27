@@ -1,0 +1,7 @@
+---
+explore_github: >-
+  {% if currentVersion == "free-pro-team@latest" %}[GitHub erkunden](https://github.com/explore){% else %}GitHub erkunden („https://[hostname]/explore“){% endif %}
+your_stars_page: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Seite mit Sternen](https://github.com/stars){% else %}Seite mit Sternen („https://[hostname]/stars“){% endif %}
+trending_page: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Seite mit Trends](https://github.com/trending){% else %}Seite mit Trends („https://[hostname]/trending“){% endif %}

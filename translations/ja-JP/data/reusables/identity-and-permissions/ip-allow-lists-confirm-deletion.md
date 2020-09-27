@@ -1,0 +1,1 @@
+1. 恒久的にエントリを削除するには、**Yes, delete this IP allow list entry（はい、このIP許可リストを削除してください）**をクリックしてください。 ![[Permanently delete IP allow list entry] ボタン](/assets/images/help/security/perm-delete-allowlist-entry-button.png)

@@ -1,0 +1,1 @@
+1. "Days（日）"の下で、**Weekdays（平日）**{% octicon "triangle-down" aria-label="The down triangle icon" %}をクリックして、スケジュールされたリマインダーを受信したい1つ以上の曜日を選択してください。 ![日のドロップダウン](/assets/images/help/settings/scheduled-reminders-days.png)

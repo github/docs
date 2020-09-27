@@ -1,0 +1,1 @@
+Executores auto-hospedados devem usar um sistema operacional Linux e ter o Docker instalado para executar as ações do contêiner Docker. Para obter mais informações sobre os requisitos de executores auto-hospedados, consulte "[Sobre runners auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."

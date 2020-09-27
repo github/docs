@@ -1,0 +1,1 @@
+Füge die E-Mail-Adresse zu Deinem{{ site.data.variables.product.product_name }}-Konto hinzu, indem Du [Deine Commit-E-Mail-Adresse setzt](/articles/setting-your-commit-email-address), so dass Deine Commits Dir zugeordnet werden und in Deinem Beteiligungsdiagramm erscheinen.

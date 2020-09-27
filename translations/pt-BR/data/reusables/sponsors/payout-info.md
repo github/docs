@@ -1,0 +1,1 @@
+For information about timing for payments from {{ site.data.variables.product.prodname_sponsors }}, see "[GitHub Sponsors Additional Terms](/github/site-policy/github-sponsors-additional-terms#43-payment-timing)."

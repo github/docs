@@ -1,0 +1,1 @@
+1. Klicke auf der linken Seite Deiner Profilseite unter „Organizations" (Organisationen) auf das Symbol für Deine Organisation. ![Organisationssymbole](/assets/images/help/profile/profile_orgs_box.png)

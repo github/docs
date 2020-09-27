@@ -1,0 +1,1 @@
+Du kannst eine Testversion anfordern, um {{ site.data.variables.product.prodname_ghe_server }} zu evaluieren. Weitere Informationen findest Du unter „[Eine Testversion von {{ site.data.variables.product.prodname_ghe_server }} einrichten](/articles/setting-up-a-trial-of-github-enterprise-server).“

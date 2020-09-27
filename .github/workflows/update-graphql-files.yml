@@ -1,0 +1,72 @@
+name: Update GraphQL files
+
+# **IMPORTANT:** Do not change the FREEZE environment variable set here.
+# This workflow runs every hour. To temporarily disable it (for example, during
+# a docs freeze), add a secret to the docs repo settings called `FREEZE`
+# with a value of `true`. To reenable GraphQL updates, delete the secret in
+# the repo settings. The env variable here will evaluate whether the secret exists.
+env:
+  FREEZE: ${{ secrets.FREEZE }}
+
+on:
+  schedule:
+    - cron:  "20 16 * * *" # run every day at 16:20 UTC / 8:20 PST
+
+jobs:
+  update_graphql_files:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+    - if: ${{ env.FREEZE == 'true' }}
+      run: |
+        echo 'The repo is currently frozen! Exiting this workflow.'
+        exit 1 # prevents further steps from running
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '2.4'
+    - name: Install Ruby dependencies
+      run: |
+        gem install bundler
+        bundle install
+    - name: Install Node.js dependencies
+      run: npm ci
+    - name: Run updater scripts
+      env:
+        # need to use a token from a user with access to github/github for this step
+        GITHUB_TOKEN: ${{ secrets.ZEKE_PAT_WITH_REPO_AND_WORKFLOW_SCOPE_FOR_REPO_SYNC }}
+      # technically the changelog should only be updated once per day, but we can safely
+      # run build-changelog-from-markdown.js in its current form once per hour; when we
+      # rewrite the changelog script, we may need to run it in a separate workflow on a
+      # once-per-day schedule; see details in https://github.com/github/docs-internal/issues/12722.
+      run: |
+        script/graphql/update-files.js
+        script/graphql/build-changelog-from-markdown.js
+    - name: Create pull request
+      id: create-pull-request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        # need to use a token with repo and workflow scopes for this step
+        token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+        commit-message: 'Action ran graphql scripts "update-files" and "build-changelog-from-markdown"'
+        title: GraphQL schema update
+        body: "Hello! Some GraphQL data in github/github was updated recently. This PR
+          syncs up the GraphQL data in this repo.\n\n
+          If CI passes, this PR will be auto-merged. :green_heart:\n\n
+          If CI does not pass or other problems arise, contact #docs-engineering on slack."
+        labels: automerge
+        branch: graphql-schema-update
+    - if: ${{ failure() }}
+      name: Delete remote branch (if previous steps failed)
+      uses: dawidd6/action-delete-branch@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branches: graphql-schema-update
+    - if: ${{ steps.create-pull-request.outputs.pr_number }}
+      name: Approve
+      uses: juliangruber/approve-pull-request-action@v1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        number: ${{ steps.create-pull-request.outputs.pr_number }}

@@ -1,0 +1,7 @@
+---
+gist_homepage: >-
+  {% if currentVersion == "free-pro-team@latest" %}[gist ホームページ](https://gist.github.com/){% else %}gist ホームページ、`http(s)://[hostname]/gist` あるいはサブドメインが有効化されている場合は `http(s)://gist.[hostname]`{% endif %}
+gist_search_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Gist 検索](https://gist.github.com/search){% else %}Gist 検索、`http(s)://[hostname]/gist/search` あるいはサブドメインが有効化されている場合は `http(s)://gist.[hostname]/search`{% endif %}
+discover_url: >-
+  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% else %}Discover、`http(s)://[hostname]/gist/discover` あるいはサブドメインが有効化されている場合は `http(s)://gist.[hostname]/discover`{% endif %}

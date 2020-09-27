@@ -1,0 +1,1 @@
+1. {% octicon "gear" aria-label="The Settings gear" %} Settings（設定）"の下で、**Audit log**をクリックしてください。 ![Enterpriseアカウントのサイドバー内のAudit logタブ](/assets/images/help/business-accounts/enterprise-account-settings-audit-log-tab.png)

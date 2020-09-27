@@ -1,0 +1,23 @@
+---
+#this sequence sets the product order in the sidebar
+#the product IDs match keys in lib/all-products.js
+#note this file should not be translated
+productsInOrder:
+  - github
+  - enterpriseServer
+  - 操作
+  - 包
+  - developers
+  - rest
+  - graphql
+  - insights
+  - desktop
+#TODO this can be removed when the new versioning handling is in place
+hasEnterpriseUserVersions:
+  - github
+  - 操作
+  - developers
+  - rest
+  - graphql
+  - insights
+  - 包

@@ -1,0 +1,50 @@
+/* Styles for directory pages (any page that organizes categories and articles)
+------------------------------------------------------------------------------*/
+
+// Hoverable boxes on product pages
+// Markup can be different and we need both selectors below
+.directory-link-box:hover .Box,
+.directory-link-box.Box:hover {
+  border: 1px solid $blue-500;
+}
+
+// Expandable grid is used on article listing pages
+// e.g. enterprise/2.15/admin/installation
+.directory-dropdown-grid {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 48px;
+  grid-row-gap: 24px;
+
+  @include breakpoint(lg) {
+    grid-template-columns: calc(50% - 24px) calc(50% - 24px);
+  }
+
+  // Disable the grid row expanding from expanding a closed dropdown on desktop
+  @include breakpoint(lg) {
+    .dropdown-withArrow {
+      max-height: 74px;
+
+      &[open] {
+        max-height: initial;
+      }
+    }
+  }
+}
+
+// Product ToC list
+.directory-toc {
+  h2 {
+    margin-top: $spacer-6;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+    padding-bottom: initial;
+    border-bottom: 0;
+  }
+}

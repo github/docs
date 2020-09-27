@@ -1,0 +1,100 @@
+---
+upcoming_changes:
+  - 
+    location: Migration.uploadUrlTemplate
+    description: "`uploadUrlTemplate` will be removed. Use `uploadUrl` instead."
+    reason: "`uploadUrlTemplate` is being removed because it is not a standard URL and adds an extra user step."
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - 
+    location: Organization.members
+    description: "`members` will be removed. Use `Organization.membersWithRole` instead."
+    reason: The `members` field is deprecated and will be removed soon.
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: xuorig
+  - 
+    location: ContributionsCollection.firstIssueContribution.ignoreTimeRange
+    description: "`ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back"
+    reason: ignore_time_range will be removed
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: seejohnrun
+  - 
+    location: ContributionsCollection.firstPullRequestContribution.ignoreTimeRange
+    description: "`ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back"
+    reason: ignore_time_range will be removed
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: seejohnrun
+  - 
+    location: ContributionsCollection.firstRepositoryContribution.ignoreTimeRange
+    description: "`ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back"
+    reason: ignore_time_range will be removed
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: seejohnrun
+  - 
+    location: ContributionsCollection.joinedGitHubContribution.ignoreTimeRange
+    description: "`ignoreTimeRange` will be removed. Use a `ContributionsCollection` starting sufficiently far back"
+    reason: ignore_time_range will be removed
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: seejohnrun
+  - 
+    location: ReviewDismissedEvent.message
+    description: "`message` will be removed. Use `dismissalMessage` instead."
+    reason: "`message` is being removed because it not nullable, whereas the underlying field is optional."
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: nickvanw
+  - 
+    location: ReviewDismissedEvent.messageHtml
+    description: "`messageHtml` will be removed. Use `dismissalMessageHTML` instead."
+    reason: "`messageHtml` is being removed because it not nullable, whereas the underlying field is optional."
+    date: '2019-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: nickvanw
+  - 
+    location: ContributionOrder.field
+    description: "`field` will be removed. Only one order field is supported."
+    reason: "`field` will be removed."
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dinahshi
+  - 
+    location: Issue.timeline
+    description: "`timeline` will be removed. Use Issue.timelineItems instead."
+    reason: "`timeline` will be removed"
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: Organization.pinnedRepositories
+    description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems instead."
+    reason: pinnedRepositories will be removed
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: PullRequest.timeline
+    description: "`timeline` will be removed. Use PullRequest.timelineItems instead."
+    reason: "`timeline` will be removed"
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - 
+    location: RepositoryOwner.pinnedRepositories
+    description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems instead."
+    reason: pinnedRepositories will be removed
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137
+  - 
+    location: User.pinnedRepositories
+    description: "`pinnedRepositories` will be removed. Use ProfileOwner.pinnedItems instead."
+    reason: pinnedRepositories will be removed
+    date: '2019-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: cheshire137

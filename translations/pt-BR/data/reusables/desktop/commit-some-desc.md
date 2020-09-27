@@ -1,0 +1,1 @@
+Para adicionar **todas as alterações em um ou mais arquivos** a um único commit, desmarque todas as caixas de seleção ao lado dos arquivos que você não quer incluir, deixando apenas os arquivos que você quer no commit. É possível alternar a caixa de seleção com as teclas `Barra de espaços` ou `Enter` depois de selecionar um arquivo.

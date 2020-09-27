@@ -1,0 +1,1 @@
+Du kannst auch einen kostenlosen [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}) Kurs zur Pflege von Open-Source-Communitys absolvieren.

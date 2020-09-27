@@ -1,0 +1,1 @@
+1. Locate the runner you want to update, and click {% octicon "triangle-down" aria-label="The downward triangle" %} to view the label selection menu. このメニューは、セルフホストランナーで利用できるすべてのカスタムラベルを表示します。 セルフホストランナーに割り当て済みのラベルには、隣に{% octicon "check" aria-label="Check mark" %}が表示されます。 ![ランナーラベルの変更](/assets/images/help/settings/actions-runner-list-label.png)
