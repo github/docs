@@ -21,23 +21,39 @@
           </tr>
         </thead>
         <tbody>
+          <!-- 
+            Previews require an `accept` header. These used to be documented
+            as `operation.parameters` but have moved to `operation.x-github.previews`
+          -->
+          <tr>
+            <td><code>accept</code></td>
+            <td class="opacity-70">string</td>
+            <td class="opacity-70">header</td>
+            <td class="opacity-70">
+              <p>
+                {% if operation.hasRequiredPreviews %}
+                  This API is under preview and subject to change.
+                {% else %}
+                  Setting to <code>application/vnd.github.v3+json</code> is recommended.
+                {% endif %}
+                {% if operation.x-github.previews.size > 0 %}
+                  <a href="#{{operation.slug}}-preview-notices">
+                    {% if operation.x-github.previews.size > 1 %}
+                      {{ site.data.ui.products.rest.reference.see_preview_notices }}
+                    {% else %}
+                      {{ site.data.ui.products.rest.reference.see_preview_notice }}
+                    {% endif %}
+                  </a>
+                {% endif %}
+              </p>
+            </td>
+          </tr>
           {% for param in operation.parameters %}
             <tr>
               <td><code>{{ param.name }}</code></td>
               <td class="opacity-70">{{ param.schema.type }}</td>
               <td class="opacity-70">{{ param.in }}</td>
-              <td class="opacity-70">
-                {{ param.descriptionHTML }}
-                {% if param.name == 'accept' and param.in == 'header' and operation.x-github.previews.size > 0 %}
-                  <a href="#{{operation.slug}}-preview-notices">
-                    {% if operation.x-github.previews.size > 1 %}
-                      {{ site.data.ui.products.rest.reference.see_preview_notices }}.
-                    {% else %}
-                      {{ site.data.ui.products.rest.reference.see_preview_notice }}.
-                    {% endif %}
-                  </a>
-                {% endif %}
-              </td>
+              <td class="opacity-70">{{ param.descriptionHTML }}</td>
             </tr>
           {% endfor %}
           {% for bodyParam in operation.bodyParameters %}
