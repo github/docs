@@ -40,10 +40,16 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 
 | Supported system type | System name |
 |----|----|
-|  Operating system | Windows and Linux |
-| Build system | Autoconf, CMake, qmake, Meson, Waf, SCons, and Linux Kbuild |
+| Operating system | Windows, macOS, and Linux |
+| Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
 
-The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the step has no default actions. On Linux, this step reviews the files present in the repository to determine the build system used:
+The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
+
+1. Invoke `MSBuild.exe` on the solution (`.sln`) or project (`.vcxproj`) file closest to the root.
+If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
+2. Invoke a script that looks like a build script—_build.bat_, _build.cmd_, _and build.exe_ (in that order).
+
+On Linux and macOS, the `autobuild` step reviews the files present in the repository to determine the build system used:
 
 1. Look for a build system in the root directory.
 2. If none are found, search subdirectories for a unique directory with a build system for C/C++.
@@ -53,7 +59,7 @@ The behavior of the `autobuild` step varies according to the operating system th
 
 | Supported system type | System name |
 |----|----|
-|  Operating system | Windows and Linux |
+| Operating system | Windows and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
@@ -67,7 +73,7 @@ If `autobuild` detects multiple solution or project files at the same (shortest)
 
 | Supported system type | System name |
 |----|----|
-|  Operating system | Windows, macOS and Linux (no restriction) |
+| Operating system | Windows, macOS, and Linux (no restriction) |
 | Build system | Gradle, Maven and Ant |
 
 The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
