@@ -9,11 +9,7 @@ describe('GET /csrf', () => {
   it('should render a non-cache include for CSRF token', async () => {
     const res = await request(app).get('/csrf')
     expect(res.status).toBe(200)
-<<<<<<< HEAD
-    expect(res.text).toMatch(/^<meta name="csrf-token" content="(.*?)" \/>$/)
-=======
     expect(res.body).toHaveProperty('token')
->>>>>>> origin/main
     expect(res.headers['surrogate-control']).toBe('private, no-store')
     expect(res.headers['cache-control']).toBe('private, no-store')
   })
