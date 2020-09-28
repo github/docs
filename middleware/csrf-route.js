@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     'surrogate-control': 'private, no-store',
     'cache-control': 'private, no-store'
   })
-  res.send(`<meta name="csrf-token" content="${req.context.csrfToken}" />`)
+  res.json({ token: req.csrfToken() })
 })
 
 module.exports = router

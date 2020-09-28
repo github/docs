@@ -13,6 +13,7 @@ import print from './print'
 import localization from './localization'
 import helpfulness from './helpfulness'
 import experiment from './experiment'
+import { fillCsrf } from './get-csrf'
 
 document.addEventListener('DOMContentLoaded', () => {
   displayPlatformSpecificContent()
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   wrapCodeTerms()
   print()
   localization()
+  fillCsrf()
   helpfulness()
   experiment()
 })
