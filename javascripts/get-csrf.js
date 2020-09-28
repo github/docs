@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 export async function fillCsrf () {
   const response = await fetch('/csrf', {
     method: 'GET',
@@ -12,6 +14,7 @@ export async function fillCsrf () {
   document.querySelector('head').append(meta)
 }
 
+>>>>>>> origin/main
 export default function getCsrf () {
   const csrfEl = document
     .querySelector('meta[name="csrf-token"]')
