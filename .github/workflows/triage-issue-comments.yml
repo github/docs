@@ -1,17 +1,14 @@
-name: First responder docs-content
+name: Triage new issue comments
 on:
   issue_comment:
     types: [created]
 
 jobs:
   triage-issue-comments:
+    if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
 
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
     - name: Check if the event originated from a team member
       uses: actions/github-script@v2.0.0
       id: set-result
@@ -35,7 +32,7 @@ jobs:
             console.log(`This issue was commented on by an external contributor.`)
             return 'false'
           }
-    - name: Triage issues commented on by external contributors
+    - name: Label issues with new comments with 'triage'
       uses: andymckay/labeler@v1.0.2
       if: (steps.set-result.outputs.result == 'false')
       with:

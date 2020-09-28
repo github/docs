@@ -1,6 +1,6 @@
-name: Triage new issues
+name: Triage new pull requests
 on:
-  issues:
+  pull_request:
     types: [reopened, opened]
 
 jobs:
@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Label new issues with 'triage'
+    - name: Label new pull requests with 'triage'
       uses: andymckay/labeler@v1.0.2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
