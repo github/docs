@@ -135,6 +135,13 @@ describe('helpfulness', () => {
   })
 })
 
+describe('csrf meta', () => {
+  it('should have a csrf-token meta tag on the page', async () => {
+    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
+    await page.waitForSelector('meta[name="csrf-token"]')
+  })
+})
+
 async function getLocationObject (page) {
   const location = await page.evaluate(() => {
     return Promise.resolve(JSON.stringify(window.location, null, 2))
