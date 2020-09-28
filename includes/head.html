@@ -25,14 +25,4 @@
   <link rel="stylesheet" href="/dist/index.css">
   <link rel="alternate icon" type="image/png" href="/assets/images/site/favicon.png">
   <link rel="icon" type="image/svg+xml" href="/assets/images/site/favicon.svg">
-
-  {% if page.relativePath contains "managing-your-work-on-github/disabling-project-boards-in-your-organization" %}
-  <!--TODO CSRF remove the outer check -->
-  {% if fastlyEnabled %}
-    <!-- https://www.fastly.com/blog/caching-uncacheable-csrf-security -->
-    <esi:include src="/csrf" />
-  {% else %}
-    <meta name="csrf-token" content="{{ csrfToken }}" />
-  {% endif %}
-  {% endif %}
 </head>

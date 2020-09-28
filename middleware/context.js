@@ -55,14 +55,6 @@ module.exports = async function contextualize (req, res, next) {
   req.context.siteTree = siteTree
   req.context.pages = pages
 
-  // To securely accept data from end users,
-  // we need to validate that they were actually on a docs page first.
-  // We'll put this token in the <head> and call on it when we send user data
-  // to the docs server, so we know the request came from someone on the page.
-  req.context.csrfToken = req.csrfToken()
-  req.context.fastlyEnabled = process.env.NODE_ENV === 'production' &&
-    req.hostname === 'docs.github.com'
-
   return next()
 }
 
