@@ -125,38 +125,47 @@ This SARIF output file has example values to show the minimum required propertie
 
 ```json
 {
-    "$schema" : "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
-    "version" : "2.1.0",
-    "runs" :
-    [
-  	{
-	    "tool" : {
-		"driver" : {
-		    "name" : "Tool Name"
-		}
-	    },
-	    "results" : [ {
-		"message" : {
-		    "text" : "Result text. This result does not have a rule associated."
-		},
-		"locations" : [ {
-		    "physicalLocation" : {
-			"artifactLocation" : {
-			    "uri" : "src/build.cmd"
-			},
-			"region" : {
-			    "startLine" : 2,
-			    "startColumn" : 7,
-			    "endColumn" : 10
-			}
-		    }
-		} ],
-		"partialFingerprints" : {
-		    "primaryLocationLineHash" : "39fa2ee980eb94b0:1"
-		}
-	    }]
-	}		
-    ]
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Tool Name",
+          "rules": [
+            {
+              "id": "R01"
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "R01",
+          "message": {
+            "text": "Result text. This result does not have a rule associated."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "fileURI"
+                },
+                "region": {
+                  "startLine": 2,
+                  "startColumn": 7,
+                  "endColumn": 10
+                }
+              }
+            }
+          ],
+          "partialFingerprints": {
+            "primaryLocationLineHash": "39fa2ee980eb94b0:1"
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -176,7 +185,7 @@ This SARIF output file has example values to show all supported SARIF properties
           "semanticVersion": "2.0.0",
           "rules": [
             {
-              "id": "js/unused-local-variable",
+              "id": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
               "name": "js/unused-local-variable",
               "shortDescription": {
                 "text": "Unused variable, import, function or class"
@@ -195,7 +204,7 @@ This SARIF output file has example values to show all supported SARIF properties
               }
             },
             {
-              "id": "js/inconsistent-use-of-new",
+              "id": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
               "name": "js/inconsistent-use-of-new",
               "shortDescription": {
                 "text": "Inconsistent use of 'new'"
@@ -203,7 +212,6 @@ This SARIF output file has example values to show all supported SARIF properties
               "fullDescription": {
                 "text": "If a function is intended to be a constructor, it should always be invoked with 'new'. Otherwise, it should always be invoked as a normal function, that is, without 'new'."
               },
-              "defaultConfiguration": null,
               "properties": {
                 "tags": [
                   "reliability",
@@ -212,13 +220,16 @@ This SARIF output file has example values to show all supported SARIF properties
                 ],
                 "precision": "very-high"
               }
+            },
+            {
+              "id": "R01"
             }
           ]
         }
       },
       "results": [
         {
-          "ruleId": "js/unused-local-variable",
+          "ruleId": "3f292041e51d22005ce48f39df3585d44ce1b0ad",
           "ruleIndex": 0,
           "message": {
             "text": "Unused variable foo."
@@ -228,8 +239,7 @@ This SARIF output file has example values to show all supported SARIF properties
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "main.js",
-                  "uriBaseId": "%SRCROOT%",
-                  "index": 0
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 2,
@@ -245,7 +255,7 @@ This SARIF output file has example values to show all supported SARIF properties
           }
         },
         {
-          "ruleId": "js/inconsistent-use-of-new",
+          "ruleId": "d5b664aefd5ca4b21b52fdc1d744d7d6ab6886d0",
           "ruleIndex": 1,
           "message": {
             "text": "Function resolvingPromise is sometimes invoked as a constructor (for example [here](1)), and sometimes as a normal function (for example [here](2))."
@@ -254,8 +264,8 @@ This SARIF output file has example values to show all supported SARIF properties
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "https://github.com/github/example/blob/0000000000000000000000000000000000000000/src/promiseUtils.js",
-                  "index": 1
+                  "uri": "src/promises.js",
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 2
@@ -273,8 +283,7 @@ This SARIF output file has example values to show all supported SARIF properties
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "src/ParseObject.js",
-                  "uriBaseId": "%SRCROOT%",
-                  "index": 3
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 2281,
@@ -291,8 +300,7 @@ This SARIF output file has example values to show all supported SARIF properties
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "src/LiveQueryClient.js",
-                  "uriBaseId": "%SRCROOT%",
-                  "index": 2
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 166
@@ -305,6 +313,7 @@ This SARIF output file has example values to show all supported SARIF properties
           ]
         },
         {
+          "ruleId": "R01",
           "message": {
             "text": "Specifying both [ruleIndex](1) and [ruleID](2) might lead to inconsistencies."
           },
@@ -314,8 +323,7 @@ This SARIF output file has example values to show all supported SARIF properties
               "physicalLocation": {
                 "artifactLocation": {
                   "uri": "full.sarif",
-                  "uriBaseId": "%SRCROOT%",
-                  "index": 0
+                  "uriBaseId": "%SRCROOT%"
                 },
                 "region": {
                   "startLine": 54,
@@ -408,12 +416,6 @@ This SARIF output file has example values to show all supported SARIF properties
             "primaryLocationLineHash": "ABC:2"
           }
         }
-      ],
-      "newlineSequences": [
-        "\r\n",
-        "\n",
-        "",
-        ""
       ],
       "columnKind": "utf16CodeUnits"
     }
