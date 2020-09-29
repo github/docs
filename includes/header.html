@@ -44,11 +44,7 @@
                     <div id="current-product" class="d-flex flex-items-center flex-justify-between" style="padding-top: 2px;">
                       <!-- Product switcher - GitHub.com, Enterprise Server, etc -->
                       <!-- 404 and 500 error layouts are not real pages so we need to hardcode the name for those -->
-                      {% if process.env.FEATURE_NEW_VERSIONS %}
                       {{ allProducts[currentProduct].name }}
-                      {% else %}
-                      {{ currentProduct.name }}
-                      {% endif %}
                       <svg class="arrow ml-md-1" width="14px" height="8px" viewBox="0 0 14 8" xml:space="preserve" fill="none" stroke="#1277eb"><path d="M1,1l6.2,6L13,1"></path></svg>
                     </div>
                   </summary>
@@ -57,7 +53,7 @@
                     {% for product in activeProducts %}
                     <a href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{{ product.href }}"
                        class="d-block py-2
-                       {% if process.env.FEATURE_NEW_VERSIONS and product.id == currentProduct %}text-blue-mktg text-underline active{% elsif product.id == currentProduct.id %}text-blue-mktg text-underline active{% else %}link-gray-dark no-underline{% endif %}">
+                       {% if product.id == currentProduct %}text-blue-mktg text-underline active{% elsif product.id == currentProduct.id %}text-blue-mktg text-underline active{% else %}link-gray-dark no-underline{% endif %}">
                        {{ product.name }}
                        {% if product.external %}
                        <span class="ml-1"><svg width="9" height="10" viewBox="0 0 9 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path stroke="#24292e" d="M.646 8.789l8-8M8.5 9V1M1 .643h8"/></svg></span>
@@ -68,10 +64,8 @@
                 </details>
               </div>
 
-              {% if process.env.FEATURE_NEW_VERSIONS %}
               <!-- Versions picker that only appears in the header on homepage/versioned homepages -->
               {% include homepage-version-switcher %}
-              {% endif %}
 
               <div class="d-md-inline-block">
 

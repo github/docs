@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-require('../../lib/feature-flags')
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp').sync
@@ -12,26 +11,23 @@ const graphqlStaticDir = path.join(process.cwd(), 'lib/graphql/static')
 const { getContents } = require('../../lib/git-utils')
 const dataFilenames = require('./utils/data-filenames')
 const { oldVersions } = require('../../lib/old-versions-utils')
-const allVersions = require('../../lib/all-versions')
 const processPreviews = require('./utils/process-previews')
 const processUpcomingChanges = require('./utils/process-upcoming-changes')
 const processSchemas = require('./utils/process-schemas')
 const prerenderObjects = require('./utils/prerender-objects')
-
-// TODO need to update this to the new versions
-// for now, fall back to the old versions for use in schema filenames
-const versions = process.env.FEATURE_NEW_VERSIONS ? oldVersions : allVersions
 
 // TODO this step is only required as long as we support GHE versions *OLDER THAN* 2.21
 // as soon as 2.20 is deprecated on 2021-02-11, we can remove all graphql-ruby filtering
 const removeHiddenMembersScript = path.join(__dirname, './utils/remove-hidden-schema-members.rb')
 
 // optionally build only 'dotcom' or any GHE version by passing the number ('2.20')
-let versionsToBuild = versions
+// TODO need to update this to the new versions
+// for now, fall back to the old versions for use in schema filenames
+let versionsToBuild = oldVersions
 
 if (process.argv.length === 3) {
   const version = process.argv[2]
-  assert(versions.includes(version), `'${version}' is not valid! must be one of: ${versions}`)
+  assert(oldVersions.includes(version), `'${version}' is not valid! must be one of: ${oldVersions}`)
   versionsToBuild = [version]
 }
 

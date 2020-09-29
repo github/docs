@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const flat = require('flat')
 const { last } = require('lodash')
 const cheerio = require('cheerio')
@@ -58,9 +57,7 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = process.env.FEATURE_NEW_VERSIONS
-        ? getApplicableVersions(page.versions, page.relativePath)
-        : getApplicableVersions(page.productVersions, page.relativePath)
+      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context
@@ -70,9 +67,7 @@ describe('page rendering', () => {
 
         const relevantPermalink = page.permalinks.find(permalink => permalink.pageVersion === pageVersion)
 
-        const currentOldVersion = process.env.FEATURE_NEW_VERSIONS
-          ? getOldVersionFromNewVersion(pageVersion)
-          : pageVersion
+        const currentOldVersion = getOldVersionFromNewVersion(pageVersion)
 
         // borrowed from middleware/contextualizers/graphql.js
         context.graphql = {

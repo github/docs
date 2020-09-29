@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const revalidator = require('revalidator')
 const allVersions = require('../../lib/all-versions')
 const { latest } = require('../../lib/enterprise-server-releases')
@@ -6,9 +5,7 @@ const schema = require('../../lib/versions-schema')
 const { getJSON } = require('../helpers')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
-const describeIf = process.env.FEATURE_NEW_VERSIONS ? describe : describe.skip
-
-describeIf('versions module', () => {
+describe('versions module', () => {
   test('is an object with versions as keys', () => {
     expect(nonEnterpriseDefaultVersion in allVersions).toBe(true)
     expect(`enterprise-server@${latest}` in allVersions).toBe(true)
@@ -23,7 +20,7 @@ describeIf('versions module', () => {
   })
 })
 
-describeIf('versions middleware', () => {
+describe('versions middleware', () => {
   jest.setTimeout(5 * 60 * 1000)
 
   test('adds res.context.allVersions object', async () => {

@@ -1,12 +1,8 @@
-require('../../lib/feature-flags')
 const { liquid } = require('../../lib/render-content')
 const loadPages = require('../../lib/pages')
 const entities = new (require('html-entities').XmlEntities)()
 const { set } = require('lodash')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-
-const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
-const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
 
 describe('liquid helper tags', () => {
   const context = {}
@@ -14,7 +10,7 @@ describe('liquid helper tags', () => {
   beforeAll(async (done) => {
     pages = await loadPages()
     context.currentLanguage = 'en'
-    context.currentVersion = process.env.FEATURE_NEW_VERSIONS ? nonEnterpriseDefaultVersion : 'dotcom'
+    context.currentVersion = nonEnterpriseDefaultVersion
     context.pages = pages
     context.redirects = []
     context.site = {}
@@ -48,7 +44,7 @@ describe('liquid helper tags', () => {
     expect(output).toBe(expected)
   })
 
-  testFeatureNewVersions('link_with_intro tag', async () => {
+  test('link_with_intro tag', async () => {
     const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
     const page = pages[`/en/${nonEnterpriseDefaultVersion}/desktop/contributing-and-collaborating-using-github-desktop`]
     const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
@@ -59,31 +55,9 @@ describe('liquid helper tags', () => {
     expect(output).toBe(expected)
   })
 
-  testFeatureOldVersions('link_with_intro tag', async () => {
-    const template = '{% link_with_intro /contributing-and-collaborating-using-github-desktop %}'
-    const page = pages['/en/desktop/contributing-and-collaborating-using-github-desktop']
-    const expected = `<a class="link-with-intro Bump-link--hover no-underline" href="/en/desktop/contributing-and-collaborating-using-github-desktop">
-  <h4 class="link-with-intro-title">${page.title}<span class="Bump-link-symbol">→</span></h4>
-</a>
-<p class="link-with-intro-intro">${page.intro}</p>`
-    const output = entities.decode(await liquid.parseAndRender(template, context))
-    expect(output).toBe(expected)
-  })
-
-  testFeatureNewVersions('homepage_link_with_intro tag', async () => {
+  test('homepage_link_with_intro tag', async () => {
     const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
     const page = pages[`/en/${nonEnterpriseDefaultVersion}/github/writing-on-github/basic-writing-and-formatting-syntax`]
-    const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
-  <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
-  <p class="link-with-intro-intro f5">${page.intro}</p>
-</a>`
-    const output = await liquid.parseAndRender(template, context)
-    expect(output).toBe(expected)
-  })
-
-  testFeatureOldVersions('homepage_link_with_intro tag', async () => {
-    const template = '{% homepage_link_with_intro /github/writing-on-github/basic-writing-and-formatting-syntax %}'
-    const page = pages['/en/github/writing-on-github/basic-writing-and-formatting-syntax']
     const expected = `<a class="link-with-intro Bump-link--hover no-underline d-block offset-lg-2 col-lg-8 mb-5" href="/en/github/writing-on-github/basic-writing-and-formatting-syntax">
   <h4 class="link-with-intro-title h4-mktg">${page.title}<span class="Bump-link-symbol">→</span></h4>
   <p class="link-with-intro-intro f5">${page.intro}</p>

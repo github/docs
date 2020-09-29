@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const cheerio = require('cheerio')
 const loadPages = require('../../lib/pages')
 const loadSiteData = require('../../lib/site-data')
@@ -50,9 +49,7 @@ describe('page rendering', () => {
       const brokenLinksPerPage = {}
 
       // get an array of the pages product versions
-      const pageVersions = process.env.FEATURE_NEW_VERSIONS
-        ? getApplicableVersions(page.versions, page.relativePath)
-        : getApplicableVersions(page.productVersions, page.relativePath)
+      const pageVersions = getApplicableVersions(page.versions, page.relativePath)
 
       for (const pageVersion of pageVersions) {
         // attach page-specific properties to context

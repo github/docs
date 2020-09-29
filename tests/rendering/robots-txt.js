@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const languages = require('../../lib/languages')
 const robotsParser = require('robots-parser')
 const robotsMiddleware = require('../../middleware/robots')

@@ -1,10 +1,6 @@
-require('../../lib/feature-flags')
 const loadPages = require('../../lib/pages')
 const renderContent = require('../../lib/render-content')
 const allVersions = Object.keys(require('../../lib/all-versions'))
-const { oldVersions } = require('../../lib/old-versions-utils')
-
-const versions = process.env.FEATURE_NEW_VERSIONS ? allVersions : oldVersions
 
 describe('toc links', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -17,7 +13,7 @@ describe('toc links', () => {
 
     const issues = []
 
-    for (const pageVersion of versions) {
+    for (const pageVersion of allVersions) {
       for (const page of englishIndexPages) {
         // skip page if it doesn't have a permalink for the current product version
         if (!page.permalinks.some(permalink => permalink.pageVersion === pageVersion)) continue

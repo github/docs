@@ -4,11 +4,7 @@
     <h4 class="mb-3">
       {{ site.data.ui.support.still_need_help }}
     </h4>
-    {% if process.env.FEATURE_NEW_VERSIONS %}
     {% if currentVersion contains 'enterprise' %}{% assign isEnterprise = true %}{% else %}{% assign isEnterprise = false %}{% endif %}
-    {% else %}
-    {% if currentVersion != 'dotcom' %}{% assign isEnterprise = true %}{% else %}{% assign isEnterprise = false %}{% endif %}
-    {% endif %}
     <a id="ask-community" href="https://github.community" class="btn btn-outline">
       {% octicon "people" width="16" %}
       {{ site.data.ui.support.ask_community }}

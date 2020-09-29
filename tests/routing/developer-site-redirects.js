@@ -1,18 +1,11 @@
-require('../../lib/feature-flags')
 const { eachOfLimit } = require('async')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get } = require('../helpers')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
-let restRedirectFixtures, graphqlRedirectFixtures, developerRedirectFixtures
-if (process.env.FEATURE_NEW_VERSIONS) {
-  restRedirectFixtures = require('../fixtures/new-versions/rest-redirects')
-  graphqlRedirectFixtures = require('../fixtures/new-versions/graphql-redirects')
-  developerRedirectFixtures = require('../fixtures/new-versions/developer-redirects')
-} else {
-  restRedirectFixtures = require('../fixtures/rest-redirects')
-  graphqlRedirectFixtures = require('../fixtures/graphql-redirects')
-  developerRedirectFixtures = require('../fixtures/developer-redirects')
-}
+const restRedirectFixtures = require('../fixtures/rest-redirects')
+const graphqlRedirectFixtures = require('../fixtures/graphql-redirects')
+const developerRedirectFixtures = require('../fixtures/developer-redirects')
+
 const MAX_CONCURRENT_REQUESTS = 50
 
 describe('developer redirects', () => {
@@ -25,183 +18,82 @@ describe('developer redirects', () => {
     await get('/v4')
   })
 
-  if (process.env.FEATURE_NEW_VERSIONS) {
-    describe('redirects /v4 requests to /graphql with FEATURE_NEW_VERSIONS enabled', () => {
-      test('graphql homepage', async () => {
-        const res = await get('/v4')
-        expect(res.statusCode).toBe(301)
-        const expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql`
-        expect(res.headers.location).toBe(expectedFinalPath)
-      })
-
-      test('graphql enterprise homepage', async () => {
-        const res = await get('/enterprise/v4', { followAllRedirects: true })
-        expect(res.statusCode).toBe(200)
-        const finalPath = (new URL(res.request.url)).pathname
-        const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
-        expect(finalPath).toBe(expectedFinalPath)
-      })
-
-      test('graphql overview paths', async () => {
-        const oldPath = '/v4/breaking_changes'
-        const newPath = `/${nonEnterpriseDefaultVersion}/graphql/overview/breaking-changes`
-        const res = await get(oldPath)
-        expect(res.statusCode).toBe(301)
-        expect(res.headers.location).toBe(`/en${newPath}`)
-
-        const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
-        expect(enterpriseRes.statusCode).toBe(200)
-        const finalPath = (new URL(enterpriseRes.request.url)).pathname
-        const expectedFinalPath = newPath.replace(nonEnterpriseDefaultVersion, `enterprise-server@${enterpriseServerReleases.latest}`)
-        expect(finalPath).toBe(`/en${expectedFinalPath}`)
-      })
-
-      test('graphql reference paths with child pages', async () => {
-        const sclarRes = await get('/en/v4/scalar/boolean')
-        expect(sclarRes.statusCode).toBe(301)
-        const sclarResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/scalars#boolean`
-        expect(sclarRes.headers.location).toBe(sclarResFinalPath)
-
-        const enumRes = await get('/en/v4/enum/searchtype')
-        expect(enumRes.statusCode).toBe(301)
-        const enumResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/enums#searchtype`
-        expect(enumRes.headers.location).toBe(enumResFinalPath)
-      })
-    })
-  }
-
-  if (!process.env.FEATURE_NEW_VERSIONS) {
-    describe('redirects /v4 requests to /graphql', () => {
-      test('graphql homepage', async () => {
-        const res = await get('/v4')
-        expect(res.statusCode).toBe(301)
-        const expectedFinalPath = '/en/graphql'
-        expect(res.headers.location).toBe(expectedFinalPath)
-      })
-
-      test('graphql enterprise homepage', async () => {
-        const res = await get('/enterprise/v4', { followAllRedirects: true })
-        expect(res.statusCode).toBe(200)
-        const finalPath = (new URL(res.request.url)).pathname
-        const expectedFinalPath = `/en/enterprise/${enterpriseServerReleases.latest}/user/graphql`
-        expect(finalPath).toBe(expectedFinalPath)
-      })
-
-      test('graphql overview paths', async () => {
-        const oldPath = '/v4/breaking_changes'
-        const newPath = '/graphql/overview/breaking-changes'
-        const res = await get(oldPath)
-        expect(res.statusCode).toBe(301)
-        expect(res.headers.location).toBe(`/en${newPath}`)
-
-        const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
-        expect(enterpriseRes.statusCode).toBe(200)
-        const finalPath = (new URL(enterpriseRes.request.url)).pathname
-        const expectedFinalPath = `/enterprise/${enterpriseServerReleases.latest}/user${newPath}`
-        expect(finalPath).toBe(`/en${expectedFinalPath}`)
-      })
-
-      test('graphql reference paths with child pages', async () => {
-        const sclarRes = await get('/en/v4/scalar/boolean')
-        expect(sclarRes.statusCode).toBe(301)
-        const sclarResFinalPath = '/en/graphql/reference/scalars#boolean'
-        expect(sclarRes.headers.location).toBe(sclarResFinalPath)
-
-        const enumRes = await get('/en/v4/enum/searchtype')
-        expect(enumRes.statusCode).toBe(301)
-        const enumResFinalPath = '/en/graphql/reference/enums#searchtype'
-        expect(enumRes.headers.location).toBe(enumResFinalPath)
-      })
-    })
-  }
-
-  if (process.env.FEATURE_NEW_VERSIONS) {
-    test('redirects /v3 requests to /rest', async () => {
-      let expectedFinalPath
-      let res = await get('/v3')
+  describe('redirects /v4 requests to /graphql', () => {
+    test('graphql homepage', async () => {
+      const res = await get('/v4')
       expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest`
-        : '/en/rest'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // REST subresources like activity notifications don't have their own page
-      // any more, so redirect to an anchor on the resource page
-      res = await get('/en/v3/activity')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity`
-        : '/en/rest/reference/activity'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // REST subresources like activity notifications don't have their own page
-      // any more, so redirect to an anchor on the resource page
-      res = await get('/en/v3/activity/notifications')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity#notifications`
-        : '/en/rest/reference/activity#notifications'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // trailing slashes are handled separately by the `slashes` module;
-      // any request to a /v3 URL with a trailing slash will be redirected twice
-      res = await get('/en/v3/activity/notifications/')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('/en/v3/activity/notifications')
-
-      // non-reference redirects (e.g. guides)
-      res = await get('/en/v3/guides/basics-of-authentication')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/guides/basics-of-authentication`
-        : '/en/rest/guides/basics-of-authentication'
+      const expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql`
       expect(res.headers.location).toBe(expectedFinalPath)
     })
-  }
 
-  if (!process.env.FEATURE_NEW_VERSIONS) {
-    test('redirects /v3 requests to /rest', async () => {
-      let expectedFinalPath
-      let res = await get('/v3')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest`
-        : '/en/rest'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // REST subresources like activity notifications don't have their own page
-      // any more, so redirect to an anchor on the resource page
-      res = await get('/en/v3/activity')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity`
-        : '/en/rest/reference/activity'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // REST subresources like activity notifications don't have their own page
-      // any more, so redirect to an anchor on the resource page
-      res = await get('/en/v3/activity/notifications')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity#notifications`
-        : '/en/rest/reference/activity#notifications'
-      expect(res.headers.location).toBe(expectedFinalPath)
-
-      // trailing slashes are handled separately by the `slashes` module;
-      // any request to a /v3 URL with a trailing slash will be redirected twice
-      res = await get('/en/v3/activity/notifications/')
-      expect(res.statusCode).toBe(301)
-      expect(res.headers.location).toBe('/en/v3/activity/notifications')
-
-      // non-reference redirects (e.g. guides)
-      res = await get('/en/v3/guides/basics-of-authentication')
-      expect(res.statusCode).toBe(301)
-      expectedFinalPath = process.env.FEATURE_NEW_VERSIONS
-        ? `/en/${nonEnterpriseDefaultVersion}/rest/guides/basics-of-authentication`
-        : '/en/rest/guides/basics-of-authentication'
-      expect(res.headers.location).toBe(expectedFinalPath)
+    test('graphql enterprise homepage', async () => {
+      const res = await get('/enterprise/v4', { followAllRedirects: true })
+      expect(res.statusCode).toBe(200)
+      const finalPath = (new URL(res.request.url)).pathname
+      const expectedFinalPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/graphql`
+      expect(finalPath).toBe(expectedFinalPath)
     })
-  }
+
+    test('graphql overview paths', async () => {
+      const oldPath = '/v4/breaking_changes'
+      const newPath = `/${nonEnterpriseDefaultVersion}/graphql/overview/breaking-changes`
+      const res = await get(oldPath)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/en${newPath}`)
+
+      const enterpriseRes = await get(`/enterprise${oldPath}`, { followAllRedirects: true })
+      expect(enterpriseRes.statusCode).toBe(200)
+      const finalPath = (new URL(enterpriseRes.request.url)).pathname
+      const expectedFinalPath = newPath.replace(nonEnterpriseDefaultVersion, `enterprise-server@${enterpriseServerReleases.latest}`)
+      expect(finalPath).toBe(`/en${expectedFinalPath}`)
+    })
+
+    test('graphql reference paths with child pages', async () => {
+      const sclarRes = await get('/en/v4/scalar/boolean')
+      expect(sclarRes.statusCode).toBe(301)
+      const sclarResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/scalars#boolean`
+      expect(sclarRes.headers.location).toBe(sclarResFinalPath)
+
+      const enumRes = await get('/en/v4/enum/searchtype')
+      expect(enumRes.statusCode).toBe(301)
+      const enumResFinalPath = `/en/${nonEnterpriseDefaultVersion}/graphql/reference/enums#searchtype`
+      expect(enumRes.headers.location).toBe(enumResFinalPath)
+    })
+  })
+
+  test('redirects /v3 requests to /rest', async () => {
+    let expectedFinalPath
+    let res = await get('/v3')
+    expect(res.statusCode).toBe(301)
+    expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/rest`
+    expect(res.headers.location).toBe(expectedFinalPath)
+
+    // REST subresources like activity notifications don't have their own page
+    // any more, so redirect to an anchor on the resource page
+    res = await get('/en/v3/activity')
+    expect(res.statusCode).toBe(301)
+    expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity`
+    expect(res.headers.location).toBe(expectedFinalPath)
+
+    // REST subresources like activity notifications don't have their own page
+    // any more, so redirect to an anchor on the resource page
+    res = await get('/en/v3/activity/notifications')
+    expect(res.statusCode).toBe(301)
+    expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/rest/reference/activity#notifications`
+    expect(res.headers.location).toBe(expectedFinalPath)
+
+    // trailing slashes are handled separately by the `slashes` module;
+    // any request to a /v3 URL with a trailing slash will be redirected twice
+    res = await get('/en/v3/activity/notifications/')
+    expect(res.statusCode).toBe(301)
+    expect(res.headers.location).toBe('/en/v3/activity/notifications')
+
+    // non-reference redirects (e.g. guides)
+    res = await get('/en/v3/guides/basics-of-authentication')
+    expect(res.statusCode).toBe(301)
+    expectedFinalPath = `/en/${nonEnterpriseDefaultVersion}/rest/guides/basics-of-authentication`
+    expect(res.headers.location).toBe(expectedFinalPath)
+  })
 
   describe('fixtures', () => {
     // this fixtures file includes paths like /apps and /webhooks, plus /enterprise paths
@@ -217,76 +109,36 @@ describe('developer redirects', () => {
       )
     })
 
-    if (process.env.FEATURE_NEW_VERSIONS) {
-      // this fixtures file includes /v3 and /enterprise/v3 paths
-      test('rest reference redirects', async () => {
-        await eachOfLimit(
-          restRedirectFixtures,
-          MAX_CONCURRENT_REQUESTS,
-          async (newPath, oldPath) => {
-            // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-            // We make an exception to always redirect versionless paths to the latest version.
-            newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
-            const res = await get(oldPath)
-            expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-            expect(res.headers.location).toBe(newPath)
-          }
-        )
-      })
-    }
+    // this fixtures file includes /v3 and /enterprise/v3 paths
+    test('rest reference redirects', async () => {
+      await eachOfLimit(
+        restRedirectFixtures,
+        MAX_CONCURRENT_REQUESTS,
+        async (newPath, oldPath) => {
+          // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
+          // We make an exception to always redirect versionless paths to the latest version.
+          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          const res = await get(oldPath)
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(res.headers.location).toBe(newPath)
+        }
+      )
+    })
 
-    if (!process.env.FEATURE_NEW_VERSIONS) {
-      // this fixtures file includes /v3 and /enterprise/v3 paths
-      test('rest reference redirects', async () => {
-        await eachOfLimit(
-          restRedirectFixtures,
-          MAX_CONCURRENT_REQUESTS,
-          async (newPath, oldPath) => {
-            // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-            // We make an exception to always redirect versionless paths to the latest version.
-            newPath = newPath.replace('/enterprise/user', `/enterprise/${enterpriseServerReleases.latest}/user`)
-            const res = await get(oldPath)
-            expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-            expect(res.headers.location).toBe(newPath)
-          }
-        )
-      })
-    }
-
-    if (process.env.FEATURE_NEW_VERSIONS) {
-      // this fixtures file includes /v4 and /enterprise/v4 paths
-      test('graphql reference redirects', async () => {
-        await eachOfLimit(
-          graphqlRedirectFixtures,
-          MAX_CONCURRENT_REQUESTS,
-          async (newPath, oldPath) => {
-            // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-            // We make an exception to always redirect versionless paths to the latest version.
-            newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
-            const res = await get(oldPath)
-            expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-            expect(res.headers.location).toBe(newPath)
-          }
-        )
-      })
-    }
-
-    if (!process.env.FEATURE_NEW_VERSIONS) {
-      // this fixtures file includes /v4 and /enterprise/v4 paths
-      test('graphql reference redirects', async () => {
-        await eachOfLimit(
-          graphqlRedirectFixtures,
-          MAX_CONCURRENT_REQUESTS,
-          async (newPath, oldPath) => {
-            // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
-            // We make an exception to always redirect versionless paths to the latest version.
-            newPath = newPath.replace('/enterprise/user', `/enterprise/${enterpriseServerReleases.latest}/user`)
-            const res = await get(oldPath)
-            expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
-            expect(res.headers.location).toBe(newPath)
-          }
-        )
-      })
-    }
+    // this fixtures file includes /v4 and /enterprise/v4 paths
+    test('graphql reference redirects', async () => {
+      await eachOfLimit(
+        graphqlRedirectFixtures,
+        MAX_CONCURRENT_REQUESTS,
+        async (newPath, oldPath) => {
+          // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
+          // We make an exception to always redirect versionless paths to the latest version.
+          newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          const res = await get(oldPath)
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(res.headers.location).toBe(newPath)
+        }
+      )
+    })
   })
 })

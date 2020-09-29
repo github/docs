@@ -1,19 +1,10 @@
 /* global page */
-require('../../lib/feature-flags')
 const sleep = require('await-sleep')
 
-const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
-const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
-
 describe('homepage', () => {
-  testFeatureNewVersions('should be titled "GitHub Documentation"', async () => {
+  test('should be titled "GitHub Documentation"', async () => {
     await page.goto('http://localhost:4001')
     await expect(page.title()).resolves.toMatch('GitHub Documentation')
-  })
-
-  testFeatureOldVersions('should be titled "GitHub.com Help"', async () => {
-    await page.goto('http://localhost:4001')
-    await expect(page.title()).resolves.toMatch('GitHub.com Help')
   })
 })
 

@@ -6,9 +6,7 @@ module.exports = async function (req, res, next) {
   req.context.rest = rest
 
   // TODO need to update this to the new versions in coordination with the updater scripts
-  const currentOldVersion = process.env.FEATURE_NEW_VERSIONS
-    ? getOldVersionFromNewVersion(req.context.currentVersion)
-    : req.context.currentVersion
+  const currentOldVersion = getOldVersionFromNewVersion(req.context.currentVersion)
 
   // link to include in `Works with GitHub Apps` notes
   // e.g. /ja/rest/reference/apps or /en/enterprise/2.20/user/rest/reference/apps
