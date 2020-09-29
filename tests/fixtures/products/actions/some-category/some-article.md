@@ -1,5 +1,6 @@
 ---
 title: A sample article
-productVersions:
-  dotcom: '*'
+versions:
+  free-pro-team: '*'
 ---
+

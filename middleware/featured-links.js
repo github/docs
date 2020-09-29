@@ -30,9 +30,7 @@ async function getLinkData (rawLinks, context) {
     const linkedPage = findPage(href, context.pages, context.redirects, context.currentLanguage)
     if (!linkedPage) continue
 
-    const applicableVersions = process.env.FEATURE_NEW_VERSIONS
-      ? getApplicableVersions(linkedPage.versions, linkedPage.fullPath)
-      : getApplicableVersions(linkedPage.productVersions, linkedPage.fullPath)
+    const applicableVersions = getApplicableVersions(linkedPage.versions, linkedPage.fullPath)
 
     // skip link if this is not the homepage and the link's versions do not include the current version
     if (context.currentVersion !== 'homepage' && !applicableVersions.includes(context.currentVersion)) continue

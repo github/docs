@@ -1,5 +1,5 @@
 const path = require('path')
-const { getPathWithoutLanguage, getVersionedPathWithoutLanguage } = require('../lib/path-utils')
+const { getPathWithoutLanguage } = require('../lib/path-utils')
 
 module.exports = async (req, res, next) => {
   req.context.breadcrumbs = {}
@@ -7,87 +7,29 @@ module.exports = async (req, res, next) => {
   if (!req.context.page) return next()
   if (req.context.page.relativePath === 'index.md') return next()
 
-  let pathParts, product, categoryPath
-  if (!process.env.FEATURE_NEW_VERSIONS) {
-    if (req.context.page.relativePath === 'enterprise/index.md') return next()
+  const rawPath = getPathWithoutLanguage(req.path)
+  const pathParts = rawPath.split('/')
 
-    pathParts = req.context.currentPathWithoutLanguage.split('/')
+  // drop first '/'
+  pathParts.shift()
 
-    // remove first empty item
-    pathParts.shift()
+  // drop the version segment so pathParts now starts with /product
+  pathParts.shift()
 
-    let productPath
+  const productPath = path.posix.join('/', req.context.currentProduct)
+  const product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
 
-    // e.g., /github
-    if (pathParts[0] !== 'enterprise') {
-      productPath = path.posix.join('/', pathParts[0])
-    }
-
-    if (pathParts[0] === 'enterprise') {
-      // handling for /enterprise/version/admin
-      if (pathParts.includes('admin')) {
-        productPath = path.posix.join('/', ...pathParts.slice(0, 3))
-        // remove /enterprise/version so that path starts with /admin
-        pathParts.splice(0, 2)
-      }
-
-      // handling for /enterprise/version/user/product
-      if (pathParts.includes('user')) {
-        productPath = path.posix.join('/', ...pathParts.slice(0, 4))
-        // remove /enterprise/version/user so that path starts with /product
-        pathParts.splice(0, 3)
-      }
-    }
-
-    // turn /product paths into /enterprise/version/user/product paths and vice versa
-    productPath = getVersionedPathWithoutLanguage(productPath, req.context.currentVersion)
-
-    product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct.id]
-
-    // GitHub.com is the only product with a breadcrumbs-specific Enterprise title
-    // in the sidebar, the product title is `GitHub.com` in all versions
-    // in the breadcrumbs, the product title is either `GitHub.com` or `GitHub Enterprise Server`
-    const productTitle = product.title === 'GitHub.com' && req.context.currentVersion !== 'dotcom'
-      ? 'GitHub Enterprise Server'
-      : product.title
-
-    req.context.breadcrumbs.product = {
-      href: productPath,
-      title: productTitle
-    }
-
-    if (!pathParts[1]) return next()
-
-    // get category path
-    // e.g., /github/getting-started-with-github
-    categoryPath = path.posix.join(productPath, pathParts[1])
+  req.context.breadcrumbs.product = {
+    href: path.posix.join('/', req.context.currentVersion, productPath),
+    title: product.title
   }
 
-  if (process.env.FEATURE_NEW_VERSIONS) {
-    const rawPath = getPathWithoutLanguage(req.path)
-    pathParts = rawPath.split('/')
+  if (!pathParts[1]) return next()
 
-    // drop first '/'
-    pathParts.shift()
-
-    // drop the version segment so pathParts now starts with /product
-    pathParts.shift()
-
-    const productPath = path.posix.join('/', req.context.currentProduct)
-    product = req.context.siteTree[req.language][req.context.currentVersion].products[req.context.currentProduct]
-
-    req.context.breadcrumbs.product = {
-      href: path.posix.join('/', req.context.currentVersion, productPath),
-      title: product.title
-    }
-
-    if (!pathParts[1]) return next()
-
-    // get category path
-    // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
-    // or /enterprise-server@2.21/github/getting-started-with-github
-    categoryPath = path.posix.join('/', req.context.currentVersion, productPath, pathParts[1])
-  }
+  // get category path
+  // e.g., `getting-started-with-github` in /free-pro-team@latest/github/getting-started-with-github
+  // or /enterprise-server@2.21/github/getting-started-with-github
+  const categoryPath = path.posix.join('/', req.context.currentVersion, productPath, pathParts[1])
 
   const category = product.categories[categoryPath]
 

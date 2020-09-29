@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const fs = require('fs')
 const path = require('path')
 const { get, isPlainObject, has } = require('lodash')

@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const { isEqual, get, uniqBy } = require('lodash')
 const loadSiteData = require('../../lib/site-data')
 const loadPages = require('../../lib/pages')

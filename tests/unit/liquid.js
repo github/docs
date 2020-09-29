@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const { liquid } = require('../../lib/render-content')
 const template = `
   {% if page.version ver_gt "2.13" %}up to date{% endif %}

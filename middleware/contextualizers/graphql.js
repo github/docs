@@ -14,9 +14,7 @@ module.exports = async (req, res, next) => {
   if (!req.path.includes('/graphql/')) return next()
 
   // TODO need to update this to the new versions in coordination with the updater scripts
-  const currentOldVersion = process.env.FEATURE_NEW_VERSIONS
-    ? getOldVersionFromNewVersion(req.context.currentVersion)
-    : req.context.currentVersion
+  const currentOldVersion = getOldVersionFromNewVersion(req.context.currentVersion)
 
   req.context.graphql = {
     schemaForCurrentVersion: require(`../../lib/graphql/static/schema-${currentOldVersion}`),

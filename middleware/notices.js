@@ -22,9 +22,7 @@ module.exports = (req, res, next) => {
     language.wip
   )
 
-  const currentProduct = process.env.FEATURE_NEW_VERSIONS
-    ? req.context.allProducts[req.context.currentProduct]
-    : req.context.currentProduct
+  const currentProduct = req.context.allProducts[req.context.currentProduct]
 
   // if this is the homepage and no product is chosen yet, return early
   if (!currentProduct) return next()

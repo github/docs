@@ -1,40 +1,22 @@
-require('../../lib/feature-flags')
 const { difference } = require('lodash')
 const { getJSON } = require('../helpers')
 const { latest } = require('../../lib/enterprise-server-releases')
-const allVersions = require('../../lib/all-versions')
 const { oldVersions } = require('../../lib/old-versions-utils')
 const webhookPayloads = require('../../lib/webhooks')
-
-const testFeatureNewVersions = process.env.FEATURE_NEW_VERSIONS ? test : test.skip
-const testFeatureOldVersions = process.env.FEATURE_NEW_VERSIONS ? test.skip : test
 
 describe('webhook payloads', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   // TODO update this test when we update the webhook payload filepaths
-  testFeatureNewVersions('have old versions as top-level keys', () => {
+  test('have old versions as top-level keys', () => {
     oldVersions.forEach(version => {
-      expect(version in webhookPayloads).toBe(true)
-    })
-  })
-
-  testFeatureOldVersions('have current versions as top-level keys', () => {
-    allVersions.forEach(version => {
       expect(version in webhookPayloads).toBe(true)
     })
   })
 
   // TODO update this test when we update the webhook payload filepaths
-  testFeatureNewVersions('have a reasonable number of payloads per version', () => {
+  test('have a reasonable number of payloads per version', () => {
     oldVersions.forEach(version => {
-      const payloadsPerVersion = Object.keys(webhookPayloads[version])
-      expect(payloadsPerVersion.length).toBeGreaterThan(20)
-    })
-  })
-
-  testFeatureOldVersions('have a reasonable number of payloads per version', () => {
-    allVersions.forEach(version => {
       const payloadsPerVersion = Object.keys(webhookPayloads[version])
       expect(payloadsPerVersion.length).toBeGreaterThan(20)
     })

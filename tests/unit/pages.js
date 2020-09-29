@@ -1,4 +1,3 @@
-require('../../lib/feature-flags')
 const path = require('path')
 const loadPages = require('../../lib/pages')
 const languageCodes = Object.keys(require('../../lib/languages'))

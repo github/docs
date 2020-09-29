@@ -3,7 +3,7 @@ require('./lib/handle-exceptions')
 require('./lib/feature-flags')
 
 const express = require('express')
-const isPortAvailable = require('is-port-available')
+const portUsed = require('port-used')
 const warmServer = require('./lib/warm-server')
 const port = Number(process.env.PORT) || 4000
 const app = express()
@@ -14,8 +14,8 @@ require('./middleware')(app)
 /* istanbul ignore next */
 if (!module.parent) {
   // check that the development server is not already running
-  isPortAvailable(port).then(async status => {
-    if (status) {
+  portUsed.check(port).then(async status => {
+    if (status === false) {
       // If in production, warm the server at the start
       if (process.env.NODE_ENV === 'production') await warmServer()
 

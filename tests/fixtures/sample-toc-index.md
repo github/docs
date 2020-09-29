@@ -1,7 +1,7 @@
 ---
 title: A sample TOC
-productVersions:
-  dotcom: '*'
+versions:
+  free-pro-team: '*'
 ---
 
 {% link_in_list /sample-article %}

@@ -20,12 +20,7 @@
       <h3 class="text-mono f5 text-normal text-gray text-md-center mb-4">{{ site.data.ui.homepage.explore_by_product }}</h3>
       <div class="d-flex flex-wrap gutter gutter-xl-spacious">
       {% for product in activeProducts %}
-      {% if process.env.FEATURE_NEW_VERSIONS %}
-      {% assign productVersions = product.versions %}
-      {% else %}
-      {% assign productVersions = currentVersion %}
-      {% endif %}
-      {% if productVersions contains currentVersion or currentVersion == 'homepage' %}
+      {% if product.versions contains currentVersion or currentVersion == 'homepage' %}
       <div class="d-flex flex-column col-12 col-sm-6 col-lg-3 pb-4">
         <a class="btn-mktg flex-auto d-flex flex-items-center btn-outline-mktg btn-large-mktg ws-normal " href="{% unless product.external %}/{{ currentLanguage }}{% endunless %}{% if product.versions contains currentVersion %}/{{currentVersion}}/{{product.id}}{% else %}{{product.href}}{% endif %}">{{ product.name }}
       {% if product.external %}

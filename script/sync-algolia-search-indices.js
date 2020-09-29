@@ -7,7 +7,6 @@
 //
 // [end-readme]
 
-require('../lib/feature-flags')
 require('make-promises-safe')
 
 main()

@@ -1,6 +1,3 @@
-{% unless process.env.FEATURE_NEW_VERSIONS %}
-{% assign enterpriseServerReleases = enterpriseVersions %}
-{% endunless %}
 {% if currentVersion contains enterpriseServerReleases.oldestSupported %}
   <div class="deprecation-banner border rounded-1 mb-2 bg-yellow-light p-3 border-yellow f5">
     <p>
