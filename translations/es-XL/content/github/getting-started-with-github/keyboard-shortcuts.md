@@ -1,6 +1,6 @@
 ---
 title: Atajos del teclado
-intro: 'Prácticamente todas las páginas de {{ site.data.variables.product.product_name }} tienen atajos del teclado para realizar acciones más rápido.'
+intro: 'Prácticamente todas las páginas de {% data variables.product.product_name %} tienen atajos del teclado para realizar acciones más rápido.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### Acerca de los atajos del teclado
 
-Escribir <kbd>?</kbd> en {{ site.data.variables.product.product_name }} genera un cuadro de diálogo que detalla los atajos del teclado disponibles para esa página. Puedes aprovechar estos atajos del teclado para realizar acciones en todo el sitio sin recurrir al mouse para navegar.
+Escribir <kbd>?</kbd> en {% data variables.product.product_name %} genera un cuadro de diálogo que detalla los atajos del teclado disponibles para esa página. Puedes aprovechar estos atajos del teclado para realizar acciones en todo el sitio sin recurrir al mouse para navegar.
 
 A continuación aparece una lista de algunos de los atajos del teclado disponibles.
 
@@ -22,7 +22,7 @@ A continuación aparece una lista de algunos de los atajos del teclado disponibl
 
 | Atajo del teclado           | Descripción                                                                                                                                                                                                                                                                                                                                                                                       |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> o <kbd>/</kbd> | Se concentra en la barra de búsqueda. Para obtener más información, consulta "[Acerca de buscar en {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)".                                                                                                                                                                                                        |
+| <kbd>s</kbd> o <kbd>/</kbd> | Se concentra en la barra de búsqueda. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".                                                                                                                                                                                                        |
 | <kbd>g</kbd> <kbd>n</kbd>   | Dirige a tus notificaciones. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}". |
 | <kbd>esc</kbd>              | Cuando se concentra en la hovercard de un usuario, de una propuesta o de una solicitud de extracción, se cierra la hovercard y se vuelve a centrar en el elemento en el que está la hovercard                                                                                                                                                                                                     |
 
@@ -97,7 +97,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>q</kbd>                                                 | Solicita un revisor. Para obtener más información, consulta "[Solicitar una revisión de solicitud de extracción](/articles/requesting-a-pull-request-review/)".                                                                                           |
 | <kbd>m</kbd>                                                 | Establece un hito. Para obtener más información, consulta "[Asociar hitos a propuestas y solicitudes de extracción](/articles/associating-milestones-with-issues-and-pull-requests/)".                                                                    |
 | <kbd>l</kbd>                                                 | Aplica una etiqueta. Para obtener más información, consulta "[Aplicar etiquetas a propuestas y solicitudes de extracción](/articles/applying-labels-to-issues-and-pull-requests/)".                                                                       |
-| <kbd>a</kbd>                                                 | Establece un asignatario. Para obtener más información, consulta "[Asignar propuestas y solicitudes de extracción a otros{{ site.data.variables.product.company_short }} usuarios](/articles/assigning-issues-and-pull-requests-to-other-github-users/)". |
+| <kbd>a</kbd>                                                 | Establece un asignatario. Para obtener más información, consulta "[Asignar propuestas y solicitudes de extracción a otros{% data variables.product.company_short %} usuarios](/articles/assigning-issues-and-pull-requests-to-other-github-users/)". |
 | <kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Alterna entre las pestañas **Write** (Escribir) y **Preview** (Vista previa)                                                                                                                                                                              |
 
 ### Modificaciones en las solicitudes de extracción
@@ -153,7 +153,7 @@ Para obtener más atajos del teclado, consulta la [Documentación de CodeMirror]
 | <kbd>esc</kbd>    | Close the card preview pane |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | Atajo del teclado                                    | Descripción                                                                                   |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |

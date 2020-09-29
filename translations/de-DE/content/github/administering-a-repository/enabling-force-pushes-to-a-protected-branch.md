@@ -1,7 +1,7 @@
 ---
 title: Erzwungene Pushes zu einem geschützten Branch aktivieren
 intro: Du kannst erzwungene Pushes in einen geschützten Branch erlauben.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -19,13 +19,13 @@ Das Aktivieren erzwungener Pushes wird keine anderen Branch-Schutzregeln übersc
 
 Wenn ein Websiteadministrator erzwungene Pushes nur auf den Standardbranch blockiert hat, kannst Du erzwungene Pushes trotzdem für jeden anderen geschützten Branch aktivieren.{% endif %}
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
 ### Erzwungene Pushes aktivieren
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. Wähle unter „Rules applied to everyone including administrators" (Regeln für jedermann, Administratoren inbegriffen) **Allow force pushes** (Erlaube erzwungene Pushes). ![Option „Allow force pushes" (Erlaube erzwungene Pushes)](/assets/images/help/repository/allow-force-pushes.png)
 7. Klicke auf **Create** (Erstellen).

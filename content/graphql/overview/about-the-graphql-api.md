@@ -1,6 +1,6 @@
 ---
 title: About the GraphQL API
-intro: 'The {{ site.data.variables.product.prodname_dotcom }} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
+intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flexibility and the ability to define precisely the data you want to fetch.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -38,7 +38,7 @@ For more details about why GitHub has moved to GraphQL, see the original [announ
 
 ### About the GraphQL schema reference
 
-The docs in the sidebar are generated from the {{ site.data.variables.product.prodname_dotcom }} GraphQL [schema](/v4/guides/intro-to-graphql/#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
+The docs in the sidebar are generated from the {% data variables.product.prodname_dotcom %} GraphQL [schema](/v4/guides/intro-to-graphql/#discovering-the-graphql-api). All calls are validated and executed against the schema. Use these docs to find out what data you can call:
 
 * Allowed operations: [queries](/v4/query) and [mutations](/v4/mutation).
 
@@ -50,4 +50,4 @@ For other information, such as authentication and rate limit details, check out 
 
 ### Requesting support
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}

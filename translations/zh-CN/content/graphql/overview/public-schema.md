@@ -1,6 +1,6 @@
 ---
 title: 公共架构
-intro: '下载 {{ site.data.variables.product.prodname_dotcom }} GraphQL API 的公共架构。'
+intro: '下载 {% data variables.product.prodname_dotcom %} GraphQL API 的公共架构。'
 redirect_from:
   - /v4/public_schema
 versions:

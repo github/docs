@@ -5,7 +5,7 @@
      1. No canto superior direito de qualquer página, clique em {% octicon "rocket" aria-label="The rocket ship" %}.
      1. In the left sidebar, click **Enterprise overview**.
      1. {% endif %} In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.
-1. Navegue até as configurações {{ site.data.variables.product.prodname_actions }}:
+1. Navegue até as configurações {% data variables.product.prodname_actions %}:
    * **Em uma organização ou um repositório**: clique em **Ações** na barra lateral esquerda.
 
      ![Configuração de ações](/assets/images/help/settings/settings-sidebar-actions.png)

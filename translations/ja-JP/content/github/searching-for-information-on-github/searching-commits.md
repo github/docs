@@ -1,6 +1,6 @@
 ---
 title: コミットを検索する
-intro: '{{ site.data.variables.product.product_name }} 上のコミットを検索することができます。そして、これらのコミットを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
+intro: '{% data variables.product.product_name %} 上のコミットを検索することができます。そして、これらのコミットを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細は「[{{ site.data.variables.product.company_short }} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにコミットを検索できます。あるいは、特定のリポジトリや Organization のコミットに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 コミットを検索する場合、リポジトリの[デフォルトブランチ](/articles/about-branches)だけが検索されます。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### コミットメッセージ内を検索
 
@@ -45,7 +45,7 @@ versions:
 
 `author-date` 修飾子や `committer-date` 修飾子を使うと、特定の期間内に書かれたまたはコミットされたコミットにマッチします。
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                       | サンプル                                                                                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |

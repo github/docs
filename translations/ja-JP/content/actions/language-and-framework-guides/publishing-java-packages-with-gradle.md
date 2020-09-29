@@ -1,18 +1,18 @@
 ---
 title: GradleでのJavaパッケージの公開
 intro: 継続的インテグレーション（CI）ワークフローの一部として、Javaのパッケージをレジストリに公開するためにGradleを利用できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
-{{ site.data.reusables.github-actions.publishing-java-packages-intro }}
+{% data reusables.github-actions.publishing-java-packages-intro %}
 
 ### 必要な環境
 
@@ -22,8 +22,8 @@ GradleでのJavaプロジェクトのためのCIワークフローの作成に�
 
 また、以下の基本的な理解があれば役立ちます。
 
-- [{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
-- [{{ site.data.variables.product.prodname_registry }} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+- [{% data variables.product.prodname_actions %}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
+- [{% data variables.product.prodname_registry %} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
 - [環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)
 - [暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
 - [GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)
@@ -87,20 +87,20 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
+{% data reusables.github-actions.gradle-workflow-steps %}
 1. `gradle publish`コマンドを実行して、`OSSRH` Mavenリポジトリに公開してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-### {{ site.data.variables.product.prodname_registry }}へのパッケージの公開
+### {% data variables.product.prodname_registry %}へのパッケージの公開
 
-新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{{ site.data.variables.product.prodname_registry }}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
+新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-_build.gradle_のpublishingブロックには、{{ site.data.variables.product.prodname_registry }}を指す新しいMavenリポジトリを定義できます。  そのリポジトリの設定では、CIワークフローの実行で設定された環境変数を活用することもできます。  環境変数の`GITHUB_ACTOR`はユーザ名として利用でき、環境変数の`GITHUB_TOKEN`には`GITHUB_TOKEN`シークレットを設定できます。
+_build.gradle_のpublishingブロックには、{% data variables.product.prodname_registry %}を指す新しいMavenリポジトリを定義できます。  そのリポジトリの設定では、CIワークフローの実行で設定された環境変数を活用することもできます。  環境変数の`GITHUB_ACTOR`はユーザ名として利用でき、環境変数の`GITHUB_TOKEN`には`GITHUB_TOKEN`シークレットを設定できます。
 
 `GITHUB_TOKEN`は、デフォルトでリポジトリ中に存在し、ワークフローが実行されるリポジトリ中のパッケージには読み書きの権限があります。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{{ site.data.variables.product.prodname_registry }}の設定は以下の例のようになるでしょう。
+たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
 ```groovy
@@ -144,20 +144,20 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
-1. {{ site.data.variables.product.prodname_registry }}に公開するために` gradle publish `コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
+{% data reusables.github-actions.gradle-workflow-steps %}
+1. {% data variables.product.prodname_registry %}に公開するために` gradle publish `コマンドを実行してください。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-### Maven Central Repositoryと{{ site.data.variables.product.prodname_registry }}へのパッケージの公開
+### Maven Central Repositoryと{% data variables.product.prodname_registry %}へのパッケージの公開
 
-_ build.gradle _ファイルでそれぞれについて設定すれば、Maven Central Repositoryと{{ site.data.variables.product.prodname_registry }}の両方にパッケージを公開できます。
+_ build.gradle _ファイルでそれぞれについて設定すれば、Maven Central Repositoryと{% data variables.product.prodname_registry %}の両方にパッケージを公開できます。
 
-_build.gradle_ファイルに、{{ site.data.variables.product.prodname_dotcom }}リポジトリとMaven Central Repositoryプロバイダの双方に対するリポジトリを確実に含めてください。
+_build.gradle_ファイルに、{% data variables.product.prodname_dotcom %}リポジトリとMaven Central Repositoryプロバイダの双方に対するリポジトリを確実に含めてください。
 
-たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、`name`を`OSSRH `に設定して配布管理リポジトリでそのことを指定できます。 {{ site.data.variables.product.prodname_registry }}にデプロイするなら、`name`を`GitHubPackages`に設定して配布管理リポジトリでそのことを指定できます。
+たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、`name`を`OSSRH `に設定して配布管理リポジトリでそのことを指定できます。 {% data variables.product.prodname_registry %}にデプロイするなら、`name`を`GitHubPackages`に設定して配布管理リポジトリでそのことを指定できます。
 
-Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{{ site.data.variables.product.prodname_registry }}の設定は以下の例のようになるでしょう。
+Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_build.gradle_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
 ```groovy
@@ -186,7 +186,7 @@ publishing {
 ```
 {% endraw %}
 
-この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{{ site.data.variables.product.prodname_registry }}の両方に公開するワークフローを作成できます。
+この設定で、`gradle publish`コマンドの実行によってパッケージをMaven Central Repositoryと{% data variables.product.prodname_registry %}の両方に公開するワークフローを作成できます。
 
 {% raw %}
 ```yaml
@@ -212,7 +212,7 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
-1. `OSSRH` Mavenリポジトリと{{ site.data.variables.product.prodname_registry }}に公開するために` gradle publish`コマンドを実行してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
+{% data reusables.github-actions.gradle-workflow-steps %}
+1. `OSSRH` Mavenリポジトリと{% data variables.product.prodname_registry %}に公開するために` gradle publish`コマンドを実行してください。 環境変数の`MAVEN_USERNAME`は`OSSRH_USERNAME`シークレットの内容で、環境変数の`MAVEN_PASSWORD`は`OSSRH_TOKEN`シークレットの内容で設定されます。 環境変数`GITHUB_TOKEN`には、`GITHUB_TOKEN`シークレットの内容が設定されます。
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。

@@ -39,13 +39,13 @@ $ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 
 ### 鍵のアップロード後の反応のない環境
 
-SSL 鍵のアップロード後に {{ site.data.variables.product.product_location_enterprise }} の反応がない場合、SSL 証明書のコピーを含む詳細事項と合わせて [{{ site.data.variables.product.prodname_enterprise }} Support に連絡](https://enterprise.github.com/support)してください。
+SSL 鍵のアップロード後に {% data variables.product.product_location_enterprise %} の反応がない場合、SSL 証明書のコピーを含む詳細事項と合わせて [{% data variables.product.prodname_enterprise %} Support に連絡](https://enterprise.github.com/support)してください。
 
 ### 証明書の検証エラー
 
 Web ブラウザやコマンドラインの Git などのクライアントは、SSL 証明書の正当性が検証できなければエラーメッセージを表示します。 これはしばしば自己署名証明書の場合や、クライアントが認識しない中間ルート証明書から発行された "チェーンドルート" 証明書の場合に生じます。
 
-証明書認証局 (CA) によって署名された証明書を使っている場合は、{{ site.data.variables.product.prodname_ghe_server }} にアップロードする証明書ファイルには CA のルート証明を持つ証明書チェーンが含まれていなければなりません。 そのようなファイルを作成するには、証明書チェーン全体 (「証明書バンドル」とも呼ばれます) を証明書の終わりにつなげ、プリンシパル証明書の先頭にホスト名が来るようにしてください。 ほとんどのシステムでは、以下のようなコマンドでこの処理を行えます:
+証明書認証局 (CA) によって署名された証明書を使っている場合は、{% data variables.product.prodname_ghe_server %} にアップロードする証明書ファイルには CA のルート証明を持つ証明書チェーンが含まれていなければなりません。 そのようなファイルを作成するには、証明書チェーン全体 (「証明書バンドル」とも呼ばれます) を証明書の終わりにつなげ、プリンシパル証明書の先頭にホスト名が来るようにしてください。 ほとんどのシステムでは、以下のようなコマンドでこの処理を行えます:
 
 ```shell
 $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
@@ -55,14 +55,14 @@ $ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 
 ### 自己署名もしくは信頼されない証明書認証者（CA）ルート証明書のインストール
 
-{{ site.data.variables.product.prodname_ghe_server }} アプライアンスが、自己署名もしくは信頼されない証明書を使うネットワーク上の他のマシンとやりとりするのであれば、それらのシステムに HTTPS でアクセスできるようにするために、署名をした CA のルート証明書をシステム全体の証明書ストアにインポートしなければなりません。
+{% data variables.product.prodname_ghe_server %} アプライアンスが、自己署名もしくは信頼されない証明書を使うネットワーク上の他のマシンとやりとりするのであれば、それらのシステムに HTTPS でアクセスできるようにするために、署名をした CA のルート証明書をシステム全体の証明書ストアにインポートしなければなりません。
 
 1. CA のルート証明書をローカルの証明書認証局から取得し、それが PEM フォーマットになっていることを確認してください。
-2. そのファイルを {{ site.data.variables.product.prodname_ghe_server }} アプライアンスにポート 122 の SSH 経由で "admin" ユーザとしてコピーしてください。
+2. そのファイルを {% data variables.product.prodname_ghe_server %} アプライアンスにポート 122 の SSH 経由で "admin" ユーザとしてコピーしてください。
   ```shell
   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
   ```
-3. {{ site.data.variables.product.prodname_ghe_server }} の管理シェルにポート 122 の SSH 経由で "admin" ユーザとして接続します。
+3. {% data variables.product.prodname_ghe_server %} の管理シェルにポート 122 の SSH 経由で "admin" ユーザとして接続します。
   ```shell
   $ ssh -p 122 admin@HOSTNAME
   ```

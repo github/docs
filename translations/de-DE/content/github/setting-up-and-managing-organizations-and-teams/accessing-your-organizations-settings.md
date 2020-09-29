@@ -18,12 +18,12 @@ versions:
 
 {% tip %}
 
-**Tipp:** Nur Organisationsinhaber und Abrechnungsmanager können die Abrechnungsinformationen und Kontoeinstellungen für eine Organisation einsehen und ändern. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**Tipp:** Nur Organisationsinhaber und Abrechnungsmanager können die Abrechnungsinformationen und Kontoeinstellungen für eine Organisation einsehen und ändern. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}

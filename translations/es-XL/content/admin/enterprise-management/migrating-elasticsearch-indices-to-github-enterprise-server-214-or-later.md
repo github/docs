@@ -1,6 +1,6 @@
 ---
 title: Migrar índices de ElasticSearch al servidor de GitHub Enterprise 2.14 o superior
-intro: 'Para prepararte para una actualización a {{ site.data.variables.product.prodname_ghe_server }} 2.14, deberás migrar tus índices a Elasticsearch 5.6 con nuestro script de migración.'
+intro: 'Para prepararte para una actualización a {% data variables.product.prodname_ghe_server %} 2.14, deberás migrar tus índices a Elasticsearch 5.6 con nuestro script de migración.'
 redirect_from:
   - /enterprise/admin/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
@@ -13,7 +13,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{{ site.data.variables.product.prodname_ghe_server }} 2.14 incluye una mejora a Elasticsearch 5.6. Antes de actualizar a {{ site.data.variables.product.prodname_ghe_server }} 2.14 o superior desde la versión 2.12 o 2.13, te recomendamos descargar, instalar y ejecutar las herramientas de migración de Elasticsearch para que tus índices más grandes se migren en línea mientras tu aplicativo aún tiene acceso en línea.
+{% data variables.product.prodname_ghe_server %} 2.14 incluye una mejora a Elasticsearch 5.6. Antes de actualizar a {% data variables.product.prodname_ghe_server %} 2.14 o superior desde la versión 2.12 o 2.13, te recomendamos descargar, instalar y ejecutar las herramientas de migración de Elasticsearch para que tus índices más grandes se migren en línea mientras tu aplicativo aún tiene acceso en línea.
 
 ### Índices buscar
 
@@ -62,7 +62,7 @@ Los índices `buscar` comienzan con:
 
 ### Índices Webhooks
 
-Después de que el script de migración reconstruye los índices `buscar` necesarios en línea, el script verificará si algún índice `webhook` debe ser reconstruido. Si ejecutas tu aparato con el {{ site.data.variables.product.prodname_ghe_server }} 2.12 o 2.13 durante 14 días o más, entonces probablemente no necesitarás que tu índice `webhook` se reconstruya ya que los índices `webhook` tienen una política de retención predeterminada de siete días. Si estás actualizando tu aparato desde el {{ site.data.variables.product.prodname_enterprise }} 2.11 o inferior, entonces es posible que debas reconstruir los índices `webhook`.
+Después de que el script de migración reconstruye los índices `buscar` necesarios en línea, el script verificará si algún índice `webhook` debe ser reconstruido. Si ejecutas tu aparato con el {% data variables.product.prodname_ghe_server %} 2.12 o 2.13 durante 14 días o más, entonces probablemente no necesitarás que tu índice `webhook` se reconstruya ya que los índices `webhook` tienen una política de retención predeterminada de siete días. Si estás actualizando tu aparato desde el {% data variables.product.prodname_enterprise %} 2.11 o inferior, entonces es posible que debas reconstruir los índices `webhook`.
 
 Si algún índice `webhook` debe ser reconstruido, entonces se te pedirá habilitar el modo mantenimiento antes de que el script pueda reconstruir los índices `webhook`. A pesar de que migrar los índices `webhook` requiere algo de tiempo de inactividad, no se necesitan grandes ventanas de mantenimiento o tiempo de inactividad.
 
@@ -95,15 +95,15 @@ green  open   code-search-1              1   0    6932626           44     42.9g
 green  open   commits-1                  1   0   63753587         1485     45.4gb         45.4gb
 ```
 
-### Preparar un aparato del {{ site.data.variables.product.prodname_ghe_server }} 2.12 o 2.13
+### Preparar un aparato del {% data variables.product.prodname_ghe_server %} 2.12 o 2.13
 
-Si actualizas a {{ site.data.variables.product.prodname_ghe_server }} 2.14 o superior sin ejecutar las herramientas de migración, los índices Elasticsearch existentes pueden ser inválidos y no funcionarán correctamente. Para ejecutar el script de migración de Elasticsearch, tu aparato del {{ site.data.variables.product.prodname_ghe_server }} debe estar ejecutando {{ site.data.variables.product.prodname_enterprise }} 2.12 o 2.13.
+Si actualizas a {% data variables.product.prodname_ghe_server %} 2.14 o superior sin ejecutar las herramientas de migración, los índices Elasticsearch existentes pueden ser inválidos y no funcionarán correctamente. Para ejecutar el script de migración de Elasticsearch, tu aparato del {% data variables.product.prodname_ghe_server %} debe estar ejecutando {% data variables.product.prodname_enterprise %} 2.12 o 2.13.
 
 {% warning %}
 
 **Advertencia:**
-- Utilizar {{ site.data.variables.product.prodname_enterprise_backup_utilities }} destruirá los índices Elasticsearch antiguos no compatibles con 5.X después de la restauración. En este caso, es posible que sea necesaria una nueva indexación manual.
-- Si {{ site.data.variables.product.prodname_ghe_server }} está configurado para alta disponibilidad, el script de migración **debe** ejecutarse mientras todavía se está ejecutando la replicación. Deben permitirse los cambios para replicar completamente al otro aparato antes de iniciar la actualización. Si la replicación no se está ejecutando mientras se ejecuta el script de migración, tus índices Elasticsearch pueden volverse inválidos.
+- Utilizar {% data variables.product.prodname_enterprise_backup_utilities %} destruirá los índices Elasticsearch antiguos no compatibles con 5.X después de la restauración. En este caso, es posible que sea necesaria una nueva indexación manual.
+- Si {% data variables.product.prodname_ghe_server %} está configurado para alta disponibilidad, el script de migración **debe** ejecutarse mientras todavía se está ejecutando la replicación. Deben permitirse los cambios para replicar completamente al otro aparato antes de iniciar la actualización. Si la replicación no se está ejecutando mientras se ejecuta el script de migración, tus índices Elasticsearch pueden volverse inválidos.
 
 {% endwarning %}
 
@@ -113,7 +113,7 @@ Si actualizas a {{ site.data.variables.product.prodname_ghe_server }} 2.14 o sup
    $ wget https://github-enterprise.s3.amazonaws.com/util/es-5x-transition-tools.tar.gz
    $ sudo tar -C / -xvf es-5x-transition-tools.tar.gz
    ```
-   Si administras una Agrupación del {{ site.data.variables.product.prodname_ghe_server }}, autentica a uno de los nodos de servidores de Elasticsearch utilizando SSH e instala las herramientas de migración allí. Búscalos utilizando:
+   Si administras una Agrupación del {% data variables.product.prodname_ghe_server %}, autentica a uno de los nodos de servidores de Elasticsearch utilizando SSH e instala las herramientas de migración allí. Búscalos utilizando:
     ```shell
     $ ghe-cluster-each -r elasticsearch -p
     ghe-test-data-0
@@ -129,4 +129,4 @@ Si actualizas a {{ site.data.variables.product.prodname_ghe_server }} 2.14 o sup
  **Nota:** Si tiene índices `webhook` para migrar, después de ejecutar las migraciones en línea, se te pedirá que habilites el modo mantenimiento.
 
  {% endnote %}
-3. Si estás ejecutando una Agrupación {{ site.data.variables.product.prodname_ghe_server }}, sigue la documentación oficial de actualización para VM únicos o entornos de alta disponibilidad o la guía de actualización de agrupación. Para obtener más información, consulta "[Actualizar {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" o "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".
+3. Si estás ejecutando una Agrupación {% data variables.product.prodname_ghe_server %}, sigue la documentación oficial de actualización para VM únicos o entornos de alta disponibilidad o la guía de actualización de agrupación. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" o "[Actualizar una agrupación](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".

@@ -1,1 +1,1 @@
-Para obtener más información acerca del dominio predeterminado para tu sitio, consulta la sección "[Acerca de {{ site.data.variables.product.prodname_pages }}](/articles/about-github-pages#types-of-github-pages-sites)".
+Para obtener más información acerca del dominio predeterminado para tu sitio, consulta la sección "[Acerca de {% data variables.product.prodname_pages %}](/articles/about-github-pages#types-of-github-pages-sites)".

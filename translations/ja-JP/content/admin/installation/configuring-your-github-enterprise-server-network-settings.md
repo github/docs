@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/articles/configuring-dns-ssl-and-subdomain-settings/
   - /enterprise/admin/guides/installation/configuring-your-github-enterprise-network-settings/
   - /enterprise/admin/installation/configuring-your-github-enterprise-server-network-settings
-intro: 'ネットワークで必要な DNS ネームサーバーとホスト名を使用して {{ site.data.variables.product.prodname_ghe_server }} を設定します。 プロキシサーバあるいはファイアウォールルールを設定することもできます。 管理及びユーザのために特定のポートへのアクセスを許可しなければなりません。'
+intro: 'ネットワークで必要な DNS ネームサーバーとホスト名を使用して {% data variables.product.prodname_ghe_server %} を設定します。 プロキシサーバあるいはファイアウォールルールを設定することもできます。 管理及びユーザのために特定のポートへのアクセスを許可しなければなりません。'
 mapTopic: true
 versions:
   enterprise-server: '*'

@@ -1,1 +1,1 @@
-1. En la barra lateral izquierda, haz clic en **{{ site.data.variables.product.prodname_github_connect }}**. ![Pestaña de GitHub Connect en la barra lateral de la configuración de usuario](/assets/images/help/settings/github-connect-tab-user-settings.png)
+1. En la barra lateral izquierda, haz clic en **{% data variables.product.prodname_github_connect %}**. ![Pestaña de GitHub Connect en la barra lateral de la configuración de usuario](/assets/images/help/settings/github-connect-tab-user-settings.png)

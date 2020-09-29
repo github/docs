@@ -1,7 +1,7 @@
 ---
 title: 配置 Apache Maven 用于 GitHub 包
-intro: '您可以配置 Apache Maven 以将包发布到 {{ site.data.variables.product.prodname_registry }} 并将存储在 {{ site.data.variables.product.prodname_registry }} 上的包用作 Java 项目中的依赖项。'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: '您可以配置 Apache Maven 以将包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 Java 项目中的依赖项。'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-apache-maven-for-use-with-github-package-registry
@@ -11,27 +11,27 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
-**注：**安装或发布 Docker 映像时，{{ site.data.variables.product.prodname_registry }} 当前不支持外部图层，如 Windows 映像。
+**注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
-### 向 {{ site.data.variables.product.prodname_registry }} 验证
+### 向 {% data variables.product.prodname_registry %} 验证
 
-{{ site.data.reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.authenticate-packages %}
 
 #### 使用个人访问令牌进行身份验证
 
-{{ site.data.reusables.package_registry.required-scopes }}
+{% data reusables.package_registry.required-scopes %}
 
-通过编辑 *~/.m2/settings.xml* 文件以包含个人访问令牌，您可以使用 Apache Maven 向 {{ site.data.variables.product.prodname_registry }} 验证。 如果 *~/.m2/settings.xml* 文件不存在，请新建该文件。
+通过编辑 *~/.m2/settings.xml* 文件以包含个人访问令牌，您可以使用 Apache Maven 向 {% data variables.product.prodname_registry %} 验证。 如果 *~/.m2/settings.xml* 文件不存在，请新建该文件。
 
-在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {{ site.data.variables.product.prodname_dotcom }} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
+在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
 
-在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 {{ site.data.reusables.package_registry.lowercase-name-field }}
+在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 {% data reusables.package_registry.lowercase-name-field %}
 
 如果要与多个仓库交互，您可以将每个仓库添加到 `repository` 标记中独立的子 `repositories`，将每个仓库的 `id` 映射到 `servers` 标记中的凭据。
 
-{{ site.data.reusables.package_registry.apache-maven-snapshot-versions-supported }}
+{% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
 {% if currentVersion != "free-pro-team@latest" %}
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
@@ -121,19 +121,19 @@ versions:
 
 #### 使用 `GITHUB_TOKEN` 进行身份验证
 
-{{ site.data.reusables.package_registry.package-registry-with-github-tokens }}
+{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### 发布包
 
-{{ site.data.reusables.package_registry.default-name }} 例如，{{ site.data.variables.product.prodname_dotcom }} 将名为 `com.example:test` 的包发布到名为 `OWNER/test` 的仓库中。
+{% data reusables.package_registry.default-name %} 例如，{% data variables.product.prodname_dotcom %} 将名为 `com.example:test` 的包发布到名为 `OWNER/test` 的仓库中。
 
-如果要将多个包发布到同一个仓库，您可以在 `pom.xml` 文件的 `<distributionManagement>` 元素中包含该仓库的 URL。 {{ site.data.variables.product.prodname_dotcom }} will match the repository based on that field. 由于仓库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一个仓库无需额外步骤、
+如果要将多个包发布到同一个仓库，您可以在 `pom.xml` 文件的 `<distributionManagement>` 元素中包含该仓库的 URL。 {% data variables.product.prodname_dotcom %} will match the repository based on that field. 由于仓库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一个仓库无需额外步骤、
 
 有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
 1. 编辑包目录中 *pom.xml* 文件的 `distributionManagement` 元素，将 `OWNER` 替换为拥有该仓库的用户或组织帐户的名称，将 `REPOSITORY` 替换为包含项目的仓库的名称。
 
-在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {{ site.data.variables.product.prodname_dotcom }} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
+在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
   {% if currentVersion != "free-pro-team@latest" %}
   有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
@@ -164,13 +164,13 @@ versions:
    $ mvn deploy
   ```
 
-{{ site.data.reusables.package_registry.viewing-packages }}
+{% data reusables.package_registry.viewing-packages %}
 
 ### 安装包
 
-要从 {{ site.data.variables.product.prodname_registry }} 安装 Apache Maven 包，请编辑 *pom.xml* 文件以包含该包作为依赖项。 如果要从多个仓库安装包，请为每个仓库添加 `repository` 标记。 有关在项目中使用 *pom.xml* 文件的更多信息，请参阅 Apache Maven 文档中的“[POM 简介](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”。
+要从 {% data variables.product.prodname_registry %} 安装 Apache Maven 包，请编辑 *pom.xml* 文件以包含该包作为依赖项。 如果要从多个仓库安装包，请为每个仓库添加 `repository` 标记。 有关在项目中使用 *pom.xml* 文件的更多信息，请参阅 Apache Maven 文档中的“[POM 简介](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”。
 
-{{ site.data.reusables.package_registry.authenticate-step}}
+{% data reusables.package_registry.authenticate-step %}
 2. 将包依赖项添加到项目 *pom.xml* 文件的 `dependencies` 元素，将 `com.example:test` 替换为您的包。
 
   ```
@@ -190,5 +190,5 @@ versions:
 
 ### 延伸阅读
 
-- "[配置 Gradle 用于 {{ site.data.variables.product.prodname_registry }}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
+- "[配置 Gradle 用于 {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
 - “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”

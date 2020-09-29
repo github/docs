@@ -1,25 +1,25 @@
 ---
 title: About GitHub Container Registry
-intro: 'The {{ site.data.variables.product.prodname_github_container_registry }} allows you to seamlessly host and manage Docker container images in your organization or personal user account on {{ site.data.variables.product.prodname_dotcom }}. {{ site.data.variables.product.prodname_github_container_registry }} allows you to configure who can manage and access packages using fine-grained permissions.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'The {% data variables.product.prodname_github_container_registry %} allows you to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_github_container_registry %} allows you to configure who can manage and access packages using fine-grained permissions.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_github_container_registry }} is currently in public beta and subject to change. Currently, {{ site.data.variables.product.prodname_github_container_registry }} only supports Docker image formats. During the beta, storage and bandwidth is free.
+**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. Currently, {% data variables.product.prodname_github_container_registry %} only supports Docker image formats. During the beta, storage and bandwidth is free.
 
 {% endnote %}
 
 
-{{ site.data.reusables.package_registry.container-registry-feature-highlights }}
+{% data reusables.package_registry.container-registry-feature-highlights %}
 
-To share context about your package's use, you can link a repository to your container image on {{ site.data.variables.product.prodname_dotcom }}. For more information, see "[Connecting a repository to a container image](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)."
+To share context about your package's use, you can link a repository to your container image on {% data variables.product.prodname_dotcom %}. For more information, see "[Connecting a repository to a container image](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)."
 
 ### Supported formats
 
-The {{ site.data.variables.product.prodname_container_registry }} currently only supports Docker images.
+The {% data variables.product.prodname_container_registry %} currently only supports Docker images.
 
 
 ### Visibility and access permissions for container images
@@ -38,15 +38,15 @@ For container images published and owned by a user account, you can give any per
 
 For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
 
-### About billing for {{ site.data.variables.product.prodname_github_container_registry }}
+### About billing for {% data variables.product.prodname_github_container_registry %}
 
-{{ site.data.reusables.package_registry.billing-for-container-registry }}
+{% data reusables.package_registry.billing-for-container-registry %}
 
 ### Contacting support
 
-If you have feedback or feature requests for {{ site.data.variables.product.prodname_github_container_registry }}, use the [feedback form](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages).
+If you have feedback or feature requests for {% data variables.product.prodname_github_container_registry %}, use the [feedback form](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages).
 
-Contact {{ site.data.variables.contact.github_support }} about {{ site.data.variables.product.prodname_github_container_registry }} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
+Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_github_container_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
 
 * You experience anything that contradicts the documentation.
 * You encounter vague or unclear errors.

@@ -1,1 +1,1 @@
-1. 左のサイドバーで**{{ site.data.variables.enterprise.management_console }}**をクリックしてください。 ![左のサイドバーの{{ site.data.variables.enterprise.management_console }}タブ](/assets/images/enterprise/management-console/management-console-tab.png)
+1. 左のサイドバーで**{% data variables.enterprise.management_console %}**をクリックしてください。 ![左のサイドバーの{% data variables.enterprise.management_console %}タブ](/assets/images/enterprise/management-console/management-console-tab.png)

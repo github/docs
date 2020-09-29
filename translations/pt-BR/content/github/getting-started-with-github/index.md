@@ -1,7 +1,7 @@
 ---
 title: Introdução ao GitHub
 shortTitle: Introdução
-intro: 'Conheça os produtos do {{ site.data.variables.product.prodname_dotcom }}, inscreva-se em uma conta e explore a comunidade {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Conheça os produtos do {% data variables.product.prodname_dotcom %}, inscreva-se em uma conta e explore a comunidade {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/

@@ -9,14 +9,14 @@ For more information about how to access your web notifications, see "[Accessing
 
 ### Marking a notification as read
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. In the list of unread notifications, find the notification you would like to mark as read.
 1. On the right side of the notification, click {% octicon "check" aria-label="The check symbol" %}.
 ![Button to mark a single notification as read](/assets/images/help/notifications/notifications_mark_individual_as_read.png)
 
 ### Marking a notification as unread
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. In the left sidebar, click **Read**.
 ![All notifications button](/assets/images/help/notifications/sidebar_read_notifications.png)
 1. In the list of read notifications, find the notification you would like to mark as unread.
@@ -25,13 +25,13 @@ For more information about how to access your web notifications, see "[Accessing
 
 ### Marking all notifications as read
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. In the upper right corner of the page, click **Mark all as read**.
 ![Button to mark all notifications as read](/assets/images/help/notifications/notifications_mark_all_as_read.png)
 
 ### Marking all notifications from a repository as read
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. In the left sidebar, click the name of the repository for which you'd like to mark all notifications as read.
 1. In the list of notifications, on the right side of the repository name, click {% octicon "check" aria-label="The check symbol" %}.
 ![Button to mark all notifications from a repository as read](/assets/images/help/notifications/notifications_repositories_mark_all_as_read.png)

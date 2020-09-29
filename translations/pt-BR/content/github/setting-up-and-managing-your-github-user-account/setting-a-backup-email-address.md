@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
 3. Em "Backup email address" (Endereço de e-mail de backup), selecione o endereço que deseja configurar como endereço de e-mail de backup usando o menu suspenso. ![Endereço de e-mail de backup](/assets/images/help/settings/backup-email-address.png)
 4. Clique em **Salvar**.
 

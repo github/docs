@@ -17,8 +17,8 @@ versions:
 {% endtip %}
 
 1. Navigiere zu dem Projektboard, das Du bearbeiten möchtest.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Ändere den Namen und die Beschreibung des Projektboards wie gewünscht, und klicke dann auf **Save project** (Projekt ändern). ![Feld mit dem Namen und der Beschreibung des Projektboards und Schaltfläche „Save project“ (Projekt speichern)](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ### Weiterführende Informationen

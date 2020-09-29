@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.access_applications }}
-{{ site.data.reusables.user_settings.access_authorized_oauth_apps }}
-{{ site.data.reusables.user_settings.review-oauth-apps }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.access_applications %}
+{% data reusables.user_settings.access_authorized_oauth_apps %}
+{% data reusables.user_settings.review-oauth-apps %}
 
 ### 더 읽을거리
 {% if currentVersion == "free-pro-team@latest" %}

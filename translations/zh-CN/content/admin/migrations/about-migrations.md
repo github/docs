@@ -1,6 +1,6 @@
 ---
 title: 关于迁移
-intro: '迁移是将数据从*源*位置（{{ site.data.variables.product.prodname_dotcom_the_website }} 组织或 {{ site.data.variables.product.prodname_ghe_server }} 实例）转移到*目标* {{ site.data.variables.product.prodname_ghe_server }} 实例的过程。 在更换平台或或升级实例上的硬件时，可以使用迁移转移数据。'
+intro: '迁移是将数据从*源*位置（{% data variables.product.prodname_dotcom_the_website %} 组织或 {% data variables.product.prodname_ghe_server %} 实例）转移到*目标* {% data variables.product.prodname_ghe_server %} 实例的过程。 在更换平台或或升级实例上的硬件时，可以使用迁移转移数据。'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
 versions:
@@ -11,9 +11,9 @@ versions:
 
 您可以执行三种类型的迁移：
 
-- 从 {{ site.data.variables.product.prodname_ghe_server }} 实例迁移到另一个 {{ site.data.variables.product.prodname_ghe_server }} 实例。 您可以迁移实例上由任何用户或组织拥有的任意数量的仓库。 在执行迁移之前，您必须具有两个实例的站点管理员访问权限。
-- 从 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织迁移到 {{ site.data.variables.product.prodname_ghe_server }} 实例。 您可以迁移由组织拥有的任意数量的仓库。 在执行迁移前，您必须拥有 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织的[管理访问权限](/enterprise/user/articles/permission-levels-for-an-organization/)和目标实例的站点管理员访问权限。
-- *试运行*是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {{ site.data.variables.product.product_location_enterprise }} 应用迁移后*将要*发生的变化。 **我们强烈建议您先在暂存实例上执行试运行，然后再将数据导入生产实例。**
+- 从 {% data variables.product.prodname_ghe_server %} 实例迁移到另一个 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移实例上由任何用户或组织拥有的任意数量的仓库。 在执行迁移之前，您必须具有两个实例的站点管理员访问权限。
+- 从 {% data variables.product.prodname_dotcom_the_website %} 组织迁移到 {% data variables.product.prodname_ghe_server %} 实例。 您可以迁移由组织拥有的任意数量的仓库。 在执行迁移前，您必须拥有 {% data variables.product.prodname_dotcom_the_website %} 组织的[管理访问权限](/enterprise/user/articles/permission-levels-for-an-organization/)和目标实例的站点管理员访问权限。
+- *试运行*是将数据导入[暂存实例](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)的迁移。 这些试运行非常有用，可用于查看在向 {% data variables.product.product_location_enterprise %} 应用迁移后*将要*发生的变化。 **我们强烈建议您先在暂存实例上执行试运行，然后再将数据导入生产实例。**
 
 ### 迁移的数据
 
@@ -21,7 +21,7 @@ versions:
 
 下表中的项可随仓库一起迁移。 迁移的数据列表中未显示的任何项都无法迁移。
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
 | 与迁移的仓库关联的数据    | 注：                                                                                            |
 | -------------- | --------------------------------------------------------------------------------------------- |

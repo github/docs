@@ -17,4 +17,4 @@ Puedes utilizar los webhooks globales para controlar, responder o aplicar reglas
 
 Para obtener más información acerca de la configuración de los webhooks, consultar "[Managing global webhooks](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-global-webhooks)."
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}

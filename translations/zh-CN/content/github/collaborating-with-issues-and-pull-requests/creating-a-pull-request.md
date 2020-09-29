@@ -12,9 +12,9 @@ versions:
 
 您可以在创建拉取请求时指定要将更改合并到哪个分支。 拉取请求只能在不同的两个分支之间打开。
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### 更改分支范围和目标仓库
 
@@ -42,18 +42,18 @@ versions:
 
 {% tip %}
 
-**提示**：您也可以使用 {{ site.data.variables.product.prodname_desktop }} 创建拉取请求。 更多信息请参阅 {{ site.data.variables.product.prodname_desktop }} 文档中的“[创建议题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”。
+**提示**：您也可以使用 {% data variables.product.prodname_desktop %} 创建拉取请求。 更多信息请参阅 {% data variables.product.prodname_desktop %} 文档中的“[创建议题或拉取请求](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)”。
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 在“Branch（分支）”菜单中，选择包含提交的分支。 ![分支下拉菜单](/assets/images/help/pull_requests/branch-dropdown.png)
-{{ site.data.reusables.repositories.new-pull-request }}
+{% data reusables.repositories.new-pull-request %}
 4. 使用 _base（基础）_分支下拉菜单选择要向其合并更改的分支，然后使用 _compare（比较）_分支下拉菜单选择进行了更改的主题分支。 ![用于选择基础和比较分支的下拉菜单](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
-{{ site.data.reusables.repositories.pr-title-description }}
-{{ site.data.reusables.repositories.create-pull-request }}
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 在拉取请求通过审查后，可将其[合并到仓库中](/articles/merging-a-pull-request)。
 

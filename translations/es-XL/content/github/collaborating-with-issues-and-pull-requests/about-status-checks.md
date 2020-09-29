@@ -17,18 +17,18 @@ Cualquier persona con permisos de escritura a un repositorio puede determinar el
 
 Puedes ver el estado general de la última confirmación para una rama en la página de ramas de tu repositorio o en la lista de solicitudes de extracción de tu repositorio.
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Tipos de verificaciones de estado en {{ site.data.variables.product.product_name }}
+### Tipos de verificaciones de estado en {% data variables.product.product_name %}
 
-Hay dos tipos de verificaciones de estado en {{ site.data.variables.product.product_name }}:
+Hay dos tipos de verificaciones de estado en {% data variables.product.product_name %}:
 
 - Verificaciones
 - Estados
 
-Las _verificaciones_ son diferentes de los _estados_, porque brindan anotaciones por línea, mensajes más detallados y solo están disponibles para el uso con {{ site.data.variables.product.prodname_github_app }}s.
+Las _verificaciones_ son diferentes de los _estados_, porque brindan anotaciones por línea, mensajes más detallados y solo están disponibles para el uso con {% data variables.product.prodname_github_app %}s.
 
-Los propietarios de la organización y los usuarios con acceso de escritura a un repositorio pueden crear verificaciones y estados con la API de {{ site.data.variables.product.product_name }}. Para obtener más información, consulta la secciónes "[Verificaciones](/v3/checks/)" y "[Estados](/v3/repos/statuses/)".
+Los propietarios de la organización y los usuarios con acceso de escritura a un repositorio pueden crear verificaciones y estados con la API de {% data variables.product.product_name %}. Para obtener más información, consulta la secciónes "[Verificaciones](/v3/checks/)" y "[Estados](/v3/repos/statuses/)".
 
 ### Verificaciones
 

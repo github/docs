@@ -40,7 +40,7 @@ Recomendamos estas herramientas para mover cambios entre Team Foundation Server 
 
 {% tip %}
 
-**Sugerencia:** después de haber convertido con éxito tu proyecto a Git, puedes [subirlo a {{ site.data.variables.product.prodname_dotcom }}](/articles/pushing-commits-to-a-remote-repository/).
+**Sugerencia:** después de haber convertido con éxito tu proyecto a Git, puedes [subirlo a {% data variables.product.prodname_dotcom %}](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}
 
@@ -50,6 +50,6 @@ Recomendamos estas herramientas para mover cambios entre Team Foundation Server 
 
 - "[Acerca del Importador GitHub](/articles/about-github-importer)"
 - "[Importar un repositorio con Importador GitHub](/articles/importing-a-repository-with-github-importer)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})
 
 {% endif %}

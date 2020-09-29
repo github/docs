@@ -1,18 +1,18 @@
 ---
 title: Configuring access control and visibility for container images
-intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'Choose who has read, write, or admin access to your container image and the visibility of your container images on {% data variables.product.prodname_dotcom %}.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.package_registry.container-registry-beta }}
+{% data reusables.package_registry.container-registry-beta %}
 
 ### Configuring access to container images for your personal account
 
 If you have admin permissions to a user-account owned container image, you can assign read, write, or admin roles to other users. For more information about these permission roles, see "[Visibility and access permissions for container images](/packages/getting-started-with-github-container-registry/about-github-container-registry#visibility-and-access-permissions-for-container-images)."
 
-{{ site.data.reusables.package_registry.package-settings-from-user-level }}
+{% data reusables.package_registry.package-settings-from-user-level %}
 1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. Teams cannot be given access to a container image owned by a user account.
   ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
 1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
@@ -28,7 +28,7 @@ If your package is owned by an organization and private, then you can only give 
 
 For organization image containers, organizations admins must enable packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
 
-{{ site.data.reusables.package_registry.package-settings-from-org-level }}
+{% data reusables.package_registry.package-settings-from-org-level %}
 1. On the package settings page, click **Invite teams or people** and enter the name, username, or email of the person you want to give access. You can also enter a team name from the organization to give all team members access.
   ![Container access invite button](/assets/images/help/package-registry/container-access-invite.png)
 1. Next to the username or team name, use the "Role" drop-down menu to select a desired permission level.
@@ -42,7 +42,7 @@ When you first publish a package, the default visibility is private and only you
 
 A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
 
-{{ site.data.reusables.package_registry.package-settings-from-user-level }}
+{% data reusables.package_registry.package-settings-from-user-level %}
 5. Under "Danger Zone", choose a visibility setting:
     - To make the container image visible to anyone, click **Make public**.
     {% warning %}
@@ -61,7 +61,7 @@ A public package can be accessed anonymously without authentication. Once you ma
 
 For organization image containers, organizations admins must enable public packages before you can set the visibility to public. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
 
-{{ site.data.reusables.package_registry.package-settings-from-org-level }}
+{% data reusables.package_registry.package-settings-from-org-level %}
 5. Under "Danger Zone", choose a visibility setting:
     - To make the container image visible to anyone, click **Make public**.
     {% warning %}

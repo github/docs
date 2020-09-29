@@ -9,9 +9,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Escolha uma destas opções:
     - Para criar um marco, clique em **New Milestone** (Novo marco). ![Botão New milestone (Novo marco)](/assets/images/help/repository/new-milestone.png)
     - Para editar um marco, ao lado do marco que deseja editar, clique em **Edit** (Editar). ![Opção para editar marco](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +21,9 @@ versions:
 
 Quando você exclui marcos, os problemas e as pull requests não são afetados.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Ao lado do marco que deseja excluir, clique em **Delete** (Excluir). ![Opção para excluir marco](/assets/images/help/repository/delete-milestone.png)
 
 ### Leia mais

@@ -1,6 +1,6 @@
 ---
 title: About pull requests
-intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {{ site.data.variables.product.product_name }}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
+intro: 'Pull requests let you tell others about changes you''ve pushed to a branch in a repository on {% data variables.product.product_name %}. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ You can see information about the branch's current deployment status and past de
 
 After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "[Merging a pull request](/articles/merging-a-pull-request)."
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ You can visit your dashboard to quickly find links to recently updated pull requ
 
 ### Draft pull requests
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "[Creating a pull request](/articles/creating-a-pull-request)" and "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)."
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/articles/changing-the-stage-of-a-pull-request)."
+{% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/articles/changing-the-stage-of-a-pull-request)."
 
 ### 더 읽을거리
 
-- "[Pull request](/articles/github-glossary/#pull-request)" in the {{ site.data.variables.product.prodname_dotcom }} glossary
+- "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[About branches](/articles/about-branches)"
 - "[Commenting on a pull request](/articles/commenting-on-a-pull-request)"
 - "[Merging a pull request](/articles/merging-a-pull-request)"

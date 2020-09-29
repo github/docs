@@ -1,6 +1,6 @@
 ---
 title: Abrechnung für Dein GitHub-Konto verwalten
-intro: '{{ site.data.variables.product.product_name }} bietet für jedes Konto kostenlose und kostenpflichtige Produkte an. Du kannst das Abonnement Deines Kontos jederzeit herauf- oder herabstufen und ausstehende Änderungen anzeigen.'
+intro: '{% data variables.product.product_name %} bietet für jedes Konto kostenlose und kostenpflichtige Produkte an. Du kannst das Abonnement Deines Kontos jederzeit herauf- oder herabstufen und ausstehende Änderungen anzeigen.'
 redirect_from:
   - /categories/97/articles/
   - /categories/paying-for-user-accounts/

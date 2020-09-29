@@ -1,6 +1,6 @@
 ---
 title: 搜索查询故障排除
-intro: '如果您在 {{ site.data.variables.product.product_name }} 上搜索时遇到意外的结果，您可以通过查看常见问题和限制来进行故障排除。'
+intro: '如果您在 {% data variables.product.product_name %} 上搜索时遇到意外的结果，您可以通过查看常见问题和限制来进行故障排除。'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
@@ -16,7 +16,7 @@ versions:
 
 ### 查询长度限制
 
-在 {{ site.data.variables.product.product_name }} 上搜索时，查询的长度有一些限制：
+在 {% data variables.product.product_name %} 上搜索时，查询的长度有一些限制：
 
 * 不支持长度超过 256 个字符的查询
 * 您无法使用超过五个 `AND`、`OR` 或 `NOT` 运算符构造查询

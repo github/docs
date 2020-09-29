@@ -9,26 +9,26 @@ Para monitorar as alterações de seus patrocínios, como os cancelamentos no fi
 
 ### Gerenciando webhooks para sua conta de usuário patrocinada
 
-{{ site.data.reusables.sponsors.navigate-to-dev-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-webhooks-tab }}
-{{ site.data.reusables.sponsors.add-webhook }}
-{{ site.data.reusables.sponsors.add-payload-url }}
-{{ site.data.reusables.sponsors.webhook-content-formatting }}
-{{ site.data.reusables.sponsors.webhook-secret-token }}
-{{ site.data.reusables.sponsors.add-active-triggers }}
-{{ site.data.reusables.sponsors.confirm-add-webhook}}
-{{ site.data.reusables.sponsors.manage-existing-webhooks}}
+{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-webhooks-tab %}
+{% data reusables.sponsors.add-webhook %}
+{% data reusables.sponsors.add-payload-url %}
+{% data reusables.sponsors.webhook-content-formatting %}
+{% data reusables.sponsors.webhook-secret-token %}
+{% data reusables.sponsors.add-active-triggers %}
+{% data reusables.sponsors.confirm-add-webhook %}
+{% data reusables.sponsors.manage-existing-webhooks %}
 
 ### Gerenciando webhooks para sua organização patrocinada
 
 Os proprietários da organização podem configurar webhooks para uma organização patrocinada.
 
-{{ site.data.reusables.sponsors.navigate-to-org-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-webhooks-tab }}
-{{ site.data.reusables.sponsors.add-webhook }}
-{{ site.data.reusables.sponsors.add-payload-url }}
-{{ site.data.reusables.sponsors.webhook-content-formatting }}
-{{ site.data.reusables.sponsors.webhook-secret-token }}
-{{ site.data.reusables.sponsors.add-active-triggers }}
-{{ site.data.reusables.sponsors.confirm-add-webhook}}
-{{ site.data.reusables.sponsors.manage-existing-webhooks}}
+{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-webhooks-tab %}
+{% data reusables.sponsors.add-webhook %}
+{% data reusables.sponsors.add-payload-url %}
+{% data reusables.sponsors.webhook-content-formatting %}
+{% data reusables.sponsors.webhook-secret-token %}
+{% data reusables.sponsors.add-active-triggers %}
+{% data reusables.sponsors.confirm-add-webhook %}
+{% data reusables.sponsors.manage-existing-webhooks %}

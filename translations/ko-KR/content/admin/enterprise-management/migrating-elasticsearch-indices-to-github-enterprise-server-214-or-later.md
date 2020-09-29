@@ -1,6 +1,6 @@
 ---
 title: Migrating Elasticsearch indices to GitHub Enterprise Server 2.14 or later
-intro: 'To prepare for an upgrade to {{ site.data.variables.product.prodname_ghe_server }} 2.14, you''ll need to migrate your indices to Elasticsearch 5.6 with our migration script.'
+intro: 'To prepare for an upgrade to {% data variables.product.prodname_ghe_server %} 2.14, you''ll need to migrate your indices to Elasticsearch 5.6 with our migration script.'
 redirect_from:
   - /enterprise/admin/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
@@ -14,7 +14,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{{ site.data.variables.product.prodname_ghe_server }} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {{ site.data.variables.product.prodname_ghe_server }} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
+{% data variables.product.prodname_ghe_server %} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {% data variables.product.prodname_ghe_server %} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
 
 ### Search indices
 
@@ -63,7 +63,7 @@ The `search` indices start with:
 
 ### Webhook indices
 
-After the migration script rebuilds the necessary `search` indices online, the script will check if any `webhook` indices need to be rebuilt. If you've run your appliance with {{ site.data.variables.product.prodname_ghe_server }} 2.12 or 2.13 for 14 days or longer, then you likely will not need your `webhook` indices rebuilt since `webhook` indices have a default retention policy of seven days. If you're updating your appliance from {{ site.data.variables.product.prodname_enterprise }} 2.11 or earlier, then you may need to rebuild the `webhook` indices.
+After the migration script rebuilds the necessary `search` indices online, the script will check if any `webhook` indices need to be rebuilt. If you've run your appliance with {% data variables.product.prodname_ghe_server %} 2.12 or 2.13 for 14 days or longer, then you likely will not need your `webhook` indices rebuilt since `webhook` indices have a default retention policy of seven days. If you're updating your appliance from {% data variables.product.prodname_enterprise %} 2.11 or earlier, then you may need to rebuild the `webhook` indices.
 
 If any `webhook` indices need to be rebuilt, then you'll be prompted to enable maintenance mode before the script can rebuild the `webhook` indices. Although migrating `webhook` indices requires some downtime, large maintenance windows or downtime is not necessary.
 
@@ -96,15 +96,15 @@ green  open   code-search-1              1   0    6932626           44     42.9g
 green  open   commits-1                  1   0   63753587         1485     45.4gb         45.4gb
 ```
 
-### Preparing a {{ site.data.variables.product.prodname_ghe_server }} 2.12 or 2.13 appliance
+### Preparing a {% data variables.product.prodname_ghe_server %} 2.12 or 2.13 appliance
 
-If you upgrade to {{ site.data.variables.product.prodname_ghe_server }} 2.14 or later without running the migration tools, the existing Elasticsearch indices may be invalid and won't work correctly. To run the Elasticsearch migration script, your {{ site.data.variables.product.prodname_ghe_server }} appliance must be running {{ site.data.variables.product.prodname_enterprise }} 2.12 or 2.13.
+If you upgrade to {% data variables.product.prodname_ghe_server %} 2.14 or later without running the migration tools, the existing Elasticsearch indices may be invalid and won't work correctly. To run the Elasticsearch migration script, your {% data variables.product.prodname_ghe_server %} appliance must be running {% data variables.product.prodname_enterprise %} 2.12 or 2.13.
 
 {% warning %}
 
 **Warning:**
-- Using {{ site.data.variables.product.prodname_enterprise_backup_utilities }} will destroy old Elasticsearch indices not compatible with 5.X after restoring. In this case, manual reindexing could be necessary.
-- If {{ site.data.variables.product.prodname_ghe_server }} is configured for High Availability, the migration script **must** run while replication is still running. The changes must be allowed to fully replicate to the other appliance before starting the upgrade. If replication is not running while the migration script runs, your Elasticsearch indexes may become invalid.
+- Using {% data variables.product.prodname_enterprise_backup_utilities %} will destroy old Elasticsearch indices not compatible with 5.X after restoring. In this case, manual reindexing could be necessary.
+- If {% data variables.product.prodname_ghe_server %} is configured for High Availability, the migration script **must** run while replication is still running. The changes must be allowed to fully replicate to the other appliance before starting the upgrade. If replication is not running while the migration script runs, your Elasticsearch indexes may become invalid.
 
 {% endwarning %}
 
@@ -114,7 +114,7 @@ If you upgrade to {{ site.data.variables.product.prodname_ghe_server }} 2.14 or 
    $ wget https://github-enterprise.s3.amazonaws.com/util/es-5x-transition-tools.tar.gz
    $ sudo tar -C / -xvf es-5x-transition-tools.tar.gz
    ```
-   If you manage a {{ site.data.variables.product.prodname_ghe_server }} Cluster, authenticate to one of the Elasticsearch server nodes using SSH and install the migration tools there. Locate them using:
+   If you manage a {% data variables.product.prodname_ghe_server %} Cluster, authenticate to one of the Elasticsearch server nodes using SSH and install the migration tools there. Locate them using:
     ```shell
     $ ghe-cluster-each -r elasticsearch -p
     ghe-test-data-0
@@ -130,4 +130,4 @@ If you upgrade to {{ site.data.variables.product.prodname_ghe_server }} 2.14 or 
  **Note:** If you have `webhook` indices to migrate, after running the online migrations, you'll be prompted to enable maintenance mode.
 
  {% endnote %}
-3. If you’re running a {{ site.data.variables.product.prodname_ghe_server }} Cluster, follow the official upgrade documentation for single VMs or High Availability environments or the cluster upgrade guide. For more information, see "[Upgrading {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" or "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".
+3. If you’re running a {% data variables.product.prodname_ghe_server %} Cluster, follow the official upgrade documentation for single VMs or High Availability environments or the cluster upgrade guide. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" or "[Upgrading a cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".

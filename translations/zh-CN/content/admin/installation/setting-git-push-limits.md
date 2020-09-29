@@ -16,14 +16,14 @@ versions:
 {% if currentVersion ver_lt "enterprise-server@2.20" %}
 {% tip %}
 
-**注**：仅会根据 Git 推送限制检查大于 {{ site.data.variables.large_files.warning_size }} 的文件。 如果需要设置较低的推送限制，请联系 {{ site.data.variables.contact.contact_ent_support }} 获得帮助。
+**注**：仅会根据 Git 推送限制检查大于 {% data variables.large_files.warning_size %} 的文件。 如果需要设置较低的推送限制，请联系 {% data variables.contact.contact_ent_support %} 获得帮助。
 
 {% endtip %}
 {% endif %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
 4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. 或者，要对 {{ site.data.variables.product.product_location_enterprise }} 上的所有仓库执行最大上传限制，请选择 select **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+5. 或者，要对 {% data variables.product.product_location_enterprise %} 上的所有仓库执行最大上传限制，请选择 select **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)

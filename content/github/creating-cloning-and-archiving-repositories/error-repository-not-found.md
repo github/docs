@@ -10,7 +10,7 @@ versions:
 
 ### Check your spelling
 
-Typos happen, and repository names are case-sensitive.  If you try to clone `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
+Typos happen, and repository names are case-sensitive.  If you try to clone `git@{% data variables.command_line.codeblock %}:user/repo.git`, but the repository is really named `User/Repo` you will receive this error.
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 
@@ -30,11 +30,11 @@ Make sure that you have access to the repository in one of these ways:
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
-You should ensure that the SSH key you are using is attached to your {{ site.data.variables.product.product_name }} user account. You can check this by typing
+You should ensure that the SSH key you are using is attached to your {% data variables.product.product_name %} user account. You can check this by typing
 the following into the command line:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -53,5 +53,5 @@ If your site administrator has enabled private mode on your GitHub Enterprise in
 
 ### Check that the repository really exists
 
-If all else fails, make sure that the repository really exists on {{ site.data.variables.product.product_location }}!
+If all else fails, make sure that the repository really exists on {% data variables.product.product_location %}!
 If you're trying to push to a repository that doesn't exist, you'll get this error.

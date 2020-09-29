@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „SSL certificate problem, verify that the CA cert is OK“ (SSL-Zertifikatsproblem, verifiziere, dass das CA-Zertifikat OK ist)'
-intro: 'Diese Fehlermeldung bedeutet, dass Dein CA-Root-Zertifikat veraltet ist. Wenn Dein CA-Root-Zertifikat aktualisiert werden muss, kannst Du keine Inhalte von {{ site.data.variables.product.product_name }}-Repositorys abrufen oder dorthin übertragen.'
+intro: 'Diese Fehlermeldung bedeutet, dass Dein CA-Root-Zertifikat veraltet ist. Wenn Dein CA-Root-Zertifikat aktualisiert werden muss, kannst Du keine Inhalte von {% data variables.product.product_name %}-Repositorys abrufen oder dorthin übertragen.'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:

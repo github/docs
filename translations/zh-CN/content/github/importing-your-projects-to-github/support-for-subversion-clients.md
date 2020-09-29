@@ -18,8 +18,8 @@ GitHub 通过 HTTPS 协议支持 Subversion 客户端。 我们使用 Subversion
 
 Subversion 检出则不同：它们混合工作目录中的仓库数据，因此存在用于您已检出的每个分支和标记的工作目录。  对于具有许多分支和标记的仓库，检出所有内容可能会造成带宽负担，因此应从部分检出开始。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. 进行仓库的空检出：
   ```shell

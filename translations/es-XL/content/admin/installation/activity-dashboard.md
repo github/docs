@@ -1,6 +1,6 @@
 ---
 title: Tablero de actividades
-intro: 'El Tablero de actividades te ofrece un resumen de todas las actividades de {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'El Tablero de actividades te ofrece un resumen de todas las actividades de {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -21,7 +21,7 @@ El Tablero de actividades te proporciona gráficos semanales, mensuales y anuale
 
 ![Tablero de actividades](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-Para más análisis basados en los datos de {{ site.data.variables.product.prodname_enterprise }}, puede comprar {{ site.data.variables.product.prodname_insights }}. Para obtener más información, consulta "[Acerca de {{ site.data.variables.product.prodname_insights }}](/insights/installing-and-configuring-github-insights/about-github-insights)."
+Para más análisis basados en los datos de {% data variables.product.prodname_enterprise %}, puede comprar {% data variables.product.prodname_insights %}. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
 
 ### Acceder al Tablero de actividades
 

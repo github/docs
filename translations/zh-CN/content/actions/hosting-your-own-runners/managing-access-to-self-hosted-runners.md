@@ -9,9 +9,9 @@ versions:
 
 ### 控制哪些存储库可以访问组织的运行器
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. 在“Self-hosted runners（自托管运行器）”旁边，单击 **Manage repository permissions（管理仓库权限）**。 ![管理仓库权限](/assets/images/help/settings/actions-runner-manage-permissions.png)
 
 1. 从下拉菜单中选择以下选项之一：

@@ -1,6 +1,6 @@
 ---
 title: Esquema público
-intro: 'Faça o download do esquema público para a API do GraphQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Faça o download do esquema público para a API do GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/public_schema
 versions:

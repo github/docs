@@ -3,14 +3,14 @@
     <p>
       <b>
         <span data-display-until="{{ enterpriseServerReleases.nextDeprecationDate }}">
-          {{ site.data.reusables.enterprise_deprecation.version_will_be_deprecated }}
+          {% data reusables.enterprise_deprecation.version_will_be_deprecated %}
         </span>
         <span data-display-starting="{{ enterpriseServerReleases.nextDeprecationDate }}">
-          {{ site.data.reusables.enterprise_deprecation.version_was_deprecated }}
+          {% data reusables.enterprise_deprecation.version_was_deprecated %}
         </span>
         <span data-date="{{ enterpriseServerReleases.nextDeprecationDate }}" data-format="%B %d, %Y" title="{{ enterpriseServerReleases.nextDeprecationDate }}">{{ enterpriseServerReleases.nextDeprecationDate }}</span>.
       </b>
-      {{ site.data.reusables.enterprise_deprecation.deprecation_details }}
+      {% data reusables.enterprise_deprecation.deprecation_details %}
     </p>
   </div>
 {% endif %}

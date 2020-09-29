@@ -1,7 +1,7 @@
 ---
 title: 缓存依赖项以加快工作流程
 intro: 为了使工作流程更快、更高效，可以为依赖项及其他经常重复使用的文件创建和使用缓存。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -13,9 +13,9 @@ versions:
 
 工作流程运行通常在不同运行之间重新使用相同的输出或下载的依赖项。 例如，Maven、Gradle、npm 和 Yarn 等软件包和依赖项管理工具都会对下载的依赖项保留本地缓存。
 
-{{ site.data.variables.product.prodname_dotcom }} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{{ site.data.variables.product.prodname_dotcom }} 可以缓存您在工作流程中经常使用的依赖项。
+{% data variables.product.prodname_dotcom %} 托管的运行器在一个干净的虚拟环境中启动，每次都必须下载依赖项，造成网络利用率提高、运行时间延长和成本增加。 为帮助加快重新创建这些文件，{% data variables.product.prodname_dotcom %} 可以缓存您在工作流程中经常使用的依赖项。
 
-要缓存作业的依赖项，您需要使用 {{ site.data.variables.product.prodname_dotcom }} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
+要缓存作业的依赖项，您需要使用 {% data variables.product.prodname_dotcom %} 的 `cache` 操作。 该操作检索由唯一键标识的缓存。 更多信息请参阅 [`actions/cache`](https://github.com/actions/cache)。
 
 {% warning %}
 
@@ -25,7 +25,7 @@ versions:
 
 ### 比较构件和依赖项缓存
 
-构件与缓存类似，因为它们能够在 {{ site.data.variables.product.prodname_dotcom }} 上存储文件，但每项功能都提供不同的用例，不能互换使用。
+构件与缓存类似，因为它们能够在 {% data variables.product.prodname_dotcom %} 上存储文件，但每项功能都提供不同的用例，不能互换使用。
 
 - 如果要在作业或工作流程运行之间重复使用不经常更改的文件，请使用缓存。
 - 如果要保存作业生成的文件，以便在工作流程结束后查看，则使用构件。 更多信息请参阅“[使用构件持久化工作流程](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)”。
@@ -116,7 +116,7 @@ jobs:
 
 #### 使用上下文创建缓存键
 
-缓存键可以包括 {{ site.data.variables.product.prodname_actions }} 支持的任何上下文、函数、文本和运算符。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
+缓存键可以包括 {% data variables.product.prodname_actions %} 支持的任何上下文、函数、文本和运算符。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
 使用表达式创建 `key` 允许您在依赖项更改时自动创建新缓存。 例如，您可以使用计算 npm `package-lock.json` 文件哈希的表达式创建 `key`。
 
@@ -126,7 +126,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }} 评估表达式 `hash "package-lock.json"` 以派生最终 `key`。
+{% data variables.product.prodname_dotcom %} 评估表达式 `hash "package-lock.json"` 以派生最终 `key`。
 
 ```
 npm-d5ea0750
@@ -187,4 +187,4 @@ restore-keys: |
 
 ### 使用限制和收回政策
 
-{{ site.data.variables.product.prodname_dotcom }} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 5 GB。 如果超过此限制，{{ site.data.variables.product.prodname_dotcom }} 将保存缓存，但会开始收回缓存，直到总大小小于 5 GB。
+{% data variables.product.prodname_dotcom %} 将删除 7 天内未被访问的任何缓存条目。 可以存储的缓存数没有限制，但存储库中所有缓存的总大小限制为 5 GB。 如果超过此限制，{% data variables.product.prodname_dotcom %} 将保存缓存，但会开始收回缓存，直到总大小小于 5 GB。

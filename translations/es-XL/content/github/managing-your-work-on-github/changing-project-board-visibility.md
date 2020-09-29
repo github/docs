@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-board-visibility }}
+{% data reusables.project-management.project-board-visibility %}
 
 {% tip %}
 
@@ -17,6 +17,6 @@ versions:
 {% endtip %}
 
 1. Dirígete al tablero de proyecto que deseas jacer público o privado.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. En "Visibility" (Visibilidad), selecciona **Public** (Público) o **Private** (Privado). Luego, haz clic en **Save** (Guardar). ![Botones de opción público y privado](/assets/images/help/projects/project-board-visibility-options.png)

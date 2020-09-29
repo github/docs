@@ -14,7 +14,7 @@ versions:
 
 プロジェクトボードのコラボレーターには 3 つのレベルの権限があります。
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### ユーザー所有プロジェクトボードのオーナー権限および管理者権限
 

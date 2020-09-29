@@ -84,7 +84,7 @@ versions:
 
 ## 部署密钥
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
 部署密钥可以使用以下 API 端点进行设置，也可以使用 GitHub 进行设置。 要了解如何在 GitHub 中设置部署密钥，请参阅“[管理部署密钥](/developers/overview/managing-deploy-keys)”。
 
@@ -139,7 +139,7 @@ versions:
 
 当您将部署状态设置为 `success` 时，同一仓库中所有先前的非瞬态、非生产环境部署将变成 `inactive`。 为避免这种情况，您可以在创建部署状态时将 `auto_inactive` 设置为 `false`。
 
-您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {{ site.data.variables.product.prodname_dotcom }} 中 `destroyed` 并删除对它的访问权限。
+您可以通过将 `state` 设为 `inactive` 来表示某个瞬态环境不再存在。  将 `state` 设为 `inactive`，表示部署在 {% data variables.product.prodname_dotcom %} 中 `destroyed` 并删除对它的访问权限。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
@@ -167,7 +167,7 @@ versions:
 
 ## 合并
 
-仓库合并 API 支持合并仓库中的分支。 其过程基本上等同于在本地仓库中合并分支然后将其推送到 {{ site.data.variables.product.product_name }}。 其好处是合并是在服务器端完成的，不需要使用本地仓库。 这使它更适用于自动化，以及使用其他工具维护本地仓库比较繁琐且低效的情况。
+仓库合并 API 支持合并仓库中的分支。 其过程基本上等同于在本地仓库中合并分支然后将其推送到 {% data variables.product.product_name %}。 其好处是合并是在服务器端完成的，不需要使用本地仓库。 这使它更适用于自动化，以及使用其他工具维护本地仓库比较繁琐且低效的情况。
 
 经过身份验证的用户将是通过此端点完成的任何合并的作者。
 
@@ -177,16 +177,16 @@ versions:
 
 ## 页面
 
-{{ site.data.variables.product.prodname_pages }} API 可检索关于您的 {{ site.data.variables.product.prodname_pages }} 配置以及构建状态的信息。 关于站点和构建的信息只能由经身份验证的所有者访问，即使网站时公开的。 更多信息请参阅“[关于 {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages)”。
+{% data variables.product.prodname_pages %} API 可检索关于您的 {% data variables.product.prodname_pages %} 配置以及构建状态的信息。 关于站点和构建的信息只能由经身份验证的所有者访问，即使网站时公开的。 更多信息请参阅“[关于 {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)”。
 
-在其响应中包含 `status` 键的 {{ site.data.variables.product.prodname_pages }} API 端点中，其值可能是以下值之一：
+在其响应中包含 `status` 键的 {% data variables.product.prodname_pages %} API 端点中，其值可能是以下值之一：
 * `null`：站点尚未构建。
 * `queued`：已请求构建，但尚未开始。
 * `building`：正在构建中。
 * `built`：站点已构建。
 * `errored`：表示构建过程中发生错误。
 
-在{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}支持 `mister-fantastic-preview` 并{% endif %}返回 GitHub Pages 站点信息的 {{ site.data.variables.product.prodname_pages }} API 端点中，JSON 响应包括以下字段：
+在{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}支持 `mister-fantastic-preview` 并{% endif %}返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
 * `html_url`：所渲染的 Pages 站点的绝对 URL（包括模式）。 例如，`https://username.github.io`。
 * `source`：包含所渲染 Pages 站点的源分支和目录的对象。 这包括：
    - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_master_ 或 _gh-pages_。
@@ -210,7 +210,7 @@ versions:
 
 ## 统计
 
-仓库统计 API 允许您获取 {{ site.data.variables.product.product_name }} 用于可视化不同类型仓库活动的数据。
+仓库统计 API 允许您获取 {% data variables.product.product_name %} 用于可视化不同类型仓库活动的数据。
 
 ### 谈一谈缓存
 
@@ -268,11 +268,11 @@ API 公开的统计信息与[各种仓库图](/github/visualizing-repository-dat
 
 ### 接收 web 挂钩
 
-为了让 {{ site.data.variables.product.product_name }} 发送 web 挂钩有效负载，您的服务器需要能够从 Internet 访问。 我们还强烈建议使用 SSL，以便我们可以通过 HTTPS 发送加密的有效负载。
+为了让 {% data variables.product.product_name %} 发送 web 挂钩有效负载，您的服务器需要能够从 Internet 访问。 我们还强烈建议使用 SSL，以便我们可以通过 HTTPS 发送加密的有效负载。
 
 #### Web 挂钩标头
 
-{{ site.data.variables.product.product_name }} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)。
+{% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers)。
 
 ### PubSubHubbub
 
@@ -293,7 +293,7 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 回调 URL 可以使用 `http://` 协议。
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回调以指定 GitHub 服务。
-{{ site.data.reusables.apps.deprecating_github_services_ghe }}
+{% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
@@ -305,11 +305,11 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 
 #### 订阅
 
-GitHub PubSubHubbub 端点为：`{{ site.data.variables.product.api_url_code }}/hub`。 使用 cURL 的成功请求如下所示：
+GitHub PubSubHubbub 端点为：`{% data variables.product.api_url_code %}/hub`。 使用 cURL 的成功请求如下所示：
 
 ``` shell
 curl -u "user" -i \
-  {{ site.data.variables.product.api_url_pre }}/hub \
+  {% data variables.product.api_url_pre %}/hub \
   -F "hub.mode=subscribe" \
   -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
   -F "hub.callback=http://postbin.org/123"

@@ -11,5 +11,5 @@ Das [GitHub Jobs](https://jobs.github.com/)-Board ist eine tolle Möglichkeit, u
 
 ![GitHub Jobs-Anzeigen im Dashboard](/assets/images/help/settings/jobs-ads-on-dashboard.png)
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. Wähle unter „Jobs Profile“ (Stellen-Profil) die Option **Available for hire** (Zur Anstellung verfügbar) aus. Klicke anschließend auf **Save jobs profile** (Stellen-Profil speichern). ![Einstellungen für Stellen-Profil](/assets/images/help/settings/jobs-profile-settings.png)

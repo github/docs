@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Ingresa `ls -al ~/.ssh` para ver si hay claves SSH presentes:
 
   ```shell
@@ -23,9 +23,9 @@ versions:
     - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
     - *id_dsa.pub*{% endif %}
 
-Si no tienes un par de llaves pública y privada, o si no deseas utilizar las que están disponibles para conectarte a{{ site.data.variables.product.product_name }}, entonces [genera una llave SSH nueva](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+Si no tienes un par de llaves pública y privada, o si no deseas utilizar las que están disponibles para conectarte a{% data variables.product.product_name %}, entonces [genera una llave SSH nueva](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-Si ves que ya hay un par de llaves pública y privada listado (por ejemplo*id_rsa.pub* y *id_rsa*) que te gustaría utilizar para conectarte a {{ site.data.variables.product.product_name }}, entonces puedes [añadir tu llave SSH al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent).
+Si ves que ya hay un par de llaves pública y privada listado (por ejemplo*id_rsa.pub* y *id_rsa*) que te gustaría utilizar para conectarte a {% data variables.product.product_name %}, entonces puedes [añadir tu llave SSH al ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent).
 
 {% tip %}
 

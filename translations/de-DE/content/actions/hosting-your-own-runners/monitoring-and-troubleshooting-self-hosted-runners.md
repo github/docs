@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Den Status eines selbst-gehosteten Runners mittels {{ site.data.variables.product.prodname_dotcom }} überprüfen
+### Den Status eines selbst-gehosteten Runners mittels {% data variables.product.prodname_dotcom %} überprüfen
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Unter „selbstgehostete Runner“ kannst Du eine Liste von registrierten Runnern, einschließlich Name, Beschriftungen und Status des Runners, ansehen.
 
     ![Runner-Liste](/assets/images/help/settings/actions-runner-list.png)
 
     Der Status kann einer der folgenden sein:
 
-    * **Idle** (Leerlauf): Der Runner ist mit {{ site.data.variables.product.product_name }} verbunden und bereit, Jobs auszuführen.
+    * **Idle** (Leerlauf): Der Runner ist mit {% data variables.product.product_name %} verbunden und bereit, Jobs auszuführen.
     * **Active**: Der Runner führt derzeit einen Job aus.
-    * **Offline**: Der Runner ist nicht mit {{ site.data.variables.product.product_name }} verbunden. Dies könnte daran liegen, dass der Rechner offline ist, die Anwendung für selbst-gehostete Runner nicht auf dem Rechner läuft, oder die Anwendung für selbst-gehostete Runner kann nicht mit {{ site.data.variables.product.product_name }} kommunizieren.
+    * **Offline**: Der Runner ist nicht mit {% data variables.product.product_name %} verbunden. Dies könnte daran liegen, dass der Rechner offline ist, die Anwendung für selbst-gehostete Runner nicht auf dem Rechner läuft, oder die Anwendung für selbst-gehostete Runner kann nicht mit {% data variables.product.product_name %} kommunizieren.
 
 
 ### Die Logdateien der Anwendung für selbst-gehostete Runner überprüfen

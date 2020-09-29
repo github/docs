@@ -1,14 +1,14 @@
 ---
 title: Compartilhar modelos de fluxo de trabalho na sua organização
 intro: É possível criar um conjunto padronizado de modelos de fluxo de trabalho especificamente para sua organização. Os integrantes da organização podem usar os modelos na criação de novos fluxos de trabalho nos repositórios das organizações.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Os modelos do fluxo de trabalh podem ser criados por usuários com acesso de gravação ao repositório `.github` da organização. Em seguida, os modelos podem ser usados por integrantes da organização com permissão para criar fluxos de trabalho.
 
@@ -75,7 +75,7 @@ Para adicionar outro modelo de fluxo de trabalho, adicione seus arquivos ao mesm
 
 Este procedimento demonstra como um membro da sua organização pode localizar e usar um modelo de fluxo de trabalho para criar um novo fluxo de trabalho. Os modelos de fluxo de trabalho de uma organização podem ser usados por qualquer pessoa que seja integrante da organização.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. Caso o seu repositório tenha fluxos de trabalho existentes: No canto superior esquerdo, clique em **Novo fluxo de trabalho**. ![Criar um novo fluxo de trabalho](/assets/images/help/repository/actions-new-workflow.png)
 1. Os modelos de fluxo de trabalho da sua organização estão localizados em sua própria seção intitulada "Fluxos de trabalho criados pelo _nome da organização_". Sob, nome do template que você gostaria de usar, clique em **Configurar este fluxo de trabalho**. ![Configurar este fluxo de trabalho](/assets/images/help/settings/actions-create-starter-workflow.png)

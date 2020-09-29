@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-Alterações na sua conta de usuário paga ou assinatura de organização não afetam assinaturas ou pagamentos de outros recursos {{ site.data.variables.product.prodname_dotcom }} pagos, como o {{ site.data.variables.large_files.product_name_long }} ou aplicativos pagos comprados em {{ site.data.variables.product.prodname_marketplace }}.
+Alterações na sua conta de usuário paga ou assinatura de organização não afetam assinaturas ou pagamentos de outros recursos {% data variables.product.prodname_dotcom %} pagos, como o {% data variables.large_files.product_name_long %} ou aplicativos pagos comprados em {% data variables.product.prodname_marketplace %}.
 
-Para obter mais informações, consulte "produtos do [{{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)" e "[Sobre cobrança em {{ site.data.variables.product.prodname_dotcom }}](/articles/about-billing-on-github)".
+Para obter mais informações, consulte "produtos do [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" e "[Sobre cobrança em {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)".
 
 #### Exemplo de cancelamento de uma assinatura paga de uma conta pessoal ou organização
 
-Ana paga uma assinatura mensal no dia cinco de cada mês. Se Ana fizer downgrades da assinatura paga para {{ site.data.variables.product.prodname_free_user }} no dia 10 de outubro, sua assinatura paga permanecerá em vigor até o final do ciclo de faturamento atual em 4 de novembro. Em 5 de novembro, a conta dela será transferida para {{ site.data.variables.product.prodname_free_user }}.
+Ana paga uma assinatura mensal no dia cinco de cada mês. Se Ana fizer downgrades da assinatura paga para {% data variables.product.prodname_free_user %} no dia 10 de outubro, sua assinatura paga permanecerá em vigor até o final do ciclo de faturamento atual em 4 de novembro. Em 5 de novembro, a conta dela será transferida para {% data variables.product.prodname_free_user %}.
 
 #### Exemplo de alteração de uma assinatura anual para mensal de uma conta pessoal ou organização
 
@@ -29,7 +29,7 @@ A organização de José paga por 50 estações todos os anos no dia 20 de maio.
 
 ### Leia mais
 
-- "[Gerenciar cobrança para sua conta do {{ site.data.variables.product.prodname_dotcom }}](/articles/managing-billing-for-your-github-account)
-- "[Gerenciar cobrança para aplicativos do {{ site.data.variables.product.prodname_marketplace }}](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Gerenciar cobrança do {{ site.data.variables.large_files.product_name_long }}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Gerenciar cobrança para sua conta do {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)
+- "[Gerenciar cobrança para aplicativos do {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
+- "[Gerenciar cobrança do {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
 - "[Sobre preços por usuário](/articles/about-per-user-pricing)"

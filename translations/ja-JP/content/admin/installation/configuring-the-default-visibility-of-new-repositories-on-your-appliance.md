@@ -1,13 +1,13 @@
 ---
 title: アプライアンスにおける新しいリポジトリのデフォルトの可視性の設定
-intro: 'Web インターフェースを使って {{ site.data.variables.product.prodname_ghe_server }} アプライアンス上に作成される新しいすべてのリポジトリに対するデフォルトの可視性は、パブリックまたはプライベートに設定できます。'
+intro: 'Web インターフェースを使って {% data variables.product.prodname_ghe_server %} アプライアンス上に作成される新しいすべてのリポジトリに対するデフォルトの可視性は、パブリックまたはプライベートに設定できます。'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
 versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_location_enterprise }}上に新しいリポジトリを作るときには、そのリポジトリの可視性を選択しなければなりません。 そのインタンスのデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+{% data variables.product.product_location_enterprise %}上に新しいリポジトリを作るときには、そのリポジトリの可視性を選択しなければなりません。 そのインタンスのデフォルトの可視性の設定をする際には、デフォルトで選択される可視性を選択します。 リポジトリの可視性に関する詳しい情報については、「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
 サイト管理者がメンバーに対して特定の種類のリポジトリの作成を禁止している場合、可視性の設定のデフォルトがその種類になっていても、メンバーはその種類のリポジトリを作成できません。 詳しい情報については、「[インスタンスでリポジトリ作成を制限する](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)」を参照してください。
 
@@ -17,10 +17,10 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
 1. "Default repository visibility（デフォルトのリポジトリの可視性）"の下で、ドロップダウンメニューを使ってデフォルトの可視性を選択してください。![インスタンスにおけるデフォルトのリポジトリの可視化性を選択するためのドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
-{{ site.data.reusables.enterprise_installation.image-urls-viewable-warning }}
+{% data reusables.enterprise_installation.image-urls-viewable-warning %}

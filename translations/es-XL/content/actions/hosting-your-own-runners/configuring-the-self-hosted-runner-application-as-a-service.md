@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Detén la aplicación del ejecutor autoalojado si se está ejecutando actualmente.{% endcapture %}
 {% capture service_non_windows_intro_shell %}En la máquina del ejecutor, abre un shell en el directorio en el que instalaste la aplicación del ejecutor autoalojado. Usa los comandos que se indican a continuación para instalar y administrar el servicio de ejecutor autoalojado.{% endcapture %}
-{% capture service_nonwindows_intro %} Debes agregar un ejecutor a {{ site.data.variables.product.product_name }} antes de que puedas configurar la aplicación del ejecutor auto-hospedado como servicio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
+{% capture service_nonwindows_intro %} Debes agregar un ejecutor a {% data variables.product.product_name %} antes de que puedas configurar la aplicación del ejecutor auto-hospedado como servicio. Para obtener más información, consulta "[Agregar ejecutores autoalojados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -31,7 +31,7 @@ Para los sistemas Linux que usan `systemd`, puedes usar el script `svc.sh` distr
 
 {% note %}
 
-**Nota:** Configurar la aplicación del ejecutor autoalojado como un servicio en Windows es parte del proceso de configuración de la aplicación. Si ya configuraste la aplicación del ejecutor auto-hospedado pero no elegiste configurarla como servicio, debes eliminar el ejecutor de {{ site.data.variables.product.prodname_dotcom }} y volver a configurar la aplicación. Cuando vuelvas a configurar la aplicación, elige la opción para configurar la aplicación como un servicio.
+**Nota:** Configurar la aplicación del ejecutor autoalojado como un servicio en Windows es parte del proceso de configuración de la aplicación. Si ya configuraste la aplicación del ejecutor auto-hospedado pero no elegiste configurarla como servicio, debes eliminar el ejecutor de {% data variables.product.prodname_dotcom %} y volver a configurar la aplicación. Cuando vuelvas a configurar la aplicación, elige la opción para configurar la aplicación como un servicio.
 
 Para obtener más información, consulta "[Eliminar ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners) y [Agregar ejecutores autoalojados](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)."
 

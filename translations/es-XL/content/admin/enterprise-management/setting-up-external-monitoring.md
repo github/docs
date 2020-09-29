@@ -1,6 +1,6 @@
 ---
 title: Configurar la revisión externa
-intro: 'Puedes revisar los recursos de sistema básicos en tu aparato {{ site.data.variables.product.prodname_ghe_server }} utilizando el SNMP o los protocolos de recopilación de estadísticas collectd.'
+intro: 'Puedes revisar los recursos de sistema básicos en tu aparato {% data variables.product.prodname_ghe_server %} utilizando el SNMP o los protocolos de recopilación de estadísticas collectd.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-external-monitoring
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
@@ -10,7 +10,7 @@ versions:
 
 ### Acerca de SNMP
 
-El Protocolo de Administración de Red Simple (SNMP) es un método muy compatible para revisar los dispositivos y los servidores de red. El SNMP está inhabilitado por defecto pero puede ser configurado a través del tablero de revisión {{ site.data.variables.product.prodname_enterprise }}. El puerto UDP 161 debe abrirse y ser accesible desde tu estación de administración de red. Para obtener más información, consulta "[Revisión utilizando el SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)."
+El Protocolo de Administración de Red Simple (SNMP) es un método muy compatible para revisar los dispositivos y los servidores de red. El SNMP está inhabilitado por defecto pero puede ser configurado a través del tablero de revisión {% data variables.product.prodname_enterprise %}. El puerto UDP 161 debe abrirse y ser accesible desde tu estación de administración de red. Para obtener más información, consulta "[Revisión utilizando el SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)."
 
 ### Acerca de collectd
 

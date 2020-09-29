@@ -1,21 +1,21 @@
 ---
 title: Informationen zur Abrechnung für GitHub Marketplace
-intro: 'Wenn Du eine kostenpflichtige App in {{ site.data.variables.product.prodname_marketplace }} installierst, gilt für Dein Abonnement das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Deines Kontos.'
+intro: 'Wenn Du eine kostenpflichtige App in {% data variables.product.prodname_marketplace %} installierst, gilt für Dein Abonnement das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Deines Kontos.'
 redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.variables.product.prodname_marketplace }} enthält kostenlose und kostenpflichtige Apps. Nachdem Du eine App gekauft und installiert hast, kannst Du sie jederzeit heraufstufen, herabstufen oder kündigen.
+{% data variables.product.prodname_marketplace %} enthält kostenlose und kostenpflichtige Apps. Nachdem Du eine App gekauft und installiert hast, kannst Du sie jederzeit heraufstufen, herabstufen oder kündigen.
 
-{{ site.data.reusables.marketplace.marketplace-apps-only }}
+{% data reusables.marketplace.marketplace-apps-only %}
 
-{{ site.data.reusables.marketplace.marketplace-org-perms }}
+{% data reusables.marketplace.marketplace-org-perms %}
 
-### Zahlungsmethoden und Abrechnungszeitraum für {{ site.data.variables.product.prodname_marketplace }}-Käufe
+### Zahlungsmethoden und Abrechnungszeitraum für {% data variables.product.prodname_marketplace %}-Käufe
 
-Du verwendest die gleiche Zahlungsmethode für alle kostenpflichtigen Pläne und Abonnements über {{ site.data.variables.product.prodname_dotcom }} hinweg.
+Du verwendest die gleiche Zahlungsmethode für alle kostenpflichtigen Pläne und Abonnements über {% data variables.product.prodname_dotcom %} hinweg.
 
 Wenn für Dein persönliches Konto oder Deine Organisation keine Zahlungsmethode hinterlegt ist und Du einen kostenpflichtigen Plan für eine App auswählst, gilt Folgendes:
 - Dein Abrechnungsdatum ist heute.
@@ -26,30 +26,30 @@ Wenn für Dein persönliches Konto oder Deine Organisation keine Zahlungsmethode
 Wenn für Dein persönliches Konto oder Deine Organisation eine vorhandene Zahlungsmethode hinterlegt ist und Du einen kostenpflichtigen Plan für eine App auswählst, gilt Folgendes:
 - Basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum wird sofort ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet.
 - Das monatliche oder jährliche Abrechnungsdatum für Dein App-Abonnement ist das gleiche wie das reguläre Abrechnungsdatum des Kontos oder der Organisation.
-- An Deinem nächsten Abrechnungsdatum werden auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {{ site.data.variables.product.prodname_dotcom }}-Plan und Dein App-Abonnement aufgeführt.
+- An Deinem nächsten Abrechnungsdatum werden auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Dein App-Abonnement aufgeführt.
 
 Wenn Du einen kostenpflichtigen Plan mit einer kostenlosen Testperiode auswählst, gilt Folgendes:
 - Du musst eine bestehende Zahlungsmethode haben oder eine neue Zahlungsmethode für Dein persönliches Konto oder die Organisation hinzufügen, in dem Du die App installieren möchtest.
 - Wenn du keine weiteren kostenpflichtigen Pläne oder Abonnements hast, wird Dir am Ende der 14-tägigen kostenlosen Testperiode der volle Betrag Deines Abonnements berechnet.
 - Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, wird am Ende der 14-tägigen kostenlosen Testperiode basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum sofort ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet.
-- Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, werden an Deinem nächsten Abrechnungsdatum auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {{ site.data.variables.product.prodname_dotcom }}-Plan und Deine App-Abonnements aufgeführt.
+- Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, werden an Deinem nächsten Abrechnungsdatum auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Deine App-Abonnements aufgeführt.
 
 ### Begrenzungen für einheitenbasierte Pläne
 
-Wenn Du eine kostenlose Testperiode für einen kostenpflichtigen Plan kündigst, endet Dein Abonnement sofort und Du verlierst den Zugang zur App. Weitere Informationen findest Du unter „[Eine {{ site.data.variables.product.prodname_marketplace }}-App kündigen](/articles/canceling-a-github-marketplace-app).“
+Wenn Du eine kostenlose Testperiode für einen kostenpflichtigen Plan kündigst, endet Dein Abonnement sofort und Du verlierst den Zugang zur App. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_marketplace %}-App kündigen](/articles/canceling-a-github-marketplace-app).“
 
-### Eine {{ site.data.variables.product.prodname_marketplace }}-App herabstufen
+### Eine {% data variables.product.prodname_marketplace %}-App herabstufen
 
 Wenn Du Dein App-Abonnement auf einen günstigeren Plan herabstufst oder ein bezahltes App-Abonnement kündigst, werden Deine Änderungen am Ende Deines aktuellen Abrechnungszeitraums wirksam. Dein Abonnement wird am nächsten Abrechnungsdatum auf Deinen neuen Plan umgestellt.
 
 Wenn Du eine App mit einem kostenlosen Plan kündigst, endet Dein Abonnement sofort und Du verlierst den Zugang zur App.
 
-{{ site.data.reusables.marketplace.downgrade-marketplace-only }}
+{% data reusables.marketplace.downgrade-marketplace-only %}
 
-If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. Weitere Informationen findest Du unter „[Abrechnungsplan für eine {{ site.data.variables.product.prodname_marketplace }}-App heraufstufen](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app).“
+If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. Weitere Informationen findest Du unter „[Abrechnungsplan für eine {% data variables.product.prodname_marketplace %}-App heraufstufen](/articles/upgrading-the-billing-plan-for-a-github-marketplace-app).“
 
 ### Weiterführende Informationen
 
-- „[Informationen zu {{ site.data.variables.product.prodname_marketplace }}](/articles/about-github-marketplace)“
-- „[Apps in {{ site.data.variables.product.prodname_marketplace }} kaufen und installieren](/articles/purchasing-and-installing-apps-in-github-marketplace)“
-- „[{{ site.data.variables.product.prodname_marketplace }}-Support](/articles/github-marketplace-support)“
+- „[Informationen zu {% data variables.product.prodname_marketplace %}](/articles/about-github-marketplace)“
+- „[Apps in {% data variables.product.prodname_marketplace %} kaufen und installieren](/articles/purchasing-and-installing-apps-in-github-marketplace)“
+- „[{% data variables.product.prodname_marketplace %}-Support](/articles/github-marketplace-support)“

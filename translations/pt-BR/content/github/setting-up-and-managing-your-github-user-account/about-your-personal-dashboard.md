@@ -12,15 +12,15 @@ versions:
 
 ### Acessar seu painel pessoal
 
-Seu quadro pessoal é a primeira página que você verá quando entrar no {{ site.data.variables.product.product_name }}.
+Seu quadro pessoal é a primeira página que você verá quando entrar no {% data variables.product.product_name %}.
 
-Para acessar seu quadro pessoal assim que se conectar, clique no {% octicon "mark-github" aria-label="The github octocat logo" %} no canto superior esquerdo de qualquer página em {{ site.data.variables.product.product_url }}.
+Para acessar seu quadro pessoal assim que se conectar, clique no {% octicon "mark-github" aria-label="The github octocat logo" %} no canto superior esquerdo de qualquer página em {% data variables.product.product_url %}.
 
 ### Encontrar sua atividade recente
 
 Na seção "Recent activity" (Atividade recente) do feed de notícias, você pode encontrar e acompanhar problemas e pull requests recém-atualizados nos quais você está trabalhando, além de visualizar até 12 atualizações recentes feitas nas últimas duas semanas.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Encontrar equipes e repositórios principais
 
@@ -28,7 +28,7 @@ Na barra lateral esquerda do painel, é possível acessar os repositórios e equ
 
 ![lista de repositórios e equipes de diferentes organizações](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-Também é possível encontrar uma lista de seus repositórios, equipes e quadros de projeto recentemente visitados quando você clica na barra de pesquisa no topo de qualquer página do {{ site.data.variables.product.product_name }}.
+Também é possível encontrar uma lista de seus repositórios, equipes e quadros de projeto recentemente visitados quando você clica na barra de pesquisa no topo de qualquer página do {% data variables.product.product_name %}.
 
 ### Permanecer atualizado com as atividades da comunidade
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre como atribuir estrelas a repositórios e seg
 
 ### Explorar repositórios recomendados
 
-Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Na seção "Explorar repositórios" no lado direito do painel, é possível explorar repositórios recomendados nas suas comunidades. As recomendações são baseadas em repositórios que você favoritou ou visitou, as pessoas que você segue e a atividade nos repositórios aos quais você tem acesso.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Encontrar formas de contribuir com código aberto no {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ### Leia mais
 

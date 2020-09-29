@@ -9,16 +9,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team_maintainers_can }}
+{% data reusables.organizations.team_maintainers_can %}
 
 ### Promoting an organization member to team maintainer
 
 Before promoting an organization member to team maintainer, the person must already be a member of the team.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 4. Select the person or people you'd like to promote to team maintainer.
 ![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
 5. Above the list of team members, use the drop-down menu and click **Change role...**.

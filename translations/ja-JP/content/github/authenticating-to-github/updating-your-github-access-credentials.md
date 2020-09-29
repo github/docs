@@ -1,6 +1,6 @@
 ---
 title: GitHub アクセス認証情報を更新する
-intro: '{{ site.data.variables.product.product_name }} 認証情報は、パスワードだけではなく、{{ site.data.variables.product.product_name }} に伝達するのに使うアクセストークン、SSH キーおよびアプリケーション API トークンを含みます。 必要があれば、すべてのアクセス認証情報をリセットできます。'
+intro: '{% data variables.product.product_name %} 認証情報は、パスワードだけではなく、{% data variables.product.product_name %} に伝達するのに使うアクセストークン、SSH キーおよびアプリケーション API トークンを含みます。 必要があれば、すべてのアクセス認証情報をリセットできます。'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -12,8 +12,8 @@ versions:
 
 ### 新しいパスワードをリクエストする
 
-1. 新しいパスワードをリクエストするには、{% if currentVersion == "free-pro-team@latest" %}https://{{ site.data.variables.product.product_url }}/password_reset{% else %}`https://{{ site.data.variables.product.product_url }}/password_reset`{% endif %} にアクセスしてください。
-2. 個人 {{ site.data.variables.product.product_name }} アカウントに関連するメールアドレスを入力し、次に [**Send password reset email**] をクリックします。バックアップメールアドレスが設定されている場合、そのアドレスにメールが送られます。 ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
+1. 新しいパスワードをリクエストするには、{% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} にアクセスしてください。
+2. 個人 {% data variables.product.product_name %} アカウントに関連するメールアドレスを入力し、次に [**Send password reset email**] をクリックします。バックアップメールアドレスが設定されている場合、そのアドレスにメールが送られます。 ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
 3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
 4. メールのリンクをクリックすると、新しいパスワードを入力するように求められます。 ![パスワードリカバリボックス](/assets/images/help/settings/password_recovery_page.png)
 
@@ -25,14 +25,14 @@ versions:
 
 ### 既存のパスワードを変更する
 
-{{ site.data.reusables.repositories.blocked-passwords }}
+{% data reusables.repositories.blocked-passwords %}
 
-1. {{ site.data.variables.product.product_name }} への {{ site.data.variables.product.signin_link }}
-{{ site.data.reusables.user_settings.access_settings }}
+1. {% data variables.product.product_name %} への {% data variables.product.signin_link %}
+{% data reusables.user_settings.access_settings %}
 {%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.security %}
 {%- else %}
-{{ site.data.reusables.user_settings.account_settings }}
+{% data reusables.user_settings.account_settings %}
 {%- endif %}
 4. [Change password] の下で、古いパスワード、新しい強靭なパスワードを入力し、新しいパスワードを確認します。 強靭なパスワードを作成するための参考として、「[強靭なパスワードを作成する](/articles/creating-a-strong-password)」を参照してください。
 5. [**Update password**] をクリックします。
@@ -53,7 +53,7 @@ SSH キーのレビューおよび削除については「[SSH キーをレビ�
 
 ### API トークンをリセットする
 
-{{ site.data.variables.product.product_name }} に登録したアプリケーションがある場合、OAuthトークンのリセットを考えることになります。 詳しい情報については、「[認証をリセットする](/rest/reference/apps#reset-an-authorization)」エンドポイントを参照してください。
+{% data variables.product.product_name %} に登録したアプリケーションがある場合、OAuthトークンのリセットを考えることになります。 詳しい情報については、「[認証をリセットする](/rest/reference/apps#reset-an-authorization)」エンドポイントを参照してください。
 
 ### 許可されていないアクセスを防止する
 

@@ -34,11 +34,11 @@ Here's an example of a [comparison between two tags](https://github.com/octocat/
 
 ### Comparing commits
 
-You can also compare two arbitrary commits in your repository or its forks on {{ site.data.variables.product.prodname_dotcom }} in a two-dot diff comparison.
+You can also compare two arbitrary commits in your repository or its forks on {% data variables.product.prodname_dotcom %} in a two-dot diff comparison.
 
-To quickly compare two commits or Git Object IDs (OIDs) directly with each other in a two-dot diff comparison on {{ site.data.variables.product.prodname_dotcom }}, edit the URL of your repository's "Comparing changes" page.
+To quickly compare two commits or Git Object IDs (OIDs) directly with each other in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, edit the URL of your repository's "Comparing changes" page.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 To learn more about other comparison options, see "[Three-dot and two-dot diff comparisons](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)."
 

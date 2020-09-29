@@ -14,9 +14,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Wähle alle Teams aus, die Du löschen möchtest. ![Liste der Teams mit zwei ausgewählten Teams](/assets/images/help/teams/list-of-teams-selected.png)
 5. Klicke im Dropdownmenü über der Liste der Teams auf **Delete** (Löschen). ![Dropdownmenü mit Option zum Ändern der Teamsichtbarkeit](/assets/images/help/teams/team-bulk-management-options.png)
 6. Überprüfe alle zu löschenden Teams, und klicke dann auf **I understand, delete Teams** (Ich habe verstanden und möchte die Teams löschen). ![Liste der zu löschenden Teams und Schaltfläche zum Löschen der Teams](/assets/images/help/teams/confirm-delete-teams-bulk.png)

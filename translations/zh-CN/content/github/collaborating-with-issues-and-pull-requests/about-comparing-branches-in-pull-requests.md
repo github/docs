@@ -44,13 +44,13 @@ versions:
 
 ### 三点和两点 Git 差异比较
 
-默认情况下，{{ site.data.variables.product.prodname_dotcom }} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
+默认情况下，{% data variables.product.prodname_dotcom %} 上的拉取请求显示三点差异，或者比较主题分支的最近版本与其中使用基本分支最新同步主题分支的提交。
 
-要在 {{ site.data.variables.product.prodname_dotcom }} 上查看两点差异比较中的两个 committish 参考，可以编辑仓库的“比较更改”页面的 URL。 更多信息请参阅 _Pro Git_ 书籍网站中的 ["committish" 的 Git 词汇](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish)。
+要在 {% data variables.product.prodname_dotcom %} 上查看两点差异比较中的两个 committish 参考，可以编辑仓库的“比较更改”页面的 URL。 更多信息请参阅 _Pro Git_ 书籍网站中的 ["committish" 的 Git 词汇](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish)。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-两点差异直接互相比较两个 Git committish 参考，如 SHA 或 OID（对象 ID）。 在 {{ site.data.variables.product.prodname_dotcom }} 上，两点差异比较中的 Git committish 参考必须推送到同一仓库或其复刻。
+两点差异直接互相比较两个 Git committish 参考，如 SHA 或 OID（对象 ID）。 在 {% data variables.product.prodname_dotcom %} 上，两点差异比较中的 Git committish 参考必须推送到同一仓库或其复刻。
 
 如果要模拟拉取请求中的两点差异并查看每个分支最新版本之间的比较结果，可以将基本分支合并到主题分支，以更新分支之间最新的共同原型。
 

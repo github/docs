@@ -1,6 +1,6 @@
 ---
 title: Acerca de ganchos de pre-recepción
-intro: 'Los *ganchos de pre-recepción* son scripts que se ejecutan en el aparato {{ site.data.variables.product.prodname_ghe_server }} que puedes usar para implementar controles de calidad.'
+intro: 'Los *ganchos de pre-recepción* son scripts que se ejecutan en el aparato {% data variables.product.prodname_ghe_server %} que puedes usar para implementar controles de calidad.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
 versions:
@@ -22,4 +22,4 @@ Ejemplos de cómo usar los ganchos de pre-recepción:
 ### Impactar en el rendimiento y los flujos de trabajo flujo de trabajo
 El impacto que causa en los programadores y sus flujos de trabajo puede ser significativo y debe considerarse cuidadosamente. Los ganchos de pre-recepción que se basan en necesidades comerciales y se implementan cuidadosamente brindarán la mayor cantidad de beneficios a la organización en conjunto.
 
-Los ganchos de pre-recepción pueden tener efectos no deseados sobre el rendimiento de {{ site.data.variables.product.product_location_enterprise }} y deberían implementarse y revisarse cuidadosamente.
+Los ganchos de pre-recepción pueden tener efectos no deseados sobre el rendimiento de {% data variables.product.product_location_enterprise %} y deberían implementarse y revisarse cuidadosamente.

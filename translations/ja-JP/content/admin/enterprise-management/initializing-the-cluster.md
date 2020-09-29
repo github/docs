@@ -1,6 +1,6 @@
 ---
 title: クラスタの初期化
-intro: '{{ site.data.variables.product.prodname_ghe_server }} クラスタはライセンスを使用して設定し、管理シェル (SSH) を使用して初期化する必要があります。'
+intro: '{% data variables.product.prodname_ghe_server %} クラスタはライセンスを使用して設定し、管理シェル (SSH) を使用して初期化する必要があります。'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -8,20 +8,20 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### {{ site.data.variables.product.prodname_ghe_server }}のインストール
+### {% data variables.product.prodname_ghe_server %}のインストール
 
-1. 各クラスタノードで {{ site.data.variables.product.prodname_ghe_server }} をプロビジョニングしてインストールします。 詳細は「[{{ site.data.variables.product.prodname_ghe_server }} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+1. 各クラスタノードで {% data variables.product.prodname_ghe_server %} をプロビジョニングしてインストールします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 2. 管理シェルもしくは DHCP を使い、各ノードの IP アドレス**のみ**を設定してください。 その他の設定は行わないでください。
 
 ### 最初のノードの設定
 
 1. `cluster.conf`中で`mysql-master`に指定されるノードに接続してください。 詳しい情報については「[クラスタの設定について](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)」を参照してください。
 2. Webブラウザで`https://<ip address>:8443/setup/`にアクセスしてください。
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }}
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
 ### クラスタの初期化
 
@@ -39,7 +39,7 @@ versions:
 この例の`cluster.conf`では、5ノードを持つクラスタを定義しています。
 
   - 2つのノード（`ghe-app-node-\*`と呼ばれます）では、クライアントからのリクエストに対するレスポンスを受け持つ`web-server`と`job-server`サービスが動作します。
-  - 3 つのノード (`ghe-data-node-\*` と呼ばれる) は、{{ site.data.variables.product.prodname_ghe_server }} データの保存と取得のサービスを実行します。
+  - 3 つのノード (`ghe-data-node-\*` と呼ばれる) は、{% data variables.product.prodname_ghe_server %} データの保存と取得のサービスを実行します。
 
 ノードの名前には、ホスト名として有効な任意の名前を選択できます。 この名前は各ノードのホスト名として設定され、各ノードの`/etc/hosts`に追加され、各ノードがローカルでお互いを解決できるようにします。
 

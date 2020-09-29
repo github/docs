@@ -21,7 +21,7 @@ Um Deinen privaten SSH-Schlüssel zum SSH-Agenten hinzuzufügen, kannst Du den P
 
 {% note %}
 
-**Hinweis:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**Hinweis:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

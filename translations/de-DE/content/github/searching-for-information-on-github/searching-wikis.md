@@ -1,6 +1,6 @@
 ---
 title: Wikis durchsuchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du Wikis durchsuchen und die Suchergebnisse mit den nachfolgenden Qualifizierern der Wiki-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} kannst Du Wikis durchsuchen und die Suchergebnisse mit den nachfolgenden Qualifizierern der Wiki-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-wikis
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Wikis global auf {{ site.data.variables.product.product_name }} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github).“
+Du kannst Wikis global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Suche innerhalb der Repositorys eines Benutzers oder einer Organisation
 
@@ -35,7 +35,7 @@ Der Qualifizierer `in` beschränkt die Suche auf ausschließlich den Titel oder 
 
 Der Qualifizierer `updated` beschränkt die Suche auf Wiki-Seiten, deren letztes Änderungsdatum innerhalb des angegebenen Datumbereichs liegt.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer             | Beispiel                                                                                                                                                                                                      |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

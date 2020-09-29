@@ -13,9 +13,9 @@ versions:
 
 ### Organization のメンバーシップの可視性を変更する
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. メンバーのリストで自分のユーザ名を探します。 リストが大きい場合は、検索ボックスでユーザ名を検索できます。 ![[Organization member search] ボックス](/assets/images/help/organizations/member-search-box.png)
 5. ユーザ名の右にあるメニューで、新しい可視性オプションを選択します:
     - メンバーシップを公開する場合は [**Public**] を選択します。

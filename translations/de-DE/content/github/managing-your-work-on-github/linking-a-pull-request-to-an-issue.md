@@ -17,7 +17,7 @@ Du kannst einen Issue mit einem Pull-Request {% if currentVersion == "free-pro-t
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 Wenn Du einen Pull Request mit dem Issue verknüpfst, der vom Pull Request adressiert wird, dann können Mitarbeiter sehen, dass jemand am Issue arbeitet.
-{% if currentVersion ver_lt "enterprise-server@2.21" %}Wenn der Pull Request und der Issue in unterschiedlichen Repositorys sind, wird {{ site.data.variables.product.product_name }} nach dem Zusammenführen des Pull Request den Link anzeigen, wenn die Person, die den Pull Request zusammenführt, auch die Berechtigung zum Schließen des Issue hat.{% endif %}{% endif %}
+{% if currentVersion ver_lt "enterprise-server@2.21" %}Wenn der Pull Request und der Issue in unterschiedlichen Repositorys sind, wird {% data variables.product.product_name %} nach dem Zusammenführen des Pull Request den Link anzeigen, wenn die Person, die den Pull Request zusammenführt, auch die Berechtigung zum Schließen des Issue hat.{% endif %}{% endif %}
 
 Wenn Du einen verknüpften Pull Request in den Standard-Branch eines Repository zusammenführst, werden seine verknüpften Issues automatisch geschlossen. Weitere Informationen über den Standard-Branch findest Du auf „[Einstellungen des Standard-Branch](/github/administering-a-repository/setting-the-default-branch)."
 
@@ -28,8 +28,8 @@ Jeder, der Schreibberechtigung auf ein Repository hat, kann einen Pull Request m
 
 Du kannst bis zu 10 Issues manuell mit jedem Pull Request verknüpfen. Der Issue und der Pull Request müssen im gleichen Repository sein.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. Klicke in der Liste der Pull Requests auf den Pull Request, den Du mit einem Issue verknüpfen möchtest.
 4. Klicke in der rechten Seitenleiste auf **Linked issues** (Verknüpfte Issues). ![Verknüpfte Issues in der rechten Seitenleiste](/assets/images/help/pull_requests/linked-issues.png)
 5. Klicke auf den Issue, den Du mit dem Pull Request verknüpfen willst. ![Dropdownmenü, um Issues zu verknüpfen](/assets/images/help/pull_requests/link-issue-drop-down.png)

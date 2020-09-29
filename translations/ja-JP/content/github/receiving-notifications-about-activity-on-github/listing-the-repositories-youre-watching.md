@@ -5,7 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. [**Watching**] をクリックして、Watch しているリポジトリのリストを表示します。 ![Watch しているリポジトリのリスト](/assets/images/help/notifications/notifications-watching-tab.png)
 3. 通知を受け取る必要がなくなったリポジトリの隣の [**Unwatch**] または [**Unwatch releases**] をクリックします。
 

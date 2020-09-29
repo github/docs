@@ -16,13 +16,13 @@ Pessoas com permissões de administrador podem gerenciar o acesso de integrantes
 
 Ao remover um colaborador de um repositório de sua organização, o colaborador perde os acessos de leitura e gravação no repositório. Caso o repositório seja privado e o colaborador o tenha bifurcado, a bifurcação também é excluída, mas o colaborador ainda manterá quaisquer clones locais de seu repositório.
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ### Gerenciar o acesso de um indivíduo a um repositório da organização
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Cloque em **Members** (Integrantes) ou **Outside collaborators** (Colaboradores externos) para gerenciar pessoas com tipos diferentes de acessos. ![Botão para invite (convidar) members (colaboradores) ou outside collaborators (colaboradores externos) para uma organização](/assets/images/help/organizations/select-outside-collaborators.png)
 5. À direita do nome do colaborador que deseja remover, use o menu suspenso {% octicon "gear" aria-label="The Settings gear" %} e clique em **Manage** (Gerenciar). ![Link para manage access (gerenciar acesso)](/assets/images/help/organizations/member-manage-access.png)
 6. Na página "Manage access" (Gerenciar acesso), ao lado do repositório clique em **Manage access** (Gerenciar acesso). ![Botão Manage access (Gerenciar acesso) em um repositório](/assets/images/help/organizations/repository-manage-access.png)

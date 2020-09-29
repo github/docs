@@ -9,16 +9,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team_maintainers_can }}
+{% data reusables.organizations.team_maintainers_can %}
 
 ### Promover un miembro de la organización a mantenedor del equipo
 
 Antes de promover un miembro de la organización a mantenedor del equipo, la persona ya debe ser miembro del equipo.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 4. Selecciona la persona o las personas que desees promover a mantenedor del equipo. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)
 5. Por encima de la lista de miembros del equipo, utiliza el menú desplegable y haz clic en **Change role...** (Cambiar rol). ![Menú desplegable con opción para cambiar el rol](/assets/images/help/teams/bulk-edit-drop-down.png)
 6. Selecciona un rol nuevo y haz clic en **Change role** (Cambiar rol). ![Botones Radio para los roles de Mantenedor o Miembro](/assets/images/help/teams/team-role-modal.png)

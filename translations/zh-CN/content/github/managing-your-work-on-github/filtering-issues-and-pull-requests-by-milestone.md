@@ -14,12 +14,12 @@ versions:
 
 - 如果要使用搜索栏过滤议题和拉取请求，您可以使用里程碑搜索语法。 对于名为 My Milestone 的里程碑，搜索语法为：`milestone:"My Milestone"`。
 - 要清除过滤器选择，请单击 **Clear current search query, filters, and sorts（清除当前搜索查询、过滤和排序）**。
--  You can also filter issues or pull requests using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+-  You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 选择 **Milestones（里程碑）**以查看仓库的所有可用里程碑列表。 ![里程碑按钮](/assets/images/help/issues/issues_milestone_button.png)
 4. 从列表中选择您感兴趣的里程碑。 您可以从里程碑页面查看该里程碑的相关信息，包括与之关联的所有议题和拉取请求。 更多信息请参阅“[关于里程碑](/articles/about-milestones)”。
 

@@ -1,6 +1,6 @@
 ---
 title: Monitorar nós de cluster
-intro: 'Um cluster do {{ site.data.variables.product.prodname_ghe_server }} é formado por serviços redundantes distribuídos em dois ou mais nós. Em caso de falha de um serviço ou de um nó inteiro, a falha não será aparente de imediato para os usuários do cluster. No entanto, como o desempenho e a redundância são afetados, é importante monitorar a integridade de um cluster do {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'Um cluster do {% data variables.product.prodname_ghe_server %} é formado por serviços redundantes distribuídos em dois ou mais nós. Em caso de falha de um serviço ou de um nó inteiro, a falha não será aparente de imediato para os usuários do cluster. No entanto, como o desempenho e a redundância são afetados, é importante monitorar a integridade de um cluster do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Verificar o status do cluster manualmente
 
-O {{ site.data.variables.product.prodname_ghe_server }} tem um utilitário integrado de linha de comando para monitorar a integridade do cluster. No shell administrativo, acionar o comando `ghe-cluster-status` executa uma série de verificações de integridade em cada nó, verificando também o status do serviço e da conectividade. A saída mostra todos os resultados de teste, inclusive o texto `ok` ou `erro`. Por exemplo, para exibir somente os testes com falha, execute:
+O {% data variables.product.prodname_ghe_server %} tem um utilitário integrado de linha de comando para monitorar a integridade do cluster. No shell administrativo, acionar o comando `ghe-cluster-status` executa uma série de verificações de integridade em cada nó, verificando também o status do serviço e da conectividade. A saída mostra todos os resultados de teste, inclusive o texto `ok` ou `erro`. Por exemplo, para exibir somente os testes com falha, execute:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>status-ghe-cluster | grep erro</em>
@@ -24,14 +24,14 @@ admin@ghe-data-node-0:~$ <em>status-ghe-cluster | grep erro</em>
 
 ### Monitorar o status do cluster com o Nagios
 
-É possível configurar o [Nagios](https://www.nagios.org/) para monitorar o {{ site.data.variables.product.prodname_ghe_server }}. Além de monitorar a conectividade básica para cada nó do cluster, você pode verificar o status do cluster configurando o Nagios para usar o comando `ghe-cluster-status -n`. Fazer isso gera uma saída em um formato que o Nagios consegue interpretar.
+É possível configurar o [Nagios](https://www.nagios.org/) para monitorar o {% data variables.product.prodname_ghe_server %}. Além de monitorar a conectividade básica para cada nó do cluster, você pode verificar o status do cluster configurando o Nagios para usar o comando `ghe-cluster-status -n`. Fazer isso gera uma saída em um formato que o Nagios consegue interpretar.
 
 #### Pré-requisitos
 * Host Linux com Nagios;
-* Acesso de rede ao cluster do {{ site.data.variables.product.prodname_ghe_server }}.
+* Acesso de rede ao cluster do {% data variables.product.prodname_ghe_server %}.
 
 #### Configurar o host do Nagios
-1. Gere uma chave SSH com a frase secreta em branco. O Nagios usa essa informação para fazer a autenticação ao cluster do {{ site.data.variables.product.prodname_ghe_server }}.
+1. Gere uma chave SSH com a frase secreta em branco. O Nagios usa essa informação para fazer a autenticação ao cluster do {% data variables.product.prodname_ghe_server %}.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
   > Gerando par de chaves rsa pública/privada.
@@ -79,7 +79,7 @@ admin@ghe-data-node-0:~$ <em>status-ghe-cluster | grep erro</em>
         linha_comando    $USER1$/verificar_por_ssh -H $HOSTADDRESS$ -C "status-cluster-ghe -n" -l admin -p 122 -t 30
   }
   ```
-7. Adicione este comando a uma definição de serviço para um nó no cluster do {{ site.data.variables.product.prodname_ghe_server }}.
+7. Adicione este comando a uma definição de serviço para um nó no cluster do {% data variables.product.prodname_ghe_server %}.
 
 
   ###### Definição de exemplo

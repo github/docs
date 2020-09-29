@@ -19,19 +19,19 @@ Weitere Informationen zum Hochstufen eines Benutzers auf einen Organisationsinha
 
 ### Benutzer über die Enterprise-Einstellungen hochstufen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 5. Klicken Sie in der oberen rechte Ecke der Seite auf **Add owner** (Inhaber hinzufügen). ![Schaltfläche zum Hinzufügen eines Administrators](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. Geben Sie im Suchfeld den Namen des Benutzers ein, und klicken Sie auf **Add** (Hinzufügen). ![Suchfeld zum Hinzufügen eines Administrators](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
 ### Websiteadministrator über die Enterprise-Einstellungen zurückstufen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. Geben Sie in der oberen linken Ecke der Seite im Suchfeld „Find an administrator“ (Administrator suchen) den Benutzernamen der Person ein, die Sie zurückstufen möchten. ![Suchfeld zum Auffinden eines Administrators](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
 1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**. ![Option „Remove from enterprise“ (Aus Enterprise entfernen)](/assets/images/help/business-accounts/demote-admin-button.png)

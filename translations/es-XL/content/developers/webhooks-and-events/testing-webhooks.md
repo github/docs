@@ -1,6 +1,6 @@
 ---
 title: Probar los webhooks
-intro: 'Revisa tus entregas de webhook en {{ site.data.variables.product.prodname_dotcom }}, incluyendo la solicitud HTTP y la carga útil, así como la respuesta.'
+intro: 'Revisa tus entregas de webhook en {% data variables.product.prodname_dotcom %}, incluyendo la solicitud HTTP y la carga útil, así como la respuesta.'
 redirect_from:
   - /webhooks/testing
 versions:
@@ -16,7 +16,7 @@ Ahor que [configuraste tu servidor local](/webhooks/configuring/), podrías esta
 
 Cada webhook tiene su propia sección de "Entregas Recientes", la cual lista de un vistazo si el despliegue fue exitoso (paloma verde) o fallido (x roja). También puedes identificar cuando se intentó cada entrega.
 
-{{ site.data.variables.product.product_name }} mantiene una bitácora de cada entrega de webhook para {% if currentVersion == "free-pro-team@latest" %}30 {% else %} 8 {% endif %} días.
+{% data variables.product.product_name %} mantiene una bitácora de cada entrega de webhook para {% if currentVersion == "free-pro-team@latest" %}30 {% else %} 8 {% endif %} días.
 
 ![Vista de entregas recientes](/assets/images/webhooks_recent_deliveries.png)
 

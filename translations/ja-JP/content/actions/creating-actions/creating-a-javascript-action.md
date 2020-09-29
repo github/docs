@@ -1,7 +1,7 @@
 ---
 title: JavaScript アクションを作成する
 intro: このガイドでは、アクションツールキットを使って JavaScript アクションをビルドする方法について学びます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
 このガイドでは、パッケージ化されたJavaScriptのアクションを作成して使うために必要な、基本的コンポーネントについて学びます。 アクションのパッケージ化に必要なコンポーネントのガイドに焦点を当てるため、アクションのコードの機能は最小限に留めます。 このアクションは、ログに "Hello World" を出力するものです。また、カスタム名を指定した場合は、"Hello [who-to-greet]" を出力します。
 
-このガイドでは、開発の速度を高めるために{{ site.data.variables.product.prodname_actions }} ToolkitのNode.jsモジュールを使います。 詳しい情報については、[actions/toolkit](https://github.com/actions/toolkit) リポジトリ以下を参照してください。
+このガイドでは、開発の速度を高めるために{% data variables.product.prodname_actions %} ToolkitのNode.jsモジュールを使います。 詳しい情報については、[actions/toolkit](https://github.com/actions/toolkit) リポジトリ以下を参照してください。
 
 このプロジェクトを完了すると、あなたの JavaScript コンテナのアクションをビルドして、ワークフローでテストする方法が理解できます
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### 必要な環境
 
@@ -33,7 +33,7 @@ versions:
 
   https://nodejs.org/en/download/current/
 
-1. {{ site.data.variables.product.product_location }} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-javascript-action" を使ってもいいでしょう。 これらのファイルは、プロジェクトを {{ site.data.variables.product.product_name }}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+1. {% data variables.product.product_location %} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-javascript-action" を使ってもいいでしょう。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
 1. リポジトリをお手元のコンピューターにクローンします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
@@ -51,7 +51,7 @@ versions:
 
 ### アクションのメタデータファイルの作成
 
-`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+`hello-world-javascript-action`ディレクトリに、以下のサンプルコードで新しく`action.yml`というファイルを作成してください。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 
 **アクション.yml**
@@ -162,7 +162,7 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ### アクションの GitHub へのコミットとタグ、プッシュ
 
-{{ site.data.variables.product.product_name }} が、動作時にワークフロー内で実行される各アクションをダウンロードし、コードの完全なパッケージとして実行すると、ランナーマシンを操作するための`run` などのワークフローコマンドが使えるようになります。 つまり、JavaScript コードを実行するために必要なあらゆる依存関係を含める必要があります。 アクションのリポジトリに、ツールキットの `core` および `github` パッケージをチェックインする必要があります。
+{% data variables.product.product_name %} が、動作時にワークフロー内で実行される各アクションをダウンロードし、コードの完全なパッケージとして実行すると、ランナーマシンを操作するための`run` などのワークフローコマンドが使えるようになります。 つまり、JavaScript コードを実行するために必要なあらゆる依存関係を含める必要があります。 アクションのリポジトリに、ツールキットの `core` および `github` パッケージをチェックインする必要があります。
 
 ターミナルから、`action.yml`、`index.js`、`node_modules`、`package.json`、`package-lock.json`、および `README.md` ファイルをコミットします。 `node_modules` を一覧表示する `.gitignore` ファイルを追加した場合、`node_modules` ディレクトリをコミットするため、その行を削除する必要があります。
 
@@ -200,7 +200,7 @@ git push --follow-tags
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### パブリックアクションを使用する例
 

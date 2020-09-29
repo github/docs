@@ -1,10 +1,10 @@
 ---
 title: GitHub Pages-Website mit Jekyll erstellen
-intro: 'Du kannst mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Website in einem neuen oder vorhandenen Repository erstellen.'
-product: '{{ site.data.reusables.gated-features.pages }}'
+intro: 'Du kannst mit Jekyll eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
+product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
-permissions: 'Personen mit Administratorberechtigungen für ein Repository können mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Website erstellen.'
+permissions: 'Personen mit Administratorberechtigungen für ein Repository können mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -12,28 +12,28 @@ versions:
 
 ### Vorrausetzungen
 
-Bevor Du mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Website erstellen kannst, musst Du Jekyll und Git installieren. Weitere Informationen finden Sie unter „[Installation](https://jekyllrb.com/docs/installation/)“ in der Jekyll-Dokumentation und unter „[Git einrichten](/articles/set-up-git)“.
+Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen kannst, musst Du Jekyll und Git installieren. Weitere Informationen finden Sie unter „[Installation](https://jekyllrb.com/docs/installation/)“ in der Jekyll-Dokumentation und unter „[Git einrichten](/articles/set-up-git)“.
 
-{{ site.data.reusables.pages.recommend-bundler }}
+{% data reusables.pages.recommend-bundler %}
 
-{{ site.data.reusables.pages.jekyll-install-troubleshooting }}
+{% data reusables.pages.jekyll-install-troubleshooting %}
 
 ### Ein Repository für eine Website erstellen
 
-{{ site.data.reusables.pages.new-or-existing-repo }}
+{% data reusables.pages.new-or-existing-repo %}
 
-{{ site.data.reusables.pages.private_pages_are_public_warning }}
+{% data reusables.pages.private_pages_are_public_warning %}
 
-{{ site.data.reusables.repositories.create_new }}
-{{ site.data.reusables.repositories.owner-drop-down }}
-{{ site.data.reusables.pages.create-repo-name }}
-{{ site.data.reusables.repositories.choose-repo-visibility }}
+{% data reusables.repositories.create_new %}
+{% data reusables.repositories.owner-drop-down %}
+{% data reusables.pages.create-repo-name %}
+{% data reusables.repositories.choose-repo-visibility %}
 
 ### Eine Website erstellen
 
-{{ site.data.reusables.pages.must-have-repo-first }}
+{% data reusables.pages.must-have-repo-first %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wenn Du noch keine lokale Kopie Deines Repositorys besitzt, navigiere zu dem Speicherort, an dem Du die Quelldateien Deiner Website speichern möchtest, und ersetze dabei _PARENT-FOLDER_ durch den Ordner, der den Ordner für Dein Repository enthalten soll.
   ```shell
   $ cd <em>PARENT-FOLDER</em>
@@ -49,8 +49,8 @@ Bevor Du mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Websit
   $ cd <em>REPOSITORY-NAME</em>
   # Ändert das Arbeitsverzeichnis
   ```
-{{ site.data.reusables.pages.decide-publishing-source }}
-{{ site.data.reusables.pages.navigate-publishing-source }}
+{% data reusables.pages.decide-publishing-source %}
+{% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
  ```shell
  $ mkdir docs
@@ -62,7 +62,7 @@ Bevor Du mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Websit
  $ git checkout --orphan gh-pages
  # Erstellt einen neuen Branch, ohne Verlauf und Inhalte, mit dem namen gh-pages und wechselt zum gh-pages-Branch
  ```
- 7. Um eine neue Jekyll-Website zu erstellen, führe den Befehl `jekyll new` aus. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für Jekyll. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {{ site.data.variables.product.prodname_pages }}-Website.
+ 7. Um eine neue Jekyll-Website zu erstellen, führe den Befehl `jekyll new` aus. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für Jekyll. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
     - Wenn Du Bundler installiert hast:
       ```shell
       $ bundle exec jekyll <em>VERSION</em> new .
@@ -73,14 +73,14 @@ Bevor Du mit Jekyll eine {{ site.data.variables.product.prodname_pages }}-Websit
      $ jekyll <em>VERSION</em> new .
      # Erstellt eine Jekyll-Website im aktuellen Verzeichnis
      ```
-8. Öffne das gerade erstellte Gemfile, und befolge die Anweisungen in den Gemfile-Kommentaren, um {{ site.data.variables.product.prodname_pages }} zu verwenden. ![Anleitung zum Aktualisieren der Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Aktualisiere die Zeile `gem "github-pages"` so, dass sie wie folgt aussieht. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für `github-pages`. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {{ site.data.variables.product.prodname_pages }}-Website.
+8. Öffne das gerade erstellte Gemfile, und befolge die Anweisungen in den Gemfile-Kommentaren, um {% data variables.product.prodname_pages %} zu verwenden. ![Anleitung zum Aktualisieren der Gemfile](/assets/images/help/pages/gemfile-instructions.png)
+9. Aktualisiere die Zeile `gem "github-pages"` so, dass sie wie folgt aussieht. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für `github-pages`. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
 ```shell
 gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. Speichere und schließe das Gemfile.
-11. Teste Deine Website optional lokal. Weitere Informationen findest Du unter „[Deine {{ site.data.variables.product.prodname_pages }}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
-12. Füge Dein {{ site.data.variables.product.product_name }}-Repository als Remote-Repository hinzu. Ersetze dabei {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ durch den Hostnamen Deiner Appliance,{% endif %} _USER_ durch das Konto, das das Repository besitzt{% if currentVersion != "free-pro-team@latest" %},{% endif %} und _REPOSITORY_ durch den Namen des Repositorys.
+11. Teste Deine Website optional lokal. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_pages %}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
+12. Füge Dein {% data variables.product.product_name %}-Repository als Remote-Repository hinzu. Ersetze dabei {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ durch den Hostnamen Deiner Appliance,{% endif %} _USER_ durch das Konto, das das Repository besitzt{% if currentVersion != "free-pro-team@latest" %},{% endif %} und _REPOSITORY_ durch den Namen des Repositorys.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -88,19 +88,19 @@ $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
 {% endif %}
 ```
-13. Übertrage das Repository zu {{ site.data.variables.product.product_name }}, und ersetze dabei _BRANCH_ durch den Namen des Branches, auf dem Du gerade arbeitest.
+13. Übertrage das Repository zu {% data variables.product.product_name %}, und ersetze dabei _BRANCH_ durch den Namen des Branches, auf dem Du gerade arbeitest.
    ```shell
    $ git push -u origin <em>BRANCH</em>
    ```
-{{ site.data.reusables.pages.configure-publishing-source }}
-{{ site.data.reusables.pages.navigate-site-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.pages.visit-site }}
+{% data reusables.pages.configure-publishing-source %}
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.pages.visit-site %}
 
-{{ site.data.reusables.pages.admin-must-push }}
+{% data reusables.pages.admin-must-push %}
 
 ### Nächste Schritte:
 
-Informationen dazu, wie Du eine neue Seite oder einen neuen Beitrag zu Deiner Website hinzufügst, findest Du unter „[Inhalte zur {{ site.data.variables.product.prodname_pages }}-Website mit Jekyll hinzufügen](/articles/adding-content-to-your-github-pages-site-using-jekyll).“
+Informationen dazu, wie Du eine neue Seite oder einen neuen Beitrag zu Deiner Website hinzufügst, findest Du unter „[Inhalte zur {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-content-to-your-github-pages-site-using-jekyll).“
 
-{{ site.data.reusables.pages.add-jekyll-theme }} Weitere Informationen findest Du unter „[Ein Design zu Deiner {{ site.data.variables.product.prodname_pages }}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“
+{% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“

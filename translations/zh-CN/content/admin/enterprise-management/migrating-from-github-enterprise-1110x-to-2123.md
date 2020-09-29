@@ -9,22 +9,22 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-intro: '要从 {{ site.data.variables.product.prodname_enterprise }} 11.10.x 迁移到 2.1.23，您需要设置新的设备实例并迁移之前实例中的数据。'
+intro: '要从 {% data variables.product.prodname_enterprise %} 11.10.x 迁移到 2.1.23，您需要设置新的设备实例并迁移之前实例中的数据。'
 versions:
   enterprise-server: '*'
 ---
 
-支持从 {{ site.data.variables.product.prodname_enterprise }} 11.10.348 及更高版本进行迁移。 不支持从 {{ site.data.variables.product.prodname_enterprise }} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
+支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更高版本进行迁移。 不支持从 {% data variables.product.prodname_enterprise %} 11.10.348 及更低版本进行迁移。 您必须先通过多次升级过程升级到 11.10.348。 更多信息请参阅 11.10.348 升级程序“[升级到最新版本](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)”。
 
-要升级到最新版 {{ site.data.variables.product.prodname_enterprise }}，您必须先迁移到 {{ site.data.variables.product.prodname_ghe_server }} 2.1，然后才能执行正常升级过程。 更多信息请参阅“[升级 {{ site.data.variables.product.prodname_enterprise }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
+要升级到最新版 {% data variables.product.prodname_enterprise %}，您必须先迁移到 {% data variables.product.prodname_ghe_server %} 2.1，然后才能执行正常升级过程。 更多信息请参阅“[升级 {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)”。
 
 ### 准备迁移
 
-1. 查看配置和安装指南，并检查在您的环境中配置 {{ site.data.variables.product.prodname_enterprise }} 2.1.23 的所有基本要求是否已得到满足。 更多信息请参阅“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
+1. 查看配置和安装指南，并检查在您的环境中配置 {% data variables.product.prodname_enterprise %} 2.1.23 的所有基本要求是否已得到满足。 更多信息请参阅“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”。
 2. 验证当前实例正在运行受支持的升级版本。
-3. 设置最新版本的 {{ site.data.variables.product.prodname_enterprise_backup_utilities }}。 更多信息请参阅“[{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils)”。
-    - 如果已使用 {{ site.data.variables.product.prodname_enterprise_backup_utilities }} 配置排定的备份，请确保您已更新为最新版本。
-    - 如果您当前未运行排定的备份，请设置 {{ site.data.variables.product.prodname_enterprise_backup_utilities }}。
+3. 设置最新版本的 {% data variables.product.prodname_enterprise_backup_utilities %}。 更多信息请参阅“[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)”。
+    - 如果已使用 {% data variables.product.prodname_enterprise_backup_utilities %} 配置排定的备份，请确保您已更新为最新版本。
+    - 如果您当前未运行排定的备份，请设置 {% data variables.product.prodname_enterprise_backup_utilities %}。
 4. 使用 `ghe-backup` 命令生成当前实例的初始完整备份快照。 如果您已为当前实例配置排定的备份，则不需要生成实例快照。
 
    {% tip %}
@@ -40,8 +40,8 @@ versions:
 
 ### 执行迁移
 
-1. 配置新的 {{ site.data.variables.product.prodname_enterprise }} 2.1 实例。 更多信息请参阅您的目标平台的“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
-2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {{ site.data.variables.product.prodname_enterprise }} 许可。
+1. 配置新的 {% data variables.product.prodname_enterprise %} 2.1 实例。 更多信息请参阅您的目标平台的“[配置和安装](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)”指南。
+2. 在浏览器中，导航到新副本设备的 IP 地址并上传您的 {% data variables.product.prodname_enterprise %} 许可。
 3. 设置管理员密码。
 5. 单击 **Migrate**。 ![选择安装类型](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. 将备份主机访问 SSH 密钥粘贴到“Add new SSH key”中。 ![授权备份](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
@@ -88,4 +88,4 @@ versions:
   {% endnote %}
 
 15. 使用 DNS 或 IP 地址分配将用户网络流量从旧实例切换到新实例。
-16. 升级到 {{ currentVersion }} 的最新补丁版本。 更多信息请参阅“[升级 {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)。”
+16. 升级到 {{ currentVersion }} 的最新补丁版本。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)。”

@@ -1,6 +1,6 @@
 ---
 title: 关于 web 通知
-intro: '如果您接收 web 通知，可以在 {{ site.data.variables.product.product_name }} 的通知页面上查看您的参与和关注通知。'
+intro: '如果您接收 web 通知，可以在 {% data variables.product.product_name %} 的通知页面上查看您的参与和关注通知。'
 versions:
   enterprise-server: <2.21
 ---
@@ -9,7 +9,7 @@ versions:
 
 为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 为帐户启用 web 通知后，您可以单击通知页面中的项目，并且会重定向到通知所参考的对话。 有关启用 web 通知的更多信息，请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)”。
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 From your notifications page, you can also mark notifications as read, save notifications for later, and unsubscribe from threads. 更多信息请参阅：
 

@@ -12,7 +12,7 @@ versions:
 
 Para fixar um problema, você deve ter permissões de gravação no repositório onde está o problema.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Na lista de problemas, clique no problema que deseja fixar.
 4. Na barra lateral direita, clique em **Pin issue** (Fixar problema). ![Botão para fixar problema](/assets/images/help/repository/pin-issue.png)

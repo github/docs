@@ -1,6 +1,6 @@
 ---
 title: Impedir acesso não autorizado
-intro: 'Você pode receber um alerta da mídia sobre um incidente de segurança, como a descoberta do [Heartbleed bug](http://heartbleed.com/), ou o seu computador pode ser roubado enquanto você conectado no {{ site.data.variables.product.product_location }}. Em casos assim, alterar a sua senha previne acessos futuros indesejados em sua conta e projetos.'
+intro: 'Você pode receber um alerta da mídia sobre um incidente de segurança, como a descoberta do [Heartbleed bug](http://heartbleed.com/), ou o seu computador pode ser roubado enquanto você conectado no {% data variables.product.product_location %}. Em casos assim, alterar a sua senha previne acessos futuros indesejados em sua conta e projetos.'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-O {{ site.data.variables.product.product_name }} solicita uma senha para executar ações confidenciais, como adicionar novas chaves SSH, autorizar aplicativos ou modificar os integrantes da equipe.
+O {% data variables.product.product_name %} solicita uma senha para executar ações confidenciais, como adicionar novas chaves SSH, autorizar aplicativos ou modificar os integrantes da equipe.
 
 Depois de alterar sua senha, você deve executar estas ações para confirmar que sua conta está segura:
 

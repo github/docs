@@ -1,7 +1,7 @@
 ---
 title: Configurar un flujo de trabajo
 intro: Puedes crear flujos de trabajo personalizados para automatizar los procesos del ciclo de vida de desarrollo de software de tu proyecto.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-github-action/
   - /articles/creating-a-workflow-with-github-actions/
@@ -16,18 +16,18 @@ versions:
 
 Las personas con permisos de escritura o de administración a un repositorio pueden crear, editar o ver flujos de trabajo.
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los flujos de trabajo
 
-Los flujos de trabajo son procesos automatizados personalizados que puedes configurar en tu repositorio para crear, probar, empaquetar, lanzar o implementar cualquier proyecto en {{ site.data.variables.product.prodname_dotcom }}. Con los flujos de trabajo, puedes automatizar el ciclo de vida de tu desarrollo de software con una amplia gama de herramientas y servicios. Para obtener más información, consulta "[Acerca de {{ site.data.variables.product.prodname_actions }}](/articles/about-github-actions)".
+Los flujos de trabajo son procesos automatizados personalizados que puedes configurar en tu repositorio para crear, probar, empaquetar, lanzar o implementar cualquier proyecto en {% data variables.product.prodname_dotcom %}. Con los flujos de trabajo, puedes automatizar el ciclo de vida de tu desarrollo de software con una amplia gama de herramientas y servicios. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_actions %}](/articles/about-github-actions)".
 
 Puedes crear más de un flujo de trabajo en un repositorio. Debes almacenar los flujos de trabajo en el directorio `.github/workflows` en la raíz de su repositorio.
 
-Los flujos de trabajo deben tener al menos un trabajo, y los trabajos deben contener un conjunto de pasos que ejecuten tareas individuales. Los pasos pueden ejecutar comandos o utilizar una acción. Puedes crear tus propias acciones o usar acciones compartidas por la comunidad {{ site.data.variables.product.prodname_dotcom }} y personalizarlas según sea necesario.
+Los flujos de trabajo deben tener al menos un trabajo, y los trabajos deben contener un conjunto de pasos que ejecuten tareas individuales. Los pasos pueden ejecutar comandos o utilizar una acción. Puedes crear tus propias acciones o usar acciones compartidas por la comunidad {% data variables.product.prodname_dotcom %} y personalizarlas según sea necesario.
 
-Puedes configurar un flujo de trabajo para que comience cuando se produce un evento {{ site.data.variables.product.prodname_dotcom }}, en un horario o desde un evento externo.
+Puedes configurar un flujo de trabajo para que comience cuando se produce un evento {% data variables.product.prodname_dotcom %}, en un horario o desde un evento externo.
 
 Debes configurar los flujos de trabajo mediante la sintaxis YAML y guardarlos como archivos de flujo de trabajo en tus repositorios. Una vez que hayas creado con éxito un archivo de flujo de trabajo YAML y activado el flujo de trabajo, verás los registros de construcción, los resultados de las pruebas, los artefactos y los estados de cada paso de tu flujo de trabajo. Para obtener más información, consulta "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)".
 
@@ -45,7 +45,7 @@ En un nivel alto, estos son los pasos para agregar un archivo de flujo de trabaj
 
 1. En `.github/workflows`, agrega un archivo `.yml` o `.yaml` a tu flujo de trabajo. Por ejemplo, `.github/workflows/continuous-integration-workflow.yml`.
 
-1. Utiliza la documentación de referencia "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions)" para elegir eventos a fin de activar una acción, agregar acciones y personalizar tu flujo de trabajo.
+1. Utiliza la documentación de referencia "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions)" para elegir eventos a fin de activar una acción, agregar acciones y personalizar tu flujo de trabajo.
 
 1. Confirma tus cambios en el archivo de flujo de trabajo en la rama donde deseas que se ejecute tu flujo de trabajo.
 
@@ -76,16 +76,16 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 ### Activar un flujo de trabajo con eventos
 
 Puedes configurar un flujo de trabajo para comenzar una vez:
-- Se produce un evento en {{ site.data.variables.product.prodname_dotcom }}, como cuando alguien envía una confirmación a un repositorio o cuando se crea una propuesta o una solicitud de extracción
+- Se produce un evento en {% data variables.product.prodname_dotcom %}, como cuando alguien envía una confirmación a un repositorio o cuando se crea una propuesta o una solicitud de extracción
 - Comienza un evento programado.
 - Se produce un evento externo.
 
-Para activar un flujo de trabajo después de que ocurra un evento en {{ site.data.variables.product.prodname_dotcom }}, agrega `on:` y un valor de evento después del nombre del flujo de trabajo. Por ejemplo, este flujo de trabajo se activa cuando los cambios se envían a cualquier rama en el repositorio.
+Para activar un flujo de trabajo después de que ocurra un evento en {% data variables.product.prodname_dotcom %}, agrega `on:` y un valor de evento después del nombre del flujo de trabajo. Por ejemplo, este flujo de trabajo se activa cuando los cambios se envían a cualquier rama en el repositorio.
 
 ```yaml
 name: descriptive-workflow-name
@@ -102,7 +102,7 @@ on:
 
 #### Ejecutar un flujo de trabajo manualmente
 
-Para ejecutar un flujo de trabajo manualmente, primero debes configurarlo para que utilice el evento `workflow_dispatch`. Puedes configurar las propiedades de entrada definidas conforme a tu personalización, los valores de entrada predeterminados, y las entradas requeridas, directamente en tu flujo de trabajo. Cuando se ejecuta el flujod e trabajo, puedes acceder a los valores de entrada en el contexto de `github.event.inputs`. Para obtener más información, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" y "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_dotcom }} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+Para ejecutar un flujo de trabajo manualmente, primero debes configurarlo para que utilice el evento `workflow_dispatch`. Puedes configurar las propiedades de entrada definidas conforme a tu personalización, los valores de entrada predeterminados, y las entradas requeridas, directamente en tu flujo de trabajo. Cuando se ejecuta el flujod e trabajo, puedes acceder a los valores de entrada en el contexto de `github.event.inputs`. Para obtener más información, consulta la sección "[Eventos que activan los flujos de trabajo](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" y "[Sintaxis de contexto y expresión para {% data variables.product.prodname_dotcom %} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
 Este ejemplo define las entradas `name` y `home` y las imprime utilizando los contextos `github.event.inputs.name` y `github.event.inputs.home`. Si no se proporciona un `name`, se imprimirá el valor predeterminado 'Mona the Octocat'.
 
@@ -131,12 +131,12 @@ jobs:
 ```
 {% endraw %}
 
-Puedes activar el evento de `workflow_dispatch` desde la pestaña de Acciones en {{ site.data.variables.product.prodname_dotcom }} o utilizar la API de REST. Puedes activar el evento de `workflow_dispatch` desde la pestaña de Acciones en {{ site.data.variables.product.prodname_dotcom }} o utilizar la API de REST. Para obtener más información acerca de cómo utilizar la API de REST, consulta la sección [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Si omites las entradas, se utilizarán los valores predeterminados que se hayan definido en el flujo de trabajo.
+Puedes activar el evento de `workflow_dispatch` desde la pestaña de Acciones en {% data variables.product.prodname_dotcom %} o utilizar la API de REST. Puedes activar el evento de `workflow_dispatch` desde la pestaña de Acciones en {% data variables.product.prodname_dotcom %} o utilizar la API de REST. Para obtener más información acerca de cómo utilizar la API de REST, consulta la sección [Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)". Si omites las entradas, se utilizarán los valores predeterminados que se hayan definido en el flujo de trabajo.
 
-Para activar el evento `workflow_dispatch` en {{ site.data.variables.product.prodname_dotcom }}, tu flujo de trabajo deberá estar en la rama predeterminada. Sigue estos pasos para activar una ejecución de flujo de trabajo manualmente.
+Para activar el evento `workflow_dispatch` en {% data variables.product.prodname_dotcom %}, tu flujo de trabajo deberá estar en la rama predeterminada. Sigue estos pasos para activar una ejecución de flujo de trabajo manualmente.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. En la barra lateral izquierda, da clic ene l flujo de trabajo que quieras ejecutar. ![flujo de trabajo de la selección en las acciones](/assets/images/actions-select-workflow.png)
 1. Sobre la lista de ejecuciones de flujo de trabajo, selecciona **Ejecutar flujo de trabajo**. ![envío del flujo de trabajo de las acciónes](/assets/images/actions-workflow-dispatch.png)
 1. Selecciona la rama en donde el flujo de trabajo se ejecutará y teclea los parámetros de entrada que éste utiliza. Da clic en **Ejecutar flujo de trabajo**. ![flujo de trabajo de la ejecución manual de las acciones](/assets/images/actions-manually-run-workflow.png)
@@ -169,17 +169,17 @@ Para obtener más información acerca de la sintaxis de filtro de ramas, de etiq
 
 ### Elegir un ejecutor
 
-Puedes ejecutar flujos de trabajo en ejecutores alojados en {{ site.data.variables.product.prodname_dotcom }} o ejecutores autoalojados. Los trabajos se pueden ejecutar directamente en la máquina o en un contenedor Docker.
+Puedes ejecutar flujos de trabajo en ejecutores alojados en {% data variables.product.prodname_dotcom %} o ejecutores autoalojados. Los trabajos se pueden ejecutar directamente en la máquina o en un contenedor Docker.
 
-Puedes especificar el ejecutor para cada trabajo en un flujo de trabajo usando `runs-on`. Para obtener más información acerca de `runs-on`, consulta "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
+Puedes especificar el ejecutor para cada trabajo en un flujo de trabajo usando `runs-on`. Para obtener más información acerca de `runs-on`, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Usar un ejecutor alojado en {{ site.data.variables.product.prodname_dotcom }}
+#### Usar un ejecutor alojado en {% data variables.product.prodname_dotcom %}
 
-Puedes seleccionar entre diferentes tipos y versiones de máquinas host virtuales, incluidos Linux, Windows y macOS. Cada trabajo en un flujo de trabajo se ejecuta en una nueva instancia del entorno virtual y los pasos dentro de un trabajo pueden compartir información usando el sistema de archivos. Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados en {{ site.data.variables.product.prodname_actions }}](/articles/virtual-environments-for-github-actions)."
+Puedes seleccionar entre diferentes tipos y versiones de máquinas host virtuales, incluidos Linux, Windows y macOS. Cada trabajo en un flujo de trabajo se ejecuta en una nueva instancia del entorno virtual y los pasos dentro de un trabajo pueden compartir información usando el sistema de archivos. Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados en {% data variables.product.prodname_actions %}](/articles/virtual-environments-for-github-actions)."
 
-Por ejemplo, puedes usar `ubuntu-latest` para especificar la última versión de un ejecutor Ubuntu alojado en {{ site.data.variables.product.prodname_dotcom }}.
+Por ejemplo, puedes usar `ubuntu-latest` para especificar la última versión de un ejecutor Ubuntu alojado en {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 runs-on: ubuntu-latest
@@ -203,7 +203,7 @@ Una matriz de construcción te permite probar tu código con diferentes configur
 
 Puedes especificar una matriz de construcción en tu archivo de flujo de trabajo con una matriz que enumere las opciones de configuración en `estrategia:`. Por ejemplo, esta matriz de construcción ejecutará un trabajo con diferentes versiones de Node.js y Ubuntu, un sistema operativo Linux.
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -215,7 +215,7 @@ strategy:
 ```
 {% endraw %}
 
-Para obtener más información, consulta [Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
+Para obtener más información, consulta [Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
 ### Usar la acción de control
 
@@ -240,7 +240,7 @@ Para obtener más información, consulta "[Acerca de acciones](/articles/about-t
 
 Cuando elijas el tipo de acciones para utilizar en tu flujo de trabajo, te recomendamos que explores las acciones existentes en los repositorios públicos o en Docker Hub y puedas personalizar estas acciones para tu proyecto.
 
-Puedes explorar y usar acciones creadas por {{ site.data.variables.product.prodname_dotcom }} en la organización [github.com/actions](https://github.com/actions). Para visitar Docker Hub, consulta "[Docker Hub](https://www.docker.com/products/docker-hub)" en el sitio de Docker.
+Puedes explorar y usar acciones creadas por {% data variables.product.prodname_dotcom %} en la organización [github.com/actions](https://github.com/actions). Para visitar Docker Hub, consulta "[Docker Hub](https://www.docker.com/products/docker-hub)" en el sitio de Docker.
 
 ### Hacer referencia a acciones en tu flujo de trabajo
 
@@ -253,13 +253,13 @@ Los flujos de trabajo pueden usar acciones definidas en:
 
 Para usar una acción definida en un repositorio privado, tanto el archivo de flujo de trabajo como la acción deben estar en el mismo repositorio. Tu flujo de trabajo no puede utilizar acciones definidas en otros repositorios privados, incluso si el otro repositorio privado está en la misma organización.
 
-Para mantener estable tu flujo de trabajo, incluso cuando se actualiza una acción, puedes hacer referencia a la versión de la acción que estás utilizando y especificar un número de etiqueta de Git ref o Docker en tu archivo de flujo de trabajo. Para ver ejemplos, consulta "[Sintaxis del flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
+Para mantener estable tu flujo de trabajo, incluso cuando se actualiza una acción, puedes hacer referencia a la versión de la acción que estás utilizando y especificar un número de etiqueta de Git ref o Docker en tu archivo de flujo de trabajo. Para ver ejemplos, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 {% endif %}
 
-Para obtener opciones de configuración más detalladas, consulta "[Sintaxis del flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+Para obtener opciones de configuración más detalladas, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 #### Hacer referencia a una acción desde un repositorio público
 
@@ -320,13 +320,13 @@ jobs:
 
 Para ver algunos ejemplos de acciones de Docker, consulta el [Flujo de trabajo Docker-image.yml](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml) y "[Crear una acción de contenedor Docker](/articles/creating-a-docker-container-action)".
 
-Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
+Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
 
 ### Agregar una credencial de estado de flujo de trabajo a tu repositorio
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-Si tu flujo de trabajo usa la palabra clave `Nombre`, debes hacer referencia al flujo de trabajo por nombre. Si el nombre de tu flujo de trabajo contiene un espacio en blanco, deberás reemplazar el espacio con la cadena que codifica la URL `%20`. Para obtener más información sobre la palabra clave `name` (nombre), consulta "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)".
+Si tu flujo de trabajo usa la palabra clave `Nombre`, debes hacer referencia al flujo de trabajo por nombre. Si el nombre de tu flujo de trabajo contiene un espacio en blanco, deberás reemplazar el espacio con la cadena que codifica la URL `%20`. Para obtener más información sobre la palabra clave `name` (nombre), consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)".
 
 ```
 https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_NAME>/badge.svg
@@ -379,5 +379,5 @@ Este ejemplo de Markdown agrega un distintivo que muestra el estado de las ejecu
 {% if currentVersion == "free-pro-team@latest" %}
 ### Leer más
 
-- "[Administrar la facturación para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 {% endif %}

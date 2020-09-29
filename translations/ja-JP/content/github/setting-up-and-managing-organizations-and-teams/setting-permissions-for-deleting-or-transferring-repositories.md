@@ -11,9 +11,9 @@ versions:
 
 コードオーナーは、Organization 内のリポジトリについて、削除や移譲の権限を設定できます。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. [Repository deletion and transfer] の下で、[**Allow members to delete or transfer repositories for this organization**] を選択または選択解除します。 ![リポジトリの削除をメンバーに許可するためのチェックボックス](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
 6. [**Save**] をクリックします。

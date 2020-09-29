@@ -1,6 +1,6 @@
 ---
 title: High Availability設定について
-intro: 'High Availability 設定では、完全に冗長なセカンダリの {{ site.data.variables.product.prodname_ghe_server }} アプライアンスは、すべての主要なデータストアのレプリケーションによってプライマリアプライアンスとの同期を保ちます。'
+intro: 'High Availability 設定では、完全に冗長なセカンダリの {% data variables.product.prodname_ghe_server %} アプライアンスは、すべての主要なデータストアのレプリケーションによってプライマリアプライアンスとの同期を保ちます。'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
 versions:
@@ -9,13 +9,13 @@ versions:
 
 High Availability設定をする際には、プライマリからレプリカアプライアンスへのすべてのデータストア（Gitリポジトリ、MySQL、Redis、Elasticsearch）の一方方向の非同期レプリケーションが、自動的にセットアップされます。
 
-{{ site.data.variables.product.prodname_ghe_server }} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
+{% data variables.product.prodname_ghe_server %} はアクティブ／パッシブ設定をサポートします。この設定では、レプリカアプライアンスはデータベースサービスをレプリケーションモードで実行しながらスタンバイとして実行しますが、アプリケーションサービスは停止します。
 
 ### ターゲットとなる障害のシナリオ
 
 以下に対する保護として、High Availability設定を使ってください。
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 High Availability設定は、以下に対するソリューションとしては適切ではありません。
 
@@ -29,7 +29,7 @@ High Availability設定は、以下に対するソリューションとしては
 
 #### DNSフェイルオーバー
 
-DNS フェイルオーバーでは、プライマリの {{ site.data.variables.product.prodname_ghe_server }} アプライアンスを指す DNS レコードに短い TTL 値を使用します。 60秒から5分の間のTTLを推奨します。
+DNS フェイルオーバーでは、プライマリの {% data variables.product.prodname_ghe_server %} アプライアンスを指す DNS レコードに短い TTL 値を使用します。 60秒から5分の間のTTLを推奨します。
 
 フェイルオーバーの間、プライマリはメンテナンスモードにして、プライマリのDNSレコードはレプリカアプライアンスのIPアドレスへリダイレクトしなければなりません。 トラフィックをプライマリからレプリカへリダイレクトするのに要する時間は、TTLの設定とDNSレコードの更新に必要な時間に依存します。
 
@@ -37,19 +37,19 @@ Geo-replication を使用している場合は、トラフィックを最も近�
 
 #### ロードバランサ
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_intro }} {{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-フェイルオーバーの間、プライマリアプライアンスはメンテナンスモードにしなければなりません。 ロードバランサは、レプリカがプライマリに昇格したときに自動的に検出するように設定することも、手動での設定変更が必要なようにしておくこともできます。 ユーザからのトラフィックに反応する前に、レプリカはプライマリに手動で昇格させておかなければなりません、 詳細は「[ロードバランサとともに {{ site.data.variables.product.prodname_ghe_server }} を使用する](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)」を参照してください。
+フェイルオーバーの間、プライマリアプライアンスはメンテナンスモードにしなければなりません。 ロードバランサは、レプリカがプライマリに昇格したときに自動的に検出するように設定することも、手動での設定変更が必要なようにしておくこともできます。 ユーザからのトラフィックに反応する前に、レプリカはプライマリに手動で昇格させておかなければなりません、 詳細は「[ロードバランサとともに {% data variables.product.prodname_ghe_server %} を使用する](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)」を参照してください。
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### レプリケーション管理のユーティリティ
 
-{{ site.data.variables.product.prodname_ghe_server }} でレプリケーションを管理するには、SSH を使用してレプリカアプライアンスに接続して以下のコマンドラインユーティリティを使用します。
+{% data variables.product.prodname_ghe_server %} でレプリケーションを管理するには、SSH を使用してレプリカアプライアンスに接続して以下のコマンドラインユーティリティを使用します。
 
 #### ghe-repl-setup
 
-`ghe-repl-setup` コマンドは、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスをレプリカスタンバイモードにします。
+`ghe-repl-setup` コマンドは、{% data variables.product.prodname_ghe_server %} アプライアンスをレプリカスタンバイモードにします。
 
  - 2 つのアプライアンス間の通信のために、暗号化された{% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %}トンネルが設定されます。
  - レプリケーションのためのデータベースサービスが設定され、起動されます。
@@ -152,7 +152,7 @@ Success: replication was stopped for all services.
 
 `ghe-repl-promote`コマンドはレプリケーションを無効化し、レプリカアプライアンスをプライマリに変換します。 アプライアンスはオリジナルのプライマリと同じ設定がなされ、すべてのサービスが有効化されます。
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote

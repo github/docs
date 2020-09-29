@@ -74,7 +74,7 @@ O período de correspondência começa depois que o GitHub aceita uma Conta indi
 
 * Se o GitHub descobrir uma potencial violação da política, antes do pagamento de quaisquer fundos correspondentes concedidos durante o período de correspondência, o GitHub pode desativar os pagamentos até que uma investigação seja concluída, e os fundos correspondentes contribuídos em prol do desenvolvedor patrocinado podem ser revogados caso se verifique que estão em violação desta política.
 
-* {{ site.data.reusables.sponsors.github-contact-applicants }}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ### 3. Obrigações do Desenvolvedor Patrocinado.
 

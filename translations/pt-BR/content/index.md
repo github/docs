@@ -1,5 +1,5 @@
 ---
-title: 'Documentação de Ajuda do {{ site.data.variables.product.product_name }}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %}'
+title: 'Documentação de Ajuda do {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %}'
 gettingStartedLinks:
   - /github/getting-started-with-github/set-up-git
   - /github/authenticating-to-github/connecting-to-github-with-ssh

@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.dismiss_review }}
+{% data reusables.pull_requests.dismiss_review %}
 Esto cambia el estado de la revisión, que pasa a ser un comentario de revisión. Cuando descartas una revisión, debes agregar un comentario que explique por qué la descartaste. Tu comentario se agregará a la conversación de la solicitud de extracción.
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 3. En la pestaña "Conversación", desplázate hasta la revisión que deseas descartar y haz clic en {% octicon "chevron-down" aria-label="The down button" %}. ![Icono de comillas angulares en el cuadro de fusión](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
 4. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} y luego haz clic en **Descartar revisión**. ![Icono de kebab en el cuadro de fusión](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. Escribe la razón por la que descartas la revisión y luego haz clic en **Descartar revisión**. ![Botón Dismiss review (Descartar revisión)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)

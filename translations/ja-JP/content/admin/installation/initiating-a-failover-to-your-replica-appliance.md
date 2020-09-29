@@ -1,6 +1,6 @@
 ---
 title: レプリカアプライアンスへのフェイルオーバーの開始
-intro: 'メンテナンスやテストのため、またはプライマリアプライアンスが機能しなくなった場合は、コマンドラインを使用して {{ site.data.variables.product.prodname_ghe_server }} レプリカアプライアンスにフェイルオーバーできます。'
+intro: 'メンテナンスやテストのため、またはプライマリアプライアンスが機能しなくなった場合は、コマンドラインを使用して {% data variables.product.prodname_ghe_server %} レプリカアプライアンスにフェイルオーバーできます。'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
 versions:
@@ -9,7 +9,7 @@ versions:
 
 フェイルオーバーに必要な時間は、レプリカを手動で昇格させてトラフィックをリダイレクトするのにかかる時間によって異なります。 平均的な時間は 2 分から 10 分です。
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. アプライアンスを切り替える前にレプリケーションを終了できるようにするには、プライマリアプライアンスをメンテナンスモードにします。
     - Management Console を使用するには、「[メンテナンスモードの有効化とスケジュール設定](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)」を参照してください。

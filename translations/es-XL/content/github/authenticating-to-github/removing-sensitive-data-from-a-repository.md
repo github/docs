@@ -17,9 +17,9 @@ Puedes eliminar el archivo desde la última confirmación con `git rm`. Para obt
 
 {% warning %}
 
-**Advertencia: Una vez que hayas subido una confirmación en {{ site.data.variables.product.product_name }}, debes tener en cuenta cualquier dato que contenga que pueda ser riesgoso.** Si confirmaste una contraseña, ¡cámbiala! Si confirmaste una clave, genera una nueva.
+**Advertencia: Una vez que hayas subido una confirmación en {% data variables.product.product_name %}, debes tener en cuenta cualquier dato que contenga que pueda ser riesgoso.** Si confirmaste una contraseña, ¡cámbiala! Si confirmaste una clave, genera una nueva.
 
-Este artículo te explica cómo hacer confirmaciones con datos confidenciales inaccesibles desde cualquier rama o etiqueta en tu {{ site.data.variables.product.product_name }} repositorio. Sin embargo, es importante tener en cuenta que esas confirmaciones pueden seguir siendo accesibles desde cualquier clon o bifurcación de tu repositorio, directamente por medio de sus hashes de SHA-1 en las visualizaciones cacheadas en {{ site.data.variables.product.product_name }} y a través de cualquier solicitud de extracción que las referencie. No puedes hacer nada con los clones o bifurcaciones existentes de tu repositorio, pero puedes eliminar de manera permanente las visualizaciones cacheadas y las referencias a los datos confidenciales en las solicitudes de extracción en {{ site.data.variables.product.product_name }} contactándote con {{ site.data.variables.contact.contact_support }}.
+Este artículo te explica cómo hacer confirmaciones con datos confidenciales inaccesibles desde cualquier rama o etiqueta en tu {% data variables.product.product_name %} repositorio. Sin embargo, es importante tener en cuenta que esas confirmaciones pueden seguir siendo accesibles desde cualquier clon o bifurcación de tu repositorio, directamente por medio de sus hashes de SHA-1 en las visualizaciones cacheadas en {% data variables.product.product_name %} y a través de cualquier solicitud de extracción que las referencie. No puedes hacer nada con los clones o bifurcaciones existentes de tu repositorio, pero puedes eliminar de manera permanente las visualizaciones cacheadas y las referencias a los datos confidenciales en las solicitudes de extracción en {% data variables.product.product_name %} contactándote con {% data variables.contact.contact_support %}.
 
 {% endwarning %}
 
@@ -53,7 +53,7 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
 
 1. Si aún no tienes una copia local de tu repositorio con datos confidenciales en el historial, [clona el repositorio](/articles/cloning-a-repository/) en tu computadora local.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Initialized empty Git repository in /Users/<em>YOUR-FILE-PATH</em>/<em>YOUR-REPOSITORY</em>/.git/
   > remote: Counting objects: 1301, done.
   > remote: Compressing objects: 100% (769/769), done.
@@ -93,7 +93,7 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. Comprueba que hayas eliminado todo lo que querías del historial de tu repositorio y que todas tus ramas estén revisadas.
-6. Una vez que estés conforme con el estado de tu repositorio, realiza un empuje forzado de tus cambios locales para sobrescribir tu {{ site.data.variables.product.product_name }} repositorio y todas las ramas que hayas subido:
+6. Una vez que estés conforme con el estado de tu repositorio, realiza un empuje forzado de tus cambios locales para sobrescribir tu {% data variables.product.product_name %} repositorio y todas las ramas que hayas subido:
   ```shell
   $ git push origin --force --all
   > Counting objects: 1074, done.
@@ -101,7 +101,7 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f master -> master (forced update)
   ```
 7. Para eliminar el archivo confidencial de [tus lanzamientos etiquetados](/articles/about-releases), también deberás realizar un empuje forzado contra tus etiquetas de Git:
@@ -112,10 +112,10 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
   > Compressing objects: 100% (166/166), done.
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
   >  + 48dc599...051452f master -> master (forced update)
   ```
-8. Contáctate con {{ site.data.variables.contact.contact_support }} y pregúntale cómo eliminar visualizaciones cacheadas y referencias a los datos confidenciales en las solicitudes de extracción en {{ site.data.variables.product.product_name }}.
+8. Contáctate con {% data variables.contact.contact_support %} y pregúntale cómo eliminar visualizaciones cacheadas y referencias a los datos confidenciales en las solicitudes de extracción en {% data variables.product.product_name %}.
 9. Pídeles a tus colaboradores que [rebasen](https://git-scm.com/book/en/Git-Branching-Rebasing), *no* fusionen, cualquier rama que hayan creado fuera del historial de tu repositorio antiguo (contaminado). Una confirmación de fusión podría volver a introducir algo o todo el historial contaminado sobre el que acabas de tomarte el trabajo de purgar.
 10. Después de que haya transcurrido un tiempo y estés seguro de que `git filter-branch` no tuvo efectos secundarios inesperados, puedes forzar a todos los objetos de tu repositorio local a desreferenciarse y recolectar la basura con los siguientes comandos (usando Git 1.8.5 o posterior):
   ```shell
@@ -130,7 +130,7 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
   ```
   {% note %}
 
-   **Nota:** También puedes lograrlo subiendo tu historial filtrado a un repositorio nuevo o vacío para después hacer un nuevo clon desde {{ site.data.variables.product.product_name }}.
+   **Nota:** También puedes lograrlo subiendo tu historial filtrado a un repositorio nuevo o vacío para después hacer un nuevo clon desde {% data variables.product.product_name %}.
 
   {% endnote %}
 
@@ -138,7 +138,7 @@ Para ilustrar cómo funciona `git filter-branch`, te mostraremos cómo eliminar 
 
 Existen algunos trucos sencillos para evitar confirmar cosas que no quieres confirmar:
 
-- Utiliza un programa visual como [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/) o [gitk](https://git-scm.com/docs/gitk) para confirmar los cambios. Los programas visuales suelen hacer que sea más sencillo ver exactamente qué archivos se agregarán, eliminarán y modificarán con cada confirmación.
+- Utiliza un programa visual como [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) o [gitk](https://git-scm.com/docs/gitk) para confirmar los cambios. Los programas visuales suelen hacer que sea más sencillo ver exactamente qué archivos se agregarán, eliminarán y modificarán con cada confirmación.
 - Evita los comandos para atrapar todo `git add .` y `git commit -a` de la línea de comando —en su lugar, utiliza `git add filename` y `git rm filename` para ordenar por etapas los archivos.
 - Utiliza `git add --interactive` para revisar por separado y preparar los cambios de cada archivo.
 - Utiliza `git diff --cached` para revisar los cambios que hayas preparado para la confirmación. Esta es la diferencia exacta que `git commit` generará siempre que no utilices la marca `-a`.

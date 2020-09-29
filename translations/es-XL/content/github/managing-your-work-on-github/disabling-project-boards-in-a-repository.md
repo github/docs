@@ -10,8 +10,8 @@ versions:
 
 Cuando inhabilitas los tableros de proyecto, ya no ves la información de los tableros de proyecto de manera cronológica o de acuerdo con los [registros de auditoría](/articles/reviewing-your-security-log/).
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En "Características", quita la marca de selección de la casilla de verificación **Proyectos**. ![Casilla de verificación Eliminar proyectos](/assets/images/help/projects/disable-projects-checkbox.png)
 
-Una vez que se inhabilitan los tableros de proyecto, ya no se puede acceder a ellos en sus URL anteriores. {{ site.data.reusables.organizations.disable_project_board_results }}
+Una vez que se inhabilitan los tableros de proyecto, ya no se puede acceder a ellos en sus URL anteriores. {% data reusables.organizations.disable_project_board_results %}

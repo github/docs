@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 #### Eliminar un repositorio privado
 
@@ -21,7 +21,7 @@ Cuando eliminas un repositorio público, se elige una de sus bifurcaciones públ
 
 #### Permisos y bifurcaciones privadas
 
-{{ site.data.reusables.repositories.private_forks_inherit_permissions }}
+{% data reusables.repositories.private_forks_inherit_permissions %}
 
 #### Convertir un repositorio público en un repositorio privado
 

@@ -15,9 +15,9 @@ versions:
 
 You can delete a branch that is associated with a pull request if the pull request has been merged or closed and there are no other open pull requests referencing the branch. For information on closing branches that are not associated with pull requests, see "[Creating and deleting branches within your repository](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. In the list of pull requests, click the pull request that's associated with the branch that you want to delete.
 5. Near the bottom of the pull request, click **Delete branch**. ![Delete branch button](/assets/images/help/pull_requests/delete_branch_button.png)
 
@@ -27,9 +27,9 @@ You can delete a branch that is associated with a pull request if the pull reque
 
 You can restore the head branch of a closed pull request.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. In the list of pull requests, click the pull request that's associated with the branch that you want to restore.
 5. Near the bottom of the pull request, click **Restore branch**. ![Restore deleted branch button](/assets/images/help/branches/branches-restore-deleted.png)
 

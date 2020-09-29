@@ -13,7 +13,7 @@ versions:
 
 {% warning %}
 
-**Aviso:** se você for responsável por pagar pelo {{ site.data.variables.product.product_name }} na organização, remover a si mesmo dela **não** atualizará as informações de cobrança no registro da organização. Se for responsável no momento pela cobrança, você **precisará** que outro proprietário ou gerente de cobrança [atualize a forma de pagamento da organização](/articles/adding-or-editing-a-payment-method).
+**Aviso:** se você for responsável por pagar pelo {% data variables.product.product_name %} na organização, remover a si mesmo dela **não** atualizará as informações de cobrança no registro da organização. Se for responsável no momento pela cobrança, você **precisará** que outro proprietário ou gerente de cobrança [atualize a forma de pagamento da organização](/articles/adding-or-editing-a-payment-method).
 
 Para obter mais informações, consulte "[Transferir a propriedade da organização](/articles/transferring-organization-ownership)".
 
@@ -21,6 +21,6 @@ Para obter mais informações, consulte "[Transferir a propriedade da organizaç
 
 {% endif %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 3. Em "Organizations" (Organizações), encontre a organização da qual deseja remover a si mesmo, depois clique em **Leave** (Sair). ![Botão Leave organization (Sair da organização) mostrando as funções](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

@@ -1,7 +1,7 @@
 ---
 title: 实施组织的 SAML 单点登录
 intro: 组织所有者和管理员可以实施 SAML SSO，以便所有组织成员都必须通过身份提供程序进行身份验证。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
 versions:
@@ -14,7 +14,7 @@ versions:
 
 {% tip %}
 
-**提示：** {{ site.data.reusables.saml.testing-saml-sso }}
+**提示：** {% data reusables.saml.testing-saml-sso %}
 
 {% endtip %}
 

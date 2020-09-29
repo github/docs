@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
@@ -27,8 +27,8 @@ versions:
 - 你拥有或参与的仓库和 gists。 您可以通过将仓库和 Gist 固定到个人资料中来展示您的最佳作品。 更多信息请参阅“[将项目嵌入到个人资料](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)”。
 - 您标星的仓库。 更多信息请参阅“[使用星标保存仓库](/articles/saving-repositories-with-stars/)”
 - 您在经常参与的组织、仓库和团队中的活动概述。 更多信息请参阅“[在您的个人资料中显示活动概述](/articles/showing-an-overview-of-your-activity-on-your-profile)”。{% if currentVersion == "free-pro-team@latest" %}
-- 为您参与 {{ site.data.variables.product.prodname_arctic_vault }}、{{ site.data.variables.product.prodname_sponsors }} 或 {{ site.data.variables.product.company_short }} 开发者计划等计划做宣传的徽章。
-- 您是否在使用 {{ site.data.variables.product.prodname_pro }}。 更多信息请参阅“[个性化您的个人资料](/articles/personalizing-your-profile)”。{% endif %}
+- 为您参与 {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %} 或 {% data variables.product.company_short %} 开发者计划等计划做宣传的徽章。
+- 您是否在使用 {% data variables.product.prodname_pro %}。 更多信息请参阅“[个性化您的个人资料](/articles/personalizing-your-profile)”。{% endif %}
 
 You can also set a status on your profile to provide information about your availability. 更多信息请参阅“[设置状态](/articles/personalizing-your-profile/#setting-a-status)”。
 

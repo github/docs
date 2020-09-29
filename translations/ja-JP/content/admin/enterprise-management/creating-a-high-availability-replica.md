@@ -10,8 +10,8 @@ versions:
 
 ### High Availabilityレプリカの作成
 
-1. 新しい {{ site.data.variables.product.prodname_ghe_server }} アプライアンスを希望するプラットフォームにセットアップします。 レプリカアプライアンスのCPU、RAM、ストレージ設定は、プライマリアプライアンスと同じにするべきです。 レプリカアプライアンスは、独立した環境にインストールすることをお勧めします。 下位層のハードウェア、ソフトウェア、ネットワークコンポーネントは、プライマリアプライアンスのそれらとは分離されているべきです。 クラウドプロバイダを利用している場合には、別個のリージョンもしくはゾーンを使ってください。 詳細は「["{{ site.data.variables.product.prodname_ghe_server }} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
-2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{{ site.data.variables.product.prodname_enterprise }}のライセンスをアップロードしてください。
+1. 新しい {% data variables.product.prodname_ghe_server %} アプライアンスを希望するプラットフォームにセットアップします。 レプリカアプライアンスのCPU、RAM、ストレージ設定は、プライマリアプライアンスと同じにするべきです。 レプリカアプライアンスは、独立した環境にインストールすることをお勧めします。 下位層のハードウェア、ソフトウェア、ネットワークコンポーネントは、プライマリアプライアンスのそれらとは分離されているべきです。 クラウドプロバイダを利用している場合には、別個のリージョンもしくはゾーンを使ってください。 詳細は「["{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+2. ブラウザで新しいレプリカアプライアンスのIPアドレスにアクセスして、所有する{% data variables.product.prodname_enterprise %}のライセンスをアップロードしてください。
 3. プライマリアプライアンス上のパスワードと一致する管理者パスワードを設定して続行します。
 4. **Configure as Replica（レプリカとして設定）**をクリックしてください。 ![新しいインスタンスをレプリカとして設定するリンクを持つインストールオプション](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. "Add new SSH key（新しいSSH鍵の追加）"の下でSSH鍵を入力してください。 ![SSHキーの追加](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -24,12 +24,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. プライマリへの接続を確認し、新しいレプリカのレプリカモードを有効にするには、`ghe-repl-setup` をもう一度実行します。
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. 各データストアのレプリケーションチャネルのステータスを確認するには、`ghe-repl-status` コマンドを使用します。
   ```shell
   $ ghe-repl-status

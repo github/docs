@@ -3,7 +3,7 @@ title: Eine Commit-Mitteilung ändern
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: 'Wenn eine Commit-Mitteilung unklare, falsche oder vertrauliche Informationen enthält, kannst Du sie lokal ändern und einen neuen Commit mit einer neuen Mitteilung zu {{ site.data.variables.product.product_name }} übertragen. Du kannst auch fehlende Informationen zu einer Commit-Mitteilung hinzufügen.'
+intro: 'Wenn eine Commit-Mitteilung unklare, falsche oder vertrauliche Informationen enthält, kannst Du sie lokal ändern und einen neuen Commit mit einer neuen Mitteilung zu {% data variables.product.product_name %} übertragen. Du kannst auch fehlende Informationen zu einer Commit-Mitteilung hinzufügen.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,7 +21,7 @@ In Git ist der Text der Commit-Mitteilung Teil des Commits. Durch das Ändern de
 
 #### Commit wurde nicht online veröffentlicht
 
-Wenn der Commit nur in Deinem lokalen Repository vorhanden ist und nicht zu {{ site.data.variables.product.product_location }} übertragen wurde, kannst Du die Commit-Mitteilung mit dem Befehl `git comimt --amend` ändern.
+Wenn der Commit nur in Deinem lokalen Repository vorhanden ist und nicht zu {% data variables.product.product_location %} übertragen wurde, kannst Du die Commit-Mitteilung mit dem Befehl `git comimt --amend` ändern.
 
 1. Navigiere in der Befehlszeile zu dem Repository, das den Commit enthält, den Du ändern möchtest.
 2. Gib `git commit --amend` ein, und drücke die **Eingabetaste**.
@@ -31,7 +31,7 @@ Wenn der Commit nur in Deinem lokalen Repository vorhanden ist und nicht zu {{ s
     - Du kannst Commits im Namen Deiner Organisation erstellen, indem Du einen Trailer zum Commit hinzufügst. Weitere Informationen findest Du unter „[Einen Commit im Namen einer Organisation erstellen](/articles/creating-a-commit-on-behalf-of-an-organization).“
 {% endif %}
 
-Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {{ site.data.variables.product.product_location }} angezeigt.
+Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {% data variables.product.product_location %} angezeigt.
 
 {% tip %}
 
@@ -41,7 +41,7 @@ Du kannst den standardmäßigen Texteditor für Git ändern, indem Du die Einste
 
 #### Ältere oder mehrere Commit-Mitteilungen ändern
 
-Wenn Du den Commit bereits zu {{ site.data.variables.product.product_location }} übertragen hast, musst Du den Push eines Commits mit einer geänderten Mitteilung erzwingen.
+Wenn Du den Commit bereits zu {% data variables.product.product_location %} übertragen hast, musst Du den Push eines Commits mit einer geänderten Mitteilung erzwingen.
 
 {% warning %}
 
@@ -117,7 +117,7 @@ Auch hier gilt: Das Ändern der Commit-Mitteilung führt zu einem neuen Commit m
 
 {% warning %}
 
-Wenn eine Commit-Mitteilung vertrauliche Informationen enthält, wird beim erzwungenen Push eines Commits mit geändertem Commit der ursprüngliche Commit möglicherweise nicht von {{ site.data.variables.product.product_name }} entfernt. Der alte Commit wird nicht Teil eines nachfolgenden Klons, kann aber noch auf {{ site.data.variables.product.product_name }} zwischengespeichert und über die Commit-ID zugänglich sein. Wende Dich mit der alten Commit-ID an {{ site.data.variables.contact.contact_support }}, um ihn vom Remote-Repository löschen zu lassen.
+Wenn eine Commit-Mitteilung vertrauliche Informationen enthält, wird beim erzwungenen Push eines Commits mit geändertem Commit der ursprüngliche Commit möglicherweise nicht von {% data variables.product.product_name %} entfernt. Der alte Commit wird nicht Teil eines nachfolgenden Klons, kann aber noch auf {% data variables.product.product_name %} zwischengespeichert und über die Commit-ID zugänglich sein. Wende Dich mit der alten Commit-ID an {% data variables.contact.contact_support %}, um ihn vom Remote-Repository löschen zu lassen.
 
 {% endwarning %}
 

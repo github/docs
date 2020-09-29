@@ -21,15 +21,15 @@ Organization owners and team maintainers can give teams admin, read, or write ac
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-You can also use LDAP Sync to synchronize {{ site.data.variables.product.product_location_enterprise }} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {{ site.data.variables.product.product_location_enterprise }}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
+You can also use LDAP Sync to synchronize {% data variables.product.product_location_enterprise %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location_enterprise %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### Team visibility
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### Team pages
 
@@ -41,7 +41,7 @@ Organization members can create and participate in discussions with the team. Fo
 
 ### Nested teams
 
-You can reflect your group or company's hierarchy within your {{ site.data.variables.product.product_name }} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
+You can reflect your group or company's hierarchy within your {% data variables.product.product_name %} organization with multiple levels of nested teams. A parent team can have multiple child teams, while each child team only has one parent team. You cannot nest secret teams.
 
 Child teams inherit the parent's access permissions, simplifying permissions management for large groups. Members of child teams also receive notifications when the parent team is @mentioned, simplifying communication with multiple groups of people.
 
@@ -57,7 +57,7 @@ You can choose a parent when you create the team, or you can move a team in your
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% endif %}
 

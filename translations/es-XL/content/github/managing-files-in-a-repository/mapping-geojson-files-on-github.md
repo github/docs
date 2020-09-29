@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} admite representar archivos de mapa geoJSON y topoJSON dentro de repositorios {{ site.data.variables.product.product_name }}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Después, navega hasta la ruta del archivo geoJSON en GitHub.com.
+{% data variables.product.product_name %} admite representar archivos de mapa geoJSON y topoJSON dentro de repositorios {% data variables.product.product_name %}. Simplemente confirma el archivo como lo harías normalmente utilizando una extensión `.geojson` o `.topojson`. También se admiten archivos con una extensión `.json`, pero únicamente si `type` están configurados para `FeatureCollection`, `GeometryCollection`, o `topology`. Después, navega hasta la ruta del archivo geoJSON en GitHub.com.
 
 Cuando haces clic en el ícono de papel a la derecha, también verás los cambios realizados a ese archivo como parte de una confirmación de cambios.
 
@@ -15,7 +15,7 @@ Cuando haces clic en el ícono de papel a la derecha, también verás los cambio
 
 ### Tipos de Geometry
 
-Los mapas en {{ site.data.variables.product.product_name }} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos TopoJSON deberían ser del tipo "Topology" y adherir a las especificaciones [topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
+Los mapas en {% data variables.product.product_name %} utilizan [Leaflet.js](http://leafletjs.com) y admiten todos los tipos de Geometry indicados en [las especificaciones de geoJSON](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon y GeometryCollection). Los archivos TopoJSON deberían ser del tipo "Topology" y adherir a las especificaciones [topoJSON](https://github.com/mbostock/topojson/wiki/Specification).
 
 ### Características de estilo
 
@@ -34,7 +34,7 @@ Consulta la versión [1.1.0 de las especificaciones de estilo simple abierto](ht
 
 ### Incrustrar tu mapa en otro lugar
 
-Deseas hacer disponible tu mapa geoJSON en un lugar distinto a {{ site.data.variables.product.product_name }}? Simplemente modifica esta plantilla, y colócala en alguna página HTML que admita javascript (p. ej., [{{ site.data.variables.product.prodname_pages }}](http://pages.github.com)):
+Deseas hacer disponible tu mapa geoJSON en un lugar distinto a {% data variables.product.product_name %}? Simplemente modifica esta plantilla, y colócala en alguna página HTML que admita javascript (p. ej., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -64,7 +64,7 @@ Los datos del mapa subyacente (nombres de calles, caminos, etc.) están controla
 
 ### Solución de problemas
 
-Si estás teniendo problemas al representar archivos geoJSON, asegúrate que tienes un archivo geoJSON válido al ejecutarlo en un [limpiador de geoJSON](http://geojsonlint.com/). Si tus puntos no aparecen donde lo esperas (<em>p. ej.</em>, aparecen en la mitad del océano), es probable que los datos estén en una proyección que actualmente no se admite. Actualmente, {{ site.data.variables.product.product_name }} admite únicamente la proyección `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Si estás teniendo problemas al representar archivos geoJSON, asegúrate que tienes un archivo geoJSON válido al ejecutarlo en un [limpiador de geoJSON](http://geojsonlint.com/). Si tus puntos no aparecen donde lo esperas (<em>p. ej.</em>, aparecen en la mitad del océano), es probable que los datos estén en una proyección que actualmente no se admite. Actualmente, {% data variables.product.product_name %} admite únicamente la proyección `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Por otra parte, si tu archivo `.geojson` es particularmente grande (superior a 10 MB), no es posible representarlo dentro del navegador. Si ese es el caso, por lo general verás un mensaje similar a este:
 

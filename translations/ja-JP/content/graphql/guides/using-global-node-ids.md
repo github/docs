@@ -31,7 +31,7 @@ GitHubのほとんどのオブジェクト（ユーザ、Issue、プルリクエ
 [認証済みのユーザをリクエスト](/v3/users/#get-the-authenticated-user)した場合、
 
 ```shell
-$ curl -i -u <em>username:token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
 その認証済みユーザの`node_id`を含むレスポンスが返されます。

@@ -15,7 +15,7 @@ Qualquer pessoa com permissões de leitura em um repositório de modelos pode cr
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Dica**: Você também pode criar um repositório a partir de um modelo usando o {{ site.data.variables.product.prodname_cli }}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {{ site.data.variables.product.product_location }}.
+**Dica**: Você também pode criar um repositório a partir de um modelo usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.product_location %}.
 
 {% endtip %}
 {% endif %}
@@ -33,11 +33,11 @@ Para obter mais informações sobre bifurcações, consulte "[Sobre bifurcaçõe
 
 ### Criar um repositório a partir de um modelo
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Acima da lista de arquivos, clique em **Use this template** (Usar este modelo). ![Botão Use this template (Usar este modelo)](/assets/images/help/repository/use-this-template-button.png)
-{{ site.data.reusables.repositories.owner-drop-down }}
-{{ site.data.reusables.repositories.repo-name }}
-{{ site.data.reusables.repositories.choose-repo-visibility }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% data reusables.repositories.owner-drop-down %}
+{% data reusables.repositories.repo-name %}
+{% data reusables.repositories.choose-repo-visibility %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 6. Opcionalmente, para incluir a estrutura de diretório e arquivos de todos os branches no modelo, e não apenas o branch-padrão, selecione **Incluir todos os branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
-{{ site.data.reusables.repositories.select-marketplace-apps }}
+{% data reusables.repositories.select-marketplace-apps %}
 8. Clique em **Create repository from template** (Criar repositório a partir do modelo).

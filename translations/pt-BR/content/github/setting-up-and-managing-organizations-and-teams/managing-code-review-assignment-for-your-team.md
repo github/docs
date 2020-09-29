@@ -1,7 +1,7 @@
 ---
 title: Gerenciar a atribuição de revisão de código para a sua equipe
 intro: As atividades de revisão do código indicam claramente quais membros de uma equipe devem enviar uma revisão para um pull request.
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -24,10 +24,10 @@ O algoritmo round robin (rotativo) escolhe os revisores com base em quem recebeu
 O algoritmo do balanço de carga escolhe os revisores com base no número total de solicitações de revisão recentes de cada integrante e considera o número de revisões pendentes para cada integrante. O algoritmo do balanço de carga tenta garantir que cada integrante da equipe revise um número igual de pull requests em qualquer período de 30 dias.
 
 ### Configurar a atribuição da revisão de código
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Na barra lateral esquerda, clique em **Atribuição de revisão de código** ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-button.png)
 6. Selecione **Habilitar atribuição automática**. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)
 7. Em "Quantos membros da equipe devem ser atribuídos para a revisão?, use o menu suspenso e escolha um número de revisores a serem atribuídos a cada pull request. ![Menu suspenso do número de revisores](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +37,9 @@ O algoritmo do balanço de carga escolhe os revisores com base no número total 
 11. Clique em **Save changes** (Salvar alterações).
 
 ### Desabilitar atribuição de revisão de código
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Selecione **Habilitar atribuição automática** para remover a marca. ![Botão da atribuição da revisão de código](/assets/images/help/teams/review-assignment-enable.png)
 6. Clique em **Save changes** (Salvar alterações).

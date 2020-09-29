@@ -1,6 +1,6 @@
 ---
 title: 外部モニタリングのセットアップ
-intro: 'SNMP または collectd のいずれかの統計収集プロトコルを使用すれば、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスで基本的なシステムリソースを監視できます。'
+intro: 'SNMP または collectd のいずれかの統計収集プロトコルを使用すれば、{% data variables.product.prodname_ghe_server %} アプライアンスで基本的なシステムリソースを監視できます。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-external-monitoring
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
@@ -10,7 +10,7 @@ versions:
 
 ### SNMPについて
 
-Simple Network Management Protocol (SNMP) は、ネットワークデバイスやサーバのモニタリングの方法として広くサポートされています。 SNMPはデフォルトでは無効化されていますが、{{ site.data.variables.product.prodname_enterprise }}モニタリングダッシュボードを通じて設定できます。 UDPポート161は、オープンでネットワーク管理ステーションから到達可能でなければなりません。 詳細は「[SNMPを使用したモニタリング](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)」を参照してください。
+Simple Network Management Protocol (SNMP) は、ネットワークデバイスやサーバのモニタリングの方法として広くサポートされています。 SNMPはデフォルトでは無効化されていますが、{% data variables.product.prodname_enterprise %}モニタリングダッシュボードを通じて設定できます。 UDPポート161は、オープンでネットワーク管理ステーションから到達可能でなければなりません。 詳細は「[SNMPを使用したモニタリング](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)」を参照してください。
 
 ### collectdについて
 

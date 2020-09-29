@@ -12,7 +12,7 @@ Para obter mais informações sobre revisões obrigatórias, consulte "[Sobre re
 
 Você pode comentar em uma pull request, aprovar as alterações ou solicitar melhorias antes da aprovação. Para obter mais informações, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)" e "[Revisar alterações propostas em uma pull request](/articles/reviewing-proposed-changes-in-a-pull-request)".
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
@@ -20,16 +20,16 @@ Você pode comentar em uma pull request, aprovar as alterações ou solicitar me
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
 4. Revise as alterações na pull request e, se desejar, [comente sobre linhas específicas](/articles/reviewing-proposed-changes-in-a-pull-request/#starting-a-review).
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 7. Selecione **Approve** (Aprovar) para aprovar o merge das alterações propostas na pull request.
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### Leia mais
 

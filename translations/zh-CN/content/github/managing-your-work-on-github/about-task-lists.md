@@ -18,7 +18,7 @@ versions:
 
 ### 创建任务列表
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### 对任务重新排序
 

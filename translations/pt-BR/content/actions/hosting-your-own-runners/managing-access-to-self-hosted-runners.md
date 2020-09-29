@@ -9,9 +9,9 @@ Os executores auto-hospedados adicionados no nível da organização podem proce
 
 ### Controlar quais repositórios têm acesso aos executores de uma organização
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Ao lado de "executores auto-hospedados", clique em **Gerenciar permissões do repositório**. ![Gerenciar permissões do repositório](/assets/images/help/settings/actions-runner-manage-permissions.png)
 
 1. No menu suspenso, escolha uma das opções a seguir:

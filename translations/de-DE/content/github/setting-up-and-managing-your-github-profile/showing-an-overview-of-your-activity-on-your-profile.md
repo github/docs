@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.activity-overview-summary }} Weitere Informationen findest Du unter „[Beiträge in Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile).“
+{% data reusables.profile.activity-overview-summary %} Weitere Informationen findest Du unter „[Beiträge in Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile).“
 
 ![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Verwende oberhalb Deines Beitragsdiagramms das Dropdownmenü **Contribution settings** (Beitragseinstellungen) und aktiviere oder deaktiviere die Option **Activity overview** (Aktivitätsübersicht). ![Aktivitätsübersicht im Dropdownmenü „Contribution settings“ (Beitragseinstellungen) aktivieren](/assets/images/help/profile/activity-overview.png)

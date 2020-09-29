@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.saved_replies }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.saved_replies %}
 3. Under "Saved replies", next to the saved reply you want to delete, click {% octicon "x" aria-label="The X" %}.  
    ![Delete saved reply](/assets/images/help/settings/saved-replies-delete-existing.png)

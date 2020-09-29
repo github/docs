@@ -17,16 +17,16 @@ When you revert to a previous commit, the revert is also a commit. The original 
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![The Revert option above the diff view](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![The Revert option above the diff view](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

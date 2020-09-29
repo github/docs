@@ -12,9 +12,9 @@ Los propietarios de la organización pueden establecer permisos de creación de 
 
 Si no configuras permisos de creación de equipos, todos los miembros de la organización podrán crear equipos por defecto.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Dentro de "Team creation rules" (Reglas de creación de equipos), selecciona o deselecciona **Allow members to create teams (Permitirle a los miembros crear equipos)**. ![Casilla de verificación para permitir que los miembros creen equipos](/assets/images/help/organizations/allow-members-to-create-teams.png)
 6. Haz clic en **Save (Guardar)**.

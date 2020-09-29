@@ -1,6 +1,6 @@
 ---
 title: Branch-Verlauf anzeigen
-intro: 'Du kannst Details zu jedem Commit in {{ site.data.variables.product.prodname_desktop }} sehen, einschließlich eines Diffs der Änderungen, die der Commit gebracht hat.'
+intro: 'Du kannst Details zu jedem Commit in {% data variables.product.prodname_desktop %} sehen, einschließlich eines Diffs der Änderungen, die der Commit gebracht hat.'
 redirect_from:
   - /desktop/contributing-to-projects/viewing-the-branch-history
 versions:
@@ -14,7 +14,7 @@ Jeder Commit zeigt Folgendes:
  - Den Benutzernamen und das Profilfoto (sofern vorhanden) des Beitragenden
  - Den SHA-1-Hash (die eindeutige ID) des Commits
 
-{{ site.data.reusables.desktop.history-tab }}
+{% data reusables.desktop.history-tab %}
 2. Klick auf der Registerkarte **History** (Verlauf) auf den Commit, den Du überprüfen möchtest. ![Ein Commit auf der Registerkarte „History“ (Verlauf)](/assets/images/help/desktop/branch-history-commit.png)
 3. Wenn im Commit mehrere Dateien vorhanden sind, klicke auf eine einzelne Datei, um die Änderungen anzuzeigen, die an dieser Datei in diesem Commit vorgenommen wurden. ![Eine Datei im Commit](/assets/images/help/desktop/branch-history-file.png)
 

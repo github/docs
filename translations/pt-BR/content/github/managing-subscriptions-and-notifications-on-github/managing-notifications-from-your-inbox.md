@@ -12,7 +12,7 @@ versions:
 ### Sobre sua caixa de entrada
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }} Para obter mais informações, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} Para obter mais informações, consulte "[Configurando notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
 {% endif %}
 
 Para acessar sua caixa de entrada de notificações, no canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ Por padrão, sua caixa de entrada tem filtros para quando você é responsável,
 
 Você pode adicionar até 15 dos seus próprios filtros personalizados.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. Para abrir as configurações de filtro, na barra lateral esquerda, próximo de "Filtros", clique em {% octicon "gear" aria-label="The Gear icon" %}.
 
   {% tip %}
@@ -113,7 +113,7 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 
 #### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {{ site.data.variables.product.product_name }}, você pode usar a  consulta `is`. Por exemplo, para ver apenas atualizações de convite do repositório, use `is:repository-invitation`.
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. Por exemplo, para ver apenas atualizações de convite do repositório, use `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

@@ -1,6 +1,6 @@
 ---
 title: Tipos de contas do GitHub
-intro: 'Sua conta de usuário é o que identifica você no {{ site.data.variables.product.product_location }}. Ela pode ser integrante de qualquer número de organizações.{% if currentVersion == "free-pro-team@latest" %} As organizações podem pertencer a contas corporativas.{% endif %}'
+intro: 'Sua conta de usuário é o que identifica você no {% data variables.product.product_location %}. Ela pode ser integrante de qualquer número de organizações.{% if currentVersion == "free-pro-team@latest" %} As organizações podem pertencer a contas corporativas.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,18 +13,18 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-Para uma lista completa de recursos para cada {{ site.data.variables.product.product_name }} produto, consulte produtos do "[{{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/githubs-products)."
+Para uma lista completa de recursos para cada {% data variables.product.product_name %} produto, consulte produtos do "[{% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Contas de usuário pessoais
 
-Cada pessoa que utiliza {{ site.data.variables.product.product_location }} tem sua própria conta de usuário, que inclui:
+Cada pessoa que utiliza {% data variables.product.product_location %} tem sua própria conta de usuário, que inclui:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-- Repositórios públicos e privados ilimitados com o {{ site.data.variables.product.prodname_free_user }}
-- Colaboradores ilimitados com {{ site.data.variables.product.prodname_free_user }}
-- Recursos adicionais para repositórios privados com o {{ site.data.variables.product.prodname_pro }}
+- Repositórios públicos e privados ilimitados com o {% data variables.product.prodname_free_user %}
+- Colaboradores ilimitados com {% data variables.product.prodname_free_user %}
+- Recursos adicionais para repositórios privados com o {% data variables.product.prodname_pro %}
 - Capacidade de [convidar colaboradores do repositório](/articles/inviting-collaborators-to-a-personal-repository)
 
 {% else %}
@@ -59,18 +59,18 @@ Cada pessoa que utiliza {{ site.data.variables.product.product_location }} tem s
 
 As organizações são contas compartilhadas, onde grupos de pessoas podem colaborar em vários projetos de uma vez. Os proprietários e administradores podem gerenciar o acesso de integrantes aos dados e projetos da organização com recursos avançados administrativos e de segurança.
 
-{{ site.data.reusables.organizations.organizations_include }}
+{% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Contas corporativas
 
-Com contas corporativas, é possível gerenciar centralmente a política e a cobrança referentes a várias organizações do {{ site.data.variables.product.prodname_dotcom_the_website }}. {{ site.data.reusables.gated-features.enterprise-accounts }}
+Com contas corporativas, é possível gerenciar centralmente a política e a cobrança referentes a várias organizações do {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Inscrever-se em uma nova conta do {{ site.data.variables.product.prodname_dotcom }}](/articles/signing-up-for-a-new-github-account)"
-- "[Produtos do {{ site.data.variables.product.prodname_dotcom }}](/articles/githubs-products)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Inscrever-se em uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)"
+- "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - "[Criar uma conta de organização](/articles/creating-a-new-organization-account)"

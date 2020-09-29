@@ -18,11 +18,11 @@ Esse tipo de link permanente será renderizado como um trecho de código somente
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Localize o código ao qual deseja vincular:
     - Para vincular de um arquivo para o código, navegue até o arquivo.
     - Para vincular de uma pull request para o código, navegue até a pull request e clique em {% octicon "diff" aria-label="The file diff icon" %} **Files changed** (Arquivos alterados). Depois, vá até o arquivo que contém o código que você quer incluir em seu comentário e clique em **View** (Visualizar).
-{{ site.data.reusables.repositories.choose-line-or-range }}
+{% data reusables.repositories.choose-line-or-range %}
 4. À esquerda da linha ou do conjunto de linhas, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. No menu suspenso, clique em **Copy permalink** (Copiar permalink). ![Menu Kebab com opção para copiar um link permanente para uma linha selecionada](/assets/images/help/repository/copy-permalink-specific-line.png)
 5. Navegue até a conversa em que deseja vincular ao trecho de código.
 6. Cole seu permalink em um comentário e clique em **Comment** (Comentário). ![Permalink colado em um comentário no mesmo repositório](/assets/images/help/repository/code-snippet-permalink-in-comment.png)

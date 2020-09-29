@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 既存の SSH キーが存在するかを確認するため、以下のように `ls -al ~/.ssh` と入力します:
 
   ```shell
@@ -23,9 +23,9 @@ versions:
     - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
     - *id_dsa.pub*{% endif %}
 
-公開鍵と秘密鍵のペアが存在しないか、既存の鍵を {{ site.data.variables.product.product_name }}への接続に利用したくない場合、[新しい SSH キーを作成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)します。
+公開鍵と秘密鍵のペアが存在しないか、既存の鍵を {% data variables.product.product_name %}への接続に利用したくない場合、[新しい SSH キーを作成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)します。
 
-一覧に既存の公開鍵と秘密鍵のペア (*id_rsa.pub* と *id_rsa* など) があり、それを {{ site.data.variables.product.product_name }} への接続に利用したい場合、[SSH キーを ssh-agent に追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)します。
+一覧に既存の公開鍵と秘密鍵のペア (*id_rsa.pub* と *id_rsa* など) があり、それを {% data variables.product.product_name %} への接続に利用したい場合、[SSH キーを ssh-agent に追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)します。
 
 {% tip %}
 

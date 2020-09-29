@@ -3,7 +3,7 @@ title: ¿Por qué mis confirmaciones están vinculadas al usuario incorrecto?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
-intro: '{{ site.data.variables.product.product_name }} usa la dirección de correo electrónico en el encabezado de la confirmación para vincular la confirmación con un usuario de GitHub. Si tus confirmaciones se están vinculando con otro usuario, o no se están vinculando con ningún usuario, es posible que necesites cambiar tus parámetros de configuración de Git local, agregar una dirección de correo electrónico a las configuraciones de tu cuenta de correo electrónico, o ambos.'
+intro: '{% data variables.product.product_name %} usa la dirección de correo electrónico en el encabezado de la confirmación para vincular la confirmación con un usuario de GitHub. Si tus confirmaciones se están vinculando con otro usuario, o no se están vinculando con ningún usuario, es posible que necesites cambiar tus parámetros de configuración de Git local, agregar una dirección de correo electrónico a las configuraciones de tu cuenta de correo electrónico, o ambos.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -18,7 +18,7 @@ versions:
 
 ### Las confirmaciones se vinculan con otro usuario
 
-Si tus confirmaciones se vinculan con otro usuario, eso significa que el usuario agregó la dirección de correo electrónico en tus parámetros de configuración de Git local a su cuenta {{ site.data.variables.product.product_name }}. En este caso, puedes cambiar el correo electrónico en tus parámetros de configuración de Git local y agregar la nueva dirección de correo electrónico a tu cuenta {{ site.data.variables.product.product_name }} para vincular futuras configuraciones con tu cuenta.
+Si tus confirmaciones se vinculan con otro usuario, eso significa que el usuario agregó la dirección de correo electrónico en tus parámetros de configuración de Git local a su cuenta {% data variables.product.product_name %}. En este caso, puedes cambiar el correo electrónico en tus parámetros de configuración de Git local y agregar la nueva dirección de correo electrónico a tu cuenta {% data variables.product.product_name %} para vincular futuras configuraciones con tu cuenta.
 
 1. Para cambiar la dirección de correo electrónico en tu configuración de Git local, sigue los pasos en "[Establecer tu dirección de correo electrónico de confirmación en Git](/articles/setting-your-commit-email-address)". Si trabajas en máquinas múltiples, necesitarás cambiar esta configuración en cada una de ellas.
 2. Agrega la dirección de correo electrónico del paso 2 a las configuraciones de tu cuenta siguiendo los pasos en "[Agregar una dirección de correo electrónico a tu cuenta de GitHub](/articles/adding-an-email-address-to-your-github-account)".

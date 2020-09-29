@@ -3,7 +3,7 @@ title: Soziale Interaktion
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: 'Du kannst mit Personen, Repositorys und Organisationen auf {{ site.data.variables.product.prodname_dotcom }} interagieren. Auf Deinem persönlichen Dashboard kannst Du sehen, woran andere gerade arbeiten und mit wem sie sich vernetzen.'
+intro: 'Du kannst mit Personen, Repositorys und Organisationen auf {% data variables.product.prodname_dotcom %} interagieren. Auf Deinem persönlichen Dashboard kannst Du sehen, woran andere gerade arbeiten und mit wem sie sich vernetzen.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -13,7 +13,7 @@ Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[
 
 ### Personen folgen
 
-Wenn Du jemandem auf {{ site.data.variables.product.product_location }} folgst, wirst Du auf Deinem persönlichen Dashboard über die Aktivitäten dieser Person benachrichtigt. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
+Wenn Du jemandem auf {% data variables.product.product_location %} folgst, wirst Du auf Deinem persönlichen Dashboard über die Aktivitäten dieser Person benachrichtigt. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 
 Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folgen.
 
@@ -29,7 +29,7 @@ Klicke oben bei einem Repository, das Du beobachten möchtest, auf **Watch** (Be
 
 ### An Unterhaltungen teilnehmen
 
-{{ site.data.reusables.support.ask-and-answer-forum }}
+{% data reusables.support.ask-and-answer-forum %}
 
 ### Weitere Möglichkeiten
 
@@ -51,13 +51,13 @@ Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Proj
 
 ![Dropdownmenü „Switch account context" (Wechseln des Konto-Kontexts)](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-#### Andere Projekte auf {{ site.data.variables.product.prodname_dotcom }} entdecken
+#### Andere Projekte auf {% data variables.product.prodname_dotcom %} entdecken
 
-Entdecke interessante Projekte durch {{ site.data.variables.explore.explore_github }}, [Repositories entdecken](https://github.com/explore) und der {{ site.data.variables.explore.trending_page }}. Markiere interessante Projekte mit einem Stern, um sie zu einem späteren Zeitpunkt erneut anzuschauen. Auf Deiner {{ site.data.variables.explore.your_stars_page }} kannst Du alle Projekte sehen, die Du mit einem Stern markiert hast.  Weitere Informationen finden Sie unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard/)“.
+Entdecke interessante Projekte durch {% data variables.explore.explore_github %}, [Repositories entdecken](https://github.com/explore) und der {% data variables.explore.trending_page %}. Markiere interessante Projekte mit einem Stern, um sie zu einem späteren Zeitpunkt erneut anzuschauen. Auf Deiner {% data variables.explore.your_stars_page %} kannst Du alle Projekte sehen, die Du mit einem Stern markiert hast.  Weitere Informationen finden Sie unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard/)“.
 
 ### Geschafft!
 
-Du bist jetzt mit der {{ site.data.variables.product.product_name }}-Community verbunden. Was möchtest Du als Nächstes tun?
+Du bist jetzt mit der {% data variables.product.product_name %}-Community verbunden. Was möchtest Du als Nächstes tun?
 
 ![Ein Projekt mit Stern markieren](/assets/images/help/stars/star-a-project.png)
 
@@ -65,4 +65,4 @@ Du bist jetzt mit der {{ site.data.variables.product.product_name }}-Community v
 - [Ein Repository erstellen](/articles/create-a-repo)
 - [Ein Repository forken](/articles/fork-a-repo)
 - **Soziale Interaktion**
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

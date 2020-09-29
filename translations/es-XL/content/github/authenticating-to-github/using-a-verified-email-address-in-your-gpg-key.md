@@ -1,6 +1,6 @@
 ---
 title: Utilizar una dirección de correo electrónico verificada en tu llave GPG
-intro: 'Cuando verifica una firma, {{ site.data.variables.product.product_name }} comprueba que la dirección de correo electrónico de la persona que confirma el cambio o del etiquetador coincida con una dirección de correo electrónico de las identidades de llave GPG y que sea una dirección de correo electrónico verificada en la cuenta del usuario. Esto garantiza que la clave te pertenece y que tú creaste la confirmación o etiqueta.'
+intro: 'Cuando verifica una firma, {% data variables.product.product_name %} comprueba que la dirección de correo electrónico de la persona que confirma el cambio o del etiquetador coincida con una dirección de correo electrónico de las identidades de llave GPG y que sea una dirección de correo electrónico verificada en la cuenta del usuario. Esto garantiza que la clave te pertenece y que tú creaste la confirmación o etiqueta.'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
 versions:

@@ -18,8 +18,8 @@ GitHubは、HTTPS プロコトルを介して Subversion クライアントを�
 
 Subversion チェックアウトは違います。ワーキングディレクトリのリポジトリデータをミックスします。そのため、チェックアウトしたブランチおよびタグごとにワーキングディレクトリがあります。  たくさんのブランチとタグがあるリポジトリには、すべてをチェックアウトすることは帯域障害になる可能性があります。よって、部分的なチェックアウトから始めた方がよいです。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. リポジトリのエンプティチェックアウトをします:
   ```shell

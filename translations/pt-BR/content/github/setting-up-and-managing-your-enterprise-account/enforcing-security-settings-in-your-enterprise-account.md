@@ -1,7 +1,7 @@
 ---
 title: Aplicar configurações de segurança na conta corporativa
 intro: Os proprietários corporativos podem aplicar determinadas políticas de segurança para todas as organizações pertencentes a uma conta corporativa.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/enforcing-security-settings-for-organizations-in-your-business-account/
@@ -30,74 +30,74 @@ Antes de exigir 2FA para todas as organizações pertencentes à conta corporati
 
 Antes de exigir o uso da autenticação de dois fatores, é recomendável notificar os integrantes da organização, colaboradores externos e gerentes de cobrança e pedir que eles configurem 2FA nas contas deles. Os proprietários da organização podem ver se integrantes e colaboradores externos já utilizam 2FA na página People (Pessoas) de cada organização. Para obter mais informações, consulte "[Ver se os usuários na organização têm a 2FA habilitada](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)".
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-4. Em "Two-factor authentication" (Autenticação de dois fatores), revise as informações sobre como alterar a configuração. {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. Em "Two-factor authentication" (Autenticação de dois fatores), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "Two-factor authentication" (Autenticação de dois fatores), selecione **Require two-factor authentication for all organizations in your business** (Exigir autenticação de dois fatores para todas as organizações na empresa) e clique em **Save** (Salvar). ![Caixa de seleção para exigir autenticação de dois fatores](/assets/images/help/business-accounts/require-2fa-checkbox.png)
 6. Se solicitado, leia as informações sobre os integrantes e colaboradores externos que serão removidos das organizações pertencentes à conta corporativa. Para confirmar a alteração, digite o nome da conta corporativa e clique em **Remove members & require two-factor authentication** (Remover integrantes e exigir autenticação de dois fatores). ![Caixa Confirm two-factor enforcement (Confirmar exigência de dois fatores)](/assets/images/help/business-accounts/confirm-require-2fa.png)
 7. Como alternativa, se algum integrante ou colaborador externo for removido das organizações pertencentes à conta corporativa, recomendamos enviar um convite para restabelecer os privilégios e o acesso à organização que ele tinha anteriormente. Cada pessoa precisa habilitar a autenticação de dois fatores para poder aceitar o convite.
 
 ### Gerenciar endereços IP permitidos para organizações na conta corporativa
 
-Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações na conta corporativa, configurando uma lista de permissão de endereços IP específicos. {{ site.data.reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions }}
+Os proprietários de empresas podem restringir o acesso a ativos pertencentes a organizações na conta corporativa, configurando uma lista de permissão de endereços IP específicos. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-cidr-notation }}
+{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-enable }}
+{% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
 Você também pode configurar endereços IP permitidos para uma organização individual. Para obter mais informações, consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization)".
 
 #### Adicionar endereços IP permitidos
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-add-ip }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-add-description }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-add-entry }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.ip-allow-lists-add-ip %}
+{% data reusables.identity-and-permissions.ip-allow-lists-add-description %}
+{% data reusables.identity-and-permissions.ip-allow-lists-add-entry %}
 
 #### Habilitar endereços IP permitidos
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
 3. Em "IP allow list" (Lista de permissões IP), selecione **Enable IP allow list** (Habilitar lista de permissões IP). ![Caixa de seleção para permitir endereços IP](/assets/images/help/security/enable-ip-allowlist-enterprise-checkbox.png)
 4. Clique em **Salvar**.
 
 #### Editar endereços IP permitidos
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-edit-entry }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-edit-ip }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-edit-description }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
+{% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
+{% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
 8. Clique em **Atualizar**.
 
 #### Excluir endereços IP permitidos
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-delete-entry }}
-{{ site.data.reusables.identity-and-permissions.ip-allow-lists-confirm-deletion }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.ip-allow-lists-delete-entry %}
+{% data reusables.identity-and-permissions.ip-allow-lists-confirm-deletion %}
 
-#### Usar {{ site.data.variables.product.prodname_actions }} com uma lista endereços IP permitidos
+#### Usar {% data variables.product.prodname_actions %} com uma lista endereços IP permitidos
 
-{{ site.data.reusables.github-actions.ip-allow-list-self-hosted-runners }}
+{% data reusables.github-actions.ip-allow-list-self-hosted-runners %}
 
 ### Habilitar logon único de SAML para organizações na conta corporativa
 
-{{ site.data.reusables.saml.dotcom-saml-explanation }} Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)".
+{% data reusables.saml.dotcom-saml-explanation %} Para obter mais informações, consulte "[Sobre identidade e gerenciamento de acesso com o logon único SAML](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)".
 
 Os proprietários empresariais podem ativar o SAML SSO e autenticação centralizada através de um IdP de SAML em todas as organizações que pertencem a uma conta corporativa. Depois que você habilita o SAML SSO para a conta corporativa, ele é habilitado por padrão para todas as organizações pertencentes a ela. Todos os integrantes deverão autenticar usando o SAML SSO para obter acesso às organizações de que fazem parte, e os proprietários corporativos precisarão autenticar usando o SAML SSO ao acessar uma conta corporativa.
 
-{{ site.data.reusables.saml.about-saml-access-enterprise-account }} Para obter mais informações, consulte "[Visualizar e gerenciar o acesso de SAML de um usuário à sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)".
+{% data reusables.saml.about-saml-access-enterprise-account %} Para obter mais informações, consulte "[Visualizar e gerenciar o acesso de SAML de um usuário à sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)".
 
-{{ site.data.reusables.saml.saml-supported-idps }}
+{% data reusables.saml.saml-supported-idps %}
 
-{{ site.data.reusables.scim.enterprise-account-scim }} Se você não estiver participando do beta privado, o SCIM não será compatível para as contas corporativas. Para obter mais informações, consulte "[Gerenciar o provisionamento de usuários para organizações na sua conta corporativa](#managing-user-provisioning-for-organizations-in-your-enterprise-account)".
+{% data reusables.scim.enterprise-account-scim %} Se você não estiver participando do beta privado, o SCIM não será compatível para as contas corporativas. Para obter mais informações, consulte "[Gerenciar o provisionamento de usuários para organizações na sua conta corporativa](#managing-user-provisioning-for-organizations-in-your-enterprise-account)".
 
 {% note %}
 
@@ -107,10 +107,10 @@ Os proprietários empresariais podem ativar o SAML SSO e autenticação centrali
 
 Para obter informações mais detalhadas sobre como ativar o SAML usando o Okta, consulte "[Configurar o logon único SAML e SCIM para a sua conta corporativa usando o Okta](/github/setting-up-and-managing-your-enterprise-account/configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta).
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-4. {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+4. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "SAML single sign-on" (Logon único de SAML), selecione **Enable SAML authentication** (Habilitar autenticação SAML). ![Caixa de seleção para habilitar SAML SSO](/assets/images/help/business-accounts/enable-saml-auth-enterprise.png)
 6. No campo **Sign on URL** (URL de logon), digite o ponto de extremidade HTTPS do seu IdP para solicitações de logon único. Esse valor está disponível na configuração do IdP. ![Campo referente à URL para a qual os integrantes serão encaminhados ao entrarem](/assets/images/help/saml/saml_sign_on_url_business.png)
 7. Como alternativa, no campo **Issuer** (Emissor), digite o nome do emissor de SAML. Isso confirma a autenticidade das mensagens enviadas. ![Campo referente ao nome do emissor de SAML](/assets/images/help/saml/saml_issuer.png)
@@ -123,20 +123,20 @@ Para obter informações mais detalhadas sobre como ativar o SAML usando o Okta,
 
 Os proprietários das empresas podem gerenciar a participação na organização de uma conta corporativa diretamente de um provedor de identidade (IdP).
 
-{{ site.data.reusables.enterprise-accounts.user-provisioning-release-stage }}
+{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
-{{ site.data.reusables.saml.about-user-provisioning-enterprise-account }}
+{% data reusables.saml.about-user-provisioning-enterprise-account %}
 
-{{ site.data.reusables.scim.enterprise-account-scim }} Opcionalmente, você também pode habilitar o provisionamento de SAML e, separadamente, o desprovisionamento.
+{% data reusables.scim.enterprise-account-scim %} Opcionalmente, você também pode habilitar o provisionamento de SAML e, separadamente, o desprovisionamento.
 
-Se você configurar o SCIM no seu IdP, toda vez que fizer alterações na associação do grupo no seu IdP, este fará uma chamada de SCIM para {{ site.data.variables.product.prodname_dotcom }} afim de atualizar a associação da organização correspondente. Se você ativar o provisionamento de SAML, toda vez que um integrante da empresa acessar um recurso protegido pela configuração de SAML da conta corporativa, essa declaração de SAML irá acionar o provisionamento.
+Se você configurar o SCIM no seu IdP, toda vez que fizer alterações na associação do grupo no seu IdP, este fará uma chamada de SCIM para {% data variables.product.prodname_dotcom %} afim de atualizar a associação da organização correspondente. Se você ativar o provisionamento de SAML, toda vez que um integrante da empresa acessar um recurso protegido pela configuração de SAML da conta corporativa, essa declaração de SAML irá acionar o provisionamento.
 
-Para cada chamada de SCIM ou declaração de SAML, {{ site.data.variables.product.product_name }} irá verificar os grupos de IdP aos quais o usuário pertence e executar as operações a seguir:
+Para cada chamada de SCIM ou declaração de SAML, {% data variables.product.product_name %} irá verificar os grupos de IdP aos quais o usuário pertence e executar as operações a seguir:
 
 - Se o usuário for integrante de um grupo de IdP que corresponde a uma organização pertencente à conta corporativa e o usuário não for, atualmente, um membro dessa organização, adicione o usuário à organização (declaração de SAML) ou envie um convite por e-mail para participar da organização (chamada de SCIM).
 - Cancele quaisquer convites existentes para o usuário juntar-se a uma organização que pertencem à conta corporativa.
 
-Para cada chamada de SCIM e, no caso de habilitar o desprovisionamento de SAML, em cada declaração de SAML, o {{ site.data.variables.product.product_name }} também executará a operação a seguir:
+Para cada chamada de SCIM e, no caso de habilitar o desprovisionamento de SAML, em cada declaração de SAML, o {% data variables.product.product_name %} também executará a operação a seguir:
 
 - Se o usuário não for membro de um grupo de IdP que corresponde a uma organização pertencente à sua conta corporativa, e o usuário for, atualmente, um integrante dessa organização, remova o usuário da organização.
 
@@ -146,15 +146,15 @@ Para habilitar o provisionamento de usuários para sua conta corporativa usando 
 
 ### Gerenciar a sincronização de equipes para organizações na conta corporativa
 
-Os proprietários das empresas podem habilitar a sincronização de equipes entre um IdP e {{ site.data.variables.product.product_name }} para permitir que os proprietários da organização e os mantenedores de equipe conectem equipes nas organizações pertencentes à sua conta corporativa com grupos de IdP.
+Os proprietários das empresas podem habilitar a sincronização de equipes entre um IdP e {% data variables.product.product_name %} para permitir que os proprietários da organização e os mantenedores de equipe conectem equipes nas organizações pertencentes à sua conta corporativa com grupos de IdP.
 
-{{ site.data.reusables.identity-and-permissions.about-team-sync }}
+{% data reusables.identity-and-permissions.about-team-sync %}
 
 Você pode usar a sincronização de equipes com a sua conta corporativa com o Azure AD.
 
-{{ site.data.reusables.identity-and-permissions.sync-team-with-idp-group }}
+{% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
-{{ site.data.reusables.identity-and-permissions.team-sync-disable }}
+{% data reusables.identity-and-permissions.team-sync-disable %}
 
 Você também pode configurar e gerenciar a sincronização da equipe para uma organização individual. Para obter mais informações, consulte "[Gerenciar a sincronização de equipe para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)".
 
@@ -167,14 +167,14 @@ Antes de poder habilitar a sincronização de equipes para a sua conta corporati
 
 #### Gerenciar a sincronização de equipe para o Azure AD
 
-{{ site.data.reusables.identity-and-permissions.team-sync-azure-permissions }}
+{% data reusables.identity-and-permissions.team-sync-azure-permissions %}
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.identity-and-permissions.team-sync-confirm-saml }}
-{{ site.data.reusables.identity-and-permissions.enable-team-sync-azure }}
-{{ site.data.reusables.identity-and-permissions.team-sync-confirm }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.identity-and-permissions.team-sync-confirm-saml %}
+{% data reusables.identity-and-permissions.enable-team-sync-azure %}
+{% data reusables.identity-and-permissions.team-sync-confirm %}
 7. Revise as informações do locatário do provedor de identidade que você deseja conectar à conta corporativa e clique em **Aprovar**. ![Solicitação pendente para habilitar a sincronização de equipes para um determinado encarregado do IdP com opção de aprovar ou cancelar a solicitação](/assets/images/help/teams/approve-team-synchronization.png)
 8. Para desativar a sincronização de equipe, clique **Desativar sincronização de equipe**. ![Desabilitar a sincronização de equipes](/assets/images/help/teams/disable-team-synchronization.png)
 
@@ -182,23 +182,23 @@ Antes de poder habilitar a sincronização de equipes para a sua conta corporati
 
 Os proprietários corporativos podem adicionar e excluir autoridades certificadas (CAs) de SSH de uma conta corporativa.
 
-Adicionando uma CA de SSH à sua conta corporativa, você pode permitir que integrantes de qualquer organização pertencente à conta corporativa acessem repositórios da organização usando certificados de SSH fornecidos por você. {{ site.data.reusables.organizations.can-require-ssh-cert }} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/articles/about-ssh-certificate-authorities)".
+Adicionando uma CA de SSH à sua conta corporativa, você pode permitir que integrantes de qualquer organização pertencente à conta corporativa acessem repositórios da organização usando certificados de SSH fornecidos por você. {% data reusables.organizations.can-require-ssh-cert %} Para obter mais informações, consulte "[Sobre autoridades certificadas de SSH](/articles/about-ssh-certificate-authorities)".
 
 #### Adicionar uma autoridade certificada de SSH
 
-{{ site.data.reusables.organizations.add-extension-to-cert }}
+{% data reusables.organizations.add-extension-to-cert %}
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.organizations.new-ssh-ca }}
-{{ site.data.reusables.organizations.require-ssh-cert }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.organizations.new-ssh-ca %}
+{% data reusables.organizations.require-ssh-cert %}
 
 #### Excluir uma autoridade certificada de SSH
 
 A exclusão de uma CA não pode ser desfeita. Se você quiser usar a mesma CA no futuro, precisará fazer upload dela novamente.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
-{{ site.data.reusables.organizations.delete-ssh-ca }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+{% data reusables.organizations.delete-ssh-ca %}

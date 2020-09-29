@@ -7,10 +7,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes ver los ejemplos de los ganchos de pre-recepción para {{ site.data.variables.product.prodname_ghe_server }} en el repositorio [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
+Puedes ver los ejemplos de los ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %} en el repositorio [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ### Escribir un script de ganchos de pre-recepción
-Un script de gancho de pre-recepción se ejecuta en un entorno de gancho de pre-recepcion en el aparato {{ site.data.variables.product.prodname_ghe_server }}. Cuando crees un script de gancho de pre-recepción, considera la entrada, salida, el estado de salida y las variables de entorno.
+Un script de gancho de pre-recepción se ejecuta en un entorno de gancho de pre-recepcion en el aparato {% data variables.product.prodname_ghe_server %}. Cuando crees un script de gancho de pre-recepción, considera la entrada, salida, el estado de salida y las variables de entorno.
 
 #### Entrada (stdin)
 Después de que se produce la subida y antes de que las ref se actualicen en el repositorio remoto, el proceso `git-receive-pack` invoca el script del gancho de pre-recepción con la entrada estándar de una línea por ref que se actualizará:
@@ -41,7 +41,7 @@ El `estado de salida` de un script de pre-recepción determina si la subida se a
 |          no cero           | La subida será rechazada. |
 
 #### Variables del entorno
-Fuera de los valores que se brindan a `stdin`, existen variables adicionales que están disponibles para un script de gancho de pre-recepción en {{ site.data.variables.product.prodname_ghe_server }}.
+Fuera de los valores que se brindan a `stdin`, existen variables adicionales que están disponibles para un script de gancho de pre-recepción en {% data variables.product.prodname_ghe_server %}.
 
 | Variable                              | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:------------------------------------- |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -58,9 +58,9 @@ Fuera de los valores que se brindan a `stdin`, existen variables adicionales que
 | $GIT_PUSH_OPTION_COUNT              | El número de opciones de extracción que envió el cliente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git.                                                                                                                                                                                                                                                                                                                                       |
 | $GIT_PUSH_OPTION_N                  | Donde <em>N</em> es un número entero que comienza con 0, esta variable contiene la cadena de opción de subida que envió el cliente. La primera opción que se envió se almacenó en GIT_PUSH_OPTION_0, la segunda opción que se envió se almacenó en GIT_PUSH_OPTION_1, y así sucesivamente. Para obtener más información sobre las opciones de subida, consulta "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" en la documentación de Git.                                                                                   |
 
-### Establecer permisos y subidas a un ganchos de pre-recepción para {{ site.data.variables.product.prodname_ghe_server }}
+### Establecer permisos y subidas a un ganchos de pre-recepción para {% data variables.product.prodname_ghe_server %}
 
-Un script de gancho de pre-recepción se encuentra en un repositorio en el aparato {{ site.data.variables.product.prodname_ghe_server }}. Un administrador del sitio debe tener en cuenta los permisos del repositorio y garantizar que solo los usuarios correspondientes tengan acceso.
+Un script de gancho de pre-recepción se encuentra en un repositorio en el aparato {% data variables.product.prodname_ghe_server %}. Un administrador del sitio debe tener en cuenta los permisos del repositorio y garantizar que solo los usuarios correspondientes tengan acceso.
 
 Recomendamos los ganchos de consolidación a un solo repositorio. Si el repositorio de gancho consolidado es público, `README.md` puede usarse para explicar los cumplimientos de la política. Además, las contribuciones pueden aceptarse mediante solicitudes de extracción. Sin embargo, los ganchos de pre-recepción solo pueden agregarse desde la rama por defecto. Para un flujo de trabajo de prueba, se deben usar las bifurcaciones del repositorio con la configuración.
 
@@ -75,19 +75,19 @@ Recomendamos los ganchos de consolidación a un solo repositorio. Si el reposito
   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
   ```
 
-2. Confirmar y subir a tus repositorio de ganchos pre-recibidos en la instancia {{ site.data.variables.product.prodname_ghe_server }}.
+2. Confirmar y subir a tus repositorio de ganchos pre-recibidos en la instancia {% data variables.product.prodname_ghe_server %}.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
   ```
 
-3. [Crear la instancia de ganchos de pre-recepción](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {{ site.data.variables.product.prodname_ghe_server }}.
+3. [Crear la instancia de ganchos de pre-recepción](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %}.
 
 ### Probar scripts de pre-recepción localmente
-Puedes probar un script de gancho de pre-recepción localmente antes de crear o actualizar en tu aparato {{ site.data.variables.product.prodname_ghe_server }}. Un método es crear un entorno de Docker local para que actúe como un repositorio remoto que pueda ejecutar el gancho de pre-recepción.
+Puedes probar un script de gancho de pre-recepción localmente antes de crear o actualizar en tu aparato {% data variables.product.prodname_ghe_server %}. Un método es crear un entorno de Docker local para que actúe como un repositorio remoto que pueda ejecutar el gancho de pre-recepción.
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. Crear un archivo denominado `Dockerfile.dev` que contenga:
 

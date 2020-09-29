@@ -20,7 +20,7 @@ Os proprietários e colaboradores podem atribuir uma revisão de pull request a 
 
 Você pode solicitar uma revisão para uma pessoa específica ou sugerida. Os revisores sugeridos são baseados nos [dados de blame do Git](/articles/tracking-changes-in-a-file/). Se você solicitar uma revisão, outras pessoas com acesso de leitura no repositório poderão revisar sua pull request. Depois que alguém revisar sua pull request e você fizer as alterações necessárias, você poderá solicitar novamente a revisão do mesmo revisor. Se o revisor solicitado não enviar uma revisão e a pull request atender aos requisitos de mesclagem do repositório [](/articles/defining-the-mergeability-of-pull-requests), você ainda poderá fazer o merge da pull request.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request que deve ser revisada por uma pessoa ou equipe específica.
 3. Navegue até **Reviewers** (Revisores) na barra lateral direita.
 4. Para solicitar a revisão para uma pessoa sugerida, em **Reviewers** (Revisores), clique em **Request** (Solicitar) ao lado do nome de usuário. ![Ícone de solicitação de revisores da barra lateral direita](/assets/images/help/pull_requests/request-suggested-review.png)

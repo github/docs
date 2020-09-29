@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Selecciona la casilla de verificación junto a los elementos que deseas asociar a un hito. ![Casilla de verificación de metadatos de propuestas](/assets/images/help/issues/issues_assign_checkbox.png)
 4. En el margen superior derecho, haz clic en **Milestone** (Hito), luego comienza a escribir el nombre de un [hito existente](/articles/creating-and-editing-milestones-for-issues-and-pull-requests). Haz clic en el nombre del hito para asociarlo con el elemento. ![Desplegable de la asignación de hitos de propuestas](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
 

@@ -1,6 +1,6 @@
 ---
 title: ライブラリ
-intro: '公式の Octokit ライブラリと他のサードパーティライブラリを使用して、{{ site.data.variables.product.prodname_dotcom }} API の使用方法を拡張および簡素化できます。'
+intro: '公式の Octokit ライブラリと他のサードパーティライブラリを使用して、{% data variables.product.prodname_dotcom %} API の使用方法を拡張および簡素化できます。'
 redirect_from:
   - /libraries/
   - /v3/libraries

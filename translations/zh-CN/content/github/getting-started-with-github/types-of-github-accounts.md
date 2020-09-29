@@ -1,6 +1,6 @@
 ---
 title: GitHub 帐户的类型
-intro: '您的用户帐户是您在 {{ site.data.variables.product.product_location }} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% if currentVersion == "free-pro-team@latest" %}组织可属于企业帐户。{% endif %}'
+intro: '您的用户帐户是您在 {% data variables.product.product_location %} 中的身份。 您的用户帐户可以是任意数量组织的成员。{% if currentVersion == "free-pro-team@latest" %}组织可属于企业帐户。{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,18 +13,18 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-有关各 {{ site.data.variables.product.product_name }} 产品功能的完整列表，请参阅“[{{ site.data.variables.product.prodname_dotcom }} 的产品](/github/getting-started-with-github/githubs-products)”。
+有关各 {% data variables.product.product_name %} 产品功能的完整列表，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/github/getting-started-with-github/githubs-products)”。
 {% endif %}
 
 ### 个人用户帐户
 
-Every person who uses {{ site.data.variables.product.product_location }} has their own user account, which includes:
+Every person who uses {% data variables.product.product_location %} has their own user account, which includes:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-- 使用 {{ site.data.variables.product.prodname_free_user }} 的无限公共和私有仓库
-- 使用 {{ site.data.variables.product.prodname_free_user }} 的无限协作者
-- 使用 {{ site.data.variables.product.prodname_pro }} 的私有仓库的其他功能
+- 使用 {% data variables.product.prodname_free_user %} 的无限公共和私有仓库
+- 使用 {% data variables.product.prodname_free_user %} 的无限协作者
+- 使用 {% data variables.product.prodname_pro %} 的私有仓库的其他功能
 - [邀请仓库协作者](/articles/inviting-collaborators-to-a-personal-repository)的功能
 
 {% else %}
@@ -59,18 +59,18 @@ Every person who uses {{ site.data.variables.product.product_location }} has the
 
 组织是共享帐户，供多个项目的人员同时协作之用。 所有者和管理员可通过复杂的安全和管理功能管理成员对组织数据和项目的访问。
 
-{{ site.data.reusables.organizations.organizations_include }}
+{% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 企业帐户
 
-通过企业帐户，您可以集中管理多个 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织的策略和帐单。 {{ site.data.reusables.gated-features.enterprise-accounts }}
+通过企业帐户，您可以集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}-“[注册新 {{ site.data.variables.product.prodname_dotcom }} 帐户](/articles/signing-up-for-a-new-github-account)”
-- “[{{ site.data.variables.product.prodname_dotcom }} 的产品](/articles/githubs-products)”{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}-“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”
+- “[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”{% endif %}
 - “[创建新组织帐户](/articles/creating-a-new-organization-account)”

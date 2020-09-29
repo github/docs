@@ -17,10 +17,10 @@ versions:
 
 ### 在现有拉取请求上启用仓库维护员权限
 
-1. 在 {{ site.data.variables.product.product_name }} 上，导航到拉取请求上游仓库的主页面。
+1. 在 {% data variables.product.product_name %} 上，导航到拉取请求上游仓库的主页面。
 2. 在上游仓库名称下，单击 {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests（拉取请求）**。 ![议题和拉取请求选项卡选择](/assets/images/help/repository/repo-tabs-pull-requests.png)
 3. 在拉取请求列表中，导航到要允许在其中提交的拉取请求。
-{{ site.data.reusables.repositories.allow-maintainers-user-forks }}
+{% data reusables.repositories.allow-maintainers-user-forks %}
 
   ![allow-maintainers-to-make-edits-sidebar-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 

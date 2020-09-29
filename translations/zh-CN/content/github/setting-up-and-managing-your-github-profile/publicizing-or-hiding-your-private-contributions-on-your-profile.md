@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中公开或隐藏您的私人贡献
-intro: '您的 {{ site.data.variables.product.product_name }} 个人资料显示过去一年中您的仓库贡献图。 除了显示公共仓库中的活动之外，您还可以选择选择匿名显示私有仓库中的活动。'
+intro: '您的 {% data variables.product.product_name %} 个人资料显示过去一年中您的仓库贡献图。 除了显示公共仓库中的活动之外，您还可以选择选择匿名显示私有仓库中的活动。'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
@@ -14,7 +14,7 @@ versions:
 
 默认情况下，访问者在您的个人资料中只能查看公共贡献。
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. 在个人资料中公开或隐藏您的私有贡献：
     - 要公开您的私有贡献，在贡献图上方，使用 **Contribution settings（贡献设置）**下拉菜单，然后选择 **Private contributions（私有贡献）**。 访问者将会看到您的私有贡献数，但没有更多详细信息。 ![从贡献设置下拉菜单允许访问者查看私有贡献](/assets/images/help/profile/private-contributions-on.png)
     - 要隐藏您的私有贡献，在贡献图上方，使用 **Contribution settings（贡献设置）**下拉菜单，然后取消选择 **Private contributions（私有贡献）**。访问者只会看到您的公共贡献。 ![从贡献设置下拉菜单允许访问者查看私有贡献](/assets/images/help/profile/private-contributions-off.png)

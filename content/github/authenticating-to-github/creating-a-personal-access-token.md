@@ -11,18 +11,18 @@ versions:
   enterprise-server: '*'
 ---
 
-Personal access tokens (PATs) are an alternative to using passwords for authentication to {{ site.data.variables.product.product_name }} when using the [GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line). 
+Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line). 
 
 {% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. For more information, see "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)" and "[Authorizing a personal access token for use with SAML single sign-on](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Creating a token
 
 {% if currentVersion == "free-pro-team@latest" %}1. [Verify your email address](/articles/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 4. Click **Generate new token**.
    ![Generate new token button](/assets/images/help/settings/generate_new_token.png)
 5. Give your token a descriptive name.
@@ -44,7 +44,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 ### Using a token on the command line
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 Personal access tokens can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
 

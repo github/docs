@@ -3,10 +3,10 @@
 
 Você pode usar [smimesign](https://github.com/github/smimesign) para assinar commits e tags usando S/MIME em vez de GPG.
 
-{{ site.data.reusables.gpg.smime-git-version }}
+{% data reusables.gpg.smime-git-version %}
 
 1. Instale [smimesign](https://github.com/github/smimesign#installation).
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Configure o Git para usar o S/MIME para assinar commits e tags. No Git 2.19 ou posterior, use os comandos `git config gpg.x509.program` e `git config gpg.format`:
   - Para usar o S/MIME para assinar todos os repositórios:
   ```shell

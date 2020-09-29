@@ -1,6 +1,6 @@
 ---
 title: Sobre etiquetas
-intro: 'As etiquetas no {{ site.data.variables.product.product_name }} ajudam você a organizar e priorizar seu trabalho. Você pode aplicar etiquetas a problemas e pull requests para indicar prioridade, categoria ou qualquer outra informação que achar útil.'
+intro: 'As etiquetas no {% data variables.product.product_name %} ajudam você a organizar e priorizar seu trabalho. Você pode aplicar etiquetas a problemas e pull requests para indicar prioridade, categoria ou qualquer outra informação que achar útil.'
 redirect_from:
   - /articles/about-labels
 versions:
@@ -14,7 +14,7 @@ Qualquer pessoa com acesso de leitura a um repositório pode exibir e pesquisar 
 
 ### Usar etiquetas padrão
 
-O {{ site.data.variables.product.product_name }} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório:
+O {% data variables.product.product_name %} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório:
 
 | Etiqueta           | Descrição                                                                                                                  |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------- |

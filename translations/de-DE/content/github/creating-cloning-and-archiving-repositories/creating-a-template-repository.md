@@ -14,6 +14,6 @@ Um eine Repository-Vorlage zu erstellen, musst Du ein Repository erstellen und e
 
 Nachdem Du Dein Repository zu einer Vorlage gemacht hast, kann jeder Benutzer mit Zugriff auf das Repository ein neues Repository mit derselben Verzeichnisstruktur und Dateien wie Dein Standardbranch generieren.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Sie können auch alle anderen Branches Deines Repositorys einbinden.{% endif %} Weitere Informationen findest Du unter "[Erstellen eines Repositorys aus einer Vorlage](/articles/creating-a-repository-from-a-template)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Wähle **Template repository** (Repository-Vorlage) aus. ![Kontrollkästchen zum Umwandeln eines Repositorys in eine Vorlage](/assets/images/help/repository/template-repository-checkbox.png)

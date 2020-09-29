@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### Requisitos para exigir a autenticação de dois fatores
 
@@ -26,12 +26,12 @@ Antes de poder exigir que os {% if currentVersion == "free-pro-team@latest" %}in
 
 Antes de exigir o uso da autenticação de dois fatores, recomendamos que você notifique os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} e peça para eles configurarem a 2FA nas contas deles. Você pode [ver se os integrantes e colaboradores externos já usam a 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) na página People (Pessoas) da organização.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. Se algum integrante ou colaborador externo for removido da organização, recomendamos o envio de um convite para restabelecer os privilégios e o acesso à organização que ele tinha anteriormente. O usuário precisa habilitar a autenticação de dois fatores para poder aceitar o convite.
 {% endif %}
@@ -42,9 +42,9 @@ Para exibir as pessoas que foram removidas automaticamente da organização por 
 
 ![Evento do log de auditoria mostrando um usuário removido por motivo de não conformidade com a 2FA](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Faça a pesquisa. Para pesquisar:
     - Integrantes da organização removidos, use `action:org.remove_member` na pesquisa
     - Colaboradores externos removidos, use `action:org.remove_outside_collaborator` na pesquisa{% if currentVersion == "free-pro-team@latest" %}

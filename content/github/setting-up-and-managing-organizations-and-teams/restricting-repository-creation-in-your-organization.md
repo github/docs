@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {{ site.data.variables.product.prodname_ghe_cloud }}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+You can choose whether members can create repositories in your organization. If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 Organization owners can always create any type of repository.
 
@@ -20,12 +20,12 @@ Organization owners can always create any type of repository.
 
 {% endwarning %}
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Under "Repository creation", select {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}one or more options{% else %}a setting{% endif %}.
   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Click **Save**.

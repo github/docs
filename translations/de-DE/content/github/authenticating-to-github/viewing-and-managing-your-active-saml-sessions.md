@@ -7,8 +7,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.security %}
 3. Under "Sessions," you can see your active SAML sessions. ![Liste der aktiven SAML-Sitzungen](/assets/images/help/settings/saml-active-sessions.png)
 4. To see the session details, click **See more**. ![Button to open SAML session details](/assets/images/help/settings/saml-expand-session-details.png)
 5. To revoke a session, click **Revoke SAML**. ![Schaltfläche zum Widerrufen einer SAML-Sitzung](/assets/images/help/settings/saml-revoke-session.png)

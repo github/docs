@@ -1,6 +1,6 @@
 ---
 title: 初始化集群
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 集群必须使用许可进行设置，并使用管理 shell (SSH) 进行初始化。'
+intro: '{% data variables.product.prodname_ghe_server %} 集群必须使用许可进行设置，并使用管理 shell (SSH) 进行初始化。'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -8,20 +8,20 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### 安装 {{ site.data.variables.product.prodname_ghe_server }}
+### 安装 {% data variables.product.prodname_ghe_server %}
 
-1. 在每个集群节点上，提供并安装 {{ site.data.variables.product.prodname_ghe_server }}。 更多信息请参阅“[设置 {{ site.data.variables.product.prodname_ghe_server }} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
+1. 在每个集群节点上，提供并安装 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”。
 2. 使用管理 shell 或 DHCP，**仅**配置每个节点的 IP 地址。 不要配置任何其他设置。
 
 ### 配置第一个节点
 
 1. 连接到将在 `cluster.conf` 中被指定为 `mysql-master` 的节点。 更多信息请参阅“[关于集群配置文件](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)”。
 2. 在 Web 浏览器中，访问 `https://<ip address>:8443/setup/`。
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }}
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
 ### 初始化集群
 
@@ -39,7 +39,7 @@ versions:
 此示例 `cluster.conf` 定义了一个包含五个节点的集群。
 
   - 两个节点（称为 `ghe-app-node-\*`）运行负责响应客户端请求的 `web-server` 和 `job-server` 服务。
-  - 三个节点（称为 `ghe-data-node-\*`）运行负责存储和检索 {{ site.data.variables.product.prodname_ghe_server }} 数据的服务。
+  - 三个节点（称为 `ghe-data-node-\*`）运行负责存储和检索 {% data variables.product.prodname_ghe_server %} 数据的服务。
 
 节点的名称可以是您选择的任何有效主机名。 名称被设置为每个节点的主机名，并且还将添加到每个节点上的 `/etc/hosts` 中，以便节点可以在本地相互解析。
 

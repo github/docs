@@ -3,7 +3,7 @@ title: Why are my commits linked to the wrong user?
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
-intro: '{{ site.data.variables.product.product_name }} uses the email address in the commit header to link the commit to a GitHub user. If your commits are being linked to another user, or not linked to a user at all, you may need to change your local Git configuration settings, add an email address to your account email settings, or do both.'
+intro: '{% data variables.product.product_name %} uses the email address in the commit header to link the commit to a GitHub user. If your commits are being linked to another user, or not linked to a user at all, you may need to change your local Git configuration settings, add an email address to your account email settings, or do both.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -18,7 +18,7 @@ versions:
 
 ### Commits are linked to another user
 
-If your commits are linked to another user, that means the user has added the email address in your local Git configuration settings to their {{ site.data.variables.product.product_name }} account. In this case, you can change the email in your local Git configuration settings and add the new email address to your {{ site.data.variables.product.product_name }} account to link future commits to your account.
+If your commits are linked to another user, that means the user has added the email address in your local Git configuration settings to their {% data variables.product.product_name %} account. In this case, you can change the email in your local Git configuration settings and add the new email address to your {% data variables.product.product_name %} account to link future commits to your account.
 
 1. To change the email address in your local Git configuration, follow the steps in "[Setting your commit email address in Git](/articles/setting-your-commit-email-address)". If you work on multiple machines, you will need to change this setting on each one.
 2. Add the email address from step 2 to your account settings by following the steps in "[Adding an email address to your GitHub account](/articles/adding-an-email-address-to-your-github-account)".

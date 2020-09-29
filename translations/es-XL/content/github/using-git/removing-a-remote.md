@@ -19,17 +19,17 @@ These examples assume you're [cloning using HTTPS](/articles/which-remote-url-sh
 ```shell
 $ git remote -v
 # Ver los remotos actuales
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (push)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>FORKER/REPOSITORY</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>FORKER/REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>FORKER/REPOSITORY</em>.git (push)
 
 $ git remote rm destination
 # Eliminar remoto
 $ git remote -v
 # Verificar que se haya ido
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER/REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER/REPOSITORY</em>.git (push)
 ```
 
 {% warning %}

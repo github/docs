@@ -12,16 +12,16 @@ versions:
 
 Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. Während des Reviews der Dateien eines Pull Requests kannst Du einzelne Änderungen kommentieren.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Wenn Du den Review einer Datei abgeschlossen hast, kannst Du die Datei als „gesehen“ markieren. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. In einer Fortschrittsanzeige im Header des Pull Requests wird die Anzahl der gesehenen Dateien angezeigt.{% endif %} Nachdem Du alle oder einzelne Dateien überprüft hast, kannst Du den Pull Request genehmigen oder durch Absenden Deines Reviews mit einem zusammenfassenden Kommentar weitere Änderungen anfordern.
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
 ### Review starten
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. Wenn Du fertig bist, klicke auf **Start a review** (Review starten). Nachdem Du einen Review begonnen hast, kannst Du auf **Add review comment** (Review-Kommentar hinzufügen) klicken. ![Schaltfläche „Start a review“ (Review starten)](/assets/images/help/pull_requests/start-a-review-button.png)
 
 Vor dem Absenden Deines Reviews haben Deine Zeilenkommentare den Status _Ausstehend_ und sind nur für Dich sichtbar. Ausstehende Kommentare kannst Du vor dem Absenden des Reviews jederzeit bearbeiten. Zum Abbrechen eines noch nicht abgesendeten Reviews einschließlich der ausstehenden Kommentare blättere auf der Registerkarte „Conversation“ (Unterhaltung) an das Ende der Zeitleiste und klicke auf **Cancel review** (Review abbrechen).
@@ -33,7 +33,7 @@ Vor dem Absenden Deines Reviews haben Deine Zeilenkommentare den Status _Aussteh
 
 Wenn Du den Review einer Datei abgeschlossen hast, kannst Du sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Deiner Überprüfung geändert wird, wird die Markierung aufgehoben.
 
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 2. Aktiviere rechts neben dem Header der überprüften Datei das Kontrollkästchen **Viewed** (Gesehen). ![Kontrollkästchen „Viewed“ (Gesehen)](/assets/images/help/pull_requests/viewed-checkbox.png)
 {% endif %}
 
@@ -41,16 +41,16 @@ Wenn Du den Review einer Datei abgeschlossen hast, kannst Du sie als „gesehen�
 
 Wenn Du den Review aller von Dir im Pull Request einzuschließenden Dateien abgeschlossen hast, sende den Review ab.
 
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 4. Wähle die Art des Review aus, den Du absenden möchtest: ![Optionsfelder mit Review-Optionen](/assets/images/help/pull_requests/pull-request-review-statuses.png)
     - Wähle **Comment** (Kommentar) aus, um ein allgemeines Feedback abzugeben, ohne die Änderungen explizit zu genehmigen oder weitere Änderungen anzufordern.
     - Wähle **Approve** (Genehmigen) aus, um Dein Feedback abzusenden und den Merge der im Pull Request vorgeschlagenen Änderungen zu genehmigen.
     - Wähle **Request changes** (Änderungen anfordern) aus, um Feedback einzureichen, das vor dem Merge des Pull Requests bearbeitet werden muss.
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### Weiterführende Informationen
 

@@ -2,7 +2,7 @@
 title: Workflow-Befehle für GitHub-Aktionen
 shortTitle: Workflow-Befehle
 intro: 'Du kannst Workflow-Befehle verwenden, wenn Du Shell-Befehle in einem Workflow oder im Code einer Aktion ausführst.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,8 +14,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Workflow-Befehlen
 
@@ -93,7 +93,7 @@ echo "::set-env name=action_state::yellow"
 
 Legt den Ausgabeparameter einer Aktion fest.
 
-Optional kannst Du auch Ausgabeparameter in der Metadaten-Datei einer Aktion deklarieren. Weitere Informationen findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions#outputs)“.
+Optional kannst Du auch Ausgabeparameter in der Metadaten-Datei einer Aktion deklarieren. Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)“.
 
 #### Beispiel
 
@@ -198,7 +198,7 @@ echo "::pause-logging::"
 
 Mit dem Befehl `save-state` kannst Du Umgebungsvariablen für den Datenaustausch mit der `pre:`- oder `post:`-Aktionen Deines Workflows erzeugen. Zum Beispiel kannst Du mit der `pre:`-Aktion eine Datei erstellen, den Datei-Speicherort an die `main:`-Aktion übergeben und dann mit der `post:`-Aktion die Datei löschen. Alternativ kannst Du eine Datei mit der `main:`-Aktion erstellen, den Dateipfad an die `post:`-Aktion übergeben und ebenfalls mit der `post:`-Aktion die Datei löschen.
 
-Wenn Du mehrere `pre:`- oder `post:`-Aktionen hast, kannst Du auf den gespeicherten Wert nur in der Aktion zugreifen, in der `save-state` verwendet wurde. Weitere Informationen zur `post:`-Aktion findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions#post)“.
+Wenn Du mehrere `pre:`- oder `post:`-Aktionen hast, kannst Du auf den gespeicherten Wert nur in der Aktion zugreifen, in der `save-state` verwendet wurde. Weitere Informationen zur `post:`-Aktion findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)“.
 
 Der Befehl `save-state` kann nur innerhalb einer Aktion ausgeführt werden und ist für YAML Dateien nicht verfügbar. Der gespeicherte Wert wird als Umgebungswert mit dem Präfix `STATE_` gespeichert.
 

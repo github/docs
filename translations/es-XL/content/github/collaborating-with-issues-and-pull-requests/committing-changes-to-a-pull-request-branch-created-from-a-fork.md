@@ -18,16 +18,16 @@ Solo el usuario que creó la solicitud de extracción puede darte permiso para s
 
 {% note %}
 
-**Nota:** También puedes realizar confirmaciones a una rama de solicitud de extracción desde una bifurcación de tu repositorio a través de {{ site.data.variables.product.product_location }} al crear tu propia copia (o bifurcación) de la bifurcación de tu repositorio y confirmar los cambios en la misma rama de encabezado en la que se crearon los cambios de la solicitud de extracción original. Para conocer algunos lineamientos generales, consulta "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)".
+**Nota:** También puedes realizar confirmaciones a una rama de solicitud de extracción desde una bifurcación de tu repositorio a través de {% data variables.product.product_location %} al crear tu propia copia (o bifurcación) de la bifurcación de tu repositorio y confirmar los cambios en la misma rama de encabezado en la que se crearon los cambios de la solicitud de extracción original. Para conocer algunos lineamientos generales, consulta "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)".
 
 {% endnote %}
 
-1. En {{ site.data.variables.product.product_name }}, desplázate hasta la página principal de la bifurcación (o copia de tu repositorio) donde se creó la rama de la solicitud de extracción.
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. En {% data variables.product.product_name %}, desplázate hasta la página principal de la bifurcación (o copia de tu repositorio) donde se creó la rama de la solicitud de extracción.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **Sugerencia:** Si prefieres clonar la bifurcación mediante {{ site.data.variables.product.prodname_desktop }}, consulta "[Clonar un repositorio en {{ site.data.variables.product.prodname_desktop }}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)".
+ **Sugerencia:** Si prefieres clonar la bifurcación mediante {% data variables.product.prodname_desktop %}, consulta "[Clonar un repositorio en {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)".
 
  {% endtip %}
 4. Cambia el directorio de trabajo actual a la ubicación donde deseas descargar el directorio clonado.
@@ -36,11 +36,11 @@ Solo el usuario que creó la solicitud de extracción puede darte permiso para s
   ```
 5. Escribe `git clone`, y luego pega la URL que copiaste en el Paso 3.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
 6. Presiona **Enter** (Intro). Se creará tu clon local.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -75,11 +75,11 @@ Solo el usuario que creó la solicitud de extracción puede darte permiso para s
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-Tus nuevas confirmaciones se reflejarán en la solicitud de extracción original en {{ site.data.variables.product.product_location }}.
+Tus nuevas confirmaciones se reflejarán en la solicitud de extracción original en {% data variables.product.product_location %}.
 
 ### Leer más
 

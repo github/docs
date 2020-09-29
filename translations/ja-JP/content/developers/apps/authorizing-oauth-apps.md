@@ -1,6 +1,6 @@
 ---
 title: OAuth アプリケーションの認可
-intro: '{{ site.data.reusables.shortdesc.authorizing_oauth_apps }}'
+intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
@@ -46,7 +46,7 @@ The web application flow to authorize users for your app is:
 
 #### 1. Request a user's GitHub identity
 
-    GET {{ site.data.variables.product.oauth_host_code }}/login/oauth/authorize
+    GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
@@ -58,23 +58,23 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 | `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `login`        | `string` | Suggests a specific account to use for signing in and authorizing the app.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `スコープ`         | `string` | A space-delimited list of [scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope. |
-| `状態`           | `string` | {{ site.data.reusables.apps.state_description }}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `状態`           | `string` | {% data reusables.apps.state_description %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `allow_signup` | `string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. 省略値は `true` です。 Use `false` when a policy prohibits signups.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 #### 2. Users are redirected back to your site by GitHub
 
-If the user accepts your request, {{ site.data.variables.product.product_name }} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
 
 Exchange this `code` for an access token:
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
 ##### パラメータ
 
 | 名前              | 種類       | 説明                                                                                                                                                                 |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`     | `string` | **Required.** The client ID you received from {{ site.data.variables.product.product_name }} for your {{ site.data.variables.product.prodname_github_app }}.     |
-| `client_secret` | `string` | **Required.** The client secret you received from {{ site.data.variables.product.product_name }} for your {{ site.data.variables.product.prodname_github_app }}. |
+| `client_id`     | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}.     |
+| `client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_github_app %}. |
 | `コード`           | `string` | **Required.** The code you received as a response to Step 1.                                                                                                       |
 | `redirect_uri`  | `string` | The URL in your application where users are sent after authorization.                                                                                              |
 | `状態`            | `string` | The unguessable random string you provided in Step 1.                                                                                                              |
@@ -102,12 +102,12 @@ You can also receive the content in different formats depending on the Accept he
 The access token allows you to make requests to the API on a behalf of a user.
 
     Authorization: token OAUTH-TOKEN
-    GET {{ site.data.variables.product.api_url_code }}/user
+    GET {% data variables.product.api_url_code %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {{ site.data.variables.product.api_url_pre }}/user
+curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -124,12 +124,12 @@ The device flow allows you to authorize users for a headless app, such as a CLI 
 #### Overview of the device flow
 
 1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {{ site.data.variables.product.device_authorization_url }}.
+2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
 3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
 
 #### Step 1: App requests the device and user verification codes from GitHub
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/device/code
+    POST {% data variables.product.oauth_host_code %}/login/device/code
 
 Your app must request a user verification code and verification URL that the app will use to prompt the user to authenticate in the next step. This request also returns a device verification code that the app must use to receive an access token and check the status of user authentication.
 
@@ -137,7 +137,7 @@ Your app must request a user verification code and verification URL that the app
 
 | 名前          | 種類       | 説明                                                                                                         |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------------- |
-| `client_id` | `string` | **Required.** The client ID you received from {{ site.data.variables.product.product_name }} for your app. |
+| `client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app. |
 | `スコープ`      | `string` | The scope that your app is requesting access to.                                                           |
 
 ##### レスポンス
@@ -171,23 +171,23 @@ Your app must request a user verification code and verification URL that the app
 | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `device_code`      | `string` | The device verification code is 40 characters and used to verify the device.                                                                                                                                                                                                                                                                                                                                                          |
 | `user_code`        | `string` | The user verification code is displayed on the device so the user can enter the code in a browser. This code is 8 characters with a hyphen in the middle.                                                                                                                                                                                                                                                                             |
-| `verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {{ site.data.variables.product.device_authorization_url }}.                                                                                                                                                                                                                                                                                                         |
+| `verification_uri` | `string` | The verification URL where users need to enter the `user_code`: {% data variables.product.device_authorization_url %}.                                                                                                                                                                                                                                                                                                         |
 | `expires_in`       | `整数`     | The number of seconds before the `device_code` and `user_code` expire. The default is 900 seconds or 15 minutes.                                                                                                                                                                                                                                                                                                                      |
-| `interval`         | `整数`     | The minimum number of seconds that must pass before you can make a new access token request (`POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error. |
+| `interval`         | `整数`     | The minimum number of seconds that must pass before you can make a new access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) to complete the device authorization. For example, if the interval is 5, then you cannot make a new request until 5 seconds pass. If you make more than one request over 5 seconds, then you will hit the rate limit and receive a `slow_down` error. |
 
 #### Step 2: Prompt the user to enter the user code in a browser
 
-Your device will show the user verification code and prompt the user to enter the code at {{ site.data.variables.product.device_authorization_url }}.
+Your device will show the user verification code and prompt the user to enter the code at {% data variables.product.device_authorization_url %}.
 
   ![Field to enter the user verification code displayed on your device](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
 #### Step 3: App polls GitHub to check if the user authorized the device
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-Your app will make device authorization requests that poll `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
+Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
 
-The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {{ site.data.variables.product.oauth_host_code }}/login/device/code`.
+The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
 
 Once the user has authorized, the app will receive an access token that can be used to make requests to the API on behalf of a user.
 
@@ -195,8 +195,8 @@ Once the user has authorized, the app will receive an access token that can be u
 
 | 名前            | 種類       | 説明                                                                                                                                                            |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`   | `string` | **Required.** The client ID you received from {{ site.data.variables.product.product_name }} for your {{ site.data.variables.product.prodname_oauth_app }}. |
-| `device_code` | `string` | **Required.** The device verification code you received from the `POST {{ site.data.variables.product.oauth_host_code }}/login/device/code` request.          |
+| `client_id`   | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}. |
+| `device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.          |
 | `grant_type`  | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.                                                                          |
 
 ##### レスポンス
@@ -213,16 +213,16 @@ Once the user has authorized, the app will receive an access token that can be u
 
 When a user submits the verification code on the browser, there is a there is a rate limit of 50 submissions in an hour per application.
 
-If you make more than one access token request (`POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
+If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
 
 #### Error codes for the device flow
 
 | Error code                     | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authorization_pending`        | This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request.                                                                                                                                                          |
-| `slow_down`                    | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use. |
+| `authorization_pending`        | This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request.                                                                                                                                                          |
+| `slow_down`                    | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use. |
 | `expired_token`                | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `unsupported_grant_type`       | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`.                                                                                                                                                                                                                                                                                                |
+| `unsupported_grant_type`       | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.                                                                                                                                                                                                                                                                                                |
 | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.                                                                                                                                                                                                                                                                                                                                                                    |
 | `incorrect_device_code`        | The device_code provided is not valid.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `access_denied`                | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.                                                                                                                                                                                                                                                                                                                                                                |
@@ -271,7 +271,7 @@ This is useful if your OAuth App supports one workflow that uses GitHub for sign
 
 There is a limit to the number of tokens that are issued per user/application/scope combination. If your application requests enough tokens to go over one of the limits, older tokens _with the same scope being requested_ will stop working.
 
-{{ site.data.reusables.apps.deletes_ssh_keys }}
+{% data reusables.apps.deletes_ssh_keys %}
 
 ### Directing users to review their access
 
@@ -280,7 +280,7 @@ You can link to authorization information for an OAuth App so that users can rev
 To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
 
 ```
-{{ site.data.variables.product.oauth_host_code }}/settings/connections/applications/:client_id
+{% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
 {% tip %}

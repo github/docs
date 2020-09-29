@@ -12,7 +12,7 @@ versions:
 
 您可以评论拉取请求、批准更改或在批准前申请改进。 更多信息请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”和“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
@@ -20,16 +20,16 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
 4. 审查拉取请求中的更改，并且选择[评论特定行](/articles/reviewing-proposed-changes-in-a-pull-request/#starting-a-review)。
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 7. 选择 **Approve（批准）**以评估合并拉取请求中提议的更改。
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### 延伸阅读
 

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la persona que bifurcó el repositorio. Puedes hacer clic en el nombre de usuario para ser redirigido a la página de perfil del usuario {{ site.data.variables.product.product_name }} o hacer clic en el nombre de la bifurcación para ser redirigido a la bifurcación específica del repositorio.
+Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la persona que bifurcó el repositorio. Puedes hacer clic en el nombre de usuario para ser redirigido a la página de perfil del usuario {% data variables.product.product_name %} o hacer clic en el nombre de la bifurcación para ser redirigido a la bifurcación específica del repositorio.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -22,6 +22,6 @@ Las bifurcaciones se detallan alfabéticamente por el nombre de usuario de la pe
 
 ### Acceder al Gráfico de miembros
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. En la barra lateral izquierda, haz clic en **Forks** (Bifurcaciones). ![Pestaña Forks (Bifurcaciones)](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)

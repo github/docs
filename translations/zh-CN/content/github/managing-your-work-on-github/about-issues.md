@@ -1,6 +1,6 @@
 ---
 title: 关于议题
-intro: '使用议题跟踪想法、增强、任务或漏洞以便操作 {{ site.data.variables.product.product_name }}。'
+intro: '使用议题跟踪想法、增强、任务或漏洞以便操作 {% data variables.product.product_name %}。'
 redirect_from:
   - /articles/creating-issues/
   - /articles/about-issues
@@ -11,7 +11,7 @@ versions:
 
 您可以在仓库中使用议题收集用户反馈，报告软件漏洞，并且组织要完成的任务。 议题不只是一个报告软件漏洞的地方。
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 为保持更新议题中的最新评论，您可以监控问题以接收关于最新评论的通知。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
@@ -26,6 +26,6 @@ versions:
 - 将打开的议题传输到其他仓库。 更多信息请参阅“[将议题转让给其他仓库](/articles/transferring-an-issue-to-another-repository)”。{% endif %}
 - 固定重要议题以使其更易于查找，防止重复的议题，减少干扰。 更多信息请参阅“[将议题固定到仓库](/articles/pinning-an-issue-to-your-repository)”。
 - 使用保存的回复跟踪重复的议题。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% if currentVersion == "free-pro-team@latest" %}
-- 报告违反{{ site.data.variables.product.prodname_dotcom }}'s [社区指导方针](/articles/github-community-guidelines)的评论。 更多信息请参阅“[报告滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”。{% endif %}
+- 报告违反{% data variables.product.prodname_dotcom %}'s [社区指导方针](/articles/github-community-guidelines)的评论。 更多信息请参阅“[报告滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”。{% endif %}
 
 议题也可以[分配到其他用户](/articles/assigning-issues-and-pull-requests-to-other-github-users)，[用标签标记](/articles/applying-labels-to-issues-and-pull-requests)以便快速搜索，以及[与里程碑组合](/articles/creating-and-editing-milestones-for-issues-and-pull-requests)。

@@ -33,7 +33,7 @@ As Estruturas do Escudo de Privacidade têm por base sete princípios e o GitHub
   - Nós informamos quando estamos coletando suas informações pessoais.
   - Nós deixamos você saber, em nossa [Declaração de Privacidade](/articles/github-privacy-statement/), que objetivos temos ao coletar e usar suas informações, com quem compartilhamos essas informações e sob quais restrições e quais acessos você tem aos seus dados.
   - Nós deixamos você saber que estamos participando da Estrutura de Defesa da Privacidade, e o que isso significa para você.
-  - Nós temos um {{ site.data.variables.contact.contact_privacy }} onde você pode entrar em contato conosco com perguntas sobre sua privacidade.
+  - Nós temos um {% data variables.contact.contact_privacy %} onde você pode entrar em contato conosco com perguntas sobre sua privacidade.
   - Nós o deixamos consciente de seu direito de invocar arbitragem vinculante, desde que sem nenhum custo para você, no caso improvável de uma disputa.
   - Nós o informamos de que estamos sujeitos à jurisdição da Comissão Federal de Comércio.
 - **Escolha**
@@ -51,7 +51,7 @@ As Estruturas do Escudo de Privacidade têm por base sete princípios e o GitHub
 - **Access**
   - Você sempre poderá acessar os dados que temos sobre você em seu [perfil do usuário](https://github.com/settings/profile). Você pode acessar, atualizar, alterar ou excluir suas informações lá.
 - **Recurso, Lei aplicável e Responsabilidade**
-  - Se você tem dúvidas sobre nossas práticas de privacidade, você pode nos contatar com o nosso {{ site.data.variables.contact.contact_privacy }} e responderemos dentro de 45 dias, no máximo.
+  - Se você tem dúvidas sobre nossas práticas de privacidade, você pode nos contatar com o nosso {% data variables.contact.contact_privacy %} e responderemos dentro de 45 dias, no máximo.
   - No caso improvável de uma disputa que não podemos resolver, você tem acesso à arbitragem vinculativa sem nenhum custo para você. Por favor, consulte nossa [Declaração de Privacidade](/articles/github-privacy-statement/) para obter mais informações.
   - Realizaremos auditorias regulares de nossas práticas de privacidade relevantes para verificar o cumprimento das promessas que fizemos.
   - Exigimos que nossos funcionários respeitem compromissos de privacidade, e a violação de nossas políticas de privacidade está sujeita a ações disciplinares, incluindo até mesmo a rescisão do contrato de emprego.

@@ -1,1 +1,1 @@
-1. Navigiere auf {{ site.data.variables.product.product_name }} zum Profil der unterstützten Organisation.
+1. Navigiere auf {% data variables.product.product_name %} zum Profil der unterstützten Organisation.

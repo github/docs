@@ -1,6 +1,6 @@
 ---
 title: Fazer a migração de REST para o GraphQL
-intro: 'Aprenda as melhores práticas e considerações para fazer a migração da API REST do {{ site.data.variables.product.prodname_dotcom }} para a API do GraphQL do {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprenda as melhores práticas e considerações para fazer a migração da API REST do {% data variables.product.prodname_dotcom %} para a API do GraphQL do {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
@@ -32,7 +32,7 @@ Aqui estão exemplos de cada um.
 
 Uma única chamada da REST API recupera uma lista dos membros da sua organização:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/orgs/:org/membros
+curl -v {% data variables.product.api_url_pre %}/orgs/:org/membros
 ```
 
 A carga da REST contém dados excessivos se seu objetivo é recuperar apenas nomes de integrantes e links para avatares. No entanto, uma consulta do GraphQL retorna apenas o que você especifica:
@@ -54,12 +54,12 @@ query {
 
 Considere outro exemplo: recuperar uma lista de pull requests e verificar se cada um é mesclável. Uma chamada para a API REST recupera uma lista de pull requests e suas [representações resumidas](/v3/#summary-representations):
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
 Determinar se um pull request pode ser mesclado demanda recuperar cada pull request individualmente para sua [representação detalhada](/v3/#detailed-representations) (uma grande carga), bem como verificar seu atributo `mesclável` é verdadeiro ou falso:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
 Com o GraphQL, você pode recuperar apenas os atributos `número` e `mesclável` para cada pull request:
@@ -83,10 +83,10 @@ query {
 
 Fazer consulta com campos aninhados permite substituir várias chamadas de REST por menos consultas do GraphQL. Por exemplo, recuperar um pull request junto com seus commits, comentários que não são de revisão e revisões usando a **API REST** exige quatro chamadas separadas:
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/commits
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/issues/:number/comments
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/reviews
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:number/comments
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
 Ao usar a **API do GraphQL**, você pode recuperar os dados com uma única consulta usando campos aninhados:

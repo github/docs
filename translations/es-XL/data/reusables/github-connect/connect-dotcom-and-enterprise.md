@@ -1,1 +1,1 @@
-1. Da clic en **Conectar con {{ site.data.variables.product.prodname_dotcom_the_website }}**. ![Conectarse con GitHub.com desde la configuración de GitHub Enterprise Server](/assets/images/help/settings/github.com_end_user_connection.png)
+1. Da clic en **Conectar con {% data variables.product.prodname_dotcom_the_website %}**. ![Conectarse con GitHub.com desde la configuración de GitHub Enterprise Server](/assets/images/help/settings/github.com_end_user_connection.png)

@@ -14,7 +14,7 @@ The issues and pull requests search bar allows you to define your own custom fil
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**Tip:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

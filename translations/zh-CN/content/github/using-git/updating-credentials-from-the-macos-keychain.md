@@ -1,6 +1,6 @@
 ---
 title: 更新 OSX 密钥链中的凭据
-intro: '如果在 {{ site.data.variables.product.product_name }} 上更改您的用户名、密码或个人访问令牌，您需要在 "git-credit al-osxkeychain" 小助手中更新您保存的凭据。'
+intro: '如果在 {% data variables.product.product_name %} 上更改您的用户名、密码或个人访问令牌，您需要在 "git-credit al-osxkeychain" 小助手中更新您保存的凭据。'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - 密钥链中的 GitHub 密码条目
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation }}
+{% data reusables.user_settings.password-authentication-deprecation %}
 
 ### 通过 Keychain Access 更新凭据
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app. ![Spotlight 搜索栏](/assets/images/help/setup/keychain-access.png)
-2. 在 Keychain Access 中，搜索 **{{ site.data.variables.command_line.backticks }}**。
-3. 查找 `{{ site.data.variables.command_line.backticks }}` 的“互联网密码”条目。 ![密钥链中的 GitHub 密码条目](/assets/images/help/setup/keychain-entry.png)
+2. 在 Keychain Access 中，搜索 **{% data variables.command_line.backticks %}**。
+3. 查找 `{% data variables.command_line.backticks %}` 的“互联网密码”条目。 ![密钥链中的 GitHub 密码条目](/assets/images/help/setup/keychain-entry.png)
 4. 相应地编辑或删除该条目。
 
 ### 通过命令行删除凭据
@@ -26,13 +26,13 @@ versions:
 
 ```shell
 $ git credential-osxkeychain erase
-host={{ site.data.variables.command_line.codeblock }}
+host={% data variables.command_line.codeblock %}
 protocol=https
 > <em>[Press Return]</em>
 ```
 
-如果成功，则不会打印出任何内容。 要测试其是否有效，请尝试并克隆 {{ site.data.variables.product.product_location }} 仓库。 如果提示您输入密码，则该密钥链条目已删除。
+如果成功，则不会打印出任何内容。 要测试其是否有效，请尝试并克隆 {% data variables.product.product_location %} 仓库。 如果提示您输入密码，则该密钥链条目已删除。
 
 ### 延伸阅读
 
-- “[在 Git 中缓存您的 {{ site.data.variables.product.prodname_dotcom }} 凭据](/github/using-git/caching-your-github-credentials-in-git/)”
+- “[在 Git 中缓存您的 {% data variables.product.prodname_dotcom %} 凭据](/github/using-git/caching-your-github-credentials-in-git/)”

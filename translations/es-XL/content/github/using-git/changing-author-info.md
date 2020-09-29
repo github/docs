@@ -31,10 +31,10 @@ Antes de ejecutar este script, necesitarás:
 * La dirección de correo electrónico antigua que aparece en los campos autor/persona que confirma el cambio que deseas cambiar
 * El nombre y la dirección de correo electrónico correctos a los que deseas atribuir esas confirmaciones
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crear un clone nuevo, básico de tu repositorio:
   ```shell
-  git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+  git clone --bare https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
   cd <em>repo</em>.git
   ```
 3. Copiar y pegar el script, reemplazando las siguientes variables en función de la información que recopilaste:
@@ -66,7 +66,7 @@ Antes de ejecutar este script, necesitarás:
 
 4. Presionar **Enter** (Intro) para ejecutar el script.
 5. Revisar el nuevo historial de Git para detectar errores.
-6. Subir tu historial corregido a {{ site.data.variables.product.product_name }}:
+6. Subir tu historial corregido a {% data variables.product.product_name %}:
   ```shell
   git push --force --tags origin 'refs/heads/*'
   ```

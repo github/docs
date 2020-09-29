@@ -1,34 +1,34 @@
 ---
 title: HTTPS で GitHub Pages サイトを保護する
-intro: 'HTTPS は、他者によるあなたのサイトへのトラフィックの詮索や改ざんを防ぐ暗号化のレイヤーを追加します。 透過的に HTTP リクエストを HTTPS にリダイレクトするために、あなたの {{ site.data.variables.product.prodname_pages }} サイトに HTTPS を強制できます。'
-product: '{{ site.data.reusables.gated-features.pages }}'
+intro: 'HTTPS は、他者によるあなたのサイトへのトラフィックの詮索や改ざんを防ぐ暗号化のレイヤーを追加します。 透過的に HTTP リクエストを HTTPS にリダイレクトするために、あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制できます。'
+product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
 versions:
   free-pro-team: '*'
 ---
 
-リポジトリの管理者権限があるユーザは、{{ site.data.variables.product.prodname_pages }} サイトに強制的に HTTPS を指定できます。
+リポジトリの管理者権限があるユーザは、{% data variables.product.prodname_pages %} サイトに強制的に HTTPS を指定できます。
 
-### HTTPS と {{ site.data.variables.product.prodname_pages }} について
+### HTTPS と {% data variables.product.prodname_pages %} について
 
-カスタムドメインが正しく設定されたサイトを含めたすべての {{ site.data.variables.product.prodname_pages }} サイトは、HTTPS や HTTPS 強制をサポートします。 カスタムドメインの詳細は、「[カスタムドメインと {{ site.data.variables.product.prodname_pages }} について](/articles/about-custom-domains-and-github-pages)」と「[カスタムドメインと {{ site.data.variables.product.prodname_pages }} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)」を参照してください。
+カスタムドメインが正しく設定されたサイトを含めたすべての {% data variables.product.prodname_pages %} サイトは、HTTPS や HTTPS 強制をサポートします。 カスタムドメインの詳細は、「[カスタムドメインと {% data variables.product.prodname_pages %} について](/articles/about-custom-domains-and-github-pages)」と「[カスタムドメインと {% data variables.product.prodname_pages %} のトラブルシューティング](/articles/troubleshooting-custom-domains-and-github-pages#https-errors)」を参照してください。
 
-HTTPS 強制は、2016 年 6 月 15 日より後に作成された、`github.io` ドメインを使っている {{ site.data.variables.product.prodname_pages }} に必要です。 2016 年 6 月 15 日より前にサイトを作成した場合、手動で HTTPS 強制を有効化できます。
+HTTPS 強制は、2016 年 6 月 15 日より後に作成された、`github.io` ドメインを使っている {% data variables.product.prodname_pages %} に必要です。 2016 年 6 月 15 日より前にサイトを作成した場合、手動で HTTPS 強制を有効化できます。
 
-{{ site.data.reusables.pages.no_sensitive_data_pages }}
+{% data reusables.pages.no_sensitive_data_pages %}
 
-{{ site.data.reusables.pages.private_pages_are_public_warning }}
+{% data reusables.pages.private_pages_are_public_warning %}
 
-### あなたの {{ site.data.variables.product.prodname_pages }} サイトに HTTPS を強制する
+### あなたの {% data variables.product.prodname_pages %} サイトに HTTPS を強制する
 
-{{ site.data.reusables.pages.navigate-site-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-3. [{{ site.data.variables.product.prodname_pages }}] で、[**Enforce HTTPS**] を選択します。 ![[Enforce HTTPS] チェックボックス](/assets/images/help/pages/enforce-https-checkbox.png)
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. [{% data variables.product.prodname_pages %}] で、[**Enforce HTTPS**] を選択します。 ![[Enforce HTTPS] チェックボックス](/assets/images/help/pages/enforce-https-checkbox.png)
 
 ### 混在したコンテンツの問題を解決する
 
-{{ site.data.variables.product.prodname_pages }} サイトの HTTPS を有効化したが、サイトの HTML がまだ HTTP 経由で画像、CSS、JavaScript を参照している場合、サイトは*混在したコンテンツ*を提供する場合があります。 混在したコンテンツを提供することで、サイトのセキュリティが下がり、アセットの読み込みに問題が生じる場合があります。
+{% data variables.product.prodname_pages %} サイトの HTTPS を有効化したが、サイトの HTML がまだ HTTP 経由で画像、CSS、JavaScript を参照している場合、サイトは*混在したコンテンツ*を提供する場合があります。 混在したコンテンツを提供することで、サイトのセキュリティが下がり、アセットの読み込みに問題が生じる場合があります。
 
 サイトでコンテンツの混在を解消するには、サイトの HTML で `http://` を `https://` に変更して、すべてのアセットが HTTPS 経由で提供されるようにしてください。
 
@@ -40,7 +40,7 @@ HTTPS 強制は、2016 年 6 月 15 日より後に作成された、`github.io`
 
 {% tip %}
 
-**ヒント:** サイトのソースファイルでアセットが見つからない場合は、テキストエディタまたは {{ site.data.variables.product.product_name }} 上で、サイトのソースファイルから `http`を検索してみましょう。
+**ヒント:** サイトのソースファイルでアセットが見つからない場合は、テキストエディタまたは {% data variables.product.product_name %} 上で、サイトのソースファイルから `http`を検索してみましょう。
 
 {% endtip %}
 

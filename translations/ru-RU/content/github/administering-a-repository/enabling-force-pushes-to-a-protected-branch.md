@@ -1,7 +1,7 @@
 ---
 title: Enabling force pushes to a protected branch
 intro: You can allow force pushes to a protected branch.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -19,13 +19,13 @@ Enabling force pushes will not override any other branch protection rules. For e
 
 If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
 ### Enabling force pushes
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. Under "Rules applied to everyone including administrators", select **Allow force pushes**. ![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
 7. Click **Create**.

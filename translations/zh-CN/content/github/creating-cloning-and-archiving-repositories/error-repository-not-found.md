@@ -10,7 +10,7 @@ versions:
 
 ### 检查拼写
 
-拼写错误可能发生，并且仓库名称区分大小写。  如果您尝试克隆 `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git`，但仓库实际被命名为 `User/Repo`，您会收到此错误。
+拼写错误可能发生，并且仓库名称区分大小写。  如果您尝试克隆 `git@{% data variables.command_line.codeblock %}:user/repo.git`，但仓库实际被命名为 `User/Repo`，您会收到此错误。
 
 要避免此错误，克隆时，始终从仓库页面复制和粘贴克隆 URL。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -30,10 +30,10 @@ versions:
 
 在极少数情况下，您可能没有仓库的适当 SSH 访问权限。
 
-您应确保正在使用的 SSH 密钥已连接到您的 {{ site.data.variables.product.product_name }} 用户帐户。 您可以通过在命令行中输入以下内容检查此项：
+您应确保正在使用的 SSH 密钥已连接到您的 {% data variables.product.product_name %} 用户帐户。 您可以通过在命令行中输入以下内容检查此项：
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -52,4 +52,4 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 ### 检查仓库是否确实存在
 
-如果所有其他内容失败，确保仓库在 {{ site.data.variables.product.product_location }} 上确实存在！ 如果您尝试推送不存在的仓库，您将收到此错误。
+如果所有其他内容失败，确保仓库在 {% data variables.product.product_location %} 上确实存在！ 如果您尝试推送不存在的仓库，您将收到此错误。

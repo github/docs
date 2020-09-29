@@ -20,13 +20,13 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 
 {% note %}
 
-**Hinweis:** Du kannst auch Hinweise zu Deinem Projektboard hinzufügen und als Erinnerungen an Aufgaben oder als Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {{ site.data.variables.product.product_name }} verwenden. Über Hinweise kannst Du auch zugehörige Informationen zum Projektboard hinzufügen. Weitere Informationen findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
+**Hinweis:** Du kannst auch Hinweise zu Deinem Projektboard hinzufügen und als Erinnerungen an Aufgaben oder als Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise kannst Du auch zugehörige Informationen zum Projektboard hinzufügen. Weitere Informationen findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
 
 {% endnote %}
 
-{{ site.data.reusables.project-management.edit-in-project }}
+{% data reusables.project-management.edit-in-project %}
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }} Wenn Du nach Issues und Pull Requests suchst, die Du zu Deinem Projektboard hinzufügen möchtest, reduziert sich die Suche automatisch auf Deine verlinkten Repositorys. Du kannst diese Qualifizierer entfernen, um die Suche in allen Repositorys der Organisation auszuführen. Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
+{% data reusables.project-management.link-repos-to-project-board %} Wenn Du nach Issues und Pull Requests suchst, die Du zu Deinem Projektboard hinzufügen möchtest, reduziert sich die Suche automatisch auf Deine verlinkten Repositorys. Du kannst diese Qualifizierer entfernen, um die Suche in allen Repositorys der Organisation auszuführen. Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
 
 ### Issues und Pull Requests zu einem Projektboard hinzufügen
 
@@ -41,11 +41,11 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
     - Wenn Du an einer bestimmten Funktion arbeitest, kannst Du eine Kennzeichnung auf jeden zu dieser Funktion gehörenden Issue oder Pull Request anwenden. Dann kannst Du ganz leicht Tickets zu Deinem Projektboard hinzufügen, indem Du nach dem Namen der Kennzeichnung suchst. Weitere Informationen findest Du unter „[Kennzeichnungen auf Issues und Pull Requests anwenden](/articles/applying-labels-to-issues-and-pull-requests).“
 
   {% endtip %}
-4. Ziehe per Drag-and-Drop aus der gefilterten Liste von Issues und Pull Requests das Ticket, das Du zu Deinem Projektboard hinzufügen möchtest, in die richtige Spalte. Alternativ kannst Du die Tickets auch mithilfe von Tastenkürzeln verschieben. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+4. Ziehe per Drag-and-Drop aus der gefilterten Liste von Issues und Pull Requests das Ticket, das Du zu Deinem Projektboard hinzufügen möchtest, in die richtige Spalte. Alternativ kannst Du die Tickets auch mithilfe von Tastenkürzeln verschieben. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **Tipp:** Du kannst Tickets per Drag-and-Drop oder mithilfe von Tastenkürzeln neu anordnen und zwischen den Spalten verschieben. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+    **Tipp:** Du kannst Tickets per Drag-and-Drop oder mithilfe von Tastenkürzeln neu anordnen und zwischen den Spalten verschieben. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
@@ -61,7 +61,7 @@ In jeder Projektspalte können maximal 2.500 Tickets enthalten sein. Wenn die H�
 {% else %}
 5. Klicke rechts neben dem Issue oder Pull Request auf **PROJECT-BOARD-NAME (awaiting triage)** (PROJEKTBOARD-NAME (Einteilung ausstehend)). ![Link zum Projektboard](/assets/images/help/projects/sidebar-project-board-link.png)
 6. Klicke im Projektboard auf **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)** (Tickets hinzufügen (1 neu)). ![Schaltfläche „Add cards“ (Tickets hinzufügen)](/assets/images/help/projects/add-cards-pending-button.png)
-7. Ziehe das Ticket für den Issue oder Pull Request per Drag-and-Drop aus dem Bereich **Triage** (Einteilung) in die gewünschte Spalte im Projektboard. Alternativ kannst Du die Tickets auch mithilfe von Tastenkürzeln verschieben. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+7. Ziehe das Ticket für den Issue oder Pull Request per Drag-and-Drop aus dem Bereich **Triage** (Einteilung) in die gewünschte Spalte im Projektboard. Alternativ kannst Du die Tickets auch mithilfe von Tastenkürzeln verschieben. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 {% endif %}
 
 ### Weiterführende Informationen

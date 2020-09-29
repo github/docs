@@ -1,6 +1,6 @@
 ---
 title: Instalar GitHub Apps
-intro: 'Cuando tu app es pública, cualquiera puede instalarla en su repositorio a través de {% if currentVersion == "free-pro-team@latest" %}, de {{ site.data.variables.product.prodname_marketplace }} o de {% endif %}una URL de instalación. Cuando tu app es privada, solo puedes instalarla en los repositorios que te pertenezcan.'
+intro: 'Cuando tu app es pública, cualquiera puede instalarla en su repositorio a través de {% if currentVersion == "free-pro-team@latest" %}, de {% data variables.product.prodname_marketplace %} o de {% endif %}una URL de instalación. Cuando tu app es privada, solo puedes instalarla en los repositorios que te pertenezcan.'
 redirect_from:
   - /apps/installing-github-apps
 versions:
@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Nota:** Tu {{ site.data.variables.product.prodname_github_app }} tendra acceso a cualquier repositorio que ella misma cree, aún si alguien la instala únicamente en repositorios selectos.
+**Nota:** Tu {% data variables.product.prodname_github_app %} tendra acceso a cualquier repositorio que ella misma cree, aún si alguien la instala únicamente en repositorios selectos.
 
 {% endnote %}
 
@@ -27,11 +27,11 @@ Una vez que creas una GitHub App privada, puedes instalarla en uno de tuos repos
 {% if currentVersion == "free-pro-team@latest" %}
 ### Ofrecer tu app en GitHub Marketplace
 
-Puedes ofrecer una versión gratuita o pagada de tu app en [{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace), en donde las personas pueden uscar y ver los detalles de la misma. {{ site.data.variables.product.prodname_marketplace }} instala automáticamente una GitHub App cuando se completa una orden.
+Puedes ofrecer una versión gratuita o pagada de tu app en [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), en donde las personas pueden uscar y ver los detalles de la misma. {% data variables.product.prodname_marketplace %} instala automáticamente una GitHub App cuando se completa una orden.
 
-Consulta la sección "[Comenzar con GitHub Marketplace](/marketplace/getting-started/)" para aprender más acerca de listar tu app en {{ site.data.variables.product.prodname_marketplace }}.
+Consulta la sección "[Comenzar con GitHub Marketplace](/marketplace/getting-started/)" para aprender más acerca de listar tu app en {% data variables.product.prodname_marketplace %}.
 
-Para aprender más acerca de cómo los usuarios pueden instalar tu app desde {{ site.data.variables.product.prodname_marketplace }}, consulta la sección "[Comprar e instalar apps en GitHub Marketplace](/articles/purchasing-and-installing-apps-in-github-marketplace)".
+Para aprender más acerca de cómo los usuarios pueden instalar tu app desde {% data variables.product.prodname_marketplace %}, consulta la sección "[Comprar e instalar apps en GitHub Marketplace](/articles/purchasing-and-installing-apps-in-github-marketplace)".
 
 {% endif %}
 
@@ -41,7 +41,7 @@ Puedes habilitar a otras personas para que instalen tu app pública si les propo
 
  Si estás migrándote desde una App de OAuth hacia una GitHub App, puedes utilizar los parámetros de consulta para preseleccionar los repositorios y la cuenta cuando instalen esta GitHub App. Consulta la secicón "[Migrar de Apps de OAuth a GitHub Apps](/apps/migrating-oauth-apps-to-github-apps/)" para aprender más.
 
-Estos pasos asumen que has [creado una {{ site.data.variables.product.prodname_github_app }}](/apps/building-github-apps/):
+Estos pasos asumen que has [creado una {% data variables.product.prodname_github_app %}](/apps/building-github-apps/):
 
 1. Desde la [Página de configuración de GitHub Apps](https://github.com/settings/apps), selecciona la app pública que quieres configurar para que los demás la instalen.
 2. En "URL de la Página Principal", teclea la URL de la página principal de tu app y da clic en **Guardar cambios**. ![URL de la página de inicio](/assets/images/github-apps/github_apps_homepageURL.png)

@@ -11,19 +11,19 @@ versions:
 
 ### About sponsoring developers and organizations
 
-{{ site.data.reusables.sponsors.sponsorship-details }} {{ site.data.reusables.sponsors.no-fees }} For more information, see "[About billing for {{ site.data.variables.product.prodname_sponsors }}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.sponsorship-details %} {% data reusables.sponsors.no-fees %} For more information, see "[About billing for {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
 
-When you sponsor an open source contributor, the change will become effective immediately. {{ site.data.reusables.sponsors.prorated-sponsorship }}
+When you sponsor an open source contributor, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
 If the sponsored open source contributor retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)."
 
-If the open source contributor you want to sponsor does not have a sponsored developer or organization profile, you can encourage the contributor to create a sponsored developer or organization profile. For more information, see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+If the open source contributor you want to sponsor does not have a sponsored developer or organization profile, you can encourage the contributor to create a sponsored developer or organization profile. For more information, see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)" and "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
 
-{{ site.data.reusables.sponsors.sponsorships-not-tax-deductible }}
+{% data reusables.sponsors.sponsorships-not-tax-deductible %}
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_dotcom }} is not responsible for how developers represent themselves nor does {{ site.data.variables.product.prodname_dotcom }} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{{ site.data.variables.product.prodname_sponsors }} Additional Terms](/github/site-policy/github-sponsors-additional-terms).
+**Note:** {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/github/site-policy/github-sponsors-additional-terms).
 
 {% endnote %}
 
@@ -31,26 +31,26 @@ If the open source contributor you want to sponsor does not have a sponsored dev
 
 Before you can sponsor a developer, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
 
-1. On {{ site.data.variables.product.product_name }}, navigate to the profile of the person you want to sponsor.
+1. On {% data variables.product.product_name %}, navigate to the profile of the person you want to sponsor.
 2. Under the developer's name, click **Sponsor**. ![Sponsor button](/assets/images/help/profile/sponsor-button.png)
-{{ site.data.reusables.sponsors.select-a-tier }}
-{{ site.data.reusables.sponsors.select-sponsorship-billing }}
+{% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.select-sponsorship-billing %}
   ![Edit payment button](/assets/images/help/sponsors/edit-sponsorship-payment-button.png)
-{{ site.data.reusables.sponsors.who-can-see-your-sponsorship }}
+{% data reusables.sponsors.who-can-see-your-sponsorship %}
   ![Radio buttons to choose who can see your sponsorship](/assets/images/help/sponsors/who-can-see-sponsorship.png)
-{{ site.data.reusables.sponsors.developer-sponsored-choose-updates }}
+{% data reusables.sponsors.developer-sponsored-choose-updates %}
 7. Click **Sponsor _DEVELOPER_**. ![Sponsor developer button](/assets/images/help/sponsors/sponsor-developer-button.png)
 
 ### Sponsoring an organization
 
 Before you can sponsor an organization, you must have a verified email address. For more information, see "[Verifying your email address](/github/getting-started-with-github/verifying-your-email-address)."
 
-1. On {{ site.data.variables.product.product_name }}, navigate to the page of the organization you want to sponsor.
+1. On {% data variables.product.product_name %}, navigate to the page of the organization you want to sponsor.
 2. Next to the the organization's name, click **Sponsor**. ![Sponsor button](/assets/images/help/sponsors/sponsor-org-button.png)
-{{ site.data.reusables.sponsors.select-a-tier }}
-{{ site.data.reusables.sponsors.select-sponsorship-billing }}
+{% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.select-sponsorship-billing %}
   ![Edit payment button](/assets/images/help/sponsors/edit-org-sponsorship-payment-button.png)
-{{ site.data.reusables.sponsors.who-can-see-your-sponsorship }}
+{% data reusables.sponsors.who-can-see-your-sponsorship %}
   ![Radio buttons to choose who can see your sponsorship](/assets/images/help/sponsors/who-can-see-org-sponsorship.png)
-{{ site.data.reusables.sponsors.org-sponsored-choose-updates }}
+{% data reusables.sponsors.org-sponsored-choose-updates %}
 7. Click **Sponsor _ORGANIZATION_**. ![Sponsor organization button](/assets/images/help/sponsors/sponsor-org-confirm-button.png)

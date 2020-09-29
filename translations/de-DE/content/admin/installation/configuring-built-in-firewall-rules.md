@@ -1,6 +1,6 @@
 ---
 title: Integrierte Firewallregeln konfigurieren
-intro: 'Sie können standardmäßige Firewallregeln anzeigen und Regeln für {{ site.data.variables.product.product_location_enterprise }} anpassen.'
+intro: 'Sie können standardmäßige Firewallregeln anzeigen und Regeln für {% data variables.product.product_location_enterprise %} anpassen.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
@@ -8,17 +8,17 @@ versions:
   enterprise-server: '*'
 ---
 
-### Informationen zur Firewall der {{ site.data.variables.product.product_location_enterprise }}
+### Informationen zur Firewall der {% data variables.product.product_location_enterprise %}
 
-{{ site.data.variables.product.prodname_ghe_server }} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {{ site.data.variables.product.prodname_ghe_server }} automatically updates the firewall allowlist of allowed services with each release.
+{% data variables.product.prodname_ghe_server %} verwendet die Uncomplicated Firewall (UFW) von Ubuntu auf der virtuellen Appliance. Weitere Informationen finden Sie unter „[UFW](https://help.ubuntu.com/community/UFW)“ in der Ubuntu-Dokumentation. {% data variables.product.prodname_ghe_server %} automatically updates the firewall allowlist of allowed services with each release.
 
-Nachdem Sie {{ site.data.variables.product.prodname_ghe_server }} installiert haben, werden automatisch alle erforderlichen Netzwerkports zum Akzeptieren der Verbindungen geöffnet. Jeder nicht erforderliche Port wird automatisch als `deny` (verweigern) konfiguriert, und die standardmäßige Richtlinie für ausgehende Verbindungen wird als `allow` (zulassen) konfiguriert. Die Zustandsverfolgung ist für neue Verknüpfungen aktiviert. In der Regel handelt es sich dabei um Netzwerkpakete mit dem Bitsatz `SYN`. Weitere Informationen finden Sie unter „[Netzwerkports](/enterprise/admin/guides/installation/network-ports)“.
+Nachdem Sie {% data variables.product.prodname_ghe_server %} installiert haben, werden automatisch alle erforderlichen Netzwerkports zum Akzeptieren der Verbindungen geöffnet. Jeder nicht erforderliche Port wird automatisch als `deny` (verweigern) konfiguriert, und die standardmäßige Richtlinie für ausgehende Verbindungen wird als `allow` (zulassen) konfiguriert. Die Zustandsverfolgung ist für neue Verknüpfungen aktiviert. In der Regel handelt es sich dabei um Netzwerkpakete mit dem Bitsatz `SYN`. Weitere Informationen finden Sie unter „[Netzwerkports](/enterprise/admin/guides/installation/network-ports)“.
 
-Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {{ site.data.variables.product.prodname_ghe_server }} erforderlich sind. Weitere Informationen zum UFW-Regelsatz finden Sie in der „[UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)“.
+Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße Funktion von {% data variables.product.prodname_ghe_server %} erforderlich sind. Weitere Informationen zum UFW-Regelsatz finden Sie in der „[UFW README](https://bazaar.launchpad.net/~jdstrand/ufw/0.30-oneiric/view/head:/README#L213)“.
 
 ### Standardmäßige Firewallregeln anzeigen
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. Führen Sie den Befehl `sudo ufw status` aus, um die standardmäßigen Firewallregeln anzuzeigen. Es sollte in etwa folgende Ausgabe angezeigt werden:
   ```shell
   $ sudo ufw status
@@ -51,7 +51,7 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
 
 {% warning %}
 
-**Warnung:** Bevor Sie benutzerdefinierte Firewallregeln hinzufügen, sollten Sie Ihre aktuellen Regeln sichern, falls Sie in einen bekannten Betriebszustand zurückkehren müssen. Falls Ihr Server für Sie gesperrt ist, kontaktieren Sie {{ site.data.variables.contact.contact_ent_support }}, um die ursprünglichen Firewallregeln neu zu konfigurieren. Die Wiederherstellung der ursprünglichen Firewallregeln führt zu Ausfallzeiten für Ihren Server.
+**Warnung:** Bevor Sie benutzerdefinierte Firewallregeln hinzufügen, sollten Sie Ihre aktuellen Regeln sichern, falls Sie in einen bekannten Betriebszustand zurückkehren müssen. Falls Ihr Server für Sie gesperrt ist, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um die ursprünglichen Firewallregeln neu zu konfigurieren. Die Wiederherstellung der ursprünglichen Firewallregeln führt zu Ausfallzeiten für Ihren Server.
 
 {% endwarning %}
 
@@ -65,7 +65,7 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
   $ sudo cp -r /lib/ufw ~/ufw.backup
   ```
 
-Nach dem Upgrade von {{ site.data.variables.product.product_location_enterprise }} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
+Nach dem Upgrade von {% data variables.product.product_location_enterprise %} müssen Sie Ihre benutzerdefinierten Firewallregeln erneut anwenden. Sie sollten ein Skript erstellen, um Ihre benutzerdefinierten Firewallregeln erneut anzuwenden.
 
 ### Standardmäßige Firewallregeln wiederherstellen
 
@@ -73,11 +73,11 @@ Wenn nach dem Ändern der Firewallregeln ein Fehler auftritt, können Sie die Re
 
 {% warning %}
 
-**Warnung:** Falls Sie die ursprünglichen Regeln nicht gesichert haben, bevor Sie Änderungen an der Firewall vorgenommen haben, kontaktieren Sie {{ site.data.variables.contact.contact_ent_support }}, um weitere Unterstützung zu erhalten.
+**Warnung:** Falls Sie die ursprünglichen Regeln nicht gesichert haben, bevor Sie Änderungen an der Firewall vorgenommen haben, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um weitere Unterstützung zu erhalten.
 
 {% endwarning %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. Kopieren Sie zum Wiederherstellen der vorherigen Backup-Regeln diese mithilfe des Befehls `cp` zurück zur Firewall.
   ```shell
   $ sudo cp -f ~/ufw.backup/*rules /lib/ufw

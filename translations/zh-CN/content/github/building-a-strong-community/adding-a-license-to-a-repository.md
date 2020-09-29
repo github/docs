@@ -18,15 +18,15 @@ versions:
 
 <!--Dotcom version uses the license tool-->
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中，输入 *LICENSE* 或 *LICENSE.md*（全大写）。
 4. 在文件名字段右边，单击 **Choose a license template（选择许可模板）**。 ![选择许可模板按钮](/assets/images/help/repository/license-tool.png)
 5. 在页面左边的 "Add a license to your project"（添加许可到项目）下，检查可用的许可，然后从列表中选择许可。 ![可用许可列表](/assets/images/help/repository/license-tool-picker.png)
 6. 单击 **Review and submit（预览并提交）**。 ![审查和提交按钮](/assets/images/help/repository/license-review-tool.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.choose-commit-email %}
 10. 单击 **Commit new file（提交新文件）**。 ![提交许可到分支](/assets/images/help/repository/license-submit-tool.png)
 
 {% endif %}
@@ -34,12 +34,12 @@ versions:
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
 {% if currentVersion != "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中，输入 *LICENSE* 或 *LICENSE.md*（全大写）。
 4. 在 **Edit new file（编辑新文件）**选项卡中，粘贴要使用的许可的全文。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
 7. 在提交消息字段下面，确定是要将提交添加到当前分支还是新分支。 If your current branch is `main`, you should choose to create a new branch for your commit and then create a pull request. For more information, see "[Creating a pull request](/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)". ![提交分支选项](/assets/images/help/repository/choose-commit-branch.png)
 8. 单击 **Commit new file（提交新文件）**。 ![提交许可到分支](/assets/images/help/repository/license-submit-tool.png)
 

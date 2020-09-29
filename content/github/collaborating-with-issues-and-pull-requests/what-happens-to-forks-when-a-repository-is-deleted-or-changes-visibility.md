@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}                    
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}                    
 
 #### Deleting a private repository
 
@@ -21,7 +21,7 @@ When you delete a public repository, one of the existing public forks is chosen 
 
 #### Private forks and permissions
 
-{{ site.data.reusables.repositories.private_forks_inherit_permissions }}
+{% data reusables.repositories.private_forks_inherit_permissions %}
 
 #### Changing a public repository to a private repository
 

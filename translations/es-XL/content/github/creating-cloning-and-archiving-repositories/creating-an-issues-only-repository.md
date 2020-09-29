@@ -1,6 +1,6 @@
 ---
 title: Crear un repositorio solo para propuestas
-intro: '{{ site.data.variables.product.product_name }} no otorga permisos de acceso solo para propuestas, pero puedes cumplir con este requisito usando un segundo repositorio que contenga solo las propuestas.'
+intro: '{% data variables.product.product_name %} no otorga permisos de acceso solo para propuestas, pero puedes cumplir con este requisito usando un segundo repositorio que contenga solo las propuestas.'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/

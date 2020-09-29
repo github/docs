@@ -10,7 +10,7 @@ versions:
 
 Si [eliminas un usuario de tu organización](/articles/removing-a-member-from-your-organization), [conviertes un miembro de la organización en un colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator) o si se elimina un usuario de tu organización porque [solicitaste a los miembros y colaboradores externos que habilitaran la autenticación de dos factores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization), los privilegios y parámetros de acceso del usuario se guardarán durante tres meses. Puedes restaurar los privilegios del usuario si lo vuelves a {% if currentVersion =="free-pro-team@latest" %}invitar{% else %}agregar{% endif %} a la organización en el transcurso de ese tiempo.
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 Cuando reinstales un miembro antiguo de la organización, puedes restaurar lo siguiente:
  - El rol del usuario en la organización
@@ -27,7 +27,7 @@ Cuando reinstales un miembro antiguo de la organización, puedes restaurar lo si
     **Tips**:
     - Si se eliminó de la organización a un miembro de la organización porque no utilizó la autenticación de dos factores, y tu organización aún requiere que los miembros utilicen la 2FA, el miembro antiguo debe habilitar la autenticación de dos factores antes de que puedas reinstalar su membresía.
     - Solo los propietarios de la organización pueden invitar a usuarios a unirse a una organización. Para obtener más información, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization)".
-    - Si tu organización tiene una suscripción de pago por usuario, debes de contar con una licencia disponible antes de que puedas reinstaurar a algún miembro previo de la organización. Para obtener más información, consulta "[About per-user pricing](/articles/about-per-user-pricing)". {{ site.data.reusables.organizations.org-invite-expiration }}
+    - Si tu organización tiene una suscripción de pago por usuario, debes de contar con una licencia disponible antes de que puedas reinstaurar a algún miembro previo de la organización. Para obtener más información, consulta "[About per-user pricing](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}
 
    {% else %}
     **Tips**:
@@ -37,11 +37,11 @@ Cuando reinstales un miembro antiguo de la organización, puedes restaurar lo si
 
    {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. Decide si quieres restaurar los privilegios antiguos de esa persona en la organización o eliminar sus privilegios antiguos y establecer nuevos permisos de acceso, luego haz clic en **Invite and reinstate** (Invitar y reinstalar) o **Invite and start fresh** (Invitar e iniciar de nuevo). ![Decide si quieres restaurar la información o no](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
@@ -53,7 +53,7 @@ Cuando reinstales un miembro antiguo de la organización, puedes restaurar lo si
 7. Si eliminaste los privilegios anteriores de un miembro antiguo de la organización, elige un rol para el usuario y, de manera opcional, agrégalo a algunos equipos, luego haz clic en **Add member** (Agregar miembro). ![Opciones de rol y equipo y botón para agregar miembros](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.organizations.user_must_accept_invite_email }} {{ site.data.reusables.organizations.cancel_org_invite }}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### Leer más

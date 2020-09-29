@@ -1,13 +1,13 @@
 ---
 title: Claves SSH eliminadas o faltantes
-intro: 'Como precaución de seguridad, {{ site.data.variables.product.prodname_dotcom }} elimina automáticamente las claves SSH que no se han usado durante un año.'
+intro: 'Como precaución de seguridad, {% data variables.product.prodname_dotcom %} elimina automáticamente las claves SSH que no se han usado durante un año.'
 redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.variables.product.prodname_dotcom }} elimina automáticamente las claves SSH inactivas para mantener la seguridad de las cuentas, por ejemplo, cuando alguien deja el trabajo o pierde su computadora.
+{% data variables.product.prodname_dotcom %} elimina automáticamente las claves SSH inactivas para mantener la seguridad de las cuentas, por ejemplo, cuando alguien deja el trabajo o pierde su computadora.
 
 Puedes verificar si has usado o no una clave SSH durante un año revisando el registro de seguridad de tu cuenta. Para obtener más información, consulta "[Revisar tu registro de seguridad](/articles/reviewing-your-security-log/)".
 

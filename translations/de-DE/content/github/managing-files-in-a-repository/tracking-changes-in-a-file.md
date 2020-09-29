@@ -24,7 +24,7 @@ In einer Datei oder einem Pull Request kannst Du Git Blame für eine bestimmte Z
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Zum Öffnen klicke auf die Datei, deren Zeilenverlauf Du anzeigen möchtest.
 3. Klicke rechts oben in der Dateiansicht auf **Blame**, um die Blame-Ansicht zu öffnen. ![Schaltfläche „Blame“](/assets/images/help/repository/blame-button.png)
 4. Wenn Sie frühere Revisionen einer bestimmten Zeile anzeigen möchten, klicken Sie so oft auf {% octicon "versions" aria-label="The prior blame icon" %}, bis Sie die Informationen, die Sie interessieren, gefunden haben. ![Schaltfläche „Prior Blame“ (Vorheriges Blame)](/assets/images/help/repository/prior-blame-button.png)

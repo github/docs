@@ -13,17 +13,17 @@ versions:
 
 ### Gistについて
 
-すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 Gist を作成する際 {{ site.data.variables.product.product_name }} にサインインしている場合、その Gist は自分のアカウントに関連付けられ、{{ site.data.variables.gists.gist_homepage }} に移動すると自分の Gist リストに表示されます。
+すべての Gist は Git のリポジトリであり、フォークしたりクローンしたりできます。 Gist を作成する際 {% data variables.product.product_name %} にサインインしている場合、その Gist は自分のアカウントに関連付けられ、{% data variables.gists.gist_homepage %} に移動すると自分の Gist リストに表示されます。
 
-Gist はパブリックまたはプライベートにできます。 パブリックGistは{{ site.data.variables.gists.discover_url }}に表示されます。ここでは作成されたばかりの新しいGistをブラウズできます。 それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。 {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+Gist はパブリックまたはプライベートにできます。 パブリックGistは{% data variables.gists.discover_url %}に表示されます。ここでは作成されたばかりの新しいGistをブラウズできます。 それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-シークレット Gist は {{ site.data.variables.gists.discover_url }} では表示されず{% if currentVersion != "free-pro-team@latest" %}、{% endif %}検索もできません。 {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}シークレット Gist は、プライベートではありません。 シークレット Gist の URL を友人に送信すれば、見てもらえるようになります。 ただし、知人ではない誰かがその URL を見つけたなら、その人もその Gist を見ることができます。 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
+シークレット Gist は {% data variables.gists.discover_url %} では表示されず{% if currentVersion != "free-pro-team@latest" %}、{% endif %}検索もできません。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}シークレット Gist は、プライベートではありません。 シークレット Gist の URL を友人に送信すれば、見てもらえるようになります。 ただし、知人ではない誰かがその URL を見つけたなら、その人もその Gist を見ることができます。 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 サイト管理者がプライベートモードを無効化している場合は、匿名 Gist を使うこともできます。匿名 Gist はパブリックもしくはシークレットにできます。
 
-{{ site.data.reusables.gist.anonymous-gists-cannot-be-deleted }}
+{% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Gist はパブリックまたはプライベートにできます。 パブリ�
 
 You can pin gists to your profile so other people can see them easily. 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
 
-他の人が作成した Gist は、{{ site.data.variables.gists.gist_homepage }} にアクセスして [**All Gists**] をクリックすることで見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {{ site.data.variables.gists.gist_search_url }} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
+他の人が作成した Gist は、{% data variables.gists.gist_homepage %} にアクセスして [**All Gists**] をクリックすることで見つけることができます。 こうすると、すべての Gist が作成時刻または更新時刻でソートされて表示されるページに行きます。 また、Gist は {% data variables.gists.gist_search_url %} で言語ごとに検索できます。 Gist 検索は[コード検索](/articles/searching-code)と同じ検索構文を使います。
 
 Gist は Git リポジトリであるため、完全なコミット履歴を diff とともに表示させることができます。 Gist はフォークしたりクローンしたりすることもできます。 詳細は「[Gist のフォークおよびクローン](/articles/forking-and-cloning-gists)」を参照してください。
 
@@ -45,7 +45,7 @@ Gist の ZIP ファイルは、Gist の上部にある [**Download ZIP**] ボタ
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Gist は GeoJSON ファイルのマッピングをサポートしています。 このようなマップは、簡単に共有しマップを埋め込むことができるよう、埋め込み Gist 内に表示されます。 詳細は「[{{ site.data.variables.product.product_name }} に GeoJSON ファイルをマッピングする](/articles/mapping-geojson-files-on-github)」を参照してください。
+Gist は GeoJSON ファイルのマッピングをサポートしています。 このようなマップは、簡単に共有しマップを埋め込むことができるよう、埋め込み Gist 内に表示されます。 詳細は「[{% data variables.product.product_name %} に GeoJSON ファイルをマッピングする](/articles/mapping-geojson-files-on-github)」を参照してください。
 
 {% endif %}
 
@@ -56,13 +56,13 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% note %}
 
-You can also create a gist using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endnote %}
 {% endif %}
 
-1. {{ site.data.variables.product.product_name }}にサインインします。
-2. {{ site.data.variables.gists.gist_homepage }}に移動します。
+1. {% data variables.product.product_name %}にサインインします。
+2. {% data variables.gists.gist_homepage %}に移動します。
 3. Gist の名前と説明 (任意) を入力します。 ![Gist の名前と説明](/assets/images/help/gist/gist_name_description.png)
 
 4. Gist のテキストを Gist テキストボックスに入力します。 ![Gist テキストボックス](/assets/images/help/gist/gist_text_box.png)
@@ -73,6 +73,6 @@ You can also create a gist using the {{ site.data.variables.product.prodname_cli
 
   {% note %}
 
-  **メモ:** {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+  **メモ:** {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
   {% endnote %}

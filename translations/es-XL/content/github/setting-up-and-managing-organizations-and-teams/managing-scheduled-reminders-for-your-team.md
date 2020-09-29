@@ -9,53 +9,53 @@ versions:
 
 ### Acerca de los recordatorios programados para equipos
 
-{{ site.data.reusables.reminders.about-scheduled-reminders-teams-orgs }}
+{% data reusables.reminders.about-scheduled-reminders-teams-orgs %}
 
 Los mantenedores de equipo y propietarios de organización pueden configurar recordatorios programados para cualquier solicitud de extracción que tenga una solicitud de revisión por parte de sus equipos. Antes de que puedas crear un recordatorio programado para tu equipo, un propietario de la organización debe autorizar tu espacio de trabajo de Slack. Para obtener más información, consulta la sección "[Administrar recordatorios programados para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-your-organization)".
 
 ### Crear un recordatorio programado para un equipo
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.slack-channel }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
-{{ site.data.reusables.reminders.tracked-repos }}
-{{ site.data.reusables.reminders.ignore-drafts }}
-{{ site.data.reusables.reminders.no-review-requests }}
-{{ site.data.reusables.reminders.author-reviews }}
-{{ site.data.reusables.reminders.approved-prs }}
-{{ site.data.reusables.reminders.min-age }}
-{{ site.data.reusables.reminders.min-staleness }}
-{{ site.data.reusables.reminders.ignored-terms }}
-{{ site.data.reusables.reminders.ignored-labels }}
-{{ site.data.reusables.reminders.required-labels }}
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.slack-channel %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
+{% data reusables.reminders.tracked-repos %}
+{% data reusables.reminders.ignore-drafts %}
+{% data reusables.reminders.no-review-requests %}
+{% data reusables.reminders.author-reviews %}
+{% data reusables.reminders.approved-prs %}
+{% data reusables.reminders.min-age %}
+{% data reusables.reminders.min-staleness %}
+{% data reusables.reminders.ignored-terms %}
+{% data reusables.reminders.ignored-labels %}
+{% data reusables.reminders.required-labels %}
+{% data reusables.reminders.create-reminder %}
 
 ### Administrar un recordatorio programado para un equipo
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
-{{ site.data.reusables.reminders.edit-existing }}
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-existing %}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### Borrar un recordatorio programado para un equipo
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/teams/scheduled-reminders-teams.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### Leer más
 

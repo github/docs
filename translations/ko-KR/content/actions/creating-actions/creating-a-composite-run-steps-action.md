@@ -1,14 +1,14 @@
 ---
 title: Creating a composite run steps action
 intro: 'In this guide, you''ll learn how to build a composite run steps action.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
@@ -18,9 +18,9 @@ Once you complete this project, you should understand how to build your own comp
 
 ### 빌드전 요구 사양
 
-Before you begin, you'll create a {{ site.data.variables.product.product_name }} repository.
+Before you begin, you'll create a {% data variables.product.product_name %} repository.
 
-1. Create a new public repository on {{ site.data.variables.product.product_location }}. You can choose any repository name, or use the following `hello-world-composite-run-steps-action` example. You can add these files after your project has been pushed to {{ site.data.variables.product.product_name }}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.product_location %}. You can choose any repository name, or use the following `hello-world-composite-run-steps-action` example. You can add these files after your project has been pushed to {% data variables.product.product_name %}. For more information, see "[Create a new repository](/articles/creating-a-new-repository)."
 
 1. Clone your repository to your computer. For more information, see "[Cloning a repository](/articles/cloning-a-repository)."
 

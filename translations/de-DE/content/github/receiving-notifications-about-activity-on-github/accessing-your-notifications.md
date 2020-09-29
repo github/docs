@@ -1,15 +1,15 @@
 ---
 title: Auf Deine Benachrichtigungen zugreifen
-intro: 'Je nachdem, wie die Auslieferung Deiner Benachrichtigungen eingerichtet ist, kannst Du auf Deine Benachrichtigungen über {{ site.data.variables.product.product_name }} oder über Deinen E-Mail-Client zugreifen.'
+intro: 'Je nachdem, wie die Auslieferung Deiner Benachrichtigungen eingerichtet ist, kannst Du auf Deine Benachrichtigungen über {% data variables.product.product_name %} oder über Deinen E-Mail-Client zugreifen.'
 versions:
   enterprise-server: <2.21
 ---
 
 ### Auf Deine Webbenachrichtigungen zugreifen
 
-Um auf Webbenachrichtigungen auf {{ site.data.variables.product.product_name }} zuzugreifen, musst Du Webbenachrichtigungen aktiviert haben. Weitere Informationen findest Du unter „[Über Webbenachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)" und „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
+Um auf Webbenachrichtigungen auf {% data variables.product.product_name %} zuzugreifen, musst Du Webbenachrichtigungen aktiviert haben. Weitere Informationen findest Du unter „[Über Webbenachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-web-notifications)" und „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. Klicke in der linken Seitenleiste auf **Participating** (Teilnehmend), um alle Benachrichtigungen für Aktivitäten anzuzeigen, an denen Du teilnimmst. ![Auflistung von Teilnahmebenachrichtigungen](/assets/images/help/notifications/notifications_sidebar_participating.png)
 3. Klicke in der linken Seitenleiste auf den Namen eines Repositorys, um Benachrichtigungen für ein bestimmtes Repository anzuzeigen. ![Auflistung individueller Repository-Benachrichtigungen](/assets/images/help/notifications/notifications_sidebar_specific_repos.png)
 

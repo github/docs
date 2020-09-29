@@ -32,7 +32,7 @@ Todas as Informações Confidenciais permanecem como propriedade única e exclus
 
 Ao participar deste Programa, você concorda com nosso uso de suas informações pessoais para fins de pesquisa, e não para outros fins. Como parte do Programa, podemos usar suas informações pessoais para entrar em contato com você ou reter suas informações para entrar em contato com você em uma data posterior. As Informações Pessoais não incluem informações agregadas nem informações pessoais não identificáveis. Podemos usar informações agregadas ou outras informações pessoais não identificáveis coletadas por meio do programa para operar, analisar e melhorar nossos produtos e serviços.
 
-Você pode retirar seu consentimento a qualquer momento e solicitar acesso ou a exclusão das informações pessoais que mantemos sobre você. Para obter mais informações sobre como você pode acessar, atualizar, alterar ou excluir as informações pessoais que o GitHub coleta através do Programa, por favor, consulte a [Declaração de Privacidade do GitHub](/articles/github-privacy-statement/) ou entre em contato conosco através de nosso {{ site.data.variables.contact.contact_privacy }}.
+Você pode retirar seu consentimento a qualquer momento e solicitar acesso ou a exclusão das informações pessoais que mantemos sobre você. Para obter mais informações sobre como você pode acessar, atualizar, alterar ou excluir as informações pessoais que o GitHub coleta através do Programa, por favor, consulte a [Declaração de Privacidade do GitHub](/articles/github-privacy-statement/) ou entre em contato conosco através de nosso {% data variables.contact.contact_privacy %}.
 
 ### E. Serviços e Termos do Software GitHub
 

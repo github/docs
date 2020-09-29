@@ -11,8 +11,8 @@ versions:
 
 如果您在议题或拉取请求中取消订阅对话，您将不再收到关于该对话的通知。 如果对话中@提及您或您所属的团队，您将再次开始接收通知。 有关@提及的更多信息，请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)”。{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 选择要订阅的议题或拉取请求。
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
 4. 在右侧边栏中，单击 **Subscribe（订阅）**或 **Unsubscribe（取消订阅）**。 ![对话订阅按钮](/assets/images/help/notifications/subscribe_button_with_gear.png)
@@ -25,28 +25,28 @@ You can see a list of all the issues and pull requests you're subscribed to. 更
 
 ### 订阅团队讨论
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. 在团队页面上，找到您想要订阅的讨论。
 6. 在讨论的右上角，单击 {% octicon "unmute" aria-label="The subscribe symbol" %} 以订阅该讨论。 ![团队讨论订阅按钮](/assets/images/help/notifications/team-discussion-subscribe-button.png)
 
 ### 取消订阅团队讨论
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. 在团队页面上，找到您想要取消订阅的讨论。
 6. 在讨论的右上角，单击 {% octicon "mute" aria-label="The unsubscribe symbol" %} 以取消订阅该讨论。 ![团队讨论订阅按钮](/assets/images/help/notifications/team-discussion-unsubscribe-button.png)
 
 ### 延伸阅读
 
 - "[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- “[关于 {{ site.data.variables.product.product_name }} 中的对话](/articles/about-conversations-on-github)”
+- “[关于 {% data variables.product.product_name %} 中的对话](/articles/about-conversations-on-github)”
 - "[关注和取消关注仓库](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
 
 - "[列出您关注的仓库](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

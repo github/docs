@@ -1,7 +1,7 @@
 ---
 title: SAML Single Sign-On für Deine Organisation aktivieren und testen
 intro: 'Inhaber und Administratoren von Organisationen können SAML Single-Sign-On aktivieren, um eine zusätzliche Sicherheitsebene für die Organisation zu schaffen.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
@@ -12,14 +12,14 @@ Du kannst SAML SSO in Deiner Organisation aktivieren, ohne die Verwendung für a
 
 Wenn Du SAML SSO aktivierst, aber nicht erzwingst, können Organisationsmitglieder, die SAML SSO nicht verwenden, trotzdem Mitglieder der Organisation bleiben. Weitere Informationen zur erzwungenen Nutzung von SAML SSO findest Du unter „[SAML Single Sign-On für Deine Organisation erzwingen](/articles/enforcing-saml-single-sign-on-for-your-organization).“
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 Bevor Du SAML SSO in Deiner Organisation erzwingst, stelle sicher, dass Du den Identitätsanbieter (IdP Identity Provider) eingerichtet hast. Weitere Informationen findest Du unter „[Auf die Erzwingung von SAML Single Sign-On in Deiner Organisation vorbereiten](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization).“
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
 5. Wähle unter „SAML single sign-on“ (SAML Single Sign-On) **Enable SAML authentication** (SAML-Authentifizierung aktivieren) aus. ![Kontrollkästchen zum Aktivieren von SAML SSO](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
@@ -36,7 +36,7 @@ Bevor Du SAML SSO in Deiner Organisation erzwingst, stelle sicher, dass Du den I
 
   {% tip %}
 
-  **Tipp:** {{ site.data.reusables.saml.testing-saml-sso }}
+  **Tipp:** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
 11. Um SAML SSO zu erzwingen und alle Organisationsmitglieder zu entfernen, die sich nicht über Deinen IdP authentifiziert haben, wähle **Require SAML SSO authentication for all members of the _organization name_ organization** (SAML SSO-Authentifizierung für alle Mitglieder der Organisation vorschreiben) aus. Weitere Informationen zur erzwungenen Nutzung von SAML SSO findest Du unter „[SAML Single Sign-On für Deine Organisation erzwingen](/articles/enforcing-saml-single-sign-on-for-your-organization).“ ![Kontrollkästchen, um SAML SSO für Deine Organisation vorzuschreiben ](/assets/images/help/saml/saml_require_saml_sso.png)

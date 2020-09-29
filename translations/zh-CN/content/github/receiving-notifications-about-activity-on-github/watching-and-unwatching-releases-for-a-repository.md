@@ -7,12 +7,12 @@ versions:
 
 ### 关注仓库的发行版
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 在右上角，单击“Watch（关注）”下拉菜单的 **Releases only（仅发行版）**。 ![发行版下拉菜单中的关注选项](/assets/images/help/notifications/watch-releases.png)
 
 ### 取消关注仓库的发行版
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 在右上角，单击“Watch（关注）”下拉菜单的 **Not watching（不再关注）**。 ![发行版下拉菜单中的关注选项](/assets/images/help/notifications/unwatch-repository.png)
 
 ### 延伸阅读

@@ -1,6 +1,6 @@
 ---
 title: GitHub が配信するメールの種類
-intro: '{{ site.data.variables.product.product_name }} から受け取るメールには、通知、アカウントの情報、マーケティングの連絡などいくつかの種類があります。'
+intro: '{% data variables.product.product_name %} から受け取るメールには、通知、アカウントの情報、マーケティングの連絡などいくつかの種類があります。'
 redirect_from:
   - /articles/types-of-emails-github-sends
 versions:
@@ -27,10 +27,10 @@ versions:
 
 ### マーケティングメール
 
-{{ site.data.variables.product.product_name }} は時々、これらの種類のマーケティングメールを配信します。
+{% data variables.product.product_name %} は時々、これらの種類のマーケティングメールを配信します。
 
 - アカウントで活動を始めるためのヒントや秘訣
 - 関わっているプロジェクトや新しい機能に特化された情報
-- {{ site.data.variables.explore.explore_github }} など、お客様がサブスクライブしたニュースレター
+- {% data variables.explore.explore_github %} など、お客様がサブスクライブしたニュースレター
 
 詳細は「[GitHub からのマーケティング メールを管理する](/articles/managing-marketing-emails-from-github)」を参照してください。

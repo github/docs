@@ -1,6 +1,6 @@
 ---
 title: Making a GitHub App public or private
-intro: '{{ site.data.reusables.shortdesc.making-a-github-app-public-or-private }}'
+intro: '{% data reusables.shortdesc.making-a-github-app-public-or-private %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-installation-options-for-github-apps/
   - /apps/building-github-apps/installation-options-for-github-apps/
@@ -26,12 +26,12 @@ Private installation flows allow only the owner of a GitHub App to install it. L
 
 To change who can install the GitHub App:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
 3. Select the GitHub App whose installation option you want to change.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
-{{ site.data.reusables.user-settings.github_apps_advanced }}
+{% data reusables.user-settings.github_apps_advanced %}
 5. Depending on the installation option of your GitHub App, click either **Make public** or **Make internal**.
 ![Button to change the installation option of your GitHub App](/assets/images/github-apps/github_apps_make_public.png)
 6. Depending on the installation option of your GitHub App, click either **Yes, make this GitHub App public** or **Yes, make this GitHub App internal**.

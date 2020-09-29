@@ -56,9 +56,9 @@ Consulta [nuestra guía sobre la automatización de tokens en Git][git-automatio
 
 ### Llaves de implementación
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
-{{ site.data.reusables.repositories.deploy-keys-write-access }}
+{% data reusables.repositories.deploy-keys-write-access %}
 
 ##### Pros
 
@@ -74,7 +74,7 @@ Consulta [nuestra guía sobre la automatización de tokens en Git][git-automatio
 ##### Configuración
 
 1. [Ejecuta el procedimiento de `ssh-keygen`][generating-ssh-keys] en tu servidor, y recuerda en donde guardaste el par de llaves pública/privada de rsa.
-2. En la esquina superior derecha de cualquier página de {{ site.data.variables.product.product_name }}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
+2. En la esquina superior derecha de cualquier página de {% data variables.product.product_name %}, da clic en tu foto de perfil y luego da clic en **Tu perfil**. ![Navegación al perfil](/assets/images/profile-page.png)
 3. En tu página de perfil, da clic en **Repositorios** y luego en el nombre de tu repositorio. ![Enlace de los repositorios](/assets/images/repos.png)
 4. Desde tu repositorio, da clic en **Configuración**. ![Configuración del repositorio](/assets/images/repo-settings.png)
 5. En la barra lateral, da clic en **Desplegar llaves** y luego en **Agregar llave de despliegue**. ![Enlace para agregar llaves de despliegue](/assets/images/add-deploy-key.png)
@@ -84,7 +84,7 @@ Consulta [nuestra guía sobre la automatización de tokens en Git][git-automatio
 
 ### Usuarios máquina
 
-Si tu servidor necesita acceder a repositorios múltiples, puedes crear una nueva cuenta de {{ site.data.variables.product.product_name }} y adjuntar una llave SSH que se utilizará exclusivamente para fines de automatización. Ya que ninguna persona utilizará esta cuenta de {{ site.data.variables.product.product_name }}, se le llama _usuario máquina_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
+Si tu servidor necesita acceder a repositorios múltiples, puedes crear una nueva cuenta de {% data variables.product.product_name %} y adjuntar una llave SSH que se utilizará exclusivamente para fines de automatización. Ya que ninguna persona utilizará esta cuenta de {% data variables.product.product_name %}, se le llama _usuario máquina_. Puedes agregar el usuario máquina como [colaborador][collaborator] en un repositorio personal (otorgándole acceso de lectura y escritura), como un [colaborador externo][outside-collaborator] en el repositorio de una organización (otorgándole acceso de lectura, escritura y administrador), o a un [equipo][team] con acceso a los repositorios que necesite para la automatización (otorgándole los permisos del equipo).
 
 {% if currentVersion == "free-pro-team@latest" %}
 

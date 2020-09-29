@@ -11,8 +11,8 @@ versions:
 
 Sobald Du das Abonnement einer Unterhaltung zu einem Issue oder Pull Request kündigst, werden diese Benachrichtigungen eingestellt. Sollten jedoch Du oder ein Team, dessen Mitglied Du bist, in der Unterhaltung @erwähnt werden, erhältst Du diese Benachrichtigungen wieder. Weitere Informationen zu @Erwähnungen findest Du unter „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)“.{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Wähle einen Issue oder Pull Request, den Du abonnieren möchtest.
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
 4. Klicke in der rechten Seitenleiste auf **Subscribe** (Abonnieren) oder **Unsubscribe** (Kündigen). ![Schaltfläche „Conversation Subscribe" (Abonnieren einer Unterhaltung)](/assets/images/help/notifications/subscribe_button_with_gear.png)
@@ -25,28 +25,28 @@ Du kannst eine Liste aller abonnierten Issues und Pull Requests abrufen. Weitere
 
 ### Teamdiskussionen abonnieren
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. Suche auf der Teamseite die Diskussion, die Du abonnieren möchtest.
 6. Klicke rechts oben in der Diskussion auf {% octicon "unmute" aria-label="The subscribe symbol" %}, um die Diskussion zu abonnieren. ![Schaltfläche „Team discussion Subscribe" (Abonnieren einer Teamdiskussion)](/assets/images/help/notifications/team-discussion-subscribe-button.png)
 
 ### Teamdiskussionen kündigen
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. Suche auf der Teamseite die Diskussion, deren Abonnement Du kündigen möchtest.
 6. Klicke rechts oben in der Diskussion auf {% octicon "mute" aria-label="The unsubscribe symbol" %}, um die Diskussion zu kündigen. ![Schaltfläche „Team discussion Subscribe" (Abonnieren einer Teamdiskussion)](/assets/images/help/notifications/team-discussion-unsubscribe-button.png)
 
 ### Weiterführende Informationen
 
 - „[Über Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- „[Informationen zu Unterhaltungen auf {{ site.data.variables.product.product_name }}](/articles/about-conversations-on-github)“
+- „[Informationen zu Unterhaltungen auf {% data variables.product.product_name %}](/articles/about-conversations-on-github)“
 - „[Beobachten von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
 
 - „[Repositorys auflisten, die Du beobachtest](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

@@ -24,13 +24,13 @@ versions:
 
 首先，您需要注册[您的应用程序][new oauth app]。 每个注册的 OAuth 应用程序都被分配了一个唯一的客户端 ID 和客户端密钥。 不应共享客户端密钥！ 也不应将该字符串检入您的仓库。
 
-您可以根据喜好填写任何信息，但**授权回调 URL** 除外。 这往往是设置应用程序中最重要的部分。 它是在身份验证成功后，{{ site.data.variables.product.product_name }} 将用户返回到的回调 URL。
+您可以根据喜好填写任何信息，但**授权回调 URL** 除外。 这往往是设置应用程序中最重要的部分。 它是在身份验证成功后，{% data variables.product.product_name %} 将用户返回到的回调 URL。
 
 由于我们运行常规的 Sinatra 服务器，因此本地实例的位置设置为 `http://localhost:4567`。 回调 URL 应填写为 `http://localhost:4567/callback`。
 
 ### 接受用户授权
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 现在开始设置我们简单的服务器。 创建一个名为 _server.rb_ 的文件并将以下代码粘贴到其中：
 
@@ -48,7 +48,7 @@ end
 ```
 
 客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。 因此，**绝对、 _永远_**不要将这些值存储在
-{{ site.data.variables.product.product_name }} 中或任何其他公共位置。 我们建议将它们存储为[环境变量][about env vars]，这正是我们在这里采用的做法。
+{% data variables.product.product_name %} 中或任何其他公共位置。 我们建议将它们存储为[环境变量][about env vars]，这正是我们在这里采用的做法。
 
 接下来，在 _views/index.erb_ 中粘贴此内容：
 
@@ -75,11 +75,11 @@ end
 
 另请注意，URL 使用 `scope` 查询参数来定义应用程序请求的[作用域][oauth scopes]。 对于我们的应用程序，我们请求 `user:email` 作用域来读取私密电子邮件地址。
 
-将浏览器导航到 `http://localhost:4567`。 单击链接后，您应该会转到 {{ site.data.variables.product.product_name }}，并显示如下所示的对话框： ![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
+将浏览器导航到 `http://localhost:4567`。 单击链接后，您应该会转到 {% data variables.product.product_name %}，并显示如下所示的对话框： ![GitHub 的 OAuth 提示](/assets/images/oauth_prompt.png)
 
 如果您觉得没问题，请单击 **Authorize App（授权应用程序）**。 哇！ Sinatra 弹出 `404` 错误。 是什么原因呢？
 
-哦，还记得我们指定了一个回调 URL 用于 `callback` 吗？ 我们没有为它提供路由，因此 {{ site.data.variables.product.product_name }} 在用户授权应用程序后不知道将他们带去哪里。 现在我们来解决这个问题！
+哦，还记得我们指定了一个回调 URL 用于 `callback` 吗？ 我们没有为它提供路由，因此 {% data variables.product.product_name %} 在用户授权应用程序后不知道将他们带去哪里。 现在我们来解决这个问题！
 
 #### 提供回调
 
@@ -102,7 +102,7 @@ get '/callback' do
 end
 ```
 
-在应用程序身份验证成功后，{{ site.data.variables.product.product_name }} 将提供一个临时的 `code` 值。 您需要将此代码 `POST` 到 {{ site.data.variables.product.product_name }} 以换取 `access_token`。 为了简化我们的 GET 和 POST HTTP 请求，我们使用 [rest-client][REST Client]。 请注意，您可能永远不会通过 REST 访问 API。 对于更重要的应用程序，您可能需要使用[一个用您选择的语言编写的库][libraries]。
+在应用程序身份验证成功后，{% data variables.product.product_name %} 将提供一个临时的 `code` 值。 您需要将此代码 `POST` 到 {% data variables.product.product_name %} 以换取 `access_token`。 为了简化我们的 GET 和 POST HTTP 请求，我们使用 [rest-client][REST Client]。 请注意，您可能永远不会通过 REST 访问 API。 对于更重要的应用程序，您可能需要使用[一个用您选择的语言编写的库][libraries]。
 
 #### 检查授予的作用域
 
@@ -136,13 +136,13 @@ end
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -173,7 +173,7 @@ erb :basic, :locals => auth_result
 如果我们要求用户每次访问网页时都必须登录应用程序，这将是一个非常糟糕的模式。 例如，尝试直接导航到 `http://localhost:4567/basic`。 您会收到一个错误。
 
 如果我们能够绕过整个“单击此处”的过程，并且_记住_，只要用户登录到
-{{ site.data.variables.product.product_name }}，他们应该就能够访问此应用程序，应该怎么办呢？ 不必担心，因为_这正是我们要做的_。
+{% data variables.product.product_name %}，他们应该就能够访问此应用程序，应该怎么办呢？ 不必担心，因为_这正是我们要做的_。
 
 我们的上述小服务器相当简单。 为了加入一些智能身份验证功能，我们将切换到使用会话来存储令牌。 这将使身份验证对用户透明化。
 
@@ -214,7 +214,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -235,7 +235,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end
@@ -259,7 +259,7 @@ get '/callback' do
 end
 ```
 
-许多代码应该看起来很熟悉。 例如，我们仍使用 `RestClient.get` 来调用 {{ site.data.variables.product.product_name }} API，仍将结果传递到 ERB 模板（在此处被称为 `advanced.erb`）中进行呈现。
+许多代码应该看起来很熟悉。 例如，我们仍使用 `RestClient.get` 来调用 {% data variables.product.product_name %} API，仍将结果传递到 ERB 模板（在此处被称为 `advanced.erb`）中进行呈现。
 
 此外，我们现在采用 `authenticated?` 方法来检查用户是否已通过身份验证。 如果否，则调用 `authenticate!` 方法，该方法执行 OAuth 流并使用授予的令牌和作用域更新会话。
 
@@ -290,9 +290,9 @@ end
 
 从命令行调用 `ruby advanced_server.rb`，这将在端口 `4567`（即我们用于简单 Sinatra 应用程序的端口）上启动服务器。 当您导航到 `http://localhost:4567` 时，应用程序会调用 `authenticate!` 将您重定向到 `/callback`。 然后，`/callback` 将我们送回 `/`，由于我们已通过身份验证，因此将呈现 _advanced.erb_。
 
-我们只需将 {{ site.data.variables.product.product_name }} 中的回调 URL 更改为 `/` 即可完全简化此往返路由。 但是，由于 _server.rb_ 和 _advanced.rb_ 都依赖于相同的回调 URL，因此我们必须费一点力气使其行之有效。
+我们只需将 {% data variables.product.product_name %} 中的回调 URL 更改为 `/` 即可完全简化此往返路由。 但是，由于 _server.rb_ 和 _advanced.rb_ 都依赖于相同的回调 URL，因此我们必须费一点力气使其行之有效。
 
-此外，如果我们从未授权此应用程序访问我们的 {{ site.data.variables.product.product_name }} 数据，我们会在早期的弹出和警告窗口中看到相同的确认对话框。
+此外，如果我们从未授权此应用程序访问我们的 {% data variables.product.product_name %} 数据，我们会在早期的弹出和警告窗口中看到相同的确认对话框。
 
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [Sinatra]: http://www.sinatrarb.com/

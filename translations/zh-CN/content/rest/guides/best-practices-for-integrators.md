@@ -1,6 +1,6 @@
 ---
 title: 集成者最佳实践
-intro: '构建能够与 {{ site.data.variables.product.prodname_dotcom }} API 进行可靠交互并为用户提供最佳体验的应用程序。'
+intro: '构建能够与 {% data variables.product.prodname_dotcom %} API 进行可靠交互并为用户提供最佳体验的应用程序。'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators

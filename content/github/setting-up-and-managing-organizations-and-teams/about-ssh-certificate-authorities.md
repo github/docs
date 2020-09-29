@@ -1,7 +1,7 @@
 ---
 title: About SSH certificate authorities
 intro: 'With an SSH certificate authority, your organization or enterprise account can provide SSH certificates that members can use to access your resources with Git.'
-product: '{{ site.data.reusables.gated-features.ssh-certificate-authorities }}'
+product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
 versions:
@@ -13,15 +13,15 @@ An SSH certificate is a mechanism for one SSH key to sign another SSH key. If yo
 
 After you add an SSH CA to your organization or enterprise account, you can use the CA to sign client SSH certificates for organization members. Organization members can use the signed certificates to access your organization's repositories (and only your organization's repositories) with Git. You can require that members use SSH certificates to access organization resources.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Enforcing security settings in your enterprise account](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)."{% endif %}
 
-For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {{ site.data.variables.product.product_name }}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
+For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
 
-When you issue each certificate, you must include an extension that specifies which {{ site.data.variables.product.product_name }} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing _KEY-IDENTITY_ with your key identity and _USERNAME_ with a {{ site.data.variables.product.product_name }} username:
+When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. For example, you can use OpenSSH's `ssh-keygen` command, replacing _KEY-IDENTITY_ with your key identity and _USERNAME_ with a {% data variables.product.product_name %} username:
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME</em> ./user-key.pub
 ```
 
-To issue a certificate for someone who has different usernames for {{ site.data.variables.product.prodname_ghe_server }} and {{ site.data.variables.product.prodname_ghe_cloud }}, you can include two login extensions.
+To issue a certificate for someone who has different usernames for {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can include two login extensions.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>CLOUD-USERNAME</em> extension:login@<em>HOSTNAME</em>=<em>SERVER-USERNAME</em> ./user-key.pub

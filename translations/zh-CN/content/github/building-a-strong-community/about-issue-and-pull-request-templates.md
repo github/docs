@@ -21,14 +21,14 @@ versions:
 使用模板构建器，可以指定每个模板的标题和描述，添加模板内容，然后提交模板到默认分支或在仓库中打开拉取请求。 模板构建器会自动添加模板显示于新议题页面所需的 YAML 扉页标记。 更多信息请参阅“[为仓库配置议题模板](/articles/configuring-issue-templates-for-your-repository)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-议题模板存储在仓库的默认分支的隐藏目录 `.github/ISSUE_TEMPLATE` 中。 如果您在另一个分支中创建模板，协作者将无法使用。 议题模板文件名不区分大小写，并且需要 *.md* 扩展名。 {{ site.data.reusables.repositories.valid-community-issues }}
+议题模板存储在仓库的默认分支的隐藏目录 `.github/ISSUE_TEMPLATE` 中。 如果您在另一个分支中创建模板，协作者将无法使用。 议题模板文件名不区分大小写，并且需要 *.md* 扩展名。 {% data reusables.repositories.valid-community-issues %}
 
 可以使用旧议题模板工作流程在 Markdown 中手动创建单一议题模板，然后项目贡献者将自动在议题中看到模板的内容。 不过，我们建议使用升级的多议题模板构建器来创建议题模板。 有关旧工作流程的更多信息，请参阅"[手动为仓库创建单一议题模板](/articles/manually-creating-a-single-issue-template-for-your-repository)"。
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### 拉取请求模板
 

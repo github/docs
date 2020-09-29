@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a cobrança de sua conta GitHub
-intro: 'O {{ site.data.variables.product.product_name }} oferece produtos grátis e pagos para todas as contas. É possível atualizar, fazer downgrade e visualizar alterações pendentes na assinatura da sua conta a qualquer momento.'
+intro: 'O {% data variables.product.product_name %} oferece produtos grátis e pagos para todas as contas. É possível atualizar, fazer downgrade e visualizar alterações pendentes na assinatura da sua conta a qualquer momento.'
 redirect_from:
   - /categories/97/articles/
   - /categories/paying-for-user-accounts/

@@ -11,7 +11,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**参考**: 有料プランを解約したい場合、Organization とそのコンテンツを削除する代わりに、[Organization を {{ site.data.variables.product.prodname_free_team }} にダウングレードする](/articles/downgrading-your-github-subscription)ことができます。
+**参考**: 有料プランを解約したい場合、Organization とそのコンテンツを削除する代わりに、[Organization を {% data variables.product.prodname_free_team %} にダウングレードする](/articles/downgrading-your-github-subscription)ことができます。
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ Organization を削除すると、GitHub では**コンテンツを復元でき�
 
 ### 2. Organization の削除
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Organization の設定ページの下の方にある [**Delete this Organization**] をクリックします。 ![[Delete this organization] ボタン](/assets/images/help/settings/settings-organization-delete.png)

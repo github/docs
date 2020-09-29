@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/adding-or-inviting-people-to-teams/
   - /enterprise/admin/guides/user-management/adding-or-inviting-people-to-teams/
   - /enterprise/admin/user-management/adding-people-to-teams
-intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {{ site.data.variables.product.product_location_enterprise }} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
+intro: 'Nach der Erstellung eines Teams können Organisationsadministratoren Benutzer von {% data variables.product.product_location_enterprise %} zum Team hinzufügen und festlegen, auf welche Repositorys sie zugreifen dürfen.'
 versions:
   enterprise-server: '*'
 ---
@@ -17,14 +17,14 @@ Jedes Team besitzt seine eigenen individuell festgelegten [Zugriffsberechtigunge
 
 ### Team einrichten
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.invite_to_team }}
-{{ site.data.reusables.organizations.review-team-repository-access }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.invite_to_team %}
+{% data reusables.organizations.review-team-repository-access %}
 
 ### Teams zu LDAP-Gruppen (für Instanzen mit LDAP-Synchronisierung für die Benutzerauthentifizierung) zuordnen
 
-{{ site.data.reusables.enterprise_management_console.badge_indicator }}
+{% data reusables.enterprise_management_console.badge_indicator %}
 
 Um ein neues Mitglied zu einem mit einer LDAP-Gruppe synchronisierten Team hinzuzufügen, fügen Sie den Benutzer als ein Mitglied der LDAP-Gruppe hinzu, oder wenden Sie sich an Ihren LDAP-Administrator.

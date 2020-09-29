@@ -5,7 +5,7 @@ redirect_from:
   - /articles/creating-a-footer/
   - /articles/creating-a-sidebar/
   - /articles/creating-a-footer-or-sidebar-for-your-wiki
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -13,8 +13,8 @@ versions:
 
 ### 创建页脚
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. 在页面底部，单击 **Add a custom footer（添加自定义页脚）**。 ![Wiki 添加页脚部分](/assets/images/help/wiki/wiki_add_footer.png)
 4. 使用文本编辑器键入您希望页脚包含的内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki-footer.png)
 5. 输入提交消息描述所添加的页脚。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)
@@ -22,8 +22,8 @@ versions:
 
 ### 创建边栏
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. 单击 **Add a custom sidebar（添加自定义边栏）**。 ![Wiki 添加边栏部分](/assets/images/help/wiki/wiki_add_sidebar.png)
 4. 使用文本编辑器添加页面内容。 ![Wiki WYSIWYG](/assets/images/help/wiki/wiki-sidebar.png)
 5. 输入提交消息描述所添加的边栏。 ![Wiki 提交消息](/assets/images/help/wiki/wiki_commit_message.png)

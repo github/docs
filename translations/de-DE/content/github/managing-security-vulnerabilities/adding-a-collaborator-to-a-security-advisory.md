@@ -16,13 +16,13 @@ Mitarbeiter haben Schreibberechtigungen für den Sicherheitshinweis. Weitere Inf
 
 {% note %}
 
-{{ site.data.reusables.repositories.security-advisory-collaborators-public-repositories }} Weitere Informationen zum Entfernen eines Mitarbeiter aus einem Sicherheitshinweis findest Du unter [Einen Mitarbeiter aus einem Sicherheitshinweis entfernen](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)."
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} Weitere Informationen zum Entfernen eines Mitarbeiter aus einem Sicherheitshinweis findest Du unter [Einen Mitarbeiter aus einem Sicherheitshinweis entfernen](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)."
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke in der Liste „Security Advisories“ (Sicherheitshinweise) auf den Hinweis, zu dem Du einen Mitarbeiter hinzufügen möchtest.
 5. Gib auf der rechten Seite unter "Collaborators" (Mitarbeiter) den Namen des Benutzers oder Teams ein, das Du dem Sicherheitshinweis hinzufügen möchtest. ![Feld zum Eingeben des Namens des Benutzers oder Teams](/assets/images/help/security/add-collaborator-field.png)
 6. Klicke auf **Add** (Hinzufügen). ![Schaltfläche „Add“ (Hinzufügen)](/assets/images/help/security/security-advisory-add-collaborator-button.png)

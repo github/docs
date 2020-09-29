@@ -19,26 +19,26 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dotcom_billing.payment-methods }} {{ site.data.reusables.dotcom_billing.same-payment-method }}
+{% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 我们不为个人帐户提供开发票或支持采购单。 在您的帐户的结算日期，我们将以电子邮件发送每月或每年收据。 如果您的公司、国家或会计要求收据提供更多详细信息，也可为收据[添加额外信息](/articles/adding-information-to-your-personal-account-s-receipts)。
 
 ### 更新个人帐户的付款方式
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}
 
 ### 更新组织的付款方式
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-如果组织在美国之外，或者您使用公司支票帐户支付 {{ site.data.variables.product.product_name }}，PayPal 可能是一种有用的付款方式。
+如果组织在美国之外，或者您使用公司支票帐户支付 {% data variables.product.product_name %}，PayPal 可能是一种有用的付款方式。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}

@@ -11,19 +11,19 @@ versions:
 
 ### プルリクエストのマージについて
 
-プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 {{ site.data.reusables.pull_requests.about-protected-branches }}ただし、プルリクエストを特定のブランチにマージできるタイミングには制限がある場合があります。 For example, you may only be able to merge a pull request into the default branch if required status checks are passing. 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
+プルリクエストでは、head ブランチに加えた変更をベースブランチにマージすることを提案します。 {% data reusables.pull_requests.about-protected-branches %}ただし、プルリクエストを特定のブランチにマージできるタイミングには制限がある場合があります。 For example, you may only be able to merge a pull request into the default branch if required status checks are passing. 詳しい情報については[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)を参照してください。
 
 プルリクエストでマージコンフリクトが発生する場合、またはマージの前に変更をテストしたい場合は、コマンドラインを使用して、[プルリクエストをローカルでチェックアウト](/articles/checking-out-pull-requests-locally)してマージすることができます。
 
 You can't merge a draft pull request. ドラフトのプルリクエストに関する詳しい情報については「[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)」を参照してください。
 
-{{ site.data.reusables.pull_requests.automatically-delete-branches }}
+{% data reusables.pull_requests.automatically-delete-branches %}
 
 トピックブランチでの変更を上流ブランチにマージしたくなければ、マージせずに[プルリクエストをクローズする](/articles/closing-a-pull-request)ことができます。
 
-### {{ site.data.variables.product.prodname_dotcom }} でプルリクエストをマージする
+### {% data variables.product.prodname_dotcom %} でプルリクエストをマージする
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
 3. リポジトリで有効なマージオプションに応じて、以下の操作が可能です:
     - [**Merge pull request**] をクリックして、すべてのコミットを[ベース ブランチにマージ](/articles/about-pull-request-merges/)します。 [**Merge pull request**] オプションが表示されない場合は、マージのドロップダウン メニューをクリックして [**Create a merge commit**] をクリックします。 ![[Merge pull request] ボタン](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
@@ -37,10 +37,10 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
     {% endnote %}
 4. 要求されたら、コミットメッセージを入力するか、デフォルトのメッセージのままにします。
 
-   {{ site.data.reusables.pull_requests.default-commit-message-squash-merge }}
+   {% data reusables.pull_requests.default-commit-message-squash-merge %}
    ![Commit messageフィールド](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.choose-commit-email %}
 
 6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
 6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
@@ -50,7 +50,7 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **注釈:** {{ site.data.reusables.pull_requests.retargeted-on-branch-deletion }}
+   **注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
 
    {% endnote %}
@@ -58,11 +58,11 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
 
 プルリクエストは [`--no-ff` オプション](https://git-scm.com/docs/git-merge#_fast_forward_merge)を使用してマージされますが、[squash またはリベースされたコミット](/articles/about-pull-request-merges)は例外で、fast-forward オプションを使用してマージされます。
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### 参考リンク
 
 - [Pull Request を元に戻す](/articles/reverting-a-pull-request)
-- 「[{{ site.data.variables.product.prodname_desktop }} を使用してブランチを同期する](/desktop/guides/contributing-to-projects/syncing-your-branch/)」
+- 「[{% data variables.product.prodname_desktop %} を使用してブランチを同期する](/desktop/guides/contributing-to-projects/syncing-your-branch/)」
 - [プルリクエストのマージについて](/articles/about-pull-request-merges)
 - [マージコンフリクトへの対処](/articles/addressing-merge-conflicts)

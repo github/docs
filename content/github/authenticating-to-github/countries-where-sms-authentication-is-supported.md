@@ -1,6 +1,6 @@
 ---
 title: Countries where SMS authentication is supported
-intro: 'Because of delivery success rates, {{ site.data.variables.product.product_name }} only supports two-factor authentication via SMS for certain countries.'
+intro: 'Because of delivery success rates, {% data variables.product.product_name %} only supports two-factor authentication via SMS for certain countries.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:

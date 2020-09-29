@@ -1,6 +1,6 @@
 ---
 title: Commit exists on GitHub but not in my local clone
-intro: 'Sometimes a commit will be viewable on {{ site.data.variables.product.product_name }}, but will not exist in your local clone of the repository.'
+intro: 'Sometimes a commit will be viewable on {% data variables.product.product_name %}, but will not exist in your local clone of the repository.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
 versions:
@@ -17,7 +17,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-However, when you view the commit on {{ site.data.variables.product.product_location }}, you'll be able to see it without any problems:
+However, when you view the commit on {% data variables.product.product_location %}, you'll be able to see it without any problems:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
@@ -52,13 +52,13 @@ or has force pushed over the branch, the missing commit may have been orphaned
 into your local clone.
 
 Fortunately, if any collaborator has a local clone of the repository with the
-missing commit, they can push it back to {{ site.data.variables.product.product_name }}.  They need to make sure the commit
-is referenced by a local branch and then push it as a new branch to {{ site.data.variables.product.product_name }}.
+missing commit, they can push it back to {% data variables.product.product_name %}.  They need to make sure the commit
+is referenced by a local branch and then push it as a new branch to {% data variables.product.product_name %}.
 
 Let's say that the person still has a local branch (call it `B`) that contains
 the commit.  This might be tracking the branch that was force pushed or deleted
 and they simply haven't updated yet.  To preserve the commit, they can push that
-local branch to a new branch (call it `recover-B`) on {{ site.data.variables.product.product_name }}.  For this example,
+local branch to a new branch (call it `recover-B`) on {% data variables.product.product_name %}.  For this example,
 let's assume they have a remote named `upstream` via which they have push access
 to `github.com/$account/$repository`.
 

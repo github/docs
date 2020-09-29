@@ -10,7 +10,7 @@ Para ayudarte a entender tus suscripciones y decidir si quieres desuscribirte, c
 
 {% note %}
 
-**Nota:** En vez de desuscribirte, tienes la opción de ignorar un repositorio. Si ignoras un repositorio, no recibirás ninguna notificación. No recomendamos ignorar repositorios ya que no se te notificará si eres mencionado. {% if currentVersion == "free-pro-team@latest" %}Si te encuentras con comportamientos abusivos y deseas ignorar un repositorio, por favor [contacta a Soporte](/contact) para que podamos ayudarte. {{ site.data.reusables.policies.abuse }}{% endif %}
+**Nota:** En vez de desuscribirte, tienes la opción de ignorar un repositorio. Si ignoras un repositorio, no recibirás ninguna notificación. No recomendamos ignorar repositorios ya que no se te notificará si eres mencionado. {% if currentVersion == "free-pro-team@latest" %}Si te encuentras con comportamientos abusivos y deseas ignorar un repositorio, por favor [contacta a Soporte](/contact) para que podamos ayudarte. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -36,13 +36,13 @@ Solo puedes filtrar tus suscripciones por repositorio y por la razón que estás
 
 Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparecerán automáticamente de ésta.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Desde la bandeja de notificaciones, selecciona aquellas de las cuales deseas darte de baja.
 2. Utiliza el menú desplegable de **seleccionados**{% octicon "triangle-down" aria-label="The down triangle icon" %} para dar clic en **Darse de baja** ![Opción para darse de baja desde la bandeja de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Darse de baja de las notificaciones en la página de suscripciones
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Suscripciones**. ![Opciones del menú desplegable "Administrar notificaciones"](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Selecciona las notificaciones de las cuales quieres darte de baja. En la esquina superior derecha, da clic en **Darse de baja** ![Página de suscripciones](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
@@ -51,7 +51,7 @@ Cuando te desuscribes de las notificaciones en tu bandeja de entrada, desaparece
 
 Cuando dejas de observar un repositorio, de desuscribes de notificaciones futuras del mismo, a menos de que participes en una conversación o te @mencionen.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, bajo la lista de repositorios, utiliza el menú desplegable de "Administrar notificaciones" para dar clic en **Repositorios que sigues**. ![Opciones del menú desplegable "Administrar notificaciones"](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. En la página de repositorios que sigues, después de que hayas evaluado aquellos que estás siguiendo, decide si quieres:
     - dejar de seguir un repositorio

@@ -1,6 +1,6 @@
 ---
 title: Viewing push logs
-intro: 'Site administrators can view a list of Git push operations for any repository on {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Site administrators can view a list of Git push operations for any repository on {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -22,8 +22,8 @@ Push log entries show:
 ### Viewing a repository's push logs
 
 1. Navigate to a repository.
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.security-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.security-tab %}
 4. In the left sidebar, click **Push Log**.
 ![Push log tab](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 

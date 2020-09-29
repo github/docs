@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.saved_replies }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.saved_replies %}
 3. Klicken Sie unter „Saved replies“ (Gespeicherte Antworten) neben der gespeicherten Antwort, die Sie löschen möchten, auf {% octicon "x" aria-label="The X" %}.  
    ![Gespeicherte Antwort löschen](/assets/images/help/settings/saved-replies-delete-existing.png)

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. 找到要链接到的发行版，然后单击版本号。 ![发行版标记信息](/assets/images/help/releases/release_tag_name.png)
 3. 或者，右键单击 **Latest Release（最新发行版）**并复制 URL 以共享它。 此 URL 的后缀始终是 `/releases/latest`。 ![最新发行版标记](/assets/images/help/releases/release_latest_release_tag.png)
 

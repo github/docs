@@ -17,7 +17,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 当您将拉取请求链接到拉取请求指向的议题，如果有人正在操作该议题，协作者可以看到。
-{% if currentVersion ver_lt "enterprise-server@2.21" %}如果拉取请求和议题在不同的仓库中，{{ site.data.variables.product.product_name }} 将在拉取请求合并后并且合并拉取请求的人有权限关闭议题时才会显示链接。{% endif %}{% endif %}
+{% if currentVersion ver_lt "enterprise-server@2.21" %}如果拉取请求和议题在不同的仓库中，{% data variables.product.product_name %} 将在拉取请求合并后并且合并拉取请求的人有权限关闭议题时才会显示链接。{% endif %}{% endif %}
 
 将链接的拉取请求合并到仓库的默认分支时，其链接的议题将自动关闭。 有关默认分支的更多信息，请参阅“[设置默认分支](/github/administering-a-repository/setting-the-default-branch)”。
 
@@ -28,8 +28,8 @@ versions:
 
 您可以手动链接最多 10 个议题到每个拉取请求。 议题和拉取请求必须位于同一仓库中。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. 在拉取请求列表中，单击要链接到议题的拉取请求。
 4. 在右侧边栏中，单击 **Linked issues（链接的议题）**。 ![右侧边栏中链接的议题](/assets/images/help/pull_requests/linked-issues.png)
 5. 单击要链接到拉取请求的议题。 ![下拉以链接议题](/assets/images/help/pull_requests/link-issue-drop-down.png)

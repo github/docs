@@ -15,16 +15,16 @@ Cuando reviertes la confirmación anterior, la reversión también es una confir
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![La opción Revert (Revertir) sobre la vista diferente](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![La opción Revert (Revertir) sobre la vista diferente](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

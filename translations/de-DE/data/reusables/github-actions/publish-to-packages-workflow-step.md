@@ -1,1 +1,1 @@
-Führt den Befehl `mvn -B deploy` aus, um nach {{ site.data.variables.product.prodname_registry }} zu veröffentlichen. Die `GITHUB_TOKEN`-Umgebungsvariable wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gesetzt.
+Führt den Befehl `mvn -B deploy` aus, um nach {% data variables.product.prodname_registry %} zu veröffentlichen. Die `GITHUB_TOKEN`-Umgebungsvariable wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gesetzt.

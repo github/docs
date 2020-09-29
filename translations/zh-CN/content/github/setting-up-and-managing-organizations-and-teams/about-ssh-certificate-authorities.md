@@ -1,7 +1,7 @@
 ---
 title: 关于 SSH 认证中心
 intro: 通过 SSH 认证中心，组织或企业帐户可提供 SSH 证书，供成员用来通过 Git 访问您的资源。
-product: '{{ site.data.reusables.gated-features.ssh-certificate-authorities }}'
+product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
 versions:
@@ -13,15 +13,15 @@ SSH 证书是一种机制：一个 SSH 密钥对另一个 SSH 密钥签名。 �
 
 在将 SSH CA 添加到组织或企业帐户后，您可以使用 CA 为组织成员签名客户 SSH 证书。 组织成员可以使用已签名的证书通过 Git 访问组织的仓库（并且只访问您组织的仓库）。 您可能需要该成员使用 SSH 证书访问组织资源。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[为企业帐户中的组织实施安全设置](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)”。{% endif %}
 
-例如，您可以构建内部系统，每天早上向开发者颁发新证书。 每个开发者可以使用其每日证书处理组织在 {{ site.data.variables.product.product_name }} 上的仓库。 在一天结束时，证书会自动到期，以保护仓库，避免证书以后被窃取。
+例如，您可以构建内部系统，每天早上向开发者颁发新证书。 每个开发者可以使用其每日证书处理组织在 {% data variables.product.product_name %} 上的仓库。 在一天结束时，证书会自动到期，以保护仓库，避免证书以后被窃取。
 
-在颁发每个证书时，必须包含扩展，以指定证书用于哪个 {{ site.data.variables.product.product_name }} 用户。 例如，您可以使用 OpenSSH 的 `ssh-keygen` 命令，将 _KEY-IDENTITY_ 替换为密钥标识，_USERNAME_ 替换为 {{ site.data.variables.product.product_name }} 用户名：
+在颁发每个证书时，必须包含扩展，以指定证书用于哪个 {% data variables.product.product_name %} 用户。 例如，您可以使用 OpenSSH 的 `ssh-keygen` 命令，将 _KEY-IDENTITY_ 替换为密钥标识，_USERNAME_ 替换为 {% data variables.product.product_name %} 用户名：
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME</em> ./user-key.pub
 ```
 
-要为在 {{ site.data.variables.product.prodname_ghe_server }} 和 {{ site.data.variables.product.prodname_ghe_cloud }} 上具有不同用户名的人颁发证书，可以包括两个登录扩展。
+要为在 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上具有不同用户名的人颁发证书，可以包括两个登录扩展。
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>CLOUD-USERNAME</em> extension:login@<em>HOSTNAME</em>=<em>SERVER-USERNAME</em> ./user-key.pub

@@ -25,11 +25,11 @@ versions:
 对仓库具有读取访问权限的任何人都可以查看和比较发行版，但只有对仓库具有写入权限的人员才能管理发行版。 更多信息请参阅“[管理仓库中的发行版](/github/administering-a-repository/managing-releases-in-a-repository)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-People with admin permissions to a repository can choose whether {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) objects are included in the ZIP files and tarballs that {{ site.data.variables.product.product_name }} creates for each release. For more information, see "[Managing {{ site.data.variables.large_files.product_name_short }} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+People with admin permissions to a repository can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-If a release fixes a security vulnerability, you should publish a security advisory in your repository. {{ site.data.variables.product.prodname_dotcom }} reviews each published security advisory and may use it to send {{ site.data.variables.product.prodname_dependabot_short }} alerts to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+If a release fixes a security vulnerability, you should publish a security advisory in your repository. {% data variables.product.prodname_dotcom %} reviews each published security advisory and may use it to send {% data variables.product.prodname_dependabot_short %} alerts to affected repositories. For more information, see "[About GitHub Security Advisories](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 You can view the **Dependents** tab of the dependency graph to see which repositories and packages depend on code in your repository, and may therefore be affected by a new release. 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 {% endif %}
@@ -39,6 +39,6 @@ You can view the **Dependents** tab of the dependency graph to see which reposit
 {% if currentVersion == "free-pro-team@latest" %}
 ### 存储和带宽配额
 
- 发行版中包含的每个文件都必须在 {{ site.data.variables.large_files.max_file_size }} 下。 发行版的总大小和带宽使用没有限制。
+ 发行版中包含的每个文件都必须在 {% data variables.large_files.max_file_size %} 下。 发行版的总大小和带宽使用没有限制。
 
 {% endif %}

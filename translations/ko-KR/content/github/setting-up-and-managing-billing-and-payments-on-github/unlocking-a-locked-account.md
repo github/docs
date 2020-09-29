@@ -15,7 +15,7 @@ versions:
 
 You can unlock and access your account by updating your organization's payment method and resuming paid status. We do not ask you to pay for the time elapsed in locked mode.
 
-You can downgrade your organization to {{ site.data.variables.product.prodname_free_team }} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {{ site.data.variables.product.product_name }} subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)."
+You can downgrade your organization to {% data variables.product.prodname_free_team %} to continue with the same advanced features in public repositories. For more information, see "[Downgrading your {% data variables.product.product_name %} subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)."
 
 ### Unlocking an organization's features due to a declined payment
 

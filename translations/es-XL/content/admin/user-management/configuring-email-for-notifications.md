@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: 'Para que sea fácil para los usuarios responder de forma rápida a una actividad en {{ site.data.variables.product.prodname_ghe_server }}, puedes configurar tu instancia para enviar notificaciones por correo electrónico en una propuesta, una solicitud de extracción y comentarios sobre confirmación de cambios, así como parámetros adicionales para permitir respuestas a los correos electrónicos entrantes. Los correos electrónicos para notificaciones se envían si hay una actividad en un repositorio que un usuario está observando, si hay una actividad en una solicitud de extracción o en una propuesta en la que están participando o si el usuario o equipo del que son un miembro son @mencionados en un comentario.'
+intro: 'Para que sea fácil para los usuarios responder de forma rápida a una actividad en {% data variables.product.prodname_ghe_server %}, puedes configurar tu instancia para enviar notificaciones por correo electrónico en una propuesta, una solicitud de extracción y comentarios sobre confirmación de cambios, así como parámetros adicionales para permitir respuestas a los correos electrónicos entrantes. Los correos electrónicos para notificaciones se envían si hay una actividad en un repositorio que un usuario está observando, si hay una actividad en una solicitud de extracción o en una propuesta en la que están participando o si el usuario o equipo del que son un miembro son @mencionados en un comentario.'
 versions:
   enterprise-server: '*'
 ---
 
 ### Configurar SMTP
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 2. En la parte superior de la página, haz clic en **Parámetros**. ![Pestaña Parámetros](/assets/images/enterprise/management-console/settings-tab.png)
 3. En la barra lateral de la izquierda, haz clic en **Correo electrónico**. ![Pestaña Correo electrónico](/assets/images/enterprise/management-console/email-sidebar.png)
 4. Selecciona **Activar correo electrónico**. Esto activará tanto el correo electrónico de salida como el de entrada, sin embargo para trabajar con el correo electrónico entrante también necesitarás configurar los parámetros de tu DNS como se describe a continuación en ["Configurar DNS y parámetros de firewall para permitir correos electrónicos entrantes](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)". ![Activar correo electrónico de salida](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -68,7 +68,7 @@ Con la configuración de tu DNS, ahora puedes probar si la configuración funcio
 
 #### Crea un Paquete de soporte
 
-Si no puedes determinar qué está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {{ site.data.variables.product.prodname_ghe_server }}. Una vez que hayas descargado el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* de todo el registro de conversación SMTP y cualquier error relacionado.
+Si no puedes determinar qué está mal desde el mensaje de error mostrado, puedes descargar un [paquete de soporte](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) que contiene toda la conversación SMTP entre tu servidor de correo y {% data variables.product.prodname_ghe_server %}. Una vez que hayas descargado el paquete, verifica las entradas en *enterprise-manage-logs/unicorn.log* de todo el registro de conversación SMTP y cualquier error relacionado.
 
 El registro unicornio debería mostrar una transacción similar a la siguiente:
 
@@ -109,7 +109,7 @@ Este registro muestra que el aparato:
 * Fue realizado el tipo de autenticación `login` (`<- "AUTH LOGIN\r\n"`).
 * El servidor SMTP rechazó la autenticación como inválida (`-> "535-5.7.1 Username and Password not accepted.`).
 
-#### Consultar los registros {{ site.data.variables.product.product_location_enterprise }}
+#### Consultar los registros {% data variables.product.product_location_enterprise %}
 
 Si necesitas verificar que tu correo electrónico entrante está funcionando, hay dos archivos de registro que puedes examinar en tu instancia: para verificar */var/log/mail.log* y */var/log/mail-replies/metroplex.log*.
 
@@ -143,8 +143,8 @@ Para procesar los correos electrónicos entrantes de manera adecuada, debes conf
 
 #### Controlar los parámetros de AWS Security Group o firewall
 
-Si {{ site.data.variables.product.product_location_enterprise }} está detrás de un firewall o está siendo servido a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
+Si {% data variables.product.product_location_enterprise %} está detrás de un firewall o está siendo servido a través de un AWS Security Group, asegúrate de que el puerto 25 esté abierto a todos los servidores de correo que envíen correos electrónicos a `reply@reply.[hostname]`.
 
 #### Contactar con soporte técnico
 
-Si aún no puedes resolver el problema, comunícate con {{ site.data.variables.contact.contact_ent_support }}. Adjunta el archivo de salida desde `http(s)://[hostname]/setup/diagnostics` en tu correo electrónico para ayudarnos a resolver tu problema.
+Si aún no puedes resolver el problema, comunícate con {% data variables.contact.contact_ent_support %}. Adjunta el archivo de salida desde `http(s)://[hostname]/setup/diagnostics` en tu correo electrónico para ayudarnos a resolver tu problema.

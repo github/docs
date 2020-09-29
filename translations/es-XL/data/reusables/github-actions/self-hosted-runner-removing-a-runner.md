@@ -8,8 +8,8 @@
 
         El comando de eliminación realiza las siguientes tareas:
 
-        * Elimina el ejecutor de {{ site.data.variables.product.product_name }}.
+        * Elimina el ejecutor de {% data variables.product.product_name %}.
         * Elimina cualquier archivo de configuración de la aplicación del ejecutor autoalojado en la máquina.
         * Elimina todos los servicios configurados si no se ejecuta en modo interactivo.
 
-    * **Si no tienes acceso a la máquina:** Da clic en **Sí, forzar la eliminación de este ejecutor** para forzar a {{ site.data.variables.product.product_name }} a que remueva el ejecutor.
+    * **Si no tienes acceso a la máquina:** Da clic en **Sí, forzar la eliminación de este ejecutor** para forzar a {% data variables.product.product_name %} a que remueva el ejecutor.

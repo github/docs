@@ -1,7 +1,7 @@
 ---
 title: About enterprise accounts
-intro: 'With {{ site.data.variables.product.prodname_ghe_cloud }}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'With {% data variables.product.prodname_ghe_cloud %}, you can create an enterprise account to enable collaboration between your organizations, while giving administrators a single point of visibility and management.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -12,16 +12,16 @@ versions:
 
 ### About enterprise accounts
 
-An enterprise account allows you to manage multiple {{ site.data.variables.product.prodname_dotcom }} organizations and {{ site.data.variables.product.prodname_ghe_server }} instances. Your enterprise account must have a handle, like an organization or personal account on {{ site.data.variables.product.prodname_dotcom }}. Enterprise administrators can manage settings and preferences, like:
+An enterprise account allows you to manage multiple {% data variables.product.prodname_dotcom %} organizations and {% data variables.product.prodname_ghe_server %} instances. Your enterprise account must have a handle, like an organization or personal account on {% data variables.product.prodname_dotcom %}. Enterprise administrators can manage settings and preferences, like:
 
 - Member access and management (organization members, outside collaborators)
-- Billing and usage ({{ site.data.variables.product.prodname_ghe_server }} instances, user licenses, {{ site.data.variables.large_files.product_name_short }} packs)
+- Billing and usage ({% data variables.product.prodname_ghe_server %} instances, user licenses, {% data variables.large_files.product_name_short %} packs)
 - Security (single sign-on, two factor authentication)
-- Requests and support bundle sharing with {{ site.data.variables.contact.enterprise_support }}
+- Requests and support bundle sharing with {% data variables.contact.enterprise_support %}
 
-{{ site.data.reusables.enterprise-accounts.enterprise-accounts-billing }}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-For more information about the differences between {{ site.data.variables.product.prodname_ghe_cloud }} and {{ site.data.variables.product.prodname_ghe_server }}, see "[{{ site.data.variables.product.prodname_dotcom }}'s products](/articles/githubs-products)." To upgrade to {{ site.data.variables.product.prodname_enterprise }} or to get started with an enterprise account, contact {{ site.data.variables.contact.contact_enterprise_sales }}.
+For more information about the differences between {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)." To upgrade to {% data variables.product.prodname_enterprise %} or to get started with an enterprise account, contact {% data variables.contact.contact_enterprise_sales %}.
 
 For more information about member access and management, see "[Managing users in your enterprise account](/articles/managing-users-in-your-enterprise-account)."
 
@@ -37,6 +37,6 @@ Enterprise owners can create organizations and link them to the enterprise. Afte
 
 For more information, see "[Managing organizations in your enterprise account](/articles/managing-organizations-in-your-enterprise-account)" and "[Setting policies for organizations in your enterprise account](/articles/setting-policies-for-organizations-in-your-enterprise-account)."
 
-### Managing {{ site.data.variables.product.prodname_ghe_server }} licenses linked to your enterprise account
+### Managing {% data variables.product.prodname_ghe_server %} licenses linked to your enterprise account
 
-{{ site.data.reusables.enterprise-accounts.admin-managing-licenses }}
+{% data reusables.enterprise-accounts.admin-managing-licenses %}

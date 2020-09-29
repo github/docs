@@ -11,7 +11,7 @@ versions:
 
 
 
-このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 To interact with the {{ site.data.variables.product.product_name }} APIやり取りを行うため、ここでは優れたRubyライブラリである[Octokit][Octokit]を使用します。
+このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 To interact with the {% data variables.product.product_name %} APIやり取りを行うため、ここでは優れたRubyライブラリである[Octokit][Octokit]を使用します。
 
 まだ[「認証の基本」][basics-of-authentication]ガイドを読んでいない場合は、それを読んでからこの例に取りかかってください。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
@@ -19,7 +19,7 @@ versions:
 
 ### OAuthアプリケーションの設定
 
-まず、{{ site.data.variables.product.product_name }}で[新しいアプリケーションを登録][new oauth application]します。 コールバックURLは`http://localhost:4567/`と設定してください。 [以前][basics-of-authentication]行ったように、[sinatra-auth-github][sinatra auth github]を使用してRackミドルウェアを実装することにより、APIの認証を処理します。
+まず、{% data variables.product.product_name %}で[新しいアプリケーションを登録][new oauth application]します。 コールバックURLは`http://localhost:4567/`と設定してください。 [以前][basics-of-authentication]行ったように、[sinatra-auth-github][sinatra auth github]を使用してRackミドルウェアを実装することにより、APIの認証を処理します。
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -72,7 +72,7 @@ run Example::MyGraphApp
 
 ### リポジトリ情報のフェッチ
 
-今回は、{{ site.data.variables.product.product_name }} APIと通信を行うため、[Octokit Rubyライブラリ][Octokit]を使用します。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
+今回は、{% data variables.product.product_name %} APIと通信を行うため、[Octokit Rubyライブラリ][Octokit]を使用します。 これは、多くのREST呼び出しを直接行うよりもはるかに簡単です。 さらに、OctokitはGitHubberによって開発され、積極的にメンテナンスされているので、確実に動作します。
 
 Octokit経由のAPIによる認証は簡単です。 ログインとトークンを`Octokit::Client`コンストラクタに渡すだけです。
 
@@ -90,7 +90,7 @@ end
 repos = client.repositories
 ```
 
-次に、各レポジトリで処理を繰り返し、{{ site.data.variables.product.product_name }}に関連付けられた言語を数えます。
+次に、各レポジトリで処理を繰り返し、{% data variables.product.product_name %}に関連付けられた言語を数えます。
 
 ``` ruby
 language_obj = {}

@@ -11,7 +11,7 @@ Millionen von Entwicklern hosten Millionen von Projekten auf GitHub – sowohl O
 
 Die weltweiten GitHub-Benutzer verfügen über völlig unterschiedliche Perspektiven, Ideen und Erfahrungen und umfassen sowohl Personen, die letzte Woche ihr erstes "Hello World"-Projekt ins Leben gerufen haben, als auch die bekanntesten Software-Entwickler der Welt. Wir sind bestrebt, GitHub zu einem einladenden Umfeld für all die verschiedenen Stimmen und Perspektiven in unserer Community zu machen und gleichzeitig einen Raum zu bieten, in dem sich Personen frei äußern können.
 
-Wir sind darauf angewiesen, dass unsere Community-Mitglieder Erwartungen kommunizieren, ihre Projekte [moderieren ](#what-if-something-or-someone-offends-you)und {{ site.data.variables.contact.report_abuse }} oder {{ site.data.variables.contact.report_content }}. Wir durchsuchen nicht aktiv die Inhalte, um sie zu moderieren. Wir hoffen, Ihnen durch die Darstellung unserer Erwartungen an unsere Community verständlich zu machen, wie Sie am besten auf GitHub mitwirken können und welche Art von Handlungen oder Inhalten möglicherweise gegen unsere [Nutzungsbedingungen](#legal-notices) verstoßen. Wir werden allen Meldungen über Missbrauch nachgehen und können öffentliche Inhalte auf unserer Website moderieren, bei denen wir feststellen, dass sie gegen unsere Nutzungsbedingungen verstoßen.
+Wir sind darauf angewiesen, dass unsere Community-Mitglieder Erwartungen kommunizieren, ihre Projekte [moderieren ](#what-if-something-or-someone-offends-you)und {% data variables.contact.report_abuse %} oder {% data variables.contact.report_content %}. Wir durchsuchen nicht aktiv die Inhalte, um sie zu moderieren. Wir hoffen, Ihnen durch die Darstellung unserer Erwartungen an unsere Community verständlich zu machen, wie Sie am besten auf GitHub mitwirken können und welche Art von Handlungen oder Inhalten möglicherweise gegen unsere [Nutzungsbedingungen](#legal-notices) verstoßen. Wir werden allen Meldungen über Missbrauch nachgehen und können öffentliche Inhalte auf unserer Website moderieren, bei denen wir feststellen, dass sie gegen unsere Nutzungsbedingungen verstoßen.
 
 ### Eine starke Community aufbauen
 
@@ -41,7 +41,7 @@ Wir verlassen uns darauf, dass die Community uns mitteilt, wann ein Problem ange
 
 * **Benutzer blockieren** - Falls Ihnen ein Benutzer auffällt, der anhaltend schlechtes Verhalten zeigt, können Sie [den Benutzer über Ihr persönliches Konto blockieren](/articles/blocking-a-user-from-your-personal-account/) oder [den Benutzer über Ihre Organisation blockieren](/articles/blocking-a-user-from-your-organization/).
 
-Selbstverständlich können Sie uns jederzeit kontaktieren, um {{ site.data.variables.contact.report_abuse }}, wenn Sie mehr Hilfe bei der Bewältigung einer Situation benötigen.
+Selbstverständlich können Sie uns jederzeit kontaktieren, um {% data variables.contact.report_abuse %}, wenn Sie mehr Hilfe bei der Bewältigung einer Situation benötigen.
 
 ### Was ist nicht erlaubt?
 

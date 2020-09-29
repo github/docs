@@ -16,9 +16,9 @@ versions:
 
 如果在导入时要将仓库中的提交匹配到作者的 GitHub 用户帐户，请确保在开始导入之前，仓库的每个贡献者都有 GitHub 帐户。
 
-{{ site.data.reusables.repositories.migrating-from-codeplex }}
+{% data reusables.repositories.migrating-from-codeplex %}
 
-{{ site.data.reusables.repositories.repo-size-limit }}
+{% data reusables.repositories.repo-size-limit %}
 
 1. 在任何页面的右上角，单击 {% octicon "plus" aria-label="Plus symbol" %}，然后单击 **Import repository（导入仓库）**。 ![新仓库菜单中的导入仓库选项](/assets/images/help/importer/import-repository.png)
 2. 在 "Your old repository's clone URL"（您的旧仓库的克隆 URL）下，输入要导入的项目的 URL。 ![导入的仓库 URL 对应的文本字段](/assets/images/help/importer/import-url.png)

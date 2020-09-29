@@ -10,7 +10,7 @@ versions:
 
 [ユーザを Organization から削除する](/articles/removing-a-member-from-your-organization)場合、[Organization のメンバーを外部のコラボレータに変換する](/articles/converting-an-organization-member-to-an-outside-collaborator)場合、または[メンバーと外部のコラボレータに 2要素認証（2FA）を有効化するよう要求](/articles/requiring-two-factor-authentication-in-your-organization)したためにユーザが Organization から削除される場合、そのユーザのアクセス権限と設定は 3 か月間保存されます。 そのタイムフレーム内にユーザを Organization へ再度{% if currentVersion =="free-pro-team@latest" %}招待{% else %}追加{% endif %}した場合、そのユーザの権限をリストアできます。
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 Oraganization の以前のメンバーを復帰させると、次のことがリストアできます:
  - Organization でのユーザのロール
@@ -27,7 +27,7 @@ Oraganization の以前のメンバーを復帰させると、次のことがリ
     **Tips**:
     - Organization のメンバーが 2 要素認証を使用していなかったために Organization から削除された場合、Organization で 2 要素認証を使用するようメンバーに要求することに変わりないのであれば、以前のメンバーは 2 要素認証を有効化しないとメンバーとして復帰できません。
     - Organization に参加するようユーザを招待できるのは、Organization オーナーだけです。 詳細は「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
-    - Organization にユーザ単位の有料プランがある場合、Organization の以前のメンバーを復帰させる前に、使用されていないライセンスを使用可能にしておく必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {{ site.data.reusables.organizations.org-invite-expiration }}
+    - Organization にユーザ単位の有料プランがある場合、Organization の以前のメンバーを復帰させる前に、使用されていないライセンスを使用可能にしておく必要があります。 詳細は「[ユーザごとの価格付けについて](/articles/about-per-user-pricing)」を参照してください。 {% data reusables.organizations.org-invite-expiration %}
 
    {% else %}
     **Tips**:
@@ -37,11 +37,11 @@ Oraganization の以前のメンバーを復帰させると、次のことがリ
 
    {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. その個人の Organization での以前の権限をリストアするか、以前の権限をクリアして新たにアクセス権を設定するか、選択してから [**Invite and reinstate**] または [**Invite and start fresh**] をクリックします。 ![情報をリストアするか否かを選択](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
@@ -53,7 +53,7 @@ Oraganization の以前のメンバーを復帰させると、次のことがリ
 7. Oraganization の以前のメンバーの以前の権限をクリアした場合は、そのユーザのロールを選択し、オプションでいくつかのチームに追加してから、[**Add member**] をクリックします。 ![ロールと Team のオプションと [add member] ボタン](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.organizations.user_must_accept_invite_email }} {{ site.data.reusables.organizations.cancel_org_invite }}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### 参考リンク

@@ -25,7 +25,7 @@ Para los propósitos de este documento, "datos sensibles" se refiere al contenid
 - Menciones simples de la identidad de tu empresa, nombre, marca, nombre de dominio, u otras referencias a tu empresa en archivos en GitHub. Debes tener la capacidad de articular por qué un uso de la identidad de tu empresa es una amenaza para la postura de seguridad de tu empresa antes de tomar medidas en virtud de esta política.
 - Reclamaciones de privacidad. Si tiene inquietudes sobre tu propia privacidad o te estás comunicando con nosotros en nombre de tus empleados debido a una preocupación por la privacidad — por ejemplo, si hay direcciones de correo electrónico privadas u otra información personal publicada, por favor contáctanos a través de [nuestro formulario de contacto sobre privacidad](https://github.com/contact/privacy).
 - Archivos completos o repositorios que no plantean un riesgo de seguridad específico, pero consideras que son censurables de otro modo.
-- Contenido regido por nuestras [Directrices de la comunidad](/articles/github-community-guidelines/), tales como malware o herramientas de uso general. Si tienes dudas sobre nuestros Lineamientos de Comunidad crees que algún contenido de GitHub podría violarlos, puedes utilizar {{ site.data.variables.contact.report_content }} para contactarnos.
+- Contenido regido por nuestras [Directrices de la comunidad](/articles/github-community-guidelines/), tales como malware o herramientas de uso general. Si tienes dudas sobre nuestros Lineamientos de Comunidad crees que algún contenido de GitHub podría violarlos, puedes utilizar {% data variables.contact.report_content %} para contactarnos.
 
 ### Cosas que debes saber
 

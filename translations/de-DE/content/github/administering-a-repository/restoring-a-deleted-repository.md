@@ -13,7 +13,7 @@ Alle Benutzer können gelöschte Repositorys wiederherstellen, die zu ihrem eige
 
 Ein gelöschte Repository kann innerhalb von 90 Tagen wiederhergestellt werden. Dies gilt allerdings nicht, wenn das Repository Teil eines Fork-Netzwerks war, das derzeit nicht leer ist. Ein Fork-Netzwerk besteht aus einem übergeordneten Repository, den Forks des Repositorys und den Forks dieser Repository-Forks. Wenn Dein Repository Teil eines Fork-Netzwerks war, kann es nur dann wiederhergestellt werden, wenn alle anderen Repositorys im Netzwerk gelöscht oder vom Netzwerk getrennt wurden. Weitere Informationen zu Forks findest Du unter „[Informationen zu Forks](/articles/about-forks).“
 
-Soll ein Repository wiederhergestellt werden, das Teil eines derzeit nicht leeren Fork-Netzwerks war, wende Dich an {{ site.data.variables.contact.contact_support }}.
+Soll ein Repository wiederhergestellt werden, das Teil eines derzeit nicht leeren Fork-Netzwerks war, wende Dich an {% data variables.contact.contact_support %}.
 
 Wenn Du ein Repository löschst, kann es bis zu einer Stunde dauern, bis dieses Repository wiederhergestellt werden kann.
 
@@ -21,20 +21,20 @@ Beim Wiederherstellen eines Repositorys werden etwaige Releaseanhänge oder Team
 
 ### Gelöschtes Repository eines Benutzerkontos wiederherstellen
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
-{{ site.data.reusables.user_settings.deleted-repos }}
-{{ site.data.reusables.user_settings.restore-repo }}
-{{ site.data.reusables.user_settings.restore-confirmation }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
+{% data reusables.user_settings.deleted-repos %}
+{% data reusables.user_settings.restore-repo %}
+{% data reusables.user_settings.restore-confirmation %}
 
 ### Gelöschtes Repository einer Organisation wiederherstellen
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.deleted-repos }}
-{{ site.data.reusables.user_settings.restore-repo }}
-{{ site.data.reusables.user_settings.restore-confirmation }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.deleted-repos %}
+{% data reusables.user_settings.restore-repo %}
+{% data reusables.user_settings.restore-confirmation %}
 
 ### Weiterführende Informationen
 

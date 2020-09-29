@@ -85,17 +85,17 @@ git commit
 
 {% tip %}
 
-**提示：**当评论中写入了有效 URL 时，{{ site.data.variables.product.product_name }} 会自动创建链接。 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
+**提示：**当评论中写入了有效 URL 时，{% data variables.product.product_name %} 会自动创建链接。 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
 {% endtip %}
 
 ### 章节链接
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### 相对链接
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### 列表
 
@@ -123,7 +123,7 @@ git commit
 
 通过在一个列表项下面缩进一个或多个其他列表项，可创建嵌套列表。
 
-要通过 {{ site.data.variables.product.product_name }} 上的 web 编辑器或使用等宽字体的文本编辑器（例如 [Atom](https://atom.io/)）创建嵌套列表，您可以直观地对齐列表。 在嵌套列表项的前面键入空格字符，直至列表标记字符（`-` 或 `*`）位于其上方条目中第一个文本字符的正下方。
+要通过 {% data variables.product.product_name %} 上的 web 编辑器或使用等宽字体的文本编辑器（例如 [Atom](https://atom.io/)）创建嵌套列表，您可以直观地对齐列表。 在嵌套列表项的前面键入空格字符，直至列表标记字符（`-` 或 `*`）位于其上方条目中第一个文本字符的正下方。
 
 ```
 1. 第一个列表项
@@ -135,7 +135,7 @@ git commit
 
 ![含两级嵌套项的列表](/assets/images/help/writing/nested-list-example-1.png)
 
-要在 {{ site.data.variables.product.product_name }} 上的评论编辑器中创建嵌套列表（不使用等宽字体），您可以查看嵌套列表正上方的列表项，并计算该条目内容前面的字符数量。 然后在嵌套列表项的前面键入该数量的空格字符。
+要在 {% data variables.product.product_name %} 上的评论编辑器中创建嵌套列表（不使用等宽字体），您可以查看嵌套列表正上方的列表项，并计算该条目内容前面的字符数量。 然后在嵌套列表项的前面键入该数量的空格字符。
 
 在此例中，您可以通过缩进嵌套列表项至少五个空格，在列表项 `100. 第一个列表项`的下面添加一个嵌套列表项，因为在`第一个列表项`的前面有五个字符 (`100.`) 。
 
@@ -160,7 +160,7 @@ git commit
 
 ### 任务列表
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 如果任务列表项说明以括号开头，则需要使用 `\` 进行规避：
 
@@ -170,7 +170,7 @@ git commit
 
 ### 提及人员和团队
 
-您可以在 {{ site.data.variables.product.product_name }} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 This will trigger a notification and bring their attention to the conversation. 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 This will trigger a notification and bring their attention to the conversation. 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
 
 `@github/support 您如何看待这些更新？`
 
@@ -191,21 +191,21 @@ git commit
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 引用外部资源
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 
 ### 内容附件
 
-有些 {{ site.data.variables.product.prodname_github_app }} 在 {{ site.data.variables.product.product_name }} 中提供链接到其注册域名的 URL 信息。 {{ site.data.variables.product.product_name }} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
+有些 {% data variables.product.prodname_github_app %} 在 {% data variables.product.product_name %} 中提供链接到其注册域名的 URL 信息。 {% data variables.product.product_name %} 可渲染应用程序在正文或者议题或拉取请求的评论中的 URL 下提供的信息。
 
 ![内容附件](/assets/images/help/writing/content-attachment.png)
 
-要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {{ site.data.variables.product.prodname_github_app }}。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
+要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 
-有关构建使用内容附件的 {{ site.data.variables.product.prodname_github_app }} 的详细信息，请参阅“[使用内容附件](/apps/using-content-attachments)”。
+有关构建使用内容附件的 {% data variables.product.prodname_github_app %} 的详细信息，请参阅“[使用内容附件](/apps/using-content-attachments)”。
 
 ### 使用表情符号
 
@@ -225,7 +225,7 @@ git commit
 
 ### 忽略 Markdown 格式
 
-通过在 Markdown 字符前面输入 `\`，可告诉 {{ site.data.variables.product.product_name }} 忽略（或规避）Markdown 格式。
+通过在 Markdown 字符前面输入 `\`，可告诉 {% data variables.product.product_name %} 忽略（或规避）Markdown 格式。
 
 `让我们将 \*our-new-project\* 重命名为 \*our-old-project\*。`
 
@@ -235,7 +235,7 @@ git commit
 
 ### 延伸阅读
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown 规格](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
 - “[关于 GitHub 上的撰写和格式](/articles/about-writing-and-formatting-on-github)”
 - "[使用高级格式](/articles/working-with-advanced-formatting)"
 - "[熟悉 Markdown](https://guides.github.com/features/mastering-markdown/)"

@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {{ site.data.variables.product.prodname_dotcom }} features, such as {{ site.data.variables.large_files.product_name_long }} or paid apps purchased in {{ site.data.variables.product.prodname_marketplace }}.
+Changes to your paid user account or organization subscription does not affect subscriptions or payments for other paid {% data variables.product.prodname_dotcom %} features, such as {% data variables.large_files.product_name_long %} or paid apps purchased in {% data variables.product.prodname_marketplace %}.
 
-For more information, see "[{{ site.data.variables.product.prodname_dotcom }}'s products](/articles/github-s-products)" and "[About billing on {{ site.data.variables.product.prodname_dotcom }}](/articles/about-billing-on-github)."
+For more information, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)" and "[About billing on {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
 #### Example of canceling a paid subscription for a personal account or organization
 
-Kumiko pays for a monthly subscription on the 5th of every month. If Kumiko downgrades from the paid subscription to {{ site.data.variables.product.prodname_free_user }} on October 10th, her paid subscription will remain in effect until the end of her current billing cycle on November 4th. On November 5th, her account will move to {{ site.data.variables.product.prodname_free_user }}.
+Kumiko pays for a monthly subscription on the 5th of every month. If Kumiko downgrades from the paid subscription to {% data variables.product.prodname_free_user %} on October 10th, her paid subscription will remain in effect until the end of her current billing cycle on November 4th. On November 5th, her account will move to {% data variables.product.prodname_free_user %}.
 
 #### Example of changing from a yearly to a monthly subscription for a personal account or organization
 
@@ -29,7 +29,7 @@ Stefan's organization pays for 50 seats every year on May 20th. If Stefan remove
 
 ### Further reading
 
-- "[Managing billing for your {{ site.data.variables.product.prodname_dotcom }} account](/articles/managing-billing-for-your-github-account)"
-- "[Managing billing for {{ site.data.variables.product.prodname_marketplace }} apps](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Managing billing for {{ site.data.variables.large_files.product_name_long }}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Managing billing for your {% data variables.product.prodname_dotcom %} account](/articles/managing-billing-for-your-github-account)"
+- "[Managing billing for {% data variables.product.prodname_marketplace %} apps](/articles/managing-billing-for-github-marketplace-apps)"
+- "[Managing billing for {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
 - "[About per-user pricing](/articles/about-per-user-pricing)"

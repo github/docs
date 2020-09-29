@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.activity-overview-summary }}更多信息请参阅“[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)”。
+{% data reusables.profile.activity-overview-summary %}更多信息请参阅“[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)”。
 
 ![个人资料中的活动概览部分](/assets/images/help/profile/activity-overview-section.png)
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. 在贡献图上方，使用 **Contribution settings（贡献设置）**下拉菜单选择或取消选择 **Activity overview（活动概述）**。 ![从贡献设置下拉菜单启用活动概览](/assets/images/help/profile/activity-overview.png)

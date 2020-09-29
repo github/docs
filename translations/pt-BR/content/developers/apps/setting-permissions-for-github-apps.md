@@ -1,6 +1,6 @@
 ---
 title: Configurando permissões para aplicativos GitHub
-intro: '{{ site.data.reusables.shortdesc.permissions_github_apps }}'
+intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
   - /apps/building-github-apps/permissions-for-github-apps/
@@ -16,4 +16,4 @@ Ao criar um aplicativo GitHub, você pode selecionar as permissões de que preci
 
 Por padrão, os aplicativos GitHub têm acesso `somente leitura` aos pontos de extremidade dos metadados. Metadados é uma coleção de pontos de extremidade somente leitura que fornecem informações gerais sobre recursos que a instalação autorizada pode acessar.
 
-{{ site.data.reusables.apps.metadata-permissions }} Para obter uma lista de pontos de extremidade dos metadados, consulte "[Permissões dos metadados](/v3/apps/permissions/#metadata-permissions)".
+{% data reusables.apps.metadata-permissions %} Para obter uma lista de pontos de extremidade dos metadados, consulte "[Permissões dos metadados](/v3/apps/permissions/#metadata-permissions)".

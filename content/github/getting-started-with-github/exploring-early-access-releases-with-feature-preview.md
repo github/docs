@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### {{ site.data.variables.product.prodname_dotcom }}'s release cycle
+### {% data variables.product.prodname_dotcom %}'s release cycle
 
-{{ site.data.variables.product.product_name }}'s products and features can go through multiple release phases.
+{% data variables.product.product_name %}'s products and features can go through multiple release phases.
 
 | Phase | Description |
 |-------|-------------|

@@ -1,1 +1,1 @@
-1. Autentícate en {{ site.data.variables.product.prodname_registry }}. Para obtener más información, consulta "[Autenticar a {{ site.data.variables.product.prodname_registry }}](#authenticating-to-github-packages)."
+1. Autentícate en {% data variables.product.prodname_registry %}. Para obtener más información, consulta "[Autenticar a {% data variables.product.prodname_registry %}](#authenticating-to-github-packages)."

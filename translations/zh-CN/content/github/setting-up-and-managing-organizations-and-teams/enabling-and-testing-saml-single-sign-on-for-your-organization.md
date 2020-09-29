@@ -1,7 +1,7 @@
 ---
 title: 启用和测试组织的 SAML 单点登录
 intro: 组织所有者和管理员可以启用 SAML 单点登录，以将额外的安全层添加到其组织。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
@@ -12,14 +12,14 @@ versions:
 
 如果启用但不实施 SAML SSO，则选择不使用 SAML SSO 的组织成员仍可以是组织的成员。 有关实施 SAML SSO 的更多信息，请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 在组织中实施 SAML SSO 之前，请确保已设置身份提供程序 (IdP)。 更多信息请参阅“[准备在组织中实施 SAML 单点登录](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)”。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
 5. 在“SAML single sign-on”（SAML 单点登录）下，选择 **Enable SAML authentication（启用 SAML 身份验证）**。 ![用于启用 SAML SSO 的复选框](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
@@ -36,7 +36,7 @@ versions:
 
   {% tip %}
 
-  **提示：** {{ site.data.reusables.saml.testing-saml-sso }}
+  **提示：** {% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
 11. 要实施 SAML SSO 并删除未通过 IdP 进行身份验证的所有组织成员，请选择 **Require SAML SSO authentication for all members of the _organization name_ organization（要求组织的所有成员进行 SAML SSO 身份验证）**。 有关实施 SAML SSO 的更多信息，请参阅“[对组织实施 SAML 单点登录](/articles/enforcing-saml-single-sign-on-for-your-organization)”。 ![对组织要求 SAML SSO 的复选框 ](/assets/images/help/saml/saml_require_saml_sso.png)

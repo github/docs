@@ -3,7 +3,7 @@ title: 我应使用哪个远程 URL？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '克隆 {{ site.data.variables.product.prodname_dotcom }} 上的仓库有几种方法。'
+intro: '克隆 {% data variables.product.prodname_dotcom %} 上的仓库有几种方法。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,17 +17,17 @@ versions:
 
 `https://` 克隆 URL 在所有仓库（公共和私有）中提供。 即使您在防火墙或代理后面，这些 URL 也有效。
 
-当您在命令行中使用 HTTPS URL 对远程仓库执行 `git clone`、`git fetch`、`git pull` 或 `git push` 命令时，Git 将要求您输入 {{ site.data.variables.product.product_name }} 用户名和密码。 {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+当您在命令行中使用 HTTPS URL 对远程仓库执行 `git clone`、`git fetch`、`git pull` 或 `git push` 命令时，Git 将要求您输入 {% data variables.product.product_name %} 用户名和密码。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 {% tip %}
 
 **Tips**:
 
-- 您可以使用凭据小助手，让 Git 在每次与 {{ site.data.variables.product.prodname_dotcom }} 通信时记住您的 {{ site.data.variables.product.prodname_dotcom }} 凭据。 更多信息请参阅“[在 Git 中缓存 {{ site.data.variables.product.prodname_dotcom }} 凭据](/github/using-git/caching-your-github-credentials-in-git)”。
+- 您可以使用凭据小助手，让 Git 在每次与 {% data variables.product.prodname_dotcom %} 通信时记住您的 {% data variables.product.prodname_dotcom %} 凭据。 更多信息请参阅“[在 Git 中缓存 {% data variables.product.prodname_dotcom %} 凭据](/github/using-git/caching-your-github-credentials-in-git)”。
 
-- 要克隆仓库而不在命令行中对 {{ site.data.variables.product.product_name }} 进行身份验证，您可以使用 {{ site.data.variables.product.prodname_desktop }} 进行克隆。 更多信息请参阅“[将仓库从 {{ site.data.variables.product.prodname_dotcom }} 克隆到 {{ site.data.variables.product.prodname_dotcom }} Desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)”。
+- 要克隆仓库而不在命令行中对 {% data variables.product.product_name %} 进行身份验证，您可以使用 {% data variables.product.prodname_desktop %} 进行克隆。 更多信息请参阅“[将仓库从 {% data variables.product.prodname_dotcom %} 克隆到 {% data variables.product.prodname_dotcom %} Desktop](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)”。
 
 {% endtip %}
 
@@ -35,7 +35,7 @@ versions:
 
 ### 使用 SSH URL 克隆
 
-SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 要使用这些 URL，您必须在计算机上生成 SSH 密钥对，并将**公**钥添加到您的 {{ site.data.variables.product.product_name }} 帐户。 更多信息请参阅“[通过 SSH 连接 {{ site.data.variables.product.prodname_dotcom }}](/github/authenticating-to-github/connecting-to-github-with-ssh)”。
+SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 要使用这些 URL，您必须在计算机上生成 SSH 密钥对，并将**公**钥添加到您的 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[通过 SSH 连接 {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/connecting-to-github-with-ssh)”。
 
 使用 SSH URL 对远程仓库执行 `git clone`、`git fetch`、`git pull` 或 `git push` 命令时，系统将提示您输入密码，并且必须提供您的 SSH 密钥密码。 更多信息请参阅“[使用 SSH 密钥密码](/github/authenticating-to-github/working-with-ssh-key-passphrases)”。
 
@@ -49,17 +49,17 @@ SSH URL 通过 SSH（一种安全协议）提供 Git 仓库的访问权限。 �
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-### Cloning with {{ site.data.variables.product.prodname_cli }}
+### Cloning with {% data variables.product.prodname_cli %}
 
-You can also install {{ site.data.variables.product.prodname_cli }} to use {{ site.data.variables.product.product_name }} workflows in your terminal. For more information, the [{{ site.data.variables.product.prodname_cli }}](https://cli.github.com/manual/) documentation.
+You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.
 
 {% endif %}
 
 ### 使用 Subversion 克隆
 
-您还可以使用 [Subversion](https://subversion.apache.org/) 客户端访问 {{ site.data.variables.product.prodname_dotcom }} 上的任何仓库。 Subversion 提供不同于 Git 的功能集。 更多信息请参阅“[Subversion 与 Git 之间有何差异？](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)”
+您还可以使用 [Subversion](https://subversion.apache.org/) 客户端访问 {% data variables.product.prodname_dotcom %} 上的任何仓库。 Subversion 提供不同于 Git 的功能集。 更多信息请参阅“[Subversion 与 Git 之间有何差异？](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)”
 
-您也可以从 Subversion 客户端访问 {{ site.data.variables.product.prodname_dotcom }} 上的仓库。 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
+您也可以从 Subversion 客户端访问 {% data variables.product.prodname_dotcom %} 上的仓库。 更多信息请参阅“[Subversion 客户端的支持](/github/importing-your-projects-to-github/support-for-subversion-clients)”。
 
 ### 延伸阅读
 

@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} convertir a los miembros de la organización en colaboradores externos.
+{% data reusables.organizations.owners-and-admins-can %} convertir a los miembros de la organización en colaboradores externos.
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }}{{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside-collaborators-use-seats %}{% data reusables.organizations.outside_collaborator_forks %}
 
 Luego de convertir a un miembro de la organización en un colaborador externo, solo tendrá acceso a los repositorios que permite su membresía de equipo actual. La persona ya no será un miembro explícito de la organización, y ya no podrá:
 
@@ -25,9 +25,9 @@ Recomendamos revisar el acceso del miembro de la organización a los repositorio
 
 Cuando conviertes a un miembro de la organización en un colaborador externo, sus privilegios como miembro de la organización se guardan durante tres meses para que puedas restaurar sus privilegios de membresía si lo{% if currentVersion == "free-pro-team@latest" %}invitas a unirse nuevamente{% else %} lo vuelves a agregar{% endif %} a tu organización dentro de ese período. Para obtener más información, consulta "[Reinstalar un miembro antiguo de tu organización](/enterprise/{{ currentVersion }}/user/articles/reinstating-a-former-member-of-your-organization)".
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Selecciona la persona o las personas a quienes deseas convertir en colaboradores externos. ![Lista de miembros con dos miembros seleccionados](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Arriba de la lista de miembros, utiliza el menú desplegable y haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Menú desplegable con la opción para convertir miembros en colaboradores externos](/assets/images/help/teams/user-bulk-management-options.png)
 6. Lee la información sobre cómo convertir miembros en colaboradores externos, luego haz clic en **Convert to outside collaborator** (Convertir en colaborador externo). ![Información sobre permisos de colaboradores externos y botón Convert to outside collaborators (Convertir en colaboradores externos)](/assets/images/help/teams/confirm-outside-collaborator-bulk.png)

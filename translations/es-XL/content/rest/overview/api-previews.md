@@ -20,7 +20,7 @@ Para acceder a la vista previa de las API, necesitarás proporcionar un [tipo de
 {% if currentVersion == "free-pro-team@latest" %}
 ### Migraciones
 
-Te permite descargar repositorios desde tu usuario de GitHub o cuenta organizacional para revisar, respaldar y [migrar](/v3/migrations/) los datos al {{ site.data.variables.product.prodname_ghe_server }}.
+Te permite descargar repositorios desde tu usuario de GitHub o cuenta organizacional para revisar, respaldar y [migrar](/v3/migrations/) los datos al {% data variables.product.prodname_ghe_server %}.
 
 **Tipo de medios personalizados:** `wyandotte-preview` **Anunciado en:**[2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
 {% endif %}
@@ -120,7 +120,7 @@ Incluir contenido anidado del equipo en cargas útiles del [equipo](/v3/teams/)
 
 ### Webhooks globales
 
-Habilita los [webhooks globales](/v3/enterprise-admin/global_webhooks/) para una [organización](/webhooks/event-payloads/#organization) y para los tipos de evento del [usuario](/webhooks/event-payloads/#user). Esta vista previa de la API solo está disponible para {{ site.data.variables.product.prodname_ghe_server }}.
+Habilita los [webhooks globales](/v3/enterprise-admin/global_webhooks/) para una [organización](/webhooks/event-payloads/#organization) y para los tipos de evento del [usuario](/webhooks/event-payloads/#user). Esta vista previa de la API solo está disponible para {% data variables.product.prodname_ghe_server %}.
 
 **Tipo de medios personalizados:** `superpro-preview` **Anunciado en:**[2017-12-12](/v3/enterprise-admin/global_webhooks)
 
@@ -182,7 +182,7 @@ Permite a una GitHub App ejecutar verificaciones externas en el código de un re
 
 ### Acceso anónimo de Git a los repositorios
 
-Cuando una instancia de {{ site.data.variables.product.prodname_ghe_server }} está en modo privado, los administradores de sitio y de repositorio pueden habilitar el acceso anónimo de Git para los repositorios públicos.
+Cuando una instancia de {% data variables.product.prodname_ghe_server %} está en modo privado, los administradores de sitio y de repositorio pueden habilitar el acceso anónimo de Git para los repositorios públicos.
 
 **Tipo de medios personalizados:** `x-ray-preview` **Anunciado en:**[2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
@@ -218,7 +218,7 @@ Ahora puedes configurar si los miembros de la organización pueden crear reposit
 
 ### Adjuntos de contenido
 
-Ahora puedes proporcionar más información en GitHub para las URL que enlazan a los dominios registrados si utilizas la API {{ site.data.variables.product.prodname_unfurls }}. Consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments/)" para obtener más detalles.
+Ahora puedes proporcionar más información en GitHub para las URL que enlazan a los dominios registrados si utilizas la API {% data variables.product.prodname_unfurls %}. Consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments/)" para obtener más detalles.
 
 **Tipo de medios personalizados:** `corsair-preview` **Anunciado en:**[2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
@@ -226,7 +226,7 @@ Ahora puedes proporcionar más información en GitHub para las URL que enlazan a
 
 ### Restricciones de interacción para repositorios y organizaciones
 
-Te permite restringir interacciones temporalmente, tales como comentario abrir informes de problemas, y crear solicitudes de extracción para los repositorios u organizaciones de {{ site.data.variables.product.product_name }}. Cuando lo habilitas, únicamente el grupo específico de usuarios de {{ site.data.variables.product.product_name }} podrá participar en estas interacciones. Consulta las API de [Interacciones del repositorio](/v3/interactions/repos/) y de [Interacciones de la organización](/v3/interactions/orgs/) para obtener más detalles.
+Te permite restringir interacciones temporalmente, tales como comentario abrir informes de problemas, y crear solicitudes de extracción para los repositorios u organizaciones de {% data variables.product.product_name %}. Cuando lo habilitas, únicamente el grupo específico de usuarios de {% data variables.product.product_name %} podrá participar en estas interacciones. Consulta las API de [Interacciones del repositorio](/v3/interactions/repos/) y de [Interacciones de la organización](/v3/interactions/orgs/) para obtener más detalles.
 
 **Tipo de medios personalizados:** `sombra-preview` **Anunciado en:**[2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
 

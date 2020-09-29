@@ -29,7 +29,7 @@ Para pesquisar conversas bloqueadas em um repositório que não está arquivado,
 - "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Gerenciando comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Mantendo sua segurança no {{ site.data.variables.product.prodname_dotcom }}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"
 - "[Limitando interações em seu repositório](/github/building-a-strong-community/limiting-interactions-in-your-repository)"
 {% endif %}

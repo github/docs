@@ -1,6 +1,6 @@
 ---
 title: About conversations on GitHub
-intro: 'You can discuss specific projects and changes, as well as broader projects or team goals, using different types of discussions on {{ site.data.variables.product.product_name }}.'
+intro: 'You can discuss specific projects and changes, as well as broader projects or team goals, using different types of discussions on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### Discussions on {{ site.data.variables.product.product_name }}
+### Discussions on {% data variables.product.product_name %}
 
 You can create and participate in issues, pull requests, and team discussions, depending on the type of conversation you'd like to have.
 
 Issues are useful for discussing specific details of a project such as bug reports and planned improvements. For more information, see "[About issues](/articles/about-issues)." Pull requests allow you to comment directly on proposed changes. For more information, see "[About pull requests](/articles/about-pull-requests)" and "[Commenting on a pull request](/articles/commenting-on-a-pull-request)."
 
-{{ site.data.reusables.organizations.team-discussions-purpose }} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} For more information, see "[About team discussions](/articles/about-team-discussions)."
 
 ### Reacting to ideas in comments
 
@@ -43,4 +43,4 @@ Similar to contributing guidelines, the repository maintainer may have included 
 - "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Moderating comments and conversations](/articles/moderating-comments-and-conversations)"
-- "[Writing on {{ site.data.variables.product.prodname_dotcom }}](/articles/writing-on-github)"
+- "[Writing on {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

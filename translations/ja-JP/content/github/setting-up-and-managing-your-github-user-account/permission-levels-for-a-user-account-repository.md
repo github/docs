@@ -29,12 +29,12 @@ versions:
 - パッケージを削除する。 詳細は「[>パッケージを削除する](/github/managing-packages-with-github-packages/deleting-a-package)」を参照してください。{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - リポジトリソーシャルカードを作成および編集する。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/articles/customizing-your-repositorys-social-media-preview)」を参照してください。
 - リポジトリをテンプレートにする。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)を参照してください。{% endif %}
-- 脆弱な依存関係についての[{% if currentVersion == "free-pro-team@latest" %}{{ site.data.variables.product.prodname_dependabot_alerts }}{% else %}セキュリティ{% endif %}アラートを受け取ります](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。 {% if currentVersion == "free-pro-team@latest" %}
-- リポジトリで {{ site.data.variables.product.prodname_dependabot_alerts }} を閉じます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
+- 脆弱な依存関係についての[{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティ{% endif %}アラートを受け取ります](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。 {% if currentVersion == "free-pro-team@latest" %}
+- リポジトリで {% data variables.product.prodname_dependabot_alerts %} を閉じます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 - [プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [リポジトリのコードオーナーを定義する](/articles/about-code-owners)
 - [リポジトリをアーカイブする](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- セキュリティアドバイザリを作成する。 詳しい情報については「[{{ site.data.variables.product.prodname_security_advisories }}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+- セキュリティアドバイザリを作成する。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 - スポンサーボタンを表示する。 詳細は「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照してください。{% endif %}
 
 ユーザアカウントが所有するリポジトリの**オーナーは 1 人**だけです。この権限を他のユーザアカウントと共有することはできません。 リポジトリの所有権を他のユーザに委譲するには、「[リポジトリを委譲する方法](/articles/how-to-transfer-a-repository)」を参照してください。
@@ -64,7 +64,7 @@ versions:
 - マージ可能性に影響するプルリクエストレビューをサブミットする
 - リポジトリに指定されたコードオーナーとして行動する。 詳細は「[コードオーナーについて](/articles/about-code-owners)」を参照してください。
 - 会話をロックする。 詳細は「[会話をロックする](/articles/locking-conversations)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
-- 乱用コンテンツを {{ site.data.variables.contact.contact_support }} にレポートする 詳細は「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」を参照してください。{% endif %}
+- 乱用コンテンツを {% data variables.contact.contact_support %} にレポートする 詳細は「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」を参照してください。{% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - 他のリポジトリへ Issue を移譲する。 詳細は「[他のリポジトリへ Issue を移譲する](/articles/transferring-an-issue-to-another-repository)」を参照してください。{% endif %}
 

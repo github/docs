@@ -19,24 +19,24 @@ Nur Inhaber oder Teamadministratoren können Organisationsmitglieder entfernen. 
 
 {% warning %}
 
-**Hinweis:** {{ site.data.reusables.enterprise_management_console.badge_indicator }}
+**Hinweis:** {% data reusables.enterprise_management_console.badge_indicator %}
 
 Wenden Sie sich an Ihren LDAP-Administrator, um ein vorhandenes Mitglied eines mit einer LDAP-Gruppe synchronisierten Teams zu entfernen.
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 4. Wähle die Person(en) aus, die Du entfernen möchtest. ![Kontrollkästchen neben dem Organisationsmitglied](/assets/images/help/teams/team-member-check-box.png)
 5. Klicke im Dropdownmenü über der Liste der Teammitglieder auf **Remove from team** (Aus Team entfernen). ![Dropdownmenü mit Option zum Ändern der Rolle](/assets/images/help/teams/bulk-edit-drop-down.png)
 
 ### Benutzer aus einer Organisation entfernen
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Aktivieren Sie das Kontrollkästchen neben dem Namen des Benutzers, der aus der Organisation entfernt werden soll.![Kontrollkästchen zum Entfernen des Benutzers](/assets/images/help/organizations/Organization-remove-user.png)
 5. Klicken Sie im oberen Bereich der Seite unterhalb des Namens der Organisation auf **Remove from organization** (Aus Organisation entfernen). ![Schaltfläche „Remove from organization“ (Aus Organisation entfernen)](/assets/images/help/organizations/Organization-remove-from-organization-button.png)
 
-{{ site.data.reusables.organizations.data_saved_for_reinstating_a_former_org_member }}
+{% data reusables.organizations.data_saved_for_reinstating_a_former_org_member %}

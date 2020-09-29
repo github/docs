@@ -23,7 +23,7 @@ Se você estiver usando um nó offline que tenha qualquer tipo de serviços de d
     ```
     ghe-spokes evac-status
     ```
-    Para o {{ site.data.variables.product.prodname_pages }}
+    Para o {% data variables.product.prodname_pages %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
@@ -38,7 +38,7 @@ Se você estiver usando um nó offline que tenha qualquer tipo de serviços de d
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
-    Para o {{ site.data.variables.product.prodname_pages }}
+    Para o {% data variables.product.prodname_pages %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```

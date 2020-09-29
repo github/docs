@@ -10,7 +10,7 @@ versions:
 
 始める前に、以下をご確認ください:
 
-- お使いの {{ site.data.variables.product.product_name }}ユーザ名
+- お使いの {% data variables.product.product_name %}ユーザ名
 - 外部リポジトリのクローン URL。`https://external-host.com/user/repo.git`、`git://external-host.com/user/repo.git` など (ドメイン名 `external-host.com` の前に `user@` が付く場合もあります)。
 
 {% tip %}
@@ -19,22 +19,22 @@ versions:
 
 - 外部アカウント名 **extuser**
 - 外部 Git ホスト `https://external-host.com`
-- {{ site.data.variables.product.product_name }} の個人ユーザ アカウント **ghuser**
-- {{ site.data.variables.product.product_name }} のリポジトリ **repo.git**
+- {% data variables.product.product_name %} の個人ユーザ アカウント **ghuser**
+- {% data variables.product.product_name %} のリポジトリ **repo.git**
 
 {% endtip %}
 
-1. [{{ site.data.variables.product.product_name }} に新しいリポジトリを作成](/articles/creating-a-new-repository)します。 この新しいリポジトリに、外部 Git リポジトリをインポートします。
+1. [{% data variables.product.product_name %} に新しいリポジトリを作成](/articles/creating-a-new-repository)します。 この新しいリポジトリに、外部 Git リポジトリをインポートします。
 2. コマンドラインで、外部クローン URL を使用して、リポジトリの "ベア" クローンを作成します。 これはデータの完全なコピーですが、ファイル編集のためのワーキングディレクトリはコピーされず、古いデータすべてのクリーンな新しいエクスポートが作成されます。
   ```shell
   $ git clone --bare https://external-host.com/<em>extuser</em>/<em>repo.git</em>
   # ローカル リポジトリに、外部リポジトリのベア クローンを作成
   ```
-3. "mirror" オプションを使用して、ローカルにクローンされたリポジトリを {{ site.data.variables.product.product_name }} にプッシュします。インポートされたリポジトリには、ブランチやタグなどすべての参照がコピーされます。
+3. "mirror" オプションを使用して、ローカルにクローンされたリポジトリを {% data variables.product.product_name %} にプッシュします。インポートされたリポジトリには、ブランチやタグなどすべての参照がコピーされます。
   ```shell
   $ cd <em>repo.git</em>
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>ghuser</em>/<em>repo.git</em>
-  # 新しい {{ site.data.variables.product.product_name }} リポジトリにミラーをプッシュ
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
+  # 新しい {% data variables.product.product_name %} リポジトリにミラーをプッシュ
   ```
 4. 一時ローカル リポジトリを削除します。
   ```shell

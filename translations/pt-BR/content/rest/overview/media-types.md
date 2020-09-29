@@ -11,7 +11,7 @@ versions:
 
 Tipos de mídia personalizados são usados na API para permitir que os consumidores escolham o formato dos dados que desejam receber. Isso é feito adicionando um ou mais dos seguintes tipos ao cabeçalho `Aceitar` quando você fizer uma solicitação. Os tipos de mídia são específicos para os recursos, permitindo-lhes alterar, de forma independente, e suportar formatos que outros recursos não suportam.
 
-Todos os tipos de mídia de {{ site.data.variables.product.product_name }} se parecem com isto:
+Todos os tipos de mídia de {% data variables.product.product_name %} se parecem com isto:
 
     application/vnd.github[.version].param[+json]
 
@@ -39,16 +39,16 @@ Se você estiver especificando uma propriedade (como full/raw/etc. definido abai
 Você pode verificar a versão atual por meio de cada cabeçalho de resposta.  Procure o cabeçalho `X-GitHub-Media-Type`:
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json

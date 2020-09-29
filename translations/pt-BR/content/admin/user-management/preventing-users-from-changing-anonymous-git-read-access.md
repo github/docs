@@ -8,28 +8,28 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_user_management.disclaimer-for-git-read-access }}
+{% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
 Para impedir que os administradores de repositório alterem as configurações de acesso de leitura anônimo do Git em determinado repositório, é possível bloquear as configurações de acesso do repositório. Após o bloqueio, somente um administrador de site poderá alterar a configuração do acesso de leitura anônimo do Git.
 
 Os administradores de repositório poderão alterar a configuração do acesso de leitura anônimo do Git de um repositório público se não for uma bifurcação. Para obter mais informações, consulte "[Permitir que administradores habilitem o acesso de leitura anônimo do Git a repositórios públicos](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-admins-to-enable-anonymous-git-read-access-to-public-repositories)".
 
-{{ site.data.reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled }}
+{% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
 ### Impedir os usuários de alterarem o acesso de leitura anônimo do Git no repositório
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 6. Em "Danger Zone" (Zona de perigo), selecione **Prevent repository admins from enabling anonymous Git read access** (Impedir administradores de repositório de habilitarem o acesso de leitura anônimo do Git). ![Marcar a caixa de seleção para impedir o repositório de alterar a configuração de acesso de leitura anônimo do Git](/assets/images/enterprise/site-admin-settings/lock-repo-from-changing-anonymous-git-read-access.png)
 
 ### Impedir os usuários de alterarem o acesso de leitura anônimo do Git em todos os repositórios
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.options-tab %}
 3. Em "Anonymous Git read access" (Acesso de leitura anônimo do Git), confirme que a configuração está habilitada e selecione **Prevent repository admins from changing anonymous Git read access** (Impedir administradores de repositório de habilitarem o acesso de leitura anônimo do Git). ![Marcar a caixa de seleção para impedir todos os repositórios de alterarem a configuração de acesso de leitura anônimo do Git](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 

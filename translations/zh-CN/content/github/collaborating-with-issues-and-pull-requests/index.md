@@ -1,6 +1,6 @@
 ---
 title: 使用议题和拉取请求进行协作
-intro: '使用 {{ site.data.variables.product.prodname_dotcom }} 流跟踪和讨论议题中的更改，然后提出和审查拉取请求中的更改。'
+intro: '使用 {% data variables.product.prodname_dotcom %} 流跟踪和讨论议题中的更改，然后提出和审查拉取请求中的更改。'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

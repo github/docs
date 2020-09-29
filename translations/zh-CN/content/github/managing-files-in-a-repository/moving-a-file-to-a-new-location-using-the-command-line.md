@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-许多文件可[在 {{ site.data.variables.product.product_name }} 上直接移动](/articles/moving-a-file-to-a-new-location)，但有些文件（如图像）需要从命令行移动。
+许多文件可[在 {% data variables.product.product_name %} 上直接移动](/articles/moving-a-file-to-a-new-location)，但有些文件（如图像）需要从命令行移动。
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
 1. 在计算机上，将文件移至克隆仓库时在计算机上本地创建的目录中的新位置。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 使用 `git status` 检查新旧文件位置。
   ```shell
   $ git status
@@ -31,11 +31,11 @@ versions:
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-{{ site.data.reusables.git.stage_for_commit }} 这将从旧位置删除或 `git rm` 文件，并且添加或 `git add` 文件到新位置。
+{% data reusables.git.stage_for_commit %} 这将从旧位置删除或 `git rm` 文件，并且添加或 `git add` 文件到新位置。
   ```shell
   $ git add .
   # Adds the file to your local repository and stages it for commit.
-  # {{ site.data.reusables.git.unstage-codeblock }}
+  # {% data reusables.git.unstage-codeblock %}
   ```
 5. 使用 `git status` 检查为提交暂存的更改。
   ```shell
@@ -47,13 +47,13 @@ versions:
   > #    renamed:    /old-folder/image.png -> /new-folder/image.png
   # Displays the changes staged for commit
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Move file to new directory"
   # Commits the tracked changes and prepares them to be pushed to a remote repository.
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### 延伸阅读
 

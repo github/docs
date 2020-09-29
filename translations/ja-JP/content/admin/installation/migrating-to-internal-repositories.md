@@ -1,6 +1,6 @@
 ---
 title: インターナルリポジトリへの移行
-intro: 'インターナルリポジトリへ移行して、{{ site.data.variables.product.prodname_ghe_server }}と{{ site.data.variables.product.prodname_ghe_cloud }}の両方を使う開発者の内部ソースに関する体験を統合できます。'
+intro: 'インターナルリポジトリへ移行して、{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の両方を使う開発者の内部ソースに関する体験を統合できます。'
 permissions: サイト管理者はインターナルリポジトリへ移行できます。
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
@@ -10,9 +10,9 @@ versions:
 
 ### インターナルリポジトリについて
 
-インターナルリポジトリは、{{ site.data.variables.product.prodname_ghe_server }} 2.20+で利用できます。 {{ site.data.reusables.repositories.about-internal-repos }} 詳しい情報については「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)」を参照してください。
+インターナルリポジトリは、{% data variables.product.prodname_ghe_server %} 2.20+で利用できます。 {% data reusables.repositories.about-internal-repos %} 詳しい情報については「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)」を参照してください。
 
-{{ site.data.variables.product.prodname_ghe_server }}の将来のリリースでは、リポジトリの可視性の動作を調整し、パブリック、インターナル、プライベートという用語が{{ site.data.variables.product.prodname_ghe_server }}と{{ site.data.variables.product.prodname_ghe_cloud }}の開発者に対して統一的な意味合いを持つようにします。
+{% data variables.product.prodname_ghe_server %}の将来のリリースでは、リポジトリの可視性の動作を調整し、パブリック、インターナル、プライベートという用語が{% data variables.product.prodname_ghe_server %}と{% data variables.product.prodname_ghe_cloud %}の開発者に対して統一的な意味合いを持つようにします。
 
 これらの変更に備えるために、もしプライベートモードを有効化しているなら、インスタンスで移行を行ってパブリックリポジトリをインターナルに変換できます。 この移行は現時点ではオプションであり、非プロダクションのインスタンスで変更をテストできるようにするためのものです。 この移行は、将来は必須になります。
 

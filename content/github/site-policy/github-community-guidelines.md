@@ -11,7 +11,7 @@ Millions of developers host millions of projects on GitHub — both open and clo
 
 GitHub users worldwide bring wildly different perspectives, ideas, and experiences, and range from people who created their first "Hello World" project last week to the most well-known software developers in the world. We are committed to making GitHub a welcoming environment for all the different voices and perspectives in our community, while maintaining a space where people are free to express themselves.
 
-We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {{ site.data.variables.contact.report_abuse }} or {{ site.data.variables.contact.report_content }}. We do not actively seek out content to moderate. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices). We will investigate any abuse reports and may moderate public content on our site that we determine to be in violation of our Terms of Service.
+We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. We do not actively seek out content to moderate. By outlining what we expect to see within our community, we hope to help you understand how best to collaborate on GitHub, and what type of actions or content may violate our [Terms of Service](#legal-notices). We will investigate any abuse reports and may moderate public content on our site that we determine to be in violation of our Terms of Service.
 
 ### Building a strong community
 
@@ -42,7 +42,7 @@ We rely on the community to let us know when an issue needs to be addressed. We 
 
 * **Block Users**  - If you encounter a user who continues to demonstrate poor behavior, you can [block the user from your personal account](/articles/blocking-a-user-from-your-personal-account/) or [block the user from your organization](/articles/blocking-a-user-from-your-organization/).
 
-Of course, you can always contact us to {{ site.data.variables.contact.report_abuse }} if you need more help dealing with a situation.
+Of course, you can always contact us to {% data variables.contact.report_abuse %} if you need more help dealing with a situation.
 
 ### What is not allowed?
 

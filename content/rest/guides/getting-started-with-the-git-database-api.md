@@ -1,6 +1,6 @@
 ---
 title: Getting started with the Git Database API
-intro: 'The Git Database API gives you access to read and write raw Git objects to your Git database on {{ site.data.variables.product.product_name }} and to list and update your references (branch heads and tags).'
+intro: 'The Git Database API gives you access to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags).'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -11,7 +11,7 @@ versions:
 This basically allows you to reimplement a lot of Git functionality over our API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
 
 Git Database API functions will return a `409 Conflict` if the Git repository is empty
-or unavailable.  An unavailable repository typically means {{ site.data.variables.product.product_name }} is in the process of creating the repository. For an empty repository, you can use the "[Create or update file contents](/v3/repos/contents/#create-or-update-file-contents)" endpoint to create content and initialize the repository so you can use the Git Database API. Contact {{ site.data.variables.contact.contact_support }} if this response status persists.
+or unavailable.  An unavailable repository typically means {% data variables.product.product_name %} is in the process of creating the repository. For an empty repository, you can use the "[Create or update file contents](/v3/repos/contents/#create-or-update-file-contents)" endpoint to create content and initialize the repository so you can use the Git Database API. Contact {% data variables.contact.contact_support %} if this response status persists.
 
 ![git database overview](/assets/images/git-database-overview.png)
 

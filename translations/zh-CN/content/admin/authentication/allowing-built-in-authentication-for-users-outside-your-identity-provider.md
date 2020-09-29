@@ -24,24 +24,24 @@ versions:
 
 ### 为您的身份提供程序覆盖范围外的用户配置内置身份验证
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.authentication }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
 4. 选择身份提供程序。![选择身份提供程序选项](/assets/images/enterprise/management-console/identity-provider-select.gif)
 5. 选择 **Allow creation of accounts with built-in authentication**。 ![选择内置身份验证选项](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. 阅读警告，然后单击 **Ok**。
 
-{{ site.data.reusables.enterprise_user_management.two_factor_auth_header }}
-{{ site.data.reusables.enterprise_user_management.2fa_is_available }}
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
 
 ### 邀请您的身份提供程序覆盖范围外的用户在您的实例上进行身份验证
 
 在用户接受邀请后，他们可以使用用户名和密码登录，无需通过 IdP。
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-sidebar-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-reset-link }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
+{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
 ### 延伸阅读
 

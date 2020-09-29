@@ -28,7 +28,7 @@ versions:
 - 仓库原来的所有者将添加为已转让仓库的协作者。 已转让仓库的其他协作者保持不变。
 - 私有复刻无法进行转让。
 
-{% if currentVersion == "free-pro-team@latest" %}如果您将私有仓库转让给 {{ site.data.variables.product.prodname_free_user }} 用户或组织帐户，该仓库将无法访问比如受保护分支和 {{ site.data.variables.product.prodname_pages }} 之类的功能。 {{ site.data.reusables.gated-features.more-info }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}如果您将私有仓库转让给 {% data variables.product.prodname_free_user %} 用户或组织帐户，该仓库将无法访问比如受保护分支和 {% data variables.product.prodname_pages %} 之类的功能。 {% data reusables.gated-features.more-info %}{% endif %}
 
 #### 随仓库一起转让的有哪些内容？
 
@@ -36,9 +36,9 @@ versions:
 
 - 如果转让的仓库是复刻，则它仍与上游仓库关联。
 - 如果转让的仓库有任何复刻，则这些复刻在转让完成后仍与该仓库关联。
-- 如果转让的仓库使用 {{ site.data.variables.large_files.product_name_long }}，则所有 {{ site.data.variables.large_files.product_name_short }} 对象均自动移动。 此转让在后台进行，因此如果您有大量的 {{ site.data.variables.large_files.product_name_short }} 对象或者如果 {{ site.data.variables.large_files.product_name_short }} 对象本身很大，则进行转让可能需要一些时间。{% if currentVersion == "free-pro-team@latest" %}转让使用 {{ site.data.variables.large_files.product_name_short }} 的仓库之前，确保接收帐户有足够的数据包用来存储您将移动的 {{ site.data.variables.large_files.product_name_short }} 对象。 有关为用户帐户增加存储的更多详细，请参阅“[升级 {{ site.data.variables.large_files.product_name_long }}](/articles/upgrading-git-large-file-storage)”。{% endif %}
+- 如果转让的仓库使用 {% data variables.large_files.product_name_long %}，则所有 {% data variables.large_files.product_name_short %} 对象均自动移动。 此转让在后台进行，因此如果您有大量的 {% data variables.large_files.product_name_short %} 对象或者如果 {% data variables.large_files.product_name_short %} 对象本身很大，则进行转让可能需要一些时间。{% if currentVersion == "free-pro-team@latest" %}转让使用 {% data variables.large_files.product_name_short %} 的仓库之前，确保接收帐户有足够的数据包用来存储您将移动的 {% data variables.large_files.product_name_short %} 对象。 有关为用户帐户增加存储的更多详细，请参阅“[升级 {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)”。{% endif %}
 - 仓库在两个用户帐户之间转让时，议题分配保持不变。 当您将仓库从用户帐户转让给组织时，分配给组织中该成员的议题保持不变，所有其他议题受理人都将被清除。 只允许组织中的所有者创建新的议题分配。 当您将仓库从组织转让给用户帐户时，只有分配给仓库所有者的议题保留，所有其他议题受理人都将被清除。
-- 如果转让的仓库包含 {{ site.data.variables.product.prodname_pages }} 站点，则指向 Web 上 Git 仓库和通过 Git 活动的链接将重定向。 不过，我们不会重定向与仓库关联的 {{ site.data.variables.product.prodname_pages }}。
+- 如果转让的仓库包含 {% data variables.product.prodname_pages %} 站点，则指向 Web 上 Git 仓库和通过 Git 活动的链接将重定向。 不过，我们不会重定向与仓库关联的 {% data variables.product.prodname_pages %}。
 - 指向以前仓库位置的所有链接均自动重定向到新位置。 当您对转让的仓库使用 `git clone`、`git fetch` 或 `git push` 时，这些命令将重定向到新仓库位置或 URL。 不过，为了避免混淆，我们强烈建议将任何现有的本地克隆副本更新为指向新仓库 URL。 您可以通过在命令行中使用 `git remote` 来执行此操作：
 
   ```shell
@@ -57,17 +57,17 @@ versions:
 
 您可以将仓库转让给接受仓库转让的任何用户帐户。 在两个用户帐户之间转让仓库时，原来的仓库所有者和协作者将自动添加为新仓库的协作者。
 
-{% if currentVersion == "free-pro-team@latest" %}如果您在私有仓库中发布了 {{ site.data.variables.product.prodname_pages }} 站点并添加了自定义域，则转让仓库之前，您可能想要删除或更新 DNS 记录以避免域接管风险。 更多信息请参阅“[管理 {{ site.data.variables.product.prodname_pages }} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}如果您在私有仓库中发布了 {% data variables.product.prodname_pages %} 站点并添加了自定义域，则转让仓库之前，您可能想要删除或更新 DNS 记录以避免域接管风险。 更多信息请参阅“[管理 {% data variables.product.prodname_pages %} 网站的自定义域](/articles/managing-a-custom-domain-for-your-github-pages-site)。{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}
 
 ### 转让您的组织拥有的仓库
 
 如果您具有组织中的所有者权限或组织其中一个仓库的管理员权限，您可以将组织拥有的仓库转让给用户帐户或其他组织。
 
 1. 在拥有仓库的组织中登录您具有管理员或所有者权限的用户帐户。
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}

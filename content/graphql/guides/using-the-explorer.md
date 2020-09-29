@@ -1,6 +1,6 @@
 ---
 title: Using the Explorer
-intro: 'You can run queries on real {{ site.data.variables.product.prodname_dotcom }} data using the GraphQL Explorer, an integrated development environment in your browser that includes docs, syntax highlighting, and validation errors.'
+intro: 'You can run queries on real {% data variables.product.prodname_dotcom %} data using the GraphQL Explorer, an integrated development environment in your browser that includes docs, syntax highlighting, and validation errors.'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
@@ -16,7 +16,7 @@ versions:
 
 {% note %}
 
-**Note**: {{ site.data.variables.product.prodname_dotcom }} has disabled [mutations](/v4/mutation/) in the Explorer, but you can use them in your own GraphiQL instance.
+**Note**: {% data variables.product.prodname_dotcom %} has disabled [mutations](/v4/mutation/) in the Explorer, but you can use them in your own GraphiQL instance.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ To use the GraphiQL app, download and install it from https://github.com/skevy/g
 ![graphiql headers](/assets/images/developer/graphiql-headers.png)
 1. Click the checkmark to the right of the token to save it.
 1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
-1. In the **GraphQL Endpoint** field, enter `{{ site.data.variables.product.graphql_url_pre }}`.
+1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
 1. In the **Method** dropdown menu, select **POST**.
 
 {% note %}
@@ -102,7 +102,7 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 
 ### Requesting support
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}
 
 ### Troubleshooting errors
 
@@ -147,6 +147,6 @@ It's possible you might run into an unexpected error that is not related to the 
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_dotcom }} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
+**Note:** {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
 
 {% endnote %}

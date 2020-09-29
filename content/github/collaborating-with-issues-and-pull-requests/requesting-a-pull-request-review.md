@@ -20,7 +20,7 @@ Owners or collaborators can assign a pull request review to any person that has 
 
 You can request a review from either a suggested or specific person. Suggested reviewers are based on [git blame data](/articles/tracking-changes-in-a-file/). If you request a review, other people with read access to the repository can still review your pull request. Once someone has reviewed your pull request and you've made the necessary changes, you can re-request review from the same reviewer. If the requested reviewer does not submit a review, and the pull request meets the repository's [mergeability requirements](/articles/defining-the-mergeability-of-pull-requests), you can still merge the pull request.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
 3. Navigate to **Reviewers** in the right sidebar.  
 4. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.

@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-When you create a pull request from a forked repository to the base repository, {{ site.data.variables.product.prodname_dotcom }} sends the `pull_request` event to the base repository and no pull request events occur on the forked repository.
+When you create a pull request from a forked repository to the base repository, {% data variables.product.prodname_dotcom %} sends the `pull_request` event to the base repository and no pull request events occur on the forked repository.
 
 Workflows don't run on forked repositories by default. You must enable GitHub Actions in the **Actions** tab of the forked repository.
 

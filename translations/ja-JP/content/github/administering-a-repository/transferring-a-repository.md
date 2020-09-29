@@ -28,7 +28,7 @@ versions:
 - リポジトリのオリジナルのオーナーは、移譲されたリポジトリにコラボレーターとして追加されます。 他のコラボレーターは、移譲されたリポジトリにそのまま残されます。
 - プライベートフォークは移譲できません。
 
-{% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリを {{ site.data.variables.product.prodname_free_user }} ユーザまたは Organization アカウントに移譲すると、リポジトリは保護されたブランチや {{ site.data.variables.product.prodname_pages }} などの機能にアクセスできなくなります。 {{ site.data.reusables.gated-features.more-info }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリを {% data variables.product.prodname_free_user %} ユーザまたは Organization アカウントに移譲すると、リポジトリは保護されたブランチや {% data variables.product.prodname_pages %} などの機能にアクセスできなくなります。 {% data reusables.gated-features.more-info %}{% endif %}
 
 #### リポジトリと共に移譲されるものは？
 
@@ -36,9 +36,9 @@ versions:
 
 - 移譲されたリポジトリがフォークである場合、それは上流のリポジトリに関連付けられたままになります。
 - 移譲されたリポジトリにフォークがある場合、それらのフォークは移譲が完了した後リポジトリに関連付けられたままになります。
-- 移譲されたリポジトリが {{ site.data.variables.large_files.product_name_long }} を使う場合、すべての {{ site.data.variables.large_files.product_name_short }} オブジェクトは自動的に移動します。 この移譲はバックグラウンドで行われます。このため、多数の {{ site.data.variables.large_files.product_name_short }} オブジェクトがあるか、{{ site.data.variables.large_files.product_name_short }} オブジェクト自体が大容量である場合、移譲には時間がかかることがあります。{% if currentVersion == "free-pro-team@latest" %} {{ site.data.variables.large_files.product_name_short }} を利用するリポジトリを移譲する前に、受信側のアカウントが、移動する {{ site.data.variables.large_files.product_name_short }} オブジェクトを保存するために十分なデータパックを所有していることを確認してください。 ユーザアカウントにストレージを追加する方法の詳細については、「[{{ site.data.variables.large_files.product_name_long }} をアップグレードする](/articles/upgrading-git-large-file-storage)」を参照してください。{% endif %}
+- 移譲されたリポジトリが {% data variables.large_files.product_name_long %} を使う場合、すべての {% data variables.large_files.product_name_short %} オブジェクトは自動的に移動します。 この移譲はバックグラウンドで行われます。このため、多数の {% data variables.large_files.product_name_short %} オブジェクトがあるか、{% data variables.large_files.product_name_short %} オブジェクト自体が大容量である場合、移譲には時間がかかることがあります。{% if currentVersion == "free-pro-team@latest" %} {% data variables.large_files.product_name_short %} を利用するリポジトリを移譲する前に、受信側のアカウントが、移動する {% data variables.large_files.product_name_short %} オブジェクトを保存するために十分なデータパックを所有していることを確認してください。 ユーザアカウントにストレージを追加する方法の詳細については、「[{% data variables.large_files.product_name_long %} をアップグレードする](/articles/upgrading-git-large-file-storage)」を参照してください。{% endif %}
 - リポジトリを 2 つのユーザアカウント間で移譲する場合、Issue の割り当てはそのまま残ります。 ユーザアカウントから Organization にリポジトリを移譲する場合、Organization のメンバーにアサインされた Issue はそのまま残ります。そして、すべての他の Issue のアサイニーは消えます。 Organization の中のオーナーだけが、新しい Issue のアサインを作成できます。 Organization からユーザアカウントにリポジトリを移譲する場合、リポジトリのオーナーにアサインされた Issue だけが保管され、すべての他のアサイニーは削除されます。
-- 移譲されたリポジトリが {{ site.data.variables.product.prodname_pages }} サイトを含む場合、Web 上の Git リポジトリへのリンクや Git のアクティビティを通じたリンクはリダイレクトされます。 しかし、リポジトリに関連付けられている {{ site.data.variables.product.prodname_pages }} はリダイレクトされません。
+- 移譲されたリポジトリが {% data variables.product.prodname_pages %} サイトを含む場合、Web 上の Git リポジトリへのリンクや Git のアクティビティを通じたリンクはリダイレクトされます。 しかし、リポジトリに関連付けられている {% data variables.product.prodname_pages %} はリダイレクトされません。
 - 以前のリポジトリの場所へのすべてのリンクは、新しい場所へ自動的にリダイレクトされます。 移譲されたリポジトリ上で `git clone`、`git fetch`、または `git push` を使う場合には、これらのコマンドは新しいリポジトリの場所あるいは URL にリダイレクトされます。 しかし、混乱を避けるため、既存のローカルクローンは新しいリポジトリの URL を指すよう更新することを強くおすすめします。 それは `git remote` をコマンドライン上で使って行えます。
 
   ```shell
@@ -57,17 +57,17 @@ Organization にリポジトリが移譲されたら、Organization のデフォ
 
 リポジトリの移譲を受け入れるどのユーザアカウントにも、リポジトリを移譲できます。 ２つのユーザアカウントの間でリポジトリを移譲した場合、当初のリポジトリコードオーナーとコラボレーターは、新しいリポジトリにコラボレーターとして自動的に追加されます。
 
-{% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリに {{ site.data.variables.product.prodname_pages }} サイトを公開し、カスタムドメインを追加した場合、ドメイン乗っ取りのリスクを回避するため、DNS レコードを削除するか更新することをおすすめします。 詳しい情報については、「[{{ site.data.variables.product.prodname_pages }} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}プライベートリポジトリに {% data variables.product.prodname_pages %} サイトを公開し、カスタムドメインを追加した場合、ドメイン乗っ取りのリスクを回避するため、DNS レコードを削除するか更新することをおすすめします。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}
 
 ### Organization が所有しているリポジトリを移譲する
 
 Organization のコードオーナー権限、または、そのリポジトリの 1 つの管理者権限を有している場合、Organization が所有しているリポジトリをユーザアカウントや他の Organization に移譲できます。
 
 1. リポジトリのある Organization で管理者またはオーナー権限を有しているユーザアカウントにサインインします。
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}

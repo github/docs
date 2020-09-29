@@ -17,7 +17,7 @@ Puedes enlazar un informe de problemas a una solicitud de extracción {% if curr
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 Cuando enlazas una solicitud de extracción al informe de problemas al que ésta hace referencia, los colaboradores pueden ver si alguien está trabajando en dicho informe.
-{% if currentVersion ver_lt "enterprise-server@2.21" %}Si la solicitud de extracción y el informe de problemas se encuentran en repositorios diferentes, {{ site.data.variables.product.product_name }} mostrará el enlace después de que se fusione esta solicitud, si en caso de que la persona que fusiona la solicitud también tiene permiso de cerrar el informe de problemas.{% endif %}{% endif %}
+{% if currentVersion ver_lt "enterprise-server@2.21" %}Si la solicitud de extracción y el informe de problemas se encuentran en repositorios diferentes, {% data variables.product.product_name %} mostrará el enlace después de que se fusione esta solicitud, si en caso de que la persona que fusiona la solicitud también tiene permiso de cerrar el informe de problemas.{% endif %}{% endif %}
 
 Cuando fusionas una solicitud de extracción que se ha enlazado y se encuentra en la rama predeterminada de un repositorio, su informe de problemas enlazado se cierra automáticamente. Para obtener más información acerca de la rama predeterminada, consulta la sección "[Configurar la rama predeterminada](/github/administering-a-repository/setting-the-default-branch)".
 
@@ -28,8 +28,8 @@ Cualquiera con permisos de escritura en un repositorio puede enlazar una solicit
 
 Puedes enlazar hasta diez informes de problemas a cada solicitud de extracción manualmente. El informe de problemas y la solicitud de extracción deberán encontrarse en el mismo repositorio.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. En la lista de solicitudes de extracción, da clic en aquella que quieras enlazar a un informe de problemas.
 4. En la barra lateral derecha, da clic en **Informes de problemas relacionados**. ![Informes de problemas enlazados en la barra lateral derecha](/assets/images/help/pull_requests/linked-issues.png)
 5. Da clic en el informe de problemas que quieras enlazar a la solicitud de extracción. ![Menú desplegable para enlazar un informe de problemas](/assets/images/help/pull_requests/link-issue-drop-down.png)

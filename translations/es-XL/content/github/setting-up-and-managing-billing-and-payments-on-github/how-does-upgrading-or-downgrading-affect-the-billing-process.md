@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {{ site.data.variables.product.prodname_dotcom }}, tales como {{ site.data.variables.large_files.product_name_long }} o aplicaciones pagadas que compraste en {{ site.data.variables.product.prodname_marketplace }}.
+Los cambios en tu suscripción pagada de cuenta de usuario u organización no afectan las suscripciones o pagos de otras características pagadas de {% data variables.product.prodname_dotcom %}, tales como {% data variables.large_files.product_name_long %} o aplicaciones pagadas que compraste en {% data variables.product.prodname_marketplace %}.
 
-Para obtener más información, consulta los productos de "[{{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)" y "[Acerca de la facturación en {{ site.data.variables.product.prodname_dotcom }}](/articles/about-billing-on-github)."
+Para obtener más información, consulta los productos de "[{% data variables.product.prodname_dotcom %}](/articles/github-s-products)" y "[Acerca de la facturación en {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github)."
 
 #### Ejemplo de cancelación de una suscripción paga de una cuenta personal u organización
 
-Kumiko paga una suscripción mensual el día 5 de cada mes. Si Kimiko se baja de categoría de la suscripción pagada a {{ site.data.variables.product.prodname_free_user }} en el 10 de octubre, su suscripción se mantendrá efectiva hasta el final de su ciclo actual de facturación en el 4 de noviembre. En el 5 de noviembre, su cuenta se migrará a {{ site.data.variables.product.prodname_free_user }}.
+Kumiko paga una suscripción mensual el día 5 de cada mes. Si Kimiko se baja de categoría de la suscripción pagada a {% data variables.product.prodname_free_user %} en el 10 de octubre, su suscripción se mantendrá efectiva hasta el final de su ciclo actual de facturación en el 4 de noviembre. En el 5 de noviembre, su cuenta se migrará a {% data variables.product.prodname_free_user %}.
 
 #### Ejemplo de cambiar de una suscripción anual a una mensual para una cuenta personal u organización
 
@@ -29,7 +29,7 @@ La organización de Stefan paga por 50 asientos el 20 de mayo de cada año. Si S
 
 ### Leer más
 
-- "[Administrar la facturación para tu cuenta de {{ site.data.variables.product.prodname_dotcom }}](/articles/managing-billing-for-your-github-account)"
-- "[Administrar la facturación de las apps de {{ site.data.variables.product.prodname_marketplace }}](/articles/managing-billing-for-github-marketplace-apps)"
-- "[Administrar la facturación para {{ site.data.variables.large_files.product_name_long }}](/articles/managing-billing-for-git-large-file-storage)"
+- "[Administrar la facturación para tu cuenta de {% data variables.product.prodname_dotcom %}](/articles/managing-billing-for-your-github-account)"
+- "[Administrar la facturación de las apps de {% data variables.product.prodname_marketplace %}](/articles/managing-billing-for-github-marketplace-apps)"
+- "[Administrar la facturación para {% data variables.large_files.product_name_long %}](/articles/managing-billing-for-git-large-file-storage)"
 - "[Acerca del precio por usuario](/articles/about-per-user-pricing)"

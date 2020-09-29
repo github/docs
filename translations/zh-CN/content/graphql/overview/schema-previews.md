@@ -1,6 +1,6 @@
 ---
 title: 架构预览
-intro: '您可以在即将推出的功能和 {{ site.data.variables.product.prodname_dotcom }} GraphQL 架构变更添加至 {{ site.data.variables.product.prodname_dotcom }} GraphQL API 之前预览它们。'
+intro: '您可以在即将推出的功能和 {% data variables.product.prodname_dotcom %} GraphQL 架构变更添加至 {% data variables.product.prodname_dotcom %} GraphQL API 之前预览它们。'
 redirect_from:
   - /v4/previews
 versions:

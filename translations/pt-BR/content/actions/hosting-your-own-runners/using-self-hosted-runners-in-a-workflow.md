@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Para obter informações sobre como criar etiquetas-padrão e etiquetas personalizadas, consulte "[Usando etiquetas com executores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -18,13 +18,13 @@ Para obter informações sobre como criar etiquetas-padrão e etiquetas personal
 
 As etiquetas permitem que você envie trabalhos do fluxo de trabalho para tipos específicos de executores auto-hospedados, com base em suas características compartilhadas. Por exemplo, se o seu trabalho exigir um componente de hardware específico ou um pacote de software, você poderá atribuir uma etiqueta personalizada a um executor e, em seguida, configurar seu trabalho para ser executado somente em executores com essa etiqueta.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
+Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
 ### Usar etiquetas-padrão para rotear tarefas
 
-Um executor auto-hospedado recebe automaticamente certas etiquetas ao ser adicionado a {{ site.data.variables.product.prodname_actions }}. Elas são usadas para indicar seu sistema operacional e sua plataforma de hardware:
+Um executor auto-hospedado recebe automaticamente certas etiquetas ao ser adicionado a {% data variables.product.prodname_actions %}. Elas são usadas para indicar seu sistema operacional e sua plataforma de hardware:
 
 * `auto-hospedado`: Etiqueta-padrão aplicada a todos os executores auto-hospedados.
 * `Linux`, `Windows`, ou `macOS`: Aplicado, dependendo do sistema operacional.
@@ -63,8 +63,8 @@ Estas etiquetas operam cumulativamente. Portanto, as etiquetas de um executor au
 
 ### Precedência de encaminhamento para executores auto-hospedados
 
-Se você usar executores no nível do repositório e da organização, {{ site.data.variables.product.prodname_dotcom }} seguirá uma ordem de precedência ao encaminhar trabalhos para os executores auto-hospedados:
+Se você usar executores no nível do repositório e da organização, {% data variables.product.prodname_dotcom %} seguirá uma ordem de precedência ao encaminhar trabalhos para os executores auto-hospedados:
 
-1. As etiquetas `runs-on` do trabalho são processadas. {{ site.data.variables.product.prodname_dotcom }}, em seguida, tenta localizar um executor que corresponda aos requisitos da etiqueta:
+1. As etiquetas `runs-on` do trabalho são processadas. {% data variables.product.prodname_dotcom %}, em seguida, tenta localizar um executor que corresponda aos requisitos da etiqueta:
 2. O trabalho é enviado para um executor do nível de repositório que corresponde à etiqueta do trabalho. Se nenhum executor no nível do repositório estiver disponível (ocupado, off-line ou sem etiquetas correspondentes):
 3. O trabalho será enviado para um executor do nível da organização que corresponde às etiquetas do trabalho. Se nenhum executor de nível de organização estiver disponível, ocorrerá uma falha na solicitação do trabalho em razão de erro.

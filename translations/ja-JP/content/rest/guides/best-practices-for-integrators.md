@@ -1,6 +1,6 @@
 ---
 title: インテグレーターのためのベストプラクティス
-intro: '{{ site.data.variables.product.prodname_dotcom }} APIと確実にやり取りできるアプリケーションを構築し、ユーザに最高のエクスペリエンスを提供しましょう。'
+intro: '{% data variables.product.prodname_dotcom %} APIと確実にやり取りできるアプリケーションを構築し、ユーザに最高のエクスペリエンスを提供しましょう。'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators

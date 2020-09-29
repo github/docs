@@ -10,17 +10,17 @@ versions:
 
 リポジトリに対する管理者権限があるユーザなら誰でも、セキュリティアドバイザリを作成できます。
 
-{{ site.data.reusables.security-advisory.security-researcher-cannot-create-advisory }}
+{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ### セキュリティアドバイザリを作成する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. [**New draft security advisory**] をクリックします。 ![[Open draft advisory] ボタン](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. セキュリティアドバイザリのタイトルを入力します。 ![Title フィールド](/assets/images/help/security/security-advisory-title.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Click **Create security advisory**. ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### 次のステップ

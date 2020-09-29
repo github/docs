@@ -16,7 +16,7 @@ versions:
 You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}manually or {% endif %}using a supported keyword in the pull request description.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {{ site.data.variables.product.product_name }} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}{% endif %}
+When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {% data variables.product.product_name %} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}{% endif %}
 
 When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
 
@@ -27,8 +27,8 @@ Anyone with write permissions to a repository can manually link a pull request t
 
 You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. In the list of pull requests, click the pull request that you'd like to link to an issue.
 4. In the right sidebar, click **Linked issues**.
   ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)

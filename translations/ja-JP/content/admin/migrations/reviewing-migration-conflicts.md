@@ -40,4 +40,4 @@ versions:
 | `map_or_rename` | ターゲットが存在する場合、そのターゲットにマップします。 そうでない場合はインポートされたモデルの名前を変更します。 | ユーザ                              |
 | `マージ`           | ソースからのデータはターゲット上の既存のデータと組み合わされます。                          | Team                             |
 
-***conflicts.csv* ファイルを見直し、[`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) を使って適切なアクションがとられることを確認するよう強くお勧めします。**問題がないようであれば、「[インポートされたデータを {{ site.data.variables.product.prodname_ghe_server }} に適用する](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)」に進んでいただけます。
+***conflicts.csv* ファイルを見直し、[`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data) を使って適切なアクションがとられることを確認するよう強くお勧めします。**問題がないようであれば、「[インポートされたデータを {% data variables.product.prodname_ghe_server %} に適用する](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)」に進んでいただけます。

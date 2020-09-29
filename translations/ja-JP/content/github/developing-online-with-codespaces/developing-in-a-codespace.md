@@ -1,7 +1,7 @@
 ---
 title: codespace で開発する
-intro: '{{ site.data.variables.product.product_name }} で codespace を開き、{{ site.data.variables.product.prodname_vscode }} の機能を使用して開発できます。'
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+intro: '{% data variables.product.product_name %} で codespace を開き、{% data variables.product.prodname_vscode %} の機能を使用して開発できます。'
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: ユーザは、自分のユーザアカウントで所有している codespace で開発することができます。
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
@@ -9,24 +9,24 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
-{{ site.data.reusables.codespaces.use-visual-studio-features }}
+{% data reusables.codespaces.use-visual-studio-features %}
 
-{{ site.data.reusables.codespaces.use-chrome }} 詳しい情報については、「[codespace のトラブルシューティング](/github/developing-online-with-codespaces/troubleshooting-your-codespace)」を参照してください。
+{% data reusables.codespaces.use-chrome %} 詳しい情報については、「[codespace のトラブルシューティング](/github/developing-online-with-codespaces/troubleshooting-your-codespace)」を参照してください。
 
-### Connecting to a codespace from {{ site.data.variables.product.prodname_vscode }}
-{{ site.data.reusables.codespaces.connect-to-codespace-from-vscode }}
+### Connecting to a codespace from {% data variables.product.prodname_vscode %}
+{% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
 ### Navigating to your codespace
-{{ site.data.reusables.codespaces.navigate-to-codespaces }}
+{% data reusables.codespaces.navigate-to-codespaces %}
 2. 開発する codespace の名前をクリックします。 ![codespace の名前](/assets/images/help/codespaces/click-name-codespace.png)
 
 ### Forwarding ports
 
 Port forwarding gives you access to TCP ports running within your codespace. For example, if you're running a web application on port 3000, you can access the application from your browser to test and debug it.
 
-When an application running inside a codespace outputs a port to the console, {{ site.data.variables.product.prodname_codespaces }} detects the localhost URL pattern and automatically forwards those ports. You can click on the URL in the terminal to open it in a browser. For example, if an application outputs `http://127.0.0.1:3000` or `http://localhost:3000` to the console, the log would automatically convert the output to a clickable URL for port 3000.
+When an application running inside a codespace outputs a port to the console, {% data variables.product.prodname_codespaces %} detects the localhost URL pattern and automatically forwards those ports. You can click on the URL in the terminal to open it in a browser. For example, if an application outputs `http://127.0.0.1:3000` or `http://localhost:3000` to the console, the log would automatically convert the output to a clickable URL for port 3000.
 
 ![Automatic Port Forwarding](/assets/images/help/codespaces/automatic-port-forwarding.png)
 

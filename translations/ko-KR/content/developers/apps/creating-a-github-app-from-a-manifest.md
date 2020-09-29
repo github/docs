@@ -73,7 +73,7 @@ The `hook_attributes` object has the following key:
 
  | 이름      | 유형    | 설명                                               |
  | ------- | ----- | ------------------------------------------------ |
- | `state` | `문자열` | {{ site.data.reusables.apps.state_description }} |
+ | `state` | `문자열` | {% data reusables.apps.state_description %} |
 
 ##### 예시
 
@@ -163,8 +163,8 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 {% endnote %}
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
-{{ site.data.reusables.pre-release-program.fury-pre-release }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.fury-pre-release %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
     POST /app-manifests/:code/conversions

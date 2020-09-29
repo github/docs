@@ -1,6 +1,6 @@
 ---
 title: Configurar o Large File Storage do Git para a sua sempresa
-intro: '{{ site.data.reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description }}'
+intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
   - /enterprise/admin/installation/configuring-git-large-file-storage-on-github-enterprise-server
@@ -16,57 +16,57 @@ versions:
   enterprise-server: '*'
 ---
 
-### Sobre o {{ site.data.variables.large_files.product_name_long }}
+### Sobre o {% data variables.large_files.product_name_long %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description }} Você pode usar o {{ site.data.variables.large_files.product_name_long }} com um único repositório, com todos os seus repositórios pessoais ou da organização, ou com todos os repositórios na {{ site.data.variables.product.product_location_enterprise }}. Antes de poder habilitar o {{ site.data.variables.large_files.product_name_short }} para repositórios ou organizações específicos, é necessário habilitar o {{ site.data.variables.large_files.product_name_short }} no appliance.
+{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %} Você pode usar o {% data variables.large_files.product_name_long %} com um único repositório, com todos os seus repositórios pessoais ou da organização, ou com todos os repositórios na {% data variables.product.product_location_enterprise %}. Antes de poder habilitar o {% data variables.large_files.product_name_short %} para repositórios ou organizações específicos, é necessário habilitar o {% data variables.large_files.product_name_short %} no appliance.
 
-{{ site.data.reusables.large_files.storage_assets_location }}
-{{ site.data.reusables.large_files.rejected_pushes }}
+{% data reusables.large_files.storage_assets_location %}
+{% data reusables.large_files.rejected_pushes %}
 
-Para obter mais informações, consulte "[Sobre o {{ site.data.variables.large_files.product_name_long }}](/articles/about-git-large-file-storage)", "[Controlar versões em arquivos grandes](/enterprise/user/articles/versioning-large-files/)" e acesse o [site do projeto do {{ site.data.variables.large_files.product_name_long }}](https://git-lfs.github.com/).
+Para obter mais informações, consulte "[Sobre o {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage)", "[Controlar versões em arquivos grandes](/enterprise/user/articles/versioning-large-files/)" e acesse o [site do projeto do {% data variables.large_files.product_name_long %}](https://git-lfs.github.com/).
 
-{{ site.data.reusables.large_files.can-include-lfs-objects-archives }}
+{% data reusables.large_files.can-include-lfs-objects-archives %}
 
-### Configurar o {{ site.data.variables.large_files.product_name_long }} no appliance
+### Configurar o {% data variables.large_files.product_name_long %} no appliance
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
-4. No menu suspenso em "{{ site.data.variables.large_files.product_name_short }} access" (Acesso ao {{ site.data.variables.large_files.product_name_short }}), clique em **Enabled** (Habilitado) ou **Disabled** (Desabilitado). ![Acesso ao Git LFS](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
+{% data reusables.enterprise-accounts.options-tab %}
+4. No menu suspenso em "{% data variables.large_files.product_name_short %} access" (Acesso ao {% data variables.large_files.product_name_short %}), clique em **Enabled** (Habilitado) ou **Disabled** (Desabilitado). ![Acesso ao Git LFS](/assets/images/enterprise/site-admin-settings/git-lfs-admin-center.png)
 
-### Configurar o {{ site.data.variables.large_files.product_name_long }} em um repositório específico
+### Configurar o {% data variables.large_files.product_name_long %} em um repositório específico
 
-{{ site.data.reusables.enterprise_site_admin_settings.override-policy }}
+{% data reusables.enterprise_site_admin_settings.override-policy %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.git-lfs-toggle }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
+{% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-### Configurar o {{ site.data.variables.large_files.product_name_long }} para cada repositório pertencente a uma conta ou organização
+### Configurar o {% data variables.large_files.product_name_long %} para cada repositório pertencente a uma conta ou organização
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.search-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.git-lfs-toggle }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.click-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
+{% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
 ### Configurar o Git Large File Storage para uso em servidores de terceiros
 
-{{ site.data.reusables.large_files.storage_assets_location }}
-{{ site.data.reusables.large_files.rejected_pushes }}
+{% data reusables.large_files.storage_assets_location %}
+{% data reusables.large_files.rejected_pushes %}
 
-1. Desabilite o appliance do {{ site.data.variables.large_files.product_name_short }} no {{ site.data.variables.product.prodname_ghe_server }}. Para obter mais informações, consulte "[Configurar o {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)".
+1. Desabilite o appliance do {% data variables.large_files.product_name_short %} no {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar o {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)".
 
-2. Crie um arquivo de configuração do {{ site.data.variables.large_files.product_name_short }} que aponte para o servidor de terceiros.
+2. Crie um arquivo de configuração do {% data variables.large_files.product_name_short %} que aponte para o servidor de terceiros.
   ```shell
   # Show default configuration
   $ git lfs env
@@ -89,16 +89,16 @@ Para obter mais informações, consulte "[Sobre o {{ site.data.variables.large_f
   lfsurl = https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
   ```
 
-3. Para manter a mesma configuração do {{ site.data.variables.large_files.product_name_short }} em todos os usuários, faça commit de um arquivo `.lfsconfig` personalizado no repositório.
+3. Para manter a mesma configuração do {% data variables.large_files.product_name_short %} em todos os usuários, faça commit de um arquivo `.lfsconfig` personalizado no repositório.
   ```shell
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. Migre qualquer ativo do {{ site.data.variables.large_files.product_name_short }}. Para obter mais informações, consulte "[Migrar para um servidor diferente do {{ site.data.variables.large_files.product_name_long }}](#migrating-to-a-different-git-large-file-storage-server)".
+3. Migre qualquer ativo do {% data variables.large_files.product_name_short %}. Para obter mais informações, consulte "[Migrar para um servidor diferente do {% data variables.large_files.product_name_long %}](#migrating-to-a-different-git-large-file-storage-server)".
 
 ### Migrar para outro servidor do Git Large File Storage
 
-Antes de migrar para outro servidor do {{ site.data.variables.large_files.product_name_long }}, configure o {{ site.data.variables.large_files.product_name_short }} para usar um servidor de terceiros. Para obter mais informações, consulte "[Configurar o {{ site.data.variables.large_files.product_name_long }} para utilizar um servidor de terceiros](#configuring-git-large-file-storage-to-use-a-third-party-server)".
+Antes de migrar para outro servidor do {% data variables.large_files.product_name_long %}, configure o {% data variables.large_files.product_name_short %} para usar um servidor de terceiros. Para obter mais informações, consulte "[Configurar o {% data variables.large_files.product_name_long %} para utilizar um servidor de terceiros](#configuring-git-large-file-storage-to-use-a-third-party-server)".
 
 1. Configure o repositório com outro remote.
   ```shell
@@ -132,4 +132,4 @@ Antes de migrar para outro servidor do {{ site.data.variables.large_files.produc
 
 ### Leia mais
 
-- [Site de projeto do {{ site.data.variables.large_files.product_name_long }}](https://git-lfs.github.com/)
+- [Site de projeto do {% data variables.large_files.product_name_long %}](https://git-lfs.github.com/)

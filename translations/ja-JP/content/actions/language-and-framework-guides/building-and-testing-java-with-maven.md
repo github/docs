@@ -1,34 +1,34 @@
 ---
 title: MavenでのJavaのビルドとテスト
 intro: GitHub Actions中で継続的インテグレーション（CI）ワークフローを作成し、MavenでJavaのプロジェクトのビルドとテストを行うことができます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
 このガイドは、ソフトウェアプロジェクト管理ツールのMavenを使ってJavaのプロジェクトのための継続的インテグレーション（CI）を実行するワークフローを作成する方法を紹介します。 作成するワークフローによって、プルリクエストに対するコミットがデフォルトブランチに対してビルドあるいはテストの失敗を引き起こしたことを見ることができるようになります。このアプローチは、コードが常に健全であることを保証するための役に立ちます。 CIワークフローを拡張して、ファイルをキャッシュし、ワークフローの実行による成果物をアップロードするようにもできます。
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーは、Java Development Kits（JDKs）及びMavenを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 ソフトウェア及びプリインストールされたバージョンのJDK及びMavenのリストについては、「[{{ site.data.variables.product.prodname_dotcom }}ホストランナー上にインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーは、Java Development Kits（JDKs）及びMavenを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 ソフトウェア及びプリインストールされたバージョンのJDK及びMavenのリストについては、「[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。
 
 ### 必要な環境
 
-YAMLと{{ site.data.variables.product.prodname_actions }}の構文に馴染んでいる必要があります。 詳しい情報については、以下を参照してください。
-- [{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
+YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳しい情報については、以下を参照してください。
+- [{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
 - [ワークフローの設定](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)
 
 Java及びMavenフレームワークの基本的な理解をしておくことをおすすめします。 詳しい情報については、Mavenのドキュメンテーションの[Maven Getting Started Guide](http://maven.apache.org/guides/getting-started/index.html)を参照してください。
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Mavenワークフローテンプレートで始める
 
-{{ site.data.variables.product.prodname_dotcom }}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については[Mavenワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/maven.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのMavenベースのJavaプロジェクトで使えるMavenワークフローテンプレートを提供しています。 詳しい情報については[Mavenワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/maven.yml)を参照してください。
 
 素早く始めるには、新しいワークフローを作成する際に事前設定されたMavenテンプレートを選択できます。 詳しい情報については「[事前設定されたワークフローテンプレートで始める](/actions/automating-your-workflow-with-github-actions/starting-with-preconfigured-workflow-templates)」を参照してください。
 
@@ -63,9 +63,9 @@ jobs:
 
 デフォルトのワークフローテンプレートは、ビルドとテストのワークフローを構築する際の素晴らしい出発点であり、プロジェクトの要求に合わせてこのテンプレートをカスタマイズできます。
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
-{{ site.data.reusables.github-actions.java-jvm-architecture }}
+{% data reusables.github-actions.java-jvm-architecture %}
 
 ### コードのビルドとテスト
 

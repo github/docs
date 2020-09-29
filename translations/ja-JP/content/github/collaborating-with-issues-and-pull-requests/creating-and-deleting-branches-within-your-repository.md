@@ -1,6 +1,6 @@
 ---
 title: リポジトリ内でブランチを作成および削除する
-intro: '{{ site.data.variables.product.product_name }}上で直接、ブランチの作成や削除ができます。'
+intro: '{% data variables.product.product_name %}上で直接、ブランチの作成や削除ができます。'
 redirect_from:
   - /articles/deleting-branches-in-a-pull-request/
   - /articles/creating-and-deleting-branches-within-your-repository
@@ -11,7 +11,7 @@ versions:
 
 ### ブランチの作成
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 1. 必要に応じて、リポジトリのデフォルトブランチ以外のブランチから新しいブランチを作成する場合は、[{% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches**] をクリックし、別のブランチを選択します。 ![概要ページのブランチリンク](/assets/images/help/branches/branches-link.png)
 1. ブランチセレクタメニューをクリックします。 ![ブランチセレクタメニュー](/assets/images/help/branch/branch-selection-dropdown.png)
@@ -19,18 +19,18 @@ versions:
 
 ### ブランチの削除
 
-{{ site.data.reusables.pull_requests.automatically-delete-branches }}
+{% data reusables.pull_requests.automatically-delete-branches %}
 
 If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 1. 削除するブランチまでスクロールし、{% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %} をクリックします。 ![ブランチを削除する](/assets/images/help/branches/branches-delete.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.pull_requests.retargeted-on-branch-deletion }}
+{% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 詳細は「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
 

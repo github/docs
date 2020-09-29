@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-当创建一个从复刻仓库到基础仓库的拉取请求时，{{ site.data.variables.product.prodname_dotcom }} 发送 `pull_request` 事件到基础仓库，而在复刻仓库上不发生拉取请求事件。
+当创建一个从复刻仓库到基础仓库的拉取请求时，{% data variables.product.prodname_dotcom %} 发送 `pull_request` 事件到基础仓库，而在复刻仓库上不发生拉取请求事件。
 
 默认情况下，工作流程不在复刻仓库上运行。 您必须在复刻仓库的 **Actions（操作）**选项卡中启用 GitHub 操作。
 

@@ -11,9 +11,9 @@ versions:
 
 
 
-{{ site.data.variables.product.product_name }} API は、開発者が利用できる膨大な量の情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
+{% data variables.product.product_name %} API は、開発者が利用できる膨大な量の情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
 
-このガイドでは、{{ site.data.variables.product.product_name }} Search API を呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+このガイドでは、{% data variables.product.product_name %} Search API を呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
 ### ページネーションの基本
 
@@ -26,13 +26,13 @@ versions:
 ページネーションに関する情報は、API呼び出しの[リンクヘッダ](http://tools.ietf.org/html/rfc5988)に記載されています。 たとえば、検索APIにcurlでリクエストを行って、Mozilla プロジェクトで `addClass`というフレーズを何回使っているか調べましょう。
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
 ```
 
 `-I`パラメータは、実際のコンテンツではなくヘッダのみを扱うことを示します。 結果を調べると、Linkヘッダの中に以下のような情報があることに気付くでしょう。
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 さて、細かく見ていきましょう。 `rel="next"`には、次のページが`page=2`だと書かれています。 これは納得できる話です。というのも、デフォルトでは、すべてのページネーションされたクエリは`1`ページから始まります。`rel="last"`には追加情報があり、最後のページは`34`ページになると書かれています。 つまり、`addClass`で利用できる情報はあと33ページあるということですね。 よし！
 
@@ -43,15 +43,15 @@ $ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+
 さて、受信するページ数がわかったので、ページを移動して結果の利用を開始できます。 これを行うには、`page`パラメータを渡します。 デフォルトでは、 `page`は常に`1`から始まります。 14ページまでジャンプして、どうなるか見てみましょう。
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 ここでもう一度リンクヘッダを見てみます。
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 予想通り`rel="next"`は15で、`rel="last"`は34のままです。 しかし今度は少し情報が増えています。`rel="first"`は、、_最初_のページのURLを示しています。さらに重要なこととして、`rel="prev"`は前のページのページ番号を示しています。 この情報を用いて、APIの呼び出しでリストの最初、前、次、最後にユーザがジャンプできるUIを構築できるでしょう。
 
@@ -60,13 +60,13 @@ $ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+
 `per_page`パラメータを渡すことで、各ページが返すアイテム数を最大100まで指定できます。 `addClass`について50アイテムを要求してみましょう。
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 ヘッダのレスポンスに何が起こるかに注目してください。
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 ご想像の通り、`rel="last"`情報には、最後のページが20になったと書かれています。 これは、結果のページごとに、より多くの情報を要求しているからです。
 

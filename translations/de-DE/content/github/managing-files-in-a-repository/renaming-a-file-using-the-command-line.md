@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-Die meisten Dateien können [direkt auf {{ site.data.variables.product.product_name }} umbenannt werden](/articles/renaming-a-file), bei manchen Dateien, beispielsweise bei Bilddateien, ist dies jedoch nur über die Befehlszeile möglich.
+Die meisten Dateien können [direkt auf {% data variables.product.product_name %} umbenannt werden](/articles/renaming-a-file), bei manchen Dateien, beispielsweise bei Bilddateien, ist dies jedoch nur über die Befehlszeile möglich.
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Benenne die Datei um. Gib dazu zunächst den bisherigen Dateinamen und danach den gewünschten neuen Dateinamen ein. Deine Änderung wird dadurch für den Commit bereitgestellt.
   ```shell
   $ git mv <em>old_filename</em> <em>new_filename</em>
@@ -28,13 +28,13 @@ Die meisten Dateien können [direkt auf {{ site.data.variables.product.product_n
   > #     renamed: <em>old_filename</em> -> <em>new_filename</em>
   > #
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Rename file"
   # Gibt die verfolgten Änderungen frei und bereitet sie für den Push in das Remote-Repository vor.
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### Weiterführende Informationen
 - „[Datei über die Befehlszeile an einen neuen Speicherort verschieben](/articles/moving-a-file-to-a-new-location-using-the-command-line)“

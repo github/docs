@@ -13,7 +13,7 @@ versions:
 
 You can add default community health files to the root of a public repository called `.github` that is owned by an organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}.
 
-{{ site.data.variables.product.product_name }} will use and display default files for any public repository owned by the account that does not have its own file of that type in any of the following places:
+{% data variables.product.product_name %} will use and display default files for any public repository owned by the account that does not have its own file of that type in any of the following places:
 - the root of the repository
 - the `.github` folder
 - the `docs` folder
@@ -39,13 +39,13 @@ You cannot create a default license file. License files must be added to individ
 
 ### Creating a repository for default files
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. Use the **Owner** drop-down menu, and select the organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %} you want to create default files for.
   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
 3. Type **.github** as the name for your repository, and an optional description.
   ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
 4. Choose to make the repository public.
   ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. In the repository, create one of the supported community health files. Issue templates{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files must be in the root of the repository. For more information, see "[Creating new files](/articles/creating-new-files/)."

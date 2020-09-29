@@ -1,7 +1,7 @@
 ---
 title: Konfigurieren eines Workflows
 intro: 'Sie können benutzerdefinierte Workflows erstellen, um die Lebenszyklusprozesse der Softwareentwicklung Ihres Projekts zu automatisieren.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-github-action/
   - /articles/creating-a-workflow-with-github-actions/
@@ -16,18 +16,18 @@ versions:
 
 Personen mit Schreib- oder Administratorberechtigungen für ein Repository können Workflows erstellen, bearbeiten oder anzeigen.
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Workflows
 
-Workflows sind benutzerdefinierte automatisierte Prozesse, die Sie in Ihrem Repository einrichten können, um ein Projekt auf {{ site.data.variables.product.prodname_dotcom }}zu erstellen, zu testen, zu verpacken, freizugeben oder bereitzustellen. Mit Workflows können Sie Ihren Softwareentwicklungslebenszyklus mit einer Vielzahl von Tools und Services automatisieren. Weitere Informationen finden Sie unter "[über {{ site.data.variables.product.prodname_actions }}](/articles/about-github-actions)".
+Workflows sind benutzerdefinierte automatisierte Prozesse, die Sie in Ihrem Repository einrichten können, um ein Projekt auf {% data variables.product.prodname_dotcom %}zu erstellen, zu testen, zu verpacken, freizugeben oder bereitzustellen. Mit Workflows können Sie Ihren Softwareentwicklungslebenszyklus mit einer Vielzahl von Tools und Services automatisieren. Weitere Informationen finden Sie unter "[über {% data variables.product.prodname_actions %}](/articles/about-github-actions)".
 
 Sie können mehr als einen Workflow in einem Repository erstellen. Sie müssen Workflows im `.github/workflows` Verzeichnis im Stammverzeichnis Ihres Repositorys speichern.
 
-Workflows müssen über mindestens einen Auftrag verfügen, und Aufträge enthalten eine Reihe von Schritten, die einzelne Aufgaben ausführen. Steps können Befehle ausführen oder eine Aktion verwenden. Sie können eigene Aktionen erstellen oder Aktionen verwenden, die von der {{ site.data.variables.product.prodname_dotcom }} Community gemeinsam genutzt werden, und sie nach Bedarf anpassen.
+Workflows müssen über mindestens einen Auftrag verfügen, und Aufträge enthalten eine Reihe von Schritten, die einzelne Aufgaben ausführen. Steps können Befehle ausführen oder eine Aktion verwenden. Sie können eigene Aktionen erstellen oder Aktionen verwenden, die von der {% data variables.product.prodname_dotcom %} Community gemeinsam genutzt werden, und sie nach Bedarf anpassen.
 
-Sie können einen Workflow so konfigurieren, dass er gestartet wird, wenn ein {{ site.data.variables.product.prodname_dotcom }} Ereignis, nach einem Zeitplan oder von einem externen Ereignis aus auftritt.
+Sie können einen Workflow so konfigurieren, dass er gestartet wird, wenn ein {% data variables.product.prodname_dotcom %} Ereignis, nach einem Zeitplan oder von einem externen Ereignis aus auftritt.
 
 Sie müssen Workflows mithilfe der YAML-Syntax konfigurieren und als Workflowdateien in Ihrem Repository speichern. Nachdem Sie erfolgreich eine YAML-Workflowdatei erstellt und den Workflow ausgelöst haben, werden die Buildprotokolle, Testergebnisse, Artefakte und Status für jeden Schritt Ihres Workflows angezeigt. Weitere Informationen finden Sie unter "[Verwalten eines Workflows, der](/articles/managing-a-workflow-run)ausgeführt wird."
 
@@ -45,7 +45,7 @@ Auf einer hohen Ebene sind dies die Schritte zum Hinzufügen einer Workflowdatei
 
 1. Fügen Sie in `.github/workflows`eine `.yml-` oder `.yaml-` -Datei für Ihren Workflow hinzu. Beispielsweise `.github/workflows/continuous-integration-workflow.yml`.
 
-1. Verwenden Sie die "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions)" Referenzdokumentation, um Ereignisse auszuwählen, um eine Aktion auszulösen, Aktionen hinzuzufügen und Ihren Workflow anzupassen.
+1. Verwenden Sie die "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions)" Referenzdokumentation, um Ereignisse auszuwählen, um eine Aktion auszulösen, Aktionen hinzuzufügen und Ihren Workflow anzupassen.
 
 1. Übertragen Sie Ihre Änderungen in der Workflowdatei an die Verzweigung, in der der Workflow ausgeführt werden soll.
 
@@ -76,16 +76,16 @@ Jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 ### Auslösen eines Workflows mit Ereignissen
 
 Sie können einen Workflow so konfigurieren, dass er einmal gestartet wird:
-- Ein Ereignis auf {{ site.data.variables.product.prodname_dotcom }} tritt auf, z. B. wenn jemand einen Commit an ein Repository überträgt oder wenn ein Problem oder eine Pull-Anforderung erstellt wird.
+- Ein Ereignis auf {% data variables.product.prodname_dotcom %} tritt auf, z. B. wenn jemand einen Commit an ein Repository überträgt oder wenn ein Problem oder eine Pull-Anforderung erstellt wird.
 - Ein geplantes Ereignis beginnt.
 - Ein externes Ereignis tritt auf.
 
-Um einen Workflow auszulösen, nachdem ein Ereignis auf {{ site.data.variables.product.prodname_dotcom }}passiert, fügen Sie `zu:` und einen Ereigniswert nach dem Workflownamen hinzu. Dieser Workflow wird beispielsweise ausgelöst, wenn Änderungen an eine Verzweigung im Repository übertragen werden.
+Um einen Workflow auszulösen, nachdem ein Ereignis auf {% data variables.product.prodname_dotcom %}passiert, fügen Sie `zu:` und einen Ereigniswert nach dem Workflownamen hinzu. Dieser Workflow wird beispielsweise ausgelöst, wenn Änderungen an eine Verzweigung im Repository übertragen werden.
 
 ```yaml
 Name: descriptive-workflow-name
@@ -102,7 +102,7 @@ zu:
 
 #### Manuelle Ausführung eines Workflows
 
-Um einen Workflow manuell auszuführen, müssen Sie zuerst den Workflow so konfigurieren, dass er das `workflow_dispatch` -Ereignis verwendet. Sie können benutzerdefinierte Eingabeeigenschaften, Standardeingabewerte und erforderliche Eingaben direkt in Ihrem Workflow konfigurieren. Wenn der Workflow ausgeführt wird, können Sie auf die Eingabewerte im `github.event.inputs` Kontextzugreifen. Weitere Informationen finden Sie unter "[Ereignisse, die Workflows](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)auslösen" und "[Kontext- und Ausdruckssyntax für {{ site.data.variables.product.prodname_dotcom }} Aktionen](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+Um einen Workflow manuell auszuführen, müssen Sie zuerst den Workflow so konfigurieren, dass er das `workflow_dispatch` -Ereignis verwendet. Sie können benutzerdefinierte Eingabeeigenschaften, Standardeingabewerte und erforderliche Eingaben direkt in Ihrem Workflow konfigurieren. Wenn der Workflow ausgeführt wird, können Sie auf die Eingabewerte im `github.event.inputs` Kontextzugreifen. Weitere Informationen finden Sie unter "[Ereignisse, die Workflows](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)auslösen" und "[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_dotcom %} Aktionen](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 In diesem Beispiel wird der `Name` definiert und</code> ein- und `zu Hause verwendet, und sie werden mit den Kontexten <code>github.event.inputs.name` und `github.event.inputs.home` gedruckt. Wenn ein `Name` nicht angegeben wird, wird der Standardwert 'Mona the Octocat' gedruckt.
 
@@ -130,12 +130,12 @@ Jobs:
 ```
 {% endraw %}
 
-Sie können das `workflow_dispatch` -Ereignis über die Registerkarte Aktionen auf {{ site.data.variables.product.prodname_dotcom }} oder mithilfe der REST-API auslösen. Weitere Informationen zur Verwendung der REST-API finden Sie unter "[Erstellen eines Workflow-Dispatch-Ereignisses](/rest/reference/actions/#create-a-workflow-dispatch-event)." Wenn Sie die REST-API verwenden, konfigurieren Sie die `eingaben` und `ref` als Anforderungstextparameter. Wenn die Eingaben weggelassen werden, werden die in der Workflowdatei definierten Standardwerte verwendet.
+Sie können das `workflow_dispatch` -Ereignis über die Registerkarte Aktionen auf {% data variables.product.prodname_dotcom %} oder mithilfe der REST-API auslösen. Weitere Informationen zur Verwendung der REST-API finden Sie unter "[Erstellen eines Workflow-Dispatch-Ereignisses](/rest/reference/actions/#create-a-workflow-dispatch-event)." Wenn Sie die REST-API verwenden, konfigurieren Sie die `eingaben` und `ref` als Anforderungstextparameter. Wenn die Eingaben weggelassen werden, werden die in der Workflowdatei definierten Standardwerte verwendet.
 
-Um das `workflow_dispatch` Ereignis auf {{ site.data.variables.product.prodname_dotcom }}auszulösen, muss sich Ihr Workflow in der Standardverzweigung befinden. Führen Sie die folgenden Schritte aus, um eine Workflowausführung manuell auszulösen.
+Um das `workflow_dispatch` Ereignis auf {% data variables.product.prodname_dotcom %}auszulösen, muss sich Ihr Workflow in der Standardverzweigung befinden. Führen Sie die folgenden Schritte aus, um eine Workflowausführung manuell auszulösen.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. Klicken Sie in der linken Seitenleiste auf den Workflow, den Sie ausführen möchten. ![Aktionen auswählen Workflow](/assets/images/actions-select-workflow.png)
 1. Wählen Sie über der Liste der Workflowausführungen **Workflow ausführen**. ![Aktionsworkflow-Dispatch](/assets/images/actions-workflow-dispatch.png)
 1. Wählen Sie die Verzweigung aus, in der der Workflow ausgeführt wird, und geben Sie die Eingabeparameter ein, die vom Workflow verwendet werden. Klicken Sie auf **Workflow ausführen**. ![Aktionen manuell ausgeführt Workflow](/assets/images/actions-manually-run-workflow.png)
@@ -168,18 +168,18 @@ Weitere Informationen zur Zweig-, Tag- und Pfadfiltersyntax finden Sie unter "[`
 
 ### Die Wahl eines Läufers
 
-Sie können Workflows auf {{ site.data.variables.product.prodname_dotcom }}-gehosteten Läufern oder selbst gehosteten Läufern ausführen. Aufträge können direkt auf dem Computer oder in einem Docker-Container ausgeführt werden.
+Sie können Workflows auf {% data variables.product.prodname_dotcom %}-gehosteten Läufern oder selbst gehosteten Läufern ausführen. Aufträge können direkt auf dem Computer oder in einem Docker-Container ausgeführt werden.
 
-Sie können den Läufer für jeden Auftrag in einem Workflow mithilfe `ausläuften`angeben. Weitere Informationen zu `ausgeführten`finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
+Sie können den Läufer für jeden Auftrag in einem Workflow mithilfe `ausläuften`angeben. Weitere Informationen zu `ausgeführten`finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Verwenden eines {{ site.data.variables.product.prodname_dotcom }}-gehosteten Läufers
+#### Verwenden eines {% data variables.product.prodname_dotcom %}-gehosteten Läufers
 
-Sie können aus verschiedenen Typen und Versionen virtueller Host-Maschinen auswählen, einschließlich Linux, Windows und macOS. Jeder Auftrag in einem Workflow wird in einer neuen Instanz der virtuellen Umgebung ausgeführt, und Schritte innerhalb eines Auftrags können Informationen mithilfe des Dateisystems freigeben. Weitere Informationen finden Sie unter "virtuelle Umgebungen für {{ site.data.variables.product.prodname_actions }}gehostete Läufer</a>"
+Sie können aus verschiedenen Typen und Versionen virtueller Host-Maschinen auswählen, einschließlich Linux, Windows und macOS. Jeder Auftrag in einem Workflow wird in einer neuen Instanz der virtuellen Umgebung ausgeführt, und Schritte innerhalb eines Auftrags können Informationen mithilfe des Dateisystems freigeben. Weitere Informationen finden Sie unter "virtuelle Umgebungen für {% data variables.product.prodname_actions %}gehostete Läufer</a>"
 .</p> 
 
-Sie können z. B.  `neuesten` verwenden, um die neueste Version eines Ubuntu- {{ site.data.variables.product.prodname_dotcom }}-gehosteten Läufers anzugeben.
+Sie können z. B.  `neuesten` verwenden, um die neueste Version eines Ubuntu- {% data variables.product.prodname_dotcom %}-gehosteten Läufers anzugeben.
 
 
 
@@ -213,7 +213,7 @@ Mit einer Buildmatrix können Sie Ihren Code mit unterschiedlichen Software- und
 
 Sie können eine Buildmatrix in Ihrer Workflowdatei mit einem Array angeben, das die Konfigurationsoptionen unter `Strategie auflistet:`. Diese Buildmatrix führt z. B. einen Auftrag mit verschiedenen Versionen von Node.js und Ubuntu, einem Linux-Betriebssystem, aus.
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 
@@ -229,7 +229,7 @@ Sie können eine Buildmatrix in Ihrer Workflowdatei mit einem Array angeben, das
 
 {% endraw %}
 
-Weitere Informationen finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
+Weitere Informationen finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
 
 
 
@@ -264,7 +264,7 @@ Weitere Informationen finden Sie unter "[über Aktionen](/articles/about-actions
 
 Wenn Sie die Art der Aktionen auswählen, die in Ihrem Workflow verwendet werden sollen, empfehlen wir, vorhandene Aktionen in öffentlichen Repositorys oder auf Docker Hub zu untersuchen und diese Aktionen möglicherweise an Ihr Projekt anzupassen.
 
-Sie können Aktionen durchsuchen und verwenden, die von {{ site.data.variables.product.prodname_dotcom }} in der [github.com/actions](https://github.com/actions) -Organisation erstellt wurden. Informationen zum Besuch von Docker Hub finden Sie unter "[Docker Hub](https://www.docker.com/products/docker-hub)" auf der Docker-Site.
+Sie können Aktionen durchsuchen und verwenden, die von {% data variables.product.prodname_dotcom %} in der [github.com/actions](https://github.com/actions) -Organisation erstellt wurden. Informationen zum Besuch von Docker Hub finden Sie unter "[Docker Hub](https://www.docker.com/products/docker-hub)" auf der Docker-Site.
 
 
 
@@ -280,19 +280,19 @@ Workflows können Aktionen verwenden, die in:
 
 Um eine in einem privaten Repository definierte Aktion zu verwenden, müssen sich sowohl die Workflowdatei als auch die Aktion im selben Repository befinden. Ihr Workflow kann keine Aktionen verwenden, die in anderen privaten Repositorys definiert sind, auch wenn sich das andere private Repository in derselben Organisation befindet.
 
-Um Ihren Workflow auch dann stabil zu halten, wenn Aktualisierungen an einer Aktion vorgenommen werden, können Sie auf die Version der Aktion verweisen, die Sie verwenden, indem Sie in Ihrer Workflowdatei eine Git-Ref- oder Docker-Tag-Nummer angeben. Beispiele finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
+Um Ihren Workflow auch dann stabil zu halten, wenn Aktualisierungen an einer Aktion vorgenommen werden, können Sie auf die Version der Aktion verweisen, die Sie verwenden, indem Sie in Ihrer Workflowdatei eine Git-Ref- oder Docker-Tag-Nummer angeben. Beispiele finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 
 
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 
 
 
 {% endif %}
 
-Ausführlichere Konfigurationsoptionen finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
+Ausführlichere Konfigurationsoptionen finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)".
 
 
 
@@ -371,15 +371,15 @@ jobs:
 
 Einige Beispiele für Docker-Aktionen finden Sie im [Docker-image.yml-Workflow](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml) und "[Erstellen einer Docker-Containeraktion](/articles/creating-a-docker-container-action)."
 
-Weitere Informationen finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+Weitere Informationen finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
 
 
 
 ### Hinzufügen eines Workflowstatus-Badges zu Ihrem Repository
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-Wenn Ihr Workflow den `Namen` Schlüsselwort verwendet, müssen Sie auf den Workflow anhand des Namens verweisen. Wenn der Name Ihres Workflows Leerraum enthält, müssen Sie das Leerzeichen durch die URL codierte Zeichenfolge `%20`ersetzen. Weitere Informationen zum Schlüsselwort `Name` finden Sie unter "[Workflowsyntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)".
+Wenn Ihr Workflow den `Namen` Schlüsselwort verwendet, müssen Sie auf den Workflow anhand des Namens verweisen. Wenn der Name Ihres Workflows Leerraum enthält, müssen Sie das Leerzeichen durch die URL codierte Zeichenfolge `%20`ersetzen. Weitere Informationen zum Schlüsselwort `Name` finden Sie unter "[Workflowsyntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)".
 
 
 
@@ -460,6 +460,6 @@ In diesem Markdown-Beispiel wird ein Badge hinzugefügt, das den Status von Work
 
 ### Weiterführende Informationen
 
-- "[Verwalten der Abrechnung für {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)" 
+- "[Verwalten der Abrechnung für {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)" 
   
   {% endif %}

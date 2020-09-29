@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 支持在 {{ site.data.variables.product.product_name }} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
+{% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
 
 单击右侧的纸张图标时，您还会看到在提交时对该文件的更改。
 
@@ -15,7 +15,7 @@ versions:
 
 ### 几何类型
 
-{{ site.data.variables.product.product_name }} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
+{% data variables.product.product_name %} 上的地图使用 [Leaflet.js](http://leafletjs.com)，并且支持 [geoJSON 规格](http://www.geojson.org/geojson-spec.html)中列出的所有几何类型（Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 GeometryCollection）。 TopoJSON 文件类型应为 "Topology"（拓扑），并且遵守 [topoJSON 规格](https://github.com/mbostock/topojson/wiki/Specification)。
 
 ### 样式功能
 
@@ -34,7 +34,7 @@ versions:
 
 ### 在其他位置嵌入您的地图
 
-想让您的 geoJSON 地图用在 {{ site.data.variables.product.product_name }} 以外的地方？ 只需修改此模板，并将其放在任何支持 javascript 的 HTML 页面上（如 [{{ site.data.variables.product.prodname_pages }}](http://pages.github.com)）：
+想让您的 geoJSON 地图用在 {% data variables.product.product_name %} 以外的地方？ 只需修改此模板，并将其放在任何支持 javascript 的 HTML 页面上（如 [{% data variables.product.prodname_pages %}](http://pages.github.com)）：
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -64,7 +64,7 @@ versions:
 
 ### 疑难解答
 
-如果在渲染 geoJSON 文件时遇到问题，请通过 [geoJSON 语法检查](http://geojsonlint.com/)运行 geoJSON 文件，确认该文件有效。 如果您的地点没有出现在预期的位置（<em>例如</em>在海洋中间），可能是数据在规划中，目前不受支持。 目前，{{ site.data.variables.product.product_name }} 只支持 `urn:ogc:def:crs:OGC:1.3:CRS84` 规划。
+如果在渲染 geoJSON 文件时遇到问题，请通过 [geoJSON 语法检查](http://geojsonlint.com/)运行 geoJSON 文件，确认该文件有效。 如果您的地点没有出现在预期的位置（<em>例如</em>在海洋中间），可能是数据在规划中，目前不受支持。 目前，{% data variables.product.product_name %} 只支持 `urn:ogc:def:crs:OGC:1.3:CRS84` 规划。
 
 此外，如果您的 `.geojson` 文件特别大（超过 10 MB），则无法在浏览器中渲染。 在这种情况下，您一般会看到一条类似以下的消息：
 

@@ -8,9 +8,9 @@ versions:
 
 {% mac %}
 
-1. In the menu bar, select the **{{ site.data.variables.product.prodname_desktop }}** menu, then click **Install Command Line Tool**. ![Install Command Line Tool option in the {{ site.data.variables.product.prodname_desktop }} drop-down menu](/assets/images/help/desktop/mac-install-command-line-tool.png)
+1. In the menu bar, select the **{% data variables.product.prodname_desktop %}** menu, then click **Install Command Line Tool**. ![Install Command Line Tool option in the {% data variables.product.prodname_desktop %} drop-down menu](/assets/images/help/desktop/mac-install-command-line-tool.png)
 2. ターミナルを開きます。
-3. {{ site.data.reusables.desktop.launch-desktop-from-command-line }}
+3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
   $ github <em>/path/to/repo</em>
@@ -28,7 +28,7 @@ versions:
 {% windows %}
 
 1. コマンドラインプロンプトを開きます。
-2. {{ site.data.reusables.desktop.launch-desktop-from-command-line }}
+2. {% data reusables.desktop.launch-desktop-from-command-line %}
 
   ```shell
   C:\Users\octocat> github <em>path\to\repo</em>

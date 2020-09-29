@@ -1,7 +1,7 @@
 ---
 title: GitHub ActionsでのNode.jsの利用
 intro: Node.jsプロジェクトのビルドとテストのための継続的インテグレーション（CI）ワークフローを作成できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
@@ -22,14 +22,14 @@ Node.js、YAML、ワークフローの設定オプションと、ワークフロ
 
 また、以下の基本的な理解があれば役立ちます。
 
-- [{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
+- [{% data variables.product.prodname_actions %}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
 - [環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Node.jsワークフローテンプレートでの開始
 
-{{ site.data.variables.product.prodname_dotcom }}は、ほとんどのNode.jsプロジェクトで使えるNode.jsのワークフローテンプレートを提供しています。 このガイドには、カスタマイズして利用できるnpm及びYarnの例が含まれます。 詳しい情報については[Node.jsのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのNode.jsプロジェクトで使えるNode.jsのワークフローテンプレートを提供しています。 このガイドには、カスタマイズして利用できるnpm及びYarnの例が含まれます。 詳しい情報については[Node.jsのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml)を参照してください。
 
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
@@ -62,17 +62,17 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
 ### Node.jsのバージョンの指定
 
-最も簡単にNode.jsのバージョンを指定する方法は、{{ site.data.variables.product.prodname_dotcom }}が提供する`setup-node`アクションを使うことです。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node/)を参照してください。
+最も簡単にNode.jsのバージョンを指定する方法は、{% data variables.product.prodname_dotcom %}が提供する`setup-node`アクションを使うことです。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node/)を参照してください。
 
-`setup-node`アクションはNode.jsのバージョンを入力として取り、ランナー上でそのバージョンを設定します。 `setup-node`は各ランナー上のツールキャッシュから指定されたNode.jsのバージョンを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 `setup-node`アクションの利用は、{{ site.data.variables.product.prodname_actions }}でNode.jsを使うための推奨される方法です。これは、そうすることで様々なランナーや様々なバージョンのNode.jsで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Node.jsをインストールして`PATH`に追加しなければなりません。
+`setup-node`アクションはNode.jsのバージョンを入力として取り、ランナー上でそのバージョンを設定します。 `setup-node`は各ランナー上のツールキャッシュから指定されたNode.jsのバージョンを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 `setup-node`アクションの利用は、{% data variables.product.prodname_actions %}でNode.jsを使うための推奨される方法です。これは、そうすることで様々なランナーや様々なバージョンのNode.jsで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Node.jsをインストールして`PATH`に追加しなければなりません。
 
 以下のテンプレートには、Node.jsのバージョン8.x、10.x、12.ｘでコードをビルドしてテストするマトリクス戦略が含まれています。 この'x'はワイルドカードキャラクターで、そのバージョンで利用できる最新のマイナー及びパッチリリースにマッチします。 `node-version`配列で指定されたNode.jsの各バージョンに対して、同じステップを実行するジョブが作成されます。
 
-それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 マトリクス戦略とコンテキストに関する詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)」及び「[{{ site.data.variables.product.prodname_actions }}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+それぞれのジョブは、配列`node-version` のマトリクスで定義された値に、`matrix`コンテキストを使ってアクセスできます。 `setup-node`アクションは、このコンテキストを`node-version`のインプットとして使います。 `setup-node`アクションは、コードのビルドとテストに先立って、様々なNode.jsのバージョンで各ジョブを設定します。 マトリクス戦略とコンテキストに関する詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)」及び「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
 ```yaml
@@ -124,11 +124,11 @@ jobs:
 ```
 {% endraw %}
 
-Node.jsのバージョンを指定しなかった場合、{{ site.data.variables.product.prodname_dotcom }}は環境のデフォルトのNode.jsのバージョンを使います。 詳しい情報については「[{{ site.data.variables.product.prodname_dotcom }}ホストランナーにインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。
+Node.jsのバージョンを指定しなかった場合、{% data variables.product.prodname_dotcom %}は環境のデフォルトのNode.jsのバージョンを使います。 詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーにインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。
 
 ### 依存関係のインストール
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーには、依存関係マネージャーのnpmとYarnがインストールされています。 コードのビルドとテストに先立って、npmやYarnを使ってワークフロー中で依存関係をインストールできます。 Windows及びLinuxの{{ site.data.variables.product.prodname_dotcom }}ホストランナーには、Grunt、Gulp、Bowerもインストールされています。
+{% data variables.product.prodname_dotcom %}ホストランナーには、依存関係マネージャーのnpmとYarnがインストールされています。 コードのビルドとテストに先立って、npmやYarnを使ってワークフロー中で依存関係をインストールできます。 Windows及びLinuxの{% data variables.product.prodname_dotcom %}ホストランナーには、Grunt、Gulp、Bowerもインストールされています。
 
 ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
@@ -192,7 +192,7 @@ steps:
 
 #### プライベートレジストリの利用と.npmrcファイルの作成の例
 
-{{ site.data.reusables.github-actions.setup-node-intro }}
+{% data reusables.github-actions.setup-node-intro %}
 
 プライベートリポジトリで認証を受けるには、npm認証トークンをリポジトリ設定中にシークレットとして保存しなければなりません。 たとえば`NPM_TOKEN`というシークレットを生成してください。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
@@ -274,4 +274,4 @@ steps:
 
 ### パッケージレジストリへの公開
 
-CIテストにパスした後、Node.jsパッケージをパッケージレジストリに公開するようにワークフローを設定できます。 npm及び{{ site.data.variables.product.prodname_registry }}への公開に関する詳しい情報については「[Node.jsパッケージの公開](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)」を参照してください。
+CIテストにパスした後、Node.jsパッケージをパッケージレジストリに公開するようにワークフローを設定できます。 npm及び{% data variables.product.prodname_registry %}への公開に関する詳しい情報については「[Node.jsパッケージの公開](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)」を参照してください。

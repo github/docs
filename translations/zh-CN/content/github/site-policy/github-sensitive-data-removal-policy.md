@@ -25,7 +25,7 @@ versions:
 - 在 GitHub 上的文件中仅提及您公司的身份、名称、品牌、域名或对您公司的其他引用。 您必须能够阐明为什么使用您公司的身份会威胁到您公司的安全状况，我们才会根据本政策采取行动。
 - 隐私投诉。 如果您担心自己的隐私，或者就隐私问题代表您的员工与我们联系 - 例如，有人发布了你们的私密电子邮件地址或其他个人信息 - 请通过[我们的隐私联系表](https://github.com/contact/privacy)联系我们。
 - 整个文件或仓库并不构成特定的安全风险，但是您认为在其他方面令人反感。
-- 受我们的[社区指导方针](/articles/github-community-guidelines/)约束的内容，例如恶意软件或万能工具。 如果您对我们的社区指导方针有疑问，或者认为 GitHub 上的内容涉嫌违反我们的指导方针，您可以使用 {{ site.data.variables.contact.report_content }} 联系我们。
+- 受我们的[社区指导方针](/articles/github-community-guidelines/)约束的内容，例如恶意软件或万能工具。 如果您对我们的社区指导方针有疑问，或者认为 GitHub 上的内容涉嫌违反我们的指导方针，您可以使用 {% data variables.contact.report_content %} 联系我们。
 
 ### 投诉须知
 

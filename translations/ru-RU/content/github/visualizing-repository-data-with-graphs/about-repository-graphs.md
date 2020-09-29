@@ -13,7 +13,7 @@ A repository's graphs give you information on {% if currentVersion == "free-pro-
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Some repository graphs are available only in public repositories with {{ site.data.variables.product.prodname_free_user }}:
+Some repository graphs are available only in public repositories with {% data variables.product.prodname_free_user %}:
 - Pulse
 - Contributors
 - Traffic
@@ -21,7 +21,7 @@ Some repository graphs are available only in public repositories with {{ site.da
 - Code frequency
 - Network
 
-All other repository graphs are available in all repositories. Every repository graph is available in public and private repositories with {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }}, and {{ site.data.variables.product.prodname_ghe_cloud }}. {{ site.data.reusables.gated-features.more-info }}
+All other repository graphs are available in all repositories. Every repository graph is available in public and private repositories with {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

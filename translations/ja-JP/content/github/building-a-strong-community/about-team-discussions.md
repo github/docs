@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-Organization のメンバーは、誰でも Team のページにポストしたり、パブリックなディスカッションに参加したりできます。 {{ site.data.reusables.organizations.team-discussions-permissions }}
+Organization のメンバーは、誰でも Team のページにポストしたり、パブリックなディスカッションに参加したりできます。 {% data reusables.organizations.team-discussions-permissions %}
 
 ![パブリックおよびプライベートのディスカッションを持つ Team ページのディスカッションタブ](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +18,7 @@ Team のディスカッションにリンクを張って、別のところから
 
 ![ピン止めされたディスカッションを持つ、Team ページの [Pinned] ディスカッションタブ](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }}オーナーは Organization 全体にわたって Team ディスカッションを無効化できます。 詳しい情報については [Organization の Team ディスカッションの無効化](/articles/disabling-team-discussions-for-your-organization)を参照してください。
+{% data reusables.organizations.team-discussions-default %}オーナーは Organization 全体にわたって Team ディスカッションを無効化できます。 詳しい情報については [Organization の Team ディスカッションの無効化](/articles/disabling-team-discussions-for-your-organization)を参照してください。
 
 ### Team ディスカッションの通知
 
@@ -26,7 +26,7 @@ Team のページのパブリックなディスカッションに誰かがポス
 
 {% tip %}
 
-**ヒント:** 通知の設定によって、更新はメール、{{ site.data.variables.product.product_name }}上の Web 通知、あるいはその両方で受け取ることになります。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」および「[Web 通知について](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}」を参照してください。
+**ヒント:** 通知の設定によって、更新はメール、{% data variables.product.product_name %}上の Web 通知、あるいはその両方で受け取ることになります。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知を設定する](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}「[メール通知について](/github/receiving-notifications-about-activity-on-github/about-email-notifications)」および「[Web 通知について](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}」を参照してください。
 
 {% endtip %}
 
@@ -38,7 +38,7 @@ Team のディスカッションに対する通知をオフにするには、特
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_dotcom }}での会話について](/articles/about-conversations-on-github)
+- [{% data variables.product.prodname_dotcom %}での会話について](/articles/about-conversations-on-github)
 - [Team について](/articles/about-teams)
 - [Team ディスカッションの作成](/articles/creating-a-team-discussion)
 - [Team ディスカッションの編集または削除](/articles/editing-or-deleting-a-team-discussion)

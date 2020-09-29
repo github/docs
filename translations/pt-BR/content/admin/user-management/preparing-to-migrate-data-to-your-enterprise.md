@@ -1,6 +1,6 @@
 ---
 title: Preparar-se para migrar dados para a sua empresa
-intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {{ site.data.variables.product.prodname_ghe_server }}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
+intro: 'Após gerar um arquivo de migração, você poderá importar os dados para a sua instância de destino do {% data variables.product.prodname_ghe_server %}. Antes de aplicar as alterações permanentemente na instância de destino, será possível revisá-las para resolver possíveis conflitos.'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
@@ -12,15 +12,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparar os dados migrados para importação para {{ site.data.variables.product.prodname_ghe_server }}
+### Preparar os dados migrados para importação para {% data variables.product.prodname_ghe_server %}
 
-1. Usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie o arquivo de migração gerado na organização ou instância de origem para o destino no {{ site.data.variables.product.prodname_ghe_server }}:
+1. Usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie o arquivo de migração gerado na organização ou instância de origem para o destino no {% data variables.product.prodname_ghe_server %}:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. Use o comando `ghe-migrator prepare` para preparar o arquivo para importação na instância de destino e gerar um novo GUID de Migração para uso nas etapas subsequentes:
 
@@ -29,7 +29,7 @@ versions:
     ```
 
     * Para começar uma nova tentativa de importação, execute o comando `ghe-migrator` novamente e obtenha um novo GUID de Migração.
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### Gerar uma lista de conflitos de migração
 

@@ -9,14 +9,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Crear plantillas de reporte de problemas
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En la sección "Características", en "Propuestas", haz clic en **Configurar plantillas**. ![Botón Start template setup (Comenzar la configuración de plantilla)](/assets/images/help/repository/set-up-templates.png)
 4. Usa el menú desplegable Agregar plantilla y haz clic en el tipo de plantilla que deseas crear. ![Menú desplegable Agregar plantilla](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. Para acceder a la vista previa o editar la plantilla antes de confirmarla en el repositorio, haz clic en ** Mostrar la vista previa y editar**. ![Botón para mostrar la vista previa y editar](/assets/images/help/repository/preview-and-edit-button.png)
@@ -30,7 +30,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Configurar el selector de plantillas
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 Puedes alentar a los colaboradores para que utilicen plantillas de informe de problemas si configuras el parámetro `blank_issues_enabled` como `false`. Si configuras `blank_issues_enabled` como `true`, las personas podrán abrir un reporte de problema en blanco.
 
@@ -40,30 +40,30 @@ Puedes alentar a los colaboradores para que utilicen plantillas de informe de pr
 
 {% endnote %}
 
-Si prefieres recibir ciertos reportes fuera de {{ site.data.variables.product.product_name }}, puedes dirigir a las personas a sitios externos con `contact_links`.
+Si prefieres recibir ciertos reportes fuera de {% data variables.product.product_name %}, puedes dirigir a las personas a sitios externos con `contact_links`.
 
 Aquí hay un ejemplo del archivo *config.yml*.
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Please ask and answer questions here.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Security Bug Bounty
+  - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
 Tu archivo de configuración personalizará el selector de plantilla cuando el archivo se combina en la rama predeterminada del repositorio.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Teclea `.github/ISSUE_TEMPLATE/config.yml` en el campo de nombre de archivo. ![Nombre de archivo de configuración](/assets/images/help/repository/template-config-file-name.png)
 4. Teclea el contenido de tu archivo de configuración en el cuerpo del nuevo archivo. ![Contenido de archivo de configuración](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### Leer más

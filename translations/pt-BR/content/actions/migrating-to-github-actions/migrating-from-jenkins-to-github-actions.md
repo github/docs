@@ -1,29 +1,29 @@
 ---
 title: Migrar do Jenkins para o GitHub Actions
-intro: 'O {{ site.data.variables.product.prodname_actions }} e o Jenkins compartilham múltiplas semelhanças, o que torna a migração para {{ site.data.variables.product.prodname_actions }} relativamente simples.'
+intro: 'O {% data variables.product.prodname_actions %} e o Jenkins compartilham múltiplas semelhanças, o que torna a migração para {% data variables.product.prodname_actions %} relativamente simples.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introdução
 
-O Jenkins e o {{ site.data.variables.product.prodname_actions }} permitem criar fluxos de trabalho que criam, testam, publicam, lançam e implementam código automaticamente. O Jenkins e o {{ site.data.variables.product.prodname_actions }} compartilham algumas semelhanças em termos de configuração do fluxo de trabalho:
+O Jenkins e o {% data variables.product.prodname_actions %} permitem criar fluxos de trabalho que criam, testam, publicam, lançam e implementam código automaticamente. O Jenkins e o {% data variables.product.prodname_actions %} compartilham algumas semelhanças em termos de configuração do fluxo de trabalho:
 
-- O Jenkins cria fluxos de trabalho usando _Declarative Pipelines_, que são semelhantes aos arquivos do fluxo de trabalho {{ site.data.variables.product.prodname_actions }}.
-- O Jenkins usa _stages_ para executar uma coleção de etapas, enquanto o {{ site.data.variables.product.prodname_actions }} usa trabalhos para agrupar uma ou mais etapas ou comandos individuais.
-- O Jenkins e o {{ site.data.variables.product.prodname_actions }} são compatíveis com criações baseadas em contêineres. Para obter mais informações, consulte "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)".
+- O Jenkins cria fluxos de trabalho usando _Declarative Pipelines_, que são semelhantes aos arquivos do fluxo de trabalho {% data variables.product.prodname_actions %}.
+- O Jenkins usa _stages_ para executar uma coleção de etapas, enquanto o {% data variables.product.prodname_actions %} usa trabalhos para agrupar uma ou mais etapas ou comandos individuais.
+- O Jenkins e o {% data variables.product.prodname_actions %} são compatíveis com criações baseadas em contêineres. Para obter mais informações, consulte "[Criar uma ação de contêiner do Docker](/articles/creating-a-docker-container-action)".
 - É possível reutilizar e compartilhar novamente etapas ou tarefas com a comunidade.
 
-Para obter mais informações, consulte "[Conceitos básicos para {{ site.data.variables.product.prodname_actions }}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
+Para obter mais informações, consulte "[Conceitos básicos para {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
 
 ### Principais diferenças
 
-- O Jenkins tem dois tipos de sintaxe para a criação de pipelines: Declarative Pipeline e Scripted Pipeline. O {{ site.data.variables.product.prodname_actions }} usa o YAML para criar fluxos de trabalho e arquivos de configuração. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
-- As implementações do Jenkins são tipicamente auto-hospedadas, com usuários mantendo os servidores em seus próprios centros de dados. O {{ site.data.variables.product.prodname_actions }} oferece uma abordagem de nuvem híbrida, hospedando seus próprios executores que você pode usar para executar trabalhos, ao mesmo tempo em que também oferece suporte aos executores auto-hospedados. Para obter mais informações, consulte [Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners).
+- O Jenkins tem dois tipos de sintaxe para a criação de pipelines: Declarative Pipeline e Scripted Pipeline. O {% data variables.product.prodname_actions %} usa o YAML para criar fluxos de trabalho e arquivos de configuração. Para obter mais informações, consulte "[Sintaxe do fluxo de trabalho para o GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
+- As implementações do Jenkins são tipicamente auto-hospedadas, com usuários mantendo os servidores em seus próprios centros de dados. O {% data variables.product.prodname_actions %} oferece uma abordagem de nuvem híbrida, hospedando seus próprios executores que você pode usar para executar trabalhos, ao mesmo tempo em que também oferece suporte aos executores auto-hospedados. Para obter mais informações, consulte [Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners).
 
 ### Comparar recursos
 
@@ -31,17 +31,17 @@ Para obter mais informações, consulte "[Conceitos básicos para {{ site.data.v
 
 O Jenkins permite que se envie criações para um único agente de criação, ou você pode distribuí-las entre vários agentes. Você também pode classificar esses agentes de acordo com vários atributos, como, por exemplo, tipos de sistema operacional.
 
-De modo similar, o {{ site.data.variables.product.prodname_actions }} pode enviar trabalhos para executores hospedados em {{ site.data.variables.product.prodname_dotcom }} ou executores auto-hospedados, e você pode usar as etiquetas para classificar os executores de acordo com vários atributos. A tabela a seguir compara como o conceito de criação distribuída é implementado tanto para o Jenkins e quanto para o {{ site.data.variables.product.prodname_actions }}.
+De modo similar, o {% data variables.product.prodname_actions %} pode enviar trabalhos para executores hospedados em {% data variables.product.prodname_dotcom %} ou executores auto-hospedados, e você pode usar as etiquetas para classificar os executores de acordo com vários atributos. A tabela a seguir compara como o conceito de criação distribuída é implementado tanto para o Jenkins e quanto para o {% data variables.product.prodname_actions %}.
 
-| Jenkins                                                                 | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                           |
+| Jenkins                                                                 | {% data variables.product.prodname_actions %}                                                                                                                                                           |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`agentes`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`executores`](/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner)  <br> [`executores auto-hospedados`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
 
 #### Usar seções para organizar pipelines
 
-O Jenkins divide seus Declarative Pipelines em múltiplas seções. De forma similar, o {{ site.data.variables.product.prodname_actions }} organiza seus fluxos de trabalho em seções separadas. A tabela abaixo compara as seções do Jenkins com o fluxo de trabalho {{ site.data.variables.product.prodname_actions }}.
+O Jenkins divide seus Declarative Pipelines em múltiplas seções. De forma similar, o {% data variables.product.prodname_actions %} organiza seus fluxos de trabalho em seções separadas. A tabela abaixo compara as seções do Jenkins com o fluxo de trabalho {% data variables.product.prodname_actions %}.
 
-| Diretivas do Jenkins                                            | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                     |
+| Diretivas do Jenkins                                            | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                     |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`agente`](https://jenkins.io/doc/book/pipeline/syntax/#agent)  | [`jobs.<job_id>.runs-on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on) <br> [`jobs.<job_id>.container`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer) |
 | [`post`](https://jenkins.io/doc/book/pipeline/syntax/#post)     |                                                                                                                                                                                                                                                                                                        |
@@ -51,9 +51,9 @@ O Jenkins divide seus Declarative Pipelines em múltiplas seções. De forma sim
 
 ### Usar diretivas
 
-O Jenkins usa diretivas para gerenciar os _Declarative Pipelines_. Essas diretivas definem as características do seu fluxo de trabalho e como ele será executado. A tabela abaixo demonstra como estas diretivas são mapeadas com conceitos dentro do {{ site.data.variables.product.prodname_actions }}.
+O Jenkins usa diretivas para gerenciar os _Declarative Pipelines_. Essas diretivas definem as características do seu fluxo de trabalho e como ele será executado. A tabela abaixo demonstra como estas diretivas são mapeadas com conceitos dentro do {% data variables.product.prodname_actions %}.
 
-| Diretivas do Jenkins                                                                     | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Diretivas do Jenkins                                                                     | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`ambiente`](https://jenkins.io/doc/book/pipeline/syntax/#environment)                   | [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)                                                                                                                                                                                                                                                                                                 |
 | [`options`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                     | [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)                                                                                    |
@@ -71,17 +71,17 @@ O Jenkins usa diretivas para gerenciar os _Declarative Pipelines_. Essas diretiv
 
 #### Processamento paralelo do trabalho
 
-O Jenkins pode executar os `stages` e as `etapas` em paralelo, enquanto o {{ site.data.variables.product.prodname_actions }} está executando os trabalhos em paralelo.
+O Jenkins pode executar os `stages` e as `etapas` em paralelo, enquanto o {% data variables.product.prodname_actions %} está executando os trabalhos em paralelo.
 
-| Jenkins em paralelo                                                 | {{ site.data.variables.product.prodname_actions }}                                                                                                                     |
+| Jenkins em paralelo                                                 | {% data variables.product.prodname_actions %}                                                                                                                     |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`paralelo`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
 #### Criar matriz
 
-Tanto o {{ site.data.variables.product.prodname_actions }} quanto o Jenkins permitem que você use uma matriz de criação para definir várias combinações de sistema.
+Tanto o {% data variables.product.prodname_actions %} quanto o Jenkins permitem que você use uma matriz de criação para definir várias combinações de sistema.
 
-| Jenkins                                                                | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                |
+| Jenkins                                                                | {% data variables.product.prodname_actions %}                                                                                                                                                                |
 | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`eixo`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-axes)     | [`estratégia/matriz`](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix) <br> [`contexto`](/actions/reference/context-and-expression-syntax-for-github-actions) |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages) | [`steps-context`](/actions/reference/context-and-expression-syntax-for-github-actions#steps-context)                                                                                                              |
@@ -89,9 +89,9 @@ Tanto o {{ site.data.variables.product.prodname_actions }} quanto o Jenkins perm
 
 #### Usar passos para executar tarefas
 
-O Jenkins agrupa as `etapas` em `stages`. Cada uma dessas etapas pode ser um script, função ou comando, entre outros. Da mesma forma, o {{ site.data.variables.product.prodname_actions }} usa `trabalhos` para executar grupos específicos de `etapas`.
+O Jenkins agrupa as `etapas` em `stages`. Cada uma dessas etapas pode ser um script, função ou comando, entre outros. Da mesma forma, o {% data variables.product.prodname_actions %} usa `trabalhos` para executar grupos específicos de `etapas`.
 
-| Etapas do Jenkins                                               | {{ site.data.variables.product.prodname_actions }}                                                   |
+| Etapas do Jenkins                                               | {% data variables.product.prodname_actions %}                                                   |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [`script`](https://jenkins.io/doc/book/pipeline/syntax/#script) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
@@ -105,7 +105,7 @@ O Jenkins agrupa as `etapas` em `stages`. Cada uma dessas etapas pode ser um scr
 Pipeline do Jenkins
 </th>
 <th>
-Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
+Fluxo de trabalho do {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
 Pipeline do Jenkins
 </th>
 <th>
-Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
+Fluxo de trabalho do {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
 Pipeline do Jenkins
 </th>
 <th>
-Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
+Fluxo de trabalho do {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -222,7 +222,7 @@ Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
 Pipeline do Jenkins
 </th>
 <th>
-Fluxo de trabalho do {{ site.data.variables.product.prodname_actions }}
+Fluxo de trabalho do {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>

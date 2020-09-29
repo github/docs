@@ -10,7 +10,7 @@ versions:
 
 ### Acerca de la rama predeterminada
 
-{{ site.data.reusables.branches.new-repo-default-branch }}{{ site.data.reusables.branches.default-branch-automatically-base-branch }} Si tienes más de una rama en tu repositorio, cualquiera con permisos administrativos en los repositorios pueden seleccionar alguna de estas ramas como la rama predeterminada de los mismos.
+{% data reusables.branches.new-repo-default-branch %}{% data reusables.branches.default-branch-automatically-base-branch %} Si tienes más de una rama en tu repositorio, cualquiera con permisos administrativos en los repositorios pueden seleccionar alguna de estas ramas como la rama predeterminada de los mismos.
 
 ### Configurar la rama por defecto
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. En el menú desplegable de la rama predeterminada, elige la rama predeterminada nueva. ![Selector desplegable de la rama por defecto](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. Da clic en **Actualizar**.
 
-Puedes únicamente cambiar entre ramas que ya existan en {{ site.data.variables.product.product_location }}. Para crear una nueva rama a través de UI, consulta "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository)".
+Puedes únicamente cambiar entre ramas que ya existan en {% data variables.product.product_location %}. Para crear una nueva rama a través de UI, consulta "[Crear y eliminar ramas dentro de tu repositorio](/articles/creating-and-deleting-branches-within-your-repository)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

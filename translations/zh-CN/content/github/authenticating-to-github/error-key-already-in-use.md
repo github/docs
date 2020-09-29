@@ -13,13 +13,13 @@ versions:
 要确定哪些地方已经使用该密钥，请打开终端并键入 `ssh` 命令。 使用 `-i` 标记提供要检查的密钥的路径：
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{{ site.data.variables.command_line.codeblock }}
-# Connect to {{ site.data.variables.product.product_location }} using a specific ssh key
+$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+# Connect to {% data variables.product.product_location %} using a specific ssh key
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
 
-响应中的 *username* 是密钥当前附加到的 {{ site.data.variables.product.product_name }} 帐户。 如果响应类似于 "username/repo"，则表示密钥已作为[*部署密钥*](/guides/managing-deploy-keys#deploy-keys)附加到仓库。
+响应中的 *username* 是密钥当前附加到的 {% data variables.product.product_name %} 帐户。 如果响应类似于 "username/repo"，则表示密钥已作为[*部署密钥*](/guides/managing-deploy-keys#deploy-keys)附加到仓库。
 
 ### 修复问题
 

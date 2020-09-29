@@ -1,7 +1,7 @@
 ---
 title: GitHub Enterprise Server の設定と管理
 shortTitle: クラスタリング
-intro: 'このガイドは、{{ site.data.variables.product.prodname_enterprise }} クラスタリングがあなたの組織によって良いソリューションかを決定するための顧客担当との作業と、クラスタのセットアップについて述べます。'
+intro: 'このガイドは、{% data variables.product.prodname_enterprise %} クラスタリングがあなたの組織によって良いソリューションかを決定するための顧客担当との作業と、クラスタのセットアップについて述べます。'
 redirect_from:
   - /enterprise/admin/clustering
 versions:

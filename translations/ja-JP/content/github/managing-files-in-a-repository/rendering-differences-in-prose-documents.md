@@ -9,7 +9,7 @@ versions:
 
 文章ドキュメントを含むコミットとプルリクエストには、そのドキュメントを*ソース*と*レンダリング済み*のビューで表示する機能があります。
 
-ソースビューでは入力された生テキストが表示されますが、レンダリング済みビューでは {{ site.data.variables.product.product_name }} でレンダリングされた様子を見ることができます。 たとえば、 Markdown での `**bold**` がレンダリング済みビューで **bold** と表示される、という違いがあります。
+ソースビューでは入力された生テキストが表示されますが、レンダリング済みビューでは {% data variables.product.product_name %} でレンダリングされた様子を見ることができます。 たとえば、 Markdown での `**bold**` がレンダリング済みビューで **bold** と表示される、という違いがあります。
 
 文章のレンダリングがサポートされるのは、[github/markup](https://github.com/github/markup) によってサポートされるレンダリング済みドキュメントです。
 
@@ -45,7 +45,7 @@ versions:
 
 ### 複雑な diff を表示する
 
-プルリクエストの中には、大きくて複雑なドキュメントでの多数の変更を含むものがあります。 When the changes take too long to analyze, {{ site.data.variables.product.product_name }} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+プルリクエストの中には、大きくて複雑なドキュメントでの多数の変更を含むものがあります。 When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
 ![Message when view can't be rendered](/assets/images/help/repository/prose_diff_rendering.png)
 
@@ -53,6 +53,6 @@ versions:
 
 ### HTML 要素を表示する
 
-HTML ドキュメントへのコミットのレンダリング済みビューは、直接にはサポートしていません。 形式の中には、Markdown のように、任意の HTML をドキュメントに埋め込むことができるものがあります。 そうしたドキュメントが {{ site.data.variables.product.product_name }}で表示される際、埋め込まれた HTML はプレビューで表示されますが、表示できないもの (埋め込み YouTube 動画など) もあります。
+HTML ドキュメントへのコミットのレンダリング済みビューは、直接にはサポートしていません。 形式の中には、Markdown のように、任意の HTML をドキュメントに埋め込むことができるものがあります。 そうしたドキュメントが {% data variables.product.product_name %}で表示される際、埋め込まれた HTML はプレビューで表示されますが、表示できないもの (埋め込み YouTube 動画など) もあります。
 
-通常、埋め込み HTML を含むドキュメントへの変更のレンダリング済みビューでは、{{ site.data.variables.product.product_name }} のドキュメントのビューでサポートされている要素への変更を表示します。 埋め込み HTML を含むドキュメントへの変更のレビューは、完全を期して、常にレンダリング済みとソースの両方のビューで行う必要があります。
+通常、埋め込み HTML を含むドキュメントへの変更のレンダリング済みビューでは、{% data variables.product.product_name %} のドキュメントのビューでサポートされている要素への変更を表示します。 埋め込み HTML を含むドキュメントへの変更のレビューは、完全を期して、常にレンダリング済みとソースの両方のビューで行う必要があります。

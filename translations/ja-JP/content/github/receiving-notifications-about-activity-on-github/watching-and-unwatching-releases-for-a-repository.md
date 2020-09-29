@@ -7,12 +7,12 @@ versions:
 
 ### リポジトリのリリースを Watch する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 右上隅にある [Watch] ドロップダウンメニューから、[**Releases only**] をクリックします。 ![リリースのドロップダウンメニューの Watch オプション](/assets/images/help/notifications/watch-releases.png)
 
 ### リポジトリのリリースの Watch を解除する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 右上隅にある [Watch] ドロップダウンメニューから、[**Not watching**] をクリックします。 ![リリースのドロップダウンメニューの Watch オプション](/assets/images/help/notifications/unwatch-repository.png)
 
 ### 参考リンク

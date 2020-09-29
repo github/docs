@@ -19,7 +19,7 @@ versions:
 - Maven（仅 pom.xml）
 - Nuget
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 {% note %}
 
@@ -31,9 +31,9 @@ versions:
 
 ### 访问依赖项图
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. 在 "Dependency graph"（依赖项图）下，单击 **Dependents（依赖项）**。 ![依赖项图中的依赖项选项卡](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 ### 延伸阅读

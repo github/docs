@@ -10,10 +10,10 @@ versions:
 
 Wenn Du eine Organisation von Grund auf neu erstellst, sind mit ihr keine Repositorys verknüpft. Weitere Informationen zum Hinzufügen von Repositorys zu einer Organisation findest Du unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“ und „[Ein Repository übertragen](/articles/transferring-a-repository).“
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
-{{ site.data.reusables.organizations.new-organization }}
-4. Folge den Anweisungen, um Deine Organisation zu erstellen. {% if currentVersion == "free-pro-team@latest" %}Weitere Informationen zu den für Dein Team verfügbaren Plänen findest Du unter „[{{ site.data.variables.product.prodname_dotcom }}-Produkte](/articles/githubs-products)“.{% endif %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
+{% data reusables.organizations.new-organization %}
+4. Folge den Anweisungen, um Deine Organisation zu erstellen. {% if currentVersion == "free-pro-team@latest" %}Weitere Informationen zu den für Dein Team verfügbaren Plänen findest Du unter „[{% data variables.product.prodname_dotcom %}-Produkte](/articles/githubs-products)“.{% endif %}
 
 ### Weiterführende Informationen
 

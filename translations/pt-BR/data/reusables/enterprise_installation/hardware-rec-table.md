@@ -1,6 +1,6 @@
 {% if currentVersion == "enterprise-server@2.22" %}
 
-Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {{ site.data.variables.product.prodname_ghe_server }} 2.22](#beta-features-in-github-enterprise-server-222)." |{% endif %}
+Minimum requirements for an instance with beta features enabled are **bold** in the following table. For more information, see "[Beta features in {% data variables.product.prodname_ghe_server %} 2.22](#beta-features-in-github-enterprise-server-222)." |{% endif %}
 | Licenças de usuário                      |                                                                                                              vCPUs |                                                                                                                    Memória |                                                                                                      Armazenamento anexado | Armazenamento raiz |
 |:---------------------------------------- | ------------------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------:| ------------------:|
 | Teste, demonstração ou 10 usuários leves |   2{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**4**](#beta-features-in-github-enterprise-server-222){% endif %} |   16 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**32 GB**](#beta-features-in-github-enterprise-server-222){% endif %} | 100 GB{% if currentVersion == "enterprise-server@2.22" %}<br/>or [**150 GB**](#beta-features-in-github-enterprise-server-222){% endif %} |             200 GB |
@@ -11,6 +11,6 @@ Minimum requirements for an instance with beta features enabled are **bold** in 
 
 {% if currentVersion == "enterprise-server@2.22" %}
 
-#### Beta features in {{ site.data.variables.product.prodname_ghe_server }} 2.22
+#### Beta features in {% data variables.product.prodname_ghe_server %} 2.22
 
-If you enable beta features in {{ site.data.variables.product.prodname_ghe_server }} 2.22, your instance requires additional hardware resources. For more information about the beta features, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22) on the {{ site.data.variables.product.prodname_enterprise }} website.{% endif %}
+If you enable beta features in {% data variables.product.prodname_ghe_server %} 2.22, your instance requires additional hardware resources. For more information about the beta features, see the [release notes for the 2.22 series](https://enterprise.github.com/releases/series/2.22) on the {% data variables.product.prodname_enterprise %} website.{% endif %}

@@ -16,36 +16,36 @@ versions:
 
 
 ### Inhalt dieses Artikels
-- [Informationen zu Lizenzen für das Bundle von {{ site.data.variables.product.prodname_enterprise }} und Visual Studio](#about-github-enterprise-and-visual-studio-bundle-licenses)
-- [Eine {{ site.data.variables.product.prodname_enterprise }}-Benutzerlizenz zuweisen](#assigning-a-github-enterprise-user-license)
+- [Informationen zu Lizenzen für das Bundle von {% data variables.product.prodname_enterprise %} und Visual Studio](#about-github-enterprise-and-visual-studio-bundle-licenses)
+- [Eine {% data variables.product.prodname_enterprise %}-Benutzerlizenz zuweisen](#assigning-a-github-enterprise-user-license)
 - [Überallokation von Benutzerlizenzen](#overallocation-of-user-licenses)
 
 
-### Informationen zu Lizenzen für das Bundle von {{ site.data.variables.product.prodname_enterprise }} und Visual Studio
+### Informationen zu Lizenzen für das Bundle von {% data variables.product.prodname_enterprise %} und Visual Studio
 
-Kunden, die das Bundle von {{ site.data.variables.product.prodname_dotcom }} und Visual Studio erworben haben, haben Anspruch auf eine {{ site.data.variables.product.prodname_enterprise }}-Benutzerlizenz. Diese Lizenzen werden in einem {{ site.data.variables.product.prodname_dotcom }}-Enterprise-Konto bereitgestellt, das mit dem Microsoft Enterprise Agreement verknüpft ist, und können den Mitgliedern der Organisation zugewiesen werden.
+Kunden, die das Bundle von {% data variables.product.prodname_dotcom %} und Visual Studio erworben haben, haben Anspruch auf eine {% data variables.product.prodname_enterprise %}-Benutzerlizenz. Diese Lizenzen werden in einem {% data variables.product.prodname_dotcom %}-Enterprise-Konto bereitgestellt, das mit dem Microsoft Enterprise Agreement verknüpft ist, und können den Mitgliedern der Organisation zugewiesen werden.
 
-Wenn Inhaber von Organisationen in Ihrem Unternehmen einen neuen Benutzer einladen, einer Organisation beizutreten, können sie wählen, ob dem neuen Benutzer eine Lizenz entweder von Ihrem Abonnement von {{ site.data.variables.product.prodname_enterprise }} oder von Ihrem Abonnement von {{ site.data.variables.product.prodname_enterprise }} mit Visual Studio zugewiesen wird.
+Wenn Inhaber von Organisationen in Ihrem Unternehmen einen neuen Benutzer einladen, einer Organisation beizutreten, können sie wählen, ob dem neuen Benutzer eine Lizenz entweder von Ihrem Abonnement von {% data variables.product.prodname_enterprise %} oder von Ihrem Abonnement von {% data variables.product.prodname_enterprise %} mit Visual Studio zugewiesen wird.
 
-### Eine {{ site.data.variables.product.prodname_enterprise }}-Benutzerlizenz zuweisen
+### Eine {% data variables.product.prodname_enterprise %}-Benutzerlizenz zuweisen
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.invite_to_org }}
-{{ site.data.reusables.organizations.choose-to-restore-privileges }}
-{{ site.data.reusables.organizations.choose-user-role }}
-{{ site.data.reusables.organizations.choose-user-license }}
-{{ site.data.reusables.organizations.add-user-to-teams }}
-{{ site.data.reusables.organizations.send-invitation }}
-{{ site.data.reusables.organizations.user_must_accept_invite_email }} {{ site.data.reusables.organizations.cancel_org_invite }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.invite_to_org %}
+{% data reusables.organizations.choose-to-restore-privileges %}
+{% data reusables.organizations.choose-user-role %}
+{% data reusables.organizations.choose-user-license %}
+{% data reusables.organizations.add-user-to-teams %}
+{% data reusables.organizations.send-invitation %}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
 ### Überallokation von Benutzerlizenzen
 
-Sie können die Gesamtzahl der Lizenzen, die Sie für Ihr Abonnement von {{ site.data.variables.product.prodname_enterprise }} und Ihr Abonnement von {{ site.data.variables.product.prodname_enterprise }} mit Visual Studio verwendet haben, in den Abrechnungseinstellungen Ihres Enterprise-Kontos sehen.
+Sie können die Gesamtzahl der Lizenzen, die Sie für Ihr Abonnement von {% data variables.product.prodname_enterprise %} und Ihr Abonnement von {% data variables.product.prodname_enterprise %} mit Visual Studio verwendet haben, in den Abrechnungseinstellungen Ihres Enterprise-Kontos sehen.
 
-Wenn Organisations- und Enterprise-Inhaber Benutzern mehr Abonnementlizenzen für {{ site.data.variables.product.prodname_enterprise }} (Visual Studio) zuweisen, als im Abonnement enthalten sind, enthält Ihre nächste Abschlussrechnung Gebühren für die Anzahl der Benutzer, die über den von Ihrem Abonnement erlaubten Betrag hinausgehen.
+Wenn Organisations- und Enterprise-Inhaber Benutzern mehr Abonnementlizenzen für {% data variables.product.prodname_enterprise %} (Visual Studio) zuweisen, als im Abonnement enthalten sind, enthält Ihre nächste Abschlussrechnung Gebühren für die Anzahl der Benutzer, die über den von Ihrem Abonnement erlaubten Betrag hinausgehen.
 
 Weitere Informationen finden Sie unter „[Abonnement und Nutzung für Ihr Enterprise-Konto anzeigen](/articles/viewing-the-subscription-and-usage-for-your-enterprise-account)“.
 

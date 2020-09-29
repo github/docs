@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.saved_replies }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.saved_replies %}
 3. En "Respuestas guardadas", junto a la respuesta guardada que deseas eliminar, haz clic en {% octicon "x" aria-label="The X" %}.  
    ![Eliminar respuesta guardada](/assets/images/help/settings/saved-replies-delete-existing.png)

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
+{% data reusables.repositories.create-issue-in-public-repository %}
 
 Du kannst einen neuen Issue basierend auf dem Code eines vorhandenen Pull Requests erstellen. Weitere Informationen findest Du unter „[Einen Issue im Code öffnen](/github/managing-your-work-on-github/opening-an-issue-from-code).“
 
@@ -17,7 +17,7 @@ Du kannst einen neuen Issue direkt aus einem Kommentar in einem Issue- oder Pull
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -32,8 +32,8 @@ Wenn Du ein Projektboard verwendest, um Deine Arbeit zu verfolgen und zu prioris
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Klicke auf **New issue** (Neuer Issue). ![Schaltfläche „New Issue“ (Neuer Issue)](/assets/images/help/issues/new_issues_button.png)
 4. Wenn es mehrere Issue-Arten gibt, klicke neben der Art des Issues, den Du öffnen möchtest, auf **Get started** (Anfangen). ![Typ des Issues auswählen, den Du erstellen möchten](/assets/images/help/issues/issue_template_get_started_button.png)
 {% if currentVersion == "free-pro-team@latest" or currentVersion >= "enterprise-server@2.21" %}
@@ -41,9 +41,9 @@ Wenn Du ein Projektboard verwendest, um Deine Arbeit zu verfolgen und zu prioris
 {% else %}
 5. Optionally, click **Open a regular issue.** if the type of issue you'd like to open isn't included in the available options. ![Link to open a regular issue](/assets/images/help/issues/regular_issue_link.png)
 {% endif %}
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 ### Weiterführende Informationen
 
 - „[Einen Permalink zu einem Code-Ausschnitt erstellen](/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet)“

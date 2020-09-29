@@ -1,6 +1,6 @@
 ---
 title: リポジトリを検索する
-intro: '{{ site.data.variables.product.product_name }} 上のリポジトリを検索することができます。そして、これらのリポジトリを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
+intro: '{% data variables.product.product_name %} 上のリポジトリを検索することができます。そして、これらのリポジトリを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにリポジトリを検索できます。あるいは、特定の Organization のみのリポジトリの検索もできます。 詳細は「[{% data variables.product.prodname_dotcom %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 フォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/articles/searching-in-forks)」を参照してください。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### リポジトリ名、説明、または README ファイルの内容で検索
 
@@ -30,7 +30,7 @@ versions:
 
 `in:readme` 修飾子を使って、リポジトリの README ファイルの内容に基づいてリポジトリを検索できます。
 
-`in:readme` は、特定の内容に基づいてリポジトリを検索する唯一の方法です。 リポジトリ内の特定のファイルや内容を検索するには、ファイルファインダー、またはコード固有の検索修飾子を使います。 詳細は「[ {{ site.data.variables.product.prodname_dotcom }}でファイルを検索する](/articles/finding-files-on-github)」および「[コードの検索](/articles/searching-code)」を参照してください。
+`in:readme` は、特定の内容に基づいてリポジトリを検索する唯一の方法です。 リポジトリ内の特定のファイルや内容を検索するには、ファイルファインダー、またはコード固有の検索修飾子を使います。 詳細は「[ {% data variables.product.prodname_dotcom %}でファイルを検索する](/articles/finding-files-on-github)」および「[コードの検索](/articles/searching-code)」を参照してください。
 
 | 修飾子         | サンプル                                                                                                                                      |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,9 @@ versions:
 
 作成時期や最終更新時期でリポジトリをフィルタリングできます。 リポジトリの作成時期については、`created` 修飾子を使います。リポジトリの最終更新時期で見つけるには、`pushed` 修飾子を使います。 `pushed` 修飾子は、リポジトリのいずれかのブランチに対する一番最近のコミットでソートされた、リポジトリのリストを表示します。
 
-どちらの修飾子も、パラメータとして日付を使います。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+どちらの修飾子も、パラメータとして日付を使います。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                       | サンプル                                                                                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ versions:
 
 ### リポジトリがミラーかどうかで検索
 
-リポジトリがミラーかどうか、そして別の場所にホストされているかどうかでリポジトリを検索できます。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+リポジトリがミラーかどうか、そして別の場所にホストされているかどうかでリポジトリを検索できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 | 修飾子            | サンプル                                                                                                                                    |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------- |

@@ -3,7 +3,7 @@ title: 我的提交为什么链接到错误的用户？
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
-intro: '{{ site.data.variables.product.product_name }} 使用提交标题中的电子邮件地址将提交链接到 GitHub 用户。 如果将您的提交链接到其他用户，或者根本没有链接到任何用户，您可能需要更改本地 Git 配置设置，将电子邮件地址添加到您的帐户电子邮件设置，或同时执行这两项操作。'
+intro: '{% data variables.product.product_name %} 使用提交标题中的电子邮件地址将提交链接到 GitHub 用户。 如果将您的提交链接到其他用户，或者根本没有链接到任何用户，您可能需要更改本地 Git 配置设置，将电子邮件地址添加到您的帐户电子邮件设置，或同时执行这两项操作。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -18,7 +18,7 @@ versions:
 
 ### 提交链接到其他用户
 
-如果您的提交链接到其他用户，则意味着该用户已将您本地 Git 配置设置中的电子邮件地址添加到其 {{ site.data.variables.product.product_name }} 帐户。 在这种情况下，您可以更改本地 Git 配置设置中的电子邮件，并将新电子邮件地址添加到您的 {{ site.data.variables.product.product_name }} 帐户，以便将来的提交链接到您的帐户。
+如果您的提交链接到其他用户，则意味着该用户已将您本地 Git 配置设置中的电子邮件地址添加到其 {% data variables.product.product_name %} 帐户。 在这种情况下，您可以更改本地 Git 配置设置中的电子邮件，并将新电子邮件地址添加到您的 {% data variables.product.product_name %} 帐户，以便将来的提交链接到您的帐户。
 
 1. 要更改本地 Git 配置中的电子邮件地址，请按照“[在 Git 中设置提交电子邮件地址](/articles/setting-your-commit-email-address)”中的步骤操作。 如果您在多台计算机上工作，则需要在每台计算机上更改此设置。
 2. 按照“[添加电子邮件地址到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account)”中的步骤操作，将步骤 2 中的电子邮件地址添加到您的帐户设置。

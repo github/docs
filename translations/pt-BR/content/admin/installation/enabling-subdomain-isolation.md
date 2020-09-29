@@ -1,6 +1,6 @@
 ---
 title: Habilitar isolamento de subdomínio
-intro: 'É possível configurar o isolamento de subdomínio para separar com segurança o conteúdo enviado pelo usuário de outras partes do seu appliance do {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'É possível configurar o isolamento de subdomínio para separar com segurança o conteúdo enviado pelo usuário de outras partes do seu appliance do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation/
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -10,9 +10,9 @@ versions:
 
 ### Sobre isolamento de subdomínio
 
-O isolamento de subdomínios reduz os problemas de script entre sites e outras vulnerabilidades relacionadas. Para obter mais informações, leia mais sobre [scripts entre sites](http://en.wikipedia.org/wiki/Cross-site_scripting) na Wikipedia. É altamente recomendável habilitar o isolamento de subdomínio para a {{ site.data.variables.product.product_location_enterprise }}.
+O isolamento de subdomínios reduz os problemas de script entre sites e outras vulnerabilidades relacionadas. Para obter mais informações, leia mais sobre [scripts entre sites](http://en.wikipedia.org/wiki/Cross-site_scripting) na Wikipedia. É altamente recomendável habilitar o isolamento de subdomínio para a {% data variables.product.product_location_enterprise %}.
 
-Quando o isolamento do subdomínio está ativado, o {{ site.data.variables.product.prodname_ghe_server }} substitui vários caminhos pelos subdomínios.
+Quando o isolamento do subdomínio está ativado, o {% data variables.product.prodname_ghe_server %} substitui vários caminhos pelos subdomínios.
 
 | Caminho sem isolamento de subdomínio | Caminho com isolamento de subdomínio |
 | ------------------------------------ | ------------------------------------ |
@@ -29,13 +29,13 @@ Quando o isolamento do subdomínio está ativado, o {{ site.data.variables.produ
 
 ### Pré-requisitos
 
-{{ site.data.reusables.enterprise_installation.disable-github-pages-warning }}
+{% data reusables.enterprise_installation.disable-github-pages-warning %}
 
 Antes de habilitar o isolamento de subdomínio, você deve definir as configurações de rede do novo domínio.
 
 - Em vez de um endereço IP, especifique um nome de domínio válido como nome de host. Para obter mais informações, consulte "[Configurar nome de host](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)".
 
-{{ site.data.reusables.enterprise_installation.changing-hostname-not-supported }}
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - Configure um registro curinga do Sistema de Nomes de Domínio (DNS) ou registros DNS individuais para os subdomínios listados acima. É recomendável criar um registro A para `*.HOSTNAME` que aponte para o endereço IP do servidor, de modo que não seja preciso criar vários registros para cada subdomínio.
 - Obtenha um certificado curinga de Segurança da Camada de Transporte (TLS) para `*.HOSTNAME` com Nome Alternativo da Entidade (SAN) para `HOSTNAME` e o domínio curinga `*.HOSTNAME`. Por exemplo, se o nome de host for `github.octoinc.com`, obtenha um certificado com valor de nome comum definido como `*.github.octoinc.com` e valor SAN definido para `github.octoinc.com` e `*.github.octoinc.com`.
@@ -43,8 +43,8 @@ Antes de habilitar o isolamento de subdomínio, você deve definir as configura�
 
 ### Habilitar isolamento de subdomínio
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.hostname-menu-item }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.hostname-menu-item %}
 4. Selecione **Subdomain isolation (recommended)** (Isolamento de subdomínio [recomendado]). ![Caixa de seleção para habilitar o isolamento de subdomínio](/assets/images/enterprise/management-console/subdomain-isolation.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}

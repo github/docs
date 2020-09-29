@@ -8,19 +8,19 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} agregar colaboradores externos a un repositorio, a menos que un propietario de la organización haya restringido la capacidad para invitar colaboradores. Para obtener más información, consulta "[Establecer permisos para agregar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
+{% data reusables.organizations.owners-and-admins-can %} agregar colaboradores externos a un repositorio, a menos que un propietario de la organización haya restringido la capacidad para invitar colaboradores. Para obtener más información, consulta "[Establecer permisos para agregar colaboradores externos](/articles/setting-permissions-for-adding-outside-collaborators)".
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }}
+{% data reusables.organizations.outside-collaborators-use-seats %}
 
 Si tu organización [requiere miembros y colaboradores externos para usar la autenticación de dos factores](/articles/requiring-two-factor-authentication-in-your-organization), deben habilitar la autenticación de dos factores antes de que puedan aceptar tu invitación para colaborar en el repositorio de una organización.
 
-{{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside_collaborator_forks %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
-{{ site.data.reusables.organizations.invite-teams-or-people }}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
 5. En el campo de búsqueda, comienza a teclear el nombre de la persona que quieres invitar, luego da clic en un nombre de la lista de resultados. ![Campo de búsqueda para teclear el nombre de una persona e invitarla al repositorio](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Debajo de "Selecciona un rol", selecciona los permisos que quieres otorgar a la persona, luego da clic en **"Añadir NOMBRE a REPOSITORIO**. ![Seleccionar los permisos para la persona](/assets/images/help/repository/manage-access-invite-choose-role-add.png)
 {% else %}

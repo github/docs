@@ -1,6 +1,6 @@
 ---
 title: Definir seu e-mail de cobrança
-intro: 'O e-mail de cobrança da conta é o endereço para o qual o {{ site.data.variables.product.product_name }} envia recibos e outras comunicações relacionadas a cobranças.'
+intro: 'O e-mail de cobrança da conta é o endereço para o qual o {% data variables.product.product_name %} envia recibos e outras comunicações relacionadas a cobranças.'
 redirect_from:
   - /articles/setting-your-personal-account-s-billing-email/
   - /articles/can-i-change-what-email-address-received-my-github-receipt/
@@ -13,7 +13,7 @@ versions:
 
 ### Configurar o e-mail de cobrança da conta pessoal
 
-O e-mail principal da conta pessoal é o endereço para o qual o {{ site.data.variables.product.product_name }} envia recibos e outras comunicações relacionadas a cobranças.
+O e-mail principal da conta pessoal é o endereço para o qual o {% data variables.product.product_name %} envia recibos e outras comunicações relacionadas a cobranças.
 
 O endereço de e-mail principal é o primeiro e-mail relacionado nas configurações de e-mail da conta. O endereço de e-mail principal também é usado como endereço de e-mail de cobrança.
 
@@ -21,13 +21,13 @@ Se quiser alterar o e-mail de cobrança, consulte "[Alterar endereço de e-mail 
 
 ### Configurar o e-mail de cobrança da organização
 
-O e-mail de cobrança da organização é o endereço para o qual o {{ site.data.variables.product.product_name }} envia recibos e outras comunicações relacionadas a cobranças.
+O e-mail de cobrança da organização é o endereço para o qual o {% data variables.product.product_name %} envia recibos e outras comunicações relacionadas a cobranças.
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Em **Billing email** (E-mail de cobrança), insira um endereço de e-mail válido. O e-mail não precisa ser exclusivo na conta da organização. ![Caixa de texto Billing email (E-mail de cobrança)](/assets/images/help/settings/org-billing-email.png)
 5. Para confirmar as alterações, clique em **Update profile** (Atualizar perfil). ![Botão Update profile (Atualizar perfil)](/assets/images/help/settings/update-profile-button.png)
 
@@ -37,9 +37,9 @@ Se você tiver usuários que desejem receber relatórios de cobrança, você pod
 
 #### Adicionar um destinatário para notificações de cobrança
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings}}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 1. Em gerenciamento de cobrança, à direita "destinatários de e-mail", clique em **Adicionar**. ![Adicionar destinatário](/assets/images/help/billing/billing-add-email-recipient.png)
 1. Digite o endereço de e-mail do destinatário e, em seguida, clique em **Adicionar**. ![Adicionar modal de destinatário](/assets/images/help/billing/billing-add-email-recipient-modal.png)
 
@@ -47,17 +47,17 @@ Se você tiver usuários que desejem receber relatórios de cobrança, você pod
 
 Deve-se sempre designar um endereço como o destinatário principal. O endereço com esta designação não pode ser removido até que um novo destinatário principal seja selecionado.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings}}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 1. Em "Gestão de cobrança", encontre o endereço de e-mail que deseja definir como principal destinatário.
 1. À direita do endereço de e-mail, use o menu suspenso "Editar" e, em seguida, clique em **Marcar como primário**. ![Marque o destinatário primário](/assets/images/help/billing/billing-change-primary-email-recipient.png)
 
 #### Remover um destinatário das notificações de cobrança
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings}}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 1. Em "Destinatários de e-mail", encontre o endereço de e-mail que deseja remover.
 1. Para inserir o usuário na lista, clique em **Editar**. ![Editar destinatário](/assets/images/help/billing/billing-edit-email-recipient.png)
 1. À direita do endereço de e-mail, use o menu suspenso "Editar" e clique em *Remover**. ![Remover destinatário](/assets/images/help/billing/billing-remove-email-recipient.png)

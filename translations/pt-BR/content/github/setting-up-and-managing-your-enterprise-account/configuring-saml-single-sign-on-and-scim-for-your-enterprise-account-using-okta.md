@@ -1,22 +1,22 @@
 ---
 title: Configurar o logon único SAML e o SCIM para a sua conta corporativa usando o Okta
-intro: 'Você pode usar o logon único (SSO) da Linguagem de Markup da Declaração de Segurança (SAML) e o Sistema de Gerenciamento de Identidades de Domínio Cruzado (SCIM) com o Okta para gerenciar automaticamente o acesso à sua conta corporativa em {{ site.data.variables.product.product_name }}.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'Você pode usar o logon único (SSO) da Linguagem de Markup da Declaração de Segurança (SAML) e o Sistema de Gerenciamento de Identidades de Domínio Cruzado (SCIM) com o Okta para gerenciar automaticamente o acesso à sua conta corporativa em {% data variables.product.product_name %}.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise-account/configuring-single-sign-on-and-scim-for-your-enterprise-account-using-okta
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.enterprise-accounts.user-provisioning-release-stage }}
+{% data reusables.enterprise-accounts.user-provisioning-release-stage %}
 
 ### Sobre SAML e SCIM com Okta
 
-Você pode controlar o acesso à conta corporativa no {{ site.data.variables.product.product_name }} e em outros aplicativos web, a partir de uma interface central, configurando a conta corporativa para usar SAML SSO e SCIM com Okta, um provedor de identidade (IdP).
+Você pode controlar o acesso à conta corporativa no {% data variables.product.product_name %} e em outros aplicativos web, a partir de uma interface central, configurando a conta corporativa para usar SAML SSO e SCIM com Okta, um provedor de identidade (IdP).
 
 O SAML SSO controla e protege o acesso a recursos da conta corporativa, como, por exemplo, organizações, repositórios, problemas e pull requests. O SCIM adiciona, gerencia e remove automaticamente o acesso dos membros a organizações que pertencem à sua conta corporativa ao fazer alterações no Okta. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account)".
 
-Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponíveis para qualquer usuário ao qual você atribuir seu aplicativo do {{ site.data.variables.product.prodname_ghe_cloud }} no Okta.
+Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponíveis para qualquer usuário ao qual você atribuir seu aplicativo do {% data variables.product.prodname_ghe_cloud %} no Okta.
 
 | Funcionalidade                        | Descrição                                                                                                                                                                                                                                                                              |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -27,57 +27,57 @@ Após ativar o SCIM, os seguintes recursos de provisionamento estarão disponív
 
 ### Pré-requisitos
 
-{{ site.data.reusables.saml.use-classic-ui }}
+{% data reusables.saml.use-classic-ui %}
 
-### Adicionar o aplicativo {{ site.data.variables.product.prodname_ghe_cloud }} no Okta
+### Adicionar o aplicativo {% data variables.product.prodname_ghe_cloud %} no Okta
 
-{{ site.data.reusables.saml.okta-admin-button }}
-{{ site.data.reusables.saml.okta-dashboard-click-applications }}
-{{ site.data.reusables.saml.add-okta-application}}
-{{ site.data.reusables.saml.search-ghec-okta }}
-1. Clique em "{{ site.data.variables.product.prodname_ghe_cloud }} - Contas corporativas".
+{% data reusables.saml.okta-admin-button %}
+{% data reusables.saml.okta-dashboard-click-applications %}
+{% data reusables.saml.add-okta-application %}
+{% data reusables.saml.search-ghec-okta %}
+1. Clique em "{% data variables.product.prodname_ghe_cloud %} - Contas corporativas".
 1. Clique em **Salvar**.
 1. Opcionalmente, à direita do "Etiqueta do aplicativo", digite um nome descritivo para o aplicativo. ![Campo da etiqueta do aplicativo](/assets/images/help/saml/okta-application-label.png)
-1. À direita da "Empresas de {{ site.data.variables.product.prodname_dotcom }}", digite o nome da conta corporativa. Por exemplo, se a URL da conta corporativa for `https://github.com/enterprises/octo-corp`, digite `octo-corp`. ![Campo GitHub Enterprises](/assets/images/help/saml/okta-github-enterprises.png)
+1. À direita da "Empresas de {% data variables.product.prodname_dotcom %}", digite o nome da conta corporativa. Por exemplo, se a URL da conta corporativa for `https://github.com/enterprises/octo-corp`, digite `octo-corp`. ![Campo GitHub Enterprises](/assets/images/help/saml/okta-github-enterprises.png)
 1. Clique em **Cpncluído**.
 
 ### Habilitar e e testar o SAML SSO
 
-{{ site.data.reusables.saml.okta-admin-button }}
-{{ site.data.reusables.saml.okta-dashboard-click-applications }}
-{{ site.data.reusables.saml.click-enterprise-account-application }}
-{{ site.data.reusables.saml.assign-yourself-to-okta }}
-{{ site.data.reusables.saml.okta-sign-on-tab }}
+{% data reusables.saml.okta-admin-button %}
+{% data reusables.saml.okta-dashboard-click-applications %}
+{% data reusables.saml.click-enterprise-account-application %}
+{% data reusables.saml.assign-yourself-to-okta %}
+{% data reusables.saml.okta-sign-on-tab %}
 1. À direita das configurações, clique em **Editar**.
 1. Em "Atributos de SAML configurados", à direita de "grupos", use o menu suspenso e selecione **Correspondências de regex**.
 1. À direita do menu suspenso, digite `.*.*`.
 1. Clique em **Salvar**.
-{{ site.data.reusables.saml.okta-view-setup-instructions }}
+{% data reusables.saml.okta-view-setup-instructions %}
 1. Habilite o SAML para a conta corporativa usando as informações nas instruções de configuração. Para obter mais informações, consulte "[Aplicar as configurações de segurança na conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)".
 
 ### Criar grupos no Okta
 
 1. No Okta, crie um grupo para corresponder a cada organização pertencente à conta corporativa. O nome de cada grupo deve corresponder ao nome da conta da organização (não ao nome de exibição da organização). Por exemplo, se a URL da organização for `https://github.com/octo-org`, nomeie o grupo `octo-org`.
-1. Atribua o aplicativo que você criou para a sua conta corporativa a cada grupo. {{ site.data.variables.product.prodname_dotcom }} receberá todos os `grupos` de dados para cada usuário.
+1. Atribua o aplicativo que você criou para a sua conta corporativa a cada grupo. {% data variables.product.prodname_dotcom %} receberá todos os `grupos` de dados para cada usuário.
 1. Adicione usuários a grupos baseados nas organizações às quais você deseja que os usuários pertençam.
 
 ### Configurar o provisionamento do usuário com SCIM no Okta
 
-{{ site.data.reusables.scim.enterprise-account-scim }}
+{% data reusables.scim.enterprise-account-scim %}
 
-Para configurar o provisionamento de usuário com SCIM no Okta, você deverá autorizar um aplicativo OAuth para criar um token que o Okta pode usar para efetuar a autenticação no {{ site.data.variables.product.product_name }} em seu nome. O aplicativo okta-oauth é criado pelo Okta em parceria com {{ site.data.variables.product.prodname_dotcom }}.
+Para configurar o provisionamento de usuário com SCIM no Okta, você deverá autorizar um aplicativo OAuth para criar um token que o Okta pode usar para efetuar a autenticação no {% data variables.product.product_name %} em seu nome. O aplicativo okta-oauth é criado pelo Okta em parceria com {% data variables.product.prodname_dotcom %}.
 
-{{ site.data.reusables.saml.okta-admin-button }}
-{{ site.data.reusables.saml.okta-dashboard-click-applications }}
-{{ site.data.reusables.saml.click-enterprise-account-application }}
-{{ site.data.reusables.saml.okta-provisioning-tab }}
-{{ site.data.reusables.saml.okta-configure-api-integration }}
-{{ site.data.reusables.saml.okta-enable-api-integration }}
-1. Clique em **Efetuar a autenticação com Github Enterprise Cloud - Contas corporativas**. ![Botão para efetuar a autenticação com {{ site.data.variables.product.prodname_dotcom }}](/assets/images/help/business-accounts/authenticate-with-github-button.png)
+{% data reusables.saml.okta-admin-button %}
+{% data reusables.saml.okta-dashboard-click-applications %}
+{% data reusables.saml.click-enterprise-account-application %}
+{% data reusables.saml.okta-provisioning-tab %}
+{% data reusables.saml.okta-configure-api-integration %}
+{% data reusables.saml.okta-enable-api-integration %}
+1. Clique em **Efetuar a autenticação com Github Enterprise Cloud - Contas corporativas**. ![Botão para efetuar a autenticação com {% data variables.product.prodname_dotcom %}](/assets/images/help/business-accounts/authenticate-with-github-button.png)
 1. À direita do nome da conta corporativa, clique em **Conceder**.
 1. Clique em **Autorizar okta-oauth**.
-{{ site.data.reusables.saml.okta-save-provisioning }}
-{{ site.data.reusables.saml.okta-edit-provisioning }}
+{% data reusables.saml.okta-save-provisioning %}
+{% data reusables.saml.okta-edit-provisioning %}
 1. No nome do aplicativo, clique em **Grupos de push**. ![Aba de Grupos Push](/assets/images/help/business-accounts/okta-push-groups-tab.png)
 1. Use o menu suspenso **Grupos de push** e selecione **Encontrar grupos por nome**. ![Menu suspenso de Grupos de Push](/assets/images/help/business-accounts/okta-push-groups-drop-down.png)
 1. Adicione um grupo de push para cada organização na sua conta corporativa para a qual você deseja habilitar o provisionamento de usuários.
@@ -86,15 +86,15 @@ Para configurar o provisionamento de usuário com SCIM no Okta, você deverá au
    - Clique em **Salvar**.
    - Repita o procedimento para cada organização.
 1. No nome do seu aplicativo, clique em **Atribuições**. ![Aba de atribuições](/assets/images/help/business-accounts/okta-assignments-tab.png)
-1. Se você vir **Provisões de usuários**, usuários que eram integrantes de um grupo do Okta antes de você adicionar um grupo de push para esse grupo, não foram fornecidos. Para enviar os dados do SCIM para {{ site.data.variables.product.product_name }} para esses usuários, clique em **Provisionar usuários**.
+1. Se você vir **Provisões de usuários**, usuários que eram integrantes de um grupo do Okta antes de você adicionar um grupo de push para esse grupo, não foram fornecidos. Para enviar os dados do SCIM para {% data variables.product.product_name %} para esses usuários, clique em **Provisionar usuários**.
 
 ### Habilitar o SAML usando o provisionamento de usuário
 
 Depois de habilitar o provisionamento e desprovisionamento do SCIM, você pode habilitar, opcionalmente, o provisionamento e desprovisionamento do usuário de SAML.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.security-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
 1. Em "Provisionamento de usuários de SAML", selecione **Habilitar provisionamento de usuário de SAML**. ![Caixa de seleção que habilita o provisionamento do usuário com SAML](/assets/images/help/business-accounts/user-provisioning.png)
 1. Clique em **Salvar**.
 1. Opcionalmente, habilite o desprovisionamento do usuário de SAML.

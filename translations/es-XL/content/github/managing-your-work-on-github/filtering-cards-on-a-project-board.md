@@ -29,7 +29,7 @@ También puedes usar la barra de búsqueda "Filtrar tarjetas" en la parte superi
 
 {% tip %}
 
-**Sugerencia:** Puedes arrastrar y soltar las tarjetas filtradas o usar los atajos del teclado para moverlas entre las columnas. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**Sugerencia:** Puedes arrastrar y soltar las tarjetas filtradas o usar los atajos del teclado para moverlas entre las columnas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

@@ -1,6 +1,6 @@
 ---
 title: 创建操作
-intro: '您可以创建自己的操作，使用并自定义 {{ site.data.variables.product.prodname_dotcom }} 社区共享的操作，或者写入和共享您构建的操作。'
+intro: '您可以创建自己的操作，使用并自定义 {% data variables.product.prodname_dotcom %} 社区共享的操作，或者写入和共享您构建的操作。'
 redirect_from:
   - /articles/building-actions
   - /github/automating-your-workflow-with-github-actions/building-actions
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% link_in_list /about-actions %}
 {% link_in_list /creating-a-docker-container-action %}

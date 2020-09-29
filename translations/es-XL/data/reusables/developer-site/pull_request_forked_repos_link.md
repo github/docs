@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Cuando creas una solicitud de extracción desde un repositorio bifurcado al repositorio base, {{ site.data.variables.product.prodname_dotcom }} envía el evento `pull_request` al repositorio base y no se producen eventos de solicitud de extracción en el repositorio bifurcado.
+Cuando creas una solicitud de extracción desde un repositorio bifurcado al repositorio base, {% data variables.product.prodname_dotcom %} envía el evento `pull_request` al repositorio base y no se producen eventos de solicitud de extracción en el repositorio bifurcado.
 
 Los flujos de trabajo no se ejecutan en repositorios bifurcados por defecto. Debes habilitar las Acciones de GitHub en la pestaña **Acciones** del repositorio bifurcado.
 

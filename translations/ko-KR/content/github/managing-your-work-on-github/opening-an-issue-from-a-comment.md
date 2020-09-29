@@ -15,7 +15,7 @@ When you open an issue from a comment, the issue contains a snippet showing wher
 4. Use the "Repository" drop-down menu, and select the repository you want to open the issue in. ![Repository dropdown for new issue](/assets/images/help/pull_requests/new-issue-repository.png)
 5. Type a descriptive title and body for the issue. ![Title and body for new issue](/assets/images/help/pull_requests/new-issue-title-and-body.png)
 6. Click **Create issue**. ![Button to create new issue](/assets/images/help/pull_requests/create-issue.png)
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
 ### 더 읽을거리
 

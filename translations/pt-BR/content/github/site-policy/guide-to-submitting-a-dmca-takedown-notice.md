@@ -68,11 +68,11 @@ Esta lista não é exaustiva, e é por isso que falar com um advogado sobre a qu
 
 ### Queixas sobre Tecnologia Anticircunvenção
 
-A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório através de nosso {{ site.data.variables.contact.contact_dmca }}, e inclua informações específicas sobre o conteúdo que viola essa proibição, quais as medidas tecnológicas em vigor e por que razão o conteúdo viola a proibição.
+A Lei de Direitos Autorais proíbe, igualmente, que se burle medidas tecnológicas que controlem efetivamente o acesso às obras protegidas pelos direitos de autor. Se você acredita que o conteúdo hospedado no GitHub viola esta proibição, envie-nos um relatório através de nosso {% data variables.contact.contact_dmca %}, e inclua informações específicas sobre o conteúdo que viola essa proibição, quais as medidas tecnológicas em vigor e por que razão o conteúdo viola a proibição.
 
 ### Como enviar sua reclamação
 
-A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {{ site.data.variables.contact.contact_dmca }}.
+A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 
 Você também pode enviar notificações de e-mail para <copyright@github.com>. Você pode incluir um anexo, se quiser, mas inclua também uma versão em texto simples da sua carta no corpo da sua mensagem.
 

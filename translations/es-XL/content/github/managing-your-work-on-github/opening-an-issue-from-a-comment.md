@@ -15,7 +15,7 @@ Cuando abres un informe de problemas desde un comentario, este informe contiene 
 4. Usa el menú desplegable "Repository" (Repositorio) y selecciona el repositorio donde desees abrir la propuesta. ![Repositorio desplegable para nueva propuesta](/assets/images/help/pull_requests/new-issue-repository.png)
 5. Escribe un título descriptivo y un cuerpo para la propuesta. ![Título y cuerpo para la nueva propuesta](/assets/images/help/pull_requests/new-issue-title-and-body.png)
 6. Haz clic en **Create issue** (Crear propuesta). ![Botón para crear la nueva propuesta](/assets/images/help/pull_requests/create-issue.png)
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
 ### Leer más
 

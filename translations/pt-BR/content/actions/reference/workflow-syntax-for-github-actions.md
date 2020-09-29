@@ -2,7 +2,7 @@
 title: Sintaxe de fluxo de trabalho para o GitHub Actions
 shortTitle: Sintaxe de fluxo de trabalho
 intro: Um fluxo de trabalho é um processo automatizado configurável constituído de um ou mais trabalhos. Você deve criar um arquivo YAML para definir a configuração do seu fluxo de trabalho.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre sintaxe YAML para fluxos de trabalho
 
@@ -23,17 +23,17 @@ Você deve armazenar os arquivos de fluxo de trabalho no diretório `.github/wor
 
 ### Limites de uso
 
-{{ site.data.reusables.github-actions.github-actions-usage-limits }}
+{% data reusables.github-actions.github-actions-usage-limits %}
 
 ### **`name`**
 
-Nome do fluxo de trabalho. O {{ site.data.variables.product.prodname_dotcom }} exibe os nomes dos fluxos de trabalho na página de ações do repositório. Se você omitir o `nome`, o {{ site.data.variables.product.prodname_dotcom }} irá defini-lo como o caminho do arquivo do fluxo de trabalho relativo à raiz do repositório.
+Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe os nomes dos fluxos de trabalho na página de ações do repositório. Se você omitir o `nome`, o {% data variables.product.prodname_dotcom %} irá defini-lo como o caminho do arquivo do fluxo de trabalho relativo à raiz do repositório.
 
 ### **`on`**
 
-**Obrigatório** Nome do evento do {{ site.data.variables.product.prodname_dotcom }} que aciona o fluxo de trabalho. Você pode fornecer uma única `string` de evento, um `array` de eventos, um `array` de `types` (tipos) de eventos ou um `map` (mapa) de configuração de eventos que programe um fluxo de trabalho ou restrinja a execução do fluxo de trabalho a alterações em determinados arquivos, tags ou branches. Para obter uma lista de eventos disponíveis, consulte "[Eventos que acionam fluxos de trabalho](/articles/events-that-trigger-workflows)".
+**Obrigatório** Nome do evento do {% data variables.product.prodname_dotcom %} que aciona o fluxo de trabalho. Você pode fornecer uma única `string` de evento, um `array` de eventos, um `array` de `types` (tipos) de eventos ou um `map` (mapa) de configuração de eventos que programe um fluxo de trabalho ou restrinja a execução do fluxo de trabalho a alterações em determinados arquivos, tags ou branches. Para obter uma lista de eventos disponíveis, consulte "[Eventos que acionam fluxos de trabalho](/articles/events-that-trigger-workflows)".
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
 ### **`on.<event_name>.types`**
 
@@ -124,7 +124,7 @@ As palavras-chave `paths-ignore` e `paths` aceitam padrões glob que usam os car
 
 #### Exemplo desconsiderando caminhos
 
-Sempre que um nome de caminho corresponder a um padrão em `paths-ignore`, o fluxo de trabalho não será executado. O {{ site.data.variables.product.prodname_dotcom }} avalia os padrões definidos em `paths-ignore` com relação ao nome do caminho. Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
+Sempre que um nome de caminho corresponder a um padrão em `paths-ignore`, o fluxo de trabalho não será executado. O {% data variables.product.prodname_dotcom %} avalia os padrões definidos em `paths-ignore` com relação ao nome do caminho. Um fluxo de trabalho com o seguinte filtro de caminho só será executado em eventos `push` que tiverem pelo menos um arquivo fora do diretório `docs` na raiz do repositório.
 
 ```yaml
 on:
@@ -170,13 +170,13 @@ on:
 
 {% note %}
 
-**Observação:** se você fizer push de mais de 1.000 commits ou se o {{ site.data.variables.product.prodname_dotcom }} não gera o diff devido a um tempo limite esgotado (diffs muito grandes), o fluxo de trabalho sempre será executado.
+**Observação:** se você fizer push de mais de 1.000 commits ou se o {% data variables.product.prodname_dotcom %} não gera o diff devido a um tempo limite esgotado (diffs muito grandes), o fluxo de trabalho sempre será executado.
 
 {% endnote %}
 
 O filtro determina se um fluxo de trabalho deve ser executado avaliando os arquivos alterados e comparando-os à lista de `paths-ignore` ou `paths`. Se não houver arquivos alterados, o fluxo de trabalho não será executado.
 
-O {{ site.data.variables.product.prodname_dotcom }} gera a lista de arquivos alterados usando diffs de dois pontos para pushes e diffs de três pontos para pull requests:
+O {% data variables.product.prodname_dotcom %} gera a lista de arquivos alterados usando diffs de dois pontos para pushes e diffs de três pontos para pull requests:
 - **Pull requests:** diffs de três pontos são uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch de base.
 - **Pushes para branches existentes:** um diff de dois pontos compara os SHAs head e base, um com o outro.
 - **Pushes para novos branches:** um diff de dois pontos compara o principal do ancestral do commit mais extenso que foi feito push.
@@ -185,7 +185,7 @@ Para obter mais informações, consulte "[Sobre comparação de branches em pull
 
 ### **`on.schedule`**
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 Para obter mais informações sobre a sintaxe cron, consulte "[Eventos que acionam fluxos de trabalho](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)".
 
@@ -193,7 +193,7 @@ Para obter mais informações sobre a sintaxe cron, consulte "[Eventos que acion
 
 Um `map` (mapa) das variáveis de ambiente que estão disponíveis para todos os trabalhos e etapas do fluxo de trabalho. Também é possível configurar variáveis de ambiente que estão disponíveis apenas para um trabalho ou etapa. Para obter mais informações, consulte [`jobs.<job_id>.env`](#jobsjob_idenv) e [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### Exemplo
 
@@ -206,13 +206,13 @@ env:
 
 Um `mapa` das configurações-padrão que serão aplicadas a todos os trabalhos do fluxo de trabalho. Você também pode definir as configurações-padrão disponíveis para um trabalho. Para obter mais informações, consulte [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`defaults.run`**
 
 Você pode fornecer opções-padrão de `shell` e `working-directory` para todas as etapas de [`executar`](#jobsjob_idstepsrun) em um fluxo de trabalho. Você também pode definir as configurações-padrão para `execução` apenas disponíveis para um trabalho. Para obter mais informações, consulte [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). Você não pode usar contextos ou expressões nesta palavra-chave.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Exemplo
 
@@ -231,7 +231,7 @@ Cada trabalho é executado em um ambiente especificado por `runs-on`.
 
 Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
 
-Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/v3/actions/workflow-jobs)".
+Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/v3/actions/workflow-jobs)".
 
 ### **`jobs.<job_id>`**
 
@@ -249,7 +249,7 @@ jobs:
 
 ### **`jobs.<job_id>.name`**
 
-Nome do trabalho no {{ site.data.variables.product.prodname_dotcom }}.
+Nome do trabalho no {% data variables.product.prodname_dotcom %}.
 
 ### **`jobs.<job_id>.needs`**
 
@@ -276,19 +276,19 @@ Os trabalhos neste exemplo são executados sequencialmente:
 
 ### **`jobs.<job_id>.runs-on`**
 
-**Obrigatório** O tipo de máquina para executar o trabalho. A máquina pode ser ou um executor hospedado em {{ site.data.variables.product.prodname_dotcom }} ou um executor auto-hospedado.
+**Obrigatório** O tipo de máquina para executar o trabalho. A máquina pode ser ou um executor hospedado em {% data variables.product.prodname_dotcom %} ou um executor auto-hospedado.
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Runners hospedados no {{ site.data.variables.product.prodname_dotcom }}
+#### Runners hospedados no {% data variables.product.prodname_dotcom %}
 
-Se você usar um executor hospedado no {{ site.data.variables.product.prodname_dotcom }}, cada trabalho será executado em uma nova instância de um ambiente virtual especificado por `runs-on`.
+Se você usar um executor hospedado no {% data variables.product.prodname_dotcom %}, cada trabalho será executado em uma nova instância de um ambiente virtual especificado por `runs-on`.
 
-Os tipos de executor disponíveis para {{ site.data.variables.product.prodname_dotcom }} são:
+Os tipos de executor disponíveis para {% data variables.product.prodname_dotcom %} são:
 
-{{ site.data.reusables.github-actions.supported-github-runners }}
+{% data reusables.github-actions.supported-github-runners %}
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
 ##### **Exemplo**
 
@@ -296,11 +296,11 @@ Os tipos de executor disponíveis para {{ site.data.variables.product.prodname_d
 runs-on: ubuntu-latest
 ```
 
-Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {{ site.data.variables.product.prodname_dotcom }}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+Para obter mais informações, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
 
 #### Executores auto-hospedados
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
 ##### **Exemplo**
 
@@ -314,9 +314,9 @@ Para obter mais informações, consulte "[Sobre executores auto-hospedados](/git
 
 Um `mapa` de saídas para um trabalho. As saídas de trabalho estão disponíveis para todos os trabalhos downstream que dependem deste trabalho. Para obter mais informações sobre a definição de dependências de trabalhos, consulte [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
-As saídas de trabalho são strings e saídas de trabalho que contêm expressões são avaliadas no executor ao final de cada trabalho. As saídas que contêm segredos são eliminadas no executor e não são enviadas para {{ site.data.variables.product.prodname_actions }}.
+As saídas de trabalho são strings e saídas de trabalho que contêm expressões são avaliadas no executor ao final de cada trabalho. As saídas que contêm segredos são eliminadas no executor e não são enviadas para {% data variables.product.prodname_actions %}.
 
-Para usar as saídas de trabalho em um trabalho dependente, você poderá usar o contexto `needs`. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)".
+Para usar as saídas de trabalho em um trabalho dependente, você poderá usar o contexto `needs`. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)".
 
 #### **Exemplo**
 
@@ -346,7 +346,7 @@ trabalhos:
 
 Um `map` (mapa) das variáveis de ambiente que estão disponíveis para todos as etapas do trabalho. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou uma etapa individual. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### **Exemplo**
 
@@ -361,7 +361,7 @@ jobs:
 
 Um `mapa` com as configurações- padrão que serão aplicadas a todas as etapas do trabalho. Você também pode definir as configurações-padrão para todo o fluxo de trabalho. Para obter mais informações, consulte [`padrão`](#defaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`jobs.<job_id>.defaults.run`**
 
@@ -369,7 +369,7 @@ Forneça o `shell` e `working-directory` para todas as etapas do trabalho `execu
 
 Você pode fornecer as opções-padrão de `shell` e `working-directory` para todas as etapas de [`execução`](#jobsjob_idstepsrun) de um trabalho. Você também pode definir as configurações-padrão para `execução` para todo o fluxo de trabalho. Para obter mais informações, consulte [`jobs.defaults.run`](#defaultsrun). Você não pode usar contextos ou expressões nesta palavra-chave.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Exemplo
 
@@ -387,11 +387,11 @@ trabalhos:
 
 Você pode usar a condicional `if` (se) para evitar que um trabalho seja executado a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ### **`jobs.<job_id>.steps`**
 
-Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {{ site.data.variables.product.prodname_dotcom }} fornece etapas integradas para configurar e concluir trabalhos.
+Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
 
 Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
 
@@ -421,13 +421,13 @@ jobs:
 
 #### **`jobs.<job_id>.steps.id`**
 
-Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à etapa em contextos. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Identificador exclusivo da etapa. Você pode usar `id` para fazer referência à etapa em contextos. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 #### **`jobs.<job_id>.steps.if`**
 
 Você pode usar a condicional `if` (se) para evitar que uma etapa trabalho seja executada a não ser que determinada condição seja atendida. Você pode usar qualquer contexto e expressão compatível para criar uma condicional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ##### Exemplo usando contextos
 
@@ -442,7 +442,7 @@ etapas:
 
 ##### Exemplo usando funções de verificação de status
 
-A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
+A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
 
 ```yaml
 etapas:
@@ -455,7 +455,7 @@ etapas:
 
 #### **`jobs.<job_id>.steps.name`**
 
-Nome da etapa no {{ site.data.variables.product.prodname_dotcom }}.
+Nome da etapa no {% data variables.product.prodname_dotcom %}.
 
 #### **`jobs.<job_id>.steps.uses`**
 
@@ -488,7 +488,7 @@ etapas:
 
 `{owner}/{repo}@{ref}`
 
-Você pode especificar um branch, ref ou SHA em um repositório público {{ site.data.variables.product.prodname_dotcom }}.
+Você pode especificar um branch, ref ou SHA em um repositório público {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 trabalhos:
@@ -506,7 +506,7 @@ trabalhos:
 
 `{owner}/{repo}/{path}@{ref}`
 
-Subdiretório em um repositório público do {{ site.data.variables.product.prodname_dotcom }} em um branch, ref ou SHA específico.
+Subdiretório em um repositório público do {% data variables.product.prodname_dotcom %} em um branch, ref ou SHA específico.
 
 ```yaml
 jobs:
@@ -599,11 +599,11 @@ Você pode anular as configurações padrão de shell no sistema operacional do 
 | Plataforma compatível | Parâmetro `shell` | Descrição                                                                                                                                                                           | Comando executado internamente                  |
 | --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | Todas                 | `bash`            | O shell padrão em plataformas que não sejam Windows como uma alternativa para `sh`. Ao especificar um shell bash no Windows, é utilizado o shell bash incluído no Git para Windows. | `bash --noprofile --norc -eo pipefail {0}`      |
-| Todas                 | `pwsh`            | Powershell Core. O {{ site.data.variables.product.prodname_dotcom }} anexa a extensão `.ps1` ao nome do script.                                                                     | `pwsh -command "& '{0}'"`                   |
+| Todas                 | `pwsh`            | Powershell Core. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                                                                     | `pwsh -command "& '{0}'"`                   |
 | Todas                 | `python`          | Executa o comando python.                                                                                                                                                           | `python {0}`                                    |
 | Linux / macOS         | `sh`              | Comportamento alternativo para plataformas que não sejam Windows se nenhum shell for fornecido e o `bash` não for encontrado no caminho.                                            | `sh -e {0}`                                     |
-| Windows               | `cmd`             | O {{ site.data.variables.product.prodname_dotcom }} anexa a extensão `.cmd` ao nome do script e a substitui por `{0}`.                                                              | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows               | `powershell`      | Essa é a shell padrão usada no Windows. PowerShell Desktop. O {{ site.data.variables.product.prodname_dotcom }} anexa a extensão `.ps1` ao nome do script.                          | `powershell -command "& '{0}'"`.            |
+| Windows               | `cmd`             | O {% data variables.product.prodname_dotcom %} anexa a extensão `.cmd` ao nome do script e a substitui por `{0}`.                                                              | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows               | `powershell`      | Essa é a shell padrão usada no Windows. PowerShell Desktop. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                          | `powershell -command "& '{0}'"`.            |
 
 ##### Exemplo de execução de um script usando bash:
 
@@ -645,11 +645,11 @@ steps:
 
 ##### Shell personalizado
 
-Você pode usar o valor `shell` em um string modelo usando `command […options] {0} [..more_options]`. O {{ site.data.variables.product.prodname_dotcom }} interpreta a primeira palavra da string delimitada por um espaço em branco como o comando e insere o nome do arquivo para o script temporário em `{0}`.
+Você pode usar o valor `shell` em um string modelo usando `command […options] {0} [..more_options]`. O {% data variables.product.prodname_dotcom %} interpreta a primeira palavra da string delimitada por um espaço em branco como o comando e insere o nome do arquivo para o script temporário em `{0}`.
 
 ##### Preferências de ação de erro e códigos de saída
 
-Para palavras-chave de shell integradas, fornecemos os seguintes padrões usados por executores hospedados no {{ site.data.variables.product.prodname_dotcom }}. Você deve seguir estas diretrizes quando executar scripts shell.
+Para palavras-chave de shell integradas, fornecemos os seguintes padrões usados por executores hospedados no {% data variables.product.prodname_dotcom %}. Você deve seguir estas diretrizes quando executar scripts shell.
 
 - `bash`/`sh`:
   - Comportamento fail-fast usando `set -e o pipefail`: padrão para `bash` e `shell` integrado. Também é o padrão quando você não der opção em plataformas que não sejam Windows.
@@ -687,7 +687,7 @@ jobs:
 
 #### **`jobs.<job_id>.steps.with.args`**
 
-Uma `string` que define as entradas para um contêiner Docker. O {{ site.data.variables.product.prodname_dotcom }} entrega os `args` ao `ENTRYPOINT` do contêiner quando o contêiner inicia. Um `array de strings` não é compatível com esse parâmetro.
+Uma `string` que define as entradas para um contêiner Docker. O {% data variables.product.prodname_dotcom %} entrega os `args` ao `ENTRYPOINT` do contêiner quando o contêiner inicia. Um `array de strings` não é compatível com esse parâmetro.
 
 ##### Exemplo
 
@@ -729,9 +729,9 @@ A palavra-chave `entrypoint` é para ser usada com ações de contêiner Docker,
 
 Define variáveis de ambiente para etapas a serem usadas no ambiente do executor. Também é possível definir variáveis de ambiente para todo o fluxo de trabalho ou para um trabalho. Para obter mais informações, consulte [`env`](#env) e [`jobs.<job_id>.env`](#jobsjob_idenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
-Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)e "[Sintaxe de contexto e expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Ações públicas podem especificar variáveis de ambiente esperadas no arquivo LEIAME. Se você está configurando um segredo em uma variável de ambiente, use o contexto `secrets`. Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)e "[Sintaxe de contexto e expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ##### Exemplo
 
@@ -756,7 +756,7 @@ Número máximo de minutos para executar a etapa antes de interromper o processo
 
 ### **`jobs.<job_id>.timeout-minutes`**
 
-Número máximo de minutos para permitir a execução de um trabalho o antes que o {{ site.data.variables.product.prodname_dotcom }} o cancele automaticamente. Padrão: 360
+Número máximo de minutos para permitir a execução de um trabalho o antes que o {% data variables.product.prodname_dotcom %} o cancele automaticamente. Padrão: 360
 
 ### **`jobs.<job_id>.strategy`**
 
@@ -766,9 +766,9 @@ Estratégias criam matrizes de compilação para os trabalhos. Você pode defini
 
 Você pode definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
 
-{{ site.data.reusables.github-actions.matrix-limits }}
+{% data reusables.github-actions.matrix-limits %}
 
-Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 A ordem que você define uma `matriz` importa. A primeira opção que você definir será a primeira que será executada no seu fluxo de trabalho.
 
@@ -792,7 +792,7 @@ etapas:
 ```
 {% endraw %}
 
-A ação setup-node `` é a forma recomendada de configurar uma versão do Node.js ao usar executores hospedados em {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte a ação [`setup-node`](https://github.com/actions/setup-node).
+A ação setup-node `` é a forma recomendada de configurar uma versão do Node.js ao usar executores hospedados em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a ação [`setup-node`](https://github.com/actions/setup-node).
 
 ##### Exemplo de execução com mais de um sistema operacional
 
@@ -801,7 +801,7 @@ Você pode criar uma matriz para executar fluxos de trabalho em mais de um siste
 - 2 sistemas operacionais especificados na array `os`
 - 3 versões do Node.js especificadas na array do `nó`
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -817,7 +817,7 @@ steps:
 ```
 {% endraw %}
 
-Para encontrar opções de configuração compatíveis com os executores hospedados em {{ site.data.variables.product.prodname_dotcom }}, consulte "[Ambientes virtuais para executores hospedados em {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
+Para encontrar opções de configuração compatíveis com os executores hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)."
 
 ##### Exemplo de inclusão valores adicionais em combinações
 
@@ -884,11 +884,11 @@ estratégia:
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
-Quando definido como `true`, o {{ site.data.variables.product.prodname_dotcom }} cancela todos os trabalhos em andamento em caso de falha de algum trabalho de  `matrix`. Padrão: `true`
+Quando definido como `true`, o {% data variables.product.prodname_dotcom %} cancela todos os trabalhos em andamento em caso de falha de algum trabalho de  `matrix`. Padrão: `true`
 
 ### **`jobs.<job_id>.strategy.max-parallel`**
 
-Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Por padrão, o {{ site.data.variables.product.prodname_dotcom }} maximizará o número de trabalhos executados em paralelo dependendo dos executores disponíveis nas máquinas virtuais hospedadas no {{ site.data.variables.product.prodname_dotcom }}.
+Número máximo de trabalhos que podem ser executados simultaneamente ao usar uma estratégia de trabalho de `matrix`. Por padrão, o {% data variables.product.prodname_dotcom %} maximizará o número de trabalhos executados em paralelo dependendo dos executores disponíveis nas máquinas virtuais hospedadas no {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 strategy:
@@ -987,7 +987,7 @@ Opções adicionais de recursos do contêiner Docker. Para obter uma lista de op
 
 ### **`jobs.<job_id>.services`**
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 Usado para hospedar contêineres de serviço para um trabalho em um fluxo de trabalho. Contêineres de serviço são úteis para a criação de bancos de dados ou serviços armazenamento em cache como o Redis. O executor cria automaticamente uma rede do Docker e gerencia o ciclo de vida dos contêineres do serviço.
 
@@ -999,7 +999,7 @@ Para obter mais informações sobre as diferenças entre os contêineres de serv
 
 #### Exemplo de uso de host local
 
-Este exemplo cria dois serviços: nginx e redis. Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. O {{ site.data.variables.product.prodname_dotcom }} define a porta de contêiner atribuída no contexto {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. Neste exemplo, você pode acessar as portas do contêiner de serviço usando os contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} e {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
+Este exemplo cria dois serviços: nginx e redis. Ao especificar a porta do host do Docker mas não a porta do contêiner, a porta do contêiner será atribuída aleatoriamente a uma porta livre. O {% data variables.product.prodname_dotcom %} define a porta de contêiner atribuída no contexto {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}. Neste exemplo, você pode acessar as portas do contêiner de serviço usando os contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} e {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
 ```yaml
 serviços:

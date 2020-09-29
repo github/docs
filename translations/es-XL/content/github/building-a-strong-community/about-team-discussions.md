@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-Todo miembro de una organización puede publicar en la página de tu equipo o participar de un debate público. {{ site.data.reusables.organizations.team-discussions-permissions }}
+Todo miembro de una organización puede publicar en la página de tu equipo o participar de un debate público. {% data reusables.organizations.team-discussions-permissions %}
 
 ![Pestaña Debayes de la página del equipo con debates privados y públicos](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +18,7 @@ Puedes vincularte a cualquier debate de equipo para hacer referencia al mismo en
 
 ![Pestaña Debates anclados de la página del equipo con debate anclado](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }} Los propietarios pueden desactivar debates del equipo para toda la organización. Para obtener más información, consulta "[Desactivar los debates del equipo para tu organización](/articles/disabling-team-discussions-for-your-organization)".
+{% data reusables.organizations.team-discussions-default %} Los propietarios pueden desactivar debates del equipo para toda la organización. Para obtener más información, consulta "[Desactivar los debates del equipo para tu organización](/articles/disabling-team-discussions-for-your-organization)".
 
 ### Notificaciones para los debates del equipo
 
@@ -26,7 +26,7 @@ Cuando alguien publica o responde a un debate público en la página de un equip
 
 {% tip %}
 
-**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {{ site.data.variables.product.product_name }}, o ambas. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Acerca de las notificaciones web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}".
+**Sugerencia:** Dependiendo de los parámetros de tu notificación, recibirás actualizaciones por correo electrónico, la página de notificaciones web en {% data variables.product.product_name %}, o ambas. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)[Acerca de las notificaciones por correo electrónico](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" y "[Acerca de las notificaciones web](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}".
 
 {% endtip %}
 
@@ -38,7 +38,7 @@ Para obtener más información, consulta la sección {% if currentVersion == "fr
 
 ### Leer más
 
-- "[Acerca de las conversaciones en {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)"
+- "[Acerca de las conversaciones en {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)"
 - [Acerca de los equipos](/articles/about-teams)"
 - "[Crear un debate de equipo](/articles/creating-a-team-discussion)"
 - "[Editar o eliminar un debate de equipo](/articles/editing-or-deleting-a-team-discussion)"

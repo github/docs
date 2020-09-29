@@ -11,7 +11,7 @@ versions:
 
 {% tip %}
 
-**Sugerencia:** {{ site.data.reusables.education.about-github-education-link }}
+**Sugerencia:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
@@ -19,25 +19,25 @@ versions:
 
 Si la imagen que cargaste no identifica claramente tu empleo actual con una escuela o una universidad, debes volver a presentar la solicitud y cargar otra imagen de la identificación de tu facultad o carta de verificación de empleo con información clara.
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 ### Usar un correo electrónico académico con un dominio no verificado
 
-Si tu dirección de correo electrónico académica tiene un dominio no verificado, podemos solicitar más pruebas de tu situación académica. {{ site.data.reusables.education.upload-different-image }}
+Si tu dirección de correo electrónico académica tiene un dominio no verificado, podemos solicitar más pruebas de tu situación académica. {% data reusables.education.upload-different-image %}
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 ### Usar un correo electrónico académico de una escuela con políticas de correo electrónico poco estrictas
 
-Si los ex alumnos y los profesores retirados de tu escuela tienen acceso vitalicio a las direcciones de correo electrónico suministradas por la escuela, podemos requerir más pruebas de tu situación académica. {{ site.data.reusables.education.upload-different-image }}
+Si los ex alumnos y los profesores retirados de tu escuela tienen acceso vitalicio a las direcciones de correo electrónico suministradas por la escuela, podemos requerir más pruebas de tu situación académica. {% data reusables.education.upload-different-image %}
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 Si tienes otras preguntas o inquietudes acerca del dominio de la escuela, solicita al personal de informática de tu escuela que nos contacte.
 
 ### Personas que no son estudiantes solicitan un paquete de desarrollo para estudiantes
 
-Los educadores y los investigadores no son elegibles para las ofertas de los socios que vienen con el [{{ site.data.variables.product.prodname_student_pack }}](https://education.github.com/pack). Cuando vuelves a presentar una solicitud, asegúrate de elegir **Profesor** para describir tu situación académica.
+Los educadores y los investigadores no son elegibles para las ofertas de los socios que vienen con el [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). Cuando vuelves a presentar una solicitud, asegúrate de elegir **Profesor** para describir tu situación académica.
 
 ### Leer más
 

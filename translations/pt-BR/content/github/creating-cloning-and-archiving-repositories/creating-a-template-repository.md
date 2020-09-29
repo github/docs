@@ -14,6 +14,6 @@ Para criar um repositório de modelos, é preciso criar um repositório e, em se
 
 Depois de converter o seu repositório em um modelo, qualquer pessoa com acesso ao repositório poderá gerar um novo repositório com a mesma estrutura de diretório e arquivos do branch-padrão.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Eles também podem optar por incluir todos os outros branches no seu repositório.{% endif %} Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)".
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Selecione **Template repository** (Repositório de modelos). ![Caixa de seleção para transformar um repositório em modelo](/assets/images/help/repository/template-repository-checkbox.png)

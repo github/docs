@@ -1,6 +1,6 @@
 ---
 title: Permissions required for GitHub Apps
-intro: 'You can find the required permissions for each {{ site.data.variables.product.prodname_github_app }}-compatible endpoint.'
+intro: 'You can find the required permissions for each {% data variables.product.prodname_github_app %}-compatible endpoint.'
 redirect_from:
   - /v3/apps/permissions ---
 versions:
@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### About {{ site.data.variables.product.prodname_github_app }} permissions
+### About {% data variables.product.prodname_github_app %} permissions
 
-{{ site.data.variables.product.prodname_github_app }}s are created with a set of permissions. Permissions define what resources the {{ site.data.variables.product.prodname_github_app }} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
+{% data variables.product.prodname_github_app %}s are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
 
 ### Permissões de metadados
 
 GitHub Apps have the `Read-only` metadata permission by default. The metadata permission provides access to a collection of read-only endpoints with metadata for various resources. These endpoints do not leak sensitive private repository information.
 
-{{ site.data.reusables.apps.metadata-permissions }}
+{% data reusables.apps.metadata-permissions %}
 
 
 - [`GET /`](/v3/#root-endpoint)

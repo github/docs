@@ -16,8 +16,8 @@ versions:
 {% endtip %}
 
 1. 导航到要删除的项目板。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. 单击 **Delete project（删除项目）**。 ![删除项目按钮](/assets/images/help/projects/delete-project-button.png)
 5. 如需确认要删除项目板，请单击 **OK（确定）**。
 

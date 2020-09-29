@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{site.data.reusables.repositories.navigate-to-repo}}
-{{site.data.reusables.repositories.sidebar-settings}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 左サイドバーで [**Deploy keys**] をクリックします。 ![デプロイキーの設定](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
 4. [Deploy keys] ページで、自分のアカウントに関連付けられているデプロイ キーを書き留めます。 覚えていないか古くなっている場合は、[**Delete**] をクリックします。 残しておきたい有効なデプロイ キーがある場合は、[**Approve**] をクリックします。 ![デプロイキーのリスト](/assets/images/help/settings/settings-deploy-key-review.png)
 

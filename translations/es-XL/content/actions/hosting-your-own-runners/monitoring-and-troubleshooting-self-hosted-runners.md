@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Comprobar el estado de un ejecutor autoalojado utilizando {{ site.data.variables.product.prodname_dotcom }}
+### Comprobar el estado de un ejecutor autoalojado utilizando {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Debajo de "Ejecutores auto-hospedados", puedes ver una lista de ejecutores registrados, incluyendo su nombre, etiquetas y estado.
 
     ![Lista de ejecutores](/assets/images/help/settings/actions-runner-list.png)
 
     El estado puede ser uno de los siguientes:
 
-    * **Idle (Inactivo)**: El ejecutor está conectado a {{ site.data.variables.product.product_name }} y está listo para ejecutar puestos de trabajo.
+    * **Idle (Inactivo)**: El ejecutor está conectado a {% data variables.product.product_name %} y está listo para ejecutar puestos de trabajo.
     * **Active (Activo)**: Actualmente, el ejecutor está ejecutando un puesto de trabajo.
-    * **Offline (Sin conexión)**: El ejecutor no está conectado a {{ site.data.variables.product.product_name }}. Esto puede deberse a que la máquina está fuera de línea, la aplicación del ejecutor autoalojado no se está ejecutando en la máquina o la aplicación del ejecutor autoalojado no se puede comunicar con {{ site.data.variables.product.product_name }}.
+    * **Offline (Sin conexión)**: El ejecutor no está conectado a {% data variables.product.product_name %}. Esto puede deberse a que la máquina está fuera de línea, la aplicación del ejecutor autoalojado no se está ejecutando en la máquina o la aplicación del ejecutor autoalojado no se puede comunicar con {% data variables.product.product_name %}.
 
 
 ### Revisar los archivos de bitácora de la aplicación del ejecutor auto-hospedado

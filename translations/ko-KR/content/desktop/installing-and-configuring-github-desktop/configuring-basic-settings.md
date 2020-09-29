@@ -9,20 +9,20 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. To view or change your settings, toggle between these panes: ![The Preferences menu navigation](/assets/images/help/desktop/mac-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 2. To view or change your settings, toggle between these panes: ![The Options menu navigation](/assets/images/help/desktop/windows-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endwindows %}
 
 ### 더 읽을거리
 
-- "[Setting a theme for {{ site.data.variables.product.prodname_desktop }}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"
+- "[Setting a theme for {% data variables.product.prodname_desktop %}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

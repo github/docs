@@ -12,14 +12,14 @@ versions:
 
 The audit log lists actions performed within the last 90 days. Only owners can access an organization's audit log.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 
 ### Searching the audit log
 
-{{ site.data.reusables.audit_log.audit-log-search }}
+{% data reusables.audit_log.audit-log-search %}
 
 #### Search based on the action performed
 
@@ -33,9 +33,9 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `discussion_post_reply` | Contains all activities related to replies to discussions posted to a team page.
 | `hook` | Contains all activities related to webhooks.
 | `integration_installation_request` | Contains all activities related to organization member requests for owners to approve integrations for use in the organization. |{% if currentVersion == "free-pro-team@latest" %}
-| `marketplace_agreement_signature` | Contains all activities related to signing the {{ site.data.variables.product.prodname_marketplace }} Developer Agreement.
-| `marketplace_listing` | Contains all activities related to listing apps in {{ site.data.variables.product.prodname_marketplace }}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-| `members_can_create_pages` | Contains all activities related to disabling the publication of {{ site.data.variables.product.prodname_pages }} sites for repositories in the organization. For more information, see "[Restricting publication of {{ site.data.variables.product.prodname_pages }} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
+| `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.
+| `marketplace_listing` | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+| `members_can_create_pages` | Contains all activities related to disabling the publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. For more information, see "[Restricting publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)." | {% endif %}
 | `org` | Contains all activities related to organization membership{% if currentVersion == "free-pro-team@latest" %}
 | `org_credential_authorization` | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 | `organization_label` | Contains all activities related to default labels for repositories in your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
@@ -46,7 +46,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `repo` | Contains all activities related to the repositories owned by your organization.{% if currentVersion == "free-pro-team@latest" %}
 | `repository_content_analysis` | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).
 | `repository_dependency_graph` | Contains all activities related to [enabling or disabling the dependency graph for a private repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository).{% endif %}
-| `repository_vulnerability_alert` | Contains all activities related to [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{{ site.data.variables.product.prodname_dependabot_short }}{% else %}security{% endif %} alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% if currentVersion == "free-pro-team@latest" %}
+| `repository_vulnerability_alert` | Contains all activities related to [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% if currentVersion == "free-pro-team@latest" %}
 | `sponsors` | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
 | `team` | Contains all activities related to teams in your organization.{% endif %}
 | `team_discussions` | Contains activities related to managing team discussions for an organization.
@@ -98,13 +98,13 @@ This list describes the available categories and associated events:
 | `billing_plan_change` | Triggered when an organization's [billing cycle](/articles/changing-the-duration-of-your-billing-cycle) changes.
 | `plan_change` | Triggered when an organization's [subscription](/articles/about-billing-for-github-accounts) changes.
 | `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process/).
-| `pending_subscription_change` | Triggered when a [{{ site.data.variables.product.prodname_marketplace }} free trial starts or expires](/articles/about-billing-for-github-marketplace/).
+| `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/articles/about-billing-for-github-marketplace/).
 
 ##### The `billing` category
 
 | Action | Description
 |------------------|-------------------
-| `change_billing_type` | Triggered when your organization [changes how it pays for {{ site.data.variables.product.prodname_dotcom }}](/articles/adding-or-editing-a-payment-method).
+| `change_billing_type` | Triggered when your organization [changes how it pays for {% data variables.product.prodname_dotcom %}](/articles/adding-or-editing-a-payment-method).
 | `change_email` | Triggered when your organization's [billing email address](/articles/setting-your-billing-email) changes.
 
 {% endif %}
@@ -151,17 +151,17 @@ This list describes the available categories and associated events:
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you sign the {{ site.data.variables.product.prodname_marketplace }} Developer Agreement.
+| `create` | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement.
 
 ##### The `marketplace_listing` category
 
 | Action | Description
 |------------------|-------------------
-| `approve` | Triggered when your listing is approved for inclusion in {{ site.data.variables.product.prodname_marketplace }}.
-| `create` | Triggered when you create a listing for your app in {{ site.data.variables.product.prodname_marketplace }}.
-| `delist` | Triggered when your listing is removed from {{ site.data.variables.product.prodname_marketplace }}.
+| `approve` | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.
+| `create` | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.
+| `delist` | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.
 | `redraft` | Triggered when your listing is sent back to draft state.
-| `reject` | Triggered when your listing is not accepted for inclusion in {{ site.data.variables.product.prodname_marketplace }}.
+| `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
 {% endif %}
 
@@ -169,12 +169,12 @@ This list describes the available categories and associated events:
 
 ##### The `members_can_create_pages` category
 
-For more information, see "[Restricting publication of {{ site.data.variables.product.prodname_pages }} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+For more information, see "[Restricting publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
 
 | Action | Description |
 | :- | :- |
-| `enable` | Triggered when an organization owner enables publication of {{ site.data.variables.product.prodname_pages }} sites for repositories in the organization. |
-| `disable` | Triggered when an organization owner disables publication of {{ site.data.variables.product.prodname_pages }} sites for repositories in the organization. |
+| `enable` | Triggered when an organization owner enables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
+| `disable` | Triggered when an organization owner disables publication of {% data variables.product.prodname_pages %} sites for repositories in the organization. |
 
 {% endif %}
 
@@ -185,18 +185,18 @@ For more information, see "[Restricting publication of {{ site.data.variables.pr
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/articles/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked.
-| `disable_oauth_app_restrictions` | Triggered when an owner [disables {{ site.data.variables.product.prodname_oauth_app }} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.
+| `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.
 | `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}
 | `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |
 | `disable_two_factor_requirement` | Triggered when an owner disables a two-factor authentication requirement for all members{% if currentVersion == "free-pro-team@latest" %}, billing managers,{% endif %} and outside collaborators in an organization.{% if currentVersion == "free-pro-team@latest" %}
-| `enable_oauth_app_restrictions` | Triggered when an owner [enables {{ site.data.variables.product.prodname_oauth_app }} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.
+| `enable_oauth_app_restrictions` | Triggered when an owner [enables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/enabling-oauth-app-access-restrictions-for-your-organization) for your organization.
 | `enable_saml` | Triggered when an organization admin [enables SAML single sign-on](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) for an organization.{% endif %}
 | `enable_member_team_creation_permission` | Triggered when an organization owner allows members to create teams. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |
 | `enable_two_factor_requirement` | Triggered when an owner requires two-factor authentication for all members{% if currentVersion == "free-pro-team@latest" %}, billing managers,{% endif %} and outside collaborators in an organization.
 | `invite_member` | Triggered when [a new user was invited to join your organization](/articles/adding-organization-members-to-a-team).{% if currentVersion == "free-pro-team@latest" %}
-| `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {{ site.data.variables.product.prodname_oauth_app }}](/articles/approving-oauth-apps-for-your-organization/).
-| `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {{ site.data.variables.product.prodname_oauth_app }}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
-| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {{ site.data.variables.product.prodname_oauth_app }} access to your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).
+| `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {% data variables.product.prodname_oauth_app %}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
+| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | `remove_billing_manager` | Triggered when an [owner removes a billing manager from an organization](/articles/removing-a-billing-manager-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and a billing manager doesn't use 2FA or disables 2FA. |{% endif %}
 | `remove_member` | Triggered when an [owner removes a member from an organization](/articles/removing-a-member-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disables 2FA. Also triggered when an [organization member removes themselves](/articles/removing-yourself-from-an-organization/) from an organization.|
 | `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA. |{% if currentVersion == "free-pro-team@latest" %}
@@ -235,11 +235,11 @@ For more information, see "[Restricting publication of {{ site.data.variables.pr
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when a new {{ site.data.variables.product.prodname_oauth_app }} is created.
-| `destroy` | Triggered when an existing {{ site.data.variables.product.prodname_oauth_app }} is deleted.
-| `reset_secret` | Triggered when an {{ site.data.variables.product.prodname_oauth_app }}'s client secret is reset.
-| `revoke_tokens` | Triggered when an {{ site.data.variables.product.prodname_oauth_app }}'s user tokens are revoked.
-| `transfer` |  Triggered when an existing {{ site.data.variables.product.prodname_oauth_app }} is transferred to a new organization.
+| `create` | Triggered when a new {% data variables.product.prodname_oauth_app %} is created.
+| `destroy` | Triggered when an existing {% data variables.product.prodname_oauth_app %} is deleted.
+| `reset_secret` | Triggered when an {% data variables.product.prodname_oauth_app %}'s client secret is reset.
+| `revoke_tokens` | Triggered when an {% data variables.product.prodname_oauth_app %}'s user tokens are revoked.
+| `transfer` |  Triggered when an existing {% data variables.product.prodname_oauth_app %} is transferred to a new organization.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -336,10 +336,10 @@ For more information, see "[Restricting publication of {{ site.data.variables.pr
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when {{ site.data.variables.product.product_name }} creates a [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{{ site.data.variables.product.prodname_dependabot_short }}{% else %}security{% endif %} alert for a vulnerable dependency](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a particular repository.
+| `create` | Triggered when {% data variables.product.product_name %} creates a [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alert for a vulnerable dependency](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a particular repository.
 | `resolve` | Triggered when someone with write access to a repository [pushes changes to update and resolve a vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a project dependency.
-| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{{ site.data.variables.product.prodname_dependabot_short }}{% else %}security{% endif %} alert about a vulnerable dependency.{% if currentVersion == "free-pro-team@latest" %}
-| `authorized_users_teams` | Triggered when an organization owner or a member with admin permissions to the repository [updates the list of people or teams authorized to receive {{ site.data.variables.product.prodname_dependabot_short }} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-github-dependabot-alerts) for vulnerable dependencies in the repository.{% endif %}
+| `dismiss` | Triggered when an organization owner or person with admin access to the repository dismisses a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alert about a vulnerable dependency.{% if currentVersion == "free-pro-team@latest" %}
+| `authorized_users_teams` | Triggered when an organization owner or a member with admin permissions to the repository [updates the list of people or teams authorized to receive {% data variables.product.prodname_dependabot_short %} alerts](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-github-dependabot-alerts) for vulnerable dependencies in the repository.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### The `sponsors` category
@@ -374,9 +374,9 @@ For more information, see "[Restricting publication of {{ site.data.variables.pr
 
 #### Search based on time of action
 
-Use the `created` qualifier to filter actions in the audit log based on when they occurred. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Use the `created` qualifier to filter actions in the audit log based on when they occurred. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }} For example:
+{% data reusables.search.date_gt_lt %} For example:
 
   * `created:2014-07-08` finds all events that occurred on July 8th, 2014.
   * `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
@@ -396,8 +396,8 @@ Using the qualifier `country`, you can filter actions in the audit log based on 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Exporting the audit log
 
-{{ site.data.reusables.audit_log.export-log }}
-{{ site.data.reusables.audit_log.exported-log-keys-and-values }}
+{% data reusables.audit_log.export-log %}
+{% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
@@ -405,7 +405,7 @@ Using the qualifier `country`, you can filter actions in the audit log based on 
 
 {% note %}
 
-**Note**: The Audit log API is available for organizations using {{ site.data.variables.product.prodname_enterprise }}. {{ site.data.reusables.gated-features.more-info-org-products }}
+**Note**: The Audit log API is available for organizations using {% data variables.product.prodname_enterprise %}. {% data reusables.gated-features.more-info-org-products %}
 
 {% endnote %}
 

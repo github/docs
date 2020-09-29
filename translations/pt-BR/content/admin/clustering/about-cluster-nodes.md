@@ -1,13 +1,13 @@
 ---
 title: Sobre nós de cluster
-intro: '*Nós* são instâncias do {{ site.data.variables.product.prodname_ghe_server }} que operam em um cluster. Cada nó executa um conjunto de serviços fornecidos para o cluster e, consequentemente, para os usuários.'
+intro: '*Nós* são instâncias do {% data variables.product.prodname_ghe_server %} que operam em um cluster. Cada nó executa um conjunto de serviços fornecidos para o cluster e, consequentemente, para os usuários.'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
 versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ### Recomendações básicas de hardware
 Cada nó deve ter um volume raiz e um volume de dados separado. Essas são as recomendações básicas de hardware. Podem ser necessários mais recursos dependendo do uso, como atividade do usuário e integrações selecionadas.
@@ -38,10 +38,10 @@ Para manter a redundância adequada, use esses nós mínimos ao operar cada serv
 
 ### Recomendações de criação de cluster
 
-O clustering permite que os serviços que compõem o {{ site.data.variables.product.prodname_ghe_server }} sejam dimensionados de maneira independente. Essa flexibilidade pode ser usada para projetar e implementar um cluster que se adapte a organizações com diferentes requisitos de dimensionamento. Por exemplo, talvez algumas organizações precisem de mais taxa de transferência de armazenamento para fetches grandes ou frequentes, mas o uso do servidor da web pode ser relativamente baixo. Outras organizações podem ter bom desempenho com menos recursos de armazenamento, mas precisar de vários nós `pages-server` ou `elasticsearch-server` em execução. Muitas combinações são possíveis. Converse com seu representante de conta para determinar a configuração de cluster ideal para o seu caso.
+O clustering permite que os serviços que compõem o {% data variables.product.prodname_ghe_server %} sejam dimensionados de maneira independente. Essa flexibilidade pode ser usada para projetar e implementar um cluster que se adapte a organizações com diferentes requisitos de dimensionamento. Por exemplo, talvez algumas organizações precisem de mais taxa de transferência de armazenamento para fetches grandes ou frequentes, mas o uso do servidor da web pode ser relativamente baixo. Outras organizações podem ter bom desempenho com menos recursos de armazenamento, mas precisar de vários nós `pages-server` ou `elasticsearch-server` em execução. Muitas combinações são possíveis. Converse com seu representante de conta para determinar a configuração de cluster ideal para o seu caso.
 
 - Use nós redundantes em todo o hardware independente. Compartilhar dispositivos de armazenamento, memória ou CPU reduz o desempenho e aumenta as chances de pontos únicos de falha. Componentes de rede compartilhada também podem reduzir o rendimento e aumentar o risco de perda de conectividade em caso de interrupção.
-- Use o armazenamento rápido. As redes de área de armazenamento (SAN) costumam ser otimizadas para explorar ao máximo o espaço, a disponibilidade e a tolerância a falhas, mas não o rendimento. Além de oferecer redundância e disponibilidade, o clustering do {{ site.data.variables.product.prodname_ghe_server }} terá melhor desempenho no armazenamento mais rápido disponível. Recomenda-se fazer o armazenamento local em SSD.
+- Use o armazenamento rápido. As redes de área de armazenamento (SAN) costumam ser otimizadas para explorar ao máximo o espaço, a disponibilidade e a tolerância a falhas, mas não o rendimento. Além de oferecer redundância e disponibilidade, o clustering do {% data variables.product.prodname_ghe_server %} terá melhor desempenho no armazenamento mais rápido disponível. Recomenda-se fazer o armazenamento local em SSD.
 - Estabeleça camadas de nós relevantes para a sua organização. Veja esta configuração de exemplo:
   - Camada de front-end com dois nós e os seguintes serviços:
     - `web-server`
@@ -62,7 +62,7 @@ O clustering permite que os serviços que compõem o {{ site.data.variables.prod
 #### Diagrama de cluster de exemplo
 {% note %}
 
-**Observação: isto é apenas um exemplo.** O cluster ideal dependerá das demandas exclusivas de cada organização. Converse com seu representante exclusivo ou com {{ site.data.variables.contact.contact_enterprise_sales }} para que possamos ajudá-lo a determinar a melhor configuração de cluster.
+**Observação: isto é apenas um exemplo.** O cluster ideal dependerá das demandas exclusivas de cada organização. Converse com seu representante exclusivo ou com {% data variables.contact.contact_enterprise_sales %} para que possamos ajudá-lo a determinar a melhor configuração de cluster.
 
 {% endnote %}
 

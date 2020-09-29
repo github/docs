@@ -11,18 +11,18 @@ versions:
   enterprise-server: '*'
 ---
 
-個人アクセストークン（PAT）は、[GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {{ site.data.variables.product.product_name }} への認証でパスワードの代わりに使用できます。
+個人アクセストークン（PAT）は、[GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) または[コマンドライン](#using-a-token-on-the-command-line)を使用するときに {% data variables.product.product_name %} への認証でパスワードの代わりに使用できます。
 
 {% if currentVersion == "free-pro-team@latest" %}PAT を使用して、SAML SSO を使用する Organization が所有するリソースにアクセスする場合は、PAT を認証する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/articles/about-authentication-with-saml-single-sign-on)」及び「[SAMLシングルサインオンで利用する個人アクセストークンの認可](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### トークンの作成
 
 {% if currentVersion == "free-pro-team@latest" %}1. まだ検証していない場合は[メールアドレスを検証](/articles/verifying-your-email-address)します。{% endif %}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 4. [**Generate new token**] をクリックします。 ![[Generate new token] ボタン](/assets/images/help/settings/generate_new_token.png)
 5. トークンにわかりやすい名前を付けます。 ![トークンの説明フィールド](/assets/images/help/settings/token_description.png)
 6. このトークンに付与するスコープ、すなわち権限を選択します。 トークンを使用してコマンドラインからリポジトリにアクセスするには、[**repo**] を選択します。 ![トークンスコープの選択](/assets/images/help/settings/token_scopes.gif)
@@ -39,7 +39,7 @@ versions:
 
 ### コマンドラインでトークンを使用する
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 個人アクセストークンは HTTPS Git 操作だけにしか使用できません。 SSH リモート URL を使用するリポジトリの場合、[リモートを SSH から HTTPS に切り替える](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https)必要があります。
 

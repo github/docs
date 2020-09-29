@@ -1,10 +1,10 @@
 ---
 title: Gerenciar metas
 intro: Você pode usar objetivos para definir metas para métricas principais e medir o sucesso ao alcançar essas metas.
-product: '{{ site.data.reusables.gated-features.github-insights }}'
+product: '{% data reusables.gated-features.github-insights %}'
 redirect_from:
   - /github/installing-and-configuring-github-insights/creating-and-managing-goals
-permissions: 'Qualquer pessoa com acesso ao {{ site.data.variables.product.prodname_insights }} pode gerenciar metas.'
+permissions: 'Qualquer pessoa com acesso ao {% data variables.product.prodname_insights %} pode gerenciar metas.'
 versions:
   enterprise-server: '*'
 ---
@@ -15,12 +15,12 @@ As metas são os que você pode definir para métricas principais para medir o s
 
 As metas estão disponíveis apenas em métricas principais. Alguns relatórios também mostram qual é o trabalho, como os pull requests individuais, que não atingiram sua meta. Para obter mais informações, consulte "[Visualizar métricas e relatórios principais](/insights/exploring-your-usage-of-github-enterprise/viewing-key-metrics-and-reports)".
 
-Não é possível criar ou excluir metas. Ao editar uma meta, a nova meta será aplicada a todos usando seu aplicativo do {{ site.data.variables.product.prodname_insights }}.
+Não é possível criar ou excluir metas. Ao editar uma meta, a nova meta será aplicada a todos usando seu aplicativo do {% data variables.product.prodname_insights %}.
 
 ### Editando uma meta
 
-{{ site.data.reusables.github-insights.navigate-to-key-metrics }}
-{{ site.data.reusables.github-insights.choose-key-metric }}
+{% data reusables.github-insights.navigate-to-key-metrics %}
+{% data reusables.github-insights.choose-key-metric %}
 1. À direita da meta, clique em {% octicon "gear" aria-label="The gear icon" %}. ![Ícone de engrenagem para editar a meta](/assets/images/help/insights/edit-goal.png)
 2. No campo de texto, digite um novo valor objetivo. ![Campo do valor da meta](/assets/images/help/insights/input-goal.png)
 3. Clique em **Salvar**. ![Salvar meta](/assets/images/help/insights/save-goal.png)

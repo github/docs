@@ -1,6 +1,6 @@
 ---
 title: Buscar repositorios
-intro: 'Puedes buscar repositorios en {{ site.data.variables.product.product_name }} y acotar los resultados utilizando estos calificadores de búsqueda de repositorio en cualquier combinación.'
+intro: 'Puedes buscar repositorios en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de repositorio en cualquier combinación.'
 redirect_from:
   - /articles/searching-for-repositories
   - /articles/searching-for-repositories
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar repositorios globalmente a través de todos los {{ site.data.variables.product.product_name }}, o buscar repositorios dentro de una organización particular. Para obtener más información, consulta [Acerca de buscar en {{ site.data.variables.product.prodname_dotcom }}](/articles/about-searching-on-github)".
+Puedes buscar repositorios globalmente a través de todos los {% data variables.product.product_name %}, o buscar repositorios dentro de una organización particular. Para obtener más información, consulta [Acerca de buscar en {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
 Para incluir bifurcaciones en los resultados de las búsquedas, deberás agregar `fork:true` o `fork:only` en tu consulta. Para obtener más información, consulta "[Buscar en bifurcaciones](/articles/searching-in-forks)".
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Buscar por nombre de repositorio, descripción o contenidos del archivo README
 
@@ -30,7 +30,7 @@ Con el calificador `in` puedes restringir tu búsqueda al nombre del repositorio
 
 Puedes encontrar un repositorio al buscar por el contenido en el archivo README, utilizando el calificador `in:readme`.
 
-Además de utilizar `in:readme`, no es posible encontrar repositorios al buscar por el contenido específico dentro del repositorio. Para buscar un archivo o contenido específico dentro de un repositorio, puedes utilizar el buscador de archivo o los calificadores de búsqueda específica. Para obtener más información, consulta "[Encontrar archivos en {{ site.data.variables.product.prodname_dotcom }}](/articles/finding-files-on-github)" y "[Buscar código](/articles/searching-code)."
+Además de utilizar `in:readme`, no es posible encontrar repositorios al buscar por el contenido específico dentro del repositorio. Para buscar un archivo o contenido específico dentro de un repositorio, puedes utilizar el buscador de archivo o los calificadores de búsqueda específica. Para obtener más información, consulta "[Encontrar archivos en {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" y "[Buscar código](/articles/searching-code)."
 
 | Qualifier   | Ejemplo                                                                                                                                                         |
 | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,9 @@ Puedes buscar repositorios en base a la cantidad de [estrellas](/articles/saving
 
 Puedes filtrar repositorios en base al momento de creación o al momento de la última actualización. Para la creación de un repositorio, puedes usar el calificador `created` (creado); para encontrar cuándo se actualizó por última vez un repositorio, querrás utilizar el calificador `pushed` (subido). El calificador `pushed` devolverá una lista de repositorios, clasificados por la confirmación más reciente realizada en alguna rama en el repositorio.
 
-Ambos toman una fecha como su parámetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Ambos toman una fecha como su parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Ejemplo                                                                                                                                                                                                                                                               |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ Puedes filtrar tu búsqueda en base a si un repositorio es público o privado.
 
 ### Buscar en base a si un repositorio es un espejo
 
-Puedes buscar los repositorios basándote en el criterio de si son un espejo y están hospedados en algún otro lugar. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+Puedes buscar los repositorios basándote en el criterio de si son un espejo y están hospedados en algún otro lugar. Para obtener más información, consulta "[Encontrar formas de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 | Qualifier      | Ejemplo                                                                                                                                                                  |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

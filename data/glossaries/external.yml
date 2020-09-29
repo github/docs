@@ -81,7 +81,7 @@
   description: A movable square within a project board associated with an issue or pull request.
 - term: Check
   description: >-
-    A check is a type of status check on {{ site.data.variables.product.product_name }}. See "[Status checks](#status-checks)."
+    A check is a type of status check on {% data variables.product.product_name %}. See "[Status checks](#status-checks)."
 - term: checkout
   description: >-
     You can use `git checkout` on the command line to create a new branch, change your current working branch to a different branch, or even to switch to a different version of a file from a different branch with `git checkout [branchname] [path to file]`. The "checkout" action updates all or part of the working tree with a tree object or
@@ -212,7 +212,7 @@
 - term: email notifications
   description: Notifications sent to a user's email address.
 - term: Enterprise account
-  description: Enterprise accounts allow you to centrally manage policy and billing for multiple {{ site.data.variables.product.prodname_dotcom_the_website }} organizations. {{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: Enterprise accounts allow you to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations. {% data reusables.gated-features.enterprise-accounts %}
 - term: Explorer
   description: >-
     An instance of GraphiQL, which is a "graphical interactive in-browser GraphQL
@@ -683,7 +683,7 @@
   description: To combine multiple commits into a single commit. Also a Git command.
 - term: SSH key
   description: >-
-    SSH keys are a way to identify yourself to an online server, using an encrypted message. It's as if your computer has its own unique password to another service. {{ site.data.variables.product.product_name }} uses SSH keys to securely transfer information to your computer.
+    SSH keys are a way to identify yourself to an online server, using an encrypted message. It's as if your computer has its own unique password to another service. {% data variables.product.product_name %} uses SSH keys to securely transfer information to your computer.
 - term: staging instance
   description: >-
     A way to test modifications before they are applied to your actual GitHub

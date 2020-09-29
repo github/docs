@@ -1,6 +1,6 @@
 ---
 title: Autenticação
-intro: 'Você pode usar a autenticação integrada do {{ site.data.variables.product.prodname_ghe_server }} ou escolher entre CAS, LDAP ou SAML para integrar suas contas e gerenciar centralmente o acesso dos usuários à {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Você pode usar a autenticação integrada do {% data variables.product.prodname_ghe_server %} ou escolher entre CAS, LDAP ou SAML para integrar suas contas e gerenciar centralmente o acesso dos usuários à {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/authentication
 versions:

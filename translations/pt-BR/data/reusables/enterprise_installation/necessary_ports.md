@@ -7,6 +7,6 @@
 | 161/UDP  | SNMP    | Obrigatória para operações de protocolo de monitoramento de rede.                                                                                           |
 | 443      | HTTPS   | Aplicativo web e Git sobre acesso HTTPS.                                                                                                                    |
 | 1194/UDP | VPN     | Túnel de rede de réplica segura na configuração de alta disponibilidade.                                                                                    |
-| 8080     | HTTP    | Baseado em web de texto simples {{ site.data.variables.enterprise.management_console }}. *Não é necessário, a menos que o SSL seja desativado manualmente.* |
-| 8443     | HTTPS   | Base segura na web {{ site.data.variables.enterprise.management_console }}. *Necessário para instalação básica e configuração.*                             |
+| 8080     | HTTP    | Baseado em web de texto simples {% data variables.enterprise.management_console %}. *Não é necessário, a menos que o SSL seja desativado manualmente.* |
+| 8443     | HTTPS   | Base segura na web {% data variables.enterprise.management_console %}. *Necessário para instalação básica e configuração.*                             |
 | 9418     | Git     | Porta de protocolo Simples Git. Clonar e buscar somente as operações para repositórios públicos. *Comunicação sem criptografia de rede.*                    |

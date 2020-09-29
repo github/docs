@@ -10,13 +10,13 @@ versions:
 
 ### 访问组织仪表板
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### 查找近期活动
 
 在消息馈送的“Recent activity（最近活动）”部分，您可以快速找到并跟进组织中最近更新的议题和拉取请求。
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### 查找组织中的仓库
 

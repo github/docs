@@ -7,35 +7,35 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About the included setup actions and the runner tool cache
 
-{{ site.data.reusables.actions.enterprise-no-internet-actions }}
+{% data reusables.actions.enterprise-no-internet-actions %}
 
-Most official {{ site.data.variables.product.prodname_dotcom }}-authored actions are automatically bundled with {{ site.data.variables.product.prodname_ghe_server }}. However, self-hosted runners without internet access  will require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
+Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_server %}. However, self-hosted runners without internet access  will require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
 
 The `actions/setup-LANGUAGE` actions normally need internet access to download the required environment binaries into the runner's tool cache. Self-hosted runners without internet access can't download the binaries, so you must manually populate the tool cache on the runner.
 
-You can populate the runner tool cache by running a {{ site.data.variables.product.prodname_actions }} workflow on {{ site.data.variables.product.prodname_dotcom_the_website }} that uploads a {{ site.data.variables.product.prodname_dotcom }}-hosted runner's tool cache as an artifact, which you can then transfer and extract on your internet-disconnected self-hosted runner.
+You can populate the runner tool cache by running a {% data variables.product.prodname_actions %} workflow on {% data variables.product.prodname_dotcom_the_website %} that uploads a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache as an artifact, which you can then transfer and extract on your internet-disconnected self-hosted runner.
 
 {% note %}
 
-**Note:** You can only use a {{ site.data.variables.product.prodname_dotcom }}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {{ site.data.variables.product.prodname_dotcom }}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {{ site.data.variables.product.prodname_dotcom }}-hosted runners, see "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Virtual environments for GitHub-hosted runners</a>."
+**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-18.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 18.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "<a href="/actions/reference/virtual-environments-for-github-hosted-runners#supported-runners-and-hardware-resources" class="dotcom-only">Virtual environments for GitHub-hosted runners</a>."
 
 {% endnote %}
 
 ### 빌드전 요구 사양
 
 * Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
-* Access to a repository on {{ site.data.variables.product.prodname_dotcom_the_website }} that you can use to run a workflow.
+* Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
 * Access to your self-hosted runner's file system to populate the tool cache folder.
 
 ### Populating the tool cache for a self-hosted runner
 
-1. On {{ site.data.variables.product.prodname_dotcom_the_website }}, navigate to a repostory that you can use to run a {{ site.data.variables.product.prodname_actions }} workflow.
-1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {{ site.data.variables.product.prodname_dotcom }}-hosted runner's tool cache.
+1. On {% data variables.product.prodname_dotcom_the_website %}, navigate to a repostory that you can use to run a {% data variables.product.prodname_actions %} workflow.
+1. Create a new workflow file in the repository's `.github/workflows` folder that uploads an artifact containing the {% data variables.product.prodname_dotcom %}-hosted runner's tool cache.
 
    The following example demonstrates a workflow that uploads the tool cache for an Ubuntu 18.04 environment, using the `setup-node` action with Node.js versions 10 and 12.
 

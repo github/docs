@@ -15,7 +15,7 @@ versions:
 
 Puedes desbloquear y acceder a tu cuenta si actualizas el método de pago de tu organización y el estado final del pago. No te pediremos que pagues el tiempo transcurrido en modo bloqueado.
 
-Puedes bajar a tu organización de nivel a {{ site.data.variables.product.prodname_free_team }} para continuar con las mismas características avanzadas en los repositorios públicos. Para obtener más información, consulta la sección "[Bajar de nivel tu suscripción de {{ site.data.variables.product.product_name }}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)".
+Puedes bajar a tu organización de nivel a {% data variables.product.prodname_free_team %} para continuar con las mismas características avanzadas en los repositorios públicos. Para obtener más información, consulta la sección "[Bajar de nivel tu suscripción de {% data variables.product.product_name %}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)".
 
 ### Desbloquear las características de una organización debido a un pago rechazado
 

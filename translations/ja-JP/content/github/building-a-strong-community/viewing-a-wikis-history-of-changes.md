@@ -1,7 +1,7 @@
 ---
 title: ウィキの変更履歴を表示する
 intro: ウィキは Git リポジトリであるため、行うすべての変更は、表示できるコミットです。
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
@@ -17,8 +17,8 @@ versions:
 - 彼らが提供したコミットメッセージ
 - いつ変更が行われたか
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. ウィキサイドバーを使用して、履歴を表示したいページに移動します。
 4. ウィキの上部にあるリビジョンリンクをクリックします。 ![ウィキリビジョンリンク](/assets/images/help/wiki/wiki_revision_link.png)
 

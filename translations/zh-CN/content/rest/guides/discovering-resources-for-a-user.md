@@ -11,9 +11,9 @@ versions:
 
 
 
-向 {{ site.data.variables.product.product_name }} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
+向 {% data variables.product.product_name %} API 发出经过身份验证的请求时，应用程序通常需要获取当前用户的仓库和组织。 在本指南中，我们将介绍如何可靠地发现这些资源。
 
-为了与 {{ site.data.variables.product.product_name }} API 进行交互，我们将使用 [Octokit.rb][octokit.rb]。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
+为了与 {% data variables.product.product_name %} API 进行交互，我们将使用 [Octokit.rb][octokit.rb]。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
 ### 入门指南
 

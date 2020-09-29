@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
+{% data reusables.repositories.create-issue-in-public-repository %}
 
 Puedes abrir una nueva propuesta basada en el código a partir de una solicitud de extracción existente. Para obtener más información, consulta la sección "[Abrir un informe de problemas desde el código](/github/managing-your-work-on-github/opening-an-issue-from-code)".
 
@@ -17,7 +17,7 @@ Puedes abrir un nuevo informe de problemas directamente desde un comentario en a
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -32,8 +32,8 @@ Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes 
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Haz clic en **Nueva propuesta**. ![Botón Nuevas propuestas](/assets/images/help/issues/new_issues_button.png)
 4. Si hay distintos tipos de propuestas, haz clic en **Empezar** junto al tipo de propuesta que deseas abrir. ![Selecciona el tipo de informe de problemas que quieres crear](/assets/images/help/issues/issue_template_get_started_button.png)
 {% if currentVersion == "free-pro-team@latest" or currentVersion >= "enterprise-server@2.21" %}
@@ -41,9 +41,9 @@ Si utilizas un tablero de proyecto para rastrear y priorizar tu trabajo, puedes 
 {% else %}
 5. Opcionalmente, da clic en **Abrir un informe de problemas normal** si el tipo de informe de problemas que quieres abrir no se incluye en las opciones disponibles. ![Enlace para abrir un informe de problemas normal](/assets/images/help/issues/regular_issue_link.png)
 {% endif %}
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 ### Leer más
 
 - "[Crear un enlace permanente a un fragmento de código](/github/managing-your-work-on-github/creating-a-permanent-link-to-a-code-snippet)".

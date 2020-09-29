@@ -1,6 +1,6 @@
 ---
 title: Usar o Explorador
-intro: 'Você pode executar consultas em dados reais do {{ site.data.variables.product.prodname_dotcom }} ao usar o explorador do GraphQL, um ambiente integrado de desenvolvimento no seu navegador que inclui documentação, destaque de sintaxe e erros de validação.'
+intro: 'Você pode executar consultas em dados reais do {% data variables.product.prodname_dotcom %} ao usar o explorador do GraphQL, um ambiente integrado de desenvolvimento no seu navegador que inclui documentação, destaque de sintaxe e erros de validação.'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
@@ -16,7 +16,7 @@ O [Explorador do GraphQL](/v4/explorer) é uma instância do [GraphiQL](https://
 
 {% note %}
 
-**Nota**: {{ site.data.variables.product.prodname_dotcom }} desabilitou as [mutações](/v4/mutation/) no Explorador, mas você pode usá-las em sua própria instância do GraphiQL.
+**Nota**: {% data variables.product.prodname_dotcom %} desabilitou as [mutações](/v4/mutation/) no Explorador, mas você pode usá-las em sua própria instância do GraphiQL.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ Para usar o aplicativo GraphiQL, faça o download e instale-o em https://github.
 1. No campo **chave**, insira `autorização`. No campo **Valor**, insira `Bearer <token>`, em que `<token>` é o seu token do OAuth gerado. ![cabeçalhos do grafiql](/assets/images/developer/graphiql-headers.png)
 1. Clique na marca de seleção à direita do token para salvá-lo.
 1. Para retornar ao editor, clique fora do modo **Editar cabeçalhos de HTTP**.
-1. No campo **Ponto de extremidade do GraphQL**, insira `{{ site.data.variables.product.graphql_url_pre }}`.
+1. No campo **Ponto de extremidade do GraphQL**, insira `{% data variables.product.graphql_url_pre %}`.
 1. No menu suspenso **Método** do método, selecione **POST**.
 
 {% note %}
@@ -101,7 +101,7 @@ Se você desejar executar a chamada no Explorador, insira o segmento `da consult
 
 ### Solicitar suporte
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}
 
 ### Solução de erros
 
@@ -146,6 +146,6 @@ Uma resposta do GraphQL contém várias chaves: um hash de `dados` um array de `
 
 {% note %}
 
-**Observação:** {{ site.data.variables.product.prodname_dotcom }} recomenda a verificação de erros antes de usar os dados em um ambiente de produção. No GraphQL, a falha não é total: algumas partes de consultas do GraphQL podem ser bem-sucedidas enquanto outras falham.
+**Observação:** {% data variables.product.prodname_dotcom %} recomenda a verificação de erros antes de usar os dados em um ambiente de produção. No GraphQL, a falha não é total: algumas partes de consultas do GraphQL podem ser bem-sucedidas enquanto outras falham.
 
 {% endnote %}

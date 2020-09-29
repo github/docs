@@ -1,7 +1,7 @@
 ---
 title: 设置和管理 GitHub Enterprise Server 的集群
 shortTitle: 集群
-intro: '本指南介绍了如何与您的客户代表确定 {{ site.data.variables.product.prodname_enterprise }} 集群是否适合您的组织以及如何设置集群。'
+intro: '本指南介绍了如何与您的客户代表确定 {% data variables.product.prodname_enterprise %} 集群是否适合您的组织以及如何设置集群。'
 redirect_from:
   - /enterprise/admin/clustering
 versions:

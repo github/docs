@@ -1,6 +1,6 @@
 ---
 title: Tipos de eventos de problemas
-intro: 'Para a API de eventos de problemas e API da Linha do tempo, aprenda sobre cada tipo de evento, ativando a ação em {{ site.data.variables.product.prodname_dotcom }}, bem como as propriedades únicas de cada evento.'
+intro: 'Para a API de eventos de problemas e API da Linha do tempo, aprenda sobre cada tipo de evento, ativando a ação em {% data variables.product.prodname_dotcom %}, bem como as propriedades únicas de cada evento.'
 redirect_from:
   - /v3/issues/issue-event-types
 versions:
@@ -18,11 +18,11 @@ A API REST do GitHub considera que todo pull request é um problema, mas nem tod
 
 Todos os eventos de problema têm a mesma estrutura de objeto, exceto os eventos que estão disponíveis apenas na API de eventos da linha do tempo. Alguns eventos também incluem propriedades adicionais que fornecem mais contexto sobre os recursos do evento. Consulte o evento específico para obter informações sobre quaisquer propriedades que diferem deste formato de objeto.
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### added_to_project
 
-O problema ou pull request foi adicionado a um quadro de projeto. {{ site.data.reusables.projects.disabled-projects }}
+O problema ou pull request foi adicionado a um quadro de projeto. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidade
 
@@ -32,11 +32,11 @@ O problema ou pull request foi adicionado a um quadro de projeto. {{ site.data.r
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ### atribuído
 
@@ -50,8 +50,8 @@ O problema ou o pull request foi atribuído a um usuário.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.assignee-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ### automatic_base_change_failed
 
@@ -65,7 +65,7 @@ O GitHub tentou alterar automaticamente o branch base do pull request sem sucess
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### automatic_base_change_succeeded
 
@@ -79,7 +79,7 @@ O GitHub tentou alterar automaticamente o branch base do pull request com sucess
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### ref_base_alterada
 
@@ -93,7 +93,7 @@ O branch de referência do pull request alterado.
 
  ### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### closed
 
@@ -107,7 +107,7 @@ O problema ou pull request foi fechado. Quando o `commit_id` está presente, ele
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### comentado
 
@@ -121,7 +121,7 @@ Um comentário foi adicionado ao problema ou pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nome                 | Tipo      | Descrição                                                                                                                                                       |
 | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -150,7 +150,7 @@ Um commit foi adicionado ao branch `HEAD` do pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nome          | Tipo               | Descrição                                                                                                                                                                       |
 | ------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -178,7 +178,7 @@ O problema ou pull request foi vinculado a outro problema ou pull request. Para 
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### convert_to_draft
 
@@ -192,11 +192,11 @@ O pull request foi convertido para modo rascunho.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### converted_note_to_issue
 
-O problema foi criado convertendo uma observação de um quadro de projeto em uma problema. {{ site.data.reusables.projects.disabled-projects }}
+O problema foi criado convertendo uma observação de um quadro de projeto em uma problema. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidade
 
@@ -206,11 +206,11 @@ O problema foi criado convertendo uma observação de um quadro de projeto em um
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 
 ### cross-referenced
 
@@ -224,7 +224,7 @@ O problema ou pull request foi referenciado a partir de outro problema ou pull r
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nome            | Tipo     | Descrição                                                                                                                                                                                                                                                                                                                                |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -248,7 +248,7 @@ O problema ou pull request foi removido de um marco.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `marco` | `objeto` | Objeto do marco. `marco[title]` | `string` | O título do marco.
 
 ### implantado
@@ -263,7 +263,7 @@ O pull request foi implantado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### deployment_environment_changed
 
@@ -277,7 +277,7 @@ O ambiente de implantação do pull request foi alterado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### desconectado
 
@@ -291,7 +291,7 @@ O problema ou o pull request foi desvinculado de outro problema ou pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### head_ref_deleted
 
@@ -305,7 +305,7 @@ O branch `HEAD` do pull request foi excluído.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### head_ref_restored
 
@@ -319,7 +319,7 @@ O branch `HEAD` do pull request foi restaurado para o último commit conhecido.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### etiquetado
 
@@ -333,8 +333,8 @@ Uma etiqueta foi adicionada ao problema ou pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.label-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ### bloqueado
 
@@ -349,11 +349,11 @@ O problema ou pull request foi bloqueado.
 #### Propriedades do objeto do evento
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.sailor-v-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.sailor-v-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | O motivo pelo qual uma conversa sobre o problema ou pull request foi bloqueada, caso tenha sido fornecida.
 
 ### mencionado
@@ -368,7 +368,7 @@ O `ator` foi `@mentioned` em um problema ou texto de pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### marked_as_duplicate
 
@@ -382,7 +382,7 @@ Um usuário com permissões de gravação marcou um problema como duplicata de o
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### merged
 
@@ -396,7 +396,7 @@ O pull request foi mesclado. O atributo `commit_id` é o SHA1 do commit do `HEAD
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### marcado
 
@@ -410,12 +410,12 @@ O problema ou pull request foi adicionado a um marco.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `marco` | `objeto` | Objeto do marco. `marco[title]` | `string` | O título do marco.
 
 ### moved_columns_in_project
 
-O problema ou pull request foi movido entre as colunas em um quadro de projeto. {{ site.data.reusables.projects.disabled-projects }}
+O problema ou pull request foi movido entre as colunas em um quadro de projeto. {% data reusables.projects.disabled-projects %}
 
 #### Disponibilidade
 
@@ -425,11 +425,11 @@ O problema ou pull request foi movido entre as colunas em um quadro de projeto. 
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.pre-release-program.starfox-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.starfox-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.project-card-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.project-card-properties %}
 `previous_column_name` | `string` | O nome da coluna da qual o problema foi movido.
 
 ### fixado
@@ -444,7 +444,7 @@ O problema foi fixado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### ready_for_review
 
@@ -458,7 +458,7 @@ Um pull request que não está no modo rascunho foi criado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### referenciado
 
@@ -485,11 +485,11 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Propriedades do objeto do evento</h4>
 
-<p spaces-before="0">{{ site.data.reusables.issue-events.issue-event-common-properties }}</p>
+<p spaces-before="0">{% data reusables.issue-events.issue-event-common-properties %}</p>
 
 <h3 spaces-before="0">removed_from_project</h3>
 
-<p spaces-before="0">O problema ou pull request foi removido de um quadro de projeto. {{ site.data.reusables.projects.disabled-projects }}</p>
+<p spaces-before="0">O problema ou pull request foi removido de um quadro de projeto. {% data reusables.projects.disabled-projects %}</p>
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
@@ -512,19 +512,19 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Propriedades do objeto do evento</h4>
 
-<p spaces-before="0">{{ site.data.reusables.pre-release-program.starfox-preview }}</p>
+<p spaces-before="0">{% data reusables.pre-release-program.starfox-preview %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.pre-release-program.api-preview-warning }}</p>
+<p spaces-before="0">{% data reusables.pre-release-program.api-preview-warning %}</p>
 
-<p spaces-before="0">{{ site.data.reusables.issue-events.issue-event-common-properties }}</p>
+<p spaces-before="0">{% data reusables.issue-events.issue-event-common-properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.issue-events.project-card-properties }}</p>
+<p spaces-before="0">{% data reusables.issue-events.project-card-properties %}</p>
 
 <h3 spaces-before="0">renamed</h3>
 
@@ -551,7 +551,7 @@ O problema foi referenciado a partir de uma mensagem de commit. O atributo do </
 
 <h4 spaces-before="0">Propriedades do objeto do evento</h4>
 
-<p spaces-before="0">{{ site.data.reusables.issue-events.issue-event-common-properties }}</p>
+<p spaces-before="0">{% data reusables.issue-events.issue-event-common-properties %}</p>
 
 <p spaces-before="0">
 <code>renomear` | `objeto` | As informações do nome. `renomear[from]` | `string` | O nome anterior. `Renomear[to]` | `string` | O novo nome.
@@ -568,7 +568,7 @@ O problema ou o pull request foi reaberto.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### review_dismissed
 
@@ -582,8 +582,8 @@ A revisão do pull request foi ignorada.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-dismissed-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-dismissed-properties %}
 
 ### review_requested
 
@@ -597,8 +597,8 @@ Foi solicitada uma revisão do pull request.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-request-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ### review_request_removed
 
@@ -612,8 +612,8 @@ Uma solicitação de revisão do pull request foi removida.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.review-request-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.review-request-properties %}
 
 ### revisado
 
@@ -627,7 +627,7 @@ O pull request foi revisado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.timeline_events_object_properties }}
+{% data reusables.issue-events.timeline_events_object_properties %}
 
 | Nome                 | Tipo      | Descrição                                                                                                                                                       |
 | -------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -656,7 +656,7 @@ Alguém faz a assinatura para receber notificações de um problema ou pull requ
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### transferido
 
@@ -670,7 +670,7 @@ O problema foi transferido para outro repositório.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### não atribuido
 
@@ -684,8 +684,8 @@ Um usuário foi não foi atribuído a partir do problema.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.assignee-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.assignee-properties %}
 
 ### sem etiqueta
 
@@ -699,8 +699,8 @@ Uma etiqueta foi removida do problema.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
-{{ site.data.reusables.issue-events.label-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
+{% data reusables.issue-events.label-properties %}
 
 ### desbloqueado
 
@@ -715,11 +715,11 @@ O problema estava desbloqueado.
 #### Propriedades do objeto do evento
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.sailor-v-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.sailor-v-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 `lock_reason` | `string` | O motivo pelo qual uma conversa sobre o problema ou pull request foi bloqueada, caso tenha sido fornecida.
 
 ### unmarked_as_duplicate
@@ -734,7 +734,7 @@ Um problema que um usuário havia marcado anteriormente como uma duplicata de ou
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### desfixado
 
@@ -748,7 +748,7 @@ O problema foi desfixado.
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 ### assinatura cancelada
 
@@ -762,7 +762,7 @@ Alguém cancelou a assinatura para receber notificações de um problema ou pull
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### user_blocked
@@ -777,6 +777,6 @@ Um proprietário da organização bloqueou um usuário da organização. Isso fo
 
 #### Propriedades do objeto do evento
 
-{{ site.data.reusables.issue-events.issue-event-common-properties }}
+{% data reusables.issue-events.issue-event-common-properties %}
 
 {% endif %}

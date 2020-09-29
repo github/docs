@@ -29,10 +29,10 @@ Organisationsmitglieder können folgende Rollen haben: *Inhaber*{% if currentVer
 
 *Enterprise-Inhaber* haben die endgültige Kontrolle über das Enterprise-Konto und können sämtliche Aktionen im Enterprise-Konto durchführen. *Abrechnungsmanager* können die Abrechnungseinstellungen Deines Enterprise-Kontos verwalten. Mitglieder und externe Mitarbeiter von Organisationen im Besitz Deines Enterprise-Kontos sind automatisch Mitglieder des Enterprise-Kontos, aber sie haben keinen Zugriff auf das Enterprise-Konto selbst oder dessen Einstellungen. Weitere Informationen findest Du unter „[Rollen eines Enterprise-Kontos](/articles/roles-for-an-enterprise-account).“
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Weiterführende Informationen
 
-- „[Arten von {{ site.data.variables.product.prodname_dotcom }}-Konten](/articles/types-of-github-accounts)“
+- „[Arten von {% data variables.product.prodname_dotcom %}-Konten](/articles/types-of-github-accounts)“

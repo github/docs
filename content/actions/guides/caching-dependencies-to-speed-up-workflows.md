@@ -2,7 +2,7 @@
 title: Caching dependencies to speed up workflows
 shortTitle: Caching dependencies
 intro: 'To make your workflows faster and more efficient, you can create and use caches for dependencies and other commonly reused files.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -15,9 +15,9 @@ versions:
 
 Workflow runs often reuse the same outputs or downloaded dependencies from one run to another. For example, package and dependency management tools such as Maven, Gradle, npm, and Yarn keep a local cache of downloaded dependencies.
 
-Jobs on {{ site.data.variables.product.prodname_dotcom }}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {{ site.data.variables.product.prodname_dotcom }} can cache dependencies you frequently use in workflows.
+Jobs on {% data variables.product.prodname_dotcom %}-hosted runners start in a clean virtual environment and must download dependencies each time, causing increased network utilization, longer runtime, and increased cost. To help speed up the time it takes to recreate these files, {% data variables.product.prodname_dotcom %} can cache dependencies you frequently use in workflows.
 
-To cache dependencies for a job, you'll need to use {{ site.data.variables.product.prodname_dotcom }}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
+To cache dependencies for a job, you'll need to use {% data variables.product.prodname_dotcom %}'s `cache` action. The action retrieves a cache identified by a unique key. For more information, see [`actions/cache`](https://github.com/actions/cache).
 
 {% warning %}
 
@@ -27,7 +27,7 @@ To cache dependencies for a job, you'll need to use {{ site.data.variables.produ
 
 ### Comparing artifacts and dependency caching
 
-Artifacts and caching are similar because they provide the ability to store files on {{ site.data.variables.product.prodname_dotcom }}, but each feature offers different use cases and cannot be used interchangeably.
+Artifacts and caching are similar because they provide the ability to store files on {% data variables.product.prodname_dotcom %}, but each feature offers different use cases and cannot be used interchangeably.
 
 - Use caching when you want to reuse files that don't change often between jobs or workflow runs.
 - Use artifacts when you want to save files produced by a job to view after a workflow has ended. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
@@ -118,7 +118,7 @@ To cache files in more than one directory, you will need a step that uses the [`
 
 #### Using contexts to create cache keys
 
-A cache key can include any of the contexts, functions, literals, and operators supported by {{ site.data.variables.product.prodname_actions }}. For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+A cache key can include any of the contexts, functions, literals, and operators supported by {% data variables.product.prodname_actions %}. For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
 Using expressions to create a `key` allows you to automatically create a new cache when dependencies have changed. For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file.
 
@@ -128,7 +128,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
+{% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
 
 ```
 npm-d5ea0750
@@ -189,4 +189,4 @@ For example, if a pull request contains a `feature` branch (the current scope) a
 
 ### Usage limits and eviction policy
 
-{{ site.data.variables.product.prodname_dotcom }} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 5 GB. If you exceed this limit, {{ site.data.variables.product.prodname_dotcom }} will save your cache but will begin evicting caches until the total size is less than 5 GB.
+{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited to 5 GB. If you exceed this limit, {% data variables.product.prodname_dotcom %} will save your cache but will begin evicting caches until the total size is less than 5 GB.

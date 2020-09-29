@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 メンバーにリポジトリの作成を許可する場合、メンバーが作成できるリポジトリの種類を選択できます。{% if currentVersion == "free-pro-team@latest" %}メンバーがプライベートリポジトリのみを作成することを許可する場合、Organization は {{ site.data.variables.product.prodname_ghe_cloud }} を使用する必要があります。{% endif %} 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 メンバーにリポジトリの作成を許可する場合、メンバーが作成できるリポジトリの種類を選択できます。{% if currentVersion == "free-pro-team@latest" %}メンバーがプライベートリポジトリのみを作成することを許可する場合、Organization は {% data variables.product.prodname_ghe_cloud %} を使用する必要があります。{% endif %} 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
 Organization のオーナーは、いつでもどんなタイプの Team でも作成できます。
 
@@ -20,11 +20,11 @@ Organization のオーナーは、いつでもどんなタイプの Team でも�
 
 {% endwarning %}
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. [Repository creation] で、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}1 つ以上のオプション{% else %}設定{% endif %}を選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. [**Save**] をクリックします。

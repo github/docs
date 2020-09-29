@@ -19,23 +19,23 @@ We recommend reviewing the following caveats before you change the visibility of
 
 #### Making a repository private
 
-   * {{ site.data.variables.product.prodname_dotcom }} will detach public forks of the public repository and put them into a new network. Public forks are not made private. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {{ site.data.variables.product.prodname_dotcom }} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
-   {% if currentVersion == "free-pro-team@latest" %}* If you're using {{ site.data.variables.product.prodname_free_user }} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. {{ site.data.reusables.gated-features.more-info }} 
-   * Any published {{ site.data.variables.product.prodname_pages }} site will be automatically unpublished. If you added a custom domain to the {{ site.data.variables.product.prodname_pages }} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {{ site.data.variables.product.prodname_pages }} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
-   * {{ site.data.variables.product.prodname_dotcom }} will no longer included the repository in the {{ site.data.variables.product.prodname_archive }}. For more information, see "[About archiving content and data on {{ site.data.variables.product.prodname_dotcom }}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}
+   * {% data variables.product.prodname_dotcom %} will detach public forks of the public repository and put them into a new network. Public forks are not made private. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
+   {% if currentVersion == "free-pro-team@latest" %}* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. {% data reusables.gated-features.more-info %} 
+   * Any published {% data variables.product.prodname_pages %} site will be automatically unpublished. If you added a custom domain to the {% data variables.product.prodname_pages %} site, you should remove or update your DNS records before making the repository private, to avoid the risk of a domain takeover. For more information, see "[Managing a custom domain for your {% data variables.product.prodname_pages %} site](/articles/managing-a-custom-domain-for-your-github-pages-site)."
+   * {% data variables.product.prodname_dotcom %} will no longer included the repository in the {% data variables.product.prodname_archive %}. For more information, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."{% endif %}
    {% if currentVersion != "free-pro-team@latest" %}* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."{% endif %}
 
 #### Making a repository public
 
-   * {{ site.data.variables.product.prodname_dotcom }} will detach private forks and turn them into a standalone private repository. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"
-   * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines.{% if currentVersion == "free-pro-team@latest" %} You can also take a free course on managing an open source project with [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."{% endif %}
+   * {% data variables.product.prodname_dotcom %} will detach private forks and turn them into a standalone private repository. For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"
+   * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines.{% if currentVersion == "free-pro-team@latest" %} You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Once your repository is public, you can also view your repository's community profile to see whether your project meets best practices for supporting contributors. For more information, see "[Viewing your community profile](/articles/viewing-your-community-profile)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 ### Changing a repository's visibility
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Danger Zone", to the right of to "Change repository visibility", click **Change visibility**.
    ![Change visibility button](/assets/images/help/repository/repo-change-vis.png)
 4. Select a visibility.
@@ -50,8 +50,8 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Making a repository private
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Danger Zone", next to "Make this repository private", click **Make private**.
    ![Make private button](/assets/images/help/repository/repo-makeprivate.png)
 4. Read the warnings about making a repository private.
@@ -61,8 +61,8 @@ We recommend reviewing the following caveats before you change the visibility of
 
 ### Making a repository public
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Danger Zone", next to "Make this repository public", click **Make public**.
    ![Make public button](/assets/images/help/repository/repo-makepublic.png)
 4. Read the warnings about making a repository public.
@@ -73,10 +73,10 @@ We recommend reviewing the following caveats before you change the visibility of
 {% if currentVersion ver_gt "enterprise-server@2.19" %}
 ### Making a repository internal
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Danger Zone", next to "Make this repository internal", click **Make internal**.
    ![Make internal button](/assets/images/help/repository/repo-makeinternal.png)
 4. Read the warnings about making a repository internal.

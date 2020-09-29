@@ -1,6 +1,6 @@
 ---
 title: 查看推送日志
-intro: '站点管理员可以查看 {{ site.data.variables.product.product_location_enterprise }} 上任何仓库的 Git 推送操作列表。'
+intro: '站点管理员可以查看 {% data variables.product.product_location_enterprise %} 上任何仓库的 Git 推送操作列表。'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -22,8 +22,8 @@ versions:
 ### 查看仓库的推送日志
 
 1. 导航到仓库。
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.security-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 ### 在命令行上查看仓库的推送日志

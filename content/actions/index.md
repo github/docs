@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions Documentation
 shortTitle: GitHub Actions
-intro: 'Automate, customize, and execute your software development workflows right in your repository with {{ site.data.variables.product.prodname_actions }}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 gettingStartedLinks:
   - /actions/quickstart
   - /actions/learn-github-actions
@@ -36,7 +36,7 @@ versions:
 <div class="d-lg-flex gutter my-6 py-6">
   <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.getting_started }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in gettingStartedLinks %}
@@ -47,7 +47,7 @@ versions:
 
   <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.popular_articles }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in popularLinks %}

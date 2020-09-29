@@ -68,11 +68,11 @@ Diese Liste ist nicht erschöpfend, weshalb es besonders wichtig ist, mit einem 
 
 ### Beschwerden über Anti-Umgehungstechnologie
 
-Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. Wenn Sie glauben, dass auf GitHub gehostete Inhalte gegen dieses Verbot verstoßen, senden Sie uns bitte einen Bericht über unsere {{ site.data.variables.contact.contact_dmca }}, und geben Sie spezifische Informationen darüber an, welche Inhalte gegen dieses Verbot verstoßen, welche technologischen Maßnahmen Sie ergriffen haben und warum der Inhalt gegen das Verbot verstößt.
+Das Urheberrechtsgesetz verbietet auch die Umgehung technologischer Maßnahmen, die den Zugang zu urheberrechtlich geschützten Werken wirksam kontrollieren. Wenn Sie glauben, dass auf GitHub gehostete Inhalte gegen dieses Verbot verstoßen, senden Sie uns bitte einen Bericht über unsere {% data variables.contact.contact_dmca %}, und geben Sie spezifische Informationen darüber an, welche Inhalte gegen dieses Verbot verstoßen, welche technologischen Maßnahmen Sie ergriffen haben und warum der Inhalt gegen das Verbot verstößt.
 
 ### So reichen Sie Ihre Beschwerde ein
 
-Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {{ site.data.variables.contact.contact_dmca }} zu beantworten.
+Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {% data variables.contact.contact_dmca %} zu beantworten.
 
 Sie können auch eine E-Mail-Benachrichtigung an <copyright@github.com> senden. Sie können eine Anlage einfügen, wenn Sie möchten, aber bitte auch eine Text-Version Ihres Schreibens in den Text Ihrer Nachricht einfügen.
 

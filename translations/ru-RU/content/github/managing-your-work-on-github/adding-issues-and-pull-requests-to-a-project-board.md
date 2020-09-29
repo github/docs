@@ -20,13 +20,13 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 {% note %}
 
-**Note:** You can also add notes to your project board to serve as task reminders, references to issues and pull requests from any repository on {{ site.data.variables.product.product_name }}, or to add related information to your project board. For more information, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+**Note:** You can also add notes to your project board to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add related information to your project board. For more information, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
 {% endnote %}
 
-{{ site.data.reusables.project-management.edit-in-project }}
+{% data reusables.project-management.edit-in-project %}
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }} When you search for issues and pull requests to add to your project board, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} When you search for issues and pull requests to add to your project board, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
 
 ### Adding issues and pull requests to a project board
 
@@ -41,11 +41,11 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
     - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your project board by searching for the label name. For more information, see "[Apply labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests)."
 
   {% endtip %}
-4. From the filtered list of issues and pull requests, drag the card you'd like to add to your project board and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+4. From the filtered list of issues and pull requests, drag the card you'd like to add to your project board and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **Tip:** You can drag and drop or use keyboard shortcuts to reorder cards and move them between columns. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+    **Tip:** You can drag and drop or use keyboard shortcuts to reorder cards and move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
@@ -61,7 +61,7 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 {% else %}
 5. On the right side of an issue or pull request, click **PROJECT-BOARD-NAME (awaiting triage)**. ![Link to project board](/assets/images/help/projects/sidebar-project-board-link.png)
 6. In your project board, click **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)**. ![Add cards button](/assets/images/help/projects/add-cards-pending-button.png)
-7. Drag the card for your issue or pull request from the **Triage** section, to the desired column on the project board. Alternatively, you can move cards using keyboard shortcuts. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+7. Drag the card for your issue or pull request from the **Triage** section, to the desired column on the project board. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 {% endif %}
 
 ### Дополнительная литература

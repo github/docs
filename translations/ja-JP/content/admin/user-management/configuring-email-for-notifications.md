@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: '{{ site.data.variables.product.prodname_ghe_server }} のアクティビティにユーザが素早く反応しやすくするために、Issue、プルリクエスト、コミットのコメントに対してメール通知を送信するようインスタンスを設定するとともに、インバウンドのメール返信を許可する追加設定もできます。 通知のメールは、ユーザがWatchしているリポジトリでアクティビティがあった場合、参加しているプルリクエストあるいはIssueにアクティビティがあった場合、コメント中でユーザもしくはメンバーとなっているTeamが@メンションされた場合に送信されます。'
+intro: '{% data variables.product.prodname_ghe_server %} のアクティビティにユーザが素早く反応しやすくするために、Issue、プルリクエスト、コミットのコメントに対してメール通知を送信するようインスタンスを設定するとともに、インバウンドのメール返信を許可する追加設定もできます。 通知のメールは、ユーザがWatchしているリポジトリでアクティビティがあった場合、参加しているプルリクエストあるいはIssueにアクティビティがあった場合、コメント中でユーザもしくはメンバーとなっているTeamが@メンションされた場合に送信されます。'
 versions:
   enterprise-server: '*'
 ---
 
 ### SMTPの設定
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 2. ページの上部で**Settings（設定）**をクリックしてください。 ![設定タブ](/assets/images/enterprise/management-console/settings-tab.png)
 3. 左のサイドバーで **Email（メール）**をクリックしてください。 ![メールタブ](/assets/images/enterprise/management-console/email-sidebar.png)
 4. **Enable email（メールの有効化）**を選択してください。 これでアウトバウンドとインバウンドのメールがどちらも有効化されますが、インバウンドのメールが動作するには[着信メールを許可する DNS とファイアウォールの設定](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)に記述されているように DNS を設定する必要もあります。 ![アウトバウンドメールの有効化](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -68,7 +68,7 @@ DNSの設定ができたら、うまく動作するかをテストできます�
 
 #### Support Bundleの作成
 
-表示されたエラーメッセージから何が悪いのかを判断できない場合、メールサーバと {{ site.data.variables.product.prodname_ghe_server }} 間の SMTP のやりとりすべてを含む [Support Bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) をダウンロードできます。 Support Bundleをダウンロードして展開したら、完全なSMTPのやりとりのログと関連するエラーを探して*enterprise-manage-logs/unicorn.log*のエントリをチェックしてください。
+表示されたエラーメッセージから何が悪いのかを判断できない場合、メールサーバと {% data variables.product.prodname_ghe_server %} 間の SMTP のやりとりすべてを含む [Support Bundle](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support) をダウンロードできます。 Support Bundleをダウンロードして展開したら、完全なSMTPのやりとりのログと関連するエラーを探して*enterprise-manage-logs/unicorn.log*のエントリをチェックしてください。
 
 unicornログは以下のようなトランザクションになっているはずです。
 
@@ -109,7 +109,7 @@ TLS connection started
 * `login`認証が実行されている（`<- "AUTH LOGIN\r\n"`）。
 * SMTPサーバは、認証を不正として拒否している（`-> "535-5.7.1 Username and Password not accepted.`）。
 
-#### {{ site.data.variables.product.product_location_enterprise }}ログのチェック
+#### {% data variables.product.product_location_enterprise %}ログのチェック
 
 インバウンドのメールが機能していることを検証する必要がある場合、インスタンスの */var/log/mail.log*と*/var/log/mail-replies/metroplex.log* との 2 つのログファイルを検証してください。
 
@@ -143,8 +143,8 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### ファイアウォールあるいはAWSセキュリティグループの設定のチェック
 
-{{ site.data.variables.product.product_location_enterprise }}がファイアウォールの背後にあったり、AWSのセキュリティグループを通じてアクセスされていたりするなら、`reply@reply.[hostname]`にメールを送信するすべてのメールサーバーに対してポート25がオープンされていることを確かめてください。
+{% data variables.product.product_location_enterprise %}がファイアウォールの背後にあったり、AWSのセキュリティグループを通じてアクセスされていたりするなら、`reply@reply.[hostname]`にメールを送信するすべてのメールサーバーに対してポート25がオープンされていることを確かめてください。
 
 #### サポートへの連絡
 
-依然として問題が解決できない場合は、{{ site.data.variables.contact.contact_ent_support }} に連絡してください。 問題のトラブルシューティングを支援するため、メールには`http(s)://[hostname]/setup/diagnostics`からの出力ファイルを添付してください。
+依然として問題が解決できない場合は、{% data variables.contact.contact_ent_support %} に連絡してください。 問題のトラブルシューティングを支援するため、メールには`http(s)://[hostname]/setup/diagnostics`からの出力ファイルを添付してください。

@@ -72,5 +72,5 @@ To include a pipe `|` as content within your cell, use a `\` before the pipe:
 
 ### Дополнительная литература
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown Spec](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"

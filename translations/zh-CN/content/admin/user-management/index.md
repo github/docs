@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-intro: '本指南介绍了可让用户登录您的 {{ site.data.variables.product.prodname_enterprise }} 实例的身份验证方法、如何创建组织和团队以进行仓库访问和协作，并针对用户安全提供了最佳实践建议。'
+intro: '本指南介绍了可让用户登录您的 {% data variables.product.prodname_enterprise %} 实例的身份验证方法、如何创建组织和团队以进行仓库访问和协作，并针对用户安全提供了最佳实践建议。'
 versions:
   enterprise-server: '*'
 ---

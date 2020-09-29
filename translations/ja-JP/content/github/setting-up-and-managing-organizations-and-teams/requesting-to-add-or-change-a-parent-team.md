@@ -12,16 +12,16 @@ versions:
 
 Organization のオーナーである場合、または子チームと親チームでチームメンテナー権限を所有している場合は、承認をリクエストせずに親チームを追加したり、Team の設定ページから Team の親を変更したりできます。 詳細については、「[Organization の階層内で Team を移動する](/articles/moving-a-team-in-your-organization-s-hierarchy)」を参照してください。
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Team のリストで、親の下にネストする Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. [Parent team] で、[Select parent team] ドロップダウン メニューを使用して新しい親チームの名前をクリックします。 ![Organization の Team がリストされるドロップダウンメニュー](/assets/images/help/teams/choose-parent-team.png)
 7. [**Save changes**] をクリックします。
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. [**Confirm changes**] をクリックして、 Team の親を追加または変更するための要求を送信します。 ![リポジトリアクセス権の変更に関する情報のモーダルボックス](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### 参考リンク

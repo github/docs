@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Na guia People (Pessoas), clique em **Pending invitation** (Convite pendente). ![Link de convite pendente](/assets/images/help/organizations/pending-invitation-link.png)
 5. Ao lado do nome de usuário ou do endereço de e-mail da pessoa cujo convite você deseja editar ou cancelar, clique em **Edit invitation** (Editar convite). ![Botão Edit invitation (Editar convite)](/assets/images/help/organizations/edit-invitation-button.png)
 

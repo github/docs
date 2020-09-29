@@ -9,22 +9,22 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-intro: 'Para migrar desde {{ site.data.variables.product.prodname_enterprise }} 11.10.x a 2.1.23, deberás configurar una nueva instancia de aparato y migrar los datos de la instancia anterior.'
+intro: 'Para migrar desde {% data variables.product.prodname_enterprise %} 11.10.x a 2.1.23, deberás configurar una nueva instancia de aparato y migrar los datos de la instancia anterior.'
 versions:
   enterprise-server: '*'
 ---
 
-Se admiten migraciones desde {{ site.data.variables.product.prodname_enterprise }} 11.10.348 y superior. No se admiten migraciones desde {{ site.data.variables.product.prodname_enterprise }} 11.10.348 o inferior. Primero debes actualizar a 11.10.348 en varias actualizaciones. Para obtener más información, consulta el procedimiento de actualización 11.10.348, "[Actualizar al lanzamiento más reciente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
+Se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 y superior. No se admiten migraciones desde {% data variables.product.prodname_enterprise %} 11.10.348 o inferior. Primero debes actualizar a 11.10.348 en varias actualizaciones. Para obtener más información, consulta el procedimiento de actualización 11.10.348, "[Actualizar al lanzamiento más reciente](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)."
 
-Para actualizar a la versión más reciente {{ site.data.variables.product.prodname_enterprise }}, primero debes migrar a {{ site.data.variables.product.prodname_ghe_server }} 2.1, entonces puedes aplicar el proceso normal de actualización. Para obtener más información, consulta "[Actualizar {{ site.data.variables.product.prodname_enterprise }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
+Para actualizar a la versión más reciente {% data variables.product.prodname_enterprise %}, primero debes migrar a {% data variables.product.prodname_ghe_server %} 2.1, entonces puedes aplicar el proceso normal de actualización. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)".
 
 ### Prepárate para la migración
 
-1. Revisa la guía de Abastecimiento e instalación y controla que se cumplan todos los requisitos previos necesarios para abastecer y configurar {{ site.data.variables.product.prodname_enterprise }} 2.1.23 en tu entorno. Para obtener más información, consulta "[Abastecimiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
+1. Revisa la guía de Abastecimiento e instalación y controla que se cumplan todos los requisitos previos necesarios para abastecer y configurar {% data variables.product.prodname_enterprise %} 2.1.23 en tu entorno. Para obtener más información, consulta "[Abastecimiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)."
 2. Verifica que la instancia actual esté ejecutando una versión actualizada compatible.
-3. Configura la versión más reciente de {{ site.data.variables.product.prodname_enterprise_backup_utilities }}. Para obtener más información, consulta [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils).
-    - Si ya has configurado copias de seguridad programadas utilizando {{ site.data.variables.product.prodname_enterprise_backup_utilities }}, asegúrate de que hayas actualizado a la versión más reciente.
-    - Si no estás ejecutando actualmente copias de seguridad programadas, configura {{ site.data.variables.product.prodname_enterprise_backup_utilities }}.
+3. Configura la versión más reciente de {% data variables.product.prodname_enterprise_backup_utilities %}. Para obtener más información, consulta [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils).
+    - Si ya has configurado copias de seguridad programadas utilizando {% data variables.product.prodname_enterprise_backup_utilities %}, asegúrate de que hayas actualizado a la versión más reciente.
+    - Si no estás ejecutando actualmente copias de seguridad programadas, configura {% data variables.product.prodname_enterprise_backup_utilities %}.
 4. Toma una instantánea de copia de respaldo completa inicial de la instancia actual utilizando el comando `ghe-backup`. Si ya configuraste copias de seguridad programadas para tu instancia actual, no debes tomar una instantánea de tu instancia.
 
    {% tip %}
@@ -40,8 +40,8 @@ Para actualizar a la versión más reciente {{ site.data.variables.product.prodn
 
 ### Realiza la migración
 
-1. Aprovisiona una nueva instancia {{ site.data.variables.product.prodname_enterprise }} 2.1. Para obtener más información, consulta la "[Guía de aprovisionamiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" para tu plataforma destino.
-2. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia de {{ site.data.variables.product.prodname_enterprise }}.
+1. Aprovisiona una nueva instancia {% data variables.product.prodname_enterprise %} 2.1. Para obtener más información, consulta la "[Guía de aprovisionamiento e instalación](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)" para tu plataforma destino.
+2. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia de {% data variables.product.prodname_enterprise %}.
 3. Configura una contraseña de administrador.
 5. Haz clic en **Migrate (Migrar)**. ![Elegir el tipo de instalación](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. Pega tu clave SSH de acceso al servidor de respaldo en "Add new SSH key (Agregar nueva clave SSH)". ![Autorizar la copia de seguridad](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
@@ -88,4 +88,4 @@ Para actualizar a la versión más reciente {{ site.data.variables.product.prodn
   {% endnote %}
 
 15. Cambia el tráfico de red de usuario desde la instancia anterior a la nueva instancia utilizando la asignación de DNS o la dirección IP.
-16. Actualiza a la versión más reciente del lanzamiento del patch de {{ currentVersion }}. Para obtener más información, consulta "[Actualizar {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."
+16. Actualiza a la versión más reciente del lanzamiento del patch de {{ currentVersion }}. Para obtener más información, consulta "[Actualizar {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)."

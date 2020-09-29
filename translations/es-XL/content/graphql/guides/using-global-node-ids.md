@@ -31,7 +31,7 @@ Revisemos un ejemplo.
 Si [solicitas el usuario autenticado](/v3/users/#get-the-authenticated-user):
 
 ```shell
-$ curl -i -u <em>username:token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
 obtendrás una respuesta que incluye el `node_id` del usuario autenticado:

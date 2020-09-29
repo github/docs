@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. 单击所需的议题或拉取请求。
 3. 要添加已保存回复，在评论字段中，单击 {% octicon "reply" aria-label="The mail reply" %}。 ![已保存回复按钮](/assets/images/help/writing/saved-replies-button.png)
 4. 从列表中，选择您想要添加到评论的已保存回复。 ![已保存回复](/assets/images/help/settings/saved-replies.png)

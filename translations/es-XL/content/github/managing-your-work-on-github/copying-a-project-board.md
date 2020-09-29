@@ -16,7 +16,7 @@ Cuando copias un tablero de proyecto a una organización, la visibilidad del tab
 La automatización del tablero de proyecto también está habilitada por defecto. Para obtener más información, consulta "[Acerca de la automatización para tableros de proyecto](/articles/about-automation-for-project-boards/)".
 
 1. Navega hasta el tablero de proyecto que quieres copiar.
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. Haz clic en {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, luego haz clic en **Copy** (Copiar). ![Opción para copiar en el menú desplegable desde la barra lateral del tablero de proyecto](/assets/images/help/projects/project-board-copy-setting.png)
 4. Debajo de "Owner" (Propietario), usa el menú desplegable y haz clic en el repositorio o la organización donde deseas copiar el tablero de proyecto. ![Selecciona el propietario del tablero de proyecto copiado desde el menú desplegable](/assets/images/help/projects/copied-project-board-owner.png)
 5. Opcionalmente, debajo de "Project board name" (Nombre del tablero de proyecto), haz clic en el nombre del tablero de proyecto copiado. ![Campo para escribir un nombre para el tablero de proyecto copiado](/assets/images/help/projects/copied-project-board-name.png)

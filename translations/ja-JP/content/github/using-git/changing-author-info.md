@@ -31,10 +31,10 @@ versions:
 * 変更したい作者/コミッターフィールドに表示されている、古いメールアドレス
 * コミットに関連付けたい正しい名前およびメールアドレス
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 以下のコマンドで、リポジトリの、新しいベアクローンを作成します:
   ```shell
-  git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+  git clone --bare https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
   cd <em>repo</em>.git
   ```
 3. スクリプトをコピーして貼り付けます。以下の変数については、収集した情報に基づいて置き換えてください:
@@ -66,7 +66,7 @@ versions:
 
 4. [**Enter**] を押してスクリプトを実行します。
 5. 新しい Git 履歴に間違いがないかレビューします。
-6. 以下のコマンドで、修正した履歴を {{ site.data.variables.product.product_name }} にプッシュします:
+6. 以下のコマンドで、修正した履歴を {% data variables.product.product_name %} にプッシュします:
   ```shell
   git push --force --tags origin 'refs/heads/*'
   ```

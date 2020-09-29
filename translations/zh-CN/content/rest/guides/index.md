@@ -11,7 +11,7 @@ versions:
 
 
 
-本文档的这一部分旨在让您熟悉并运行实际的 {{ site.data.variables.product.product_name }} API 应用程序。 我们将涵盖您需要知道的一切，从身份验证到操作结果，再到将结果与其他应用程序相结合。
+本文档的这一部分旨在让您熟悉并运行实际的 {% data variables.product.product_name %} API 应用程序。 我们将涵盖您需要知道的一切，从身份验证到操作结果，再到将结果与其他应用程序相结合。
 
 这里的每个教程都包含一个项目，并且每个项目都将存储在我们的公共[平台样本](https://github.com/github/platform-samples)仓库中并形成文档。
 

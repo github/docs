@@ -10,14 +10,14 @@ versions:
 
 An outside collaborator is a person who isn't explicitly a member of your organization, but who has permissions to a project board in your organization.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.organization-wide-project }}
-{{ site.data.reusables.project-management.select-project }}
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-9. Under "Search by username, full name or email address", type the outside collaborator's name, username, or {{ site.data.variables.product.prodname_dotcom }} email.
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.organization-wide-project %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+9. Under "Search by username, full name or email address", type the outside collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
    ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{{ site.data.reusables.project-management.add-collaborator }}
-{{ site.data.reusables.project-management.collaborator-permissions }}
+{% data reusables.project-management.add-collaborator %}
+{% data reusables.project-management.collaborator-permissions %}

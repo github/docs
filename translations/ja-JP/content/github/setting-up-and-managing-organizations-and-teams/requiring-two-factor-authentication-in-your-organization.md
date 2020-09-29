@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### 2 要素認証実施にあたっての要件
 
@@ -26,12 +26,12 @@ versions:
 
 2 要素認証の使用を義務付ける前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部コラボレーター{% endif %}に通知して、それぞれのアカウントで 2 要素認証をセットアップするように依頼することをおすすめします。 Organization の [People] ページで、[メンバーと外部コラボレーターがすでに 2 要素認証を使用しているかどうかを確認する](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)ことができます。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. Organization から削除されるメンバーまたは外部コラボレーターが存在する場合、彼らに招待状を送信して、元の権限と Organization へのアクセス権を復元できるようにすることをおすすめします。 招待を受諾できるためには、まず 2 要素認証が有効でなければなりません。
 {% endif %}
@@ -42,9 +42,9 @@ versions:
 
 ![2 要素認証の違反により削除されたユーザーを示す Audit log イベント](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. 検索クエリを入力します。 以下のように検索します:
     - 削除された Organization のメンバーを検索するには、検索クエリで `action:org.remove_member` を使用します
     - 削除された外部コラボレーターを検索するには、検索クエリで `action:org.remove_outside_collaborator` を使用します{% if currentVersion == "free-pro-team@latest" %}

@@ -17,7 +17,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 プルリクエストが対処するIssueにそのプルリクエストにリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
-{% if currentVersion ver_lt "enterprise-server@2.21" %}プルリクエストとIssueが別のリポジトリにある場合は、プルリクエストをマージするユーザーにIssueをクローズする権限もあれば、そのマージが実行された後で{{ site.data.variables.product.product_name }}にリンクが表示されます。{% endif %}{% endif %}
+{% if currentVersion ver_lt "enterprise-server@2.21" %}プルリクエストとIssueが別のリポジトリにある場合は、プルリクエストをマージするユーザーにIssueをクローズする権限もあれば、そのマージが実行された後で{% data variables.product.product_name %}にリンクが表示されます。{% endif %}{% endif %}
 
 リンクされたプルリクエストをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを設定する](/github/administering-a-repository/setting-the-default-branch)」を参照してください。
 
@@ -28,8 +28,8 @@ versions:
 
 手動で1つのプルリクエストごとに最大10個のIssueをリンクできます。 Issueとプルリクエストは同じリポジトリになければなりません。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. プルリクエストのリストで、Issueにリンクしたいプルリクエストをクリックします。
 4. 右のサイドバーで、[**Linked issues**] をクリックします。 ![右サイドバーの [Linked issues]](/assets/images/help/pull_requests/linked-issues.png)
 5. プルリクエストにリンクするIssueをクリックします。 ![Issueをリンクするドロップダウン](/assets/images/help/pull_requests/link-issue-drop-down.png)

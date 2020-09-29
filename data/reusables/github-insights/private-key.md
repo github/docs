@@ -1,2 +1,2 @@
-1. Under "Private Key", type in the private key of your {{ site.data.variables.product.prodname_github_app }}, which is contained in the PEM file you downloaded while creating the app.
+1. Under "Private Key", type in the private key of your {% data variables.product.prodname_github_app %}, which is contained in the PEM file you downloaded while creating the app.
   ![Private key field](/assets/images/help/insights/private-key.png)

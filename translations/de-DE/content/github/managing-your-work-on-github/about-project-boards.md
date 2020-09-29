@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Projektboards
-intro: 'Mit Projektboards auf {{ site.data.variables.product.product_name }} kannst Du Deine Arbeit organisieren und priorisieren. Du kannst Projektboards für die Arbeit an bestimmten Funktionen, für umfassende Roadmaps oder sogar für Checklisten für Releases erstellen. Projektboards bieten Dir die Flexibilität, individuelle Workflows nach Deinen Bedürfnissen zu erstellen.'
+intro: 'Mit Projektboards auf {% data variables.product.product_name %} kannst Du Deine Arbeit organisieren und priorisieren. Du kannst Projektboards für die Arbeit an bestimmten Funktionen, für umfassende Roadmaps oder sogar für Checklisten für Releases erstellen. Projektboards bieten Dir die Flexibilität, individuelle Workflows nach Deinen Bedürfnissen zu erstellen.'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
@@ -11,14 +11,14 @@ versions:
 
 Projektboards bestehen aus Issues, Pull Requests und Hinweisen, die als Tickets in Spalten Deiner Wahl kategorisiert werden. Du kannst per Drag-and-Drop oder Tastenkürzel Tickets innerhalb einer Spalte neu anordnen, Tickets von Spalte zu Spalte verschieben und die Reihenfolge der Spalten ändern.
 
-Projektboard-Tickets enthalten relevante Metadaten für Issues und Pull Requests, wie Kennzeichnungen, Bearbeiter, Status und den öffnenden Benutzer. {{ site.data.reusables.project-management.edit-in-project }}
+Projektboard-Tickets enthalten relevante Metadaten für Issues und Pull Requests, wie Kennzeichnungen, Bearbeiter, Status und den öffnenden Benutzer. {% data reusables.project-management.edit-in-project %}
 
-Du kannst außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {{ site.data.variables.product.product_name }} verwenden. Über Hinweise kannst Du auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
+Du kannst außerdem Hinweise innerhalb von Spalten erstellen und als Erinnerungen an Aufgaben oder Verweise auf Issues und Pull Requests aus einem beliebigen Repository auf {% data variables.product.product_name %} verwenden. Über Hinweise kannst Du auch zugehörige Informationen zum Projektboard hinzufügen. Du kannst ein Referenzticket für ein anderes Projektboard erstellen, indem Du eine Verknüpfung zu einem Hinweis hinzufügst. Wenn der Hinweis für Deine Bedürfnisse nicht ausreicht, kannst Du ihn in einen Issue umwandeln. Weitere Informationen zur Konvertierung von Hinweisen im Projektboard in Issues findest Du unter „[Hinweise zu einem Projektboard hinzufügen](/articles/adding-notes-to-a-project-board).“
 
 Arten von Projektboards:
 
 - **Benutzereigene Projektboards** können Issues und Pull Requests aus jedem persönlichen Repository enthalten.
-- **Organisationsweite Projektboards** können Issues und Pull Requests aus jedem Repository enthalten, das einer Organisation gehört.  {{ site.data.reusables.project-management.link-repos-to-project-board }} Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
+- **Organisationsweite Projektboards** können Issues und Pull Requests aus jedem Repository enthalten, das einer Organisation gehört.  {% data reusables.project-management.link-repos-to-project-board %} Weitere Informationen findest Du unter „[Ein Repository mit einem Projektboard verknüpfen](/articles/linking-a-repository-to-a-project-board).“
 - **Repository-Projektboards** sind auf Issues und Pull Requests innerhalb eines einzelnen Repositorys ausgerichtet. Sie können auch Hinweise enthalten, die auf Issues und Pull Requests in anderen Repositorys verweisen.
 
 ### Projektboards erstellen und anzeigen
@@ -37,7 +37,7 @@ Wenn Du alle Aufgaben Deines Projektboards abgeschlossen hast oder ein Projektbo
 
 Du kannst außerdem [Projektboards in einem Repository deaktivieren](/articles/disabling-project-boards-in-a-repository) oder [Projektboards in Deiner Organisation deaktivieren](/articles/disabling-project-boards-in-your-organization), wenn Du Deine Arbeit auf andere Weise verfolgen möchtest.
 
-{{ site.data.reusables.project-management.project-board-import-with-api }}
+{% data reusables.project-management.project-board-import-with-api %}
 
 ### Vorlagen für Projektboards
 
@@ -54,7 +54,7 @@ Weitere Informationen zur Automatisierung von Projektboards findest Du unter „
 
 ![Projektboard mit Vorlage für grundlegendes Kanban](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 ### Weiterführende Informationen
 

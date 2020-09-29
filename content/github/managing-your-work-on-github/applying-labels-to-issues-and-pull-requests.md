@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items.
   ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 

@@ -11,7 +11,7 @@ versions:
 
 如果由于您[要求成员和外部协作者启用双因素身份验证](/articles/requiring-two-factor-authentication-in-your-organization)而删除了外部协作者对您组织私有仓库的访问权限，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion == "free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 恢复前外部协作者时，您可以恢复以下各项：
  - 用户对组织仓库以前的访问权限
@@ -26,16 +26,16 @@ versions:
 
 **Tips**:
  - 只有组织所有者才能恢复外部协作者对组织的访问权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
- - 恢复 {{ site.data.variables.product.product_location }} 上的成员流量可以使用术语“成员”来描述恢复外部协作者，但如果您恢复此人员并保留其以前的权限，则他们将只拥有以前的[外部协作者权限](/articles/permission-levels-for-an-organization/#outside-collaborators)。{% if currentVersion == "free-pro-team@latest" %}
+ - 恢复 {% data variables.product.product_location %} 上的成员流量可以使用术语“成员”来描述恢复外部协作者，但如果您恢复此人员并保留其以前的权限，则他们将只拥有以前的[外部协作者权限](/articles/permission-levels-for-an-organization/#outside-collaborators)。{% if currentVersion == "free-pro-team@latest" %}
  - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可邀请新成员加入组织或恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。{% endif %}
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. 通过单击 **Invite and reinstate（邀请并恢复）**选择恢复外部协作者在组织中以前的权限，或通过单击 **Invite and start fresh（邀请并重新开始）**选择清除其以前的权限并设置新的访问权限。
 
@@ -63,7 +63,7 @@ versions:
 7. 如果已清除前外部协作者以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击 **Add member（添加成员）**。 ![角色和团队选项及添加成员按钮](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-8. 被邀请的人员将收到邀请其加入组织的电子邮件。 它们需要接受邀请，然后才能成为组织中的外部协作者。 {{ site.data.reusables.organizations.cancel_org_invite }}
+8. 被邀请的人员将收到邀请其加入组织的电子邮件。 它们需要接受邀请，然后才能成为组织中的外部协作者。 {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### 延伸阅读

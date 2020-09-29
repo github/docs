@@ -1,6 +1,6 @@
 ---
 title: Substituir os GitHub Services
-intro: 'Se você ainda depende dos serviços obsoletos do {{ site.data.variables.product.prodname_dotcom }}, aprenda como migrar seus hooks de serviço para webhooks.'
+intro: 'Se você ainda depende dos serviços obsoletos do {% data variables.product.prodname_dotcom %}, aprenda como migrar seus hooks de serviço para webhooks.'
 redirect_from:
   - /guides/replacing-github-services/
   - /v3/guides/automating-deployments-to-integrators/
@@ -55,12 +55,12 @@ Para substituir GitHub Services por Webhooks:
 
 3. Mover configuração adicional de fora do GitHub. Alguns GitHub Services exigem uma configuração adicional e personalizada na página de configuração do GitHub. Se o seu serviço fizer isso, você deverá mover esta funcionalidade para seu aplicativo ou depender dos aplicativos GitHub ou OAuth, quando necessário.
 
-### Compatibilidade com {{ site.data.variables.product.prodname_ghe_server }}
+### Compatibilidade com {% data variables.product.prodname_ghe_server %}
 
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.17**: O {{ site.data.variables.product.prodname_ghe_server }} com versão 2.17 ou superior irá parar de permitir que os administradores instalem serviços. Os administradores continuarão podendo modificar hooks de serviço existentes e receber hooks de serviço no {{ site.data.variables.product.prodname_ghe_server }} para as versões 2.17 a 2.19. Como alternativa ao serviço de e-mail, você poderá usar notificações de e-mail para push para seu repositório no {{ site.data.variables.product.prodname_ghe_server }} com versão 2.17 ou superior. Consulte [este poste de blog](https://developer.github.com/changes/2019-01-29-life-after-github-services) para saber mais.
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.20**: O {{ site.data.variables.product.prodname_ghe_server }} com versão 2.20 e superior deixará de implementar os eventos de todos os serviços instalados.
+- **{% data variables.product.prodname_ghe_server %} 2.17**: O {% data variables.product.prodname_ghe_server %} com versão 2.17 ou superior irá parar de permitir que os administradores instalem serviços. Os administradores continuarão podendo modificar hooks de serviço existentes e receber hooks de serviço no {% data variables.product.prodname_ghe_server %} para as versões 2.17 a 2.19. Como alternativa ao serviço de e-mail, você poderá usar notificações de e-mail para push para seu repositório no {% data variables.product.prodname_ghe_server %} com versão 2.17 ou superior. Consulte [este poste de blog](https://developer.github.com/changes/2019-01-29-life-after-github-services) para saber mais.
+- **{% data variables.product.prodname_ghe_server %} 2.20**: O {% data variables.product.prodname_ghe_server %} com versão 2.20 e superior deixará de implementar os eventos de todos os serviços instalados.
 
-A versão 2.17 do {{ site.data.variables.product.prodname_ghe_server }} será a primeira versão que não permite que os administradores instalem o GitHub Services. Só suportaremos o GitHub Services existente até o lançamento da versão do {{ site.data.variables.product.prodname_ghe_server }}. Também aceitaremos quaisquer patches críticos o seu GitHub Services em execução em {{ site.data.variables.product.prodname_ghe_server }} até 1 de outubro de 2019.
+A versão 2.17 do {% data variables.product.prodname_ghe_server %} será a primeira versão que não permite que os administradores instalem o GitHub Services. Só suportaremos o GitHub Services existente até o lançamento da versão do {% data variables.product.prodname_ghe_server %}. Também aceitaremos quaisquer patches críticos o seu GitHub Services em execução em {% data variables.product.prodname_ghe_server %} até 1 de outubro de 2019.
 
 ### Migrar com a nossa ajuda
 
@@ -69,4 +69,4 @@ A versão 2.17 do {{ site.data.variables.product.prodname_ghe_server }} será a 
 Como uma visão geral de alto nível, o processo de migração normalmente envolve:
   - Identificar como e onde seu produto está usando o GitHub Services.
   - Identificar os eventos de webhook correspondentes que você precisa configurar para mover para webhooks simples.
-  - Implementar o design usando [{{ site.data.variables.product.prodname_oauth_app }}s](/apps/building-oauth-apps/) ou [{{ site.data.variables.product.prodname_github_app }}s. {{ site.data.variables.product.prodname_github_app }}s](/apps/building-github-apps/) são preferidos. Para saber mais sobre porque os {{ site.data.variables.product.prodname_github_app }}s são preferidos, consulte "[motivos para mudar para {{ site.data.variables.product.prodname_github_app }}s](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)".
+  - Implementar o design usando [{% data variables.product.prodname_oauth_app %}s](/apps/building-oauth-apps/) ou [{% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/) são preferidos. Para saber mais sobre porque os {% data variables.product.prodname_github_app %}s são preferidos, consulte "[motivos para mudar para {% data variables.product.prodname_github_app %}s](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)".

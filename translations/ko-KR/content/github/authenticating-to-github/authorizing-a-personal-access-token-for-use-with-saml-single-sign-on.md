@@ -10,9 +10,9 @@ versions:
 
 You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 3. Next to the token you'd like to authorize, click **Enable SSO** or **Disable SSO**. ![SSO token authorize button](/assets/images/help/settings/sso-allowlist-button.png)
 4. Find the organization you'd like to authorize the access token for.
 4. Click **Authorize**. ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)

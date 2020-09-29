@@ -80,7 +80,7 @@
 - 
   term: チェック
   description: >-
-    チェックは、{{ site.data.variables.product.product_name }}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
+    チェックは、{% data variables.product.product_name %}上のステータスチェックの一種です。「[ステータスチェック](#status-checks)」を参照してください。
 - 
   term: チェックアウト
   description: >-
@@ -213,7 +213,7 @@
   description: ユーザのメールアドレスに送信される通知。
 - 
   term: Enterprise アカウント
-  description: Enterprise アカウントは、複数の {{ site.data.variables.product.prodname_dotcom_the_website }} Organization のポリシーと支払いを集中管理するために利用できます。 {{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: Enterprise アカウントは、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理するために利用できます。 {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -665,7 +665,7 @@
 - 
   term: SSH キー
   description: >-
-    SSH キーとは、暗号化されたメッセージを使用して、自身をオンラインサーバに識別させるための方法です。ご使用のコンピュータが、あたかも別のサービスへの一意のパスワードを独自に持っているかのようになります。{{ site.data.variables.product.product_name }}では SSH キーを使用して、ご使用のコンピュータに情報を安全に送信します。
+    SSH キーとは、暗号化されたメッセージを使用して、自身をオンラインサーバに識別させるための方法です。ご使用のコンピュータが、あたかも別のサービスへの一意のパスワードを独自に持っているかのようになります。{% data variables.product.product_name %}では SSH キーを使用して、ご使用のコンピュータに情報を安全に送信します。
 - 
   term: ステージングインスタンス
   description: >-

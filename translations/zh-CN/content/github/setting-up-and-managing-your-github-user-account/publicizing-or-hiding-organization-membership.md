@@ -13,9 +13,9 @@ versions:
 
 ### 更改组织成员关系的可见性
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. 在成员列表中找到您的用户名。 如果列表很长，可在搜索框中搜索您的用户名。 ![组织成员搜索框](/assets/images/help/organizations/member-search-box.png)
 5. 在用户名右边的菜单中，选择新的可见性选项：
     - 要公开您的成员关系，请选择 **Public（公共）**。

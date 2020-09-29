@@ -17,6 +17,6 @@ Die Automatisierung in Deinem Projektboard gilt nicht für archivierte Projektbo
 
 ### Tickets auf einem Projektboard über die Seitenleiste wiederherstellen
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **View archive** (Archiv anzeigen). ![Option zum Anzeigen des Archivs aus Menü auswählen](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Klicke oberhalb des Projektboard-Tickets, dessen Archivierung Du aufheben möchtest, auf **Restore** (Wiederherstellen). ![Wiederherstellung des Projektboard-Tickets auswählen](/assets/images/help/projects/restore-card.png)

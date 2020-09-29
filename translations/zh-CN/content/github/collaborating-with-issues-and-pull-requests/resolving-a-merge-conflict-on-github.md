@@ -8,32 +8,32 @@ versions:
   enterprise-server: '*'
 ---
 
-您只能在 {{ site.data.variables.product.product_name }} 上解决由竞争行更改引起的合并冲突，例如当人们对 Git 仓库中不同分支上同一文件的同一行进行不同的更改时。 对于所有其他类型的合并冲突，您必须在命令行上本地解决冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line/)”。
+您只能在 {% data variables.product.product_name %} 上解决由竞争行更改引起的合并冲突，例如当人们对 Git 仓库中不同分支上同一文件的同一行进行不同的更改时。 对于所有其他类型的合并冲突，您必须在命令行上本地解决冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line/)”。
 
 {% if currentVersion != "free-pro-team@latest" %}
-如果站点管理员对仓库之间的拉取请求禁用合并冲突编辑器，则无法在 {{ site.data.variables.product.product_name }} 上使用冲突编辑器，并且必须在命令行上解决合并冲突。 例如，如果禁用合并冲突编辑器，则无法在复刻和上游仓库之间的拉取请求中使用它。
+如果站点管理员对仓库之间的拉取请求禁用合并冲突编辑器，则无法在 {% data variables.product.product_name %} 上使用冲突编辑器，并且必须在命令行上解决合并冲突。 例如，如果禁用合并冲突编辑器，则无法在复刻和上游仓库之间的拉取请求中使用它。
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on {{ site.data.variables.product.product_name }},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. 确保您确实想要提交到此分支。
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. 确保您确实想要提交到此分支。
 {% else %}
-**警告：**在 {{ site.data.variables.product.product_name }} 上解决合并冲突时，拉取请求的整个[基本分支](/github/getting-started-with-github/github-glossary#base-branch)都会合并到[头部分支](/github/getting-started-with-github/github-glossary#head-branch)中。 确保您确实想要提交到此分支。 If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. 如果头部分支是受保护分支，则无法将冲突解决合并到其中，因此系统会提示您创建一个新的头部分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+**警告：**在 {% data variables.product.product_name %} 上解决合并冲突时，拉取请求的整个[基本分支](/github/getting-started-with-github/github-glossary#base-branch)都会合并到[头部分支](/github/getting-started-with-github/github-glossary#head-branch)中。 确保您确实想要提交到此分支。 If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. 如果头部分支是受保护分支，则无法将冲突解决合并到其中，因此系统会提示您创建一个新的头部分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
 {% endif %}
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 1. 在“Pull Requests（拉取请求）”列表中，单击含有您想要解决的合并冲突的拉取请求。
 1. 在拉取请求底部附近，单击 **Resolve conflicts（解决冲突）**。 ![解决合并冲突按钮](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {{ site.data.variables.product.product_name }} 上解决{% if currentVersion != "free-pro-team@latest" %}或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line)”。
+ **提示：**如果停用 **Resolve conflicts（解决冲突）**按钮，则拉取请求的合并冲突过于复杂而无法在 {% data variables.product.product_name %} 上解决{% if currentVersion != "free-pro-team@latest" %}或站点管理员已禁用仓库之间拉取请求的冲突编辑器{% endif %}。 必须使用备用 Git 客户端或在命令行上使用 Git 解决合并冲突。 更多信息请参阅“[使用命令行解决合并冲突](/articles/resolving-a-merge-conflict-using-the-command-line)”。
 
  {% endtip %}
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }}
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
  ![查看带有冲突标记的合并冲突示例](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
 1. 如果文件中有多个合并冲突，请向下滚动到下一组冲突标记，然后重复步骤 4 和步骤 5 以解决合并冲突。
 1. 解决文件中的所有冲突后，单击 **Mark as resolved（标记为已解决）**。 ![单击“标记为已解决”按钮](/assets/images/help/pull_requests/mark-as-resolved-button.png)

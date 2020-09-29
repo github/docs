@@ -24,13 +24,13 @@ Puedes descargar todo el código fuente de este proyecto [del repo platform-samp
 
 Primero, necesitas [registrar tu aplicación][new oauth app]. A cada aplicación de OAuth que se registra se le asigna una ID de Cliente única y un Secreto de Cliente. ¡El Secreto de Cliente no puede compartirse! Eso incluye el verificar la secuencia en tu repositorio.
 
-Puedes llenar toda la información como más te guste, con excepción de la **URL de rellamado para la autorización**. Esta es fácilmente la parte más importante para configurar tu aplicación. Es la URL de rellamado a la cual {{ site.data.variables.product.product_name }} devuelve al usuario después de una autenticación exitosa.
+Puedes llenar toda la información como más te guste, con excepción de la **URL de rellamado para la autorización**. Esta es fácilmente la parte más importante para configurar tu aplicación. Es la URL de rellamado a la cual {% data variables.product.product_name %} devuelve al usuario después de una autenticación exitosa.
 
 Ya que estamos ejecutando un servidor común de Sinatra, la ubicación de la instancia local se configura como `http://localhost:4567`. Vamos a llenar la URL de rellamado como `http://localhost:4567/callback`.
 
 ### Aceptar la autorización del usuario
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 Ahora, vamos a comenzar a llenar nuestro servidor común. Crea un archivo que se llame _server.rb_ y pégale esto:
 
@@ -47,7 +47,7 @@ get '/' do
 end
 ```
 
-Tu ID de cliente y tus llaves secretas de cliente vienen de [la página de configuración de tu aplicación][app settings]. **_Jamás_** deberías almacenar estos valores en {{ site.data.variables.product.product_name }}--o en ningún otro lugar público, para el caso. Te recomendamos almacenarlos como [variables de ambiente][about env vars]--que es exactamente lo que hicimos aquí.
+Tu ID de cliente y tus llaves secretas de cliente vienen de [la página de configuración de tu aplicación][app settings]. **_Jamás_** deberías almacenar estos valores en {% data variables.product.product_name %}--o en ningún otro lugar público, para el caso. Te recomendamos almacenarlos como [variables de ambiente][about env vars]--que es exactamente lo que hicimos aquí.
 
 Posteriormente, pega este contenido en _views/index.erb_:
 
@@ -74,11 +74,11 @@ Posteriormente, pega este contenido en _views/index.erb_:
 
 También, ten en cuenta que la URL utiliza el parámetro de consulta `scope` para definir los [alcances][oauth scopes] que solicita la aplicación. Para nuestra aplicación, estamos solicitando el alcance `user:email` para leer las direcciones de correo electrónico privadas.
 
-Navega en tu buscador hacia `http://localhost:4567`. Después de dar clic en el enlace, se te llevará a {{ site.data.variables.product.product_name }} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
+Navega en tu buscador hacia `http://localhost:4567`. Después de dar clic en el enlace, se te llevará a {% data variables.product.product_name %} y se te mostrará un diálogo que se ve más o menos así: ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
 Si confías en ti mismo, da clic en **Autorizar App**. ¡Oh-oh! Sinatra te arroja un error `404`. ¡¿Qué pasa?!
 
-Bueno, ¡¿recuerdas cuando especificamos la URL de rellamado como `callback`? No proporcionamos una ruta para ésta, así que {{ site.data.variables.product.product_name }} no sabe dónde dejar al usuario después de autorizar la app. ¡Arreglémoslo ahora!
+Bueno, ¡¿recuerdas cuando especificamos la URL de rellamado como `callback`? No proporcionamos una ruta para ésta, así que {% data variables.product.product_name %} no sabe dónde dejar al usuario después de autorizar la app. ¡Arreglémoslo ahora!
 
 #### Proporcionar un rellamado
 
@@ -101,7 +101,7 @@ get '/callback' do
 end
 ```
 
-Después de que la app se autentica exitosamente, {{ site.data.variables.product.product_name }} proporciona un valor temporal de `code`. Necesitas hacer `POST` para este código en {{ site.data.variables.product.product_name }} para intercambiarlo por un `access_token`. Para simplificar nuestras solicitudes HTTP de GET y de POST, utilizamos el [rest-client][REST Client]. Nota que probablemente jamás accedas a la API a través de REST. Para aplicarlo con más seriedad, probablemente debas usar [una biblioteca escrita en tu lenguaje preferido][libraries].
+Después de que la app se autentica exitosamente, {% data variables.product.product_name %} proporciona un valor temporal de `code`. Necesitas hacer `POST` para este código en {% data variables.product.product_name %} para intercambiarlo por un `access_token`. Para simplificar nuestras solicitudes HTTP de GET y de POST, utilizamos el [rest-client][REST Client]. Nota que probablemente jamás accedas a la API a través de REST. Para aplicarlo con más seriedad, probablemente debas usar [una biblioteca escrita en tu lenguaje preferido][libraries].
 
 #### Verificar los alcances otorgados
 
@@ -135,13 +135,13 @@ Por fin, con este token de acceso, podrás hacer solicitudes autenticadas como e
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -171,7 +171,7 @@ Podemos hacer lo que queramos con nuestros resultados. En este caso, solo las va
 
 Estaríamos hablando de un pésimo modelo si requerimos que los usuarios inicien sesión en la app cada vez que necesiten acceder a la página web. Por ejemplo, intenta navegar directamente a `http://localhost:4567/basic`. Obtendrás un error.
 
-¿Qué pasaría si pudiéramos eludir todo el proceso de "da clic aquí" y solo lo _recordáramos_, siempre y cuando los usuarios estuviera ingresados en {{ site.data.variables.product.product_name }} y así, ellos pudieran acceder a esta aplicación? ¡Agárrate! porque _eso es exactamente lo que vamos a hacer_.
+¿Qué pasaría si pudiéramos eludir todo el proceso de "da clic aquí" y solo lo _recordáramos_, siempre y cuando los usuarios estuviera ingresados en {% data variables.product.product_name %} y así, ellos pudieran acceder a esta aplicación? ¡Agárrate! porque _eso es exactamente lo que vamos a hacer_.
 
 Nuestro pequeño servidor que mostramos antes es muy simple. Para poder insertar algún tipo de autenticación inteligente, vamos a optar por utilizar sesiones para almacenar los tokens. Esto hará que la autenticación sea transparente para el usuario.
 
@@ -212,7 +212,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -233,7 +233,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end
@@ -257,7 +257,7 @@ get '/callback' do
 end
 ```
 
-La mayoría de este código debería serte familiar. Por ejemplo, aún estamos utilizando `RestClient.get` para llamar a la API de {{ site.data.variables.product.product_name }}, y aún estamos pasando nuestros resultados par que se interpreten en una plantilla de ERB (en esta ocasión, se llama `advanced.erb`).
+La mayoría de este código debería serte familiar. Por ejemplo, aún estamos utilizando `RestClient.get` para llamar a la API de {% data variables.product.product_name %}, y aún estamos pasando nuestros resultados par que se interpreten en una plantilla de ERB (en esta ocasión, se llama `advanced.erb`).
 
 También, ahora tenemos el método `authenticated?`, el cual verifica si el usuario ya se autenticó. Si no, se llamará al método `authenticate!`, el cual lleva a cabo el flujo de OAuth y actualiza la sesión con el token que se otorgó y con los alcances.
 
@@ -288,9 +288,9 @@ Después, crea un archivo en _views_, el cual se llame _advanced.erb_ y pega est
 
 Desde la líne de comandos, llama a `ruby advanced_server.rb`, lo cual inicia tu servidor en el puerto `4567` -- el mismo puerto que utilizamos cuando tuvimos una app de Sinatra sencilla. Cuando navegas a `http://localhost:4567`, la app llama a `authenticate!`, lo cual te redirige a `/callback`. Entonces, `/callback` nos regresa a `/` y, ya que estuvimos autenticados, interpreta a _advanced.erb_.
 
-Podríamos simplificar completamente esta ruta redonda si solo cambiamos nuestra URL de rellamado en {{ site.data.variables.product.product_name }} a `/`. Pero, ya que tanto _server.rb_ como _advanced.rb_ dependen de la misma URL de rellamado, necesitamos hacer un poco más de ajustes para que funcione.
+Podríamos simplificar completamente esta ruta redonda si solo cambiamos nuestra URL de rellamado en {% data variables.product.product_name %} a `/`. Pero, ya que tanto _server.rb_ como _advanced.rb_ dependen de la misma URL de rellamado, necesitamos hacer un poco más de ajustes para que funcione.
 
-También, si nunca hubiéramos autorizado esta aplicación para acceder a nuestros datos de {{ site.data.variables.product.product_name }}, habríamos visto el mismo diálogo de confirmación del pop-up anterior para advertirnos.
+También, si nunca hubiéramos autorizado esta aplicación para acceder a nuestros datos de {% data variables.product.product_name %}, habríamos visto el mismo diálogo de confirmación del pop-up anterior para advertirnos.
 
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
 [Sinatra]: http://www.sinatrarb.com/

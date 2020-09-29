@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Checking the status of a self-hosted runner
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Under "Self-hosted runners," you can view a list of registered runners, including the runner's name, labels, and status.
 
     ![Runner list](/assets/images/help/settings/actions-runner-list.png)
 
     The status can be one of the following:
 
-    * **Idle**: The runner is connected to {{ site.data.variables.product.product_name }} and is ready to execute jobs.
+    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
     * **Active**: The runner is currently executing a job.
-    * **Offline**: The runner is not connected to {{ site.data.variables.product.product_name }}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {{ site.data.variables.product.product_name }}.
+    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
 
 
 ### Reviewing the self-hosted runner application log files

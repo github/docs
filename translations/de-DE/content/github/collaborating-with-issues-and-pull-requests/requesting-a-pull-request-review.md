@@ -20,7 +20,7 @@ Inhaber oder Mitarbeiter können jeder Person, der explizit [Lesezugriff](/artic
 
 Du kannst den Review entweder von einer vorgeschlagenen oder von einer bestimmten Person anfordern. Vorgeschlagene Reviewer werden auf Grundlage der [Git-Blame-Daten](/articles/tracking-changes-in-a-file/) ausgewählt. Wenn Du einen Review anforderst, können trotzdem auch andere Personen mit Lesezugriff Deinen Pull Request prüfen. Sobald jemand Deinen Pull-Request überprüft hat und Du die notwendigen Änderungen vorgenommen hast, kannst du einen erneuten Review vom gleichen Prüfer anfordern. Wenn der angeforderte Prüfer keinen Review einreicht, und der Pull Request die [Anforderungen an die Zusammenführung](/articles/defining-the-mergeability-of-pull-requests) des Repositorys erfüllt, kannst Du den Pull Request trotzdem zusammenführen.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, den eine bestimmte Person oder ein Team prüfen soll.
 3. Navigiere in der linken Seitenleiste zu **Reviewers** (Prüfer).
 4. Wenn den Review von einer unter **Reviewers** (Prüfer) vorgeschlagenen Person anfordern möchtest, klicke neben deren Benutzernamen auf **Request** (Anfordern). ![Symbol für Reviewer-Anforderung in der rechten Seitenleiste](/assets/images/help/pull_requests/request-suggested-review.png)

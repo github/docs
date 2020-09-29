@@ -1,6 +1,6 @@
 ---
 title: Utilizar el Explorador
-intro: 'Puedes ejecutar consultas en datos reales de {{ site.data.variables.product.prodname_dotcom }} utilizando el explorador de GraphQL, un ambiente de desarrollo integrado en tu buscador que incluye documentos, sintaxis resaltada y errores de validación.'
+intro: 'Puedes ejecutar consultas en datos reales de {% data variables.product.prodname_dotcom %} utilizando el explorador de GraphQL, un ambiente de desarrollo integrado en tu buscador que incluye documentos, sintaxis resaltada y errores de validación.'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
@@ -16,7 +16,7 @@ El [Explorador de GraphQL](/v4/explorer) es una instancia de [GraphQL](https://g
 
 {% note %}
 
-**Nota**: {{ site.data.variables.product.prodname_dotcom }} ha inhabilitado las [mutaciones](/v4/mutation/) en el explorador, pero puedes utilizarlas en tu propia instancia de GraphiQL.
+**Nota**: {% data variables.product.prodname_dotcom %} ha inhabilitado las [mutaciones](/v4/mutation/) en el explorador, pero puedes utilizarlas en tu propia instancia de GraphiQL.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ Para utilizar la app de GraphiQL, descárgala e instálala desde https://github.
 1. En el campo **Clave**, ingresa `Authorization`. En el campo **Valor**, ingresa `Bearer <token>`, en donde `<token>` es tu token de OAuth generado. ![encabezados de graphiql](/assets/images/developer/graphiql-headers.png)
 1. Da clic en la casilla a la derecha del token para guardarlo.
 1. Para gregresar al editor, da clic fuera de el modo **Editar Encabezados de HTTP**.
-1. En el campo **Terminal GraphQL** ingresa `{{ site.data.variables.product.graphql_url_pre }}`.
+1. En el campo **Terminal GraphQL** ingresa `{% data variables.product.graphql_url_pre %}`.
 1. En el menú desplegable **Método**, selecciona **POST**.
 
 {% note %}
@@ -101,7 +101,7 @@ Si quieres ejecutar la llamada en el explorador, ingresa el segmento `query` en 
 
 ### Solicitar soporte
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}
 
 ### Solución de errores
 
@@ -146,6 +146,6 @@ Es posible que te encuentres con un error inesperado que no está relacionado co
 
 {% note %}
 
-**Nota:** {{ site.data.variables.product.prodname_dotcom }} recomienda que revises si hay errores antes de utilizar datos en un ambiente productivo. En GraphQL, la falla no es total: algunas porciones de las consultas de GraphQL pueden tener éxito y otras pueden fallar.
+**Nota:** {% data variables.product.prodname_dotcom %} recomienda que revises si hay errores antes de utilizar datos en un ambiente productivo. En GraphQL, la falla no es total: algunas porciones de las consultas de GraphQL pueden tener éxito y otras pueden fallar.
 
 {% endnote %}

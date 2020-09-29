@@ -1,6 +1,6 @@
 ---
 title: About project boards
-intro: 'Project boards on {{ site.data.variables.product.product_name }} help you organize and prioritize your work. You can create project boards for specific feature work, comprehensive roadmaps, or even release checklists. With project boards, you have the flexibility to create customized workflows that suit your needs.'
+intro: 'Project boards on {% data variables.product.product_name %} help you organize and prioritize your work. You can create project boards for specific feature work, comprehensive roadmaps, or even release checklists. With project boards, you have the flexibility to create customized workflows that suit your needs.'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
@@ -11,14 +11,14 @@ versions:
 
 Project boards are made up of issues, pull requests, and notes that are categorized as cards in columns of your choosing. You can drag and drop or use keyboard shortcuts to reorder cards within a column, move cards from column to column, and change the order of columns.
 
-Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {{ site.data.reusables.project-management.edit-in-project }}
+Project board cards contain relevant metadata for issues and pull requests, like labels, assignees, the status, and who opened it. {% data reusables.project-management.edit-in-project %}
 
-You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {{ site.data.variables.product.product_name }}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
+You can create notes within columns to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add information related to the project board. You can create a reference card for another project board by adding a link to a note. If the note isn't sufficient for your needs, you can convert it to an issue. For more information on converting project board notes to issues, see "[Adding notes to a project board](/articles/adding-notes-to-a-project-board)."
 
 Types of project boards:
 
 - **User-owned project boards** can contain issues and pull requests from any personal repository.
-- **Organization-wide project boards** can contain issues and pull requests from any repository that belongs to an organization.  {{ site.data.reusables.project-management.link-repos-to-project-board }} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
+- **Organization-wide project boards** can contain issues and pull requests from any repository that belongs to an organization.  {% data reusables.project-management.link-repos-to-project-board %} For more information, see "[Linking a repository to a project board](/articles/linking-a-repository-to-a-project-board)."
 - **Repository project boards** are scoped to issues and pull requests within a single repository. They can also include notes that reference issues and pull requests in other repositories.
 
 ### Creating and viewing project boards
@@ -37,7 +37,7 @@ If you've completed all of your project board tasks or no longer need to use you
 
 You can also [disable project boards in a repository](/articles/disabling-project-boards-in-a-repository) or [disable project boards in your organization](/articles/disabling-project-boards-in-your-organization), if you prefer to track your work in a different way.
 
-{{ site.data.reusables.project-management.project-board-import-with-api }}
+{% data reusables.project-management.project-board-import-with-api %}
 
 ### Templates for project boards
 
@@ -54,7 +54,7 @@ For more information on automation for project boards, see "[About automation fo
 
 ![Project board with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 ### Further reading
 

@@ -16,7 +16,7 @@ versions:
 プロジェクトボードの自動化も、デフォルトで有効になっています。 詳しい情報については「[プロジェクトボードの自動化について](/articles/about-automation-for-project-boards/)」を参照してください。
 
 1. コピーしたいプロジェクトボードに移動します。
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}をクリックしてから、[**Copy**] をクリックします。 ![プロジェクトボードのサイドバーにある、ドロップダウンメニューの [Copy] オプション](/assets/images/help/projects/project-board-copy-setting.png)
 4. [Owner] の下にあるドロップダウンメニューで、プロジェクトボードのコピー先にするリポジトリまたは Organization をクリックします。 ![ドロップダウンメニューから、コピーしたプロジェクトボードのオーナーを選択](/assets/images/help/projects/copied-project-board-owner.png)
 5. 必要に応じて、[Project board name] の下に、コピーしたプロジェクトボードの名前を入力します。 ![コピーされたプロジェクトボードの名前を入力するフィールド](/assets/images/help/projects/copied-project-board-name.png)

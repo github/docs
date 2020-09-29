@@ -10,7 +10,7 @@ versions:
 
 ### Visão geral das permissões
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }} Para obter mais informações sobre como adicionar um colaborador a uma consultora de segurança, consulte "[Adicionar um colaborador a uma consultora de segurança](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
+{% data reusables.repositories.security-advisory-admin-permissions %} Para obter mais informações sobre como adicionar um colaborador a uma consultora de segurança, consulte "[Adicionar um colaborador a uma consultora de segurança](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
 
 | Ação                                                                                                                                                                                                                                                                                           | Permissões de gravação | Permissões de administrador |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------------------- |

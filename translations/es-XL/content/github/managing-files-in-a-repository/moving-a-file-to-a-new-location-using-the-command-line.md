@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-Muchos archivos pueden [moverse directamente en {{ site.data.variables.product.product_name }}](/articles/moving-a-file-to-a-new-location), pero algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando.
+Muchos archivos pueden [moverse directamente en {% data variables.product.product_name %}](/articles/moving-a-file-to-a-new-location), pero algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando.
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
 1. En la computadora, mueve el archivo a una nueva ubicación dentro del directorio que fue creado localmente en tu computadora cuando clonaste el repositorio.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Utiliza `git status` para verificar la nueva ubicación y la ubicación anterior del archivo.
   ```shell
   $ git status
@@ -31,11 +31,11 @@ Muchos archivos pueden [moverse directamente en {{ site.data.variables.product.p
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-{{ site.data.reusables.git.stage_for_commit }} Esto eliminará, o `git rm`, el archivo de la ubicación antigua y agregará, o `git add`, el archivo en la nueva ubicación.
+{% data reusables.git.stage_for_commit %} Esto eliminará, o `git rm`, el archivo de la ubicación antigua y agregará, o `git add`, el archivo en la nueva ubicación.
   ```shell
   $ git add .
   # Agrega el archivo a tu repositorio local y lo presenta para la confirmación.
-  # {{ site.data.reusables.git.unstage-codeblock }}
+  # {% data reusables.git.unstage-codeblock %}
   ```
 5. Utiliza `git status` para verificar los cambios preparados para confirmar.
   ```shell
@@ -47,13 +47,13 @@ Muchos archivos pueden [moverse directamente en {{ site.data.variables.product.p
   > #    renamed:    /old-folder/image.png -> /new-folder/image.png
   # Displays the changes staged for commit
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Move file to new directory"
   # Commits the tracked changes and prepares them to be pushed to a remote repository.
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### Leer más
 

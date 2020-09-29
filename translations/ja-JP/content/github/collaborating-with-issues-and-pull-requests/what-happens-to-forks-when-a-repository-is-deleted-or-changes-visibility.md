@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 #### プライベートリポジトリを削除する
 
@@ -21,7 +21,7 @@ versions:
 
 #### プライベートフォークと権限
 
-{{ site.data.reusables.repositories.private_forks_inherit_permissions }}
+{% data reusables.repositories.private_forks_inherit_permissions %}
 
 #### パブリックリポジトリをプライベートリポジトリに変更する
 

@@ -25,16 +25,16 @@ versions:
 
 ### Organization のレガシーの管理者 Team をすべて移行する
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.teams_sidebar }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.teams_sidebar %}
 1. Organization のレガシーの管理者 Team をレビューし、[**Migrate all teams**] をクリックします。 ![[Migrate all teams] ボタン](/assets/images/help/teams/migrate-all-legacy-admin-teams.png)
 1. 移行するチームのメンバーについて起きうる変化についての情報を読んだら、[**Migrate all teams**] をクリックします。 ![移行を確定するボタン](/assets/images/help/teams/confirm-migrate-all-legacy-admin-teams.png)
 
 ### 1 つの管理者 Team を移行する
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 1. チーム説明のボックスで、[**Migrate team**] をクリックします。 ![[Migrate team] ボタン](/assets/images/help/teams/migrate-a-legacy-admin-team.png)

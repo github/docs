@@ -1,6 +1,6 @@
 ---
 title: 搜索代码
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -10,17 +10,17 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索代码，也可以在特定仓库或组织内搜索代码。 要在所有公共仓库内搜索代码，您必须登录到 {{ site.data.variables.product.product_name }} 帐户。 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索代码，也可以在特定仓库或组织内搜索代码。 要在所有公共仓库内搜索代码，您必须登录到 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。
 
 您只能使用这些代码搜索限定符搜索代码。 搜索代码时，专用于仓库、用户或提交的搜索限定符将不起作用。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### 代码搜索的注意事项
 
 由于搜索代码的复杂性，执行搜索的方式有一些限制：
 
-- {{ site.data.reusables.search.required_login }}
+- {% data reusables.search.required_login %}
 - [复刻](/articles/about-forks)中的代码仅当复刻的星号超过父级仓库时可搜索。 星号少于父仓库的复刻**不**为代码搜索编索引。 要在搜索结果中包括星号比其父项多的复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/articles/searching-in-forks)”。
 - Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
 - 只有小于 384 KB 的文件可搜索。{% else %}* 只有小于 5 MB 的文件可搜索。
@@ -102,4 +102,4 @@ versions:
 
 - “[排序搜索结果](/articles/sorting-search-results/)”
 - "[在复刻中搜索](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
-- "[在 {{ site.data.variables.product.prodname_dotcom }} 上导航代码](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[在 {% data variables.product.prodname_dotcom %} 上导航代码](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

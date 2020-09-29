@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Si publicas una asesoría de seguridad por error, puedes retirarla contactando a {{ site.data.variables.contact.contact_support }}.
+Si publicas una asesoría de seguridad por error, puedes retirarla contactando a {% data variables.contact.contact_support %}.
 
 ### Leer más
 

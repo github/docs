@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
 ---
 
-スポンサーシップ層をアップグレードした場合、その変更は直ちに有効になります。 {{ site.data.reusables.sponsors.prorated-sponsorship }}
+スポンサーシップ層をアップグレードした場合、その変更は直ちに有効になります。 {% data reusables.sponsors.prorated-sponsorship %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.sponsors.change-tier }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.sponsors.change-tier %}
 4. ページの右側の、選択した層の隣にある [**Edit**] をクリックします。 ![層の編集ボタン](/assets/images/help/billing/edit-tier-button.png)
-{{ site.data.reusables.sponsors.select-a-tier }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.update-sponsorship %}

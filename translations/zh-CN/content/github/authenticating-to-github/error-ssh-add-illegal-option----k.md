@@ -21,7 +21,7 @@ versions:
 
 {% note %}
 
-**注意：** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**注意：** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

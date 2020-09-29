@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {{ site.data.variables.product.product_name }} proporciona **hasta 1,000 resultados por búsqueda**.
+La API de Búsqueda te ayuda a buscar el elemento específico que quieres encontrar. Por ejemplo, puedes buscar un usuario o un archivo específico en el repositorio. Tómalo como el simil de realizar una búsqueda en Google. Se diseñó para ayudarte a encontrar el resultado exacto que estás buscando (o tal vez algunos de los resultados que buscas). Tal como la búsqueda en Google, a veces quieres ver algunas páginas de los resultados de búsqueda para que puedas encontrar el elemento que mejor satisfaga tus necesidades. Para satisfacer esta necesidad, la API de Búsqueda de {% data variables.product.product_name %} proporciona **hasta 1,000 resultados por búsqueda**.
 
 Puedes delimitar tu búsqueda utilizando consultas. Para aprender más sobre la sintaxis de las consultas de búsqueda, dirígete a "[Construir una consulta de búsqueda](/v3/search/#constructing-a-search-query)".
 
@@ -19,13 +19,13 @@ A menos de que se proporcione algún otro tipo de opción como parámetro de con
 
 La API de Búsqueda tiene un límite de tasa personalizado. Para las solicitudes que utilizan [Autenticación Básica](/v3/#authentication), [OAuth](/v3/#authentication), o [secreto e ID de cliente](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), puedes hacer hasta 30 solicitudes por minuto. Para las solicitudes sin autenticar, el límite de tasa te permite hacer hasta 10 por minuto.
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 Consulta la [documentación del límite de tasa](/rest/reference/rate-limit) para obtener más detalles sobre cómo determinar tu estado de límite de tasa actual.
 
 ### Construir una consulta de búsqueda
 
-Cada terminal en la API de búsqueda utiliza [parámetros de búsqueda](https://en.wikipedia.org/wiki/Query_string) para realizar búsqeudas en {{ site.data.variables.product.product_name }}. Observa la terminal individual an la API de Búsqueda para encontrar un ejemplo que incluye los parámetros de consulta y de terminal.
+Cada terminal en la API de búsqueda utiliza [parámetros de búsqueda](https://en.wikipedia.org/wiki/Query_string) para realizar búsqeudas en {% data variables.product.product_name %}. Observa la terminal individual an la API de Búsqueda para encontrar un ejemplo que incluye los parámetros de consulta y de terminal.
 
 Una consulta puede contener cualquier combinación de calificadores de búsqueda compatibles con GitHub.com. El formato de esta consulta de búsqueda es:
 
@@ -57,11 +57,11 @@ Llegar a una interrupción no necesariamente significa que los resultados de bú
 
 ### Errores de acceso o resultados de búsqueda faltantes
 
-Necesitas autenticarte exitosamente y tener acceso a los repositorios en tus consultas de búsqueda, de lo contrario, verás un error de `422 Unprocessible Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {{ site.data.variables.product.prodname_dotcom }}.
+Necesitas autenticarte exitosamente y tener acceso a los repositorios en tus consultas de búsqueda, de lo contrario, verás un error de `422 Unprocessible Entry` con un mensaje de "Validation Failed". Por ejemplo, tu búsqueda fallará si tu consulta incluye los calificadores `repo:`, `user:`, o `org:` que solicitan los recursos a los cuales no tienes acceso cuando inicias sesión en {% data variables.product.prodname_dotcom %}.
 
 Cuando tu consulta de búsqueda solicita recursos múltiples, la respuesta solo contendrá aquellos a los que tengas acceso y **no** proporcionará un mensaje de error que liste los recursos que no se devolvieron.
 
-Por ejemplo, si tu consulta de búsqueda quiere buscar en los repositorios `octocat/test` y `codertocat/test`, pero solo tienes acceso a `octocat/test`, tu respuesta mostrará los resultados de búsqueda para `octocat/test` y no mostrará nada para `codertocat/test`. Este comportamiento simula cómo funciona la búsqueda en {{ site.data.variables.product.prodname_dotcom }}.
+Por ejemplo, si tu consulta de búsqueda quiere buscar en los repositorios `octocat/test` y `codertocat/test`, pero solo tienes acceso a `octocat/test`, tu respuesta mostrará los resultados de búsqueda para `octocat/test` y no mostrará nada para `codertocat/test`. Este comportamiento simula cómo funciona la búsqueda en {% data variables.product.prodname_dotcom %}.
 
 {% include rest_operations_at_current_path %}
 
@@ -96,7 +96,7 @@ Si utilizas cURL y también el [ejemplo de búsqueda de informe de problemas](#s
 
 ``` shell
 curl -H 'Accept: application/vnd.github.v3.text-match+json' \
-'{{ site.data.variables.product.api_url_pre }}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 
 La respuesta incluirá una matriz de `text_matches` para cada resultado de búsqueda. En el JSON que se muestra a continuación, tenemos dos objetos en la matriz `text_matches`.

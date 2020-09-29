@@ -1,7 +1,7 @@
 ---
 title: 查看仓库活动的摘要
 intro: '您可以通过 Pulse 查看仓库活动的概览。 Pulse 包括打开及合并的拉取请求列表、打开和关闭的议题列表，以及显示在所选[时间段](/articles/viewing-a-summary-of-repository-activity#filtering-by-time)内提交到项目默认分支的前 15 名用户的提交活动图表。'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
 versions:
@@ -13,8 +13,8 @@ versions:
 
 ### 访问 Pulse
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 
 ### 按时间过滤
 

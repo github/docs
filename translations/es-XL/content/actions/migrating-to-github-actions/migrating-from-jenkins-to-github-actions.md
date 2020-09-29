@@ -1,29 +1,29 @@
 ---
 title: Migrar de Jenkins a GitHub Actions
-intro: '{{ site.data.variables.product.prodname_actions }} y Jenkins comparten varias similaridades, lo cual hace que migrar a {{ site.data.variables.product.prodname_actions }} sea relativamente sencillo.'
+intro: '{% data variables.product.prodname_actions %} y Jenkins comparten varias similaridades, lo cual hace que migrar a {% data variables.product.prodname_actions %} sea relativamente sencillo.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introducción
 
-Tanto Jenkins como {{ site.data.variables.product.prodname_actions }} te permiten crear flujos de trabajo que compilan, prueban, publican, lanzan y despliegan código automáticamente. Jenkins y {{ site.data.variables.product.prodname_actions }} comparten algunas similaridades en la configuración del flujo de trabajo:
+Tanto Jenkins como {% data variables.product.prodname_actions %} te permiten crear flujos de trabajo que compilan, prueban, publican, lanzan y despliegan código automáticamente. Jenkins y {% data variables.product.prodname_actions %} comparten algunas similaridades en la configuración del flujo de trabajo:
 
-- Jenkins crea flujos de trabajo utilizando _Mapas Declarativos_, los cuales son similares a los archivos de flujo de trabajo de {{ site.data.variables.product.prodname_actions }}.
-- Jenkins utiliza _etapas_ para ejecutar un conjunto de pasos, mientras que {{ site.data.variables.product.prodname_actions }} utiliza jobs para agrupar uno o mas pasos o comandos individuales.
-- Jenkins y {{ site.data.variables.product.prodname_actions }} son compatibles con compilaciones basadas en el contenedor. Para obtener más información, consulta "[Crear una acción de contenedor Docker](/articles/creating-a-docker-container-action)".
+- Jenkins crea flujos de trabajo utilizando _Mapas Declarativos_, los cuales son similares a los archivos de flujo de trabajo de {% data variables.product.prodname_actions %}.
+- Jenkins utiliza _etapas_ para ejecutar un conjunto de pasos, mientras que {% data variables.product.prodname_actions %} utiliza jobs para agrupar uno o mas pasos o comandos individuales.
+- Jenkins y {% data variables.product.prodname_actions %} son compatibles con compilaciones basadas en el contenedor. Para obtener más información, consulta "[Crear una acción de contenedor Docker](/articles/creating-a-docker-container-action)".
 - Los pasos o tareas pueden reutilizarse y compartirse con la comunidad.
 
-Para obtener más información, consulta la sección "[Conceptos esenciales para {{ site.data.variables.product.prodname_actions }}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
+Para obtener más información, consulta la sección "[Conceptos esenciales para {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
 
 ### Diferencias clave
 
-- Jenkins tiene dos tipos de sintaxis para crear mapas: Mapa Declarativo y Mapa de Script. {{ site.data.variables.product.prodname_actions }} utiliza YAML para crear flujos de trabajo y archivos de configuración. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
-- Los despliegues de jenkins son típicamente auto-hospedados y los usuarios mantienen los servidores en sus propios centros de datos. {{ site.data.variables.product.prodname_actions }} ofrece un acercamiento híbrido en la nube, hospedando sus propios ejecutores que puedes utilizar para ejecutar jobs, mientras que también son compatibles con ejecutores auto-hospedados. Para obtener más información, consulta la sección [Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners).
+- Jenkins tiene dos tipos de sintaxis para crear mapas: Mapa Declarativo y Mapa de Script. {% data variables.product.prodname_actions %} utiliza YAML para crear flujos de trabajo y archivos de configuración. Para obtener más información, consultala sección "[Sintaxis de flujo de trabajo para GitHub Actions](/actions/reference/workflow-syntax-for-github-actions)".
+- Los despliegues de jenkins son típicamente auto-hospedados y los usuarios mantienen los servidores en sus propios centros de datos. {% data variables.product.prodname_actions %} ofrece un acercamiento híbrido en la nube, hospedando sus propios ejecutores que puedes utilizar para ejecutar jobs, mientras que también son compatibles con ejecutores auto-hospedados. Para obtener más información, consulta la sección [Acerca de los ejecutores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners).
 
 ### Comparación de capacidades
 
@@ -31,17 +31,17 @@ Para obtener más información, consulta la sección "[Conceptos esenciales para
 
 Jenkis te permite enviar compilaciones a un agente de compilación sencilla, o puedes distribuirlas a través de varios agentes. También puedes clasificar estos agentes de acuerdo con diversos atributos, tales como los tipos de sistema operativo.
 
-De manera similar, {{ site.data.variables.product.prodname_actions }} puede enviar jobs a los ejecutores hospedatos en {{ site.data.variables.product.prodname_dotcom }} o autohospedados, y puedes utilizar etiquetas para clasificarlos de acuerdo a diversos atributos. La siguiente tabla compara cómo se implementa el concepto de compilación distribuido tanto para Jenkins como para {{ site.data.variables.product.prodname_actions }}.
+De manera similar, {% data variables.product.prodname_actions %} puede enviar jobs a los ejecutores hospedatos en {% data variables.product.prodname_dotcom %} o autohospedados, y puedes utilizar etiquetas para clasificarlos de acuerdo a diversos atributos. La siguiente tabla compara cómo se implementa el concepto de compilación distribuido tanto para Jenkins como para {% data variables.product.prodname_actions %}.
 
-| Jenkins                                                                | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                 |
+| Jenkins                                                                | {% data variables.product.prodname_actions %}                                                                                                                                                 |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`agents`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`runners`](/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner)  <br> [`self-hosted runners`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
 
 #### Utilizar secciones para organizar mapas
 
-Jenkins divide sus Mapas Declarativos en varias secciones. De manera similar, {{ site.data.variables.product.prodname_actions }} organiza sus flujos de trabajo en secciones diferentes. En esta tabla se comparan las secciones de Jenkins con el flujo de trabajo de {{ site.data.variables.product.prodname_actions }}.
+Jenkins divide sus Mapas Declarativos en varias secciones. De manera similar, {% data variables.product.prodname_actions %} organiza sus flujos de trabajo en secciones diferentes. En esta tabla se comparan las secciones de Jenkins con el flujo de trabajo de {% data variables.product.prodname_actions %}.
 
-| Directivas de Jenkins                                              | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                     |
+| Directivas de Jenkins                                              | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`agent`](https://jenkins.io/doc/book/pipeline/syntax/#agent)      | [`jobs.<job_id>.runs-on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on) <br> [`jobs.<job_id>.container`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer) |
 | [`publicación`](https://jenkins.io/doc/book/pipeline/syntax/#post) |                                                                                                                                                                                                                                                                                                        |
@@ -51,9 +51,9 @@ Jenkins divide sus Mapas Declarativos en varias secciones. De manera similar, {{
 
 ### Utilizar directivas
 
-Jenkins utiliza directivas para administrar los _Mapas Declarativos_. Estas directivas definen las características de tu flujo de trabajo y la manera en que se ejecuta. La tabla siguiente demuestra cómo dichas directivas mapean los conceptos en {{ site.data.variables.product.prodname_actions }}.
+Jenkins utiliza directivas para administrar los _Mapas Declarativos_. Estas directivas definen las características de tu flujo de trabajo y la manera en que se ejecuta. La tabla siguiente demuestra cómo dichas directivas mapean los conceptos en {% data variables.product.prodname_actions %}.
 
-| Directivas de Jenkins                                                                      | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Directivas de Jenkins                                                                      | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`entorno`](https://jenkins.io/doc/book/pipeline/syntax/#environment)                      | [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)                                                                                                                                                                                                                                                                                                 |
 | [`opciones`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                      | [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)                                                                                    |
@@ -71,17 +71,17 @@ Jenkins utiliza directivas para administrar los _Mapas Declarativos_. Estas dire
 
 #### Proceso paralelo de jobs
 
-Jenkins puede ejecutar las `stages` y `steps` en paralelo, mientras que, actualmente, {{ site.data.variables.product.prodname_actions }} solo ejecuta jobs en paralelo.
+Jenkins puede ejecutar las `stages` y `steps` en paralelo, mientras que, actualmente, {% data variables.product.prodname_actions %} solo ejecuta jobs en paralelo.
 
-| Jenkins en Paralelo                                                 | {{ site.data.variables.product.prodname_actions }}                                                                                                                     |
+| Jenkins en Paralelo                                                 | {% data variables.product.prodname_actions %}                                                                                                                     |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
 #### Matriz de compilaciones
 
-Tanto {{ site.data.variables.product.prodname_actions }} como Jenkins te permiten utilizar una matriz de compilaciones para definir diversas combinaciones de sistema.
+Tanto {% data variables.product.prodname_actions %} como Jenkins te permiten utilizar una matriz de compilaciones para definir diversas combinaciones de sistema.
 
-| Jenkins                                                                  | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                             |
+| Jenkins                                                                  | {% data variables.product.prodname_actions %}                                                                                                                                                             |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`axis`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-axes)       | [`strategy/matrix`](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix) <br> [`context`](/actions/reference/context-and-expression-syntax-for-github-actions) |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages)   | [`steps-context`](/actions/reference/context-and-expression-syntax-for-github-actions#steps-context)                                                                                                           |
@@ -89,9 +89,9 @@ Tanto {{ site.data.variables.product.prodname_actions }} como Jenkins te permite
 
 #### Utilizar pasos para ejecutar tareas
 
-Jenkins agrupa los `steps` en `stages`. Cada uno de estos pasos puede ser un script, función, o comando, entre otros. De manera similar, {{ site.data.variables.product.prodname_actions }} utiliza `jobs` para ejecutar grupos específicos de `steps`.
+Jenkins agrupa los `steps` en `stages`. Cada uno de estos pasos puede ser un script, función, o comando, entre otros. De manera similar, {% data variables.product.prodname_actions %} utiliza `jobs` para ejecutar grupos específicos de `steps`.
 
-| Pasos de Jenkins                                                | {{ site.data.variables.product.prodname_actions }}                                                   |
+| Pasos de Jenkins                                                | {% data variables.product.prodname_actions %}                                                   |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [`script`](https://jenkins.io/doc/book/pipeline/syntax/#script) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
@@ -105,7 +105,7 @@ Jenkins agrupa los `steps` en `stages`. Cada uno de estos pasos puede ser un scr
 Mapa de Jenkins
 </th>
 <th>
-Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
+Flujo de trabajo de {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
 Mapa de Jenkins
 </th>
 <th>
-Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
+Flujo de trabajo de {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
 Mapa de Jenkins
 </th>
 <th>
-Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
+Flujo de trabajo de {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -222,7 +222,7 @@ Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
 Mapa de Jenkins
 </th>
 <th>
-Flujo de trabajo de {{ site.data.variables.product.prodname_actions }}
+Flujo de trabajo de {% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>

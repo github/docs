@@ -16,8 +16,8 @@ Wenn Du bei der Verwendung Deines SSH-Schlüssels Deine Passphrase nicht jedes m
 
 ### Einen neuen SSH-Schlüssel erzeugen
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. Füge den folgenden Text ein, und ersetzte dabei Deine {{ site.data.variables.product.product_name }}-E-Mail-Adresse.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. Füge den folgenden Text ein, und ersetzte dabei Deine {% data variables.product.product_name %}-E-Mail-Adresse.
   ```shell
   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
@@ -63,7 +63,7 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% mac %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
 2. Wenn Sie macOS Sierra 10.12.2 oder höher verwenden, müssen Sie die Datei `~/.ssh/config` bearbeiten, damit automatisch Schlüssel in den ssh-agent geladen und Passphrasen in der Keychain gespeichert werden.
 
@@ -89,7 +89,7 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
         IdentityFile ~/.ssh/id_rsa
       ```
 
-3. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu, und speichern Sie Ihre Passphrase in der Keychain. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+3. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu, und speichern Sie Ihre Passphrase in der Keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_rsa
   ```
@@ -107,7 +107,7 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
 1. Stellen Sie sicher, dass ssh-agent ausgeführt wird. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
   ```shell
@@ -116,8 +116,8 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
   > Agent pid 59566
   ```
 
-2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Fügen Sie den SSH-Schlüssel zu Ihrem GitHub-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).
 
@@ -125,10 +125,10 @@ Bevor Du einen neuen SSH-Schlüssel zum SSH-Agenten für die Verwaltung Deiner S
 
 {% linux %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
-2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Fügen Sie Ihren privaten SSH-Schlüssel zu ssh-agent hinzu. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Fügen Sie den SSH-Schlüssel zu Ihrem GitHub-Konto hinzu](/articles/adding-a-new-ssh-key-to-your-github-account).
 

@@ -17,7 +17,7 @@ Angeheftete Elemente enthalten wichtige Informationen über das Element, wie bei
 
 Du kannst die Elemente im Bereich „Pinned“ (Angeheftet) neu anordnen. Klicke in der oberen rechten Ecke eines angehefteten Elements auf {% octicon "grabber" aria-label="The grabber symbol" %}, und ziehe es an eine andere Stelle.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Klicke im Bereich „Popular repositories“ (Beliebte Repositorys) oder „Pinned“ (Angeheftet) auf **Customize your pins** (Angeheftete Elemente anpassen). ![Schaltfläche „Customize your pins“ (Deine angeheftete Elemente anpassen)](/assets/images/help/profile/customize-pinned-repositories.png)
 3. Um eine durchsuchbare Liste mit anzuheftenden Elementen anzuzeigen, wähle „Repositories“ (Repositorys), „Gists“ (Gists) oder beides aus. ![Kontrollkästchen zum Auswählen der Art der anzuzeigenden Elemente](/assets/images/help/profile/pinned-repo-picker.png)
 4. Um ein bestimmtes Element leichter zu finden, kannst Du optional den Namen eines Benutzers, einer Organisation, eines Repositorys oder eines Gists eingeben. ![Elemente filtern](/assets/images/help/profile/pinned-repo-search.png)

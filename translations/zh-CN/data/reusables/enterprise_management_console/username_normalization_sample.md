@@ -1,4 +1,4 @@
-此表格举例说明 {{ site.data.variables.product.prodname_ghe_server }} 中如何标准化用户名：
+此表格举例说明 {% data variables.product.prodname_ghe_server %} 中如何标准化用户名：
 
 | 用户名                    | 标准化的用户名       | 结果                            |
 | ---------------------- | ------------- | ----------------------------- |

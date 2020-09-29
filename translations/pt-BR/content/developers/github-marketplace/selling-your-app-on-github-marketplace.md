@@ -1,6 +1,6 @@
 ---
 title: Vender seu aplicativo no GitHub Marketplace
-intro: 'Saiba mais sobre requisitos e práticas recomendadas para vender seu aplicativo no {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Saiba mais sobre requisitos e práticas recomendadas para vender seu aplicativo no {% data variables.product.prodname_marketplace %}.'
 mapTopic: true
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/

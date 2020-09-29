@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} kann 3D-Dateien mit der Erweiterung *.stl* hosten und rendern.
+{% data variables.product.product_name %} kann 3D-Dateien mit der Erweiterung *.stl* hosten und rendern.
 
-Wenn Du eine STL-Datei direkt auf {{ site.data.variables.product.product_name }} betrachtest, kannst Du Folgendes tun:
+Wenn Du eine STL-Datei direkt auf {% data variables.product.product_name %} betrachtest, kannst Du Folgendes tun:
 
 * Modell durch Anklicken und Ziehen drehen
 * Ansicht durch Rechtsklick und Ziehen verschieben

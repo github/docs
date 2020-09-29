@@ -1,6 +1,6 @@
 ---
 title: Creating webhooks
-intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {{ site.data.variables.product.prodname_dotcom }} and how to set up a server to receive and manage the webhook payload.'
+intro: 'Learn to build a webhook, choosing the events your webhook will listen for on {% data variables.product.prodname_dotcom %} and how to set up a server to receive and manage the webhook payload.'
 redirect_from:
   - /webhooks/creating
 versions:
@@ -12,7 +12,7 @@ versions:
 
 Now that we understand [the basics of webhooks][webhooks-overview], let's go through the process of building out our own webhook powered integration. In this tutorial, we'll create a repository webhook that will be responsible for listing out how popular our repository is, based on the number of Issues it receives per day.
 
-Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {{ site.data.variables.product.product_name }}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
+Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
 
 ### Setting up a Webhook
 
@@ -26,21 +26,21 @@ Webhooks require a few configuration options before you can make use of them. We
 
 ### Payload URL
 
-{{ site.data.reusables.webhooks.payload_url }}
+{% data reusables.webhooks.payload_url %}
 
 Since we're developing locally for our tutorial, let's set it to `http://localhost:4567/payload`. We'll explain why in the [Configuring Your Server](/webhooks/configuring/) docs.
 
 ### Content Type
 
-{{ site.data.reusables.webhooks.content_type }} For this tutorial, the default content type of `application/json` is fine.
+{% data reusables.webhooks.content_type %} For this tutorial, the default content type of `application/json` is fine.
 
 ### Secret
 
-{{ site.data.reusables.webhooks.secret }}
+{% data reusables.webhooks.secret %}
 
 ### SSL Verification
 
-{{ site.data.reusables.webhooks.webhooks_ssl }}
+{% data reusables.webhooks.webhooks_ssl %}
 
 ### 已激活
 

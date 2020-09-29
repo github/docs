@@ -24,7 +24,7 @@ No hay una forma más fácil de hacerlo que a través de [cURL][curl].{% if curr
 Comencemos por probar nuestra configuración. Abre una instancia de la línea de comandos e ingresa el siguiente comando:
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/zen
+$ curl {% data variables.product.api_url_pre %}/zen
 
 > Keep it logically awesome.
 ```
@@ -35,12 +35,12 @@ Posteriormente, vamos a hacer `GET` para el [perfil de GitHub][users api] de [Ch
 
 ```shell
 # GET /users/defunkt
-$ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl {% data variables.product.api_url_pre %}/users/defunkt
 
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -49,7 +49,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
 Mmmm, sabe a [JSON][json]. Vamos a agregar el marcador `-i` para que incluya los encabezados:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
@@ -71,7 +71,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -86,16 +86,16 @@ Cualquier encabezado que comience como `X` se refiere a un encabezado personaliz
 
 ### Autenticación
 
-Los clientes sin autenticar pueden hacer hasta 60 solicitudes por hora. Para obtener más solicitudes por hora, necesitaremos _autenticarnos_. De hecho, necesitaremos la [autenticación][authentication] para hacer cualquier cosa interesante con la API de {{ site.data.variables.product.product_name }}.
+Los clientes sin autenticar pueden hacer hasta 60 solicitudes por hora. Para obtener más solicitudes por hora, necesitaremos _autenticarnos_. De hecho, necesitaremos la [autenticación][authentication] para hacer cualquier cosa interesante con la API de {% data variables.product.product_name %}.
 
 #### Utilizar tokens de acceso personal
 
-La mejor y más fácil forma de autenticarse con la API de {{ site.data.variables.product.product_name }} es utilizando la Autenticación Básica [a través de los tokens de OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Éstos incluyen [tokens de acceso personal][personal token].
+La mejor y más fácil forma de autenticarse con la API de {% data variables.product.product_name %} es utilizando la Autenticación Básica [a través de los tokens de OAuth](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens). Éstos incluyen [tokens de acceso personal][personal token].
 
 Utiliza el marcador `-u` para configurar tu nombre de usuario:
 
 ```shell
-$ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -104,7 +104,7 @@ Cuando se te solicite, puedes ingresar tu token de OAuth, pero te recomendamos q
 Puedes utilizar `-u "username:$token"` y configurar una variable para `token` y así evitar el dejar tu token en el historial del shell, lo cual debe evitarse.
 
 ```shell
-$ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -116,10 +116,10 @@ Puedes [crear un**token de acceso personal**][personal token] fácilmente utiliz
 
 #### Obtén tu propio perfil de usuario
 
-Cuando te autenticas adecuadamente, puedes sacar provecho de los permisos asociados con tu cuenta de {{ site.data.variables.product.product_name }}. Por ejemplo, intenta obtener
+Cuando te autenticas adecuadamente, puedes sacar provecho de los permisos asociados con tu cuenta de {% data variables.product.product_name %}. Por ejemplo, intenta obtener
 
 ```shell
-$ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
 
 > {
 >   ...
@@ -133,7 +133,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.p
 > }
 ```
 
-Esta vez, adicionalmente al mismo conjunto de información pública que recuperamos antes para [@defunkt][defunkt github], deberías ver también la información no pública para tu perfil de usuario. Por ejemplo, verás un objeto de `plan` en la respuesta, el cuál proporciona detalles sobre el plan de {{ site.data.variables.product.product_name }} de la cuenta.
+Esta vez, adicionalmente al mismo conjunto de información pública que recuperamos antes para [@defunkt][defunkt github], deberías ver también la información no pública para tu perfil de usuario. Por ejemplo, verás un objeto de `plan` en la respuesta, el cuál proporciona detalles sobre el plan de {% data variables.product.product_name %} de la cuenta.
 
 #### Utiilzar tokens de OAuth para las apps
 
@@ -144,7 +144,7 @@ OAuth utiliza _tokens_. Los Tokens proporcionan dos características grandes:
 * **Acceso revocable**: los usuarios pueden revocar la autorización a las apps de terceros en cualquier momento
 * **Acceso limitado**: los usuarios pueden revisar el acceso específico que proporcionará un token antes de autorizar una app de terceros
 
-Los tokens deben crearse mediante un [flujo web][webflow]. Una aplicación envía a los usuarios a {{ site.data.variables.product.product_name }} para que inicien sesión. Entonces, {{ site.data.variables.product.product_name }} presenta un diálogo que indica el nombre de la app así como el nivel de acceso que ésta tiene una vez que el usuario la autorice. Después de que un usuario autoriza el acceso, {{ site.data.variables.product.product_name }} lo redirecciona de vuelta a la aplicación:
+Los tokens deben crearse mediante un [flujo web][webflow]. Una aplicación envía a los usuarios a {% data variables.product.product_name %} para que inicien sesión. Entonces, {% data variables.product.product_name %} presenta un diálogo que indica el nombre de la app así como el nivel de acceso que ésta tiene una vez que el usuario la autorice. Después de que un usuario autoriza el acceso, {% data variables.product.product_name %} lo redirecciona de vuelta a la aplicación:
 
 ![Diálogo de OAuth de GitHub](/assets/images/oauth_prompt.png)
 
@@ -154,29 +154,29 @@ Ahora que ya entendimos cómo hacer llamadas autenticadas, vamos a pasar a la [A
 
 ### Repositorios
 
-Casi cualquier uso significativo de la API de {{ site.data.variables.product.product_name }} involucra algún nivel de información de un repositorio. Podemos hacer [`GET` para los detalles de un repositorio][get repo] de la misma forma que recuperamos los detalles del usuario anteriormente:
+Casi cualquier uso significativo de la API de {% data variables.product.product_name %} involucra algún nivel de información de un repositorio. Podemos hacer [`GET` para los detalles de un repositorio][get repo] de la misma forma que recuperamos los detalles del usuario anteriormente:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/twbs/bootstrap
+$ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
 De la misma forma, podemos [ver los repositorios del usuario autenticado][user repos api]:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 O podemos [listar los repositorios de otro usuario][other user repos api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/repos
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
 O podemos [listar los repositorios de una organización][org repos api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
+$ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
 La información que se devuelve de estas llamadas dependerá de los alcances que tenga nuestrotoken cuando nos autenticamos:
@@ -187,14 +187,14 @@ La información que se devuelve de estas llamadas dependerá de los alcances que
 Como indican los [docs][repos-api], estos métodos toman un parámetro de `type` que puede filtrar los repositorios que se regresan con base en el tipo de acceso que el usuario tiene en ellos. De esta forma, podemos obtener los solo los repositorios que nos pertenezcan directamente, repositorios de organizacion o repositorios en los que el usuario colabore a través del equipo.
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/users/octocat/repos?type=owner"
+$ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
 En este ejemplo, tomamos únicamente los repositorios que pertenecen a octocat, no aquellos en los que ella colabora. Nota la URL que se cita arriba. Dependiendo de tu configuración de shell, cURL a veces requiere una URL citada, o de lo contrario ignora la secuencia de consulta.
 
 #### Crear un repositorio
 
-El obtener información para los repositorios existentes es un caso de uso común, pero la API de {{ site.data.variables.product.product_name }} también puede crear repositorios nuevos. Para [crear un repositorio][create repo], necesitamos hacer `POST` a algún JSON que contenga los detalles y las opciones de configuración.
+El obtener información para los repositorios existentes es un caso de uso común, pero la API de {% data variables.product.product_name %} también puede crear repositorios nuevos. Para [crear un repositorio][create repo], necesitamos hacer `POST` a algún JSON que contenga los detalles y las opciones de configuración.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
@@ -204,7 +204,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
         "private": true, \
         "gitignore_template": "nanoc" \
       }' \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 En este ejemplo mínimo, creamos un repositorio nuevo para nuestro blog (que se servirá en [GitHub Pages][pages], probablemente). Aunque el blog será público, lo hemos hecho privado. En este paso único, también lo inicializamos con un README y con una [plantilla de.gitignore][gitignore templates] aderezada con [nanoc][nanoc].
@@ -214,7 +214,7 @@ El repositorio que se obtiene como resultado se puede encontrar en `https://gith
 Posteriormente vamos a obtener nuestro repositorio recién creado:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
+$ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
 > HTTP/1.1 404 Not Found
 
@@ -223,31 +223,31 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
 > }
 ```
 
-¡Oh no! ¿A dónde se fue? Ya que creamos el repositorio como _privado_, necesitamos autenticarnos para poder verlo. Si eres un usuario experimentado en HTTP, tal vez esperes recibir un código `403` en vez de ésto. Ya que no queremos filtrar información acerca de los repositorios privados, la API de {{ site.data.variables.product.product_name }} devuelve un código `404` en este caso, como diciendo "no podemos confirmar ni negar la existencia de este repositorio".
+¡Oh no! ¿A dónde se fue? Ya que creamos el repositorio como _privado_, necesitamos autenticarnos para poder verlo. Si eres un usuario experimentado en HTTP, tal vez esperes recibir un código `403` en vez de ésto. Ya que no queremos filtrar información acerca de los repositorios privados, la API de {% data variables.product.product_name %} devuelve un código `404` en este caso, como diciendo "no podemos confirmar ni negar la existencia de este repositorio".
 
 ### Problemas
 
-La IU de informe de problemas en {{ site.data.variables.product.product_name }} pretende proporcionar suficiente flujo de trabajo mientras evita estorbarte. Con la [API de Informes de Problemas][issues-api] de {{ site.data.variables.product.product_name }}, puedes extraer datos para crear informes de problemas desde otras herramientas para crear flujos de trabajo que funcionan para tu equipo.
+La IU de informe de problemas en {% data variables.product.product_name %} pretende proporcionar suficiente flujo de trabajo mientras evita estorbarte. Con la [API de Informes de Problemas][issues-api] de {% data variables.product.product_name %}, puedes extraer datos para crear informes de problemas desde otras herramientas para crear flujos de trabajo que funcionan para tu equipo.
 
 Tal como en github.com, la API proporciona algunos cuantos métodos para ver los informes de problemas para el usuario autenticado. Para [ver todos tus informes de problemas][get issues api], llama a `GET /issues`:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/issues
+    {% data variables.product.api_url_pre %}/issues
 ```
 
-Para obtener únicamente los [informes de problemas bajo alguna de tus organizaciones de {{ site.data.variables.product.product_name }}][get issues api], llama a `GET
+Para obtener únicamente los [informes de problemas bajo alguna de tus organizaciones de {% data variables.product.product_name %}][get issues api], llama a `GET
 /orgs/<org>/issues`:
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/orgs/rails/issues
+    {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
 También podemos obtener [todos los informes de problemas que estén bajo un solo repositorio][repo issues api]:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
 #### Paginación
@@ -255,12 +255,12 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
 Un proyecto con el tamaño de Rails tiene miles de informes de problemas. Necesitaremos [paginar][pagination], haciendo varias llamadas a la API para obtener los datos. Vamos a repetir la última llamada, esta vez tomando nota de los encabezados de respuesta:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
 > HTTP/1.1 200 OK
 
 > ...
-> Link: &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=30&gt;; rel="last"
+> Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
 > ...
 ```
 
@@ -279,10 +279,10 @@ $         "title": "New logo", \
 $         "body": "We should have one", \
 $         "labels": ["design"] \
 $       }' \
-$    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues
+$    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
 > HTTP/1.1 201 Created
-> Location: {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17
+> Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
 > {
@@ -301,7 +301,7 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     "gravatar_id": "7e19cd5486b5d6dc1ef90e671ba52ae0",
 >     "avatar_url": "https://secure.gravatar.com/avatar/7e19cd5486b5d6dc1ef90e671ba52ae0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
 >     "id": 865,
->     "url": "{{ site.data.variables.product.api_url_pre }}/users/pengwynn"
+>     "url": "{% data variables.product.api_url_pre %}/users/pengwynn"
 >   },
 >   "closed_at": null,
 >   "updated_at": "2012-11-14T15:25:33Z",
@@ -312,13 +312,13 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     {
 >       "color": "ededed",
 >       "name": "design",
->       "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/labels/design"
+>       "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/labels/design"
 >     }
 >   ],
 >   "id": 8356941,
 >   "assignee": null,
 >   "state": "open",
->   "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17"
+>   "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17"
 > }
 ```
 
@@ -329,7 +329,7 @@ La respuesta nos entrega un par de sugerencias para el informe de problemas reci
 Una gran parte de ser un buen ciudadano de la API es respetar los límites de tasa al almacenar información en el caché, la cual no haya cambiado. La API es compatible con las [solicitudes condicionales][conditional-requests] y te ayuda a hacer lo correcto. Considera el primer llamado que hicimos para obtener el perfil de defunkt:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
@@ -339,14 +339,14 @@ Además del cuerpo de JSON, toma nota del código de estado HTTP de `200` y del 
 
 ```shell
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
-$    {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 304 Not Modified
 ```
 
 El estado `304` indica que el recurso no ha cambiado desde la última vez que lo solicitamos y que la respuesta no contendrá ningún cuerpo. Como bonificación, las respuestas `304` no contarán para tu [límite de tasa][rate-limiting].
 
-¡Qué! ¡Ahora sabes los fundamentos de la API de {{ site.data.variables.product.product_name }}!
+¡Qué! ¡Ahora sabes los fundamentos de la API de {% data variables.product.product_name %}!
 
 * Autenticación básica & de OAuth
 * Obtener y crear repositorios e informes de problemas

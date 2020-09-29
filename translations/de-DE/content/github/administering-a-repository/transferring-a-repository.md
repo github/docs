@@ -28,7 +28,7 @@ Voraussetzungen für die Übertragung eines Repositorys: {% if currentVersion ==
 - Der ursprüngliche Inhaber des Repositorys wird dem übertragenen Repository als Mitarbeiter hinzugefügt. Andere Mitarbeiter des übertragenen Repositorys bleiben unverändert.
 - Private Forks können nicht übertragen werden.
 
-{% if currentVersion == "free-pro-team@latest" %}Wenn Du ein privates Repository auf ein {{ site.data.variables.product.prodname_free_user }}-Benutzer- oder -Organisationskonto überträgst, verliert das Repository den Zugriff auf Funktionen wie beispielsweise geschützte Branches und {{ site.data.variables.product.prodname_pages }}. {{ site.data.reusables.gated-features.more-info }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Wenn Du ein privates Repository auf ein {% data variables.product.prodname_free_user %}-Benutzer- oder -Organisationskonto überträgst, verliert das Repository den Zugriff auf Funktionen wie beispielsweise geschützte Branches und {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
 #### Was wird mit einem Repository übertragen?
 
@@ -36,9 +36,9 @@ Bei der Übertragung eines Repositorys werden auch seine Issues, Pull Requests, 
 
 - Wenn das übertragene Repository ein Fork ist, bleibt es mit dem vorgelagerten Repository verknüpft.
 - Wenn zu dem übertragenen Repository Forks gehören, bleiben diese Forks auch nach der Übertragung mit dem Repository verknüpft.
-- Wenn das übertragene Repository {{ site.data.variables.large_files.product_name_long }} verwendet, werden alle {{ site.data.variables.large_files.product_name_short }}-Objekte automatisch verschoben. Diese Übertragung findet im Hintergrund statt. Falls Du also sehr viele {{ site.data.variables.large_files.product_name_short }}-Objekte hast, oder wenn die {{ site.data.variables.large_files.product_name_short }}-Objekte selber sehr gross sind, kann die Übertragung eine Weile dauern.{% if currentVersion == "free-pro-team@latest" %} Wenn ein Repository {{ site.data.variables.large_files.product_name_short }} verwendet, stelle vor der Übertragung sicher, dass das empfangende Konto über ausreichend Datenpakete zum Speichern der verschobenen {{ site.data.variables.large_files.product_name_short }}-Objekte verfügt. Informationen zum Hinzufügen von Speicher zu Benutzerkonten findest Du unter „[Upgrade von {{ site.data.variables.large_files.product_name_long }}](/articles/upgrading-git-large-file-storage).“{% endif %}
+- Wenn das übertragene Repository {% data variables.large_files.product_name_long %} verwendet, werden alle {% data variables.large_files.product_name_short %}-Objekte automatisch verschoben. Diese Übertragung findet im Hintergrund statt. Falls Du also sehr viele {% data variables.large_files.product_name_short %}-Objekte hast, oder wenn die {% data variables.large_files.product_name_short %}-Objekte selber sehr gross sind, kann die Übertragung eine Weile dauern.{% if currentVersion == "free-pro-team@latest" %} Wenn ein Repository {% data variables.large_files.product_name_short %} verwendet, stelle vor der Übertragung sicher, dass das empfangende Konto über ausreichend Datenpakete zum Speichern der verschobenen {% data variables.large_files.product_name_short %}-Objekte verfügt. Informationen zum Hinzufügen von Speicher zu Benutzerkonten findest Du unter „[Upgrade von {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage).“{% endif %}
 - Bei der Übertragung eines Repositorys zwischen zwei Benutzerkonten bleiben die Issuezuweisungen erhalten. Bei der Übertragung eines Repositorys von einem Benutzerkonto zu einer Organisation bleiben Issues, die Organisationsmitgliedern zugewiesen sind, erhalten, während alle anderen Issuebearbeiter entfernt werden. Nur die Inhaber der Organisation dürfen neue Issuezuweisungen erstellen. Bei der Übertragung eines Repositorys von einer Organisation auf ein Benutzerkonto bleiben nur die dem Repository-Inhaber zugewiesenen Issues erhalten, während alle anderen Issuebearbeiter entfernt werden.
-- Wenn das übertragene Repository eine {{ site.data.variables.product.prodname_pages }}-Website enthält, werden Links zum Git-Repository im Web und Links über Git-Aktivitäten weitergeleitet. Mit dem Repository verknüpfte {{ site.data.variables.product.prodname_pages }} werden hingegen nicht weitergeleitet.
+- Wenn das übertragene Repository eine {% data variables.product.prodname_pages %}-Website enthält, werden Links zum Git-Repository im Web und Links über Git-Aktivitäten weitergeleitet. Mit dem Repository verknüpfte {% data variables.product.prodname_pages %} werden hingegen nicht weitergeleitet.
 - Alle Links zum früheren Repository-Standort werden automatisch zum neuen Standort weitergeleitet. Wenn Du die Befehle `git clone`, `git fetch` oder `git push` für ein übertragenes Repository ausführst, werden diese Befehle an den neuen Standort oder die neue URL des Repositorys weitergeleitet. Um Verwirrung zu vermeiden, empfehlen wir jedoch, alle bestehenden lokalen Klone entsprechend zu aktualisieren, so dass sie auf die neue Repository-URL verweisen. Hierzu verwendest Du den Befehl `git remote` in der Befehlszeile:
 
   ```shell
@@ -57,17 +57,17 @@ Für ein in eine Organisation übertragenes Repository gelten die in der Organis
 
 Du kannst Dein Repository an jedes Benutzerkonto übertragen, das die Übertragung annimmt. Wenn ein Repository zwischen zwei Benutzerkonten übertragen wird, werden der bisherige Inhaber und die Mitarbeiter des Repositorys dem neuen Repository automatisch als Mitarbeiter hinzugefügt.
 
-{% if currentVersion == "free-pro-team@latest" %}Wenn Du in einem privaten Repository eine {{ site.data.variables.product.prodname_pages }}-Website mit einer benutzerdefinierten Domäne veröffentlicht hast, solltest Du Deine DNS-Einträge vor der Übertragung des Repositorys entfernen oder aktualisieren, um das Risiko einer Domänenübernahme auszuschließen. Weitere Informationen finden Sie unter „[Eine benutzerdefinierte Domain für Ihre {{ site.data.variables.product.prodname_pages }}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site)“.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Wenn Du in einem privaten Repository eine {% data variables.product.prodname_pages %}-Website mit einer benutzerdefinierten Domäne veröffentlicht hast, solltest Du Deine DNS-Einträge vor der Übertragung des Repositorys entfernen oder aktualisieren, um das Risiko einer Domänenübernahme auszuschließen. Weitere Informationen finden Sie unter „[Eine benutzerdefinierte Domain für Ihre {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site)“.{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}
 
 ### Ein Repository Deiner Organisation übertragen
 
 Wenn Du in einer Organisation über Inhaberberechtigungen oder über Administratorberechtigungen für deren Repositorys verfügst, kannst Du Repositorys Deiner Organisation an Dein Benutzerkonto oder eine andere Organisation übertragen.
 
 1. Melde Dich bei Deinem Benutzerkonto an, das über Inhaber- oder Administratorberechtigungen innerhalb der Organisation verfügt, der das Repository gehört.
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}

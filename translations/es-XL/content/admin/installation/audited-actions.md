@@ -99,7 +99,7 @@ versions:
 | --------------------:| ------------------------------------------------------------------------------------------------------------------------------- |
 | `staff.disable_repo` | Un administrador del sitio inhabilitó el acceso a un repositorio y a todas sus bifurcaciones.                                   |
 |  `staff.enable_repo` | Un administrador del sitio volvió a habilitar el acceso a un repositorio y a todas sus bifurcaciones.                           |
-|   `staff.fake_login` | Un administrador del sitio inició sesión en {{ site.data.variables.product.prodname_enterprise }} como otro usuario.            |
+|   `staff.fake_login` | Un administrador del sitio inició sesión en {% data variables.product.prodname_enterprise %} como otro usuario.            |
 |  `staff.repo_unlock` | Un administrador del sitio desbloqueó (obtuvo acceso total de manera temporaria) uno de los repositorios privados del usuario.  |
 |       `staff.unlock` | Un administrador del sitio desbloqueó (obtuvo acceso total de manera temporaria) todos los repositorios privados de un usuario. |
 

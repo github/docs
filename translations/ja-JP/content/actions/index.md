@@ -1,7 +1,7 @@
 ---
 title: GitHub Actionsのドキュメント
 shortTitle: GitHub Actions
-intro: '{{ site.data.variables.product.prodname_actions }}で、ソフトウェア開発ワークフローをリポジトリの中で自動化、カスタマイズ実行しましょう。 CI/CDを含む好きなジョブを実行してくれるアクションを、見つけたり、作成したり、共有したり、完全にカスタマイズされたワークフロー中でアクションを組み合わせたりできます。'
+intro: '{% data variables.product.prodname_actions %}で、ソフトウェア開発ワークフローをリポジトリの中で自動化、カスタマイズ実行しましょう。 CI/CDを含む好きなジョブを実行してくれるアクションを、見つけたり、作成したり、共有したり、完全にカスタマイズされたワークフロー中でアクションを組み合わせたりできます。'
 gettingStartedLinks:
   - /actions/quickstart
   - /actions/learn-github-actions
@@ -36,7 +36,7 @@ versions:
 <div class="d-flex gutter my-6 py-6">
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.getting_started }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in gettingStartedLinks %}
@@ -47,7 +47,7 @@ versions:
 
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.popular_articles }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in popularLinks %}

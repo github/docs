@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de conectividade
-intro: 'Se você estiver tendo problemas para se conectar ao {{ site.data.variables.product.prodname_dotcom }}, use a ferramenta {{ site.data.variables.product.prodname_debug }} para diagnosticá-los.'
+intro: 'Se você estiver tendo problemas para se conectar ao {% data variables.product.prodname_dotcom %}, use a ferramenta {% data variables.product.prodname_debug %} para diagnosticá-los.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
 versions:
@@ -8,15 +8,15 @@ versions:
 ---
 
 
-Geralmente, os problemas de conexão ocorrem devido à configuração de um firewall, um servidor proxy, uma rede corporativa ou outra rede que bloqueia o {{ site.data.variables.product.prodname_dotcom }}.
+Geralmente, os problemas de conexão ocorrem devido à configuração de um firewall, um servidor proxy, uma rede corporativa ou outra rede que bloqueia o {% data variables.product.prodname_dotcom %}.
 
-### Permitir endereços IP de {{ site.data.variables.product.prodname_dotcom }}
+### Permitir endereços IP de {% data variables.product.prodname_dotcom %}
 
-Certifique-se de que sua rede está configurada para permitir endereços IP de {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte "[Sobre endereços IP do {{ site.data.variables.product.prodname_dotcom }}](/articles/about-github-s-ip-addresses)".
+Certifique-se de que sua rede está configurada para permitir endereços IP de {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Sobre endereços IP do {% data variables.product.prodname_dotcom %}](/articles/about-github-s-ip-addresses)".
 
 ### Usar a rede de uma empresa ou organização
 
-Se você estiver tendo problemas de conectividade na rede da sua empresa ou organização, verifique com o administrador da rede se há regras em vigor na rede para bloquear certos tráficos. Se houver regras em vigor, peça ao seu administrador de rede para permitir o tráfego para {{ site.data.variables.product.prodname_dotcom }}.
+Se você estiver tendo problemas de conectividade na rede da sua empresa ou organização, verifique com o administrador da rede se há regras em vigor na rede para bloquear certos tráficos. Se houver regras em vigor, peça ao seu administrador de rede para permitir o tráfego para {% data variables.product.prodname_dotcom %}.
 
 ### Solucionar problemas com o captcha
 
@@ -28,16 +28,16 @@ Se você não conseguir verificar o captcha:
 
 ### Alternar métodos de clonagem
 
-Alternar da clonagem via SSH para a clonagem via HTTPS (ou vice-versa) pode melhorar a conectividade. Para obter mais informações, consulte "[Clonar um repositório do {{ site.data.variables.product.prodname_dotcom }}](/articles/cloning-a-repository-from-github)".
+Alternar da clonagem via SSH para a clonagem via HTTPS (ou vice-versa) pode melhorar a conectividade. Para obter mais informações, consulte "[Clonar um repositório do {% data variables.product.prodname_dotcom %}](/articles/cloning-a-repository-from-github)".
 
 Se você encontrar tempo limite com SSH, consulte "[Erro: número de arquivo inadequado](/articles/error-bad-file-number)".
 
 ### Solucionar problemas de downloads lentos e conexões intermitentemente lentas
 
-O {{ site.data.variables.product.prodname_dotcom }} não aumenta a largura de banda por usuário.
+O {% data variables.product.prodname_dotcom %} não aumenta a largura de banda por usuário.
 
-Se a conexão está lenta em alguns horários do dia, mas não em outros, o motivo mais provável é o congestionamento da rede. Como o {{ site.data.variables.product.prodname_dotcom }} não resolve congestionamento de rede, é recomendável escalonar o problema para o provedor de serviço de internet.
+Se a conexão está lenta em alguns horários do dia, mas não em outros, o motivo mais provável é o congestionamento da rede. Como o {% data variables.product.prodname_dotcom %} não resolve congestionamento de rede, é recomendável escalonar o problema para o provedor de serviço de internet.
 
-### Solucionar problemas com o {{ site.data.variables.product.prodname_debug }}
+### Solucionar problemas com o {% data variables.product.prodname_debug %}
 
-Se você seguiu todas as sugestões de solução de problemas acima e ainda está tendo problemas de conexão, siga as instruções no site do {{ site.data.variables.product.prodname_debug }} para fazer testes e enviar um relatório para o suporte do {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte [{{ site.data.variables.product.prodname_debug }}](https://github-debug.com/).
+Se você seguiu todas as sugestões de solução de problemas acima e ainda está tendo problemas de conexão, siga as instruções no site do {% data variables.product.prodname_debug %} para fazer testes e enviar um relatório para o suporte do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte [{% data variables.product.prodname_debug %}](https://github-debug.com/).

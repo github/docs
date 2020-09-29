@@ -1,6 +1,6 @@
 ---
 title: Push-Protokolle anzeigen
-intro: 'Websiteadministratoren können eine Liste der Git-Push-Vorgänge für Repositorys auf {{ site.data.variables.product.product_location_enterprise }} anzeigen.'
+intro: 'Websiteadministratoren können eine Liste der Git-Push-Vorgänge für Repositorys auf {% data variables.product.product_location_enterprise %} anzeigen.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -22,8 +22,8 @@ Push-Protokolleinträge zeigen:
 ### Push-Protokolle eines Repositorys anzeigen
 
 1. Navigieren Sie zu einem Repository.
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.security-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.security-tab %}
 4. Klicken Sie auf der linken Seitenleiste auf **Push Log** (Push-Protokoll). ![Registerkarte „Push log“ (Push-Protokoll)](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 ### Push-Protokolle eines Repositorys an der Befehlszeile anzeigen

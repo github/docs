@@ -1,6 +1,6 @@
 ---
 title: 命令行实用程序
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 包含的各种实用程序可以帮助解决特殊问题或执行特定任务。'
+intro: '{% data variables.product.prodname_ghe_server %} 包含的各种实用程序可以帮助解决特殊问题或执行特定任务。'
 redirect_from:
   - /enterprise/admin/articles/viewing-all-services/
   - /enterprise/admin/articles/command-line-utilities/
@@ -16,7 +16,7 @@ versions:
 
 #### ghe-announce
 
-此实用程序会在每个 {{ site.data.variables.product.prodname_enterprise }} 页面顶部设置横幅， 您可以使用横幅向用户广播消息。
+此实用程序会在每个 {% data variables.product.prodname_enterprise %} 页面顶部设置横幅， 您可以使用横幅向用户广播消息。
 
 ```shell
 # Sets a message that's visible to everyone
@@ -44,11 +44,11 @@ ghe-cleanup-caches
 ```
 #### ghe-cleanup-settings
 
-此实用程序会擦除所有现有的 {{ site.data.variables.enterprise.management_console }} 设置。
+此实用程序会擦除所有现有的 {% data variables.enterprise.management_console %} 设置。
 
 {% tip %}
 
-**提示**：{{ site.data.reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command }}
+**提示**：{% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 {% endtip %}
 
@@ -58,7 +58,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-此实用程序可用于检索和修改 {{ site.data.variables.product.product_location_enterprise }} 的配置设置。
+此实用程序可用于检索和修改 {% data variables.product.product_location_enterprise %} 的配置设置。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -76,7 +76,7 @@ $ ghe-config -l
 
 #### ghe-config-apply
 
-此实用程序会应用 {{ site.data.variables.enterprise.management_console }} 设置，重新加载系统服务，准备存储设备，重新加载应用程序服务并运行任何待处理的数据库迁移。 It is equivalent to clicking **Save settings** in the {{ site.data.variables.enterprise.management_console }}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console).
+此实用程序会应用 {% data variables.enterprise.management_console %} 设置，重新加载系统服务，准备存储设备，重新加载应用程序服务并运行任何待处理的数据库迁移。 It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console).
 
 您有可能永远不需要手动运行此实用程序，但如果希望通过 SSH 自动完成设置保存过程，也可以使用此实用程序。
 
@@ -86,7 +86,7 @@ ghe-config-apply
 
 #### ghe-console
 
-此实用程序会在您的 {{ site.data.variables.product.prodname_enterprise }} 设备上打开 GitHub Rails 控制台。 {{ site.data.reusables.command_line.use_with_support_only }}
+此实用程序会在您的 {% data variables.product.prodname_enterprise %} 设备上打开 GitHub Rails 控制台。 {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-console
@@ -94,7 +94,7 @@ ghe-console
 
 #### ghe-dbconsole
 
-此实用程序会在您的 {{ site.data.variables.product.prodname_enterprise }} 设备上打开 MySQL 数据库会话。 {{ site.data.reusables.command_line.use_with_support_only }}
+此实用程序会在您的 {% data variables.product.prodname_enterprise %} 设备上打开 MySQL 数据库会话。 {% data reusables.command_line.use_with_support_only %}
 
 ```shell
 ghe-dbconsole
@@ -144,7 +144,7 @@ $ ghe-es-index-status -do | column -ts,
 
 #### ghe-legacy-github-services-report
 
-此实用程序会列出您的设备中使用 {{ site.data.variables.product.prodname_dotcom }} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {{ site.data.variables.product.prodname_dotcom }} Services，为发往某些仓库的推送创建通知。 For more information, see "[Announcing the deprecation of {{ site.data.variables.product.prodname_dotcom }} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {{ site.data.variables.product.prodname_blog }} or "[Replacing {{ site.data.variables.product.prodname_dotcom }} Services](/v3/guides/replacing-github-services/)." For more information about this command or for additional options, use the `-h` flag.
+此实用程序会列出您的设备中使用 {% data variables.product.prodname_dotcom %} Services 的仓库，作为一种集成方法，此服务将于 2018 年 10 月 1 日停用。 您的设备上的用户可能已设置 {% data variables.product.prodname_dotcom %} Services，为发往某些仓库的推送创建通知。 For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/v3/guides/replacing-github-services/)." For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -161,7 +161,7 @@ ghe-logs-tail
 
 #### ghe-maintenance
 
-此实用程序允许您控制安装维护模式的状态， 其设计为主要由 {{ site.data.variables.enterprise.management_console }} 在后台使用，但也可以直接使用。
+此实用程序允许您控制安装维护模式的状态， 其设计为主要由 {% data variables.enterprise.management_console %} 在后台使用，但也可以直接使用。
 
 ```shell
 ghe-maintenance -h
@@ -224,7 +224,7 @@ ghe-org-admin-promote -a
 
 #### ghe-reactivate-admin-login
 
-在 10 分钟内登录尝试失败 10 次后，使用此命令可立即解锁 {{ site.data.variables.enterprise.management_console }}。
+在 10 分钟内登录尝试失败 10 次后，使用此命令可立即解锁 {% data variables.enterprise.management_console %}。
 
 ```shell
 $ ghe-reactivate-admin-login
@@ -241,7 +241,7 @@ $ ghe-reactivate-admin-login
 * Webhooks are not being triggered.
 * Web 界面在 Git 推送后未更新。
 
-如果怀疑 Resque 出现故障，请联系 {{ site.data.variables.contact.contact_ent_support }} 获取帮助。
+如果怀疑 Resque 出现故障，请联系 {% data variables.contact.contact_ent_support %} 获取帮助。
 
 使用此命令，您还可以暂停或恢复队列中的作业。
 
@@ -258,7 +258,7 @@ $ ghe-resque-info -r <em>QUEUE</em>
 
 此实用程序可帮助映射 SAML 记录。
 
-为 {{ site.data.variables.product.product_name }} 用户创建包含所有 SAML 映射的 CSV 文件：
+为 {% data variables.product.product_name %} 用户创建包含所有 SAML 映射的 CSV 文件：
 ```shell
 $ ghe-saml-mapping-csv -d
 ```
@@ -308,13 +308,13 @@ stop/waiting
 $ sudo systemctl restart github-resqued
 ```
 
-停止服务会导致安装停机，因此建议您在停止或重启任何服务之前联系 {{ site.data.variables.contact.contact_ent_support }}。
+停止服务会导致安装停机，因此建议您在停止或重启任何服务之前联系 {% data variables.contact.contact_ent_support %}。
 
 {% endtip %}
 
 #### ghe-set-password
 
-使用 `ghe-set-password`，您可以设置新密码，在 [{{ site.data.variables.enterprise.management_console }}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中进行身份验证。
+使用 `ghe-set-password`，您可以设置新密码，在 [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中进行身份验证。
 
 ```shell
 ghe-set-password <new_password>
@@ -356,7 +356,7 @@ existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
 
 #### ghe-ssh-weak-fingerprints
 
-此实用程序会返回存储在 {{ site.data.variables.product.prodname_enterprise }} 设备上的已知弱 SSH 密钥的报告。 您可以选择批量撤销用户密钥。 此实用程序将报告弱系统密钥，您必须在 [{{ site.data.variables.enterprise.management_console }}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中手动撤销这些密钥。
+此实用程序会返回存储在 {% data variables.product.prodname_enterprise %} 设备上的已知弱 SSH 密钥的报告。 您可以选择批量撤销用户密钥。 此实用程序将报告弱系统密钥，您必须在 [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console) 中手动撤销这些密钥。
 
 ```shell
 # Print a report of weak user and system SSH keys
@@ -368,7 +368,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 #### ghe-ssl-acme
 
-此实用程序允许您在 {{ site.data.variables.product.prodname_enterprise }} 设备上安装 Let's Encrypt 证书。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)”。
+此实用程序允许您在 {% data variables.product.prodname_enterprise %} 设备上安装 Let's Encrypt 证书。 更多信息请参阅“[配置 TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)”。
 
 您可以使用 `-x` 标志来删除 ACME 配置。
 
@@ -378,11 +378,11 @@ ghe-ssl-acme -e
 
 #### ghe-ssl-ca-certificate-install
 
-此实用程序允许您在 {{ site.data.variables.product.prodname_enterprise }} 服务器上安装自定义根 CA 证书。 证书必须采用 PEM 格式。 此外，如果您的证书提供者在一个文件中包含多个 CA 证书，则必须将其拆分到多个单独文件中，随后再将这些文件逐个传递到 `ghe-ssl-ca-certificate-install`。
+此实用程序允许您在 {% data variables.product.prodname_enterprise %} 服务器上安装自定义根 CA 证书。 证书必须采用 PEM 格式。 此外，如果您的证书提供者在一个文件中包含多个 CA 证书，则必须将其拆分到多个单独文件中，随后再将这些文件逐个传递到 `ghe-ssl-ca-certificate-install`。
 
 运行此实用程序可添加证书链进行 S/MIME 提交签名验证。 更多信息请参阅“[关于提交签名验证](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)”。
 
-如果 {{ site.data.variables.product.product_location_enterprise }} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {{ site.data.variables.product.product_location_enterprise }} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
+如果 {% data variables.product.product_location_enterprise %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location_enterprise %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
 
 ```
 SSL-Session:
@@ -440,7 +440,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-此实用程序会打印 {{ site.data.variables.product.product_location_enterprise }} 的版本、平台和内部版本号。
+此实用程序会打印 {% data variables.product.product_location_enterprise %} 的版本、平台和内部版本号。
 
 ```shell
 $ ghe-version
@@ -475,7 +475,7 @@ ghe-webhook-logs --global
 
 此实用程序创建的支持包 tarball 包含采用 Geo-replication 或集群配置的各个节点中的重要日志。
 
-默认情况下，此命令会在 */tmp* 中创建 tarball，但为了便于通过 SSH 进行传输，您也可以通过 `cat` 将打包文件创建到 `STDOUT` 中。 在 Web UI 未响应或从 */setup/support* 下载支持包失败的情况下，您可以使用此方法。 如果要生成包含旧日志的*扩展*包，则必须使用此命令。 您还可以使用此命令将集群支持包直接上传到 {{ site.data.variables.product.prodname_enterprise }} Support。
+默认情况下，此命令会在 */tmp* 中创建 tarball，但为了便于通过 SSH 进行传输，您也可以通过 `cat` 将打包文件创建到 `STDOUT` 中。 在 Web UI 未响应或从 */setup/support* 下载支持包失败的情况下，您可以使用此方法。 如果要生成包含旧日志的*扩展*包，则必须使用此命令。 您还可以使用此命令将集群支持包直接上传到 {% data variables.product.prodname_enterprise %} Support。
 
 要创建标准捆绑包：
 ```shell
@@ -487,19 +487,19 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -o' > cluste
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
-要将捆绑包发送至 {{ site.data.variables.contact.github_support }}：
+要将捆绑包发送至 {% data variables.contact.github_support %}：
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'
 ```
 
-要将捆绑包发送至 {{ site.data.variables.contact.github_support }} 并关联捆绑包与事件单：
+要将捆绑包发送至 {% data variables.contact.github_support %} 并关联捆绑包与事件单：
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
 ```
 
 #### ghe-dpages
 
-此实用程序可用于管理分配的 {{ site.data.variables.product.prodname_pages }} 服务器。
+此实用程序可用于管理分配的 {% data variables.product.prodname_pages %} 服务器。
 
 ```shell
 ghe-dpages
@@ -510,7 +510,7 @@ ghe-dpages
 ghe-dpages status
 ```
 
-要在撤出集群节点之前撤出 {{ site.data.variables.product.prodname_pages }} 存储服务：
+要在撤出集群节点之前撤出 {% data variables.product.prodname_pages %} 存储服务：
 ``` shell
 ghe-dpages evacuate pages-server-<uuid>
 ```
@@ -569,7 +569,7 @@ ghe-repo <em>username</em>/<em>reponame</em>
 
 #### ghe-repo-gc
 
-此实用程序会手动重新打包仓库网络，以优化包存储。 如果仓库较大，运行此命令有助于减小其整体大小。 {{ site.data.variables.product.prodname_enterprise }} 会在与仓库网络交互的过程中自动运行此命令。
+此实用程序会手动重新打包仓库网络，以优化包存储。 如果仓库较大，运行此命令有助于减小其整体大小。 {% data variables.product.prodname_enterprise %} 会在与仓库网络交互的过程中自动运行此命令。
 
 您可以添加可选的 `--prune` 参数来移除不是从分支、标记或其他任何 ref 引用的不可达 Git 对象。 此方法特别适用于立即移除[之前泄露的敏感信息](/enterprise/user/articles/remove-sensitive-data/)。
 
@@ -581,7 +581,7 @@ ghe-repo-gc <em>username</em>/<em>reponame</em>
 
 #### ghe-migrator
 
-`ghe-migrator` 属于高保真工具，可帮助用户从一个 GitHub 实例迁移到另一个实例。 您可以整合实例或将组织、用户、团队和仓库从 GitHub.com 移至 {{ site.data.variables.product.prodname_enterprise }}。
+`ghe-migrator` 属于高保真工具，可帮助用户从一个 GitHub 实例迁移到另一个实例。 您可以整合实例或将组织、用户、团队和仓库从 GitHub.com 移至 {% data variables.product.prodname_enterprise %}。
 
 更多信息请参阅[迁移用户、组织和仓库数据](/enterprise/admin/guides/migrations/)上的指南。
 
@@ -626,7 +626,7 @@ git-import-rewrite
 
 此实用程序会执行各项检查并收集关于安装的信息，您可以将此类信息发送给支持团队，以帮助诊断您遇到的问题。
 
-目前，此实用程序的输出与下载 {{ site.data.variables.enterprise.management_console }} 中的诊断信息类似，但会逐渐增加一些 Web UI 中未提供的其他改进。 更多信息请参阅“[创建和共享诊断文件](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)”。
+目前，此实用程序的输出与下载 {% data variables.enterprise.management_console %} 中的诊断信息类似，但会逐渐增加一些 Web UI 中未提供的其他改进。 更多信息请参阅“[创建和共享诊断文件](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)”。
 
 ```shell
 ghe-diagnostics
@@ -634,10 +634,10 @@ ghe-diagnostics
 
 #### ghe-support-bundle
 
-{{ site.data.reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle }}
+{% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 此实用程序会创建一个支持包 tarball，其中包含实例中的重要日志。
 
-默认情况下，此命令会在 */tmp* 中创建 tarball，但为了便于通过 SSH 进行传输，您也可以通过 `cat` 将打包文件创建到 `STDOUT` 中。 在 Web UI 未响应或从 */setup/support* 下载支持包失败的情况下，您可以使用此方法。 如果要生成包含旧日志的*扩展*包，则必须使用此命令。 您还可以使用此命令将支持包直接上传到 {{ site.data.variables.product.prodname_enterprise }} Support。
+默认情况下，此命令会在 */tmp* 中创建 tarball，但为了便于通过 SSH 进行传输，您也可以通过 `cat` 将打包文件创建到 `STDOUT` 中。 在 Web UI 未响应或从 */setup/support* 下载支持包失败的情况下，您可以使用此方法。 如果要生成包含旧日志的*扩展*包，则必须使用此命令。 您还可以使用此命令将支持包直接上传到 {% data variables.product.prodname_enterprise %} Support。
 
 要创建标准捆绑包：
 ```shell
@@ -649,12 +649,12 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
-要将捆绑包发送至 {{ site.data.variables.contact.github_support }}：
+要将捆绑包发送至 {% data variables.contact.github_support %}：
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
 ```
 
-要将捆绑包发送至 {{ site.data.variables.contact.github_support }} 并关联捆绑包与事件单：
+要将捆绑包发送至 {% data variables.contact.github_support %} 并关联捆绑包与事件单：
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
@@ -662,9 +662,9 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em
 
 #### ghe-support-upload
 
-此实用程序会将您的设备中的信息发送到 {{ site.data.variables.product.prodname_enterprise }} Support。 您可以指定本地文件，或通过 `STDIN` 提供最大 100MB 的数据流。 可以选择将上传的数据与支持事件单相关联。
+此实用程序会将您的设备中的信息发送到 {% data variables.product.prodname_enterprise %} Support。 您可以指定本地文件，或通过 `STDIN` 提供最大 100MB 的数据流。 可以选择将上传的数据与支持事件单相关联。
 
-要将文件发送至 {{ site.data.variables.contact.github_support }} 并关联文件与事件单：
+要将文件发送至 {% data variables.contact.github_support %} 并关联文件与事件单：
 ```shell
 ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 ```
@@ -674,13 +674,13 @@ ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
 <em>ghe-repl-status -vv</em> | ghe-support-upload -t <em>ticket-id</em> -d "<em>Verbose Replication Status</em>"
 ```
 
-在本例中，`ghe-repl-status -vv` 会发送副本设备中的 verbose 状态信息。 您应将 `ghe-repl-status -vv` 替换为要传输到 `STDIN` 的特定数据，并将 `Verbose Replication Status` 替换为数据的简单说明。 {{ site.data.reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command }}
+在本例中，`ghe-repl-status -vv` 会发送副本设备中的 verbose 状态信息。 您应将 `ghe-repl-status -vv` 替换为要传输到 `STDIN` 的特定数据，并将 `Verbose Replication Status` 替换为数据的简单说明。 {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
-### 升级 {{ site.data.variables.product.prodname_ghe_server }}
+### 升级 {% data variables.product.prodname_ghe_server %}
 
 #### ghe-upgrade
 
-此实用程序会安装或验证升级包。 如果升级失败或中断，您还可以使用此实用程序回滚补丁版本。 更多信息请参阅“[升级 {{ site.data.variables.product.prodname_ghe_server }}”](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)。
+此实用程序会安装或验证升级包。 如果升级失败或中断，您还可以使用此实用程序回滚补丁版本。 更多信息请参阅“[升级 {% data variables.product.prodname_ghe_server %}”](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)。
 
 要验证升级包：
 ```shell
@@ -692,7 +692,7 @@ ghe-upgrade --verify <em>UPGRADE-PACKAGE-FILENAME</em>
 ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
 ```
 
-{{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+{% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 #### ghe-upgrade-scheduler
 
@@ -716,11 +716,11 @@ $ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
 
 #### ghe-update-check
 
-此实用程序将检查 {{ site.data.variables.product.prodname_enterprise }} 是否有新的补丁版本可用。 如果有新的补丁版本，并且实例中有可用空间，系统将下载此包。 默认情况下，包会保存到 */var/lib/ghe-updates*。 管理员随后可[执行升级](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)。
+此实用程序将检查 {% data variables.product.prodname_enterprise %} 是否有新的补丁版本可用。 如果有新的补丁版本，并且实例中有可用空间，系统将下载此包。 默认情况下，包会保存到 */var/lib/ghe-updates*。 管理员随后可[执行升级](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/)。
 
 包含下载状态的文件位于 */var/lib/ghe-updates/ghe-update-check.status*。
 
-要查看最新的 {{ site.data.variables.product.prodname_enterprise }} 版本，请使用 `-i` 开关。
+要查看最新的 {% data variables.product.prodname_enterprise %} 版本，请使用 `-i` 开关。
 
 ```shell
 $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
@@ -730,7 +730,7 @@ $ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
 
 #### ghe-license-usage
 
-此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {{ site.data.variables.product.prodname_ghe_cloud }}，{{ site.data.variables.product.prodname_ghe_server }} 将使用此信息向 {{ site.data.variables.product.prodname_ghe_cloud }} 报告许可信息。 更多信息请参阅“[将 {{ site.data.variables.product.prodname_ghe_server }} 连接至 {{ site.data.variables.product.prodname_ghe_cloud }} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)。”
+此实用程序可按 JSON 格式导出安装用户列表。 如果您的实例连接至 {% data variables.product.prodname_ghe_cloud %}，{% data variables.product.prodname_ghe_server %} 将使用此信息向 {% data variables.product.prodname_ghe_cloud %} 报告许可信息。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 连接至 {% data variables.product.prodname_ghe_cloud %} ](/enterprise/admin/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)。”
 
 默认情况下，生成的 JSON 文件中的用户列表为加密格式。 使用 `-h` 标志可获取更多选项。
 

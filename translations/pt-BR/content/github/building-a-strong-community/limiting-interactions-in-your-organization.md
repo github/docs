@@ -16,9 +16,9 @@ Depois de 24 horas, os usuários podem retomar à atividade normal nos repositó
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Na barra lateral da organização, em Settings (Configurações), clique em **Interaction limits** (Restrições de interação). ![Interaction limits (Restrições de interação) em Settings (Configurações) da organização ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 5. Em "Temporary interaction limits" (Restrições de interação temporárias), clique em uma ou mais opções.![Opções Temporary interaction limit (Restrições de interação temporárias)](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
    - **Limit to existing users** (Restringir a usuários existentes): restringe a atividade para usuários da organização com contas que tenham sido criadas há menos de 24 horas, que não tenham contribuições prévias e que não sejam colaboradores.

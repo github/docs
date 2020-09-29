@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Ao usar LDAP ou autenticação integrada, a autenticação de dois fatores é compatível no appliance do {{ site.data.variables.product.prodname_ghe_server }}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.
+Ao usar LDAP ou autenticação integrada, a autenticação de dois fatores é compatível no appliance do {% data variables.product.prodname_ghe_server %}. Os administradores da organização podem exigir que os integrantes habilitem a autenticação de dois fatores.
 
-{{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 Para obter mais informações, consulte [este gráfico sobre métodos de autenticação compatíveis com 2FA](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa).
 
@@ -29,20 +29,20 @@ Antes de poder exigir que os integrantes da organização e colaboradores extern
 
 Antes de exigir o uso da autenticação de dois fatores, é recomendável notificar os integrantes da organização e os colaboradores externos, pedindo que eles configurem 2FA nas contas deles. Na guia People (Pessoas) da organização, é possível [ver se os integrantes e colaboradores externos já usam 2FA](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-{{ site.data.reusables.profile.enterprise_access_profile}}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 
 ### Exibir pessoas removidas da organização
 
 Para ver as pessoas que foram removidas automaticamente da organização por motivo de não conformidade à sua solicitação da autenticação de dois fatores, você pode [pesquisar o log de auditoria](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/) usando `reason:two_factor_requirement_non_compliance` no campo de pesquisa.
 
-{{ site.data.reusables.audit_log.octicon_icon }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_site_admins }}
+{% data reusables.audit_log.octicon_icon %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 4. Faça a consulta da pesquisa usando `reason:two_factor_requirement_non_compliance`. ![Evento de log de auditoria de ferramentas de equipe mostrando usuário removido por motivo de não conformidade com 2FA](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) Para limitar sua pesquisa por:
     - Integrantes da organização removidos, insira `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
     - Colaboradores externos removidos, insira `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`

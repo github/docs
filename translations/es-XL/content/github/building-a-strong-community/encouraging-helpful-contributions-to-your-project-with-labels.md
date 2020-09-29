@@ -10,11 +10,11 @@ versions:
 
 Puedes aplicar la etiqueta `good first issue` (primera buena propuesta) a las propuestas de tu repositorio público para que las personas puedan encontrarlas cuando busquen por etiquetas. Para obtener más información acerca de buscar por etiquetas, consulta "[Buscar propuestas y solicitudes de extracción](/articles/searching-issues-and-pull-requests/#search-by-label)".
 
-{{ site.data.variables.product.prodname_dotcom }} usa un algoritmo para determinar las propuestas más accesibles en cada repositorio y las hace aparecer en varios lugares en {{ site.data.variables.product.prodname_dotcom_the_website }}. Agregar la etiqueta `good first issue` (primera buena propuesta) puede aumentar la probabilidad de que tus propuestas salgan a la luz.
+{% data variables.product.prodname_dotcom %} usa un algoritmo para determinar las propuestas más accesibles en cada repositorio y las hace aparecer en varios lugares en {% data variables.product.prodname_dotcom_the_website %}. Agregar la etiqueta `good first issue` (primera buena propuesta) puede aumentar la probabilidad de que tus propuestas salgan a la luz.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. En la esquina superior derecha, haz clic en **Label** (etiqueta), luego escribe `good first issue` (primera buena propuesta). Haz clic en el nombre de la etiqueta para asociarla con los elementos seleccionados. ![Desplegable de la asignación de hitos de propuestas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### Leer más

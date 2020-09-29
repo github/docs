@@ -34,11 +34,11 @@ Aquí hay un ejemplo de una [comparación entre dos etiquetas](https://github.co
 
 ### Comparar confirmaciones
 
-También puedes comparar dos confirmaciones arbitrarias en tu repositorio o sus bifurcaciones en {{ site.data.variables.product.prodname_dotcom }} en una comparación de diferencias de dos puntos.
+También puedes comparar dos confirmaciones arbitrarias en tu repositorio o sus bifurcaciones en {% data variables.product.prodname_dotcom %} en una comparación de diferencias de dos puntos.
 
-Para comparar rápidamente dos confirmaciones en Git Object IDs (OID por sus siglas en inglés) directamente entre sí en una comparación de diferencias de dos puntos en {{ site.data.variables.product.prodname_dotcom }}, edita la URL de la página "Comparing changes" (Comparar cambios) en tu repositorio.
+Para comparar rápidamente dos confirmaciones en Git Object IDs (OID por sus siglas en inglés) directamente entre sí en una comparación de diferencias de dos puntos en {% data variables.product.prodname_dotcom %}, edita la URL de la página "Comparing changes" (Comparar cambios) en tu repositorio.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 Para obtener más información sobre otras opciones de comparación, consulta "[Comparaciones de diferencia de tres puntos y dos puntos](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)".
 

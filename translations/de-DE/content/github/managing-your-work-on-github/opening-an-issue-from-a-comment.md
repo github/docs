@@ -15,7 +15,7 @@ Wenn Du einen Issue aus einem Kommentar öffnest, wird der Issue ein Ausschnitt 
 4. Verwende das Dropdownmenü „Repository" und wähle das Repository, in welchem Du den Issue öffnen möchtest. ![„Repository" Dropdownmenü für neue Issues](/assets/images/help/pull_requests/new-issue-repository.png)
 5. Gib einen beschreibenden Titel und Text für den Issue ein. ![Titel und Text für neuen Issue](/assets/images/help/pull_requests/new-issue-title-and-body.png)
 6. Klicke auf **Create issue** (Erstelle Issue). ![Schaltfläche zum Erstellen eines neuen Issues](/assets/images/help/pull_requests/create-issue.png)
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
 ### Weiterführende Informationen
 

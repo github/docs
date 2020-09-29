@@ -3,33 +3,33 @@ title: Criar um repositório
 redirect_from:
   - /create-a-repo/
   - /articles/create-a-repo
-intro: 'Para colocar seu projeto no {{ site.data.variables.product.product_location }}, você precisará criar um repositório no qual ele residirá.'
+intro: 'Para colocar seu projeto no {% data variables.product.product_location %}, você precisará criar um repositório no qual ele residirá.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Você pode armazenar vários projetos nos repositórios do {{ site.data.variables.product.product_name }}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis.
+Você pode armazenar vários projetos nos repositórios do {% data variables.product.product_name %}, incluindo projetos de código aberto. Com os [projetos de código aberto](http://opensource.org/about), é possível compartilhar código para criar softwares melhores e mais confiáveis.
 
 {% note %}
 
-**Observação:** você pode criar repositórios públicos para um projeto de código aberto. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](http://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {{ site.data.reusables.open-source.open-source-guide-repositories }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**Observação:** você pode criar repositórios públicos para um projeto de código aberto. Ao criar um repositório público, certifique-se de incluir um [arquivo de licença](http://choosealicense.com/) que determina como deseja que seu projeto seja compartilhado com outras pessoas. {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. Digite um nome curto e fácil de memorizar para seu repositório. Por exemplo, "olá mundo". ![Campo para inserir um nome de repositório](/assets/images/help/repository/create-repository-name.png)
-3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no {{ site.data.variables.product.product_name }}". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
-{{ site.data.reusables.repositories.choose-repo-visibility }}
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no {% data variables.product.product_name %}". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
+{% data reusables.repositories.choose-repo-visibility %}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 
 Parabéns! Você criou com êxito seu primeiro repositório e o inicializou com um arquivo *LEIAME*.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Dica**: Você também pode criar repositórios usando {{ site.data.variables.product.prodname_cli }}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {{ site.data.variables.product.prodname_cli }}.
+**Dica**: Você também pode criar repositórios usando {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`criar repositório gh`](https://cli.github.com/manual/gh_repo_create)" na documentação do {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}
@@ -45,18 +45,18 @@ Vamos fazer commit de uma alteração no arquivo *LEIAME*.
 1. Na lista de arquivos do repositório, clique em ***README.m***. ![Arquivo leiame na lista de arquivos](/assets/images/help/repository/create-commit-open-readme.png)
 2. Acima do conteúdo do arquivo, clique em {% octicon "pencil" aria-label="The edit icon" %}.
 3. Na guia **Edit file** (Editar arquivo), digite algumas informações sobre si mesmo. ![Novo conteúdo no arquivo](/assets/images/help/repository/edit-readme-light.png)
-{{ site.data.reusables.files.preview_change }}
+{% data reusables.files.preview_change %}
 5. Revise as alterações feitas no arquivo. Você verá o novo conteúdo em verde. ![Visualização de arquivo](/assets/images/help/repository/create-commit-review.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 ### Comemore
 
-Parabéns! Você criou um repositório, incluindo um arquivo *LEIAME*, assim como seu primeiro commit no {{ site.data.variables.product.product_location }}. O que quer fazer agora?
+Parabéns! Você criou um repositório, incluindo um arquivo *LEIAME*, assim como seu primeiro commit no {% data variables.product.product_location %}. O que quer fazer agora?
 
 - "[Configurar o Git](/articles/set-up-git)"
 - **Criar um repositório**
 - "[Bifurcar um repositório](/articles/fork-a-repo)"
 - "[Socializar](/articles/be-social)"
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

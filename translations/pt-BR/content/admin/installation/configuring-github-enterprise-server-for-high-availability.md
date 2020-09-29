@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/high-availability-configuration/
   - /enterprise/admin/guides/installation/configuring-github-enterprise-for-high-availability/
   - /enterprise/admin/installation/configuring-github-enterprise-server-for-high-availability
-intro: 'O {{ site.data.variables.product.prodname_ghe_server }} dá suporte ao modo de alta disponibilidade da operação visando minimizar o tempo de inatividade do serviço em caso de falha de hardware ou interrupção prolongada da rede.'
+intro: 'O {% data variables.product.prodname_ghe_server %} dá suporte ao modo de alta disponibilidade da operação visando minimizar o tempo de inatividade do serviço em caso de falha de hardware ou interrupção prolongada da rede.'
 mapTopic: true
 versions:
   enterprise-server: '*'

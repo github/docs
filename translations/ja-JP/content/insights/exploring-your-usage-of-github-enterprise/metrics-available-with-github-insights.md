@@ -1,7 +1,7 @@
 ---
 title: GitHub Insightsで利用できるメトリクス
-product: '{{ site.data.reusables.gated-features.github-insights }}'
-intro: '{{ site.data.variables.product.prodname_insights }}には、チームのソフトウェアデリバリのプロセスを可視化してくれる様々なメトリクスが含まれています。'
+product: '{% data reusables.gated-features.github-insights %}'
+intro: '{% data variables.product.prodname_insights %}には、チームのソフトウェアデリバリのプロセスを可視化してくれる様々なメトリクスが含まれています。'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
@@ -9,15 +9,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.prodname_insights }}内のメトリクスについて
+### {% data variables.product.prodname_insights %}内のメトリクスについて
 
-{{ site.data.reusables.github-insights.key-metrics-and-reports }}
+{% data reusables.github-insights.key-metrics-and-reports %}
 
-{{ site.data.reusables.github-insights.about-key-metrics }} それぞれの主要なメトリクスについて、目標を設定して計測できます。 詳しい情報については「[目標の管理](/insights/installing-and-configuring-github-insights/managing-goals)」を参照してください。
+{% data reusables.github-insights.about-key-metrics %} それぞれの主要なメトリクスについて、目標を設定して計測できます。 詳しい情報については「[目標の管理](/insights/installing-and-configuring-github-insights/managing-goals)」を参照してください。
 
-{{ site.data.reusables.github-insights.about-reports }}
+{% data reusables.github-insights.about-reports %}
 
-{{ site.data.reusables.github-insights.manage-metrics }}
+{% data reusables.github-insights.manage-metrics %}
 
 ### プルリクエストにおけるコラボレーションのための主要なメトリクス
 

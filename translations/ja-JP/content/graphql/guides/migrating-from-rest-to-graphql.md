@@ -1,6 +1,6 @@
 ---
 title: RESTからGraphQLへの移行
-intro: '{{ site.data.variables.product.prodname_dotcom }}のREST APIから{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIへの移行に関するベストプラクティスと考慮点について学んでください。'
+intro: '{% data variables.product.prodname_dotcom %}のREST APIから{% data variables.product.prodname_dotcom %}のGraphQL APIへの移行に関するベストプラクティスと考慮点について学んでください。'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
@@ -32,7 +32,7 @@ GraphQLによる重要な利点には以下があります。
 
 1つのREST API呼び出しで、Organizationのメンバーのリストを取得します。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/orgs/:org/members
+curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
 
 目的がメンバー名とアバターへのリンクの取得だけなのであれば、このRESTのペイロードには過剰なデータが含まれています。 しかし、GraphQLのクエリでは指定した内容だけが返されます。
@@ -54,12 +54,12 @@ query {
 
 別の例を考えてみましょう。プルリクエストのリストを取得して、それぞれがマージ可能かをチェックします。 REST APIの呼び出しは、プルリクエストとその[サマリ表現](/v3/#summary-representations)のリストを取得します。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
 プルリクエストがマージ可能かを判断するためには、個別にそれぞれのプルリクエストの[詳細な表現](/v3/#detailed-representations)（大きなペイロード）を取得し、その`mergeable`属性がtrueかfalse下をチェックしなければなりません。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
 
 GraphQLでは、それぞれのプルリクエストについて`number`と`mergeable`属性だけを取得できます。
@@ -83,10 +83,10 @@ query {
 
 入れ子になったフィールドにクエリを行うことで、複数のRESTの呼び出しを少数のGraphQLクエリに置き換えられます。 たとえば、プルリクエストをコミット、非レビューコメント、レビューを**REST API**を使って取得するには、4つの別々の呼び出しが必要になります。
 ```shell
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/commits
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/issues/:number/comments
-curl -v {{ site.data.variables.product.api_url_pre }}/repos/:owner/:repo/pulls/:number/reviews
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/issues/:number/comments
+curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/reviews
 ```
 
 **GraphQL API**を使えば、入れ子のフィールドを利用して単一のクエリでこのデータを取得できます。

@@ -16,8 +16,8 @@ You can filter a repository's list of pull requests to find:
 - Pull requests that you have reviewed
 - Pull requests that [someone has asked you, or a team you're a member of, to review](/articles/requesting-a-pull-request-review)
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. In the upper-right corner, select the Reviews drop-down menu.
   ![Reviews drop-down menu in the filter menu above the list of pull requests](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
 4. Choose a filter to find all of the pull requests with that filter's status.

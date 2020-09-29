@@ -11,10 +11,10 @@ versions:
 
 ### 为仓库启用受保护分支
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. 单击 **Create（创建）**。
 
 ### 必需状态检查的类型
@@ -27,16 +27,16 @@ versions:
 
 ### 启用必需状态检查
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. 选中 **Require status checks to pass before merging（合并前必需状态检查通过）**。 ![必需状态检查选项](/assets/images/help/repository/required-status-checks.png)
 6. 从可用状态检查列表中，选择您想要设为必需的状态检查。 ![可用状态检查列表](/assets/images/help/repository/required-statuses-list.png)
-{{ site.data.reusables.repositories.include-administrators }}
+{% data reusables.repositories.include-administrators %}
 8. 视情况可以取消选中 **Require branches to be up to date before merging（在合并前要求分支保持最新状态）**。 如果选中，则可确保使用基础分支上的最新代码来测试分支。 ![宽松或严格的必需状态复选框](/assets/images/help/repository/protecting-branch-loose-status-new.png)
 9. （可选）选择 {% if currentVersion ver_gt "enterprise-server@2.18" %}**Restrict who can push to matching branches（限制谁可以推送到匹配的分支）**{% else %}**Restrict who can push to this branch（限制谁可以推送到此分支）**{% endif %}。 ![分支限制复选框]{% if currentVersion ver_gt "enterprise-server@2.18" %}(/assets/images/help/repository/restrict-branch.png){% else %}(/assets/images/help/repository/restrict-branch-push.png){% endif %}
 10. 搜索并选择将有权推送到受保护分支的人员{% if currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}或{% endif %}团队{% if currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}。 ![分支限制搜索](/assets/images/help/repository/restrict-branch-search.png)
 11. 单击 **Create（创建）**。
 
-{{ site.data.reusables.repositories.required-status-merge-tip }}
+{% data reusables.repositories.required-status-merge-tip %}

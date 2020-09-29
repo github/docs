@@ -9,13 +9,13 @@ versions:
 
 {% warning %}
 
-**Note:** {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**Note:** {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. In the Billing managers list, next to the name of the person you want to remove, click {% octicon "x" aria-label="X symbol" %}.
 ![Remove billing manager](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

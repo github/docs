@@ -1,6 +1,6 @@
 ---
 title: GitHub 用語集
-intro: '弊社のサイトおよびドキュメンテーションで使用する、Git および {{ site.data.variables.product.prodname_dotcom }} に固有の用語の一部を以下に挙げます。'
+intro: '弊社のサイトおよびドキュメンテーションで使用する、Git および {% data variables.product.prodname_dotcom %} に固有の用語の一部を以下に挙げます。'
 redirect_from:
   - /articles/github-glossary
 versions:

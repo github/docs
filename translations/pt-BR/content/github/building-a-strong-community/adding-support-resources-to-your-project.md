@@ -22,12 +22,12 @@ Você pode criar recursos de suporte padrão para sua organização{% if current
 
 ### Adicionar recursos de suporte ao projeto
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo de nome do arquivo, digite *SUPPORT.md* (todas as letras maiúsculas).
 4. Na guia **Edit new file** (Editar novo arquivo), adicione informações sobre como as pessoas podem obter suporte para seu projeto.
 5. Para revisar o arquivo SUPPORT, clique em **Preview** (Visualizar).
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

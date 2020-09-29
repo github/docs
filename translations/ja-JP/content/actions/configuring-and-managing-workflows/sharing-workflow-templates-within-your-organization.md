@@ -1,14 +1,14 @@
 ---
 title: 組織内でのワークフロー テンプレートの共有
 intro: 組織専用のワークフロー テンプレートの標準化されたセットを作成できます。 組織のメンバーは、組織のリポジトリで新しいワークフローを作成するときに、テンプレートを使用できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ワークフローテンプレートは、組織の `.github` リポジトリへの書き込みアクセス権を持つユーザーによって作成できます。 その後、ワークフローを作成する権限を持つ組織メンバーがテンプレートを使用できます。
 
@@ -72,8 +72,8 @@ versions:
 
 この手順では、組織のメンバーがワークフロー テンプレートを検索して使用して新しいワークフローを作成する方法を示します。 組織のワークフロー テンプレートは、組織のメンバーであるすべてのユーザーが使用できます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. リポジトリに既存のワークフローが既に存在する場合: 左上隅にある [新しいワークフロー</strong>**] をクリックします。 ![新規ワークフローの選択](/assets/images/help/repository/actions-new-workflow.png)</p></li>
 1
 組織のワークフロー テンプレートは、組織名で作成されたワークフロー</em>"というタイトルの独自 _セクションにあります。 使いたいテンプレート名の下で、**Set up this workflow（このワークフローをセットアップする）**をクリックしてください。 ![このワークフローを設定します](/assets/images/help/settings/actions-create-starter-workflow.png)</p></li> </ol>

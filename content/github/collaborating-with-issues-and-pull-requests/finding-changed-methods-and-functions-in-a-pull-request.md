@@ -17,9 +17,9 @@ The summary list of methods and functions is created from these supported file t
   - Python
   - Ruby
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. To see a summary list of the changed functions and methods, click **Jump to...**.
 ![Jump to drop-down menu](/assets/images/help/pull_requests/jump-to-menu.png)
 5. Select the changed function or method from the drop-down menu. You can also enter the name of the function or method to filter results.

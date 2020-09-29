@@ -8,8 +8,8 @@
 
         Der Befehl zum Entfernen führt die folgenden Aufgaben aus:
 
-        * Entfernt den Läufer aus {{ site.data.variables.product.product_name }}.
+        * Entfernt den Läufer aus {% data variables.product.product_name %}.
         * Entfernt alle selbst-gehosteten Läufer-Anwendungskonfigurationsdateien auf der Maschine.
         * Entfernt alle konfigurierten Dienste, wenn sie nicht im interaktiven Modus ausgeführt werden.
 
-    * **Wenn Du keinen Zugriff auf die Maschine hast:** Klicke auf **Yes, force remove this runner** (Ja, erzwinge das Entfernen dieses Läufers) um {{ site.data.variables.product.product_name }} zu zwingen, den Läufer zu entfernen.
+    * **Wenn Du keinen Zugriff auf die Maschine hast:** Klicke auf **Yes, force remove this runner** (Ja, erzwinge das Entfernen dieses Läufers) um {% data variables.product.product_name %} zu zwingen, den Läufer zu entfernen.

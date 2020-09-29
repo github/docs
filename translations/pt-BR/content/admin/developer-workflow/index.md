@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/integrations/
   - /enterprise/admin/categories/integration/
   - /enterprise/admin/developer-workflow
-intro: 'Este guia descreve as ferramentas disponíveis no {{ site.data.variables.product.prodname_enterprise }} para implementar um fluxo de trabalho de desenvolvedor e impor políticas organizacionais a fim de reduzir riscos e aumentar a qualidade.'
+intro: 'Este guia descreve as ferramentas disponíveis no {% data variables.product.prodname_enterprise %} para implementar um fluxo de trabalho de desenvolvedor e impor políticas organizacionais a fim de reduzir riscos e aumentar a qualidade.'
 versions:
   enterprise-server: '*'
 ---

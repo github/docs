@@ -1,1 +1,1 @@
-**Hinweis:** {{ site.data.variables.product.prodname_actions }} muss vom Standard-Docker-Benutzer (root) ausgeführt werden. Stelle sicher, dass Dein Docker-File die Anweisung `USER` (Benutzer) nicht setzt, anderenfalls wirst Du nicht in der Lage sein, auf `GITHUB_WORKSPACE` zuzugreifen.
+**Hinweis:** {% data variables.product.prodname_actions %} muss vom Standard-Docker-Benutzer (root) ausgeführt werden. Stelle sicher, dass Dein Docker-File die Anweisung `USER` (Benutzer) nicht setzt, anderenfalls wirst Du nicht in der Lage sein, auf `GITHUB_WORKSPACE` zuzugreifen.

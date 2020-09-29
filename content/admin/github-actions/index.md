@@ -1,14 +1,14 @@
 ---
 title: Managing GitHub Actions for your enterprise
-intro: 'Enable {{ site.data.variables.product.prodname_actions }} on {{ site.data.variables.product.prodname_ghe_server }}, and manage {{ site.data.variables.product.prodname_actions }} policies and settings.'
+intro: 'Enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Table of Contents
 

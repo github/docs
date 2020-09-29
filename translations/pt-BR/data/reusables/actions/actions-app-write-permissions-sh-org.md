@@ -1,1 +1,1 @@
-{{ site.data.variables.product.prodname_github_app }}s devem ter permissão da organização `self-hosted runners:write` para utilizar este ponto de extremidade.
+{% data variables.product.prodname_github_app %}s devem ter permissão da organização `self-hosted runners:write` para utilizar este ponto de extremidade.

@@ -13,7 +13,7 @@ versions:
 
 您可以将默认社区健康文件添加到组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}或用户帐户{% endif %}拥有的公共仓库 `.github` 的根目录。
 
-对于在以下任何位置不含该类型自有文件的帐户所拥有的任何公共仓库，{{ site.data.variables.product.product_name }} 将使用并显示默认文件：
+对于在以下任何位置不含该类型自有文件的帐户所拥有的任何公共仓库，{% data variables.product.product_name %} 将使用并显示默认文件：
 - 仓库的根目录
 - `.github` 文件夹
 - `docs` 文件夹
@@ -39,10 +39,10 @@ versions:
 
 ### 创建用于默认文件的仓库
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. 使用 **Owner（所有者）** 下拉菜单选择要为其创建默认文件的组织{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} 或用户帐户{% endif %}。 ![所有者下拉菜单](/assets/images/help/repository/create-repository-owner.png)
 3. 键入 **.github** 作为仓库的名称，可选择键入说明。 ![创建仓库字段](/assets/images/help/repository/default-file-repository-name.png)
 4. 选择让仓库公开。 ![用于选择机密或公开状态的单选按钮](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. 在仓库中，创建一个受支持的社区健康文件。 议题模板{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}及其配置文件{% endif %} 必须在一个名为 `.github/ISSUE_TEMPLATE` 的文件夹中。 所有其他支持的文件必须在仓库的根目录中。 更多信息请参阅“[创建新文件](/articles/creating-new-files/)”。

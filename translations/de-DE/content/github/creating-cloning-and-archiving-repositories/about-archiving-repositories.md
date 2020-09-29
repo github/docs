@@ -11,12 +11,12 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Hinweis:** Wenn Du einen alten Abrechnungsplan pro Repository hast, wird Dir Dein archiviertes Repository weiterhin in Rechnung gestellt. Wenn Du keine Gebühren für ein archiviertes Repository entrichten möchtest, musst Du ein Upgrade auf ein neues Produkt durchführen. Weitere Informationen findest Du unter „[Produkte von {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products).“
+**Hinweis:** Wenn Du einen alten Abrechnungsplan pro Repository hast, wird Dir Dein archiviertes Repository weiterhin in Rechnung gestellt. Wenn Du keine Gebühren für ein archiviertes Repository entrichten möchtest, musst Du ein Upgrade auf ein neues Produkt durchführen. Weitere Informationen findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products).“
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
 Nach der Archivierung eines Repositorys kannst Du keine Mitarbeiter oder Teams mehr hinzufügen oder entfernen. Mitarbeiter, die Zugriff auf das Repository haben, können Dein Projekt nur forken oder mit einem Stern versehen.
 

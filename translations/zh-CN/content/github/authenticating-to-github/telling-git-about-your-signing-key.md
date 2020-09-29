@@ -13,7 +13,7 @@ versions:
 
 ### 将您的 GPG 密钥告知 Git
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {{ site.data.variables.product.product_name }} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
 
 {% note %}
 
@@ -23,10 +23,10 @@ versions:
 
 如果您有多个 GPG 密钥，则需要告知 Git 要使用哪一个。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. 如果没有使用 GPG Suite，请粘贴下面的文本以将 GPG 密钥添加到您的 bash 配置文件：
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
@@ -38,7 +38,7 @@ versions:
 
   {% endnote %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endmac %}
 
@@ -46,7 +46,7 @@ versions:
 
 ### 将您的 GPG 密钥告知 Git
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {{ site.data.variables.product.product_name }} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
 
 {% note %}
 
@@ -56,12 +56,12 @@ versions:
 
 如果您有多个 GPG 密钥，则需要告知 Git 要使用哪一个。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -69,13 +69,13 @@ versions:
 
 {% note %}
 
-**注：**Linux 上不支持 X.509 密钥。 您可配置 gpgsm 以提供加密和签名服务，但 {{ site.data.variables.product.product_name }} 目前不支持此功能。 更多信息请参阅 GnuPG 文档中的 [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) 主题。
+**注：**Linux 上不支持 X.509 密钥。 您可配置 gpgsm 以提供加密和签名服务，但 {% data variables.product.product_name %} 目前不支持此功能。 更多信息请参阅 GnuPG 文档中的 [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) 主题。
 
 {% endnote %}
 
 ### 将您的 GPG 密钥告知 Git
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {{ site.data.variables.product.product_name }} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
 
 {% note %}
 
@@ -85,10 +85,10 @@ versions:
 
 如果您有多个 GPG 密钥，则需要告知 Git 要使用哪一个。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. 要将 GPG 密钥添加到 bash 配置文件，请粘贴下面的文本：
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile

@@ -1,6 +1,6 @@
 ---
 title: 关于项目板
-intro: '{{ site.data.variables.product.product_name }} 上的项目板帮助您组织工作和排列工作的优先级。 您可以为特定功能工作、全面的路线图甚至发布检查列表创建项目板。 通过项目板可以灵活地创建适合需求的自定义工作流程。'
+intro: '{% data variables.product.product_name %} 上的项目板帮助您组织工作和排列工作的优先级。 您可以为特定功能工作、全面的路线图甚至发布检查列表创建项目板。 通过项目板可以灵活地创建适合需求的自定义工作流程。'
 redirect_from:
   - /articles/about-projects/
   - /articles/about-project-boards
@@ -11,14 +11,14 @@ versions:
 
 项目板包括议题、拉取请求和注释，在选择的列中分类为卡片。 您可以拖放或使用键盘快捷键对列中的卡片重新排序，在不同列之间移动卡片，以及更改列的顺序。
 
-项目板卡片包含议题和拉取请求的相关数据，如标签、受理人、状态和打开者。 {{ site.data.reusables.project-management.edit-in-project }}
+项目板卡片包含议题和拉取请求的相关数据，如标签、受理人、状态和打开者。 {% data reusables.project-management.edit-in-project %}
 
-您可以在列中创建注释以用作任务提醒，引用 {{ site.data.variables.product.product_name }} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 您可以在注释中添加链接，创建另一个项目的参考卡。 如果注释不足以满足您的需求，您可以将其转换为议题。 有关将项目板注释转换为议题的更多信息，请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
+您可以在列中创建注释以用作任务提醒，引用 {% data variables.product.product_name %} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 您可以在注释中添加链接，创建另一个项目的参考卡。 如果注释不足以满足您的需求，您可以将其转换为议题。 有关将项目板注释转换为议题的更多信息，请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
 
 项目板的类型：
 
 - **用户拥有的项目板**可以包含任何个人仓库中的议题和拉取请求。
-- **组织范围的项目板**可以包含属于组织的任何仓库中的议题和拉取请求。  {{ site.data.reusables.project-management.link-repos-to-project-board }}更多信息请参阅“[将仓库链接到项目板](/articles/linking-a-repository-to-a-project-board)”。
+- **组织范围的项目板**可以包含属于组织的任何仓库中的议题和拉取请求。  {% data reusables.project-management.link-repos-to-project-board %}更多信息请参阅“[将仓库链接到项目板](/articles/linking-a-repository-to-a-project-board)”。
 - **仓库项目板**范围是单一仓库中的议题和拉取请求。 它们也可包含引用其他仓库中议题和拉取请求的注释。
 
 ### 创建和查看项目板
@@ -37,7 +37,7 @@ versions:
 
 如果要以不同的方式跟踪您的工作，您也可以[在仓库中禁用项目板](/articles/disabling-project-boards-in-a-repository)或[在组织中禁用项目板](/articles/disabling-project-boards-in-your-organization)。
 
-{{ site.data.reusables.project-management.project-board-import-with-api }}
+{% data reusables.project-management.project-board-import-with-api %}
 
 ### 项目板模板
 
@@ -54,7 +54,7 @@ versions:
 
 ![带看板模板的项目板](/assets/images/help/projects/project-board-basic-kanban-template.png)
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 ### 延伸阅读
 

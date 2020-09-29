@@ -14,7 +14,7 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas modificar.
 3. Junto al título de la solicitud de extracción, haz clic en **Edit** (Editar). ![Botón Pull request edit (Edición de solicitud de extracción)](/assets/images/help/pull_requests/pull-request-edit.png)
 4. En el menú desplegable de la rama base, seleccione aquella contra la que desea [comparar cambios](/github/committing-changes-to-your-project/comparing-commits#comparing-branches). ![Menú desplegable de la rama base ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)

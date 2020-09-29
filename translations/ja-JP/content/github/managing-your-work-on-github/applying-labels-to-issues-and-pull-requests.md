@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. 右上で [**Label**] をクリックし、続けて既存のラベル名を入力してください。 ラベルの名前をクリックして、選択されたアイテムに関連付けてください。 ![Issue のマイルストーン割り当てドロップダウンメニュー](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### 参考リンク

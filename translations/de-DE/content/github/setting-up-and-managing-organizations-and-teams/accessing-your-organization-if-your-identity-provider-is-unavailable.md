@@ -1,7 +1,7 @@
 ---
 title: Zugriff auf Deine Organisation bei nicht verfügbarem Identitätsanbieter
-intro: 'Administratoren von Organisationen können sich bei {{ site.data.variables.product.product_name }} anmelden, auch wenn ihr Identitätsanbieter nicht verfügbar ist, indem sie Single Sign-On umgehen und ihre Wiederherstellungscodes verwenden.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Administratoren von Organisationen können sich bei {% data variables.product.product_name %} anmelden, auch wenn ihr Identitätsanbieter nicht verfügbar ist, indem sie Single Sign-On umgehen und ihre Wiederherstellungscodes verwenden.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Kennzeichnungen
-intro: 'Kennzeichnungen auf {{ site.data.variables.product.product_name }} helfen Dir, Deine Arbeit zu organisieren und zu priorisieren. Du kannst Kennzeichnungen auf Issues und Pull Requests anwenden, um Priorität, Kategorie oder andere Informationen zu kennzeichnen, die Du für nützlich hältst.'
+intro: 'Kennzeichnungen auf {% data variables.product.product_name %} helfen Dir, Deine Arbeit zu organisieren und zu priorisieren. Du kannst Kennzeichnungen auf Issues und Pull Requests anwenden, um Priorität, Kategorie oder andere Informationen zu kennzeichnen, die Du für nützlich hältst.'
 redirect_from:
   - /articles/about-labels
 versions:
@@ -14,7 +14,7 @@ Alle Benutzer mit Lesezugriff auf ein Repository können die Kennzeichnungen des
 
 ### Standardkennzeichnungen verwenden
 
-{{ site.data.variables.product.product_name }} bietet in jedem neuen Repository Standardkennzeichnungen. Mithilfe dieser Standardkennzeichnungen kannst Du einen Standardworkflow in einem Repository erstellen:
+{% data variables.product.product_name %} bietet in jedem neuen Repository Standardkennzeichnungen. Mithilfe dieser Standardkennzeichnungen kannst Du einen Standardworkflow in einem Repository erstellen:
 
 | Kennzeichnung      | Beschreibung                                                                                                                         |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------ |

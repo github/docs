@@ -8,17 +8,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }}  Para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %}  Para obter mais informações, consulte "[Permissões do quadro de projeto para uma organização](/articles/project-board-permissions-for-an-organization)."
 
 Você pode automatizar ações com base nos eventos de disparo para colunas do quadro de projeto. Isso elimina algumas das tarefas manuais no gerenciamento de um quadro de projeto. Por exemplo, é possível configurar uma coluna "Tarefas pendentes", onde qualquer problema ou pull request que você adiciona a um quadro de projeto é automaticamente movido para a coluna configurada. Para obter mais informações, consulte "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)."
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 A automação do quadro de projeto também pode ajudar as equipes a desenvolver uma compreensão compartilhada da finalidade de um quadro de projeto e o processo de desenvolvimento da equipe criando um fluxo de trabalho padrão para determinadas ações.
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 ### Opções de automação
 
@@ -29,7 +29,7 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 | Concluído                 | <ul><li>Mover todos os problemas fechados aqui</li><li>Mover todas as pull requests mescladas aqui</li><li>Mover todas as pull requests fechadas e não mescladas aqui</li></ul> |
 
 ### Acompanhamento do andamento do projeto
-A automação do quadro de projeto permite o acompanhamento do andamento por padrão. Os cartões em colunas com as predefinições "Tarefas pendentes", "Em andamento" ou "Concluído" contam no andamento geral do projeto. {{ site.data.reusables.project-management.project-progress-locations }}
+A automação do quadro de projeto permite o acompanhamento do andamento por padrão. Os cartões em colunas com as predefinições "Tarefas pendentes", "Em andamento" ou "Concluído" contam no andamento geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
 ### Leia mais
 - "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}

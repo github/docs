@@ -7,8 +7,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% topic_link_in_list /configuring-and-managing-workflow-files-and-runs %}
   {% link_in_list /configuring-a-workflow %}

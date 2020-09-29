@@ -18,8 +18,8 @@ La primera cosa que desearás realizar es un control de Subversion.  Ya que los 
 
 Los controles de Subversion son diferentes: combinan los datos del repositorio en los directorios de trabajo, por lo que hay un directorio de trabajo para cada rama y etiqueta que has revisado.  Para los repositorios con muchas ramas y etiquetas, revisar cada cosa puede ser una sobrecarga del ancho de banda, por lo que deberías comenzar con un control parcial.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Realiza un control vacío del repositorio:
   ```shell

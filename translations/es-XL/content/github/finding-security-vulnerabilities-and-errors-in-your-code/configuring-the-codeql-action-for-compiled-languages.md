@@ -1,9 +1,9 @@
 ---
 title: Configuring the CodeQL action for compiled languages
 shortTitle: Configurar para los lenguajes compilados
-intro: 'You can configure how {{ site.data.variables.product.prodname_dotcom }} uses the {{ site.data.variables.product.prodname_codeql_workflow }} to scan code written in compiled languages for vulnerabilities and errors.'
-product: '{{ site.data.reusables.gated-features.code-scanning }}'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar {{ site.data.variables.product.prodname_code_scanning }} para el mismo.'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+product: '{% data reusables.gated-features.code-scanning %}'
+permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar {% data variables.product.prodname_code_scanning %} para el mismo.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
 versions:
@@ -11,23 +11,23 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.code-scanning.beta }}
-{{ site.data.reusables.code-scanning.enterprise-enable-code-scanning-actions }}
+{% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### About the {{ site.data.variables.product.prodname_codeql_workflow }} and compiled languages
+### About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
 
-You enable {{ site.data.variables.product.prodname_dotcom }} to run {{ site.data.variables.product.prodname_code_scanning }} for your repository by adding a {{ site.data.variables.product.prodname_actions }} workflow to the repository. **Note**: This article refers to {{ site.data.variables.product.prodname_code_scanning }} powered by {{ site.data.variables.product.prodname_codeql }}, not to {{ site.data.variables.product.prodname_code_scanning }} resulting from the upload of third-party static analysis tools. El flujo de trabajo predeterminado de {{ site.data.variables.product.prodname_code_scanning }} utiliza el evento `on.push` para activar el escaneo de código cada vez que alguien carga información a cualquier rama que contenga el archivo de flujo de trabajo.
+You enable {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. El flujo de trabajo predeterminado de {% data variables.product.prodname_code_scanning %} utiliza el evento `on.push` para activar el escaneo de código cada vez que alguien carga información a cualquier rama que contenga el archivo de flujo de trabajo.
 
-{{ site.data.reusables.code-scanning.edit-workflow }}
-For general information about configuring {{ site.data.variables.product.prodname_code_scanning }} and editing workflow files, see "[Configuring {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
+{% data reusables.code-scanning.edit-workflow %}
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
 
-### Acerca de autobuild para {{ site.data.variables.product.prodname_codeql }}
+### Acerca de autobuild para {% data variables.product.prodname_codeql %}
 
-{{ site.data.reusables.code-scanning.autobuild-compiled-languages }}
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% note %}
 
-**Nota**: Si utilizas los ejecutores auto-hospedados para {{ site.data.variables.product.prodname_actions }}, tal vez necesites instalar software adicional para utilizar el proceso de `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta "[Software instalado en los ejecutores alojados por GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
+**Nota**: Si utilizas los ejecutores auto-hospedados para {% data variables.product.prodname_actions %}, tal vez necesites instalar software adicional para utilizar el proceso de `autobuild`. Adicionalmente, si tu repositorio requiere de una versión específica de una herramienta de compilación, tal vez necesites instalarla manualmente. Para obtener más información, consulta "[Software instalado en los ejecutores alojados por GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
 
 {% endnote %}
 
@@ -72,7 +72,7 @@ El proceso de `autobuild` intenta determinar el sistema de compilación para las
 
 ### Agregar pasos de compilación para un lenguaje compilado
 
-{{ site.data.reusables.code-scanning.autobuild-add-build-steps }} Para obtener información acerca de cómo editar el flujo de trabajo, consulta la sección "[Configurar el {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
+{% data reusables.code-scanning.autobuild-add-build-steps %} Para obtener información acerca de cómo editar el flujo de trabajo, consulta la sección "[Configurar el {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
 
 Después de eliminar el paso de `autobuild`, quita el comentario del paso de `run` y agrega los comandos de compilación que son adecuados para tu repositorio. El paso de `run` en el flujo de trabajo ejecuta programas de línea de comandos que utiizan el shell del sistema operativo. Puedes modificar estos comandos y agregar más de ellos para personalizar el proceso de compilación.
 
@@ -130,6 +130,6 @@ jobs:
       uses: github/codeql-action/analyze@v1
 ```
 
-Para encontrar más tips del porqué `autobuild` no compilará tu código, consulta la sección "[Solucionar problemas del {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)".
+Para encontrar más tips del porqué `autobuild` no compilará tu código, consulta la sección "[Solucionar problemas del {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)".
 
-Si agregaste pasos de compilación manuales para los lenguajes compilados o si utilizaste una matriz de compilación y el {{ site.data.variables.product.prodname_code_scanning }} sigue sin funcionar en tu repositorio, contacta a {{ site.data.variables.contact.contact_support }}.
+Si agregaste pasos de compilación manuales para los lenguajes compilados o si utilizaste una matriz de compilación y el {% data variables.product.prodname_code_scanning %} sigue sin funcionar en tu repositorio, contacta a {% data variables.contact.contact_support %}.

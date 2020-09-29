@@ -1,6 +1,6 @@
 ---
 title: Using Git
-intro: 'Learn common and advanced workflows in Git to enhance your experience using {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Learn common and advanced workflows in Git to enhance your experience using {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/19/articles/
   - /categories/using-git

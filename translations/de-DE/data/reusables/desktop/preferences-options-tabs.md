@@ -1,4 +1,4 @@
-    - Wähle**Accounts** (Konten) aus, um ein {{ site.data.variables.product.prodname_dotcom }}- oder {{ site.data.variables.product.prodname_enterprise }}-Konto hinzuzufügen oder zu entfernen.
+    - Wähle**Accounts** (Konten) aus, um ein {% data variables.product.prodname_dotcom %}- oder {% data variables.product.prodname_enterprise %}-Konto hinzuzufügen oder zu entfernen.
     - Wähle **Integrations** (Integration) aus, um einen externen Editor oder eine externe Shell auszuwählen.
     - Wähle**Git** aus, um Deine Git-Konfiguration zu bearbeiten.
     - Wähle **Appearance** (Erscheinung), um zwischen dem hellen oder dunklen Design zu wechseln.

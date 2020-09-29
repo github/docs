@@ -1,7 +1,7 @@
 ---
 title: Webhooks für Organisationsereignisse in Deinem Enterprise-Konto konfigurieren
 intro: Enterprise-Inhaber können für Ereignisse in Organisationen eines Enterprise-Kontos Webhooks konfigurieren.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/configuring-webhooks-for-organization-events-in-your-business-account/
   - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account
@@ -11,9 +11,9 @@ versions:
 
 Du kannst Webhooks konfigurieren, um Ereignisse von Organisationen im Besitz Deines Enterprise-Kontos zu empfangen. For more information about webhooks, see "[Webhooks](/webhooks/)."
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 4. Klicke neben „Webhooks“ (Webhooks) auf **Add webhook** (Webhook hinzufügen). ![Schaltfläche „Add webhook“ (Webhook hinzufügen) in der Webhook-Seitenleiste](/assets/images/help/business-accounts/add-webhook-button.png)
 5. Gib eine Nutzlast-URL ein, und passe dann optional die Konfiguration an. Weitere Informationen finden Sie unter „[Webhooks erstellen](/webhooks/creating/#creating-webhooks)“. ![Felder für die Nutzlast-URL und andere Anpassungsoptionen](/assets/images/help/business-accounts/webhook-payload-url-and-customization-options.png)
 6. Wähle unter „Which events would you like to trigger this webhook?“ (Welche Ereignisse sollen diesen Webhook auslösen?) die Option **Let me select individual events** (Einzelne Ereignisse auswählen). ![Einzelne Ereignisse auswählen](/assets/images/help/business-accounts/webhook-let-me-select-individual-events.png)

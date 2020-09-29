@@ -1,6 +1,6 @@
 ---
 title: Sobre conversas no GitHub
-intro: 'Você pode discutir alterações e projetos específicos, bem como projetos maiores ou metas de equipe, usando diferentes tipos de discussão no {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode discutir alterações e projetos específicos, bem como projetos maiores ou metas de equipe, usando diferentes tipos de discussão no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### Discussões no {{ site.data.variables.product.product_name }}
+### Discussões no {% data variables.product.product_name %}
 
 É possível criar problemas e participar deles, pull requests e discussões em equipe, dependendo do tipo de conversa que você deseja ter.
 
 Os problemas são úteis para discutir detalhes específicos de um projeto, como relatórios de erros e melhorias planejadas. Para obter mais informações, consulte "[Sobre problemas](/articles/about-issues)". As pull requests permitem comentar diretamente nas alterações propostas. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)" e "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)".
 
-{{ site.data.reusables.organizations.team-discussions-purpose }} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-purpose %} Para obter mais informações, consulte "[Sobre discussões de equipe](/articles/about-team-discussions)."
 
 ### Reagir às ideias nos comentários
 
@@ -43,4 +43,4 @@ Semelhante às diretrizes de contribuição, o mantenedor de repositório pode t
 - "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Moderar comentários e conversas](/articles/moderating-comments-and-conversations)"
-- "[Gravar no {{ site.data.variables.product.prodname_dotcom }}](/articles/writing-on-github)"
+- "[Gravar no {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

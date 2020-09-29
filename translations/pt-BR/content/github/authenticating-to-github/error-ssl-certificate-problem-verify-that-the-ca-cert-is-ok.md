@@ -1,6 +1,6 @@
 ---
 title: 'Erro: problema na certificação SSL, verifique se a cert CA está OK'
-intro: 'O erro indica que o certificado CA root está desatualizado. Não será possível fazer push ou pull nos repositórios {{ site.data.variables.product.product_name }} se houver necessidade de atualizar o certificado CA root.'
+intro: 'O erro indica que o certificado CA root está desatualizado. Não será possível fazer push ou pull nos repositórios {% data variables.product.product_name %} se houver necessidade de atualizar o certificado CA root.'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:

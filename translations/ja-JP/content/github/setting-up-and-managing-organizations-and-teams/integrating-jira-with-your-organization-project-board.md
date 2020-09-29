@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. 左サイドバーの [**Organization settings**] で、Organization の名前をクリックします。 ![サイドバーの Organization 名](/assets/images/help/settings/organization-settings-from-sidebar.png)
 3. 左サイドバーの **[Developer settings]** で、[**OAuth applications**] をクリックします。 ![左サイドバーの [OAuth applications] タブ](/assets/images/help/organizations/org-oauth-applications-ghe.png)
 4. [**Register a new application**] をクリックします。
@@ -16,7 +16,7 @@ versions:
 7. [**Authorization callback URL**] に、JIRA インスタンスの完全な URL を入力します。
 8. **Register application** をクリックする。 ![[Register application] ボタン](/assets/images/help/oauth/register-application-button.png)
 9. [**Organization owned applications**] で、[Client ID] と [Client Secret] の値を確認します。 ![クライアント ID とクライアントシークレット](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### 参考リンク
 

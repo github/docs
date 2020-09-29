@@ -12,7 +12,7 @@ versions:
 
 Bei Projektboards gibt es für Benutzer und Teams drei Berechtigungsstufen:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 Organisationsinhaber und Personen mit Administratorberechtigungen können einer Person den Zugriff auf ein Projektboard der Organisation als Einzelperson, als externer Mitarbeiter oder Organisationsmitglied oder über ihre Mitgliedschaft in einem Team oder einer Organisation gewähren. Ein externer Mitarbeiter ist eine Person, die kein Organisationsmitglied ist, aber die Berechtigungen für die Mitarbeit in Deiner Organisation besitzt.
 
@@ -23,13 +23,13 @@ Organisationsinhaber und Personen mit Administratorberechtigungen für ein Proje
 
 ### Berechtigungen für Projektboards kaskadieren
 
-{{ site.data.reusables.project-management.cascading-permissions }}
+{% data reusables.project-management.cascading-permissions %}
 
 Wenn ein Organisationsinhaber beispielsweise allen Organisationsmitgliedern Leseberechtigungen für ein Projektboard erteilt hat und ein Projektboard-Administrator einem Organisationsmitglied Schreibberechtigungen als einzelner Mitarbeiter für dieses Projektboard erteilt, würde diese Person Schreibberechtigungen für das Projektboard haben.
 
 ### Sichtbarkeit des Projektboards
 
-{{ site.data.reusables.project-management.project-board-visibility }} Du kannst die Sichtbarkeit des Projektboards von privat auf öffentlich und wieder zurück ändern. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
+{% data reusables.project-management.project-board-visibility %} Du kannst die Sichtbarkeit des Projektboards von privat auf öffentlich und wieder zurück ändern. Weitere Informationen finden Sie unter „[Sichtbarkeit des Projektboards ändern](/articles/changing-project-board-visibility)“.
 
 ### Weiterführende Informationen
 

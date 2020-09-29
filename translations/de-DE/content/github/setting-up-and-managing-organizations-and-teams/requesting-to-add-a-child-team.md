@@ -12,16 +12,16 @@ Wenn Du das Hinzufügen eines untergeordneten Teams anforderst, wird an die Betr
 
 Wenn Du Organisationsinhaber bist oder über Team-Betreuer-Berechtigungen sowohl im untergeordneten als auch im übergeordneten Team verfügst, kannst Du das untergeordnete Team auch ohne Anforderung einer Genehmigung hinzufügen oder das übergeordnete Team des untergeordneten Teams direkt auf der Einstellungsseite des untergeordneten Teams ändern. Weitere Informationen findest Du unter „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy).“
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Klicke in der Teamliste auf den Namen des Teams, dem Du das untergeordnete Team hinzufügen möchtest. ![Liste der Teams der Organisation](/assets/images/help/teams/click-team-name.png)
 5. Klicke am Anfang der Teamseite auf {% octicon "people" aria-label="The people icon" %} **Teams**. ![Registerkarte „Teams" auf der Teamseite](/assets/images/help/teams/team-teams-tab.png)
 6. Klicke auf **Add a team** (Team hinzufügen). ![Schaltfläche zum Hinzufügen eines Teams auf der Teamseite](/assets/images/help/teams/add-a-team.png)
 7. Gib den Namen des Teams ein, das Du als untergeordnetes Team hinzufügen möchten, und wähle es aus dem Dropdownmenü aus. ![Textfeld zum Eingeben und Dropdown-Menü zum Auswählen des Namens des untergeordneten Teams](/assets/images/help/teams/type-child-team-name.png)
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Klicke auf **Confirm changes** (Änderungen bestätigen), um eine Anfrage zum Hinzufügen des untergeordneten Teams zu senden. ![Modales Feld mit Informationen zu den Änderungen an den Berechtigungen für den Repositoryzugriff](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### Weiterführende Informationen

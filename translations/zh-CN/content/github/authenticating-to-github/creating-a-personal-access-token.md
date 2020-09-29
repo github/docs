@@ -11,18 +11,18 @@ versions:
   enterprise-server: '*'
 ---
 
-在使用[GitHub API 或](/v3/auth/#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {{ site.data.variables.product.product_name }} 进行身份验证。
+在使用[GitHub API 或](/v3/auth/#via-oauth-and-personal-access-tokens)命令[行](#using-a-token-on-the-command-line)时，可使用个人访问令牌 (PAT) 代替密码向 {% data variables.product.product_name %} 进行身份验证。
 
 {% if currentVersion == "free-pro-team@latest" %}如果要使用 PAT 访问使用 SAML SSO 的组织所拥有的资源，则必须授权 PAT。 更多信息请参阅“[关于使用 SAML 单点登录进行身份验证](/articles/about-authentication-with-saml-single-sign-on)”和“[授权个人访问令牌用于 SAML 单点登录](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### 创建令牌
 
 {% if currentVersion == "free-pro-team@latest" %}1. [验证您的电子邮件地址](/articles/verifying-your-email-address)（如果尚未验证）。{% endif %}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 4. 单击 **Generate new token（生成新令牌）**。 ![生成新令牌按钮](/assets/images/help/settings/generate_new_token.png)
 5. 给令牌一个描述性名称。 ![令牌说明字段](/assets/images/help/settings/token_description.png)
 6. 选择要授予此令牌的作用域或权限。 要使用令牌从命令行访问仓库，请选择 **repo（仓库）**。 ![选择令牌作用域](/assets/images/help/settings/token_scopes.gif)
@@ -39,7 +39,7 @@ versions:
 
 ### 在命令行上使用令牌
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 个人访问令牌只能用于 HTTPS Git 操作。 如果您的仓库使用 SSH 远程 URL，则需要[将远程 URL 从 SSH 切换到 HTTPS](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https)。
 

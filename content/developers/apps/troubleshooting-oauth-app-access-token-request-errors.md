@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting OAuth App access token request errors
-intro: '{{ site.data.reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps }}'
+intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
@@ -28,12 +28,12 @@ receive this error response.
 }
 ```
 
-To solve this error, make sure you have the correct credentials for your {{ site.data.variables.product.prodname_oauth_app }}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly
-to {{ site.data.variables.product.product_name }}.
+To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly
+to {% data variables.product.product_name %}.
 
 ### Redirect URI mismatch
 
-If you provide a `redirect_uri` that doesn't match what you've registered with your {{ site.data.variables.product.prodname_oauth_app }}, you'll receive this error message:
+If you provide a `redirect_uri` that doesn't match what you've registered with your {% data variables.product.prodname_oauth_app %}, you'll receive this error message:
 
 ```json
 {

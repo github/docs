@@ -9,26 +9,26 @@ Para monitorear los cambios a tus patrocinios, tales como las cancelaciones al f
 
 ### Administrar los webhooks para tu cuenta de usuario patrocinada
 
-{{ site.data.reusables.sponsors.navigate-to-dev-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-webhooks-tab }}
-{{ site.data.reusables.sponsors.add-webhook }}
-{{ site.data.reusables.sponsors.add-payload-url }}
-{{ site.data.reusables.sponsors.webhook-content-formatting }}
-{{ site.data.reusables.sponsors.webhook-secret-token }}
-{{ site.data.reusables.sponsors.add-active-triggers }}
-{{ site.data.reusables.sponsors.confirm-add-webhook}}
-{{ site.data.reusables.sponsors.manage-existing-webhooks}}
+{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-webhooks-tab %}
+{% data reusables.sponsors.add-webhook %}
+{% data reusables.sponsors.add-payload-url %}
+{% data reusables.sponsors.webhook-content-formatting %}
+{% data reusables.sponsors.webhook-secret-token %}
+{% data reusables.sponsors.add-active-triggers %}
+{% data reusables.sponsors.confirm-add-webhook %}
+{% data reusables.sponsors.manage-existing-webhooks %}
 
 ### Administrar webhooks para tu cuenta de organización patrocinada
 
 Los propietarios de organización pueden configurar webhooks para sus organizaciones patrocinadas.
 
-{{ site.data.reusables.sponsors.navigate-to-org-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-webhooks-tab }}
-{{ site.data.reusables.sponsors.add-webhook }}
-{{ site.data.reusables.sponsors.add-payload-url }}
-{{ site.data.reusables.sponsors.webhook-content-formatting }}
-{{ site.data.reusables.sponsors.webhook-secret-token }}
-{{ site.data.reusables.sponsors.add-active-triggers }}
-{{ site.data.reusables.sponsors.confirm-add-webhook}}
-{{ site.data.reusables.sponsors.manage-existing-webhooks}}
+{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-webhooks-tab %}
+{% data reusables.sponsors.add-webhook %}
+{% data reusables.sponsors.add-payload-url %}
+{% data reusables.sponsors.webhook-content-formatting %}
+{% data reusables.sponsors.webhook-secret-token %}
+{% data reusables.sponsors.add-active-triggers %}
+{% data reusables.sponsors.confirm-add-webhook %}
+{% data reusables.sponsors.manage-existing-webhooks %}

@@ -111,7 +111,7 @@ query {
 * You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {{ site.data.variables.product.graphql_url_pre }}
+  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
 
   The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
@@ -120,7 +120,7 @@ query {
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
-  {{ site.data.variables.product.graphql_url_pre }}
+  {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}

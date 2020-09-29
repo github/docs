@@ -16,24 +16,24 @@ versions:
 
 ### 個人アカウントのプランに対する保留中の変更の表示と管理
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Organization のプランに対する保留中の変更の表示と管理
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### 参考リンク
 
-- "[{{ site.data.variables.product.prodname_dotcom }}の製品](/articles/github-s-products)"
+- "[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)"

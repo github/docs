@@ -1,18 +1,18 @@
 ---
 title: Configurar o Git Large File Storage para uso em servidores de terceiros
-intro: 'É possível usar o {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) em um servidor de terceiros desabilitando o {{ site.data.variables.large_files.product_name_short }} no appliance do {{ site.data.variables.product.prodname_ghe_server }} e configurando o cliente {{ site.data.variables.large_files.product_name_short }} com a URL do servidor em que você pretende armazenar os ativos de grande volume.'
+intro: 'É possível usar o {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) em um servidor de terceiros desabilitando o {% data variables.large_files.product_name_short %} no appliance do {% data variables.product.prodname_ghe_server %} e configurando o cliente {% data variables.large_files.product_name_short %} com a URL do servidor em que você pretende armazenar os ativos de grande volume.'
 redirect_from:
   - /enterprise/admin/installation/configuring-git-large-file-storage-to-use-a-third-party-server
 versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.large_files.storage_assets_location }}
-{{ site.data.reusables.large_files.rejected_pushes }}
+{% data reusables.large_files.storage_assets_location %}
+{% data reusables.large_files.rejected_pushes %}
 
-1. Desabilite o appliance do {{ site.data.variables.large_files.product_name_short }} no {{ site.data.variables.product.prodname_ghe_server }}. Para obter mais informações, consulte "[Configurar o {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)".
+1. Desabilite o appliance do {% data variables.large_files.product_name_short %} no {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Configurar o {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage#configuring-git-large-file-storage-for-your-appliance)".
 
-2. Crie um arquivo de configuração do {{ site.data.variables.large_files.product_name_short }} que aponte para o servidor de terceiros.
+2. Crie um arquivo de configuração do {% data variables.large_files.product_name_short %} que aponte para o servidor de terceiros.
   ```shell
   # Show default configuration
   $ git lfs env
@@ -35,16 +35,16 @@ versions:
   lfsurl = https://<em>THIRD-PARTY-LFS-SERVER</em>/path/to/repo
   ```
 
-3. Para manter a mesma configuração do {{ site.data.variables.large_files.product_name_short }} em todos os usuários, faça commit de um arquivo `.lfsconfig` personalizado no repositório.
+3. Para manter a mesma configuração do {% data variables.large_files.product_name_short %} em todos os usuários, faça commit de um arquivo `.lfsconfig` personalizado no repositório.
   ```shell
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. Migre qualquer ativo do {{ site.data.variables.large_files.product_name_short }}. Para obter mais informações, consulte "[Migrar para outro servidor do {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/migrating-to-a-different-git-large-file-storage-server)".
+3. Migre qualquer ativo do {% data variables.large_files.product_name_short %}. Para obter mais informações, consulte "[Migrar para outro servidor do {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/migrating-to-a-different-git-large-file-storage-server)".
 
 ### Further reading
 
-- [Sobre o {{ site.data.variables.large_files.product_name_long }}](/articles/about-git-large-file-storage/)
-- [Configurar o {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage)
-- [Migrar para outro servidor do {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/migrating-to-a-different-git-large-file-storage-server)
-- [Site de projeto do {{ site.data.variables.large_files.product_name_long }}](https://git-lfs.github.com/)
+- [Sobre o {% data variables.large_files.product_name_long %}](/articles/about-git-large-file-storage/)
+- [Configurar o {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage)
+- [Migrar para outro servidor do {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/migrating-to-a-different-git-large-file-storage-server)
+- [Site de projeto do {% data variables.large_files.product_name_long %}](https://git-lfs.github.com/)

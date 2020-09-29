@@ -1,6 +1,6 @@
 ---
 title: Managing connections between GitHub Enterprise Server and GitHub Enterprise Cloud
-intro: 'With {{ site.data.variables.product.prodname_github_connect }}, you can share certain features and data between {{ site.data.variables.product.product_location_enterprise }} and your {{ site.data.variables.product.prodname_ghe_cloud }} organization or enterprise account on {{ site.data.variables.product.prodname_dotcom_the_website }}.'
+intro: 'With {% data variables.product.prodname_github_connect %}, you can share certain features and data between {% data variables.product.product_location_enterprise %} and your {% data variables.product.prodname_ghe_cloud %} organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %}.'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-to-github-com

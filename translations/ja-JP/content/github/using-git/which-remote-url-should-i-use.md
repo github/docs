@@ -3,7 +3,7 @@ title: どのリモート URL を使うべきですか？
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: '{{ site.data.variables.product.prodname_dotcom }} で使用できるリポジトリを複製する方法は複数あります。'
+intro: '{% data variables.product.prodname_dotcom %} で使用できるリポジトリを複製する方法は複数あります。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,17 +17,17 @@ versions:
 
 `https://` クローン URL は、パブリックおよびプライベートのすべてのリポジトリで利用できます。 これらの URL は、ファイアウォールまたはプロキシの内側にいる場合でも機能します。
 
-コマンドラインで、HTTPS URL を使用してリモートリポジトリに `git clone`、`git fetch`、`git pull` または `git push` を行った場合、{{ site.data.variables.product.product_name }} のユーザ名とパスワードの入力を求められます。 {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+コマンドラインで、HTTPS URL を使用してリモートリポジトリに `git clone`、`git fetch`、`git pull` または `git push` を行った場合、{% data variables.product.product_name %} のユーザ名とパスワードの入力を求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 {% tip %}
 
 **Tips**:
 
-- 認証情報ヘルパーを使用すれば、{{ site.data.variables.product.prodname_dotcom }} と通信するたびに、{{ site.data.variables.product.prodname_dotcom }} の認証情報が Git で記憶されます。 詳細は「[Git に {{ site.data.variables.product.prodname_dotcom }} の認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
+- 認証情報ヘルパーを使用すれば、{% data variables.product.prodname_dotcom %} と通信するたびに、{% data variables.product.prodname_dotcom %} の認証情報が Git で記憶されます。 詳細は「[Git に {% data variables.product.prodname_dotcom %} の認証情報をキャッシュする](/github/using-git/caching-your-github-credentials-in-git)」を参照してください。
 
-- コマンドラインで {{ site.data.variables.product.product_name }} の認証なしでリポジトリを複製するために、クローンの代わりに、{{ site.data.variables.product.prodname_desktop }} を使用することができます。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} から {{ site.data.variables.product.prodname_dotcom }} Desktop にリポジトリをクローンする](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」を参照してください。
+- コマンドラインで {% data variables.product.product_name %} の認証なしでリポジトリを複製するために、クローンの代わりに、{% data variables.product.prodname_desktop %} を使用することができます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} から {% data variables.product.prodname_dotcom %} Desktop にリポジトリをクローンする](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」を参照してください。
 
 {% endtip %}
 
@@ -35,7 +35,7 @@ versions:
 
 ### SSH URL を使ってクローンする
 
-SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへのアクセスを提供します。 これらの URL を使用するには、コンピュータで SSH キーペアを生成し、**公開**鍵を {{ site.data.variables.product.product_name }} アカウントに追加する必要があります。 詳しい情報については「[{{ site.data.variables.product.prodname_dotcom }} に SSH で接続する](/github/authenticating-to-github/connecting-to-github-with-ssh)」を参照してください。
+SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへのアクセスを提供します。 これらの URL を使用するには、コンピュータで SSH キーペアを生成し、**公開**鍵を {% data variables.product.product_name %} アカウントに追加する必要があります。 詳しい情報については「[{% data variables.product.prodname_dotcom %} に SSH で接続する](/github/authenticating-to-github/connecting-to-github-with-ssh)」を参照してください。
 
 SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git push` をリモートリポジトリに実行すると、パスワードの入力を求められ、SSH キーパスフレーズを入力する必要があります。 詳しい情報については[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)を参照してください。
 
@@ -49,17 +49,17 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-### Cloning with {{ site.data.variables.product.prodname_cli }}
+### Cloning with {% data variables.product.prodname_cli %}
 
-You can also install {{ site.data.variables.product.prodname_cli }} to use {{ site.data.variables.product.product_name }} workflows in your terminal. For more information, the [{{ site.data.variables.product.prodname_cli }}](https://cli.github.com/manual/) documentation.
+You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.
 
 {% endif %}
 
 ### Subversion を使って複製する
 
-[Subversion](https://subversion.apache.org/) クライアントを使用して、{{ site.data.variables.product.prodname_dotcom }} のリポジトリにアクセスすることもできます。 Subversion と Git では、提供する機能群に違いがあります。 詳しい情報については、「[Subversion と Git の違い](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)」を参照してください。
+[Subversion](https://subversion.apache.org/) クライアントを使用して、{% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 Subversion と Git では、提供する機能群に違いがあります。 詳しい情報については、「[Subversion と Git の違い](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)」を参照してください。
 
-Subversion クライアントから {{ site.data.variables.product.prodname_dotcom }} のリポジトリにアクセスすることもできます。 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
+Subversion クライアントから {% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
 
 ### 参考リンク
 

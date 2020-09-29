@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-intro: 'このガイドは {{ site.data.variables.product.prodname_enterprise }} インスタンスにサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team の作成方法、ユーザのセキュリティのためのベストプラクティスの推奨について述べます。'
+intro: 'このガイドは {% data variables.product.prodname_enterprise %} インスタンスにサインインするユーザの認証方式、リポジトリへのアクセスとコラボレーションのための Organization と Team の作成方法、ユーザのセキュリティのためのベストプラクティスの推奨について述べます。'
 versions:
   enterprise-server: '*'
 ---

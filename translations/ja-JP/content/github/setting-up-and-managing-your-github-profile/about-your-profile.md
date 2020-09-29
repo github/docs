@@ -14,7 +14,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![プロフィールに表示されるプロフィール README ファイル](/assets/images/help/repository/profile-with-readme.png)
 
@@ -27,8 +27,8 @@ versions:
 - あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 リポジトリおよび Gist をプロフィールにピン止めすることで、あなたの最も優れた作業を提示することができます。 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。
 - Star を付けたリポジトリ。 詳しい情報については、「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
 - あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
-- {{ site.data.variables.product.prodname_arctic_vault }}、{{ site.data.variables.product.prodname_sponsors }}、または {{ site.data.variables.product.company_short }} 開発者プログラムなどのプログラムに参加したことを示すバッジ。
-- {{ site.data.variables.product.prodname_pro }} を使っているか。 詳細は「[プロフィールをパーソナライズする](/articles/personalizing-your-profile)」を参照してください。{% endif %}
+- {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、または {% data variables.product.company_short %} 開発者プログラムなどのプログラムに参加したことを示すバッジ。
+- {% data variables.product.prodname_pro %} を使っているか。 詳細は「[プロフィールをパーソナライズする](/articles/personalizing-your-profile)」を参照してください。{% endif %}
 
 You can also set a status on your profile to provide information about your availability. 詳細は「[ステータスを設定する](/articles/personalizing-your-profile/#setting-a-status)」を参照してください。
 

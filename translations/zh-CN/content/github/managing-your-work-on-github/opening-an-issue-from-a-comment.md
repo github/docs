@@ -15,7 +15,7 @@ versions:
 4. 使用“Repository（仓库）”下拉菜单，并选择要在其中打开议题的仓库。 ![新议题的仓库下拉列表](/assets/images/help/pull_requests/new-issue-repository.png)
 5. 键入议题的描述性标题和正文。 ![新议题的标题和正文](/assets/images/help/pull_requests/new-issue-title-and-body.png)
 6. 单击 **Create issue（创建过滤器）**。 ![创建新议题的按钮](/assets/images/help/pull_requests/create-issue.png)
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
 ### 延伸阅读
 

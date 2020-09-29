@@ -1,7 +1,7 @@
 ---
 title: Configurar links automáticos para fazer referência a recursos externos
 intro: Você pode adicionar links automáticos para recursos externos como problemas do JIRA e tíquetes do Zendesk a fim de ajudar a otimizar o fluxo de trabalho.
-product: '{{ site.data.reusables.gated-features.autolinks }}'
+product: '{% data reusables.gated-features.autolinks %}'
 redirect_from:
   - /articles/configuring-autolinks-to-reference-external-resources
 versions:
@@ -13,8 +13,8 @@ Qualquer pessoa com permissão de administrador em um repositório pode configur
 
 Se você usa o Zendesk para acompanhar tíquetes relatados pelo usuário, por exemplo, é possível fazer referência a um número de tíquete na pull request que você abre para corrigir o problema.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Na barra lateral esquerda, clique em **Autolink references** (Referências de link automático). ![Guia Autolink references (Referências de link automático) na barra lateral esquerda](/assets/images/help/repository/autolink-references-tab.png)
 4. Clique em **Add autolink reference** (Adicionar referência de link automático). ![Botão para preencher informações de referência de link automático](/assets/images/help/repository/add-autolink-reference-details.png)
 5. Em "Reference prefix" (Prefixo da referência), digite um prefixo curto e significativo que os colaboradores devem usar para gerar links automáticos para os recursos externos. ![Campo para digitar abreviação de sistema externo](/assets/images/help/repository/add-reference-prefix-field.png)

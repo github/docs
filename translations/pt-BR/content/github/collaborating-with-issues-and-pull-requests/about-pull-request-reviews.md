@@ -27,19 +27,19 @@ Uma revisão tem três status possíveis:
 
 ![Imagem de status de revisão](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 Você pode exibir todas as revisões que uma pull request recebeu na linha do tempo Conversation (Conversa), assim como pode ver revisões por proprietários e colaboradores de repositório na caixa de merge da pull request.
 
 ![Imagem de revisões em uma caixa de merge](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Revisões obrigatórias
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 Para obter mais informações, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)".
 

@@ -1,6 +1,6 @@
 ---
 title: Cluster-Upgrade
-intro: 'Verwenden Sie die Verwaltungsshell (SSH), um ein {{ site.data.variables.product.prodname_ghe_server }}-Cluster auf die neueste Version zu aktualisieren.'
+intro: 'Verwenden Sie die Verwaltungsshell (SSH), um ein {% data variables.product.prodname_ghe_server %}-Cluster auf die neueste Version zu aktualisieren.'
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
@@ -9,23 +9,23 @@ versions:
 ---
 
 ### Upgrade mit einem Hotpatch
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }} Das Hotpatch-Installationsskript installiert den Hotpatch auf jedem Knoten im Cluster und startet die Dienste zum Vermeiden von Ausfallzeiten in ihrer entsprechenden Abfolge neu.
+{% data reusables.enterprise_installation.hotpatching-explanation %} Das Hotpatch-Installationsskript installiert den Hotpatch auf jedem Knoten im Cluster und startet die Dienste zum Vermeiden von Ausfallzeiten in ihrer entsprechenden Abfolge neu.
 
-1. Sichern Sie Ihre Daten mit [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme).
+1. Sichern Sie Ihre Daten mit [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 2. Führen Sie an der Verwaltungsshell auf einem beliebigen Knoten den Befehl `ghe-cluster-hotpatch` aus, um den neuesten Hotpatch zu installieren. Sie können eine URL für einen Hotpatch bereitstellen oder den Hotpatch manuell herunterladen und einen lokalen Dateinamen angeben.
   ```shell
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
 ### Upgrade mit einem Upgrade-Paket
-Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {{ site.data.variables.product.prodname_ghe_server }}-Clusters auf die neueste Feature-Veröffentlichung vorzunehmen. Beispielsweise können Sie ein Upgrade von `2.11` auf `2.13` vornehmen.
+Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {% data variables.product.prodname_ghe_server %}-Clusters auf die neueste Feature-Veröffentlichung vorzunehmen. Beispielsweise können Sie ein Upgrade von `2.11` auf `2.13` vornehmen.
 
 #### Upgrade vorbereiten
 
 1. Überprüfe [Clusternetzwerk-Konfiguration](/enterprise/admin/guides/clustering/cluster-network-configuration) bezüglich der Version, auf die Du ein Upgrade durchführst, und aktualisiere Deine Konfiguration nach Bedarf.
-2. Sichern Sie Ihre Daten mit [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme).
-3. Planen Sie ein Wartungsfenster für Endbenutzer Ihres {{ site.data.variables.product.prodname_ghe_server }}-Clusters, da er während des Upgrades für die normale Nutzung nicht verfügbar ist. Der Wartungsmodus blockiert den Benutzerzugriff und verhindert Datenänderungen, während das Cluster-Upgrade ausgeführt wird.
-4. Kopieren Sie auf der [{{ site.data.variables.product.prodname_ghe_server }}-Downloadseite](https://enterprise.github.com/download) die URL für die upzugradende *.pkg*-Datei in die Zwischenablage.
+2. Sichern Sie Ihre Daten mit [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+3. Planen Sie ein Wartungsfenster für Endbenutzer Ihres {% data variables.product.prodname_ghe_server %}-Clusters, da er während des Upgrades für die normale Nutzung nicht verfügbar ist. Der Wartungsmodus blockiert den Benutzerzugriff und verhindert Datenänderungen, während das Cluster-Upgrade ausgeführt wird.
+4. Kopieren Sie auf der [{% data variables.product.prodname_ghe_server %}-Downloadseite](https://enterprise.github.com/download) die URL für die upzugradende *.pkg*-Datei in die Zwischenablage.
 5. Führen Sie an der Verwaltungsshell eines beliebigen Knotens den Befehl `ghe-cluster-each` in Kombination mit `curl` aus, um das Versionspaket in einem einzelnen Schritt auf jeden Knoten herunterzuladen. Verwenden Sie die im vorherigen Schritt von Ihnen kopierte URL als ein Argument.
   ```shell
   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://<em>PACKAGE-URL</em>.pkg"
@@ -50,7 +50,7 @@ Verwenden Sie ein Upgrade-Paket, um ein Upgrade eines {{ site.data.variables.pro
 #### Clusterknoten upgraden
 
 1. Aktivieren Sie den Wartungsmodus entsprechend Ihrem geplanten Fenster. Verbinden Sie sich dazu mit der Verwaltungsshell auf einem beliebigen Clusterknoten, und führen Sie `ghe-cluster-maintenance -s` aus.
-2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {{ site.data.variables.product.prodname_ghe_server }} nodes. Führen Sie den Befehl `ghe-upgrade` aus, und geben Sie den Namen der Paketdatei an, die Sie in Schritt 4 [Upgrade vorbereiten](#preparing-to-upgrade) heruntergeladen haben:
+2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes. Führen Sie den Befehl `ghe-upgrade` aus, und geben Sie den Namen der Paketdatei an, die Sie in Schritt 4 [Upgrade vorbereiten](#preparing-to-upgrade) heruntergeladen haben:
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...

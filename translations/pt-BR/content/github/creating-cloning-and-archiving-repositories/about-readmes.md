@@ -19,13 +19,13 @@ Um LEIAME, muitas vezes, é o primeiro item que um visitante verá ao visitar se
 - Onde os usuários podem obter ajuda com seu projeto
 - Quem mantém e contribui com o projeto
 
-Se você colocar o arquivo LEIAME na raiz do repositório, `docs`, ou no diretório `.github` oculto, o {{ site.data.variables.product.product_name }} reconhecerá e apresentará automaticamente o LEIAME aos visitantes do repositório.
+Se você colocar o arquivo LEIAME na raiz do repositório, `docs`, ou no diretório `.github` oculto, o {% data variables.product.product_name %} reconhecerá e apresentará automaticamente o LEIAME aos visitantes do repositório.
 
 ![Página principal do repositório github/scientist e seu arquivo LEIAME](/assets/images/help/repository/repo-with-readme.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![Arquivo LEIAME no nome de usuário/repositório do nome de usuário](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +33,11 @@ Se você colocar o arquivo LEIAME na raiz do repositório, `docs`, ou no diretó
 
 ### Links de seção nos arquivos LEIAME e páginas blob
 
-Muitos projetos usam uma tabela de conteúdo no início de um LEIAME para direcionar usuários para diferentes seções do arquivo. {{ site.data.reusables.repositories.section-links }}
+Muitos projetos usam uma tabela de conteúdo no início de um LEIAME para direcionar usuários para diferentes seções do arquivo. {% data reusables.repositories.section-links %}
 
 ### Links relativos e caminhos de imagem em arquivos LEIAME
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Leia mais
 

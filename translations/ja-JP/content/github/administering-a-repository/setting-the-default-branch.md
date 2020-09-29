@@ -10,7 +10,7 @@ versions:
 
 ### About the default branch
 
-{{ site.data.reusables.branches.new-repo-default-branch }} {{ site.data.reusables.branches.default-branch-automatically-base-branch }} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
+{% data reusables.branches.new-repo-default-branch %} {% data reusables.branches.default-branch-automatically-base-branch %} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
 
 ### デフォルトブランチを設定する
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. In the default branch drop-down, choose the new default branch. ![デフォルトブランチ ドロップダウン セレクター](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. [**Update**] をクリックします。
 
-{{ site.data.variables.product.product_location }} 上にすでにあるブランチに限って、切り替えできます。 UI で新しいブランチを作成するには、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository)」を参照してください。
+{% data variables.product.product_location %} 上にすでにあるブランチに限って、切り替えできます。 UI で新しいブランチを作成するには、「[リポジトリ内でブランチを作成および削除する](/articles/creating-and-deleting-branches-within-your-repository)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

@@ -12,7 +12,7 @@ versions:
 
 依赖关系图适用于使用支持的文件格式、以支持的包生态系统定义依赖项的每个{% if currentVersion == "free-pro-team@latest" %}公共{% endif %}仓库。{% if currentVersion == "free-pro-team@latest" %} 仓库管理员也可对私有仓库设置依赖项图。{% endif %}
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 您可以在仓库的依赖项图中查看和更新有漏洞的依赖项。 依赖项图将有漏洞的依赖项列在其他依赖项前面。 更多信息请参阅“[关于依赖项漏洞的安全警报](/articles/about-security-alerts-for-vulnerable-dependencies)”。
 
@@ -39,26 +39,26 @@ versions:
 
 ### 为启用了依赖项图的仓库列出依赖项
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 为私有仓库启用依赖项图
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
-4. 阅读关于授予 {{ site.data.variables.product.product_name }} 访问仓库数据的消息，以启用依赖项图，然后单击 **Allow access（允许访问）**。 ![允许访问仓库数据以启用依赖项图的按钮](/assets/images/help/repository/dependency-graph-allow-access-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+4. 阅读关于授予 {% data variables.product.product_name %} 访问仓库数据的消息，以启用依赖项图，然后单击 **Allow access（允许访问）**。 ![允许访问仓库数据以启用依赖项图的按钮](/assets/images/help/repository/dependency-graph-allow-access-button.png)
 
-更多信息请参阅“[了解 {{ site.data.variables.product.product_name }} 如何使用和保护数据](/categories/understanding-how-github-uses-and-protects-your-data)”。
+更多信息请参阅“[了解 {% data variables.product.product_name %} 如何使用和保护数据](/categories/understanding-how-github-uses-and-protects-your-data)”。
 
 ### 为私有仓库禁用依赖项图
 
-{{ site.data.reusables.repositories.you-can-enable-or-disable-security-features }}
+{% data reusables.repositories.you-can-enable-or-disable-security-features %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在 "Data services"（数据服务）下，取消选中 **Dependency graph（依赖项图）**。 ![禁用依赖项图的复选框](/assets/images/help/repository/private-repo-data-use-dependency-graph-disabled.png)
 
 To opt out of data use for your repository, see "[Opting into or out of data use for your private repository](/articles/opting-into-or-out-of-data-use-for-your-private-repository)."
@@ -66,10 +66,10 @@ To opt out of data use for your repository, see "[Opting into or out of data use
 
 ### 依赖项图疑难排解
 
-{{ site.data.reusables.repositories.troubleshooting-dependency-graph }}
+{% data reusables.repositories.troubleshooting-dependency-graph %}
 
 ### 延伸阅读
 
 - "[列出依赖仓库的项目](/articles/listing-the-projects-that-depend-on-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[了解 {{ site.data.variables.product.product_name }} 如何使用和保护数据](/categories/understanding-how-github-uses-and-protects-your-data)"
+- "[了解 {% data variables.product.product_name %} 如何使用和保护数据](/categories/understanding-how-github-uses-and-protects-your-data)"
 - "[查看和更新仓库中的漏洞依赖项](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}

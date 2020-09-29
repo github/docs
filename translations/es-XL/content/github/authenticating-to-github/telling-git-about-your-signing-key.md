@@ -13,7 +13,7 @@ versions:
 
 ### Informarle a Git acerca de tu llave GPG
 
-Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {{ site.data.variables.product.product_name }} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
+Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {% data variables.product.product_name %} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
 
 {% note %}
 
@@ -23,10 +23,10 @@ Si no tienes una llave GPG que coincida con la identidad de la persona que confi
 
 Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Si no estás utilizando GPG Suite, pega el texto que aparece a continuación para agregar la llave GPG a tu perfil bash:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
@@ -38,7 +38,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
   {% endnote %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endmac %}
 
@@ -46,7 +46,7 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
 ### Informarle a Git acerca de tu llave GPG
 
-Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {{ site.data.variables.product.product_name }} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
+Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {% data variables.product.product_name %} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
 
 {% note %}
 
@@ -56,12 +56,12 @@ Si no tienes una llave GPG que coincida con la identidad de la persona que confi
 
 Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -69,13 +69,13 @@ Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
 {% note %}
 
-**Nota:** Linux no admite claves X.509. Puedes configurar gpgsm para proporcionar servicios de cifrado y firma. Sin embargo, actualmente no es compatible con {{ site.data.variables.product.product_name }}. Para obtener más información, consulta el tema [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) en la documentación de GnuPG.
+**Nota:** Linux no admite claves X.509. Puedes configurar gpgsm para proporcionar servicios de cifrado y firma. Sin embargo, actualmente no es compatible con {% data variables.product.product_name %}. Para obtener más información, consulta el tema [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) en la documentación de GnuPG.
 
 {% endnote %}
 
 ### Informarle a Git acerca de tu llave GPG
 
-Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {{ site.data.variables.product.product_name }} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
+Si estás usando una llave GPG que coincide con la identidad de la persona que confirma el cambio y con tu dirección de correo electrónico verificada asociada a tu {% data variables.product.product_name %} cuenta, puedes comenzar a firmar confirmaciones y firmar etiquetas.
 
 {% note %}
 
@@ -85,10 +85,10 @@ Si no tienes una llave GPG que coincida con la identidad de la persona que confi
 
 Si tienes múltiples llaves GPG, le debes decir a Git cuál utilizar.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Para agregar tu llave GPG a tu perfil bash, pega el texto que aparece a continuación:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Em Features (Recursos), desmarque a caixa de seleção **Issues** (Problemas). ![Caixa de seleção Remove Issues (Remover problemas)](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 Se você decidir habilitar problemas novamente no futuro, qualquer problema que tenha sido adicionado anteriormente ficará disponível.
@@ -18,8 +18,8 @@ Se você decidir habilitar problemas novamente no futuro, qualquer problema que 
 
 {% tip %}
 
-Entre em contato com {{ site.data.variables.contact.contact_support }} caso queira desativar problemas por causa de abuso de estranhos.
-{{ site.data.reusables.policies.abuse }}
+Entre em contato com {% data variables.contact.contact_support %} caso queira desativar problemas por causa de abuso de estranhos.
+{% data reusables.policies.abuse %}
 
 {% endtip %}
 

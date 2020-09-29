@@ -3,7 +3,7 @@ title: Ser social
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: 'Puedes interactuar con personas, repositorios y organizaciones en {{ site.data.variables.product.prodname_dotcom }}. Ve en qué están trabajando los demás y con quién se están conectando desde tu tablero personal.'
+intro: 'Puedes interactuar con personas, repositorios y organizaciones en {% data variables.product.prodname_dotcom %}. Ve en qué están trabajando los demás y con quién se están conectando desde tu tablero personal.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -13,7 +13,7 @@ Para conocer más sobre cómo acceder a tu tablero personal, consulta "[Acerca d
 
 ### Seguir a personas
 
-Cuando sigues a alguien en {{ site.data.variables.product.product_location }}, recibirás notificaciones en tu tablero personal sobre su actividad. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
+Cuando sigues a alguien en {% data variables.product.product_location %}, recibirás notificaciones en tu tablero personal sobre su actividad. Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard)".
 
 Haz clic en **Follow** (Seguir) en la página de perfil de una persona para seguirla.
 
@@ -29,7 +29,7 @@ Haz clic en **Watch** (Ver) en la parte superior del repositorio que desas ver.
 
 ### Unirse a la conversación
 
-{{ site.data.reusables.support.ask-and-answer-forum }}
+{% data reusables.support.ask-and-answer-forum %}
 
 ### Hacer un poco más
 
@@ -51,13 +51,13 @@ Las organizaciones son cuentas compartidas donde las empresas y los proyectos de
 
 ![Desplegable de contexto para cambiar cuenta](/assets/images/help/overview/dashboard-contextswitcher.png)
 
-#### Explorar otros proyectos en {{ site.data.variables.product.prodname_dotcom }}
+#### Explorar otros proyectos en {% data variables.product.prodname_dotcom %}
 
-Descubre proyectos interesantes al utilizar {{ site.data.variables.explore.explore_github }}, [Explorar repositorios](https://github.com/explore), y el {{ site.data.variables.explore.trending_page }}. Marca con una estrella los proyectos interesantes y regresa posteriormente. Visita tu {{ site.data.variables.explore.your_stars_page }} para ver todos los proyectos marcados con una estrella.  Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard/)".
+Descubre proyectos interesantes al utilizar {% data variables.explore.explore_github %}, [Explorar repositorios](https://github.com/explore), y el {% data variables.explore.trending_page %}. Marca con una estrella los proyectos interesantes y regresa posteriormente. Visita tu {% data variables.explore.your_stars_page %} para ver todos los proyectos marcados con una estrella.  Para obtener más información, consulta "[Acerca de tu tablero personal](/articles/about-your-personal-dashboard/)".
 
 ### Celebrar
 
-Ahora estás conectado con la comunidad de {{ site.data.variables.product.product_name }}. ¿Qué deseas hacer ahora?
+Ahora estás conectado con la comunidad de {% data variables.product.product_name %}. ¿Qué deseas hacer ahora?
 
 ![Marcar un proyecto con una estrella](/assets/images/help/stars/star-a-project.png)
 
@@ -65,4 +65,4 @@ Ahora estás conectado con la comunidad de {{ site.data.variables.product.produc
 - [Crear un repositorio](/articles/create-a-repo)
 - [Bifurcar un repositorio](/articles/fork-a-repo)
 - **Ser social**
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

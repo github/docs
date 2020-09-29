@@ -10,7 +10,7 @@ versions:
 
 必须在 Git 中[配置指向上游仓库的远程仓库](/articles/configuring-a-remote-for-a-fork)，然后才能将您的复刻与上游仓库同步。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
 3. 从上游仓库获取分支及其各自的提交。 对 `master` 的提交将存储在本地分支 `upstream/master` 中。
   ```shell
@@ -19,7 +19,7 @@ versions:
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. 检出复刻的本地 `master` 分支。
@@ -48,6 +48,6 @@ versions:
 
 {% tip %}
 
-**提示**：同步复刻仅更新仓库的本地副本。 要在 {{ site.data.variables.product.product_location }} 上更新复刻，您必须[推送更改](/articles/pushing-commits-to-a-remote-repository/)。
+**提示**：同步复刻仅更新仓库的本地副本。 要在 {% data variables.product.product_location %} 上更新复刻，您必须[推送更改](/articles/pushing-commits-to-a-remote-repository/)。
 
 {% endtip %}

@@ -13,17 +13,17 @@ versions:
 
 ### About gists
 
-Every gist is a Git repository, which means that it can be forked and cloned. If you are signed in to {{ site.data.variables.product.product_name }} when you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {{ site.data.variables.gists.gist_homepage }}.
+Every gist is a Git repository, which means that it can be forked and cloned. If you are signed in to {% data variables.product.product_name %} when you create a gist, the gist will be associated with your account and you will see it in your list of gists when you navigate to your {% data variables.gists.gist_homepage %}.
 
-Gists can be public or secret. Public gists show up in {{ site.data.variables.gists.discover_url }}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work. {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+Gists can be public or secret. Public gists show up in {% data variables.gists.discover_url %}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {{ site.data.variables.gists.discover_url }}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }} Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
 
-{{ site.data.reusables.gist.anonymous-gists-cannot-be-deleted }}
+{% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
@@ -37,7 +37,7 @@ You'll receive a notification when:
 
 You can pin gists to your profile so other people can see them easily. For more information, see "[Pinning items to your profile](/articles/pinning-items-to-your-profile)."
 
-You can discover gists others have created by going to the {{ site.data.variables.gists.gist_homepage }} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {{ site.data.variables.gists.gist_search_url }}. Gist search uses the same search syntax as [code search](/articles/searching-code).
+You can discover gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/articles/searching-code).
 
 Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see ["Forking and cloning gists"](/articles/forking-and-cloning-gists).
 
@@ -45,7 +45,7 @@ You can download a ZIP file of a gist by clicking the **Download ZIP** button at
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Mapping GeoJSON files on {{ site.data.variables.product.product_name }}](/articles/mapping-geojson-files-on-github)."
+Gist supports mapping GeoJSON files. These maps are displayed in embedded gists, so you can easily share and embed maps. For more information, see "[Mapping GeoJSON files on {% data variables.product.product_name %}](/articles/mapping-geojson-files-on-github)."
 
 {% endif %}
 
@@ -56,13 +56,13 @@ You can also drag and drop a text file from your desktop directly into the gist 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% note %}
 
-You can also create a gist using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endnote %}
 {% endif %}
 
-1. Sign in to {{ site.data.variables.product.product_name }}.
-2. Navigate to your {{ site.data.variables.gists.gist_homepage }}.
+1. Sign in to {% data variables.product.product_name %}.
+2. Navigate to your {% data variables.gists.gist_homepage %}.
 3. Type an optional description and name for your gist. ![Gist name description](/assets/images/help/gist/gist_name_description.png)
 
 4. Type the text of your gist into the gist text box. ![Gist text box](/assets/images/help/gist/gist_text_box.png)
@@ -73,6 +73,6 @@ You can also create a gist using the {{ site.data.variables.product.prodname_cli
 
   {% note %}
 
-  **Note:** {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+  **Note:** {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
   {% endnote %}

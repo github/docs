@@ -8,18 +8,18 @@ versions:
 
 ### デフォルトブランチ名について
 
-Organization のメンバーが新しいリポジトリを作成するとき、{{ site.data.variables.product.prodname_dotcom }} はブランチを 1 つ作成し、それをリポジトリのデフォルトブランチに設定します。 {{ site.data.variables.product.prodname_dotcom }} は現在、デフォルトブランチに `master` という名前を付けまが、開発環境でわかりやすいようにデフォルトブランチには任意の名前を設定することができます。
+Organization のメンバーが新しいリポジトリを作成するとき、{% data variables.product.prodname_dotcom %} はブランチを 1 つ作成し、それをリポジトリのデフォルトブランチに設定します。 {% data variables.product.prodname_dotcom %} は現在、デフォルトブランチに `master` という名前を付けまが、開発環境でわかりやすいようにデフォルトブランチには任意の名前を設定することができます。
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### デフォルトブランチ 名を設定する
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 3. [Repository default branch] で、[**Change default branch name now**] をクリックします。 ![[Override] ボタン](/assets/images/help/organizations/repo-default-name-button.png)
     {% note %}
 

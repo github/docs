@@ -9,7 +9,7 @@ versions:
 
 ### Editores compatibles
 
-{{ site.data.variables.product.prodname_desktop }} es compatible con los siguientes editores.
+{% data variables.product.prodname_desktop %} es compatible con los siguientes editores.
 
 {% mac %}
 
@@ -28,7 +28,7 @@ versions:
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - Para utilizar Brackets con {{ site.data.variables.product.prodname_desktop }}, debes instalar el atajo de la línea de comandos. Para instalar el atajo, abre Brackets, da clic en **Archivo** en la barra de menú y luego da clic en **Instalar Atajo para la Línea de Comandos**.
+  - Para utilizar Brackets con {% data variables.product.prodname_desktop %}, debes instalar el atajo de la línea de comandos. Para instalar el atajo, abre Brackets, da clic en **Archivo** en la barra de menú y luego da clic en **Instalar Atajo para la Línea de Comandos**.
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -57,7 +57,7 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. En la ventana de preferencias, selecciona **Integrations** (integraciones). ![El panel de Integraciones en la ventana de Preferencias](/assets/images/help/desktop/mac-select-integrations-pane.png)
 4. Utiliza el menú desplegable de "Editor Externo" y elige el editor que quieras configurar como predeterminado. ![El menú External editor (Editor externo) en la barra del menú Preferences (Preferencias)](/assets/images/help/desktop/mac-editor-menu.png)
 5. Haz clic en **Save (Guardar)**.
@@ -66,7 +66,7 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 3. En la ventana de Opciones, seleccione **Integrations** (integraciones). ![El panel de Integraciones en la ventana de Opciones](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. Utiliza el menú desplegable de "Editor Externo" y elige el editor que quieras configurar como predeterminado. ![El menú External editor (Editor externo) en la barra del menú Options (Opciones)](/assets/images/help/desktop/windows-editor-menu.png)
 5. Haz clic en **Save (Guardar)**.

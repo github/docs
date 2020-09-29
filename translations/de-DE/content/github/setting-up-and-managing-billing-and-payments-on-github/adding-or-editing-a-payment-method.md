@@ -19,26 +19,26 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dotcom_billing.payment-methods }} {{ site.data.reusables.dotcom_billing.same-payment-method }}
+{% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 Wir bieten keine Abrechnung und unterstützen keine Bestellungen für persönliche Konten. Wir versenden Quittungen monatlich oder jährlich zum Abrechnungsdatum Deines Kontos per E-Mail. Wenn Dein Unternehmen, Dein Land oder Deine Buchhaltung vorgibt, dass Quittungen detailliertere Angaben aufweisen müssen, kannst Du auch [zusätzliche Informationen zu Quittungen hinzufügen](/articles/adding-information-to-your-personal-account-s-receipts).
 
 ### Die Zahlungsmethode für Dein persönliches Konto aktualisieren
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}
 
 ### Die Zahlungsmethode für Deine Organisation aktualisieren
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-Wenn sich Deine Organisation außerhalb der USA befindet oder Du zum Bezahlen von {{ site.data.variables.product.product_name }} ein Firmenkonto verwendest, bietet sich PayPal als Zahlungsmethode an.
+Wenn sich Deine Organisation außerhalb der USA befindet oder Du zum Bezahlen von {% data variables.product.product_name %} ein Firmenkonto verwendest, bietet sich PayPal als Zahlungsmethode an.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}

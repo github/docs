@@ -56,9 +56,9 @@ Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 
 ### Chaves de implantação
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
-{{ site.data.reusables.repositories.deploy-keys-write-access }}
+{% data reusables.repositories.deploy-keys-write-access %}
 
 ##### Prós
 
@@ -76,7 +76,7 @@ Consulte o [nosso guia sobre automação Git com tokens][git-automation].
 1.
 Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde você salva o par de chaves RSA público/privadas gerado.</li> 
    
-   2 No canto superior direito de qualquer página do {{ site.data.variables.product.product_name }}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
+   2 No canto superior direito de qualquer página do {% data variables.product.product_name %}, clique na sua foto do perfil e, em seguida, clique em **Seu perfil**. ![Navegação para o perfil](/assets/images/profile-page.png)
 3 Na sua página de perfil, clique em **Repositórios** e, em seguida, clique no nome do seu repositório. ![Link dos repositórios](/assets/images/repos.png)
 4 No seu repositório, clique em **Configurações**. ![Configurações do repositório](/assets/images/repo-settings.png)
 5 Na barra lateral, clique em **Implantar Chaves** e, em seguida, clique em **Adicionar chave de implantação**. ![Link para adicionar chaves de implantação](/assets/images/add-deploy-key.png)
@@ -88,7 +88,7 @@ Execute o procedimento `ssh-keygen` no seu servidor e lembre-se do local onde vo
 
 ### Usuários máquina
 
-Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {{ site.data.variables.product.product_name }} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {{ site.data.variables.product.product_name }} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
+Se o seu servidor precisar acessar vários repositórios, você poderá criar uma conta nova no {% data variables.product.product_name %} e anexar uma chave SSH que será usada exclusivamente para automação. Como esta conta do {% data variables.product.product_name %} não será usada por uma pessoa, ela será denominada _usuário máquina_. É possível adicionar o usuário máquina como [colaborador][collaborator] em um repositório pessoal (concedendo acesso de leitura e gravação), como [colaborador externo][outside-collaborator] em um repositório da organização (concedendo leitura, acesso gravação, ou administrador) ou como uma [equipe][team], com acesso aos repositórios que precisa automatizar (concedendo as permissões da equipe).
 
 {% if currentVersion == "free-pro-team@latest" %}
 

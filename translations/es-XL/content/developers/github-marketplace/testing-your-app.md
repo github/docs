@@ -1,6 +1,6 @@
 ---
 title: Probar tu app
-intro: 'GitHub te recomienda probar tu app con las API y los webhooks antes de emitir tu listado a {{ site.data.variables.product.prodname_marketplace }} para que puedas proporcionar una experiencia ideal para los clientes. Antes de que el equipo de incorporación de {{ site.data.variables.product.prodname_marketplace }} apruebe tu app, esta debe gestionar adecuadamente los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
+intro: 'GitHub te recomienda probar tu app con las API y los webhooks antes de emitir tu listado a {% data variables.product.prodname_marketplace %} para que puedas proporcionar una experiencia ideal para los clientes. Antes de que el equipo de incorporación de {% data variables.product.prodname_marketplace %} apruebe tu app, esta debe gestionar adecuadamente los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
@@ -13,19 +13,19 @@ versions:
 
 ### Probar las apps
 
-Puedes utilizar un [borrador de listado de {{ site.data.variables.product.prodname_marketplace }}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) para estimular a cada uno de los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). Un listado en estado de borrador significa que no se ha emitido para aprobación. Cualquier compra que hagas utilizando un borrador de listado de {{ site.data.variables.product.prodname_marketplace }} _no_ creará transacciones reales, y GitHub no hará cargos a tu tarjeta de crédito.
+Puedes utilizar un [borrador de listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) para estimular a cada uno de los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). Un listado en estado de borrador significa que no se ha emitido para aprobación. Cualquier compra que hagas utilizando un borrador de listado de {% data variables.product.prodname_marketplace %} _no_ creará transacciones reales, y GitHub no hará cargos a tu tarjeta de crédito.
 
 #### Utilizar una app de desarrollo con un borrador de listado para probar los cambios
 
-Un listado de {{ site.data.variables.product.prodname_marketplace }} únicamente puede asociarse con un solo registro de app, y cada app puede acceder únicamente a su propio listado de {{ site.data.variables.product.prodname_marketplace }}. Es por esto que te recomendamos configurar una app de desarrollo por separado con la misma configuración que la productiva, y que crees un _borrador_ de listado de {{ site.data.variables.product.prodname_marketplace }} que puedas utilizar para las pruebas. El borrador del listado de {{ site.data.variables.product.prodname_marketplace }} te permite probar los cambios sin afectar a los usuarios activos de tu app productiva. Nunca tendrás que emitir tu listado de desarrollo de {{ site.data.variables.product.prodname_marketplace }}, ya que solo lo utilizarás para las pruebas.
+Un listado de {% data variables.product.prodname_marketplace %} únicamente puede asociarse con un solo registro de app, y cada app puede acceder únicamente a su propio listado de {% data variables.product.prodname_marketplace %}. Es por esto que te recomendamos configurar una app de desarrollo por separado con la misma configuración que la productiva, y que crees un _borrador_ de listado de {% data variables.product.prodname_marketplace %} que puedas utilizar para las pruebas. El borrador del listado de {% data variables.product.prodname_marketplace %} te permite probar los cambios sin afectar a los usuarios activos de tu app productiva. Nunca tendrás que emitir tu listado de desarrollo de {% data variables.product.prodname_marketplace %}, ya que solo lo utilizarás para las pruebas.
 
-Ya que solo puedes crear un borrador de listado de {{ site.data.variables.product.prodname_marketplace }} para las apps públicas, debes poner tu app de desarrollo como pública. Las apps públicas no pueden descubrirse fuera de los listados publicados de {{ site.data.variables.product.prodname_marketplace }} mientras no compartas la URL de éstas. Solo el dueño de la aplicación podrá ver el lsitado de Marketplace en su estado de borrador.
+Ya que solo puedes crear un borrador de listado de {% data variables.product.prodname_marketplace %} para las apps públicas, debes poner tu app de desarrollo como pública. Las apps públicas no pueden descubrirse fuera de los listados publicados de {% data variables.product.prodname_marketplace %} mientras no compartas la URL de éstas. Solo el dueño de la aplicación podrá ver el lsitado de Marketplace en su estado de borrador.
 
-Una vez que cuentes con una app de desarrollo con un listado en estado de borrador, puedes utilizarla para probar los cambios que hagas a dicha app mientras que lo integras con la API y los webhooks de {{ site.data.variables.product.prodname_marketplace }}.
+Una vez que cuentes con una app de desarrollo con un listado en estado de borrador, puedes utilizarla para probar los cambios que hagas a dicha app mientras que lo integras con la API y los webhooks de {% data variables.product.prodname_marketplace %}.
 
 {% warning %}
 
-No hagas compras de prueba con las apps que están activas en {{ site.data.variables.product.prodname_marketplace }}.
+No hagas compras de prueba con las apps que están activas en {% data variables.product.prodname_marketplace %}.
 
 {% endwarning %}
 
@@ -37,7 +37,7 @@ Tus escenarios de prueba podrían requerir que configures los planes de los list
 
 ### Probar las API
 
-También proporcionamos terminales de prueba para muchas de las terminales de las API de {{ site.data.variables.product.prodname_marketplace }}, las cuales devuelven datos falsos de código predefinido que puedes utilizar para hacer pruebas. Para recibir datos de prueba, debes especificar las URL de prueba que incluyan `/stubbed` en la ruta (por ejemplo, `/user/marketplace_purchases/stubbed`). Para obtener una lista de terminales que son compatibles con este acercamiento de datos de prueba, consulta la sección de [terminales de {{ site.data.variables.product.prodname_marketplace }}](/v3/apps/marketplace/#github-marketplace).
+También proporcionamos terminales de prueba para muchas de las terminales de las API de {% data variables.product.prodname_marketplace %}, las cuales devuelven datos falsos de código predefinido que puedes utilizar para hacer pruebas. Para recibir datos de prueba, debes especificar las URL de prueba que incluyan `/stubbed` en la ruta (por ejemplo, `/user/marketplace_purchases/stubbed`). Para obtener una lista de terminales que son compatibles con este acercamiento de datos de prueba, consulta la sección de [terminales de {% data variables.product.prodname_marketplace %}](/v3/apps/marketplace/#github-marketplace).
 
 ### Probar los webhooks
 

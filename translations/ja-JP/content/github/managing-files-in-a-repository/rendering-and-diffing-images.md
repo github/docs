@@ -1,6 +1,6 @@
 ---
 title: 画像をレンダリングして違いを見極める
-intro: '{{ site.data.variables.product.product_name }} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 単に表示するだけではなく、画像を異なるバージョン間で比較する方法もいくつかあります。'
+intro: '{% data variables.product.product_name %} では、一般的な画像形式のいくつか (PNG、JPG、GIF、PSD、SVG など) を表示できます。 単に表示するだけではなく、画像を異なるバージョン間で比較する方法もいくつかあります。'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
@@ -10,13 +10,13 @@ versions:
 
 {% note %}
 
-**メモ:** Firefox ブラウザを使用している場合、{{ site.data.variables.product.prodname_dotcom }} では SVG がレンダリングされない可能性があります。
+**メモ:** Firefox ブラウザを使用している場合、{% data variables.product.prodname_dotcom %} では SVG がレンダリングされない可能性があります。
 
 {% endnote %}
 
 ### 画像を表示する
 
-{{ site.data.variables.product.product_name }} リポジトリにある画像は、直接アクセスして表示することができます。
+{% data variables.product.product_name %} リポジトリにある画像は、直接アクセスして表示することができます。
 
 ![インライン画像](/assets/images/help/images/view.png)
 

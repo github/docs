@@ -13,9 +13,9 @@ versions:
 
 ### Cambiar la visibilidad de la membresía de tu organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Ubica tu nombre de usuario en la lista de miembros. Si la lista es grande, puedes buscar tu nombre de usuario en la casilla de búsqueda. ![Casilla de búsqueda de miembro de la organización](/assets/images/help/organizations/member-search-box.png)
 5. En el menú a la derecha de tu nombre de usuario, elige una nueva opción de visibilidad:
     - Para divulgar tu membresía, elige **Public (Pública)**.

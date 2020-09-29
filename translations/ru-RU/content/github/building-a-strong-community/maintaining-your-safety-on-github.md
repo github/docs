@@ -1,6 +1,6 @@
 ---
 title: Maintaining your safety on GitHub
-intro: 'To build a positive and safe environment for yourself and the community for your project on {{ site.data.variables.product.prodname_dotcom }}, you can block and unblock users and report disruptive content.'
+intro: 'To build a positive and safe environment for yourself and the community for your project on {% data variables.product.prodname_dotcom %}, you can block and unblock users and report disruptive content.'
 mapTopic: true
 redirect_from:
   - /articles/encouraging-positive-contributions-in-your-organization

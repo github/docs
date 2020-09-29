@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 左上隅にある [**Milestones**] をクリックします。 ![Issue マイルストーンボタン](/assets/images/help/issues/issues_milestone_button.png)
 4. 詳細を表示したいマイルストーンを選択します。
 

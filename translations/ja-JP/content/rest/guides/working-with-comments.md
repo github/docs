@@ -11,9 +11,9 @@ versions:
 
 
 
-各プルリクエストに対して、{{ site.data.variables.product.product_name }} は 3 種類のコメント表示を提供しています。プルリクエスト全体に対する[プルリクエストのコメント][PR comment]、プルリクエスト内の[特定行のコメント][PR line comment]、そしてプルリクエスト内の[特定のコメントへのコメント][commit comment]です。
+各プルリクエストに対して、{% data variables.product.product_name %} は 3 種類のコメント表示を提供しています。プルリクエスト全体に対する[プルリクエストのコメント][PR comment]、プルリクエスト内の[特定行のコメント][PR line comment]、そしてプルリクエスト内の[特定のコメントへのコメント][commit comment]です。
 
-コメントの各タイプは、{{ site.data.variables.product.product_name }} API の別々の部分を経由します。 このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
+コメントの各タイプは、{% data variables.product.product_name %} API の別々の部分を経由します。 このガイドでは、それぞれにアクセスして操作する方法を説明します。 各例では、"octocat" リポジトリで作成した、[このサンプルのプルリクエスト][sample PR]を使用します。 いつもと同様、サンプルは [platform-samples リポジトリ][platform-samples]にあります。
 
 ### プルリクエストのコメント
 

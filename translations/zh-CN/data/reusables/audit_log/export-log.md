@@ -4,4 +4,4 @@
 
 若要过滤导出结果，请在使用 **Export（导出）**下拉菜单之前通过一个或多个支持的限定符进行搜索。
 
-{{ site.data.reusables.audit_log.keys-and-example-values }}
+{% data reusables.audit_log.keys-and-example-values %}

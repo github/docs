@@ -10,7 +10,7 @@ versions:
 
 如果您[从组织中删除用户](/articles/removing-a-member-from-your-organization)、[将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)或者由于您[要求成员和外部协作者启用双因素身份验证 (2FA)](/articles/requiring-two-factor-authentication-in-your-organization) 而从组织中删除用户，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion =="free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 恢复前组织成员时，您可以恢复以下各项：
  - 用户在组织中的角色
@@ -27,7 +27,7 @@ versions:
     **Tips**:
     - 如果组织成员由于未使用双因素身份验证已从组织中删除，并且您的组织仍要求成员使用 2FA，则前成员必须启用双因素身份验证，然后才能恢复其成员身份。
     - 仅组织所有者才可邀请用户加入组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
-    - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {{ site.data.reusables.organizations.org-invite-expiration }}
+    - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}
 
    {% else %}
     **Tips**:
@@ -37,11 +37,11 @@ versions:
 
    {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. 选择是恢复该人员在组织中以前的权限还是清除其以前的权限并设置新的访问权限，然后单击 **Invite and reinstate（邀请并恢复）**或 **Invite and start fresh（邀请并重新开始）**。 ![选择是否恢复信息](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
@@ -53,7 +53,7 @@ versions:
 7. 如果已清除前组织成员以前的权限，请为该用户选择一个角色，并（可选）将其添加到某些团队，然后单击 **Add member（添加成员）**。 ![角色和团队选项及添加成员按钮](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.organizations.user_must_accept_invite_email }} {{ site.data.reusables.organizations.cancel_org_invite }}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### 延伸阅读

@@ -1,6 +1,6 @@
 ---
 title: クラスタのネットワーク設定
-intro: '{{ site.data.variables.product.prodname_ghe_server }} クラスタリングが適切に動作するためには、DNS の名前解決、ロードバランシング、ノード間の通信が適切に行われなければなりません。'
+intro: '{% data variables.product.prodname_ghe_server %} クラスタリングが適切に動作するためには、DNS の名前解決、ロードバランシング、ノード間の通信が適切に行われなければなりません。'
 redirect_from:
   - /enterprise/admin/clustering/cluster-network-configuration
   - /enterprise/admin/enterprise-management/cluster-network-configuration
@@ -79,17 +79,17 @@ versions:
  - TCP ポート (下記参照) は `web-server` サービスを実行しているノードに転送される必要があります。 これらは、外部クライアント要求を処理する唯一のノードです。
  - スティッキーセッションは有効化してはなりません。
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### クライアントの接続情報の処理
 
 クラスタへのクライアント接続はロードバランサから行われるため、クライアントの IP アドレスが失われる可能性があります。 クライアント接続情報を正しく取り込むには、追加の検討が必要です。
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### {{ site.data.variables.product.prodname_ghe_server }}での PROXY サポートの有効化
+#### {% data variables.product.prodname_ghe_server %}での PROXY サポートの有効化
 
 インスタンスとロードバランサの双方でPROXYサポートを有効化することを強くおすすめします。
 
@@ -99,11 +99,11 @@ versions:
   ```
   - ロードバランサでは、ベンダーから提供された手順書に従ってください。
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### {{ site.data.variables.product.prodname_ghe_server }}での X-Forwarded-For サポートの有効化
+#### {% data variables.product.prodname_ghe_server %}での X-Forwarded-For サポートの有効化
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 `X-Fowarded-For` ヘッダを有効化するには、次のコマンドを使用します:
 
@@ -111,14 +111,14 @@ versions:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### ヘルスチェックの設定
 ロードバランサは健全性チェックによって、事前に設定されたチェックが失敗するようになったノードがあれば、反応しなくなったノードへのトラフィックの送信を止めます。 クラスタのノードに障害が起きた場合、冗長なノードと組み合わさったヘルスチェックが高可用性を提供してくれます。
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### DNSの要求事項
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

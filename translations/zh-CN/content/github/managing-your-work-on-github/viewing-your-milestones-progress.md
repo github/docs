@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 在左上角单击 **Milestones（里程碑）**。 ![议题里程碑按钮](/assets/images/help/issues/issues_milestone_button.png)
 4. 选择您想要查看更多相关信息的里程碑。
 

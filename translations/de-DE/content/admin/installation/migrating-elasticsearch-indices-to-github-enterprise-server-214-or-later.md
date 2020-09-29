@@ -1,6 +1,6 @@
 ---
 title: ElasticSearch-Indizes zu GitHub Enterprise Server 2.14 oder höher migrieren
-intro: 'Als Vorbereitung für ein Upgrade auf {{ site.data.variables.product.prodname_ghe_server }} 2.14 müssen Sie Ihre Indizes mit unserem Migrationsskript zu ElasticSearch 5.6 migrieren.'
+intro: 'Als Vorbereitung für ein Upgrade auf {% data variables.product.prodname_ghe_server %} 2.14 müssen Sie Ihre Indizes mit unserem Migrationsskript zu ElasticSearch 5.6 migrieren.'
 redirect_from:
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-server-2-14-or-later
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.prodname_ghe_server }} 2.14 enthält ein Upgrade auf ElasticSearch 5.6. Bevor Sie ein Upgrade von {{ site.data.variables.product.prodname_ghe_server }} 2.12 oder 2.13 auf 2.14 durchführen, sollten Sie die ElasticSearch-Migrationstools herunterladen, installieren und ausführen, damit Ihre größten Indizes online migriert werden, während Ihre Appliance weiterhin über Online-Zugriff verfügt.
+{% data variables.product.prodname_ghe_server %} 2.14 enthält ein Upgrade auf ElasticSearch 5.6. Bevor Sie ein Upgrade von {% data variables.product.prodname_ghe_server %} 2.12 oder 2.13 auf 2.14 durchführen, sollten Sie die ElasticSearch-Migrationstools herunterladen, installieren und ausführen, damit Ihre größten Indizes online migriert werden, während Ihre Appliance weiterhin über Online-Zugriff verfügt.
 
 ### Suchindizes
 
@@ -58,7 +58,7 @@ Die `Suchindizes` beginnen mit:
 
 ### Webhook-Indizes
 
-Nachdem das Migrationsskript die erforderlichen `Suchindizes` online neu erstellt hat, überprüft das Skript, ob `Webhook`-Indizes neu erstellt werden müssen. Wenn die Ausführung Ihrer Appliance mit {{ site.data.variables.product.prodname_ghe_server }} 2.12 oder 2.13 mindestens 14 Tage gedauert hat, benötigen Sie Ihre `Webhook`-Indizes wahrscheinlich nicht, da `Webhook`-Indizes eine standardmäßige Aufbewahrungsrichtlinie von sieben Tagen aufweisen. Wenn Sie Ihre Appliance von {{ site.data.variables.product.prodname_enterprise }} 2.11 oder früher aktualisieren, dann müssen Sie die `Webhook`-Indizes möglicherweise neu erstellen.
+Nachdem das Migrationsskript die erforderlichen `Suchindizes` online neu erstellt hat, überprüft das Skript, ob `Webhook`-Indizes neu erstellt werden müssen. Wenn die Ausführung Ihrer Appliance mit {% data variables.product.prodname_ghe_server %} 2.12 oder 2.13 mindestens 14 Tage gedauert hat, benötigen Sie Ihre `Webhook`-Indizes wahrscheinlich nicht, da `Webhook`-Indizes eine standardmäßige Aufbewahrungsrichtlinie von sieben Tagen aufweisen. Wenn Sie Ihre Appliance von {% data variables.product.prodname_enterprise %} 2.11 oder früher aktualisieren, dann müssen Sie die `Webhook`-Indizes möglicherweise neu erstellen.
 
 Wenn `Webhook`-Indizes neu erstellt werden müssen, werden Sie aufgefordert, den Wartungsmodus zu aktivieren, bevor das Skript die `Webhook`-Indizes neu erstellen kann. Obwohl die Migration von `Webhook`-Indizes zu einer gewissen Ausfallzeit führt, sind keine ausgedehnten Wartungsfenster oder Ausfallzeiten nötig.
 
@@ -91,15 +91,15 @@ green  open   code-search-1              1   0    6932626           44     42.9g
 green  open   commits-1                  1   0   63753587         1485     45.4gb         45.4gb
 ```
 
-### {{ site.data.variables.product.prodname_ghe_server }}-Appliance der Version 2.12 oder 2.13 vorbereiten
+### {% data variables.product.prodname_ghe_server %}-Appliance der Version 2.12 oder 2.13 vorbereiten
 
-Wenn Sie ein Upgrade auf {{ site.data.variables.product.prodname_ghe_server }} 2.14 oder höher durchführen, ohne die Migrationstools auszuführen, sind die vorhandenen ElasticSearch-Indizes möglicherweise ungültig und funktionieren nicht richtig. Zum Ausführen des ElasticSearch-Migrationsskripts muss Ihre {{ site.data.variables.product.prodname_ghe_server }}-Appliance Version 2.12 oder 2.13 von {{ site.data.variables.product.prodname_enterprise }} ausführen.
+Wenn Sie ein Upgrade auf {% data variables.product.prodname_ghe_server %} 2.14 oder höher durchführen, ohne die Migrationstools auszuführen, sind die vorhandenen ElasticSearch-Indizes möglicherweise ungültig und funktionieren nicht richtig. Zum Ausführen des ElasticSearch-Migrationsskripts muss Ihre {% data variables.product.prodname_ghe_server %}-Appliance Version 2.12 oder 2.13 von {% data variables.product.prodname_enterprise %} ausführen.
 
 {% warning %}
 
 **Warnung:**
-- Bei der Verwendung von {{ site.data.variables.product.prodname_enterprise_backup_utilities }} werden nach der Wiederherstellung alte ElasticSearch-Indizes vernichtet, die nicht mit 5.X kompatibel sind. In diesem Fall wäre eine manuelle Neuindizierung erforderlich.
-- Wenn {{ site.data.variables.product.prodname_ghe_server }} für die Hochverfügbarkeit konfiguriert ist, **muss** das Migrationsskript während der Ausführung der Replikation ausgeführt werden. Es muss zugelassen werden, dass die Änderungen vollständig mit der anderen Appliance repliziert werden, bevor das Upgrade gestartet wird. Wenn die Replikation während der Ausführung des Migrationsskripts nicht ausgeführt wird, werden Ihre ElasticSearch-Indizes möglicherweise ungültig.
+- Bei der Verwendung von {% data variables.product.prodname_enterprise_backup_utilities %} werden nach der Wiederherstellung alte ElasticSearch-Indizes vernichtet, die nicht mit 5.X kompatibel sind. In diesem Fall wäre eine manuelle Neuindizierung erforderlich.
+- Wenn {% data variables.product.prodname_ghe_server %} für die Hochverfügbarkeit konfiguriert ist, **muss** das Migrationsskript während der Ausführung der Replikation ausgeführt werden. Es muss zugelassen werden, dass die Änderungen vollständig mit der anderen Appliance repliziert werden, bevor das Upgrade gestartet wird. Wenn die Replikation während der Ausführung des Migrationsskripts nicht ausgeführt wird, werden Ihre ElasticSearch-Indizes möglicherweise ungültig.
 
 {% endwarning %}
 
@@ -109,7 +109,7 @@ Wenn Sie ein Upgrade auf {{ site.data.variables.product.prodname_ghe_server }} 2
    $ wget https://github-enterprise.s3.amazonaws.com/util/es-5x-transition-tools.tar.gz
    $ sudo tar -C / -xvf es-5x-transition-tools.tar.gz
    ```
-   Wenn Sie einen {{ site.data.variables.product.prodname_ghe_server }}-Cluster verwalten, authentifizieren Sie sich mittels SSH bei einem der ElasticSearch-Serverknoten, und installieren Sie dort die Migrationstools. Suchen Sie sie wie folgt:
+   Wenn Sie einen {% data variables.product.prodname_ghe_server %}-Cluster verwalten, authentifizieren Sie sich mittels SSH bei einem der ElasticSearch-Serverknoten, und installieren Sie dort die Migrationstools. Suchen Sie sie wie folgt:
     ```shell
     $ ghe-cluster-each -r elasticsearch -p
     ghe-test-data-0
@@ -125,4 +125,4 @@ Wenn Sie ein Upgrade auf {{ site.data.variables.product.prodname_ghe_server }} 2
  **Hinweis:** Wenn `Webhook`-Indizes migriert werden sollen, werden Sie nach dem Ausführen der Online-Migrationen aufgefordert, den Wartungsmodus zu aktivieren.
 
  {% endnote %}
-3. Wenn Sie einen {{ site.data.variables.product.prodname_ghe_server }}-Cluster ausführen, sollten Sie die offizielle Upgrade-Dokumentation für einzelne VMs oder Hochverfügbarkeitsumgebungen oder den Leitfaden zum Cluster-Upgrade befolgen. Weitere Informationen finden Sie unter „[Upgrade von {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)“ oder „[Cluster-Upgrade](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)“.
+3. Wenn Sie einen {% data variables.product.prodname_ghe_server %}-Cluster ausführen, sollten Sie die offizielle Upgrade-Dokumentation für einzelne VMs oder Hochverfügbarkeitsumgebungen oder den Leitfaden zum Cluster-Upgrade befolgen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)“ oder „[Cluster-Upgrade](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)“.

@@ -20,7 +20,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 {% if currentVersion == "free-pro-team@latest" %}
 ### 迁移
 
-允许您从自己的 GitHub 用户或组织帐户下载仓库，以审查、备份以及[迁移](/v3/migrations/)数据到 {{ site.data.variables.product.prodname_ghe_server }}。
+允许您从自己的 GitHub 用户或组织帐户下载仓库，以审查、备份以及[迁移](/v3/migrations/)数据到 {% data variables.product.prodname_ghe_server %}。
 
 **自定义媒体类型：** `wyandotte-preview` **公布日期：** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
 {% endif %}
@@ -120,7 +120,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 ### 全局 web 挂钩
 
-为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 web 挂钩](/v3/enterprise-admin/global_webhooks/)。 此 API 预览仅适用于 {{ site.data.variables.product.prodname_ghe_server }}。
+为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 web 挂钩](/v3/enterprise-admin/global_webhooks/)。 此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
 
 **自定义媒体类型：** `superpro-preview` **公布日期：** [2017-12-12](/v3/enterprise-admin/global_webhooks)
 
@@ -182,7 +182,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 ### 对仓库的匿名 Git 访问
 
-当 {{ site.data.variables.product.prodname_ghe_server }} 实例处于私有模式时，站点和仓库管理员可以为公共仓库启用匿名 Git 访问。
+当 {% data variables.product.prodname_ghe_server %} 实例处于私有模式时，站点和仓库管理员可以为公共仓库启用匿名 Git 访问。
 
 **自定义媒体类型：** `x-ray-preview` **公布日期：** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
@@ -218,7 +218,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 ### 内容附件
 
-现在，您可以在 GitHub 中使用 {{ site.data.variables.product.prodname_unfurls }} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
+现在，您可以在 GitHub 中使用 {% data variables.product.prodname_unfurls %} API 提供有关链接到注册域的 URL 的更多信息。 更多信息请参阅“[使用内容附件](/apps/using-content-attachments/)”。
 
 **自定义媒体类型：** `corsair-preview` **公布日期：** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
@@ -226,7 +226,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 ### 限制仓库和组织的交互
 
-允许您暂时限制 {{ site.data.variables.product.product_name }} 仓库或组织的交互，例如评论、打开议题和创建拉取请求等交互。 启用后，只有指定的 {{ site.data.variables.product.product_name }} 用户组才能参与这些交互。 更多信息请参阅[仓库交互](/v3/interactions/repos/)和[组织交互](/v3/interactions/orgs/) API。
+允许您暂时限制 {% data variables.product.product_name %} 仓库或组织的交互，例如评论、打开议题和创建拉取请求等交互。 启用后，只有指定的 {% data variables.product.product_name %} 用户组才能参与这些交互。 更多信息请参阅[仓库交互](/v3/interactions/repos/)和[组织交互](/v3/interactions/orgs/) API。
 
 **自定义媒体类型：** `sombra-preview` **公布日期：** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
 

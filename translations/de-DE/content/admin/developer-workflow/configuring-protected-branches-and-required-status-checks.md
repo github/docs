@@ -11,10 +11,10 @@ Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann 
 
 ### Geschützten Branch für ein Repository aktivieren
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Klicke auf **Create** (Erstellen).
 
 ### Arten von erforderlichen Statuschecks
@@ -27,16 +27,16 @@ Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann 
 
 ### Erforderliche Statuschecks aktivieren
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Aktivieren Sie **Require status checks to pass before merging** (Statuschecks müssen vor dem Mergen bestanden werden). ![Option für erforderliche Statuschecks](/assets/images/help/repository/required-status-checks.png)
 6. Wählen Sie in der Liste der verfügbaren Statuschecks die Checks aus, die als erforderlich festgelegt werden sollen. ![Liste der verfügbaren Statuschecks](/assets/images/help/repository/required-statuses-list.png)
-{{ site.data.reusables.repositories.include-administrators }}
+{% data reusables.repositories.include-administrators %}
 8. Deaktivieren Sie optional **Require branches to be up to date before merging** (Erzwingen, dass Branches vor dem Mergen aktuell sein müssen). Wenn diese Option ausgewählt ist, wird der Branch mit dem neuesten Code auf dem Basis-Branch getestet. ![Kontrollkästchen für lockere oder strenge erforderliche Statuschecks](/assets/images/help/repository/protecting-branch-loose-status-new.png)
 9. Optional wählst Du {% if currentVersion ver_gt "enterprise-server@2.18" %}**Beschränken, wer per Push in die passenden Zweige übertragen kann**{% else %}**Beschränken, wer per Push in diesen Zweig übertragen kann**{% endif %}. ![Branch restriction checkbox]{% if currentVersion ver_gt "enterprise-server@2.18" %}(/assets/images/help/repository/restrict-branch.png){% else %}(/assets/images/help/repository/restrict-branch-push.png){% endif %}
 10. Suche und wähle Personen{% if currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} aus, welche berechtigt sind, per Push in geschützte Branches zu übertragen. ![Suche für die Branch-Einschränkung](/assets/images/help/repository/restrict-branch-search.png)
 11. Klicke auf **Create** (Erstellen).
 
-{{ site.data.reusables.repositories.required-status-merge-tip }}
+{% data reusables.repositories.required-status-merge-tip %}

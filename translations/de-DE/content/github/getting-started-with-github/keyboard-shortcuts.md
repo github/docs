@@ -1,6 +1,6 @@
 ---
 title: Tastenkürzel
-intro: 'Auf nahezu allen Seiten auf {{ site.data.variables.product.product_name }} gibt es Tastenkürzel, um Aktionen schneller durchführen zu können.'
+intro: 'Auf nahezu allen Seiten auf {% data variables.product.product_name %} gibt es Tastenkürzel, um Aktionen schneller durchführen zu können.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### Informationen zu Tastenkürzeln
 
-Wird <kbd>?</kbd> in {{ site.data.variables.product.product_name }} eingegeben, öffnet sich ein Dialogfeld, das die für die jeweilige Seite verfügbaren Tastenkürzel auflistet. Mit diesen Tastenkürzeln kannst Du Aktionen auf der gesamten Website durchführen, ohne Deine Maus zur Navigation verwenden zu müssen.
+Wird <kbd>?</kbd> in {% data variables.product.product_name %} eingegeben, öffnet sich ein Dialogfeld, das die für die jeweilige Seite verfügbaren Tastenkürzel auflistet. Mit diesen Tastenkürzeln kannst Du Aktionen auf der gesamten Website durchführen, ohne Deine Maus zur Navigation verwenden zu müssen.
 
 Im Folgenden findest Du eine Liste mit einigen der verfügbaren Tastenkürzel.
 
@@ -22,7 +22,7 @@ Im Folgenden findest Du eine Liste mit einigen der verfügbaren Tastenkürzel.
 
 | Tastenkürzel                   | Beschreibung                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> oder <kbd>/</kbd> | Hiermit fokussierst Du die Suchleiste. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github).“                                                                                                                                                                                |
+| <kbd>s</kbd> oder <kbd>/</kbd> | Hiermit fokussierst Du die Suchleiste. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“                                                                                                                                                                                |
 | <kbd>g</kbd> <kbd>n</kbd>      | Gehe zu Deinen Benachrichtigungen. Weitere Informationen findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
 | <kbd>esc</kbd>                 | Wenn auf eine Benutzer-, Issue- oder Pull-Request-Hovercard (Informationskarte) konzentriert, schließt das Kürzel die Hovercard und konzentriert sich erneut auf das Element, in dem sich die Hovercard befindet                                                                                                                                                                   |
 
@@ -97,7 +97,7 @@ Weitere Tastenkürzel findest Du in der [CodeMirror-Dokumentation](https://codem
 | <kbd>q</kbd>                                                                              | Hiermit wird ein Reviewer angefordert. Weitere Informationen findest Du unter „[Pull-Request-Review anfordern](/articles/requesting-a-pull-request-review/).“                                                                                                |
 | <kbd>m</kbd>                                                                              | Hiermit wird ein Meilenstein festgelegt. Weitere Informationen findest Du unter „[Meilensteine mit Issues und Pull Requests verknüpfen](/articles/associating-milestones-with-issues-and-pull-requests/).“                                                   |
 | <kbd>l</kbd>                                                                              | Hiermit wird eine Kennzeichnung angewendet. Weitere Informationen findest Du unter „[Kennzeichnungen auf Issues und Pull Requests anwenden](/articles/applying-labels-to-issues-and-pull-requests/).“                                                        |
-| <kbd>a</kbd>                                                                              | Hiermit wird ein Bearbeiter festgelegt. Weitere Informationen findest Du unter „[Issues und Pull Requests anderen {{ site.data.variables.product.company_short }}-Benutzern zuweisen](/articles/assigning-issues-and-pull-requests-to-other-github-users/).“ |
+| <kbd>a</kbd>                                                                              | Hiermit wird ein Bearbeiter festgelegt. Weitere Informationen findest Du unter „[Issues und Pull Requests anderen {% data variables.product.company_short %}-Benutzern zuweisen](/articles/assigning-issues-and-pull-requests-to-other-github-users/).“ |
 | <kbd>Befehlstaste + Umschalttaste+p</kbd> oder <kbd>Steuertaste + Umschalttaste + p</kbd> | Hiermit wird zwischen den Registerkarten **Write** (Schreiben) und **Preview** (Vorschau) umgeschaltet.                                                                                                                                                      |
 
 ### Änderungen in Pull Requests
@@ -153,7 +153,7 @@ Weitere Tastenkürzel findest Du in der [CodeMirror-Dokumentation](https://codem
 | <kbd>esc</kbd> | Close the card preview pane |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | Tastenkürzel                                            | Beschreibung                                                                |
 | ------------------------------------------------------- | --------------------------------------------------------------------------- |

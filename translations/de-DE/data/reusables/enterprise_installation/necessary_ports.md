@@ -7,6 +7,6 @@
 | 161/UDP  | SNMP   | Für Netzwerküberwachungs-Protokollvorgänge erforderlich.                                                                                         |
 | 443      | HTTPS  | Webanwendung und Git über HTTPS-Zugriff.                                                                                                         |
 | 1194/UDP | VPN    | Sicherer Replikationsnetzwerktunnel in einer hochverfügbaren Konfiguration.                                                                      |
-| 8080     | HTTP   | Webbasierte {{ site.data.variables.enterprise.management_console }} in Nur-Text. *Nur erforderlich, wenn SSL manuell deaktiviert wird.*          |
-| 8443     | HTTPS  | Sichere webbasierte {{ site.data.variables.enterprise.management_console }}. *Für die grundlegende Installation und Konfiguration erforderlich.* |
+| 8080     | HTTP   | Webbasierte {% data variables.enterprise.management_console %} in Nur-Text. *Nur erforderlich, wenn SSL manuell deaktiviert wird.*          |
+| 8443     | HTTPS  | Sichere webbasierte {% data variables.enterprise.management_console %}. *Für die grundlegende Installation und Konfiguration erforderlich.* |
 | 9418     | Git    | Einfacher Git-Protokollport. Nur Klon- und Abrufvorgänge zu öffentlichen Repositorys. *Unverschlüsselte Netzwerkkommunikation.*                  |

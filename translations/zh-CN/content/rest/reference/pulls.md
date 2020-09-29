@@ -26,7 +26,7 @@ versions:
 
 <a id="diff-error">
 
-如果 diff 损坏，请联系 {{ site.data.variables.contact.contact_support }}。 在您的消息中包括仓库名称和拉取请求 ID。
+如果 diff 损坏，请联系 {% data variables.contact.contact_support %}。 在您的消息中包括仓库名称和拉取请求 ID。
 
 ### 链接关系
 

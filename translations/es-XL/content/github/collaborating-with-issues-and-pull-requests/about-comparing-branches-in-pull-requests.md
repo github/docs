@@ -44,13 +44,13 @@ Para simplificar los cambios de revisión en una solicitud de extracción grande
 
 ### Comparaciones de diferencias de Git de tres puntos y de dos puntos
 
-Por defecto, las solicitudes de extracción en {{ site.data.variables.product.prodname_dotcom }} muestran una diferencia de tres puntos o una comparación entre la versión más reciente de la rama de tema y la confirmación donde la rama de tema fue sincronizada por última vez con la rama base.
+Por defecto, las solicitudes de extracción en {% data variables.product.prodname_dotcom %} muestran una diferencia de tres puntos o una comparación entre la versión más reciente de la rama de tema y la confirmación donde la rama de tema fue sincronizada por última vez con la rama base.
 
-Para ver dos referencias confirmables en una comparación de diferencia de dos puntos en {{ site.data.variables.product.prodname_dotcom }}, puedes editar la URL de la página "Comparar cambios" de tu repositorio. Para obtener más información, consulta el [Glosario de Git para "confirmable"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) del sitio del libro _Pro Git_.
+Para ver dos referencias confirmables en una comparación de diferencia de dos puntos en {% data variables.product.prodname_dotcom %}, puedes editar la URL de la página "Comparar cambios" de tu repositorio. Para obtener más información, consulta el [Glosario de Git para "confirmable"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) del sitio del libro _Pro Git_.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-Una diferenciación de dos puntos compara dos referencias confirmables de Git, como SHA u OID (ID de objeto), directamente entre sí. En {{ site.data.variables.product.prodname_dotcom }}, las referencias confirmables de Git en una comparación de diferenciación de dos puntos se deben subir al mismo repositorio o a sus bifurcaciones.
+Una diferenciación de dos puntos compara dos referencias confirmables de Git, como SHA u OID (ID de objeto), directamente entre sí. En {% data variables.product.prodname_dotcom %}, las referencias confirmables de Git en una comparación de diferenciación de dos puntos se deben subir al mismo repositorio o a sus bifurcaciones.
 
 Si quieres simular una diferenciación de dos puntos en una solicitud de extracción y ver una comparación entre las versiones más recientes de cada rama, puedes fusionar la rama base en tu rama de tema, que actualiza el último antepasado común entre tus ramas.
 

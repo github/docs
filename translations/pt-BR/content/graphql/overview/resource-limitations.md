@@ -1,6 +1,6 @@
 ---
 title: Limitações de recursos
-intro: 'A API do GraphQL de {{ site.data.variables.product.prodname_dotcom }} tem limitações de proteção contra chamadas excessivas ou abusivas para os servidores de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'A API do GraphQL de {% data variables.product.prodname_dotcom %} tem limitações de proteção contra chamadas excessivas ou abusivas para os servidores de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
@@ -131,7 +131,7 @@ O limite de taxa de câmbio da API v4 do GraphQL é **5.000 pontos por hora**.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Para {{ site.data.variables.product.prodname_github_apps }} ou {{ site.data.variables.product.prodname_oauth_app }} que pertencem a uma conta do {{ site.data.variables.product.prodname_ghe_cloud }}, pedidos de recursos pertencentes à mesma conta {{ site.data.variables.product.prodname_ghe_cloud }} tem um limite ampliado de 15.000 pontos por hora.
+Para {% data variables.product.prodname_github_apps %} ou {% data variables.product.prodname_oauth_app %} que pertencem a uma conta do {% data variables.product.prodname_ghe_cloud %}, pedidos de recursos pertencentes à mesma conta {% data variables.product.prodname_ghe_cloud %} tem um limite ampliado de 15.000 pontos por hora.
 
 {% endif %}
 

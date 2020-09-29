@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 您可以在任何支持的文件夹中创建 *ISSUE_TEMPLATE/* 子目录，以包含多个议题模板，并且使用 `template` 查询参数指定填充议题正文的模板。 更多信息请参阅“[关于使用查询参数自动化议题和拉取请求](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)”。
 
@@ -34,16 +34,16 @@ assignees: octocat
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 ### 添加议题模板
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中：
     -  要使议题模板显示在仓库的根目录中，请输入 *issue_template* 的名称。 例如 `issue_template.md`。 ![根目录中的新议题模板名称](/assets/images/help/repository/issue-template-file-name.png)
     - 要使议题模板显示在仓库的 `docs` 目录中，请输入 *docs/*，后接 *issue_template* 的名称。 例如 `docs/issue_template.md`。 ![Docs 目录中的新议题模板](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +54,9 @@ assignees: octocat
     - 预期行为和实际行为
     - 重现问题的步骤
     - 项目版本、操作系统或硬件等规范
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} 模板可供协作者用来合并到仓库的默认分支。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} 模板可供协作者用来合并到仓库的默认分支。
+{% data reusables.files.propose_new_file %}
 
 ### 延伸阅读
 

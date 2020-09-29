@@ -1,7 +1,7 @@
 
 ### Supportumfang
 
-Wenn Deine Supportanfrage außerhalb des Bereichs liegt, in dem unser Team Dir helfen kann, können wir weiter Schritte empfehlen, damit Du Deinen Issue außerhalb von {{ site.data.variables.contact.github_support }} beheben kannst. Deine Supportanfrage liegt möglicherweise nicht im Bereich von {{ site.data.variables.contact.github_support }}, wenn sie sich primär auf Folgendes bezieht:
+Wenn Deine Supportanfrage außerhalb des Bereichs liegt, in dem unser Team Dir helfen kann, können wir weiter Schritte empfehlen, damit Du Deinen Issue außerhalb von {% data variables.contact.github_support %} beheben kannst. Deine Supportanfrage liegt möglicherweise nicht im Bereich von {% data variables.contact.github_support %}, wenn sie sich primär auf Folgendes bezieht:
 - Integration von Drittanbietern
 - Hardware-Einstellungen
 - CI/CD, beispielsweise Jenkins

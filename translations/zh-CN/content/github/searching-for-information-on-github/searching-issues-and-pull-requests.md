@@ -1,6 +1,6 @@
 ---
 title: 搜索议题和拉取请求
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索代码，并使用这些代码搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索议题和拉取请求，也可以在特定组织内搜索议题和拉取请求。 更多信息请参阅“[关于在 {{ site.data.variables.product.company_short }} 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索议题和拉取请求，也可以在特定组织内搜索议题和拉取请求。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
 {% tip %}
 
 **提示：**{% if currentVersion != "free-pro-team@latest" %}
-  - 本文章包含在 {{ site.data.variables.product.prodname_dotcom }}.com 网站上的示例搜索，但您可以在 {{ site.data.variables.product.product_location_enterprise }} 上使用相同的搜索过滤器。{% endif %}
+  - 本文章包含在 {% data variables.product.prodname_dotcom %}.com 网站上的示例搜索，但您可以在 {% data variables.product.product_location_enterprise %} 上使用相同的搜索过滤器。{% endif %}
   - 有关可以添加到任何搜索限定符以进一步改善结果的搜索语法列表，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax)”。
   - 对多个字词的搜索词使用引号。 例如，如果要搜索具有标签 "In progress" 的议题，可搜索 `label:"in progress"`。 搜索不区分大小写。
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### 仅搜索议题或拉取请求
 
-默认情况下，{{ site.data.variables.product.product_name }} 搜索将返回议题和拉取请求。 但您可以使用 `type` 或 `is` 限定符将搜索结果限制为仅议题或拉取请求。
+默认情况下，{% data variables.product.product_name %} 搜索将返回议题和拉取请求。 但您可以使用 `type` 或 `is` 限定符将搜索结果限制为仅议题或拉取请求。
 
 | 限定符          | 示例                                                                                                                                                            |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ versions:
 
 ### 按公共或私有仓库搜索
 
-如果您[在所有 {{ site.data.variables.product.product_name }} 内搜索](https://github.com/search)，基于仓库是公共还是私有来过滤结果可能非常有用。 您可以使用 `is:public` 和 `is:private` 实现此操作。
+如果您[在所有 {% data variables.product.product_name %} 内搜索](https://github.com/search)，基于仓库是公共还是私有来过滤结果可能非常有用。 您可以使用 `is:public` 和 `is:private` 实现此操作。
 
 | 限定符          | 示例                                                                                                                     |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------- |
@@ -249,9 +249,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 您可以基于创建时间或上次更新时间过滤议题。 对于议题创建，您可以使用 `created` 限定符；要了解议题上次更新的时间，您要使用 `updated` 限定符。
 
-两者均采用日期作为参数。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+两者均采用日期作为参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                        | 示例                                                                                                                                                                                                                              |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,9 +262,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 您可以使用 `closed` 限定符基于议题和拉取请求关闭的时间进行过滤。
 
-此限定符采用日期作为其参数。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+此限定符采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                        | 示例                                                                                                                                                                                                                                           |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,9 +275,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 您可以使用 `merged` 限定符基于拉取请求合并的时间进行过滤。
 
-此限定符采用日期作为其参数。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+此限定符采用日期作为其参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                        | 示例                                                                                                                                                                                                                                                         |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

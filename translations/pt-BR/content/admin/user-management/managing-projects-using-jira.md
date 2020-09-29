@@ -1,6 +1,6 @@
 ---
 title: Gerenciar projetos usando JIRA
-intro: 'Você pode integrar o JIRA ao {{ site.data.variables.product.prodname_enterprise }} para gerenciar projetos.'
+intro: 'Você pode integrar o JIRA ao {% data variables.product.prodname_enterprise %} para gerenciar projetos.'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira/
   - /enterprise/admin/articles/project-management-using-jira/
@@ -11,9 +11,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Conectar o JIRA a uma organização do {{ site.data.variables.product.prodname_enterprise }}
+### Conectar o JIRA a uma organização do {% data variables.product.prodname_enterprise %}
 
-1. Entre na sua conta do {{ site.data.variables.product.prodname_enterprise }} em http[s]://[hostname]/login.
+1. Entre na sua conta do {% data variables.product.prodname_enterprise %} em http[s]://[hostname]/login.
 1. No canto superior direito de qualquer página, clique no ícone de configuração da conta (engrenagem).
 1. Na barra lateral esquerda, clique no nome da organização.
 1. Na barra lateral esquerda, clique em **Applications** (Aplicativos).
@@ -32,13 +32,13 @@ versions:
 1. No menu suspenso de configuração, clique em **Add-ons** (Complementos).
 1. Na barra lateral esquerda, em **Source control** (Controle de fontes), clique em **DVCS accounts** (Contas DVCS).
 1. Clique em **Link Bitbucket or GitHub account** (Vincular conta do Bitbucket ou GitHub).
-1. No modal **Add New Account** (Adicionar nova conta), defina as configurações do {{ site.data.variables.product.prodname_enterprise }}:
+1. No modal **Add New Account** (Adicionar nova conta), defina as configurações do {% data variables.product.prodname_enterprise %}:
     - No menu suspenso **Host**, clique em **GitHub Enterprise**.
-    - No campo **Team or User Account** (Conta de equipe ou usuário), digite o nome da sua organização ou conta pessoal do {{ site.data.variables.product.prodname_enterprise }}.
-    - No campo **OAuth Key** (Chave OAuth), informe o Client ID (ID do cliente) do seu aplicativo de desenvolvedor do {{ site.data.variables.product.prodname_enterprise }}.
-    - No campo **OAuth Secret** (Segredo OAuth), informe o Client Secret (Segredo do cliente) do seu aplicativo de desenvolvedor do {{ site.data.variables.product.prodname_enterprise }}.
-    - Se você não quiser vincular novos repositórios pertencentes à sua organização ou conta pessoal do {{ site.data.variables.product.prodname_enterprise }}, desmarque a opção **Auto Link New Repositories** (Vincular automaticamente novos repositórios).
+    - No campo **Team or User Account** (Conta de equipe ou usuário), digite o nome da sua organização ou conta pessoal do {% data variables.product.prodname_enterprise %}.
+    - No campo **OAuth Key** (Chave OAuth), informe o Client ID (ID do cliente) do seu aplicativo de desenvolvedor do {% data variables.product.prodname_enterprise %}.
+    - No campo **OAuth Secret** (Segredo OAuth), informe o Client Secret (Segredo do cliente) do seu aplicativo de desenvolvedor do {% data variables.product.prodname_enterprise %}.
+    - Se você não quiser vincular novos repositórios pertencentes à sua organização ou conta pessoal do {% data variables.product.prodname_enterprise %}, desmarque a opção **Auto Link New Repositories** (Vincular automaticamente novos repositórios).
     - Se você não quiser habilitar os commits inteligentes, desmarque a opção  **Habilitar commits inteligentes**.
     - Clique em **Salvar**.
-1. Revise as permissões que você vai conceder à sua conta do {{ site.data.variables.product.prodname_enterprise }} e clique em **Authorize application** (Autorizar aplicativo).
+1. Revise as permissões que você vai conceder à sua conta do {% data variables.product.prodname_enterprise %} e clique em **Authorize application** (Autorizar aplicativo).
 1. Se necessário, digite a senha para continuar.

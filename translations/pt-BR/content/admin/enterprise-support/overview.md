@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Saiba mais sobre as opções de suporte disponíveis para {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'Saiba mais sobre as opções de suporte disponíveis para {% data variables.product.prodname_ghe_server %}.'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/enterprise-support/overview

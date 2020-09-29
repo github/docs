@@ -3,7 +3,7 @@
     <h3 id="{{ item.id }}" class="pt-3">
       <a href="#{{ item.id }}">{{item.name}}</a>
     </h3>
-  <p><b>{{ site.data.ui.products.graphql.reference.type }}:</b> <a href="/{{ currentLanguage }}{{ item.href }}">{{ item.type }}</a></p>
+  <p><b>{% data ui.products.graphql.reference.type %}:</b> <a href="/{{ currentLanguage }}{{ item.href }}">{{ item.type }}</a></p>
   {{ item.description }}
   </div>
 
@@ -12,7 +12,7 @@
   {% include graphql-deprecation %}
 
   {% if item.args.size %}
-  <h4>{{ site.data.ui.products.graphql.reference.arguments }}</h4>
+  <h4>{% data ui.products.graphql.reference.arguments %}</h4>
   {% assign fields = item.args %}
   {% include graphql-fields %}
   {% endif %}

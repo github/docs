@@ -1,5 +1,5 @@
 ---
-title: '{{ site.data.variables.product.product_name }}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
+title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Help Documentation'
 gettingStartedLinks:
   - /github/getting-started-with-github/set-up-git
   - /github/authenticating-to-github/connecting-to-github-with-ssh

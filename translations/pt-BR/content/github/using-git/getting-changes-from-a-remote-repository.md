@@ -16,11 +16,11 @@ Esses comandos são muito úteis ao interagir com [um repositório remote](/arti
 Para capturar uma cópia integral do repositório de outro usuário, use `git clone` desta forma:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 # Clona um repositório em seu computador
 ```
 
-Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {{ site.data.variables.product.prodname_dotcom }}, essas URLs estarão disponíveis abaixo dos detalhes do repositório:
+Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, essas URLs estarão disponíveis abaixo dos detalhes do repositório:
 
 ![Lista de URLs remotas](/assets/images/help/repository/remotes-url.png)
 

@@ -10,17 +10,17 @@ versions:
 
 Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Sicherheitshinweis erstellen.
 
-{{ site.data.reusables.security-advisory.security-researcher-cannot-create-advisory }}
+{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ### Einen Sicherheitshinweis erstellen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke auf **New draft security advisory** (Entwurf eines neuen Sicherheitshinweises). ![Schaltfläche „Open draft advisory“ (Hinweisentwurf öffnen)](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. Gib einen Titel für den Sicherheitshinweis ein. ![Feld „Title“ (Titel)](/assets/images/help/security/security-advisory-title.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Klicke auf **Create security advisory** (Erstelle Sicherheitshinweis). ![Schaltfläche „Create security advisory" (Sicherheitshinweis erstellen)](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### Nächste Schritte:

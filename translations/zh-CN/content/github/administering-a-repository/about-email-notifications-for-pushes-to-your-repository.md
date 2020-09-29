@@ -12,13 +12,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{{ site.data.reusables.notifications.outbound_email_tip }}{% endif %}
+{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 对于推送到仓库所发送的每封电子邮件通知都会列出新提交，以及只包含这些提交的差异的链接。 在电子邮件通知中，您会看到：
 
 - 其中进行了提交的仓库名称
 - 进行提交的分支
-- 提交的 SHA1，包括到 {{ site.data.variables.product.product_name }} 中差异的链接
+- 提交的 SHA1，包括到 {% data variables.product.product_name %} 中差异的链接
 - 提交的作者
 - 提交的日期
 - 作为提交一部分所更改的文件
@@ -28,12 +28,12 @@ versions:
 
 ### 对推送到仓库启用电子邮件通知
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-notifications }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-notifications %}
 5. 输入最多两个您希望通知发送到的电子邮件地址，用空格分隔。 如果要将电子邮件发送到两个以上的帐户，请将其中一个电子邮件地址设为群组电子邮件地址。 ![电子邮件地址文本框](/assets/images/help/settings/email_services_addresses.png)
-6. 如果您操作自己的服务器，可通过**秘密**令牌验证电子邮件的真实性。 此令牌随电子邮件作为 `Approved` 标头发送。 如果 `Approved` 标头与您发送的令牌匹配，则可以信任该电子邮件来自 {{ site.data.variables.product.product_name }}。 ![电子邮件密码文本框](/assets/images/help/settings/email_services_token.png)
-7. 也可选择 **Send from author（发送自作者）**，以使用提交人的电子邮件地址发送电子邮件。 否则，电子邮件发送自 {{ site.data.variables.notifications.no_reply_address }}。 ![电子邮件作者复选框](/assets/images/help/settings/email_services_author.png)
+6. 如果您操作自己的服务器，可通过**秘密**令牌验证电子邮件的真实性。 此令牌随电子邮件作为 `Approved` 标头发送。 如果 `Approved` 标头与您发送的令牌匹配，则可以信任该电子邮件来自 {% data variables.product.product_name %}。 ![电子邮件密码文本框](/assets/images/help/settings/email_services_token.png)
+7. 也可选择 **Send from author（发送自作者）**，以使用提交人的电子邮件地址发送电子邮件。 否则，电子邮件发送自 {% data variables.notifications.no_reply_address %}。 ![电子邮件作者复选框](/assets/images/help/settings/email_services_author.png)
 8. 单击 **Save settings（保存设置）**。 ![Save settings 按钮](/assets/images/help/settings/save_notification_settings.png)
 
 ### 延伸阅读

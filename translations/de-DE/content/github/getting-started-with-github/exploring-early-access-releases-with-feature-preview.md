@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### Release-Zyklus von {{ site.data.variables.product.prodname_dotcom }}
+### Release-Zyklus von {% data variables.product.prodname_dotcom %}
 
-Die Produkte und Funktionen von {{ site.data.variables.product.product_name }} können mehrere Release-Phasen durchlaufen.
+Die Produkte und Funktionen von {% data variables.product.product_name %} können mehrere Release-Phasen durchlaufen.
 
 | Phase                                               | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

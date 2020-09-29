@@ -1,19 +1,19 @@
 ---
 title: 浏览 GitHub Advisory Database 中的安全漏洞
-intro: '{{ site.data.variables.product.prodname_advisory_database }} 允许您浏览或搜索影响 {{ site.data.variables.product.company_short }} 上开源项目的漏洞。'
+intro: '{% data variables.product.prodname_advisory_database %} 允许您浏览或搜索影响 {% data variables.product.company_short %} 上开源项目的漏洞。'
 versions:
   free-pro-team: '*'
 ---
 
 ### 关于安全漏洞
 
-{{ site.data.reusables.repositories.a-vulnerability-is }}
+{% data reusables.repositories.a-vulnerability-is %}
 
-{{ site.data.variables.product.product_name }} will send you {{ site.data.variables.product.prodname_dependabot_alerts }} if we detect that any of the vulnerabilities from the {{ site.data.variables.product.prodname_advisory_database }} affect the packages that your repository depends on. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
+{% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
 
-### 关于 {{ site.data.variables.product.prodname_advisory_database }}
+### 关于 {% data variables.product.prodname_advisory_database %}
 
-{{ site.data.variables.product.prodname_advisory_database }} 包含已映射到 {{ site.data.variables.product.company_short }} 依赖关系图跟踪的软件包的安全漏洞列表。 {{ site.data.reusables.repositories.tracks-vulnerabilities }}
+{% data variables.product.prodname_advisory_database %} 包含已映射到 {% data variables.product.company_short %} 依赖关系图跟踪的软件包的安全漏洞列表。 {% data reusables.repositories.tracks-vulnerabilities %}
 
 Each security advisory contains information about the vulnerability, including the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. 此外，国家漏洞数据库列表中的公告包含 CVE 记录链接，通过链接可以查看漏洞、其 CVSS 得分及其质化严重等级的更多详细信息。 更多信息请参阅国家标准和技术研究所 (National Institute of Standards and Technology) 的“[国家漏洞数据库](https://nvd.nist.gov/)”。
 
@@ -23,11 +23,11 @@ Each security advisory contains information about the vulnerability, including t
 - 高
 - 关键
 
-The {{ site.data.variables.product.prodname_advisory_database }} uses CVSS version 3.0 standards and the CVSS levels described above. {{ site.data.variables.product.product_name }} doesn't publish CVSS scores.
+The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.0 standards and the CVSS levels described above. {% data variables.product.product_name %} doesn't publish CVSS scores.
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
-### 访问 {{ site.data.variables.product.prodname_advisory_database }} 中的通告
+### 访问 {% data variables.product.prodname_advisory_database %} 中的通告
 
 1. 导航到 https://github.com/advisories。
 2. Optionally, to filter the list, use any of the drop-down menus. ![下拉过滤器](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -39,12 +39,12 @@ The {{ site.data.variables.product.prodname_advisory_database }} uses CVSS versi
 
 {% endnote %}
 
-### 搜索 {{ site.data.variables.product.prodname_advisory_database }}
+### 搜索 {% data variables.product.prodname_advisory_database %}
 您可以搜索数据库，并使用限定符将搜索范围缩小到在特定日期、特定生态系统或特定库中创建的公告。
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                   | 示例                                                                                                                      |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------- |

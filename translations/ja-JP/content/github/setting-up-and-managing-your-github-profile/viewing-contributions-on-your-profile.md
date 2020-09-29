@@ -1,6 +1,6 @@
 ---
 title: プロフィールでコントリビューションを表示する
-intro: '{{ site.data.variables.product.product_name }} プロフィールは、固定されたリポジトリと過去 1 年間のリポジトリコントリビューション貢献のグラフを表示します。'
+intro: '{% data variables.product.product_name %} プロフィールは、固定されたリポジトリと過去 1 年間のリポジトリコントリビューション貢献のグラフを表示します。'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**メモ:** [ローカル Git 設定に使用したメールアドレスを {{ site.data.variables.product.product_name }} メール設定](/articles/adding-an-email-address-to-your-github-account)に追加した場合のみ、コミットがコントリビューショングラフに表示されます。 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)」を参照してください。
+**メモ:** [ローカル Git 設定に使用したメールアドレスを {% data variables.product.product_name %} メール設定](/articles/adding-an-email-address-to-your-github-account)に追加した場合のみ、コミットがコントリビューショングラフに表示されます。 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)」を参照してください。
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ versions:
 - プルリクエストレビューのサブミット{% if currentVersion != "free-pro-team@latest" %}
 - リポジトリのデフォルトのブランチまたは `gh-pages` ブランチでコミットを共作{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### 人気のあるリポジトリ
 
@@ -63,11 +63,11 @@ versions:
 
 タイムスタンプは、コミットとプルリクエストでは異なる方法で計算されます:
 - **コミット**は、コミットタイムスタンプのタイムゾーン情報を使用します。 詳細は「[タイムライン上のコミットのトラブルシューティング](/articles/troubleshooting-commits-on-your-timeline)」を参照してください。
-- {{ site.data.variables.product.product_name }} で開かれた**プルリクエスト**と **Issue** は、ブラウザのタイムゾーンを使用します。 API を介して開かれたものは、[API 呼び出しで指定された](https://developer.github.com/changes/2014-03-04-timezone-handling-changes)タイムスタンプまたはタイムゾーンを使用します。
+- {% data variables.product.product_name %} で開かれた**プルリクエスト**と **Issue** は、ブラウザのタイムゾーンを使用します。 API を介して開かれたものは、[API 呼び出しで指定された](https://developer.github.com/changes/2014-03-04-timezone-handling-changes)タイムスタンプまたはタイムゾーンを使用します。
 
 ### アクティビティの概要
 
-{{ site.data.reusables.profile.activity-overview-summary }} 詳細は「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。
+{% data reusables.profile.activity-overview-summary %} 詳細は「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。
 
 ![プロフィール上のアクティビティオーバービューセクション](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ versions:
 
 ![コントリビューションアクティビティ時間フィルター](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### {{ site.data.variables.product.prodname_dotcom_the_website }} 上の {{ site.data.variables.product.product_location_enterprise }} からコントリビューションを表示する
+### {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.product_location_enterprise %} からコントリビューションを表示する
 
-サイト管理者が、{{ site.data.variables.product.prodname_unified_contributions }} を有効にしている場合、{{ site.data.variables.product.prodname_enterprise }} コントリビューションカウントを {{ site.data.variables.product.prodname_dotcom_the_website }} プロフィールに送信できます。 詳細は「[{{ site.data.variables.product.prodname_ghe_server }} コントリビューションを {{ site.data.variables.product.prodname_dotcom_the_website }} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
+サイト管理者が、{% data variables.product.prodname_unified_contributions %} を有効にしている場合、{% data variables.product.prodname_enterprise %} コントリビューションカウントを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信できます。 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
 
 ### 参考リンク
 

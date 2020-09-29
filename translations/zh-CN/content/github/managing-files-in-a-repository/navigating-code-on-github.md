@@ -1,13 +1,13 @@
 ---
 title: 在 GitHub 上导航代码
-intro: '您可以直接在 {{ site.data.variables.product.product_name }} 中导航代码，来理解仓库内及仓库之间的关系。'
+intro: '您可以直接在 {% data variables.product.product_name %} 中导航代码，来理解仓库内及仓库之间的关系。'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
   free-pro-team: '*'
 ---
 
-### 关于在 {{ site.data.variables.product.prodname_dotcom }} 上导航代码
+### 关于在 {% data variables.product.prodname_dotcom %} 上导航代码
 
 导航代码功能使用开源库 [`semantic`](https://github.com/github/semantic)。 支持以下语言：
 - CodeQL

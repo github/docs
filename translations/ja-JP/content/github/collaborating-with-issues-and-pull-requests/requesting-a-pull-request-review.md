@@ -20,7 +20,7 @@ versions:
 
 推奨された人または特定の人のいずれかにレビューをリクエストできます。 推奨されたレビュー担当者は [git blame のデータ](/articles/tracking-changes-in-a-file/)に基づきます。 レビューをリクエストする場合、リポジトリへの読み取りアクセス権を所有しているならば誰でも Pull Request をレビューできます。 プルリクエストがレビューされ、必要な変更を加えたら、同じレビュー担当者のレビューを再リクエストできます。 リクエストされたレビュー担当者がレビューを提出しない場合でも、プルリクエストがリポジトリの[マージ可能性の要件](/articles/defining-the-mergeability-of-pull-requests)を満たしていれば、プルリクエストをマージできます。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Pull Request のリストで、特定の人または Team にレビューを依頼したい Pull Request をクリックします。
 3. 右側のサイドバーで [**Reviewers**] に移動します。
 4. [**Reviewers**] で推奨された人にレビューをリクエストするには、 そのユーザ名の横にある [**Request**] をクリックします。 ![右サイドバーのレビュー担当者リクエストアイコン](/assets/images/help/pull_requests/request-suggested-review.png)

@@ -1,6 +1,6 @@
 ---
 title: Habilitar e programar o modo de manutenção
-intro: 'Alguns procedimentos de manutenção padrão, como atualizar a {{ site.data.variables.product.product_location_enterprise }} ou fazer backups de restauração, exigem que a instância esteja offline para uso normal.'
+intro: 'Alguns procedimentos de manutenção padrão, como atualizar a {% data variables.product.product_location_enterprise %} ou fazer backups de restauração, exigem que a instância esteja offline para uso normal.'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -15,11 +15,11 @@ versions:
 
 ### Sobre o modo de manutenção
 
-Alguns tipos de operações requerem que a {{ site.data.variables.product.product_location_enterprise }} esteja offline e no modo de manutenção:
-- Atualizar para uma nova versão do {{ site.data.variables.product.prodname_ghe_server }};
+Alguns tipos de operações requerem que a {% data variables.product.product_location_enterprise %} esteja offline e no modo de manutenção:
+- Atualizar para uma nova versão do {% data variables.product.prodname_ghe_server %};
 - Aumentar a capacidade dos recursos de CPU, memória ou armazenamento alocados na máquina virtual;
 - Migrar dados de uma máquina virtual para outra;
-- Restaurar dados de um instantâneo do {{ site.data.variables.product.prodname_enterprise_backup_utilities }};
+- Restaurar dados de um instantâneo do {% data variables.product.prodname_enterprise_backup_utilities %};
 - Solucionar determinados tipos de problemas graves no aplicativo.
 
 É recomendável programar um período de manutenção de no mínimo 30 minutos para que os usuários tenham tempo de se preparar. Quando houver um período de manutenção programado, todos os usuários verão um banner ao acessar o site.
@@ -32,18 +32,18 @@ Quando a instância estiver em modo de manutenção, todos os acessos regulares 
 
 ### Habilitar o modo de manutenção imediatamente ou programar um período de manutenção mais tarde
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-2. Na parte superior do {{ site.data.variables.enterprise.management_console }}, clique em **Maintenance** (Manutenção). ![Guia de manutenção](/assets/images/enterprise/management-console/maintenance-tab.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+2. Na parte superior do {% data variables.enterprise.management_console %}, clique em **Maintenance** (Manutenção). ![Guia de manutenção](/assets/images/enterprise/management-console/maintenance-tab.png)
 3. Em "Enable and schedule" (Habilitar e programar), decida se você quer habilitar o modo de manutenção imediatamente ou programar um período de manutenção depois.
     - Para habilitar o modo de manutenção imediatamente, use o menu suspenso e clique em **Now** (Agora). ![Menu suspenso com a opção para habilitar o modo de manutenção agora](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
     - Para programar um período de manutenção depois, use o menu suspenso e clique no horário em que você pretende iniciar o período de manutenção.![Menu suspenso com a opção para habilitar o modo de manutenção em duas horas](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
 4. Selecione **Enable maintenance mode** (Habilitar modo de manutenção). ![Caixa de seleção para habilitar ou programar o modo de manutenção](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
-### Programar o modo de manutenção com a {{ site.data.variables.product.prodname_enterprise_api }}
+### Programar o modo de manutenção com a {% data variables.product.prodname_enterprise_api %}
 
-Você pode programar o modo de manutenção para horas ou datas diferentes na {{ site.data.variables.product.prodname_enterprise_api }}. Para obter mais informações, consulte "[Console de gerenciamento](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
+Você pode programar o modo de manutenção para horas ou datas diferentes na {% data variables.product.prodname_enterprise_api %}. Para obter mais informações, consulte "[Console de gerenciamento](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)".
 
 ### Habilitar ou desabilitar o modo de manutenção para todos os nós do cluster
 

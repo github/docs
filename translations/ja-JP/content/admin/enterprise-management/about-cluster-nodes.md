@@ -1,6 +1,6 @@
 ---
 title: クラスタノードについて
-intro: '*ノード*は、クラスタ内で動作する {{ site.data.variables.product.prodname_ghe_server }} インスタンスです。 ぞれぞれのノードは、クラスターに提供される (最終的にはユーザーに提供される) 一連のサービスを実行します。'
+intro: '*ノード*は、クラスタ内で動作する {% data variables.product.prodname_ghe_server %} インスタンスです。 ぞれぞれのノードは、クラスターに提供される (最終的にはユーザーに提供される) 一連のサービスを実行します。'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ### 推奨する最小のハードウェア構成
 各ノードには、ルートボリュームに加えてデータボリュームが別途必要です。 以下に最小の推奨構成を示します。 ユーザのアクティビティや他の製品との結合といった利用方法によっては、さらに多くのリソースが必要になることがあります。
@@ -39,10 +39,10 @@ versions:
 
 ### クラスタ設計に関する推奨
 
-{{ site.data.variables.product.prodname_ghe_server }} を構成するサービス群は、クラスタリングによってそれぞれ個別にスケールアウトできるようになります。 この柔軟性は、様々なスケーラビリティに対する要求を有する組織に適したクラスタの設計と実装に利用できます。 たとえば、組織によっては、大規模あるいは頻繁なフェッチのためにストレージのスループットに対する要求は高いものの、Webサーバーの利用は比較的少ないことがあるでしょう。 別の組織では、少ないストレージリソースで良好なパフォーマンスが出せるものの、`pages-server`あるいは`elasticsearch-server`の動作には多くのノードが必要になるかもしれません。 多くの様々な組み合わせが可能です。 お客様の固有の要求に最も適したクラスタの構成を決めるため、顧客担当と共同で作業してください。
+{% data variables.product.prodname_ghe_server %} を構成するサービス群は、クラスタリングによってそれぞれ個別にスケールアウトできるようになります。 この柔軟性は、様々なスケーラビリティに対する要求を有する組織に適したクラスタの設計と実装に利用できます。 たとえば、組織によっては、大規模あるいは頻繁なフェッチのためにストレージのスループットに対する要求は高いものの、Webサーバーの利用は比較的少ないことがあるでしょう。 別の組織では、少ないストレージリソースで良好なパフォーマンスが出せるものの、`pages-server`あるいは`elasticsearch-server`の動作には多くのノードが必要になるかもしれません。 多くの様々な組み合わせが可能です。 お客様の固有の要求に最も適したクラスタの構成を決めるため、顧客担当と共同で作業してください。
 
 - 冗長なノードは、独立したハードウェアに分散させてください。 CPU、メモリ、ストレージデバイスを共用するなら、パフォーマンスの低下が生じ、単一障害点を作ることになります。 ネットワーキングのコンポーネントを共用することも、スループットの低下と障害発生時に接続が失われるリスクの増大を招くことがあります。
-- 高速なストレージを使ってください。 ストレージエリアネットワーク（SAN）は、しばしば絶対的なスループットではなく、最大限の領域の利用、可用性、耐障害性に最適化されます。 {{ site.data.variables.product.prodname_ghe_server }} クラスタリングは冗長性と可用性を提供し、利用可能な最速のストレージ上で最高のパフォーマンスを発揮します。 ローカルのSSDストレージをおすすめします。
+- 高速なストレージを使ってください。 ストレージエリアネットワーク（SAN）は、しばしば絶対的なスループットではなく、最大限の領域の利用、可用性、耐障害性に最適化されます。 {% data variables.product.prodname_ghe_server %} クラスタリングは冗長性と可用性を提供し、利用可能な最速のストレージ上で最高のパフォーマンスを発揮します。 ローカルのSSDストレージをおすすめします。
 - Organization にとって意味のあるノードの層を確立します。 設定例:
   - 2つのノードと以下のサービスを持つフロントエンド層：
     - `web-server`
@@ -63,7 +63,7 @@ versions:
 #### クラスタの図の例
 {% note %}
 
-**注意：これは例に過ぎません。**組織にとって最適なクラスタの設計は、組織に特有の要求に依存します。 Talk to your dedicated representative or {{ site.data.variables.contact.contact_enterprise_sales }} so we can help you determine the best cluster configuration.
+**注意：これは例に過ぎません。**組織にとって最適なクラスタの設計は、組織に特有の要求に依存します。 Talk to your dedicated representative or {% data variables.contact.contact_enterprise_sales %} so we can help you determine the best cluster configuration.
 
 {% endnote %}
 

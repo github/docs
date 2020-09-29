@@ -1,6 +1,6 @@
 ---
 title: Organization の代理でコミットを作成する
-intro: 'コミットのメッセージにトレーラーを追加することで、Organization の代理でコミットを作成できます。 Organization に属するコミットには、{{ site.data.variables.product.product_name }} で `on-behalf-of` というバッジが付きます。'
+intro: 'コミットのメッセージにトレーラーを追加することで、Organization の代理でコミットを作成できます。 Organization に属するコミットには、{% data variables.product.product_name %} で `on-behalf-of` というバッジが付きます。'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
@@ -26,7 +26,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
 
 ### コマンドラインで `on-behalf-of` バッジを付けてコミットを作成する
 
-{{ site.data.reusables.pull_requests.commit-message-with-trailer-beginning }}
+{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
 2. コミットメッセージの次の行に、`on-behalf-of: @org <name@organization.com>` と入力して、引用符で閉じます。
 
@@ -37,11 +37,11 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-次回のプッシュ時に、{{ site.data.variables.product.product_location }} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)」を参照してください。
+次回のプッシュ時に、{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。 詳細は「[リモートリポジトリに変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)」を参照してください。
 
-### {{ site.data.variables.product.product_name }} で `on-behalf-of` バッジを付けてコミットを作成する
+### {% data variables.product.product_name %} で `on-behalf-of` バッジを付けてコミットを作成する
 
-{{ site.data.variables.product.product_name }} のウェブエディタでファイルを変更してから、コミットのメッセージに `on-behalf-of:` トレーラーを追加することで、Organization の代理でコミットを作成できます。
+{% data variables.product.product_name %} のウェブエディタでファイルを変更してから、コミットのメッセージに `on-behalf-of:` トレーラーを追加することで、Organization の代理でコミットを作成できます。
 
 1. 変更を行った後は、ページの下部に、変更について説明する、短くて意味のあるコミットメッセージを入力します。 ![変更のコミットメッセージ](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
@@ -50,7 +50,7 @@ Organization は、オープンソースの取り組みにおいて、`name@orga
   ![2 つ目のコミットメッセージテキストボックスにある、代理コミットメッセージのトレーラー例](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
 4. [**Commit changes**] または [**Propose changes**] をクリックします。
 
-{{ site.data.variables.product.product_location }} に新たなコミット、メッセージ、およびバッジが表示されます。
+{% data variables.product.product_location %} に新たなコミット、メッセージ、およびバッジが表示されます。
 
 ### 参考リンク
 

@@ -19,30 +19,30 @@ Escribir no es fácil. Todos los sabemos. Escribe con cuidado; no podrás conect
 Para asegurarte de que te estás conectando al dominio correcto, puedes ingresar el siguiente comando:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Reading configuration data /etc/ssh_config
 > debug1: Applying options for *
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [IP ADDRESS] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [IP ADDRESS] port 22.
 ```
 
 La conexión debe establecerse en el puerto 22{% if currentVersion == "free-pro-team@latest" %}, a menos que estés anulando parámetros para usar [SSH a través de HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
 ### Siempre usa el usuario "git"
 
-Todas las conexiones, incluidas las de URL remotas, deben hacerse como el usuario "git". Si intentas conectarte con tu nombre de usuario de {{ site.data.variables.product.product_name }}, la conexión fallará:
+Todas las conexiones, incluidas las de URL remotas, deben hacerse como el usuario "git". Si intentas conectarte con tu nombre de usuario de {% data variables.product.product_name %}, la conexión fallará:
 
 ```shell
-$ ssh -T <em>GITHUB-USERNAME</em>@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-Si tu conexión ha fallado y estás usando una URL remota con tu nombre de usuario de {{ site.data.variables.product.product_name }}, puedes [cambiar tu URL remota para usar el usuario "git"](/articles/changing-a-remote-s-url/).
+Si tu conexión ha fallado y estás usando una URL remota con tu nombre de usuario de {% data variables.product.product_name %}, puedes [cambiar tu URL remota para usar el usuario "git"](/articles/changing-a-remote-s-url/).
 
 Para verificar tu conexión, debes escribir:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
@@ -50,7 +50,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% mac %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Verifica si tienes una llave privada generada y cargada en SSH. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
   # start the ssh-agent in the background
@@ -73,11 +73,11 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
-1. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 2. Verifica si tienes una llave privada generada y cargada en SSH. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
   $ ssh-add -l
@@ -94,7 +94,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% linux %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Verifica si tienes una llave privada generada y cargada en SSH. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
   # start the ssh-agent in the background
@@ -115,7 +115,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% endlinux %}
 
-El comando `ssh-add` *debe* imprimir una larga cadena de números y letras. Si no imprime nada, necesitarás [generar una nueva clave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) y asociarla con {{ site.data.variables.product.product_name }}.
+El comando `ssh-add` *debe* imprimir una larga cadena de números y letras. Si no imprime nada, necesitarás [generar una nueva clave SSH](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) y asociarla con {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -125,10 +125,10 @@ El comando `ssh-add` *debe* imprimir una larga cadena de números y letras. Si n
 
 #### Más detalles
 
-Para verificar si esa llave se está usando, también puedes intentar conectarte con `git@{{ site.data.variables.command_line.backticks }}`:
+Para verificar si esa llave se está usando, también puedes intentar conectarte con `git@{% data variables.command_line.backticks %}`:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
@@ -146,7 +146,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 En ese ejemplo, no teníamos ninguna llave para que usara SSH. El "-1" al final de las líneas que dicen "identity file" (identidad del archivo) significan que SSH no pudo encontrar un archivo para usar. Luego, en las líneas que indican "Trying private key" (Probando llave privada) también indica que no se encontró ningún archivo. Si existiera un archivo, esas líneas dirían "1" y "Ofreciendo llave privada", respectivamente:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type 1
 > ...
@@ -157,7 +157,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 
 ### Verifica si la llave pública está asociada a tu cuenta
 
-Debes indicarle tu llave privada a {{ site.data.variables.product.product_name }} para establecer una conexión segura.
+Debes indicarle tu llave privada a {% data variables.product.product_name %} para establecer una conexión segura.
 
 {% mac %}
 
@@ -179,9 +179,9 @@ Debes indicarle tu llave privada a {{ site.data.variables.product.product_name }
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -205,9 +205,9 @@ Debes indicarle tu llave privada a {{ site.data.variables.product.product_name }
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -231,16 +231,16 @@ Debes indicarle tu llave privada a {{ site.data.variables.product.product_name }
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compara la lista de claves SSH con el resultado que arroja el comando `ssh-add`. ![Lista de claves SSH en {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-Si no ves tu llave pública en {{ site.data.variables.product.product_name }}, será necesario que [agregues tu clave SSH a {{ site.data.variables.product.product_name }}](/articles/adding-a-new-ssh-key-to-your-github-account) para asociarla con tu computadora.
+Si no ves tu llave pública en {% data variables.product.product_name %}, será necesario que [agregues tu clave SSH a {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) para asociarla con tu computadora.
 
 {% warning %}
 
-**Advertencia**: Si ves una clave SSH que no te resulta familiar en {{ site.data.variables.product.product_name }}, elimínala de inmediato y contáctate con {{ site.data.variables.contact.contact_support }} para recibir más ayuda. Una llave pública no identificada puede indicar un posible problema de seguridad. Para obtener más información, consulta "[Revisar tus claves SSH](/articles/reviewing-your-ssh-keys)".
+**Advertencia**: Si ves una clave SSH que no te resulta familiar en {% data variables.product.product_name %}, elimínala de inmediato y contáctate con {% data variables.contact.contact_support %} para recibir más ayuda. Una llave pública no identificada puede indicar un posible problema de seguridad. Para obtener más información, consulta "[Revisar tus claves SSH](/articles/reviewing-your-ssh-keys)".
 
 {% endwarning %}

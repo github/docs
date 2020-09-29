@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting search queries
-intro: 'If you encounter unexpected results while searching on {{ site.data.variables.product.product_name }}, you can troubleshoot by reviewing common problems and limitations.'
+intro: 'If you encounter unexpected results while searching on {% data variables.product.product_name %}, you can troubleshoot by reviewing common problems and limitations.'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
@@ -16,7 +16,7 @@ Reaching a timeout does not necessarily mean that search results are incomplete.
 
 ### Limitations on query length
 
-There are some limits to the length of the queries when searching across {{ site.data.variables.product.product_name }}:
+There are some limits to the length of the queries when searching across {% data variables.product.product_name %}:
 
 * Queries longer than 256 characters are not supported
 * You can't construct a query using more than five `AND`, `OR`, or `NOT` operators

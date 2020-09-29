@@ -1,6 +1,6 @@
 ---
 title: Migrar a un servidor de Git Large File Storage diferente
-intro: 'Puedes migrar a un nuevo servidor {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) al utilizar el cliente {{ site.data.variables.large_files.product_name_short }} para extraer activos desde el servidor existente y subirlos a la nueva ubicación.'
+intro: 'Puedes migrar a un nuevo servidor {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) al utilizar el cliente {% data variables.large_files.product_name_short %} para extraer activos desde el servidor existente y subirlos a la nueva ubicación.'
 redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Antes de migrar a un servidor {{ site.data.variables.large_files.product_name_long }} diferente, debes configurar {{ site.data.variables.large_files.product_name_short }} para usar un servidor de un tercero. Para obtener más información, consulta "[Configurar {{ site.data.variables.large_files.product_name_long }} para usar un servidor de un tercero](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)."
+Antes de migrar a un servidor {% data variables.large_files.product_name_long %} diferente, debes configurar {% data variables.large_files.product_name_short %} para usar un servidor de un tercero. Para obtener más información, consulta "[Configurar {% data variables.large_files.product_name_long %} para usar un servidor de un tercero](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)."
 
 1. Configura un repositorio con un segundo remoto.
   ```shell

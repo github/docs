@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-Você recebe notificações para suas assinaturas de atividades contínuas em {{ site.data.variables.product.product_name }}. Há muitos motivos para você assinar uma conversa. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
+Você recebe notificações para suas assinaturas de atividades contínuas em {% data variables.product.product_name %}. Há muitos motivos para você assinar uma conversa. Para obter mais informações, consulte "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
 
 Recomendamos a auditoria e o cancelamento das suas assinaturas como parte de um fluxo de trabalho de notificações saudáveis. Para obter mais informações sobre suas opções para cancelamento de assinatura, consulte "[Gerenciando assinaturas](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -35,7 +35,7 @@ Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisa
 
 ### Revisando todas as suas assinaturas
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios da qual você recebe notificações, use o menu suspenso "Gerenciar notificações" para clicar em **Assinaturas**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Use os filtros e classifique para limitar a lista de assinaturas e comece a cancelar as assinaturas de conversas das quais você não deseja mais receber notificações.
@@ -69,5 +69,5 @@ Para ter uma visão geral das assinaturas de seu repositório, consulte "[Revisa
 
 É possível escolher se deseja inspecionar ou não inspecionar um repositório individual. Você também pode optar por ser notificado apenas sobre novas versões ou ignorar um repositório individual.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique no menu suspenso "Inspecionar" para selecionar uma opção de inspeção. ![Opções de inspeção em um menu suspenso para repositórios](/assets/images/help/notifications-v2/watch-repository-options.png)

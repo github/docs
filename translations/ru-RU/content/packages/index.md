@@ -1,7 +1,7 @@
 ---
 title: GitHub Packages Documentation
 shortTitle: GitHub Packages
-intro: 'Learn to safely publish and consume packages, store your packages alongside your code, and share your packages privately with your team or publicly with the open source community. You can also automate your packages with {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Learn to safely publish and consume packages, store your packages alongside your code, and share your packages privately with your team or publicly with the open source community. You can also automate your packages with {% data variables.product.prodname_actions %}.'
 gettingStartedLinks:
   - /packages/publishing-and-managing-packages/about-github-packages
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
@@ -23,7 +23,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_with_intro /getting-started-with-github-container-registry %}
 {% link_with_intro /managing-container-images-with-github-container-registry %}

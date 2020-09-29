@@ -14,7 +14,7 @@ You can add personal information about yourself in your bio, like previous place
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
@@ -27,8 +27,8 @@ They can also see:
 - Repositories and gists you own or contribute to. You can showcase your best work by pinning repositories and gists to your profile. For more information, see "[Pinning items to your profile](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)."
 - Repositories you've starred. For more information, see "[Saving repositories with stars](/articles/saving-repositories-with-stars/)"
 - An overview of your activity in organizations, repositories, and teams you're most active in. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
-- Badges that advertise your participation in programs like the {{ site.data.variables.product.prodname_arctic_vault }}, {{ site.data.variables.product.prodname_sponsors }}, or the {{ site.data.variables.product.company_short }} Developer Program.
-- If you're using {{ site.data.variables.product.prodname_pro }}. For more information, see "[Personalizing your profile](/articles/personalizing-your-profile)."{% endif %}
+- Badges that advertise your participation in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program.
+- If you're using {% data variables.product.prodname_pro %}. For more information, see "[Personalizing your profile](/articles/personalizing-your-profile)."{% endif %}
 
 You can also set a status on your profile to provide information about your availability. For more information, see "[Setting a status](/articles/personalizing-your-profile/#setting-a-status)."
 

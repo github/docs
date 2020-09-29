@@ -73,7 +73,7 @@ El objeto `hook_attributes` tiene la siguiente clave:
 
  | Nombre  | Tipo        | Descripción                                      |
  | ------- | ----------- | ------------------------------------------------ |
- | `state` | `secuencia` | {{ site.data.reusables.apps.state_description }} |
+ | `state` | `secuencia` | {% data reusables.apps.state_description %} |
 
 ##### Ejemplos
 
@@ -163,8 +163,8 @@ Tienes solo una hora para completar este paso en el flujo del Manifiesto de la G
 {% endnote %}
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
-{{ site.data.reusables.pre-release-program.fury-pre-release }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.fury-pre-release %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
     POST /app-manifests/:code/conversions

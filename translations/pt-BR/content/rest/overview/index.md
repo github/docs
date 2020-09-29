@@ -1,7 +1,7 @@
 ---
 title: Visão geral da API REST
 shortTitle: Visão Geral
-intro: 'Aprenda sobre recursos, bibliotecas, pré-visualizações e solução de problemas para a API REST de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprenda sobre recursos, bibliotecas, pré-visualizações e solução de problemas para a API REST de {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

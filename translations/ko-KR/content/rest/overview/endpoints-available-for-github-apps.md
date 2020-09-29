@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-You must use an installation access token to access endpoints using your {{ site.data.variables.product.prodname_github_app }}. For more information, see "[Authenticating with {{ site.data.variables.product.prodname_github_apps }}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
+You must use an installation access token to access endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
 {% for thing in rest.operationsEnabledForApps[currentVersion] %}
 {% assign category = thing[0] %}

@@ -1,14 +1,14 @@
 ---
 title: アイデンティティプロバイダを Organization に接続する
-intro: 'SAML シングルサインオンおよび SCIM を使うには、あなたのアイデンティティプロバイダを、あなたの {{ site.data.variables.product.product_name }} Organization に接続する必要があります。'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'SAML シングルサインオンおよび SCIM を使うには、あなたのアイデンティティプロバイダを、あなたの {% data variables.product.product_name %} Organization に接続する必要があります。'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.variables.product.product_name }} Organization で [SAML SSO を有効化する](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)前に、アイデンティティプロバイダ (IdP) を Organization に接続する必要があります。
+{% data variables.product.product_name %} Organization で [SAML SSO を有効化する](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization)前に、アイデンティティプロバイダ (IdP) を Organization に接続する必要があります。
 
 アイデンティティプロバイダに関する SAML および SCIM の詳細については、以下のドキュメンテーションで確認できます:
 - Active Directory フェデレーションサービス (AD FS): [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
@@ -20,7 +20,7 @@ versions:
 
 {% note %}
 
-**メモ:** {{ site.data.variables.product.product_name }} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 SCIM に関する詳細は「[SCIM について](/articles/about-scim)」を参照してください。
+**メモ:** {% data variables.product.product_name %} がサポートする SCIM アイデンティティプロバイダは Azure AD、Okta、OneLogin です。 SCIM に関する詳細は「[SCIM について](/articles/about-scim)」を参照してください。
 
 {% endnote %}
 

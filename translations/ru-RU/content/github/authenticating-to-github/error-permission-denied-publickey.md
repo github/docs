@@ -19,30 +19,30 @@ Typing is hard, we all know it. Pay attention to what you type; you won't be abl
 To make sure you are connecting to the right domain, you can enter the following command:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Reading configuration data /etc/ssh_config
 > debug1: Applying options for *
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [IP ADDRESS] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [IP ADDRESS] port 22.
 ```
 
 The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
 ### Always use the "git" user
 
-All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {{ site.data.variables.product.product_name }} username, it will fail:
+All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
 
 ```shell
-$ ssh -T <em>GITHUB-USERNAME</em>@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-If your connection failed and you're using a remote URL with your {{ site.data.variables.product.product_name }} username, you can [change the remote URL to use the "git" user](/articles/changing-a-remote-s-url/).
+If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/articles/changing-a-remote-s-url/).
 
 You should verify your connection by typing:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
@@ -50,7 +50,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% mac %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
@@ -73,11 +73,11 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
-1. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
@@ -94,7 +94,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% linux %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Verify that you have a private key generated and loaded into SSH. If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
@@ -115,7 +115,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% endlinux %}
 
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {{ site.data.variables.product.product_name }}.
+The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -125,10 +125,10 @@ The `ssh-add` command *should* print out a long string of numbers and letters. I
 
 #### Getting more details
 
-You can also check that the key is being used by trying to connect to `git@{{ site.data.variables.command_line.backticks }}`:
+You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
@@ -146,7 +146,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 In that example, we did not have any keys for SSH to use. The "-1" at the end of the "identity file" lines means SSH couldn't find a file to use. Later on, the "Trying private key" lines also indicate that no file was found. If a file existed, those lines would be "1" and "Offering public key", respectively:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type 1
 > ...
@@ -157,7 +157,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 
 ### Verify the public key is attached to your account
 
-You must provide your public key to {{ site.data.variables.product.product_name }} to establish a secure connection.
+You must provide your public key to {% data variables.product.product_name %} to establish a secure connection.
 
 {% mac %}
 
@@ -179,9 +179,9 @@ You must provide your public key to {{ site.data.variables.product.product_name 
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -205,9 +205,9 @@ You must provide your public key to {{ site.data.variables.product.product_name 
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -231,16 +231,16 @@ You must provide your public key to {{ site.data.variables.product.product_name 
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {{ site.data.variables.product.product_name }}](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. Compare the list of SSH keys with the output from the `ssh-add` command. ![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-If you don't see your public key in {{ site.data.variables.product.product_name }}, you'll need to [add your SSH key to {{ site.data.variables.product.product_name }}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
+If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {{ site.data.variables.product.product_name }}, delete it immediately and contact {{ site.data.variables.contact.contact_support }}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
 
 {% endwarning %}

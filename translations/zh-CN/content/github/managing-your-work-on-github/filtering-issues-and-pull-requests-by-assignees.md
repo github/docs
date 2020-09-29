@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 在右上角，选择 Assignee（受理人）下拉菜单。
 4. Assignee（受理人）下拉菜单将列出对仓库有写入权限的每个人。 单击要查看项目的受理人用户名，或单击 **Assigned to nobody（未分配给任何人）**以查看未分配的议题。 ![使用受理人下拉菜单选项卡](/assets/images/help/issues/issues_assignee_dropdown.png)
 

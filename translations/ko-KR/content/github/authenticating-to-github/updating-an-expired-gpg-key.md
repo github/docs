@@ -1,6 +1,6 @@
 ---
 title: Updating an expired GPG key
-intro: 'When verifying a signature, {{ site.data.variables.product.product_name }} checks that the key is not revoked or expired. If your signing key is revoked or expired, {{ site.data.variables.product.product_name }} cannot verify your signatures. If your key is revoked, use the primary key or another key that is not revoked to sign your commits.'
+intro: 'When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures. If your key is revoked, use the primary key or another key that is not revoked to sign your commits.'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

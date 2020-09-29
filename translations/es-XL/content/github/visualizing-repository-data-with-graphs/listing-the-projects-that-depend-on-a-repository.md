@@ -19,7 +19,7 @@ El gráfico de dependencias contiene datos para los siguientes lenguajes:
 - Maven (pom.xml únicamente)
 - Nuget
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 {% note %}
 
@@ -31,9 +31,9 @@ El gráfico de dependencias contiene datos para los siguientes lenguajes:
 
 ### Acceder al gráfico de dependencias
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. En "Dependency graph" (Gráfico de dependencias), haz clic en **Dependents** (Dependencias). ![Pestaña Dependents (Dependencias) de la página del gráfico de dependencias](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 ### Leer más

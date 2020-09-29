@@ -16,13 +16,13 @@ versions:
 
 {% note %}
 
-{{ site.data.reusables.repositories.security-advisory-collaborators-public-repositories }} 有关删除安全通告协作者的更多信息，请参阅“[从安全通告删除协作者](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)”。
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} 有关删除安全通告协作者的更多信息，请参阅“[从安全通告删除协作者](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)”。
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击要向其添加协作者的安全通告。
 5. 在页面右侧的“Collaborators（协作者）”下，键入要添加到安全通告的用户或团队名称。 ![用于输入用户或团队名称的字段](/assets/images/help/security/add-collaborator-field.png)
 6. 单击 **Add（添加）**。 ![添加按钮](/assets/images/help/security/security-advisory-add-collaborator-button.png)

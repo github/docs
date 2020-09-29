@@ -21,7 +21,7 @@ A melhor maneira de explicar merges de subárvore é mostrar com exemplo. O que 
 
 ### Configurar o repositório vazio para um merge de subárvore
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crie um novo diretório e navegue até ele.
   ```shell
   $ mkdir test

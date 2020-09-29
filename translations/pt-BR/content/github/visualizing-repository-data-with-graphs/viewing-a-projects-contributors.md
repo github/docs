@@ -5,7 +5,7 @@ redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
   - /articles/viewing-a-projects-contributors
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,8 +21,8 @@ Você também pode ver uma lista de pessoas que contribuíram para as dependênc
 
 ### Acessar o gráfico de contribuidores
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. Na barra lateral esquerda, clique em **Contributors** (Contribuiddores). ![Aba de colaboradores](/assets/images/help/graphs/contributors_tab.png)
 4. Como alternativa, para exibir os contribuidores durante um determinado período, clique no período desejado e arraste-o até que seja selecionado. ![Intervalo de tempo selecionado no gráfico de contribuidores](/assets/images/help/graphs/repo_contributors_click_drag_graph.png)
 
@@ -31,7 +31,7 @@ Você também pode ver uma lista de pessoas que contribuíram para as dependênc
 Se você não aparecer no gráfico de contribuidores de um repositório, pode ser que:
 - Você não seja um dos 100 principais contribuidores.
 - Não tenha sido feito merge dos seus commits no branch padrão.
-- O endereço de e-mail que você usou para criar os commits não foi adicionado à sua conta do {{ site.data.variables.product.product_name }}.
+- O endereço de e-mail que você usou para criar os commits não foi adicionado à sua conta do {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -41,4 +41,4 @@ Se você não aparecer no gráfico de contribuidores de um repositório, pode se
 
 Se todos os seus commits no repositório estiverem em branches não padrão, você não estará no gráfico de contribuidores. Por exemplo, os commits no branch `gh-pages` só serão incluídos no gráfico se `gh-pages` for o branch padrão do repositório. Para que seja feito merge dos seus commits no branch padrão, você precisa criar uma pull request. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)".
 
-Se o endereço de e-mail usado para criar os commits não tiver sido adicionado à sua conta do {{ site.data.variables.product.product_name }}, seus commits não serão vinculados à conta e você não aparecerá no gráfico de contribuidores. Para obter mais informações, consulte "[Configurar endereço de e-mail do commit](/articles/setting-your-commit-email-address)" e "[Adicionar endereço de e-mail à sua conta do {{ site.data.variables.product.product_name }}](/articles/adding-an-email-address-to-your-github-account)".
+Se o endereço de e-mail usado para criar os commits não tiver sido adicionado à sua conta do {% data variables.product.product_name %}, seus commits não serão vinculados à conta e você não aparecerá no gráfico de contribuidores. Para obter mais informações, consulte "[Configurar endereço de e-mail do commit](/articles/setting-your-commit-email-address)" e "[Adicionar endereço de e-mail à sua conta do {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account)".

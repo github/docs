@@ -1,7 +1,7 @@
 ---
 title: Ver paquetes
 intro: Puedes ver detalles de los paquetes publicados en un repositorio y acotar los resultados por organización o por usuario.
-product: '{{ site.data.reusables.gated-features.packages }}'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/viewing-a-repositorys-packages
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages/viewing-a-repositorys-packages
@@ -12,37 +12,37 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 ### Ver paquetes de un repositorio
 
-Los paquetes deben estar instalados al nivel del repositorio, pero puedes ver todos los paquetes de una organización y todos los paquetes que has publicado. {{ site.data.reusables.package_registry.package-page-info }}
+Los paquetes deben estar instalados al nivel del repositorio, pero puedes ver todos los paquetes de una organización y todos los paquetes que has publicado. {% data reusables.package_registry.package-page-info %}
 
 ### Ver paquetes de un repositorio
 
 Puedes ver todos los paquetes de un repositorio y buscar un paquete específico en el repositorio.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.package_registry.packages-from-code-tab }}
-{{ site.data.reusables.package_registry.navigate-to-packages }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.package_registry.packages-from-code-tab %}
+{% data reusables.package_registry.navigate-to-packages %}
 
 ### Ver los paquetes de una organización
 
 Puedes ver todos los paquetes instalados en una organización y buscar un paquete específico instalado en los repositorios de una organización.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
 3. Debajo del nombre de tu organización, da clic
 {% octicon "package" aria-label="The package icon" %} **Packages**.
-{{ site.data.reusables.package_registry.navigate-to-packages }}
+{% data reusables.package_registry.navigate-to-packages %}
 
 ### Ver tus paquetes
 
 Puedes ver todos los paquetes que has instalado y buscar uno específico en todas las organizaciones y repositorios.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. En la parte superior de la página de perfil, en la navegación principal, haz clic en **Packages (Paquetes)**. ![Pestaña Project (Proyecto)](/assets/images/help/package-registry/user-packages-tab.png)
-{{ site.data.reusables.package_registry.navigate-to-packages }}
+{% data reusables.package_registry.navigate-to-packages %}
 
 ### Leer más
 

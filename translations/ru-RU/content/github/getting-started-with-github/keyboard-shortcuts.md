@@ -1,6 +1,6 @@
 ---
 title: Keyboard shortcuts
-intro: 'Nearly every page on {{ site.data.variables.product.product_name }} has a keyboard shortcut to perform actions faster.'
+intro: 'Nearly every page on {% data variables.product.product_name %} has a keyboard shortcut to perform actions faster.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### About keyboard shortcuts
 
-Typing <kbd>?</kbd> in {{ site.data.variables.product.product_name }} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
+Typing <kbd>?</kbd> in {% data variables.product.product_name %} brings up a dialog box that lists the keyboard shortcuts available for that page. You can use these keyboard shortcuts to perform actions across the site without using your mouse to navigate.
 
 Below is a list of some of the available keyboard shortcuts.
 
@@ -22,7 +22,7 @@ Below is a list of some of the available keyboard shortcuts.
 
 | Keyboard shortcut            | Description                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> or <kbd>/</kbd> | Сфокусировать панель поиска. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."                                                                                                                                                                                  |
+| <kbd>s</kbd> or <kbd>/</kbd> | Сфокусировать панель поиска. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."                                                                                                                                                                                  |
 | <kbd>g</kbd> <kbd>n</kbd>    | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
 | <kbd>esc</kbd>               | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in                                                                                                                                                                                                                      |
 
@@ -97,7 +97,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>q</kbd>                                                 | Request a reviewer. For more information, see "[Requesting a pull request review](/articles/requesting-a-pull-request-review/)."                                                                                       |
 | <kbd>m</kbd>                                                 | Set a milestone. For more information, see "[Associating milestones with issues and pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)."                                                  |
 | <kbd>l</kbd>                                                 | Apply a label. For more information, see "[Applying labels to issues and pull requests](/articles/applying-labels-to-issues-and-pull-requests/)."                                                                      |
-| <kbd>a</kbd>                                                 | Set an assignee. For more information, see "[Assigning issues and pull requests to other {{ site.data.variables.product.company_short }} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)." |
+| <kbd>a</kbd>                                                 | Set an assignee. For more information, see "[Assigning issues and pull requests to other {% data variables.product.company_short %} users](/articles/assigning-issues-and-pull-requests-to-other-github-users/)." |
 | <kbd>cmd + shift + p</kbd> or <kbd>control + shift + p</kbd> | Toggles between the **Write** and **Preview** tabs                                                                                                                                                                     |
 
 ### Changes in pull requests
@@ -153,7 +153,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | <kbd>esc</kbd>    | Close the card preview pane |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | Keyboard shortcut                                     | Description                                                     |
 | ----------------------------------------------------- | --------------------------------------------------------------- |

@@ -19,30 +19,30 @@ versions:
 为确保连接到正确的域，可以输入以下命令：
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Reading configuration data /etc/ssh_config
 > debug1: Applying options for *
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [IP ADDRESS] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [IP ADDRESS] port 22.
 ```
 
 应连接端口 22{% if currentVersion == "free-pro-team@latest" %}，除非覆盖设置以使用[通过 HTTPS 的 SSH](/articles/using-ssh-over-the-https-port){% endif %}。
 
 ### 始终使用 "git" 用户
 
-所有连接（包括远程 URL 的连接）必须以 "git" 用户进行。 如果尝试以 {{ site.data.variables.product.product_name }} 用户名连接，将会失败：
+所有连接（包括远程 URL 的连接）必须以 "git" 用户进行。 如果尝试以 {% data variables.product.product_name %} 用户名连接，将会失败：
 
 ```shell
-$ ssh -T <em>GITHUB-USERNAME</em>@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-如果连接失败且您通过 {{ site.data.variables.product.product_name }} 用户名使用远程 URL，可以[更改远程 URL 以使用 "git" 用户](/articles/changing-a-remote-s-url/)。
+如果连接失败且您通过 {% data variables.product.product_name %} 用户名使用远程 URL，可以[更改远程 URL 以使用 "git" 用户](/articles/changing-a-remote-s-url/)。
 
 应键入以下命令来验证连接：
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
@@ -50,7 +50,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% mac %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   # start the ssh-agent in the background
@@ -73,11 +73,11 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
-1. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
@@ -94,7 +94,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% linux %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   # start the ssh-agent in the background
@@ -115,7 +115,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% endlinux %}
 
-`ssh-add` 命令*应*印出一个长的数字和字母字符串。 如果未印出任何内容，则需要[生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)并将其与 {{ site.data.variables.product.product_name }} 关联。
+`ssh-add` 命令*应*印出一个长的数字和字母字符串。 如果未印出任何内容，则需要[生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)并将其与 {% data variables.product.product_name %} 关联。
 
 {% tip %}
 
@@ -125,10 +125,10 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 #### 获取更多详细信息
 
-也可尝试连接 `git@{{ site.data.variables.command_line.backticks }}` 来检查使用的密钥：
+也可尝试连接 `git@{% data variables.command_line.backticks %}` 来检查使用的密钥：
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
@@ -146,7 +146,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 在该示例中，我们没有任何密钥供 SSH 使用。 "identity file" 行末的 "-1" 表示 SSH 找不到可使用的文件。 后面的 "Trying private key" 行也表示未找到文件。 如果文件存在，这些行将分别是 "1" 和 "Offering public key"：
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type 1
 > ...
@@ -157,7 +157,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 
 ### 确认公钥已附加到您的帐户
 
-必须向 {{ site.data.variables.product.product_name }} 提供公钥才可建立安全连接。
+必须向 {% data variables.product.product_name %} 提供公钥才可建立安全连接。
 
 {% mac %}
 
@@ -179,9 +179,9 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{{ site.data.variables.product.product_name }} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -205,9 +205,9 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{{ site.data.variables.product.product_name }} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -231,16 +231,16 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{{ site.data.variables.product.product_name }} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-如果在 {{ site.data.variables.product.product_name }} 中未看到公钥，则需要[添加 SSH 密钥到 {{ site.data.variables.product.product_name }}](/articles/adding-a-new-ssh-key-to-your-github-account) 并将其与您的计算机关联。
+如果在 {% data variables.product.product_name %} 中未看到公钥，则需要[添加 SSH 密钥到 {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) 并将其与您的计算机关联。
 
 {% warning %}
 
-**警告**：如果在 {{ site.data.variables.product.product_name }} 上看到您不熟悉的 SSH 密钥，请立即删除并联系 {{ site.data.variables.contact.contact_support }} 寻求进一步的帮助。 无法识别的公钥可能表示安全问题。 更多信息请参阅“[审查 SSH 密钥](/articles/reviewing-your-ssh-keys)”。
+**警告**：如果在 {% data variables.product.product_name %} 上看到您不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %} 寻求进一步的帮助。 无法识别的公钥可能表示安全问题。 更多信息请参阅“[审查 SSH 密钥](/articles/reviewing-your-ssh-keys)”。
 
 {% endwarning %}

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 有关创建自定义和默认标签的信息，请参阅“[将标签与自托管运行器一起使用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)。”
 
@@ -18,13 +18,13 @@ versions:
 
 标签允许您根据其共同特征向特定类型的自托管运行器发送工作流程作业。 例如，如果您的作业需要特定的硬件组件或软件包。 您可以将一个自定义标签分配给运行器，然后将您的作业配置为仅在带该标签的运行器中执行。
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
+更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)”。
 
 ### 使用默认标签路由作业
 
-在被添加到 {{ site.data.variables.product.prodname_actions }} 后，自托管运行器将自动收到某些标签。 这些被用于指出其操作系统和硬件平台：
+在被添加到 {% data variables.product.prodname_actions %} 后，自托管运行器将自动收到某些标签。 这些被用于指出其操作系统和硬件平台：
 
 * `self-hosted`：应用到所有自托管运行器的默认标签。
 * `linux`、`windows` 或 `macOS`：根据操作系统应用。
@@ -63,8 +63,8 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### 自托管运行器的路由优先级
 
-如果同时使用仓库级和组织级的运行器，{{ site.data.variables.product.prodname_dotcom }} 在将作业传送给自托管运行器时遵循优先顺序：
+如果同时使用仓库级和组织级的运行器，{% data variables.product.prodname_dotcom %} 在将作业传送给自托管运行器时遵循优先顺序：
 
-1. 作业的 `runs-on` 标签经过处理。 {{ site.data.variables.product.prodname_dotcom }} 然后会尝试查找符合标签要求的运行器：
+1. 作业的 `runs-on` 标签经过处理。 {% data variables.product.prodname_dotcom %} 然后会尝试查找符合标签要求的运行器：
 2. 作业将发送到与作业标签匹配的仓库级运行器。 如果没有仓库级运行程序可用（忙、脱机或没有匹配的标签）：
 3. 作业将发送到与作业标签匹配的组织级运行器。 如果没有组织级运行器可用，作业请求将失败并出错。

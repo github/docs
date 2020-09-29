@@ -1,13 +1,13 @@
 ---
 title: Visão Geral
-intro: 'Com {{ site.data.variables.product.prodname_enterprise }}, você pode gerenciar contas e acesso, licenças e cobrança.'
+intro: 'Com {% data variables.product.prodname_enterprise %}, você pode gerenciar contas e acesso, licenças e cobrança.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
   enterprise-server: '*'
 ---
 
-Para obter mais informações ou comprar o {{ site.data.variables.product.prodname_enterprise }}, consulte [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise).
+Para obter mais informações ou comprar o {% data variables.product.prodname_enterprise %}, consulte [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
 ### Índice
 

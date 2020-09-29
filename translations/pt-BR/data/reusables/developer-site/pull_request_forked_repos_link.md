@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Quando você cria uma pull request a partir de um repositório bifurcado para o repositório base, o {{ site.data.variables.product.prodname_dotcom }} envia o evento de `pull_request` para o repositório base e nenhum evento de pull request acontecerá no repositório bifurcado.
+Quando você cria uma pull request a partir de um repositório bifurcado para o repositório base, o {% data variables.product.prodname_dotcom %} envia o evento de `pull_request` para o repositório base e nenhum evento de pull request acontecerá no repositório bifurcado.
 
 Fluxos de trabalho não são executados em repositórios bifurcados por padrão. Você deve habilitar o GitHub Actions na aba **Actions** (Ações) do repositório bifurcado.
 

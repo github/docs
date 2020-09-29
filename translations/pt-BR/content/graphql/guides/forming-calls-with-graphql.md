@@ -43,7 +43,7 @@ A API envia uma notificação se um recurso precisar de um escopo específico.
 
 A API REST tem inúmeros pontos finais; a API do GraphQL tem um único ponto final:
 
-<pre>{{ site.data.variables.product.graphql_url_pre }}</pre>
+<pre>{% data variables.product.graphql_url_pre %}</pre>
 
 O ponto de final permanece constante, independentemente da operação que você realizar.
 
@@ -60,7 +60,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {{ site.data.variables.product.graphql_url_code }}
+" {% data variables.product.graphql_url_code %}
 ```
 
 {% tip %}
@@ -340,7 +340,7 @@ Com a identificação conhecida, podemos prosseguir com a mutação:
 
   Como sabemos qual o valor usar para o conteúdo? Os documentos [`addReaction`](/v4/mutation/addreaction/) nos dizem que o campo do `conteúdo` tem o tipo [`ReactionContent`](/v4/enum/reactioncontent/), que é um [enum](/v4/enum), porque apenas algumas reações de emojis são compatíveis com em problemas no GitHub. Estes são os valores permitidos para reações (observe que alguns valores diferem de seus nomes de emojis correspondentes):
 
-  {{ site.data.reusables.repositories.reaction_list }}
+  {% data reusables.repositories.reaction_list %}
 
 * O resto da chamada é composto pelo objeto da carga. Aqui é onde especificamos os dados que desejamos que o servidor retorne depois de termos efetuado a mutação. Estas linhas vêm dos documentos [`addReaction`](/v4/mutation/addreaction), que são três possíveis campos de retorno:
 

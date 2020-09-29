@@ -2,7 +2,7 @@
 title: GitHub Actions のコンテキストおよび式の構文
 shortTitle: コンテキストと式の構文
 intro: ワークフローおよびアクションにおいて、コンテキスト情報へのアクセスおよび式の評価が可能です。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/contexts-and-expression-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/contexts-and-expression-syntax-for-github-actions
@@ -13,8 +13,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### コンテキストと式について
 
@@ -22,13 +22,13 @@ versions:
 
 式は、ステップを実行すべきか判断するための `if` 条件キーワードをワークフローファイル内に記述して使用するのが一般的です。 `if`条件が`true`になれば、ステップは実行されます。
 
-ある式を、文字列型として扱うのではなく式として評価するためには、特定の構文を使って {{ site.data.variables.product.prodname_dotcom }} に指示する必要があります。
+ある式を、文字列型として扱うのではなく式として評価するためには、特定の構文を使って {% data variables.product.prodname_dotcom %} に指示する必要があります。
 
 {% raw %}
 `${{ <expression> }}`
 {% endraw %}
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} `if`条件の詳細については、「[{{ site.data.variables.product.prodname_actions }}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
+{% data reusables.github-actions.expression-syntax-if %} `if`条件の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)」を参照してください。
 
 #### `if` 条件内の式の例
 
@@ -79,7 +79,7 @@ env:
 
 `github` コンテキストは、ワークフローの実行および、その実行をトリガーしたイベントの情報を含みます。 ほとんどの `github` コンテキストデータは、環境変数で読み取ることができます。 環境変数に関する詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
 
-{{ site.data.reusables.github-actions.github-context-warning }}
+{% data reusables.github-actions.github-context-warning %}
 
 | プロパティ名                    | 種類       | 説明                                                                                                                                                                                                                                                                                       |
 | ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -88,8 +88,8 @@ env:
 | `github.event_path`       | `string` | ランナー上の完全なイベントwebhookペイロードへのパス。                                                                                                                                                                                                                                                           |
 | `github.workflow`         | `string` | ワークフローの名前。 ワークフローファイルで `name` を指定していない場合、このプロパティの値は、リポジトリ内にあるワークフローファイルのフルパスになります。                                                                                                                                                                                                       |
 | `github.job`              | `string` | 現在のジョブの[`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                                                                                     |
-| `github.run_id`           | `string` | {{ site.data.reusables.github-actions.run_id_description }}                                                                                                                                                                                                                            |
-| `github.run_number`       | `string` | {{ site.data.reusables.github-actions.run_number_description }}                                                                                                                                                                                                                        |
+| `github.run_id`           | `string` | {% data reusables.github-actions.run_id_description %}                                                                                                                                                                                                                            |
+| `github.run_number`       | `string` | {% data reusables.github-actions.run_number_description %}                                                                                                                                                                                                                        |
 | `github.actor`            | `string` | ワークフローの実行を開始したユーザのログイン。                                                                                                                                                                                                                                                                  |
 | `github.repository`       | `string` | 所有者およびリポジトリの名前。 `Codertocat/Hello-World`などです。                                                                                                                                                                                                                                            |
 | `github.repository_owner` | `string` | リポジトリのオーナーの名前。 たとえば`Codertocat`。                                                                                                                                                                                                                                                         |
@@ -100,16 +100,16 @@ env:
 | `github.base_ref`         | `string` | ワークフローの実行における `base_ref` またはプルリクエストのターゲットブランチ。  このプロパティは、ワークフローの実行をトリガーしたイベントが `pull_request` の場合のみ使用できます。                                                                                                                                                                               |
 | `github.token`            | `string` | リポジトリにインストールされたGitHub Appの代わりに認証するためのトークン。 これは機能的に`GITHUB_TOKEN`シークレットに等価です。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。                                                                        |
 | `github.workspace`        | `string` | [`checkout`](https://github.com/actions/checkout)アクションを使う際の、ステップにとってのデフォルトのワーキングディレクトリであり、リポジトリのデフォルトの場所です。                                                                                                                                                                              |
-| `github.action`           | `string` | 現在実行中のアクションの名前。 {{ site.data.variables.product.prodname_dotcom }}は、現在のステップがステップを実行する際に、特殊なキャラクターを削除するか、`run`という名前を使います。  同じジョブの中で同じアクションを複数回使う場合、名前には順番に番号が加えられます。  たとえば、実行する最初のスクリプトの名前は`run1`で、2番目のスクリプトの名前は`run2`というようになります。 同様に、`actions/checkout`の2回目の呼び出しは`actionscheckout2`となります。 |
+| `github.action`           | `string` | 現在実行中のアクションの名前。 {% data variables.product.prodname_dotcom %}は、現在のステップがステップを実行する際に、特殊なキャラクターを削除するか、`run`という名前を使います。  同じジョブの中で同じアクションを複数回使う場合、名前には順番に番号が加えられます。  たとえば、実行する最初のスクリプトの名前は`run1`で、2番目のスクリプトの名前は`run2`というようになります。 同様に、`actions/checkout`の2回目の呼び出しは`actionscheckout2`となります。 |
 | `github.action_path`      | `string` | アクションが置かれているパス。 このパスを使用して、アクションと同じリポジトリにあるファイルに簡単にアクセスできます。 この属性は、複合実行ステップアクションでのみサポートされています。                                                                                                                                                                                            |
 
 #### **`env`コンテキスト**
 
-`env`コンテキストには、ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 ワークフローでの環境変数の設定に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)」を参照してください。
+`env`コンテキストには、ワークフロー、ジョブ、ステップで設定された環境変数が含まれます。 ワークフローでの環境変数の設定に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env)」を参照してください。
 
 `env`の構文で、ワークフローファイル中の環境変数の値を利用できます。 ランナー中で環境変数の値を使いたい場合は、ランナーのオペレーティングシステムで環境変数を読み取る通常の方法を使ってください。
 
-`env`は`with`及び`name`キーの値の中で、あるいはステップの`if`条件の中でのみ使えます。 ステップの構文に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
+`env`は`with`及び`name`キーの値の中で、あるいはステップの`if`条件の中でのみ使えます。 ステップの構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)」を参照してください。
 
 | プロパティ名                 | 種類       | 説明                                                             |
 | ---------------------- | -------- | -------------------------------------------------------------- |
@@ -125,10 +125,10 @@ env:
 | ----------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ジョブ`                                     | `オブジェクト` | このコンテキストは、実行しているジョブごとに異なります。 このコンテキストには、ジョブのあらゆるステップからアクセスできます。                                                                                                                          |
 | `job.status`                              | `string` | ジョブの現在の状態。 `success`、`failure`、`cancelled` のいずれかの値をとります。                                                                                                                                 |
-| `job.container`                           | `オブジェクト` | ジョブのコンテナに関する情報。 コンテナに関する詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のワークフロー構文](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)」を参照してください。          |
+| `job.container`                           | `オブジェクト` | ジョブのコンテナに関する情報。 コンテナに関する詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)」を参照してください。          |
 | `job.container.network`                   | `string` | コンテナネットワークの ID。 runner は、コンテナ内のすべてのジョブに使用されるネットワークを作成します。                                                                                                                                |
 | `job.container.id`                        | `string` | コンテナの ID。                                                                                                                                                                                |
-| `job.services`                            | `オブジェクト` | ジョブのために作成されたサービスコンテナ。 サービスコンテナに関する詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のワークフロー構文](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)」を参照してください。 |
+| `job.services`                            | `オブジェクト` | ジョブのために作成されたサービスコンテナ。 サービスコンテナに関する詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/articles/workflow-syntax-for-github-actions#jobsjob_idservices)」を参照してください。 |
 | `job.services.<service id>.id`      | `string` | サービスコンテナの ID。                                                                                                                                                                            |
 | `job.services.<service id>.ports`   | `オブジェクト` | サービスコンテナの公開ポート。                                                                                                                                                                          |
 | `job.services.<service id>.network` | `string` | サービスコンテナネットワークの ID。 runner は、コンテナ内のすべてのジョブに使用されるネットワークを作成します。                                                                                                                            |
@@ -140,7 +140,7 @@ env:
 | プロパティ名                                              | 種類       | 説明                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `steps`                                             | `オブジェクト` | このコンテキストは、ジョブのステップごとに異なります。 このコンテキストには、ジョブのあらゆるステップからアクセスできます。                                                                                                                                                                                                                     |
-| `steps.<step id>.outputs`                     | `オブジェクト` | ステップに定義された出力のセット。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。                                                                                                                       |
+| `steps.<step id>.outputs`                     | `オブジェクト` | ステップに定義された出力のセット。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。                                                                                                                       |
 | `steps.<step id>.outputs.<output name>` | `string` | 特定の出力の値。                                                                                                                                                                                                                                                                           |
 | `steps.<step id>.outcome`                     | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用される前の完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
 | `steps.<step id>.conclusion`                  | `string` | [`continue-on-error`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepscontinue-on-error)が適用された後に完了したステップの結果。 `success`、`failure`、`cancelled`、`skipped`のいずれかの値をとります。 `continue-on-error`のステップが失敗すると、`outcome`は`failure`になりますが、最終的な`conclusion`は`success`になります。 |
@@ -153,11 +153,11 @@ env:
 | ------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `runner.os`         | `string` | ジョブを実行しているランナーのオペレーティングシステム。 取り得る値は`Linux`、`Windows`、`macOS`のいずれか。                                                                                                                                                                                     |
 | `runner.temp`       | `string` | ランナー用のテンポラリディレクトリのパス。 このディレクトリは、セルフホストランナーの場合であっても、各ジョブの開始時点では空であることが保証されています。                                                                                                                                                                         |
-| `runner.tool_cache` | `string` | {{ site.data.variables.product.prodname_dotcom }}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については「[GitHUbホストランナーにインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。 |
+| `runner.tool_cache` | `string` | {% data variables.product.prodname_dotcom %}ホストランナーにプレインストールされているいくつかのツールを含むディレクトリのパス。 詳しい情報については「[GitHUbホストランナーにインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)」を参照してください。 |
 
 #### **`needs`コンテキスト**
 
-`needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 ジョブの依存関係の定義に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
+`needs`コンテキストは、現在のジョブの依存関係として定義されたすべてのジョブからの出力を含みます。 ジョブの依存関係の定義に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
 
 | プロパティ名                                             | 種類       | 説明                                                                 |
 | -------------------------------------------------- | -------- | ------------------------------------------------------------------ |
@@ -170,7 +170,7 @@ env:
 
 各コンテキストでアクセスできる情報を調べるには、次の例のようにワークフローファイルを使用します。
 
-{{ site.data.reusables.github-actions.github-context-warning }}
+{% data reusables.github-actions.github-context-warning %}
 
 **.github/ワークフロー/メイン.yml**
 {% raw %}
@@ -252,9 +252,9 @@ env:
 | `&&`              | AND       |
 | <code>\|\|</code> | OR        |
 
-{{ site.data.variables.product.prodname_dotcom }} は、等価性を緩やかに比較します。
+{% data variables.product.prodname_dotcom %} は、等価性を緩やかに比較します。
 
-* 型が一致しない場合、{{ site.data.variables.product.prodname_dotcom }} は型を強制的に数値とします。 {{ site.data.variables.product.prodname_dotcom }} は、以下の変換方法で、データ型を数字にキャストします。
+* 型が一致しない場合、{% data variables.product.prodname_dotcom %} は型を強制的に数値とします。 {% data variables.product.prodname_dotcom %} は、以下の変換方法で、データ型を数字にキャストします。
 
   | 種類     | 結果                                                                     |
   | ------ | ---------------------------------------------------------------------- |
@@ -264,12 +264,12 @@ env:
   | 配列     | `NaN`                                                                  |
   | オブジェクト | `NaN`                                                                  |
 * ある `NaN` を、別の `NaN` と比較すると、`true` は返ってきません。 詳しい情報については、「[NaN Mozilla ドキュメント](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)」を参照してください。
-* {{ site.data.variables.product.prodname_dotcom }} は、文字列を比較する際に大文字と小文字を区別しません。
+* {% data variables.product.prodname_dotcom %} は、文字列を比較する際に大文字と小文字を区別しません。
 * オブジェクトおよび配列は、同じインスタンスの場合にのみ等しいとみなされます。
 
 ### 関数
 
-{{ site.data.variables.product.prodname_dotcom }} は、式で使用できる組み込み関数のセットを提供します。 一部の関数は、比較を行なうために、値を文字列型にキャストします。 {{ site.data.variables.product.prodname_dotcom }} は、以下の変換方法で、データ型を文字列にキャストします。
+{% data variables.product.prodname_dotcom %} は、式で使用できる組み込み関数のセットを提供します。 一部の関数は、比較を行なうために、値を文字列型にキャストします。 {% data variables.product.prodname_dotcom %} は、以下の変換方法で、データ型を文字列にキャストします。
 
 | 種類     | 結果                   |
 | ------ | -------------------- |
@@ -393,7 +393,7 @@ jobs:
 
 `path`パターンにマッチするファイル群から単一のハッシュを返します。 単一の `path` パターンまたはコンマで区切られた複数の `path` パターンを指定できます。 `path`は`GITHUB_WORKSPACE`ディレクトリに対する相対であり、含められるのは`GITHUB_WORKSPACE`内のファイルだけです。 この関数はマッチしたそれぞれのファイルに対するSHA-256ハッシュを計算し、それらのハッシュを使ってファイルの集合に対する最終的なSHA-256ハッシュを計算します。 SHA-256に関する詳しい情報については「[SHA-2](https://en.wikipedia.org/wiki/SHA-2)」を参照してください。
 
-パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
+パターンマッチング文字を使ってファイル名をマッチさせることができます。 パターンマッチングは、Windowsでは大文字小文字を区別しません。 サポートされているパターンマッチング文字に関する詳しい情報については「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)」を参照してください。
 
 ##### 単一のパターンの例
 

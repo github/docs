@@ -1,6 +1,6 @@
 ---
 title: Searching commits
-intro: 'You can search for commits on {{ site.data.variables.product.product_name }} and narrow the results using these commit search qualifiers in any combination.'
+intro: 'You can search for commits on {% data variables.product.product_name %} and narrow the results using these commit search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-You can search for commits globally across all of {{ site.data.variables.product.product_name }}, or search for commits within a particular repository or organization. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+You can search for commits globally across all of {% data variables.product.product_name %}, or search for commits within a particular repository or organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 When you search for commits, only the [default branch](/articles/about-branches) of a repository is searched.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Search within commit messages
 
@@ -45,7 +45,7 @@ The `author-email` and `committer-email` qualifiers match commits by the author'
 
 Use the `author-date` and `committer-date` qualifiers to match commits authored or committed within the specified date range.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier  | Example
 | ------------- | -------------

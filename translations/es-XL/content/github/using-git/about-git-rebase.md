@@ -20,7 +20,7 @@ Generalmente, usarás `git rebase` para:
 
 {% warning %}
 
-**Advertencia**: Como cambiar el historial de tu confirmación puede hacer las cosas difíciles para todos los que usan el repositorio, se considera una mala práctica cambiar de base las confirmaciones cuando ya las subiste a un repositorio. Para aprender cómo cambiar de base de forma segura en {{ site.data.variables.product.product_location }}, consulta "[Acerca de las fusiones de solicitud de extracción](/articles/about-pull-request-merges)".
+**Advertencia**: Como cambiar el historial de tu confirmación puede hacer las cosas difíciles para todos los que usan el repositorio, se considera una mala práctica cambiar de base las confirmaciones cuando ya las subiste a un repositorio. Para aprender cómo cambiar de base de forma segura en {% data variables.product.product_location %}, consulta "[Acerca de las fusiones de solicitud de extracción](/articles/about-pull-request-merges)".
 
 {% endwarning %}
 
@@ -106,4 +106,4 @@ Desglosando esta información, de principio a fin, vemos que:
 - [El capítulo "Ramificación de Git" del libro _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [El capítulo "Cambio de base interactivo" del libro _Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Combinar confirmaciones con cambio de base](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Sincronizar tu rama](/desktop/contributing-to-projects/syncing-your-branch)" en la documentación de {{ site.data.variables.product.prodname_desktop }}
+- "[Sincronizar tu rama](/desktop/contributing-to-projects/syncing-your-branch)" en la documentación de {% data variables.product.prodname_desktop %}

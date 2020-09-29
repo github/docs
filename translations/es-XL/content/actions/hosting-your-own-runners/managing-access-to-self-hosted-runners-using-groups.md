@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los grupos de ejecutores auto-hospedados
 
@@ -35,9 +35,9 @@ Los ejecutores auto-hospedados se asignan automáticamente al grupo predetermina
 
 Cuando creas un grupo, debes elegir una política que defina qué repositorios tienen acceso al grupo ejecutor. Puedes configurar un grupo ejecutor para que una lista específica de repositorios tenga acceso a él, o para que todos los repositorios de la organización lo tengan.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. En la sección de **Ejecutores auto-hospedados** da clic en **Agregar nuevo** y luego en **Grupo nuevo**.
 
     ![Agregar un grupo de ejecutores](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -55,13 +55,13 @@ Los ejecutores auto-hospedados se asignan automáticamente al grupo predetermina
 Cuando creas un grupo, debes elegir una política que otorgue acceso a todas las organizaciones en la empresa o elegir las organizaciones específicas por separado.
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
 1. Da clic en la pestaña de **Ejecutores auto-hospedados**.
 1. Da clic en **Agregar nuevo** y luego en **Grupo nuevo**.
 
@@ -75,7 +75,7 @@ Cuando creas un grupo, debes elegir una política que otorgue acceso a todas las
 
 Puedes actualizar la política de acceso de un grupo ejecutor o renombrarlo.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-configure-runner-group-access }}
+{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 
 ### Mover un ejecutor auto-hospedado a un grupo
 

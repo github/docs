@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 6. Click {% octicon "kebab-horizontal" aria-label="The edit icon" %} next to the team discussion you want to edit or delete.
 7. Click **Edit**. Optionally, click **Delete**.
   ![Edit team discussion button](/assets/images/help/projects/edit-team-discussions-button.png)

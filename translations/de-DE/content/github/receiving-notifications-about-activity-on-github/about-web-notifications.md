@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Webbenachrichtigungen
-intro: 'Wenn Du Webbenachrichtigungen erhältst, kannst Du Deine Teilnahme- und Beobachtungsbenachrichtigungen auf der Benachrichtigungsseite auf {{ site.data.variables.product.product_name }} anzeigen.'
+intro: 'Wenn Du Webbenachrichtigungen erhältst, kannst Du Deine Teilnahme- und Beobachtungsbenachrichtigungen auf der Benachrichtigungsseite auf {% data variables.product.product_name %} anzeigen.'
 versions:
   enterprise-server: <2.21
 ---
@@ -9,7 +9,7 @@ Weitere Informationen über die Unterschiede zwischen *Teilnahmebenachrichtigung
 
 Wenn Webbenachrichtigungen für Dein Konto aktiviert sind, kannst Du auf ein Element auf Deiner Benachrichtigungsseite klicken, woraufhin Du zu der Unterhaltung weitergeleitet wirst, auf die sich die Benachrichtigung bezieht. Wenn Webbenachrichtigungen für Dein Konto aktiviert sind, kannst Du auf ein Element auf Deiner Benachrichtigungsseite klicken, woraufhin Du zu der Unterhaltung weitergeleitet wirst, auf die sich die Benachrichtigung bezieht. Weitere Informationen zum Aktivieren von Webbenachrichtigungen findest du unter „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 Auf Deiner Benachrichtigungsseite kannst Du Benachrichtigungen auch als gelesen markieren, Benachrichtigungen für später sichern und Threads abbestellen. Weitere Informationen findest Du unter:
 

@@ -13,7 +13,7 @@ versions:
 
 Você pode adicionar arquivos padrão de integridade da comunidade à raiz de um repositório público chamado `.github` que é de propriedade de uma organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou de uma conta de usuário{% endif %}.
 
-{{ site.data.variables.product.product_name }} usará e exibirá arquivos padrão para qualquer repositório público de propriedade da conta que não tenha seu próprio arquivo desse tipo em nenhum dos seguintes locais:
+{% data variables.product.product_name %} usará e exibirá arquivos padrão para qualquer repositório público de propriedade da conta que não tenha seu próprio arquivo desse tipo em nenhum dos seguintes locais:
 - a raiz do repositório
 - a pasta `.github`
 - a pasta `docs`
@@ -39,10 +39,10 @@ Você não pode criar um arquivo de licença padrão. Os arquivos de licença de
 
 ### Criar um repositório para arquivos padrão
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. Use o menu suspenso **Proprietário** e selecione a organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %} para as quais você deseja criar arquivo padrão. ![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
 3. Digite **.github** como o nome para seu repositório e uma descrição opcional. ![Campo Create repository (Criar repositório)](/assets/images/help/repository/default-file-repository-name.png)
 4. Escolha tornar o repositório público. ![Botões de opção para selecionar status privado ou público](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. No repositório, crie um dos arquivos compatíveis de integridade da comunidade. Modelos de problema{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e seu arquivo de configuração{% endif %} devem estar em uma pasta chamada `.github/ISSUE_TEMPLATE`. Todos os outros arquivos compatíveis devem estar na raiz do repositório. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files/)".

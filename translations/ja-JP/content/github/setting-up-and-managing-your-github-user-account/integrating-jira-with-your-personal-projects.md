@@ -7,16 +7,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-3. 左サイドバーで [**{{ site.data.variables.product.prodname_oauth_app }}s**] をクリックします。 ![左サイドバーの [{ site.data.variables.product.prodname_oauth_app }s] タブ](/assets/images/help/settings/developer-settings-oauth-apps.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+3. 左サイドバーで [**{% data variables.product.prodname_oauth_app %}s**] をクリックします。 ![左サイドバーの [{ site.data.variables.product.prodname_oauth_app }s] タブ](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. [**Register a new application**] をクリックします。
 4. [**Application name**] に "Jira" と入力します。
 5. [**Homepage URL**] に、JIRA インスタンスの完全な URL を入力します。
 6. [**Authorization callback URL**] に、JIRA インスタンスの完全な URL を入力します。
 7. **Register application** をクリックする。 ![[Register application] ボタン](/assets/images/help/oauth/register-application-button.png)
 8. [**Developer applications**] で、[Client ID] と [Client Secret] の値を確認します。 ![クライアント ID とクライアントシークレット](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### 参考リンク
 

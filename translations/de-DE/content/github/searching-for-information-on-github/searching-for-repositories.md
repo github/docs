@@ -1,6 +1,6 @@
 ---
 title: Nach Repositorys suchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du nach Repositorys suchen und die Suchergebnisse mit den folgenden Qualifizierern der Repository-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} kannst Du nach Repositorys suchen und die Suchergebnisse mit den folgenden Qualifizierern der Repository-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Repositorys global auf {{ site.data.variables.product.product_name }} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.prodname_dotcom }}](/articles/about-searching-on-github).“
+Du kannst Repositorys global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
 
 Um Forks in die Suchergebnisse einzuschließen, musst du Deiner Abfrage den Qualifizierer `fork:true` oder `fork:only` hinzufügen. Weitere Informationen finden Sie unter „[Forks durchsuchen](/articles/searching-in-forks)“.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Suche nach Repository-Name, Beschreibung oder Inhalt der README-Datei
 
@@ -30,7 +30,7 @@ Mit dem Qualifizierer `in` kannst Du Deine Suche auf den Namen, die Beschreibung
 
 Mit dem Qualifizierer `in:readme` kannst Du Repositorys nach Inhalten deren README-Dateien suchen.
 
-`in:readme` ist die einzige Möglichkeit, Repositorys anhand bestimmter Inhalte im Repository zu finden. Wenn Du nach einer bestimmten Datei oder einem bestimmten Inhalt innerhalb eines Repositorys suchst, verwende den Dateifinder oder die code-spezifischen Suchbegriffe. Weitere Informationen findest Du in den Abschnitten „[Dateien auf {{ site.data.variables.product.prodname_dotcom }} finden](/articles/finding-files-on-github)“ und „[Code durchsuchen](/articles/searching-code).“
+`in:readme` ist die einzige Möglichkeit, Repositorys anhand bestimmter Inhalte im Repository zu finden. Wenn Du nach einer bestimmten Datei oder einem bestimmten Inhalt innerhalb eines Repositorys suchst, verwende den Dateifinder oder die code-spezifischen Suchbegriffe. Weitere Informationen findest Du in den Abschnitten „[Dateien auf {% data variables.product.prodname_dotcom %} finden](/articles/finding-files-on-github)“ und „[Code durchsuchen](/articles/searching-code).“
 
 | Qualifizierer | Beispiel                                                                                                                                                                 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -90,9 +90,9 @@ Du kannst Repositorys nach der Anzahl Ihrer [Sterne](/articles/saving-repositori
 
 Du kannst Repositorys nach dem Zeitpunkt der Erstellung oder letzten Änderung filtern. Für die Suche nach dem Erstellungsdatum verwende den Qualifizierer `created`, für die Suche nach dem letzten Änderungsdatum den Qualifizierer `pushed`. Der Qualifizierer `pushed` gibt eine Repository-Liste sortiert nach dem letzten Commit in einem beliebigen Branch der Repositorys zurück.
 
-Beide Qualifizierer verwenden als Parameter ein Datum. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Beide Qualifizierer verwenden als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer             | Beispiel                                                                                                                                                                                                                                                                      |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ Du kannst Deine Suche danach filtern, ob ein Repository öffentlich oder privat 
 
 ### Suche auf Basis der Spiegelung eines Repositorys
 
-Du kannst Repositorys danach durchsuchen, ob sie ein Spiegel sind und an anderer Stelle gehostet werden. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {{ site.data.variables.product.prodname_dotcom }} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
+Du kannst Repositorys danach durchsuchen, ob sie ein Spiegel sind und an anderer Stelle gehostet werden. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
 
 | Qualifizierer  | Beispiel                                                                                                                                                             |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

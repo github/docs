@@ -1,6 +1,6 @@
 ---
 title: Criar um repositório somente com problemas
-intro: 'O {{ site.data.variables.product.product_name }} não fornece permissões de acesso somente a problemas, mas você pode fazer isso usando um segundo repositório que contenha apenas os problemas.'
+intro: 'O {% data variables.product.product_name %} não fornece permissões de acesso somente a problemas, mas você pode fazer isso usando um segundo repositório que contenha apenas os problemas.'
 redirect_from:
   - /articles/issues-only-access-permissions/
   - /articles/is-there-issues-only-access-to-organization-repositories/

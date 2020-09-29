@@ -1,6 +1,6 @@
 ---
 title: pre-receiveフックについて
-intro: '*pre-receive フック*は {{ site.data.variables.product.prodname_ghe_server }} アプライアンス上で動作するスクリプトで、品質チェックを実装するために利用できます。'
+intro: '*pre-receive フック*は {% data variables.product.prodname_ghe_server %} アプライアンス上で動作するスクリプトで、品質チェックを実装するために利用できます。'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -23,4 +23,4 @@ pre-receiveフックの利用方法の例：
 ### パフォーマンスとワークフローへの影響
 開発者と開発者のワークフローへの影響は大きくなりうるので、注意深く検討することが必要です。 ビジネス上の要求に基づき、思慮深く実装されたpre-receiveフックは、全体として組織に最大のメリットをもたらします。
 
-pre-receiveフックは{{ site.data.variables.product.product_location_enterprise }}のパフォーマンスに意図しない影響をもたらすことがあり、慎重に実装され、レビューされなければなりません。
+pre-receiveフックは{% data variables.product.product_location_enterprise %}のパフォーマンスに意図しない影響をもたらすことがあり、慎重に実装され、レビューされなければなりません。

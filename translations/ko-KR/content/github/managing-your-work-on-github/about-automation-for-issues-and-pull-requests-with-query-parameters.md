@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {{ site.data.variables.product.prodname_dotcom }}. To create your own query parameters, you must match the key and value pair.
+Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
 {% tip %}
 
@@ -34,7 +34,7 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 
 ### Filling issues and pull requests with custom templates
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 You can use the `template` query parameter to specify a template to automatically fill the issue or pull request body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` or `PULL_REQUEST_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository.
 

@@ -12,10 +12,10 @@
         <article class="markdown-body col-md-10 col-lg-7 mx-auto">
           {% include error-404-deprecation-message %}
 
-          <h1>{{ site.data.ui.errors.oops }}</h1>
+          <h1>{% data ui.errors.oops %}</h1>
 
           <div class="lead-mktg mb-5">
-            {{ site.data.ui.errors.page_doesnt_exist }}
+            {% data ui.errors.page_doesnt_exist %}
           </div>
 
           <div class="col-md-8 col-lg-6 mx-auto">
@@ -23,7 +23,7 @@
           </div>
 
           <div class="col-lg-12 mt-6">
-            <h3 class="mb-3">{{ site.data.ui.search.need_help }}</h3>
+            <h3 class="mb-3">{% data ui.search.need_help %}</h3>
             {% include search-form %}
           </div>
           <div id="search-results-container" class="mt-4 d-none" data-active-class="d-block" data-inactive-class="d-none"></div>

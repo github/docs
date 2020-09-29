@@ -16,8 +16,8 @@ You can create default pull request templates for your organization{% if current
 
 ### Adding a pull request template
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field:
     -  To make your pull request template visible in the repository's root directory, name the pull request template `pull_request_template.md`. ![New pull request template name in root directory](/assets/images/help/repository/pr-template-file-name.png)
     - To make your pull request template visible in the repository's `docs` directory, name the pull request template `docs/pull_request_template.md`. ![New pull request template in docs directory](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ You can create default pull request templates for your organization{% if current
     - A [reference to a related issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in your repository.
     - A description of the changes proposed in the pull request.
     - [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) of the person or team responsible for reviewing proposed changes.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Templates are available to collaborators when they are merged into the repository's default branch.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
+{% data reusables.files.propose_new_file %}
 
 ### 더 읽을거리
 

@@ -15,6 +15,6 @@
 
    Die Anweisungen führen Dich durch die Vervollständigung dieser Aufgaben:
    - Herunterladen und Extrahieren der selbst-gehosteten Läuferanwendung.
-   - Ausführen des `config` Skript zum Konfigurieren der selbst-gehosteten Läuferanwendung und die Registrierung mit {{ site.data.variables.product.prodname_actions }}. Das `config` Skript benötigt die Ziel-URL und einen automatisch generierten, zeitlich limitierten Token, um die Anfrage zu authentifizieren.
+   - Ausführen des `config` Skript zum Konfigurieren der selbst-gehosteten Läuferanwendung und die Registrierung mit {% data variables.product.prodname_actions %}. Das `config` Skript benötigt die Ziel-URL und einen automatisch generierten, zeitlich limitierten Token, um die Anfrage zu authentifizieren.
      - Unter Windows fragt das `config` Skript auch, ob Du die selbst-gehostete Läuferanwendung als Dienst installieren möchtest. Für Linux und macOS kannst Du einen Dienst installieren, nachdem Du das Hinzufügen des Läufers beendet hast. Weitere Informationen findest Du unter ["Konfigurieren der selbst-gehosteten Läuferanwendung als Dienst".](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)
-   - Ausführen der selbst-gehosteten Läuferanwendung zum Verbinden der Maschine mit {{ site.data.variables.product.prodname_actions }}.
+   - Ausführen der selbst-gehosteten Läuferanwendung zum Verbinden der Maschine mit {% data variables.product.prodname_actions %}.

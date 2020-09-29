@@ -18,8 +18,8 @@ A primeira ação a ser executada é um checkout do Subversion.  Como os clones 
 
 Os checkouts do Subversion são diferentes: eles combinam os dados do repositório nos diretórios de trabalho, por isso há um diretório de trabalho para cada branch e tag de que tenha sido feito checkout.  Em repositórios com muitos branches e tags, fazer checkout de tudo pode sobrecarregar a largura de banda, por isso é recomendável começar com um checkout parcial.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Faça um checkout vazio do repositório:
   ```shell

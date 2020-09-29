@@ -1,7 +1,7 @@
 ---
 title: Acerca de los contenedores de servicios
 intro: 'Puedes usar los contenedores de servicios para conectar las bases de datos, los servicios Web, las memorias caché y otras herramientas a tu flujo de trabajo.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /Actions/Automating-Your-Workflow-with-GitHub-Actions/about-Service-containers
 versions:
@@ -9,16 +9,16 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los contenedores de servicios
 
 Los contenedores de servicios son contenedores de Docker que ofrecen una manera sencilla y portátil de alojar servicios que probablemente necesites para probar o usar tu aplicación en un flujo de trabajo. Por ejemplo, es posible que tu flujo de trabajo tenga que ejecutar pruebas de integración que requieran acceso a una base de datos y a una memoria caché.
 
-Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {{ site.data.variables.product.prodname_dotcom }} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo.
+Puedes configurar contenedores de servicios para cada trabajo en un flujo de trabajo. {% data variables.product.prodname_dotcom %} crea un contenedor de Docker nuevo para cada servicio configurado en el flujo de trabajo y destruye el contenedor de servicios cuando se termina el trabajo. Los pasos de un trabajo pueden comunicarse con todos los contenedores de servicios que son parte del mismo trabajo.
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ### Comunicarse con contenedores de servicios
 
@@ -26,7 +26,7 @@ Puedes configurar trabajos en un flujo de trabajo para que se ejecuten directame
 
 #### Ejecutar trabajos en un contenedor
 
-Cuando ejecutas trabajos en un contenedor, {{ site.data.variables.product.prodname_dotcom }} conecta los contenedores de servicios al trabajo mediante las redes de puente definidas por el usuario de Docker. Para obtener más información, consulta "[Usar redes de puente](https://docs.docker.com/network/bridge/)" en la documentación de Docker.
+Cuando ejecutas trabajos en un contenedor, {% data variables.product.prodname_dotcom %} conecta los contenedores de servicios al trabajo mediante las redes de puente definidas por el usuario de Docker. Para obtener más información, consulta "[Usar redes de puente](https://docs.docker.com/network/bridge/)" en la documentación de Docker.
 
 Al ejecutar el trabajo y los servicios en un contenedor, se simplifica el acceso a la red. Puedes acceder a un contenedor de servicios usando la etiqueta que configuraste en el flujo de trabajo. El nombre del host del contenedor de servicios se correlaciona automáticamente con el nombre de la etiqueta. Por ejemplo, si creas un contenedor de servicios con la etiqueta `redis`, el nombre del host del contenedor de servicio será `redis`.
 
@@ -34,7 +34,7 @@ No es necesario configurar ningún puerto para los contenedores de servicios. Po
 
 #### Ejecutar trabajos en la máquina del ejecutor
 
-Cuando ejecutas trabajos directamente en la máquina del ejecutor, puedes acceder a los contenedores de servicios usando `localhost:<port>` o `127.0.0.1<port>`. {{ site.data.variables.product.prodname_dotcom }} configura la red de contenedores para habilitar la comunicación desde el contenedor de servicios hasta el host de Docker.
+Cuando ejecutas trabajos directamente en la máquina del ejecutor, puedes acceder a los contenedores de servicios usando `localhost:<port>` o `127.0.0.1<port>`. {% data variables.product.prodname_dotcom %} configura la red de contenedores para habilitar la comunicación desde el contenedor de servicios hasta el host de Docker.
 
 Cuando un trabajo se ejecuta directamente en una máquina del ejecutor, el servicio que se ejecuta en el contenedor de Docker no expone sus puertos al trabajo del ejecutor por defecto. Debes asignar los puertos del contenedor de servicios al host de Docker. Para obtener más información, consulta "[Asignar puertos del host de Docker y del contenedor de servicios](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)".
 
@@ -77,9 +77,9 @@ Puedes asignar puertos de contenedores de servicios al host de Docker utilizando
 | `8080:80/UDP`    | Asigna el puerto UDP 80 del contenedor al puerto 8080 del host de Docker.                         |
 | `8080/UDP`       | Asigna un puerto UDP elegido aleatoriamente del contenedor al puerto UDP 8080 del host de Docker. |
 
-Cuando asignas puertos utilizando la palabra clave `ports`, {{ site.data.variables.product.prodname_dotcom }} utiliza el comando `--publish` para publicar los puertos del contenedor en el host de Docker. Para obtener más información, consulta "[Redes de contenedores de Docker](https://docs.docker.com/config/containers/container-networking/)"en la documentación de Docker.
+Cuando asignas puertos utilizando la palabra clave `ports`, {% data variables.product.prodname_dotcom %} utiliza el comando `--publish` para publicar los puertos del contenedor en el host de Docker. Para obtener más información, consulta "[Redes de contenedores de Docker](https://docs.docker.com/config/containers/container-networking/)"en la documentación de Docker.
 
-Cuando especificas el puerto del host de Docker pero no el puerto del contenedor, el puerto del contenedor se asigna aleatoriamente a un puerto gratuito. {{ site.data.variables.product.prodname_dotcom }} establece el puerto del contenedor asignado en el contexto del contenedor de servicios. Por ejemplo, para un contenedor de servicios `redis`, si configuraste el puerto del host de Docker 5432, puedes acceder al puerto del contenedor correspondiente utilizando el contexto `job.services.redis.ports[5432]`. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#job-context)".
+Cuando especificas el puerto del host de Docker pero no el puerto del contenedor, el puerto del contenedor se asigna aleatoriamente a un puerto gratuito. {% data variables.product.prodname_dotcom %} establece el puerto del contenedor asignado en el contexto del contenedor de servicios. Por ejemplo, para un contenedor de servicios `redis`, si configuraste el puerto del host de Docker 5432, puedes acceder al puerto del contenedor correspondiente utilizando el contexto `job.services.redis.ports[5432]`. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-context)".
 
 #### Ejemplo de asignación de puertos Redis
 

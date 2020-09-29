@@ -1,14 +1,14 @@
 ---
 title: Compartir plantillas de flujo de trabajo dentro de tu organización
 intro: Puedes crear un conjunto estandarizado de plantillas de flujo de trabajo específicamente para tu organización. Los miembros de la organización pueden entonces utilizar estas plantillas cuando creen flujos de trabajo nuevos en los repositorios de dicha organización.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Los usuarios con acceso de escritura en el repositorio `.github` de la organización pueden crear plantillas de flujo de trabajo. Los miembros de la organización que tengan permisos para crear flujos de trabajo podrán entonces utilizar estas plantillas.
 
@@ -75,7 +75,7 @@ Para agregar otra plantilla de flujo de trabajo, agrega tus archivos al mismo di
 
 Este procedimiento ilustra cómo un miembro de tu organización puede encontrar y utilizar una plantilla de flujo de trabajo para crear un flujo de trabajo nuevo. Cualquiera que sea un miembro de la organización podrá utilizar las plantillas de flujo de trabajo de ésta.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. Si tu repositorio ya cuenta con flujos de trabajo: En la esquina superior izquierda, da clic sobre **Flujo de trabajo nuevo**. ![Crear un nuevo flujo de trabajo](/assets/images/help/repository/actions-new-workflow.png)
 1. Tus plantillas de flujo de trabajo de la organización se ubican en su propia sección, la cual se titula "Flujos de trabajo creados por _nombre de la organización_". Debajo del nombre de la plantilla que deseas utilizar, da clic en **Configurar este flujo de trabajo**. ![Configurar este flujo de trabajo](/assets/images/help/settings/actions-create-starter-workflow.png)

@@ -9,9 +9,9 @@ Selbst gehostete Runner, die auf Organisationsebene hinzugefügt wurden, können
 
 ### Steuern, welche Repositories Zugriff auf die Runner einer Organisation haben
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Klicke neben „selbst-gehostete Runner“ **Repository-Berechtigungen verwalten**. ![Repository-Berechtigungen verwalten](/assets/images/help/settings/actions-runner-manage-permissions.png)
 
 1. Wähle aus dem Dropdown-Menü eine der folgenden Optionen:

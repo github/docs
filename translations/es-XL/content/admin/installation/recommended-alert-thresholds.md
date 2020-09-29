@@ -1,6 +1,6 @@
 ---
 title: Límites de alerta recomendados
-intro: 'Puedes configurar una alerta para notificar los problemas de tus recursos de sistema antes de que afecten el desempeño de tu aparato {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'Puedes configurar una alerta para notificar los problemas de tus recursos de sistema antes de que afecten el desempeño de tu aparato {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/recommended-alert-thresholds
@@ -32,7 +32,7 @@ También recomendamos que controles el tiempo de "robo" de virtualización para 
 
 ### Controla el uso de la memoria
 
-La cantidad de memoria física asignada a {{ site.data.variables.product.product_location_enterprise }} puede tener un gran impacto sobre el desempeño general y la capacidad de respuesta de la aplicación. El sistema está designado para realizar un uso intenso del caché del disco kernel para acelerar las operaciones Git. Recomendamos que el conjunto en funcionamiento de RSS normal se acomode dentro del 50 % del total de RAM disponible para un uso máximo.
+La cantidad de memoria física asignada a {% data variables.product.product_location_enterprise %} puede tener un gran impacto sobre el desempeño general y la capacidad de respuesta de la aplicación. El sistema está designado para realizar un uso intenso del caché del disco kernel para acelerar las operaciones Git. Recomendamos que el conjunto en funcionamiento de RSS normal se acomode dentro del 50 % del total de RAM disponible para un uso máximo.
 
 | Gravedad        | Límite                                                                 |
 | --------------- | ---------------------------------------------------------------------- |

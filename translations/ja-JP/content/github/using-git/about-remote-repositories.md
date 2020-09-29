@@ -14,8 +14,8 @@ versions:
 
 プッシュできるのは、2 種類の URL アドレスに対してのみです。
 
-* `https://{{ site.data.variables.command_line.backticks }}/user/repo.git` のような HTTPS URL
-* `git@{{ site.data.variables.command_line.backticks }}:user/repo.git` のような SSH URL
+* `https://{% data variables.command_line.backticks %}/user/repo.git` のような HTTPS URL
+* `git@{% data variables.command_line.backticks %}:user/repo.git` のような SSH URL
 
 Git はリモート URL に名前を関連付けます。デフォルトのリモートは通常 `origin` と呼ばれます。
 

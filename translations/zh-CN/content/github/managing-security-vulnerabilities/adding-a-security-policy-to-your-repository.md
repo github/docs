@@ -19,24 +19,24 @@ versions:
 
 {% endtip %}
 
-当有人报告您的项目中的安全漏洞后，您可以使用 {{ site.data.variables.product.prodname_security_advisories }} 披露、修复和发布关于该漏洞的信息。 更多信息请参阅“[关于 {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+当有人报告您的项目中的安全漏洞后，您可以使用 {% data variables.product.prodname_security_advisories %} 披露、修复和发布关于该漏洞的信息。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
 ### 添加安全政策到仓库
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
 3. 在左侧边栏中，单击 **Policy（政策）**。 ![政策选项卡](/assets/images/help/security/policy-tab.png)
 4. 单击 **Start setup（开始设置）**。 ![开始设置按钮](/assets/images/help/security/start-setup-policy-button.png)
 5. 在新的 _SECURITY.md_ 文件中，添加关于项目受支持版本以及如何报告漏洞的信息。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 ### 延伸阅读
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
 - "[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
-- [{{ site.data.variables.product.prodname_security }}]({{ site.data.variables.product.prodname_security_link }})
+- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

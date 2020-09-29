@@ -1,6 +1,6 @@
 ---
 title: Mostrar ou ocultar contribuições privadas no perfil
-intro: 'Seu perfil do {{ site.data.variables.product.product_name }} mostra um gráfico de contribuições no seu repositório no último ano. É possível escolher mostrar atividades anônimas em repositórios privados além da atividade mostrada em repositórios públicos.'
+intro: 'Seu perfil do {% data variables.product.product_name %} mostra um gráfico de contribuições no seu repositório no último ano. É possível escolher mostrar atividades anônimas em repositórios privados além da atividade mostrada em repositórios públicos.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
@@ -14,7 +14,7 @@ Se você mostrar suas contribuições privadas, pessoas sem acesso aos repositó
 
 Por padrão, os visitantes só veem contribuições públicas em seu perfil.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Mostre ou oculte contribuições privadas no perfil:
     - Para mostrar suas contribuições privadas, use o menu suspenso **Contribution settings** (Configurações de contribuição) localizado acima do gráfico de contribuições e marque **Private contributions** (Contribuições privadas). Os visitantes verão sua contagem de contribuições privadas sem informações adicionais. ![Habilitar visitantes para ver contribuições privadas a partir do menu suspenso contribution settings (configurações de contribuição)](/assets/images/help/profile/private-contributions-on.png)
     - Para ocultar suas contribuições privadas, use o menu suspenso **Contribution settings** (Configurações de contribuição) localizado acima do gráfico de contribuições e desmarque **Private contributions** (Contribuições privadas). Os visitantes verão apenas suas contribuições públicas. ![Habilitar visitantes para ver contribuições privadas a partir do menu suspenso contribution settings (configurações de contribuição)](/assets/images/help/profile/private-contributions-off.png)

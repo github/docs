@@ -1,18 +1,18 @@
 ---
 title: Opciones de configuración para actualizaciones de dependencias
-intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {{ site.data.variables.product.prodname_dependabot }} mantiene tus repositorios.'
-permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar {{ site.data.variables.product.prodname_dependabot }} para el mismo.'
+intro: 'La información detallada para todas las opciones que puedes utilizar para personalizar como el {% data variables.product.prodname_dependabot %} mantiene tus repositorios.'
+permissions: 'Las personas con permisos de escritura en un repositorio pueden configurar {% data variables.product.prodname_dependabot %} para el mismo.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note }}
+{% data reusables.dependabot.beta-note %}
 
 ### Acerca del archivo *dependabot.yml*
 
-El archivo de configuración del {{ site.data.variables.product.prodname_dependabot }}, *dependabot.yml*, utiliza la sintaxis YAML. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
+El archivo de configuración del {% data variables.product.prodname_dependabot %}, *dependabot.yml*, utiliza la sintaxis YAML. Si eres nuevo en YAML y deseas conocer más, consulta "[Aprender YAML en cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuando agregas o actualizas el archivo *dependabot.yml*, esto activa una revisión inmediata de las actualizaciones de la versión. Cualquier opción que también afecte a las actualizaciones de seguridad se utilizará en la siguiente ocasión que una alerta de seguridad active una solicitud de extracción para una alerta de seguridad. Para obtener más información, consulta las secciónes "[Habilitar e inhabilitar las actualizaciones de versión](/github/administering-a-repository/enabling-and-disabling-version-updates)" y "[Configurar las {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)".
+Debes almacenar este archivo en el directorio `.github` de tu repositorio. Cuando agregas o actualizas el archivo *dependabot.yml*, esto activa una revisión inmediata de las actualizaciones de la versión. Cualquier opción que también afecte a las actualizaciones de seguridad se utilizará en la siguiente ocasión que una alerta de seguridad active una solicitud de extracción para una alerta de seguridad. Para obtener más información, consulta las secciónes "[Habilitar e inhabilitar las actualizaciones de versión](/github/administering-a-repository/enabling-and-disabling-version-updates)" y "[Configurar las {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)".
 
 ### Opciones de configuración para *dependabot.yml*
 
@@ -47,7 +47,7 @@ Estas opciones caen a groso modo en las siguientes categorías.
 - Opciones para agregar metadatos a las solicitudes de extracción: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Opciones para cambiar el comportamiento de las solicitudes de extracción: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
-Adicionalmente, la opción [`open-pull-requests-limit`](#open-pull-requests-limit) cambia la cantidad máxima de solicitudes de extracción para las actualizaciones de versión que puede abrir el {{ site.data.variables.product.prodname_dependabot }}.
+Adicionalmente, la opción [`open-pull-requests-limit`](#open-pull-requests-limit) cambia la cantidad máxima de solicitudes de extracción para las actualizaciones de versión que puede abrir el {% data variables.product.prodname_dependabot %}.
 
 {% note %}
 
@@ -55,15 +55,15 @@ Adicionalmente, la opción [`open-pull-requests-limit`](#open-pull-requests-limi
 
 Las actualizaciones de seguridad se levantan para los manifiestos de paquetes vulnerables únicamente en la rama predeterminada. Cuando se establecen las opciones de configuración para la misma rama (como "true" a menos de que utilices `target-branch`), y se especifica un `package-ecosystem` y `directory` para el manifiesto vulnerable, entonces las solicitudes de extracción para las actualizaciones de seguridad utilizan las opciones relevantes.
 
-En general, las actualizaciones de seguridad utilizan cualquier opción de configuración que afecte las solicitudes de extracción, por ejemplo, agregar metadatos o cambiar su comportamiento. Para obtener más información acerca de las actualizaciones de seguridad, consulta la sección "[Configurar {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)".
+En general, las actualizaciones de seguridad utilizan cualquier opción de configuración que afecte las solicitudes de extracción, por ejemplo, agregar metadatos o cambiar su comportamiento. Para obtener más información acerca de las actualizaciones de seguridad, consulta la sección "[Configurar {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)".
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Requerido** Agregas un elemento de `package-ecosystem` para cada administrador de paquetes que quieras que el {{ site.data.variables.product.prodname_dependabot }} monitoree para revisar si hay nuevas versiones. El repositorio también debe contener un manifiesto de dependencia o archivo fijado de estos administradores de paquete.
+**Requerido** Agregas un elemento de `package-ecosystem` para cada administrador de paquetes que quieras que el {% data variables.product.prodname_dependabot %} monitoree para revisar si hay nuevas versiones. El repositorio también debe contener un manifiesto de dependencia o archivo fijado de estos administradores de paquete.
 
-{{ site.data.reusables.dependabot.supported-package-managers }}
+{% data reusables.dependabot.supported-package-managers %}
 
 ```yaml
 # Basic set up for three package managers
@@ -148,7 +148,7 @@ updates:
 
 ### `allow`
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Utiliza la opción `allow` para personalizar qué dependencias se actualizan. Esto no impacta en las actualizaciones de seguridad para las dependencias vulnerables. Puedes utilizar las siguientes opciones:
 
@@ -204,7 +204,7 @@ updates:
 
 Utiliza `assignees` para especificar a los asignados individuales para todas las solicitudes de extracción levantadas para un administrador de paquete.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify assignees for pull requests
@@ -222,7 +222,7 @@ updates:
 
 ### `commit-message`
 
-Predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} intenta detectar tus preferencias de mensajes de confirmación y utiliza patrones similares. Utiliza la opción`commit-message` para especificar tus preferencias explícitamente.
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} intenta detectar tus preferencias de mensajes de confirmación y utiliza patrones similares. Utiliza la opción`commit-message` para especificar tus preferencias explícitamente.
 
 Opciones compatibles
 
@@ -230,7 +230,7 @@ Opciones compatibles
 - `prefix-development` especifica un prefijo separado para todos los mensajes de confirmación que actualizan dependencias en el grupo de dependencias de desarrollo. Cuando especificas un valor para esta opción, `prefix` se utiliza únicamente para las actualizaciones a las dependencias en el grupo de dependencias de producción. Esto es compatible con: `bundler`, `composer`, `mix`, `maven`, `npm`, y `pip`.
 - `include: "scope"` especifica que cualquier prefijo es sucedido por una lista de dependencias actualizadas en la confirmación.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Customizing commit messages
@@ -269,24 +269,24 @@ updates:
 
 ### `ignore`
 
-{{ site.data.reusables.dependabot.warning-ignore-option }}
+{% data reusables.dependabot.warning-ignore-option %}
 
 #### Revisar por preferencias ignoradas existentes
 
-Antes de que agreges una opción de `ignore` al archivo de configuración, revisa si has utilizado previamente cualquiera de los comandos de `@dependabot ignore` en una solicitud de extracción de actualizaciones de seguridad o de versión. El {{ site.data.variables.product.prodname_dependabot }} almacena estas preferencias para cada administrador de paquetes centralmente, y esta información se sobreescribe mediante la opción `ignore`. Para obtener más información acerca de los comandos de `@dependabot ignore`, consulta la sección "[Administrar las solicitudes de extracción para las actualizaciones de dependencias](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)".
+Antes de que agreges una opción de `ignore` al archivo de configuración, revisa si has utilizado previamente cualquiera de los comandos de `@dependabot ignore` en una solicitud de extracción de actualizaciones de seguridad o de versión. El {% data variables.product.prodname_dependabot %} almacena estas preferencias para cada administrador de paquetes centralmente, y esta información se sobreescribe mediante la opción `ignore`. Para obtener más información acerca de los comandos de `@dependabot ignore`, consulta la sección "[Administrar las solicitudes de extracción para las actualizaciones de dependencias](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)".
 
 Puedes revisar si un repositorio ha almacenado las preferencias si buscas dicho repositorio con `"@dependabot ignore" in:comments`. Si revias alguna solicitud de extracción en los resultados, puedes decidir si quieres o no especificar esas dependencias o versiones ignoradas en el archivo de configuración.
 
 #### Especificar dependencias y versiones para ignorar
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Puedes utilizar la opción `ignore` para personalizar qué dependencias se actualizarán. La opción `ignore` es compatible con las siguientes opciones.
 
 - `dependency-name`—se utiliza para ignorar actualizaciones para las dependencias con nombres coincidentes, opcionalmente, utiliza `*` para empatar cero o más caracteres. Para las dependencias de Java, el formato del atributo `dependency-name` es: `groupId:artifactId`, por ejemplo: `org.kohsuke:github-api`.
 - `versions`—se utiliza para ignorar versiones o rangos específicos de las versiones. Si quieres definir un rango, utiliza el patrón estándar del administrador de paquetes (por ejemplo: `^1.0.0` para npm, o `~> 2.0` para Bundler).
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Customizing the dependencies to maintain with `ignore`
@@ -307,17 +307,17 @@ updates:
 
 {% note %}
 
-Las {{ site.data.variables.product.prodname_dependabot_version_updates }} no pueden ejecutar actualizaciones de versiones para ninguna dependencia en los manifiestos que contengan dependencias privadas de git o registros privados de git, aún si agregas las dependencias privadas a la opción de `ignore` en tu archivo de configuración. Para obtener más información, consulta la sección "[Acerca de {{ site.data.variables.product.prodname_dependabot_version_updates }}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
+Las {% data variables.product.prodname_dependabot_version_updates %} no pueden ejecutar actualizaciones de versiones para ninguna dependencia en los manifiestos que contengan dependencias privadas de git o registros privados de git, aún si agregas las dependencias privadas a la opción de `ignore` en tu archivo de configuración. Para obtener más información, consulta la sección "[Acerca de {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
 
 {% endnote %}
 
 ### `etiquetas`
 
-{{ site.data.reusables.dependabot.default-labels}}
+{% data reusables.dependabot.default-labels %}
 
 Utiliza `labels` para anular las etiquetas predeterminadas y especificar las etiquetas alternas para todas las solicitudes de extracción que se levante para un administrador de paquete. Si ninguna de estas etiquetas se define en el repositorio, entonces se ha ignorado. Para inhabilitar todas las etiquetas, incluyendo aquellas predeterminadas, utiliza `labels: [ ]`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify labels for pull requests
@@ -338,7 +338,7 @@ updates:
 
 Utiliza `milestone` para asociar todas las solicitudes de extracción que se han levantado para un administrador de paquete con un hito. Necesitas especificar el identificador numérico del hito y, no así, su etiqueta. Si ves un hito, la parte final de la URL de la página, después de `milestone`, es el identificador. Por ejemplo: `https://github.com/<org>/<repo>/milestone/3`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify a milestone for pull requests
@@ -355,7 +355,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-Predeterminadamente, {{ site.data.variables.product.prodname_dependabot }} abre un máximo de cinco solicitudes de extracción para las actualizaciones de versión. Una vez que haya cinco solicitudes de extracción abiertas, las nuevas solicitudes se bloquearán hasta que fusiones o cierres alguna de las que están abiertas. Utiliza `open-pull-requests-limit` para cambiar este límite. Esto también proporciona una forma simple de inhabilitar temporalmente las actualizaciones de versión para un administrador de paquete.
+Predeterminadamente, {% data variables.product.prodname_dependabot %} abre un máximo de cinco solicitudes de extracción para las actualizaciones de versión. Una vez que haya cinco solicitudes de extracción abiertas, las nuevas solicitudes se bloquearán hasta que fusiones o cierres alguna de las que están abiertas. Utiliza `open-pull-requests-limit` para cambiar este límite. Esto también proporciona una forma simple de inhabilitar temporalmente las actualizaciones de versión para un administrador de paquete.
 
 Esta opción no tiene impacto en las actualizaciones de seguridad que tienen un límite separado e interno de diez solicitudes de extracción abiertas.
 
@@ -381,11 +381,11 @@ updates:
 
 ### `pull-request-branch-name.separator`
 
-El {{ site.data.variables.product.prodname_dependabot }} genera una rama para cada solicitud de extracción. Cada nombre de rama incluye `dependabot`, y el administrador de paquete y la dependencia que se actualizaron. Predeterminadamente, estas partes están separadas por un símbolo de `/`, por ejemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
+El {% data variables.product.prodname_dependabot %} genera una rama para cada solicitud de extracción. Cada nombre de rama incluye `dependabot`, y el administrador de paquete y la dependencia que se actualizaron. Predeterminadamente, estas partes están separadas por un símbolo de `/`, por ejemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
 Utiliza `pull-request-branch-name.separator` para especificar un separador diferente. Este puede ser alguno de entre: `"-"`, `_` o `/`. El símbolo de guión debe estar entre comillas porque, de lo contrario, se interpretará como que está declarando una lista YAML vacía.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specifying a different separator for branch names
@@ -404,14 +404,14 @@ updates:
 
 ### `rebase-strategy`
 
-Predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} rebasa automáticamente las solicitudes de extracción abiertas cuando detecta conflictos. Utiliza `rebase-strategy` para inhabilitar este comportamiento.
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} rebasa automáticamente las solicitudes de extracción abiertas cuando detecta conflictos. Utiliza `rebase-strategy` para inhabilitar este comportamiento.
 
 Estrategias de rebase disponibles
 
 - `disabled` para inhabilitar el rebase automático.
 - `auto` para utilizar el comportamiento predeterminado y rebasar las solicitudes de extracción abiertas cuando se detecten conflictos.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Disabling automatic rebasing
@@ -430,7 +430,7 @@ updates:
 
 Utiliza `reviewers` para especificar los revisores o equipos individuales de revisores para las solicitudes de extracción que se levantaron para un administrador de paquete. Debes utilizar el nombre completo del equipo, incluyendo la organización, como si lo estuvieras @mencionando.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Specify reviewers for pull requests
@@ -450,7 +450,7 @@ updates:
 
 ### `schedule.day`
 
-Cuando configuras un calendario de actualización en `weekly`, predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} revisa las nuevas versiones los lunes a las 05:00 UTC. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
+Cuando configuras un calendario de actualización en `weekly`, predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa las nuevas versiones los lunes a las 05:00 UTC. Utiliza `schedule.day` para especificar un día alterno para revisar si hay actualizaciones.
 
 Valores compatibles
 
@@ -477,7 +477,7 @@ updates:
 
 ### `schedule.time`
 
-Predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.time` para especificar una hora alterna para revisar si hay actualizaciones (formato: `hh:mm`).
 
 ```yaml
 # Set a time for checks
@@ -493,7 +493,7 @@ updates:
 
 ### `schedule.timezone`
 
-Predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay nuevas versiones a las 05:00 UTC. Utiliza `schedule.timezone` para especificar un huso horario alternativo. El identificador de zona debe ser tomado de la base de datos de Husos Horarios que mantiene [iana](https://www.iana.org/time-zones). Para obtener más información, consulta la [Lista de bases de datos tz para husos horarios](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Specify the timezone for checks
@@ -511,7 +511,7 @@ updates:
 
 ### `target-branch`
 
-Predeterminadamente, el {{ site.data.variables.product.prodname_dependabot }} revisa si hay archivos de manifiesto en las ramas predeterminadas y levanta solicitudes de extracción para las actualizaciones de versión contra dicha rama. Utiliza `target-branch` para especificar una rama diferente para los archivos de manifiesto y para las solicitudes de extracción. Cuando utilizas esta opción, la configuración para este administrador de paquete ya no afectará ninguna solicitud de extracción que se haya levantado para las actualizaciones de seguridad.
+Predeterminadamente, el {% data variables.product.prodname_dependabot %} revisa si hay archivos de manifiesto en las ramas predeterminadas y levanta solicitudes de extracción para las actualizaciones de versión contra dicha rama. Utiliza `target-branch` para especificar una rama diferente para los archivos de manifiesto y para las solicitudes de extracción. Cuando utilizas esta opción, la configuración para este administrador de paquete ya no afectará ninguna solicitud de extracción que se haya levantado para las actualizaciones de seguridad.
 
 ```yaml
 # Specify a non-default branch for pull requests for pip
@@ -542,14 +542,14 @@ updates:
 
 ### `versioning-strategy`
 
-Cuando el {{ site.data.variables.product.prodname_dependabot }} edita un archivo de manifiesto para actualizar una versión, utiliza las siguientes estrategias generales:
+Cuando el {% data variables.product.prodname_dependabot %} edita un archivo de manifiesto para actualizar una versión, utiliza las siguientes estrategias generales:
 
 - Para las apps, los requisitos de versión se incrementan, por ejemplo: npm, pip y Composer.
 - Para las bibliotecas, el rango de versiones se amplía, por ejemplo: Bundler y Cargo.
 
 Utiliza la opción `versioning-strategy` para cambiar este comportamiento para los administradores de paquete compatibles.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 Estrategias de actualización disponibles
 

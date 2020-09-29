@@ -24,25 +24,25 @@ A autenticação integrada para um IdP específico fica desabilitada por padrão
 
 ### Configurar a autenticação integrada para usuários de fora do provedor de identidade
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.authentication }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
 4. Selecione seu provedor de identidade. ![Opção Select identity provider (Selecionar provedor de identidade)
 ](/assets/images/enterprise/management-console/identity-provider-select.gif)
 5. Selecione **Allow creation of accounts with built-in authentication** (Permitir a criação de contas com autenticação integrada). ![Opção Select built-in authentication (Selecionar autenticação integrada)](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. Leia o aviso e clique em **Ok**.
 
-{{ site.data.reusables.enterprise_user_management.two_factor_auth_header }}
-{{ site.data.reusables.enterprise_user_management.2fa_is_available }}
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
 
 ### Convidar usuários de fora do provedor de identidade para autenticação na sua instância
 
 Quando aceitar o convite, o usuário poderá fazer login com seu próprio nome de usuário e senha, em vez de fazer login via IdP.
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-sidebar-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-reset-link }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
+{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
 ### Leia mais
 

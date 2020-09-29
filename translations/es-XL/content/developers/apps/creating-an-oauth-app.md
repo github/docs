@@ -1,6 +1,6 @@
 ---
 title: Crear una App de OAuth
-intro: '{{ site.data.reusables.shortdesc.creating_oauth_apps }}'
+intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps/
   - /apps/building-oauth-apps/creating-an-oauth-app
@@ -12,14 +12,14 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-  **Nota:** {{ site.data.reusables.apps.maximum-oauth-apps-allowed }}
+  **Nota:** {% data reusables.apps.maximum-oauth-apps-allowed %}
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
 4. Da clic en **Nueva App de OAuth**. ![Botón para crear una app de OAuth nueva](/assets/images/oauth-apps/oauth_apps_new_app.png)
 
   {% note %}

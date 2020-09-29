@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### Generar una llave GPG
 
@@ -19,7 +19,7 @@ versions:
 {% endnote %}
 
 1. Descarga e instala [las herramientas de la línea de comando GPG](https://www.gnupg.org/download/) para tu sistema operativo. Generalmente recomendamos instalar la versión más reciente para tu sistema operativo.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Genera un par de la llave GPG. Ya que existen varias versiones de GPG, puede que necesites consultar la [_página man_](https://en.wikipedia.org/wiki/Man_page) relevante para encontrar el comando adecuado para la generación de llaves. Tu llave debe utilizar RSA.
     - Si estás usando una versión 2.1.17 o superior, copia el siguiente texto para generar un par de la llave GPG.
       ```shell
@@ -37,13 +37,13 @@ versions:
 
   {% note %}
 
-  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
+  **Nota:** Cuando se te pida que ingreses tu dirección de correo electrónico, asegúrate de ingresar la dirección de correo electrónico verificada para tu cuenta Github. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  Para obtener más información, consulta "[Verificar tu dirección de correo electrónico](/articles/verifying-your-email-address)" and "[Establecer tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address)".{% endif %}
 
   {% endnote %}
 
 9. Escribe una contraseña segura.
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 10. Pega el siguiente texto sustituyendo el ID de la llave GPG que deseas usar. En este ejemplo, el ID de la llave GPG es `3AA5C34371567BD2`:
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>

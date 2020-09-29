@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Unterhaltungen auf GitHub
-intro: 'Du kannst spezifische Projekte und Änderungen sowie umfassendere Projekte oder Teamziele mithilfe verschiedener Arten von Diskussionen auf {{ site.data.variables.product.product_name }} besprechen.'
+intro: 'Du kannst spezifische Projekte und Änderungen sowie umfassendere Projekte oder Teamziele mithilfe verschiedener Arten von Diskussionen auf {% data variables.product.product_name %} besprechen.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### Diskussionen auf {{ site.data.variables.product.product_name }}
+### Diskussionen auf {% data variables.product.product_name %}
 
 Du kannst je nach gewünschter Art der Unterhaltung Issues, Pull Requests und Teamdiskussionen erstellen und daran teilnehmen.
 
 Issues sind nützlich bei der Diskussion spezifischer Details eines Projekts, beispielsweise Fehlerberichte und geplante Verbesserungen. Weitere Informationen findest Du unter „[Informationen zu Issues](/articles/about-issues).“ Mit Pull Requests kannst Du Änderungsvorschläge direkt kommentieren. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests)“ und „[Pull Requests kommentieren](/articles/commenting-on-a-pull-request).“
 
-{{ site.data.reusables.organizations.team-discussions-purpose }} Weitere Informationen findest Du unter „[Informationen zu Teamdiskussionen](/articles/about-team-discussions).“
+{% data reusables.organizations.team-discussions-purpose %} Weitere Informationen findest Du unter „[Informationen zu Teamdiskussionen](/articles/about-team-discussions).“
 
 ### Auf Ideen in Kommentaren reagieren
 
@@ -43,4 +43,4 @@ Bevor Du einen Issue oder Pull Request öffnest, überprüfe, ob für das Reposi
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/articles/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - „[Kommentare und Unterhaltungen moderieren](/articles/moderating-comments-and-conversations)“
-- „[Auf {{ site.data.variables.product.prodname_dotcom }} schreiben](/articles/writing-on-github)“
+- „[Auf {% data variables.product.prodname_dotcom %} schreiben](/articles/writing-on-github)“

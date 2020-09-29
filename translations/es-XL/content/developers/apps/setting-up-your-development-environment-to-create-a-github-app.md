@@ -1,6 +1,6 @@
 ---
 title: Configurar tu ambiente de desarrollo para crear una GitHub App
-intro: 'Aprende los fundamentos para extender y crear {{ site.data.variables.product.prodname_github_apps }} nuevas.'
+intro: 'Aprende los fundamentos para extender y crear {% data variables.product.prodname_github_apps %} nuevas.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
 versions:
@@ -28,7 +28,7 @@ Aquí están los pasos que tomarás para configurar la plantilla de la GitHub Ap
 1. [Inicia el servidor](#step-6-start-the-server)
 1. [Instala la app en tu cuenta](#step-7-install-the-app-on-your-account)
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 ### Prerrequisitos
 
@@ -382,7 +382,7 @@ Si te estás preguntando de dónde viene la salida de la terminal que ya mostram
 
 ### Solución de problemas
 
-Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** Cuando trato de instalar el cliente de línea de comandos de Smee, me encuentro con el siguiente error:
 

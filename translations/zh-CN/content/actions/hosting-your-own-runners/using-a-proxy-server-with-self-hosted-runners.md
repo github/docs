@@ -1,6 +1,6 @@
 ---
 title: 将代理服务器与自托管运行器一起使用
-intro: '您可以配置自托管运行器使用代理服务器与 {{ site.data.variables.product.product_name }} 通信。'
+intro: '您可以配置自托管运行器使用代理服务器与 {% data variables.product.product_name %} 通信。'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 使用环境变量配置代理服务器
 

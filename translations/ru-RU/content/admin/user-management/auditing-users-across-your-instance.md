@@ -1,6 +1,6 @@
 ---
 title: Auditing users across your instance
-intro: 'The {{ site.data.variables.product.prodname_ghe_server }} audit log dashboard shows site administrators the actions performed by all users and organizations across {{ site.data.variables.product.product_location_enterprise }} within the past 90 days. It includes details such as who performed the action, what the action was, and when it was performed.'
+intro: 'The {% data variables.product.prodname_ghe_server %} audit log dashboard shows site administrators the actions performed by all users and organizations across {% data variables.product.product_location_enterprise %} within the past 90 days. It includes details such as who performed the action, what the action was, and when it was performed.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### Accessing the {{ site.data.variables.product.prodname_ghe_server }} audit log
+### Accessing the {% data variables.product.prodname_ghe_server %} audit log
 
-The audit log dashboard gives you a visual display of audit data across {{ site.data.variables.product.product_location_enterprise }}.
+The audit log dashboard gives you a visual display of audit data across {% data variables.product.product_location_enterprise %}.
 
 ![Instance wide audit log dashboard](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 Within the map, you can pan and zoom to see events around the world. Hover over a country to see a quick count of events from that country.
 
 ### Searching for events across your instance
 
-The audit log lists the following information about actions made within {{ site.data.variables.product.product_location_enterprise }}:
+The audit log lists the following information about actions made within {% data variables.product.product_location_enterprise %}:
 
 * [The repository](#search-based-on-the-repository) an action was performed in
 * [The user](#search-based-on-the-user) who performed the action
@@ -36,7 +36,7 @@ The audit log lists the following information about actions made within {{ site.
 
 **Замечания:**
 
-- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. Many operators for [searching across {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/user/articles/searching-github) are supported.
+- While you can't use text to search for audit entries, you can construct search queries using a variety of filters. Many operators for [searching across {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/searching-github) are supported.
 - To search for events older than 90 days, use the `created` qualifier.
 
 {% endwarning %}
@@ -59,7 +59,7 @@ The `actor` qualifier scopes events based on the member of your organization tha
 * `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
 * `-actor:hubot` excludes all events performed by `hubot`.
 
-You can only use a {{ site.data.variables.product.prodname_ghe_server }} username, not an individual's real name.
+You can only use a {% data variables.product.prodname_ghe_server %} username, not an individual's real name.
 
 #### Search based on the organization
 

@@ -1,6 +1,6 @@
 ---
 title: 增加 CPU 或内存资源
-intro: '如果 {{ site.data.variables.product.product_location_enterprise }} 上的操作速度较慢，您可能需要增加 CPU 或内存资源。'
+intro: '如果 {% data variables.product.product_location_enterprise %} 上的操作速度较慢，您可能需要增加 CPU 或内存资源。'
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.warning-on-upgrading-physical-resources }}
+{% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
 ### 为 AWS 增加 CPU 或内存资源
 
@@ -20,21 +20,21 @@ versions:
 
 #### 调整的考量因素
 
-在为 {{ site.data.variables.product.product_location_enterprise }} 增加 CPU 或内存资源之前：
+在为 {% data variables.product.product_location_enterprise %} 增加 CPU 或内存资源之前：
 
-- **Scale your memory with CPUs**. {{ site.data.reusables.enterprise_installation.increasing-cpus-req }}
-- **Assign an Elastic IP address to the instance**. 如果未分配弹性 IP，则在重启后您必须调整 {{ site.data.variables.product.prodname_ghe_server }} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
+- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **Assign an Elastic IP address to the instance**. 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
 
 #### 支持的 AWS 实例类型
 
 您需要根据 CPU/内存规范确定升级的目标实例类型。
-{{ site.data.reusables.enterprise_installation.aws-supported-instance-types }}
+{% data reusables.enterprise_installation.aws-supported-instance-types %}
 
 #### 建议的 AWS 实例类型
 
-{{ site.data.reusables.enterprise_installation.aws-recommended-instance-types }}
+{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
 #### 针对 AWS 进行调整
 
@@ -49,7 +49,7 @@ versions:
 1. 停止实例。
 2. 更改实例类型。
 3. 启动实例。
-{{ site.data.reusables.enterprise_installation.configuration-recognized }}
+{% data reusables.enterprise_installation.configuration-recognized %}
 
 ### 为 OpenStack KVM 增加 CPU 或内存资源
 
@@ -61,11 +61,11 @@ versions:
 
 ### Adding CPU or memory resources for VMware
 
-{{ site.data.reusables.enterprise_installation.increasing-cpus-req }}
+{% data reusables.enterprise_installation.increasing-cpus-req %}
 
 1. 使用 vSphere Client 连接到 VMware ESXi 主机。
-2. 关闭 {{ site.data.variables.product.product_location_enterprise }}。
+2. 关闭 {% data variables.product.product_location_enterprise %}。
 3. 选择虚拟机，然后单击 **Edit Settings**。
 4. 在“Hardware”下，根据需要调整分配给虚拟机的 CPU 和/或内存资源。 ![VMware 设置资源](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
 5. 要启动虚拟机，请单击 **OK**。
-{{ site.data.reusables.enterprise_installation.configuration-recognized }}
+{% data reusables.enterprise_installation.configuration-recognized %}

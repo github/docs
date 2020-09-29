@@ -1,6 +1,6 @@
 ---
 title: Sobre notificações da web
-intro: 'Se estiver recebendo notificações da web, você poderá exibir as notificações de participação e inspeção na página de notificações do {{ site.data.variables.product.product_name }}.'
+intro: 'Se estiver recebendo notificações da web, você poderá exibir as notificações de participação e inspeção na página de notificações do {% data variables.product.product_name %}.'
 versions:
   enterprise-server: <2.21
 ---
@@ -9,7 +9,7 @@ Para obter mais informações sobre as diferenças entre notificações de *part
 
 Quando notificações da web são habilitadas para sua conta, clicando em um item na página de notificações, você será redirecionado para a conversa à qual a notificação está se referindo. Para obter mais informações sobre como habilitar notificações da web, consulte "[Escolher o método de entrega para suas notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications). Para obter mais informações sobre como acessar suas notificações após habilitar notificações da web, consulte "[Acessando suas notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/accessing-your-notifications). "
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 Na sua página de notificações, também é possível marcar as notificações como lidas, salvá-las para depois ou cancelar a assinatura de threads. Para obter mais informações, consulte:
 

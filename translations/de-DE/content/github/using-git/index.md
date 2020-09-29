@@ -1,6 +1,6 @@
 ---
 title: Git verwenden
-intro: 'Informiere Dich über gängige und erweiterte Workflows in Git, sodass Du {{ site.data.variables.product.prodname_dotcom }} noch besser für Dich nutzen kannst.'
+intro: 'Informiere Dich über gängige und erweiterte Workflows in Git, sodass Du {% data variables.product.prodname_dotcom %} noch besser für Dich nutzen kannst.'
 redirect_from:
   - /categories/19/articles/
   - /categories/using-git

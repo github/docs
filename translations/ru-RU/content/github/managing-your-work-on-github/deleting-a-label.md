@@ -10,10 +10,10 @@ versions:
 
 Deleting a label will remove the label from any issues or pull requests where it's been applied.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
-{{ site.data.reusables.project-management.delete-label }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
+{% data reusables.project-management.delete-label %}
 
 ### Дополнительная литература
 

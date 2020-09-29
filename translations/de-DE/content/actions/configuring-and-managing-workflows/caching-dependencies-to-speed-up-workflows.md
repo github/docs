@@ -1,7 +1,7 @@
 ---
 title: Abhängigkeiten zwischenspeichern um Workflows zu beschleunigen
 intro: 'Um Deine Workflows schneller und effizienter zu gestalten, kannst Du Caches für Abhängigkeiten und andere häufig wiederverwendete Dateien erstellen und verwenden.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -13,9 +13,9 @@ versions:
 
 Workflow-Läufe verwenden häufig dieselben Ausgaben oder heruntergeladenen Abhängigkeiten in aufeinanderfolgenden Durchläufen. Tools zur Verwaltung von Paketen und Abhängigkeiten wie beispielsweise Maven, Gradle, npm und Yarn halten einen lokalen Cache mit heruntergeladenen Abhängigkeiten.
 
-Jobs bei {{ site.data.variables.product.prodname_dotcom }}-gehosteten Läufern beginnen in einer sauberen virtuellen Umgebung und müssen Abhängigkeiten jedes Mal herunterladen. Dies führt zu erhöhter Netzwerkauslastung, längerer Laufzeit und erhöhten Kosten. Um die Zeit zum Neuerstellen dieser Dateien einzusparen, kann {{ site.data.variables.product.prodname_dotcom }} in Workflows häufig verwendete Abhängigkeiten zwischenspeichern.
+Jobs bei {% data variables.product.prodname_dotcom %}-gehosteten Läufern beginnen in einer sauberen virtuellen Umgebung und müssen Abhängigkeiten jedes Mal herunterladen. Dies führt zu erhöhter Netzwerkauslastung, längerer Laufzeit und erhöhten Kosten. Um die Zeit zum Neuerstellen dieser Dateien einzusparen, kann {% data variables.product.prodname_dotcom %} in Workflows häufig verwendete Abhängigkeiten zwischenspeichern.
 
-Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {{ site.data.variables.product.prodname_dotcom }} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache).
+Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {% data variables.product.prodname_dotcom %} verwenden. Die Aktion ruft einen Cache ab, der durch einen eindeutigen Schlüssel identifiziert wurde. Weitere Informationen findest Du unter [`Aktionen/Cache`](https://github.com/actions/cache).
 
 {% warning %}
 
@@ -25,7 +25,7 @@ Um Abhängigkeiten für einen Job zu cachen, musst du die `Cache`-Aktion von {{ 
 
 ### Vergleich: Artefakte v/s Zwischenspeicherung von Abhängigkeiten
 
-Artefakte und Caching sind ähnlich, da sie die Möglichkeit bieten, Dateien auf {{ site.data.variables.product.prodname_dotcom }} zu speichern, aber die beiden Funktionalitäten bieten verschiedene Anwendungsfälle und dürfen nicht miteinander verwechselt werden.
+Artefakte und Caching sind ähnlich, da sie die Möglichkeit bieten, Dateien auf {% data variables.product.prodname_dotcom %} zu speichern, aber die beiden Funktionalitäten bieten verschiedene Anwendungsfälle und dürfen nicht miteinander verwechselt werden.
 
 - Verwende Caching, wenn Du Dateien wiederverwenden willst, die sich zwischen Jobs oder Workflow-Läufen nicht oft ändern.
 - Verwende Artefakte, wenn Du die von einem Job erzeugten Dateien speichern willst, um sie nach dem Ende eines Workflows anzuzeigen. Weitere Informationen findest Du unter "[Workflow-Daten mittels Artefakten persistieren](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
@@ -116,7 +116,7 @@ Um Dateien in mehr als einem Verzeichnis zu cachen, benötigst Du einen step (Sc
 
 #### Cache-Keys aus Kontexten erstellen
 
-Ein Cache-Key (Cache-Schlüssel) kann Kontexte, Funktionen, Literale und Operatoren enthalten, die von {{ site.data.variables.product.prodname_actions }} unterstützt werden. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Ein Cache-Key (Cache-Schlüssel) kann Kontexte, Funktionen, Literale und Operatoren enthalten, die von {% data variables.product.prodname_actions %} unterstützt werden. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 Wenn Du zum Erstellen eines `key`s Ausdrücke verwendest, kannst Du automatisch einen neuen Cache zu erstellen, sobald sich die Abhängigkeiten geändert haben. Zum Beispiel kannst Du einen `key` mittels eines Ausdrucks erstellen, der den Hash-Code einer npm-Datei `package-lock.json` errechnet.
 
@@ -126,7 +126,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }} wertet den Ausdruck aus `hash "package-lock.json"` um daraus den endgültigen `key` abzuleiten.
+{% data variables.product.prodname_dotcom %} wertet den Ausdruck aus `hash "package-lock.json"` um daraus den endgültigen `key` abzuleiten.
 
 ```
 npm-d5ea0750
@@ -187,4 +187,4 @@ Wenn zum Beispiel ein Pull-Request einen Zweig `feature` enthält (der aktuelle 
 
 ### Nutzungsbeschränkungen und Räumungsrichtlinien
 
-{{ site.data.variables.product.prodname_dotcom }} wird alle Cache-Einträge entfernen, auf die seit mehr als 7 Tagen nicht zugegriffen wurde. Es gibt keine Grenze für die Anzahl der Caches, die du speichern kannst, aber die Gesamtgröße aller Caches in einem Repository ist auf 5 GB begrenzt. Wenn du dieses Limit überschreitest, wird {{ site.data.variables.product.prodname_dotcom }} deinen Cache speichern, aber damit beginnen, Caches zu löschen, bis die Gesamtgröße kleiner als 5 GB ist.
+{% data variables.product.prodname_dotcom %} wird alle Cache-Einträge entfernen, auf die seit mehr als 7 Tagen nicht zugegriffen wurde. Es gibt keine Grenze für die Anzahl der Caches, die du speichern kannst, aber die Gesamtgröße aller Caches in einem Repository ist auf 5 GB begrenzt. Wenn du dieses Limit überschreitest, wird {% data variables.product.prodname_dotcom %} deinen Cache speichern, aber damit beginnen, Caches zu löschen, bis die Gesamtgröße kleiner als 5 GB ist.

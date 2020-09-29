@@ -1,7 +1,7 @@
 ---
 title: Inviting people to manage your enterprise account
 intro: You can invite people to become enterprise owners or billing managers in your enterprise account. You can also remove enterprise owners or billing managers who no longer need access to the enterprise account.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/
   - /articles/inviting-people-to-manage-your-enterprise-account
@@ -12,7 +12,7 @@ versions:
 
 ### About inviting people to manage your enterprise account
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }} For more information, see "[Roles for an enterprise account](/articles/roles-for-an-enterprise-account)."
+{% data reusables.enterprise-accounts.enterprise-administrators %} For more information, see "[Roles for an enterprise account](/articles/roles-for-an-enterprise-account)."
 
 {% tip %}
 
@@ -26,8 +26,8 @@ Only enterprise owners can invite other people to become enterprise administrato
 
 After you invite someone to join the enterprise account, they must accept the emailed invitation before they can access the enterprise account.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. In the left sidebar, click **Administrators**. ![Administrators tab in the left sidebar](/assets/images/help/business-accounts/administrators-tab.png)
 4. Above the list of administrators, click **Invite admin**. ![Invite admin button above the list of enterprise owners](/assets/images/help/business-accounts/invite-admin-button.png)
 5. Type the username, full name, or email address of the person you want to invite to become an enterprise administrator, then select the appropriate person from the results. ![Modal box with field to type a person's username, full name, or email address, and Invite button](/assets/images/help/business-accounts/invite-admins-modal-button.png)
@@ -38,8 +38,8 @@ After you invite someone to join the enterprise account, they must accept the em
 
 Only enterprise owners can remove other enterprise administrators from the enterprise account.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Next to the username of the person you'd like to remove, click {% octicon "gear" aria-label="The Settings gear" %}, then click **Remove owner** or **Remove billing manager**. ![Settings gear with menu option to remove an enterprise administrator](/assets/images/help/business-accounts/remove-admin.png)
 
 ### 더 읽을거리

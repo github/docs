@@ -20,16 +20,16 @@ These examples assume you're [cloning using HTTPS](/articles/which-remote-url-sh
 ```shell
 $ git remote -v
 # Zeigt die vorhandenen Remote-Respositorys an
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 
 $ git remote rename origin destination
 # Ändert den Namen des Remote-Repositorys von 'origin' in 'destination'
 
 $ git remote -v
 # Überprüft den neuen Namen des Remote-Repositorys
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> destination  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> destination  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 ### Problemlösungen
@@ -45,8 +45,8 @@ Mit dem Befehl `git remote -v` kannst du überprüfen, welche Remote-Repositorys
 ```shell
 $ git remote -v
 # Zeigt die vorhandenen Remote-Repositorys an
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>OWNER</em>/<em>REPOSITORY</em>.git (push)
 ```
 
 #### Remote [new name] already exists (Neuer Name des Remote existiert bereits)

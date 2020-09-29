@@ -11,11 +11,11 @@ versions:
 
 
 
-The {{ site.data.variables.product.product_name }} API provides a vast wealth of information for developers to consume.
+The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
 and in order to keep our servers happy, the API will automatically [paginate the requested items][pagination].
 
-In this guide, we'll make some calls to the {{ site.data.variables.product.product_name }} Search API, and iterate over
+In this guide, we'll make some calls to the {% data variables.product.product_name %} Search API, and iterate over
 the results using pagination. You can find the complete source code for this project
 in the [platform-samples][platform samples] repository.
 
@@ -37,15 +37,15 @@ of an API call. For example, let's make a curl request to the search API, to fin
 out how many times Mozilla projects use the phrase `addClass`:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
 ```
 
 The `-I` parameter indicates that we only care about the headers, not the actual
 content. In examining the result, you'll notice some information in the Link header
 that looks like this:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 Let's break that down. `rel="next"` says that the next page is `page=2`. This makes
 sense, since by default, all paginated queries start at page `1.` `rel="last"`
@@ -63,15 +63,15 @@ parameter. By default, `page` always starts at `1`. Let's jump ahead to page 14
 and see what happens:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 Here's the link header once more:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've
 got some more information: `rel="first"` indicates the URL for the _first_ page,
@@ -85,13 +85,13 @@ By passing the `per_page` parameter, you can specify how many items you want
 each page to return, up to 100 items. Let's try asking for 50 items about `addClass`:
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 Notice what it does to the header response:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 As you might have guessed, the `rel="last"` information says that the last page
 is now 20. This is because we are asking for more information per page about

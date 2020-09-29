@@ -25,11 +25,11 @@ Puedes recibir notificaciones cuando se publican nuevos lanzamientos en un repos
 Cualquiera que tenga acceso de lectura a un repositorio podrá ver y comparar los lanzamientos, pero únicamente aquellos con permisos de escritura en éste podrán administrarlos. Para obtener más información, consulta "[Administrar lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Las personas con permisos administrativos sobre un repositorio pueden elegir si los objetos de {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) se incluirán en los archivos ZIP y en los archivos .tar que {{ site.data.variables.product.product_name }} crea para cada lanzamiento. Para obtener más información, consulta la sección "[Administrar los objetos de {{ site.data.variables.large_files.product_name_short }} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
+Las personas con permisos administrativos sobre un repositorio pueden elegir si los objetos de {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) se incluirán en los archivos ZIP y en los archivos .tar que {% data variables.product.product_name %} crea para cada lanzamiento. Para obtener más información, consulta la sección "[Administrar los objetos de {% data variables.large_files.product_name_short %} en los archivos de tu repositorio](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)".
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-Si un lanzamiento arregla una vulnerabilidad de seguridad, deberás publicar una asesoría de seguridad en tu repositorio. {{ site.data.variables.product.prodname_dotcom }} revisa cada asesoría de seguridad publicada y podria utilizarla para enviar alertas de {{ site.data.variables.product.prodname_dependabot_short }} a los repositorios afectados. Para obtener más información, consulta la sección "[Acerca de las Asesorías de Seguridad de GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)".
+Si un lanzamiento arregla una vulnerabilidad de seguridad, deberás publicar una asesoría de seguridad en tu repositorio. {% data variables.product.prodname_dotcom %} revisa cada asesoría de seguridad publicada y podria utilizarla para enviar alertas de {% data variables.product.prodname_dependabot_short %} a los repositorios afectados. Para obtener más información, consulta la sección "[Acerca de las Asesorías de Seguridad de GitHub](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 
 Puedes ver la pestaña de **Dependientes** de la gráfica de dependientes para ver qué repositorios y paquetes dependen del código en tu repositorio, y podrían entonces verse afectados con un nuevo lanzamiento. Para obtener más información, consulta la sección "[Acerca de la gráfica de dependencias](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)".
 {% endif %}
@@ -39,6 +39,6 @@ También puedes usar la API de releases para recopilar información, como la can
 {% if currentVersion == "free-pro-team@latest" %}
 ### Cuotas de ancho de banda y de almacenamiento
 
- Cada archivo incluido en un lanzamiento debe ser de menos de {{ site.data.variables.large_files.max_file_size }}. No hay un límite para el tamaño total de un lanzamiento, ni para el uso de ancho de banda.
+ Cada archivo incluido en un lanzamiento debe ser de menos de {% data variables.large_files.max_file_size %}. No hay un límite para el tamaño total de un lanzamiento, ni para el uso de ancho de banda.
 
 {% endif %}

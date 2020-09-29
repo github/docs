@@ -1,6 +1,6 @@
 ---
 title: Migrar índices do Elasticsearch para o GitHub Enterprise Server 2.14 ou mais recente
-intro: 'Ao se preparar para atualizar para o {{ site.data.variables.product.prodname_ghe_server }} 2.14, você terá que migrar seus índices para o Elasticsearch 5.6 com nosso script de migração.'
+intro: 'Ao se preparar para atualizar para o {% data variables.product.prodname_ghe_server %} 2.14, você terá que migrar seus índices para o Elasticsearch 5.6 com nosso script de migração.'
 redirect_from:
   - /enterprise/admin/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
@@ -13,7 +13,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{{ site.data.variables.product.prodname_ghe_server }} 2.14 inclui uma atualização para ElasticSearch 5.6. Antes de atualizar para a versão {{ site.data.variables.product.prodname_ghe_server }} 2.14 ou versão superior a partir de 2.12 ou 2. 3, recomendamos que você faça o download, instale e execute as ferramentas de migração do ElasticSearch para que os seus maiores índices façam a migração on-line enquanto seu dispositivo ainda tem acesso esse acesso.
+{% data variables.product.prodname_ghe_server %} 2.14 inclui uma atualização para ElasticSearch 5.6. Antes de atualizar para a versão {% data variables.product.prodname_ghe_server %} 2.14 ou versão superior a partir de 2.12 ou 2. 3, recomendamos que você faça o download, instale e execute as ferramentas de migração do ElasticSearch para que os seus maiores índices façam a migração on-line enquanto seu dispositivo ainda tem acesso esse acesso.
 
 ### Índices de pesquisa
 
@@ -62,7 +62,7 @@ Os índices `search` começam por:
 
 ### Índices de webhook
 
-Depois que o script de migração recriar online os índices `search` necessários, o script verificará se algum índice `webhook` precisa ser recompilado. Se executou seu appliance com o {{ site.data.variables.product.prodname_ghe_server }} 2.12 ou 2.13 por 14 dias ou mais, provavelmente você não precisará dos índices `webhook` recompilados, já que os índices `webhook` têm uma política de retenção padrão de sete dias. Se você estiver atualizando seu appliance a partir do {{ site.data.variables.product.prodname_enterprise }} 2.11 ou anterior, talvez seja necessário recompilar os índices `webhook`.
+Depois que o script de migração recriar online os índices `search` necessários, o script verificará se algum índice `webhook` precisa ser recompilado. Se executou seu appliance com o {% data variables.product.prodname_ghe_server %} 2.12 ou 2.13 por 14 dias ou mais, provavelmente você não precisará dos índices `webhook` recompilados, já que os índices `webhook` têm uma política de retenção padrão de sete dias. Se você estiver atualizando seu appliance a partir do {% data variables.product.prodname_enterprise %} 2.11 ou anterior, talvez seja necessário recompilar os índices `webhook`.
 
 Se algum índice `webhook` tiver que ser recompilado, você receberá uma solicitação para habilitar o modo de manutenção antes que o script possa recompilar os índices `webhook`. Embora a migração dos índices `webhook` cause algum tempo de inatividade, não é necessário programar longos períodos de manutenção ou inatividade.
 
@@ -95,15 +95,15 @@ green  open   code-search-1              1   0    6932626           44     42.9g
 green  open   commits-1                  1   0   63753587         1485     45.4gb         45.4gb
 ```
 
-### Preparar um appliance do {{ site.data.variables.product.prodname_ghe_server }} 2.12 ou 2.13
+### Preparar um appliance do {% data variables.product.prodname_ghe_server %} 2.12 ou 2.13
 
-Se você atualizar para o {{ site.data.variables.product.prodname_ghe_server }} 2.14 ou mais recente sem executar as ferramentas de migração, os índices do Elasticsearch podem ficar inválidos e não funcionar corretamente. Para executar o scripts de migração do Elasticsearch, seu appliance do {{ site.data.variables.product.prodname_ghe_server }} deve estar executando o {{ site.data.variables.product.prodname_enterprise }} 2.12 ou o 2.13.
+Se você atualizar para o {% data variables.product.prodname_ghe_server %} 2.14 ou mais recente sem executar as ferramentas de migração, os índices do Elasticsearch podem ficar inválidos e não funcionar corretamente. Para executar o scripts de migração do Elasticsearch, seu appliance do {% data variables.product.prodname_ghe_server %} deve estar executando o {% data variables.product.prodname_enterprise %} 2.12 ou o 2.13.
 
 {% warning %}
 
 **Aviso:**
-- Usar o {{ site.data.variables.product.prodname_enterprise_backup_utilities }} destruirá índices antigos do Elasticsearch não compatíveis com as versões 5.X após a restauração. Nesse caso, talvez seja necessário fazer a reindexação manual.
-- Se o {{ site.data.variables.product.prodname_ghe_server }} estiver configurado para alta disponibilidade, o script de migração **deve** ser executado ainda durante a execução da replicação. Antes de iniciar a atualização, é necessário permitir que as alterações sejam replicadas totalmente no outro appliance. Se a replicação não estiver em execução enquanto o script de migração for executado, os índices do Elasticsearch poderão ficar inválidos.
+- Usar o {% data variables.product.prodname_enterprise_backup_utilities %} destruirá índices antigos do Elasticsearch não compatíveis com as versões 5.X após a restauração. Nesse caso, talvez seja necessário fazer a reindexação manual.
+- Se o {% data variables.product.prodname_ghe_server %} estiver configurado para alta disponibilidade, o script de migração **deve** ser executado ainda durante a execução da replicação. Antes de iniciar a atualização, é necessário permitir que as alterações sejam replicadas totalmente no outro appliance. Se a replicação não estiver em execução enquanto o script de migração for executado, os índices do Elasticsearch poderão ficar inválidos.
 
 {% endwarning %}
 
@@ -113,7 +113,7 @@ Se você atualizar para o {{ site.data.variables.product.prodname_ghe_server }} 
    $ wget https://github-enterprise.s3.amazonaws.com/util/es-5x-transition-tools.tar.gz
    $ sudo tar -C / -xvf es-5x-transition-tools.tar.gz
    ```
-   Se você gerenciar um cluster do {{ site.data.variables.product.prodname_ghe_server }}, autentique em um dos nós do servidor Elasticsearch usando SSH e instale as ferramentas de migração nele. Localize usando o seguinte:
+   Se você gerenciar um cluster do {% data variables.product.prodname_ghe_server %}, autentique em um dos nós do servidor Elasticsearch usando SSH e instale as ferramentas de migração nele. Localize usando o seguinte:
     ```shell
     $ ghe-cluster-each -r elasticsearch -p
     ghe-test-data-0
@@ -129,4 +129,4 @@ Se você atualizar para o {{ site.data.variables.product.prodname_ghe_server }} 
  **Observação:** se você tiver índices `webhook` para migrar, você receberá uma solicitação para ativar o modo de manutenção após executar as migrações on-line.
 
  {% endnote %}
-3. Se você estiver executando um cluster do {{ site.data.variables.product.prodname_ghe_server }}, siga a documentação oficial da atualização para ambientes únicos de VMs ou alta disponibilidade, ou consulte o guia de atualização do cluster. Para obter mais informações, consulte "[Atualizar o {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" ou "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".
+3. Se você estiver executando um cluster do {% data variables.product.prodname_ghe_server %}, siga a documentação oficial da atualização para ambientes únicos de VMs ou alta disponibilidade, ou consulte o guia de atualização do cluster. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)" ou "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)".

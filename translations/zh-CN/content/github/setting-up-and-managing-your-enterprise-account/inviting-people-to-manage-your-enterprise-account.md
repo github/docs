@@ -1,7 +1,7 @@
 ---
 title: 邀请人员管理企业帐户
 intro: 您可以邀请人员成为企业帐户的企业所有者或帐单管理员。 也可以删除不再需要访问企业帐户的企业所有者或帐单管理员。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/
   - /articles/inviting-people-to-manage-your-enterprise-account
@@ -12,7 +12,7 @@ versions:
 
 ### 关于邀请人员管理企业帐户
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }} 更多信息请参阅“[企业帐户的角色](/articles/roles-for-an-enterprise-account)”。
+{% data reusables.enterprise-accounts.enterprise-administrators %} 更多信息请参阅“[企业帐户的角色](/articles/roles-for-an-enterprise-account)”。
 
 {% tip %}
 
@@ -26,8 +26,8 @@ versions:
 
 在邀请别人加入企业帐户后，他们必须接受电子邮件邀请，然后才可访问企业帐户。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. 在左侧边栏中，单击 **Administrators（管理员）**。 ![左侧边栏中的管理员选项卡](/assets/images/help/business-accounts/administrators-tab.png)
 4. 在管理员列表上方，单击 **Invite admin（邀请管理员）**。 ![企业所有者列表上方的邀请管理员按钮](/assets/images/help/business-accounts/invite-admin-button.png)
 5. 输入您要邀请其成为企业管理员的人员的用户名、全名或电子邮件地址，然后从结果中选择适当的人员。 ![包含个人用户名、全名或电子邮件地址输入字段的模态框，以及邀请按钮](/assets/images/help/business-accounts/invite-admins-modal-button.png)
@@ -38,8 +38,8 @@ versions:
 
 只有企业所有者才可从企业帐户删除其他企业管理员。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. 在您要删除的人员用户名旁边，单击 {% octicon "gear" aria-label="The Settings gear" %}，然后单击 **Remove owner（删除所有者）**或 **Remove billing manager（删除帐单管理员）**。 ![包含删除企业管理员的菜单选项的设置齿轮](/assets/images/help/business-accounts/remove-admin.png)
 
 ### 延伸阅读

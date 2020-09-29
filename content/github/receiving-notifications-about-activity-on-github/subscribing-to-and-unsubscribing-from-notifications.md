@@ -11,8 +11,8 @@ versions:
 
 When you unsubscribe from a conversation in an issue or pull request, you'll no longer receive notifications about the conversation. If you or a team you're a member of are @mentioned in the conversation, you'll begin receiving notifications again. For more information about @mentions, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)."{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Choose an issue or pull request to subscribe to.
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
 4. In the right sidebar, click **Subscribe** or **Unsubscribe**.
@@ -29,22 +29,22 @@ You can see a list of all the issues and pull requests you're subscribed to. For
 
 ### Subscribing to team discussions
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. On the team page, find the discussion you want to subscribe to.
 6. In the top right corner of the discussion, click {% octicon "unmute" aria-label="The subscribe symbol" %} to subscribe to the discussion.
    ![Team discussion Subscribe button](/assets/images/help/notifications/team-discussion-subscribe-button.png)
 
 ### Unsubscribing from team discussions
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. On the team page, find the discussion you want to unsubscribe from.
 6. In the top right corner of the discussion, click {% octicon "mute" aria-label="The unsubscribe symbol" %} to unsubscribe from the discussion.
    ![Team discussion Subscribe button](/assets/images/help/notifications/team-discussion-unsubscribe-button.png)
@@ -52,7 +52,7 @@ You can see a list of all the issues and pull requests you're subscribed to. For
 ### Further reading
 
 - "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[About conversations on {{ site.data.variables.product.product_name }}](/articles/about-conversations-on-github)"
+- "[About conversations on {% data variables.product.product_name %}](/articles/about-conversations-on-github)"
 - "[Watching and unwatching repositories](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
 
 - "[Listing the repositories you're watching](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"

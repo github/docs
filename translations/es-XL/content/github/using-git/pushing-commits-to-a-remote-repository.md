@@ -83,7 +83,7 @@ git extrae ascendente
 > remoto: Comprimiendo objetos: 100 % (53/53), realizado.
 > remoto: Total 62 (delta 27), reutilizados 44 (delta 9)
 > Descompimiendo objetos: 100 % (62/62), realizado.
-> Desde https://{{ site.data.variables.command_line.codeblock }}/<em>octocat</em>/<em>repo</em>
+> Desde https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
 >  * [nueva rama]      master     -> upstream/master
 ```
 

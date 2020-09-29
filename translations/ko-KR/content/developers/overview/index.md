@@ -1,6 +1,6 @@
 ---
 title: 개요
-intro: 'Learn about {{ site.data.variables.product.prodname_dotcom }}''s APIs, secure your deployments, and join {{ site.data.variables.product.prodname_dotcom }}''s Developer Program.'
+intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs, secure your deployments, and join {% data variables.product.prodname_dotcom %}''s Developer Program.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

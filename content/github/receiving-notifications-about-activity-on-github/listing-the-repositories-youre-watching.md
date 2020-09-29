@@ -5,7 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Click **Watching** to view the list of repositories you're watching.
 ![Listing of watched repositories](/assets/images/help/notifications/notifications-watching-tab.png)
 3. Click **Unwatch** or **Unwatch releases** next to the repository you're no longer interested in receiving notifications for.

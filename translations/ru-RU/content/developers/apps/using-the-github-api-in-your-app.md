@@ -20,7 +20,7 @@ This project will walk you through the following:
 * Programming your app to listen for events
 * Using the Octokit.rb library to do REST API operations
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 Once you've worked through the steps, you'll be ready to develop other kinds of integrations using the full suite of GitHub APIs. {% if currentVersion == "free-pro-team@latest" %}You can check out successful examples of apps on [GitHub Marketplace](https://github.com/marketplace) and [Works with GitHub](https://github.com/works-with).{% endif %}
 
@@ -81,7 +81,7 @@ To update your app's permissions:
 1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
 1. In the "Permissions" section, find "Issues," and select **Read & Write** in the "Access" dropdown next to it. The description says this option grants access to both issues and labels, which is just what you need.
 1. In the "Subscribe to events" section, select **Issues** to subscribe to the event.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 Great! Your app has permission to do the tasks you want it to do. Now you can add the code to make it work.
 
@@ -129,7 +129,7 @@ This method receives a JSON-formatted event payload as an argument. This means y
 
 Great! It's time to test the changes.
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 In your browser, visit the repository where you installed your app. Open a new issue in this repository. The issue can say anything you like. It's just for testing.
 
@@ -198,7 +198,7 @@ See "[Next steps](#next-steps)" for ideas about where you can go from here.
 
 ### Устранение проблем
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
 * **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm sending events on GitHub.com by opening new issues, but I don't see any output in the Terminal window where I'm running the server.
 
@@ -231,5 +231,5 @@ Here are some ideas for what you can do next:
 * When the bot successfully adds the label, show a message in the Terminal. (Hint: compare the `needs-response` label ID with the ID of the label in the payload as a condition for your message, so that the message only displays when the relevant label is added and not some other label.)
 * Add a landing page to your app and hook up a [Sinatra route](https://github.com/sinatra/sinatra#routes) for it.
 * Move your code to a hosted server (like Heroku). Don't forget to update your app settings with the new domain.
-* Share your project or get advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}{% if currentVersion == "free-pro-team@latest" %}
+* Share your project or get advice in the {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
 * Have you built a shiny new app you think others might find useful? [Add it to GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

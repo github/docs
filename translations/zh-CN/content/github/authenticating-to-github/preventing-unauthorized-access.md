@@ -1,6 +1,6 @@
 ---
 title: 防止未授权的访问
-intro: '在登录 {{ site.data.variables.product.product_location }} 时，您可能会收到媒体中安全事件的警报，如发现 [Heartbleed 漏洞](http://heartbleed.com/)或计算机被盗。 在这种情况下，更改密码可防止后面对您的帐户和项目的任何非预期访问。'
+intro: '在登录 {% data variables.product.product_location %} 时，您可能会收到媒体中安全事件的警报，如发现 [Heartbleed 漏洞](http://heartbleed.com/)或计算机被盗。 在这种情况下，更改密码可防止后面对您的帐户和项目的任何非预期访问。'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 需要密码来执行敏感的操作，如新增 SSH 密钥、授权应用程序或修改团队成员。
+{% data variables.product.product_name %} 需要密码来执行敏感的操作，如新增 SSH 密钥、授权应用程序或修改团队成员。
 
 在更改密码后，应执行以下操作，以确保您的帐户安全：
 

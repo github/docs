@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. 在右上角单击 **Label（标签）**，然后开始输入现有标签的名称。 单击标签名称以将其与所选项目关联。 ![议题里程碑分配下拉菜单](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### 延伸阅读

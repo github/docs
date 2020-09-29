@@ -11,7 +11,7 @@ versions:
 
 GitHub 的用户来自世界各地，有上周才创建其第一个 "Hello World" 项目的新人，也有享誉全球的软件开发高手，他们带来了各种不同的观点、想法和经验。 我们致力于让 GitHub 成为一个海纳百川的环境，接纳各种不同的声音和观点，打造一个所有人都能畅所欲言的空间。
 
-我们依靠社区成员传达期望、[仲裁](#what-if-something-or-someone-offends-you)他们的项目以及{{ site.data.variables.contact.report_abuse }}或{{ site.data.variables.contact.report_content }}。 我们不主动寻求仲裁内容。 通过概述我们期望社区内出现的情况，我们希望帮助您理解如何在 GitHub 上进行最佳的协作，以及哪种操作或内容可能违反我们的[服务条款](#legal-notices)。 我们将调查任何滥用举报，并且可能在我们的网站上仲裁我们确定违反了 GitHub 服务条款的公共内容。
+我们依靠社区成员传达期望、[仲裁](#what-if-something-or-someone-offends-you)他们的项目以及{% data variables.contact.report_abuse %}或{% data variables.contact.report_content %}。 我们不主动寻求仲裁内容。 通过概述我们期望社区内出现的情况，我们希望帮助您理解如何在 GitHub 上进行最佳的协作，以及哪种操作或内容可能违反我们的[服务条款](#legal-notices)。 我们将调查任何滥用举报，并且可能在我们的网站上仲裁我们确定违反了 GitHub 服务条款的公共内容。
 
 ### 建立强大的社区
 
@@ -41,7 +41,7 @@ GitHub 社区的主要目的是协作处理软件项目。 我们希望人们能
 
 * **阻止用户** - 如果您遇到一个连续表现出不良行为的用户，可以[阻止该用户访问您的个人帐户](/articles/blocking-a-user-from-your-personal-account/)或[阻止该用户访问您的组织](/articles/blocking-a-user-from-your-organization/)。
 
-当然，如果您需要更多关于处理某种情况的帮助，可随时联系我们以{{ site.data.variables.contact.report_abuse }}。
+当然，如果您需要更多关于处理某种情况的帮助，可随时联系我们以{% data variables.contact.report_abuse %}。
 
 ### 不允许什么？
 

@@ -15,7 +15,7 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Verás una lista de personas en tu organización. Para filtrar esta lista por rol, haz clic en **Role (Rol)** y seleccionar el rol que estás buscando. ![click-role](/assets/images/help/organizations/view-list-of-people-in-org-by-role.png)

@@ -1,7 +1,7 @@
 ---
 title: Eventos que desencadenan flujos de trabajo
-intro: 'Puedes configurar tus flujos de trabajo para que se ejecuten cuando ocurre una actividad específica en {{ site.data.variables.product.product_name }}, en un horario programado o cuando se produce un evento fuera de {{ site.data.variables.product.product_name }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Puedes configurar tus flujos de trabajo para que se ejecuten cuando ocurre una actividad específica en {% data variables.product.product_name %}, en un horario programado o cuando se produce un evento fuera de {% data variables.product.product_name %}.'
+product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -12,12 +12,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los eventos de flujo de trabajo
 
-Puedes configurar tu flujo de trabajo para que se ejecute cuando se creen eventos de webhook a partir de una actividad en {{ site.data.variables.product.product_name }}. Los flujos de trabajo pueden usar más de un evento de webhook para desencadenar la ejecución de un flujo de trabajo. Para obtener más información, consulta la sección "[webhooks](/webhooks)". Para obtener más información sobre la sintaxis `on`, consulta "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#on)".
+Puedes configurar tu flujo de trabajo para que se ejecute cuando se creen eventos de webhook a partir de una actividad en {% data variables.product.product_name %}. Los flujos de trabajo pueden usar más de un evento de webhook para desencadenar la ejecución de un flujo de trabajo. Para obtener más información, consulta la sección "[webhooks](/webhooks)". Para obtener más información sobre la sintaxis `on`, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
 
 Los siguientes pasos se producen para activar una ejecución de flujo de trabajo:
 
@@ -27,7 +27,7 @@ Los siguientes pasos se producen para activar una ejecución de flujo de trabajo
   Por ejemplo, si el evento se produjo en una rama particular del repositorio, los archivos de flujo de trabajo deben estar presentes en el repositorio en esa rama.
 1. Se inspeccionarán los archivos de flujo de trabajo para esa confirmación de SHA y referencia de Git, y se activará una nueva ejecución de flujo de trabajo para cualquier flujo de trabajo que tenga valores `on:` que coincidan con el evento desencadenante.
 
-  El flujo de trabajo se ejecuta en el código de tu repositorio en la misma confirmación SHA y la referencia de Git que desencadenó el evento. Cuando se ejecuta un flujo de trabajo, {{ site.data.variables.product.product_name }} establece las variables de entorno `GITHUB_SHA` (confirmar SHA) y `GITHUB_REF` (referencia de Git) en el entorno del ejecutor. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
+  El flujo de trabajo se ejecuta en el código de tu repositorio en la misma confirmación SHA y la referencia de Git que desencadenó el evento. Cuando se ejecuta un flujo de trabajo, {% data variables.product.product_name %} establece las variables de entorno `GITHUB_SHA` (confirmar SHA) y `GITHUB_REF` (referencia de Git) en el entorno del ejecutor. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
 
 {% note %}
 
@@ -35,7 +35,7 @@ Los siguientes pasos se producen para activar una ejecución de flujo de trabajo
 
 {% endnote %}
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
 ### Eventos de webhook
 
@@ -43,15 +43,15 @@ Puedes configurar tu flujo de trabajo para que se ejecute cuando se crean evento
 
 #### `check_run`
 
-Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento `check_run`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información acerca de la API de REST, consulta la sección "[Ejecuciones de verificación](/v3/checks/runs/)".
+Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento `check_run`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de la API de REST, consulta la sección "[Ejecuciones de verificación](/v3/checks/runs/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                           | Tipos de actividad                                                                           | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una comprobación de ejecución ha sido `resolicitada` o `requested_action`.
 
@@ -63,13 +63,13 @@ on:
 
 #### `check_suite`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `check_suite`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información acerca de la API de REST, consulta la sección de "[conjuntos de verificaciones](/v3/checks/suites/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `check_suite`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de la API de REST, consulta la sección de "[conjuntos de verificaciones](/v3/checks/suites/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 {% note %}
 
-**Nota:** Para evitar flujos de trabajo recurrentes, este evento no activa flujos de trabajo si la comprobación de suite fue creada por {{ site.data.variables.product.prodname_actions }}.
+**Nota:** Para evitar flujos de trabajo recurrentes, este evento no activa flujos de trabajo si la comprobación de suite fue creada por {% data variables.product.prodname_actions %}.
 
 {% endnote %}
 
@@ -77,7 +77,7 @@ Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `c
 | ------------------------------------------------------ | -------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`check_suite`](/webhooks/event-payloads/#check_suite) | - `completed`<br/>- `requested`<br/>- `rerequested`<br/> | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una comprobación de ejecución ha sido `resolicitada` o `completada`.
 
@@ -106,7 +106,7 @@ on:
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien cree una rama o etiqueta, que activa el evento `eliminar`. Para obtener más información sobre la API de REST, consulta la sección "[Borrar una referencia](/v3/git/refs/#delete-a-reference)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                       | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ---------------------------------------------- | ------------------ | ------------------------------------------ | ---------------- |
@@ -153,7 +153,7 @@ on:
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien bifurque un repositorio, lo que activa el evento de `bifurcación`. Para obtener más información sobre la API de REST, consulta la sección "[Crear una bifurcación](/v3/repos/forks/#create-a-fork)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                        | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ----------------------------------------------- | ------------------ | ------------------------------------------ | ---------------- |
@@ -170,7 +170,7 @@ on:
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien cree o actualice una página Wiki, que activa el evento `gollum`.
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                     | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | -------------------------------------------- | ------------------ | ------------------------------------------ | ---------------- |
@@ -185,15 +185,15 @@ on:
 
 #### `comentario_propuesta`
 
-Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento `issue_comment`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información acerca de la API de REST, consulta la sección "[comentarios de un informe de problemas](/v3/issues/comments/)".
+Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento `issue_comment`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de la API de REST, consulta la sección "[comentarios de un informe de problemas](/v3/issues/comments/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                                          | Tipos de actividad                                                | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`comentario_propuesta`](/v3/activity/event_types/#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un miembro ha sido `creado` o `eliminado`.
 
@@ -205,15 +205,15 @@ on:
 
 #### `propuestas`
 
-Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento de `propuestas`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener información acerca de la API de REST, consulta la sección "[informes de problemas](/v3/issues)".
+Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento de `propuestas`. {% data reusables.developer-site.multiple_activity_types %} Para obtener información acerca de la API de REST, consulta la sección "[informes de problemas](/v3/issues)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                         | Tipos de actividad                                                                                                                                                                                                                                                                                                                                                     | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`propuestas`](/webhooks/event-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una propuesta ha sido `abierta`, `editada`, o `marcada como hito`.
 
@@ -225,15 +225,15 @@ on:
 
 #### `etiqueta`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `etiquetado`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta  la sección "[Etiquetas](/v3/issues/labels/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `etiquetado`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta  la sección "[Etiquetas](/v3/issues/labels/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                      | Tipos de actividad                                                | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | --------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`etiqueta`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un miembro ha sido `creado` o `eliminado`.
 
@@ -245,15 +245,15 @@ on:
 
 #### `hito`
 
-Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento de `milestone`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Hitos](/v3/issues/milestones/)".
+Ejecuta tu flujo de trabajo en cualquier momento que se produzca el evento de `milestone`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Hitos](/v3/issues/milestones/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                      | Tipos de actividad                                                                                          | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`hito`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un hito ha sido `abierto` o `eliminado`.
 
@@ -265,9 +265,9 @@ on:
 
 #### `page_build`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que alguien suba a una {{ site.data.variables.product.product_name }} Rama habilitada para páginas, que activa el evento `page_build`. Para obtener más información acerca de la API de REST, consulta la sección "[Páginas](/v3/repos/pages/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que alguien suba a una {% data variables.product.product_name %} Rama habilitada para páginas, que activa el evento `page_build`. Para obtener más información acerca de la API de REST, consulta la sección "[Páginas](/v3/repos/pages/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                             | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF` |
 | ---------------------------------------------------- | ------------------ | ------------------------------------------ | ------------ |
@@ -282,15 +282,15 @@ on:
 
 #### `project`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `project`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Proyectos](/v3/projects/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `project`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Proyectos](/v3/projects/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                       | Tipos de actividad                                                                                                                  | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`project`](/webhooks/event-payloads/#project) | - `created`<br/>- `updated`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un proyecto ha sido `creado` o `eliminado`.
 
@@ -302,15 +302,15 @@ on:
 
 #### `project_card`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `project_card`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Tarjetas de proyecto](/v3/projects/cards)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `project_card`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Tarjetas de proyecto](/v3/projects/cards)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                                 | Tipos de actividad                                                                                             | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`project_card`](/webhooks/event-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un proyecto ha sido `abierto` o `eliminado`.
 
@@ -322,15 +322,15 @@ on:
 
 #### `project_column`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `project_column`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Columnas de proyecto](/v3/projects/columns)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `project_column`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Columnas de proyecto](/v3/projects/columns)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                                     | Tipos de actividad                                                          | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ------------------------------------------------------------ | --------------------------------------------------------------------------- | ------------------------------------------ | ---------------- |
 | [`project_column`](/webhooks/event-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una columna de proyecto ha sido `creado` o `eliminado`.
 
@@ -344,7 +344,7 @@ on:
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien haga público un repositorio privado, que activa el evento `público`. Para obtener más información acerca de la API de REST, consulta la sección "[Editar repositorios](/v3/repos/#edit)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                     | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | -------------------------------------------- | ------------------ | ------------------------------------------ | ---------------- |
@@ -359,7 +359,7 @@ on:
 
 #### `solicitud_extracción`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `pull_request`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Solicitudes de extraccións](/v3/pulls)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `pull_request`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Solicitudes de extraccións](/v3/pulls)".
 
 {% note %}
 
@@ -371,7 +371,7 @@ Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
 | [`solicitud_extracción`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
-Puedes extender o limitar los tipos de actividad por defecto usando la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
+Puedes extender o limitar los tipos de actividad por defecto usando la palabra clave `types`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una solicitud de extracción ha sido `assigned` (asignada), `opened`, `syncronize` o `reopened`.
 
@@ -381,17 +381,17 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `revisión_solicitud de extracción`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `pull_request_review`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Revisiones de solicitudes de extracción](/v3/pulls/reviews)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `pull_request_review`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Revisiones de solicitudes de extracción](/v3/pulls/reviews)".
 
 | Carga del evento Webhook                                                            | Tipos de actividad                                         | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
 | ----------------------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------ |
 | [`revisión_solicitud de extracción`](/webhooks/event-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una revisión de solicitud de extracción ha sido `editada` o `descartada`.
 
@@ -401,17 +401,17 @@ on:
     types: [edited, dismissed]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `comentarios _revisiones_solicitudes de extracción`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se modifique una diferencia unificada de solicitud de extracción, que activa el evento `pull_request_review_comment`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección [Revisar comentarios](/v3/pulls/comments).
+Ejecuta tu flujo de trabajo en cualquier momento en que se modifique una diferencia unificada de solicitud de extracción, que activa el evento `pull_request_review_comment`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección [Revisar comentarios](/v3/pulls/comments).
 
 | Carga del evento Webhook                                                                                     | Tipos de actividad                                     | `GITHUB_SHA`                                          | `GITHUB_REF`                                     |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------- | ------------------------------------------------ |
 | [`comentarios _revisiones_solicitudes de extracción`](/webhooks/event-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted` | Última confirmación de fusión en la rama `GITHUB_REF` | Rama de fusión de PR `refs/pull/:prNumber/merge` |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un comentario de revisión de solicitud de extracción ha sido `creado` o `eliminado`.
 
@@ -421,7 +421,7 @@ on:
     types: [created, deleted]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_target`
 
@@ -431,7 +431,7 @@ Este evento es similar al de `pull_request`, con la diferencia de que se ejecuta
 | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | --------------------------------------- |
 | [`solicitud_extracción`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | Última confirmación en la rama base de la solicitud de extracción | Rama base de la solicitud de extracción |
 
-Predeterminadamente, un flujo de trabajo se ejecuta únicamente cuando el tipo de actividad de un `pull_request_target` se encuentra como `opened`, `synchronize`, o `reopened`. Para activar los flujos de trabajo para más tipos de actividades, usa la palabra clave `tipos`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
+Predeterminadamente, un flujo de trabajo se ejecuta únicamente cuando el tipo de actividad de un `pull_request_target` se encuentra como `opened`, `synchronize`, o `reopened`. Para activar los flujos de trabajo para más tipos de actividades, usa la palabra clave `tipos`. Para obtener más información, consulta "[Sintaxis del flujo de trabajo para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#onevent_nametypes)".
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando una solicitud de extracción ha sido `assigned` (asignada), `opened`, `syncronize` o `reopened`.
 
@@ -463,13 +463,13 @@ on:
 
 #### `registry_package`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que un paquete es `publish` (publicado) o `updated` (actualizado). Para obtener más información, consulta "[Administrar paquetes con {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages)".
+Ejecuta tu flujo de trabajo en cualquier momento en que un paquete es `publish` (publicado) o `updated` (actualizado). Para obtener más información, consulta "[Administrar paquetes con {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)".
 
 | Carga del evento Webhook                                | Tipos de actividad                  | `GITHUB_SHA`                       | `GITHUB_REF`                          |
 | ------------------------------------------------------- | ----------------------------------- | ---------------------------------- | ------------------------------------- |
 | [`registry_package`](/webhooks/event-payloads/#package) | - `published`<br/>- `updated` | Confirmación del paquete publicado | Rama o etiqueta del paquete publicado |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un paquete ha sido `publicado`.
 
@@ -487,13 +487,13 @@ on:
 
 {% endnote %}
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `lanzamiento`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información sobre la API de REST, consulta la sección "[Lanzamientos](/v3/repos/releases/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento de `lanzamiento`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información sobre la API de REST, consulta la sección "[Lanzamientos](/v3/repos/releases/)".
 
 | Carga del evento Webhook                           | Tipos de actividad                                                                                                                                                                                                                        | `GITHUB_SHA`                                     | `GITHUB_REF`            |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ----------------------- |
 | [`lanzamiento`](/webhooks/event-payloads/#release) | - `published`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released`{% endif %} | Última confirmación en el lanzamiento etiquetado | Etiqueta de lanzamiento |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando un lanzamiento ha sido `publicado`.
 
@@ -507,7 +507,7 @@ on:
 
 Ejecuta tu flujo de trabajo en cualquier momento en que alguien cree una rama o etiqueta, que activa el evento `crear`. Para obtener más información acerca de la API de REST, consulta la sección "[Estados](/v3/repos/statuses/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                     | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF` |
 | -------------------------------------------- | ------------------ | ------------------------------------------ | ------------ |
@@ -522,15 +522,15 @@ on:
 
 #### `ver`
 
-Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `ver`. {{ site.data.reusables.developer-site.multiple_activity_types }} Para obtener más información acerca de la API de REST, consulta la sección "[Marcar con una estrella](/v3/activity/starring/)".
+Ejecuta tu flujo de trabajo en cualquier momento en que se produzca el evento `ver`. {% data reusables.developer-site.multiple_activity_types %} Para obtener más información acerca de la API de REST, consulta la sección "[Marcar con una estrella](/v3/activity/starring/)".
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | Carga del evento Webhook                 | Tipos de actividad | `GITHUB_SHA`                               | `GITHUB_REF`     |
 | ---------------------------------------- | ------------------ | ------------------------------------------ | ---------------- |
 | [`ver`](/webhooks/event-payloads/#watch) | - `started`        | Última confirmación en la rama por defecto | Rama por defecto |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 Por ejemplo, puedes ejecutar un flujo de trabajo cuando alguien coloca una estrella en un repositorio, que es el tipo de actividad `comenzado` que activa el evento Ver.
 
@@ -542,7 +542,7 @@ on:
 
 #### `workflow_run`
 
-{{ site.data.reusables.webhooks.workflow_run_desc }}
+{% data reusables.webhooks.workflow_run_desc %}
 
 Si necesitas filtrar las ramas de este evento, puedes utilizar `branches` o `branches-ignore`.
 
@@ -568,7 +568,7 @@ El evento `schedule` te permite activar un flujo de trabajo en una hora programa
 | ------------------------ | ------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | n/a                      | n/a                | Última confirmación en la rama por defecto | Rama por defecto | Cuando se establece la ejecución del flujo de trabajo programado. Un flujo de trabajo programado usa[sintaxis cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Para obtener más información, consulta "[Desencadenar un flujo de trabajo con eventos](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)". |
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 La sintaxis de cron tiene cinco campos separados por un espacio, y cada campo representa una unidad de tiempo.
 
@@ -595,7 +595,7 @@ Puedes usar estos operadores en cualquiera de los cinco campos:
 
 {% note %}
 
-**Nota:** {{ site.data.variables.product.prodname_actions }} no es compatible con la sintaxis que no es estándar `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` y `@reboot`.
+**Nota:** {% data variables.product.prodname_actions %} no es compatible con la sintaxis que no es estándar `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` y `@reboot`.
 
 {% endnote %}
 
@@ -611,9 +611,9 @@ Puedes activar ejecuciones de flujo de trabajo manualmente. Para activar flujos 
 | ---------------------------------------------------------------- | ------------------ | ---------------------------------------------- | ------------------------- |
 | [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a                | Última confirmacion en la rama de `GITHUB_REF` | Rama que recibió el envío |
 
-Puedes activar una ejecución de flujo de trabajo manualmente si utilizas la API de {{ site.data.variables.product.product_name }} y desde {{ site.data.variables.product.product_name }}. Para activar el evento de webhook personalizado de `workflow_dispatch` utilizando la API de REST, debes enviar una solicitud de `POST` a la terminal de la API de {{ site.data.variables.product.prodname_dotcom }} y proporcionar la `ref` y cualquier `input` relacionado. Para obtener más información, consulta terminal "[Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)" de la API de REST.
+Puedes activar una ejecución de flujo de trabajo manualmente si utilizas la API de {% data variables.product.product_name %} y desde {% data variables.product.product_name %}. Para activar el evento de webhook personalizado de `workflow_dispatch` utilizando la API de REST, debes enviar una solicitud de `POST` a la terminal de la API de {% data variables.product.prodname_dotcom %} y proporcionar la `ref` y cualquier `input` relacionado. Para obtener más información, consulta terminal "[Crear un evento de envío de flujo de trabajo](/rest/reference/actions/#create-a-workflow-dispatch-event)" de la API de REST.
 
- Cuando activas el evento en {{ site.data.variables.product.prodname_dotcom }}, puedes proporcionar la `ref` y cualquier `input` directamente en {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta "[Configurar un flujo de trabajo](/actions/configuring-and-managing-workflows/configuring-a-workflow#manually-running-a-workflow)."
+ Cuando activas el evento en {% data variables.product.prodname_dotcom %}, puedes proporcionar la `ref` y cualquier `input` directamente en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Configurar un flujo de trabajo](/actions/configuring-and-managing-workflows/configuring-a-workflow#manually-running-a-workflow)."
 
 #### `repository_dispatch`
 
@@ -621,11 +621,11 @@ Puedes activar una ejecución de flujo de trabajo manualmente si utilizas la API
 | -------------------------------------------------------------------- | ------------------ | ---------------------------------------------- | ------------------------- |
 | [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a                | Última confirmacion en la rama de `GITHUB_REF` | Rama que recibió el envío |
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
-Puedes utilizar la API de {{ site.data.variables.product.product_name }} para desencadenar un evento de webhook llamado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) cuando quieras desencadenar un flujo de trabajo para una actividad que sucede fuera de {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta la sección "[Crear un evento de envío de repositorio](/v3/repos/#create-a-repository-dispatch-event)".
+Puedes utilizar la API de {% data variables.product.product_name %} para desencadenar un evento de webhook llamado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) cuando quieras desencadenar un flujo de trabajo para una actividad que sucede fuera de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Crear un evento de envío de repositorio](/v3/repos/#create-a-repository-dispatch-event)".
 
-Para desencadenar el evento de webhook `repository_dispatch` personalizado, debes enviar una solicitud de `POST` a un punto final de una API de {{ site.data.variables.product.product_name }} y dar un nombre de `event_type` para describir el tipo de actividad. Para desencadenar la ejecución de un flujo de trabajo, también debes configurar tu flujo de trabajo para usar el evento `repository_dispatch`.
+Para desencadenar el evento de webhook `repository_dispatch` personalizado, debes enviar una solicitud de `POST` a un punto final de una API de {% data variables.product.product_name %} y dar un nombre de `event_type` para describir el tipo de actividad. Para desencadenar la ejecución de un flujo de trabajo, también debes configurar tu flujo de trabajo para usar el evento `repository_dispatch`.
 
 ##### Ejemplo
 
@@ -639,6 +639,6 @@ on:
 
 ### Activar nuevos flujos de trabajo mediante un token de acceso personal
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }} Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
+{% data reusables.github-actions.actions-do-not-trigger-workflows %} Para obtener más información, consulta "[Autenticar con el GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Si deseas activar un flujo de trabajo desde una ejecución de flujo de trabajo, puedes desencadenar el evento mediante un token de acceso personal. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {{ site.data.variables.product.prodname_actions }}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información, consulta "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+Si deseas activar un flujo de trabajo desde una ejecución de flujo de trabajo, puedes desencadenar el evento mediante un token de acceso personal. Necesitaras crear un token de acceso personal y almacenarlo como un secreto. Para minimizar tus costos de uso de {% data variables.product.prodname_actions %}, asegúrate de no crear ejecuciones de flujo de trabajo recurrentes o involuntarias. Para obtener más información, consulta "[Crear y almacenar secretos cifrados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".

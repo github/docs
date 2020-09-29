@@ -33,7 +33,7 @@ Los Marcos de Trabajo del Escudo de Privacidad se basan en siete principios, y G
   - Te informamos cuando recopilamos tu información personal.
   - Te damos a conocer, en nuestra [Declaración de Privacidad](/articles/github-privacy-statement/)de los fines que tenemos para recopilar y utilizar tu información a quién compartimos esa información con y bajo qué restricciones y qué acceso tiene a tus datos.
   - Te informamos que estamos participando en el marco del Escudo de Privacidad y lo qué significa para ti.
-  - Tenemos un {{ site.data.variables.contact.contact_privacy }} donde puedes contactarnos con preguntas sobre tu privacidad.
+  - Tenemos un {% data variables.contact.contact_privacy %} donde puedes contactarnos con preguntas sobre tu privacidad.
   - Te informamos acerca de tu derecho a invocar arbitraje vinculante, sin costo alguno para ti, en el improbable caso de una disputa.
   - Te informamos que estamos sujetos a la jurisdicción de la Comisión Federal de Comercio.
 - **Opción**
@@ -51,7 +51,7 @@ Los Marcos de Trabajo del Escudo de Privacidad se basan en siete principios, y G
 - **Acceso**
   - Siempre puedes acceder a los datos que tenemos sobre ti en tu perfil de usuario [](https://github.com/settings/profile). Puedes ingresar, actualizar, alterar o eliminar tu información allí.
 - **Recursos, cumplimiento y responsabilidad**
-  - Si tienes alguna pregunta sobre nuestras prácticas de privacidad, puedes contactarnos con nuestro {{ site.data.variables.contact.contact_privacy }} y responderemos en un plazo máximo de 45 días.
+  - Si tienes alguna pregunta sobre nuestras prácticas de privacidad, puedes contactarnos con nuestro {% data variables.contact.contact_privacy %} y responderemos en un plazo máximo de 45 días.
   - En el improbable caso de una disputa que no podamos resolver, tienes acceso a un arbitraje vinculante sin coste alguno para ti. Consulta la [Declaración de privacidad](/articles/github-privacy-statement/)para obtener más información.
   - Realizaremos auditorías periódicas de nuestras prácticas de privacidad relevantes para verificar el cumplimiento de las promesas que hemos hecho.
   - Exigimos a nuestros empleados que respeten nuestras promesas de privacidad y la violación de nuestras políticas de privacidad está sujeta a una acción disciplinaria e inclusive hasta la terminación del empleo.

@@ -12,15 +12,15 @@ versions:
 
 ### Accessing your personal dashboard
 
-Your personal dashboard is the first page you'll see when you sign in on {{ site.data.variables.product.product_name }}.
+Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
 
-To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {{ site.data.variables.product.product_url }}.
+To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.product_url %}.
 
 ### Finding your recent activity
 
 In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests you're working on. Under "Recent activity", you can preview up to 12 recent updates made in the last two weeks.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Finding your top repositories and teams
 
@@ -28,7 +28,7 @@ In the left sidebar of your dashboard, you can access the top repositories and t
 
 ![list of repositories and teams from different organizations](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {{ site.data.variables.product.product_name }}.
+You can also find a list of your recently visited repositories, teams, and project boards when you click into the search bar at the top of any page on {% data variables.product.product_name %}.
 
 ### Staying updated with activity from the community
 
@@ -46,7 +46,7 @@ For more information about starring repositories and following people, see "[Sav
 
 ### Exploring recommended repositories
 
-In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+In the "Explore repositories" section on the right side of your dashboard, you can explore recommended repositories in your communities. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ### Дополнительная литература
 

@@ -9,7 +9,7 @@ versions:
 
 ### 关于阻止用户
 
-您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {{ site.data.variables.product.prodname_dotcom }} 在您阻止用户时不会通知用户。 如果要避免与您阻止的用户参与相同的项目，您可以选择对于被阻止用户先前参与的任何仓库[显示警告](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
+您可以在您的帐户设置中或从用户的个人资料中阻止用户。 {% data variables.product.prodname_dotcom %} 在您阻止用户时不会通知用户。 如果要避免与您阻止的用户参与相同的项目，您可以选择对于被阻止用户先前参与的任何仓库[显示警告](/articles/blocking-a-user-from-your-personal-account/#blocking-a-user-in-your-account-settings)。 您仍然可以在共享空间中看到被阻止用户的活动，被阻止的用户也可以删除他们现有的内容。
 
 {% tip %}
 
@@ -51,20 +51,20 @@ versions:
 
 ### 在您的帐户设置中阻止用户
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. 在“Block a user（阻止用户）”下，键入您要阻止的用户的用户名，然后单击 **Block user（阻止用户）**。 ![用户名字段和阻止按钮](/assets/images/help/settings/user-settings-block-user.png)
 4. （可选）要在您访问被阻止用户参与的仓库时显示警告，请选择 **Warn me when a blocked user is a prior contributor to a repository（在访问被阻止用户先前参与的仓库时警告我）**。 ![关于被阻止用户的警告选项](/assets/images/help/settings/warn-block-user.png)
 
 ### 从用户的个人资料页面阻止用户
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-{{ site.data.reusables.profile.user_profile_page_block_or_report }}
+{% data reusables.profile.user_profile_page_navigation %}
+{% data reusables.profile.user_profile_page_block_or_report %}
 3. 单击 **Block user（阻止用户）**。 ![包含阻止用户或举报滥用选项的模态框](/assets/images/help/profile/profile-blockuser.png)
 
 {% note %}
 
-如果您受到骚扰，请使用 {{ site.data.variables.contact.report_abuse }} 联系我们。 {{ site.data.reusables.policies.abuse }}
+如果您受到骚扰，请使用 {% data variables.contact.report_abuse %} 联系我们。 {% data reusables.policies.abuse %}
 
 {% endnote %}
 

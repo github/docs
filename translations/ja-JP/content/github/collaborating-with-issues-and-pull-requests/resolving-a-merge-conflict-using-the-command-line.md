@@ -13,7 +13,7 @@ versions:
 
 {% tip %}
 
-**ヒント:** {{ site.data.variables.product.product_name }} でコンフリクト エディターを使用することで、Pull Request の一部であるブランチの間で競合している行変更のマージ コンフリクトを解消できます。 詳細については、「[GitHub でマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-on-github)」を参照してください。
+**ヒント:** {% data variables.product.product_name %} でコンフリクト エディターを使用することで、Pull Request の一部であるブランチの間で競合している行変更のマージ コンフリクトを解消できます。 詳細については、「[GitHub でマージコンフリクトを解決する](/articles/resolving-a-merge-conflict-on-github)」を参照してください。
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ versions:
 
 たとえば、あなたともう一人が両方とも、同じ Git リポジトリの別のブランチにあるファイル _styleguide.md_ で同じ行を編集した場合、これらのブランチをマージしようとするとマージ コンフリクト エラーが発生します。 これらのブランチをマージする前に、新たなコミットでこのマージ コンフリクトを解決する必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. マージ コンフリクトが発生しているローカルの Git リポジトリに移動します。
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +53,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ```
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }}この例では、両方の変更が最終的なマージに取り込まれます。
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}この例では、両方の変更が最終的なマージに取り込まれます。
 
   ```shell
   質問がある場合は、Issue を開くか、緊急の場合は IRC チャネルにてお問い合わせください。
@@ -67,7 +67,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{{ site.data.variables.product.product_name }} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 削除したファイルのマージコンフリクト
 
@@ -75,7 +75,7 @@ ask your question in IRC.
 
 たとえば、あなたが *README.md* などのファイルを編集した場合、別の人が同じ Git リポジトリ内の別のブランチにある同じファイルを削除したならば、これらのブランチをマージしようとした際にマージコンフリクト エラーが発生します。 これらのブランチをマージする前に、新たなコミットでこのマージ コンフリクトを解決する必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. マージ コンフリクトが発生しているローカルの Git リポジトリに移動します。
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -116,7 +116,7 @@ ask your question in IRC.
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-これでコマンドラインでブランチをマージできます。 また、{{ site.data.variables.product.product_name }} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
+これでコマンドラインでブランチをマージできます。 また、{% data variables.product.product_name %} で[変更をリモート リポジトリにプッシュする](/articles/pushing-commits-to-a-remote-repository/)ことや、Pull Request で[変更をマージする](/articles/merging-a-pull-request/)ことができます。
 
 ### 参考リンク
 

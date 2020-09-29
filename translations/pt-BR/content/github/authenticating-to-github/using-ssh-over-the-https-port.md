@@ -25,20 +25,20 @@ Se deu certo, ótimo! Caso contrário, [siga nosso guia para solução de proble
 
 ### Habilitar conexões SSH por HTTPS
 
-Se você conseguir fazer SSH no `git@ssh.{{ site.data.variables.command_line.backticks }}` na porta 443, substitua as configurações SSH para forçar qualquer conexão ao {{ site.data.variables.product.product_location }} a ser executada nesse servidor e nessa porta.
+Se você conseguir fazer SSH no `git@ssh.{% data variables.command_line.backticks %}` na porta 443, substitua as configurações SSH para forçar qualquer conexão ao {% data variables.product.product_location %} a ser executada nesse servidor e nessa porta.
 
 Para definir isso na configuração SSH, edite o arquivo em `~/.ssh/config` e adicione esta seção:
 
 ```
-Host {{ site.data.variables.command_line.codeblock }}
-  Hostname ssh.{{ site.data.variables.command_line.codeblock }}
+Host {% data variables.command_line.codeblock %}
+  Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
 ```
 
-Para testar se funciona, conecte-se mais uma vez ao {{ site.data.variables.product.product_location }}:
+Para testar se funciona, conecte-se mais uma vez ao {% data variables.product.product_location %}:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Olá <em>username</em>! Você conseguiu se autenticar, mas o GitHub não
 > fornece acesso shell.
 ```

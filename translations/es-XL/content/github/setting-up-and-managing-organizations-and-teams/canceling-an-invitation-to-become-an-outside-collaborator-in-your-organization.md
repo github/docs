@@ -10,10 +10,10 @@ Puedes ver una lista de todas las personas con invitaciones pendientes para conv
 
 Para cada colaborador pendiente, puedes cancelar al mismo tiempo todas las invitaciones para unirse a los repositorios de la organización.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. Da clic en **colaboradores pendientes**. ![Botón de "Colaboradores pendientes"](/assets/images/help/organizations/pending-collaborator-list.png)
 6. A la derecha de la persona para la cual quieres cancelar las invitaciones, da clic en **Cancelar invitaciones**. ![Botón de "Cancelar invitación"](/assets/images/help/organizations/cancel-pending-collaborators.png)
 7. Da clic en **Cancelar invitaciones para los colaboradores pendientes**. ![Botón para confirmar cancelación](/assets/images/help/organizations/confirm-cancelation-of-pending-collaborators.png)

@@ -18,16 +18,16 @@ Only the user who created the pull request can give you permission to push commi
 
 {% note %}
 
-**Note:** You can also make commits to a pull request branch from a fork of your repository through {{ site.data.variables.product.product_location }} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)."
+**Note:** You can also make commits to a pull request branch from a fork of your repository through {% data variables.product.product_location %} by creating your own copy (or fork) of the fork of your repository and committing changes to the same head branch that the original pull request changes were created on. For some general guidelines, see "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)."
 
 {% endnote %}
 
-1. On {{ site.data.variables.product.product_name }}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **Tip:** If you prefer to clone the fork using {{ site.data.variables.product.prodname_desktop }}, then see "[Cloning a repository to {{ site.data.variables.product.prodname_desktop }}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
+ **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[Cloning a repository to {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)."
 
  {% endtip %}
 4. Change the current working directory to the location where you want to download the cloned directory.
@@ -36,11 +36,11 @@ Only the user who created the pull request can give you permission to push commi
   ```
 5. Type `git clone`, and then paste the URL you copied in Step 3.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
 6. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -75,11 +75,11 @@ Only the user who created the pull request can give you permission to push commi
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-Your new commits will be reflected on the original pull request on {{ site.data.variables.product.product_location }}.
+Your new commits will be reflected on the original pull request on {% data variables.product.product_location %}.
 
 ### Дальнейшее изучение
 

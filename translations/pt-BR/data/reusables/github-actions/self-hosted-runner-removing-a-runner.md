@@ -8,8 +8,8 @@
 
         O comando de remoção executa as seguintes tarefas:
 
-        * Remove o executor de {{ site.data.variables.product.product_name }}.
+        * Remove o executor de {% data variables.product.product_name %}.
         * Remove todos os arquivos de configuração do aplicativo de executor auto-hospedado na máquina.
         * Remove todos os serviços configurados se não estiver em execução no modo interativo.
 
-    * **Se você não tem acesso à máquina:** Clique em **Sim, forçar a remoção deste runner** para forçar {{ site.data.variables.product.product_name }} para remover o runner.
+    * **Se você não tem acesso à máquina:** Clique em **Sim, forçar a remoção deste runner** para forçar {% data variables.product.product_name %} para remover o runner.

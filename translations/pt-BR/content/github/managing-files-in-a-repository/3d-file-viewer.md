@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-O {{ site.data.variables.product.product_name }} pode hospedar e renderizar arquivos 3D com a extensão *.stl*.
+O {% data variables.product.product_name %} pode hospedar e renderizar arquivos 3D com a extensão *.stl*.
 
-Diretamente em um arquivo STL no {{ site.data.variables.product.product_name }}, você pode:
+Diretamente em um arquivo STL no {% data variables.product.product_name %}, você pode:
 
 * Clicar e arrastar para girar o modelo.
 * Clicar com o botão direito do mouse e arrastar para converter a exibição.

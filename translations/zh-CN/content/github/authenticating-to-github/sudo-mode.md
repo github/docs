@@ -1,6 +1,6 @@
 ---
 title: Sudo 模式
-intro: '{{ site.data.variables.product.product_name }} 要求您输入密码，然后才能修改电子邮件地址、授权第三方应用程序、添加新公钥或发起其他*受 sudo 保护的*操作。'
+intro: '{% data variables.product.product_name %} 要求您输入密码，然后才能修改电子邮件地址、授权第三方应用程序、添加新公钥或发起其他*受 sudo 保护的*操作。'
 redirect_from:
   - /articles/sudo-mode
 versions:

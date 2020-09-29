@@ -1,7 +1,7 @@
 ---
 title: 依存関係をキャッシュしてワークフローのスピードを上げる
 intro: ワークフローを高速化して効率を上げるために、依存関係や広く再利用されるファイルに対するキャッシュを作成して利用できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -13,9 +13,9 @@ versions:
 
 ワークフローの実行は、しばしば他の実行と同じ出力あるいはダウンロードされた依存関係を再利用します。 たとえばMaven、Gradle、npm、Yarnといったパッケージ及び依存関係管理ツールは、ダウンロードされた依存関係のローカルキャッシュを保持します。
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナー上のジョブは、クリーンな仮想環境で開始され、依存関係を毎回ダウンロードしなければならず、ネットワークの利用率を増大させ、実行時間が長くなり、コストが高まってしまいます。 これらのファイルの再生成にかかる時間を短縮しやすくするために、{{ site.data.variables.product.prodname_dotcom }}はワークフロー内で頻繁に使われる依存関係をキャッシュできます。
+{% data variables.product.prodname_dotcom %}ホストランナー上のジョブは、クリーンな仮想環境で開始され、依存関係を毎回ダウンロードしなければならず、ネットワークの利用率を増大させ、実行時間が長くなり、コストが高まってしまいます。 これらのファイルの再生成にかかる時間を短縮しやすくするために、{% data variables.product.prodname_dotcom %}はワークフロー内で頻繁に使われる依存関係をキャッシュできます。
 
-ジョブのために依存関係をキャッシュするには、{{ site.data.variables.product.prodname_dotcom }}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
+ジョブのために依存関係をキャッシュするには、{% data variables.product.prodname_dotcom %}の`cache`アクションを使わなければなりません。 このアクションは、ユニークなキーで指定されるキャッシュを取得します。 詳しい情報については「[`actions/cache`](https://github.com/actions/cache)」を参照してください。
 
 {% warning %}
 
@@ -25,7 +25,7 @@ versions:
 
 ### 成果物の比較と依存関係のキャッシング
 
-成果物とキャッシングは、{{ site.data.variables.product.prodname_dotcom }}にファイルを保存できるようにするので似ていますが、それぞれの機能のユースケースは異なっており、入れ替えて使うことはできません。
+成果物とキャッシングは、{% data variables.product.prodname_dotcom %}にファイルを保存できるようにするので似ていますが、それぞれの機能のユースケースは異なっており、入れ替えて使うことはできません。
 
 - キャッシングは、ジョブやワークフローの実行間で頻繁に変化しないファイルを再利用したいときに使ってください。
 - ジョブによって生成されたファイルをワークフローの終了後に見るために保存したい場合に成果物を使ってください。 詳しい情報については「[成果物を利用してワークフローのデータを永続化する](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)」を参照してください。
@@ -116,7 +116,7 @@ jobs:
 
 #### コンテキストを使ったキャッシュキーの作成
 
-キャッシュキーには、コンテキスト、関数、リテラル、{{ site.data.variables.product.prodname_actions }}がサポートする演算子を含めることができます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+キャッシュキーには、コンテキスト、関数、リテラル、{% data variables.product.prodname_actions %}がサポートする演算子を含めることができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 式を使って`key`を作成すれば、依存関係が変化したときに自動的に新しいキャッシュを作成できます。 たとえばnpmの`package-lock.json`ファイルのハッシュを計算する式を使って`key`を作成できます。
 
@@ -126,7 +126,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }}は`hash "package-lock.json"`という式を評価して、最終的な`key`を導出します。
+{% data variables.product.prodname_dotcom %}は`hash "package-lock.json"`という式を評価して、最終的な`key`を導出します。
 
 ```
 npm-d5ea0750
@@ -187,4 +187,4 @@ restore-keys: |
 
 ### 利用制限と退去のポリシー
 
-{{ site.data.variables.product.prodname_dotcom }}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは5GBに制限されます。 この制限を超えた場合、{{ site.data.variables.product.prodname_dotcom }}はキャッシュを保存しますが、合計サイズが5GB以下になるまでキャッシュを退去させはじめます。
+{% data variables.product.prodname_dotcom %}は、7日間以上アクセスされていないキャッシュエントリを削除します。 保存できるキャッシュ数には上限がありませんが、1つのリポジトリ内のすべてのキャッシュの合計サイズは5GBに制限されます。 この制限を超えた場合、{% data variables.product.prodname_dotcom %}はキャッシュを保存しますが、合計サイズが5GB以下になるまでキャッシュを退去させはじめます。

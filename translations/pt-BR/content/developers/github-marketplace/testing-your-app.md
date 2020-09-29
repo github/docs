@@ -1,6 +1,6 @@
 ---
 title: Testar seu aplicativo
-intro: 'O GitHub recomenda testar seu aplicativo com APIs e webhooks antes de enviar sua listagem para o {{ site.data.variables.product.prodname_marketplace }}, para que você possa oferecer uma experiência ideal para os clientes. Antes de a equipe de integração do {{ site.data.variables.product.prodname_marketplace }} aprovar seu aplicativo, ele deve gerenciar, de modo adequado, os [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
+intro: 'O GitHub recomenda testar seu aplicativo com APIs e webhooks antes de enviar sua listagem para o {% data variables.product.prodname_marketplace %}, para que você possa oferecer uma experiência ideal para os clientes. Antes de a equipe de integração do {% data variables.product.prodname_marketplace %} aprovar seu aplicativo, ele deve gerenciar, de modo adequado, os [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows).'
 redirect_from:
   - /apps/marketplace/testing-apps-apis-and-webhooks/
   - /apps/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/
@@ -13,19 +13,19 @@ versions:
 
 ### Testar aplicativos
 
-Você pode usar uma [listagem de rascunho do {{ site.data.variables.product.prodname_marketplace }} ](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) para simular cada um dos [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {{ site.data.variables.product.prodname_marketplace }} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito.
+Você pode usar uma [listagem de rascunho do {% data variables.product.prodname_marketplace %} ](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/) para simular cada um dos [fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows). Uma listagem com status de rascunho significa que não foi enviada à aprovação. Qualquer compra que você fizer usando uma listagem de rascunho do {% data variables.product.prodname_marketplace %} _não criará_ transações reais e o GitHub não efetuará nenhuma cobrança no seu cartão de crédito.
 
 #### Usar um aplicativo de desenvolvimento com uma listagem de rascunho para testar alterações
 
-Uma listagem do {{ site.data.variables.product.prodname_marketplace }} só pode ser associada a um único registro do aplicativo, e cada aplicativo só pode acessar sua própria listagem do {{ site.data.variables.product.prodname_marketplace }}. Por este motivo, recomendamos configurar um aplicativo de desenvolvimento separado, com a mesma configuração que o seu aplicativo de produção, bem como criar uma listagem de _rascunho de_ {{ site.data.variables.product.prodname_marketplace }} que você pode usar para testes. A listagem de rascunho do {{ site.data.variables.product.prodname_marketplace }} permite que você teste alterações sem afetar os usuários ativos do seu aplicativo de produção. Você nunca precisará enviar a sua lista de desenvolvimento do {{ site.data.variables.product.prodname_marketplace }}, uma vez que irá usá-la apenas para testes.
+Uma listagem do {% data variables.product.prodname_marketplace %} só pode ser associada a um único registro do aplicativo, e cada aplicativo só pode acessar sua própria listagem do {% data variables.product.prodname_marketplace %}. Por este motivo, recomendamos configurar um aplicativo de desenvolvimento separado, com a mesma configuração que o seu aplicativo de produção, bem como criar uma listagem de _rascunho de_ {% data variables.product.prodname_marketplace %} que você pode usar para testes. A listagem de rascunho do {% data variables.product.prodname_marketplace %} permite que você teste alterações sem afetar os usuários ativos do seu aplicativo de produção. Você nunca precisará enviar a sua lista de desenvolvimento do {% data variables.product.prodname_marketplace %}, uma vez que irá usá-la apenas para testes.
 
-Como você pode criar apenas listagens de rascunho do {{ site.data.variables.product.prodname_marketplace }} para aplicativos públicos, você deve tornar público o seu aplicativo de desenvolvimento. Os aplicativos públicos não são detectáveis fora das listagens publicadas do {{ site.data.variables.product.prodname_marketplace }}, desde que que você não compartilhe a URL do aplicativo. Uma listagem do Marketplace com o status de rascunho é visível apenas para o proprietário do aplicativo.
+Como você pode criar apenas listagens de rascunho do {% data variables.product.prodname_marketplace %} para aplicativos públicos, você deve tornar público o seu aplicativo de desenvolvimento. Os aplicativos públicos não são detectáveis fora das listagens publicadas do {% data variables.product.prodname_marketplace %}, desde que que você não compartilhe a URL do aplicativo. Uma listagem do Marketplace com o status de rascunho é visível apenas para o proprietário do aplicativo.
 
-Assim que você tiver um aplicativo de desenvolvimento com uma listagem de rascunho, você poderá usá-lo para testar as alterações feitas no seu aplicativo enquanto os integra à API e aos webhooks do {{ site.data.variables.product.prodname_marketplace }}.
+Assim que você tiver um aplicativo de desenvolvimento com uma listagem de rascunho, você poderá usá-lo para testar as alterações feitas no seu aplicativo enquanto os integra à API e aos webhooks do {% data variables.product.prodname_marketplace %}.
 
 {% warning %}
 
-Não faça compras de teste com um app que está ativo em {{ site.data.variables.product.prodname_marketplace }}.
+Não faça compras de teste com um app que está ativo em {% data variables.product.prodname_marketplace %}.
 
 {% endwarning %}
 
@@ -37,7 +37,7 @@ Seus cenários de teste podem exigir a definição de planos de listagem que ofe
 
 ### Testar APIs
 
-Para a maioria dos pontos de extremidade da API de do {{ site.data.variables.product.prodname_marketplace }}, nós também fornecemos pontos de extremidade de teste da API, que retornam dados falsos de código que você pode usar para testes. Para receber dados de teste, você deve especificar as URLs de teste, que incluem `/teste` no encaminhamento (por exemplo, `/user/marketplace_purchases/stubbed`). Para obter uma lista de pontos de extremidade compatíveis com essa abordagem de dados de teste, consulte [pontos de extremidade do {{ site.data.variables.product.prodname_marketplace }} ](/v3/apps/marketplace/#github-marketplace). .
+Para a maioria dos pontos de extremidade da API de do {% data variables.product.prodname_marketplace %}, nós também fornecemos pontos de extremidade de teste da API, que retornam dados falsos de código que você pode usar para testes. Para receber dados de teste, você deve especificar as URLs de teste, que incluem `/teste` no encaminhamento (por exemplo, `/user/marketplace_purchases/stubbed`). Para obter uma lista de pontos de extremidade compatíveis com essa abordagem de dados de teste, consulte [pontos de extremidade do {% data variables.product.prodname_marketplace %} ](/v3/apps/marketplace/#github-marketplace). .
 
 ### Testar webhooks
 

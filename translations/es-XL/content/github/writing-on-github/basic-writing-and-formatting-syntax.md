@@ -85,17 +85,17 @@ Puedes crear un enlace en línea al encerrar el texto del enlace entre corchetes
 
 {% tip %}
 
-**Sugerencias:** {{ site.data.variables.product.product_name }} automáticamente crea enlaces cuando las direcciones URL válidas están escritas en un comentario. Para obtener más información, consulta "[Referencias autovinculadas y direcciones de URL](/articles/autolinked-references-and-urls)".
+**Sugerencias:** {% data variables.product.product_name %} automáticamente crea enlaces cuando las direcciones URL válidas están escritas en un comentario. Para obtener más información, consulta "[Referencias autovinculadas y direcciones de URL](/articles/autolinked-references-and-urls)".
 
 {% endtip %}
 
 ### Enlaces de sección
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### Enlaces relativos
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Listas
 
@@ -123,7 +123,7 @@ Para ordenar tu lista, antecede cada línea con un número.
 
 Puedes crear una lista anidada al dejar sangría en uno o más elementos de la lista debajo de otro elemento.
 
-Para crear una lista anidada mediante el editor web en {{ site.data.variables.product.product_name }} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Escribe los caracteres con espacio frente a tu elemento de la lista anidada hasta que el carácter del marcador de lista (`-` or `*`) se encuentre directamente debajo del primer carácter del texto en el elemento que se encuentra por debajo.
+Para crear una lista anidada mediante el editor web en {% data variables.product.product_name %} o un editor de texto que usa una fuente monoespaciada, como [Atom](https://atom.io/), puedes alinear tu lista visualmente. Escribe los caracteres con espacio frente a tu elemento de la lista anidada hasta que el carácter del marcador de lista (`-` or `*`) se encuentre directamente debajo del primer carácter del texto en el elemento que se encuentra por debajo.
 
 ```
 1. Primer elemento de la lista
@@ -135,7 +135,7 @@ Para crear una lista anidada mediante el editor web en {{ site.data.variables.pr
 
 ![Lista con dos niveles de elementos anidados](/assets/images/help/writing/nested-list-example-1.png)
 
-Para crear una lista anidada en el editor de comentarios en {{ site.data.variables.product.product_name }}, que no usa una fuente monoespaciada, puedes observar el elemento de la lista inmediatamente anterior a la lista anidada y contar el número de caracteres que aparecen antes del contenido del elemento. Luego escribe ese número de caracteres de espacio frente al elemento de la lista anidada.
+Para crear una lista anidada en el editor de comentarios en {% data variables.product.product_name %}, que no usa una fuente monoespaciada, puedes observar el elemento de la lista inmediatamente anterior a la lista anidada y contar el número de caracteres que aparecen antes del contenido del elemento. Luego escribe ese número de caracteres de espacio frente al elemento de la lista anidada.
 
 En este ejemplo, puedes agregar un elemento de la lista anidada debajo del elemento de la lista `100. Primer elemento de la lista` con una sangría mínima de cinco espacios para el elemento de la lista anidada, dado que hay cinco caracteres (`100.`) antes del `Primer elemento de la lista`.
 
@@ -160,7 +160,7 @@ Para conocer más ejemplos, consulta las [Especificaciones de formato Markdown d
 
 ### Listas de tareas
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 If a task list item description begins with a parenthesis, you'll need to escape it with `\`:
 
@@ -170,7 +170,7 @@ Para obtener más información, consulta "[Acerca de las listas de tareas](/arti
 
 ### Mencionar personas y equipos
 
-Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {{ site.data.variables.product.product_name }} al escribir `@` más el nombre de usuario o el nombre del equipo. This will trigger a notification and bring their attention to the conversation. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
+Puedes mencionar a una persona o [equipo](/articles/setting-up-teams/) en {% data variables.product.product_name %} al escribir `@` más el nombre de usuario o el nombre del equipo. This will trigger a notification and bring their attention to the conversation. Las personas también recibirán una notificación si editas un comentario para mencionar su nombre de usuario o el nombre del equipo. Para obtener más información acerca de las notificaciones, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
 
 `@github/support ¿Qué piensas sobre estas actualizaciones?`
 
@@ -191,21 +191,21 @@ Para obtener más información, consulta "[Referencias y direcciones URL autovin
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Hacer referencia a recursos externos
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 
 ### Adjuntos de contenido
 
-Algunas {{ site.data.variables.product.prodname_github_app }} brindan información en {{ site.data.variables.product.product_name }} para las URL que se vinculan con sus dominios registrados. {{ site.data.variables.product.product_name }} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
+Algunas {% data variables.product.prodname_github_app %} brindan información en {% data variables.product.product_name %} para las URL que se vinculan con sus dominios registrados. {% data variables.product.product_name %} presenta la información suministrada por la app debajo de la URL en el cuerpo o comentario de una propuesta o solicitud de extracción.
 
 ![Adjunto de contenido](/assets/images/help/writing/content-attachment.png)
 
-Para ver los adjuntos de contenido, debes tener un {{ site.data.variables.product.prodname_github_app }} que use la API de los adjuntos de contenido instalada en el repositorio.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para ver los adjuntos de contenido, debes tener un {% data variables.product.prodname_github_app %} que use la API de los adjuntos de contenido instalada en el repositorio.{% if currentVersion == "free-pro-team@latest" %} Para obtener más información, consulta "[Instalar una app en tu cuenta personal](/articles/installing-an-app-in-your-personal-account)" y "[Instalar una app en tu organización](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Los adjuntos de contenido no se mostrarán para las URL que son parte de un enlace de Markdown.
 
-Para obtener más información sobre el desarrollo de una {{ site.data.variables.product.prodname_github_app }} que utilice adjuntos de contenido, consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments)".
+Para obtener más información sobre el desarrollo de una {% data variables.product.prodname_github_app %} que utilice adjuntos de contenido, consulta la sección "[Utilizar adjuntos de contenido](/apps/using-content-attachments)".
 
 ### Usar emojis
 
@@ -225,7 +225,7 @@ Puedes crear un nuevo párrafo al dejar una línea en blanco entre las líneas d
 
 ### Importar formato de Markdown
 
-Puedes pedirle a {{ site.data.variables.product.product_name }} que ignore (o evada) el formato de Markdown usando la `\` antes del caracter de Markdown.
+Puedes pedirle a {% data variables.product.product_name %} que ignore (o evada) el formato de Markdown usando la `\` antes del caracter de Markdown.
 
 `Cambiemos el nombre de \*our-new-project\* a \*our-old-project\*.`
 
@@ -235,7 +235,7 @@ Para obtener más información, consulta "[Sintaxis de Markdown" de Daring Fireb
 
 ### Leer más
 
-- [{{ site.data.variables.product.prodname_dotcom }} Especificaciones del formato Markdown](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - "[Acerca de escritura y formato en GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Trabajar con formato avanzado](/articles/working-with-advanced-formatting)"
 - "[Dominar Markdown](https://guides.github.com/features/mastering-markdown/)"

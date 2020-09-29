@@ -11,9 +11,9 @@ versions:
 
 
 
-For any Pull Request, {{ site.data.variables.product.product_name }} provides three kinds of comment views: [comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request, and [comments on a specific commit][commit comment] within the Pull Request.
+For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views: [comments on the Pull Request][PR comment] as a whole, [comments on a specific line][PR line comment] within the Pull Request, and [comments on a specific commit][commit comment] within the Pull Request.
 
-Each of these types of comments goes through a different portion of the {{ site.data.variables.product.product_name }} API. In this guide, we'll explore how you can access and manipulate each one. For every example, we'll be using [this sample Pull Request made][sample PR] on the "octocat" repository. As always, samples can be found in [our platform-samples repository][platform-samples].
+Each of these types of comments goes through a different portion of the {% data variables.product.product_name %} API. In this guide, we'll explore how you can access and manipulate each one. For every example, we'll be using [this sample Pull Request made][sample PR] on the "octocat" repository. As always, samples can be found in [our platform-samples repository][platform-samples].
 
 ### Pull Request Comments
 

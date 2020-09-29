@@ -1,6 +1,6 @@
 ---
 title: Varredura secreta
-intro: 'Como um provedor de serviço, você pode associar-se ao {{ site.data.variables.product.prodname_dotcom }} para proteger os seus formatos de token secretos por varredura de segredos, que pesquisa commits acidentais no seu formato secreto e que pode ser enviado para o ponto de extremidade de verificação de um provedor de serviços.'
+intro: 'Como um provedor de serviço, você pode associar-se ao {% data variables.product.prodname_dotcom %} para proteger os seus formatos de token secretos por varredura de segredos, que pesquisa commits acidentais no seu formato secreto e que pode ser enviado para o ponto de extremidade de verificação de um provedor de serviços.'
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
@@ -9,11 +9,11 @@ versions:
 ---
 
 
-O {{ site.data.variables.product.prodname_dotcom }} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. A verificação secreta acontece por padrão em repositórios públicos e pode ser ativada em repositórios privados por administradores de repositórios ou proprietários de organizações. Como um provedor de serviço, você pode associar-se ao {{ site.data.variables.product.prodname_dotcom }} para que seus formatos secretos estejam incluídos em nossa varredura de segredos.
+O {% data variables.product.prodname_dotcom %} faz a varredura de repositórios de formatos secretos conhecidos para evitar uso fraudulento de credenciais confirmadas acidentalmente. A verificação secreta acontece por padrão em repositórios públicos e pode ser ativada em repositórios privados por administradores de repositórios ou proprietários de organizações. Como um provedor de serviço, você pode associar-se ao {% data variables.product.prodname_dotcom %} para que seus formatos secretos estejam incluídos em nossa varredura de segredos.
 
 Quando uma correspondência do seu formato secreto é encontrada em um repositório público, uma carga é enviada para um ponto de extremidade HTTP de sua escolha.
 
-Quando uma correspondência do seu formato secreto é encontrada em um repositório privado configurado para varredura de segredos, os administradores do repositório são alertados e podem visualizar e gerenciar os resultados da varredura secreta em {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte "[Gerenciar alertas do varredura de segredos](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
+Quando uma correspondência do seu formato secreto é encontrada em um repositório privado configurado para varredura de segredos, os administradores do repositório são alertados e podem visualizar e gerenciar os resultados da varredura secreta em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Gerenciar alertas do varredura de segredos](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
 
 {% note %}
 
@@ -21,7 +21,7 @@ Quando uma correspondência do seu formato secreto é encontrada em um repositó
 
 {% endnote %}
 
-Este artigo descreve como você pode associar-se ao {{ site.data.variables.product.prodname_dotcom }}  como um provedor de serviço e participar do programa de varredura secreto.
+Este artigo descreve como você pode associar-se ao {% data variables.product.prodname_dotcom %}  como um provedor de serviço e participar do programa de varredura secreto.
 
 ### O processo de varredura de segredo
 
@@ -31,33 +31,33 @@ O diagrama a seguir resume o processo de varredura de segredo de repositórios p
 
 ![Diagrama do fluxo que mostra o processo de varredura de um segredo e envio de correspondências para o ponto de extremidade de verificação de um provedor de serviços](/assets/images/secret-scanning-flow.png "Fluxo de varredura de segredo")
 
-### Associar-se ao programa de varredura secreto em {{ site.data.variables.product.prodname_dotcom }}
+### Associar-se ao programa de varredura secreto em {% data variables.product.prodname_dotcom %}
 
-1. Entre em contato com {{ site.data.variables.product.prodname_dotcom }} para dar início ao processo.
+1. Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo.
 1. Identifique os segredos relevantes cuja varredura você deseja realizar e crie expressões regulares para capturá-los.
-1. Para correspondências secretas encontradas em repositórios públicos, crie um serviço de alerta secreto que aceita webhooks do {{ site.data.variables.product.prodname_dotcom }}, que contêm a carga da mensagem da varredura de segredo.
+1. Para correspondências secretas encontradas em repositórios públicos, crie um serviço de alerta secreto que aceita webhooks do {% data variables.product.prodname_dotcom %}, que contêm a carga da mensagem da varredura de segredo.
 1. Implemente a verificação de assinatura em seu serviço de alerta secreto.
 1. Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto.
 
-#### Entre em contato com {{ site.data.variables.product.prodname_dotcom }} para dar início ao processo
+#### Entre em contato com {% data variables.product.prodname_dotcom %} para dar início ao processo
 
 Para iniciar o processo de inscrição, envie um e-mail para secret-scanning@github.com.
 
-Você receberá os detalhes sobre o programa de verificação secreta e deverá concordar com os termos de participação de {{ site.data.variables.product.prodname_dotcom }} antes de prosseguir.
+Você receberá os detalhes sobre o programa de verificação secreta e deverá concordar com os termos de participação de {% data variables.product.prodname_dotcom %} antes de prosseguir.
 
 #### Identifique seus segredos e crie expressões regulares
 
-Para fazer a varredura dos seus segredos, o {{ site.data.variables.product.prodname_dotcom }} precisa das seguintes informações para cada segredo que você desejar incluir no programa de varredura de segredo:
+Para fazer a varredura dos seus segredos, o {% data variables.product.prodname_dotcom %} precisa das seguintes informações para cada segredo que você desejar incluir no programa de varredura de segredo:
 
 * Um nome único e legível para o tipo do segredo. Nós vamos usá-lo para gerar o valor `Tipo` na carga da mensagem posteriormente.
 * Uma expressão regular que encontra o tipo do segredo. Seja o mais preciso possível, pois isso reduzirá o número de falsos positivos.
-* A URL do ponto de extremidade que recebe mensagens de {{ site.data.variables.product.prodname_dotcom }}. Isso não precisa ser único para cada tipo de segredo.
+* A URL do ponto de extremidade que recebe mensagens de {% data variables.product.prodname_dotcom %}. Isso não precisa ser único para cada tipo de segredo.
 
 Envie esta informação para o secret-scanning@github.com.
 
 #### Crie um serviço de alerta secreto
 
-Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência de sua expressão regular é encontrada em um repositório público, o {{ site.data.variables.product.prodname_dotcom }} enviará uma mensagem HTTP de `POST` para o seu ponto de extremidade.
+Crie um ponto de extremidade HTTP público e acessível à internet na URL que você nos forneceu. Quando uma correspondência de sua expressão regular é encontrada em um repositório público, o {% data variables.product.prodname_dotcom %} enviará uma mensagem HTTP de `POST` para o seu ponto de extremidade.
 
 ##### Exemplo de POST enviado para seu ponto de extremidade
 
@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {{ site.data.variables.product.prodname_dotcom }} pode enviar uma única mensagem com mais de uma correspondência secreta.
+O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seguinte conteúdo. Quando várias correspondências forem encontradas, o {% data variables.product.prodname_dotcom %} pode enviar uma única mensagem com mais de uma correspondência secreta.
 
 * **Token**: O valor da correspondência secreta.
 * **Tipo**: O nome único que você forneceu para identificar sua expressão regular.
@@ -87,9 +87,9 @@ O corpo da mensagem é um array do JSON que contém um ou mais objetos com o seg
 
 #### Implemente a verificação de assinatura em seu serviço de alerta secreto
 
-É altamente recomendável que você implemente a validação da assinatura no seu serviço de alerta de segredo para garantir que as mensagens que você recebe sejam genuinamente de {{ site.data.variables.product.prodname_dotcom }} e não sejam maliciosas.
+É altamente recomendável que você implemente a validação da assinatura no seu serviço de alerta de segredo para garantir que as mensagens que você recebe sejam genuinamente de {% data variables.product.prodname_dotcom %} e não sejam maliciosas.
 
-Você pode recuperar a chave pública de da varredura secreta do segredo do {{ site.data.variables.product.prodname_dotcom }} em https://api.github.com/meta/public_keys/secret_scanning e validar a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
+Você pode recuperar a chave pública de da varredura secreta do segredo do {% data variables.product.prodname_dotcom %} em https://api.github.com/meta/public_keys/secret_scanning e validar a mensagem usando o algoritmo `ECDSA-NIST-P256V1-SHA256`.
 
 Supondo que você receba a mensagem a seguir, os trechos de código abaixo demonstram como você poderia efetuar a validação da assinatura. O código também assume que você definiu uma variável de ambiente denominada `GITHUB_PRODUCTION_TOKEN` com um PAT gerado (https://github.com/settings/tokens). O token não precisa de nenhuma permissão definida.
 
@@ -277,4 +277,4 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 #### Implemente revogação do segredo e notificação do usuário no seu serviço de alerta secreto
 
-Para a verificação de segredo de repositórios públicos, é possível melhorar o serviço de alerta de segredo para revogar os segredos expostos e notificar os usuários afetados. Você define como implementa isso no seu serviço de alerta de segredo, mas recomendamos considerar qualquer segredo que {{ site.data.variables.product.prodname_dotcom }} envie mensagens de que é público e que está comprometido.
+Para a verificação de segredo de repositórios públicos, é possível melhorar o serviço de alerta de segredo para revogar os segredos expostos e notificar os usuários afetados. Você define como implementa isso no seu serviço de alerta de segredo, mas recomendamos considerar qualquer segredo que {% data variables.product.prodname_dotcom %} envie mensagens de que é público e que está comprometido.

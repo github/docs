@@ -6,7 +6,7 @@ O log lista as seguintes informações sobre cada ação:
 * Em que país a ação foi executada
 * A data e a hora que a ação foi executada
 
-Observe que não é possível pesquisar as entradas usando texto. No entanto, é possível criar consultas de pesquisa usando diversos filtros. Muitos operadores usados ao consultar o log de auditoria, como `-`, `>`, ou `<`, correspondem ao mesmo formato de pesquisa no {{ site.data.variables.product.product_name }}. Para obter mais informações, consulte "[Searching on {{ site.data.variables.product.prodname_dotcom }}](/github/searching-for-information-on-github/about-searching-on-github)."
+Observe que não é possível pesquisar as entradas usando texto. No entanto, é possível criar consultas de pesquisa usando diversos filtros. Muitos operadores usados ao consultar o log de auditoria, como `-`, `>`, ou `<`, correspondem ao mesmo formato de pesquisa no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Searching on {% data variables.product.prodname_dotcom %}](/github/searching-for-information-on-github/about-searching-on-github)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 #### Pesquisar com base em operação
@@ -40,4 +40,4 @@ O qualificador `actor` pode pesquisar eventos com base em quem executou a ação
   * `actor:octocat actor:hubot` localiza todos os eventos realizados por ambos `octocat` e `hubot`.
   * `-actor:hubot` exclui todos os eventos realizados por `hubot`.
 
-Observe que só é possível usar um nome de usuário do {{ site.data.variables.product.product_name }}, e não o nome verdadeiro da pessoa.
+Observe que só é possível usar um nome de usuário do {% data variables.product.product_name %}, e não o nome verdadeiro da pessoa.

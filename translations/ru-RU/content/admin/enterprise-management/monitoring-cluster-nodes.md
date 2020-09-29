@@ -1,6 +1,6 @@
 ---
 title: Monitoring cluster nodes
-intro: 'A {{ site.data.variables.product.prodname_ghe_server }} cluster is comprised of redundant services that are distributed across two or more nodes. If an individual service or an entire node were to fail, it should not be immediately apparent to users of the cluster. However since performance and redundancy are affected, it is important to monitor the health of a {{ site.data.variables.product.prodname_ghe_server }} cluster.'
+intro: 'A {% data variables.product.prodname_ghe_server %} cluster is comprised of redundant services that are distributed across two or more nodes. If an individual service or an entire node were to fail, it should not be immediately apparent to users of the cluster. However since performance and redundancy are affected, it is important to monitor the health of a {% data variables.product.prodname_ghe_server %} cluster.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
   - /enterprise/admin/enterprise-management/monitoring-cluster-nodes
@@ -10,7 +10,7 @@ versions:
 
 ### Manually checking cluster status
 
-{{ site.data.variables.product.prodname_ghe_server }} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:
+{% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -25,14 +25,14 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 ### Monitoring cluster status with Nagios
 
-You can configure [Nagios](https://www.nagios.org/) to monitor {{ site.data.variables.product.prodname_ghe_server }}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
+You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables.product.prodname_ghe_server %}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
 
 #### Требования
 * Linux host running Nagios.
-* Network access to the {{ site.data.variables.product.prodname_ghe_server }} cluster.
+* Network access to the {% data variables.product.prodname_ghe_server %} cluster.
 
 #### Configuring the Nagios host
-1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {{ site.data.variables.product.prodname_ghe_server }} cluster.
+1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
   > Generating public/private rsa key pair.
@@ -80,7 +80,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {{ site.data.vari
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. Add this command to a service definition for a node in the {{ site.data.variables.product.prodname_ghe_server }} cluster.
+7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
 
   ###### Example definition

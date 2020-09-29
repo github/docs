@@ -1,7 +1,7 @@
 ---
 title: Configuring `dotnet` CLI for use with GitHub Packages
-intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {{ site.data.variables.product.prodname_registry }} and to use packages stored on {{ site.data.variables.product.prodname_registry }} as dependencies in a .NET project.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can configure the `dotnet` command-line interface (CLI) to publish NuGet packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a .NET project.'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-nuget-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-nuget-for-use-with-github-package-registry
@@ -12,25 +12,25 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
-{{ site.data.reusables.package_registry.admins-can-configure-package-types }}
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Authenticating to {{ site.data.variables.product.prodname_registry }}
+### Authenticating to {% data variables.product.prodname_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.authenticate-packages %}
 
 #### Authenticating with a personal access token
 
-{{ site.data.reusables.package_registry.required-scopes }}
+{% data reusables.package_registry.required-scopes %}
 
-To authenticate to {{ site.data.variables.product.prodname_registry }} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {{ site.data.variables.product.prodname_registry }} as a source under `packageSources` for the `dotnet` CLI client.
+To authenticate to {% data variables.product.prodname_registry %} with the `dotnet` command-line interface (CLI), create a *nuget.config* file in your project directory specifying {% data variables.product.prodname_registry %} as a source under `packageSources` for the `dotnet` CLI client.
 
 You must replace:
-- `USERNAME` with the name of your user account on {{ site.data.variables.product.prodname_dotcom }}.
+- `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
 - `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if currentVersion != "free-pro-team@latest" %}
-- `HOSTNAME` with the host name for your {{ site.data.variables.product.prodname_ghe_server }} instance.
+- `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
 
 If your instance has subdomain isolation enabled:
 {% endif %}
@@ -73,15 +73,15 @@ If your instance has subdomain isolation disabled:
 
 #### Authenticating with the `GITHUB_TOKEN`
 
-{{ site.data.reusables.package_registry.package-registry-with-github-tokens }}
+{% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### Publishing a package
 
-You can publish a package to {{ site.data.variables.product.prodname_registry }} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
-{{ site.data.reusables.package_registry.viewing-packages }}
+{% data reusables.package_registry.viewing-packages %}
 
-{{ site.data.reusables.package_registry.authenticate-step}}
+{% data reusables.package_registry.authenticate-step %}
 2. Create a new project.
   ```shell
   dotnet new console --name OctocatApp
@@ -90,7 +90,7 @@ You can publish a package to {{ site.data.variables.product.prodname_registry }}
     - `OWNER` with the name of the user or organization account that owns the repository containing your project.
     - `REPOSITORY` with the name of the repository containing the package you want to publish.
     - `1.0.0` with the version number of the package.{% if currentVersion != "free-pro-team@latest" %}
-    - `HOSTNAME` with the host name for your {{ site.data.variables.product.prodname_ghe_server }} instance.{% endif %}
+    - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
 
@@ -119,7 +119,7 @@ You can publish a package to {{ site.data.variables.product.prodname_registry }}
 
 ### Publishing multiple packages to the same repository
 
-To publish multiple packages to the same repository, you can include the same {{ site.data.variables.product.prodname_dotcom }} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {{ site.data.variables.product.prodname_dotcom }} matches the repository based on that field.
+To publish multiple packages to the same repository, you can include the same {% data variables.product.prodname_dotcom %} repository URL in the `RepositoryURL` fields in all *.csproj* project files. {% data variables.product.prodname_dotcom %} matches the repository based on that field.
 
 For example, the *OctodogApp* and *OctocatApp* projects will publish to the same repository:
 
@@ -160,9 +160,9 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 
 ### Installing a package
 
-Using packages from {{ site.data.variables.product.prodname_dotcom }} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
-{{ site.data.reusables.package_registry.authenticate-step}}
+{% data reusables.package_registry.authenticate-step %}
 
 2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file, replacing the `OctokittenApp` package with your package dependency and `1.0.0` with the version you want to use:
   ``` xml

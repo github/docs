@@ -47,5 +47,5 @@ Usamos [Lingüista](https://github.com/github/linguist) para realizar la detecci
 
 ### Leer más
 
-- [{{ site.data.variables.product.prodname_dotcom }} Especificaciones del formato Markdown](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Especificaciones del formato Markdown](https://github.github.com/gfm/)
 - [Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax)"

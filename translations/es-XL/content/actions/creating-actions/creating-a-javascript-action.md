@@ -1,7 +1,7 @@
 ---
 title: Crear una acción de JavaScript
 intro: 'En esta guía, aprenderás como desarrollar una acción de JavaScript usando el kit de herramientas de acciones.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introducción
 
 En esta guía, aprenderás acerca de los componentes básicos necesarios para crear y usar una acción de JavaScript empaquetada. Para centrar esta guía en los componentes necesarios para empaquetar la acción, la funcionalidad del código de la acción es mínima. La acción imprime "Hello World" en los registros o "Hello [who-to-greet]"si proporcionas un nombre personalizado.
 
-Esta guía usa el módulo Node.js del kit de herramientas {{ site.data.variables.product.prodname_actions }} para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
+Esta guía usa el módulo Node.js del kit de herramientas {% data variables.product.prodname_actions %} para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
 Una vez que completes este proyecto, deberías comprender cómo crear tu propia acción de JavaScript y probarla en un flujo de trabajo.
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### Prerrequisitos
 
@@ -33,7 +33,7 @@ Antes de comenzar, necesitarás descargar Node.js y crear un repositorio GitHub.
 
   https://nodejs.org/en/download/current/
 
-1. Crea un repositorio nuevo en {{ site.data.variables.product.product_location }}. Puedes elegir cualquier nombre de repositorio o usar "hello-world-javascript-action" como este ejemplo. Puedes agregar estos archivos después de que tu proyecto se haya subido a {{ site.data.variables.product.product_name }}. Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
+1. Crea un repositorio nuevo en {% data variables.product.product_location %}. Puedes elegir cualquier nombre de repositorio o usar "hello-world-javascript-action" como este ejemplo. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
 
 1. Clona el repositorio en tu computadora. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 
@@ -51,7 +51,7 @@ Antes de comenzar, necesitarás descargar Node.js y crear un repositorio GitHub.
 
 ### Crear un archivo de metadatos de una acción
 
-Crea un nuevo archivo `action.yml` en el directorio `hello-world-javascript-action` con el siguiente código de ejemplo. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions)".
+Crea un nuevo archivo `action.yml` en el directorio `hello-world-javascript-action` con el siguiente código de ejemplo. Para obtener más información, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions)".
 
 
 **action.yml**
@@ -162,7 +162,7 @@ with:
 
 ### Confirmar, etiquetar y subir tu acción a GitHub
 
-{{ site.data.variables.product.product_name }} descarga cada acción ejecutada en un flujo de trabajo durante el tiempo de ejecución y la ejecuta como un paquete completo de código antes de que puedas usar comandos de flujo de trabajo como `run` para interactuar con la máquina del ejecutor. Eso significa que debes incluir cualquier dependencia del paquete requerida para ejecutar el código de JavaScript. Necesitarás verificar los paquetes `core` y `github` del kit de herramientas para el repositorio de tu acción.
+{% data variables.product.product_name %} descarga cada acción ejecutada en un flujo de trabajo durante el tiempo de ejecución y la ejecuta como un paquete completo de código antes de que puedas usar comandos de flujo de trabajo como `run` para interactuar con la máquina del ejecutor. Eso significa que debes incluir cualquier dependencia del paquete requerida para ejecutar el código de JavaScript. Necesitarás verificar los paquetes `core` y `github` del kit de herramientas para el repositorio de tu acción.
 
 Desde tu terminal, confirma tus archivos `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json` y `README.md`. Si agregaste un archivo `.gitignore` que enumera `node_modules`, deberás eliminar esa línea para confirmar el directorio `node_modules`.
 
@@ -200,7 +200,7 @@ git push --follow-tags
 
 Ahora estás listo para probar tu acción en un flujo de trabajo. Cuando una acción esté en un repositorio privado, la acción solo puede usarse en flujos de trabajo en el mismo repositorio. Las acciones públicas pueden ser usadas por flujos de trabajo en cualquier repositorio.
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### Ejemplo usando una acción pública
 

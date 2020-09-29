@@ -1,6 +1,6 @@
 ---
 title: ユーザを検索する
-intro: '{{ site.data.variables.product.product_name }} 上のユーザを検索できます。また、これらのユーザの検索修飾子の組み合わせを使って、結果を絞り込むことができます。'
+intro: '{% data variables.product.product_name %} 上のユーザを検索できます。また、これらのユーザの検索修飾子の組み合わせを使って、結果を絞り込むことができます。'
 redirect_from:
   - /articles/searching-users
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} のユーザを幅広くグローバルに検索できます。 詳細は「[{{ site.data.variables.product.company_short }} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} のユーザを幅広くグローバルに検索できます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### ユーザまたは Organization に限られた検索
 
@@ -64,9 +64,9 @@ versions:
 
 ### ユーザアカウントの作成時期で検索
 
-`created` 修飾子を使って、{{ site.data.variables.product.product_name }} に参加した時期でユーザをフィルタリングできます。 パラメータとして日付を採用しています。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+`created` 修飾子を使って、{% data variables.product.product_name %} に参加した時期でユーザをフィルタリングできます。 パラメータとして日付を採用しています。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                       | サンプル                                                                                                                                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

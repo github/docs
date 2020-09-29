@@ -1,6 +1,6 @@
 ---
 title: Hochverfügbarkeitskonfiguration wiederherstellen
-intro: 'Nachdem Sie ein Failover zur {{ site.data.variables.product.prodname_ghe_server }}-Appliance durchgeführt haben, sollten Sie schnellstmöglich die Redundanz zurückerlangen, anstatt sich auf eine einzelne Appliance zu verlassen.'
+intro: 'Nachdem Sie ein Failover zur {% data variables.product.prodname_ghe_server %}-Appliance durchgeführt haben, sollten Sie schnellstmöglich die Redundanz zurückerlangen, anstatt sich auf eine einzelne Appliance zu verlassen.'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
@@ -20,9 +20,9 @@ Sie können die vorherige primäre Appliance als neue Replikat-Appliance verwend
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. Führen Sie den Befehl `ghe-repl-setup` erneut aus, um die Verbindung zur neuen primären Instanz zu verifizieren und um den Replikatmodus für das neue Replikat zu aktivieren.
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

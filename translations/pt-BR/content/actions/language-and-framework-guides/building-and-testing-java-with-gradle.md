@@ -1,34 +1,34 @@
 ---
 title: Criar e estar o Java com o Gradle
 intro: Você pode criar um fluxo de trabalho de integração contínua (CI) no GitHub Actions para criar e testar o seu projeto Java com o Gradle.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introdução
 
 Este guia mostra como criar um fluxo de trabalho que realiza a integração contínua (CI) para o seu projeto Java usando o sistema de criação do Gradle. O fluxo de trabalho que você criar permitirá que você veja quando commits em um pull request gerarão falhas de criação ou de teste em comparação com o seu branch-padrão. Essa abordagem pode ajudar a garantir que seu código seja sempre saudável. Você pode estender seu fluxo de trabalho de CI para memorizar arquivos e fazer o upload de artefatos a partir da execução de um fluxo de trabalho.
 
-Os executores hospedados em {{ site.data.variables.product.prodname_dotcom }} têm uma cache de ferramentas com com software pré-instalado, que inclui kits de desenvolvimento Java (JDKs) e Gradle. Para obter uma lista do software e das versões pré-instaladas para JDK e Gradle, consulte "[Software instalado em executores hospedados em {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
+Os executores hospedados em {% data variables.product.prodname_dotcom %} têm uma cache de ferramentas com com software pré-instalado, que inclui kits de desenvolvimento Java (JDKs) e Gradle. Para obter uma lista do software e das versões pré-instaladas para JDK e Gradle, consulte "[Software instalado em executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
 
 ### Pré-requisitos
 
-Você deve estar familiarizado com o YAML e a sintaxe do {{ site.data.variables.product.prodname_actions }}. Para obter mais informações, consulte:
-- "[Sintaxe de fluxo de trabalho para o {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+Você deve estar familiarizado com o YAML e a sintaxe do {% data variables.product.prodname_actions %}. Para obter mais informações, consulte:
+- "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 - "[Configurando um fluxo de trabalho](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 
 Recomendamos que você tenha um entendimento básico da estrutura do Java e do Gradle. Para obter mais informações, consulte "[Introdução](https://docs.gradle.org/current/userguide/getting_started.html)" na documentação do Gradle.
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Introdução com um modelo de fluxo de trabalho do Gradle
 
-{{ site.data.variables.product.prodname_dotcom }} fornece um modelo de fluxo de trabalho Gradle que funcionará para a maioria dos projetos Java baseados no Gradle. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Gradle](https://github.com/actions/starter-workflows/blob/master/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de trabalho Gradle que funcionará para a maioria dos projetos Java baseados no Gradle. Para obter mais informações, consulte o [modelo do fluxo de trabalho do Gradle](https://github.com/actions/starter-workflows/blob/master/ci/gradle.yml).
 
 Para começar rapidamente, você pode escolher o modelo do Gradle pré-configurado ao criar um novo fluxo de trabalho. Para obter mais informações, consulte "[Iniciando com modelos de fluxo de trabalho pré-configurados](/actions/automating-your-workflow-with-github-actions/starting-with-preconfigured-workflow-templates)".
 
@@ -63,9 +63,9 @@ Este fluxo de trabalho executa os seguintes passos:
 
 Os modelos-padrão do fluxo de trabalho são excelentes pontos de partida ao criar seu fluxo de trabalho de compilação e teste, e você pode personalizar o modelo para atender às necessidades do seu projeto.
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
-{{ site.data.reusables.github-actions.java-jvm-architecture }}
+{% data reusables.github-actions.java-jvm-architecture %}
 
 ### Criar e testar seu código
 

@@ -7,22 +7,22 @@ versions:
   free-pro-team: '*'
 ---
 
-Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {{ site.data.variables.product.prodname_marketplace }}.
+Owners, collaborators, prior contributors, and people with write access can report issues, pull requests, and comments on issues, pull requests, and commits. Anyone can report apps in {% data variables.product.prodname_marketplace %}.
 
 ### About reporting abuse or spam
 
-{{ site.data.reusables.policies.github-community-guidelines-and-terms }}
+{% data reusables.policies.github-community-guidelines-and-terms %}
 
-You can report users that have violated {{ site.data.variables.product.prodname_dotcom }}'s Community Guidelines or Terms of Service through {{ site.data.variables.contact.report_abuse }} or {{ site.data.variables.contact.report_content }}. You can also report issues, pull requests, or comments on issues, pull requests, and commits.
+You can report users that have violated {% data variables.product.prodname_dotcom %}'s Community Guidelines or Terms of Service through {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. You can also report issues, pull requests, or comments on issues, pull requests, and commits.
 
 If reported content is enabled for a public repository, you can also report content directly to repository maintainers.
 
 ### Reporting a user
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
-{{ site.data.reusables.profile.user_profile_page_block_or_report }}
+{% data reusables.profile.user_profile_page_navigation %}
+{% data reusables.profile.user_profile_page_block_or_report %}
 3. Click **Report abuse**. ![Modal box with options to block user or report abuse](/assets/images/help/profile/profile-report-abuse.png)
-4. Complete the contact form to tell {{ site.data.variables.contact.contact_support }} about the user's behavior, then click **Send request**.
+4. Complete the contact form to tell {% data variables.contact.contact_support %} about the user's behavior, then click **Send request**.
 
 ### Reporting an issue or pull request
 
@@ -30,7 +30,7 @@ If reported content is enabled for a public repository, you can also report cont
 2. In the upper-right corner of the issue or pull request, click
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
   ![Button to report a comment](/assets/images/help/repository/menu-report-issue-or-pr.png)
-{{ site.data.reusables.community.report-content }}
+{% data reusables.community.report-content %}
 
 ### Reporting a comment
 
@@ -38,27 +38,27 @@ If reported content is enabled for a public repository, you can also report cont
 2. In the upper-right corner of the comment, click
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
 ![Kebab menu with option to report a comment](/assets/images/help/repository/menu-report-comment.png)
-{{ site.data.reusables.community.report-content }}
+{% data reusables.community.report-content %}
 
-### Reporting an app in {{ site.data.variables.product.prodname_marketplace }}
+### Reporting an app in {% data variables.product.prodname_marketplace %}
 
-{{ site.data.reusables.marketplace.visit-marketplace }}
+{% data reusables.marketplace.visit-marketplace %}
 2. Browse to the app you'd like to report.
-3. In the left sidebar, under the "Developer links" section, click {% octicon "report" aria-label="The report symbol" %} **Report abuse**. ![Button to report an app in {{ site.data.variables.product.prodname_marketplace }}](/assets/images/help/marketplace/marketplace-report-app.png)
-4. Complete the contact form to tell {{ site.data.variables.contact.contact_support }} about the app's behavior, then click **Send request**.
+3. In the left sidebar, under the "Developer links" section, click {% octicon "report" aria-label="The report symbol" %} **Report abuse**. ![Button to report an app in {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)
+4. Complete the contact form to tell {% data variables.contact.contact_support %} about the app's behavior, then click **Send request**.
 
 ### Reporting contact link abuse in the template chooser
 
 1. Navigate to the repository that contains the contact link you'd like to report.
 2. Under the repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
 3. In the lower-right corner of the template chooser, click **Report abuse**. ![Link to report an abuse](/assets/images/help/repository/template-chooser-report-abuse.png)
-4. Complete the contact form to tell {{ site.data.variables.contact.contact_support }} about the contact link's behavior, then click **Send request**.
+4. Complete the contact form to tell {% data variables.contact.contact_support %} about the contact link's behavior, then click **Send request**.
 
 ### Дополнительная литература
 
 - "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Maintaining your safety on  {{ site.data.variables.product.prodname_dotcom }}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Maintaining your safety on  {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)"{% endif %}
 - "[Tracking changes in a comment](/articles/tracking-changes-in-a-comment)"

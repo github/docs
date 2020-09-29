@@ -14,6 +14,6 @@ versions:
 
 リポジトリをテンプレートにすると、そのリポジトリにアクセスできるすべてのユーザが、デフォルトのブランチと同じディレクトリ構造とファイルで新しいリポジトリを生成できます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}また、他のすべてのブランチをリポジトリに含めることもできます。{% endif %}詳しい情報については、「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. [**Template repository**] を選択します。 ![リポジトリをテンプレート化するチェックボックス](/assets/images/help/repository/template-repository-checkbox.png)

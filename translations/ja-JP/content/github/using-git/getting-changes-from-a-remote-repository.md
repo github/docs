@@ -16,11 +16,11 @@ versions:
 他のユーザのリポジトリの完全なコピーを取得するには、以下のように `git clone` を使用します:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>ユーザ名</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>REPOSITORY</em>.git
 # リポジトリを自分のコンピュータにクローン
 ```
 
-リポジトリのクローン時は、[複数の異なる URL](/articles/which-remote-url-should-i-use) から選択できます。 {{ site.data.variables.product.prodname_dotcom }}にログインした状態である間は、これらの URL はリポジトリの詳細の下に表示されます:
+リポジトリのクローン時は、[複数の異なる URL](/articles/which-remote-url-should-i-use) から選択できます。 {% data variables.product.prodname_dotcom %}にログインした状態である間は、これらの URL はリポジトリの詳細の下に表示されます:
 
 ![リモート URL リスト](/assets/images/help/repository/remotes-url.png)
 

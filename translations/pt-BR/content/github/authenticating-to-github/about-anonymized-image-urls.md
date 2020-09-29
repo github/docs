@@ -1,6 +1,6 @@
 ---
 title: Sobre URLs anônimas de imagem
-intro: 'Se você fizer upload de uma imagem no {{ site.data.variables.product.product_name }}, a URL da imagem será modificada para que suas informações não possam ser rastreadas.'
+intro: 'Se você fizer upload de uma imagem no {% data variables.product.product_name %}, a URL da imagem será modificada para que suas informações não possam ser rastreadas.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
@@ -8,19 +8,19 @@ versions:
   free-pro-team: '*'
 ---
 
-Para hospedar imagens, o {{ site.data.variables.product.product_name }} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). O camo gera um proxy de URL anônimo para cada imagem que começa com `https://camo.githubusercontent.com/` e oculta os detalhes do navegador e informações relacionadas de outros usuários.
+Para hospedar imagens, o {% data variables.product.product_name %} usa o [Camo do projeto de código aberto](https://github.com/atmos/camo). O camo gera um proxy de URL anônimo para cada imagem que começa com `https://camo.githubusercontent.com/` e oculta os detalhes do navegador e informações relacionadas de outros usuários.
 
 Qualquer pessoa que recebe sua URL anônima de imagem, direta ou indiretamente, pode exibir a imagem. Para manter a privacidade de imagens confidenciais, restrinja-as a uma rede privada ou a um servidor que exija autenticação em vez de usar o Camo.
 
 ### Solucionar problemas com o Camo
 
-As imagens que são processadas por meio do Camo raramente não aparecem no {{ site.data.variables.product.prodname_dotcom }}. Veja a seguir algumas etapas que podem ser seguidas para determinar onde está o problema.
+As imagens que são processadas por meio do Camo raramente não aparecem no {% data variables.product.prodname_dotcom %}. Veja a seguir algumas etapas que podem ser seguidas para determinar onde está o problema.
 
 {% windows %}
 
 {% tip %}
 
-Os usuários do Windows precisam usar o Git Powershell (que é instalado com o [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/)) ou baixar um [curl para Windows](http://curl.haxx.se/download.html).
+Os usuários do Windows precisam usar o Git Powershell (que é instalado com o [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) ou baixar um [curl para Windows](http://curl.haxx.se/download.html).
 
 {% endtip %}
 
@@ -28,9 +28,9 @@ Os usuários do Windows precisam usar o Git Powershell (que é instalado com o [
 
 #### Uma imagem não está sendo exibida
 
-Se uma imagem estiver sendo exibida no navegador, mas não no {{ site.data.variables.product.prodname_dotcom }}, você pode tentar solicitar a imagem localmente.
+Se uma imagem estiver sendo exibida no navegador, mas não no {% data variables.product.prodname_dotcom %}, você pode tentar solicitar a imagem localmente.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Solicite os headers da imagem usando `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
@@ -51,9 +51,9 @@ Se o tipo de conteúdo não for compatível com o Camo, você poderá tentar vá
 
 #### Uma imagem que foi alterada recentemente não está atualizando
 
-Se você alterou uma imagem recentemente e ela está sendo exibida no navegador, mas não no {{ site.data.variables.product.prodname_dotcom }}, tente redefinir o cache da imagem.
+Se você alterou uma imagem recentemente e ela está sendo exibida no navegador, mas não no {% data variables.product.prodname_dotcom %}, tente redefinir o cache da imagem.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Solicite os headers da imagem usando `curl`.
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
@@ -68,13 +68,13 @@ Verifique o valor de `Cache-Control`. Neste exemplo, não há `Cache-Contro`. Ne
   * Se tiver posse do servidor que está hospedando a imagem, modifique-o para que ele retorne um `Cache-Control` de `no-cache` para imagens.
   * Se estiver usando um serviço externo para hospedar imagens, entre em contato com o suporte do serviço em questão.
 
- Se `Cache-Control` *estiver * definido como `no-cache`, entre em contato com {{ site.data.variables.contact.contact_support }} ou pesquise no {{ site.data.variables.contact.community_support_forum }}.
+ Se `Cache-Control` *estiver * definido como `no-cache`, entre em contato com {% data variables.contact.contact_support %} ou pesquise no {% data variables.contact.community_support_forum %}.
 
 #### Remover uma imagem do cache do Camo
 
-A limpeza do cache força os usuários do {{ site.data.variables.product.prodname_dotcom }} a solicitar novamente a imagem. Portanto, você deve usá-la bem moderadamente e somente no caso em que as etapas acima não funcionarem.
+A limpeza do cache força os usuários do {% data variables.product.prodname_dotcom %} a solicitar novamente a imagem. Portanto, você deve usá-la bem moderadamente e somente no caso em que as etapas acima não funcionarem.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Limpe a imagem usando `curl-X PURGE` na URL do Camo.
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
@@ -83,10 +83,10 @@ A limpeza do cache força os usuários do {{ site.data.variables.product.prodnam
 
 #### Exibir imagens em redes privadas
 
-Se uma imagem estiver sendo fornecida por uma rede privada ou um servidor que exige autenticação, ela não poderá ser exibida pelo {{ site.data.variables.product.prodname_dotcom }}. Na verdade, a imagem não pode ser exibida pelos usuários sem que eles façam login no servidor.
+Se uma imagem estiver sendo fornecida por uma rede privada ou um servidor que exige autenticação, ela não poderá ser exibida pelo {% data variables.product.prodname_dotcom %}. Na verdade, a imagem não pode ser exibida pelos usuários sem que eles façam login no servidor.
 
 Para corrigir isso, mova a imagem para um serviço que esteja disponível publicamente.
 
 ### Leia mais
 
-- "[Retransmitir imagens do usuário](https://github.com/blog/1766-proxying-user-images)" em {{ site.data.variables.product.prodname_blog }}
+- "[Retransmitir imagens do usuário](https://github.com/blog/1766-proxying-user-images)" em {% data variables.product.prodname_blog %}

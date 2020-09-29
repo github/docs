@@ -8,17 +8,17 @@ versions:
 
 ### Aprovisionamiento de SCIM para las Organizaciones
 
-Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {{ site.data.variables.product.product_name }}. La API de {{ site.data.variables.product.product_name }} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/). La terminal de SCIM de {{ site.data.variables.product.product_name }} que deben utilizar los IdP es: `{{ site.data.variables.product.api_url_code }}/scim/v2/organizations/{org}/`.
+Los proveedores de identidad (IdP) habilitados para SCIM utilizan la API de SCIM para automatizar el aprovisionamiento de la membrecía de las organizaciones de {% data variables.product.product_name %}. La API de {% data variables.product.product_name %} se basa en la versión 2.0 del [estándar de SCIM](http://www.simplecloud.info/). La terminal de SCIM de {% data variables.product.product_name %} que deben utilizar los IdP es: `{% data variables.product.api_url_code %}/scim/v2/organizations/{org}/`.
 
 {% note %}
 
-**Nota:** La API de SCIM está disponible solo para las organizaciones en [{{ site.data.variables.product.prodname_ghe_cloud }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que tienen habilitado el [SSO de SAML](/v3/auth/#authenticating-for-saml-sso). Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
+**Nota:** La API de SCIM está disponible solo para las organizaciones en [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) que tienen habilitado el [SSO de SAML](/v3/auth/#authenticating-for-saml-sso). Para obtener más información acerca de SCIM, consulta "[Acerca de SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)".
 
 {% endnote %}
 
 ### Autenticar las llamadas a la API de SCIM
 
-Debes autenticarte como un propietario de una organización de {{ site.data.variables.product.product_name }} para utilizar la API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También puedes utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu orgnización que cuenta con el SSO de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
+Debes autenticarte como un propietario de una organización de {% data variables.product.product_name %} para utilizar la API de SCIM. La API espera que se incluya un token [Portador de OAuth 2.0](/developers/apps/authenticating-with-github-apps) en el encabezado `Authorization`. También puedes utilizar un token de acceso personal, pero primero debes [autorizarlo para su uso con tu orgnización que cuenta con el SSO de SAML](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
 ### Mapeo de los datos de SAML y de SCIM
 

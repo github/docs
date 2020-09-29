@@ -4,13 +4,13 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: 'If you''re [cloning {{ site.data.variables.product.product_name }} repositories using HTTPS](/github/using-git/which-remote-url-should-i-use), you can use a credential helper to tell Git to remember your credentials.'
+intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/using-git/which-remote-url-should-i-use), you can use a credential helper to tell Git to remember your credentials.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-If you clone {{ site.data.variables.product.product_name }} repositories using SSH, then you authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
+If you clone {% data variables.product.product_name %} repositories using SSH, then you authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see "[Generating an SSH Key](/articles/generating-an-ssh-key)."
 
 {% mac %}
 
@@ -50,7 +50,7 @@ Install Git and the `osxkeychain helper` and tell Git to use it.
   # Set git to use the osxkeychain credential helper
   ```
 
-The next time you clone an HTTPS URL that requires authentication, Git will prompt you for your username and password. {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+The next time you clone an HTTPS URL that requires authentication, Git will prompt you for your username and password. {% data reusables.user_settings.password-authentication-deprecation %}
 
 Once you've authenticated successfully, your credentials are stored in the macOS keychain and will be used every time you clone an HTTPS URL. You won't be required to type your credentials in to Git again unless you change your credentials.
 

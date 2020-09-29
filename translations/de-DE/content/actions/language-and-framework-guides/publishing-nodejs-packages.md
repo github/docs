@@ -1,7 +1,7 @@
 ---
 title: Node.js-Pakete veröffentlichen
 intro: Du kannst Node.js-Pakete als Teil Deines Workflows zur kontinuierlichen Integrations (CI) in einer Registry veröffentlichen.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
 versions:
@@ -9,23 +9,23 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
-Dieser Leitfaden zeigt Dir, wie Du einen Workflow erstellen kannst, der Node.js Pakete nach den Tests der fortlaufenden Integration (CI) in die {{ site.data.variables.product.prodname_registry }} und npm Registrierungen veröffentlicht. Mit einem einzigen Workflow kannst Du Pakete in einer einzigen Registry oder in mehreren Registries veröffentlichen.
+Dieser Leitfaden zeigt Dir, wie Du einen Workflow erstellen kannst, der Node.js Pakete nach den Tests der fortlaufenden Integration (CI) in die {% data variables.product.prodname_registry %} und npm Registrierungen veröffentlicht. Mit einem einzigen Workflow kannst Du Pakete in einer einzigen Registry oder in mehreren Registries veröffentlichen.
 
 ### Vorrausetzungen
 
 Wir empfehlen, dass Du ein grundlegendes Verständnis von Workflowkonfigurations-Optionen hast und darüber, wie Du eine Workflow-Datei erstellst. Weitere Informationen findest Du unter „[Einen Workflow konfigurieren](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)“.
 
-Weitere Informationen zum Erstellen eines CI-Workflows für Dein Node.js-Projekt findest Du unter „[Node.js mit {{ site.data.variables.product.prodname_actions }} verwenden](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)“.
+Weitere Informationen zum Erstellen eines CI-Workflows für Dein Node.js-Projekt findest Du unter „[Node.js mit {% data variables.product.prodname_actions %} verwenden](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)“.
 
 Vielleicht findest Du es auch hilfreich, ein grundlegendes Verständnis von Folgendem zu haben:
 
-- „[Kernkonzepte für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
-- „[Konfiguration von npm für die Verwendung mit {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)“
+- „[Kernkonzepte für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
+- „[Konfiguration von npm für die Verwendung mit {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)“
 - "[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 - „[Verschlüsselte Geheimnisse erzeugen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“
 - „[Authentifizierung mit dem GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)“
@@ -34,7 +34,7 @@ Vielleicht findest Du es auch hilfreich, ein grundlegendes Verständnis von Folg
 
  Die Felder `name` und `version` in der Datei *package.json* bilden eine eindeutige Kennung. Registries verwenden diese Kennung, um Dein Paket mit einer Registry zu verknüpfen. Du kannst eine Zusammenfassung für die Paketlisten-Seite hinzufügen, indem Du in die Datei *package.json* ein Feld `description` einfügst. Weitere Informationen findest Du unter „[Eine Datei package.json erstellen](https://docs.npmjs.com/creating-a-package-json-file)“ und „[Node.js-Module erstellen](https://docs.npmjs.com/creating-node-js-modules)“ in der npm-Dokumentation.
 
-Wenn eine lokale Datei *.npmrc* existiert, in der ein Wert `registry` angegeben ist, dann verwendet der Befehl `npm publish` die in der Datei *.npmrc* konfigurierte Registry. {{ site.data.reusables.github-actions.setup-node-intro }}
+Wenn eine lokale Datei *.npmrc* existiert, in der ein Wert `registry` angegeben ist, dann verwendet der Befehl `npm publish` die in der Datei *.npmrc* konfigurierte Registry. {% data reusables.github-actions.setup-node-intro %}
 
 Du kannst die auf dem Runner installierte Node.js-Version mit der Aktion `setup-node` angeben.
 
@@ -83,13 +83,13 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-### Pakete in der {{ site.data.variables.product.prodname_registry }} veröffentlichen
+### Pakete in der {% data variables.product.prodname_registry %} veröffentlichen
 
-Jedes Mal, wenn Du ein neues Release erstellst, kannst Du einen Workflow anstoßen, um Dein Paket zu veröffentlichen. Der Workflow im folgenden Beispiel läuft jedes Mal, wenn das Ereignis `release` vom Typ `created` auftritt. Der Workflow veröffentlicht das Paket in {{ site.data.variables.product.prodname_registry }} , wenn die CI-Tests bestanden wurden.
+Jedes Mal, wenn Du ein neues Release erstellst, kannst Du einen Workflow anstoßen, um Dein Paket zu veröffentlichen. Der Workflow im folgenden Beispiel läuft jedes Mal, wenn das Ereignis `release` vom Typ `created` auftritt. Der Workflow veröffentlicht das Paket in {% data variables.product.prodname_registry %} , wenn die CI-Tests bestanden wurden.
 
-Standardmäßig veröffentlicht die {{ site.data.variables.product.prodname_registry }} ein Paket in dem Repository auf {{ site.data.variables.product.prodname_dotcom }}, das Du im Feld `name` der Datei *package.json* angibst. Ein Paket namens `@my-org/test` würde beispielsweise im Repository `my-org/test` auf {{ site.data.variables.product.prodname_dotcom }} veröffentlicht. Weitere Informationen finden Sie unter [„`npm-scope`“ (npm-Gültigkeitsbereich)](https://docs.npmjs.com/misc/scope) in der npm-Dokumentation.
+Standardmäßig veröffentlicht die {% data variables.product.prodname_registry %} ein Paket in dem Repository auf {% data variables.product.prodname_dotcom %}, das Du im Feld `name` der Datei *package.json* angibst. Ein Paket namens `@my-org/test` würde beispielsweise im Repository `my-org/test` auf {% data variables.product.prodname_dotcom %} veröffentlicht. Weitere Informationen finden Sie unter [„`npm-scope`“ (npm-Gültigkeitsbereich)](https://docs.npmjs.com/misc/scope) in der npm-Dokumentation.
 
-Um authentifizierte Vorgänge für die Registry {{ site.data.variables.product.prodname_registry }} in Deinem Workflow kannst Du den `GITHUB_TOKEN` verwenden. Der `GITHUB_TOKEN` existiert standardmäßig in Deinem Repository und hat Lese- und Schreibrechte für Pakete in dem Repository, in dem der Workflow läuft. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+Um authentifizierte Vorgänge für die Registry {% data variables.product.prodname_registry %} in Deinem Workflow kannst Du den `GITHUB_TOKEN` verwenden. Der `GITHUB_TOKEN` existiert standardmäßig in Deinem Repository und hat Lese- und Schreibrechte für Pakete in dem Repository, in dem der Workflow läuft. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
 Dieses Beispiel speichert das Geheimnis `GITHUB_TOKEN` in der Umgebungsvariablen `NODE_AUTH_TOKEN`. Wenn die Aktion `setup-node` eine Datei *.npmrc* erzeugt, referenziert sie das Token aus der Umgebungsvariable `NODE_AUTH_TOKEN`.
 
@@ -155,25 +155,25 @@ jobs:
 ```
 {% endraw %}
 
-### Pakete auf npm und in der {{ site.data.variables.product.prodname_registry }} veröffentlichen
+### Pakete auf npm und in der {% data variables.product.prodname_registry %} veröffentlichen
 
 {% note %}
 
-**Hinweis:** Wenn Du in Registries mit unterschiedlichen „Scope“-Präfixen publizieren musst, dann musst Du die Datei *package.json* auf dem Runner anpassen, um das „Scope“-Präfix zu ändern. Wenn Du beispielsweise ein Paket im Geltungsbereich `@mona` für npm und `@octocat` für {{ site.data.variables.product.prodname_registry }}veröffentlichst, kannst Du nach der Veröffentlichung auf npm und vor der Veröffentlichung in der {{ site.data.variables.product.prodname_registry }} auf dem Runner in der Datei *package.json* den Geltungsbereich `@mona` durch `@octocat` ersetzen.
+**Hinweis:** Wenn Du in Registries mit unterschiedlichen „Scope“-Präfixen publizieren musst, dann musst Du die Datei *package.json* auf dem Runner anpassen, um das „Scope“-Präfix zu ändern. Wenn Du beispielsweise ein Paket im Geltungsbereich `@mona` für npm und `@octocat` für {% data variables.product.prodname_registry %}veröffentlichst, kannst Du nach der Veröffentlichung auf npm und vor der Veröffentlichung in der {% data variables.product.prodname_registry %} auf dem Runner in der Datei *package.json* den Geltungsbereich `@mona` durch `@octocat` ersetzen.
 
 {% endnote %}
 
-Du kannst Deine Pakete sowohl in der npm-Registry als auch in {{ site.data.variables.product.prodname_registry }} veröffentlichen, indem Du die Aktion `setup-node` für jede Registry verwendest.
+Du kannst Deine Pakete sowohl in der npm-Registry als auch in {% data variables.product.prodname_registry %} veröffentlichen, indem Du die Aktion `setup-node` für jede Registry verwendest.
 
-Wenn Du ein Paket in beiden Registries veröffentlichst, musst Du sicherstellen, dass Dein „Scope“-Präfix auf npm mit Deinem Benutzer- oder Organisationsnamen in {{ site.data.variables.product.prodname_dotcom }} übereinstimmt. Um Pakete in einer öffentlichen Registry mit einem „Scope“-Präfix zu veröffentlichen, kannst Du den Befehl `npm publish --access public` verwenden. Weitere Informationen findest Du unter [`npm-scope`](https://docs.npmjs.com/misc/scope) und „[Öffentliche Pakete mit „Scope“ (Geltungsbereich) anlegen und veröffentlichen](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)“ in der npm-Dokumentation.
+Wenn Du ein Paket in beiden Registries veröffentlichst, musst Du sicherstellen, dass Dein „Scope“-Präfix auf npm mit Deinem Benutzer- oder Organisationsnamen in {% data variables.product.prodname_dotcom %} übereinstimmt. Um Pakete in einer öffentlichen Registry mit einem „Scope“-Präfix zu veröffentlichen, kannst Du den Befehl `npm publish --access public` verwenden. Weitere Informationen findest Du unter [`npm-scope`](https://docs.npmjs.com/misc/scope) und „[Öffentliche Pakete mit „Scope“ (Geltungsbereich) anlegen und veröffentlichen](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)“ in der npm-Dokumentation.
 
-Stelle sicher, dass in Deiner Datei *package.json* den Geltungsbereich Deines {{ site.data.variables.product.prodname_dotcom }}-Repositorys und der npm-Registry angegeben ist. Wenn Du beispielsweise ein Paket im Repository `octocat/npm-hello-world-test` auf {{ site.data.variables.product.prodname_dotcom }} und https://www.npmjs.com/package/@octocat/npm-hello-world-test veröffentlichen willst, dann sollte in Deiner Datei *package.json* der Name `"name": "@octocat/npm-hello-world-test"` stehen.
+Stelle sicher, dass in Deiner Datei *package.json* den Geltungsbereich Deines {% data variables.product.prodname_dotcom %}-Repositorys und der npm-Registry angegeben ist. Wenn Du beispielsweise ein Paket im Repository `octocat/npm-hello-world-test` auf {% data variables.product.prodname_dotcom %} und https://www.npmjs.com/package/@octocat/npm-hello-world-test veröffentlichen willst, dann sollte in Deiner Datei *package.json* der Name `"name": "@octocat/npm-hello-world-test"` stehen.
 
-Um authentifizierte Vorgänge für die Registry {{ site.data.variables.product.prodname_registry }} in Deinem Workflow kannst Du den `GITHUB_TOKEN` verwenden. Der `GITHUB_TOKEN` existiert standardmäßig in Deinem Repository und hat Lese- und Schreibrechte für Pakete in dem Repository, in dem der Workflow läuft. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
+Um authentifizierte Vorgänge für die Registry {% data variables.product.prodname_registry %} in Deinem Workflow kannst Du den `GITHUB_TOKEN` verwenden. Der `GITHUB_TOKEN` existiert standardmäßig in Deinem Repository und hat Lese- und Schreibrechte für Pakete in dem Repository, in dem der Workflow läuft. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
 Wenn Du für die Aktion `setup-node` die Eingabe `scope` verwendest, erstellt die Aktion eine Datei *.npmrc* mit dem Präfix „scope“. Standardmäßig legt die Aktion `setup-node` den Geltungsbereich in der Datei *.npmrc* auf den Benutzer oder die Organisation fest, der die Workflow-Datei gehört.
 
-Dieser Workflow ruft die Aktion `setup-node` zweimal auf. Jedes Mal, wenn die Aktion `setup-node` ausgeführt wird, überschreibt sie die Datei *.npmrc*. Die Datei *.npmrc* referenziert den Token, mit dem Du authentifizierte Operationen in der Paket-Registry durchführen kannst, durch die Umgebungsvariable `NODE_AUTH_TOKEN`. Der Workflow setzt die Umgebungsvariable `NODE_AUTH_TOKEN` jedes Mal, wenn der Befehl `npm publish` ausgeführt wird; zuerst mit einem Token zum Veröffentlichen auf npm (`NPM_TOKEN`) und dann mit einem Token zum Veröffentlichen in der {{ site.data.variables.product.prodname_registry }} (`GITHUB_TOKEN`).
+Dieser Workflow ruft die Aktion `setup-node` zweimal auf. Jedes Mal, wenn die Aktion `setup-node` ausgeführt wird, überschreibt sie die Datei *.npmrc*. Die Datei *.npmrc* referenziert den Token, mit dem Du authentifizierte Operationen in der Paket-Registry durchführen kannst, durch die Umgebungsvariable `NODE_AUTH_TOKEN`. Der Workflow setzt die Umgebungsvariable `NODE_AUTH_TOKEN` jedes Mal, wenn der Befehl `npm publish` ausgeführt wird; zuerst mit einem Token zum Veröffentlichen auf npm (`NPM_TOKEN`) und dann mit einem Token zum Veröffentlichen in der {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`).
 
 {% raw %}
 ```yaml

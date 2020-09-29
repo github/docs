@@ -1,6 +1,6 @@
 ---
 title: Pesquisar tópicos
-intro: 'Você pode pesquisar tópicos associados a repositórios no {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode pesquisar tópicos associados a repositórios no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/searching-topics
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Pesquisar tópicos no {{ site.data.variables.product.product_name }}
+### Pesquisar tópicos no {% data variables.product.product_name %}
 
-Você pode pesquisar tópicos no {{ site.data.variables.product.product_name }}, explorar tópicos relacionados e ver quantos repositórios estão associados a um tópico específico.
+Você pode pesquisar tópicos no {% data variables.product.product_name %}, explorar tópicos relacionados e ver quantos repositórios estão associados a um tópico específico.
 
 1. Navegue até https://github.com/search.
 2. Insira uma palavra-chave de tópico. ![campo de pesquisa](/assets/images/help/search/search-field.png)
@@ -21,17 +21,17 @@ Você pode pesquisar tópicos no {{ site.data.variables.product.product_name }},
 
 ### Limitar a pesquisa com qualificadores de pesquisa
 
-Se quiser explorar repositórios sobre um tópico específico, encontrar projetos para contribuição ou saber quais são os tópicos mais populares no {{ site.data.variables.product.product_name }}, pesquise tópicos com os qualificadores de pesquisa `is:featured`, `is:curated`, `repositories:n` e `created:YYYY-MM-DD`.
+Se quiser explorar repositórios sobre um tópico específico, encontrar projetos para contribuição ou saber quais são os tópicos mais populares no {% data variables.product.product_name %}, pesquise tópicos com os qualificadores de pesquisa `is:featured`, `is:curated`, `repositories:n` e `created:YYYY-MM-DD`.
 
-O qualificador de pesquisa `is:featured` limita os resultados da pequisa aos tópicos com mais repositórios no {{ site.data.variables.product.product_name }}. Esses tópicos também são apresentados em https://github.com/topics/.
+O qualificador de pesquisa `is:featured` limita os resultados da pequisa aos tópicos com mais repositórios no {% data variables.product.product_name %}. Esses tópicos também são apresentados em https://github.com/topics/.
 
 O qualificador de pesquisa `is:curated` limita os resultados da pequisa aos tópicos que os integrantes da comunidade adicionaram informações adicionais. Para obter mais informações, consulte o repositório explore em https://github.com/github/explore.
 
 Você pode filtrar os tópicos com base na data de criação usando parâmetro de data e `created:` ou com base em quantos repositórios estão associados ao tópico usando `repositories:n`. Esses dois qualificadores podem usar os [qualificadores maior que, menor que e intervalo](/articles/understanding-the-search-syntax).
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Exemplo                                                                                                                                                                                                                                      |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

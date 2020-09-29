@@ -1,7 +1,7 @@
 ---
 title: Habilitar subidas de información forzadas en una rama protegida
 intro: Puedes permitir subidas de información forzadas en una rama protegida.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -19,13 +19,13 @@ Habilitar las subidas forzadas no invalidará ninguna otra regla de protección 
 
 Si un administrador de sitio ha bloqueado las subidas de información forzadas en la rama predeterminada únicamente, entonces aún puedes habilitarlas en cualquier otra rama protegida.{% endif %}
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
 ### Habilitar subidas de información forzadas
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. Debajo de "Reglas aplicadas a todos, incluyendo administradores", selecciona **Permitir subidas de información forzadas**. ![Permitir la opción de subida de información forzada](/assets/images/help/repository/allow-force-pushes.png)
 7. Haz clic en **Create** (crear).

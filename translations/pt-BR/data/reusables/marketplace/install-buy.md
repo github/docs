@@ -1,1 +1,1 @@
-1. Click **Install it for free**, **Buy with {{ site.data.variables.product.prodname_dotcom }}**, or **Try free for 14 days**. ![Compre com o botão {{ site.data.variables.product.prodname_dotcom }}](/assets/images/help/marketplace/marketplace-buy-with-github-button.png)
+1. Click **Install it for free**, **Buy with {% data variables.product.prodname_dotcom %}**, or **Try free for 14 days**. ![Compre com o botão {% data variables.product.prodname_dotcom %}](/assets/images/help/marketplace/marketplace-buy-with-github-button.png)

@@ -1,7 +1,7 @@
 ---
 title: 配置工作流
 intro: 您可以创建自定义工作流来自动化项目的软件开发生命周期过程。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /文章/创建 github 行动/
   - /文章/创建工作流-与 github 操作/
@@ -16,18 +16,18 @@ versions:
 
 具有对存储库具有写入或管理员权限的用户可以创建、编辑或查看工作流。
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于工作流
 
-工作流是自定义的自动化流程，您可以在存储库中设置这些流程，以便生成、测试、打包、发布或部署任何 {{ site.data.variables.product.prodname_dotcom }}。 借助工作流，您可以使用各种工具和服务实现软件开发生命周期的自动化。 有关详细信息，请参阅"[" {{ site.data.variables.product.prodname_actions }}](/articles/about-github-actions)。
+工作流是自定义的自动化流程，您可以在存储库中设置这些流程，以便生成、测试、打包、发布或部署任何 {% data variables.product.prodname_dotcom %}。 借助工作流，您可以使用各种工具和服务实现软件开发生命周期的自动化。 有关详细信息，请参阅"[" {% data variables.product.prodname_actions %}](/articles/about-github-actions)。
 
 您可以在存储库中创建多个工作流。 您必须将工作流存储在 `.github/工作流` 存储库根目录中。
 
-工作流必须至少有一个作业，并且作业包含一组执行单个任务的步骤。 步骤可以运行命令或使用操作。 您可以创建自己的操作或使用社区共享的操作 {{ site.data.variables.product.prodname_dotcom }} 根据需要自定义它们。
+工作流必须至少有一个作业，并且作业包含一组执行单个任务的步骤。 步骤可以运行命令或使用操作。 您可以创建自己的操作或使用社区共享的操作 {% data variables.product.prodname_dotcom %} 根据需要自定义它们。
 
-您可以将工作流配置为在发生 {{ site.data.variables.product.prodname_dotcom }} 、计划或外部事件时启动。
+您可以将工作流配置为在发生 {% data variables.product.prodname_dotcom %} 、计划或外部事件时启动。
 
 您需要使用 YAML 语法配置工作流，并将其保存为存储库中的工作流文件。 成功创建 YAML 工作流文件并触发工作流后，将看到工作流的每个步骤的生成日志、测试结果、工件和状态。 有关详细信息，请参阅"[运行工作流](/articles/managing-a-workflow-run)。
 
@@ -45,7 +45,7 @@ versions:
 
 1. 在 `.github/工作流`中， `为` 添加 `.yaml` 文件。 例如， `.github/工作流/连续集成工作流.yml`。
 
-1. 使用"[工作流语法 {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions)"参考文档来选择事件以触发操作、添加操作和自定义工作流。
+1. 使用"[工作流语法 {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions)"参考文档来选择事件以触发操作、添加操作和自定义工作流。
 
 1. 将工作流文件中的更改提交到希望工作流运行的分支。
 
@@ -76,16 +76,16 @@ versions:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 ### 使用事件触发工作流
 
 您可以将工作流配置为启动一次：
-- 发生一 {{ site.data.variables.product.prodname_dotcom }} 事件，例如，当某人将提交推送到存储库时，或者当创建问题或拉取请求时。
+- 发生一 {% data variables.product.prodname_dotcom %} 事件，例如，当某人将提交推送到存储库时，或者当创建问题或拉取请求时。
 - 计划的事件开始。
 - 发生外部事件。
 
-若要在发生事件后触发工作流 {{ site.data.variables.product.prodname_dotcom }}，请 `：` 和工作流名称后的事件值。 例如，当将更改推送到存储库中的任何分支时，将触发此工作流。
+若要在发生事件后触发工作流 {% data variables.product.prodname_dotcom %}，请 `：` 和工作流名称后的事件值。 例如，当将更改推送到存储库中的任何分支时，将触发此工作流。
 
 ```yaml
 名称：描述性工作流名称
@@ -102,7 +102,7 @@ versions:
 
 #### 手动运行工作流
 
-若要手动运行工作流，必须首先配置工作流以使用 `workflow_dispatch` 事件。 您可以直接在工作流中配置自定义的输入属性、默认输入值和所需输入。 当工作流运行时，您可以在 github.event.输入 `中访问输入` 值。 有关详细信息，请参阅"[工作流的"](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)"和"[ {{ site.data.variables.product.prodname_dotcom }} 操作的上下文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)"。
+若要手动运行工作流，必须首先配置工作流以使用 `workflow_dispatch` 事件。 您可以直接在工作流中配置自定义的输入属性、默认输入值和所需输入。 当工作流运行时，您可以在 github.event.输入 `中访问输入` 值。 有关详细信息，请参阅"[工作流的"](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)"和"[ {% data variables.product.prodname_dotcom %} 操作的上下文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)"。
 
 此示例定义 `和` `` 输入 `github.event.inputs.name` 和 `github.event.inputs.home` 上下文。 如果未 `提供` 名称，则打印默认值"Octocat Mona"。
 
@@ -130,12 +130,12 @@ versions:
 ```
 {% endraw %}
 
-您可以使用 REST API `workflow_dispatch` "操作"选项卡 {{ site.data.variables.product.prodname_dotcom }} 触发事件。 有关使用 REST API 的信息，请参阅"[创建工作流调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)。 使用 REST API 时，应配置 `输入` `引用` 作为请求正文参数。 如果省略输入，则使用工作流文件中定义的默认值。
+您可以使用 REST API `workflow_dispatch` "操作"选项卡 {% data variables.product.prodname_dotcom %} 触发事件。 有关使用 REST API 的信息，请参阅"[创建工作流调度事件](/rest/reference/actions/#create-a-workflow-dispatch-event)。 使用 REST API 时，应配置 `输入` `引用` 作为请求正文参数。 如果省略输入，则使用工作流文件中定义的默认值。
 
-若要在 `workflow_dispatch` 上 {{ site.data.variables.product.prodname_dotcom }}，工作流必须处于默认分支中。 按照以下步骤手动触发工作流运行。
+若要在 `workflow_dispatch` 上 {% data variables.product.prodname_dotcom %}，工作流必须处于默认分支中。 按照以下步骤手动触发工作流运行。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. 在左侧栏中，单击要运行的工作流。 ![操作选择工作流](/assets/images/actions-select-workflow.png)
 1. 在工作流运行列表的上方，选择 **运行工作流**。 ![操作工作流调度](/assets/images/actions-workflow-dispatch.png)
 1. 选择工作流将运行的分支，并键入工作流使用的输入参数。 单击 **运行工作流**。 ![操作手动运行工作流](/assets/images/actions-manually-run-workflow.png)
@@ -168,17 +168,17 @@ versions:
 
 ### 选择跑步者
 
-您可以在由托管的 {{ site.data.variables.product.prodname_dotcom }}运行程序或自托管运行程序上运行工作流。 作业可以直接在计算机或 Docker 容器中运行。
+您可以在由托管的 {% data variables.product.prodname_dotcom %}运行程序或自托管运行程序上运行工作流。 作业可以直接在计算机或 Docker 容器中运行。
 
-您可以使用运行或运行的运行 `中为每个作业`。 有关运行 `运行`有关[，请参阅" {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)工作流 "
+您可以使用运行或运行的运行 `中为每个作业`。 有关运行 `运行`有关[，请参阅" {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)工作流 "
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### 使用 {{ site.data.variables.product.prodname_dotcom }}托管的运行程序
+#### 使用 {% data variables.product.prodname_dotcom %}托管的运行程序
 
-您可以选择不同类型和版本的虚拟主机，包括 Linux、Windows 和 macOS。 工作流中的每个作业在虚拟环境的新实例中执行，作业中的步骤可以使用文件系统共享信息。 有关详细信息，请参阅"[托管跑步者 {{ site.data.variables.product.prodname_actions }}的虚拟](/articles/virtual-environments-for-github-actions)。
+您可以选择不同类型和版本的虚拟主机，包括 Linux、Windows 和 macOS。 工作流中的每个作业在虚拟环境的新实例中执行，作业中的步骤可以使用文件系统共享信息。 有关详细信息，请参阅"[托管跑步者 {% data variables.product.prodname_actions %}的虚拟](/articles/virtual-environments-for-github-actions)。
 
-例如，您可以使用 ubuntu  `的最新` 指定由托管运行程序 {{ site.data.variables.product.prodname_dotcom }}的最新版本。
+例如，您可以使用 ubuntu  `的最新` 指定由托管运行程序 {% data variables.product.prodname_dotcom %}的最新版本。
 
 ```yaml
 运行： ubuntu 最新
@@ -202,7 +202,7 @@ versions:
 
 您可以在工作流文件中指定生成矩阵，其中数组在"配置"策略 `：`。 例如，此生成矩阵将运行具有不同版本的 Node.js 和 Ubuntu（Linux 操作系统）的作业。
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -214,7 +214,7 @@ versions:
 ```
 {% endraw %}
 
-有关详细信息，请参阅"[的工作流 {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)。
+有关详细信息，请参阅"[的工作流 {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)。
 
 ### 使用签出操作
 
@@ -239,7 +239,7 @@ versions:
 
 在选择要在工作流中使用的操作类型时，我们建议在公共存储库或 Docker 中心上探索现有操作，并可能为项目自定义这些操作。
 
-您可以浏览和使用由用户在 {{ site.data.variables.product.prodname_dotcom }} 中构建 [github.com/actions](https://github.com/actions) 操作。 若要访问 Docker 中心，请参阅 Docker[站点上的](https://www.docker.com/products/docker-hub)"。"
+您可以浏览和使用由用户在 {% data variables.product.prodname_dotcom %} 中构建 [github.com/actions](https://github.com/actions) 操作。 若要访问 Docker 中心，请参阅 Docker[站点上的](https://www.docker.com/products/docker-hub)"。"
 
 ### 引用工作流中的操作
 
@@ -252,13 +252,13 @@ versions:
 
 若要使用在专用存储库中定义的操作，工作流文件和操作必须在同一个存储库中。 您的工作流不能使用在其他私有存储库中定义的操作，即使其他私有存储库位于同一组织中。
 
-若要对操作进行更新时保持工作流稳定，可以通过在工作流文件中指定 Git ref 或 Docker 标记编号来引用正在使用的操作的版本。 有关示例，请参阅"[的工作流 {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)。
+若要对操作进行更新时保持工作流稳定，可以通过在工作流文件中指定 Git ref 或 Docker 标记编号来引用正在使用的操作的版本。 有关示例，请参阅"[的工作流 {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)。
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 {% endif %}
 
-有关更详细的配置选项，请参阅"[的工作流 {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)。
+有关更详细的配置选项，请参阅"[的工作流 {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)。
 
 #### 从公共存储库引用操作
 
@@ -319,13 +319,13 @@ versions:
 
 有关 Docker 操作的一些示例，请参阅 [Docker-image.yml 工作流](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml) "[创建 Docker 容器操作](/articles/creating-a-docker-container-action)。
 
-有关详细信息，请参阅"[的工作流 {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)。
+有关详细信息，请参阅"[的工作流 {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)。
 
 ### 向存储库添加工作流状态徽章
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-如果工作流使用 `关键字` ，则必须按名称引用工作流。 如果工作流的名称包含空格，则需要将该空格替换为 URL 编码的字符串 `%20`。 有关关键字名称 `有关` ，请参阅"[的工作流 {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)。
+如果工作流使用 `关键字` ，则必须按名称引用工作流。 如果工作流的名称包含空格，则需要将该空格替换为 URL 编码的字符串 `%20`。 有关关键字名称 `有关` ，请参阅"[的工作流 {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)。
 
 ```
 https://github.com/<OWNER>/<REPOSITORY>/ 工作流 /<WORKFLOW_NAME>/ badge. svg
@@ -378,5 +378,5 @@ https://github.com/<OWNER>/<REPOSITORY>/ 工作流 /<WORKFLOW_FILE_PATH>/ badge.
 {% if currentVersion == "free-pro-team@latest" %}
 ### 延伸阅读
 
-- [[管理帐户的 {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- [[管理帐户的 {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 {% endif %}

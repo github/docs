@@ -1,7 +1,7 @@
 ---
 title: Persistir dados de fluxo de trabalho usando artefatos
 intro: Artefatos permitem que você compartilhe dados entre trabalhos em um fluxo e armazene dados quando o fluxo de trabalho estiver concluído.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre artefatos de fluxos de trabalho
 
-Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho. Para pushes e pull requestes, {{ site.data.variables.product.product_name }} armazena artefatos por 90 dias. O período de retenção para um pull request é reiniciado cada vez que alguém faz o push de um novo commit para o pull request.
+Os artefatos permitem que você persista com os dados após um trabalho ter sido concluído e compartilhe os dados com outro trabalho no mesmo fluxo de trabalho. Um artefato é um arquivo ou uma coleção de arquivos produzidos durante a execução de um fluxo de trabalho. Por exemplo, você pode usar artefatos para salvar a sua criação e testar a saída após uma conclusão da execução do fluxo de trabalho. Para pushes e pull requestes, {% data variables.product.product_name %} armazena artefatos por 90 dias. O período de retenção para um pull request é reiniciado cada vez que alguém faz o push de um novo commit para o pull request.
 
 Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
@@ -27,24 +27,24 @@ Esses são alguns dos artefatos comuns cujo upload você pode fazer:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Armazenar artefatos consome espaço de armazenamento em {{ site.data.variables.product.product_name }}. {{ site.data.reusables.github-actions.actions-billing }} Para mais informações, consulte "[Gerenciando cobrança para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Armazenar artefatos consome espaço de armazenamento em {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para mais informações, consulte "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% else %}
 
-Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar armazenamento utilizado {{ site.data.variables.product.prodname_actions }}, excluindo os artefatos antes de expirarem em {{ site.data.variables.product.product_name }}.
+Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar armazenamento utilizado {% data variables.product.prodname_actions %}, excluindo os artefatos antes de expirarem em {% data variables.product.product_name %}.
 
 {% endif %}
 
-Faz-se o upload dos artefatos durante a execução de um fluxo de trabalho e você pode visualizar o nome e o tamanho do artefato na UI. Quando se faz o download de um artefato usando a UI {{ site.data.variables.product.product_name }}, todos os arquivos cujo upload foi feito individualmente como parte do get do artefato zipado em um arquivo único. Isso significa que a cobrança é calculada com base no tamanho do artefato subido e não com base no tamanho do arquivo zip.
+Faz-se o upload dos artefatos durante a execução de um fluxo de trabalho e você pode visualizar o nome e o tamanho do artefato na UI. Quando se faz o download de um artefato usando a UI {% data variables.product.product_name %}, todos os arquivos cujo upload foi feito individualmente como parte do get do artefato zipado em um arquivo único. Isso significa que a cobrança é calculada com base no tamanho do artefato subido e não com base no tamanho do arquivo zip.
 
-O {{ site.data.variables.product.product_name }} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para obter mais informações, consulte [ações/fazer upload de artefatos](https://github.com/actions/upload-artifact) e [ações/fazer download de artefatos](https://github.com/actions/download-artifact).
+O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para obter mais informações, consulte [ações/fazer upload de artefatos](https://github.com/actions/upload-artifact) e [ações/fazer download de artefatos](https://github.com/actions/download-artifact).
 
 Para compartilhar dados entre trabalhos:
 
 * **Fazendo o upload dos arquivos**: Fornece ao arquivo subido um nome e faz o upload dos dados antes da conclusão do trabalho.
 * **Fazendo o download dos arquivos**: Você pode apenas fazer o download dos artefatos que foram subidos durante a mesma execução do fluxo de trabalho. Ao fazer o download de um arquivo, você pode fazer referenciá-lo pelo nome.
 
-As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)".
+As etapas de um trabalho compartilham o mesmo ambiente na máquina executora, mas são executados em seus próprios processos individuais. Para transmitir dados entre etapas de um trabalho, você pode usar entradas e saídas. Para obter mais informações sobre entradas e saídas, consulte "[Sintaxe de metadados para o {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
 ### Transmitir dados entre trabalhos em um fluxo
 
@@ -125,13 +125,13 @@ jobs:
 
 ### Compartilhar dados entre execuções de fluxo de trabalho
 
-Após a conclusão do fluxo de trabalho, você pode fazer o download de um arquivo comprimido do artefato {{ site.data.variables.product.product_name }}, encontrando a execução do fluxo de trabalho na subido na aba **Ações**. Você também pode usar o API REST {{ site.data.variables.product.prodname_dotcom }} para fazer o download dos artefatos. Para obter mais informações, consulte "[Artefatos](/v3/actions/artifacts/)".
+Após a conclusão do fluxo de trabalho, você pode fazer o download de um arquivo comprimido do artefato {% data variables.product.product_name %}, encontrando a execução do fluxo de trabalho na subido na aba **Ações**. Você também pode usar o API REST {% data variables.product.prodname_dotcom %} para fazer o download dos artefatos. Para obter mais informações, consulte "[Artefatos](/v3/actions/artifacts/)".
 
-O {{ site.data.variables.product.product_name }} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para obter mais informações, consulte [ações/fazer upload de artefatos](https://github.com/actions/upload-artifact) e [ações/fazer download de artefatos](https://github.com/actions/download-artifact).
+O {% data variables.product.product_name %} fornece duas ações que você pode usar para fazer upload e baixar artefatos de compilação. Para obter mais informações, consulte [ações/fazer upload de artefatos](https://github.com/actions/upload-artifact) e [ações/fazer download de artefatos](https://github.com/actions/download-artifact).
 
 ### Fazer upload da compilação e testar artefatos
 
-Você pode criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu código. Para obter mais informações sobre o uso do {{ site.data.variables.product.prodname_actions }} para executar CI, consulte "[Sobre integração contínua](/articles/about-continuous-integration)."
+Você pode criar um fluxo de trabalho de integração contínua (CI) para criar e testar o seu código. Para obter mais informações sobre o uso do {% data variables.product.prodname_actions %} para executar CI, consulte "[Sobre integração contínua](/articles/about-continuous-integration)."
 
 A saída da compilação e teste de seu código muitas vezes produz arquivos que podem ser usados para depurar falhas em testes e códigos de produção que você pode implantar. É possível configurar um fluxo de trabalho para compilar e testar o código com push no repositório e relatar um status de sucesso ou falha. Você pode fazer upload da saída de compilação e teste para usar em implantações, para depurar falhas e testes com falhas e visualizar a cobertura do conjunto de teste.
 
@@ -221,11 +221,11 @@ Você também pode baixar todos os artefatos em uma execução de fluxo de traba
 
 Se você fizer o download de todos os artefatos da execução de um fluxo de trabalho, será criado um diretório para cada artefato usando seu nome.
 
-Para obter mais informações sobre a sintaxe, consulte as ações {% if currentVersion == "free-pro-team@latest" %}[/download-artefato](https://github.com/actions/download-artifact) ação{% else %} `ações/download-artefato` ação em {{ site.data.variables.product.product_location }}{% endif %}.
+Para obter mais informações sobre a sintaxe, consulte as ações {% if currentVersion == "free-pro-team@latest" %}[/download-artefato](https://github.com/actions/download-artifact) ação{% else %} `ações/download-artefato` ação em {% data variables.product.product_location %}{% endif %}.
 
 #### O download e a exclusão dos artefatos após a execução de um fluxo de trabalho foi concluído
 
-Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar armazenamento utilizado {{ site.data.variables.product.prodname_actions }}, excluindo os artefatos antes de expirarem em {{ site.data.variables.product.product_name }}.
+Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar armazenamento utilizado {% data variables.product.prodname_actions %}, excluindo os artefatos antes de expirarem em {% data variables.product.product_name %}.
 
 {% warning %}
 
@@ -233,10 +233,10 @@ Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar arm
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. Para baixar artefatos, use o menu suspenso **Artifacts** (Artefatos) e selecione o artefato que você pretende baixar. ![Menu suspenso do para fazer download do artefato](/assets/images/help/repository/artifact-drop-down.png)
 1. Para excluir artefatos, use o menu suspenso **Artefatos** e clique em {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Menu suspenso para excluir o artefato](/assets/images/help/repository/actions-delete-artifact.png)
 
@@ -244,6 +244,6 @@ Os artefatos expiram automaticamente após 90 dias, mas você pode recuperar arm
 
 ### Leia mais
 
-- "[Gerenciando cobrança para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Gerenciando cobrança para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% endif %}

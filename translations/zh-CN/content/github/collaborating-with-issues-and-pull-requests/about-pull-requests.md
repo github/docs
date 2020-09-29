@@ -1,6 +1,6 @@
 ---
 title: 关于拉取请求
-intro: '拉取请求可让您在 {{ site.data.variables.product.product_name }} 上向他人告知您已经推送到仓库中分支的更改。 在拉取请求打开后，您可以与协作者讨论并审查潜在更改，在更改合并到基本分支之前添加跟进提交。'
+intro: '拉取请求可让您在 {% data variables.product.product_name %} 上向他人告知您已经推送到仓库中分支的更改。 在拉取请求打开后，您可以与协作者讨论并审查潜在更改，在更改合并到基本分支之前添加跟进提交。'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ You can see information about the branch's current deployment status and past de
 
 对提议的更改感到满意后，您可以合并拉取请求。 如果您在使用共享仓库模型，可以创建一个拉取请求，然后您或其他人将您的功能分支中的更改合并到您在拉取请求中指定的基础分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ You can see information about the branch's current deployment status and past de
 
 ### 草稿拉取请求
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 在创建拉取请求时，可以选择创建可直接审查的拉取请求，或草稿拉取请求。 草稿拉取请求不能合并，也不会自动向代码所有者申请审查草稿拉取请求。 有关创建草稿拉取请求的更多信息，请参阅“[创建拉取请求](/articles/creating-a-pull-request)”和“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”。
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
+{% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
 
 ### 延伸阅读
 
-- {{ site.data.variables.product.prodname_dotcom }} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”
+- {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”
 - "[关于分支](/articles/about-branches)"
 - "[评论拉取请求](/articles/commenting-on-a-pull-request)"
 - "[合并拉取请求](/articles/merging-a-pull-request)"

@@ -8,6 +8,6 @@ versions:
   enterprise-server: '*'
 ---
 
-Debes utilizar un token de acceso a la isntalación para acceder a las terminales utilizando tu {{ site.data.variables.product.prodname_github_app }}. Para obtener más información, consulta la sección "[Autenticarse con {{ site.data.variables.product.prodname_github_apps }}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
+Debes utilizar un token de acceso a la isntalación para acceder a las terminales utilizando tu {% data variables.product.prodname_github_app %}. Para obtener más información, consulta la sección "[Autenticarse con {% data variables.product.prodname_github_apps %}](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
 
 {% include rest_enabled_for_github_apps_in_current_version %}

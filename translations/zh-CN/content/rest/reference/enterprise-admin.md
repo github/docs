@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
+You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
-**注：** 本文章适用于 {{ site.data.variables.product.prodname_ghe_cloud }}。 要查看 {{ site.data.variables.product.prodname_ghe_server }} 版本，请使用 **{{ site.data.ui.pages.article_version }}** 下拉菜单。
+**注：** 本文章适用于 {% data variables.product.prodname_ghe_cloud %}。 要查看 {% data variables.product.prodname_ghe_server %} 版本，请使用 **{% data ui.pages.article_version %}** 下拉菜单。
 
 {% endnote %}
 
@@ -39,13 +39,13 @@ http(s)://<em>hostname</em>/
 
 ### 身份验证
 
-{{ site.data.variables.product.product_name }} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if currentVersion != "free-pro-team@latest" %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
+{% data variables.product.product_name %} 安装设施的 API 端点接受与 GitHub.com [相同的身份验证方法](/rest/overview/resources-in-the-rest-api#authentication)。 您可以使用 **[OAuth 令牌](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（可使用[授权 API](/rest/reference/oauth-authorizations#create-a-new-authorization) 创建）或**[基本身份验证](/rest/overview/resources-in-the-rest-api#basic-authentication)**来验证自己。 {% if currentVersion != "free-pro-team@latest" %} OAuth 令牌用于企业特定的端点时必须具有 `site_admin` [OAuth 作用域](/developers/apps/scopes-for-oauth-apps#available-scopes)。{% endif %}
 
-企业管理 API 端点只有经过身份验证的 {{ site.data.variables.product.product_name }} 站点管理员可以访问，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/)。
+企业管理 API 端点只有经过身份验证的 {% data variables.product.product_name %} 站点管理员可以访问，但[管理控制台](#management-console) API 例外，它需要[管理控制台密码](/enterprise/admin/articles/accessing-the-management-console/)。
 
 ### 版本信息
 
-每个 API 的响应标头中都会返回 {{ site.data.variables.product.product_name }} 实例的当前版本：`X-GitHub-Enterprise-Version: {{currentVersion}}.0` 您也可以通过调用[元端点](/rest/reference/meta/)来读取当前版本。
+每个 API 的响应标头中都会返回 {% data variables.product.product_name %} 实例的当前版本：`X-GitHub-Enterprise-Version: {{currentVersion}}.0` 您也可以通过调用[元端点](/rest/reference/meta/)来读取当前版本。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -77,27 +77,27 @@ http(s)://<em>hostname</em>/
 
 ### 企业的 SCIM 预配
 
-启用 SCIM 的身份提供程序 (IdP) 可以使用 SCIM API 自动预配企业成员资格。 {{ site.data.variables.product.product_name }} API 基于[SCIM 标准](http://www.simplecloud.info/)的 2.0 版本。
+启用 SCIM 的身份提供程序 (IdP) 可以使用 SCIM API 自动预配企业成员资格。 {% data variables.product.product_name %} API 基于[SCIM 标准](http://www.simplecloud.info/)的 2.0 版本。
 
-IdP 必须使用 `{{ site.data.variables.product.api_url_code }}/scim/v2/enterprises/{enterprise}/` 作为 SCIM 端点。
+IdP 必须使用 `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` 作为 SCIM 端点。
 
 {% note %}
 
-**注：**企业 SCIM API 仅适用于 [{{ site.data.variables.product.prodname_ghe_cloud }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/v3/auth/#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
+**注：**企业 SCIM API 仅适用于 [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上启用了 [SAML SSO](/v3/auth/#authenticating-for-saml-sso) 的企业。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/github/setting-up-and-managing-organizations-and-teams/about-scim)”。
 
 {% endnote %}
 
 ### 向 SCIM API 验证调用
 
-您必须验证为 {{ site.data.variables.product.product_name }} 企业的所有者才可使用其 SCIM API。 API 预期 [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) 令牌包含在`授权`标头中。 您也可以使用个人访问令牌，但必须先[授权它与您的 SAML SSO 企业一起使用](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。
+您必须验证为 {% data variables.product.product_name %} 企业的所有者才可使用其 SCIM API。 API 预期 [OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) 令牌包含在`授权`标头中。 您也可以使用个人访问令牌，但必须先[授权它与您的 SAML SSO 企业一起使用](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)。
 
 ### SAML 和 SCIM 数据的映射
 
 SAML IdP 和 SCIM 客户端必须对每个用户使用匹配的 `NameID` 和 `userName` 值。 这允许通过 SAML 进行身份验证的用户链接到其预配的 SCIM 标识。
 
-SCIM 组与名称完全相同的 {{ site.data.variables.product.product_name }} 组织匹配，并且由企业帐户拥有。
+SCIM 组与名称完全相同的 {% data variables.product.product_name %} 组织匹配，并且由企业帐户拥有。
 
-SAML IdP 和 SCIM 客户端必须配置为 SCIM 组的 `displayName` 与相应的 {{ site.data.variables.product.product_name }} 组织名称完全匹配。 这允许 {{ site.data.variables.product.product_name }} 将 SCIM 组与 {{ site.data.variables.product.product_name }} 组织成员资格相链接。
+SAML IdP 和 SCIM 客户端必须配置为 SCIM 组的 `displayName` 与相应的 {% data variables.product.product_name %} 组织名称完全匹配。 这允许 {% data variables.product.product_name %} 将 SCIM 组与 {% data variables.product.product_name %} 组织成员资格相链接。
 
 ### 支持的 SCIM 用户属性
 
@@ -126,7 +126,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 | 名称            | 类型    | 描述                                                                                                                                       |
 | ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `字符串` | SCIM 组的名称，必须与相应 {{ site.data.variables.product.product_name }} 组织的名称完全匹配。 例如，如果组织的 URL 为`https://github.com/octo-org`，则组名必须为 `octo-org`。 |
+| `displayName` | `字符串` | SCIM 组的名称，必须与相应 {% data variables.product.product_name %} 组织的名称完全匹配。 例如，如果组织的 URL 为`https://github.com/octo-org`，则组名必须为 `octo-org`。 |
 | `members`     | `数组`  | 属于组成员的 SCIM 用户 ID 列表。                                                                                                                    |
 
 
@@ -148,7 +148,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ## 全局 web 挂钩
 
-全局 web 挂钩安装在 {{ site.data.variables.product.prodname_enterprise }} 实例上。 您可以使用全局 web 挂钩来自动监视、响应或实施针对实例上的用户、组织、团队和仓库的规则。 全局 web 挂钩可以订阅[组织](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[用户](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[仓库](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[团队](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[成员](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[成员身份](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[复刻](/developers/webhooks-and-events/webhook-events-and-payloads#fork)和 [ping](/developers/webhooks-and-events/about-webhooks#ping-event) 事件类型。
+全局 web 挂钩安装在 {% data variables.product.prodname_enterprise %} 实例上。 您可以使用全局 web 挂钩来自动监视、响应或实施针对实例上的用户、组织、团队和仓库的规则。 全局 web 挂钩可以订阅[组织](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[用户](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[仓库](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[团队](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[成员](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[成员身份](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[复刻](/developers/webhooks-and-events/webhook-events-and-payloads#fork)和 [ping](/developers/webhooks-and-events/about-webhooks#ping-event) 事件类型。
 
 *此 API 只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。 要了解如何配置全局 web 挂钩，请参阅[关于全局 web 挂钩](/enterprise/admin/user-management/about-global-webhooks)。
 
@@ -158,9 +158,9 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ## LDAP
 
-您可以使用 LDAP API 来更新 {{ site.data.variables.product.prodname_ghe_server }} 用户或团队与其关联的 LDAP 条目之间的帐户关系，或者排队新同步。
+您可以使用 LDAP API 来更新 {% data variables.product.prodname_ghe_server %} 用户或团队与其关联的 LDAP 条目之间的帐户关系，或者排队新同步。
 
-通过 LDAP 映射端点，您可以更新用户或团队所映射的识别名称 (DN) 。 请注意，LDAP 端点通常只在您的 {{ site.data.variables.product.prodname_ghe_server }} 设备[启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap)时才有效。 启用了 LDAP 后，即使禁用 LDAP 同步，也可以使用[更新用户的 LDAP 映射](#update-ldap-mapping-for-a-user)端点。
+通过 LDAP 映射端点，您可以更新用户或团队所映射的识别名称 (DN) 。 请注意，LDAP 端点通常只在您的 {% data variables.product.prodname_ghe_server %} 设备[启用了 LDAP 同步](/enterprise/admin/authentication/using-ldap)时才有效。 启用了 LDAP 后，即使禁用 LDAP 同步，也可以使用[更新用户的 LDAP 映射](#update-ldap-mapping-for-a-user)端点。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
@@ -176,7 +176,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ## 管理控制台
 
-管理控制台 API 可帮助您管理 {{ site.data.variables.product.prodname_ghe_server }} 安装设施。
+管理控制台 API 可帮助您管理 {% data variables.product.prodname_ghe_server %} 安装设施。
 
 {% tip %}
 
@@ -184,7 +184,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 如果您不想提供端口号，则需要将工具配置为自动遵循重定向。
 
-使用 `curl` 时，您可能还需要添加 [`-k` 标志](http://curl.haxx.se/docs/manpage.html#-k)，因为 {{ site.data.variables.product.prodname_ghe_server }} 在您[添加自己的 TLS 证书](/enterprise/admin/guides/installation/configuring-tls/)之前会使用自签名证书。
+使用 `curl` 时，您可能还需要添加 [`-k` 标志](http://curl.haxx.se/docs/manpage.html#-k)，因为 {% data variables.product.prodname_ghe_server %} 在您[添加自己的 TLS 证书](/enterprise/admin/guides/installation/configuring-tls/)之前会使用自签名证书。
 
 {% endtip %}
 
@@ -210,7 +210,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 ## 组织
 
-组织管理 API 允许您在 {{ site.data.variables.product.prodname_ghe_server }} 设备上创建组织。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
+组织管理 API 允许您在 {% data variables.product.prodname_ghe_server %} 设备上创建组织。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `404` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -249,7 +249,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 | --------------------- | ----- | --------------------------------------------------------------------- |
 | `name`                | `字符串` | UI 中显示的环境名称。                                                          |
 | `image_url`           | `字符串` | 将要下载并解压缩的 tarball 的 URL。                                              |
-| `default_environment` | `布尔值` | 这是否是 {{ site.data.variables.product.prodname_ghe_server }} 附带的默认环境。 |
+| `default_environment` | `布尔值` | 这是否是 {% data variables.product.prodname_ghe_server %} 附带的默认环境。 |
 | `download`            | `对象`  | 此环境的下载状态。                                                             |
 | `hooks_count`         | `整数`  | 使用此环境的预接收挂钩数量。                                                        |
 
@@ -320,7 +320,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 ## 用户
 
-用户管理 API 允许您在 {{ site.data.variables.product.prodname_ghe_server }} 设备上升级、降级、挂起和取消挂起用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
+用户管理 API 允许您在 {% data variables.product.prodname_ghe_server %} 设备上升级、降级、挂起和取消挂起用户。 *它只适用于[经过身份验证的](/rest/overview/resources-in-the-rest-api#authentication)站点管理员。*普通用户尝试访问它时会收到 `403` 响应。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

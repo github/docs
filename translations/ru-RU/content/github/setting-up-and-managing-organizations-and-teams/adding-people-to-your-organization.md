@@ -1,6 +1,6 @@
 ---
 title: Adding people to your organization
-intro: 'You can make anyone a member of your organization using their {{ site.data.variables.product.product_name }} username or email address.'
+intro: 'You can make anyone a member of your organization using their {% data variables.product.product_name %} username or email address.'
 redirect_from:
   - /articles/adding-people-to-your-organization
 versions:
@@ -15,16 +15,16 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.invite_to_org }}
-{{ site.data.reusables.organizations.choose-to-restore-privileges }}
-{{ site.data.reusables.organizations.choose-user-role }}
-{{ site.data.reusables.organizations.choose-user-license }}
-{{ site.data.reusables.organizations.add-user-to-teams }}
-{{ site.data.reusables.organizations.send-invitation }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.invite_to_org %}
+{% data reusables.organizations.choose-to-restore-privileges %}
+{% data reusables.organizations.choose-user-role %}
+{% data reusables.organizations.choose-user-license %}
+{% data reusables.organizations.add-user-to-teams %}
+{% data reusables.organizations.send-invitation %}
 
 ### Дополнительная литература
 - "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"

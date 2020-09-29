@@ -1,13 +1,13 @@
 ---
 title: 개요
-intro: 'With {{ site.data.variables.product.prodname_enterprise }} you can manage accounts and access, licenses, and billing.'
+intro: 'With {% data variables.product.prodname_enterprise %} you can manage accounts and access, licenses, and billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
   enterprise-server: '*'
 ---
 
-For more information, or to purchase {{ site.data.variables.product.prodname_enterprise }}, see [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise).
+For more information, or to purchase {% data variables.product.prodname_enterprise %}, see [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
 ### Table of Contents
 

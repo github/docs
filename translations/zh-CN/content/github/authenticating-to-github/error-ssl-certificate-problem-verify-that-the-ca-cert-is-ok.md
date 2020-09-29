@@ -1,6 +1,6 @@
 ---
 title: 错误：SSL 证书有问题，请验证 CA 证书是否正常
-intro: '此错误意味着您的 CA 根证书已过期。 如果您的 CA 根证书需要更新，您将无法从 {{ site.data.variables.product.product_name }} 仓库推送或拉取。'
+intro: '此错误意味着您的 CA 根证书已过期。 如果您的 CA 根证书需要更新，您将无法从 {% data variables.product.product_name %} 仓库推送或拉取。'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:

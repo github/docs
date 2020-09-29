@@ -1,6 +1,6 @@
 ---
 title: Creating CI tests with the Checks API
-intro: 'Build a continuous integration server to run tests using a {{ site.data.variables.product.prodname_github_app }} and the Checks API.'
+intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and the Checks API.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
 versions:
@@ -18,7 +18,7 @@ CI is a software practice that requires frequently committing code to a shared r
 
 A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a GitHub App, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in GitHub Marketplace.
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 #### Checks API overview
 
@@ -92,7 +92,7 @@ To update your app's permissions:
 1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
 1. In the "Permissions" section, find "Checks", and select **Read & write** in the Access dropdown next to it.
 1. In the "Subscribe to events" section, select **Check suite** and **Check run** to subscribe to these events.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 Great! Your app has permission to do the tasks you want it to do. Now you can add the code to handle the events.
 
@@ -170,7 +170,7 @@ To test this code, restart the server from your terminal:
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see something like this:
 
@@ -328,7 +328,7 @@ Your app needs read permission for "Repository contents" to clone a repository. 
 
 1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
 1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 To clone a repository using your GitHub App's permissions, you can use the app's installation token (`x-access-token:<token>`) shown in the example below:
 
@@ -698,7 +698,7 @@ That's it! The code you have written now completes your Checks API CI server. �
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 This time, click the "Fix this" button to automatically fix the errors RuboCop found from the **Checks** tab.
 
@@ -730,7 +730,7 @@ end
 
 ### Устранение проблем
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
 * **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
 

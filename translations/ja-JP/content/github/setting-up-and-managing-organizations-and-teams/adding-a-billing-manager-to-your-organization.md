@@ -32,7 +32,7 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 - Organization のリポジトリの作成あるいはアクセス
 - Organization のプライベートメンバーの閲覧
 - Organization メンバーのリスト内に表示されること
-- {{ site.data.variables.product.prodname_marketplace }}アプリケーションのサブスクリプションの購入、編集、キャンセル
+- {% data variables.product.prodname_marketplace %}アプリケーションのサブスクリプションの購入、編集、キャンセル
 
 {% tip %}
 
@@ -44,9 +44,9 @@ Organization のオーナーの Team のメンバーは、人に*支払いマネ
 
 招待された人は、Organization の支払いマネージャーになることを依頼する招待メールを受信します。 招待された人が招待メール中の受諾のリンクをクリックすると、その人は自動的に支払いマネージャーとして Organization に追加されます。 その人がまだ GitHub のアカウントを持っていない場合は、アカウント作成のためのサインアップにリダイレクトされ、アカウント作成後に自動的に支払いマネージャーとして Organization に追加されます。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. Billing managers（支払いマネージャー）の隣にある [**Add a billing manager**] をクリックします。 ![支払いマネージャーの招待](/assets/images/help/billing/settings_billing_managers_list.png)
 6. 追加したい人のユーザ名あるいはメールアドレスを入力し、[**Send Invitation**] をクリックします。 ![支払いマネージャーの招待ページ](/assets/images/help/billing/billing_manager_invite.png)

@@ -1,14 +1,14 @@
 ---
 title: 複合実行ステップ アクションの作成
 intro: このガイドでは、複合実行ステップ アクションを構築する方法について説明します。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
@@ -18,9 +18,9 @@ versions:
 
 ### 必要な環境
 
-開始する前に、 {{ site.data.variables.product.product_name }} リポジトリを作成します。
+開始する前に、 {% data variables.product.product_name %} リポジトリを作成します。
 
-1. {{ site.data.variables.product.product_location }}で新しいパブリック リポジトリを作成します。 任意のリポジトリ名を選択するか、hello-world コンポジット実行ステップアクション</code> 例 `次の方法を使用できます。 これらのファイルは、プロジェクトを {{ site.data.variables.product.product_name }}にプッシュした後で追加できます。 詳しい情報については、「<a href="/articles/creating-a-new-repository">新しいリポジトリの作成</a>」を参照してください。</p></li>
+1. {% data variables.product.product_location %}で新しいパブリック リポジトリを作成します。 任意のリポジトリ名を選択するか、hello-world コンポジット実行ステップアクション</code> 例 `次の方法を使用できます。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 詳しい情報については、「<a href="/articles/creating-a-new-repository">新しいリポジトリの作成</a>」を参照してください。</p></li>
 <li><p spaces-before="0">リポジトリをお手元のコンピューターにクローンします。 詳しい情報については<a href="/articles/cloning-a-repository">リポジトリのクローン</a>を参照してください。</p></li>
 <li><p spaces-before="0">ターミナルから、ディレクトリを新しいリポジトリに変更します。
 <pre><code class="shell">  cd ハローワールドコンポジット実行ステップアクション

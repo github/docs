@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
+You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
-**注釈:** この記事は {{ site.data.variables.product.prodname_ghe_cloud }} に適用されます。 {{ site.data.variables.product.prodname_ghe_server }} のバージョンを確認するには、**{{ site.data.ui.pages.article_version }}** ドロップダウンメニューを使用します。
+**注釈:** この記事は {% data variables.product.prodname_ghe_cloud %} に適用されます。 {% data variables.product.prodname_ghe_server %} のバージョンを確認するには、**{% data ui.pages.article_version %}** ドロップダウンメニューを使用します。
 
 {% endnote %}
 
@@ -39,13 +39,13 @@ http(s)://<em>hostname</em>/
 
 ### 認証
 
-{{ site.data.variables.product.product_name }} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if currentVersion != "free-pro-team@latest" %}Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
+{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if currentVersion != "free-pro-team@latest" %}Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
 
-Enterprise 管理 API エンドポイントには、認証された {{ site.data.variables.product.product_name }} サイト管理者のみがアクセスできます。ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。
+Enterprise 管理 API エンドポイントには、認証された {% data variables.product.product_name %} サイト管理者のみがアクセスできます。ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。
 
 ### バージョン情報
 
-{{ site.data.variables.product.product_name }} インスタンスの現在のバージョンは、すべての API のレスポンスヘッダで返されます: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` [メタエンドポイント](/rest/reference/meta/)を呼び出して、現在のバージョンを読み取ることもできます。
+{% data variables.product.product_name %} インスタンスの現在のバージョンは、すべての API のレスポンスヘッダで返されます: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` [メタエンドポイント](/rest/reference/meta/)を呼び出して、現在のバージョンを読み取ることもできます。
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -77,27 +77,27 @@ Enterprise 管理 API エンドポイントには、認証された {{ site.data
 
 ### Enterprise 向け SCIM プロビジョニング
 
-SCIM 対応のアイデンティティプロバイダ（IdP）は、SCIM API を使用して Enterprise メンバーシップのプロビジョニングを自動化できます。 The {{ site.data.variables.product.product_name }} API は [SCIM 標準](http://www.simplecloud.info/)のバージョン 2.0 に基づいています。
+SCIM 対応のアイデンティティプロバイダ（IdP）は、SCIM API を使用して Enterprise メンバーシップのプロビジョニングを自動化できます。 The {% data variables.product.product_name %} API は [SCIM 標準](http://www.simplecloud.info/)のバージョン 2.0 に基づいています。
 
-IdP は、SCIM エンドポイントとして `{{ site.data.variables.product.api_url_code }}/scim/v2/enterprises/{enterprise}/` を使用する必要があります。
+IdP は、SCIM エンドポイントとして `{% data variables.product.api_url_code %}/scim/v2/enterprises/{enterprise}/` を使用する必要があります。
 
 {% note %}
 
-**注釈:** Enterprise SCIM API は、[SAML SSO](/v3/auth/#authenticating-for-saml-sso) が有効になっている [{{ site.data.variables.product.prodname_ghe_cloud }}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
+**注釈:** Enterprise SCIM API は、[SAML SSO](/v3/auth/#authenticating-for-saml-sso) が有効になっている [{% data variables.product.prodname_ghe_cloud %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-accounts) 上の Enterprise でのみ使用できます。 SCIM に関する詳細は「[SCIM について](/github/setting-up-and-managing-organizations-and-teams/about-scim)」を参照してください。
 
 {% endnote %}
 
 ### SCIM API への呼び出しを認証する
 
-SCIM API を使用するには、{{ site.data.variables.product.product_name }} Enterprise の所有者として認証する必要があります。 API は、[OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) トークンが `Authorization` ヘッダに含まれていることを想定しています。 個人アクセストークンを使用することもできますが、まず [SAML SSO Enterprise で使用するためにトークンを承認する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)必要があります。
+SCIM API を使用するには、{% data variables.product.product_name %} Enterprise の所有者として認証する必要があります。 API は、[OAuth 2.0 Bearer](/developers/apps/authenticating-with-github-apps) トークンが `Authorization` ヘッダに含まれていることを想定しています。 個人アクセストークンを使用することもできますが、まず [SAML SSO Enterprise で使用するためにトークンを承認する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)必要があります。
 
 ### SAML および SCIM データのマッピング
 
 SAML IdP および SCIM クライアントは、ユーザごとに一致する `NameID` と `userName` の値を使用する必要があります。 これにより、SAML を介して認証するユーザを、プロビジョニングされた SCIM ID にリンクできます。
 
-SCIM グループは、Enterprise アカウントが所有している、完全に同じ名前の {{ site.data.variables.product.product_name }} Organization と一致します。
+SCIM グループは、Enterprise アカウントが所有している、完全に同じ名前の {% data variables.product.product_name %} Organization と一致します。
 
-SAML IdP および SCIM クライアントは、SCIM グループの `displayName` が対応する {{ site.data.variables.product.product_name }} Organization の名前と完全に一致するように設定する必要があります。 これにより、{{ site.data.variables.product.product_name }} が SCIM グループを {{ site.data.variables.product.product_name }} Organization メンバーシップにリンクできるようになります。
+SAML IdP および SCIM クライアントは、SCIM グループの `displayName` が対応する {% data variables.product.product_name %} Organization の名前と完全に一致するように設定する必要があります。 これにより、{% data variables.product.product_name %} が SCIM グループを {% data variables.product.product_name %} Organization メンバーシップにリンクできるようになります。
 
 ### サポートされている SCIM ユーザ属性
 
@@ -126,7 +126,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 | 名前            | 種類       | 説明                                                                                                                                                                                          |
 | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `displayName` | `string` | SCIM グループの名前。対応する {{ site.data.variables.product.product_name }} Organization の名前と完全に一致する必要があります。 たとえば、Organization の URL が `https://github.com/octo-org` の場合、グループ名は `octo-org` である必要があります。 |
+| `displayName` | `string` | SCIM グループの名前。対応する {% data variables.product.product_name %} Organization の名前と完全に一致する必要があります。 たとえば、Organization の URL が `https://github.com/octo-org` の場合、グループ名は `octo-org` である必要があります。 |
 | `members`     | `array`  | グループのメンバーである SCIM ユーザ ID の一覧。                                                                                                                                                               |
 
 
@@ -148,7 +148,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ## グローバル webhook
 
-グローバル webhook は {{ site.data.variables.product.prodname_enterprise }} インスタンスにインストールされています。 グローバル webhook を使用して、インスタンスのユーザ、Organization、Team、およびリポジトリのルールを自動的に監視、対応、強制することができます。 グローバル webhook は、[Organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[ユーザ](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[リポジトリ](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[Team](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[メンバー](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[メンバーシップ](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[フォーク](/developers/webhooks-and-events/webhook-events-and-payloads#fork)、[ping](/developers/webhooks-and-events/about-webhooks#ping-event) イベントタイプをサブスクライブできます。
+グローバル webhook は {% data variables.product.prodname_enterprise %} インスタンスにインストールされています。 グローバル webhook を使用して、インスタンスのユーザ、Organization、Team、およびリポジトリのルールを自動的に監視、対応、強制することができます。 グローバル webhook は、[Organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization)、[ユーザ](/developers/webhooks-and-events/webhook-events-and-payloads#user)、[リポジトリ](/developers/webhooks-and-events/webhook-events-and-payloads#repository)、[Team](/developers/webhooks-and-events/webhook-events-and-payloads#team)、[メンバー](/developers/webhooks-and-events/webhook-events-and-payloads#member)、[メンバーシップ](/developers/webhooks-and-events/webhook-events-and-payloads#membership)、[フォーク](/developers/webhooks-and-events/webhook-events-and-payloads#fork)、[ping](/developers/webhooks-and-events/about-webhooks#ping-event) イベントタイプをサブスクライブできます。
 
 *この API は、[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。 グローバル webhook の設定方法については、[グローバル webhookについて](/enterprise/admin/user-management/about-global-webhooks)を参照してください。
 
@@ -158,9 +158,9 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ## LDAP
 
-LDAP API を使用して、{{ site.data.variables.product.prodname_ghe_server }} ユーザまたは Team とそのリンクされた LDAP エントリ間のアカウント関係を更新するか、新しい同期をキューに入れることができます。
+LDAP API を使用して、{% data variables.product.prodname_ghe_server %} ユーザまたは Team とそのリンクされた LDAP エントリ間のアカウント関係を更新するか、新しい同期をキューに入れることができます。
 
-LDAP マッピングエンドポイントを使用すると、ユーザまたは Team がマッピングする識別名（DN）を更新できます。 LDAP エンドポイントは通常、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスで [LDAP 同期が有効](/enterprise/admin/authentication/using-ldap)になっている場合にのみ有効です。 [ユーザの LDAP マッピングの更新](#update-ldap-mapping-for-a-user)エンドポイントは、LDAP 同期が無効になっている場合でも、LDAP が有効になっていれば使用できます。
+LDAP マッピングエンドポイントを使用すると、ユーザまたは Team がマッピングする識別名（DN）を更新できます。 LDAP エンドポイントは通常、{% data variables.product.prodname_ghe_server %} アプライアンスで [LDAP 同期が有効](/enterprise/admin/authentication/using-ldap)になっている場合にのみ有効です。 [ユーザの LDAP マッピングの更新](#update-ldap-mapping-for-a-user)エンドポイントは、LDAP 同期が無効になっている場合でも、LDAP が有効になっていれば使用できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
@@ -176,7 +176,7 @@ LDAP マッピングエンドポイントを使用すると、ユーザまたは
 
 ## Management Console
 
-管理コンソール API は、{{ site.data.variables.product.prodname_ghe_server }} インストールの管理に役立ちます。
+管理コンソール API は、{% data variables.product.prodname_ghe_server %} インストールの管理に役立ちます。
 
 {% tip %}
 
@@ -184,7 +184,7 @@ Management Console への API 呼び出しを行うときは、ポート番号�
 
 ポート番号を提供しない場合は、自動的にリダイレクトに従うようにツールを設定する必要があります。
 
-{{ site.data.variables.product.prodname_ghe_server }} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前に自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要がある場合もあります。
+{% data variables.product.prodname_ghe_server %} は、[独自の TLS 証明書](/enterprise/admin/guides/installation/configuring-tls/)を追加する前に自己署名証明書を使用するため、`cURL` を使用するときに [`-k` フラグ](http://curl.haxx.se/docs/manpage.html#-k)を追加する必要がある場合もあります。
 
 {% endtip %}
 
@@ -210,7 +210,7 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 ## Organization
 
-Organization 管理 API を使用すると、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスに Organization を作成できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
+Organization 管理 API を使用すると、{% data variables.product.prodname_ghe_server %} アプライアンスに Organization を作成できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`404` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -249,7 +249,7 @@ pre-receive 環境 API を使用すると、pre-receive フックの環境を作
 | --------------------- | --------- | ------------------------------------------------------------------------------ |
 | `name`                | `string`  | UI に表示される環境の名前。                                                                |
 | `image_url`           | `string`  | ダウンロードおよび抽出される tarball への URL。                                                 |
-| `default_environment` | `boolean` | これが {{ site.data.variables.product.prodname_ghe_server }} に同梱されるデフォルト環境かどうか。 |
+| `default_environment` | `boolean` | これが {% data variables.product.prodname_ghe_server %} に同梱されるデフォルト環境かどうか。 |
 | `download`            | `オブジェクト`  | この環境のダウンロードステータス。                                                              |
 | `hooks_count`         | `整数`      | この環境を使用する pre-receive フックの数。                                                   |
 
@@ -320,7 +320,7 @@ pre-receive フック API を使用すると、pre-receive フックを作成、
 
 ## ユーザ
 
-ユーザ管理 API を使用すると、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスでユーザを昇格、降格、停止、および停止解除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
+ユーザ管理 API を使用すると、{% data variables.product.prodname_ghe_server %} アプライアンスでユーザを昇格、降格、停止、および停止解除できます。 *これは[認証された](/rest/overview/resources-in-the-rest-api#authentication)サイト管理者のみが使用できます。*通常のユーザがアクセスしようとすると、`403` レスポンスを受け取ります。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

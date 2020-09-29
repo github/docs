@@ -1,7 +1,7 @@
 ---
 title: Convidar pessoas para gerenciar sua conta corporativa
 intro: É possível convidar pessoas para se tornarem proprietários ou gerentes de cobrança em sua conta corporativa. Também é possível remover proprietários ou gerentes de cobrança corporativos que não precisam mais acessar a conta corporativa.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/inviting-people-to-collaborate-in-your-business-account/
   - /articles/inviting-people-to-manage-your-enterprise-account
@@ -12,7 +12,7 @@ versions:
 
 ### Sobre convidar pessoas para gerenciar sua conta corporativa
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }} Para obter mais informações, consulte "[Funções em contas corporativas](/articles/roles-for-an-enterprise-account)".
+{% data reusables.enterprise-accounts.enterprise-administrators %} Para obter mais informações, consulte "[Funções em contas corporativas](/articles/roles-for-an-enterprise-account)".
 
 {% tip %}
 
@@ -26,8 +26,8 @@ Somente proprietários corporativos podem convidar outras pessoas para se tornar
 
 Depois que você convidou alguém para participar da conta corporativa, a pessoa deve aceitar o convite enviado por e-mail antes de acessar a conta corporativa.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Na barra lateral esquerda, clique em **Administrators** (Administradores). ![Aba Administrators (Administradores) na barra lateral esquerda](/assets/images/help/business-accounts/administrators-tab.png)
 4. Acima da lista de administradores, clique em **Invite admin** (Convidar administrador). ![Botão Invite admin (Convidar administrador) acima da lista de enterprise owners (proprietários corporativos)](/assets/images/help/business-accounts/invite-admin-button.png)
 5. Digite o nome de usuário, nome completo ou endereço de e-mail da pessoa que você quer convidar para ser um administrador corporativo e depois selecione a pessoa adequada a partir dos resultados. ![Caixa de diálogo modal com campo para digitar o nome de usuário da pessoa, nome completo ou endereço de e-mail e botão Invite (Convidar)](/assets/images/help/business-accounts/invite-admins-modal-button.png)
@@ -38,8 +38,8 @@ Depois que você convidou alguém para participar da conta corporativa, a pessoa
 
 Somente proprietários corporativos podem remover outros administradores corporativos da conta corporativa.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
 3. Ao lado do nome de usuário da pessoa que você deseja remover, clique em {% octicon "gear" aria-label="The Settings gear" %} e depois em **Remove owner** (Remover proprietário) ou **Remove billing manager** (Remover gerente de cobrança). ![Ajuste de configurações com menu option (opções) para remover um administrador corporativo](/assets/images/help/business-accounts/remove-admin.png)
 
 ### Leia mais

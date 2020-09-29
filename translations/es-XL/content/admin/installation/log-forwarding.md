@@ -1,6 +1,6 @@
 ---
 title: Redireccionamiento de registro
-intro: '{{ site.data.variables.product.prodname_enterprise }} utiliza `syslog-ng` para redireccionar los registros de la aplicación y del sistema al servidor que especifiques en los parámetros {{ site.data.variables.enterprise.management_console }}.'
+intro: '{% data variables.product.prodname_enterprise %} utiliza `syslog-ng` para redireccionar los registros de la aplicación y del sistema al servidor que especifiques en los parámetros {% data variables.enterprise.management_console %}.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -12,7 +12,7 @@ Es compatible cualquier sistema de recopilación de registro que admita los fluj
 
 ### Habilitar redireccionamiento de registro
 
-1. En la página de parámetros {{ site.data.variables.enterprise.management_console }}, en la barra lateral izquierda, haz clic en **(Monitoring) Revisar**.
+1. En la página de parámetros {% data variables.enterprise.management_console %}, en la barra lateral izquierda, haz clic en **(Monitoring) Revisar**.
 1. Selecciona **Enable log forwarding (Habilitar redireccionamiento de registro)**.
 1. En el campo **Server address (Dirección del servidor)**, escribe la dirección del servidor al que desees redireccionar los registros. Puedes especificar varias direcciones en una lista de separación por coma.
 1. En el menú desplegable de Protocolo, selecciona el protocolo a utilizar para que se comunique con el servidor de registro. El protocolo se aplicará a todos los destinos de registro especificados.
@@ -21,4 +21,4 @@ Es compatible cualquier sistema de recopilación de registro que admita los fluj
 
 ### Solución de problemas
 
-Si encuentras problemas con el redireccionamiento de registro, contacta a {{ site.data.variables.contact.contact_ent_support }} y adjunta el archivo de salida de `http(s)://[hostname]/setup/diagnostics` to your email.
+Si encuentras problemas con el redireccionamiento de registro, contacta a {% data variables.contact.contact_ent_support %} y adjunta el archivo de salida de `http(s)://[hostname]/setup/diagnostics` to your email.

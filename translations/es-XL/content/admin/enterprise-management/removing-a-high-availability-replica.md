@@ -1,6 +1,6 @@
 ---
 title: Quitar una réplica de disponibilidad alta
-intro: 'Puedes detener una replicación a una réplica {{ site.data.variables.product.prodname_ghe_server }} de forma temporal, o quitar la replicación de forma permanente.'
+intro: 'Puedes detener una replicación a una réplica {% data variables.product.prodname_ghe_server %} de forma temporal, o quitar la replicación de forma permanente.'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica

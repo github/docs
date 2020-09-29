@@ -1,7 +1,7 @@
 ---
 title: 创建和存储加密密码
 intro: 加密密码允许您在仓库或组织中存储敏感信息。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -10,14 +10,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于加密密码
 
-密码是在仓库或组织中创建的加密环境变量。 您创建的密码可用于 {{ site.data.variables.product.prodname_actions }} 工作流程。 在密码到达 {{ site.data.variables.product.prodname_dotcom }} 之前，{{ site.data.variables.product.prodname_dotcom }} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对密码加密，并且在您于工作流程中使用它们之前一直保持加密状态。
+密码是在仓库或组织中创建的加密环境变量。 您创建的密码可用于 {% data variables.product.prodname_actions %} 工作流程。 在密码到达 {% data variables.product.prodname_dotcom %} 之前，{% data variables.product.prodname_dotcom %} 使用 [libsodium 密封盒](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)对密码加密，并且在您于工作流程中使用它们之前一直保持加密状态。
 
-{{ site.data.reusables.github-actions.secrets-org-level-overview }}
+{% data reusables.github-actions.secrets-org-level-overview %}
 
 #### 命名您的密码
 
@@ -28,17 +28,17 @@ versions:
 * 密码名称不能以数字开头。
 * 密码名称在所创建的级别上必须是唯一的。 例如，在组织级别创建的密码必须在该级别具有唯一名称，而在仓库级别创建的密码必须在该仓库具有唯一名称。 如果组织级别密码的名称与仓库级别的密码相同，则仓库级别的密码优先。
 
-为帮助确保 {{ site.data.variables.product.prodname_dotcom }} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
+为帮助确保 {% data variables.product.prodname_dotcom %} 在日志中编写密码，请勿将结构化数据用作密码的值。 例如，避免创建包含 JSON 或编码 Git blob 的密码。
 
 #### 访问您的密码
 
-为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
+为使密码用于操作，必须将密码设置为工作流程文件中的输入或环境变量。 查看操作的自述文件以了解操作预期的输入和环境变量。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)”。
 
-如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{{ site.data.variables.product.prodname_dotcom }} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
+如果您拥有编辑文件的权限，便可在工作流程文件中使用和读取加密密码。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 上的访问权限](/github/getting-started-with-github/access-permissions-on-github)”。
 
 {% warning %}
 
-**警告：**{{ site.data.variables.product.prodname_dotcom }} 自动将密码编写到日志，但您应避免有意将密码打印到日志。
+**警告：**{% data variables.product.prodname_dotcom %} 自动将密码编写到日志，但您应避免有意将密码打印到日志。
 
 {% endwarning %}
 
@@ -50,11 +50,11 @@ versions:
 
 ### 为仓库创建加密密码
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-repository }}
+{% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. 单击 **Add a new secret（添加新机密）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的值。
@@ -66,11 +66,11 @@ versions:
 
 在组织中创建密码时，可以使用策略来限制可以访问该密码的仓库。 例如，您可以将访问权限授予所有仓库，也可以限制仅私有仓库或指定的仓库列表拥有访问权限。
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-organization }}
+{% data reusables.github-actions.permissions-statement-secrets-organization %}
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. 单击 **New secret（新建密码）**。
 1. 在 **Name（名称）**输入框中键入密码的名称。
 1. 输入密码的 **Value（值）**。
@@ -81,9 +81,9 @@ versions:
 
 您可以检查哪些访问策略正被应用于组织中的密码。
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. 密码列表包括任何已配置的权限和策略。 例如： ![密码列表](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 有关已为每个密码配置的权限的更多信息，请单击 **Update（更新）**。
 
@@ -91,7 +91,7 @@ versions:
 
 除了 `GITHUB_TOKEN` 以外，从复刻的仓库触发工作流程时密码不会传递给运行程序。
 
-要提供以密码作为输入或环境变量的操作，可以使用 `secrets` 上下文访问您在仓库中创建的密码。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”和“[{{ site.data.variables.product.prodname_actions }} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
+要提供以密码作为输入或环境变量的操作，可以使用 `secrets` 上下文访问您在仓库中创建的密码。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”和“[{% data variables.product.prodname_actions %} 的工作流程语法](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)”。
 
 {% raw %}
 ```yaml
@@ -151,11 +151,11 @@ steps:
 
 您的工作流程最多可以有 100 个密码。 密码环境变量的名称在仓库中必须是唯一的。
 
-密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {{ site.data.variables.product.prodname_dotcom }} 上存储为密码。 例如，在将文件检入您在 {{ site.data.variables.product.prodname_dotcom }} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
+密码大小限于 64 KB。 要使用大于 64 KB 的密码，可以将加密的密码存储在仓库中，并将解密短语在 {% data variables.product.prodname_dotcom %} 上存储为密码。 例如，在将文件检入您在 {% data variables.product.prodname_dotcom %} 上的仓库之前，可以使用 `gpg` 在本地对您的凭据加密。 更多信息请参阅“[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)”。
 
 {% warning %}
 
-**警告**：请注意，您的密码在操作运行时不会印出。 使用此解决方法时，{{ site.data.variables.product.prodname_dotcom }} 不会编写日志中印出的密码。
+**警告**：请注意，您的密码在操作运行时不会印出。 使用此解决方法时，{% data variables.product.prodname_dotcom %} 不会编写日志中印出的密码。
 
 {% endwarning %}
 
@@ -165,7 +165,7 @@ steps:
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. 将会提示您输入密码短语。 请记住该密码短语，因为需要在使用该密码短语作为值的 {{ site.data.variables.product.prodname_dotcom }} 上创建新密码。
+1. 将会提示您输入密码短语。 请记住该密码短语，因为需要在使用该密码短语作为值的 {% data variables.product.prodname_dotcom %} 上创建新密码。
 
 1. 创建包含密码短语的新密码。 例如，使用名称 `LARGE_SECRET_PASSPHRASE` 创建新密码，并将密码的值设为上一步所选的密码短语。
 

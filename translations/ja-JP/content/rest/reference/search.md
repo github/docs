@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{{ site.data.variables.product.product_name }} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
+Search API は、見つけたい特定の項目を検索するために役立ちます。 たとえば、リポジトリ内のユーザや特定のファイルを見つけることができます。 Google で検索を実行するのと同じように考えてください。 Search API は、探している 1 つの結果 (または探しているいくつかの結果) を見つけるために役立つよう設計されています。 Google で検索する場合と同じように、ニーズに最も合う項目を見つけるため、検索結果を数ページ表示したい場合もあるでしょう。 こうしたニーズを満たすため、{% data variables.product.product_name %} Search API では**各検索につき 最大 1,000 件の結果**を提供します。
 
 クエリを使って、検索を絞り込めます。 検索クエリ構文の詳細については、「[検索クエリの構築](/v3/search/#constructing-a-search-query)」を参照してください。
 
@@ -19,13 +19,13 @@ Search API は、見つけたい特定の項目を検索するために役立ち
 
 Search API にはカスタムレート制限があります。 リクエストに[基本認証](/v3/#authentication)、[OAuth](/v3/#authentication)、または[クライアント ID とシークレット](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications)を使用する場合は、1 分間に最大 30 件のリクエストが行えます。 認証されていないリクエストでは、レート制限により 1 分間あたり最大 10 件のリクエストが行えます。
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 現在のレート制限状態を確認する方法の詳細については、[レート制限ドキュメンテーション](/rest/reference/rate-limit)を参照してください。
 
 ### 検索クエリの構築
 
-Search API の各エンドポイントでは、{{ site.data.variables.product.product_name }} で検索を行うために[クエリパラメータ](https://en.wikipedia.org/wiki/Query_string)を使用します。 エンドポイントとクエリパラメータを含める例については、Search API の個々のエンドポイントを参照してください。
+Search API の各エンドポイントでは、{% data variables.product.product_name %} で検索を行うために[クエリパラメータ](https://en.wikipedia.org/wiki/Query_string)を使用します。 エンドポイントとクエリパラメータを含める例については、Search API の個々のエンドポイントを参照してください。
 
 クエリには、GitHub.com でサポートされている検索修飾子を任意に組み合わせて使用できます。 検索クエリの形式は次のとおりです。
 
@@ -57,11 +57,11 @@ Search API は、以下のクエリをサポートしていません。
 
 ### アクセスエラーまたは検索結果の欠落
 
-検索クエリでは、認証に成功してリポジトリにアクセスできるようにする必要があります。そうしない場合は、`422 Unprocessible Entry` エラーと、「Validation Failed」というメッセージが表示されます。 たとえば、{{ site.data.variables.product.prodname_dotcom }} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
+検索クエリでは、認証に成功してリポジトリにアクセスできるようにする必要があります。そうしない場合は、`422 Unprocessible Entry` エラーと、「Validation Failed」というメッセージが表示されます。 たとえば、{% data variables.product.prodname_dotcom %} にサインインしたときにアクセスできないリソースをリクエストする `repo:`、`user:`、または `org:` 修飾子がクエリに含まれている場合、検索は失敗します。
 
 検索クエリで複数のリソースをリクエストする場合、レスポンスにはあなたがアクセスできるリソースのみが含まれ、返されないリソースを一覧表示するようなエラーメッセージは**表示されません**。
 
-たとえば、検索クエリで `octocat/test` リポジトリと `codertocat/test` リポジトリを検索し、`octocat/test` へのアクセス権しか持っていない場合、`octocat/test` の検索結果が表示され、`codertocat/test` の検索結果は全く表示されません。 この振る舞いは、{{ site.data.variables.product.prodname_dotcom }} における検索の仕組みと同じです。
+たとえば、検索クエリで `octocat/test` リポジトリと `codertocat/test` リポジトリを検索し、`octocat/test` へのアクセス権しか持っていない場合、`octocat/test` の検索結果が表示され、`codertocat/test` の検索結果は全く表示されません。 この振る舞いは、{% data variables.product.prodname_dotcom %} における検索の仕組みと同じです。
 
 {% include rest_operations_at_current_path %}
 
@@ -96,7 +96,7 @@ cURL と、上記の [Issue 検索例](#search-issues-and-pull-requests) を使�
 
 ``` shell
 curl -H 'Accept: application/vnd.github.v3.text-match+json' \
-'{{ site.data.variables.product.api_url_pre }}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
+'{% data variables.product.api_url_pre %}/search/issues?q=windows+label:bug+language:python+state:open&sort=created&order=asc'
 ```
 
 レスポンスには、検索結果ごとに `text_matches` 配列が含まれます。 以下の JSON では、`text_matches` 配列に 2 つのオブジェクトがあります。

@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. En el ángulo superior derecho, selecciona el menú desplegable Asignatario.
 4. El menú desplegable Asignatario menciona a todos los usuarios que tienen acceso de escritura a tu repositorio. Haz clic en el nombre de la persona cuyos elementos asignados deseas ver, o haz clic en **No asignado a nadie** para ver qué propuestas no están asignadas. ![Utilizar la pestaña desplegable Asignatarios](/assets/images/help/issues/issues_assignee_dropdown.png)
 

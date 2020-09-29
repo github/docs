@@ -1,7 +1,7 @@
 
 ### サポートのスコープ
 
-サポートリクエストが弊社のチームが支援できるスコープ外だった場合、{{ site.data.variables.contact.github_support }}外で問題を解決するための次のステップをおすすめすることがあります。 サポートリクエストが主に以下の内容に関するものであれば、おそらく{{ site.data.variables.contact.github_support }}のスコープ外になります。
+サポートリクエストが弊社のチームが支援できるスコープ外だった場合、{% data variables.contact.github_support %}外で問題を解決するための次のステップをおすすめすることがあります。 サポートリクエストが主に以下の内容に関するものであれば、おそらく{% data variables.contact.github_support %}のスコープ外になります。
 - サードパーティとのインテグレーション
 - ハードウェアのセットアップ
 - JenkinsのようなCI/CD

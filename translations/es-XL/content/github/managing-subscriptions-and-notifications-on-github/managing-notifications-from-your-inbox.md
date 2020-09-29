@@ -12,7 +12,7 @@ versions:
 ### Acerca de tu bandeja de entrada
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }}Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
+{% data reusables.notifications-v2.notifications-inbox-required-setting %}Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)".
 {% endif %}
 
 Para acceder a tu bandeja de notificaciones, en la esquina superior derecha de cualquier página, da clic en {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ Predeterminadamente, tu bandeja de entrada tiene filtros para cuando se te asign
 
 Puedes agregar hasta 15 de tus filtros personalizados.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. Para abrir la configuración de filtros, en la barra lateral izquierda, a lado de "Filtros", da clic en {% octicon "gear" aria-label="The Gear icon" %}.
 
   {% tip %}
@@ -113,7 +113,7 @@ Para filtrar las notificaciones de acuerdo con la razón por la cual recibiste u
 
 #### Queries de tipo `is:` compatibles
 
-Para filtrar las notificaciones para una actividad específica en {{ site.data.variables.product.product_name }}, puedes utililzar la consulta `is`. Por ejemplo, para ver únicamente las actualizaciones de invitación a un repositorio, utiliza `is:repository-invitation`.
+Para filtrar las notificaciones para una actividad específica en {% data variables.product.product_name %}, puedes utililzar la consulta `is`. Por ejemplo, para ver únicamente las actualizaciones de invitación a un repositorio, utiliza `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

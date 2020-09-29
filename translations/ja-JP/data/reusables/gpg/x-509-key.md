@@ -3,10 +3,10 @@
 
 GPGではなくS/MIMEを使ってコミットやタグに署名するために、[smimesign](https://github.com/github/smimesign)を使うことができます。
 
-{{ site.data.reusables.gpg.smime-git-version }}
+{% data reusables.gpg.smime-git-version %}
 
 1. [smimesign](https://github.com/github/smimesign#installation)をインストールしてください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. コミットやタグの署名にS/MIMEを使うようGitを設定してください。 Git 2.19以降では、`git config gpg.x509.program`及び`git config gpg.format`コマンドを使ってください。
   - すべてのリポジトリへの署名にS/MIMEを使うには以下のようにします。
   ```shell

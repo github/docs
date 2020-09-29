@@ -7,12 +7,12 @@ versions:
 
 ### Inspecionar versões em repositórios
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique em **Releases only** (Somente versões) no menu suspenso "Watch" (Inspecionar). ![Opções de inspeção em um menu suspenso para versões](/assets/images/help/notifications/watch-releases.png)
 
 ### Cancelar a inspeção de versões em repositórios
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. No canto superior direito, clique em **Not watching** (Não inspecionar) no menu suspenso "Watch" (Inspecionar). ![Opções de inspeção em um menu suspenso para versões](/assets/images/help/notifications/unwatch-repository.png)
 
 ### Leia mais

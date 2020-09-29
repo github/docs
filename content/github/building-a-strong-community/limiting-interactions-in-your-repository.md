@@ -16,8 +16,8 @@ After 24 hours, users can resume normal activity in your repository.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. In your repository's Settings sidebar, click **Interaction limits**.
 ![Interaction limits in repository settings ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 4. Under "Temporary interaction limits", click one or more options:

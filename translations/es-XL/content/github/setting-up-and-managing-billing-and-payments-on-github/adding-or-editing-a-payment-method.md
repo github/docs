@@ -19,26 +19,26 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dotcom_billing.payment-methods }} {{ site.data.reusables.dotcom_billing.same-payment-method }}
+{% data reusables.dotcom_billing.payment-methods %} {% data reusables.dotcom_billing.same-payment-method %}
 
 No entregamos facturas u órdenes de compra de respaldo a cuentas personales. Enviamos recibos por correo electrónico mensual o anualmente a la fecha de facturación de tu cuenta. Si tu empresa, país o contador necesita que tus recibos sean más detallados, también puedes [agregar información adicional](/articles/adding-information-to-your-personal-account-s-receipts) a tus recibos.
 
 ### Actualizar el método de pago de tu cuenta personal
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}
 
 ### Actualizar el método de pago de tu organización
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-Si tu organización está fuera de los EE. UU. o si estás usando una cuenta corriente corporativa para pagar {{ site.data.variables.product.product_name }}, PayPal puede ser un método de pago útil.
+Si tu organización está fuera de los EE. UU. o si estás usando una cuenta corriente corporativa para pagar {% data variables.product.product_name %}, PayPal puede ser un método de pago útil.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
-{{ site.data.reusables.dotcom_billing.enter-payment-info }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.enter-payment-info %}

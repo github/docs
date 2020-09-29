@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. In the upper-left corner, click **Milestones**.
   ![Issues Milestone button](/assets/images/help/issues/issues_milestone_button.png)
 4. Select the milestone you wish to see more information about.

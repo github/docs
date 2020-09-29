@@ -9,9 +9,9 @@ versions:
 
 您可以为组织拥有的公共仓库启用或禁用报告的内容。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
 4. 在“Reported content（报告的内容）”下，选择或取消选择 **Accept content reports from collaborators and prior contributors（接受协作者和先前贡献者的内容报告）**。 ![用于选择加入或退出仓库报告内容的复选框](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
 ### 延伸阅读

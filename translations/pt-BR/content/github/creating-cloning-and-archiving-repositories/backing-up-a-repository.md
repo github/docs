@@ -18,7 +18,7 @@ Você pode baixar e fazer backup dos repositórios manualmente:
 - Para baixar os dados Git de um repositório no computador local, é preciso clonar o repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 - Também é possível baixar o wiki do repositório. Para obter mais informações, consulte "[Adicionar ou editar páginas wiki](/articles/adding-or-editing-wiki-pages)".
 
-Quando você clona um repositório ou wiki, somente os dados Git, como arquivos e histórico de commits do projeto, são baixados. Você pode usar nossa API para exportar outros elementos do seu repositório do {{ site.data.variables.product.product_name }} para o computador local:
+Quando você clona um repositório ou wiki, somente os dados Git, como arquivos e histórico de commits do projeto, são baixados. Você pode usar nossa API para exportar outros elementos do seu repositório do {% data variables.product.product_name %} para o computador local:
 
 - [Problemas](/v3/issues/#list-issues-for-a-repository)
 - [Pull requests](/v3/pulls/#list-pull-requests)
@@ -36,7 +36,7 @@ Assim que tiver {% if currentVersion != "free-pro-team@latest" %}uma versão loc
 {% if currentVersion == "free-pro-team@latest" %}
 ### Ferramentas de backup de terceiros
 
-Existem várias ferramentas de autoatendimento que automatizam backups de repositórios. Ao contrário de projetos arquivados, que arquivam _todos_ os repositórios públicos em {{ site.data.variables.product.product_name }} que não tenham optado por não participar e tornam os dados acessíveis para todos, as ferramentas de backup irão fazer o download dos dados de repositórios _específicos_ e organizá-los em um novo branch ou diretório. Para obter mais informações sobre projetos de arquivamento, consulte "[Sobre arquivamento de conteúdo e dados no {{ site.data.variables.product.prodname_dotcom }}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
+Existem várias ferramentas de autoatendimento que automatizam backups de repositórios. Ao contrário de projetos arquivados, que arquivam _todos_ os repositórios públicos em {% data variables.product.product_name %} que não tenham optado por não participar e tornam os dados acessíveis para todos, as ferramentas de backup irão fazer o download dos dados de repositórios _específicos_ e organizá-los em um novo branch ou diretório. Para obter mais informações sobre projetos de arquivamento, consulte "[Sobre arquivamento de conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".
 
-Você pode fazer backup de todos os dados Git de um repositório (como arquivos e histórico de commits do projeto), bem como de dados do {{ site.data.variables.product.product_name }} (como problemas e pull requests), com o [BackHub](https://github.com/marketplace/backhub), que cria backups recorrentes diariamente dos seus repositórios com instantâneos de até 30 dias atrás. O BackHub está disponível no {{ site.data.variables.product.prodname_marketplace }}.
+Você pode fazer backup de todos os dados Git de um repositório (como arquivos e histórico de commits do projeto), bem como de dados do {% data variables.product.product_name %} (como problemas e pull requests), com o [BackHub](https://github.com/marketplace/backhub), que cria backups recorrentes diariamente dos seus repositórios com instantâneos de até 30 dias atrás. O BackHub está disponível no {% data variables.product.prodname_marketplace %}.
 {% endif %}

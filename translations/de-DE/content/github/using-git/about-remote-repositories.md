@@ -14,8 +14,8 @@ Eine Remote-URL ist die offizielle Ausdrucksweise von Git für „der Ort, an de
 
 Du kannst nur an zwei Arten von URL-Adressen übertragen:
 
-* Eine HTTPS-URL wie `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
-* Eine SSH-URL wie `git@{{ site.data.variables.command_line.backticks }}:user/repo.git`
+* Eine HTTPS-URL wie `https://{% data variables.command_line.backticks %}/user/repo.git`
+* Eine SSH-URL wie `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git verknüpft eine Remote-URL mit einem Namen, und Dein Standard-Remote wird in der Regel `origin` genannt.
 

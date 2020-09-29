@@ -9,9 +9,9 @@ Organizationレベルで追加されたセルフホストランナーは、そ�
 
 ### Organizationのランナーへアクセスできるリポジトリの制御
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. "Self-hosted runners（セルフホストランナー）"の隣の**Manage repository permissions（リポジトリの権限の管理）**をクリックしてください。 ![リポジトリの権限の管理](/assets/images/help/settings/actions-runner-manage-permissions.png)
 
 1. ドロップダウンメニューから、以下のいずれかを選択してください。

@@ -8,8 +8,8 @@
 
         删除命令执行以下任务：
 
-        * 从 {{ site.data.variables.product.product_name }} 删除运行器。
+        * 从 {% data variables.product.product_name %} 删除运行器。
         * 删除机器上的任何自托管运行器应用程序配置文件。
         * 如果未在交互模式下运行，删除配置的任何服务。
 
-    * **如果无法访问该机器**，请单击 **Yes, force remove this runner（是，强制删除此运行器）**以强制 {{ site.data.variables.product.product_name }} 删除运行器。
+    * **如果无法访问该机器**，请单击 **Yes, force remove this runner（是，强制删除此运行器）**以强制 {% data variables.product.product_name %} 删除运行器。

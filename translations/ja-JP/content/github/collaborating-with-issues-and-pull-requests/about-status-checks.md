@@ -17,18 +17,18 @@ versions:
 
 ブランチへの最後のコミットの全体的なステータスは、リポジトリのブランチページあるいはリポジトリのプルリクエストのリストで見ることができます。
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### {{ site.data.variables.product.product_name }}でのステータスチェックの種類
+### {% data variables.product.product_name %}でのステータスチェックの種類
 
-{{ site.data.variables.product.product_name }} のステータスチェックには 2 種類あります。
+{% data variables.product.product_name %} のステータスチェックには 2 種類あります。
 
 - チェック
 - ステータス
 
-_チェック_は、行のアノテーション、より詳細なメッセージを提供するという点で_ステータス_とは異なっており、{{ site.data.variables.product.prodname_github_app }} でのみ利用できます。
+_チェック_は、行のアノテーション、より詳細なメッセージを提供するという点で_ステータス_とは異なっており、{% data variables.product.prodname_github_app %} でのみ利用できます。
 
-Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{{ site.data.variables.product.product_name }} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/v3/checks/)」および「[ ステータス](/v3/repos/statuses/)」を参照してください。
+Organization オーナー、およびリポジトリにプッシュアクセスを持つユーザは、{% data variables.product.product_name %} の API でチェックおよびステータスを作成できます。 詳しい情報については、「[チェック](/v3/checks/)」および「[ ステータス](/v3/repos/statuses/)」を参照してください。
 
 ### チェック
 

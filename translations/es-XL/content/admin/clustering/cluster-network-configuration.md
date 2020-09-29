@@ -1,6 +1,6 @@
 ---
 title: Configuración de la red de agrupaciones
-intro: 'La agrupación de {{ site.data.variables.product.prodname_ghe_server }} se basa en la resolución de nombre de DNS pertinente, balanceo de carga y comunicación entre los nodos para operar de manera adecuada.'
+intro: 'La agrupación de {% data variables.product.prodname_ghe_server %} se basa en la resolución de nombre de DNS pertinente, balanceo de carga y comunicación entre los nodos para operar de manera adecuada.'
 redirect_from:
   - /enterprise/admin/clustering/network-configuration
   - /enterprise/admin/clustering/cluster-network-configuration
@@ -77,17 +77,17 @@ Si un cortafuego de nivel de red se coloca entre los nodos estos puertos deberá
  - Los puertos TCP (que se muestra a continuación) deberán ser reenviados a los nodos que ejecutan el servicio `web-server`. Estos son los únicos nodos que sirven a las solicitudes de clientes externos.
  - Las sesiones pegajosas no deberían habilitarse.
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### Manejar información de conexión de clientes
 
 Dado que las conexiones de clientes con el agrupamiento provienen del balanceador de carga, no se puede perder la dirección IP de cliente. Para capturar adecuadamente la información de la conexión de clientes, se requiere una consideración adicional.
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Habilitar el soporte PROXY en {{ site.data.variables.product.prodname_ghe_server }}
+#### Habilitar el soporte PROXY en {% data variables.product.prodname_ghe_server %}
 
 Recomendamos firmemente habilitar el soporte PROXY para tu instancia y el balanceador de carga.
 
@@ -97,11 +97,11 @@ Recomendamos firmemente habilitar el soporte PROXY para tu instancia y el balanc
   ```
   - Para el balanceador de carga, usa las instrucciones proporcionadas por tu proveedor.
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Habilitar el soporte X-Forwarded-For en {{ site.data.variables.product.prodname_ghe_server }}
+#### Habilitar el soporte X-Forwarded-For en {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 Para habilitar el encabezado `X-Fowarded-For`, usa este comando:
 
@@ -109,14 +109,14 @@ Para habilitar el encabezado `X-Fowarded-For`, usa este comando:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### Configurar revisiones de estado
 Las comprobaciones de estado permiten que un balanceador de carga deje de enviar tráfico a un nodo que no responde si una comprobación preconfigurada falla en ese nodo. Si un nodo de agrupación falla, las revisiones de estado emparejadas con nodos redundantes brindan alta disponibilidad.
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### Requisitos de DNS
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

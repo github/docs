@@ -9,7 +9,7 @@ versions:
 
 GitHub Apps API を使用すると、GitHub App に関する大まかな情報と、アプリケーションのインストールに関する具体的な情報を取得できます。 GitHub App の詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
 
-{{ site.data.reusables.apps.general-apps-restrictions }}
+{% data reusables.apps.general-apps-restrictions %}
 
 このページには、GitHub App として認証されている場合にアクセスできるエンドポイントが一覧表示されています。 詳細については、「[GitHub App として認証する](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)」を参照してださい。
 
@@ -25,7 +25,7 @@ REST API v3 エンドポイントのサブセットでは、GitHub App のイン
 
 ## OAuth アプリケーション API
 
-この API を使用して、OAuth アプリケーションがユーザの {{ site.data.variables.product.prodname_dotcom }} アカウントにアクセスする際に使用する OAuth トークンを管理できます。
+この API を使用して、OAuth アプリケーションがユーザの {% data variables.product.prodname_dotcom %} アカウントにアクセスする際に使用する OAuth トークンを管理できます。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -46,17 +46,17 @@ Organization のすべての GitHub App インストレーションを一覧表�
 {% if currentVersion == "free-pro-team@latest" %}
 ## Marketplace
 
-{{ site.data.variables.product.prodname_marketplace }} の詳細については、「[GitHub Marketplace](/marketplace/)」を参照してください。
+{% data variables.product.prodname_marketplace %} の詳細については、「[GitHub Marketplace](/marketplace/)」を参照してください。
 
-{{ site.data.variables.product.prodname_marketplace }} API では、価格プランを使用している顧客の確認、顧客の購入の確認、アカウントで有効になっているプランの有無を確認できます。
+{% data variables.product.prodname_marketplace %} API では、価格プランを使用している顧客の確認、顧客の購入の確認、アカウントで有効になっているプランの有無を確認できます。
 
 ### スタブされたエンドポイントでテストする
 
-この API には、[**スタブされたデータ**で {{ site.data.variables.product.prodname_github_app }} をテスト](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)できるエンドポイントが含まれています。 スタブされたデータはハードコードされた偽のデータであり、実際のプランに基づいて変更されることはありません。
+この API には、[**スタブされたデータ**で {% data variables.product.prodname_github_app %} をテスト](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/)できるエンドポイントが含まれています。 スタブされたデータはハードコードされた偽のデータであり、実際のプランに基づいて変更されることはありません。
 
-スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 これにより、{{ site.data.variables.product.prodname_github_app}} を {{ site.data.variables.product.prodname_marketplace }} にリストする前に、API ロジックが成功するかどうかをテストできます。
+スタブされたデータでテストするには、対応する本番環境の代わりにスタブされたエンドポイントを使用します。 これにより、{% data variables.product.prodname_github_app %} を {% data variables.product.prodname_marketplace %} にリストする前に、API ロジックが成功するかどうかをテストできます。
 
-{{ site.data.variables.product.prodname_github_app }} をデプロイする前に、スタブされたエンドポイントを本番のエンドポイントに置き換えてください。
+{% data variables.product.prodname_github_app %} をデプロイする前に、スタブされたエンドポイントを本番のエンドポイントに置き換えてください。
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}

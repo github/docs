@@ -1,6 +1,6 @@
 ---
 title: 自分の GitHub ユーザ名またはメールアドレスを忘れた場合は
-intro: '{{ site.data.variables.product.product_location }} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 自分の {{ site.data.variables.product.product_name }}ユーザアカウント名を思い出せない場合は、次の方法を試してみてください。'
+intro: '{% data variables.product.product_location %} へのサインインは久しぶりでしょうか? そうであれば、改めてようこそ。 自分の {% data variables.product.product_name %}ユーザアカウント名を思い出せない場合は、次の方法を試してみてください。'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email/
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
@@ -12,23 +12,23 @@ versions:
 
 {% mac %}
 
-### {{ site.data.variables.product.prodname_desktop }}ユーザ
+### {% data variables.product.prodname_desktop %}ユーザ
 
 1. [**GitHub Desktop**] メニューで、[**Preferences**] をクリックします。
 2. [Preferences] ウィンドウで、次のことについて検証します:
-    - {{ site.data.variables.product.product_name }}ユーザ名を表示するには [**Accounts**] をクリックします。
-    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{{ site.data.variables.product.product_name }} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
+    - {% data variables.product.product_name %}ユーザ名を表示するには [**Accounts**] をクリックします。
+    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{% data variables.product.product_name %} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
 
 {% endmac %}
 
 {% windows %}
 
-### {{ site.data.variables.product.prodname_desktop }}ユーザ
+### {% data variables.product.prodname_desktop %}ユーザ
 
 1. In the **File** menu, click **Options**.
 2. [Options] ウィンドウで、次のことについて検証します:
-    - {{ site.data.variables.product.product_name }}ユーザ名を表示するには [**Accounts**] をクリックします。
-    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{{ site.data.variables.product.product_name }} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
+    - {% data variables.product.product_name %}ユーザ名を表示するには [**Accounts**] をクリックします。
+    - Git メールを表示するには [**Git**] をクリックします。 このメールは [{% data variables.product.product_name %} のプライマリメール](/articles/changing-your-primary-email-address)となることが保証されているわけではありませんので、注意してください。
 
 {% endwindows %}
 
@@ -56,11 +56,11 @@ $ git config user.name
 $ cd <em>ご使用のリポジトリ</em>
 # 初期化された Git リポジトリへディレクトリを変更する
 $ git remote -v
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (fetch)
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>ご使用のユーザ名</em>/<em>ご使用のリポジトリ</em>.git (push)
 ```
 
-ご使用のユーザ名は `https://{{ site.data.variables.command_line.backticks }}/` の直後にあるものです。
+ご使用のユーザ名は `https://{% data variables.command_line.backticks %}/` の直後にあるものです。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 参考リンク
