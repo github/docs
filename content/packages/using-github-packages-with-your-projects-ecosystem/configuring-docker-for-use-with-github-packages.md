@@ -31,7 +31,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-{% data reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.authenticate-packages %}
 
 #### Authenticating with a personal access token
 
