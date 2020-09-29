@@ -16,9 +16,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. 在组织的 Settings（设置）侧边栏中，单击 **Interaction limits（交互限制）**。 ![组织设置中的交互限制 ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 5. 在 "Temporary interaction limits"（临时交互限制）下，单击一个或多个选项。 ![临时交互限制选项](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
    - **Limit to existing users（限于现有用户）**：限制帐户存在时间不到 24 小时、之前没有贡献也不是协作者的组织用户的活动。

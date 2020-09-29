@@ -9,20 +9,20 @@ versions:
 ---
 
 ### Arquivar um repositório
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Em Danger Zone (Zona de perigo), clique em **Archive** (Arquivar). ![Botão Archive (Arquivar)](/assets/images/enterprise/site-admin-settings/repo-archive.png)
 6. Clique em **Archive Repository** (Arquivar repositório). ![Botão Archive repository (Arquivar repositório)](/assets/images/enterprise/site-admin-settings/repo-archive-confirm.png)
 
 ### Cancelar o arquivamento de um repositório
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Em Danger Zone (Zona de perigo), clique em **Unarchive** (Cancelar o arquivamento). ![Botão Archive (Arquivar)](/assets/images/enterprise/site-admin-settings/repo-unarchive.png)
 6. Clique em **Unarchive Repository** (Cancelar o arquivamento do repositório). ![Botão Archive repository (Arquivar repositório)](/assets/images/enterprise/site-admin-settings/repo-unarchive-confirm.png)
 

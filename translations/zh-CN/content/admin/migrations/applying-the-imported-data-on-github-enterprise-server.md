@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. 使用 `ghe-migrator import` 命令启动导入过程。 您需要：
     * 迁移 GUID.
@@ -21,4 +21,4 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}

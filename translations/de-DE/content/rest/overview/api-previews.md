@@ -20,7 +20,7 @@ To access an API preview, you'll need to provide a custom [media type](/v3/media
 {% if currentVersion == "free-pro-team@latest" %}
 ### Migrations
 
-Allows you to download repositories from your GitHub user or organization account to review, backup, and [migrate](/v3/migrations/) data to {{ site.data.variables.product.prodname_ghe_server }}.
+Allows you to download repositories from your GitHub user or organization account to review, backup, and [migrate](/v3/migrations/) data to {% data variables.product.prodname_ghe_server %}.
 
 **Custom media type:** `wyandotte-preview` **Announced:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
 {% endif %}
@@ -120,7 +120,7 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 ### Global webhooks
 
-Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {{ site.data.variables.product.prodname_ghe_server }}.
+Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
 
 **Custom media type:** `superpro-preview` **Announced:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
 
@@ -182,7 +182,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 
 ### Anonymous Git access to repositories
 
-When a {{ site.data.variables.product.prodname_ghe_server }} instance is in private mode, site and repository administrators can enable anonymous Git access for a public repository.
+When a {% data variables.product.prodname_ghe_server %} instance is in private mode, site and repository administrators can enable anonymous Git access for a public repository.
 
 **Custom media type:** `x-ray-preview` **Announced:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
@@ -218,7 +218,7 @@ You can now configure whether organization members can create repositories and w
 
 ### Inhaltsanhänge
 
-You can now provide more information in GitHub for URLs that link to registered domains by using the {{ site.data.variables.product.prodname_unfurls }} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
+You can now provide more information in GitHub for URLs that link to registered domains by using the {% data variables.product.prodname_unfurls %} API. See "[Using content attachments](/apps/using-content-attachments/)" for more details.
 
 **Custom media types:** `corsair-preview` **Announced:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
@@ -226,7 +226,7 @@ You can now provide more information in GitHub for URLs that link to registered 
 
 ### Interaction restrictions for repositories and organizations
 
-Allows you to temporarily restrict interactions, such as commenting, opening issues, and creating pull requests, for {{ site.data.variables.product.product_name }} repositories or organizations. When enabled, only the specified group of {{ site.data.variables.product.product_name }} users will be able to participate in these interactions. See the [Repository interactions](/v3/interactions/repos/) and [Organization interactions](/v3/interactions/orgs/) APIs for more details.
+Allows you to temporarily restrict interactions, such as commenting, opening issues, and creating pull requests, for {% data variables.product.product_name %} repositories or organizations. When enabled, only the specified group of {% data variables.product.product_name %} users will be able to participate in these interactions. See the [Repository interactions](/v3/interactions/repos/) and [Organization interactions](/v3/interactions/orgs/) APIs for more details.
 
 **Custom media type:** `sombra-preview` **Announced:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
 

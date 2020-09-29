@@ -43,7 +43,7 @@ The API notifies you if a resource requires a specific scope.
 
 The REST API has numerous endpoints; the GraphQL API has a single endpoint:
 
-<pre>{{ site.data.variables.product.graphql_url_pre }}</pre>
+<pre>{% data variables.product.graphql_url_pre %}</pre>
 
 The endpoint remains constant no matter what operation you perform.
 
@@ -60,7 +60,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {{ site.data.variables.product.graphql_url_code }}
+" {% data variables.product.graphql_url_code %}
 ```
 
 {% tip %}
@@ -340,7 +340,7 @@ With the ID known, we can proceed with the mutation:
 
   How do we know which value to use for the content? The [`addReaction` docs](/v4/mutation/addreaction/) tell us the `content` field has the type [`ReactionContent`](/v4/enum/reactioncontent/), which is an [enum](/v4/enum) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 
-  {{ site.data.reusables.repositories.reaction_list }}
+  {% data reusables.repositories.reaction_list %}
 
 * The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/v4/mutation/addreaction), which three possible return fields:
 

@@ -1,6 +1,6 @@
 ---
 title: 移行について
-intro: '移行とは、「ソース」場所 ({{ site.data.variables.product.prodname_dotcom_the_website }} Organization か {{ site.data.variables.product.prodname_ghe_server }} インスタンスのいずれか) から「ターゲット」となる {{ site.data.variables.product.prodname_ghe_server }} インスタンスにデータを移譲するプロセスです。 移行は、プラットフォームを変更したり、インスタンスのハードウェアをアップグレードしたりする場合にデータを転送するのに利用できます。'
+intro: '移行とは、「ソース」場所 ({% data variables.product.prodname_dotcom_the_website %} Organization か {% data variables.product.prodname_ghe_server %} インスタンスのいずれか) から「ターゲット」となる {% data variables.product.prodname_ghe_server %} インスタンスにデータを移譲するプロセスです。 移行は、プラットフォームを変更したり、インスタンスのハードウェアをアップグレードしたりする場合にデータを転送するのに利用できます。'
 redirect_from:
   - /enterprise/admin/migrations/about-migrations
   - /enterprise/admin/user-management/about-migrations
@@ -12,9 +12,9 @@ versions:
 
 行える移行は3種類あります。
 
-- {{ site.data.variables.product.prodname_ghe_server }} インスタンスから別の {{ site.data.variables.product.prodname_ghe_server }} インスタンスへの移行。 インスタンス上の任意のユーザあるいはOrganizationが所有する任意の数のリポジトリを移行できます。 移行を行う前に、双方のインスタンスにサイト管理者としてアクセスできなければなりません。
-- {{ site.data.variables.product.prodname_dotcom_the_website }} Organization から {{ site.data.variables.product.prodname_ghe_server }} インスタンスへの移行。 Organizationが所有する任意の数のリポジトリを移行できます。 移行を実行するためには、{{ site.data.variables.product.prodname_dotcom_the_website }} Organization への[管理アクセス](/enterprise/user/articles/permission-levels-for-an-organization/)と、ターゲットインスタンスへのサイト管理者としてのアクセスが必要です。
-- *トライアル実行*は、データを[ステージングインスタンス](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)にインポートする移行です。 これは、{{ site.data.variables.product.product_location_enterprise }} に対して移行を行ったときに何が起こる*ことになる*のかを確認するのに役立ちます。 **本番インスタンスへデータをインポートする前に、ステージングインスタンスで試行することを強くおすすめします。**
+- {% data variables.product.prodname_ghe_server %} インスタンスから別の {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 インスタンス上の任意のユーザあるいはOrganizationが所有する任意の数のリポジトリを移行できます。 移行を行う前に、双方のインスタンスにサイト管理者としてアクセスできなければなりません。
+- {% data variables.product.prodname_dotcom_the_website %} Organization から {% data variables.product.prodname_ghe_server %} インスタンスへの移行。 Organizationが所有する任意の数のリポジトリを移行できます。 移行を実行するためには、{% data variables.product.prodname_dotcom_the_website %} Organization への[管理アクセス](/enterprise/user/articles/permission-levels-for-an-organization/)と、ターゲットインスタンスへのサイト管理者としてのアクセスが必要です。
+- *トライアル実行*は、データを[ステージングインスタンス](/enterprise/admin/guides/installation/setting-up-a-staging-instance/)にインポートする移行です。 これは、{% data variables.product.product_location_enterprise %} に対して移行を行ったときに何が起こる*ことになる*のかを確認するのに役立ちます。 **本番インスタンスへデータをインポートする前に、ステージングインスタンスで試行することを強くおすすめします。**
 
 ### データの移行
 
@@ -22,7 +22,7 @@ versions:
 
 以下の表の項目はレポジトリと共に移行できます。 このデータの移行リストに記載されていない項目はどれも移行できません。
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
 | 移行されたリポジトリに関連するデータ            | 注釈                                                                                                            |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------- |

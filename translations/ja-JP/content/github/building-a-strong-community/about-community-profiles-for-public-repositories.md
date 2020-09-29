@@ -16,11 +16,11 @@ versions:
 
 プロジェクトが持っていない推奨されているファイルがあるなら、**Add（追加）**をクリックしてファイルのドラフトを作成し、サブミットしてください。
 
-{{ site.data.reusables.repositories.valid-community-issues }}詳細は「[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)」を参照してください。
+{% data reusables.repositories.valid-community-issues %}詳細は「[Issue およびプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)」を参照してください。
 
 ![メンテナのための推奨されるコミュニティ標準を持つコミュニティプロフィールチェックリスト](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### コミュニティメンバーあるいはコラボレータとしてのコミュニティプロフィールチェックリストの利用
 
@@ -37,4 +37,4 @@ versions:
 - [リポジトリへのライセンスの追加](/articles/adding-a-license-to-a-repository)
 - [Issueとプルリクエストのテンプレートについて](/articles/about-issue-and-pull-request-templates)
 - "[Open Source Guides](https://opensource.guide/)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

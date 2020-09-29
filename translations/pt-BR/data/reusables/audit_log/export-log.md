@@ -4,4 +4,4 @@ Você pode exportar o log como dados JSON ou um valor separado por vírgulas (CS
 
 Para filtrar os resultados em sua exportação, pesquise por um ou mais destes qualificadores suportados antes de usar o menu suspenso **Export**.
 
-{{ site.data.reusables.audit_log.keys-and-example-values }}
+{% data reusables.audit_log.keys-and-example-values %}

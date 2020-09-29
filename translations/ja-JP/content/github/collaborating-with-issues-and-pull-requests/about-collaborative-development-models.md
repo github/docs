@@ -13,7 +13,7 @@ versions:
 
 {% tip %}
 
-**ヒント：**{{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**ヒント：**{% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

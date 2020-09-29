@@ -1,7 +1,7 @@
 ---
 title: 'Migrar dados de usuário, organização e repositório'
 shortTitle: Migrando dados
-intro: 'É possível exportar dados de usuário, organização e repositório de {{ site.data.variables.product.prodname_ghe_server }} ou {{ site.data.variables.product.prodname_dotcom_the_website }}, e depois importar esses dados para o {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'É possível exportar dados de usuário, organização e repositório de {% data variables.product.prodname_ghe_server %} ou {% data variables.product.prodname_dotcom_the_website %}, e depois importar esses dados para o {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/moving-a-repository-from-github-com-to-github-enterprise/
   - /enterprise/admin/categories/migrations-and-upgrades/

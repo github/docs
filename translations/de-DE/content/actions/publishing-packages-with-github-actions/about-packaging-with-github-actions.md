@@ -1,7 +1,7 @@
 ---
 title: Informationen zum Paketieren mit GitHub-Aktionen
-intro: 'In {{ site.data.variables.product.prodname_actions }}kannst Du Workflows einrichten, um Pakete zu erstellen und sie zu {{ site.data.variables.product.prodname_registry }} oder einem anderen Paket-Hosting-Anbieter hochzuladen.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'In {% data variables.product.prodname_actions %}kannst Du Workflows einrichten, um Pakete zu erstellen und sie zu {% data variables.product.prodname_registry %} oder einem anderen Paket-Hosting-Anbieter hochzuladen.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Paketierungsschritten
 
@@ -32,9 +32,9 @@ Dadurch kannst Du den Code im Pull-Request auf Deinem Rechner ausführen, was be
 
 Außer Paket-Artefakte zum Testen in einem Workflow zur kontinuierlichen Integration zum Testen hochzuladen, kannst Du auch Workflows erstellen, die Dein Projekt bauen und Pakete in einer Paket-Registry veröffentlichen.
 
-* **Pakete auf {{ site.data.variables.product.prodname_registry }} publizieren**  {{ site.data.variables.product.prodname_registry }} kann als Paket-Hosting-Dienst für viele Paket-Arten fungieren. Du kannst Deine Pakete entweder an alle auf {{ site.data.variables.product.prodname_dotcom }} oder private Pakete nur an Mitarbeiter oder an eine Organisation weitergeben. Weitere Informationen findest Du unter „[Informationen zu {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/about-github-packages)“.
+* **Pakete auf {% data variables.product.prodname_registry %} publizieren**  {% data variables.product.prodname_registry %} kann als Paket-Hosting-Dienst für viele Paket-Arten fungieren. Du kannst Deine Pakete entweder an alle auf {% data variables.product.prodname_dotcom %} oder private Pakete nur an Mitarbeiter oder an eine Organisation weitergeben. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/about-github-packages)“.
 
-  Vielleicht willst Du Pakete bei jedem Push in den Master-Brach in {{ site.data.variables.product.prodname_registry }} veröffentlichen. Auf diese Weise können Entwickler in Deinem Projekt immer den neuesten Build aus Master ausführen und testen, indem sie ihn von {{ site.data.variables.product.prodname_registry }} installieren.
+  Vielleicht willst Du Pakete bei jedem Push in den Master-Brach in {% data variables.product.prodname_registry %} veröffentlichen. Auf diese Weise können Entwickler in Deinem Projekt immer den neuesten Build aus Master ausführen und testen, indem sie ihn von {% data variables.product.prodname_registry %} installieren.
 
 * **Pakete in einer Paket-Registry veröffentlichen** Bei vielen Projekten werden neue Versionen immer in einer Paket-Registry veröffentlicht. Beispielsweise kann ein Projekt, das eine JAR-Datei erstellt, neue Versionen in das Zentral-Repository von Maven hochladen. Oder ein .NET-Projekt kann ein NuGet-Paket erzeugen und es in die NuGet-Galerie hochladen.
 

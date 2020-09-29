@@ -1,4 +1,4 @@
-{{ site.data.variables.product.prodname_ghe_server }} wird auf den folgenden EC2-Instance-Typen unterstützt. Weitere Informationen findest Du auf der [Übersichtsseite zu AWS-EC2-Instance-Typen](http://aws.amazon.com/ec2/instance-types/).
+{% data variables.product.prodname_ghe_server %} wird auf den folgenden EC2-Instance-Typen unterstützt. Weitere Informationen findest Du auf der [Übersichtsseite zu AWS-EC2-Instance-Typen](http://aws.amazon.com/ec2/instance-types/).
 
 | EC2-Instance-Typ | Modell                             |
 | ---------------- | ---------------------------------- |

@@ -1,6 +1,6 @@
 ---
 title: Pré-visualizações de esquema
-intro: 'Você pode visualizar os próximos recursos e alterações para o esquema do GraphQL do {{ site.data.variables.product.prodname_dotcom }} antes de eles serem adicionados à API do GraphQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Você pode visualizar os próximos recursos e alterações para o esquema do GraphQL do {% data variables.product.prodname_dotcom %} antes de eles serem adicionados à API do GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/previews
 versions:

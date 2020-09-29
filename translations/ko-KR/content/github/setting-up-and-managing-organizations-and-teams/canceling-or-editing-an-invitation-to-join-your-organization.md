@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. On the People tab, click **Pending invitation**. ![Pending invitation link](/assets/images/help/organizations/pending-invitation-link.png)
 5. Next to the username or email address of the person whose invitation you'd like to edit or cancel, click **Edit invitation**. ![Edit invitation button](/assets/images/help/organizations/edit-invitation-button.png)
 

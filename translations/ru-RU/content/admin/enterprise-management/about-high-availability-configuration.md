@@ -1,6 +1,6 @@
 ---
 title: About high availability configuration
-intro: 'In a high availability configuration, a fully redundant secondary {{ site.data.variables.product.prodname_ghe_server }} appliance is kept in sync with the primary appliance through replication of all major datastores.'
+intro: 'In a high availability configuration, a fully redundant secondary {% data variables.product.prodname_ghe_server %} appliance is kept in sync with the primary appliance through replication of all major datastores.'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -10,13 +10,13 @@ versions:
 
 When you configure high availability, there is an automated setup of one-way, asynchronous replication of all datastores (Git repositories, MySQL, Redis, and Elasticsearch) from the primary to the replica appliance.
 
-{{ site.data.variables.product.prodname_ghe_server }} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
+{% data variables.product.prodname_ghe_server %} supports an active/passive configuration, where the replica appliance runs as a standby with database services running in replication mode but application services stopped.
 
 ### Targeted failure scenarios
 
 Use a high availability configuration for protection against:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 A high availability configuration is not a good solution for:
 
@@ -30,7 +30,7 @@ During failover, you must separately configure and manage redirecting network tr
 
 #### DNS failover
 
-With DNS failover, use short TTL values in the DNS records that point to the primary {{ site.data.variables.product.prodname_ghe_server }} appliance. We recommend a TTL between 60 seconds and five minutes.
+With DNS failover, use short TTL values in the DNS records that point to the primary {% data variables.product.prodname_ghe_server %} appliance. We recommend a TTL between 60 seconds and five minutes.
 
 During failover, you must place the primary into maintenance mode and redirect its DNS records to the replica appliance's IP address. The time needed to redirect traffic from primary to replica will depend on the TTL configuration and time required to update the DNS records.
 
@@ -38,19 +38,19 @@ If you are using geo-replication, you must configure Geo DNS to direct traffic t
 
 #### Load balancer
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_intro }} {{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-During failover, you must place the primary appliance into maintenance mode. You can configure the load balancer to automatically detect when the replica has been promoted to primary, or it may require a manual configuration change. You must manually promote the replica to primary before it will respond to user traffic. For more information, see "[Using {{ site.data.variables.product.prodname_ghe_server }} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+During failover, you must place the primary appliance into maintenance mode. You can configure the load balancer to automatically detect when the replica has been promoted to primary, or it may require a manual configuration change. You must manually promote the replica to primary before it will respond to user traffic. For more information, see "[Using {% data variables.product.prodname_ghe_server %} with a load balancer](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Utilities for replication management
 
-To manage replication on {{ site.data.variables.product.prodname_ghe_server }}, use these command line utilities by connecting to the replica appliance using SSH.
+To manage replication on {% data variables.product.prodname_ghe_server %}, use these command line utilities by connecting to the replica appliance using SSH.
 
 #### ghe-repl-setup
 
-The `ghe-repl-setup` command puts a {{ site.data.variables.product.prodname_ghe_server }} appliance in replica standby mode.
+The `ghe-repl-setup` command puts a {% data variables.product.prodname_ghe_server %} appliance in replica standby mode.
 
  - An encrypted {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} tunnel is configured for communication between the two appliances.
  - Database services are configured for replication and started.
@@ -153,7 +153,7 @@ Success: replication was stopped for all services.
 
 The `ghe-repl-promote` command disables replication and converts the replica appliance to a primary. The appliance is configured with the same settings as the original primary and all services are enabled.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote

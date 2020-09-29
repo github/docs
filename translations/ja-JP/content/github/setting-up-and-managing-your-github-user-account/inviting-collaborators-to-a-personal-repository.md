@@ -5,23 +5,23 @@ redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
   - /articles/inviting-collaborators-to-a-personal-repository
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{{ site.data.variables.product.product_name }}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
+Organization が所有するリポジトリは、細やかなアクセスを許可できます。 詳しい情報については、「[{% data variables.product.product_name %}上のアクセス権限](/articles/access-permissions-on-github)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-{{ site.data.reusables.organizations.org-invite-expiration }}
+{% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
-**メモ:** {{ site.data.variables.product.company_short }} では、24 時間以内にリポジトリに招待できる人数に上限があります。 この上限を超える場合は、24 時間待つか、コラボレーションする人数の多い Organization を作成してください。
+**メモ:** {% data variables.product.company_short %} では、24 時間以内にリポジトリに招待できる人数に上限があります。 この上限を超える場合は、24 時間待つか、コラボレーションする人数の多い Organization を作成してください。
 
 {% endnote %}
 
@@ -29,11 +29,11 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 
 1. コラボレーターとして招待する人のユーザ名を確認してください。
 
-{% if currentVersion == "free-pro-team@latest" %}まだユーザ名がない場合は、{{ site.data.variables.product.prodname_dotcom }}にサインアップできます。詳細は「[新しい {{ site.data.variables.product.prodname_dotcom }}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% if currentVersion == "free-pro-team@latest" %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
+{% data reusables.repositories.navigate-to-manage-access %}
 1. [**Invite a collaborator**] をクリックします。 ![[Invite a collaborator] ボタン](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. 検索フィールドで、招待する人の名前を入力し、一致するリストの名前をクリックします。 ![リポジトリに招待する人の名前を入力するための検索フィールド](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. [**Add NAME to REPOSITORY**] をクリックします。 ![コラボレーターを追加するボタン](/assets/images/help/repository/add-collaborator-user-repo.png)

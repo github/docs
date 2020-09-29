@@ -2,7 +2,7 @@
 title: GitHub Actionsのワークフローコマンド
 shortTitle: ワークフロー コマンド
 intro: ワークフロー内あるいはアクションのコード内でシェルコマンドを実行する際には、ワークフローコマンドを利用できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,8 +14,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### ワークフローコマンドについて
 
@@ -93,7 +93,7 @@ echo "::set-env name=action_state::yellow"
 
 アクションの出力パラメータを設定します。
 
-あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。
+あるいは、出力パラメータをアクションのメタデータファイル中で宣言することもできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のメタデータ構文](/articles/metadata-syntax-for-github-actions#outputs)」を参照してください。
 
 #### サンプル
 
@@ -198,7 +198,7 @@ echo "::pause-logging::"
 
 `save-state`コマンドを使って、ワークフローの`pre:`あるいは`post:`アクションと共有するための環境変数を作成できます。 たとえば、`pre:`アクションでファイルを作成し、そのファイルの場所を`main:`アクションに渡し、`post:`アクションを使ってそのファイルを削除できます。 あるいは、ファイルを`main:`アクションで作成し、そのファイルの場所を`post:`アクションに渡し、`post:`アクションを使ってそのファイルを削除することもできます。
 
-複数の`pre:`あるいは`post:`アクションがある場合、保存された値にアクセスできるのは`save-state`が使われたアクションの中でのみです。 `post:`アクションに関する詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のためのメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#post)」を参照してください。
+複数の`pre:`あるいは`post:`アクションがある場合、保存された値にアクセスできるのは`save-state`が使われたアクションの中でのみです。 `post:`アクションに関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions#post)」を参照してください。
 
 `save-state`コマンドはアクション内でしか実行できず、YAMLファイルでは利用できません。 保存された値は、`STATE_`プレフィックス付きで環境変数として保存されます。
 

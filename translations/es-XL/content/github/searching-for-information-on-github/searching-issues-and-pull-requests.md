@@ -1,6 +1,6 @@
 ---
 title: Buscar propuestas y solicitudes de extracción
-intro: 'Puedes buscar propuestas y solicitudes de extracción en {{ site.data.variables.product.product_name }} y acotar los resultados utilizando estos calificadores de búsqueda en cualquier combinación.'
+intro: 'Puedes buscar propuestas y solicitudes de extracción en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda en cualquier combinación.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar propuestas y solicitudes de extracción globalmente a través de todos los {{ site.data.variables.product.product_name }}, o buscar propuestas y solicitudes de extracción dentro de una organización particular. Para obtener más información, consulta "[Acerca de buscar en {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)".
+Puedes buscar propuestas y solicitudes de extracción globalmente a través de todos los {% data variables.product.product_name %}, o buscar propuestas y solicitudes de extracción dentro de una organización particular. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 {% tip %}
 
 **Sugerencia:**{% if currentVersion != "free-pro-team@latest" %}
-  - Este artículo contiene búsquedas de ejemplo en el sitio web {{ site.data.variables.product.prodname_dotcom }}.com, pero puedes utilizar los mismos filtros de búsqueda en {{ site.data.variables.product.product_location_enterprise }}.{% endif %}
+  - Este artículo contiene búsquedas de ejemplo en el sitio web {% data variables.product.prodname_dotcom %}.com, pero puedes utilizar los mismos filtros de búsqueda en {% data variables.product.product_location_enterprise %}.{% endif %}
   - Para obtener una lista de sintaxis de búsqueda que puedas agregar a cualquier calificador para mejorar aún más tus resultados, consulta "[Comprender la sintaxis de búsqueda](/articles/understanding-the-search-syntax)".
   - Utiliza comillas alrededor de los términos de búsqueda que contengan varias palabras. Por ejemplo, si deseas buscar propuestas con la etiqueta "In progress" (En curso), buscarías por la etiqueta `label:"in progress"`. Buscar no distingue entre mayúsculas y minúsculas.
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### Buscar únicamente propuestas o solicitudes de extracción
 
-Por defecto, la búsqueda de {{ site.data.variables.product.product_name }} devolverá tanto propuestas como solicitudes de extracción. Sin embargo, puedes restringir los resultados de la búsqueda a solo propuestas y solicitudes de extracción utilizando el calificador `type` o `is`.
+Por defecto, la búsqueda de {% data variables.product.product_name %} devolverá tanto propuestas como solicitudes de extracción. Sin embargo, puedes restringir los resultados de la búsqueda a solo propuestas y solicitudes de extracción utilizando el calificador `type` o `is`.
 
 | Qualifier    | Ejemplo                                                                                                                                                                                                                |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ Puedes filtrar propuestas y solicitudes de extracción en base a si están abier
 
 ### Buscar por repositorio privado o público
 
-Si estás buscando [a través de todos los {{ site.data.variables.product.product_name }}](https://github.com/search), puede ser útil filtrar tus resultados en base a si el repositorio es público o privado. Puedes hacer con `is:public` y `is:private`.
+Si estás buscando [a través de todos los {% data variables.product.product_name %}](https://github.com/search), puede ser útil filtrar tus resultados en base a si el repositorio es público o privado. Puedes hacer con `is:public` y `is:private`.
 
 | Qualifier    | Ejemplo                                                                                                                                                                                                              |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -249,9 +249,9 @@ Puedes filtrar las solicitudes de extracción en función de su [estado de revis
 
 Puedes filtrar propuestas en base al momento de creación o al momento de su última actualización. Para la creación de una propuesta, puedes usar el calificador `created` (creado); para encontrar cuándo se actualizó por última vez un repositorio, querrás utilizar el calificador `pushed` (subido).
 
-Ambos toman una fecha como su parámetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Ambos toman una fecha como su parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Ejemplo                                                                                                                                                                                                                         |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,9 +262,9 @@ Ambos toman una fecha como su parámetro. {{ site.data.reusables.time_date.date_
 
 Puedes filtrar propuestas y solicitudes de extracción en base a su momento de cierre, utilizando el calificador `closed` (cerrada).
 
-Este calificador toma una fecha como su parámetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Este calificador toma una fecha como su parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Ejemplo                                                                                                                                                                                                                                      |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,9 +275,9 @@ Este calificador toma una fecha como su parámetro. {{ site.data.reusables.time_
 
 Puedes filtrar solicitudes de extracción en base a cuándo fueron fusionadas, utilizando el calificador `merged` (fusionada).
 
-Este calificador toma una fecha como su parámetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Este calificador toma una fecha como su parámetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Ejemplo                                                                                                                                                                                                                                                    |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

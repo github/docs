@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise ServerとGitHub Enterprise Cloudの間の接続を管理する
-intro: '{{ site.data.variables.product.prodname_github_connect }}を使えば、{{ site.data.variables.product.prodname_dotcom_the_website }}で、{{ site.data.variables.product.product_location_enterprise }}と{{ site.data.variables.product.prodname_ghe_cloud }}のOrganizationまたはEnterpriseアカウントの特定の機能やデータを共有できます。'
+intro: '{% data variables.product.prodname_github_connect %}を使えば、{% data variables.product.prodname_dotcom_the_website %}で、{% data variables.product.product_location_enterprise %}と{% data variables.product.prodname_ghe_cloud %}のOrganizationまたはEnterpriseアカウントの特定の機能やデータを共有できます。'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-to-github-com

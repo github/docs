@@ -1,7 +1,7 @@
 ---
 title: GitHub Packagesのドキュメント
 shortTitle: GitHub Packages
-intro: '安全にパッケージを公開及び利用し、コードと共にパッケージを保存し、パッケージをTeamとプライベートに、あるいはオープンソースコミュニティとパブリックに共有してください。 また、{{ site.data.variables.product.prodname_actions }}とパッケージを自動化することもできます。'
+intro: '安全にパッケージを公開及び利用し、コードと共にパッケージを保存し、パッケージをTeamとプライベートに、あるいはオープンソースコミュニティとパブリックに共有してください。 また、{% data variables.product.prodname_actions %}とパッケージを自動化することもできます。'
 gettingStartedLinks:
   - /packages/publishing-and-managing-packages/about-github-packages
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
@@ -23,7 +23,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_with_intro /getting-started-with-github-container-registry %}
 {% link_with_intro /managing-container-images-with-github-container-registry %}

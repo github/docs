@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Abfrageparameter sind optionale Bestandteile einer URL, die Du anpassen kannst, um eine bestimmte Ansicht einer Webseite freizugeben, beispielsweise Suchfilterergebnisse oder eine Issue-Vorlage auf {{ site.data.variables.product.prodname_dotcom }}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
+Abfrageparameter sind optionale Bestandteile einer URL, die Du anpassen kannst, um eine bestimmte Ansicht einer Webseite freizugeben, beispielsweise Suchfilterergebnisse oder eine Issue-Vorlage auf {% data variables.product.prodname_dotcom %}. Um eigene Abfrageparameter zu erstellen, musst Du Schlüssel- und Wertepaar abgleichen.
 
 {% tip %}
 
@@ -34,7 +34,7 @@ Wenn Du eine ungültige URL mithilfe von Suchparametern erstellst oder wenn Du n
 
 ### Issues und Pull Requests mit benutzerdefinierten Vorlagen ausfüllen
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Du kannst den Abfrageparameter `template` (Vorlage) verwenden, um eine Vorlage anzugeben, die automatisch den Text des Issues oder Pull Requests ausfüllt. Der Abfrageparameter `template` funktioniert mit Vorlagen, die in einem `ISSUE_TEMPLATE`- oder `PULL_REQUEST_TEMPLATE`-Unterverzeichnis im Stammverzeichnis, `docs/`- oder `.github/`-Verzeichnis in einem Repository gespeichert sind.
 

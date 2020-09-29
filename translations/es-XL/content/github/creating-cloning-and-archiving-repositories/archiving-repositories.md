@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En "Danger Zone" (Zona de peligro), haz clic en **Archive this repository** (Archivar este repositorio) o **Unarchive this repository** (Desarchivar este repositorio. este repositorio). ![Botón Archive this repository (Archivar este repositorio)](/assets/images/help/repository/archive-repository.png)
 4. Lee las advertencias.
 5. Escribe el nombre del repositorio que deseas archivar o desarchivar. ![Advertencias para archivar el repositorio](/assets/images/help/repository/archive-repository-warnings.png)

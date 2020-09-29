@@ -10,7 +10,7 @@ versions:
 
 ### 权限概述
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }} 有关添加协作者到安全通告的更多信息，请参阅“[添加协作者到安全通告](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)”。
+{% data reusables.repositories.security-advisory-admin-permissions %} 有关添加协作者到安全通告的更多信息，请参阅“[添加协作者到安全通告](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)”。
 
 | 操作                                                                                                                                                                | 写入权限 | 管理员权限 |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----- |

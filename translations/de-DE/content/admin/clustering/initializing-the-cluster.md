@@ -1,26 +1,26 @@
 ---
 title: Cluster initialisieren
-intro: 'Ein {{ site.data.variables.product.prodname_ghe_server }}-Cluster muss mit einer Lizenz eingerichtet und mithilfe der Verwaltungsshell (SSH) initialisiert werden.'
+intro: 'Ein {% data variables.product.prodname_ghe_server %}-Cluster muss mit einer Lizenz eingerichtet und mithilfe der Verwaltungsshell (SSH) initialisiert werden.'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
 versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_clustering.clustering-requires-https }}
+{% data reusables.enterprise_clustering.clustering-requires-https %}
 
-### {{ site.data.variables.product.prodname_ghe_server }} installieren
+### {% data variables.product.prodname_ghe_server %} installieren
 
-1. Stellen Sie auf jedem Clusterknoten {{ site.data.variables.product.prodname_ghe_server }} bereit, und installieren Sie es. Weitere Informationen finden Sie unter „[{{ site.data.variables.product.prodname_ghe_server }}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
+1. Stellen Sie auf jedem Clusterknoten {% data variables.product.prodname_ghe_server %} bereit, und installieren Sie es. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
 2. Konfigurieren Sie mithilfe der Verwaltungsshell oder DHCP **nur** die IP-Adresse jedes Knotens. Konfigurieren Sie keine anderen Einstellungen.
 
 ### Ersten Knoten konfigurieren
 
 1. Stellen Sie eine Verbindung zum Knoten her, der als `mysql-master` in `cluster.conf` vorgesehen ist. Weitere Informationen findest Du unter „[Informationen zur Clusterkonfigurations-Datei](/enterprise/{{ currentVersion }}/admin/guides/clustering/initializing-the-cluster/#about-the-cluster-configuration-file)“.
 2. Rufen Sie in Ihrem Webbrowser `https://<ip address>:8443/setup/` auf.
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }}
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
 
 ### Cluster initialisieren
 
@@ -38,7 +38,7 @@ Die Clusterkonfigurationsdatei (`cluster.conf`) definiert die Knoten im Cluster 
 Diese Beispieldatei `cluster.conf` definiert einen Cluster mit fünf Knoten.
 
   - Auf zwei Knoten (namens `ghe-app-node-\*`) laufen die Dienste `web-server` und `job-server` deren Aufgabe es ist, die Clientanfragen zu beantworten.
-  - Drei Knoten (namens `ghe-data-node-\*`) führen die Dienste aus, die zum Speichern und Abrufen der {{ site.data.variables.product.prodname_ghe_server }}-Daten verantwortlich sind.
+  - Drei Knoten (namens `ghe-data-node-\*`) führen die Dienste aus, die zum Speichern und Abrufen der {% data variables.product.prodname_ghe_server %}-Daten verantwortlich sind.
 
 Die Namen der Knoten können beliebige gültige Hostnamen sein. Die Namen werden als der Hostname jedes Knotens festgelegt und zudem `/etc/hosts` auf jedem Knoten hinzugefügt, damit die Knoten untereinander lokal auflösbar sind.
 

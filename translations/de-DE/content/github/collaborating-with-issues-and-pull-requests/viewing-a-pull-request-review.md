@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Wenn Du einen vollständigen Review anzeigst, wird Dir dieselbe Version des Pull Requests angezeigt, die dem Reviewer zum Zeitpunkt des Reviews vorlag.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
 3. Scrolle auf der Registerkarte „Conversation“ (Unterhaltung) zum gewünschten Review. Klicke anschließend auf **View changes** (Änderungen anzeigen). ![Review-Header mit Link zum vollständigen Review](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
 ### Weiterführende Informationen

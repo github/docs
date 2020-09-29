@@ -1,6 +1,6 @@
 ---
 title: Migrating OAuth Apps to GitHub Apps
-intro: 'Learn about the advantages of migrating your {{ site.data.variables.product.prodname_oauth_app }} to a {{ site.data.variables.product.prodname_github_app }} and how to migrate an {{ site.data.variables.product.prodname_oauth_app }} that isn''t listed on {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Learn about the advantages of migrating your {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %} and how to migrate an {% data variables.product.prodname_oauth_app %} that isn''t listed on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
 versions:
@@ -19,7 +19,7 @@ This article provides guidelines for existing integrators who are considering mi
 - [Fine-grained permissions](/apps/differences-between-apps/#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
 - [Short-lived tokens](/apps/differences-between-apps/#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
 - [Built-in, centralized webhooks](/apps/differences-between-apps/#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
-- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {{ site.data.variables.product.prodname_ghe_server }} seat and remain installed even when the person who initially installed the app leaves the organization.
+- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {% data variables.product.prodname_ghe_server %} seat and remain installed even when the person who initially installed the app leaves the organization.
 - Built-in support for OAuth is still available to GitHub Apps using [user-to-server endpoints](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - Dedicated [API rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) for bot accounts scale with your integration.
 - Repository owners can [install GitHub Apps](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
@@ -44,7 +44,7 @@ These guidelines assume that you have a registered OAuth App{% if currentVersion
 
 While the majority of [REST API](/v3) endpoints and [GraphQL](/v4) queries are available to GitHub Apps today, we are still in the process of enabling some endpoints. Review the [available REST endpoints](/v3/apps/available-endpoints/) to ensure that the endpoints you need are compatible with GitHub Apps. Note that some of the API endpoints enabled for GitHub Apps allow the app to act on behalf of the user. See "[User-to-server requests](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" for a list of endpoints that allow a GitHub App to authenticate as a user.
 
-We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {{ site.data.variables.product.prodname_github_app }}s.
+We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_app %}s.
 
 #### Design to stay within API rate limits
 

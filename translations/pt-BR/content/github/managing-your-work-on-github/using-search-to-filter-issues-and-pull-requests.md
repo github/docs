@@ -14,7 +14,7 @@ A barra de pesquisa de problemas e pull requests permite que você defina seus p
 
 {% tip %}
 
-**Dica:** {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**Dica:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

@@ -1,8 +1,8 @@
 ---
 title: Definir códigos de saída para ações
 shortTitle: Definir códigos de saída
-intro: 'Você pode usar códigos de saída para definir o status de uma ação. {{ site.data.variables.product.prodname_dotcom }} exibe os status para indicar a aprovação ou falha das ações.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Você pode usar códigos de saída para definir o status de uma ação. {% data variables.product.prodname_dotcom %} exibe os status para indicar a aprovação ou falha das ações.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
@@ -10,12 +10,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre os códigos de saída
 
-O {{ site.data.variables.product.prodname_dotcom }} usa o código de saída para definir o status de execução de verificação da ação, que pode ser `sucesso` ou `falha`.
+O {% data variables.product.prodname_dotcom %} usa o código de saída para definir o status de execução de verificação da ação, que pode ser `sucesso` ou `falha`.
 
 | Status de saída         | Status de verificação de execução | Descrição                                                                                                                                                                                                                                  |
 | ----------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

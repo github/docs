@@ -20,7 +20,7 @@ Geralmente, `git rebase` é usado para:
 
 {% warning %}
 
-**Aviso**: como a alteração do histórico de commits pode dificultar a vida de outras pessoas que usam o repositório, não é uma boa ideia fazer rebase de commits quando você já fez push em um repositório. Para saber como fazer rebase com segurança no {{ site.data.variables.product.product_location }}, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges)".
+**Aviso**: como a alteração do histórico de commits pode dificultar a vida de outras pessoas que usam o repositório, não é uma boa ideia fazer rebase de commits quando você já fez push em um repositório. Para saber como fazer rebase com segurança no {% data variables.product.product_location %}, consulte "[Sobre merges de pull request](/articles/about-pull-request-merges)".
 
 {% endwarning %}
 
@@ -106,4 +106,4 @@ Ao dividir essas informações, de cima para baixo, observamos que:
 - [O capítulo "Git Branching" no livro do _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [O capítulo "Interactive Rebasing" no livro do _Pro Git_](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - "[Combinar commits por squash com rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-- "[Sincronizar seu branch](/desktop/contributing-to-projects/syncing-your-branch)" na documentação do {{ site.data.variables.product.prodname_desktop }}
+- "[Sincronizar seu branch](/desktop/contributing-to-projects/syncing-your-branch)" na documentação do {% data variables.product.prodname_desktop %}

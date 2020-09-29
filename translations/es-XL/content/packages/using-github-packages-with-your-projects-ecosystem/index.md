@@ -1,7 +1,7 @@
 ---
 title: Usar GitHub Packages con el ecosistema de tu proyecto
 shortTitle: Usar GitHub Packages con el ecosistema de tu proyecto
-intro: 'Puedes configurar {{ site.data.variables.product.prodname_actions }} o a tu cliente de paquete para que funcione con {{ site.data.variables.product.prodname_registry }}.'
+intro: 'Puedes configurar {% data variables.product.prodname_actions %} o a tu cliente de paquete para que funcione con {% data variables.product.prodname_registry %}.'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_in_list /using-github-packages-with-github-actions %}
 {% link_in_list /configuring-docker-for-use-with-github-packages %}

@@ -1,6 +1,6 @@
 ---
 title: 搜索仓库
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索仓库，并使用这些仓库搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索仓库，并使用这些仓库搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索仓库，也可以在特定组织内搜索仓库。 更多信息请参阅“[关于在 {{ site.data.variables.product.prodname_dotcom }} 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索仓库，也可以在特定组织内搜索仓库。 更多信息请参阅“[关于在 {% data variables.product.prodname_dotcom %} 上搜索](/articles/about-searching-on-github)”。
 
 要在搜索结果中包括复刻，您需要将 `fork:true` 或 `fork:only` 添加到查询。 更多信息请参阅“[在复刻中搜索](/articles/searching-in-forks)”。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### 按仓库名称、说明或自述文件内容搜索
 
@@ -30,7 +30,7 @@ versions:
 
 您可以使用 `in:readme` 限定符，通过搜索其自述文件中的内容来查找仓库。
 
-除了使用 `in:readme` 以外，无法通过搜索仓库内的特定内容来查找仓库。 要搜索仓库内的特定文件或内容，您可以使用查找器或代码特定的搜索限定符。 更多信息请参阅“[在 {{ site.data.variables.product.prodname_dotcom }} 上查找文件](/articles/finding-files-on-github)”和“[搜索代码](/articles/searching-code)”。
+除了使用 `in:readme` 以外，无法通过搜索仓库内的特定内容来查找仓库。 要搜索仓库内的特定文件或内容，您可以使用查找器或代码特定的搜索限定符。 更多信息请参阅“[在 {% data variables.product.prodname_dotcom %} 上查找文件](/articles/finding-files-on-github)”和“[搜索代码](/articles/searching-code)”。
 
 | 限定符         | 示例                                                                                                                   |
 | ----------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,9 @@ versions:
 
 您可以基于创建时间或上次更新时间过滤仓库。 对于仓库创建，您可以使用 `created` 限定符；要了解仓库上次更新的时间，您要使用 `pushed` 限定符。 `pushed` 限定符将返回仓库列表，按仓库中任意分支上最近进行的提交排序。
 
-两者均采用日期作为参数。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+两者均采用日期作为参数。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                       | 示例                                                                                                                                                                                           |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ versions:
 
 ### 基于仓库是否为镜像搜索
 
-您可以根据仓库是否为镜像以及托管于其他位置托管来搜索它们。 更多信息请参阅“[寻找在 {{ site.data.variables.product.prodname_dotcom }} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+您可以根据仓库是否为镜像以及托管于其他位置托管来搜索它们。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
 | 限定符            | 示例                                                                                                                       |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------ |

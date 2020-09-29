@@ -9,7 +9,7 @@ versions:
 
 ### Zenodo によってリポジトリの永続的識別子を発行する
 
-学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 データアーカイブツール [Zenodo](https://zenodo.org/about) を使用して {{ site.data.variables.product.product_name }} リポジトリをアーカイブ化すれば、そのアーカイブの DOI を発行することができます。
+学術文献でリポジトリを参照しやすくするため、永続的識別子 (デジタルオブジェクト識別子 (DOI) とも呼ばれます) を作成できます。 データアーカイブツール [Zenodo](https://zenodo.org/about) を使用して {% data variables.product.product_name %} リポジトリをアーカイブ化すれば、そのアーカイブの DOI を発行することができます。
 
 {% tip %}
 
@@ -27,7 +27,7 @@ versions:
 5. [Zenodo GitHub ページ](https://zenodo.org/account/settings/github/)に移動します。 ![Zenodo GitHub ページ](/assets/images/help/repository/zenodo_github_page.png)
 6. アーカイブ化するリポジトリの名前の右にあるボタンを [**Off**] から [**On**] に切り替えて、アーカイブ化できるようにします。 ![リポジトリでの Zenodo アーカイブ化の有効化](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo では、新しい {{ site.data.variables.product.product_name }}[リリース](/articles/about-releases/)を作成するたびに、リポジトリがアーカイブ化されて新しい DOI が発行されます。 リリースを作成するには、「[リリースの作成](/articles/creating-releases/)」のステップに従ってください。
+Zenodo では、新しい {% data variables.product.product_name %}[リリース](/articles/about-releases/)を作成するたびに、リポジトリがアーカイブ化されて新しい DOI が発行されます。 リリースを作成するには、「[リリースの作成](/articles/creating-releases/)」のステップに従ってください。
 
 ### Figshare による研究素材の公表と引用
 

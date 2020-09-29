@@ -1,6 +1,6 @@
 ---
 title: Obtener enlaces permanentes a archivos
-intro: 'Cuando ves un archivo en {{ site.data.variables.product.product_location }}, puedes presionar la tecla "y" para actualizar la URL y obtener un enlace permanente para la versión exacta del archivo que estás viendo.'
+intro: 'Cuando ves un archivo en {% data variables.product.product_location %}, puedes presionar la tecla "y" para actualizar la URL y obtener un enlace permanente para la versión exacta del archivo que estás viendo.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**Sugerencia**: Presiona "?" en cualquier página en {{ site.data.variables.product.product_name }} para ver todos los atajos del teclado disponibles.
+**Sugerencia**: Presiona "?" en cualquier página en {% data variables.product.product_name %} para ver todos los atajos del teclado disponibles.
 
 {% endtip %}
 
 ### Vistas del archivo que muestran la versión más reciente en una rama
 
-Cuando ves un archivo en {{ site.data.variables.product.product_location }}, por lo general, accedes a la versión en el encabezado actual de una rama.  Por ejemplo:
+Cuando ves un archivo en {% data variables.product.product_location %}, por lo general, accedes a la versión en el encabezado actual de una rama.  Por ejemplo:
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

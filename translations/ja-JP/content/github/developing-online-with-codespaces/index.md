@@ -1,15 +1,15 @@
 ---
-title: '{{ site.data.variables.product.prodname_codespaces }} を使用してオンラインで開発する'
+title: '{% data variables.product.prodname_codespaces %} を使用してオンラインで開発する'
 shortTitle: Codespaces
-intro: '{{ site.data.variables.product.prodname_dotcom }} の統合開発環境 (IDE) である {{ site.data.variables.product.prodname_codespaces }} を使用して、完全にクラウドで開発できます。'
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+intro: '{% data variables.product.prodname_dotcom %} の統合開発環境 (IDE) である {% data variables.product.prodname_codespaces %} を使用して、完全にクラウドで開発できます。'
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
 ### 目次
 

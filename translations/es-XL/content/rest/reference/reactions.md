@@ -11,6 +11,6 @@ versions:
 
 Cuando creas una reacción, los valores permitidos para el parámetro `content` son los siguientes (con el emoji correspondiente como referencia):
 
-{{ site.data.reusables.repositories.reaction_list }}
+{% data reusables.repositories.reaction_list %}
 
 {% include rest_operations_at_current_path %}

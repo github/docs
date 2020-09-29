@@ -1,7 +1,7 @@
 ---
 title: Disabling wikis
 intro: You can disable your repository's wiki.
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/disabling-wikis
 versions:
@@ -11,8 +11,8 @@ versions:
 
 When you turn off a wiki, the content is hidden, but not erased. If you choose to re-enable wikis later, your previous pages will be restored.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under Features, unselect **Wiki**. ![Wiki disable checkbox](/assets/images/help/wiki/wiki_enable_disable.png)
 
 ### Дополнительная литература

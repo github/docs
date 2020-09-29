@@ -9,17 +9,17 @@ versions:
 
 ### 今後のために通知を保存する
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. 通知のリストで、保存したい通知を見つけます。
 1. On the right side of the notification, click
 {% octicon "bookmark" aria-label="The bookmark button" %}.
 ![通知を保存するボタン](/assets/images/help/notifications/save_notification.png)
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.saved_for_late_sidebar %}
 
 ### 保存した通知を削除する
 
-{{ site.data.reusables.notifications.access_notifications }}
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.access_notifications %}
+{% data reusables.notifications.saved_for_late_sidebar %}
 1. 保存済み通知のリストで、削除したい保存済み通知を選択します。
 1. 保存済み通知の右側で {% octicon "bookmark" aria-label="The bookmark button" %} をクリックします。 ![保存済み通知を削除するボタン](/assets/images/help/notifications/remove-saved-notification.png)
 

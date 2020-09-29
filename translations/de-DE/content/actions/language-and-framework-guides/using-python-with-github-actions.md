@@ -8,29 +8,29 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
 Diese Anleitung zeigt Dir, wie Du ein Python-Paket baust, testest und veröffentlichst.
 
-{{ site.data.variables.product.prodname_dotcom }}-gehostete Runner haben einen Tools-Cache mit vorinstallierter Software, einschließlich Python und PyPy. Du brauchst nichts zu installieren! Eine vollständige Liste der aktuellen Software und der vorinstallierten Versionen von Python und PyPy findest Du unter [Auf {{ site.data.variables.product.prodname_dotcom }}-gehosteten Runnern installierte Software](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners).
+{% data variables.product.prodname_dotcom %}-gehostete Runner haben einen Tools-Cache mit vorinstallierter Software, einschließlich Python und PyPy. Du brauchst nichts zu installieren! Eine vollständige Liste der aktuellen Software und der vorinstallierten Versionen von Python und PyPy findest Du unter [Auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern installierte Software](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners).
 
 ### Vorrausetzungen
 
-Du solltest mit YAML und der Syntax für {{ site.data.variables.product.prodname_actions }} vertraut sein. Weitere Informationen findest Du unter „[Workflow-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)“.
+Du solltest mit YAML und der Syntax für {% data variables.product.prodname_actions %} vertraut sein. Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)“.
 
 Du solltest ein grundlegendes Verständnis von Python, PyPy und pip haben. Weitere Informationen findest Du unter:
 - [Erste Schritte mit Python](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
 - [Paketmanager pip](https://pypi.org/project/pip/)
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Einstieg mit der Python-Workflow-Vorlage
 
-{{ site.data.variables.product.prodname_dotcom }} bietet eine Python-Workflow-Vorlage, die für die meisten Python-Projekte funktionieren sollte. Diese Anleitung enthält Beispiele, mit denen Du die Vorlage anpassen kannst. Weitere Informationen findest Du in der [Python-Workflow-Vorlage](https://github.com/actions/starter-workflows/blob/master/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} bietet eine Python-Workflow-Vorlage, die für die meisten Python-Projekte funktionieren sollte. Diese Anleitung enthält Beispiele, mit denen Du die Vorlage anpassen kannst. Weitere Informationen findest Du in der [Python-Workflow-Vorlage](https://github.com/actions/starter-workflows/blob/master/ci/python-package.yml).
 
 Um schnell loszulegen, füge die Vorlage in das Verzeichnis `.github/workflows` Deines Repositorys ein.
 
@@ -73,11 +73,11 @@ jobs:
 
 ### Eine Python-Version angeben
 
-Benutze die Aktion `setup-python`, um eine vorinstallierte Version von Python oder PyPy auf einem {{ site.data.variables.product.prodname_dotcom }}-gehosteten Runner zu verwenden. Diese Aktion findet aus dem Tool-Cache auf jedem Runner eine bestimmte Version von Python oder PyPy und fügt die benötigten Binärdateien zum `PATH`hinzu, der für den Rest des Jobs bestehen bleibt. Wenn eine bestimmte Version von Python nicht im Tools-Cache vorinstalliert ist, lädt die Aktion `setup-python` die entsprechende Version vom [Repository `python-versions`](https://github.com/actions/python-versions) herunter und richtet sie ein.
+Benutze die Aktion `setup-python`, um eine vorinstallierte Version von Python oder PyPy auf einem {% data variables.product.prodname_dotcom %}-gehosteten Runner zu verwenden. Diese Aktion findet aus dem Tool-Cache auf jedem Runner eine bestimmte Version von Python oder PyPy und fügt die benötigten Binärdateien zum `PATH`hinzu, der für den Rest des Jobs bestehen bleibt. Wenn eine bestimmte Version von Python nicht im Tools-Cache vorinstalliert ist, lädt die Aktion `setup-python` die entsprechende Version vom [Repository `python-versions`](https://github.com/actions/python-versions) herunter und richtet sie ein.
 
-Die `setup-action` ist die empfohlene Methode, Python mit {{ site.data.variables.product.prodname_actions }} zu verwenden, da dadurch ein einheitliches Verhalten der verschiedenen Runner und verschiedenen Versionen von Python gewährleistet wird. Wenn Du einen selbst gehosteten Runner verwendest, musst Du Python installieren und zum `PATH` hinzufügen. Weitere Informationen findest Du in der [Aktion `setup-python`](https://github.com/marketplace/actions/setup-python).
+Die `setup-action` ist die empfohlene Methode, Python mit {% data variables.product.prodname_actions %} zu verwenden, da dadurch ein einheitliches Verhalten der verschiedenen Runner und verschiedenen Versionen von Python gewährleistet wird. Wenn Du einen selbst gehosteten Runner verwendest, musst Du Python installieren und zum `PATH` hinzufügen. Weitere Informationen findest Du in der [Aktion `setup-python`](https://github.com/marketplace/actions/setup-python).
 
-Die folgende Tabelle zeigt für jeden {{ site.data.variables.product.prodname_dotcom }}-gehosteten Runner, wo der Tools-Cache liegt.
+Die folgende Tabelle zeigt für jeden {% data variables.product.prodname_dotcom %}-gehosteten Runner, wo der Tools-Cache liegt.
 
 |                            | Ubuntu                          | Mac                                      | Windows                                    |
 | -------------------------- | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
@@ -87,7 +87,7 @@ Die folgende Tabelle zeigt für jeden {{ site.data.variables.product.prodname_do
 
 Wenn Du einen selbst gehosteten Runner verwendest, kannst Du den Runner so konfigurieren, dass er mithilfe der Aktion `setup-python` Deine Abhängigkeiten verwaltet. Weitere Informationen findest Du unter [setup-python mit einem selbst-gehosteten Runner verwenden](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) in der README von `setup-python`.
 
-{{ site.data.variables.product.prodname_dotcom }} unterstützt dir Syntax für semantische Versionierung. Weitere Informationen findest Du unter „[Semantische Versionierung verwenden](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)“ und „[Spezifikation für semantische Versionierung](https://semver.org/)“.
+{% data variables.product.prodname_dotcom %} unterstützt dir Syntax für semantische Versionierung. Weitere Informationen findest Du unter „[Semantische Versionierung verwenden](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)“ und „[Spezifikation für semantische Versionierung](https://semver.org/)“.
 
 #### Mehrere Python-Versionen verwenden
 
@@ -153,7 +153,7 @@ jobs:
 
 Wenn du eine Version von Python angibst, die nicht verfügbar ist, schlägt `setup-python` fehl und meldet in etwa: `##[error]Version 3.4 with arch x64 not found`. Die Fehlermeldung enthält die verfügbaren Versionen.
 
-Du kannst in Deinem Workflow auch das Schlüsselwort `exclude` verwenden, wenn Du eine bestimmte Konfiguration von Python nicht laufen lassen möchtest. Weitere Informationen findest Du unter „[Workflow-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)“.
+Du kannst in Deinem Workflow auch das Schlüsselwort `exclude` verwenden, wenn Du eine bestimmte Konfiguration von Python nicht laufen lassen möchtest. Weitere Informationen findest Du unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)“.
 
 {% raw %}
 ```yaml
@@ -179,17 +179,17 @@ jobs:
 
 #### Die Standard-Version von Python verwenden
 
-Wir empfehlen, `setup-python` zu verwenden, um die Version von Python zu konfigurieren, die in deinen Workflows verwendet wird, da es hilft, deine Abhängigkeiten explizit zu machen. Wenn du `setup-python` nicht verwendest, wird in jeder Shell, wenn Du `python` aufrufst, die Standardversion von Python verwendet, die in `PATH` gesetzt wurde. Die Standardversion von Python variiert zwischen den {{ site.data.variables.product.prodname_dotcom }}-gehosteten Runnern. Dies kann zu unerwarteten Abweichungen führen oder es kann unerwartet eine ältere Version verwendet werden.
+Wir empfehlen, `setup-python` zu verwenden, um die Version von Python zu konfigurieren, die in deinen Workflows verwendet wird, da es hilft, deine Abhängigkeiten explizit zu machen. Wenn du `setup-python` nicht verwendest, wird in jeder Shell, wenn Du `python` aufrufst, die Standardversion von Python verwendet, die in `PATH` gesetzt wurde. Die Standardversion von Python variiert zwischen den {% data variables.product.prodname_dotcom %}-gehosteten Runnern. Dies kann zu unerwarteten Abweichungen führen oder es kann unerwartet eine ältere Version verwendet werden.
 
-| {{ site.data.variables.product.prodname_dotcom }}-gehostete Runner | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                          |
+| {% data variables.product.prodname_dotcom %}-gehostete Runner | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                          |
 | ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                                             | Auf Ubuntu-Runnern sind mehrere Versionen von System-Python unter `/usr/bin/python` und `/usr/bin/python3` installiert. Die Python-Versionen, die mit Ubuntu mitgeliefert werden, sind zusätzlich zu den Versionen, die {{ site.data.variables.product.prodname_dotcom }} im Tools-Cache installiert.                                                                                                 |
-| Windows                                                            | Neben den Python-Versionen, die sich im Tools-Cache befinden, kommt Windows nicht mit einer entsprechenden Version von System-Python. Um das mit anderen Runnern konsistente Verhalten sicherzustellen und um Python „out-of-the-box“ ohne die Aktion `setup-python` nutzen zu können fügt {{ site.data.variables.product.prodname_dotcom }} ein paar Versionen aus dem Tools-Cache zum `PATH` hinzu. |
+| Ubuntu                                                             | Auf Ubuntu-Runnern sind mehrere Versionen von System-Python unter `/usr/bin/python` und `/usr/bin/python3` installiert. Die Python-Versionen, die mit Ubuntu mitgeliefert werden, sind zusätzlich zu den Versionen, die {% data variables.product.prodname_dotcom %} im Tools-Cache installiert.                                                                                                 |
+| Windows                                                            | Neben den Python-Versionen, die sich im Tools-Cache befinden, kommt Windows nicht mit einer entsprechenden Version von System-Python. Um das mit anderen Runnern konsistente Verhalten sicherzustellen und um Python „out-of-the-box“ ohne die Aktion `setup-python` nutzen zu können fügt {% data variables.product.prodname_dotcom %} ein paar Versionen aus dem Tools-Cache zum `PATH` hinzu. |
 | macOS                                                              | Auf macOS-Runnern sind zusätzlich zu den Versionen im Tool-Cache noch mehrere Versionen von System-Python installiert. Die Python-Versionen des Systems befinden sich im Verzeichnis `/usr/local/Cellar/python/*`.                                                                                                                                                                                    |
 
 ### Abhängigkeiten installieren
 
-Auf {{ site.data.variables.product.prodname_dotcom }}-gehosteten Runnern ist der Paketmanager pip installiert. Du kannst pip verwenden, um Abhängigkeiten von der PyPI-Paket-Registry zu installieren, bevor Du Deinen Code baust und testest. Zum Beispiel installiert oder aktualisiert der folgende YAML den Paket-Installierer `pip` sowie die Pakete `setuptools` und `wheel`.
+Auf {% data variables.product.prodname_dotcom %}-gehosteten Runnern ist der Paketmanager pip installiert. Du kannst pip verwenden, um Abhängigkeiten von der PyPI-Paket-Registry zu installieren, bevor Du Deinen Code baust und testest. Zum Beispiel installiert oder aktualisiert der folgende YAML den Paket-Installierer `pip` sowie die Pakete `setuptools` und `wheel`.
 
 Du kannst Abhängigkeiten auch im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen. Weitere Informationen findest Du unter „[Abhängigkeiten im Cache zwischenspeichern, um Deinen Workflow zu beschleunigen](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)“.
 
@@ -313,7 +313,7 @@ steps:
 
 #### Tests mit Tox ausführen
 
-With {{ site.data.variables.product.prodname_actions }}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
+With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
 {% raw %}
 ```yaml

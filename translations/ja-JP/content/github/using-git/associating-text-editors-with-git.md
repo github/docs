@@ -16,7 +16,7 @@ versions:
 ### エディタとして Atom を使う
 
 1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"
@@ -25,7 +25,7 @@ versions:
 ### エディタとして Visual Studio Code を使う
 
 1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -34,7 +34,7 @@ versions:
 ### エディタとして Sublime Text を使う
 
 1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "subl -n -w"
@@ -44,7 +44,7 @@ versions:
 
 1. [TextMate](https://macromates.com/) をインストールします。
 2. TextMate の `mate` のシェルユーティリティをインストールします。 詳細は、TextMate のドキュメンテーションで「[mate と rmate](https://macromates.com/blog/2011/mate-and-rmate/)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 4. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "mate -w"
@@ -64,7 +64,7 @@ versions:
 ### エディタとして Visual Studio Code を使う
 
 1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -73,7 +73,7 @@ versions:
 ### エディタとして Sublime Text を使う
 
 1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
@@ -82,7 +82,7 @@ versions:
 ### エディタとして Notepad++ を使う
 
 1. https://notepad-plus-plus.org/ から Notepad++ をインストールします。 詳細は、Notepad++ のドキュメンテーションで「[Getting started](https://npp-user-manual.org/docs/getting-started/)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
@@ -94,7 +94,7 @@ versions:
 ### エディタとして Atom を使う
 
 1. [Atom](https://atom.io/)をインストールします。 詳しい情報については、Atomのドキュメンテーションの「[Atomのインストール](https://flight-manual.atom.io/getting-started/sections/installing-atom/)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "atom --wait"
@@ -103,7 +103,7 @@ versions:
 ### エディタとして Visual Studio Code を使う
 
 1. [Visual Studio Code](https://code.visualstudio.com/) (VS Code) をインストールします。 詳細は、VS Code のドキュメンテーションで「[Visual Studio Code の設定](https://code.visualstudio.com/Docs/setup/setup-overview)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "code --wait"
@@ -112,7 +112,7 @@ versions:
 ### エディタとして Sublime Text を使う
 
 1. [Sublime Text](https://www.sublimetext.com/) をインストールします。 詳細は、Sublime Text のドキュメンテーションの「[インストール](https://docs.sublimetext.io/guide/getting-started/installation.html)」を参照してください。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 以下のコマンドを入力してください:
   ```shell
   $ git config --global core.editor "subl -n -w"

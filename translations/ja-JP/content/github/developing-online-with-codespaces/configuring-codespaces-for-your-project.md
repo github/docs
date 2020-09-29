@@ -1,7 +1,7 @@
 ---
 title: プロジェクトの Codespace の設定
 intro: リポジトリの新しい codespace ごとにデフォルトの設定を行い、コントリビューターがオンライン開発環境で必要なすべてのツールと設定を確実に行えるようにすることができます。
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: リポジトリへの書き込み権限を持つユーザは、デフォルトの codespace 設定を作成または編集できます。
 redirect_from:
   - /github/developing-online-with-github-codespaces/configuring-github-codespaces-for-your-project
@@ -9,47 +9,47 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
 ### デフォルトの codespace 設定について
 
-{{ site.data.reusables.codespaces.about-configuration }}
+{% data reusables.codespaces.about-configuration %}
 
-If you don't define a configuration in your repository, {{ site.data.variables.product.prodname_dotcom }} creates a codespace with a base Linux image. The base Linux image includes tools for Node.js, JavaScript, TypeScript, Python, C++, Java, C#, .NET Core, PHP, and PowerShell. For more information about the base Linux image, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) repository.
+If you don't define a configuration in your repository, {% data variables.product.prodname_dotcom %} creates a codespace with a base Linux image. The base Linux image includes tools for Node.js, JavaScript, TypeScript, Python, C++, Java, C#, .NET Core, PHP, and PowerShell. For more information about the base Linux image, see the [`microsoft/vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers/codespaces-linux) repository.
 
-{{ site.data.reusables.codespaces.about-personalization }}{{ site.data.reusables.codespaces.codespace-config-order }}詳しい情報については、「[アカウントの {{ site.data.variables.product.prodname_codespaces }} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)」を参照してください。
+{% data reusables.codespaces.about-personalization %}{% data reusables.codespaces.codespace-config-order %}詳しい情報については、「[アカウントの {% data variables.product.prodname_codespaces %} をパーソナライズする](/github/developing-online-with-codespaces/personalizing-codespaces-for-your-account)」を参照してください。
 
 プロジェクトタイプ用にビルド済みコンテナ設定を使用してデフォルトの codespace 設定を作成するか、プロジェクトのニーズに固有のカスタム設定を作成できます。
 
-{{ site.data.variables.product.prodname_codespaces }} は、リポジトリのルートまたは `.devcontainer` フォルダの `devcontainer.json` という名前のファイルに含まれる設定を使用します。 `devcontainer.json` を使用して、{{ site.data.variables.product.prodname_vscode }} エディタを含む codespace 環境全体のデフォルト設定をすることができますが、`.vscode/settings.json` という名前のファイルでエディタ固有の設定をすることもできます。
+{% data variables.product.prodname_codespaces %} は、リポジトリのルートまたは `.devcontainer` フォルダの `devcontainer.json` という名前のファイルに含まれる設定を使用します。 `devcontainer.json` を使用して、{% data variables.product.prodname_vscode %} エディタを含む codespace 環境全体のデフォルト設定をすることができますが、`.vscode/settings.json` という名前のファイルでエディタ固有の設定をすることもできます。
 
 リポジトリの codespace 設定への変更は、すべての新しい codespace にのみ適用され、既存の codespace には影響しません。
 
 ### ビルド済みのコンテナ設定を使用する
 
-[`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) リポジトリで利用可能な、{{ site.data.variables.product.prodname_vscode }} 用のビルド済みコンテナ設定を使用できます。 ビルド済みコンテナの定義には、特定のプロジェクトタイプの共通設定が含まれており、適切なコンテナオプション、{{ site.data.variables.product.prodname_vscode }} 設定、およびインストールする必要がある {{ site.data.variables.product.prodname_vscode }} 拡張機能のすでに用意された設定を使用して素早く開始できます。
+[`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) リポジトリで利用可能な、{% data variables.product.prodname_vscode %} 用のビルド済みコンテナ設定を使用できます。 ビルド済みコンテナの定義には、特定のプロジェクトタイプの共通設定が含まれており、適切なコンテナオプション、{% data variables.product.prodname_vscode %} 設定、およびインストールする必要がある {% data variables.product.prodname_vscode %} 拡張機能のすでに用意された設定を使用して素早く開始できます。
 
 1. [`vscode-dev-containers`](https://github.com/microsoft/vscode-dev-containers) リポジトリをクローンまたはダウンロードします。
 1. `vscode-dev-containers` リポジトリで、[`コンテナ`](https://github.com/microsoft/vscode-dev-containers/tree/master/containers)フォルダに移動し、プロジェクトのニーズに合わせてコンテナ設定を選択します。 例として、[Node.js & JavaScript](https://aka.ms/vscode-dev-containers/definitions/node) コンテナ設定を使用します。
 1. [`Node.js & JavaScript`](https://aka.ms/vscode-dev-containers/definitions/node) フォルダから、`.devcontainer` フォルダをプロジェクトのリポジトリのルートにコピーします。
-1. 新しい設定をコミットして、{{ site.data.variables.product.prodname_dotcom }} のプロジェクトのリポジトリにプッシュします。
+1. 新しい設定をコミットして、{% data variables.product.prodname_dotcom %} のプロジェクトのリポジトリにプッシュします。
 
 `.devcontainer` フォルダを含むブランチから作成された新しい codespace はそれぞれ、フォルダの内容に従って設定されます。 詳しい情報については、「[codespace を作成する](/github/developing-online-with-codespaces/creating-a-codespace)」を参照してください。
 
 ### カスタム codespace 設定を作成する
 
-ビルド済みの設定がニーズを満たしていない場合は、`devcontainer.json` ファイルをリポジトリのルートまたは `.devcontainer` フォルダに追加して、カスタム設定を作成できます。 このファイルでは、サポートされている設定キーを使用して、codespace の環境の要素を指定できます。たとえば、{{ site.data.variables.product.prodname_vscode }} 拡張機能がインストールできます。
+ビルド済みの設定がニーズを満たしていない場合は、`devcontainer.json` ファイルをリポジトリのルートまたは `.devcontainer` フォルダに追加して、カスタム設定を作成できます。 このファイルでは、サポートされている設定キーを使用して、codespace の環境の要素を指定できます。たとえば、{% data variables.product.prodname_vscode %} 拡張機能がインストールできます。
 
-{{ site.data.reusables.codespaces.vscode-settings-order }}
+{% data reusables.codespaces.vscode-settings-order %}
 
-2 つの場所で {{ site.data.variables.product.prodname_vscode }} のデフォルトのエディタ設定を定義できます。
+2 つの場所で {% data variables.product.prodname_vscode %} のデフォルトのエディタ設定を定義できます。
 
 * `.vscode/settings.json` で定義されたエディタ設定は、_Workspace_ スコープの設定として codespace に適用されます。
 * `devcontainer.json` の`設定`キーで定義されたエディタ設定は、codespace の _リモート [Codespaces]_ スコープ設定として適用されます。
 
 ### サポートされている codespace 設定キー
 
-`devcontainer.json` の {{ site.data.variables.product.prodname_codespaces }} でサポートされている設定キーを使用できます。
+`devcontainer.json` の {% data variables.product.prodname_codespaces %} でサポートされている設定キーを使用できます。
 
 #### 一般設定
 
@@ -78,4 +78,4 @@ If you don't define a configuration in your repository, {{ site.data.variables.p
 - `shutdownAction`
 - `dockerComposeFile`
 
-`devcontainer.json` で使用可能な設定の詳細については、{{ site.data.variables.product.prodname_vscode }} ドキュメントの「[devcontainer.json の参照](https://aka.ms/vscode-remote/devcontainer.json)」をご覧ください。
+`devcontainer.json` で使用可能な設定の詳細については、{% data variables.product.prodname_vscode %} ドキュメントの「[devcontainer.json の参照](https://aka.ms/vscode-remote/devcontainer.json)」をご覧ください。

@@ -1,6 +1,6 @@
 ---
 title: Pesquisar no log de auditoria
-intro: 'Os administradores do site podem pesquisar em uma vasta lista de [ações auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) na {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Os administradores do site podem pesquisar em uma vasta lista de [ações auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) na {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -37,8 +37,8 @@ Para ver a lista completa de ações, consulte "[Ações auditadas](/enterprise/
 
 ### Pesquisar no log de auditoria
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. Digite uma consulta de pesquisa.![Consulta de pesquisa](/assets/images/enterprise/site-admin-settings/search-query.png)

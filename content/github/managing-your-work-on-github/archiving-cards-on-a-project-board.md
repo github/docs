@@ -19,7 +19,7 @@ Automation in your project board does not apply to archived project board cards.
 
 ### Restoring cards on a project board from the sidebar
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **View archive**.
   ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Above the project board card you want to unarchive, click **Restore**.

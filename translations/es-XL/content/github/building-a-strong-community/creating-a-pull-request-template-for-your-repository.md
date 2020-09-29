@@ -16,8 +16,8 @@ Puedes crear plantillas de solicitud de extracción predeterminadas para tu orga
 
 ### Agregar una plantilla de solicitud de extracción
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. En el campo del nombre del archivo:
     -  Para hacer que tu plantilla de solicitud de extracción se pueda ver en el directorio raíz del repositorio, nómbrala como `pull_request_template.md`. ![Nuevo nombre de plantilla de solicitud de extracción en un directorio raíz](/assets/images/help/repository/pr-template-file-name.png)
     - Para hacer que tu plantilla de solicitud de extracción se pueda ver en el directorio `docs` del repositorio, nómbrala como `docs/pull_request_template.md`. ![Nueva plantilla de solicitud de extracción en un directorio de documentos](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ Puedes crear plantillas de solicitud de extracción predeterminadas para tu orga
     - Una [ referencia a una propuesta relacionada](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) en tu repositorio.
     - Una descripción de los cambios propuestos en la solicitud de extracción.
     - [@menciones](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) de la persona o del equipo responsable de revisar los cambios propuestos.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Las plantillas están a disposición de los colaboradores cuando se fusionan en la rama predeterminada del repositorio.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Las plantillas están a disposición de los colaboradores cuando se fusionan en la rama predeterminada del repositorio.
+{% data reusables.files.propose_new_file %}
 
 ### Leer más
 

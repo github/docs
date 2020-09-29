@@ -29,7 +29,7 @@ To search for locked conversations in a repository that is not archived, you can
 - "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Maintaining your safety on {{ site.data.variables.product.prodname_dotcom }}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
+- "[Maintaining your safety on {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"
 - "[Limiting interactions in your repository](/github/building-a-strong-community/limiting-interactions-in-your-repository)"
 {% endif %}

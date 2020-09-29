@@ -1,1 +1,1 @@
-Para iniciar {{ site.data.variables.product.prodname_desktop }} al último repositorio abierto, escribe `github`. Para lanzar {{ site.data.variables.product.prodname_desktop }} para un repositorio particular, teclea `github` seguido de la ruta al repositorio.
+Para iniciar {% data variables.product.prodname_desktop %} al último repositorio abierto, escribe `github`. Para lanzar {% data variables.product.prodname_desktop %} para un repositorio particular, teclea `github` seguido de la ruta al repositorio.

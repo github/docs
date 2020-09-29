@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Pull Requests
-intro: 'Mit Pull Requests kannst Du andere Benutzer über Änderungen informieren, die Du an einen Branch in einem Repository auf {{ site.data.variables.product.product_name }} übertragen hast. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
+intro: 'Mit Pull Requests kannst Du andere Benutzer über Änderungen informieren, die Du an einen Branch in einem Repository auf {% data variables.product.product_name %} übertragen hast. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ Auf der Registerkarte „Conversation“ (Unterhaltung) siehst Du Informationen 
 
 Wenn Du mit den vorgeschlagenen Änderungen einverstanden bist, kannst Du den Pull Request zusammenführen. Wenn Du in einem Modell mit gemeinsamen Repositorys arbeitest, erstellst Du einen Pull Request und Du oder jemand anders wird Deine Änderungen von Deinem Funktions-Branch in den Basis-Branch zusammenführen, den Du im Pull Request angegeben hast. Weitere Informationen findest Du unter „[Einen Pull Request zusammenführen](/articles/merging-a-pull-request).“
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ In Deinem Dashboard findest Du schnell Links zu zuletzt aktualisierten Pull Requ
 
 ### Entwürfe für Pull Requests
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 Wenn Du einen Pull Request erstellst, kannst Du wählen, ob Du einen für den Review bereiten Pull Request oder einen Pull-Request-Entwurf erstellen möchten. Pull-Request-Entwürfe können nicht zusammengeführt werden, und Code-Inhaber werden nicht automatisch aufgefordert, Pull-Request-Entwürfe zu überprüfen. Weitere Informationen zum Erstellen eines Pull-Request-Entwurfs findest Du unter „[Einen Pull Request erstellen](/articles/creating-a-pull-request)“ und „[Einen Pull Request von einem Fork erstellen](/articles/creating-a-pull-request-from-a-fork).“
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} Du kannst einen Pull Request jederzeit in einen Entwurf umwandeln. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/articles/changing-the-stage-of-a-pull-request).“
+{% data reusables.pull_requests.mark-ready-review %} Du kannst einen Pull Request jederzeit in einen Entwurf umwandeln. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/articles/changing-the-stage-of-a-pull-request).“
 
 ### Weiterführende Informationen
 
-- „[Pull Request](/articles/github-glossary/#pull-request)“ im {{ site.data.variables.product.prodname_dotcom }}-Glossar
+- „[Pull Request](/articles/github-glossary/#pull-request)“ im {% data variables.product.prodname_dotcom %}-Glossar
 - „[Informationen zu Branches](/articles/about-branches)“
 - „[Einen Pull Request kommentieren](/articles/commenting-on-a-pull-request)“
 - „[Einen Pull Request mergen](/articles/merging-a-pull-request)“

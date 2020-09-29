@@ -18,16 +18,16 @@ versions:
 
 {% note %}
 
-**注：**还可以通过创建自己的仓库复刻副本（或复刻）并将更改提交到创建原始拉取请求更改的头部分支，从而通过 {{ site.data.variables.product.product_location }} 向仓库复刻的拉取请求分支进行提交。 有关一些一般准则，请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”。
+**注：**还可以通过创建自己的仓库复刻副本（或复刻）并将更改提交到创建原始拉取请求更改的头部分支，从而通过 {% data variables.product.product_location %} 向仓库复刻的拉取请求分支进行提交。 有关一些一般准则，请参阅“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”。
 
 {% endnote %}
 
-1. 在 {{ site.data.variables.product.product_name }} 上，导航到创建拉取请求分支的复刻（或仓库副本）的主页面。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. 在 {% data variables.product.product_name %} 上，导航到创建拉取请求分支的复刻（或仓库副本）的主页面。
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
 
- **提示：**如果要使用 {{ site.data.variables.product.prodname_desktop }} 克隆复刻，请参阅“[将仓库克隆到 {{ site.data.variables.product.prodname_desktop }}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)”。
+ **提示：**如果要使用 {% data variables.product.prodname_desktop %} 克隆复刻，请参阅“[将仓库克隆到 {% data variables.product.prodname_desktop %}](/articles/cloning-a-repository/#cloning-a-repository-to-github-desktop)”。
 
  {% endtip %}
 4. 将当前工作目录更改为要下载克隆目录的位置。
@@ -36,11 +36,11 @@ versions:
   ```
 5. 键入 `git clone`，然后粘贴在第 3 步中复制的 URL。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   ```
 6. 按 **Enter** 键。 将创建您的本地克隆。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>
   > Cloning into `FORK-OF-THE-REPOSITORY`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -75,11 +75,11 @@ versions:
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>FORK-OF-THE-REPOSITORY</em>.git
   > 12da2e9..250e946  <em>test-branch</em> -> <em>test-branch</em>
   ```
 
-您的新提交将反映在 {{ site.data.variables.product.product_location }} 上的原始拉取请求中。
+您的新提交将反映在 {% data variables.product.product_location %} 上的原始拉取请求中。
 
 ### 延伸阅读
 

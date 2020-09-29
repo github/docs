@@ -11,7 +11,7 @@ versions:
 
 
 
-La [API de Estados][status API] es responsable de unir las confirmaciones con un servicio de pruebas para que cada carga que hagas pueda probarse y se represente en una solicitud de extracción de {{ site.data.variables.product.product_name }}.
+La [API de Estados][status API] es responsable de unir las confirmaciones con un servicio de pruebas para que cada carga que hagas pueda probarse y se represente en una solicitud de extracción de {% data variables.product.product_name %}.
 
 Esta guía utilizará esa API para ejemplificar una configuración que puedes utilizar. En nuestro escenario, nosotros:
 
@@ -51,7 +51,7 @@ Haz clic en **Actualizar webhook**. Deberás ver una respuesta en el cuerpo que 
 * Estado
 * Solicitud de Extracción
 
-Estos son los eventos que {{ site.data.variables.product.product_name }} enviará a nuestro servidor cuando ocurra cualquier acción relevante. Vamos a actualizar nuestro servidor para que *solo* gestione el escenario de Solicitud de Extracción ahora:
+Estos son los eventos que {% data variables.product.product_name %} enviará a nuestro servidor cuando ocurra cualquier acción relevante. Vamos a actualizar nuestro servidor para que *solo* gestione el escenario de Solicitud de Extracción ahora:
 
 ``` ruby
 post '/event_handler' do
@@ -72,7 +72,7 @@ helpers do
 end
 ```
 
-¿Qué está pasando? Cada evento que {{ site.data.variables.product.product_name }} envía adjunta un encabezado de HTTP de `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Desde ahí, tomaremos la carga útil de información y devolveremos el campo de título. En un escenario ideal, a nuestro servidor le interesaría cada vez que se actualiza una solicitud de extracción, no únicamente cuando se abre. Eso garantizaría que todas las cargas pasen la prueba de IC. Pero para efectos de esta demostración, solo nos interesará cuándo se abren.
+¿Qué está pasando? Cada evento que {% data variables.product.product_name %} envía adjunta un encabezado de HTTP de `X-GitHub-Event`. Solo nos interesan los eventos de Solicitud de Extracción por el momento. Desde ahí, tomaremos la carga útil de información y devolveremos el campo de título. En un escenario ideal, a nuestro servidor le interesaría cada vez que se actualiza una solicitud de extracción, no únicamente cuando se abre. Eso garantizaría que todas las cargas pasen la prueba de IC. Pero para efectos de esta demostración, solo nos interesará cuándo se abren.
 
 Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repositorio de pruebas, y abre una solicitud de extracción. ¡Tu servidor deberá responder de acuerdo con los casos!
 
@@ -80,7 +80,7 @@ Para probar esta prueba de concepto, haz algunos cambios en una rama de tu repos
 
 Ya que configuramos el servidor, estamos listos para comenzar con nuestro primer requisito, que es configurar (y actualizar) los estados de IC. Nota que en cualquier momento que actualices tu servidor, puedes dar clic en **Volver a entregar** para enviar la misma carga útil. ¡No necesitas hacer una solicitud de extracción cada que haces un cambio!
 
-Ya que estamos interactuando con la API de {{ site.data.variables.product.product_name }}, utilizaremos a [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
+Ya que estamos interactuando con la API de {% data variables.product.product_name %}, utilizaremos a [Octokit.rb][octokit.rb] para administrar nuestras interacciones. Configuraremos a ese cliente con
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -92,7 +92,7 @@ before do
 end
 ```
 
-Después de ésto, solo necesitaremos actualizar la solicitud de extracción en {{ site.data.variables.product.product_name }} para dejar en claro lo que estamos procesando en la IC:
+Después de ésto, solo necesitaremos actualizar la solicitud de extracción en {% data variables.product.product_name %} para dejar en claro lo que estamos procesando en la IC:
 
 ``` ruby
 def process_pull_request(pull_request)

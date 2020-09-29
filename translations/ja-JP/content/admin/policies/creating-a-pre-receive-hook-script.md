@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.prodname_ghe_server }} の pre-receive フックの例は、[`github/platform-samples`リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で見ることができます。
+{% data variables.product.prodname_ghe_server %} の pre-receive フックの例は、[`github/platform-samples`リポジトリ](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)で見ることができます。
 
 ### pre-receiveフックスクリプトの作成
-pre-receive フックスクリプトは、{{ site.data.variables.product.prodname_ghe_server }} アプライアンス上の pre-receive フック環境内で実行されます。 pre-receiveフックスクリプトを作成する際には、利用可能な入力、出力、終了ステータス、環境変数について考慮してください。
+pre-receive フックスクリプトは、{% data variables.product.prodname_ghe_server %} アプライアンス上の pre-receive フック環境内で実行されます。 pre-receiveフックスクリプトを作成する際には、利用可能な入力、出力、終了ステータス、環境変数について考慮してください。
 
 #### 入力（stdin）
 プッシュが行われ、リモートリポジトリ上でrefがあった場合に、それらが更新される前、 `git-receive-pack`プロセスは更新されるrefごとに1行の標準入力を渡してpre-receiveフックスクリプトを呼び出します。
@@ -42,7 +42,7 @@ pre-receiveスクリプトの`終了ステータス`は、プッシュが受け�
 |    0以外    |  プッシュは拒否されます。  |
 
 #### 環境変数
-`stdin` に渡された値以外に、{{ site.data.variables.product.prodname_ghe_server }} 上で動作する pre-receive フックスクリプトから利用できる追加の変数があります。
+`stdin` に渡された値以外に、{% data variables.product.prodname_ghe_server %} 上で動作する pre-receive フックスクリプトから利用できる追加の変数があります。
 
 | 変数                                    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |:------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,9 +60,9 @@ pre-receiveスクリプトの`終了ステータス`は、プッシュが受け�
 | $GIT_PUSH_OPTION_N                  | ここで <em>N</em> は 0 から始まる整数で、この変数にはクライアントから送信されたプッシュオプションの文字列が含まれます。 送信された最初のオプションはGIT_PUSH_OPTION_0に保存され、2番目のオプションはGIT_PUSH_OPTION_1に保存され、といったようになります。 プッシュオプションに関する詳しい情報については、Gitのドキュメンテーションの[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)を参照してください。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
 | $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
 
-### 権限の設定と {{ site.data.variables.product.prodname_ghe_server }} への pre-receive フックのプッシュ
+### 権限の設定と {% data variables.product.prodname_ghe_server %} への pre-receive フックのプッシュ
 
-pre-receive フックスクリプトは、{{ site.data.variables.product.prodname_ghe_server }} アプライアンス上のリポジトリに含まれます。 サイト管理者はリポジトリの権限を考慮し、適切なユーザだけがアクセスできるようにしなければなりません。
+pre-receive フックスクリプトは、{% data variables.product.prodname_ghe_server %} アプライアンス上のリポジトリに含まれます。 サイト管理者はリポジトリの権限を考慮し、適切なユーザだけがアクセスできるようにしなければなりません。
 
 フックは単一のリポジトリに集約することをおすすめします。 集約されたフックのリポジトリがパブリックになっている場合、`README.md`をポリシーの強制の説明に利用できます。 また、コントリビューションをプルリクエスト経由で受け付けることもできます。 しかし、pre-receiveフックはデフォルトブランチからのみ追加できます。 テストのワークフロー用には、設定を持つリポジトリのフォークを使うべきです。
 
@@ -77,19 +77,19 @@ pre-receive フックスクリプトは、{{ site.data.variables.product.prodnam
   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
   ```
 
-2. {{ site.data.variables.product.prodname_ghe_server }} インスタンス上の対象となる pre-receive フックのリポジトリにコミットおよびプッシュしてください。
+2. {% data variables.product.prodname_ghe_server %} インスタンス上の対象となる pre-receive フックのリポジトリにコミットおよびプッシュしてください。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
   ```
 
-3. {{ site.data.variables.product.prodname_ghe_server }} のインスタンス上で [pre-receive フックを作成](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/#creating-pre-receive-hooks)してください。
+3. {% data variables.product.prodname_ghe_server %} のインスタンス上で [pre-receive フックを作成](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/#creating-pre-receive-hooks)してください。
 
 ### ローカルでのpre-receiveスクリプトのテスト
-pre-receive フックスクリプトは、{{ site.data.variables.product.prodname_ghe_server }} アプライアンス上で作成したり更新したりする前に、ローカルでテストできます。 その方法の 1 つは、pre-receive フックを実行できるリモートリポジトリとして働くローカルの Docker 環境を作成することです。
+pre-receive フックスクリプトは、{% data variables.product.prodname_ghe_server %} アプライアンス上で作成したり更新したりする前に、ローカルでテストできます。 その方法の 1 つは、pre-receive フックを実行できるリモートリポジトリとして働くローカルの Docker 環境を作成することです。
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. 以下を含む `Dockerfile.dev` というファイルを作成してください。
 

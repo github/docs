@@ -25,7 +25,7 @@ Para os fins deste documento, "dados confidenciais" referem-se ao conteúdo (i) 
 - Menções simples à identidade da sua empresa, nome, marca, nome de domínio ou outras referências à sua empresa em arquivos no GitHub. Você deve ser capaz de explicar por que o uso da identidade de sua empresa é uma ameaça à segurança da mesma antes de tomarmos medidas sob esta política.
 - Queixas de privacidade. Se você tem preocupações sobre sua própria privacidade ou está nos contactando em nome de seus funcionários devido a uma preocupação de privacidade — por exemplo, se houver um endereço de e-mail privado ou outras informações pessoais publicadas — entre em contato conosco via [formulário de contato de Privacidade](https://github.com/contact/privacy).
 - Arquivos ou repositórios inteiros que não representam um risco específico de segurança, mas você acredita que, de qualquer forma, são censuráveis.
-- Conteúdo regido pelas nossas [Diretrizes da Comunidade](/articles/github-community-guidelines/), como malware ou ferramentas de propósito geral. Se você tiver dúvidas sobre nossas Diretrizes da Comunidade ou acredita que o conteúdo no GitHub pode violar nossas diretrizes, você pode usar {{ site.data.variables.contact.report_content }} para entrar em contato conosco.
+- Conteúdo regido pelas nossas [Diretrizes da Comunidade](/articles/github-community-guidelines/), como malware ou ferramentas de propósito geral. Se você tiver dúvidas sobre nossas Diretrizes da Comunidade ou acredita que o conteúdo no GitHub pode violar nossas diretrizes, você pode usar {% data variables.contact.report_content %} para entrar em contato conosco.
 
 ### Informações que você precisa saber
 

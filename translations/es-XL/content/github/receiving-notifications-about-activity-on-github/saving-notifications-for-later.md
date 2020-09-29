@@ -9,17 +9,17 @@ Cuando guardas una notificación, se mueve a la pestaña Saved for later (Guarda
 
 ### Guardar una notificación para más tarde
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la lista de notificaciones, encuentra la notificación que deseas guardar para más tarde.
 1. On the right side of the notification, click
 {% octicon "bookmark" aria-label="The bookmark button" %}.
 ![Botón para guardar una notificación](/assets/images/help/notifications/save_notification.png)
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.saved_for_late_sidebar %}
 
 ### Eliminar una notificación guardada
 
-{{ site.data.reusables.notifications.access_notifications }}
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.access_notifications %}
+{% data reusables.notifications.saved_for_late_sidebar %}
 1. En tu lista de notificaciones guardadas, encuentra la notificación guardada que desearías eliminar.
 1. En el lateral derecho de la notificación guardada, haz clic en {% octicon "bookmark" aria-label="The bookmark button" %}. ![Botón para eliminar una notificación guardada](/assets/images/help/notifications/remove-saved-notification.png)
 

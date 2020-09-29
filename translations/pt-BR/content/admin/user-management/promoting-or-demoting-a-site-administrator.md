@@ -19,19 +19,19 @@ Para obter mais informações sobre como promover um usuário a proprietário da
 
 ### Promover usuários pelas configurações empresariais
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 5. No canto superior direito da página, clique em **Add owner** (Adicionar proprietário). ![Botão para adicionar administrador](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. No campo de pesquisa, digite o nome do usuário e clique em **Add** (Adicionar). ![Campo de pesquisa para adicionar administrador](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
 ### Rebaixar administrador do site pelas configurações empresariais
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. No canto superior esquerdo da página, no campo de pesquisa "Find an administrator" (Localizar administrador), digite o nome de usuário da pessoa que você pretende rebaixar. ![Campo de pesquisa para localizar administrador](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
 1. Nos resultados da pesquisa, localize o nome de usuário da pessoa que você deseja rebaixar e, em seguida, use o {% octicon "gear" %} menu suspenso e selecione **Remover proprietário**. ![Remover da opção empresa](/assets/images/help/business-accounts/demote-admin-button.png)

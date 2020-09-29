@@ -11,7 +11,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Tipp:** Wenn Du Dein bezahltes Abonnement stornieren möchtest, kannst Du [Deine Organisation zu {{ site.data.variables.product.prodname_free_team }} herabstufen](/articles/downgrading-your-github-subscription), anstatt die Organisation und ihre Inhalte zu löschen.
+**Tipp:** Wenn Du Dein bezahltes Abonnement stornieren möchtest, kannst Du [Deine Organisation zu {% data variables.product.prodname_free_team %} herabstufen](/articles/downgrading-your-github-subscription), anstatt die Organisation und ihre Inhalte zu löschen.
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ Wenn Du eine Organisation gelöscht hast, kann GitHub **Deine Inhalte nicht wied
 
 ### 2. Lösche die Organisation
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Klicke fast am Ende der Seite mit den Einstellungen der Organisation auf **Delete this organization** (Diese Organisation löschen). ![Schaltfläche „Delete this organization“ (Diese Organisation löschen)](/assets/images/help/settings/settings-organization-delete.png)

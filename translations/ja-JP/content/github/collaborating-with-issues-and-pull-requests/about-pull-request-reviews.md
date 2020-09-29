@@ -27,19 +27,19 @@ versions:
 
 ![レビューステータスの画像](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 プルリクエストが受けたすべてのレビューは、Conversationタイムラインで見ることができ、リポジトリオーナー及びコラボレーターによるレビューは、プルリクエストのマージボックスで見ることができます。
 
 ![マージボックス中のレビューの画像](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### 必須のレビュー
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 詳しい情報については[プルリクエストのための必須のレビューについて](/articles/about-required-reviews-for-pull-requests)を参照してください。
 

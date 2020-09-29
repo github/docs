@@ -1,14 +1,14 @@
 ---
 title: Erstellen einer zusammengesetzten Ausführungsschritteaktion
 intro: 'In diesem Handbuch erfahren Sie, wie Sie eine Aktion für zusammengesetzte Ausführungsschritte erstellen.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
@@ -18,9 +18,9 @@ Nachdem Sie dieses Projekt abgeschlossen haben, sollten Sie verstehen, wie Sie I
 
 ### Vorrausetzungen
 
-Bevor Sie beginnen, erstellen Sie ein {{ site.data.variables.product.product_name }} Repository.
+Bevor Sie beginnen, erstellen Sie ein {% data variables.product.product_name %} Repository.
 
-1. Erstellen Sie ein neues öffentliches Repository auf {{ site.data.variables.product.product_location }}. Sie können einen beliebigen Repository-Namen auswählen oder die folgenden `hello-world-composite-run-steps-action` Beispiel verwenden. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {{ site.data.variables.product.product_name }} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
+1. Erstellen Sie ein neues öffentliches Repository auf {% data variables.product.product_location %}. Sie können einen beliebigen Repository-Namen auswählen oder die folgenden `hello-world-composite-run-steps-action` Beispiel verwenden. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {% data variables.product.product_name %} übergeben wurde. Weitere Informationen finden Sie unter „[Neues Repository erstellen](/articles/creating-a-new-repository)“.
 
 1. Clone Dein Repository auf Deinen Computer. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 

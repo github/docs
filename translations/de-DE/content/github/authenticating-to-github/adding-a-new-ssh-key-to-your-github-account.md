@@ -1,6 +1,6 @@
 ---
 title: Einen neuen SSH-Schlüssel zum GitHub-Konto hinzufügen
-intro: 'Um Dein {{ site.data.variables.product.product_name }}-Konto für die Verwendung Deines neuen (oder vorhandenen) SSH-Schlüssels zu konfigurieren, musst Du diesen Schlüssel auch zu Deinem {{ site.data.variables.product.product_name }}-Konto hinzufügen.'
+intro: 'Um Dein {% data variables.product.product_name %}-Konto für die Verwendung Deines neuen (oder vorhandenen) SSH-Schlüssels zu konfigurieren, musst Du diesen Schlüssel auch zu Deinem {% data variables.product.product_name %}-Konto hinzufügen.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
 versions:
@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-Bevor Du einen neuen SSH-Schlüssel zu Deinem {{ site.data.variables.product.product_name }}-Konto hinzufügst, solltest Du:
+Bevor Du einen neuen SSH-Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzufügst, solltest Du:
 * [nach vorhandenen SSH-Schlüsseln gesucht haben](/articles/checking-for-existing-ssh-keys)
 * [einen neuen SSH-Schlüssel erzeugt und ihn zum SSH-Agenten hinzugefügt haben](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Nachdem Du einen neuen SSH-Schlüssel zu Deinem {{ site.data.variables.product.product_name }}-Konto hinzugefügt hast, kannst Du alle lokalen Repositorys für die Verwendung von SSH konfigurieren. Weitere Informationen findest Du unter „[Remote-URLs von HTTPS auf SSH umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh).“
+Nachdem Du einen neuen SSH-Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du alle lokalen Repositorys für die Verwendung von SSH konfigurieren. Weitere Informationen findest Du unter „[Remote-URLs von HTTPS auf SSH umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh).“
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
 {% mac %}
 
@@ -33,13 +33,13 @@ Nachdem Du einen neuen SSH-Schlüssel zu Deinem {{ site.data.variables.product.p
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Klicke auf **New SSH key** (Neuer SSH-Schlüssel) oder **Add SSH key** (SSH-Schlüssel hinzufügen). ![Schaltfläche „SSH Key" (SSH-Schlüssel)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. Gib im Feld „Title“ (Titel) eine aussagekräftige Kennzeichnung für den neuen Schlüssel ein. Wenn Du beispielsweise ein Mac-Gerät verwendest, könntest Du diesen Schlüssel „Mein MacBook Air“ nennen.
 6. Kopiere den Schlüssel in das Feld „Key“ (Schlüssel). ![Das Feld „Key“ (Schlüssel)](/assets/images/help/settings/ssh-key-paste.png)
 7. Klicke auf **Add SSH key** (SSH-Schlüssel hinzufügen). ![Die Schaltfläche zum Hinzufügen eines Schlüssels](/assets/images/help/settings/ssh-add-key.png)
-{{ site.data.reusables.user_settings.sudo-mode-popup }}
+{% data reusables.user_settings.sudo-mode-popup %}
 
 {% endmac %}
 
@@ -60,13 +60,13 @@ Nachdem Du einen neuen SSH-Schlüssel zu Deinem {{ site.data.variables.product.p
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Klicke auf **New SSH key** (Neuer SSH-Schlüssel) oder **Add SSH key** (SSH-Schlüssel hinzufügen). ![Schaltfläche „SSH Key" (SSH-Schlüssel)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. Gib im Feld „Title“ (Titel) eine aussagekräftige Kennzeichnung für den neuen Schlüssel ein. Wenn Du beispielsweise ein Mac-Gerät verwendest, könntest Du diesen Schlüssel „Mein MacBook Air“ nennen.
 6. Kopiere den Schlüssel in das Feld „Key“ (Schlüssel). ![Das Feld „Key“ (Schlüssel)](/assets/images/help/settings/ssh-key-paste.png)
 7. Klicke auf **Add SSH key** (SSH-Schlüssel hinzufügen). ![Die Schaltfläche zum Hinzufügen eines Schlüssels](/assets/images/help/settings/ssh-add-key.png)
-8. Wenn Du dazu aufgefordert wirst, bestätige Dein {{ site.data.variables.product.product_name }}-Passwort. ![Sudo-Modus-Dialog](/assets/images/help/settings/sudo_mode_popup.png)
+8. Wenn Du dazu aufgefordert wirst, bestätige Dein {% data variables.product.product_name %}-Passwort. ![Sudo-Modus-Dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endwindows %}
 
@@ -89,13 +89,13 @@ Nachdem Du einen neuen SSH-Schlüssel zu Deinem {{ site.data.variables.product.p
 
   {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 4. Klicke auf **New SSH key** (Neuer SSH-Schlüssel) oder **Add SSH key** (SSH-Schlüssel hinzufügen). ![Schaltfläche „SSH Key" (SSH-Schlüssel)](/assets/images/help/settings/ssh-add-ssh-key.png)
 5. Gib im Feld „Title“ (Titel) eine aussagekräftige Kennzeichnung für den neuen Schlüssel ein. Wenn Du beispielsweise ein Mac-Gerät verwendest, könntest Du diesen Schlüssel „Mein MacBook Air“ nennen.
 6. Kopiere den Schlüssel in das Feld „Key“ (Schlüssel). ![Das Feld „Key“ (Schlüssel)](/assets/images/help/settings/ssh-key-paste.png)
 7. Klicke auf **Add SSH key** (SSH-Schlüssel hinzufügen). ![Die Schaltfläche zum Hinzufügen eines Schlüssels](/assets/images/help/settings/ssh-add-key.png)
-8. Wenn Du dazu aufgefordert wirst, bestätige Dein {{ site.data.variables.product.product_name }}-Passwort. ![Sudo-Modus-Dialog](/assets/images/help/settings/sudo_mode_popup.png)
+8. Wenn Du dazu aufgefordert wirst, bestätige Dein {% data variables.product.product_name %}-Passwort. ![Sudo-Modus-Dialog](/assets/images/help/settings/sudo_mode_popup.png)
 
 {% endlinux %}
 

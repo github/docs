@@ -1,14 +1,14 @@
 ---
 title: 将身份提供程序连接到组织
-intro: '要使用 SAML 单点登录和 SCIM，必须将身份提供程序连接到您的 {{ site.data.variables.product.product_name }} 组织。'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: '要使用 SAML 单点登录和 SCIM，必须将身份提供程序连接到您的 {% data variables.product.product_name %} 组织。'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
 ---
 
-在您的 {{ site.data.variables.product.product_name }} 组织中[启用 SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) 之前，需要将身份提供程序 (IdP) 连接到您的组织。
+在您的 {% data variables.product.product_name %} 组织中[启用 SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) 之前，需要将身份提供程序 (IdP) 连接到您的组织。
 
 您可以在以下文档中找到 IdP 的 SAML 和 SCIM 实现详细信息：
 - Active Directory Federation Services (AD FS) [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
@@ -20,7 +20,7 @@ versions:
 
 {% note %}
 
-**注：**{{ site.data.variables.product.product_name }} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/articles/about-scim)”。
+**注：**{% data variables.product.product_name %} 支持的用于 SCIM 的身份提供程序为 Azure AD、Okta 和 OneLogin。 有关 SCIM 的更多信息，请参阅“[关于 SCIM](/articles/about-scim)”。
 
 {% endnote %}
 

@@ -1,6 +1,6 @@
 ---
 title: Utilizar GitHub
-intro: 'Conoce los flujos de trabajo comunes y avanzados de Git para mejorar tu experiencia con {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Conoce los flujos de trabajo comunes y avanzados de Git para mejorar tu experiencia con {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/19/articles/
   - /categories/using-git

@@ -1,6 +1,6 @@
 ---
 title: Viewing contributions on your profile
-intro: 'Your {{ site.data.variables.product.product_name }} profile shows off your pinned repositories as well as a graph of your repository contributions over the past year.'
+intro: 'Your {% data variables.product.product_name %} profile shows off your pinned repositories as well as a graph of your repository contributions over the past year.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ Your contribution graph shows activity from public repositories. You can choose 
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if you have [added the email address you used for your local Git configuration to your {{ site.data.variables.product.product_name }} email settings](/articles/adding-an-email-address-to-your-github-account). For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Note:** Commits will only appear on your contributions graph if you have [added the email address you used for your local Git configuration to your {% data variables.product.product_name %} email settings](/articles/adding-an-email-address-to-your-github-account). For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ On your profile page, certain actions count as contributions:
 - Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Popular repositories
 
@@ -63,11 +63,11 @@ Your contributions calendar shows your contribution activity.
 
 Timestamps are calculated differently for commits and pull requests:
 - **Commits** use the time zone information in the commit timestamp. For more information, see "[Troubleshooting commits on your timeline](/articles/troubleshooting-commits-on-your-timeline)."
-- **Pull requests** and **issues** opened on {{ site.data.variables.product.product_name }} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ### Обзор активности
 
-{{ site.data.reusables.profile.activity-overview-summary }} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile)."
 
 ![Activity overview section on profile](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ The contribution activity section includes a detailed timeline of your work, inc
 
 ![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### Viewing contributions from {{ site.data.variables.product.product_location_enterprise }} on {{ site.data.variables.product.prodname_dotcom_the_website }}
+### Viewing contributions from {% data variables.product.product_location_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
-If your site administrator has enabled {{ site.data.variables.product.prodname_unified_contributions }}, you can send {{ site.data.variables.product.prodname_enterprise }} contribution counts to your {{ site.data.variables.product.prodname_dotcom_the_website }} profile. For more information, see "[Sending your {{ site.data.variables.product.prodname_ghe_server }} contributions to your {{ site.data.variables.product.prodname_dotcom_the_website }}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+If your site administrator has enabled {% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
 
 ### Дополнительная литература
 

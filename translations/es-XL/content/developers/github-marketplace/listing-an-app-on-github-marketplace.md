@@ -1,6 +1,6 @@
 ---
 title: Listar una app en GitHub Marketplace
-intro: 'Aprende sobre los requisitos y mejores prácticas para listar tu app en {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Aprende sobre los requisitos y mejores prácticas para listar tu app en {% data variables.product.prodname_marketplace %}.'
 mapTopic: true
 redirect_from:
   - /apps/adding-integrations/listing-apps-on-github-marketplace/

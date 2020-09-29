@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 右上にある [Assignee] ドロップダウンメニューをクリックします。
 4. [Assignee] ドロップダウンメニューには、リポジトリへの書き込み権限のあるすべてのユーザがリストされます。 確認したい割り当てられた項目を持つユーザの名前をクリックするか、[**Assigned to nobody**] をクリックして未割り当ての Issue を表示します。 ![[Assignee] ドロップダウンメニューを使用する](/assets/images/help/issues/issues_assignee_dropdown.png)
 

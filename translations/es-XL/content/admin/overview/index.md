@@ -1,13 +1,13 @@
 ---
 title: Resumen
-intro: 'Con {{ site.data.variables.product.prodname_enterprise }} puedes administrar cuentas y acceder a las licencias y a la facturación.'
+intro: 'Con {% data variables.product.prodname_enterprise %} puedes administrar cuentas y acceder a las licencias y a la facturación.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
   enterprise-server: '*'
 ---
 
-Para obtener más información, o para comprar {{ site.data.variables.product.prodname_enterprise }}, consulta [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise).
+Para obtener más información, o para comprar {% data variables.product.prodname_enterprise %}, consulta [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
 ### Índice
 

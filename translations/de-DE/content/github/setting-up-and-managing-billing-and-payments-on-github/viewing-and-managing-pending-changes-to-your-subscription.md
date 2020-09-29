@@ -16,24 +16,24 @@ Wenn Du eine ausstehende Änderung stornierst, wird Dein Abonnement bei Deinem n
 
 ### Ausstehende Änderungen am Abonnement Deines persönlichen Kontos anzeigen und verwalten
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Ausstehende Änderungen am Abonnement Deiner Organisation anzeigen und verwalten
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Weiterführende Informationen
 
-- „[Produkte von {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)“
+- „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)“

@@ -20,7 +20,7 @@ versions:
 
 {% warning %}
 
-**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {{ site.data.variables.product.product_location }}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/articles/about-pull-request-merges)を参照してください。
+**警告**：コミット履歴を変更すると、リポジトリを使う他の人々にとっては難しいことになり得るので、リポジトリにプッシュ済みのコミットをリベースするのは悪いプラクティスと考えられています。 {% data variables.product.product_location %}で安全にリベースする方法を学ぶには[プルリクエストのマージについて](/articles/about-pull-request-merges)を参照してください。
 
 {% endwarning %}
 
@@ -105,4 +105,4 @@ pick 7b36971 something to move before patch B
 - [_Pro Git_の"Git Branching"の章](https://git-scm.com/book/en/Git-Branching-Rebasing)
 - [_Pro Git_の"Interactive Rebasing"の章](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
 - [リベースでのコミットのsquash](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
-- {{ site.data.variables.product.prodname_desktop }} ドキュメンテーションの「[ブランチを同期する](/desktop/contributing-to-projects/syncing-your-branch)」
+- {% data variables.product.prodname_desktop %} ドキュメンテーションの「[ブランチを同期する](/desktop/contributing-to-projects/syncing-your-branch)」

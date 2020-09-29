@@ -13,10 +13,10 @@ versions:
   enterprise-server: '*'
 ---
 
-O {{ site.data.variables.product.product_name }} usa a [biblioteca Linguist](https://github.com/github/linguist) de código aberto para determinar as linguagens de arquivo para destaque da sintaxe e estatísticas de repositório. As estatísticas da linguagem serão atualizadas após você fazer push de alterações no seu branch-padrão.
+O {% data variables.product.product_name %} usa a [biblioteca Linguist](https://github.com/github/linguist) de código aberto para determinar as linguagens de arquivo para destaque da sintaxe e estatísticas de repositório. As estatísticas da linguagem serão atualizadas após você fazer push de alterações no seu branch-padrão.
 
 Alguns arquivos são difíceis de identificar e, às vezes, os projetos contêm mais arquivos de fornecedor e biblioteca do que código primário. Se estiver recebendo resultados incorretos, consulte o [guia de solução de problemas](https://github.com/github/linguist#troubleshooting) do Linguist para obter ajuda.
 
 ### Linguagens markup
 
-As linguagens markup são renderizadas para HTML e exibidas em linha usando nossa [Biblioteca de markup](https://github.com/github/markup) de código aberto. Neste momento, não estamos aceitando novas linguagens markup a serem mostradas no {{ site.data.variables.product.product_name }}. No entanto, mantemos de maneira ativa nossas linguagens markup atuais. Em caso de dificuldades, [crie um problema](https://github.com/github/markup/issues/new).
+As linguagens markup são renderizadas para HTML e exibidas em linha usando nossa [Biblioteca de markup](https://github.com/github/markup) de código aberto. Neste momento, não estamos aceitando novas linguagens markup a serem mostradas no {% data variables.product.product_name %}. No entanto, mantemos de maneira ativa nossas linguagens markup atuais. Em caso de dificuldades, [crie um problema](https://github.com/github/markup/issues/new).

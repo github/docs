@@ -16,7 +16,7 @@ Depois que uma resposta salva é adicionada, ela pode ser usada em problemas e p
 
 É possível criar, no máximo, 100 respostas salvas. Se atingir o limite máximo, você poderá excluir respostas salvas que não usa mais ou editar as existentes.
 
-Também é possível usar a resposta salva "Duplicate issue" (Problema duplicado) fornecida pelo {{ site.data.variables.product.product_name }} para marcar um problema como duplicação e rastreá-lo com um problema semelhante.
+Também é possível usar a resposta salva "Duplicate issue" (Problema duplicado) fornecida pelo {% data variables.product.product_name %} para marcar um problema como duplicação e rastreá-lo com um problema semelhante.
 
 ### Leia mais
 

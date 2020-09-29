@@ -1,6 +1,6 @@
 ---
 title: Gerenciar a cobrança do Git Large File Storage
-intro: 'Você pode visualizar a utilização, atualizar e fazer downgrade do {{ site.data.variables.large_files.product_name_long }}.'
+intro: 'Você pode visualizar a utilização, atualizar e fazer downgrade do {% data variables.large_files.product_name_long %}.'
 redirect_from:
   - /articles/managing-large-file-storage-and-bandwidth-for-your-personal-account/
   - /articles/managing-large-file-storage-and-bandwidth-for-your-organization/

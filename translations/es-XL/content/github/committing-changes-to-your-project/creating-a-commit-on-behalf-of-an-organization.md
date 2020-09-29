@@ -1,6 +1,6 @@
 ---
 title: Crear una confirmación en nombre de una organización
-intro: 'Puedes crear confirmaciones en nombre de una organización agregando una introducción al mensaje de la confirmación. Las confirmaciones atribuidas a una organización incluyen un distintivo `on-behalf-of` (en nombre de) en {{ site.data.variables.product.product_name }}.'
+intro: 'Puedes crear confirmaciones en nombre de una organización agregando una introducción al mensaje de la confirmación. Las confirmaciones atribuidas a una organización incluyen un distintivo `on-behalf-of` (en nombre de) en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:
@@ -26,7 +26,7 @@ Las organizaciones pueden usar el correo electrónico `name@organization.com` co
 
 ### Crear confirmaciones con un distintivo `on-behalf-of` en la línea de comando
 
-{{ site.data.reusables.pull_requests.commit-message-with-trailer-beginning }}
+{% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
 2. En la línea siguiente del mensaje de confirmación, escriba `on-behalf-of: @org <name@organization.com>` y luego coloque comillas de cierre.
 
@@ -37,11 +37,11 @@ Las organizaciones pueden usar el correo electrónico `name@organization.com` co
   on-behalf-of: <em>@org</em> &lt;<em>name@organization.com</em>&gt;"
   ```
 
-El nuevo mensaje de confirmación y el distintivo aparecerán en {{ site.data.variables.product.product_location }} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
+El nuevo mensaje de confirmación y el distintivo aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
 
-### Crear confirmaciones con un distintivo `on-behalf-of` en {{ site.data.variables.product.product_name }}
+### Crear confirmaciones con un distintivo `on-behalf-of` en {% data variables.product.product_name %}
 
-Una vez que hayas realizado los cambios en un archivo usando el editor web en {{ site.data.variables.product.product_name }}, puedes crear una confirmación en nombre de tu organización agregando una introducción `on-behalf-of:` al mensaje de confirmación.
+Una vez que hayas realizado los cambios en un archivo usando el editor web en {% data variables.product.product_name %}, puedes crear una confirmación en nombre de tu organización agregando una introducción `on-behalf-of:` al mensaje de confirmación.
 
 1. Luego de hacer tus cambios, en la parte inferior de la página, escribe un mensaje de confirmación breve y significativo que describa tus cambios. ![Mensaje de confirmación de tu cambio](/assets/images/help/repository/write-commit-message-quick-pull.png)
 
@@ -50,7 +50,7 @@ Una vez que hayas realizado los cambios en un archivo usando el editor web en {{
   ![Ejemplo de introducción de mensaje de confirmación on-behalf-of en el segundo cuadro de texto para el mensaje de confirmación](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
 4. Haz clic en **Confirmar cambios** o **Proponer cambios**.
 
-La confirmación, el mensaje y el distintivo nuevos aparecerán en {{ site.data.variables.product.product_location }}.
+La confirmación, el mensaje y el distintivo nuevos aparecerán en {% data variables.product.product_location %}.
 
 ### Leer más
 

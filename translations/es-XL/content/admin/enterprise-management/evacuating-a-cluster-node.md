@@ -24,7 +24,7 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
     ```
     ghe-spokes evac-status
     ```
-    Para {{ site.data.variables.product.prodname_pages }}
+    Para {% data variables.product.prodname_pages %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
@@ -39,7 +39,7 @@ Si colocas fuera de línea un nodo que tiene otros servicios de datos (como git,
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
-    Para {{ site.data.variables.product.prodname_pages }}
+    Para {% data variables.product.prodname_pages %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```

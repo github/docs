@@ -1,6 +1,6 @@
 ---
 title: Libraries
-intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {{ site.data.variables.product.prodname_dotcom }} API.'
+intro: 'You can use the official Octokit library and other third-party libraries to extend and simplify how you use the {% data variables.product.prodname_dotcom %} API.'
 redirect_from:
   - /libraries/
   - /v3/libraries

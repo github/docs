@@ -2,7 +2,7 @@
 title: Comandos de flujo de trabajo para Acciones de GitHub
 shortTitle: Comandos de flujo de trabajo
 intro: Puedes usar comandos de flujo de trabajo cuando ejecutas comandos de Shell en un flujo de trabajo o en el código de una acción.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/development-tools-for-github-actions
   - /github/automating-your-workflow-with-github-actions/development-tools-for-github-actions
@@ -14,8 +14,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los comandos de flujo
 
@@ -93,7 +93,7 @@ echo "::set-env name=action_state::yellow"
 
 Establece un parámetro de salida de la acción.
 
-Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta "[Sintaxis de metadatos para {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions#outputs)".
+Opcionalmente, también puedes declarar parámetros de salida en el archivo de metadatos de una acción. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions#outputs)".
 
 #### Ejemplo
 
@@ -198,7 +198,7 @@ echo "::pause-logging::"
 
 Puedes utilizar el comando `save-state` para crear variables de ambiente para compartir con tus acciones `pre:` o `post:` de flujo de trabajo. Por ejemplo, puedes crear un archivo con la acción `pre:`, pasar la ubicación del archivo a la acción `main:`, y después, utilizar la acción `post:` para borrar el archivo. Como alternativa, puedes crear un archivo con la acción `main:`, pasar la ubicación del archivo a la acción `post:`, y también utilizar la acción `post:` para borrar el archivo.
 
-Si tienes varias acciones `pre:` o `post:`, solo podrás acceder al valor que se guardó en la acción donde se utilizó `save-state`. Para obtener más información sobre la acción `post:`, consulta la sección "[Sintaxis de metadatos para {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions#post)".
+Si tienes varias acciones `pre:` o `post:`, solo podrás acceder al valor que se guardó en la acción donde se utilizó `save-state`. Para obtener más información sobre la acción `post:`, consulta la sección "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#post)".
 
 El comando `save-state` solo puede ejecutarse dentro de una acción y no está disponible para archivos YAML. El valor guardado se almacena en un valor de ambiente con el prefijo `STATE_`.
 

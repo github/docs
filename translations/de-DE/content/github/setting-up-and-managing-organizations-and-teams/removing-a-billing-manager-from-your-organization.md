@@ -9,12 +9,12 @@ versions:
 
 {% warning %}
 
-**Hinweis:** {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**Hinweis:** {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. Klicke in der Liste der Abrechnungsmanager neben dem Namen der Person, die Du entfernen möchtest, auf {% octicon "x" aria-label="X symbol" %}. ![Abrechnungsmanager entfernen](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

@@ -14,7 +14,7 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste „Pull Requests“ auf den Pull Request, den Du ändern möchtest.
 3. Klicke neben dem Titel des Pull Requests auf **Edit** (Bearbeiten). ![Schaltfläche „Pull Request edit" (Bearbeiten eines Pull Request)](/assets/images/help/pull_requests/pull-request-edit.png)
 4. Wähle im Basis-Branch-Dropdownmenü den Basis-Branch aus, mit dem Du [die Änderungen vergleichen](/github/committing-changes-to-your-project/comparing-commits#comparing-branches) möchtest. ![Basis-Branch-Dropdownmenü ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)

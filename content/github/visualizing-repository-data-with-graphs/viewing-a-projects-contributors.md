@@ -5,7 +5,7 @@ redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
   - /articles/viewing-a-projects-contributors
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,8 +21,8 @@ You can also see a list of people who have contributed to the project's Python d
 
 ### Accessing the contributors graph
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. In the left sidebar, click **Contributors**.
   ![Contributors tab](/assets/images/help/graphs/contributors_tab.png)
 4. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected.
@@ -33,7 +33,7 @@ You can also see a list of people who have contributed to the project's Python d
 If you don't appear in a repository's contributors graph, it may be because:
 - You aren't one of the top 100 contributors.
 - Your commits haven't been merged into the default branch.
-- The email address you used to author the commits hasn't been added to your {{ site.data.variables.product.product_name }} account.
+- The email address you used to author the commits hasn't been added to your {% data variables.product.product_name %} account.
 
 {% tip %}
 
@@ -43,4 +43,4 @@ If you don't appear in a repository's contributors graph, it may be because:
 
 If all your commits in the repository are on non-default branches, you won't be in the contributors graph. For example, commits on the `gh-pages` branch aren't included in the graph unless `gh-pages` is the repository's default branch. To have your commits merged into the default branch, you can create a pull request. For more information, see "[About pull requests](/articles/about-pull-requests)."
 
-If the email address you used to author the commits has not been added to your {{ site.data.variables.product.product_name }} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)" and "[Adding an email address to your {{ site.data.variables.product.product_name }} account](/articles/adding-an-email-address-to-your-github-account)."
+If the email address you used to author the commits has not been added to your {% data variables.product.product_name %} account, your commits won't be linked to your account, and you won't appear in the contributors graph. For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)" and "[Adding an email address to your {% data variables.product.product_name %} account](/articles/adding-an-email-address-to-your-github-account)."

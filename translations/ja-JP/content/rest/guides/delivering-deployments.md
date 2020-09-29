@@ -12,7 +12,7 @@ versions:
 
 
 
-[Deployment API][deploy API]は、{{ site.data.variables.product.product_name }}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 [Status API][status API]と組み合わせれば、コードが`master`に到着してからすぐにデプロイメントを調整できるようになります。
+[Deployment API][deploy API]は、{% data variables.product.product_name %}にホストされたプロジェクトが、あなたのサーバーで起動できるようにします。 [Status API][status API]と組み合わせれば、コードが`master`に到着してからすぐにデプロイメントを調整できるようになります。
 
 このAPIでは、ステータスAPIを使って、利用できる設定を示します。 このシナリオでは、以下を行います。
 
@@ -54,7 +54,7 @@ end
 * デプロイメントステータス
 * プルリクエスト
 
-これらは、関係するアクションが発生するごとに{{ site.data.variables.product.product_name }}がこのサーバーに送信するイベントです。 ここではプルリクエストがマージされたときの処理*だけ*を処理するようサーバーを設定します。
+これらは、関係するアクションが発生するごとに{% data variables.product.product_name %}がこのサーバーに送信するイベントです。 ここではプルリクエストがマージされたときの処理*だけ*を処理するようサーバーを設定します。
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +69,7 @@ post '/event_handler' do
 end
 ```
 
-さて、ここで起こっていることを説明しましょう。 {{ site.data.variables.product.product_name }}が送信するすべてのイベントには、`X-GitHub-Event` HTTPヘッダが添付されています。 ここではPRイベントのみに注目しましょう。 プルリクエストがマージされると (ステータスが`closed`となり、`merged`が`true`になると)、デプロイメントを開始します。
+さて、ここで起こっていることを説明しましょう。 {% data variables.product.product_name %}が送信するすべてのイベントには、`X-GitHub-Event` HTTPヘッダが添付されています。 ここではPRイベントのみに注目しましょう。 プルリクエストがマージされると (ステータスが`closed`となり、`merged`が`true`になると)、デプロイメントを開始します。
 
 この概念実証を試すため、テストリポジトリのブランチで何か変更を行い、プルリクエストを開いてマージします。 そうすると、サーバーはそれに応じてレスポンスを返すはずです。
 

@@ -1,6 +1,6 @@
 ---
 title: Verifying your organization's domain
-intro: 'You can verify the domains controlled by your organization to confirm your organization''s identity on {{ site.data.variables.product.product_name }}.'
+intro: 'You can verify the domains controlled by your organization to confirm your organization''s identity on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -8,9 +8,9 @@ versions:
   free-pro-team: '*'
 ---
 
-To verify domains on {{ site.data.variables.product.product_name }}, you must have owner permissions in the organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)." You will also need access to modify domain records with your domain hosting service.
+To verify domains on {% data variables.product.product_name %}, you must have owner permissions in the organization. For more information, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)." You will also need access to modify domain records with your domain hosting service.
 
-After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. If your organization is on {{ site.data.variables.product.prodname_ghe_cloud }} and has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
+After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. If your organization is on {% data variables.product.prodname_ghe_cloud %} and has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[About your organization's profile page](/articles/about-your-organization-s-profile/)" and "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
 
 To display a "Verified" badge, the website and email information shown on your organization's profile must match the verified domain or domains. If the website and email address shown on your organization's profile are hosted on different domains, you must verify both domains.
 
@@ -20,12 +20,12 @@ To display a "Verified" badge, the website and email information shown on your o
 
 {% endnote %}
 
-On {{ site.data.variables.product.prodname_ghe_cloud }}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications to an approved domain](/articles/restricting-email-notifications-to-an-approved-domain)."
+On {% data variables.product.prodname_ghe_cloud %}, after verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[Restricting email notifications to an approved domain](/articles/restricting-email-notifications-to-an-approved-domain)."
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.verified-domains }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.verified-domains %}
 5. Click **Add a domain**. ![Add a domain button](/assets/images/help/organizations/add-a-domain-button.png)
 6. In the domain field, type the domain you'd like to verify, then click **Add domain**. ![Add a domain field](/assets/images/help/organizations/add-domain-field.png)
 7. Follow the instructions under **Add a DNS TXT record** to create a DNS TXT record with your domain hosting service. It may take up to 72 hours for your DNS configuration to change. Once your DNS configuration has changed, continue to the next step. ![Instructions to create a DNS txt record](/assets/images/help/organizations/create-dns-txt-record-instructions.png)

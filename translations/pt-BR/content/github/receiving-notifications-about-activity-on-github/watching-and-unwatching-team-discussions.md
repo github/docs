@@ -19,31 +19,31 @@ Para inspecionar automaticamente todas as discussões de equipe das novas equipe
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} selecione **Automatically watch teams** (Inspecionar equipes automaticamente). ![Caixa de seleção para inspecionar equipes automaticamente](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} selecione **Automatically watch teams** (Inspecionar equipes automaticamente). ![Caixa de seleção para inspecionar equipes automaticamente](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Inspecionar as discussões de uma única equipe
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} clique em **Watch** (Inspecionar) para abrir suas opções de notificações. Em seguida, clique em **Watching** (Inspecionar). ![Opções de inspeção em um menu suspenso para uma equipe específica](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} clique em **Watch** (Inspecionar) para abrir suas opções de notificações. Em seguida, clique em **Watching** (Inspecionar). ![Opções de inspeção em um menu suspenso para uma equipe específica](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### Cancelar a inspeção de todas as discussões de equipe das novas equipes em que você ingressar
 
 Se você não quiser receber automaticamente notificações sobre discussões de equipe quando participar de uma equipe, altere as configurações de notificação para cancelar a inspeção de todas novas equipes em que você ingressar.
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} desmarque **Automatically watch teams** (Inspecionar equipes automaticamente). ![Configuração Automatically watching teams (Inspecionar equipes automaticamente) selecionada por padrão](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} desmarque **Automatically watch teams** (Inspecionar equipes automaticamente). ![Configuração Automatically watching teams (Inspecionar equipes automaticamente) selecionada por padrão](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Cancelar a inspeção das discussões de uma única equipe
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} clique em **Unwatch** (Cancelar inspeção) para abrir suas opções de notificações. Em seguida, clique em **Not watching** (Não inspecionar). ![Opções de inspeção em um menu suspenso para uma equipe específica](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} clique em **Unwatch** (Cancelar inspeção) para abrir suas opções de notificações. Em seguida, clique em **Not watching** (Não inspecionar). ![Opções de inspeção em um menu suspenso para uma equipe específica](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

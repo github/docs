@@ -4,4 +4,4 @@ Du kannst das Protokoll als JSON-Daten oder als CSV-Datei (Comma-Separated Value
 
 Um die Ergebnisse Deines Exports zu filtern, suche mit einem oder mehreren dieser unterstützten Qualifizierer, bevor Du das Dropdownmenü **Export** verwendest.
 
-{{ site.data.reusables.audit_log.keys-and-example-values }}
+{% data reusables.audit_log.keys-and-example-values %}

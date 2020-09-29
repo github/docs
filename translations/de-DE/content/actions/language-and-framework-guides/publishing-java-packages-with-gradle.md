@@ -1,18 +1,18 @@
 ---
 title: Java-Pakete mit Gradle veröffentlichen
 intro: 'Du kannst Gradle verwenden, um Java-Pakete als Teil Deines Workflows zur kontinuierlichen Integration (CI) in einer Registry zu veröffentlichen.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
-{{ site.data.reusables.github-actions.publishing-java-packages-intro }}
+{% data reusables.github-actions.publishing-java-packages-intro %}
 
 ### Vorrausetzungen
 
@@ -22,8 +22,8 @@ Weitere Informationen zum Erstellen eines CI-Workflows für Dein Java-Projekt mi
 
 Vielleicht findest Du es auch hilfreich, ein grundlegendes Verständnis von Folgendem zu haben:
 
-- „[Kernkonzepte für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
-- „[Konfiguration von npm für die Verwendung mit {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)“
+- „[Kernkonzepte für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
+- „[Konfiguration von npm für die Verwendung mit {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)“
 - "[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 - „[Verschlüsselte Geheimnisse erzeugen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“
 - „[Authentifizierung mit dem GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)“
@@ -87,20 +87,20 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
+{% data reusables.github-actions.gradle-workflow-steps %}
 1. Führt den Befehl `gradle publish` aus, um im Maven-Repository `OSSRH` zu veröffentlichen. Die Umgebungsvariable `MAVEN_USERNAME` wird mit dem Inhalt Deines Geheimnisses `OSSRH_USERNAME` gefüllt, und die Umgebungsvariable `MAVEN_PASSWORD` wird mit dem Inhalt Deines Geheimnisses `OSSRH_TOKEN` gefüllt.
 
    Weitere Informationen zur Verwendung von Geheimnissen in Deinem Workflow findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
-### Pakete in der {{ site.data.variables.product.prodname_registry }} veröffentlichen
+### Pakete in der {% data variables.product.prodname_registry %} veröffentlichen
 
-Jedes Mal, wenn Du ein neues Release erstellst, kannst Du einen Workflow anstoßen, um Dein Paket zu veröffentlichen. Der Workflow im folgenden Beispiel wird von dem Ereignis `release` vom Typ `created` angestoßen. Der Workflow veröffentlicht das Paket in {{ site.data.variables.product.prodname_registry }} , wenn die CI-Tests bestanden wurden. Weitere Informationen zum Ereignis `release` findest Du unter „[Ereignisse, die Workflows anstoßen](/actions/reference/events-that-trigger-workflows#release)“.
+Jedes Mal, wenn Du ein neues Release erstellst, kannst Du einen Workflow anstoßen, um Dein Paket zu veröffentlichen. Der Workflow im folgenden Beispiel wird von dem Ereignis `release` vom Typ `created` angestoßen. Der Workflow veröffentlicht das Paket in {% data variables.product.prodname_registry %} , wenn die CI-Tests bestanden wurden. Weitere Informationen zum Ereignis `release` findest Du unter „[Ereignisse, die Workflows anstoßen](/actions/reference/events-that-trigger-workflows#release)“.
 
-Du kannst ein neues Maven-Repository im Block `publishing` Deiner Datei _build.gradle_ definieren, das auf {{ site.data.variables.product.prodname_registry }} verweist.  In dieser Repository-Konfiguration kannst Du auch die in Deinem CI-Workflow-Lauf eingestellten Umgebungsvariablen nutzen.  Du kannst die Umgebungsvariable `GITHUB_ACTOR` als Benutzernamen verwenden und die Umgebungsvariable `GITHUB_TOKEN` auf Dein `GITHUB_TOKEN`-Geheimnis setzen.
+Du kannst ein neues Maven-Repository im Block `publishing` Deiner Datei _build.gradle_ definieren, das auf {% data variables.product.prodname_registry %} verweist.  In dieser Repository-Konfiguration kannst Du auch die in Deinem CI-Workflow-Lauf eingestellten Umgebungsvariablen nutzen.  Du kannst die Umgebungsvariable `GITHUB_ACTOR` als Benutzernamen verwenden und die Umgebungsvariable `GITHUB_TOKEN` auf Dein `GITHUB_TOKEN`-Geheimnis setzen.
 
 Der `GITHUB_TOKEN` existiert standardmäßig in Deinem Repository und hat Lese- und Schreibrechte für Pakete in dem Repository, in dem der Workflow läuft. Weitere Informationen findest Du unter „[Authentifizierung mit dem GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)."
 
-Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {{ site.data.variables.product.prodname_registry }}-Konfiguration in _build.gradle_ so ähnlich wie im folgenden Beispiel aus.
+Wenn beispielsweise Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {% data variables.product.prodname_registry %}-Konfiguration in _build.gradle_ so ähnlich wie im folgenden Beispiel aus.
 
 {% raw %}
 ```groovy
@@ -144,20 +144,20 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
-1. Führt den Befehl `gradle publish` aus, um in {{ site.data.variables.product.prodname_registry }} zu veröffentlichen. Die Umgebungsvariable `GITHUB_TOKEN` wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gefüllt.
+{% data reusables.github-actions.gradle-workflow-steps %}
+1. Führt den Befehl `gradle publish` aus, um in {% data variables.product.prodname_registry %} zu veröffentlichen. Die Umgebungsvariable `GITHUB_TOKEN` wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gefüllt.
 
    Weitere Informationen zur Verwendung von Geheimnissen in Deinem Workflow findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.
 
-### Pakete im Maven Central Repository und in der {{ site.data.variables.product.prodname_registry }} veröffentlichen
+### Pakete im Maven Central Repository und in der {% data variables.product.prodname_registry %} veröffentlichen
 
-Du kannst Deine Pakete sowohl im Maven Central Repository als auch in der {{ site.data.variables.product.prodname_registry }} veröffentlichen, indem Du beides in Deiner Datei _build.gradle_ konfigurierst.
+Du kannst Deine Pakete sowohl im Maven Central Repository als auch in der {% data variables.product.prodname_registry %} veröffentlichen, indem Du beides in Deiner Datei _build.gradle_ konfigurierst.
 
-Stelle sicher, dass Deine Datei _build.gradle_ ein Repository sowohl für Dein {{ site.data.variables.product.prodname_dotcom }}-Repository als auch Deinen „Maven Central Repository“-Provider enthält.
+Stelle sicher, dass Deine Datei _build.gradle_ ein Repository sowohl für Dein {% data variables.product.prodname_dotcom %}-Repository als auch Deinen „Maven Central Repository“-Provider enthält.
 
-Wenn Du beispielsweise über das OSSRH-Hosting-Projekt in das Central Repository deployen willst, kannst Du das in einem Distributionsverwaltungs-Repository angeben, wobei Du den `-name` auf `OSSRH` setzt. Wenn Du in die {{ site.data.variables.product.prodname_registry }} deployen willst, kannst Du das in einem Distributionsverwaltungs-Repository angeben, wobei Du den `-name` auf `GitHubPackages` setzt.
+Wenn Du beispielsweise über das OSSRH-Hosting-Projekt in das Central Repository deployen willst, kannst Du das in einem Distributionsverwaltungs-Repository angeben, wobei Du den `-name` auf `OSSRH` setzt. Wenn Du in die {% data variables.product.prodname_registry %} deployen willst, kannst Du das in einem Distributionsverwaltungs-Repository angeben, wobei Du den `-name` auf `GitHubPackages` setzt.
 
-Wenn Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {{ site.data.variables.product.prodname_registry }}-Konfiguration in _build.gradle_ so ähnlich wie im folgenden Beispiel aus.
+Wenn Deine Organisation „octocat“ und Dein Repository „hello-world“ heißt, sieht die {% data variables.product.prodname_registry %}-Konfiguration in _build.gradle_ so ähnlich wie im folgenden Beispiel aus.
 
 {% raw %}
 ```groovy
@@ -186,7 +186,7 @@ publishing {
 ```
 {% endraw %}
 
-Mit dieser Konfiguration kannst Du einen Workflow erstellen, der mithilfe des Befehls `gradle publish` Dein Paket sowohl im „Maven Central Repository“ als auch in der {{ site.data.variables.product.prodname_registry }} veröffentlicht.
+Mit dieser Konfiguration kannst Du einen Workflow erstellen, der mithilfe des Befehls `gradle publish` Dein Paket sowohl im „Maven Central Repository“ als auch in der {% data variables.product.prodname_registry %} veröffentlicht.
 
 {% raw %}
 ```yaml
@@ -212,7 +212,7 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.gradle-workflow-steps }}
-1. Führt den Befehl `gradle publish` aus, um im Maven-Repository `OSSRH` und in der {{ site.data.variables.product.prodname_registry }} zu veröffentlichen. Die Umgebungsvariable `MAVEN_USERNAME` wird mit dem Inhalt Deines Geheimnisses `OSSRH_USERNAME` gefüllt, und die Umgebungsvariable `MAVEN_PASSWORD` wird mit dem Inhalt Deines Geheimnisses `OSSRH_TOKEN` gefüllt. Die Umgebungsvariable `GITHUB_TOKEN` wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gefüllt.
+{% data reusables.github-actions.gradle-workflow-steps %}
+1. Führt den Befehl `gradle publish` aus, um im Maven-Repository `OSSRH` und in der {% data variables.product.prodname_registry %} zu veröffentlichen. Die Umgebungsvariable `MAVEN_USERNAME` wird mit dem Inhalt Deines Geheimnisses `OSSRH_USERNAME` gefüllt, und die Umgebungsvariable `MAVEN_PASSWORD` wird mit dem Inhalt Deines Geheimnisses `OSSRH_TOKEN` gefüllt. Die Umgebungsvariable `GITHUB_TOKEN` wird mit dem Inhalt des `GITHUB_TOKEN`-Geheimnisses gefüllt.
 
    Weitere Informationen zur Verwendung von Geheimnissen in Deinem Workflow findest Du unter „[Verschlüsselte Geheimnisse erstellen und verwenden](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)“.

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Aktiviere das Kontrollkästchen neben den Elementen, die Du mit einem Meilenstein verknüpfen möchtest. ![Kontrollkästchen für Issue-Metadaten](/assets/images/help/issues/issues_assign_checkbox.png)
 4. Klicke in der oberen rechten Ecke auf **Milestone** (Meilenstein). Beginne dann, den Namen eines [vorhandenen Meilensteins](/articles/creating-and-editing-milestones-for-issues-and-pull-requests) einzugeben. Klicke auf den Namen des Meilensteins, um ihn mit dem Element zu verknüpfen. ![Dropdownmenü „Issues Milestone assignment" (Issue-Meilenstein-Zuordnung)](/assets/images/help/issues/issues_assigning_milestone_dropdown.png)
 

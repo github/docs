@@ -13,18 +13,18 @@ La actualización vendrá de la dirección principal de correo electrónico en t
 
 ### Contactar a los patrocinadores de tu cuenta de usuario
 
-{{ site.data.reusables.sponsors.navigate-to-dev-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.sponsors-updates-tab }}
-{{ site.data.reusables.sponsors.draft-new-update }}
-{{ site.data.reusables.sponsors.send-update-to-sponsors }}
-{{ site.data.reusables.sponsors.write-sponsor-update }}
-{{ site.data.reusables.sponsors.publish-sponsor-update }}
+{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.sponsors-updates-tab %}
+{% data reusables.sponsors.draft-new-update %}
+{% data reusables.sponsors.send-update-to-sponsors %}
+{% data reusables.sponsors.write-sponsor-update %}
+{% data reusables.sponsors.publish-sponsor-update %}
 
 ### Contactar a los patrocinadores de tu organización
 
-{{ site.data.reusables.sponsors.navigate-to-org-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.sponsors-updates-tab }}
-{{ site.data.reusables.sponsors.draft-new-update }}
-{{ site.data.reusables.sponsors.send-update-to-sponsors }}
-{{ site.data.reusables.sponsors.write-sponsor-update }}
-{{ site.data.reusables.sponsors.publish-sponsor-update }}
+{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.sponsors-updates-tab %}
+{% data reusables.sponsors.draft-new-update %}
+{% data reusables.sponsors.send-update-to-sponsors %}
+{% data reusables.sponsors.write-sponsor-update %}
+{% data reusables.sponsors.publish-sponsor-update %}

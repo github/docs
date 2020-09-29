@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About self-hosted runner groups
 
@@ -35,9 +35,9 @@ Self-hosted runners are automatically assigned to the default group when created
 
 When creating a group, you must choose a policy that defines which repositories have access to the runner group. You can configure a runner group to be accessible to a specific list of repositories, all private repositories, or all repositories in the organization.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. In the **Self-hosted runners** section, click **Add new**, and then **New group**.
 
     ![Add runner group](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -55,13 +55,13 @@ Self-hosted runners are automatically assigned to the default group when created
 When creating a group, you must choose a policy that grants access to all organizations in the enterprise or choose specific organizations.
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
 1. Click the **Self-hosted runners** tab.
 1. Click **Add new**, and then **New group**.
 
@@ -75,7 +75,7 @@ When creating a group, you must choose a policy that grants access to all organi
 
 You can update the access policy of a runner group, or rename a runner group.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-configure-runner-group-access }}
+{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 
 ### Moving a self-hosted runner to a group
 

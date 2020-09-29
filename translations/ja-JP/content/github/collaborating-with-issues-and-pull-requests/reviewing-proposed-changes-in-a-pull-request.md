@@ -12,16 +12,16 @@ versions:
 
 プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストのファイルをレビューしている際に、特定の変更についてコメントを残すことができます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}各ファイルのレビューを完了後、ファイルをレビュー済みとしてマーク付けできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストのヘッダにあるプログレスバーは、レビュー済みファイルの数を示します。{% endif %}任意の数のファイルをレビュー後、プルリクエストを承認するか、レビューに要約コメントを付けてサブミットし、さらなる変更をリクエストできます。
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
 ### レビューを開始する
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. 完了したら、[**Start a review**] をクリックします。 レビューがすでに開始していた場合は、[**Add review comment**] (レビューコメントを追加) をクリックします。 ![[Start a review] ボタン](/assets/images/help/pull_requests/start-a-review-button.png)
 
 レビューを提出する前は、行のコメントは_保留中_であり、自分にしか見えません。 レビューを提出する前ならばいつでも、保留中のコメントを編集できます。 その保留中のコメントのすべてを含めて、保留中のレビューをキャンセルするには、[Conversation] タブでタイムラインの最後まで下にスクロールし、[**Cancel review**] をクリックします。
@@ -33,7 +33,7 @@ versions:
 
 ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
 
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 2. レビューを完了したファイルの、ヘッダの右側にある [**Viewed**] を選択します。 ![[Viewed] チェックボックス](/assets/images/help/pull_requests/viewed-checkbox.png)
 {% endif %}
 
@@ -41,16 +41,16 @@ versions:
 
 プルリクエスト内でレビューしたいファイルをすべてレビューし終えたら、レビューをサブミットします。
 
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 4. 残しておくレビューの種類を選択します。 ![レビュー オプションを選択するラジオ ボタン](/assets/images/help/pull_requests/pull-request-review-statuses.png)
     - 変更を明確には承認せず、さらなる変更をリクエストすることもなく、おおまかなフィードバックだけを残したい場合は、[**Comment**] を選択します。
     - フィードバックを提出して、Pull Request で提案された変更をマージすることを承認するには、[**Approve**] を選択します。
     - Pull Request をマージする前に対処すべき問題をフィードバックするには、[**Request changes**] を選択します。
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### 参考リンク
 

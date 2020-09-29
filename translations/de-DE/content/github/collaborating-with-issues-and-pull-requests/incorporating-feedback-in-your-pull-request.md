@@ -16,7 +16,7 @@ Um schnell mehrere vorgeschlagene Änderungen in einem einzigen Commit zu implem
 
 Jede Person, die eine der Änderungen des Commits vorgeschlagen hat, wird Co-Autor des Commits. Die Person, die die vorgeschlagenen Änderungen übernimmt, wird Co-Autor und Beitragender des Commits. Weitere Informationen zum Begriff des Beitragenden in Git findest Du unter „[Git-Grundlagen – Verwalten des Commit-Verlaufs](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)“ auf der Website zum _Pro Git_-Buch.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, auf den Du eine vorgeschlagene Änderung anwenden möchtest.
 3. Navigiere zur ersten vorgeschlagenen Änderung, die Du anwenden möchtest.
     - Um die Änderung in ihrem eigenen Commit anzuwenden, klicke auf **Commit suggestion** (Vorschlag freigeben). ![Schaltfläche „Commit suggestion“ (Vorschlag freigeben)](/assets/images/help/pull_requests/commit-suggestion-button.png)

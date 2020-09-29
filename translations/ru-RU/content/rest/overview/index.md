@@ -1,7 +1,7 @@
 ---
 title: REST API overview
 shortTitle: Обзор
-intro: 'Learn about resources, libraries, previews and troubleshooting for {{ site.data.variables.product.prodname_dotcom }}''s REST API.'
+intro: 'Learn about resources, libraries, previews and troubleshooting for {% data variables.product.prodname_dotcom %}''s REST API.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

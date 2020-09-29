@@ -1,6 +1,6 @@
 ---
 title: Initiating a failover to your replica cluster
-intro: 'If your {{ site.data.variables.product.prodname_ghe_server }} cluster fails, you can fail over to the passive replica .'
+intro: 'If your {% data variables.product.prodname_ghe_server %} cluster fails, you can fail over to the passive replica .'
 redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
@@ -29,8 +29,8 @@ To fail over to passive replica nodes, you must have configured high availabilit
   ghe-cluster-failover
   ```
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
 3. Update the DNS record to point to the IP address of the load balancer for your passive cluster. TTL 期間が経過すると、トラフィックはレプリカに転送されます。
 
-After {{ site.data.variables.product.prodname_ghe_server }} returns you to the prompt and your DNS updates have propagated, you've finished failing over. Users can access {{ site.data.variables.product.prodname_ghe_server }} using the usual hostname for your cluster.
+After {% data variables.product.prodname_ghe_server %} returns you to the prompt and your DNS updates have propagated, you've finished failing over. Users can access {% data variables.product.prodname_ghe_server %} using the usual hostname for your cluster.

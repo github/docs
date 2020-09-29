@@ -18,7 +18,7 @@ You can view task list summary information in issue and pull request lists, when
 
 ### Creating task lists
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### Reordering tasks
 

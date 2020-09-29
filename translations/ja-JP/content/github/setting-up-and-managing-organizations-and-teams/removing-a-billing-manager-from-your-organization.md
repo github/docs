@@ -9,12 +9,12 @@ versions:
 
 {% warning %}
 
-**メモ:** {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**メモ:** {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. [支払いマネージャー] リストで、削除する個人の名前の横にある {% octicon "x" aria-label="X symbol" %} をクリックします。 ![支払いマネージャーの削除](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

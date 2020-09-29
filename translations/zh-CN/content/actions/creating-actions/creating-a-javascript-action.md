@@ -1,7 +1,7 @@
 ---
 title: 创建 JavaScript 操作
 intro: 在本指南中，您将了解如何使用操作工具包构建 JavaScript 操作。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-javascript-action
   - /github/automating-your-workflow-with-github-actions/creating-a-javascript-action
@@ -12,18 +12,18 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 简介
 
 在本指南中，您将了解创建和使用打包的 JavaScript 操作所需的基本组件。 本指南的重点是打包操作所需的组件，因此很少讲操作代码的功能。 操作将在日志文件中打印“Hello World”或“Hello [who-to-greet]”（如果您提供自定义名称）。
 
-本指南使用 {{ site.data.variables.product.prodname_actions }} 工具包 Node.js 模块来加快开发速度。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
+本指南使用 {% data variables.product.prodname_actions %} 工具包 Node.js 模块来加快开发速度。 更多信息请参阅 [actions/toolkit](https://github.com/actions/toolkit) 仓库。
 
 完成此项目后，您应了解如何构建自己的 JavaScript 操作和在工作流程测试该操作。
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
 ### 基本要求
 
@@ -33,7 +33,7 @@ versions:
 
   https://nodejs.org/en/download/current/
 
-1. 在 {{ site.data.variables.product.product_location }} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用 "hello-world-javascript-action"。 您可以在项目推送到 {{ site.data.variables.product.product_name }} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建新仓库 您可以选择任何仓库名称或如本例一样使用 "hello-world-javascript-action"。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
 1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 
@@ -51,7 +51,7 @@ versions:
 
 ### 创建操作元数据文件
 
-使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{{ site.data.variables.product.prodname_actions }} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
+使用以下示例代码在 `hello-world-javascript-action` 目录中创建新文件 `action.yml`。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/actions/creating-actions/metadata-syntax-for-github-actions)”。
 
 
 **action.yml**
@@ -162,7 +162,7 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ### 提交、标记和推送操作到 GitHub
 
-{{ site.data.variables.product.product_name }} 下载运行时在工作流程中运行的每个操作，并将其作为完整的代码包执行，然后才能使用 `run` 等工作流程命令与运行器机器交互。 这意味着您必须包含运行 JavaScript 代码所需的所有包依赖项。 您需要将工具包 `core` 和 `github` 包检入到操作的仓库中。
+{% data variables.product.product_name %} 下载运行时在工作流程中运行的每个操作，并将其作为完整的代码包执行，然后才能使用 `run` 等工作流程命令与运行器机器交互。 这意味着您必须包含运行 JavaScript 代码所需的所有包依赖项。 您需要将工具包 `core` 和 `github` 包检入到操作的仓库中。
 
 从您的终端，提交 `action.yml`、`index.js`、`node_modules`、`package.json`、`package-lock.json` 和 `README.md` 文件。 如果您添加了列有 `node_modules` 的 `.gitignore` 文件，则需要删除该行才能提交 `node_modules` 目录。
 
@@ -200,7 +200,7 @@ git push --follow-tags
 
 现在，您已准备好在工作流程中测试您的操作。 如果操作位于私有仓库，则该操作只能在同一仓库的工作流程中使用。 公共操作可供任何仓库中的工作流程使用。
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### 使用公共操作的示例
 

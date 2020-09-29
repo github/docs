@@ -111,7 +111,7 @@ query {
 * 您也可以通过 `GET` 请求对架构运行_内省查询_ ：
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {{ site.data.variables.product.graphql_url_pre }}
+  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
 
   结果出现在 JSON 中，因此，我们建议整洁打印，以便阅读和搜索。 为此，您可以使用命令行工具，例如 [jq](https://stedolan.github.io/jq/)，或将结果输入 `python -m json.tool`。
@@ -120,7 +120,7 @@ query {
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
-  {{ site.data.variables.product.graphql_url_pre }}
+  {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}

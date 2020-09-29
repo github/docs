@@ -1,32 +1,32 @@
 ---
 title: GitHub Pages-Website lokal mit Jekyll testen
-intro: 'Du kannst Deine {{ site.data.variables.product.prodname_pages }}-Website lokal erstellen, um damit eine Vorschau der Änderungen an Deiner Website zu prüfen und diese Änderungen zu testen.'
+intro: 'Du kannst Deine {% data variables.product.prodname_pages %}-Website lokal erstellen, um damit eine Vorschau der Änderungen an Deiner Website zu prüfen und diese Änderungen zu testen.'
 redirect_from:
   - /articles/setting-up-your-pages-site-locally-with-jekyll/
   - /articles/setting-up-your-github-pages-site-locally-with-jekyll/
   - /articles/testing-your-github-pages-site-locally-with-jekyll
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Personen mit Schreibberechtigungen für ein Repository können eine {{ site.data.variables.product.prodname_pages }}-Website lokal testen.
+Personen mit Schreibberechtigungen für ein Repository können eine {% data variables.product.prodname_pages %}-Website lokal testen.
 
 ### Vorrausetzungen
 
 Bevor Du mit Jekyll eine Website testen kannst, müssen folgende Voraussetzungen erfüllt sein:
   - Installiere [Jekyll](https://jekyllrb.com/docs/installation/).
-  - Erstelle eine Jekyll-Website. Weitere Informationen findest Du unter „[Eine {{ site.data.variables.product.prodname_pages }}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
+  - Erstelle eine Jekyll-Website. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
 
-{{ site.data.reusables.pages.recommend-bundler }}
+{% data reusables.pages.recommend-bundler %}
 
-{{ site.data.reusables.pages.jekyll-install-troubleshooting }}
+{% data reusables.pages.jekyll-install-troubleshooting %}
 
 ### Website lokal erstellen
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.pages.navigate-publishing-source }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.pages.navigate-publishing-source %}
 3. Führe Dein Jekyll-Website lokal aus.
   ```shell
   $ bundle exec jekyll serve
@@ -43,15 +43,15 @@ Bevor Du mit Jekyll eine Website testen kannst, müssen folgende Voraussetzungen
   ```
 3. Öffne eine Vorschau der Website im Webbrowser. Navigiere hierzu zu `http://localhost:4000`.
 
-### Das {{ site.data.variables.product.prodname_pages }}-Gem aktualisieren
+### Das {% data variables.product.prodname_pages %}-Gem aktualisieren
 
-Jekyll ist ein aktives Open-Source-Projekt, das regelmäßig aktualisiert wird. Wenn das `github-pages`-Gem auf dem Computer älter ist als das `github-pages`-Gem auf dem {{ site.data.variables.product.prodname_pages }}-Server, wird die lokal erstellte Website unter Umständen anders dargestellt als bei der tatsächlichen Veröffentlichung auf {{ site.data.variables.product.product_name }}. Damit dieser Fall nicht eintritt, aktualisiere das `github-pages`-Gem auf dem Computer in regelmäßigen Abständen.
+Jekyll ist ein aktives Open-Source-Projekt, das regelmäßig aktualisiert wird. Wenn das `github-pages`-Gem auf dem Computer älter ist als das `github-pages`-Gem auf dem {% data variables.product.prodname_pages %}-Server, wird die lokal erstellte Website unter Umständen anders dargestellt als bei der tatsächlichen Veröffentlichung auf {% data variables.product.product_name %}. Damit dieser Fall nicht eintritt, aktualisiere das `github-pages`-Gem auf dem Computer in regelmäßigen Abständen.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Aktualisiere das `github-pages`-Gem.
     - Wenn Bundler installiert ist, führe `bundle update github-pages` aus.
     - Wenn Du Bundler nicht installiert hast, führe `gem update github-pages` aus.
 
 ### Weiterführende Informationen
 
-- [{{ site.data.variables.product.prodname_pages }}](http://jekyllrb.com/docs/github-pages/) in der Jekyll-Dokumentation
+- [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in der Jekyll-Dokumentation

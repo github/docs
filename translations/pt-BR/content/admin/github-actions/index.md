@@ -1,14 +1,14 @@
 ---
 title: Gerenciar o GitHub Actions para a sua empresa
-intro: 'Habilite {{ site.data.variables.product.prodname_actions }} em {{ site.data.variables.product.prodname_ghe_server }} e gerencie políticas e configurações do {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Habilite {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} e gerencie políticas e configurações do {% data variables.product.prodname_actions %}.'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Índice
 

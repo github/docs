@@ -6,15 +6,15 @@ redirect_from:
   - /enterprise/admin/articles/troubleshooting-email/
   - /enterprise/admin/articles/email-configuration-and-troubleshooting/
   - /enterprise/admin/user-management/configuring-email-for-notifications
-intro: '为了让用户轻松地快速响应 {{ site.data.variables.product.prodname_ghe_server }} 上的活动，您可以将实例配置为发送问题、拉取请求和提交注释的电子邮件通知，以及进行其他设置以允许入站电子邮件回复。 如果用户关注的仓库或他们参与的拉取请求或问题有活动，或者用户或他们所在的团队在评论中被 @提及，系统将发送通知电子邮件。'
+intro: '为了让用户轻松地快速响应 {% data variables.product.prodname_ghe_server %} 上的活动，您可以将实例配置为发送问题、拉取请求和提交注释的电子邮件通知，以及进行其他设置以允许入站电子邮件回复。 如果用户关注的仓库或他们参与的拉取请求或问题有活动，或者用户或他们所在的团队在评论中被 @提及，系统将发送通知电子邮件。'
 versions:
   enterprise-server: '*'
 ---
 
 ### 配置 SMTP
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 2. 在页面顶部，单击 **Settings**。 ![Settings 选项卡](/assets/images/enterprise/management-console/settings-tab.png)
 3. 在左侧边栏中，单击 **Email**。 ![Email 选项卡](/assets/images/enterprise/management-console/email-sidebar.png)
 4. 选择 **Enable email**。 这将同时启用出站和入站电子邮件，不过，要想入站电子邮件正常运行，您还需要按照下文“[配置 DNS 和防火墙设置以允许传入的电子邮件](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)”所述配置您的 DNS 设置。 ![启用出站电子邮件](/assets/images/enterprise/management-console/enable-outbound-email.png)
@@ -68,7 +68,7 @@ versions:
 
 #### 创建支持包
 
-如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {{ site.data.variables.product.prodname_ghe_server }} 之间的整个 SMTP 对话的[支持包](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
+如果您无法根据显示的错误消息确定什么地方出错，可以下载包含您的邮件服务器与 {% data variables.product.prodname_ghe_server %} 之间的整个 SMTP 对话的[支持包](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)。 在下载并提取支持包后，请检查 *enterprise-manage-logs/unicorn.log* 中的条目，查看整个 SMTP 对话日志和任何相关错误。
 
 该独角兽日志应以类似于下面所示的方式显示事务：
 
@@ -109,7 +109,7 @@ TLS connection started
 * 执行了 `login` 身份验证类型 (`<- "AUTH LOGIN\r\n"`)。
 * SMTP 服务器以无效为原因拒绝了身份验证 (`-> "535-5.7.1 Username and Password not accepted.`)。
 
-#### 检查 {{ site.data.variables.product.product_location_enterprise }} 日志
+#### 检查 {% data variables.product.product_location_enterprise %} 日志
 
 如果您需要验证入站电子邮件是否正常运行，可以在实例上检查两个日志文件：验证 */var/log/mail.log* 和 */var/log/mail-replies/metroplex.log*。
 
@@ -143,8 +143,8 @@ Oct 30 00:47:19 54-171-144-1 postfix/smtpd[13210]: disconnect from st11p06mm-asm
 
 #### 检查防火墙或 AWS 安全组设置
 
-如果 {{ site.data.variables.product.product_location_enterprise }} 位于防火墙后或者正在通过 AWS 安全组提供，请确保端口 25 对将电子邮件发送到 `reply@reply.[hostname]` 的所有邮件服务器开放。
+如果 {% data variables.product.product_location_enterprise %} 位于防火墙后或者正在通过 AWS 安全组提供，请确保端口 25 对将电子邮件发送到 `reply@reply.[hostname]` 的所有邮件服务器开放。
 
 #### 联系支持
 
-如果您仍然无法解决问题，请联系 {{ site.data.variables.contact.contact_ent_support }}。 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。
+如果您仍然无法解决问题，请联系 {% data variables.contact.contact_ent_support %}。 请在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件，以便帮助我们排查您的问题。

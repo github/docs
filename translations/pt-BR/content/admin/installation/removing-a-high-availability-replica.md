@@ -1,6 +1,6 @@
 ---
 title: Remover réplica de alta disponibilidade
-intro: 'É possível parar temporariamente a replicação de uma réplica do {{ site.data.variables.product.prodname_ghe_server }} ou remover a replicação permanentemente.'
+intro: 'É possível parar temporariamente a replicação de uma réplica do {% data variables.product.prodname_ghe_server %} ou remover a replicação permanentemente.'
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
 versions:

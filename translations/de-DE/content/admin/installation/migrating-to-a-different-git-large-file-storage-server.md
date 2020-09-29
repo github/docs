@@ -1,6 +1,6 @@
 ---
 title: Zu einem anderen Git Large File Storage-Server migrieren
-intro: 'Sie können zu einem neuen {{ site.data.variables.large_files.product_name_long }}-Server ({{ site.data.variables.large_files.product_name_short }}) migrieren. Verwenden Sie dazu den {{ site.data.variables.large_files.product_name_short }}-Client, um Assets vom bestehenden Server abzurufen und sie per Push-Vorgang an den neuen Speicherort zu übertragen.'
+intro: 'Sie können zu einem neuen {% data variables.large_files.product_name_long %}-Server ({% data variables.large_files.product_name_short %}) migrieren. Verwenden Sie dazu den {% data variables.large_files.product_name_short %}-Client, um Assets vom bestehenden Server abzurufen und sie per Push-Vorgang an den neuen Speicherort zu übertragen.'
 redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Bevor Sie eine Migration zu einem anderen {{ site.data.variables.large_files.product_name_long }}-Server durchführen, müssen Sie {{ site.data.variables.large_files.product_name_short }} für die Verwendung eines Drittanbieterservers konfigurieren. Weitere Informationen finden Sie unter „[{{ site.data.variables.large_files.product_name_long }} zur Verwendung eines Drittanbieterservers konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)“.
+Bevor Sie eine Migration zu einem anderen {% data variables.large_files.product_name_long %}-Server durchführen, müssen Sie {% data variables.large_files.product_name_short %} für die Verwendung eines Drittanbieterservers konfigurieren. Weitere Informationen finden Sie unter „[{% data variables.large_files.product_name_long %} zur Verwendung eines Drittanbieterservers konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)“.
 
 1. Konfigurieren Sie das Repository mit einer zweiten Remote-Instanz.
   ```shell

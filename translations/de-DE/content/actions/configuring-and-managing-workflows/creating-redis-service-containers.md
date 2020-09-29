@@ -1,7 +1,7 @@
 ---
 title: Redis-Service-Container erstellen
 intro: 'Du kannst Service-Container verwenden, um einen Redis-Client in Deinem Workflow zu erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines Redis-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine ausgeführt werden.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-redis-service-containers
 versions:
@@ -9,31 +9,31 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
 Diese Anleitung zeigt Dir Workflow-Beispiele, die einen Service-Container mit dem Docker-Hub-`redis`-Image konfigurieren. Der Workflow führt ein Skript aus, um einen Redis-Client zu erstellen und den Client mit Daten zu füllen. Um zu testen, ob der Workflow den Redis-Client erstellt und mit Daten füllt, gibt das Skript die Daten des Clients auf der Konsole aus.
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ### Vorrausetzungen
 
-{{ site.data.reusables.github-actions.service-container-prereqs }}
+{% data reusables.github-actions.service-container-prereqs %}
 
-Es kannst Dir helfen, wenn Du ein grundlegendes Verständnis von YAML, der Syntax für {{ site.data.variables.product.prodname_actions }} und Redis hast. Weitere Informationen findest Du unter:
+Es kannst Dir helfen, wenn Du ein grundlegendes Verständnis von YAML, der Syntax für {% data variables.product.prodname_actions %} und Redis hast. Weitere Informationen findest Du unter:
 
 - "[Einen Workflow konfigurieren](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 - „[Erste Schritte mit Redis](https://redislabs.com/get-started-with-redis/)“ in der Redis-Dokumentation
-- „[Kernkonzepte für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
+- „[Kernkonzepte für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
 - "[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 
 ### Jobs in Containern ausführen
 
-{{ site.data.reusables.github-actions.container-jobs-intro }}
+{% data reusables.github-actions.container-jobs-intro %}
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -86,9 +86,9 @@ jobs:
 
 #### Den Container-Job konfigurieren
 
-{{ site.data.reusables.github-actions.service-container-host }}
+{% data reusables.github-actions.service-container-host %}
 
-{{ site.data.reusables.github-actions.redis-label-description }}
+{% data reusables.github-actions.redis-label-description %}
 
 ```yaml
 jobs:
@@ -115,7 +115,7 @@ jobs:
 
 #### „Steps“ (Schritte) konfigurieren
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -140,7 +140,7 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{{ site.data.reusables.github-actions.redis-environment-variables }}
+{% data reusables.github-actions.redis-environment-variables %}
 
 Der Hostname des Redis-Dienstes ist das Label, das Du in Deinem Workflow konfiguriert hast, in diesem Fall `redis`. Da Docker-Container im selben benutzerdefinierten Bridge-Netzwerk standardmäßig alle Ports öffnen, kannst Du auf den Service-Container über den Standard-Redis-Port 6379 zugreifen.
 
@@ -148,7 +148,7 @@ Der Hostname des Redis-Dienstes ist das Label, das Du in Deinem Workflow konfigu
 
 Wenn Du einen Job direkt auf der Runner-Maschine ausführst, musst Du die Ports des Service-Containers den Ports des Docker-Hosts zuordnen. Du kannst über den Docker-Host auf den Service-Container zugreifen, indem Du `localhost` und die Port-Nummer des Docker-Hosts verwendest.
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -203,9 +203,9 @@ jobs:
 
 #### Runner-Job konfigurieren
 
-{{ site.data.reusables.github-actions.service-container-host-runner }}
+{% data reusables.github-actions.service-container-host-runner %}
 
-{{ site.data.reusables.github-actions.redis-label-description }}
+{% data reusables.github-actions.redis-label-description %}
 
 Der Workflow ordnet Port 6379 des Redis-Service-Containers dem Docker-Host zu. Weitere Informationen über das Schlüsselwort `ports` findest Du unter "[Informationen über Service-Container](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
@@ -235,7 +235,7 @@ jobs:
 
 #### „Steps“ (Schritte) konfigurieren
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -261,9 +261,9 @@ steps:
       REDIS_PORT: 6379
 ```
 
-{{ site.data.reusables.github-actions.redis-environment-variables }}
+{% data reusables.github-actions.redis-environment-variables %}
 
-{{ site.data.reusables.github-actions.service-container-localhost }}
+{% data reusables.github-actions.service-container-localhost %}
 
 ### Redis-Sercive-Container testen
 
@@ -271,7 +271,7 @@ Du kannst Deinen Workflow mit dem folgenden Skript testen, das einen Redis-Clien
 
 Du kannst *client.js* anpassen, um alle Redis-Operationen abzudecken, die Dein Workflow braucht. In diesem Beispiel erstellt das Skript die Redis-Client-Instanz, fügt Platzhalter-Daten hinzu und ruft dann die Daten ab.
 
-{{ site.data.reusables.github-actions.service-container-add-script }}
+{% data reusables.github-actions.service-container-add-script %}
 
 ```javascript
 const redis = require("redis");

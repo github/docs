@@ -1,6 +1,6 @@
 ---
 title: Planes de precios para las apps de GitHub Marketplace
-intro: 'Los planes de precios te permiten darle a tu app diferentes recursos o niveles de servicio. Puedes ofrecer hasta 10 planes de precios en tu listado de {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Los planes de precios te permiten darle a tu app diferentes recursos o niveles de servicio. Puedes ofrecer hasta 10 planes de precios en tu listado de {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/selling-your-app/github-marketplace-pricing-plans/
   - /marketplace/selling-your-app/github-marketplace-pricing-plans
@@ -10,21 +10,21 @@ versions:
 
 
 
-Los planes de precios en {{ site.data.variables.product.prodname_marketplace }} pueden ser gratuitos o por unidad, y GitHub lista los precios en dólares estadounidenses. Los clientes compran tu app utilizando un método de pago adjunto a sus cuentas de {{ site.data.variables.product.product_name }}, sin tener que salir de GitHub.com. No tienes que escribir ningún tipo de código para realizar transacciones de facturación, pero tendrás que gestionar los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows) para los eventos de compra.
+Los planes de precios en {% data variables.product.prodname_marketplace %} pueden ser gratuitos o por unidad, y GitHub lista los precios en dólares estadounidenses. Los clientes compran tu app utilizando un método de pago adjunto a sus cuentas de {% data variables.product.product_name %}, sin tener que salir de GitHub.com. No tienes que escribir ningún tipo de código para realizar transacciones de facturación, pero tendrás que gestionar los [flujos de facturación](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows) para los eventos de compra.
 
-Si la app que estás listando en {{ site.data.variables.product.prodname_marketplace }} tiene opciones de plan múltiples, puedes configurar los planes de precios correspondientes. Por ejemplo, si tu app tiene dos opciones de plan, u plan de código abierto y un plan profesional, puedes configurar un plan de precios gratuito para tu plan de código abierto y un plan de tasa fija para tu plan profesional. Cada listado de {{ site.data.variables.product.prodname_marketplace }} debe tener un precio mensual y anual para cada plan que se liste.
+Si la app que estás listando en {% data variables.product.prodname_marketplace %} tiene opciones de plan múltiples, puedes configurar los planes de precios correspondientes. Por ejemplo, si tu app tiene dos opciones de plan, u plan de código abierto y un plan profesional, puedes configurar un plan de precios gratuito para tu plan de código abierto y un plan de tasa fija para tu plan profesional. Cada listado de {% data variables.product.prodname_marketplace %} debe tener un precio mensual y anual para cada plan que se liste.
 
-Para obtener más información sobre cómo crear un plan de precios, consulta la sección "[Configurar un plan de precios del listado de {{ site.data.variables.product.prodname_marketplace }}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
+Para obtener más información sobre cómo crear un plan de precios, consulta la sección "[Configurar un plan de precios del listado de {% data variables.product.prodname_marketplace %}](/marketplace/listing-on-github-marketplace/setting-a-github-marketplace-listing-s-pricing-plan/)".
 
 {% note %}
 
-**Nota:** Si estás listando una app en {{ site.data.variables.product.prodname_marketplace }}, no puedes listarla con un plan de precios gratuito si ofreces un servicio de pago fuera de {{ site.data.variables.product.prodname_marketplace }}.
+**Nota:** Si estás listando una app en {% data variables.product.prodname_marketplace %}, no puedes listarla con un plan de precios gratuito si ofreces un servicio de pago fuera de {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}
 
 ### Tipos de planes de precios
 
-Los **planes de precios gratuitos** son completamente gratuitos para los usuarios. Si configuras un plan de precios gratuito, no puedes cobrar a los usuarios que elijan dicho plan por utilizar tu app. Puedes crear planes tanto de pago como gratuitos para tu listado. Las apps gratuitas sin verificar no necesitan implementar ningún flujo de facturación. Las apps gratuitas que se verifican en GitHub necesitan implementar flujos de facturación para las compras nuevas y las cancelaciones, pero no necesitan implementarlos para los periodos de prueba gratuitos, las mejoras y las degradaciones. Si agregas un plan de pago a un app que ya listaste en {{ site.data.variables.product.prodname_marketplace }} como un servicio gratuito, necesitarás volver a emitir la app para su revisión.
+Los **planes de precios gratuitos** son completamente gratuitos para los usuarios. Si configuras un plan de precios gratuito, no puedes cobrar a los usuarios que elijan dicho plan por utilizar tu app. Puedes crear planes tanto de pago como gratuitos para tu listado. Las apps gratuitas sin verificar no necesitan implementar ningún flujo de facturación. Las apps gratuitas que se verifican en GitHub necesitan implementar flujos de facturación para las compras nuevas y las cancelaciones, pero no necesitan implementarlos para los periodos de prueba gratuitos, las mejoras y las degradaciones. Si agregas un plan de pago a un app que ya listaste en {% data variables.product.prodname_marketplace %} como un servicio gratuito, necesitarás volver a emitir la app para su revisión.
 
 Los **planes de precios de tasa fija** cobran una cuota fija mensual o anualmente.
 

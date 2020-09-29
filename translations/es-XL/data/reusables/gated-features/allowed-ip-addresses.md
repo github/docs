@@ -1,1 +1,1 @@
-Las direcciones IP permitidas están disponibles con {{ site.data.variables.product.prodname_ghe_cloud }}. Para obtener más información, consulta "Productos de [{{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+Las direcciones IP permitidas están disponibles con {% data variables.product.prodname_ghe_cloud %}. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)".

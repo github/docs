@@ -1,14 +1,14 @@
 ---
 title: 创建组合运行步骤操作
 intro: 在本指南中，您将学习如何构建组合运行步骤操作。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 简介
 
@@ -18,9 +18,9 @@ versions:
 
 ### 基本要求
 
-在开始之前，您将要创建 {{ site.data.variables.product.product_name }} 仓库。
+在开始之前，您将要创建 {% data variables.product.product_name %} 仓库。
 
-1. 在 {{ site.data.variables.product.product_location }} 上创建公共仓库 您可以选择任何仓库名称，或者使用下面的 `hello-world-compposite-run-steps-action` 示例。 您可以在项目推送到 {{ site.data.variables.product.product_name }} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
+1. 在 {% data variables.product.product_location %} 上创建公共仓库 您可以选择任何仓库名称，或者使用下面的 `hello-world-compposite-run-steps-action` 示例。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 更多信息请参阅“[创建新仓库](/articles/creating-a-new-repository)”。
 
 1. 将仓库克隆到计算机。 更多信息请参阅“[克隆仓库](/articles/cloning-a-repository)”。
 

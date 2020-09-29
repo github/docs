@@ -15,14 +15,14 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
 4. To the right of the search field, click **New label**.
-{{ site.data.reusables.project-management.name-label }}
-{{ site.data.reusables.project-management.label-description }}
-{{ site.data.reusables.project-management.label-color-randomizer }}
-{{ site.data.reusables.project-management.create-label }}
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.create-label %}
 
 ### Further reading
 

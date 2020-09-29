@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントからユーザのブロックを解除する
-intro: 'ブロックした {{ site.data.variables.product.prodname_dotcom }} ユーザとの問題が解決した場合、そのユーザのアカウントのブロックを解除できます。'
+intro: 'ブロックした {% data variables.product.prodname_dotcom %} ユーザとの問題が解決した場合、そのユーザのアカウントのブロックを解除できます。'
 redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
@@ -15,13 +15,13 @@ versions:
 
 ### アカウント設定でのユーザのブロックの解除
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. [Blocked users] の下で、ブロックを解除したいユーザの横にある [**Unblock**] をクリックします。 ![ユーザブロックの解除ボタン](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ### プロフィールページからのユーザのブロックの解除
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
+{% data reusables.profile.user_profile_page_navigation %}
 2. 左サイドバーで、ユーザプロフィール画像の下にある [**Unblock or report user**] をクリックします。 ![ユーザリンクのブロックの解除または報告](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. [**Unblock user**] をクリックします。 ![ユーザのブロックの解除あるいは悪用のレポートの選択肢を持つモーダルボックス](/assets/images/help/profile/profile-unblockuser.png)
 

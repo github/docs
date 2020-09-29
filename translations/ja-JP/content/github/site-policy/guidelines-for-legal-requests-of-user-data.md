@@ -66,7 +66,7 @@ versions:
   - セキュリティアクセスログ
   - プライベートリポジトリとのやり取りに関するデータ
 
-  GitHub が収集するプライベートアカウント情報の種類を確認するには、{{ site.data.reusables.user_settings.personal_dashboard }} にアクセスして、左側のメニューバーのセクションを参照してください。
+  GitHub が収集するプライベートアカウント情報の種類を確認するには、{% data reusables.user_settings.personal_dashboard %} にアクセスして、左側のメニューバーのセクションを参照してください。
 
 - <a name="organization-account-data"></a>
 **Organization アカウントデータ** — Organization、その管理ユーザー、およびリポジトリに関する情報は、GitHub で公開されています。 Organization プロフィールは、`https://github.com/organization` などの URL にあります。 パブリック Organization プロフィールには、コードオーナーがパブリックに共有することを選択したその他の情報が含まれる場合もあります。 すべての Organization パブリックプロフィールには、以下が表示されます。
@@ -180,4 +180,4 @@ Sacramento, CA 95833-3505
 
 ### 質問
 
-質問やコメント、提案などがございましたら、 {{ site.data.variables.contact.contact_support }} にお問い合わせください。
+質問やコメント、提案などがございましたら、 {% data variables.contact.contact_support %} にお問い合わせください。

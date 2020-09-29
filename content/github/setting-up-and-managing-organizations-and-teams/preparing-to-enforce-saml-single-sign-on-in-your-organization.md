@@ -1,7 +1,7 @@
 ---
 title: Preparing to enforce SAML single sign-on in your organization
 intro: 'Before you enforce SAML single sign-on in your organization, you should verify your organization''s membership and configure the connection settings to your identity provider.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
@@ -16,7 +16,7 @@ Before enforcing SAML SSO in your organization, you should:
 - If you haven't already, connect your IdP to your organization. For more information, see "[Connecting your identity provider to your organization](/articles/connecting-your-identity-provider-to-your-organization)."
 - Ensure that your organization members have signed in and linked their accounts with the IdP.
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 ### Further reading
 

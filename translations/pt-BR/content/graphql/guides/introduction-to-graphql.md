@@ -111,7 +111,7 @@ query {
 * Você também pode executar uma _consulta de introspeção_ do esquema através de uma solicitação do `GET`:
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {{ site.data.variables.product.graphql_url_pre }}
+  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
 
   Os resultados estão no JSON,. Portanto, recomendamos que sejam impressos para facilitar a leitura e pesquisa. Você pode usar uma ferramenta de linha de comando como [jq](https://stedolan.github.io/jq/) ou canalizar os resultados em `python -m json.tool` para essa finalidade.
@@ -120,7 +120,7 @@ query {
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
-  {{ site.data.variables.product.graphql_url_pre }}
+  {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}

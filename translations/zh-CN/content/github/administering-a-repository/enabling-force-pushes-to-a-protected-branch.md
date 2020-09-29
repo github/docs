@@ -1,7 +1,7 @@
 ---
 title: 启用强制推送到受保护分支
 intro: 您可以允许强制推送到受保护分支。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -19,13 +19,13 @@ versions:
 
 如果站点管理员只阻止强制推送到默认分支，您仍然可以为任何其他受保护分支启用强制推送。{% endif %}
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
 ### 启用强制推送
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. 在“Rules applied to everyone including administrators（适用于包括管理员在内的所有人规则）”下，选择 **Allow force pushes（允许强制推送）**。 ![允许强制推送选项](/assets/images/help/repository/allow-force-pushes.png)
 7. 单击 **Create（创建）**。

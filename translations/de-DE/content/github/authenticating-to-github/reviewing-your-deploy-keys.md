@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{site.data.reusables.repositories.navigate-to-repo}}
-{{site.data.reusables.repositories.sidebar-settings}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Klicke in der linken Seitenleiste auf **Deploy keys** (Deployment-Schlüssel). ![Einstellungen für Deployment-Schlüssel](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
 4. Überprüfe auf der Seite mit den Deployment-Schlüsseln die Deinem Konto zugeordneten Schlüssel. Klicke bei Dir unbekannten oder veralteten Schlüsseln auf **Delete** (Löschen). Bei gültigen Deployment-Schlüsseln, die Du behalten möchtest, klicke auf **Approve** (Genehmigen). ![Liste der Deployment-Schlüssel](/assets/images/help/settings/settings-deploy-key-review.png)
 

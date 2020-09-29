@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Você pode criar um subdiretório *ISSUE_TEMPLATE/* (MODELO_DE_PROBLEMA) em qualquer uma das pastas compatíveis. Assim, é possível incluir vários modelos de problemas e usar o parâmetro de consulta `template` (modelo) para especificar o modelo que irá preencher o texto do problema. Para obter mais informações, consulte "[Sobre automação de problemas e pull requests com parâmetros de consulta](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)".
 
@@ -34,16 +34,16 @@ assignees: octocat
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 ### Adicionar um modelo de problema
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo nome do arquivo:
     -  Para que seu modelo de problema seja visível no diretório raiz do repositório, digite o nome de seu *issue_template* (modelo_de_problema). Por exemplo, `issue_template.md`. ![Novo nome de modelo de problema no diretório raiz](/assets/images/help/repository/issue-template-file-name.png)
     - Para que seu modelo de problema seja visível no diretório `docs` do repositório, digite *docs/* seguido pelo nome de seu *issue_template* (modelo_de_problema). Por exemplo, `docs/issue_template.md`. ![Novo modelo de problema no diretório docs](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +54,9 @@ assignees: octocat
     - Comportamento esperado e comportamento atual
     - Etapas para reproduzir o problema
     - Especificações como a versão do projeto, sistema operacional ou hardware
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
+{% data reusables.files.propose_new_file %}
 
 ### Leia mais
 

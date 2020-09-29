@@ -1,16 +1,16 @@
 ---
 title: Conceitos principais do GitHub Container Registry
-intro: 'Abaixo está uma lista de termos comuns de {{ site.data.variables.product.prodname_github_container_registry }} que usamos em todos os nossos sites e documentação.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'Abaixo está uma lista de termos comuns de {% data variables.product.prodname_github_container_registry %} que usamos em todos os nossos sites e documentação.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.package_registry.container-registry-beta }}
+{% data reusables.package_registry.container-registry-beta %}
 
-### {{ site.data.variables.product.prodname_github_container_registry }}
+### {% data variables.product.prodname_github_container_registry %}
 
-O {{ site.data.variables.product.prodname_github_container_registry }} é um registro para contêineres com suporte para imagens do Docker. Para obter mais informações, consulte "[Sobre {{ site.data.variables.product.prodname_github_container_registry }}](/packages/getting-started-with-github-container-registry/about-github-container-registry)."
+O {% data variables.product.prodname_github_container_registry %} é um registro para contêineres com suporte para imagens do Docker. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry/about-github-container-registry)."
 
 ### Package
 

@@ -17,17 +17,17 @@ With topics, you can explore repositories in a particular subject area, find pro
 
 To browse the most used topics, go to https://github.com/topics/.
 
-{% if currentVersion == "free-pro-team@latest" %}You can contribute to {{ site.data.variables.product.product_name }}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
+{% if currentVersion == "free-pro-team@latest" %}You can contribute to {% data variables.product.product_name %}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
 
-Repository admins can add any topics they'd like to a repository. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% if currentVersion == "free-pro-team@latest" %} Additionally, {{ site.data.variables.product.product_name }} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Private repository content is not analyzed and does not receive topic suggestions.{% endif %}
+Repository admins can add any topics they'd like to a repository. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% if currentVersion == "free-pro-team@latest" %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Private repository content is not analyzed and does not receive topic suggestions.{% endif %}
 
 Public and private repositories can have topics, although you will only see private repositories that you have access to in topic search results.
 
-You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {{ site.data.variables.product.product_name }}. For more information, see "[Searching topics](/articles/searching-topics)."
+You can search for repositories that are associated with a particular topic. For more information, see "[Searching for repositories](/articles/searching-for-repositories#search-by-topic)." You can also search for a list of topics on {% data variables.product.product_name %}. For more information, see "[Searching topics](/articles/searching-topics)."
 
 ### Adding topics to your repository
 
-{{ site.data.reusables.repositories.navigate-to-repo }}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Under your repository description, click **Add topics**.
   ![Add topics link on a repository's main page](/assets/images/help/repository/add-topics-link.png)
 3. Type the topic you want to add to your repository, then type a space.

@@ -16,11 +16,11 @@ As a repository maintainer, use the community profile checklist to see if your p
 
 If a project doesn't have a recommended file, you can click **Add** to draft and submit a file.
 
-{{ site.data.reusables.repositories.valid-community-issues }} For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+{% data reusables.repositories.valid-community-issues %} For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
 
 ![Community profile checklist with recommended community standards for maintainers](/assets/images/help/repository/add-button-community-profile.png)
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Using the community profile checklist as a community member or collaborator
 
@@ -37,4 +37,4 @@ If a project doesn't have a recommended file, you can click **Propose** to draft
 - "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"
 - "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)"
 - "[Open Source Guides](https://opensource.guide/)"
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }})
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %})

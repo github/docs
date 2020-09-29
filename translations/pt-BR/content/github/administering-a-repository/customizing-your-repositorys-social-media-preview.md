@@ -16,8 +16,8 @@ Até você adicionar uma imagem, os links de repositório se expandem para mostr
 Dica: a imagem deve ser um arquivo PNG, JPG ou GIF com menos de 1 MB. Para renderização de melhor qualidade, é recomendável manter a imagem em 640 x 320 pixels.
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Em "Social preview" (Visualização social), clique em **Edit** (Editar)
     - Para adicionar uma nova imagem, clique em **Upload an image...** (Fazer upload de uma imagem...).
     - Para remover uma imagem, clique em **Remove image** (Remover imagem)

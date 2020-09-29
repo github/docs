@@ -16,28 +16,28 @@ Hier siehst Du ein Beispiel für einen möglichen HTTPS-Fehler:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
 ### Git-Version überprüfen
 
-Für die Interaktion mit {{ site.data.variables.product.product_name }} ist keine Mindestversion von Git erforderlich. Unserer Erfahrung nach ist aber die Version 1.7.10 eine gute, stabile Version, die auf vielen Plattformen verfügbar ist. Du kannst immer [die neueste Version auf der Git-Website herunterladen](https://git-scm.com/downloads).
+Für die Interaktion mit {% data variables.product.product_name %} ist keine Mindestversion von Git erforderlich. Unserer Erfahrung nach ist aber die Version 1.7.10 eine gute, stabile Version, die auf vielen Plattformen verfügbar ist. Du kannst immer [die neueste Version auf der Git-Website herunterladen](https://git-scm.com/downloads).
 
 ### Überprüfen, ob das Remote-Repository korrekt ist
 
-Das Repository, von dem Du etwas abrufen möchtest, muss auf {{ site.data.variables.product.product_location }} vorhanden sein. Bei der URL musst Du die Groß- und Kleinschreibung beachten.
+Das Repository, von dem Du etwas abrufen möchtest, muss auf {% data variables.product.product_location %} vorhanden sein. Bei der URL musst Du die Groß- und Kleinschreibung beachten.
 
 Um die URL des lokalen Repositorys zu ermitteln, öffne die Befehlszeile und gib `git remote -v` ein:
 
@@ -56,13 +56,13 @@ $ git remote -v
 > origin  https://github.com/github/ReactiveCocoa.git (push)
 ```
 
-Alternativ kannst Du die URL auch über unsere [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/)-Anwendung ändern.
+Alternativ kannst Du die URL auch über unsere [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)-Anwendung ändern.
 
 ### Zugriffstoken angeben
 
-To access {{ site.data.variables.product.prodname_dotcom }}, you must authenticate with a personal access token instead of your password. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
+To access {% data variables.product.prodname_dotcom %}, you must authenticate with a personal access token instead of your password. Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### Berechtigungen überprüfen
 

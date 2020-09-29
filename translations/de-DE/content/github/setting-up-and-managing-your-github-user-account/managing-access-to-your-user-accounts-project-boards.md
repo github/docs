@@ -15,16 +15,16 @@ Ein Mitarbeiter ist eine Person, die Berechtigungen für eines Deiner Projektboa
 ### Mitarbeiter in ein Benutzer-Projektboard einladen
 
 1. Navigiere zu dem Projektboard, zu dem Du einen Mitarbeiter hinzufügen möchtest.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-5. Gib unter „Search by username, full name or email address“ (Nach Benutzernamen, vollständigem Namen oder E-Mail-Adresse suchen) den Namen, den Benutzernamen oder die {{ site.data.variables.product.prodname_dotcom }}-E-Mail-Adresse des Mitarbeiters ein. ![Der Bereich „Collaborators“ (Mitarbeiter) mit Octocat-Benutzernamen im Suchfeld](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{{ site.data.reusables.project-management.add-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+5. Gib unter „Search by username, full name or email address“ (Nach Benutzernamen, vollständigem Namen oder E-Mail-Adresse suchen) den Namen, den Benutzernamen oder die {% data variables.product.prodname_dotcom %}-E-Mail-Adresse des Mitarbeiters ein. ![Der Bereich „Collaborators“ (Mitarbeiter) mit Octocat-Benutzernamen im Suchfeld](/assets/images/help/projects/org-project-collaborators-find-name.png)
+{% data reusables.project-management.add-collaborator %}
 7. Der neue Mitarbeiter besitzt standardmäßig Leseberechtigung. Wähle optional im Dropdownmenü neben dem Namen des neuen Mitarbeiters eine andere Berechtigungsebene aus. ![Der Mitarbeiter-Bereich mit ausgewähltem Berechtigungs-Dropdownmenü](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
 ### Mitarbeiter aus einem Benutzer-Projektboard entfernen
 
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-{{ site.data.reusables.project-management.remove-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+{% data reusables.project-management.remove-collaborator %}

@@ -45,7 +45,7 @@ When we share your information with third party subprocessors, such as our vendo
 | Zendesk | Customer support ticketing system | United States | United States |
 | Zuora | Corporate billing system | United States | United States |
 
-When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {{ site.data.variables.contact.contact_privacy }}.
+When we bring on a new subprocessor who handles our Users' Personal Information, or remove a subprocessor, or we change how we use a subprocessor, we will update this page. If you have questions or concerns about a new subprocessor, we'd be happy to help. Please contact us via {% data variables.contact.contact_privacy %}.
 
 ### Cookies on GitHub
 

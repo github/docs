@@ -17,6 +17,6 @@ A automação no quadro de projeto não se aplica a cartões do quadro de projet
 
 ### Restaurar cartões em um quadro de projeto usando a barra lateral
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e em **View archive** (Exibir arquivamento). ![Opção de seleção de exibição de arquivamento no menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Acima do cartão do quadro de projeto que deseja desarquivar, clique em **Restore** (Restaurar). ![Seleção da restauração do cartão do quadro de projeto](/assets/images/help/projects/restore-card.png)

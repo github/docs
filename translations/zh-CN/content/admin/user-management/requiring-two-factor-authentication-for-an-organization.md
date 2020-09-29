@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-使用 LDAP 或内置身份验证时，{{ site.data.variables.product.prodname_ghe_server }} 设备上将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
+使用 LDAP 或内置身份验证时，{% data variables.product.prodname_ghe_server %} 设备上将支持双重身份验证。 组织管理员可以要求成员启用双重身份验证。
 
-{{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+{% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
 更多信息请参阅[支持双重身份验证的身份验证方法图表](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)。
 
@@ -29,20 +29,20 @@ versions:
 
 在您要求使用双重身份验证之前，我们建议通知组织成员和外部协作者，并要求他们为帐户设置双重身份验证。 您可以在组织的 People 选项卡上[查看成员和外部协作者是否已使用双重身份验证](/enterprise/{{ currentVersion }}/user/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
 
-{{ site.data.reusables.profile.enterprise_access_profile}}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 
 ### 查看从您的组织中删除的人员
 
 要查看在您要求双重身份验证时因为不合规而被从组织中自动移除的用户，您可以在搜索字段中使用 `reason:two_factor_requirement_non_compliance` [搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log/)。
 
-{{ site.data.reusables.audit_log.octicon_icon }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_site_admins }}
+{% data reusables.audit_log.octicon_icon %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
 4. 使用 `reason:two_factor_requirement_non_compliance` 输入您的搜索查询。 ![显示因双重身份验证不合规而被移除的用户的员工工具审核日志事件](/assets/images/help/2fa/2fa_noncompliance_stafftools_audit_log_search.png) 要缩小以下对象的搜索范围，请执行相应地操作：
     - 对于移除的组织成员，请输入 `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
     - 对于移除的外部协作者，请输入 `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`

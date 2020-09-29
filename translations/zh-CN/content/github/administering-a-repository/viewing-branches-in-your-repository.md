@@ -1,6 +1,6 @@
 ---
 title: 查看仓库中的分支
-intro: '分支是 {{ site.data.variables.product.product_name }} 上协作的中心，查看分支的最佳途径是分支页面。'
+intro: '分支是 {% data variables.product.product_name %} 上协作的中心，查看分支的最佳途径是分支页面。'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. 使用页面顶部的导航可查看特定的分支列表：
     - **Your branches（您的分支）**：在您有推送权限的仓库中，**Yours（您的）**视图显示您已推送的所有分支，最近的分支最先显示。
     - **Active branches（活动分支）**：**Active（活动）**视图显示过去三个月内任何人提交的所有分支，按最近的提交最先显示的顺序排序分支。

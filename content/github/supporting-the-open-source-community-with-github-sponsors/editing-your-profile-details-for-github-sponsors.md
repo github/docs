@@ -10,7 +10,7 @@ versions:
 
 ### About sponsor profiles
 
-Your {{ site.data.variables.product.prodname_sponsors }} profile tells potential sponsors why they should support you. People see your sponsor profile when they click the **Sponsor** button on your personal or organization profile. We recommend including the following information.
+Your {% data variables.product.prodname_sponsors %} profile tells potential sponsors why they should support you. People see your sponsor profile when they click the **Sponsor** button on your personal or organization profile. We recommend including the following information.
 
 - Open source work that you contribute to.
 - Why you are committed to open source development.
@@ -19,21 +19,21 @@ You can also set goals to explain what different of levels of sponsorship will a
 
 ### Editing your sponsored developer profile
 
-{{ site.data.reusables.sponsors.navigate-to-dev-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-profile-tab }}
-{{ site.data.reusables.sponsors.short-bio }}
-{{ site.data.reusables.sponsors.add-introduction }}
-{{ site.data.reusables.sponsors.edit-featured-work }}
-{{ site.data.reusables.sponsors.opt-in-to-being-featured }}
-{{ site.data.reusables.sponsors.save-profile }}
+{% data reusables.sponsors.navigate-to-dev-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-profile-tab %}
+{% data reusables.sponsors.short-bio %}
+{% data reusables.sponsors.add-introduction %}
+{% data reusables.sponsors.edit-featured-work %}
+{% data reusables.sponsors.opt-in-to-being-featured %}
+{% data reusables.sponsors.save-profile %}
 
 ### Editing your sponsored organization profile
 
-{{ site.data.reusables.sponsors.navigate-to-org-sponsors-dashboard }}
-{{ site.data.reusables.sponsors.navigate-to-profile-tab }}
-{{ site.data.reusables.sponsors.short-bio }}
-{{ site.data.reusables.sponsors.add-introduction }}
-{{ site.data.reusables.sponsors.meet-the-team }}
-{{ site.data.reusables.sponsors.edit-featured-work }}
-{{ site.data.reusables.sponsors.opt-in-to-being-featured }}
-{{ site.data.reusables.sponsors.save-profile }}
+{% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-profile-tab %}
+{% data reusables.sponsors.short-bio %}
+{% data reusables.sponsors.add-introduction %}
+{% data reusables.sponsors.meet-the-team %}
+{% data reusables.sponsors.edit-featured-work %}
+{% data reusables.sponsors.opt-in-to-being-featured %}
+{% data reusables.sponsors.save-profile %}

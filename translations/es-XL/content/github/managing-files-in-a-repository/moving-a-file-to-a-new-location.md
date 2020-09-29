@@ -16,7 +16,7 @@ Además de cambiar la ubicación del archivo, también puedes [actualizar los co
 
 - Si tratas de mover un archivo en un repositorio al cual no tienes acceso, bifurcaremos el proyecto a tu cuenta de usuario y te ayudaremos a enviar [una solicitud de extracción](/articles/about-pull-requests) al repositorio original después de confirmar tu cambio.
 - Algunos archivos, como imágenes, necesitan que los muevas desde la línea de comando. Para obtener más información, consulta "[Mover un archivo a una nueva ubicación utilizando la línea de comando](/articles/moving-a-file-to-a-new-location-using-the-command-line)".
-- {{ site.data.reusables.repositories.protected-branches-block-web-edits-uploads }}
+- {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 {% endtip %}
 
@@ -25,6 +25,6 @@ Además de cambiar la ubicación del archivo, también puedes [actualizar los co
 3. En el campo de nombre de archivo, cambia el nombre del archivo utilizando estos lineamientos: ![Editar el nombre del archivo](/assets/images/help/repository/moving_files.gif)
     - Para mover el archivo **dentro de una subcarpeta**, escribe el nombre de la carpeta que deseas, seguido de `/`. El nombre de tu nueva carpeta se convierte en el nuevo elemento en la ruta de navegación.
     - Para mover el archivo dentro de un directorio **encima de la ubicación actual del archivo**, coloca tu cursor al comienzo del campo de nombre de archivo, después escribe `../` para subir un nivel completo de directorio, o presiona la tecla de `retroceso` para editar el nombre de la carpeta padre.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

@@ -16,24 +16,24 @@ Cuando cancelas un cambio pendiente, tu suscripción no cambiará en tu próxima
 
 ### Ver y administrar cambios pendientes en tu suscripción de cuenta personal
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Ver y administrar cambios pendientes en tu suscripción de organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.dotcom_billing.review-pending-changes }}
-{{ site.data.reusables.dotcom_billing.cancel-pending-changes }}
-{{ site.data.reusables.dotcom_billing.confirm-cancel-pending-changes }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.dotcom_billing.review-pending-changes %}
+{% data reusables.dotcom_billing.cancel-pending-changes %}
+{% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
 ### Leer más
 
-- "Productos de [{{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)"
+- "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)"

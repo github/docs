@@ -1,6 +1,6 @@
 ---
 title: Git Database APIを使ってみる
-intro: 'Git Database APIでは、{{ site.data.variables.product.product_name }}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。'
+intro: 'Git Database APIでは、{% data variables.product.product_name %}上のGitデータベースに対してRaw形式のGitオブジェクトを読み書きしたり、リファレンス (ブランチheadやタグ) をリストおよび更新したりすることができます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ versions:
 
 これにより、さまざまなGitの機能を、APIを介して再実装することができます。Raw形式オブジェクトのオブジェクトをデータベースに直接作成し、ブランチリファレンスを更新することにより、Gitをインストールしなくても、Gitができることのほとんどを行えるのです。
 
-Git Database API関数は、Gitリポジトリが空または利用できない場合、`409 Conflict`を返します。  リポジトリが利用できないということは、通常、{{ site.data.variables.product.product_name }}がリポジトリを作成処理中であるということです。 空のリポジトリの場合は、「[ファイルコンテンツの作成または更新](/v3/repos/contents/#create-or-update-file-contents)」エンドポイントを使用してコンテンツを作成し、リポジトリを初期化してGit Database APIを使用できるようにすることができます。 このレスポンスステータスが継続している場合は、{{ site.data.variables.contact.contact_support }}までご連絡ください。
+Git Database API関数は、Gitリポジトリが空または利用できない場合、`409 Conflict`を返します。  リポジトリが利用できないということは、通常、{% data variables.product.product_name %}がリポジトリを作成処理中であるということです。 空のリポジトリの場合は、「[ファイルコンテンツの作成または更新](/v3/repos/contents/#create-or-update-file-contents)」エンドポイントを使用してコンテンツを作成し、リポジトリを初期化してGit Database APIを使用できるようにすることができます。 このレスポンスステータスが継続している場合は、{% data variables.contact.contact_support %}までご連絡ください。
 
 ![Gitデータベースの概要](/assets/images/git-database-overview.png)
 

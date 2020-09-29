@@ -15,9 +15,9 @@ versions:
 
 如果拉取请求已合并或关闭，并且没有打开的其他拉取请求在引用分支，则可以删除与该拉取请求关联的分支。 有关关闭未与拉取请求关联的分支的信息，请参阅“[在存储库中创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)”。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. 在拉取请求列表中，单击与要删除分支关联的拉取请求。
 5. 在拉取请求底部附近，单击 **Delete branch（删除分支）**。 ![删除分支按钮](/assets/images/help/pull_requests/delete_branch_button.png)
 
@@ -27,9 +27,9 @@ versions:
 
 可恢复已关闭拉取请求的头部分支。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. 在拉取请求列表中，单击与要回复分支关联的拉取请求。
 5. 在拉取请求底部附近，单击 **恢复分支**。 ![恢复已删除分支按钮](/assets/images/help/branches/branches-restore-deleted.png)
 

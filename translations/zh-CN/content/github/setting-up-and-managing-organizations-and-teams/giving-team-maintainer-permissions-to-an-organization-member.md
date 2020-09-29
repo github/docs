@@ -9,16 +9,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team_maintainers_can }}
+{% data reusables.organizations.team_maintainers_can %}
 
 ### 将组织成员升级为团队维护员
 
 在将组织成员升级为团队维护员之前，此人必须已经是该团队的成员。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 4. 选择要将其升级为团队维护员的人员。 ![组织成员旁的复选框](/assets/images/help/teams/team-member-check-box.png)
 5. 在团队成员列表的上方，使用下拉菜单并单击 **Change role...（更改角色...）**。 ![包含更改角色选项的下拉菜单](/assets/images/help/teams/bulk-edit-drop-down.png)
 6. 选择新角色并单击 **Change role（更改角色）**。 ![维护员或成员角色的单选按钮](/assets/images/help/teams/team-role-modal.png)

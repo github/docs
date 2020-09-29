@@ -22,7 +22,7 @@ Quando você aceita um convite para ingressar em uma organização, os propriet�
 - País de origem da solicitação
 - Seu endereço IP
 
-Para obter mais informações, consulte "<a href="/articles/github-privacy-statement/" class="dotcom-only">Declaração de privacidade do {{ site.data.variables.product.prodname_dotcom }}</a>.
+Para obter mais informações, consulte "<a href="/articles/github-privacy-statement/" class="dotcom-only">Declaração de privacidade do {% data variables.product.prodname_dotcom %}</a>.
 
   {% note %}
 

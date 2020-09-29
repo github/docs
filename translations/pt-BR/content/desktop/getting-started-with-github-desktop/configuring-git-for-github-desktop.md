@@ -6,9 +6,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.variables.product.prodname_desktop }} usa o endereço de e-mail que você definiu na configuração local do Git para conectar commits à sua conta no {{ site.data.variables.product.product_name}}.
+{% data variables.product.prodname_desktop %} usa o endereço de e-mail que você definiu na configuração local do Git para conectar commits à sua conta no {% data variables.product.product_name %}.
 
-{{ site.data.reusables.desktop.update-email-address }}
+{% data reusables.desktop.update-email-address %}
 
 {% tip %}
 
@@ -18,36 +18,36 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.sign-in-choose-product }}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
-{{ site.data.reusables.desktop.copy-email-git-config }}
-{{ site.data.reusables.desktop.return-to-desktop }}
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.sign-in-choose-product %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
+{% data reusables.desktop.copy-email-git-config %}
+{% data reusables.desktop.return-to-desktop %}
+{% data reusables.desktop.mac-select-desktop-menu %}
 7. Na janela de Preferências, clique em **Git**. ![O Painel Git no menu Preferences (Preferências)](/assets/images/help/desktop/mac-select-git-pane.png)
-{{ site.data.reusables.desktop.name-field-git-config }}
+{% data reusables.desktop.name-field-git-config %}
   ![O campo de nome da configuração do Git](/assets/images/help/desktop/mac-name-git-config.png)
-{{ site.data.reusables.desktop.paste-email-git-config }}
+{% data reusables.desktop.paste-email-git-config %}
   ![Endereço de e-mail colado no campo de configuração do Git](/assets/images/help/desktop/mac-email-git-config.png)
-{{ site.data.reusables.desktop.click-save-git-config }}
+{% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/mac-save-git-config.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.sign-in-choose-product }}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
-{{ site.data.reusables.desktop.copy-email-git-config }}
-{{ site.data.reusables.desktop.return-to-desktop }}
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.sign-in-choose-product %}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
+{% data reusables.desktop.copy-email-git-config %}
+{% data reusables.desktop.return-to-desktop %}
+{% data reusables.desktop.windows-choose-options %}
 8. Na janela de Opções, clique em **Git**. ![O Painel Git no menu Options (Opções)](/assets/images/help/desktop/windows-select-git-pane.png)
-{{ site.data.reusables.desktop.name-field-git-config }}
+{% data reusables.desktop.name-field-git-config %}
   ![O campo de nome da configuração do Git](/assets/images/help/desktop/windows-name-git-config.png)
-{{ site.data.reusables.desktop.paste-email-git-config }}
+{% data reusables.desktop.paste-email-git-config %}
   ![Endereço de e-mail colado no campo de configuração do Git](/assets/images/help/desktop/windows-email-git-config.png)
-{{ site.data.reusables.desktop.click-save-git-config }}
+{% data reusables.desktop.click-save-git-config %}
   ![Botão para salvar no campo de configuração do Git](/assets/images/help/desktop/windows-save-git-config.png)
 
 {% endwindows %}

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 #### 删除私有仓库
 
@@ -21,7 +21,7 @@ versions:
 
 #### 私有复刻和权限
 
-{{ site.data.reusables.repositories.private_forks_inherit_permissions }}
+{% data reusables.repositories.private_forks_inherit_permissions %}
 
 #### 将公共仓库更改为私有仓库
 

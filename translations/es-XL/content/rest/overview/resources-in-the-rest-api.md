@@ -1,6 +1,6 @@
 ---
 title: Recursos en la API de REST
-intro: 'Aprende como navegar en los recursos que proporciona la API de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprende como navegar en los recursos que proporciona la API de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
@@ -9,12 +9,12 @@ versions:
 ---
 
 
-Esto describe los recursos que conforman la API de REST oficial de {{ site.data.variables.product.product_name }}. Si tienes cualquier tipo de problema o solicitud, por favor contacta a {{ site.data.variables.contact.contact_support }}.
+Esto describe los recursos que conforman la API de REST oficial de {% data variables.product.product_name %}. Si tienes cualquier tipo de problema o solicitud, por favor contacta a {% data variables.contact.contact_support %}.
 
 
 ### Versión actual
 
-Predeterminadamente, todas las solicitudes a `{{ site.data.variables.product.api_url_code }}` reciben la [versión](/v3/versions)**v3** de la API de REST. Te alentamos a [solicitar explícitamente esta versión a través del encabezado `Aceptar`](/v3/media/#request-specific-version).
+Predeterminadamente, todas las solicitudes a `{% data variables.product.api_url_code %}` reciben la [versión](/v3/versions)**v3** de la API de REST. Te alentamos a [solicitar explícitamente esta versión a través del encabezado `Aceptar`](/v3/media/#request-specific-version).
 
     Accept: application/vnd.github.v3+json
 
@@ -26,11 +26,11 @@ Para obtener información acerca de la API de GraphQL de GitHub, consulta la [do
 
 ### Modelo
 
-{% if currentVersion == "free-pro-team@latest" %}Todos los accesos de las API son através de HTTPS, y se accede a{% else %}La API{% endif %} desde `{{ site.data.variables.product.api_url_code }}`.  Todos los datos se
+{% if currentVersion == "free-pro-team@latest" %}Todos los accesos de las API son através de HTTPS, y se accede a{% else %}La API{% endif %} desde `{% data variables.product.api_url_code %}`.  Todos los datos se
 envían y reciben como JSON.
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 > HTTP/1.1 200 OK
 > Server: nginx
@@ -77,18 +77,18 @@ La documentación proporciona un ejemplo de respuesta para cada método de la AP
 
 ### Autenticación
 
-Hay dos maneras de autenticarse a través de la API v3 de {{ site.data.variables.product.product_name }}.  Las solicitudes que requieren autenticación regresarán `404 Not Found`, en vez de `403 Forbidden`, en algunos lugares.  Esto es para prevenir la fuga accidental de repositorios privados para usuarios no autorizados.
+Hay dos maneras de autenticarse a través de la API v3 de {% data variables.product.product_name %}.  Las solicitudes que requieren autenticación regresarán `404 Not Found`, en vez de `403 Forbidden`, en algunos lugares.  Esto es para prevenir la fuga accidental de repositorios privados para usuarios no autorizados.
 
 #### Autenticación básica
 
 ```shell
-$ curl -u "username" {{ site.data.variables.product.api_url_pre }}
+$ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
 #### Token de OAuth (enviado en un encabezado)
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.product.api_url_pre }}
+$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
@@ -101,10 +101,10 @@ Lee [más acerca de OAuth2](/apps/building-oauth-apps/).  Nota que los tokens de
 
 #### Llave/secreto de OAuth2
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 ```shell
-curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pre }}/user/repos'
+curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
 El utilizar tu `client_id` y `client_secret` _no_ te autentica como un usuario, únicamente identifica tu aplicación de OAuth para incrementar tu límite de tasa. Los permisos se otorgan únicamente a usuarios, no a aplicaciones, y úicamente obtendrás datos que un usuario no autenticado vería. Es por esto que deberías utilizar únicamente la llave/secreto de OAuth2 en escenarios de servidor a servidor. No compartas el secreto de cliente de tu aplicación de OAuth con tus usuarios.
@@ -123,24 +123,24 @@ Lee [más acerca de limitar la tasa de no autenticación](#increasing-the-unauth
 Autenticarse con credenciales inválidas regresará el mensaje `401 Unauthorized`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u foo:bar
+$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 > HTTP/1.1 401 Unauthorized
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
 Después de detectar varias solicitudes con credenciales inválidas dentro de un periodo de tiempo corto, la API rechazará temporalmente todos los intentos de autenticación para el usuario en cuestión (incluyendo aquellos con credenciales válidas) con el mensaje `403 Forbidden`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
 
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
@@ -149,7 +149,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_
 Muchos métodos de la API toman parámetros opcionales. Para las solicitudes de tipo `GET`, cualquier parámetro que no se haya especificado como un segmento en la ruta puede pasarse como un parámetro de secuencia de consulta HTTP:
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/issues?state=closed"
+$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 En este ejemplo, los valores 'vmg' and 'redcarpet' se proporcionan para los parámetros `:owner` y `:repo` en la ruta mientras que se pasa a `:state` en la secuencia de la consulta.
@@ -157,7 +157,7 @@ En este ejemplo, los valores 'vmg' and 'redcarpet' se proporcionan para los par�
 Para las solicitudes de tipo `POST`, `PATCH`, `PUT`, and `DELETE`, los parámetros que no se incluyen en la URL deben codificarse como JSON con un Content-Type de 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.product.api_url_pre }}/authorizations
+$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### Terminal raíz
@@ -165,14 +165,14 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.pro
 Puedes emitir una solicitud de tipo `GET` a la terminal raíz para obtener todas las categorías de la terminal que son compatibles con la API de REST:
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{{ site.data.variables.product.api_url_pre }}
+$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 {% note %}
 
-**Nota:** Para {{ site.data.variables.product.prodname_ghe_server }}, [como para todas las otras terminales](/v3/enterprise-admin/#endpoint-urls), necesitaras pasar tu nombre de usuario y contraseña.
+**Nota:** Para {% data variables.product.prodname_ghe_server %}, [como para todas las otras terminales](/v3/enterprise-admin/#endpoint-urls), necesitaras pasar tu nombre de usuario y contraseña.
 
 {% endnote %}
 
@@ -274,7 +274,7 @@ Puedes entonces expandir estas plantillas utilizando algo como la gema [uri_temp
 Las solicitudes que recuperan varios elementos se paginarán a 30 elementos predeterminadamente.  Puedes especificar más páginas con el parámetro `?page`. Para algunos recursos, también puedes configurar un tamaño de página personalizado de hasta 100 elementos con el parámetro `?per_page`. Nota que, por razones técnicas, no todas las terminales respetan el parámetro `?per_page`, consulta la sección de [eventos](/v3/activity/events/) por ejemplo.
 
 ```shell
-$ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page=100'
+$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
 Nota que la enumeración de página es basada en 1 y que el omitir el parámetro `?page` regresará la primera página.
@@ -291,8 +291,8 @@ For more information on pagination, check out our guide on [Traversing with Pagi
 
 El [Encabezado de enlace](http://tools.ietf.org/html/rfc5988) incluye información de paginación:
 
-    Link: <{{ site.data.variables.product.api_url_code }}/user/repos?page=3&per_page=100>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/user/repos?page=50&per_page=100>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
+      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _Este ejemplo incluye un salto de línea para legibilidad._
 
@@ -313,20 +313,20 @@ Para las solicitudes de la API que utilizan Autenticación Básica u OAuth, pued
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Para los usuarios que pertenezcan a una cuenta de {{ site.data.variables.product.prodname_ghe_cloud }}, las solicitudes que se hacen utilizando un token de OAuth para los recursos que pertenecen a la misma cuenta de {{ site.data.variables.product.prodname_ghe_cloud }} tienen un límite incrementado de 15,000 solicitudes por hora.
+Para los usuarios que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes que se hacen utilizando un token de OAuth para los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite incrementado de 15,000 solicitudes por hora.
 
 {% endif %}
 
 Para las solicitudes no autenticadas, el límite de tasa permite hasta 60 solicitudes por hora. Las solicitudes no autenticadas se asocian con la dirección IP que las origina, y no con el usuario que realiza la solicitud.
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 Nota que [la API de búsqueda tiene reglas personalizadas de límite de tasa](/v3/search/#rate-limit).
 
 Los encabezados HTTP recuperados para cualquier solicitud de la API muestran tu estado actual de límite de tasa:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -360,7 +360,7 @@ Si excedes el límite de tasa, se regresará una respuesta de error:
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
 > }
 ```
 
@@ -371,7 +371,7 @@ Puedes [revisar tu estado de límite de tasa](/v3/rate_limit) sin incurrir en un
 Si tu aplicación de OAuth necesita hacer llamados no autenticados con un límite de tasa más alto, puedes pasar la ID de cliente y secreto de tu app ante la ruta de la terminal.
 
 ```shell
-$ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_pre }}/user/repos
+$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -392,7 +392,7 @@ Si excedes tu límite de tasa utilizando Autenticación Básica u OAuth, es prob
 
 #### Abusar del límite de tasa
 
-Para prorpocionar un servicio de calidad en {{ site.data.variables.product.product_name }}, los límites de tasa adicionales podrían aplicar a algunas acciones cuando se utiliza la API. Por ejemplo, utilizar la API para crear contenido rápidamente, encuestar agresivamente en vez de utilizar webhooks, hacer solicitudes múltiples concurrentes, o solicitar repetidamente datos que son caros a nivel computacional, podría dar como resultado un abuso de tasa.
+Para prorpocionar un servicio de calidad en {% data variables.product.product_name %}, los límites de tasa adicionales podrían aplicar a algunas acciones cuando se utiliza la API. Por ejemplo, utilizar la API para crear contenido rápidamente, encuestar agresivamente en vez de utilizar webhooks, hacer solicitudes múltiples concurrentes, o solicitar repetidamente datos que son caros a nivel computacional, podría dar como resultado un abuso de tasa.
 
 El abuso de límite de tasa no pretende interferir con el uso legítimo de la API. Tus límites de tasa habituales deben ser el único límite en el cual te enfoques. Para garantizar que estás actuando como un buen ciudadano de la API, revisa nuestros [lineamientos de mejores prácticas](/guides/best-practices-for-integrators/).
 
@@ -405,7 +405,7 @@ Si tu aplicación activa este límite de tasa, recibirás una respuesta informat
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
 > }
 ```
 
@@ -413,7 +413,7 @@ Si tu aplicación activa este límite de tasa, recibirás una respuesta informat
 
 ### Se requiere un agente de usuario
 
-Todas las solicitudes a la API DEBEN incluir un encabezado de `User-Agent` válido. Las solicitudes sin encabezado de `User-Agent` se rechazarán. Te solicitamos que utilices tu nombre de usuario de {{ site.data.variables.product.product_name }}, o el nombre de tu aplicación, para el valor del encabezado de `User-Agent`. Esto nos permite contactarte en caso de que haya algún problema.
+Todas las solicitudes a la API DEBEN incluir un encabezado de `User-Agent` válido. Las solicitudes sin encabezado de `User-Agent` se rechazarán. Te solicitamos que utilices tu nombre de usuario de {% data variables.product.product_name %}, o el nombre de tu aplicación, para el valor del encabezado de `User-Agent`. Esto nos permite contactarte en caso de que haya algún problema.
 
 Aquí hay un ejemplo:
 
@@ -424,7 +424,7 @@ User-Agent: Awesome-Octocat-App
 cURL envía un encabezado de `User-Agent` válido predeterminadamente. Si proporcionas un encabezado de `User-Agent` inválido a través de cURL (o a través de un cliente alterno), recibirás una respuesta de `403 Forbidden`:
 
 ```shell
-$ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
+$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -451,7 +451,7 @@ La mayoría de las respuestas regresan un encabezado de `ETag`. Muchas de las re
 {% endif %}
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i {% data variables.product.api_url_pre %}/user
 > HTTP/1.1 200 OK
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -462,7 +462,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -473,7 +473,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: 
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
@@ -491,7 +491,7 @@ La API es compatible con el Intercambio de Recursos de Origen Cruzado (CORS, por
 Aquí hay una solicitud de ejemplo que se envió desde una consulta de buscador `http://example.com`:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com"
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/1.1 302 Found
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -500,7 +500,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 Así se ve una solicitud de prevuelo de CORS:
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com" -X OPTIONS
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
@@ -511,10 +511,10 @@ Access-Control-Max-Age: 86400
 
 ### Rellamados de JSON-P
 
-Puedes enviar un parámetro de `?callback` a cualquier llamado de GET para envolver los resultados en una función de JSON.  Esto se utiliza típicamente cuando los buscadores quieren insertar contenido de {{ site.data.variables.product.product_name }} en las páginas web evitando los problemas de dominio cruzado.  La respuesta incluye la misma salida de datos que la API común, mas la información relevante del Encabezado HTTP.
+Puedes enviar un parámetro de `?callback` a cualquier llamado de GET para envolver los resultados en una función de JSON.  Esto se utiliza típicamente cuando los buscadores quieren insertar contenido de {% data variables.product.product_name %} en las páginas web evitando los problemas de dominio cruzado.  La respuesta incluye la misma salida de datos que la API común, mas la información relevante del Encabezado HTTP.
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
+$ curl {% data variables.product.api_url_pre %}?callback=foo
 
 > /**/foo({
 >   "meta": {
@@ -523,7 +523,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
 >     "X-RateLimit-Remaining": "4966",
 >     "X-RateLimit-Reset": "1372700873",
 >     "Link": [ // pagination headers and other links
->       ["{{ site.data.variables.product.api_url_pre }}?page=2", {"rel": "next"}]
+>       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
 >   },
 >   "data": {
@@ -545,7 +545,7 @@ Puedes escribir un agente de JavaScript para procesar la rellamada. Aquí hay un
     }
     
     var script = document.createElement('script');
-    script.src = '{{ site.data.variables.product.api_url_code }}?callback=foo';
+    script.src = '{% data variables.product.api_url_code %}?callback=foo';
     
     document.getElementsByTagName('head')[0].appendChild(script);
     </script>
@@ -604,14 +604,14 @@ Estas marcas de tiempo se ven más o menos como `2014-02-27T15:05:06+01:00`. Tam
 Es posible proporcionar un encabezado de `Time-Zone` que defina la zona horaria de acuerdo con la [lista de nombres de la base de datos Olson](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {{ site.data.variables.product.api_url_pre }}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
 Esto significa que generamos una marca de tiempo para el momento en el se haga el llamado a tu API en la zona horaria que defina este encabezado. Por ejemplo, la [API de Contenidos](/v3/repos/contents/) genera una confirmación de git para cada adición o cambio y utiliza este tiempo actual como la marca de tiempo. Este encabezado determinará la zona horaria que se utiliza para generar la marca de tiempo actual.
 
 #### Utilizar la última zona horaria conocida del usuario
 
-Si no se especifica ningún encabezado de `Time-Zone` y haces una llamada autenticada a la API, utilizaremos esta última zona horaria para el usuario autenticado. La última zona horaria conocida se actualiza cuando sea que busques el sitio web de {{ site.data.variables.product.product_name }}.
+Si no se especifica ningún encabezado de `Time-Zone` y haces una llamada autenticada a la API, utilizaremos esta última zona horaria para el usuario autenticado. La última zona horaria conocida se actualiza cuando sea que busques el sitio web de {% data variables.product.product_name %}.
 
 #### Poner como defecto UTC en ausencia de otra información de zona horaria
 

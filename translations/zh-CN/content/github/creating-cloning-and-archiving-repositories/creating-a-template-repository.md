@@ -14,6 +14,6 @@ versions:
 
 将仓库设置为模板后，有权访问仓库的任何人都可以生成与默认分支具有相同目录结构和文件的新仓库。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} 他们还可以选择包含您的仓库中的所有其他分支。{% endif %}更多信息请参阅“[从模板创建仓库](/articles/creating-a-repository-from-a-template)”。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 选择 **Template repository（模板仓库）**。 ![将仓库设置为模板的复选框](/assets/images/help/repository/template-repository-checkbox.png)

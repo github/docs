@@ -11,12 +11,12 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Nota:** Si tienes un plan de facturación por repositorio heredado, aún así se te cobrará por tu repositorio archivado. Si no quieres que se te cobre por un repositorio archivado, debes actualizar a un producto nuevo. Para obtener más información, consulta "Productos de [{{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+**Nota:** Si tienes un plan de facturación por repositorio heredado, aún así se te cobrará por tu repositorio archivado. Si no quieres que se te cobre por un repositorio archivado, debes actualizar a un producto nuevo. Para obtener más información, consulta "Productos de [{% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
 Una vez que se archiva un repositorio, no puedes agregar ni eliminar colaboradores ni equipos. Solo los colaboradores con acceso al repositorio pueden bifurcar o iniciar tu proyecto.
 

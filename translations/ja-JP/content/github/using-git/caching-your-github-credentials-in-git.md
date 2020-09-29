@@ -4,13 +4,13 @@ redirect_from:
   - /firewalls-and-proxies/
   - /articles/caching-your-github-password-in-git
   - /github/using-git/caching-your-github-password-in-git
-intro: '[HTTPS で {{ site.data.variables.product.product_name }} リポジトリをクローンする](/github/using-git/which-remote-url-should-i-use) 場合、認証情報ヘルパー を使って、ユーザ名とパスワードを記憶するように Git に指示できます。'
+intro: '[HTTPS で {% data variables.product.product_name %} リポジトリをクローンする](/github/using-git/which-remote-url-should-i-use) 場合、認証情報ヘルパー を使って、ユーザ名とパスワードを記憶するように Git に指示できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-SSH で {{ site.data.variables.product.product_name }} リポジトリをクローンする場合、他の認証情報ではなく SSH キーで認証します。 SSH 接続のセットアップについては「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。
+SSH で {% data variables.product.product_name %} リポジトリをクローンする場合、他の認証情報ではなく SSH キーで認証します。 SSH 接続のセットアップについては「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。
 
 {% mac %}
 
@@ -50,7 +50,7 @@ Git および `osxkeychain helper` をインストールし、Git に `osxkeycha
   # Set git to use the osxkeychain credential helper
   ```
 
-認証が必要な HTTPS URL を次にクローンするときに、ユーザ名とパスワードの入力を求められます。 {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+認証が必要な HTTPS URL を次にクローンするときに、ユーザ名とパスワードの入力を求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
 認証に成功すると、認証情報は macOS のキーチェーンに保存され、HTTPS URL をクローンするたびに使用されます。 認証情報を変更しない限り、今後は Git で認証情報を入力する必要はなくなります。
 

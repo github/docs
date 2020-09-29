@@ -1,6 +1,6 @@
 ---
 title: 记住您的 GitHub 用户名或电子邮件
-intro: '是否距离您第一次登录 {{ site.data.variables.product.product_location }} 已经有一段时间？ 如果是这样，欢迎回来！ 如果无法记住您的 {{ site.data.variables.product.product_name }} 用户帐户名，您可以尝试以下方法来记住它。'
+intro: '是否距离您第一次登录 {% data variables.product.product_location %} 已经有一段时间？ 如果是这样，欢迎回来！ 如果无法记住您的 {% data variables.product.product_name %} 用户帐户名，您可以尝试以下方法来记住它。'
 redirect_from:
   - /articles/oh-noes-i-ve-forgotten-my-username-email/
   - /articles/oh-noes-i-ve-forgotten-my-username-or-email/
@@ -12,23 +12,23 @@ versions:
 
 {% mac %}
 
-### {{ site.data.variables.product.prodname_desktop }} 用户
+### {% data variables.product.prodname_desktop %} 用户
 
 1. 在 **GitHub Desktop** 菜单中，单击 **Preferences（首选项）**。
 2. 在 Preferences（首选项）窗口中，验证以下内容：
-    - 要查看 {{ site.data.variables.product.product_name }} 用户名，请单击 **Accounts（帐户）**。
-    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {{ site.data.variables.product.product_name }} 电子邮件](/articles/changing-your-primary-email-address)。
+    - 要查看 {% data variables.product.product_name %} 用户名，请单击 **Accounts（帐户）**。
+    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
 
 {% endmac %}
 
 {% windows %}
 
-### {{ site.data.variables.product.prodname_desktop }} 用户
+### {% data variables.product.prodname_desktop %} 用户
 
 1. In the **File** menu, click **Options**.
 2. 在 Options（选项）窗口中，验证以下内容：
-    - 要查看 {{ site.data.variables.product.product_name }} 用户名，请单击 **Accounts（帐户）**。
-    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {{ site.data.variables.product.product_name }} 电子邮件](/articles/changing-your-primary-email-address)。
+    - 要查看 {% data variables.product.product_name %} 用户名，请单击 **Accounts（帐户）**。
+    - 要查看您的 Git 电子邮件，请单击 **Git**。 请注意，此电子邮件不一定是[您的主 {% data variables.product.product_name %} 电子邮件](/articles/changing-your-primary-email-address)。
 
 {% endwindows %}
 
@@ -56,11 +56,11 @@ $ git config user.name
 $ cd <em>YOUR_REPOSITORY</em>
 # 将目录更改为初始化的 Git 仓库
 $ git remote -v
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
-origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (fetch)
+origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_REPOSITORY</em>.git (push)
 ```
 
-您的用户名是紧跟在 `https://{{ site.data.variables.command_line.backticks }}/` 之后的内容。
+您的用户名是紧跟在 `https://{% data variables.command_line.backticks %}/` 之后的内容。
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 延伸阅读

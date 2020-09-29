@@ -66,7 +66,7 @@ Im Folgenden finden Sie eine nicht allumfassende Liste der verschiedenen Typen v
   - Sicherheitszugriffsprotokolle
   - Daten über Interaktionen mit privaten Repositorys
 
-  Um ein Gefühl für die Art der privaten Kontoinformationen zu erhalten, die GitHub erfasst, können Sie Ihr {{ site.data.reusables.user_settings.personal_dashboard }} aufrufen und die Abschnitte in der linken Menüleiste durchsuchen.
+  Um ein Gefühl für die Art der privaten Kontoinformationen zu erhalten, die GitHub erfasst, können Sie Ihr {% data reusables.user_settings.personal_dashboard %} aufrufen und die Abschnitte in der linken Menüleiste durchsuchen.
 
 - <a name="organization-account-data"></a>
 **Organisationskontodaten** — Informationen über Organisationen, deren administrative Benutzer und Repositorys sind auf GitHub öffentlich verfügbar. Organisationsprofile finden Sie unter einer URL wie `https://github.com/organization`. Öffentliche Organisationsprofile können auch zusätzliche Informationen enthalten, die die Inhaber möglicherweise öffentlich freigeben möchten. Alle öffentlichen Organisationsprofile umfassen:
@@ -181,4 +181,4 @@ Als US-amerikanisches Unternehmen mit Sitz in Kalifornien ist GitHub nicht verpf
 
 ### Fragen
 
-Haben Sie weitere Fragen, Kommentare oder Anregungen? Bitte kontaktieren Sie uns über {{ site.data.variables.contact.contact_support }}.
+Haben Sie weitere Fragen, Kommentare oder Anregungen? Bitte kontaktieren Sie uns über {% data variables.contact.contact_support %}.

@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions文档
 shortTitle: GitHub Actions
-intro: '在 {{ site.data.variables.product.prodname_actions }} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
+intro: '在 {% data variables.product.prodname_actions %} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
 gettingStartedLinks:
   - /actions/quickstart
   - /actions/learn-github-actions
@@ -36,7 +36,7 @@ versions:
 <div class="d-flex gutter my-6 py-6">
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.getting_started }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in gettingStartedLinks %}
@@ -47,7 +47,7 @@ versions:
 
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.popular_articles }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in popularLinks %}

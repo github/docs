@@ -1,4 +1,4 @@
-Esta tabla brinda ejemplos de cómo se normalizan los nombres de usuarios en el {{ site.data.variables.product.prodname_ghe_server }}:
+Esta tabla brinda ejemplos de cómo se normalizan los nombres de usuarios en el {% data variables.product.prodname_ghe_server %}:
 
 | Nombre de usuario      | Nombre de usuario normalizado | Resultado                                                                                                 |
 | ---------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------- |

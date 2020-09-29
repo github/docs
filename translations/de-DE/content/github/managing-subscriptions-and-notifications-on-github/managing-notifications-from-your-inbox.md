@@ -12,7 +12,7 @@ versions:
 ### Über Deinen Posteingang
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }} Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings).“
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings).“
 {% endif %}
 
 Um auf Deinen Posteingang für Benachrichtigungen zuzugreifen, klicke in der rechten oberen Ecke einer beliebigen Seite auf {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ Standardmäßig hat Dein Posteingang Filter für Fälle, wenn Du zugewiesen bist
 
 Du kannst bis zu 15 eigene, benutzerdefinierte Filter hinzufügen.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. Um die Filtereinstellungen zu öffnen, klicke in der linken Seitenleiste neben „Filters" (Filter) auf {% octicon "gear" aria-label="The Gear icon" %}.
 
   {% tip %}
@@ -113,7 +113,7 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 
 #### Unterstützte `is:`-Abfragen
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {{ site.data.variables.product.product_name }} zu filtern, kannst du die Abfrage `is` verwenden. Um beispielsweise nur Aktualisierungen zu Repository-Einladungen zu sehen, benutze die Abfrage `is:repository-invitation`.
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. Um beispielsweise nur Aktualisierungen zu Repository-Einladungen zu sehen, benutze die Abfrage `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

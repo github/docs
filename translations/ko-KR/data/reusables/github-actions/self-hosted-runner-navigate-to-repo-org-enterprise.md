@@ -5,7 +5,7 @@
      1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="The rocket ship" %}.
      1. In the left sidebar, click **Enterprise overview**.
      1. {% endif %} In the enterprise sidebar, {% octicon "law" aria-label="The law icon" %} **Policies**.
-1. Navigate to the {{ site.data.variables.product.prodname_actions }} settings:
+1. Navigate to the {% data variables.product.prodname_actions %} settings:
    * **In an organization or repository**: click **Actions** in the left sidebar.
 
      ![Actions setting](/assets/images/help/settings/settings-sidebar-actions.png)

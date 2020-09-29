@@ -1,7 +1,7 @@
 ---
 title: About required commit signing
 intro: Required commit signing ensures that collaborators can only push verified signed commits to a protected branch.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-commit-signing
 versions:
@@ -13,7 +13,7 @@ If you've enforced branch protections in your repository, you can set up require
 
 When you enable required commit signing on a branch, contibutors {% if currentVersion == "free-pro-team@latest" %}and bots{% endif %} can only push commits that have been signed and verified to the branch. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)."
 
-You can always push local commits to the branch if the commits are signed and verified. {% if currentVersion == "free-pro-team@latest" %}You can also merge signed and verified commits into the branch using a pull request on {{ site.data.variables.product.product_name }}. However, you cannot squash and merge a pull request into the branch on {{ site.data.variables.product.product_name }} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {{ site.data.variables.product.product_name }}.{% endif %} You can {% if currentVersion == "free-pro-team@latest" %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."{% if currentVersion == "free-pro-team@latest" %} For more information about merge methods, see "[About merge methods on {{ site.data.variables.product.prodname_dotcom }}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
+You can always push local commits to the branch if the commits are signed and verified. {% if currentVersion == "free-pro-team@latest" %}You can also merge signed and verified commits into the branch using a pull request on {% data variables.product.product_name %}. However, you cannot squash and merge a pull request into the branch on {% data variables.product.product_name %} unless you are the author of the pull request.{% else %} However, you cannot merge pull requests into the branch on {% data variables.product.product_name %}.{% endif %} You can {% if currentVersion == "free-pro-team@latest" %}squash and {% endif %}merge pull requests locally. For more information, see "[Checking out pull requests locally](/github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally)."{% if currentVersion == "free-pro-team@latest" %} For more information about merge methods, see "[About merge methods on {% data variables.product.prodname_dotcom %}](/github/administering-a-repository/about-merge-methods-on-github)."{% endif %}
 
 {% note %}
 

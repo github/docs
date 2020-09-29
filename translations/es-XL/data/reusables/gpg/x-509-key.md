@@ -3,10 +3,10 @@
 
 Puedes usar [smimesign](https://github.com/github/smimesign) para firmar confirmaciones y etiquetas utilizando S/MIME en lugar de GPG.
 
-{{ site.data.reusables.gpg.smime-git-version }}
+{% data reusables.gpg.smime-git-version %}
 
 1. Instala [smimesign](https://github.com/github/smimesign#installation).
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Configura Git para que use S/MIME para firmar confirmaciones y etiquetas. En Git 2.19 o posterior, utiliza los comandos `git config gpg.x509.program` y `git config gpg.format`:
   - Para utilizar S/MIME para firmar todos los repositorios:
   ```shell

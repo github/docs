@@ -24,7 +24,7 @@ Blame ビューでは、{% octicon "versions" aria-label="The prior blame icon" 
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. クリックして、表示したい行の履歴のファイルを開きます。
 3. ファイルビューの右上隅で [**Blame**] をクリックして blame ビューを開きます。 ![[Blame] ボタン](/assets/images/help/repository/blame-button.png)
 4. 特定の行の過去のリビジョンを表示するには、見てみたい変更が見つかるまで {% octicon "versions" aria-label="The prior blame icon" %} をクリックします。 ![さらに前の状態に遡るボタン](/assets/images/help/repository/prior-blame-button.png)

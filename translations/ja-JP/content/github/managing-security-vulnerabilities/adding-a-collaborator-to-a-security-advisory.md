@@ -16,13 +16,13 @@ versions:
 
 {% note %}
 
-{{ site.data.reusables.repositories.security-advisory-collaborators-public-repositories }} セキュリティアドバイザリでのコラボレータの削除の詳細については、「[セキュリティアドバイザリからコラボレータを削除する](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)」を参照してください。
+{% data reusables.repositories.security-advisory-collaborators-public-repositories %} セキュリティアドバイザリでのコラボレータの削除の詳細については、「[セキュリティアドバイザリからコラボレータを削除する](/github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory)」を参照してください。
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. [Security Advisories] のリストから、コラボレータとして追加するセキュリティアドバイザリをクリックします。
 5. ページの右側にある、[Collaborators] の下で、セキュリティアドバイザリとして追加するユーザまたは Team の名前を入力します。 ![ユーザまたは Team 名を入力するフィールド](/assets/images/help/security/add-collaborator-field.png)
 6. [**Add**] をクリックします。 ![[Add] ボタン](/assets/images/help/security/security-advisory-add-collaborator-button.png)

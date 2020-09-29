@@ -80,7 +80,7 @@
 - 
   term: Verificación
   description: >-
-    Una revisión es un tipo de revisión de estado en {{ site.data.variables.product.product_name }}. Ver "[Revisiones de estado](#status-checks)."
+    Una revisión es un tipo de revisión de estado en {% data variables.product.product_name %}. Ver "[Revisiones de estado](#status-checks)."
 - 
   term: control
   description: >-
@@ -213,7 +213,7 @@
   description: Las notificaciones enviadas a la dirección de correo electrónico de un usuario.
 - 
   term: Cuenta de empresa
-  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {{ site.data.variables.product.prodname_dotcom_the_website }}. {{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: Las cuentas empresariales te permiten administrar centralmente las políticas y facturación de varias organizaciones de {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorador
   description: >-
@@ -665,7 +665,7 @@
 - 
   term: Clave SSH
   description: >-
-    Las claves SSH son una manera de identificarte a ti mismo en un servidor en línea, usando un mensaje cifrado. Es como si tu computadora tuviera su propia contraseña única para otro servicio. {{ site.data.variables.product.product_name }} utiliza claves SSH para transferir información de forma segura a tu computadora.
+    Las claves SSH son una manera de identificarte a ti mismo en un servidor en línea, usando un mensaje cifrado. Es como si tu computadora tuviera su propia contraseña única para otro servicio. {% data variables.product.product_name %} utiliza claves SSH para transferir información de forma segura a tu computadora.
 - 
   term: instancia de preparación
   description: >-

@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} unterstützt die Zuordnung von geoJSON- und topoJSON-Daten in {{ site.data.variables.product.product_name }}-Repositorys. Gib die Datei einfach wie gewohnt mit Commit frei, und verwende die Erweiterung `.geojson` oder `.topojson`. Dateien mit der Erweiterung `.json` werden auch unterstützt, aber nur wenn `type` auf `FeatureCollection`, `GeometryCollection` oder `topology` festgelegt ist. Navigiere dann zum Pfad der geoJSON-Datei auf GitHub.com.
+{% data variables.product.product_name %} unterstützt die Zuordnung von geoJSON- und topoJSON-Daten in {% data variables.product.product_name %}-Repositorys. Gib die Datei einfach wie gewohnt mit Commit frei, und verwende die Erweiterung `.geojson` oder `.topojson`. Dateien mit der Erweiterung `.json` werden auch unterstützt, aber nur wenn `type` auf `FeatureCollection`, `GeometryCollection` oder `topology` festgelegt ist. Navigiere dann zum Pfad der geoJSON-Datei auf GitHub.com.
 
 Wenn Du rechts auf das Papiersymbol klickst, siehst Du auch die Änderungen, die als Teil eines Commits an dieser Datei vorgenommen wurden.
 
@@ -15,7 +15,7 @@ Wenn Du rechts auf das Papiersymbol klickst, siehst Du auch die Änderungen, die
 
 ### Geometrie-Typen
 
-Karten auf {{ site.data.variables.product.product_name }} verwenden [Leaflet.js](http://leafletjs.com) und unterstützen alle Geometrie-Typen, die in [der geJSON-Spezifikation](http://www.geojson.org/geojson-spec.html) genannt sind (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon und GeometryCollection). TopoJSON-Dateien müssen den Typ „Topology“ aufweisen und der [topoJSON-Spezifikation](https://github.com/mbostock/topojson/wiki/Specification) entsprechen.
+Karten auf {% data variables.product.product_name %} verwenden [Leaflet.js](http://leafletjs.com) und unterstützen alle Geometrie-Typen, die in [der geJSON-Spezifikation](http://www.geojson.org/geojson-spec.html) genannt sind (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon und GeometryCollection). TopoJSON-Dateien müssen den Typ „Topology“ aufweisen und der [topoJSON-Spezifikation](https://github.com/mbostock/topojson/wiki/Specification) entsprechen.
 
 ### Funktionen stilisieren
 
@@ -34,7 +34,7 @@ Weitere Informationen findest Du in [Version 1.1.0 der Open-Simplestyle-Spezifik
 
 ### Deine Karte an anderer Stelle einbinden
 
-Möchtest Du Deine geoJSON-Karte an anderer Stelle als {{ site.data.variables.product.product_name }} bereitstellen? Passe einfach diese Vorlage an, und integriere sie in eine HTML-Seite, die JavaScript unterstützt (z. B. [{{ site.data.variables.product.prodname_pages }}](http://pages.github.com)):
+Möchtest Du Deine geoJSON-Karte an anderer Stelle als {% data variables.product.product_name %} bereitstellen? Passe einfach diese Vorlage an, und integriere sie in eine HTML-Seite, die JavaScript unterstützt (z. B. [{% data variables.product.prodname_pages %}](http://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -64,7 +64,7 @@ Die zugrunde liegenden Kartendaten (Straßennamen, Wege etc.) stammen von [OpenS
 
 ### Problemlösungen
 
-Wenn Du Probleme beim Rendern von geJSON-Dateien hast, überprüfe, ob Du eine gültige geoJSON-Datei vorliegen hast, indem Du den [geoJSON-Linter](http://geojsonlint.com/) über die Datei laufen lässt. Wenn Deine Punkte an anderer Stelle angezeigt werden als erwartet (<em>z. B.</em> mitten im Meer), befinden sich die Daten wahrscheinlich in einer Projektion, die derzeit nicht unterstützt wird. Aktuell unterstützt {{ site.data.variables.product.product_name }} nur die Projektion `urn:ogc:def:crs:OGC:1.3:CRS84`.
+Wenn Du Probleme beim Rendern von geJSON-Dateien hast, überprüfe, ob Du eine gültige geoJSON-Datei vorliegen hast, indem Du den [geoJSON-Linter](http://geojsonlint.com/) über die Datei laufen lässt. Wenn Deine Punkte an anderer Stelle angezeigt werden als erwartet (<em>z. B.</em> mitten im Meer), befinden sich die Daten wahrscheinlich in einer Projektion, die derzeit nicht unterstützt wird. Aktuell unterstützt {% data variables.product.product_name %} nur die Projektion `urn:ogc:def:crs:OGC:1.3:CRS84`.
 
 Wenn Deine `.geojson`-Datei besonders groß ist (über 10 MB), kann sie außerdem nicht im Browser dargestellt werden. Wenn dies der Fall ist, wird im Allgemeinen eine ähnliche Mitteilung wie die folgende angezeigt:
 

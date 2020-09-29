@@ -1,1 +1,1 @@
-<ul><li>Los errores o suspenciones en {{ site.data.variables.product.prodname_dotcom_the_website }} afectan la funcionalidad principal de Git o de las aplicaciones web para todos los miembros de tu organización o empresa</li></ul>
+<ul><li>Los errores o suspenciones en {% data variables.product.prodname_dotcom_the_website %} afectan la funcionalidad principal de Git o de las aplicaciones web para todos los miembros de tu organización o empresa</li></ul>

@@ -1,6 +1,6 @@
 ---
 title: プッシュログの表示
-intro: 'サイトの管理者は {{ site.data.variables.product.product_location_enterprise }} でのリポジトリに対する Git プッシュ操作の一覧を見ることができます。'
+intro: 'サイトの管理者は {% data variables.product.product_location_enterprise %} でのリポジトリに対する Git プッシュ操作の一覧を見ることができます。'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -22,8 +22,8 @@ versions:
 ### リポジトリのプッシュログを表示する
 
 1. リポジトリにアクセスします。
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.security-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 左のサイドバーで、**Push Log（プッシュログ）** をクリックしてください。 ![プッシュログのタブ](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
 ### コマンドラインでリポジトリのプッシュログを表示する

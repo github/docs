@@ -181,7 +181,7 @@ Alpha
 
 {% else %}
 
-Security alerts for vulnerable dependencies are available in {{ site.data.variables.product.prodname_ghe_server }} 2.17+. For more information, see "[Enabling security alerts for vulnerable dependencies on {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
+Security alerts for vulnerable dependencies are available in {% data variables.product.prodname_ghe_server %} 2.17+. For more information, see "[Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."
 
 {% endif %}
 

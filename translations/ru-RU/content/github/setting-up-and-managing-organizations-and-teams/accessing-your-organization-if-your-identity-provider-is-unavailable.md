@@ -1,7 +1,7 @@
 ---
 title: Accessing your organization if your identity provider is unavailable
-intro: 'Organization administrators can sign into {{ site.data.variables.product.product_name }} even if their identity provider is unavailable by bypassing single sign-on and using their recovery codes.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Organization administrators can sign into {% data variables.product.product_name %} even if their identity provider is unavailable by bypassing single sign-on and using their recovery codes.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:

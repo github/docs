@@ -73,7 +73,7 @@ Wenn Du nach einer Lizenz einer Familie suchst, enthalten die Suchergebnisse all
 
 ### Eine Lizenz erkennen
 
-[Das Open-Source-Ruby-Gem Licensee](https://github.com/benbalter/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/v3/licenses/) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {{ site.data.variables.product.product_name }}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[Das Open-Source-Ruby-Gem Licensee](https://github.com/benbalter/licensee) vergleicht die *LICENSE*-Datei des Repositorys mit einer kurzen Liste bekannter Lizenzen. Licensee stellt außerdem die [Licenses-API](/v3/licenses/) bereit und [bietet Einblicke in die Lizenzierung von Repositorys auf {% data variables.product.product_name %}](https://github.com/blog/1964-open-source-license-usage-on-github-com). Wenn Dein Repository eine Lizenz verwendet, die nicht auf der [Website „Choose a License“](http://choosealicense.com/appendix/) (eine Lizenz auswählen) aufgeführt ist, kannst Du [das Hinzufügen einer Lizenz fordern](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 Wenn Dein Repository eine Lizenz verwendet, die auf der Website „Choose a License“ (Wähle eine Lizenz) aufgeführt ist, und die Lizenz nicht deutlich sichtbar oben auf der Repository-Seite angezeigt wird, enthält das Repository möglicherweise mehrere Lizenzen oder es liegt eine andere Komplexität vor. Damit Deine Lizenz erkannt wird, vereinfache Deine *LICENSE*-Datei und notiere die Komplexität an anderer Stelle, beispielsweise in der *README*-Datei Deines Repositorys.
 
@@ -90,4 +90,4 @@ Das Ziel der Bemühungen von GitHub zur Open-Source-Lizenzierung ist es, Dir ein
 ### Weiterführende Informationen
 
 - Der Abschnitt „[The Legal Side of Open Source](https://opensource.guide/legal/)“ (Die rechtlichen Aspekte von Open Source) in den Open-Source-Leitfäden{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -74,7 +74,7 @@ Der Verdoppelungszeitraum beginnt, nachdem GitHub ein individuelles gesponsertes
 
 * Wenn GitHub einen potenziellen Verstoß gegen die Richtlinien feststellt, kann GitHub vor der Auszahlung der während der Matching-Periode gewährten Ausgleichszahlungen die Auszahlungen so lange unterbinden, bis eine Untersuchung abgeschlossen ist, und die dem gesponserten Entwickler zur Verfügung gestellten Ausgleichszahlungen können widerrufen werden, wenn sich herausstellt, dass sie gegen diese Richtlinien verstoßen.
 
-* {{ site.data.reusables.sponsors.github-contact-applicants }}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ### 3. Pflichten von gesponserten Entwicklern
 

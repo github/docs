@@ -14,7 +14,7 @@ La barra de búsqueda de propuestas y solicitudes de extracción te permite defi
 
 {% tip %}
 
-**Sugerencia:** {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**Sugerencia:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

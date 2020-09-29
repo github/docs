@@ -1,29 +1,29 @@
 ---
 title: JenkinsからGitHub Actionsへの移行
-intro: '{{ site.data.variables.product.prodname_actions }}とJenkinsには複数の相似点があり、そのため{{ site.data.variables.product.prodname_actions }}への移行は比較的単純です。'
+intro: '{% data variables.product.prodname_actions %}とJenkinsには複数の相似点があり、そのため{% data variables.product.prodname_actions %}への移行は比較的単純です。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
-Jenkinsと{{ site.data.variables.product.prodname_actions }}は、どちらも自動的にコードのビルド、テスト、公開、リリース、デプロイを行うワークフローを作成できます。 Jenkinsと{{ site.data.variables.product.prodname_actions }}は、ワークフローの設定において似ているところがあります。
+Jenkinsと{% data variables.product.prodname_actions %}は、どちらも自動的にコードのビルド、テスト、公開、リリース、デプロイを行うワークフローを作成できます。 Jenkinsと{% data variables.product.prodname_actions %}は、ワークフローの設定において似ているところがあります。
 
-- Jenkinsは_宣言的パイプライン_を使ってワークフローを作成します。これは{{ site.data.variables.product.prodname_actions }}のワークフローファイルに似ています。
-- Jenkinsは_ステージ_を使ってステップの集合を実行しますが、{{ site.data.variables.product.prodname_actions }}は1つ以上のステップもしくは個別のコマンドをグループ化するのにジョブを使います。
-- Jenkinsと{{ site.data.variables.product.prodname_actions }}はコンテナベースのビルドをサポートします。 詳しい情報については「[Docker コンテナアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。
+- Jenkinsは_宣言的パイプライン_を使ってワークフローを作成します。これは{% data variables.product.prodname_actions %}のワークフローファイルに似ています。
+- Jenkinsは_ステージ_を使ってステップの集合を実行しますが、{% data variables.product.prodname_actions %}は1つ以上のステップもしくは個別のコマンドをグループ化するのにジョブを使います。
+- Jenkinsと{% data variables.product.prodname_actions %}はコンテナベースのビルドをサポートします。 詳しい情報については「[Docker コンテナアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。
 - ステップもしくはタスクは、再利用とコミュニティとの共有が可能です。
 
-詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
+詳しい情報については、「[{% data variables.product.prodname_actions %}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
 ### 主要な差異
 
-- Jenkinsには、パイプラインの作成用の構文として、宣言的パイプラインとスクリプトパイプラインの2種類があります。 {{ site.data.variables.product.prodname_actions }}は、ワークフローと設定ファイルの作成にYAMLを使います。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)」を参照してください。
-- Jenkinsのデプロイメントは通常セルフホストであり、ユーザが自身のデータセンター内のサーバーをメンテナンスします。 {{ site.data.variables.product.prodname_actions }}は、ジョブの実行に利用できる独自のランナーをホストするハイブリッドクラウドのアプローチを提供しながら、セルフホストランナーもサポートします。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
+- Jenkinsには、パイプラインの作成用の構文として、宣言的パイプラインとスクリプトパイプラインの2種類があります。 {% data variables.product.prodname_actions %}は、ワークフローと設定ファイルの作成にYAMLを使います。 詳しい情報については、「[GitHub Actionsのワークフロー構文](/actions/reference/workflow-syntax-for-github-actions)」を参照してください。
+- Jenkinsのデプロイメントは通常セルフホストであり、ユーザが自身のデータセンター内のサーバーをメンテナンスします。 {% data variables.product.prodname_actions %}は、ジョブの実行に利用できる独自のランナーをホストするハイブリッドクラウドのアプローチを提供しながら、セルフホストランナーもサポートします。 詳しい情報については「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」を参照してください。
 
 ### 機能の比較
 
@@ -31,17 +31,17 @@ Jenkinsと{{ site.data.variables.product.prodname_actions }}は、どちらも�
 
 Jenkinsでは、ビルドを単一のビルドエージェントに送信することも、複数のエージェントに対して分配することもできます。 それらのエージェントを、オペレーティングシステムの種類などの様々な属性に従って分類することもできます。
 
-同様に、{{ site.data.variables.product.prodname_actions }}はジョブを{{ site.data.variables.product.prodname_dotcom }}ホストあるいはセルフホストのランナーに送信でき、ラベルを使って様々な属性に従ってランナーを分類できます。 以下の表は、分散ビルドの概念がJenkinsと{{ site.data.variables.product.prodname_actions }}でどのように実装されているかを比較しています。
+同様に、{% data variables.product.prodname_actions %}はジョブを{% data variables.product.prodname_dotcom %}ホストあるいはセルフホストのランナーに送信でき、ラベルを使って様々な属性に従ってランナーを分類できます。 以下の表は、分散ビルドの概念がJenkinsと{% data variables.product.prodname_actions %}でどのように実装されているかを比較しています。
 
-| Jenkins                                                                | {{ site.data.variables.product.prodname_actions }}                                                                                                                                     |
+| Jenkins                                                                | {% data variables.product.prodname_actions %}                                                                                                                                     |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`エージェント`](https://wiki.jenkins.io/display/JENKINS/Distributed+builds) | [`ランナー`](/actions/getting-started-with-github-actions/core-concepts-for-github-actions#runner)  <br> [`セルフホストランナー`](/actions/hosting-your-own-runners/about-self-hosted-runners) |
 
 #### セクションを利用したパイプラインの整理
 
-Jenkinsは、宣言的パイプラインを複数のセクションに分割します。 同様に、{{ site.data.variables.product.prodname_actions }}はワークフローを個別のセクションとして編成します。 以下の表は、Jenkinsのセクションを{{ site.data.variables.product.prodname_actions }}のワークフローと比較しています。
+Jenkinsは、宣言的パイプラインを複数のセクションに分割します。 同様に、{% data variables.product.prodname_actions %}はワークフローを個別のセクションとして編成します。 以下の表は、Jenkinsのセクションを{% data variables.product.prodname_actions %}のワークフローと比較しています。
 
-| Jenkinsのディレクティブ                                                 | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                     |
+| Jenkinsのディレクティブ                                                 | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                     |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [`agent`](https://jenkins.io/doc/book/pipeline/syntax/#agent)   | [`jobs.<job_id>.runs-on`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on) <br> [`jobs.<job_id>.container`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idcontainer) |
 | [`post`](https://jenkins.io/doc/book/pipeline/syntax/#post)     |                                                                                                                                                                                                                                                                                                        |
@@ -51,9 +51,9 @@ Jenkinsは、宣言的パイプラインを複数のセクションに分割し�
 
 ### ディレクティブの利用
 
-Jenkinsは、_宣言的パイプライン_を管理するためにディレクティブを使います。 それらのディレクティブは、ワークフローの特徴と、その実行方法を定義します。 以下の表は、それらのディレクティブが{{ site.data.variables.product.prodname_actions }}の概念とどのように対応するかを示しています。
+Jenkinsは、_宣言的パイプライン_を管理するためにディレクティブを使います。 それらのディレクティブは、ワークフローの特徴と、その実行方法を定義します。 以下の表は、それらのディレクティブが{% data variables.product.prodname_actions %}の概念とどのように対応するかを示しています。
 
-| Jenkinsのディレクティブ                                                                            | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Jenkinsのディレクティブ                                                                            | {% data variables.product.prodname_actions %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`environment`](https://jenkins.io/doc/book/pipeline/syntax/#environment)                  | [`jobs.<job_id>.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#env) <br> [`jobs.<job_id>.steps.env`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepsenv)                                                                                                                                                                                                                                                                                                 |
 | [`options`](https://jenkins.io/doc/book/pipeline/syntax/#parameters)                       | [`jobs.<job_id>.strategy`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy) <br> [`jobs.<job_id>.strategy.fail-fast`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategyfail-fast) <br> [`jobs.<job_id>.timeout-minutes`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idtimeout-minutes)                                                                                    |
@@ -71,17 +71,17 @@ Jenkinsは、_宣言的パイプライン_を管理するためにディレク�
 
 #### 並列なジョブの処理
 
-Jenkinsは`ステージ`と`ステップ`を並行して実行できますが、{{ site.data.variables.product.prodname_actions }}が並行に処理できるのは現時点ではジョブだけです。
+Jenkinsは`ステージ`と`ステップ`を並行して実行できますが、{% data variables.product.prodname_actions %}が並行に処理できるのは現時点ではジョブだけです。
 
-| Jenkinsの並列処理                                                        | {{ site.data.variables.product.prodname_actions }}                                                                                                                     |
+| Jenkinsの並列処理                                                        | {% data variables.product.prodname_actions %}                                                                                                                     |
 | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`parallel`](https://jenkins.io/doc/book/pipeline/syntax/#parallel) | [`jobs.<job_id>.strategy.max-parallel`](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymax-parallel) |
 
 #### ビルドマトリックス
 
-{{ site.data.variables.product.prodname_actions }}とJenkinsはどちらも、ビルドマトリックスを使って様々なシステムの組み合わせを定義できます。
+{% data variables.product.prodname_actions %}とJenkinsはどちらも、ビルドマトリックスを使って様々なシステムの組み合わせを定義できます。
 
-| Jenkins                                                                  | {{ site.data.variables.product.prodname_actions }}                                                                                                                                                             |
+| Jenkins                                                                  | {% data variables.product.prodname_actions %}                                                                                                                                                             |
 | ------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`axis`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-axes)       | [`strategy/matrix`](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix) <br> [`context`](/actions/reference/context-and-expression-syntax-for-github-actions) |
 | [`stages`](https://jenkins.io/doc/book/pipeline/syntax/#matrix-stages)   | [`steps-context`](/actions/reference/context-and-expression-syntax-for-github-actions#steps-context)                                                                                                           |
@@ -89,9 +89,9 @@ Jenkinsは`ステージ`と`ステップ`を並行して実行できますが、
 
 #### ステップを使ったタスクの実行
 
-Jenkinsは`ステップ`をまとめて`ステージ`にグループ化します。 それらの各ステップは、スクリプト、関数、コマンドなどです。 同様に、{{ site.data.variables.product.prodname_actions }}は`ジョブ`を使って特定の`ステップ`のグループを実行します。
+Jenkinsは`ステップ`をまとめて`ステージ`にグループ化します。 それらの各ステップは、スクリプト、関数、コマンドなどです。 同様に、{% data variables.product.prodname_actions %}は`ジョブ`を使って特定の`ステップ`のグループを実行します。
 
-| Jenkinsのステップ                                                    | {{ site.data.variables.product.prodname_actions }}                                                   |
+| Jenkinsのステップ                                                    | {% data variables.product.prodname_actions %}                                                   |
 | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | [`script`](https://jenkins.io/doc/book/pipeline/syntax/#script) | [`jobs.<job_id>.steps`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idsteps) |
 
@@ -105,7 +105,7 @@ Jenkinsは`ステップ`をまとめて`ステージ`にグループ化します
 Jenkinsのパイプライン
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}のワークフロー
+{% data variables.product.prodname_actions %}のワークフロー
 </th>
 </tr>
 <tr>
@@ -141,7 +141,7 @@ Jenkinsのパイプライン
 Jenkinsのパイプライン
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}のワークフロー
+{% data variables.product.prodname_actions %}のワークフロー
 </th>
 </tr>
 <tr>
@@ -179,7 +179,7 @@ Jenkinsのパイプライン
 Jenkinsのパイプライン
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}のワークフロー
+{% data variables.product.prodname_actions %}のワークフロー
 </th>
 </tr>
 <tr>
@@ -222,7 +222,7 @@ Jenkinsのパイプライン
 Jenkinsのパイプライン
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}のワークフロー
+{% data variables.product.prodname_actions %}のワークフロー
 </th>
 </tr>
 <tr>

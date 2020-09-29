@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-Muchos archivos se pueden [renombrar directamente en {{ site.data.variables.product.product_name }}](/articles/renaming-a-file), pero algunos, como las imágenes, requieren que los renombres desde la línea de comando.
+Muchos archivos se pueden [renombrar directamente en {% data variables.product.product_name %}](/articles/renaming-a-file), pero algunos, como las imágenes, requieren que los renombres desde la línea de comando.
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Renombra el archivo, especificando el nombre de archivo antiguo y el nombre de archivo nuevo que le quieres asignar. Esto preparará tu cambio para la confirmación.
   ```shell
   $ git mv <em>old_filename</em> <em>new_filename</em>
@@ -28,13 +28,13 @@ Muchos archivos se pueden [renombrar directamente en {{ site.data.variables.prod
   > #     renamed: <em>old_filename</em> -> <em>new_filename</em>
   > #
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Rename file"
   # Commits the tracked changes and prepares them to be pushed to a remote repository.
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### Leer más
 - "[Mover un archivo a una ubicación nueva mediante la línea de comando](/articles/moving-a-file-to-a-new-location-using-the-command-line)"

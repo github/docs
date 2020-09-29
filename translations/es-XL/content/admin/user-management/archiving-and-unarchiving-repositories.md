@@ -9,20 +9,20 @@ versions:
 ---
 
 ### Archivar un repositorio
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. En la Zona de peligro, haz clic en **Archivar**. ![Botón Archivar](/assets/images/enterprise/site-admin-settings/repo-archive.png)
 6. Haz clic en **Archivar repositorio** ![Botón Archivar repositorio](/assets/images/enterprise/site-admin-settings/repo-archive-confirm.png)
 
 ### Desarchivar un repositorio
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. En la Zona de peligro, haz clic en **Desarchivar**. ![Botón Archivar](/assets/images/enterprise/site-admin-settings/repo-unarchive.png)
 6. Haz clic en **Desarchivar repositorio**. ![Botón Archivar repositorio](/assets/images/enterprise/site-admin-settings/repo-unarchive-confirm.png)
 

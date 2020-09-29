@@ -1,6 +1,6 @@
 ---
 title: Configurar alta disponibilidade de replicação de um cluster
-intro: 'Você pode configurar uma réplica passiva de todo o seu cluster de {{ site.data.variables.product.prodname_ghe_server }} em um local diferente, permitindo que o seu cluster falhe em nós redundantes.'
+intro: 'Você pode configurar uma réplica passiva de todo o seu cluster de {% data variables.product.prodname_ghe_server %} em um local diferente, permitindo que o seu cluster falhe em nós redundantes.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
@@ -10,11 +10,11 @@ versions:
 
 ### Sobre a alta disponibilidade de replicação de clusters
 
-Você pode configurar uma implantação de cluster de {{ site.data.variables.product.prodname_ghe_server }} para alta disponibilidade, em que um conjunto idêntico de nós passivos estejam sincronizados com os nós no seu cluster ativo. Se falhas no hardware ou software afetarem o centro de dados com o seu cluster ativo, você pode gerar uma falha manualmente nos nós de réplica e continuar processando solicitações de usuário sem perda de dados.
+Você pode configurar uma implantação de cluster de {% data variables.product.prodname_ghe_server %} para alta disponibilidade, em que um conjunto idêntico de nós passivos estejam sincronizados com os nós no seu cluster ativo. Se falhas no hardware ou software afetarem o centro de dados com o seu cluster ativo, você pode gerar uma falha manualmente nos nós de réplica e continuar processando solicitações de usuário sem perda de dados.
 
 Em modo de alta disponibilidade, cada nó ativo é sincronizado regularmente com um nó passivo correspondente. O nó passivo é executado em modo de espera e não atende a aplicativos nem processa solicitações de usuário.
 
-Recomendamos configurar uma alta disponibilidade como parte de um plano de recuperação de desastres abrangente para {{ site.data.variables.product.prodname_ghe_server }}. Também recomendamos realizar backups regulares. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)".
+Recomendamos configurar uma alta disponibilidade como parte de um plano de recuperação de desastres abrangente para {% data variables.product.prodname_ghe_server %}. Também recomendamos realizar backups regulares. Para obter mais informações, consulte "[Configurar backups no appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)".
 
 ### Pré-requisitos
 
@@ -22,11 +22,11 @@ Recomendamos configurar uma alta disponibilidade como parte de um plano de recup
 
 Para cada nó existente no seu cluster ativo, você precisará fornecer uma segunda máquina virtual com recursos de hardware idênticos. Por exemplo, se seu cluster tiver 11 nós e cada nó tem 12 vCPUs, 96 GB de RAM e 750 GB de armazenamento anexado, você deverá fornecer 11 novas máquinas virtuais, tendo cada uma 12 vCPUs, 64 GB de RAM e 750 GB de armazenamento anexado.
 
-Em cada nova máquina virtual, instale a mesma versão do {{ site.data.variables.product.prodname_ghe_server }} que é executada nos nós do seu cluster ativo. Você não precisa fazer o upload de uma licença ou executar qualquer configuração adicional. Para obter mais informações, consulte "[Configurar instância do {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)".
+Em cada nova máquina virtual, instale a mesma versão do {% data variables.product.prodname_ghe_server %} que é executada nos nós do seu cluster ativo. Você não precisa fazer o upload de uma licença ou executar qualquer configuração adicional. Para obter mais informações, consulte "[Configurar instância do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)".
 
 {% note %}
 
-**Observação**: Os nós que você pretende usar para alta disponibilidade devem ser instâncias independentes de {{ site.data.variables.product.prodname_ghe_server }}. Não inicialize os nós passivos como um segundo cluster.
+**Observação**: Os nós que você pretende usar para alta disponibilidade devem ser instâncias independentes de {% data variables.product.prodname_ghe_server %}. Não inicialize os nós passivos como um segundo cluster.
 
 {% endnote %}
 
@@ -46,9 +46,9 @@ Não recomendamos configurar um firewall entre a rede com o seu cluster ativo e 
 
 Antes de definir um centro de dados secundário para seus nós passivos, certifique-se de atribuir seus nós ativos para o centro de dados primário.
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-{{ site.data.reusables.enterprise_clustering.open-configuration-file }}
+{% data reusables.enterprise_clustering.open-configuration-file %}
 
 3. Observe o nome do centro de dados primário do seu cluster. A seção `[cluster]` na parte superior do arquivo de configuração do cluster define o nome do centro de dados primário, usando o par de chave-valor `primary-datacenter`. Por padrão, o centro de dados primário para o seu cluster é denominado `padrão`.
 
@@ -61,11 +61,11 @@ Antes de definir um centro de dados secundário para seus nós passivos, certifi
 
     - Opcionalmente, altere o nome do centro de dados primário para algo mais descritivo ou preciso, editando o valor do `primary-datacenter`.
 
-4. {{ site.data.reusables.enterprise_clustering.configuration-file-heading }} Embaixo do cabeçalho de cada nó, adicione um novo par chave-valor para atribuir o nó a um centro de dados. Use o mesmo valor do `primary-datacenter` da etapa 3 acima. Por exemplo, se você quiser usar o nome-padrão (`padrão`) adicionar o seguinte par de chave-valor à seção para cada nó.
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} Embaixo do cabeçalho de cada nó, adicione um novo par chave-valor para atribuir o nó a um centro de dados. Use o mesmo valor do `primary-datacenter` da etapa 3 acima. Por exemplo, se você quiser usar o nome-padrão (`padrão`) adicionar o seguinte par de chave-valor à seção para cada nó.
 
       centro de dados = padrão
 
-    Ao concluir, a seção para cada nó no arquivo de configuração de cluster deve parecer-se com o exemplo a seguir. {{ site.data.reusables.enterprise_clustering.key-value-pair-order-irrelevant }}
+    Ao concluir, a seção para cada nó no arquivo de configuração de cluster deve parecer-se com o exemplo a seguir. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
   ```shell
   [cluster "<em>HOSTNAME</em>"]
@@ -84,11 +84,11 @@ Antes de definir um centro de dados secundário para seus nós passivos, certifi
 
   {% endnote %}
 
-{{ site.data.reusables.enterprise_clustering.apply-configuration }}
+{% data reusables.enterprise_clustering.apply-configuration %}
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
-Após {{ site.data.variables.product.prodname_ghe_server }} encaminhar você para a instrução, isso significa que você terminou de atribuir seus nós para o centro de dados primário do cluster.
+Após {% data variables.product.prodname_ghe_server %} encaminhar você para a instrução, isso significa que você terminou de atribuir seus nós para o centro de dados primário do cluster.
 
 #### Adicionar nós passivos ao arquivo de configuração do cluster
 
@@ -101,7 +101,7 @@ Para configurar a alta disponibilidade, você deve definir um nó passivo corres
 
 Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#example-configuration)'.
 
-1. Para cada nó no seu cluster, forneça uma máquina virtual correspondente com especificações idênticas, executando a mesma versão do  {{ site.data.variables.product.prodname_ghe_server }}. Observe o endereço de host e endereço IPv4 para cada novo nó de cluster. Para obter mais informações, consulte "[Pré-requisitos](#prerequisites)".
+1. Para cada nó no seu cluster, forneça uma máquina virtual correspondente com especificações idênticas, executando a mesma versão do  {% data variables.product.prodname_ghe_server %}. Observe o endereço de host e endereço IPv4 para cada novo nó de cluster. Para obter mais informações, consulte "[Pré-requisitos](#prerequisites)".
 
   {% note %}
 
@@ -109,7 +109,7 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 
   {% endnote %}
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 3. Faça o backup da sua configuração de cluster existente.
    
@@ -143,7 +143,7 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
         sudo vim ~/cluster-passive.conf
     ```
 
-9. Em cada seção dentro do arquivo de configuração temporária, atualize as configurações do nó. {{ site.data.reusables.enterprise_clustering.configuration-file-heading }}
+9. Em cada seção dentro do arquivo de configuração temporária, atualize as configurações do nó. {% data reusables.enterprise_clustering.configuration-file-heading %}
 
     - Altere o nome de host citado no cabeçalho da seção e o valor para `hostname` dentro da seção para o nome do host do nó passivo pelo padrão escolhido na etapa 7 acima.
     - Adicione uma nova chave denominada `ipv4` e defina o valor para o endereço IPv4 estático do nó passivo.
@@ -198,21 +198,21 @@ Para uma exemplo de configuração, consulte "[Exemplo de Configuração'](#exam
 
   {% endwarning %}
 
-13. Inicializar a nova configuração de cluster. {{ site.data.reusables.enterprise.use-a-multiplexer }}
+13. Inicializar a nova configuração de cluster. {% data reusables.enterprise.use-a-multiplexer %}
 
     ```shell
     ghe-cluster-config-init
     ```
 
-14. Após a conclusão da inicialização , {{ site.data.variables.product.prodname_ghe_server }} exibirá a seguinte mensagem.
+14. Após a conclusão da inicialização , {% data variables.product.prodname_ghe_server %} exibirá a seguinte mensagem.
 
     ```shell
         Inicialização de cluster concluída
     ```
 
-{{ site.data.reusables.enterprise_clustering.apply-configuration }}
+{% data reusables.enterprise_clustering.apply-configuration %}
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
 17. Configure um balanceador de carga que aceitará conexões de usuários se você gerar uma falha para os nós passivos. Para obter mais informações, consulte "[Configuração de rede de cluster](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)".
 
@@ -260,7 +260,7 @@ A configuração para um nó ativo no nível de armazenamento do seu grupo deve 
 A configuração para o nó passivo correspondente no nível de armazenamento deve parecer-se com o seguinte exemplo.
 
 - Diferenças importantes do nó ativo correspondente estão em **negrito**.
-- {{ site.data.variables.product.prodname_ghe_server }} atribui valores para `vpn`, `uuid` e `wireguard-pubkey` automaticamente. Portanto, você não deve definir os valores para nós passivos que você inicializar.
+- {% data variables.product.prodname_ghe_server %} atribui valores para `vpn`, `uuid` e `wireguard-pubkey` automaticamente. Portanto, você não deve definir os valores para nós passivos que você inicializar.
 - As funções do servidor, definidas pelas chaves `*-server`, correspondem ao nó ativo correspondente.
 
 ```shell
@@ -288,9 +288,9 @@ A configuração para o nó passivo correspondente no nível de armazenamento de
 
 ### Monitoramento de replicação entre nós de cluster ativos e passivos
 
-A replicação inicial entre os nós ativos e passivos do seu cluster leva tempo. A quantidade de tempo depende da quantidade de dados para a replicação e dos níveis de atividade para {{ site.data.variables.product.prodname_ghe_server }}.
+A replicação inicial entre os nós ativos e passivos do seu cluster leva tempo. A quantidade de tempo depende da quantidade de dados para a replicação e dos níveis de atividade para {% data variables.product.prodname_ghe_server %}.
 
-Você pode monitorar o progresso em qualquer nó do cluster, usando ferramentas de linha de comando disponíveis através do shell administrativo do {{ site.data.variables.product.prodname_ghe_server }}. Para obter mais informações sobre o shell administrativa, consulte "[Acessar o shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)".
+Você pode monitorar o progresso em qualquer nó do cluster, usando ferramentas de linha de comando disponíveis através do shell administrativo do {% data variables.product.prodname_ghe_server %}. Para obter mais informações sobre o shell administrativa, consulte "[Acessar o shell administrativo (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)".
 
 - Monitorar replicação dos bancos de dados:
   
@@ -327,19 +327,19 @@ O processo de reconfiguração de alta disponibilidade é idêntico à configura
 
 ### Desabilitar a replicação de alta disponibilidade para um cluster
 
-Você pode parar a replicação nos nós passivos para a sua implantação de cluster de {{ site.data.variables.product.prodname_ghe_server }}.
+Você pode parar a replicação nos nós passivos para a sua implantação de cluster de {% data variables.product.prodname_ghe_server %}.
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-{{ site.data.reusables.enterprise_clustering.open-configuration-file }}
+{% data reusables.enterprise_clustering.open-configuration-file %}
 
 3. Na seção de nível superior `[cluster]`, exclua os pares de chave-valor `mysql-auto-failover`, `redis-master-replica` e `mysql-master-replica`.
 
 4. Exclua cada seção para um nó passivo. Para nódulos passivos, a `réplica` é configurada como </code>habilitada.</p></li>
 </ol>
 
-<p spaces-before="0">{{ site.data.reusables.enterprise_clustering.apply-configuration }}</p>
+<p spaces-before="0">{% data reusables.enterprise_clustering.apply-configuration %}</p>
 
-<p spaces-before="0">{{ site.data.reusables.enterprise_clustering.configuration-finished }}</p>
+<p spaces-before="0">{% data reusables.enterprise_clustering.configuration-finished %}</p>
 
-<p spaces-before="0">Após {{ site.data.variables.product.prodname_ghe_server }} encaminhar você para a instrução, isso significa que você terminou de desabilitar a replicação de alta disponibilidade.</p>
+<p spaces-before="0">Após {% data variables.product.prodname_ghe_server %} encaminhar você para a instrução, isso significa que você terminou de desabilitar a replicação de alta disponibilidade.</p>

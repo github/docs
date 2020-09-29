@@ -29,7 +29,7 @@ versions:
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
 - 「[混乱を生むコメントを管理する](/articles/managing-disruptive-comments)」{% if currentVersion == "free-pro-team@latest" %}
-- 「[{{ site.data.variables.product.prodname_dotcom }} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
+- 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
 - [悪用あるいはスパムのレポート](/articles/reporting-abuse-or-spam)
 - 「[リポジトリでのインタラクションを制限する](/github/building-a-strong-community/limiting-interactions-in-your-repository)」
 {% endif %}

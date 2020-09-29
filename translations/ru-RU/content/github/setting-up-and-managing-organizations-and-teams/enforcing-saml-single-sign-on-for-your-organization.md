@@ -1,7 +1,7 @@
 ---
 title: Enforcing SAML single sign-on for your organization
 intro: Organization owners and admins can enforce SAML SSO so that all organization members must authenticate via an identity provider.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
 versions:
@@ -14,7 +14,7 @@ If your organization is owned by an enterprise account, enabling SAML for the en
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.saml.testing-saml-sso }}
+**Tip:** {% data reusables.saml.testing-saml-sso %}
 
 {% endtip %}
 

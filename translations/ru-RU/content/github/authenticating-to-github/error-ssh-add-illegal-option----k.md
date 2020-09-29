@@ -21,7 +21,7 @@ To add your SSH private key to the ssh-agent, you can specify the path to the Ap
 
 {% note %}
 
-**Note:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**Note:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

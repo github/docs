@@ -1,7 +1,7 @@
 ---
 title: Enterprise アカウントで Organization の監査ログを見る
 intro: Enterprise オーナーは、Enterprise アカウントが所有するすべての Organization からのアクションが集約された Audit log を表示できます。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
   - /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -20,6 +20,6 @@ versions:
 
 Audit log で特定のイベントを検索したり、Audit log データをエクスポートしたりできます。 Audit log の検索と特定の Organization イベントの詳細については、「[Organization の Audit log をレビューする](/articles/reviewing-the-audit-log-for-your-organization)」を参照してください。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}

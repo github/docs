@@ -47,5 +47,5 @@ Wir nutzen [Linguist](https://github.com/github/linguist), um die Spracherkennun
 
 ### Weiterführende Informationen
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax)“

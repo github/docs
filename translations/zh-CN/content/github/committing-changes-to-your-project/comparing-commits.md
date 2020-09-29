@@ -34,11 +34,11 @@ versions:
 
 ### 比较提交
 
-您还可以在 {{ site.data.variables.product.prodname_dotcom }} 上通过两点差异比较来比较仓库或其复刻中的任意两个提交。
+您还可以在 {% data variables.product.prodname_dotcom %} 上通过两点差异比较来比较仓库或其复刻中的任意两个提交。
 
-要在 {{ site.data.variables.product.prodname_dotcom }} 上通过两点差异比较来快速比较两个提交或直接比较 Git 对象 ID (OID)，请编辑仓库“Comparing changes（比较更改）”页面的 URL。
+要在 {% data variables.product.prodname_dotcom %} 上通过两点差异比较来快速比较两个提交或直接比较 Git 对象 ID (OID)，请编辑仓库“Comparing changes（比较更改）”页面的 URL。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 有关其他比较选项的更多信息，请参阅“[三点和两点差异比较](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)”。
 

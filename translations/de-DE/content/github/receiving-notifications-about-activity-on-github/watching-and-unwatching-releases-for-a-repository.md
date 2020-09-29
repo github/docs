@@ -7,12 +7,12 @@ versions:
 
 ### Releases für ein Repository beobachten
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Klicke in der oberen rechten Ecke im Dropdownmenü „Watch“ (Beobachten) auf **Releases only** (Nur Releases). ![Beobachtungsoptionen in einem Dropdownmenü für Releases](/assets/images/help/notifications/watch-releases.png)
 
 ### Beobachtungen für die Releases eines Repositorys kündigen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Klicke in der oberen rechten Ecke im Dropdownmenü „Watch“ (Beobachten) auf **Not watching** (Nicht beobachten). ![Beobachtungsoptionen in einem Dropdownmenü für Releases](/assets/images/help/notifications/unwatch-repository.png)
 
 ### Weiterführende Informationen

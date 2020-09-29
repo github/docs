@@ -1,7 +1,7 @@
 ---
 title: Inhabilitar las wikis
 intro: Puedes inhabilitar las wikis de tu repositorio.
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/disabling-wikis
 versions:
@@ -11,8 +11,8 @@ versions:
 
 Cuando desactivas una wiki, su contenido se oculta pero no se borra. Si eliges habilitar nuevamente las wikis en el futuro, se restaurarán tus páginas anteriores.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En Características, quita la marca de selección de **Wiki**. ![Casilla de verificación para inhabilitar wikis](/assets/images/help/wiki/wiki_enable_disable.png)
 
 ### Leer más

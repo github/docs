@@ -1,18 +1,18 @@
 ---
 title: Fazer push e pull das imagens do Docker
-intro: 'Você pode armazenar e gerenciar imagens de Docker em {{ site.data.variables.product.prodname_github_container_registry }}.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'Você pode armazenar e gerenciar imagens de Docker em {% data variables.product.prodname_github_container_registry %}.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.package_registry.container-registry-beta }}
+{% data reusables.package_registry.container-registry-beta %}
 
-Para fazer push e pull das imagens de contêiner pertencentes a uma organização, um administrador da organização deve habilitar o {{ site.data.variables.product.prodname_github_container_registry }} para a organização. Para obter mais informações, consulte "[Habilitar o GitHub Container Registry para sua organização](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)".
+Para fazer push e pull das imagens de contêiner pertencentes a uma organização, um administrador da organização deve habilitar o {% data variables.product.prodname_github_container_registry %} para a organização. Para obter mais informações, consulte "[Habilitar o GitHub Container Registry para sua organização](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)".
 
-### Autenticar-se no {{ site.data.variables.product.prodname_github_container_registry }}
+### Autenticar-se no {% data variables.product.prodname_github_container_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-to-container-registry }}
+{% data reusables.package_registry.authenticate-to-container-registry %}
 
 ### Fazer push das imagens do contêiner
 

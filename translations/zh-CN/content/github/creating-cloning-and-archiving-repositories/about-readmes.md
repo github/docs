@@ -19,13 +19,13 @@ versions:
 - 用户能从何处获取项目的帮助
 - 谁维护和参与项目
 
-如果将自述文件放在仓库的根目录 `docs` 或隐藏的目录 `.github` 中，{{ site.data.variables.product.product_name }} 将会识别您的自述文件并自动向仓库访问者显示。
+如果将自述文件放在仓库的根目录 `docs` 或隐藏的目录 `.github` 中，{% data variables.product.product_name %} 将会识别您的自述文件并自动向仓库访问者显示。
 
 ![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +33,11 @@ versions:
 
 ### 自述文件和 blob 页面中的章节链接
 
-许多项目使用目录和自述文件的开头将用户导向文件的不同章节。 {{ site.data.reusables.repositories.section-links }}
+许多项目使用目录和自述文件的开头将用户导向文件的不同章节。 {% data reusables.repositories.section-links %}
 
 ### 自述文件中的相对链接和图像路径
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### 延伸阅读
 

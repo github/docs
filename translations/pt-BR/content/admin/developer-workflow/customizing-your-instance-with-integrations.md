@@ -1,6 +1,6 @@
 ---
 title: Personalizar sua instância com integrações
-intro: 'Você pode integrar aplicativos de terceiros à {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Você pode integrar aplicativos de terceiros à {% data variables.product.product_location_enterprise %}.'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/customizing-your-instance-with-integrations

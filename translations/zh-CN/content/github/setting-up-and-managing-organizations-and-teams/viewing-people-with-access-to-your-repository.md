@@ -1,6 +1,6 @@
 ---
 title: 查看具有仓库访问权限的人员
-intro: '组织所有者可以查看人员对组织内仓库的访问权限。 使用 {{ site.data.variables.product.prodname_ghe_cloud }} 或 {{ site.data.variables.product.prodname_ghe_server }} 的组织所有者还可导出具有仓库访问权限人员的 CSV 列表。'
+intro: '组织所有者可以查看人员对组织内仓库的访问权限。 使用 {% data variables.product.prodname_ghe_cloud %} 或 {% data variables.product.prodname_ghe_server %} 的组织所有者还可导出具有仓库访问权限人员的 CSV 列表。'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
 versions:
@@ -22,15 +22,15 @@ versions:
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 
 ### 导出具有您的仓库访问权限人员的列表
 
-{{ site.data.variables.product.prodname_ghe_cloud }} 或 {{ site.data.variables.product.prodname_ghe_server }} 上的组织所有者可以导出具有仓库访问权限人员的 CSV 列表。
+{% data variables.product.prodname_ghe_cloud %} 或 {% data variables.product.prodname_ghe_server %} 上的组织所有者可以导出具有仓库访问权限人员的 CSV 列表。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 4. 单击 **Export CSV（导出 CSV）**。 ![仓库边栏中的人员选项卡](/assets/images/help/repository/export-repository-permissions.png)

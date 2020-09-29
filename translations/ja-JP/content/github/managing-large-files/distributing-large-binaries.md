@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-リポジトリ内で大きなファイルを配布する必要がある場合は、{{site.data.variables.product.product_location }}でリリースを作成できます。 リリースでは、他の人が使用できるように、ソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージ化できます。 詳細は「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。
+リポジトリ内で大きなファイルを配布する必要がある場合は、{% data variables.product.product_location %}でリリースを作成できます。 リリースでは、他の人が使用できるように、ソフトウェア、リリースノート、バイナリファイルへのリンクをパッケージ化できます。 詳細は「[リリースについて](/github/administering-a-repository/about-releases)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-リリース内のバイナリファイルの合計サイズや、それらの配布に使用される帯域は制限されません。 ただし、個々のファイルは{{ site.data.variables.large_files.max_lfs_size }}未満でなければなりません。
+リリース内のバイナリファイルの合計サイズや、それらの配布に使用される帯域は制限されません。 ただし、個々のファイルは{% data variables.large_files.max_lfs_size %}未満でなければなりません。
 
 {% endif %}
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}

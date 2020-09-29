@@ -1,6 +1,6 @@
 ---
 title: Publicizing or hiding your private contributions on your profile
-intro: 'Your {{ site.data.variables.product.product_name }} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from private repositories in addition to the activity shown from public repositories.'
+intro: 'Your {% data variables.product.product_name %} profile shows a graph of your repository contributions over the past year. You can choose to show anonymized activity from private repositories in addition to the activity shown from public repositories.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
@@ -14,7 +14,7 @@ If you publicize your private contributions, people without access to the privat
 
 By default, visitors only see public contributions on your profile.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Publicize or hide your private contributions on your profile:
     - To publicize your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and select **Private contributions**. Visitors will see your private contribution counts without further details.
   ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-on.png)

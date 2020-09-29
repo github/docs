@@ -1,1 +1,1 @@
-1. 在 {{ site.data.variables.product.product_name }} 上，导航到组织的主页面。
+1. 在 {% data variables.product.product_name %} 上，导航到组织的主页面。

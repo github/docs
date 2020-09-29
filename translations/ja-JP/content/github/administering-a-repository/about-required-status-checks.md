@@ -1,7 +1,7 @@
 ---
 title: 必須ステータスチェックについて
 intro: 必須ステータスチェックにより、コラボレータが保護されたブランチに変更を加える前に、すべての必須 CI テストにパスしていることが保証されます。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
@@ -19,7 +19,7 @@ versions:
 
 {% tip %}
 
-**注釈:** リポジトリへの書き込み権限があるユーザまたはインテグレーションなら誰でも、リポジトリのステータスチェックを任意のステータスに設定できます。 {{ site.data.variables.product.product_name }} は、チェックの作者が、特定の名前でチェックを作成したり、既存のステータスを変更したりする権限を持っているかを確認しません。 プルリクエストをマージする前に、マージボックスにリストされている各ステータスの作者が想定された人物であることを確認する必要があります。
+**注釈:** リポジトリへの書き込み権限があるユーザまたはインテグレーションなら誰でも、リポジトリのステータスチェックを任意のステータスに設定できます。 {% data variables.product.product_name %} は、チェックの作者が、特定の名前でチェックを作成したり、既存のステータスを変更したりする権限を持っているかを確認しません。 プルリクエストをマージする前に、マージボックスにリストされている各ステータスの作者が想定された人物であることを確認する必要があります。
 
 {% endtip %}
 

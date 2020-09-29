@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-intro: 'Este guia descreve os métodos de autenticação para usuários que fazem login na sua instância do {{ site.data.variables.product.prodname_enterprise }}, além de mostrar como criar organizações e equipes para acesso e colaboração nos repositórios, bem como sugerir práticas recomendadas para a segurança do usuário.'
+intro: 'Este guia descreve os métodos de autenticação para usuários que fazem login na sua instância do {% data variables.product.prodname_enterprise %}, além de mostrar como criar organizações e equipes para acesso e colaboração nos repositórios, bem como sugerir práticas recomendadas para a segurança do usuário.'
 versions:
   enterprise-server: '*'
 ---

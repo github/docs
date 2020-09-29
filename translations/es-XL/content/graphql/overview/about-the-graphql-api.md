@@ -1,6 +1,6 @@
 ---
 title: Acerca de la API de GraphQL
-intro: 'La API de GraphQL de {{ site.data.variables.product.prodname_dotcom }} ofrece flexibilidad y la capacidad de definir precisamente los datos que quieres recuperar.'
+intro: 'La API de GraphQL de {% data variables.product.prodname_dotcom %} ofrece flexibilidad y la capacidad de definir precisamente los datos que quieres recuperar.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -38,7 +38,7 @@ Para obtener más detalles acerca de por qué GitHub se ha migrado a GraphQL, co
 
 ### Acerca de la referencia del modelo de GraphQL
 
-Los documentos en la barra lateral se generan del [modelo](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) de GraphQL de {{ site.data.variables.product.prodname_dotcom }}. Todas las llamadas se validan y ejecutan contra el modelo. Utiliza estos documentos para encontrar los datos a los que puedes llamar:
+Los documentos en la barra lateral se generan del [modelo](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) de GraphQL de {% data variables.product.prodname_dotcom %}. Todas las llamadas se validan y ejecutan contra el modelo. Utiliza estos documentos para encontrar los datos a los que puedes llamar:
 
 * Operaciones permitidas: [consultas](/v4/query) y [mutaciones](/v4/mutation).
 
@@ -50,4 +50,4 @@ Para obtener otro tipo de información, tal como los detalles de autenticación 
 
 ### Solicitar soporte
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}

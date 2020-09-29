@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-3. In the left sidebar, click **{{ site.data.variables.product.prodname_oauth_app }}s**.
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+3. In the left sidebar, click **{% data variables.product.prodname_oauth_app %}s**.
 ![{ site.data.variables.product.prodname_oauth_app }}s tab in the left sidebar](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. Click **Register a new application**.
 4. Under **Application name**, type "Jira".
@@ -19,7 +19,7 @@ versions:
 ![Register application button](/assets/images/help/oauth/register-application-button.png)
 8. Under **Developer applications**, note the "Client ID" and "Client Secret" values.
 ![Client ID and Client Secret](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### Further reading
 

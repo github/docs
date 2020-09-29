@@ -19,19 +19,19 @@ Para obtener información sobre cómo promover un usuario a un propietario de la
 
 ### Promover un usuario desde los parámetros de empresa
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 5. En la esquina superior derecha de la página, haz clic en **Agregar propietario**. ![Botón para agregar un administrador](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. En el campo Buscar, escribe el nombre del usuario y haz clic en **Agregar**. ![Campo de búsqueda para agregar un administrador](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
 ### Degradar un administrador del sitio desde los parámetros de empresa
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. En la esquina superior izquierda de la página, en el campo de búsqueda "Find an administrator" (Encontrar un administrador), escribe el nombre de usuario de la persona que deseas degradar. ![Campo de búsqueda para encontrar un administrador](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
 1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**. ![Eliminar de la opción de empresa](/assets/images/help/business-accounts/demote-admin-button.png)

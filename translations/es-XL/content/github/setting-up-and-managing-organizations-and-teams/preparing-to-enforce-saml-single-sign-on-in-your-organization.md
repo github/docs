@@ -1,7 +1,7 @@
 ---
 title: Prepararse para aplicar el inicio de sesión único SAML en tu organización
 intro: 'Antes de aplicar el inicio de sesión único de SAML en tu organización, deberías verificar la membresía de tu organización y configurar las configuraciones de conexión para tu proveedor de identidad.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
@@ -16,7 +16,7 @@ Antes de aplicar un SSO de SAML en tu organización, deberías:
 - Si no lo has hecho, conectar tu IdP a tu organización. Para obtener más información, consulta "[Conectar tu proveedor de identidad a tu organización](/articles/connecting-your-identity-provider-to-your-organization)."
 - Asegurar que los miembros de tu organización se hayan registrado y hayan vinculado sus cuentas con tu IdP.
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 ### Leer más
 

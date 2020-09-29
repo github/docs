@@ -1,2 +1,2 @@
-1. In the left sidebar, click **{{ site.data.variables.product.prodname_dotcom_the_website }} connection**.
+1. In the left sidebar, click **{% data variables.product.prodname_dotcom_the_website %} connection**.
   ![GitHub.com connection tab in the business account settings sidebar](/assets/images/enterprise/business-accounts/settings-github-dotcom-connection-tab.png)

@@ -1,1 +1,1 @@
-1. Configure your publishing source. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {{ site.data.variables.product.prodname_pages }}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".
+1. Configure your publishing source. Para obter mais informações, consulte "[Configurar uma fonte de publicação para seu site do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)".

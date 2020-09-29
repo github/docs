@@ -22,7 +22,7 @@ Wenn Du eine Einladung annimmst, einer Organisation beizutreten, können die Inh
 - Das Land der Antragstellung
 - Deine IP-Adresse
 
-Weitere Informationen findest Du in der <a href="/articles/github-privacy-statement/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }}-Datenschutzerklärung</a>.
+Weitere Informationen findest Du in der <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %}-Datenschutzerklärung</a>.
 
   {% note %}
 

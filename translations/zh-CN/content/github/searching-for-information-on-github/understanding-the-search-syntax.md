@@ -1,6 +1,6 @@
 ---
 title: 了解搜索语法
-intro: '搜索 {{ site.data.variables.product.product_name }} 时，您可以构建匹配特定数字和单词的查询。'
+intro: '搜索 {% data variables.product.product_name %} 时，您可以构建匹配特定数字和单词的查询。'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
@@ -37,7 +37,7 @@ versions:
 
 ### 查询日期
 
-您可以通过使用 `>`、`>=`、`<`、`<=` 和[范围查询](#query-for-values-between-a-range)搜索早于或晚于另一个日期，或者位于日期范围内的日期。 {{ site.data.reusables.time_date.date_format }}
+您可以通过使用 `>`、`>=`、`<`、`<=` 和[范围查询](#query-for-values-between-a-range)搜索早于或晚于另一个日期，或者位于日期范围内的日期。 {% data reusables.time_date.date_format %}
 
 | 查询                         | 示例                                                                                                                                                                                    |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ versions:
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** 匹配在 2012 年 4 月 30 日之后创建、含有 "cats" 字样的议题。                        |
 | <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** 匹配在 2012 年 7 月 4 日之前创建、含有 "cats" 字样的议题。                         |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | 查询                         | 示例                                                                                                                                                                                                                                                                                                                                                                                                  |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### 使用用户名的查询
 
-如果搜索查询包含需要用户名的限定符，例如 `user`、`actor` 或 `assignee`，您可以使用任何 {{ site.data.variables.product.product_name }} 用户名指定特定人员，或使用 `@me` 指定当前用户。
+如果搜索查询包含需要用户名的限定符，例如 `user`、`actor` 或 `assignee`，您可以使用任何 {% data variables.product.product_name %} 用户名指定特定人员，或使用 `@me` 指定当前用户。
 
 | 查询                   | 示例                                                                                                            |
 | -------------------- | ------------------------------------------------------------------------------------------------------------- |

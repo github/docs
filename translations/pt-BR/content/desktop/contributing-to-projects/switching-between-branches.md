@@ -14,16 +14,16 @@ Se houver alterações salvas sem commit, você terá que decidir o que fazer co
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. Se você tiver alterações salvas sem commit, escolha entre **Leave my changes** (Deixar as alterações) ou **Bring my changes** (Levar as alterações) e clique em **Switch Branch** (Alternar branch). ![Alternar branch com opções de alteração](/assets/images/help/desktop/stash-changes-options.png)
 
 ### Recuperar alterações stashed
 Para acessar as alterações com stash em outro branch, volte para o branch em que foi feito o stash das alterações em questão.
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. Na barra lateral à esquerda, clique em **Stashed Changes** (Alterações stashed). ![Opção Stashed Changes (Alterações stashed)](/assets/images/help/desktop/stashed-changes.png)
 4. Para excluir as alterações stashed, clique em **Discard** (Descartar). Para usá-las, clique em **Restore** (Restaurar). ![Descartar ou restaurar alterações stashed](/assets/images/help/desktop/discard-restore-stash-buttons.png)

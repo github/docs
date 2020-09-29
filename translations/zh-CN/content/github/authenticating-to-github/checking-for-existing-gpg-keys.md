@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
@@ -16,8 +16,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
 3. 检查命令输出以查看是否有 GPG 密钥对。
     * 如果没有 GPG 密钥对，或者您不想使用任何可用于签名提交和标记的密钥对，则[生成新的 GPG 密钥](/articles/generating-a-new-gpg-key)。
     * 如果存在现有的 GPG 密钥对并且您要将其用于签名提交和标记，则[将 GPG 密钥添加到 GitHub 帐户](/articles/adding-a-new-gpg-key-to-your-github-account)。

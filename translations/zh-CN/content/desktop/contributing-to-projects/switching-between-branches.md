@@ -14,16 +14,16 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 如有已保存但未提交的更改，请选择 **Leave my changes（留下我的更改）**或 **Bring my changes（带上我的更改）**，然后单击 **Switch Branch（切换分支）**。 ![通过更改选项切换分支](/assets/images/help/desktop/stash-changes-options.png)
 
 ### 检索隐藏的更改
 要访问在另一个分支中隐藏的更改，请切换回隐藏更改的分支。
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 在左侧边栏中，单击 **Stashed Changes（隐藏的更改）**。 ![隐藏的更改选项](/assets/images/help/desktop/stashed-changes.png)
 4. 要删除隐藏的更改，请单击 **Discard（放弃）**，或者，要使用隐藏的更改，则单击 **Restore（恢复）**。 ![放弃或恢复隐藏的更改](/assets/images/help/desktop/discard-restore-stash-buttons.png)

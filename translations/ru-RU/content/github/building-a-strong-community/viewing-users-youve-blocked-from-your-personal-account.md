@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Under "Blocked users", review the list of users you've blocked from your account. ![List of blocked users](/assets/images/help/settings/list-of-blocked-users.png)
 
 ### Дополнительная литература

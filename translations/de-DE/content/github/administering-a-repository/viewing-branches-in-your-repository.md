@@ -1,6 +1,6 @@
 ---
 title: Branches in Deinem Repository anzeigen
-intro: 'Branches sind entscheidend für die Zusammenarbeit auf {{ site.data.variables.product.product_name }}. Sie lassen sich bestmöglich auf der Branches-Seite anzeigen.'
+intro: 'Branches sind entscheidend für die Zusammenarbeit auf {% data variables.product.product_name %}. Sie lassen sich bestmöglich auf der Branches-Seite anzeigen.'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. Mithilfe der im oberen Bereich der Seite befindlichen Navigation kannst Du spezifische Listen der Branches anzeigen:
     - **Your branches** (Deine Branches): In Repositorys, in denen Du Push-Berechtigung hast, zeigt die Ansicht **Yours** (Deine) alle Branches an, an die Du Elemente übertragen hast, wobei die neuesten Branches zuerst angezeigt werden.
     - **Active branches** (Aktive Branches): Die Ansicht **Active** (Aktiv) zeigt alle Branches an, zu denen in den letzten drei Monaten Commits beigetragen wurden, wobei die Branches mit den neuesten Commits zuerst angezeigt werden.

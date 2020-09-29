@@ -11,10 +11,10 @@ Qualquer pessoa com permissões de administrador em um repositório pode habilit
 
 ### Habilitar branches protegidos em um repositório
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Clique **Criar**.
 
 ### Tipos de verificações de status obrigatórias
@@ -27,16 +27,16 @@ Qualquer pessoa com permissões de administrador em um repositório pode habilit
 
 ### Habilitar verificações de status obrigatórias
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Selecione **Require status checks to pass before merging** (Exigir verificações de status para aprovação antes de fazer merge). ![Opção Required status checks (Verificações de status obrigatórias)](/assets/images/help/repository/required-status-checks.png)
 6. Na lista de verificações de status disponíveis, selecione aquelas que você deseja tornar obrigatórias. ![Lista de verificações de status disponíveis](/assets/images/help/repository/required-statuses-list.png)
-{{ site.data.reusables.repositories.include-administrators }}
+{% data reusables.repositories.include-administrators %}
 8. Outra opção é desmarcar **Require branches to be up to date before merging** (Exigir que os branches sejam atualizados antes de fazer merge). Se selecionada, isso garante que o branch foi testado com o código mais recente no branch básico. ![Caixa de seleção Status obrigatório rígido ou flexível](/assets/images/help/repository/protecting-branch-loose-status-new.png)
 9. Opcionalmente, selecione {% if currentVersion ver_gt "enterprise-server@2.18" %}**Restringir quem pode fazer push em branches correspondentes**{% else %}**Restringir quem pode fazer push neste branch**{% endif %}. ![Caixa de seleção restrição de branch]{% if currentVersion ver_gt "enterprise-server@2.18" %}(/assets/images/help/repository/restrict-branch.png){% else %}(/assets/images/help/repository/restrict-branch-push.png){% endif %}
 10. Pesquise e selecione as pessoas{% if currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion ver_gt "enterprise-server@2.18" %} ou apps{% endif %} que terão permissão para fazer push no branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
 11. Clique **Criar**.
 
-{{ site.data.reusables.repositories.required-status-merge-tip }}
+{% data reusables.repositories.required-status-merge-tip %}

@@ -24,7 +24,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 单击以打开您想要查看其行历史记录的文件。
 3. 在文件视图的右上角，单击 **Blame（追溯）**可打开追溯视图。 ![追溯按钮](/assets/images/help/repository/blame-button.png)
 4. 要查看特定行的早期修订，或重新追溯，请单击 {% octicon "versions" aria-label="The prior blame icon" %}，直至找到您有兴趣查看的更改。 ![追溯前按钮](/assets/images/help/repository/prior-blame-button.png)

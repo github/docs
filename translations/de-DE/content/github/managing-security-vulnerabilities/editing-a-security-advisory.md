@@ -15,15 +15,15 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 
 ### Einen Sicherheitshinweis bearbeiten
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Klicke in der Liste „Security Advisories“ (Sicherheitshinweise) auf den Hinweis, den Du bearbeiten möchtest.
 5. In the upper-right corner of the details for the security advisory, click
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![Schaltfläche „Edit" (Bearbeiten) für einen Sicherheitshinweis](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Optionally, edit the "Credits" for the security advisory. ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
 9. Klicke auf **Update security advisory** (Aktualisiere Sicherheitshinweis). ![Schaltfläche „Add“ (Hinzufügen)](/assets/images/help/security/update-advisory-button.png)
 10. The people listed in the "Credits" section will receive an email or web notification inviting them to accept credit. If a person accepts, their username will be publicly visible once the security advisory is published.

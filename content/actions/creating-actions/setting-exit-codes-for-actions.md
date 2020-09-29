@@ -1,8 +1,8 @@
 ---
 title: Setting exit codes for actions
 shortTitle: Setting exit codes
-intro: 'You can use exit codes to set the status of an action. {{ site.data.variables.product.prodname_dotcom }} displays statuses to indicate passing or failing actions.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'You can use exit codes to set the status of an action. {% data variables.product.prodname_dotcom %} displays statuses to indicate passing or failing actions.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/setting-exit-codes-for-actions
 versions:
@@ -10,12 +10,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About exit codes
 
-{{ site.data.variables.product.prodname_dotcom }} uses the exit code to set the action's check run status, which can be `success` or `failure`.
+{% data variables.product.prodname_dotcom %} uses the exit code to set the action's check run status, which can be `success` or `failure`.
 
 Exit status | Check run status | Description
 ------------|------------------|------------

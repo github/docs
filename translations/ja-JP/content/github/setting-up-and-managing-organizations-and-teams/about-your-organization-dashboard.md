@@ -10,13 +10,13 @@ versions:
 
 ### Organization ダッシュボードへのアクセス
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### 最近のアクティビティを見つける
 
 ニュースフィードの [Recent activity] セクションでは、Organization で最近更新された Issue やプルリクエストを素早く見つけてフォローアップできます。
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Organization 内のリポジトリを見つける
 

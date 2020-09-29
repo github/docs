@@ -1,7 +1,7 @@
 ---
 title: 发布 Node.js 包
 intro: 您可以将 Node.js 包发布到注册表，作为持续集成 (CI) 工作流程的一部分。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages
 versions:
@@ -9,23 +9,23 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 简介
 
-本指南介绍如何创建一个工作流程，以在持续集成 (CI) 测试通过后将 Node.js 包发布到 {{ site.data.variables.product.prodname_registry }} 和 npm 注册表。 通过单个工作流程，您可以将包发布到单个注册表或多个注册表。
+本指南介绍如何创建一个工作流程，以在持续集成 (CI) 测试通过后将 Node.js 包发布到 {% data variables.product.prodname_registry %} 和 npm 注册表。 通过单个工作流程，您可以将包发布到单个注册表或多个注册表。
 
 ### 基本要求
 
 建议基本了解工作流程配置选项和如何创建工作流程文件。 更多信息请参阅“[配置工作流程](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)。
 
-有关为 Node.js 项目创建 CI 工作流程的更多信息，请参阅“[将 Node.js 与 {{ site.data.variables.product.prodname_actions }} 一起使用](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)。”
+有关为 Node.js 项目创建 CI 工作流程的更多信息，请参阅“[将 Node.js 与 {% data variables.product.prodname_actions %} 一起使用](/actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions)。”
 
 您可能还发现基本了解以下内容是有帮助的：
 
-- "[{{ site.data.variables.product.prodname_actions }} 的核心概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
-- "[配置 npm 用于 {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- "[{% data variables.product.prodname_actions %} 的核心概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
+- "[配置 npm 用于 {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
 - "[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 - "[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)"
 - "[使用 GITHUB_TOKEN 验证身份](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)"
@@ -34,7 +34,7 @@ versions:
 
  *package.json* 文件中的 `name` 和 `version` 字段创建唯一标识符，供注册表用来将包链接到注册表。 您可以在 *package.json* 文件中添加 `description` 字段，从而为包列表页面添加一个摘要。 更多信息请参阅 npm 文档中的“[创建 package.json 文件](https://docs.npmjs.com/creating-a-package-json-file)”和“[创建 Node.js 模块](https://docs.npmjs.com/creating-node-js-modules)”。
 
-当本地 *.npmrc* 文件存在且指定了 `registry` 值时，`npm publish` 命令将使用 *.npmrc* 文件中配置的注册表。 {{ site.data.reusables.github-actions.setup-node-intro }}
+当本地 *.npmrc* 文件存在且指定了 `registry` 值时，`npm publish` 命令将使用 *.npmrc* 文件中配置的注册表。 {% data reusables.github-actions.setup-node-intro %}
 
 您可以使用 `setup-node` 操作指定运行器上安装的 Node.js 版本。
 
@@ -83,13 +83,13 @@ registry=https://registry.npmjs.org/
 always-auth=true
 ```
 
-### 发布包到 {{ site.data.variables.product.prodname_registry }}
+### 发布包到 {% data variables.product.prodname_registry %}
 
-每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件发生时运行。 如果 CI 测试通过，工作流程会将包发布到 {{ site.data.variables.product.prodname_registry }}。
+每次创建新版本时，都可以触发工作流程来发布包。 以下示例中的工作流程在类型为 `created` 的 `release` 事件发生时运行。 如果 CI 测试通过，工作流程会将包发布到 {% data variables.product.prodname_registry %}。
 
-默认情况下，{{ site.data.variables.product.prodname_registry }} 将包发布到您在 *package.json* 文件的 `name` 字段中指定的 {{ site.data.variables.product.prodname_dotcom }} 仓库。 例如，您要发布一个名为 `@my-org/test` 的包到 `my-org/test` {{ site.data.variables.product.prodname_dotcom }} 仓库。 更多信息请参阅 npm 文档中的 [`npm-scope`](https://docs.npmjs.com/misc/scope)。
+默认情况下，{% data variables.product.prodname_registry %} 将包发布到您在 *package.json* 文件的 `name` 字段中指定的 {% data variables.product.prodname_dotcom %} 仓库。 例如，您要发布一个名为 `@my-org/test` 的包到 `my-org/test` {% data variables.product.prodname_dotcom %} 仓库。 更多信息请参阅 npm 文档中的 [`npm-scope`](https://docs.npmjs.com/misc/scope)。
 
-要根据 {{ site.data.variables.product.prodname_registry }} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 `GITHUB_TOKEN` 默认存在于您的仓库中，并且对工作流程运行的仓库中的包具有读取和写入权限。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 `GITHUB_TOKEN` 默认存在于您的仓库中，并且对工作流程运行的仓库中的包具有读取和写入权限。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 此示例将 `GITHUB_TOKEN` 密码存储在 `NODE_AUTH_TOKEN` 环境变量中。 当 `setup-node` 操作创建 *.npmrc* 文件时，会引用 `NODE_AUTH_TOKEN` 环境变量中的令牌。
 
@@ -155,25 +155,25 @@ jobs:
 ```
 {% endraw %}
 
-### 发布包到 npm 和 {{ site.data.variables.product.prodname_registry }}
+### 发布包到 npm 和 {% data variables.product.prodname_registry %}
 
 {% note %}
 
-**注意：**如果需要发布到具有不同作用域前缀的注册表，则需修改运行器上的 *package.json* 文件以更改作用域前缀。 例如，如果将包发布到 npm 的 `@mona` 作用域和 {{ site.data.variables.product.prodname_registry }} 的 `@octocat` 作用域，则可在发布到 npm 之后和发布到 {{ site.data.variables.product.prodname_registry }} 之前，在运行器的 *package.json* 文件中将 `@mona` 作用域替换成 `@octocat`。
+**注意：**如果需要发布到具有不同作用域前缀的注册表，则需修改运行器上的 *package.json* 文件以更改作用域前缀。 例如，如果将包发布到 npm 的 `@mona` 作用域和 {% data variables.product.prodname_registry %} 的 `@octocat` 作用域，则可在发布到 npm 之后和发布到 {% data variables.product.prodname_registry %} 之前，在运行器的 *package.json* 文件中将 `@mona` 作用域替换成 `@octocat`。
 
 {% endnote %}
 
-您可以使用每个注册表的 `setup-node` 操作将包发布到 npm 注册表和 {{ site.data.variables.product.prodname_registry }}。
+您可以使用每个注册表的 `setup-node` 操作将包发布到 npm 注册表和 {% data variables.product.prodname_registry %}。
 
-如果将包发布到两个注册表，则需要确保 npm 上的作用域前缀与 {{ site.data.variables.product.prodname_dotcom }} 用户或组织名称匹配。 要将包发布到具有作用域前缀的公共注册表，可以使用 `npm publish --access public`。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope) 和 npm 文档中的“[创建和发布作用域的公共包](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)”。
+如果将包发布到两个注册表，则需要确保 npm 上的作用域前缀与 {% data variables.product.prodname_dotcom %} 用户或组织名称匹配。 要将包发布到具有作用域前缀的公共注册表，可以使用 `npm publish --access public`。 更多信息请参阅 [`npm-scope`](https://docs.npmjs.com/misc/scope) 和 npm 文档中的“[创建和发布作用域的公共包](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages)”。
 
-确认 *package.json* 文件包含 {{ site.data.variables.product.prodname_dotcom }} 仓库和 npm 注册表的作用域。 例如，如果您计划将 `octocat/npm-hello-world-test` 仓库中的包发布到 {{ site.data.variables.product.prodname_dotcom }} 和 https://www.npmjs.com/package/@octocat/npm-hello-world-test，则 *package.json* 文件中的名称将是 `"name": "@octocat/npm-hello-world-test"`。
+确认 *package.json* 文件包含 {% data variables.product.prodname_dotcom %} 仓库和 npm 注册表的作用域。 例如，如果您计划将 `octocat/npm-hello-world-test` 仓库中的包发布到 {% data variables.product.prodname_dotcom %} 和 https://www.npmjs.com/package/@octocat/npm-hello-world-test，则 *package.json* 文件中的名称将是 `"name": "@octocat/npm-hello-world-test"`。
 
-要根据 {{ site.data.variables.product.prodname_registry }} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 `GITHUB_TOKEN` 默认存在于您的仓库中，并且对工作流程运行的仓库中的包具有读取和写入权限。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
+要根据 {% data variables.product.prodname_registry %} 注册表在工作流程中执行经验证的操作，可以使用 `GITHUB_TOKEN`。 `GITHUB_TOKEN` 默认存在于您的仓库中，并且对工作流程运行的仓库中的包具有读取和写入权限。 更多信息请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。
 
 使用 `scope` 输入到 `setup-node` 操作时，操作将创建包含作用域前缀的 *.npmrc* 文件。 默认情况下，`setup-node` 操作在 *.npmrc* 文件中将作用域设置为拥有该工作流程文件的用户或组织。
 
-此工作流程将调用 `setup-node` 操作两次。 每当 `setup-node` 操作运行时，都会覆盖 *.npmrc* 文件。 *.npmrc* 文件引用的令牌允许您对 `NODE_AUTH_TOKEN` 环境变量中的包注册表执行验证的操作。 工作流程在 `npm publish` 命令每次运行时设置 `NODE_AUTH_TOKEN` 环境变量，先通过令牌发布到 npm (`NPM_TOKEN`)，然后通过令牌发布到 {{ site.data.variables.product.prodname_registry }} (`GITHUB_TOKEN`)。
+此工作流程将调用 `setup-node` 操作两次。 每当 `setup-node` 操作运行时，都会覆盖 *.npmrc* 文件。 *.npmrc* 文件引用的令牌允许您对 `NODE_AUTH_TOKEN` 环境变量中的包注册表执行验证的操作。 工作流程在 `npm publish` 命令每次运行时设置 `NODE_AUTH_TOKEN` 环境变量，先通过令牌发布到 npm (`NPM_TOKEN`)，然后通过令牌发布到 {% data variables.product.prodname_registry %} (`GITHUB_TOKEN`)。
 
 {% raw %}
 ```yaml

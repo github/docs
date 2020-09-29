@@ -14,16 +14,16 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 保存していて、まだコミットしていない変更がある場合は、[**Leave my changes**] または [**Bring my changes**] を選択してから、[**Switch Branch**] をクリックしてください。 ![[Switch branch] と変更オプション](/assets/images/help/desktop/stash-changes-options.png)
 
 ### stash した変更を取得する
 他のブランチで stash した変更にアクセスするには、変更を stash したブランチに切り替えます。
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 左サイドバーで [**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
 4. stash した変更を削除するには、[**Discard**] をクリックします。stash した変更を利用するには、[**Restore**] をクリックします。 ![stash した変更の [Discard] または [Restore]](/assets/images/help/desktop/discard-restore-stash-buttons.png)

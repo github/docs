@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.dismiss_review }}
+{% data reusables.pull_requests.dismiss_review %}
 这会将审查的状态更改为审查评论。 忽略审查后，必须添加注释，解释忽略原因。 注释将被添加到拉取请求对话。
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 3. 在 "Conversation"（转换）选项卡中，滚动到要忽略的审查，然后单击 {% octicon "chevron-down" aria-label="The down button" %}。 ![合并框中的 V 形图标](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
 4. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Dismiss review（忽略审查）**。 ![合并框中的烤肉串图标](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. 输入忽略审查的原因，然后单击 **Dismiss review（忽略审查）**。 ![忽略审查按钮](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)

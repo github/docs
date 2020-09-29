@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### 生成 GPG 密钥
 
@@ -19,7 +19,7 @@ versions:
 {% endnote %}
 
 1. 下载并安装适用于您的操作系统的 [GPG 命令行工具](https://www.gnupg.org/download/)。 一般来说，我们建议安装适用于您的操作系统的最新版本。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. 生成 GPG 密钥对。 由于 GPG 有多个版本，因此您可能需要查询相关的[_手册页_](https://en.wikipedia.org/wiki/Man_page)以找到适当的密钥生成命令。 密钥必须使用 RSA。
     - 如果您使用的是 2.1.17 或更高版本，请粘贴以下文本以生成 GPG 密钥对。
       ```shell
@@ -37,13 +37,13 @@ versions:
 
   {% note %}
 
-  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %}  更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”和“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”和“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
 
   {% endnote %}
 
 9. 输入安全密码。
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 10. 粘贴下面的文本（替换为您要使用的 GPG 密钥 ID）。 在此例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>

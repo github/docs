@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda, una plantilla de propuestas o la página del formulario de lanzamiento en {{ site.data.variables.product.prodname_dotcom }}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
+Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda, una plantilla de propuestas o la página del formulario de lanzamiento en {% data variables.product.prodname_dotcom %}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
 
 Debes tener los permisos adecuados para cualquier acción para usar el parámetro de consulta equivalente. Por ejemplo, debes tener permiso para crear lanzamientos para completar previamente los formularios de lanzamiento. Para obtener más información, consulta "[Administrar lanzamientos en un repositorio](/github/administering-a-repository/managing-releases-in-a-repository)."
 

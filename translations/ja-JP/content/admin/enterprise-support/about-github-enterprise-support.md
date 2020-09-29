@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Supportについて
-intro: '{{ site.data.variables.product.prodname_ghe_server }} Support は、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスで生じた問題のトラブルシューティングを支援します。'
+intro: '{% data variables.product.prodname_ghe_server %} Support は、{% data variables.product.prodname_ghe_server %} アプライアンスで生じた問題のトラブルシューティングを支援します。'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
@@ -9,19 +9,19 @@ versions:
 
 {% note %}
 
-**注釈**: {{ site.data.reusables.support.data-protection-and-privacy }}
+**注釈**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-### {{ site.data.variables.contact.enterprise_support }} について
+### {% data variables.contact.enterprise_support %} について
 
-{{ site.data.variables.product.prodname_ghe_server }} には、英語および日本語での {{ site.data.variables.contact.enterprise_support }} が含まれています。
+{% data variables.product.prodname_ghe_server %} には、英語および日本語での {% data variables.contact.enterprise_support %} が含まれています。
 
-{{ site.data.variables.contact.enterprise_support }} には GitHub Enterprise サポートページから連絡をして、以下について支援を求めることができます:
- - {{ site.data.variables.product.prodname_ghe_server }} のインストールと利用
+{% data variables.contact.enterprise_support %} には GitHub Enterprise サポートページから連絡をして、以下について支援を求めることができます:
+ - {% data variables.product.prodname_ghe_server %} のインストールと利用
  - 調査対象となっているエラーの原因の特定および検証
 
-{{ site.data.variables.contact.enterprise_support }} のすべての利点に加えて、{{ site.data.variables.contact.premium_support }} は以下を提供します:
+{% data variables.contact.enterprise_support %} のすべての利点に加えて、{% data variables.contact.premium_support %} は以下を提供します:
   - GitHub Enterprise サポートページを通じた書面による 24 時間 365 日のサポート
   - 24 時間 365 日の電話サポート
   - 初回応答時間が保証されるサービスレベルアグリーメント (SLA)
@@ -29,13 +29,13 @@ versions:
   - 定期的なヘルスチェック
   - 管理されたサービス
 
-詳細は、「[{{ site.data.variables.product.prodname_ghe_server }}の{{ site.data.variables.contact.premium_support }}について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」を参照してください。
+詳細は、「[{% data variables.product.prodname_ghe_server %}の{% data variables.contact.premium_support %}について](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)」を参照してください。
 
-{{ site.data.reusables.support.scope-of-support }}
+{% data reusables.support.scope-of-support %}
 
-### {{ site.data.variables.contact.enterprise_support }} への連絡
+### {% data variables.contact.enterprise_support %} への連絡
 
-{{ site.data.variables.contact.enterprise_support }} のお客様は、{{ site.data.variables.contact.contact_enterprise_portal }} を使用して書面で問題を報告できます。
+{% data variables.contact.enterprise_support %} のお客様は、{% data variables.contact.contact_enterprise_portal %} を使用して書面で問題を報告できます。
 
 ### 営業時間
 
@@ -49,7 +49,7 @@ versions:
 
 緊急ではない問題については、日本語でのサポートを月曜日から金曜日、日本時間午前9:00から午後5:00まで提供します。これは日本の国民の祝日を除きます。 緊急の問題については、アメリカの祝日を含む、24時間年中無休で英語でサポートを提供しています。 （アメリカの祝日は除く）
 
-また、 {{ site.data.variables.contact.enterprise_support }} におけるアメリカおよび日本の祝日の完全なリストは「[休日のスケジュール](#holiday-schedules)」を参照してください。
+また、 {% data variables.contact.enterprise_support %} におけるアメリカおよび日本の祝日の完全なリストは「[休日のスケジュール](#holiday-schedules)」を参照してください。
 
 ### 休日のスケジュール
 
@@ -57,7 +57,7 @@ versions:
 
 #### アメリカ合衆国の祝日
 
-{{ site.data.variables.contact.enterprise_support }} は、以下の米国の祝日を休日としています。 ただし、緊急サポートチケットにはグローバルサポートチームが対応しています。
+{% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 ただし、緊急サポートチケットにはグローバルサポートチームが対応しています。
 
 | アメリカ合衆国の祝日 祝日       | Date observed in {{ "now" | date: "%Y" }} |
 | ---                         | ---                         |
@@ -77,26 +77,26 @@ versions:
 
 #### 日本の祝日
 
-{{ site.data.variables.contact.enterprise_support }} は、12月28日～1月3日、および「[国民の祝日について-内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html)」に記載されている祝日は、日本語サポートを提供していません。
+{% data variables.contact.enterprise_support %} は、12月28日～1月3日、および「[国民の祝日について-内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html)」に記載されている祝日は、日本語サポートを提供していません。
 
-{{ site.data.reusables.enterprise_enterprise_support.installing-releases }}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 ### サポートチケットへの優先度の割り当て
 
-{{ site.data.variables.contact.enterprise_support }} へのお問い合わせ時に、チケットの優先度を {{ site.data.variables.product.support_ticket_priority_urgent }}、{{ site.data.variables.product.support_ticket_priority_high }}、{{ site.data.variables.product.support_ticket_priority_normal }}、または {{ site.data.variables.product.support_ticket_priority_low }} の 4 つから選択できます。
+{% data variables.contact.enterprise_support %} へのお問い合わせ時に、チケットの優先度を {% data variables.product.support_ticket_priority_urgent %}、{% data variables.product.support_ticket_priority_high %}、{% data variables.product.support_ticket_priority_normal %}、または {% data variables.product.support_ticket_priority_low %} の 4 つから選択できます。
 
-{{ site.data.reusables.support.github-can-modify-ticket-priority }}
+{% data reusables.support.github-can-modify-ticket-priority %}
 
-{{ site.data.reusables.support.ghes-priorities }}
+{% data reusables.support.ghes-priorities %}
 
 ### サポートチケットの解決とクローズ
 
-{{ site.data.reusables.support.enterprise-resolving-and-closing-tickets }}
+{% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_ghe_server }} に関するよくある質問](https://enterprise.github.com/faq)
-- [{{ site.data.variables.product.prodname_ghe_server }} ライセンスアグリーメント](https://enterprise.github.com/license)のサポートに関するセクション 10
-- [{{ site.data.variables.contact.github_support }} への連絡](/enterprise/admin/guides/enterprise-support/reaching-github-support)
+- [{% data variables.product.prodname_ghe_server %} に関するよくある質問](https://enterprise.github.com/faq)
+- [{% data variables.product.prodname_ghe_server %} ライセンスアグリーメント](https://enterprise.github.com/license)のサポートに関するセクション 10
+- [{% data variables.contact.github_support %} への連絡](/enterprise/admin/guides/enterprise-support/reaching-github-support)
 - [チケットのサブミットの準備](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)
 - [チケットのサブミット](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)

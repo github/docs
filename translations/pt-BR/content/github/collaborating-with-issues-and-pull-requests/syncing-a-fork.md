@@ -10,7 +10,7 @@ versions:
 
 Para poder sincronizar a bifurcação com o repositório upstream, você deve [configurar um remote que aponte para o repositório upstream](/articles/configuring-a-remote-for-a-fork) no Git.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual referente ao seu projeto local.
 3. Obtenha os branches e os respectivos commits do repositório upstream. Os commits para `master` serão armazenados em um branch local, `upstream/master`.
   ```shell
@@ -19,7 +19,7 @@ Para poder sincronizar a bifurcação com o repositório upstream, você deve [c
   > remote: Compactação de objetos: 100% (53/53), concluída.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. Faça checkout do branch `master` local da bifurcação.
@@ -48,6 +48,6 @@ Para poder sincronizar a bifurcação com o repositório upstream, você deve [c
 
 {% tip %}
 
-**Dica**: a sincronização da bifurcação só atualiza a cópia local do repositório. Para atualizar a bifurcação no {{ site.data.variables.product.product_location }}, você precisa [fazer push das alterações](/articles/pushing-commits-to-a-remote-repository/).
+**Dica**: a sincronização da bifurcação só atualiza a cópia local do repositório. Para atualizar a bifurcação no {% data variables.product.product_location %}, você precisa [fazer push das alterações](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

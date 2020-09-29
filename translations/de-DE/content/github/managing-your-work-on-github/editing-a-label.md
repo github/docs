@@ -8,14 +8,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
-{{ site.data.reusables.project-management.edit-label }}
-{{ site.data.reusables.project-management.name-label }}
-{{ site.data.reusables.project-management.label-description }}
-{{ site.data.reusables.project-management.label-color-randomizer }}
-{{ site.data.reusables.project-management.save-label }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
+{% data reusables.project-management.edit-label %}
+{% data reusables.project-management.name-label %}
+{% data reusables.project-management.label-description %}
+{% data reusables.project-management.label-color-randomizer %}
+{% data reusables.project-management.save-label %}
 
 ### Weiterführende Informationen
 

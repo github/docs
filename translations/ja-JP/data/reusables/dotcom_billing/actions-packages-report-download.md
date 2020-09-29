@@ -1,1 +1,1 @@
-1. あるいは、 **Get usage report（利用レポートの取得）**をクリックして、{{ site.data.variables.product.prodname_actions }}と{{ site.data.variables.product.prodname_registry }}のストレージ利用状況のCSVレポートを、アカウントのプライマリメールアドレスにメールすることもできます。 ![CSVレポートのダウンロード](/assets/images/help/billing/actions-packages-report-download.png)
+1. あるいは、 **Get usage report（利用レポートの取得）**をクリックして、{% data variables.product.prodname_actions %}と{% data variables.product.prodname_registry %}のストレージ利用状況のCSVレポートを、アカウントのプライマリメールアドレスにメールすることもできます。 ![CSVレポートのダウンロード](/assets/images/help/billing/actions-packages-report-download.png)

@@ -9,14 +9,14 @@ versions:
 
 You can also enforce your default setting on all current organization members in your instance using a command-line utility. For example, if you'd like to require every organization member's visibility to be public, you can set the default to public and enforce the default for all new members in the admin settings, and then use the command-line utility to enforce the public setting on existing members.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise-accounts.options-tab %}
 3. Under "Default organization membership visibility", use the drop-down menu, and click **Private** or **Public**. ![Drop-down menu with option to configure default organization membership visibility as public or private](/assets/images/enterprise/site-admin-settings/default-organization-membership-visibility-drop-down-menu.png)
 4. Optionally, to prevent members from changing their membership visibility from the default, select **Enforce on organization members**. ![Checkbox to enforce the default setting on all members](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png)
 5. If you'd like to enforce your new visibility setting on all existing members, use the `ghe-org-membership-update` command-line utility. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-org-membership-update)."

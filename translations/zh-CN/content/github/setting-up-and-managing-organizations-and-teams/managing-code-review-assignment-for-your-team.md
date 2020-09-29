@@ -1,7 +1,7 @@
 ---
 title: 管理团队的代码审查分配
 intro: 代码审查分配明确指出哪些团队成员应为拉取请求提交审查。
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -24,10 +24,10 @@ versions:
 负载平衡算法根据每个成员最近的审查请求总数选择审查者，并考虑每个成员未完成的审查数。 负载平衡算法努力确保每个团队成员在任意 30 天内审查相同数量的拉取请求。
 
 ### 配置代码审查分配
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. 在左侧边栏中，单击 **Code review assignment（代码审查分配）**。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-button.png)
 6. 选择 **Enable auto assignment（启用自动分配）**。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)
 7. 在“How many team members should be assigned to review?（应分配多少团队成员进行审查？）”下，使用下拉菜单选择多个要分配给每个拉取请求的审查者。 ![审查者人数下拉列表](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +37,9 @@ versions:
 11. 单击 **Save changes（保存更改）**。
 
 ### 禁用代码审查分配
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. 选择 **Enable auto assignment（启用自动分配）**以删除复选标记。 ![代码审查分配按钮](/assets/images/help/teams/review-assignment-enable.png)
 6. 单击 **Save changes（保存更改）**。

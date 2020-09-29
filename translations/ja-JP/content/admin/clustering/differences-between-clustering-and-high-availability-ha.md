@@ -1,6 +1,6 @@
 ---
 title: クラスタリングとHigh Availability（HA）との違い
-intro: '{{ site.data.variables.product.prodname_ghe_server }} High Availability (HA) は冗長性を提供するプライマリ／セカンダリフェイルオーバー構成ですが、クラスタリングは読み書きの負荷を複数のノードに分散させることによって冗長性とスケーラビリティを提供します。'
+intro: '{% data variables.product.prodname_ghe_server %} High Availability (HA) は冗長性を提供するプライマリ／セカンダリフェイルオーバー構成ですが、クラスタリングは読み書きの負荷を複数のノードに分散させることによって冗長性とスケーラビリティを提供します。'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
 versions:
@@ -11,11 +11,11 @@ versions:
 
 High Availability (HA) とクラスタリングはどちらも、障害の原因となる単一ノードを排除することによって冗長性を提供します。 可用性は次のシナリオで提供できます:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 ### スケーラビリティ
 
-{{site.data.reusables.enterprise_clustering.clustering-scalability }}HAでは、アプライアンスのスケールはプライマリノードにのみ依存し、負荷がレプリカサーバーに分配されることはありません。
+{% data reusables.enterprise_clustering.clustering-scalability %}HAでは、アプライアンスのスケールはプライマリノードにのみ依存し、負荷がレプリカサーバーに分配されることはありません。
 
 ### フェイルオーバーの方法と構成における相違点
 
@@ -33,5 +33,5 @@ HAもクラスタリングも、定期的なバックアップに代わるもの
 可用性の機能、特にクラスタリングのように自動フェイルオーバーを持つものは、通常は何かが失敗してもサービスが破綻しないので、障害を覆い隠すことができます。 HAもしくはクラスタリングを利用する場合、障害が起きたことに気づけるよう、各インスタンスの健全性をモニタリングすることが重要です。 モニタリングに関する詳しい情報については、「[アラートの推奨閾値](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)」および「[クラスタノードのモニタリング](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)」を参照してください。
 
 ### 参考リンク
-- {{ site.data.variables.product.prodname_ghe_server }}のクラスタリングに関する詳しい情報については「[クラスタリングについて](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)」を参照してください。
-- HA についての詳しい情報は、「[High Availability 向けに {{ site.data.variables.product.prodname_ghe_server }} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。
+- {% data variables.product.prodname_ghe_server %}のクラスタリングに関する詳しい情報については「[クラスタリングについて](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)」を参照してください。
+- HA についての詳しい情報は、「[High Availability 向けに {% data variables.product.prodname_ghe_server %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)」を参照してください。

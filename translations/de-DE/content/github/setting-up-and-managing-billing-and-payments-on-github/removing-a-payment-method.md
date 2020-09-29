@@ -1,6 +1,6 @@
 ---
 title: Zahlungsmethode entfernen
-intro: 'Wenn Du Deine Zahlungsmethode für kein bezahltes Abonnement auf {{ site.data.variables.product.prodname_dotcom }} verwendest, kannst Du diese Zahlungsmethode entfernen. Sie wird dann nicht mehr unter Deinem Konto gespeichert.'
+intro: 'Wenn Du Deine Zahlungsmethode für kein bezahltes Abonnement auf {% data variables.product.prodname_dotcom %} verwendest, kannst Du diese Zahlungsmethode entfernen. Sie wird dann nicht mehr unter Deinem Konto gespeichert.'
 redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-user-account/
   - /articles/removing-a-payment-method-associated-with-your-user-account/
@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Wenn Du Dein {{ site.data.variables.product.product_name }}-Abonnement mit einem Gutschein bezahlst und Deine Zahlungsmethode für keine [anderen bezahlten Funktionen oder Produkte](/articles/about-billing-on-github) auf {{ site.data.variables.product.product_name }} benötigst, kannst Du Deine Kreditkarten- oder PayPal-Daten entfernen.
+Wenn Du Dein {% data variables.product.product_name %}-Abonnement mit einem Gutschein bezahlst und Deine Zahlungsmethode für keine [anderen bezahlten Funktionen oder Produkte](/articles/about-billing-on-github) auf {% data variables.product.product_name %} benötigst, kannst Du Deine Kreditkarten- oder PayPal-Daten entfernen.
 
 {% tip %}
 
@@ -21,20 +21,20 @@ Wenn Du Dein {{ site.data.variables.product.product_name }}-Abonnement mit einem
 
 ### Zahlungsmethode Deines persönlichen Kontos entfernen
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.remove-payment-method }}
-{{ site.data.reusables.dotcom_billing.remove_payment_info }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.remove-payment-method %}
+{% data reusables.dotcom_billing.remove_payment_info %}
 
 ### Zahlungsmethode Deiner Organisation entfernen
 
-{{ site.data.reusables.dotcom_billing.org-billing-perms }}
+{% data reusables.dotcom_billing.org-billing-perms %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.user_settings.payment-info-tab }}
-{{ site.data.reusables.dotcom_billing.remove-payment-method }}
-{{ site.data.reusables.dotcom_billing.remove_payment_info }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.user_settings.payment-info-tab %}
+{% data reusables.dotcom_billing.remove-payment-method %}
+{% data reusables.dotcom_billing.remove_payment_info %}

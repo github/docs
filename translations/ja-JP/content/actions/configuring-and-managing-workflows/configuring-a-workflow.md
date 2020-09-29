@@ -1,7 +1,7 @@
 ---
 title: ワークフローの構成
 intro: カスタム ワークフローを作成して、プロジェクトのソフトウェア開発ライフサイクル プロセスを自動化できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /記事/作成-githubアクション/
   - /記事/ワークフローを作成する -github アクション/
@@ -16,19 +16,19 @@ versions:
 
 リポジトリへの書き込み権限または管理者権限を持つユーザーは、ワークフローを作成、編集、または表示できます。
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### ワークフローについて
 
-ワークフローは、リポジトリ内で設定して、プロジェクトをビルド、テスト、パッケージ化、リリース、またはデプロイするために設定できるカスタムの自動化プロセス {{ site.data.variables.product.prodname_dotcom }}。 ワークフローを使用すると、さまざまなツールとサービスでソフトウェア開発ライフサイクルを自動化できます。 詳細については、「 {{ site.data.variables.product.prodname_actions }}</a>について
+ワークフローは、リポジトリ内で設定して、プロジェクトをビルド、テスト、パッケージ化、リリース、またはデプロイするために設定できるカスタムの自動化プロセス {% data variables.product.prodname_dotcom %}。 ワークフローを使用すると、さまざまなツールとサービスでソフトウェア開発ライフサイクルを自動化できます。 詳細については、「 {% data variables.product.prodname_actions %}</a>について
 」を参照してください。</p> 
 
 リポジトリ内に複数のワークフローを作成できます。 ワークフローは、リポジトリのルートにあるディレクトリの `github/ワークフロー` ディレクトリに格納する必要があります。
 
-ワークフローには少なくとも 1 つのジョブが必要であり、ジョブには個々のタスクを実行する一連のステップが含まれています。 ステップは、コマンドを実行したり、アクションを使用したりできます。 独自のアクションを作成したり、 {{ site.data.variables.product.prodname_dotcom }} コミュニティで共有するアクションを使用して、必要に応じてカスタマイズすることができます。
+ワークフローには少なくとも 1 つのジョブが必要であり、ジョブには個々のタスクを実行する一連のステップが含まれています。 ステップは、コマンドを実行したり、アクションを使用したりできます。 独自のアクションを作成したり、 {% data variables.product.prodname_dotcom %} コミュニティで共有するアクションを使用して、必要に応じてカスタマイズすることができます。
 
-{{ site.data.variables.product.prodname_dotcom }} イベントが発生したとき、スケジュールに従って、または外部イベントから開始するようにワークフローを構成できます。
+{% data variables.product.prodname_dotcom %} イベントが発生したとき、スケジュールに従って、または外部イベントから開始するようにワークフローを構成できます。
 
 YAML 構文を使用してワークフローを設定し、リポジトリ内のワークフロー ファイルとして保存する必要があります。 YAML ワークフロー ファイルを正常に作成し、ワークフローをトリガーすると、ワークフローの各ステップのビルド ログ、テスト結果、アーティファクト、およびステータスが表示されます。 詳細については、「ワークフローの実行[管理」を参照](/articles/managing-a-workflow-run)。
 
@@ -48,7 +48,7 @@ YAML 構文を使用してワークフローを設定し、リポジトリ内の
 
 1. github/ワークフロー ``で、ワークフローの `.yml` または `.yaml` ファイルを追加します。 たとえば、 `.github/ワークフロー/継続的インテグレーションワークフロー.yml`。
 
-1. 「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」参照ドキュメントを使用して、アクションのトリガ、アクションの追加、ワークフローのカスタマイズを行うイベントを選択します。</p></li> 
+1. 「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」参照ドキュメントを使用して、アクションのトリガ、アクションの追加、ワークフローのカスタマイズを行うイベントを選択します。</p></li> 
    
    1 ワークフロー ファイルの変更を、ワークフローを実行するブランチにコミットします。</ol> 
 
@@ -85,7 +85,7 @@ on: [push]
 
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 
 
@@ -93,11 +93,11 @@ on: [push]
 
 ワークフローを一度開始するように設定できます。
 
-- {{ site.data.variables.product.prodname_dotcom }} に関するイベントは、誰かがコミットをリポジトリにプッシュしたときや、問題やプル要求が作成された場合などに発生します。
+- {% data variables.product.prodname_dotcom %} に関するイベントは、誰かがコミットをリポジトリにプッシュしたときや、問題やプル要求が作成された場合などに発生します。
 - スケジュールされたイベントが開始されます。
 - 外部イベントが発生します。
 
-{{ site.data.variables.product.prodname_dotcom }}でイベントが発生した後にワークフローをトリガーするには、ワークフロー名の後に `` とイベント値を追加します。 たとえば、このワークフローは、変更がリポジトリ内のブランチにプッシュされたときにトリガーされます。
+{% data variables.product.prodname_dotcom %}でイベントが発生した後にワークフローをトリガーするには、ワークフロー名の後に `` とイベント値を追加します。 たとえば、このワークフローは、変更がリポジトリ内のブランチにプッシュされたときにトリガーされます。
 
 
 
@@ -122,7 +122,7 @@ name: 説明ワークフロー名
 
 #### ワークフローの手動実行
 
-ワークフローを手動で実行するには、最初にワークフローを構成して、 `workflow_dispatch` イベントを使用する必要があります。 カスタム定義の入力プロパティ、デフォルトの入力値、および必要な入力をワークフローで直接構成できます。 ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳細については、「ワークフロー</a>をトリガーするイベント[」および「 {{ site.data.variables.product.prodname_dotcom }} アクション](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)のコンテキストと式の構文をする」を参照してください。</p> 
+ワークフローを手動で実行するには、最初にワークフローを構成して、 `workflow_dispatch` イベントを使用する必要があります。 カスタム定義の入力プロパティ、デフォルトの入力値、および必要な入力をワークフローで直接構成できます。 ワークフローが実行されると、 `github.event.inputs` コンテキスト内の入力値にアクセスできます。 詳細については、「ワークフロー</a>をトリガーするイベント[」および「 {% data variables.product.prodname_dotcom %} アクション](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)のコンテキストと式の構文をする」を参照してください。</p> 
 
 この例では、 `名` 定義し、入力</code> ` <code>github.event.inputs.name` を使用してそれらを出力し、github.event.inputs.home</code> コンテキスト `します。 ` `名が指定されていない場合は、既定値の 「Mona the Octocat」 が表示されます。</p>
 
@@ -151,15 +151,15 @@ name: 説明ワークフロー名
 
 {% endraw %}
 
-`workflow_dispatch` イベントは、 {{ site.data.variables.product.prodname_dotcom }} または REST API を使用して[アクション]タブからトリガーできます。 REST API の使用の詳細については、「ワークフローディスパッチ イベントの作成</a>」を参照してください。 REST API を使用する場合は、 `入力` を構成し、要求本文パラメーターとして ref</code> `します。 入力を省略すると、ワークフロー ファイルで定義されている既定値が使用されます。</p>
+`workflow_dispatch` イベントは、 {% data variables.product.prodname_dotcom %} または REST API を使用して[アクション]タブからトリガーできます。 REST API の使用の詳細については、「ワークフローディスパッチ イベントの作成</a>」を参照してください。 REST API を使用する場合は、 `入力` を構成し、要求本文パラメーターとして ref</code> `します。 入力を省略すると、ワークフロー ファイルで定義されている既定値が使用されます。</p>
 
-<p spaces-before="0">{{ site.data.variables.product.prodname_dotcom }}で <code>workflow_dispatch` イベントをトリガするには、ワークフローが既定のブランチに含まれる必要があります。 ワークフローの実行を手動でトリガーするには、次の手順に従います。</p> 
+<p spaces-before="0">{% data variables.product.prodname_dotcom %}で <code>workflow_dispatch` イベントをトリガするには、ワークフローが既定のブランチに含まれる必要があります。 ワークフローの実行を手動でトリガーするには、次の手順に従います。</p> 
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 
 
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.actions-tab %}
 
 1. 左側のサイドバーで、実行するワークフローをクリックします。 ![アクション選択ワークフロー](/assets/images/actions-select-workflow.png)
 
@@ -204,19 +204,19 @@ on:
 
 ### ランナーの選択
 
-ワークフローは、 {{ site.data.variables.product.prodname_dotcom }}ホストランナーまたは自己ホスト型ランナーで実行できます。 ジョブは、マシン上または Docker コンテナーで直接実行できます。
+ワークフローは、 {% data variables.product.prodname_dotcom %}ホストランナーまたは自己ホスト型ランナーで実行できます。 ジョブは、マシン上または Docker コンテナーで直接実行できます。
 
-ワークフローの各ジョブに対して、実行</code>`を使用して、ランナーを指定できます。 ラン <code>実行`の詳細については、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文の」を参照してください。</p> 
+ワークフローの各ジョブに対して、実行</code>`を使用して、ランナーを指定できます。 ラン <code>実行`の詳細については、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文の」を参照してください。</p> 
 
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 
 
-#### {{ site.data.variables.product.prodname_dotcom }}ホストランナーの使用
+#### {% data variables.product.prodname_dotcom %}ホストランナーの使用
 
-Linux、Windows、macOS など、さまざまな種類とバージョンの仮想ホストマシンから選択できます。 ワークフロー内の各ジョブは仮想環境の新しいインスタンスで実行され、ジョブ内のステップはファイルシステムを使用して情報を共有できます。 詳細については、「ホストされている {{ site.data.variables.product.prodname_actions }}のランナーの仮想環境を[する」](/articles/virtual-environments-for-github-actions)参照してください。
+Linux、Windows、macOS など、さまざまな種類とバージョンの仮想ホストマシンから選択できます。 ワークフロー内の各ジョブは仮想環境の新しいインスタンスで実行され、ジョブ内のステップはファイルシステムを使用して情報を共有できます。 詳細については、「ホストされている {% data variables.product.prodname_actions %}のランナーの仮想環境を[する」](/articles/virtual-environments-for-github-actions)参照してください。
 
-たとえば、ubuntu-latest</code> `使用して、Ubuntu {{ site.data.variables.product.prodname_dotcom }}ホストランナーの最新バージョンを指定できます。</p>
+たとえば、ubuntu-latest</code> `使用して、Ubuntu {% data variables.product.prodname_dotcom %}ホストランナーの最新バージョンを指定できます。</p>
 
 <pre><code class="yaml">ランオン:Ubuntu-最新
 `</pre> 
@@ -242,7 +242,7 @@ Linux、Windows、macOS など、さまざまな種類とバージョンの仮�
 
 ワークフロー ファイルでビルド マトリックスを指定し、 `の戦略の下にある構成オプションをリストする配列を指定`。 たとえば、このビルドマトリックスは、Linux オペレーティングシステムの Node.js と Ubuntu のバージョンが異なるジョブを実行します。
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 
@@ -258,7 +258,7 @@ Linux、Windows、macOS など、さまざまな種類とバージョンの仮�
 
 {% endraw %}
 
-詳細については、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」を参照してください。</p> 
+詳細については、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」を参照してください。</p> 
 
 
 
@@ -293,7 +293,7 @@ Linux、Windows、macOS など、さまざまな種類とバージョンの仮�
 
 ワークフローで使用するアクションの種類を選択する場合は、パブリックリポジトリまたは Docker ハブで既存のアクションを探索し、プロジェクトに合わせてこれらのアクションをカスタマイズすることをお勧めします。
 
-[github.com/actions](https://github.com/actions) 組織内の {{ site.data.variables.product.prodname_dotcom }} によって作成されたアクションを参照して使用できます。 Docker ハブにアクセスするには、Docker サイトの「[Docker ハブ](https://www.docker.com/products/docker-hub)」を参照してください。
+[github.com/actions](https://github.com/actions) 組織内の {% data variables.product.prodname_dotcom %} によって作成されたアクションを参照して使用できます。 Docker ハブにアクセスするには、Docker サイトの「[Docker ハブ](https://www.docker.com/products/docker-hub)」を参照してください。
 
 
 
@@ -309,19 +309,19 @@ Linux、Windows、macOS など、さまざまな種類とバージョンの仮�
 
 プライベート リポジトリで定義されたアクションを使用するには、ワークフロー ファイルとアクションの両方が同じリポジトリ内にある必要があります。 他のプライベートリポジトリが同じ組織にある場合でも、ワークフローで他のプライベートリポジトリで定義されたアクションを使用することはできません。
 
-アクションが更新されてもワークフローの安定性を維持するには、ワークフロー ファイルで Git ref または Docker タグ番号を指定することで、使用しているアクションのバージョンを参照できます。 例については、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」を参照してください。</p> 
+アクションが更新されてもワークフローの安定性を維持するには、ワークフロー ファイルで Git ref または Docker タグ番号を指定することで、使用しているアクションのバージョンを参照できます。 例については、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」を参照してください。</p> 
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 
 
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 
 
 
 {% endif %}
 
-詳細な構成オプションについては、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」を参照してください。</p> 
+詳細な構成オプションについては、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」を参照してください。</p> 
 
 
 
@@ -400,15 +400,15 @@ Linux、Windows、macOS など、さまざまな種類とバージョンの仮�
 
 Docker アクションの例については、「docker-image.yml ワークフロー</a> [」および「docker コンテナー アクションの作成](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml)」参照してください。</p> 
 
-詳細については、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」を参照してください。</p> 
+詳細については、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」を参照してください。</p> 
 
 
 
 ### リポジトリへのワークフローステータスバッジの追加
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-ワークフローで `名` キーワードを使用する場合は、ワークフローを名前で参照する必要があります。 ワークフローの名前に空白が含まれている場合は、URL エンコード文字列 `%20`にスペースを置き換える必要があります。 `名` キーワードの詳細については、「 {{ site.data.variables.product.prodname_actions }}</a>のワークフロー構文」を参照してください。</p> 
+ワークフローで `名` キーワードを使用する場合は、ワークフローを名前で参照する必要があります。 ワークフローの名前に空白が含まれている場合は、URL エンコード文字列 `%20`にスペースを置き換える必要があります。 `名` キーワードの詳細については、「 {% data variables.product.prodname_actions %}</a>のワークフロー構文」を参照してください。</p> 
 
 
 
@@ -477,6 +477,6 @@ https://github.com/<OWNER>/<REPOSITORY>/ワークフロー/<WORKFLOW_FILE_PATH>/
 
 ### 参考リンク
 
-- "[ {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)の請求を管理する " 
+- "[ {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)の請求を管理する " 
   
   {% endif %}

@@ -15,7 +15,7 @@ Anyone with read permissions to a template repository can create a repository fr
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository from a template using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {{ site.data.variables.product.product_location }} documentation.
+**Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -33,11 +33,11 @@ For more information about forks, see "[About forks](/articles/about-forks)."
 
 ### Creating a repository from a template
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Above the file list, click **Use this template**. ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
-{{ site.data.reusables.repositories.owner-drop-down }}
-{{ site.data.reusables.repositories.repo-name }}
-{{ site.data.reusables.repositories.choose-repo-visibility }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% data reusables.repositories.owner-drop-down %}
+{% data reusables.repositories.repo-name %}
+{% data reusables.repositories.choose-repo-visibility %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 6. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
-{{ site.data.reusables.repositories.select-marketplace-apps }}
+{% data reusables.repositories.select-marketplace-apps %}
 8. Click **Create repository from template**.

@@ -1,6 +1,6 @@
 ---
 title: Configuring GitHub Pages on your appliance
-intro: 'You can enable or disable {{ site.data.variables.product.prodname_pages }} on your instance. You can also choose to make {{ site.data.variables.product.prodname_pages }} sites publicly accessible.'
+intro: 'You can enable or disable {% data variables.product.prodname_pages %} on your instance. You can also choose to make {% data variables.product.prodname_pages %} sites publicly accessible.'
 redirect_from:
   - /enterprise/admin/guides/installation/disabling-github-enterprise-pages/
   - /enterprise/admin/guides/installation/configuring-github-enterprise-pages/
@@ -10,33 +10,33 @@ versions:
   enterprise-server: '*'
 ---
 
-### Making {{ site.data.variables.product.prodname_pages }} publicly accessible
+### Making {% data variables.product.prodname_pages %} publicly accessible
 
-If private mode is enabled on your instance, the public cannot access {{ site.data.variables.product.prodname_pages }} sites hosted on {{ site.data.variables.product.product_location_enterprise }}.
+If private mode is enabled on your instance, the public cannot access {% data variables.product.prodname_pages %} sites hosted on {% data variables.product.product_location_enterprise %}.
 
 {% warning %}
 
-**Warning:** If you enable public {{ site.data.variables.product.prodname_pages }} sites, every {{ site.data.variables.product.prodname_pages }} site in every repository on your instance will be accessible to the public.
+**Warning:** If you enable public {% data variables.product.prodname_pages %} sites, every {% data variables.product.prodname_pages %} site in every repository on your instance will be accessible to the public.
 
 {% endwarning %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.pages-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.pages-tab %}
 4. Select **Public Pages**.
 ![Checkbox to enable Public Pages](/assets/images/enterprise/management-console/public-pages-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
-### Disabling {{ site.data.variables.product.prodname_pages }} on {{ site.data.variables.product.product_location_enterprise }}
+### Disabling {% data variables.product.prodname_pages %} on {% data variables.product.product_location_enterprise %}
 
-If subdomain isolation is disabled for {{ site.data.variables.product.product_location_enterprise }}, you should also disable {{ site.data.variables.product.prodname_pages }} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation)."
+If subdomain isolation is disabled for {% data variables.product.product_location_enterprise %}, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation)."
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.pages-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.pages-tab %}
 4. Unselect **Enable Pages**.
-![Checkbox to disable {{ site.data.variables.product.prodname_pages }}](/assets/images/enterprise/management-console/pages-select-button.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
+{% data reusables.enterprise_management_console.save-settings %}
 
 ### Further reading
 

@@ -1,6 +1,6 @@
 ---
 title: 删除文件
-intro: '可以删除 {{ site.data.variables.product.product_name }} 上仓库内的任何文件。'
+intro: '可以删除 {% data variables.product.product_name %} 上仓库内的任何文件。'
 redirect_from:
   - /articles/deleting-files
 versions:
@@ -17,10 +17,10 @@ versions:
 1. 浏览到要删除仓库中的文件。
 2. At the top of the file, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

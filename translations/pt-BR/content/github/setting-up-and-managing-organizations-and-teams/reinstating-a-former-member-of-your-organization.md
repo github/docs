@@ -10,7 +10,7 @@ versions:
 
 Se você [remover um usuário da organização](/articles/removing-a-member-from-your-organization), [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator), ou se um usuário for removido da organização porque você [exigiu que os integrantes e colaboradores externos habilitassem a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization), as configurações e os privilégios de acesso do usuário serão mantidos por três meses. Você poderá restaurar os privilégios do usuário se {% if currentVersion =="free-pro-team@latest" %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 Ao restabelecer um ex-integrante da organização, você pode restaurar:
  - A função do usuário na organização
@@ -27,7 +27,7 @@ Ao restabelecer um ex-integrante da organização, você pode restaurar:
     **Dicas**:
     - Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
     - Somente proprietários da organização podem convidar usuários para participar de uma organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
-    - Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {{ site.data.reusables.organizations.org-invite-expiration }}
+    - Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}
 
    {% else %}
     **Dicas**:
@@ -37,11 +37,11 @@ Ao restabelecer um ex-integrante da organização, você pode restaurar:
 
    {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. Escolha se deseja restaurar os privilégios anteriores da pessoa na organização ou apagar os privilégios anteriores e definir novas permissões de acesso, depois clique em **Invite and reinstate** (Convidar e restabelecer) ou em **Invite and start fresh** (Convidar e começar do zero). ![Escolher restaurar as informações ou não](/assets/images/help/organizations/choose_whether_to_restore_org_member_info.png)
 {% else %}
@@ -53,7 +53,7 @@ Ao restabelecer um ex-integrante da organização, você pode restaurar:
 7. Se você apagou os privilégios anteriores de um ex-integrante da organização, escolha uma função para o usuário e adicione-o em algumas equipes (opcional), depois clique em **Add member** (Adicionar integrante). ![Opções Role and team (Função e equipe) e botão add member (adicionar integrante)](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.organizations.user_must_accept_invite_email }} {{ site.data.reusables.organizations.cancel_org_invite }}
+{% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### Leia mais

@@ -17,9 +17,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击要过滤的拉取请求。
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. 使用文件过滤器下拉菜单选择、取消选择或单击所需的过滤器。 ![拉取请求差异上方的文件过滤器选项](/assets/images/help/pull_requests/file-filter-option.png)
 5. （可选）要清除过滤器选择，请在 **Files changed（已更改文件）**选项卡下，单击 **Clear（清除）**。 ![清除文件过滤器选择](/assets/images/help/pull_requests/clear-file-filter.png)
 

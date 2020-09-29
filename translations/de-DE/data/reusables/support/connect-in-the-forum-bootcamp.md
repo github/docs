@@ -1,1 +1,1 @@
-Verbinde Dich mit Menschen auf der ganzen Welt in [{{ site.data.variables.product.prodname_gcf }}](https://github.community)
+Verbinde Dich mit Menschen auf der ganzen Welt in [{% data variables.product.prodname_gcf %}](https://github.community)

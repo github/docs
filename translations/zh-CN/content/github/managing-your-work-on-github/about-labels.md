@@ -1,6 +1,6 @@
 ---
 title: 关于标签
-intro: '{{ site.data.variables.product.product_name }} 上的标签可帮助您组织工作和排列工作的优先级。 您可以对议题和拉取请求贴标签，以指示优先级、类别或您认为有用的任何其他信息。'
+intro: '{% data variables.product.product_name %} 上的标签可帮助您组织工作和排列工作的优先级。 您可以对议题和拉取请求贴标签，以指示优先级、类别或您认为有用的任何其他信息。'
 redirect_from:
   - /articles/about-labels
 versions:
@@ -14,7 +14,7 @@ versions:
 
 ### 使用默认标签
 
-{{ site.data.variables.product.product_name }} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程：
+{% data variables.product.product_name %} 在每个新仓库中提供默认标签。 您可以使用这些默认标签帮助在仓库中创建标准工作流程：
 
 | 标签                 | 描述                                                                         |
 | ------------------ | -------------------------------------------------------------------------- |

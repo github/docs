@@ -8,19 +8,19 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} add outside collaborators to a repository, unless an organization owner has restricted the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
+{% data reusables.organizations.owners-and-admins-can %} add outside collaborators to a repository, unless an organization owner has restricted the ability to invite collaborators. For more information, see "[Setting permissions for adding outside collaborators](/articles/setting-permissions-for-adding-outside-collaborators)."
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }}
+{% data reusables.organizations.outside-collaborators-use-seats %}
 
 If your organization [requires members and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), they must enable two-factor authentication before they can accept your invitation to collaborate on an organization repository.
 
-{{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside_collaborator_forks %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
-{{ site.data.reusables.organizations.invite-teams-or-people }}
+{% data reusables.repositories.navigate-to-manage-access %}
+{% data reusables.organizations.invite-teams-or-people %}
 5. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.
   ![Search field for typing the name of a person to invite to the repository](/assets/images/help/repository/manage-access-invite-search-field.png)
 6. Under "Choose a role", select the permissions to grant to the person, then click **Add NAME to REPOSITORY**.

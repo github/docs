@@ -13,7 +13,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-有些仓库图仅在具有 {{ site.data.variables.product.prodname_free_user }} 的公共仓库中可用：
+有些仓库图仅在具有 {% data variables.product.prodname_free_user %} 的公共仓库中可用：
 - 脉冲
 - 贡献者
 - 流量
@@ -21,7 +21,7 @@ versions:
 - 代码频率
 - 网络
 
-所有其他仓库图在所有仓库中可用。 每个仓库图在具有 {{ site.data.variables.product.prodname_pro }}、{{ site.data.variables.product.prodname_team }} 及 {{ site.data.variables.product.prodname_ghe_cloud }} 的公共和私有仓库中可用。 {{ site.data.reusables.gated-features.more-info }}
+所有其他仓库图在所有仓库中可用。 每个仓库图在具有 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %} 及 {% data variables.product.prodname_ghe_cloud %} 的公共和私有仓库中可用。 {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

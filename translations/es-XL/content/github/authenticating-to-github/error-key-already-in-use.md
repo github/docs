@@ -13,13 +13,13 @@ versions:
 Para determinar dónde se ha usado la clave, abre una terminal y escribe el comando `ssh`. Usa la marca `-i` para obtener la ruta a la clave que deseas verificar:
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{{ site.data.variables.command_line.codeblock }}
-# Connect to {{ site.data.variables.product.product_location }} using a specific ssh key
+$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+# Connect to {% data variables.product.product_location %} using a specific ssh key
 > Hi <em>username</em>! Has autenticado con éxito, pero GitHub no
 > proporciona acceso al shell.
 ```
 
-El *nombre de usuario* que aparece en la respuesta es la cuenta de {{ site.data.variables.product.product_name }} a la que la clave se encuentra actualmente vinculada. Si la respuesta se parece a "username/repo", la llave se ha vinculado a un repositorio como [*llave de implementación*](/guides/managing-deploy-keys#deploy-keys).
+El *nombre de usuario* que aparece en la respuesta es la cuenta de {% data variables.product.product_name %} a la que la clave se encuentra actualmente vinculada. Si la respuesta se parece a "username/repo", la llave se ha vinculado a un repositorio como [*llave de implementación*](/guides/managing-deploy-keys#deploy-keys).
 
 ### Resolver el problema
 

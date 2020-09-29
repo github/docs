@@ -1,6 +1,6 @@
 ---
 title: SNMP での監視
-intro: '{{ site.data.variables.product.prodname_enterprise }}は、SNMP経由でディスクの使用や CPU の使用率、メモリーの使用などのデータを提供します。'
+intro: '{% data variables.product.prodname_enterprise %}は、SNMP経由でディスクの使用や CPU の使用率、メモリーの使用などのデータを提供します。'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
   - /enterprise/admin/articles/monitoring-using-snmp/
@@ -9,18 +9,18 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {{ site.data.variables.product.product_location_enterprise }}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。
+SNMP とは、ネットワーク経由でデバイスを監視するための一般的基準です。 {% data variables.product.product_location_enterprise %}のj状態を監視可能にし、いつホストのマシンにメモリやストレージ、処理能力を追加すべきかを知るために、SNMP を有効にすることを強くおすすめします。
 
-{{ site.data.variables.product.prodname_enterprise }} には標準の SNMP がインストールされているので、Nagios などのモニタリングシステムに対して利用可能な[数多くのプラグイン](http://www.monitoring-plugins.org/doc/man/check_snmp.html)を活用できます。
+{% data variables.product.prodname_enterprise %} には標準の SNMP がインストールされているので、Nagios などのモニタリングシステムに対して利用可能な[数多くのプラグイン](http://www.monitoring-plugins.org/doc/man/check_snmp.html)を活用できます。
 
 ### SNMP v2c を設定
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. **Community string** の欄では、新しいコミュニティ文字列を入力する。 空白のままだと、`public`という設定になります。 ![コミュニティ文字列型を追加するためのフィールド](/assets/images/enterprise/management-console/community-string.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 5. SNMP に対応している別のワークステーションで次のコマンドを実行して、SNMP のコンフィグレーションをテストする。
   ```shell
   # community-string is your community string
@@ -28,7 +28,7 @@ SNMP とは、ネットワーク経由でデバイスを監視するための一
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-これにより、{{ site.data.variables.product.product_location_enterprise }} ホストでのシステム時刻が返されます。
+これにより、{% data variables.product.product_location_enterprise %} ホストでのシステム時刻が返されます。
 
 ### ユーザベースのセキュリティ
 
@@ -39,29 +39,29 @@ SNMP v3 を有効にすると、ユーザセキュリティモデル (USM) に�
 
 ### SNMP v3 用にユーザーを設定する
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. [**SNMP v3**] を選択します。 ![SNMP v3 を有効化するボタン](/assets/images/enterprise/management-console/enable-snmpv3.png)
 5. [Username] に、SNMP v3 ユーザの固有なユーザ名を入力します。 ![SNMP v3 ユーザ名を入力するためのフィールド](/assets/images/enterprise/management-console/snmpv3-username.png)
 6. [**Security Level**] ドロップダウンメニューで、SNMP v3 ユーザ ー用のセキュリティレベルをクリックします。 ![SNMP v3 ユーザのセキュリティレベルを指定するためのドロップダウンメニュー](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
 7. セキュリティレベルが `authnopriv` である SNMP v3 ユーザの場合: ![セキュリティレベル authnopriv の設定](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
 8. セキュリティレベルが `authpriv` である SNMP v3 ユーザの場合: ![セキュリティレベル authpriv の設定](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
     - 任意で、[Privacy password] にプライバシーパスワードを入力します。
     - [Privacy password] の右側にある [**Protocol**] ドロップダウンメニューで、使用するプライバシープロトコル方式をクリックします。
 9. [**Add user**] をクリックします。 ![SNMP v3 ユーザを追加するボタン](/assets/images/enterprise/management-console/snmpv3-adduser.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ##### SNMP データの照会
 
 アプライアンスに関するハードウェアレベルとソフトウェアレベルの両方の情報が SNMP v3 で利用できます。 `noAuthNoPriv` と `authNoPriv` のセキュリティレベルでは暗号化とプライバシーが欠如しているため、結果の SNMP レポートから `hrSWRun` の表 (1.1.3.6.1.2.1.25.41) は除外されます。 セキュリティレベル `authPriv` を使用している場合は、この表が掲載されます。
 
-SNMP v2c では、アプライアンスに関するハードウェアレベルの情報のみが利用できます。 {{ site.data.variables.product.prodname_enterprise }} 内のアプリケーションとサービスには、メトリックスを報告するように設定された OID がありません。 いくつかの MIB が利用できます。ネットワーク内において SNMP をサポートしている別のワークステーションで `snmpwalk` を実行することで、利用できる MIB を確認できます。
+SNMP v2c では、アプライアンスに関するハードウェアレベルの情報のみが利用できます。 {% data variables.product.prodname_enterprise %} 内のアプリケーションとサービスには、メトリックスを報告するように設定された OID がありません。 いくつかの MIB が利用できます。ネットワーク内において SNMP をサポートしている別のワークステーションで `snmpwalk` を実行することで、利用できる MIB を確認できます。
 
 ```shell
 # community-string is your community string

@@ -11,7 +11,7 @@ versions:
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.education.about-github-education-link }}
+**Tip:** {% data reusables.education.about-github-education-link %}
 
 {% endtip %}
 
@@ -19,25 +19,25 @@ versions:
 
 If the image you uploaded doesn't clearly identify your current employment with a school or university, you must reapply and upload another image of your faculty ID or employment verification letter with clear information.
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 ### Using an academic email with an unverified domain
 
-If your academic email address has an unverified domain, we may require further proof of your academic status. {{ site.data.reusables.education.upload-different-image }}
+If your academic email address has an unverified domain, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 ### Using an academic email from a school with lax email policies
 
-If alumni and retired faculty of your school have lifetime access to school-issued email addresses, we may require further proof of your academic status. {{ site.data.reusables.education.upload-different-image }}
+If alumni and retired faculty of your school have lifetime access to school-issued email addresses, we may require further proof of your academic status. {% data reusables.education.upload-different-image %}
 
-{{ site.data.reusables.education.pdf-support }}
+{% data reusables.education.pdf-support %}
 
 If you have other questions or concerns about the school domain, please ask your school IT staff to contact us.
 
 ### Non-student applying for Student Developer Pack
 
-Educators and researchers are not eligible for the partner offers that come with the [{{ site.data.variables.product.prodname_student_pack }}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
+Educators and researchers are not eligible for the partner offers that come with the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack). When you reapply, make sure that you choose **Faculty** to describe your academic status.
 
 ### Дополнительная литература
 

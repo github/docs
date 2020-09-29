@@ -1,7 +1,7 @@
 ---
 title: 在企业帐户中实施项目板策略
 intro: 企业所有者可实施企业帐户拥有的所有组织的特定项目板策略，或允许在每个组织中设置策略。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account/
@@ -16,18 +16,18 @@ versions:
 
 在企业帐户拥有的所有组织中，可以启用或禁用组织范围的项目板，或允许所有者在组织级别管理设置。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.projects-tab }}
-4. 在“Organization projects”（组织项目）下，审查有关更改设置的信息。 {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.projects-tab %}
+4. 在“Organization projects”（组织项目）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. 在“Organization projects”（组织项目）下，使用下拉菜单并选择策略。 ![带有组织项目板策略选项的下拉菜单](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
 ### 实施仓库项目板的策略
 
 在企业帐户拥有的所有组织中，可以启用或禁用仓库级项目板，或允许所有者在组织级别管理设置。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.projects-tab }}
-4. 在“Repository projects”（仓库项目）下，审查有关更改设置的信息。 {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.projects-tab %}
+4. 在“Repository projects”（仓库项目）下，审查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. 在“Repository projects”（仓库项目）下，使用下拉菜单并选择策略。 ![带有仓库项目板策略选项的下拉菜单](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)

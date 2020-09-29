@@ -10,7 +10,7 @@ versions:
 
 ### Verifique a ortografia
 
-Erros de digitação acontecem e os nomes dos repositórios diferenciam maiúsculas de minúsculas.  Ao tentar clonar `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git` e o repositório estiver nomeado `User/Repo`, você receberá essa mensagem de erro.
+Erros de digitação acontecem e os nomes dos repositórios diferenciam maiúsculas de minúsculas.  Ao tentar clonar `git@{% data variables.command_line.codeblock %}:user/repo.git` e o repositório estiver nomeado `User/Repo`, você receberá essa mensagem de erro.
 
 Para evitar o erro ao clonar, sempre copie e cole a URL clone da página do repositório. Para obter mais informações, consulte "[Clonar um repositório](/articles/cloning-a-repository)".
 
@@ -30,10 +30,10 @@ Assegure-se de ter acesso ao repositório como:
 
 Em raras circunstâncias, você pode não ter o devido acesso SSH a um repositório.
 
-Confirme que a chave SSH em uso está associada à sua conta de usuário {{ site.data.variables.product.product_name }}. Para confirmar, digite na linha de comando:
+Confirme que a chave SSH em uso está associada à sua conta de usuário {% data variables.product.product_name %}. Para confirmar, digite na linha de comando:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Olá <em>username</em>! Você conseguiu se autenticar, mas o GitHub não
 > fornece acesso shell.
 ```
@@ -52,4 +52,4 @@ Caso o administrador de seu site tenha habilitado o modo privado em sua instânc
 
 ### Verifique se o repositório realmente existe
 
-Se nada resolver o problema, confirme se o repositório realmente existe em {{ site.data.variables.product.product_location }}! Caso você esteja tentando fazer push para um repositório que não existe, você receberá essa mensagem de erro.
+Se nada resolver o problema, confirme se o repositório realmente existe em {% data variables.product.product_location %}! Caso você esteja tentando fazer push para um repositório que não existe, você receberá essa mensagem de erro.

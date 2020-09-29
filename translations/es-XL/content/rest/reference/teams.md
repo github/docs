@@ -7,7 +7,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Esta API solo está disponible para los miembros autenticados de la [organization](/v3/orgs) del equipo. Los tokens de acceso de OAuth requieren el [alcance](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) `read:org`. {{ site.data.variables.product.prodname_dotcom }} genera el `slug` del equipo a partir del `name` del mismo.
+Esta API solo está disponible para los miembros autenticados de la [organization](/v3/orgs) del equipo. Los tokens de acceso de OAuth requieren el [alcance](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) `read:org`. {% data variables.product.prodname_dotcom %} genera el `slug` del equipo a partir del `name` del mismo.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -45,7 +45,7 @@ Esta API solo está disponible para los miembros autenticados de la organization
 
 ## Sincronización de equipos
 
-La API de sincronización de equipos te permite administrar las conexiones entre los equipos de {{ site.data.variables.product.product_name }} y los grupos del proveedor de identidad (IdP) externo. Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste. El token que utilizas para autenticarte también necesitará autorizarse para su uso con tu proveedor IdP (SSO). Para obtener más información, consulta la sección "<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">Autorizar un token de acceso personal para su uso con una organización que tiene inicio de sesión único de SAML</a>".
+La API de sincronización de equipos te permite administrar las conexiones entre los equipos de {% data variables.product.product_name %} y los grupos del proveedor de identidad (IdP) externo. Para utilizar esta API, el usuario autenticado debe ser un mantenedor del equipo o un propietario de la organización asociada con éste. El token que utilizas para autenticarte también necesitará autorizarse para su uso con tu proveedor IdP (SSO). Para obtener más información, consulta la sección "<a href="/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on" class="dotcom-only">Autorizar un token de acceso personal para su uso con una organización que tiene inicio de sesión único de SAML</a>".
 
 Puedes administrar a los miembros del equipo de GitHub a través de tu IdP con la sincronización de equipos. Ésta se debe habilitar para usar la API de Sincronización de Equipos. Para obtener más información, consulta la sección "<a href="/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization" class="dotcom-only">Sincronizar equipos entre tu proveedor de identidad y GitHub</a>".
 

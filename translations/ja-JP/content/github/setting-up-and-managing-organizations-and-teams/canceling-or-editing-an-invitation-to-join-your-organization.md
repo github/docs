@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. [People] タブで、[**Pending invitation**] をクリックします。 ![招待の保留リンク](/assets/images/help/organizations/pending-invitation-link.png)
 5. 編集またはキャンセルしたい人の、ユーザ名またはメールアドレスの隣にある [**Edit invitation**] をクリックします。 ![招待の編集ボタン](/assets/images/help/organizations/edit-invitation-button.png)
 

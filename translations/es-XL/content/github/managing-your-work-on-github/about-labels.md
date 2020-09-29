@@ -1,6 +1,6 @@
 ---
 title: Acerca de las etiquetas
-intro: 'Las etiquetas en {{ site.data.variables.product.product_name }} te ayudan a organizar y priorizar tu trabajo. Puedes aplicar etiquetas a propuestas y solicitudes de extracción para indicar prioridad, categoría o cualquier otra información que encuentres útil.'
+intro: 'Las etiquetas en {% data variables.product.product_name %} te ayudan a organizar y priorizar tu trabajo. Puedes aplicar etiquetas a propuestas y solicitudes de extracción para indicar prioridad, categoría o cualquier otra información que encuentres útil.'
 redirect_from:
   - /articles/about-labels
 versions:
@@ -14,7 +14,7 @@ Cualquiera con acceso de lectura a un repositorio puede ver y buscar las etiquet
 
 ### Usar etiquetas predeterminadas
 
-{{ site.data.variables.product.product_name }} ofrece etiquetas predeterminadas en cada repositorio nuevo. Puedes usar estas etiquetas predeterminadas para ayudar a crear un flujo de trabajo estándar en un repositorio:
+{% data variables.product.product_name %} ofrece etiquetas predeterminadas en cada repositorio nuevo. Puedes usar estas etiquetas predeterminadas para ayudar a crear un flujo de trabajo estándar en un repositorio:
 
 | Etiqueta                  | Descripción                                                                                                                      |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |

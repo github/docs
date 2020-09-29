@@ -1,6 +1,6 @@
 ---
 title: 在 GitHub 上查找文件
-intro: '您可以使用文件查找器在仓库中搜索文件。 要在 {{ site.data.variables.product.product_name }} 上的多个仓库中搜索文件，请使用 [`filename` 代码搜索限定符](/articles/searching-code#search-by-filename)。'
+intro: '您可以使用文件查找器在仓库中搜索文件。 要在 {% data variables.product.product_name %} 上的多个仓库中搜索文件，请使用 [`filename` 代码搜索限定符](/articles/searching-code#search-by-filename)。'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. 在仓库名称下，单击 **Find file（查找文件）**。 ![查找文件按钮](/assets/images/help/search/find-file-button.png)
 {% else %}

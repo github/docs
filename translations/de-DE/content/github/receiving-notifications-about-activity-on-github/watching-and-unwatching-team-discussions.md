@@ -19,31 +19,31 @@ Lege Deine Benachrichtigungseinstellungen für die automatische Beobachtung fest
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} Aktiviere das Kontrollkästchen **Automatically watch teams** (Teams automatisch beobachten). ![Kontrollkästchen zum automatischen Beobachten von Teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} Aktiviere das Kontrollkästchen **Automatically watch teams** (Teams automatisch beobachten). ![Kontrollkästchen zum automatischen Beobachten von Teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Diskussionen eines einzelnen Teams beobachten
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} Klicke auf **Watch** (Beobachten), um die Benachrichtigungsoptionen zu öffnen. Klicke dann auf **Watching** (Beobachten). ![Beobachtungsoptionen in einem Dropdownmenü für ein spezifisches Team](/assets/images/help/notifications/specific-team-watch-options.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} Klicke auf **Watch** (Beobachten), um die Benachrichtigungsoptionen zu öffnen. Klicke dann auf **Watching** (Beobachten). ![Beobachtungsoptionen in einem Dropdownmenü für ein spezifisches Team](/assets/images/help/notifications/specific-team-watch-options.png)
 
 ### Beobachtung von Teamdiskussionen für alle neuen Teams beenden, denen Du beitrittst
 
 Wenn Du nicht möchtest, dass Du beim Beitritt zu einem Team automatisch Benachrichtigungen zu Teamdiskussionen erhältst, kannst Du Deine Benachrichtigungseinstellungen so ändern, dass die Beobachtung sämtlicher neuer Teams, denen Du beitrittst, beendet wird.
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.notifications }}
-{{ site.data.reusables.user_settings.automatic_watching_box }} Deaktiviere das Kontrollkästchen **Automatically watch teams** (Teams automatisch beobachten). ![Standardmäßig ausgewählte Einstellung zum automatischen Beobachten von Teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.notifications %}
+{% data reusables.user_settings.automatic_watching_box %} Deaktiviere das Kontrollkästchen **Automatically watch teams** (Teams automatisch beobachten). ![Standardmäßig ausgewählte Einstellung zum automatischen Beobachten von Teams](/assets/images/help/notifications/automatic-team-discussions-watching.png)
 
 ### Beobachtung der Diskussionen eines einzelnen Teams beenden
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.watch-team-options }} Klicke auf **Unwatch** (Beobachtung beenden), um die Benachrichtigungsoptionen zu öffnen. Klicke anschließend auf **Not watching** (Nicht beobachten). ![Beobachtungsoptionen in einem Dropdownmenü für ein spezifisches Team](/assets/images/help/notifications/specific-team-unwatch.png)
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.watch-team-options %} Klicke auf **Unwatch** (Beobachtung beenden), um die Benachrichtigungsoptionen zu öffnen. Klicke anschließend auf **Not watching** (Nicht beobachten). ![Beobachtungsoptionen in einem Dropdownmenü für ein spezifisches Team](/assets/images/help/notifications/specific-team-unwatch.png)
 
 {% note %}
 

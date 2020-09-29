@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. Klicke in der oberen rechten Ecke auf **Label** (Kennzeichnung), und gib den Namen einer vorhandenen Kennzeichnung ein. Klicke auf den Namen der Kennzeichnung, um sie mit den ausgewählten Elementen zu verknüpfen. ![Dropdownmenü „Issues Milestone assignment" (Issue-Meilenstein-Zuordnung)](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### Weiterführende Informationen

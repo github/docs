@@ -19,7 +19,7 @@ O gráfico de dependentes contém dados para estas linguagens:
 - Maven (somente pom.xml)
 - Nuget
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 {% note %}
 
@@ -31,9 +31,9 @@ O gráfico de dependentes contém dados para estas linguagens:
 
 ### Acessar o gráfico de dependentes
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. Em "Dependency graph" (Gráfico de dependências), clique em **Dependents** (Dependentes). ![Aba Dependents (Dependentes) na página dependency graph (gráfico de dependências)](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 ### Leia mais

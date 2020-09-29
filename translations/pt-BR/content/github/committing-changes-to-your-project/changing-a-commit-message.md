@@ -3,7 +3,7 @@ title: Alterar a mensagem do commit
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas ou confidenciais, você poderá corrigi-las localmente e fazer push de um novo commit com uma nova mensagem para o {{ site.data.variables.product.product_name }}. Também é possível alterar uma mensagem do commit para adicionar informações ausentes.'
+intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas ou confidenciais, você poderá corrigi-las localmente e fazer push de um novo commit com uma nova mensagem para o {% data variables.product.product_name %}. Também é possível alterar uma mensagem do commit para adicionar informações ausentes.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,7 +21,7 @@ No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do
 
 #### Não foi feito push online do commit
 
-Se o commit existir em seu repositório local e não tiver sido publicado no {{ site.data.variables.product.product_location }}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
+Se o commit existir em seu repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
 
 1. Na linha de comando, navegue até o repositório que contém o commit que você deseja corrigir.
 2. Digite `git commit --amend` e pressione **Enter**.
@@ -31,7 +31,7 @@ Se o commit existir em seu repositório local e não tiver sido publicado no {{ 
     - É possível criar commits em nome da sua organização adicionando um trailer ao commit. Para obter mais informações, consulte "[Criar um commit em nome de uma organização](/articles/creating-a-commit-on-behalf-of-an-organization)"
 {% endif %}
 
-O novo commit e a mensagem aparecerão no {{ site.data.variables.product.product_location }} na próxima vez que você fizer push.
+O novo commit e a mensagem aparecerão no {% data variables.product.product_location %} na próxima vez que você fizer push.
 
 {% tip %}
 
@@ -41,7 +41,7 @@ Você pode alterar o editor de texto padrão do Git mudando a configuração `co
 
 #### Corrigir mensagens do commit antigas ou em grandes quantidades
 
-Se você já tiver feito push do commit no {{ site.data.variables.product.product_location }}, será necessário forçar o push de um commit com uma mensagem corrigida.
+Se você já tiver feito push do commit no {% data variables.product.product_location %}, será necessário forçar o push de um commit com uma mensagem corrigida.
 
 {% warning %}
 
@@ -117,7 +117,7 @@ Tal como antes, corrigir a mensagem do commit resultará em um novo commit com u
 
 {% warning %}
 
-Se você incluiu informações confidenciais em uma mensagem do commit, forçar o push de um commit com um commit corrigido pode não remover o commit original do {{ site.data.variables.product.product_name }}. O commit antigo não fará parte de um clone subsequente. No entanto, ele ainda poderá ser armazenado no cache do {{ site.data.variables.product.product_name }} e ser acessado por meio da ID do commit. Você deve contatar o {{ site.data.variables.contact.contact_support }} com a ID do commit antigo para que ele seja apagado do repositório remoto.
+Se você incluiu informações confidenciais em uma mensagem do commit, forçar o push de um commit com um commit corrigido pode não remover o commit original do {% data variables.product.product_name %}. O commit antigo não fará parte de um clone subsequente. No entanto, ele ainda poderá ser armazenado no cache do {% data variables.product.product_name %} e ser acessado por meio da ID do commit. Você deve contatar o {% data variables.contact.contact_support %} com a ID do commit antigo para que ele seja apagado do repositório remoto.
 
 {% endwarning %}
 

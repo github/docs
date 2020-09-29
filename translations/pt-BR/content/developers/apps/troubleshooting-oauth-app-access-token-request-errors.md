@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de erros na solicitação de token de acesso do OAuth
-intro: '{{ site.data.reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps }}'
+intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors/
   - /apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
@@ -27,11 +27,11 @@ Se o cliente\_id e o cliente\_secret que você inseriu estiverem incorretos, voc
 }
 ```
 
-Para resolver este erro, verifique se você tem as credenciais corretas para o seu {{ site.data.variables.product.prodname_oauth_app }}. Verifique novamente o `client_id` e `client_secret` para certificar-se de que estão corretos e que são informados corretamente para {{ site.data.variables.product.product_name }}.
+Para resolver este erro, verifique se você tem as credenciais corretas para o seu {% data variables.product.prodname_oauth_app %}. Verifique novamente o `client_id` e `client_secret` para certificar-se de que estão corretos e que são informados corretamente para {% data variables.product.product_name %}.
 
 ### Erro no redirecionamento do URI
 
-Se você fornecer um `redirect_uri` que não coincide com o que você registrou com o seu {{ site.data.variables.product.prodname_oauth_app }}, você receberá esta mensagem de erro:
+Se você fornecer um `redirect_uri` que não coincide com o que você registrou com o seu {% data variables.product.prodname_oauth_app %}, você receberá esta mensagem de erro:
 
 ```json
 {

@@ -12,7 +12,7 @@ versions:
 ### インボックスについて
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
 To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ By default, your inbox has filters for when you are assigned, participating in a
 
 You can add up to 15 of your own custom filters.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. フィルタ設定を開くには、左側のサイドバーの [Filters] の横にある {% octicon "gear" aria-label="The Gear icon" %} をクリックします。
 
   {% tip %}
@@ -113,7 +113,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 
 #### サポートされている `is:` クエリ
 
-{{ site.data.variables.product.product_name }} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`.
+{% data variables.product.product_name %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

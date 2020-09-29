@@ -20,7 +20,7 @@ Este proyecto te mostrará cómo hacer lo siguiente:
 * Programar tu app para escuchar eventos
 * Utilizar la biblioteca de Octokit para hacer operaciones de la API de REST
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 Una vez que hayas seguido estos pasos, estarás listo para desarrollar otros tipos de integraciones utilizando la suite completa de las API de GItHub. {% if currentVersion == "free-pro-team@latest" %}Puedes revisar los ejemplos exitosos de estas aplicaciones en [GitHub Marketplace](https://github.com/marketplace) y en [Compatible con GitHub](https://github.com/works-with).{% endif %}
 
@@ -81,7 +81,7 @@ Para actualizar los permisos de tu app:
 1. Selecciona tu app de la [página de configuración de la app](https://github.com/settings/apps) y da clic en **Permisos & Webhooks** en la barra lateral.
 1. En la sección de "Permisos", encuentra "Informes de problemas"; y selecciona **Lectura & Escritura** en el menú desplegable de "Acceso" que está a un costado. La descripción dice que esta opción otorga acceso tanto a informes de problemas como a etiquetas, que es exactamente lo que buscas.
 1. En la sección "Suscribirse a los eventos", selecciona **Informes de problemas** para suscribirte a este evento.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 ¡Genial! Tu app tiene permiso para realizar las tareas que quieres que haga. Ahora puedes agregar el código para que funcione.
 
@@ -129,7 +129,7 @@ Este método recibe una carga útil de evento formateada con JSON a manera de ar
 
 ¡Genial! Es momento de probar los cambios.
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 En tu buscador, visita el repositorio en donde instalaste tu app. Abre un informe de problemas nuevo en este repositorio. El informe de problemas puede decir lo que gustes. Esto es solo para hacer la prueba.
 
@@ -198,7 +198,7 @@ Consulta la sección "[Pasos siguientes](#next-steps)" para obtener ideas de qu�
 
 ### Solución de problemas
 
-Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aquí te mostramos algunos problemas comunes y algunas soluciones sugeridas. Si te encuentras con cualquier otro problema, puedes pedir ayuda o consejo en el {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** ¡Mi servidor no está escuchando los eventos! El cliente de Smee está ejecutándose en una ventana de la terminal, y estoy enviando eventos en GitHub.com mediante la apertura de informes de problemas nuevos, pero no veo ninguna salida en la ventana de la terminal en donde estoy ejecutando el servidor.
 
@@ -231,5 +231,5 @@ Aquí tienes algunas ideas para lo que puedes hacer después:
 * Cuando el bot agregue la etiqueta exitosamente, muestra un mensaje en la terminal. (Pista: compara la ID de la etiqueta `needs-response` con la ID de la etiqueta en la carga útil como una condición para tu mensaje, para que así, el mensaje solo muestre cuando la etiqueta relevante se agregue y no lo haga con otra etiqueta).
 * Agrega una página de llegada para tu app y conéctale una [Ruta de Sinatra](https://github.com/sinatra/sinatra#routes).
 * Migra tu código a un servidor hospedado (como Heroku). No olvides actualizar la configuración de tu app con el dominio nuevo.
-* Comparte tu proyecto u obtén consejos en el {{ site.data.variables.product.prodname_support_forum_with_url }}{% if currentVersion == "free-pro-team@latest" %}
+* Comparte tu proyecto u obtén consejos en el {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
 * ¿Has creado una nueva y reluciente app que crees que pueda ser útil para otros? ¡[Agrégala a GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

@@ -1,7 +1,7 @@
 ---
 title: 创建 PostgreSQL 服务容器
 intro: 您可以创建 PostgreSQL 服务容器用于您的工作流程。 本指南举例说明如何为容器中运行或直接在运行器机器上运行的作业创建 PostgreSQL 服务。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
 versions:
@@ -9,31 +9,31 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 简介
 
 本指南演示了使用 Docker Hub `postgres` 映像配置服务容器的工作流程示例。 工作流程运行脚本来创建 PostgreSQL 客户端并使用数据填充客户端。 要测试工作流程是否创建并填充 PostgreSQL 客户端，脚本会将客户端数据打印到控制台。
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ### 基本要求
 
-{{ site.data.reusables.github-actions.service-container-prereqs }}
+{% data reusables.github-actions.service-container-prereqs %}
 
-你可能还会发现它也有助于基本了解 YAML、{{ site.data.variables.product.prodname_actions }} 的语法和 PostgreSQL。 更多信息请参阅：
+你可能还会发现它也有助于基本了解 YAML、{% data variables.product.prodname_actions %} 的语法和 PostgreSQL。 更多信息请参阅：
 
 - "[配置工作流程](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 - PostgreSQL 文档中的“[PostgreSQL 教程](https://www.postgresqltutorial.com/)”
-- "[{{ site.data.variables.product.prodname_actions }} 的核心概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
+- "[{% data variables.product.prodname_actions %} 的核心概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
 - "[使用环境变量](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 
 ### 在容器中运行作业
 
-{{ site.data.reusables.github-actions.container-jobs-intro }}
+{% data reusables.github-actions.container-jobs-intro %}
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -89,9 +89,9 @@ jobs:
 
 #### 配置运行器作业
 
-{{ site.data.reusables.github-actions.service-container-host }}
+{% data reusables.github-actions.service-container-host %}
 
-{{ site.data.reusables.github-actions.postgres-label-description }}
+{% data reusables.github-actions.postgres-label-description %}
 
 ```yaml
 jobs:
@@ -121,7 +121,7 @@ jobs:
 
 #### 配置步骤
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -147,7 +147,7 @@ steps:
       POSTGRES_PORT: 5432
 ```
 
-{{ site.data.reusables.github-actions.postgres-environment-variables }}
+{% data reusables.github-actions.postgres-environment-variables %}
 
 PostgreSQL 文档中的服务的主机名是您在工作流程中配置的标签，本例中为 `postgres`。 由于同一用户定义的网桥网络上的 Docker 容器默认打开所有端口，因此您将能够访问默认 PostgreSQL 端口 5432 上的服务容器。
 
@@ -155,7 +155,7 @@ PostgreSQL 文档中的服务的主机名是您在工作流程中配置的标签
 
 直接在运行器机器上运行作业时，需要将服务容器上的端口映射到 Docker 主机上的端口。 您可以使用 `localhost` 和 Docker 主机端口号从 Docker 主机访问服务容器。
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -213,9 +213,9 @@ jobs:
 
 #### 配置运行器作业
 
-{{ site.data.reusables.github-actions.service-container-host-runner }}
+{% data reusables.github-actions.service-container-host-runner %}
 
-{{ site.data.reusables.github-actions.postgres-label-description }}
+{% data reusables.github-actions.postgres-label-description %}
 
 工作流程将 PostgreSQL 服务容器上的端口 5432 映射到 Docker 主机。 有关 `ports` 关键字的更多信息，请参阅“[关于服务容器](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)”。
 
@@ -248,7 +248,7 @@ jobs:
 
 #### 配置步骤
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -274,9 +274,9 @@ steps:
       POSTGRES_PORT: 5432
 ```
 
-{{ site.data.reusables.github-actions.postgres-environment-variables }}
+{% data reusables.github-actions.postgres-environment-variables %}
 
-{{ site.data.reusables.github-actions.service-container-localhost }}
+{% data reusables.github-actions.service-container-localhost %}
 
 ### 测试 PostgreSQL 服务容器
 
@@ -284,7 +284,7 @@ steps:
 
 您可以修改 *client.js* 以包含工作流程需要的任何 PostgreSQL 操作。 在此示例中，脚本创建 PostgreSQL 客户端实例、创建表、添加占位符数据，然后检索数据。
 
-{{ site.data.reusables.github-actions.service-container-add-script }}
+{% data reusables.github-actions.service-container-add-script %}
 
 ```javascript
 const { Client } = require('pg');

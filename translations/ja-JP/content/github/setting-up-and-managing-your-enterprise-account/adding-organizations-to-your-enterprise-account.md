@@ -1,7 +1,7 @@
 ---
 title: Enterprise アカウントに Organization を追加する
 intro: Enterprise アカウント内に、新しい Organization を作成して管理できます。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
 versions:
@@ -14,11 +14,11 @@ Organization を Enterprise アカウントに追加するには、 Enterprise �
 
 ### Enterprise アカウント内で Organization を作成する
 
-Enterprise アカウント設定内で作成した新しい Organization は、Enterprise アカウントの {{ site.data.variables.product.prodname_ghe_cloud }} プランに含められます。 Organization でのコラボレーションに関する詳しい情報については「[Organization と Team のセットアップと管理](/categories/setting-up-and-managing-organizations-and-teams)」を参照してください。
+Enterprise アカウント設定内で作成した新しい Organization は、Enterprise アカウントの {% data variables.product.prodname_ghe_cloud %} プランに含められます。 Organization でのコラボレーションに関する詳しい情報については「[Organization と Team のセットアップと管理](/categories/setting-up-and-managing-organizations-and-teams)」を参照してください。
 
 Enterprise アカウントにより所有される Organization を作成した Enterprise のオーナーは、自動的に Organization のオーナーになります。 Organization のオーナーに関する詳しい情報については「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」を参照してください。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 2. [**Organization**] タブで、Organization のリストの上で [**New organization**] をクリックします。 ![新規 Organization ボタン](/assets/images/help/business-accounts/enterprise-account-add-org.png)
 3. [Organization name] の下に Organization の名前を入力します。 ![新しい Organization 名を入力するフィールド](/assets/images/help/business-accounts/new-organization-name-field.png)
 4. **Create organization（Organizationの作成）**をクリックしてください。

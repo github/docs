@@ -12,7 +12,7 @@ For more information about required reviews, see "[About required reviews for pu
 
 You can comment on a pull request, approve the changes, or request improvements before approving. For more information, see "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)" and "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)."
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
@@ -20,16 +20,16 @@ You can comment on a pull request, approve the changes, or request improvements 
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
 4. Review the changes in the pull request, and optionally, [comment on specific lines](/articles/reviewing-proposed-changes-in-a-pull-request/#starting-a-review).
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 7. Select **Approve** to approve merging the changes proposed in the pull request.
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### 더 읽을거리
 

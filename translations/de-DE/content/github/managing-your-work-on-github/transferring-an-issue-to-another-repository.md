@@ -18,8 +18,8 @@ Im Issue erwähnte Personen und Teams werden über die Übertragung des Issues i
 
 ### Offener Issue in ein anderes Repository übertragen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Klicke in der Liste der Issues auf den Issue, den Du übertragen möchtest.
 4. Klicke in der rechten Seitenleiste auf **Transfer issue** (Issue übertragen). ![Schaltfläche zum Übertragen eines Issues](/assets/images/help/repository/transfer-issue.png)
 5. Wähle im Dropdownmenü **Choose a repository** (Repository auswählen) das Repository aus, in das Du den Issue übertragen möchtest. ![Auswahl eines Repositorys](/assets/images/help/repository/choose-a-repository.png)

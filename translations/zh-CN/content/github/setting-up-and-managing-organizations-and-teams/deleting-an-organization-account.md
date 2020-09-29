@@ -11,7 +11,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**提示**：如果要取消已付费的订阅，可以[将组织下载到 {{ site.data.variables.product.prodname_free_team }}](/articles/downgrading-your-github-subscription) 而非删除组织及其内容。
+**提示**：如果要取消已付费的订阅，可以[将组织下载到 {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) 而非删除组织及其内容。
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ versions:
 
 ### 2. 删除组织
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. 在组织设置页面底部附近，单击 **Delete this Organization（删除此组织）**。 ![删除此组织按钮](/assets/images/help/settings/settings-organization-delete.png)

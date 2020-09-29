@@ -1,6 +1,6 @@
 ---
 title: Bibliotecas
-intro: 'Puedes utilizar la biblioteca oficial de Octokit y otras bibliotecas de terceros para extender y simplificar cómo utilizas la API de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Puedes utilizar la biblioteca oficial de Octokit y otras bibliotecas de terceros para extender y simplificar cómo utilizas la API de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /libraries/
   - /v3/libraries

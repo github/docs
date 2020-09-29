@@ -5,7 +5,7 @@ redirect_from:
   - /categories/101/articles/
   - /categories/managing-repository-collaborators/
   - /articles/managing-access-to-your-personal-repositories
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 mapTopic: true
 versions:
   free-pro-team: '*'

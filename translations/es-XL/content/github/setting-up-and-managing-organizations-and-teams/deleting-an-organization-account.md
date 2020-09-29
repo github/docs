@@ -11,7 +11,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% tip %}
 
-**Sugerencia**: Si deseas cancelar tu suscripción paga, puedes [bajar la categoría de tu organización a {{ site.data.variables.product.prodname_free_team }}](/articles/downgrading-your-github-subscription) en lugar de eliminar la organización y su contenido.
+**Sugerencia**: Si deseas cancelar tu suscripción paga, puedes [bajar la categoría de tu organización a {% data variables.product.prodname_free_team %}](/articles/downgrading-your-github-subscription) en lugar de eliminar la organización y su contenido.
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ Una vez que eliminas una organización, GitHub **no puede restaurar su contenido
 
 ### 2. Elimina la organización
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Junto a la parte inferior de la página de configuración de la organización, haz clic en **Eliminar esta organización**. ![Botón Eliminar esta organización](/assets/images/help/settings/settings-organization-delete.png)

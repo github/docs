@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-任何组织成员都可以在团队的页面上发帖或参与公共讨论。 {{ site.data.reusables.organizations.team-discussions-permissions }}
+任何组织成员都可以在团队的页面上发帖或参与公共讨论。 {% data reusables.organizations.team-discussions-permissions %}
 
 ![具有公共和私人讨论的团队页面的讨论选项卡](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +18,7 @@ versions:
 
 ![具有嵌入讨论的团队页面的嵌入讨论选项卡](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }} 所有者可对整个组织禁用团队讨论。 更多信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”。
+{% data reusables.organizations.team-discussions-default %} 所有者可对整个组织禁用团队讨论。 更多信息请参阅“[对组织禁用团队讨论](/articles/disabling-team-discussions-for-your-organization)”。
 
 ### 团队讨论通知
 
@@ -26,7 +26,7 @@ versions:
 
 {% tip %}
 
-**提示：**根据通知设置，您将通过电子邮件和/或 {{ site.data.variables.product.product_name }} 上的 web 通知页面收到更新。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”和“[关于 web 通知](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}”。
+**提示：**根据通知设置，您将通过电子邮件和/或 {% data variables.product.product_name %} 上的 web 通知页面收到更新。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}“[关于电子邮件通知](/github/receiving-notifications-about-activity-on-github/about-email-notifications)”和“[关于 web 通知](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}”。
 
 {% endtip %}
 
@@ -38,7 +38,7 @@ versions:
 
 ### 延伸阅读
 
-- "[关于 {{ site.data.variables.product.prodname_dotcom }} 中的对话](/articles/about-conversations-on-github)"
+- "[关于 {% data variables.product.prodname_dotcom %} 中的对话](/articles/about-conversations-on-github)"
 - "[关于团队](/articles/about-teams)"
 - "[创建团队讨论](/articles/creating-a-team-discussion)"
 - "[编辑或删除团队讨论](/articles/editing-or-deleting-a-team-discussion)"

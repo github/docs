@@ -1,6 +1,6 @@
 ---
 title: Sobre as APIs do GitHub
-intro: 'Saiba mais sobre as APIs dos {{ site.data.variables.product.prodname_dotcom }} para estender e personalizar sua experiência no {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Saiba mais sobre as APIs dos {% data variables.product.prodname_dotcom %} para estender e personalizar sua experiência no {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v3/versions
 versions:

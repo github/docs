@@ -1,6 +1,6 @@
 ---
 title: Atualizar o cluster
-intro: 'Use o shell administrativo (SSH) para atualizar o cluster do {{ site.data.variables.product.prodname_ghe_server }} para a versão mais recente.'
+intro: 'Use o shell administrativo (SSH) para atualizar o cluster do {% data variables.product.prodname_ghe_server %} para a versão mais recente.'
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
 versions:
@@ -8,23 +8,23 @@ versions:
 ---
 
 ### Atualizar com hotpatch
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }} O script de instalação do hotpatch instala o hotpatch em cada nó do cluster e reinicia os serviços na sequência adequada para evitar tempo de inatividade.
+{% data reusables.enterprise_installation.hotpatching-explanation %} O script de instalação do hotpatch instala o hotpatch em cada nó do cluster e reinicia os serviços na sequência adequada para evitar tempo de inatividade.
 
-1. Faça backup dos seus dados com o [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme).
+1. Faça backup dos seus dados com o [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 2. No shell administrativo de qualquer nó, use o comando `ghe-cluster-hotpatch` para instalar o hotpatch mais recente. Você pode informar uma URL para o hotpatch ou baixá-la manualmente e especificar um nome de arquivo local.
   ```shell
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/NOMEARQUIVO</em>.hpkg
   ```
 
 ### Atualizar com pacote de atualização
-Atualize para a versão mais recente do cluster do {{ site.data.variables.product.prodname_ghe_server }} usando um pacote de atualização. Por exemplo, você pode atualizar da versão `2.11` para a versão `2.13`.
+Atualize para a versão mais recente do cluster do {% data variables.product.prodname_ghe_server %} usando um pacote de atualização. Por exemplo, você pode atualizar da versão `2.11` para a versão `2.13`.
 
 #### Preparar para a atualização
 
 1. Revise a [Configuração de rede de clustering](/enterprise/admin/guides/clustering/cluster-network-configuration) da versão para a qual você pretende atualizar e faça os ajustes necessários em sua configuração.
-2. Faça backup dos seus dados com o [{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme).
-3. Programe um período de manutenção para os usuários finais do cluster do {{ site.data.variables.product.prodname_ghe_server }}, já que ele ficará indisponível para uso regular durante a atualização. O modo de manutenção bloqueia o acesso de usuários e impede alterações de dados durante a atualização do cluster.
-4. Na [Página de download do {{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com/download), copie a URL do arquivo *.pkg* da atualização para a área de transferência.
+2. Faça backup dos seus dados com o [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+3. Programe um período de manutenção para os usuários finais do cluster do {% data variables.product.prodname_ghe_server %}, já que ele ficará indisponível para uso regular durante a atualização. O modo de manutenção bloqueia o acesso de usuários e impede alterações de dados durante a atualização do cluster.
+4. Na [Página de download do {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/download), copie a URL do arquivo *.pkg* da atualização para a área de transferência.
 5. No shell administrativo de qualquer nó, use o comando `ghe-cluster-each` combinado ao código `curl` para baixar o pacote de versão de cada nó em uma única etapa. Como argumento, use a URL que você copiou na etapa anterior.
   ```shell
   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://<em>PACKAGE-URL</em>.pkg"
@@ -49,7 +49,7 @@ Atualize para a versão mais recente do cluster do {{ site.data.variables.produc
 #### Atualizar os nós de cluster
 
 1. Ative o modo de manutenção conforme o período planejado conectando-se ao shell administrativo de qualquer nó do cluster e executando o código `ghe-cluster-maintenance -s`.
-2. **Com exceção do nó primário MySQL**, conecte-se ao shell administrativo de cada nó do {{ site.data.variables.product.prodname_ghe_server }}. Execute o comando `ghe-upgrade` informando o nome do arquivo que você baixou na Etapa 4 do procedimento [Preparar para a atualização](#preparing-to-upgrade):
+2. **Com exceção do nó primário MySQL**, conecte-se ao shell administrativo de cada nó do {% data variables.product.prodname_ghe_server %}. Execute o comando `ghe-upgrade` informando o nome do arquivo que você baixou na Etapa 4 do procedimento [Preparar para a atualização](#preparing-to-upgrade):
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...

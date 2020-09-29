@@ -1,7 +1,7 @@
 ---
 title: パッケージの公開と管理
 shortTitle: パッケージの公開と管理
-intro: '新しいパッケージを{{ site.data.variables.product.prodname_registry }}に公開し、既存のパッケージを見てインストールし、特殊な環境では既存のパッケージを削除できます。'
+intro: '新しいパッケージを{% data variables.product.prodname_registry %}に公開し、既存のパッケージを見てインストールし、特殊な環境では既存のパッケージを削除できます。'
 redirect_from:
   - /github/managing-packages-with-github-packages/publishing-and-managing-packages
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_in_list /about-github-packages %}
 {% link_in_list /publishing-a-package %}

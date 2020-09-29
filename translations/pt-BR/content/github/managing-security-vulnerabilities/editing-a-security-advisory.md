@@ -15,15 +15,15 @@ Se alguém aceitar o crédito, o nome de usuário da pessoa aparecerá na seçã
 
 ### Editar uma consultoria de segurança
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Na lista "consultorias de segurança", clique na consultoria de segurança que deseja editar.
 5. No canto superior direito dos detalhes da consultoria de segurança, clique em
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![Botão para editar uma consultoria de segurança](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Opcionalmente, edite os "Créditos" para a consultoria de segurança. ![Créditos para uma consultoria de segurança](/assets/images/help/security/security-advisory-credits.png)
 9. Clique em **Atualizar consultoria de segurança**. ![Botão Add (Adicionar)](/assets/images/help/security/update-advisory-button.png)
 10. As pessoas listadas na seção "Créditos" receberão um e-mail ou uma notificação da web convidando-os a aceitar o crédito. Se uma pessoa aceitar, seu nome de usuário ficará visível publicamente assim que a consultoria de segurança for publicada.

@@ -14,12 +14,12 @@ Repositorys übernehmen die Einstellungen für erzwungene Push-Vorgänge vom Ben
 
 Sie können die standardmäßig übernommenen Einstellungen überschreiben, indem Sie die Einstellungen für ein Benutzerkonto oder für eine Organisation konfigurieren.
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.search-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.click-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Wählen Sie unter „Repository default settings“ (Repository-Standardeinstellungen) im Abschnitt in the „Force pushes“ (Erzwungene Push-Vorgänge) Folgendes aus:
     - **Block** (Blockieren), um alle erzwungenen Push-Vorgänge an alle Branches zu blockieren.
     - **Block to the default branch** (Übertragung an den Standardbranch blockieren), damit die an den Standardbranch übertragenen erzwungenen Push-Vorgänge blockiert werden. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)

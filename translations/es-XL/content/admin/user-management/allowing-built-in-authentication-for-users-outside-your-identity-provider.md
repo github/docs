@@ -23,24 +23,24 @@ La autenticación integrada para un IdP se desactiva por defecto.
 
 ### Configurar autenticación integrada para usuarios fuera de tu proveedor de identidad
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.authentication }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
 4. Selecciona tu proveedor de identidad. ![Seleccionar la opción proveedor de identidad](/assets/images/enterprise/management-console/identity-provider-select.gif)
 5. Selecciona **Permitir la creación de cuentas con autenticación integrada**. ![Seleccionar la opción autenticación integrada](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. Lee la advertencia, luego haz clic en **Aceptar**.
 
-{{ site.data.reusables.enterprise_user_management.two_factor_auth_header }}
-{{ site.data.reusables.enterprise_user_management.2fa_is_available }}
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
 
 ### Invitar a usuarios fuera de tu proveedor de identidad a autenticar tu instancia
 
 Cuando un usuario acepta la invitación, puede utilizar su nombre de usuario y contraseña para iniciar sesión en lugar de iniciar sesión a través del IdP.
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-sidebar-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-reset-link }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
+{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
 ### Leer más
 

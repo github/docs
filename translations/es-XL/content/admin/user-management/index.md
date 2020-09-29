@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-intro: 'En esta guía, se describen los métodos de autenticación para los usuarios que inician sesión en la instancia {{ site.data.variables.product.prodname_enterprise }}, cómo crear organizaciones y equipos para el acceso a repositorios y la colaboración, así como recomendaciones sobre las buenas prácticas para la seguridad del usuario.'
+intro: 'En esta guía, se describen los métodos de autenticación para los usuarios que inician sesión en la instancia {% data variables.product.prodname_enterprise %}, cómo crear organizaciones y equipos para el acceso a repositorios y la colaboración, así como recomendaciones sobre las buenas prácticas para la seguridad del usuario.'
 versions:
   enterprise-server: '*'
 ---

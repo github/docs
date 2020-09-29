@@ -16,9 +16,9 @@ After 24 hours, users can resume normal activity in your organization's public r
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. In your organization's Settings sidebar, click **Interaction limits**.
 ![Interaction limits in organization settings ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 5. Under "Temporary interaction limits", click one or more options.

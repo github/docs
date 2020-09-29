@@ -16,7 +16,7 @@ Quando você copia um quadro de projeto em uma organização, a visibilidade do 
 A automação de um quadro de projeto também é habilitada por padrão. Para obter mais informações, consulte "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards/)".
 
 1. Navegue até o quadro de projeto que deseja copiar.
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. Clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, em **Copy** (Copiar). ![Opção de cópia no menu suspenso da barra lateral do quadro de projeto](/assets/images/help/projects/project-board-copy-setting.png)
 4. Em "Owner" (Proprietário), use o menu suspenso e clique no repositório ou na organização em que deseja copiar o quadro de projeto. ![Selecionar proprietário do quadro de projeto copiado no menu suspenso](/assets/images/help/projects/copied-project-board-owner.png)
 5. Se preferir, em "Project board name" (Nome do quadro de projeto), digite o nome do quadro de projeto copiado. ![Campo para digitar um nome para o quadro de projeto copiado](/assets/images/help/projects/copied-project-board-name.png)

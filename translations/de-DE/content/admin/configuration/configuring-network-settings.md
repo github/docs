@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-your-github-enterprise-network-settings/
   - /enterprise/admin/installation/configuring-your-github-enterprise-server-network-settings
   - /enterprise/admin/configuration/configuring-network-settings
-intro: 'Konfigurieren Sie {{ site.data.variables.product.prodname_ghe_server }} die in Ihrem Netzwerk erforderlichen DNS-Nameserver und den Hostnamen. Zudem können Sie einen Proxyserver oder Firewallregeln konfigurieren. Aus Verwaltungs- und Benutzerzwecken müssen Sie zudem den Zugriff auf bestimmte Ports zulassen.'
+intro: 'Konfigurieren Sie {% data variables.product.prodname_ghe_server %} die in Ihrem Netzwerk erforderlichen DNS-Nameserver und den Hostnamen. Zudem können Sie einen Proxyserver oder Firewallregeln konfigurieren. Aus Verwaltungs- und Benutzerzwecken müssen Sie zudem den Zugriff auf bestimmte Ports zulassen.'
 mapTopic: true
 versions:
   enterprise-server: '*'

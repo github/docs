@@ -1,1 +1,1 @@
-Las {{ site.data.variables.product.prodname_github_app }}s deben tener el permiso de organización `self-hosted runners:write` para utilizar esta terminal.
+Las {% data variables.product.prodname_github_app %}s deben tener el permiso de organización `self-hosted runners:write` para utilizar esta terminal.

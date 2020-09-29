@@ -99,7 +99,7 @@ versions:
 | --------------------:| -------------------------------------------------------------------------------------------------------------------------------------- |
 | `staff.disable_repo` | Ein Websiteadministrator hat den Zugriff auf ein Repository und auf alle zugehörigen Forks deaktiviert.                                |
 |  `staff.enable_repo` | Ein Websiteadministrator hat den Zugriff auf ein Repository und auf alle zugehörigen Forks wieder aktiviert.                           |
-|   `staff.fake_login` | Ein Websiteadministrator hat sich als ein anderer Benutzer bei {{ site.data.variables.product.prodname_enterprise }} angemeldet.       |
+|   `staff.fake_login` | Ein Websiteadministrator hat sich als ein anderer Benutzer bei {% data variables.product.prodname_enterprise %} angemeldet.       |
 |  `staff.repo_unlock` | Ein Websiteadministrator hat eines der privaten Repositorys eines Benutzers entsperrt (temporär vollständigen Zugriff darauf erlangt). |
 |       `staff.unlock` | Ein Websiteadministrator hat alle der privaten Repositorys eines Benutzers entsperrt (temporär vollständigen Zugriff darauf erlangt).  |
 

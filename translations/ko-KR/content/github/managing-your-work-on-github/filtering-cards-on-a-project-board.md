@@ -29,7 +29,7 @@ You can also use the "Filter cards" search bar at the top of each project board 
 
 {% tip %}
 
-**Tip:** You can drag and drop filtered cards or use keyboard shortcuts to move them between columns. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**Tip:** You can drag and drop filtered cards or use keyboard shortcuts to move them between columns. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

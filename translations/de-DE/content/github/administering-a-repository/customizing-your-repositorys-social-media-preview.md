@@ -16,8 +16,8 @@ Du kannst ein Bild in ein privates Repository hochladen, aber Dein Bild kann nur
 Tipp: Dein Bild sollte eine PNG-, JPG- oder GIF-Datei mit weniger als 1 MB sein. Für eine optimale Darstellung empfehlen wir eine Bildgröße von 640 x 320 Pixeln.
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Klicke unter „Social preview“ (Social-Media-Vorschau) auf **Edit** (Bearbeiten)
     - Um ein neues Bild hinzuzufügen, klicke auf **Upload an image...** (Ein Bild hochladen...).
     - Um ein Bild zu entfernen, klicke auf **Remove image** (Bild entfernen).

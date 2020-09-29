@@ -1,7 +1,7 @@
 ---
 title: Aplicar políticas de quadros de projeto na conta corporativa
 intro: Os proprietários corporativos podem aplicar determinadas políticas de quadros de projeto para todas as organizações pertencentes a uma conta corporativa ou permitir que as políticas sejam definidas em cada organização.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account/
   - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account/
@@ -16,18 +16,18 @@ Para obter mais informações sobre tipos de quadros de projeto, consulte "[Sobr
 
 Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar quadros de projeto em toda a organização ou permitir que os proprietários administrem a configuração no nível da organização.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.projects-tab }}
-4. Em "Organization projects" (Projetos da organização), revise as informações sobre como alterar a configuração. {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.projects-tab %}
+4. Em "Organization projects" (Projetos da organização), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "Organization projects" (Projetos da organização), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de quadros de projeto da organização](/assets/images/help/business-accounts/organization-projects-policy-drop-down.png)
 
 ### Aplicar política para quadros de projeto de repositório
 
 Em todas as organizações pertencentes à conta corporativa, é possível habilitar ou desabilitar quadros de projeto no nível de repositório ou permitir que os proprietários administrem a configuração no nível da organização.
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.projects-tab }}
-4. Em "Repository projects" (Projetos de repositório), revise as informações sobre como alterar a configuração. {{ site.data.reusables.enterprise-accounts.view-current-policy-config-orgs }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.projects-tab %}
+4. Em "Repository projects" (Projetos de repositório), revise as informações sobre como alterar a configuração. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Em "Repository projects" (Projetos de repositório), use o menu suspenso e escolha uma política. ![Menu suspenso com opções de políticas de quadros de projeto de repositório](/assets/images/help/business-accounts/repository-projects-policy-drop-down.png)

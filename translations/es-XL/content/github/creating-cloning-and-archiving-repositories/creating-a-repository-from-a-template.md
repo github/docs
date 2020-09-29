@@ -15,7 +15,7 @@ Cualquier usuario con permisos de lectura para un repositorio de plantillas pued
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository from a template using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {{ site.data.variables.product.product_location }} documentation.
+**Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -33,11 +33,11 @@ Para obtener más información acerca de las bifurcaciones, consulta "[Acerca de
 
 ### Crear un repositorio desde una plantilla
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Sobre la lista, haz clic en **Usar esta plantilla**. ![Botón Use this template button (Usar esta plantilla)](/assets/images/help/repository/use-this-template-button.png)
-{{ site.data.reusables.repositories.owner-drop-down }}
-{{ site.data.reusables.repositories.repo-name }}
-{{ site.data.reusables.repositories.choose-repo-visibility }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% data reusables.repositories.owner-drop-down %}
+{% data reusables.repositories.repo-name %}
+{% data reusables.repositories.choose-repo-visibility %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 6. De manera opcional, para incluir la estructura de directorio y los archivos de todas las ramas en la plantilla, y no únicamente aquellos de la rama predeterminada, selecciona **Incluir todas las ramas**. ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
-{{ site.data.reusables.repositories.select-marketplace-apps }}
+{% data reusables.repositories.select-marketplace-apps %}
 8. Haz clic en **Crear un repositorio a partir de una plantilla**.

@@ -1,6 +1,6 @@
 ---
 title: Migrar aplicativos OAuth para aplicativos GitHub
-intro: 'Saiba mais sobre as vantagens de migrar seu {{ site.data.variables.product.prodname_oauth_app }} para um {{ site.data.variables.product.prodname_github_app }} e como migrar um {{ site.data.variables.product.prodname_oauth_app }} que não está listado no {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Saiba mais sobre as vantagens de migrar seu {% data variables.product.prodname_oauth_app %} para um {% data variables.product.prodname_github_app %} e como migrar um {% data variables.product.prodname_oauth_app %} que não está listado no {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
 versions:
@@ -19,7 +19,7 @@ Este artigo fornece orientações para integradores existentes que estão consid
 - [Permissões refinadas](/apps/differences-between-apps/#requesting-permission-levels-for-resources) direcionadas às informações específicas que um aplicativo GitHub pode acessar, o que permite que o aplicativo seja mais amplamente utilizado por pessoas e organizações com políticas de segurança do que os aplicativos OAuth, que não podem ser limitados pelas permissões.
 - [Os tokens de vida útil curta](/apps/differences-between-apps/#token-based-identification) fornecem um método de autenticação mais seguro em relação aos tokens do OAuth. Um token do OAuth não expira até que a pessoa que autorizou o aplicativo OAuth revogue o token. Os aplicativos GitHub usam tokens que expiram rapidamente, o que cria uma janela de tempo muito menor para que tokens comprometidos sejam usados.
 - [Os webhooks integrados e centralizados](/apps/differences-between-apps/#webhooks) recebem eventos para todos os repositórios e organizações que o aplicativo pode acessar. Inversamente, os aplicativos OAuth exigem a configuração de um webhook para cada repositório e organização acessível ao usuário.
-- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {{ site.data.variables.product.prodname_ghe_server }} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
+- [As contas do bot](/apps/differences-between-apps/#machine-vs-bot-accounts) não consomem um assento do {% data variables.product.prodname_ghe_server %} e permanecem instaladas mesmo quando a pessoa que inicialmente instalou o aplicativo sair da organização.
 - O suporte integrado para o OAuth ainda está disponível para aplicativos GitHub usando [pontos finais de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - [Os limites de taxa de API](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) dedicados para as contas do bot são escalados com a sua integração.
 - Os proprietários de repositórios podem [instalar aplicativos GitHub](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) em repositórios de organizações. Se a configuração de um aplicativo GitHub tiver permissões que solicitam os recursos de uma organização, o proprietário d organização deverá aprovar a instalação.
@@ -44,7 +44,7 @@ Essas diretrizes assumem que você tem um aplicativo OAuth registrado{% if curre
 
 Embora a maioria dos pontos finais da [API REST](/v3) e as consultas do [GraphQL](/v4) estejam disponíveis para os aplicativos GitHub atualmente, ainda estamos em vias de habilitar alguns pontos finais. Revise os [pontos finais da REST disponíveis](/v3/apps/available-endpoints/) para garantir que os pontos finais de que você precisa sejam compatíveis com o aplicativo GitHub. Observe que alguns dos pontos finais da API ativados para os aplicativos GitHub permitem que o aplicativo aja em nome do usuário. Consulte "[Solicitações de usuário para servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para obter uma lista de pontos finais que permitem que um aplicativo GitHub seja autenticado como usuário.
 
-Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe o a equipe de suporte caso haja um ponto final necessário que ainda não esteja habilitado para {{ site.data.variables.product.prodname_github_app }}s.
+Recomendamos que você reveja a lista de pontos finais de API de que você precisa assim que possível. Informe o a equipe de suporte caso haja um ponto final necessário que ainda não esteja habilitado para {% data variables.product.prodname_github_app %}s.
 
 #### Projete para permanecer dentro dos limites de taxa da API
 

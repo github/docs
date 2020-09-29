@@ -1,6 +1,6 @@
 ---
 title: Remover arquivos do histórico do repositório
-intro: 'Para remover um arquivo grande do repositório, você deve removê-lo completamente do repositório local e do {{ site.data.variables.product.product_location }}.'
+intro: 'Para remover um arquivo grande do repositório, você deve removê-lo completamente do repositório local e do {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/removing-files-from-a-repository-s-history
   - /articles/removing-files-from-a-repositorys-history
@@ -11,7 +11,7 @@ versions:
 
 {% warning %}
 
-**Aviso**: estes procedimentos removem definitivamente os arquivos do repositório no computador e no {{ site.data.variables.product.product_location }}. Se o arquivo for importante, faça uma cópia de backup local em um diretório fora do repositório.
+**Aviso**: estes procedimentos removem definitivamente os arquivos do repositório no computador e no {% data variables.product.product_location %}. Se o arquivo for importante, faça uma cópia de backup local em um diretório fora do repositório.
 
 {% endwarning %}
 
@@ -21,10 +21,10 @@ Se você adicionou um arquivo em um commit anterior, você deverá removê-lo do
 
 ### Remover um arquivo adicionado ao commit não processado mais recente
 
-Se o arquivo foi adicionado ao commit mais recente e ainda não foi processado no {{ site.data.variables.product.product_location }}, você poderá excluir o arquivo e corrigir o commit:
+Se o arquivo foi adicionado ao commit mais recente e ainda não foi processado no {% data variables.product.product_location %}, você poderá excluir o arquivo e corrigir o commit:
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Para remover o arquivo, insira `git rm --cached`:
   ```shell
   $ git rm --cached <em>giant_file</em>
@@ -37,7 +37,7 @@ Se o arquivo foi adicionado ao commit mais recente e ainda não foi processado n
   # Simply making a new commit won't work, as you need
   # to remove the file from the unpushed history as well
   ```
-5. Faça push dos commits para {{ site.data.variables.product.product_location }}:
+5. Faça push dos commits para {% data variables.product.product_location %}:
   ```shell
   $ git push
   # Push our rewritten, smaller commit

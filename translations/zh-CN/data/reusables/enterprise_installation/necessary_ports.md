@@ -7,6 +7,6 @@
 | 161/UDP  | SNMP  | 为网络监视协议操作所需。                                                                             |
 | 443      | HTTPS | Web 应用程序和 Git over HTTPS 访问。                                                             |
 | 1194/UDP | VPN   | 采用高可用性配置的安全复制网络隧道。                                                                       |
-| 8080     | HTTP  | 基于纯文本 Web 的 {{ site.data.variables.enterprise.management_console }}。 *除非手动禁用 SSL，否则不需要。* |
-| 8443     | HTTPS | 基于安全 Web 的 {{ site.data.variables.enterprise.management_console }}。 *进行基本安装和配置时需要。*      |
+| 8080     | HTTP  | 基于纯文本 Web 的 {% data variables.enterprise.management_console %}。 *除非手动禁用 SSL，否则不需要。* |
+| 8443     | HTTPS | 基于安全 Web 的 {% data variables.enterprise.management_console %}。 *进行基本安装和配置时需要。*      |
 | 9418     | Git   | 简单的 Git 协议端口。 仅克隆和获取操作到公共仓库。 *未加密的网络通信。*                                                 |

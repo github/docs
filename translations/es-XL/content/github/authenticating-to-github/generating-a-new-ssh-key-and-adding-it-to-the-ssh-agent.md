@@ -16,8 +16,8 @@ Si no deseas volver a ingresar tu contraseña cada vez que usas tu clave SSH, pu
 
 ### Generar una nueva clave SSH
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. Pega el siguiente texto, que sustituye tu dirección de correo electrónico en {{ site.data.variables.product.product_name }}.
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. Pega el siguiente texto, que sustituye tu dirección de correo electrónico en {% data variables.product.product_name %}.
   ```shell
   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
@@ -63,7 +63,7 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
 
 {% mac %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
 2. Si estás usando macOS Sierra 10.12.2 o una versión posterior, deberás modificar tu archivo `~/.ssh/config` para cargar las claves automáticamente en el ssh-agent y almacenar las contraseñas en tu keychain.
 
@@ -89,7 +89,7 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
         IdentityFile ~/.ssh/id_rsa
       ```
 
-3. Agrega tu llave privada SSH al ssh-agent y almacena tu contraseña en tu keychain. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+3. Agrega tu llave privada SSH al ssh-agent y almacena tu contraseña en tu keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_rsa
   ```
@@ -107,7 +107,7 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
 1. Verifica que el ssh-agent se esté ejecutando. Puedes utilizar las instrucciones de "Autolanzamiento del ssh-agent" que se encuentran en [Trabajar con frases de acceso de las llaves SSH](/articles/working-with-ssh-key-passphrases)" o iniciarlo manualmente:
   ```shell
@@ -116,8 +116,8 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
   > Agent pid 59566
   ```
 
-2. Agrega tu llave privada SSH al ssh-agent. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Agrega tu llave privada SSH al ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Agrega la clave SSH a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
 
@@ -125,10 +125,10 @@ Antes de agregar una nueva clave SSH al ssh-agent para gestionar tus claves, deb
 
 {% linux %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
-2. Agrega tu llave privada SSH al ssh-agent. {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. Agrega tu llave privada SSH al ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [Agrega la clave SSH a tu cuenta de GitHub](/articles/adding-a-new-ssh-key-to-your-github-account)
 

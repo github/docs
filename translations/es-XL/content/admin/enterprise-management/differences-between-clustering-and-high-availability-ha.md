@@ -1,6 +1,6 @@
 ---
 title: Diferencias entre los agrupamientos y la disponibilidad alta (HA)
-intro: '{{ site.data.variables.product.prodname_ghe_server }} La configuración de alta disponibilidad es una configuración de conmutación primaria/secundaria que brinda redundancia mientras que el agrupamiento brinda redundancia y escalabilidad al distribuir cargas de lectura y escritura entre múltiples nodos.'
+intro: '{% data variables.product.prodname_ghe_server %} La configuración de alta disponibilidad es una configuración de conmutación primaria/secundaria que brinda redundancia mientras que el agrupamiento brinda redundancia y escalabilidad al distribuir cargas de lectura y escritura entre múltiples nodos.'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
   - /enterprise/admin/enterprise-management/differences-between-clustering-and-high-availability-ha
@@ -12,11 +12,11 @@ versions:
 
 Tanto la alta disponibilidad (HA, por sus siglas en inglés) como el agrupamiento brindan redundancia al eliminar el nodo único como punto de falla. Pueden brindar disponibilidad en estos escenarios:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 ### Escalabilidad
 
-{{site.data.reusables.enterprise_clustering.clustering-scalability }} En HA, la escala de este aparato depende exclusivamente del nodo principal y la cara no se distribuye al servidor de réplica.
+{% data reusables.enterprise_clustering.clustering-scalability %} En HA, la escala de este aparato depende exclusivamente del nodo principal y la cara no se distribuye al servidor de réplica.
 
 ### Diferencias en el método de conmutación y configuración
 
@@ -38,5 +38,5 @@ Las características de disponibilidad, especialmente las que tienen conmutació
 
 ### Leer más
 
-- Para obtener más información acerca del {{ site.data.variables.product.prodname_ghe_server }} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
-- Para obtener más información sobre HA, consulta "[Configurar {{ site.data.variables.product.prodname_ghe_server }} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+- Para obtener más información acerca del {% data variables.product.prodname_ghe_server %} Agrupamiento, visite la sección de "[Acerca del agrupamiento](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)."
+- Para obtener más información sobre HA, consulta "[Configurar {% data variables.product.prodname_ghe_server %} para alta disponibilidad](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

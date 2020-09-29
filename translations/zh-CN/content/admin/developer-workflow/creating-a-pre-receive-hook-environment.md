@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.prodname_ghe_server }} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。 由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。 这类检查需要的环境通常极少。
+{% data variables.product.prodname_ghe_server %} 的预接收环境是 Linux [`chroot`](https://en.wikipedia.org/wiki/Chroot) 环境。 由于预接收挂钩会在每个推送事件上执行，因此它们应该快速且轻量化。 这类检查需要的环境通常极少。
 
-{{ site.data.variables.product.prodname_ghe_server }} 提供了一个默认环境，其中包括以下包：`awk`、`bash`、`coreutils`、`curl`、`find`、`gnupg`、`grep`、`jq`、`sed`。
+{% data variables.product.prodname_ghe_server %} 提供了一个默认环境，其中包括以下包：`awk`、`bash`、`coreutils`、`curl`、`find`、`gnupg`、`grep`、`jq`、`sed`。
 
 如果您具有此环境未满足的特定要求（例如对特定语言的支持），则可以创建并上传您自己的 64 位 Linux `chroot` 环境。
 
@@ -17,7 +17,7 @@ versions:
 
 您可以使用 Linux 容器管理工具来构建预接收挂钩环境。 此示例使用 [Alpine Linux](http://www.alpinelinux.org/) 和 [Docker](https://www.docker.com/)。
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 2. 创建包含此信息的文件 `Dockerfile.alpine-3.3`：
 
     ```
@@ -47,7 +47,7 @@ versions:
    $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
   ```
 
-  此文件 `alpine-3.3.tar.gz` 已准备好上传到 {{ site.data.variables.product.prodname_ghe_server }} 设备。
+  此文件 `alpine-3.3.tar.gz` 已准备好上传到 {% data variables.product.prodname_ghe_server %} 设备。
 
 ### 使用 chroot 创建预接收挂钩环境
 
@@ -69,12 +69,12 @@ versions:
 
 关于创建 chroot 环境的更多信息，请参阅 *Debian Wiki* 中的“[Chroot](https://wiki.debian.org/chroot)”、*Ubuntu 社区帮助 Wiki* 中的“[BasicChroot](https://help.ubuntu.com/community/BasicChroot)”，或者 *Alpine Linux Wiki* 中的“[在 chroot 中安装 Alpine Linux](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)”。
 
-### 在 {{ site.data.variables.product.prodname_ghe_server }} 上上传预接收挂钩环境
+### 在 {% data variables.product.prodname_ghe_server %} 上上传预接收挂钩环境
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 5. 单击 **Manage environments**。 ![管理环境](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
 6. 单击 **Add environment**。 ![添加环境](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
 7. 在 **Environment name** 字段中输入所需的名称。 ![环境名称](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
@@ -82,7 +82,7 @@ versions:
 9. 单击 **Add environment**。 ![Add environment 按钮](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
 
 ### 通过管理 shell 上传预接收挂钩环境
-1. 将包含您的环境的可读 `* .tar.gz` 文件上传到 web 主机并复制 URL 或通过 `scp` 将文件传送到 {{ site.data.variables.product.prodname_ghe_server }} 设备。 使用 `scp` 时，您可能需要调整 `* .tar.gz` 文件权限，以使该文件全局可读。
+1. 将包含您的环境的可读 `* .tar.gz` 文件上传到 web 主机并复制 URL 或通过 `scp` 将文件传送到 {% data variables.product.prodname_ghe_server %} 设备。 使用 `scp` 时，您可能需要调整 `* .tar.gz` 文件权限，以使该文件全局可读。
 1.  连接到管理 shell。
 2.  使用 `ghe-hook-env-create` 命令并输入所需的环境名称作为第一个参数，然后将包含环境的 `* .tar.gz` 文件的完整本地路径或 URL 作为第二个参数。
 

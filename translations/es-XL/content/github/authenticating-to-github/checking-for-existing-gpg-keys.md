@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
@@ -16,8 +16,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
 3. Comprueba el resultado de los comandos para ver si tienes un par de llaves GPG.
     * Si no hay pares de llaves GPG o no quieres usar algunas de las que están disponibles para las confirmaciones y las etiquetas firmadas, [genera una nueva llave GPG](/articles/generating-a-new-gpg-key).
     * Si existe un nuevo par de llaves GPG existente y quieres usarlo para firmar confirmaciones y etiquetas, [agrega tu llave GPG a tu cuenta de GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).

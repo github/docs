@@ -1,6 +1,6 @@
 ---
 title: GitHub-Glossar
-intro: 'In diesem Artikel findest Du eine Liste einiger Git- und {{ site.data.variables.product.prodname_dotcom }}-spezifischer Begriffe, die wir übergreifend auf unseren Websites und in unseren Dokumentationen verwenden.'
+intro: 'In diesem Artikel findest Du eine Liste einiger Git- und {% data variables.product.prodname_dotcom %}-spezifischer Begriffe, die wir übergreifend auf unseren Websites und in unseren Dokumentationen verwenden.'
 redirect_from:
   - /articles/github-glossary
 versions:

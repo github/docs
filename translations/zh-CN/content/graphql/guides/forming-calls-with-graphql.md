@@ -43,7 +43,7 @@ read:gpg_key
 
 REST API 有多个端点；GraphQL API 只有一个端点：
 
-<pre>{{ site.data.variables.product.graphql_url_pre }}</pre>
+<pre>{% data variables.product.graphql_url_pre %}</pre>
 
 无论执行什么操作，端点都保持不变。
 
@@ -60,7 +60,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {{ site.data.variables.product.graphql_url_code }}
+" {% data variables.product.graphql_url_code %}
 ```
 
 {% tip %}
@@ -340,7 +340,7 @@ mutation AddReactionToIssue {
 
   我们怎么知道内容使用哪个值呢？ [`addReaction` 文档](/v4/mutation/addreaction/)告诉我们 `content` 字段的类型为 [`ReactionContent`](/v4/enum/reactioncontent/)，即一种[枚举类型](/v4/enum)，因为 GitHub 议题只支持某些表情符号反应。 这些是允许的反应值 （注意，某些值与其相应的表情符号名称不同）：
 
-  {{ site.data.reusables.repositories.reaction_list }}
+  {% data reusables.repositories.reaction_list %}
 
 * 调用的其余部分由有效负载对象组成。 我们将在此指定执行突变后由服务器返回的数据。 这几行来自 [`addReaction` 文档](/v4/mutation/addreaction)，其中包含三个可能返回的字段：
 

@@ -1,19 +1,19 @@
 ---
 title: Sicherheitslücken in der GitHub Advisory Database durchsuchen
-intro: 'Die {{ site.data.variables.product.prodname_advisory_database }} erlaubt Dir, nach Schwachstellen zu suchen, die Open-Source-Projekte auf {{ site.data.variables.product.company_short }} betreffen.'
+intro: 'Die {% data variables.product.prodname_advisory_database %} erlaubt Dir, nach Schwachstellen zu suchen, die Open-Source-Projekte auf {% data variables.product.company_short %} betreffen.'
 versions:
   free-pro-team: '*'
 ---
 
 ### Informationen zu Sicherheitslücken
 
-{{ site.data.reusables.repositories.a-vulnerability-is }}
+{% data reusables.repositories.a-vulnerability-is %}
 
-{{ site.data.variables.product.product_name }} will send you {{ site.data.variables.product.prodname_dependabot_alerts }} if we detect that any of the vulnerabilities from the {{ site.data.variables.product.prodname_advisory_database }} affect the packages that your repository depends on. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |
+{% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |
 
-### Informationen zu {{ site.data.variables.product.prodname_advisory_database }}
+### Informationen zu {% data variables.product.prodname_advisory_database %}
 
-The {{ site.data.variables.product.prodname_advisory_database }} contains a curated list of security vulnerabilities that have been mapped to packages tracked by the {{ site.data.variables.product.company_short }} dependency graph. {{ site.data.reusables.repositories.tracks-vulnerabilities }}
+The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that have been mapped to packages tracked by the {% data variables.product.company_short %} dependency graph. {% data reusables.repositories.tracks-vulnerabilities %}
 
 Each security advisory contains information about the vulnerability, including the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. Weitere Informationen findest Du unter „[National Vulnerability Database](https://nvd.nist.gov/)" (Nationale Schwachstellen-Datenbank) des 'National Institute of Standards and Technology' (Amerikanisches Nationales Institut für Standards und Technologie).
 
@@ -23,11 +23,11 @@ Es gibt vier mögliche Schweregrade, die im [Common Vulnerability Scoring System
 - Hoch
 - Kritisch
 
-The {{ site.data.variables.product.prodname_advisory_database }} uses CVSS version 3.0 standards and the CVSS levels described above. {{ site.data.variables.product.product_name }} doesn't publish CVSS scores.
+The {% data variables.product.prodname_advisory_database %} uses CVSS version 3.0 standards and the CVSS levels described above. {% data variables.product.product_name %} doesn't publish CVSS scores.
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
-### Zugriff auf einen Hinweis in der {{ site.data.variables.product.prodname_advisory_database }}
+### Zugriff auf einen Hinweis in der {% data variables.product.prodname_advisory_database %}
 
 1. Navigiere zu „https://github.com/advisories“.
 2. Optionally, to filter the list, use any of the drop-down menus. ![Dropdownmenüs zum filtrieren](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -39,12 +39,12 @@ Die Datenbank ist auch über die GraphQL-API zugänglich. For more information, 
 
 {% endnote %}
 
-### Durchsuche die {{ site.data.variables.product.prodname_advisory_database }}
+### Durchsuche die {% data variables.product.prodname_advisory_database %}
 Du kannst die Datenbank durchsuchen und mit den Qualifizierern Deine Suche auf Hinweise einschränken, die an einem bestimmten Datum, in einem bestimmten Ökosystem oder in einer bestimmten Bibliothek erstellt wurden.
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer         | Beispiel                                                                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |

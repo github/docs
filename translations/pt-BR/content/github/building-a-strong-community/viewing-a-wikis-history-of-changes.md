@@ -1,7 +1,7 @@
 ---
 title: Exibir o histórico de alterações da wiki
 intro: 'Como wikis são repositórios do Git, cada alteração que você faz é um commit que pode ser exibido.'
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
@@ -17,8 +17,8 @@ O histórico da wiki inclui:
 - A mensagem do commit que ele forneceu
 - O momento em que a alteração foi feita
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Usando a barra lateral da wiki, navegue até a página cujo histórico você deseja exibir.
 4. Na parte superior da wiki, clique no link de revisão. ![Link de revisão da wiki](/assets/images/help/wiki/wiki_revision_link.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Acerca de las conversaciones en GitHub
-intro: 'Puedes debatir cambios y proyectos específicos, así como objetivos de equipos o proyectos más amplios, usando diferentes tipos de debates en {{ site.data.variables.product.product_name }}.'
+intro: 'Puedes debatir cambios y proyectos específicos, así como objetivos de equipos o proyectos más amplios, usando diferentes tipos de debates en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### Debates en {{ site.data.variables.product.product_name }}
+### Debates en {% data variables.product.product_name %}
 
 Puedes crear y participar de propuestas, solicitudes de extracción y debates de equipos, dependiendo del tipo de conversación que quieras tener.
 
 Las propuestas son útiles para debatir detalles específicos de un proyecto como registros de errores y mejoras planificadas. Para obtener más información, consulta "[Acerca de las propuestas](/articles/about-issues)". Las solicitudes de extracción te permiten comentar directamente en los cambios propuestos. Para obtener más información, consulta "[Acerca de las solicitudes de extracción](/articles/about-pull-requests)" y "[Comentar en una solicitud de extracción](/articles/commenting-on-a-pull-request)".
 
-{{ site.data.reusables.organizations.team-discussions-purpose }} Para obtener más información, consulta "[Acerca de los debates de equipo](/articles/about-team-discussions)".
+{% data reusables.organizations.team-discussions-purpose %} Para obtener más información, consulta "[Acerca de los debates de equipo](/articles/about-team-discussions)".
 
 ### Reaccionar a las ideas en los comentarios
 
@@ -43,4 +43,4 @@ Al igual que las pautas de contribución, el mantenedor del repositorio puede ha
 - "[Configurar tu proyecto para contribuciones positivas](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Utilizar plantillas para fomentar el informe de problemas útil y las solicitudes de extracción](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
 - "[Moderar comentarios y conversaciones](/articles/moderating-comments-and-conversations)"
-- "[Escribir en {{ site.data.variables.product.prodname_dotcom }}](/articles/writing-on-github)"
+- "[Escribir en {% data variables.product.prodname_dotcom %}](/articles/writing-on-github)"

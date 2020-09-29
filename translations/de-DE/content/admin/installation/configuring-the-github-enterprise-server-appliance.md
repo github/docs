@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server-Appliance konfigurieren
-intro: 'Sobald {{ site.data.variables.product.prodname_ghe_server }} betriebsbereit ist, können Sie die Appliance an die Anforderungen Ihrer Organisation anpassen.'
+intro: 'Sobald {% data variables.product.prodname_ghe_server %} betriebsbereit ist, können Sie die Appliance an die Anforderungen Ihrer Organisation anpassen.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/

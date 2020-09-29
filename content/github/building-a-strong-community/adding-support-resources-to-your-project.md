@@ -21,12 +21,12 @@ You can create default support resources for your organization{% if currentVersi
 
 ### Adding support resources to your project
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type *SUPPORT.md* (with all caps).
 4. On the **Edit new file** tab, add information about how people can get support for your project.
 5. To review your SUPPORT file, click **Preview**.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

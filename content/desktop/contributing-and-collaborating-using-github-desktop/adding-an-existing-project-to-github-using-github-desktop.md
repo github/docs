@@ -1,6 +1,6 @@
 ---
 title: Adding an existing project to GitHub using GitHub Desktop
-intro: 'You can add an existing Git repository to {{ site.data.variables.product.prodname_dotcom }} using {{ site.data.variables.product.prodname_desktop }}.'
+intro: 'You can add an existing Git repository to {% data variables.product.prodname_dotcom %} using {% data variables.product.prodname_desktop %}.'
 redirect_from:
   - /desktop/contributing-to-projects/adding-an-existing-project-to-github-using-github-desktop
 versions:
@@ -9,9 +9,9 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.git.remove-git-remote }}
+{% data reusables.git.remove-git-remote %}
 2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
-{{ site.data.reusables.desktop.publish-repository }}
+{% data reusables.desktop.publish-repository %}
 4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
   ![The Name field](/assets/images/help/desktop/publish-repository-name-mac.png)
 5. To publish a public repository, unselect **Keep this code private**.
@@ -25,9 +25,9 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.git.remove-git-remote }}
+{% data reusables.git.remove-git-remote %}
 2. [Add the repository to GitHub Desktop](/desktop/guides/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop/).
-{{ site.data.reusables.desktop.publish-repository }}
+{% data reusables.desktop.publish-repository %}
 4. Type the desired name of the repository in the **Name** field or use the default current local repository name.
   ![The Name field](/assets/images/help/desktop/publish-repository-name-win.png)
 5. To publish a public repository, unselect **Keep this code private**.

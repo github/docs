@@ -12,9 +12,9 @@ versions:
 - リポジトリはインスタンス上でパブリックであり、フォークではない。
 - サイト管理者がリポジトリで匿名 Git 読み取りアクセスを無効化していない。
 
-{{ site.data.reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access }}
+{% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 「Enable anonymous Git read access」の横で、[**Enable**] をクリックします。 !["Anonymous Git read access" の下の "Enabled" ボタン](/assets/images/help/repository/enable-git-read-access-for-a-repo.png)
 4. 変更を確認します。 リポジトリの名前を入力し、[**I understand, enable anonymous Git read access.**] をクリックして確定します。

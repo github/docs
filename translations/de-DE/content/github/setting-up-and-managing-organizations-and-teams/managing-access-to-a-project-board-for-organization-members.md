@@ -18,12 +18,12 @@ Standardmäßig haben Organisationsmitglieder Schreibzugriff auf die Projektboar
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.organization-wide-project }}
-{{ site.data.reusables.project-management.select-project }}
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.organization-wide-project %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 8. Wähle unter „Organization member permission“ (Berechtigung für Organisationsmitglieder) eine grundlegende Berechtigungsebene für alle Organisationsmitglieder aus: **Read** (Lesen), **Write** (Schreiben), **Admin** (Administrator) oder **None** (Keine). ![Optionen für grundlegende Projektboard-Berechtigungen für alle Organisationsmitglieder](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Klicke auf **Save** (Speichern).
 

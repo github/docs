@@ -16,7 +16,7 @@ versions:
 
 在提交中提议了更改的每个人都是该提交的联合作者。 提议的更改的应用者将是提交的联合作者兼提交者。 有关 Git 中术语提交者的更多信息，请参阅 _Pro Git_ 书籍站点中的“[Git 基本信息 - 查看提交历史记录](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)”。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击要对其应用提议的更改的拉取请求。
 3. 导航到您要应用的第一个提议的更改。
     - 要在其自己的提交中应用更改，请单击 **Commit suggestion（提交建议）**。 ![提交建议按钮](/assets/images/help/pull_requests/commit-suggestion-button.png)

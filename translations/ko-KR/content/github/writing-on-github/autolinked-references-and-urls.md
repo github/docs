@@ -10,7 +10,7 @@ versions:
 
 ### URLs
 
-{{ site.data.variables.product.product_name }} automatically creates links from standard URLs.
+{% data variables.product.product_name %} automatically creates links from standard URLs.
 
 `Visit https://github.com`
 
@@ -20,7 +20,7 @@ For more information on creating links, see "[Basic writing and formatting synta
 
 ### Issues and pull requests
 
-Within conversations on {{ site.data.variables.product.product_name }}, references to issues and pull requests are automatically converted to shortened links. For more information, see "[About conversations on {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)."
+Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links. For more information, see "[About conversations on {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)."
 
 {% note %}
 
@@ -38,7 +38,7 @@ Within conversations on {{ site.data.variables.product.product_name }}, referenc
 
 ### Commit SHAs
 
-References to a commit's SHA hash are automatically converted into shortened links to the commit on {{ site.data.variables.product.product_name }}.
+References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
 
 | Reference type          | Raw reference                                                                        | Short link                                                                                                        |
 | ----------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ References to a commit's SHA hash are automatically converted into shortened lin
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Custom autolinks to external resources
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 

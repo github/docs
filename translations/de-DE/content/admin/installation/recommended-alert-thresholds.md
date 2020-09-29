@@ -1,6 +1,6 @@
 ---
 title: Empfohlene Schwellenwerte für Meldungen
-intro: 'Sie können eine Meldung so konfigurieren, dass Sie in Bezug auf Systemressourcenprobleme benachrichtigt werden, bevor sie sich auf die Leistung Ihrer {{ site.data.variables.product.prodname_ghe_server }}-Appliance auswirken.'
+intro: 'Sie können eine Meldung so konfigurieren, dass Sie in Bezug auf Systemressourcenprobleme benachrichtigt werden, bevor sie sich auf die Leistung Ihrer {% data variables.product.prodname_ghe_server %}-Appliance auswirken.'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/recommended-alert-thresholds
@@ -32,7 +32,7 @@ Darüber hinaus wird empfohlen, dass Sie die „Diebstahlzeit“ der Virtualisie
 
 ### Arbeitsspeicherauslastung überwachen
 
-Die {{ site.data.variables.product.product_location_enterprise }} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
+Die {% data variables.product.product_location_enterprise %} zugeordnete Menge an physischem Arbeitsspeicher kann eine große Auswirkung auf die Gesamtleistung und Anwendungsreaktionsfähigkeit haben. Zum Beschleunigen von Git-Vorgängen soll das System den Kernel-Disk-Cache intensiv verwenden. Es wird empfohlen, dass der normale RSS-Arbeitssatz bei maximaler Nutzung 50 % des gesamten verfügbaren RAMs abdeckt.
 
 | Schweregrad  | Schwellenwert                                                                         |
 | ------------ | ------------------------------------------------------------------------------------- |

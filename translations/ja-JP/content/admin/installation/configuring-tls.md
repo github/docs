@@ -1,6 +1,6 @@
 ---
 title: TLSの設定
-intro: '信頼できる認証機関によって署名された証明書を使用できるように、{{ site.data.variables.product.product_location_enterprise }} で Transport Layer Security (TLS) を設定できます。'
+intro: '信頼できる認証機関によって署名された証明書を使用できるように、{% data variables.product.product_location_enterprise %} で Transport Layer Security (TLS) を設定できます。'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -11,11 +11,11 @@ versions:
 
 ### Transport Layer Securityについて
 
-SSL に代わる TLS は、{{ site.data.variables.product.prodname_ghe_server }} の初回起動時に有効になり、自己署名証明書で設定されます。 自己署名証明書は Web ブラウザや Git クライアントから信頼されていないため、TLS を無効にするか、Let's Encrypt などの信頼できる機関によって署名された証明書をアップロードするまで、これらのクライアントは証明書の警告を報告します。
+SSL に代わる TLS は、{% data variables.product.prodname_ghe_server %} の初回起動時に有効になり、自己署名証明書で設定されます。 自己署名証明書は Web ブラウザや Git クライアントから信頼されていないため、TLS を無効にするか、Let's Encrypt などの信頼できる機関によって署名された証明書をアップロードするまで、これらのクライアントは証明書の警告を報告します。
 
-SSL が有効な場合、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスは HTTP Strict Transport Security ヘッダーを送信します。 TLSを無効化すると、ブラウザはHTTPへのプロトコルダウングレードを許さないので、ユーザはアプライアンスにアクセスできなくなります。 詳しい情報についてはWikipediaの"[HTTP Strict Transport Security](https://ja.wikipedia.org/wiki/HTTP_Strict_Transport_Security)"を参照してください。
+SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプライアンスは HTTP Strict Transport Security ヘッダーを送信します。 TLSを無効化すると、ブラウザはHTTPへのプロトコルダウングレードを許さないので、ユーザはアプライアンスにアクセスできなくなります。 詳しい情報についてはWikipediaの"[HTTP Strict Transport Security](https://ja.wikipedia.org/wiki/HTTP_Strict_Transport_Security)"を参照してください。
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ユーザが2要素認証のFIDO U2Fを利用できるようにするには、インスタンスでTLSを有効化しなければなりません。 詳しい情報については「[2 要素認証の設定](/articles/configuring-two-factor-authentication)」を参照してください。
 
@@ -29,10 +29,10 @@ SSL が有効な場合、{{ site.data.variables.product.prodname_ghe_server }} �
 
 ### カスタムのTLS証明書のアップロード
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.privacy }}
-{{ site.data.reusables.enterprise_management_console.select-tls-only }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.privacy %}
+{% data reusables.enterprise_management_console.select-tls-only %}
 4. [TLS Protocol support] で、許可するプロトコルを選択します。 ![TLS プロトコルを選択するオプションを備えたラジオボタン](/assets/images/enterprise/management-console/tls-protocol-support.png)
 5. "Certificate（証明書）"の下で**Choose File（ファイルの選択）**をクリックし、インストールしたいTLS証明書もしくは証明書チェーン（PEMフォーマット）を選択してください。 このファイルは通常、*.pem*、*.crt*、*.cer* といった拡張子を持ちます。 ![TLS 証明書ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-certificate.png)
 6. "Unencrypted key（暗号化されていない鍵）"の下で**Choose File（ファイルの選択）**をクリックし、インストールするTLS鍵（PEMフォーマット）を選択してください。 このファイルは通常*.key*という拡張子を持ちます。 ![TLS鍵ファイルを見つけるためのボタン](/assets/images/enterprise/management-console/install-tls-key.png)
@@ -42,28 +42,28 @@ SSL が有効な場合、{{ site.data.variables.product.prodname_ghe_server }} �
   **警告**: このTLS鍵はパスフレーズを持っていてはなりません。 詳しい情報については"[キーファイルからのパスフレーズの除去](/enterprise/{{ currentVersion }}/admin/guides/installation/troubleshooting-ssl-errors#removing-the-passphrase-from-your-key-file)"を参照してください。
 
   {% endwarning %}
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ### Let's Encryptのサポートについて
 
 Let's Encryptは公開の証明書認証者で、ACMEプロトコルを使ってブラウザが信頼するTLS証明書を、無料で自動的に発行してくれます。 アプライアンスのためのLet's Encryptの証明書は、手動のメンテナンスを必要とせず自動的に取得及び更新できます。
 
-{{ site.data.reusables.enterprise_installation.lets-encrypt-prerequisites }}
+{% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{{ site.data.variables.product.product_location_enterprise }}はLet's Encryptのサーバに接続して証明書を取得します。 証明書を更新するには、Let's EncryptのサーバはインバウンドのHTTPリクエストで設定されたドメイン名の制御を検証しなければなりません。
+Let's Encryptを使ったTLS証明書管理の自動化を有効にすると、{% data variables.product.product_location_enterprise %}はLet's Encryptのサーバに接続して証明書を取得します。 証明書を更新するには、Let's EncryptのサーバはインバウンドのHTTPリクエストで設定されたドメイン名の制御を検証しなければなりません。
 
-また、{{ site.data.variables.product.product_location_enterprise }}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
+また、{% data variables.product.product_location_enterprise %}上でコマンドラインユーティリティの`ghe-ssl-acme`を使っても、自動的にLet's Encryptの証明書を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)」を参照してください。
 
 ### Let's Encryptを使ったTLSの設定
 
-{{ site.data.reusables.enterprise_installation.lets-encrypt-prerequisites }}
+{% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.privacy }}
-{{ site.data.reusables.enterprise_management_console.select-tls-only }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.privacy %}
+{% data reusables.enterprise_management_console.select-tls-only %}
 5. **Enable automation of TLS certificate management using Let's Encrypt（Let's Encryptを使った自動的なTLS証明書管理の有効化）**を選択してください。 ![[Let's Encrypt] を有効化するチェックボックス](/assets/images/enterprise/management-console/lets-encrypt-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
-{{ site.data.reusables.enterprise_management_console.privacy }}
+{% data reusables.enterprise_management_console.save-settings %}
+{% data reusables.enterprise_management_console.privacy %}
 7. **Request TLS certificate（TLS証明書のリクエスト）**をクリックしてください。 ![[Request TLS certificate] ボタン](/assets/images/enterprise/management-console/request-tls-button.png)
 8. **Save configuration（設定の保存）**をクリックしてください。

@@ -1,6 +1,6 @@
 ---
 title: Mit Zwei-Faktor-Authentifizierung auf GitHub zugreifen
-intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {{ site.data.variables.product.product_name }}.'
+intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/providing-your-2fa-security-code/
   - /articles/providing-your-2fa-authentication-code/
@@ -11,17 +11,17 @@ versions:
   enterprise-server: '*'
 ---
 
-With two-factor authentication enabled, you'll need to provide an authentication code when accessing {{ site.data.variables.product.product_name }} through your browser. If you access {{ site.data.variables.product.product_name }} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {{ site.data.variables.product.prodname_dotcom }}](/github/authenticating-to-github/about-authentication-to-github)."
+With two-factor authentication enabled, you'll need to provide an authentication code when accessing {% data variables.product.product_name %} through your browser. If you access {% data variables.product.product_name %} using other methods, such as the API or the command line, you'll need to use an alternative form of authentication. For more information, see "[About authentication to {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)."
 
 ### Einen 2FA-Code bei der Anmeldung in die Website bereitstellen
 
-Nachdem Du Dich mit Deinem Passwort bei {{ site.data.variables.product.product_name }} angemeldet hast, wirst Du aufgefordert, einen Authentifizierungscode aus {% if currentVersion == "free-pro-team@latest" %}einer SMS oder {% endif %}Deiner TOTP-App einzugeben.
+Nachdem Du Dich mit Deinem Passwort bei {% data variables.product.product_name %} angemeldet hast, wirst Du aufgefordert, einen Authentifizierungscode aus {% if currentVersion == "free-pro-team@latest" %}einer SMS oder {% endif %}Deiner TOTP-App einzugeben.
 
-Nachdem Du Dich mit Deinem Passwort bei {{ site.data.variables.product.product_name }} angemeldet hast, wirst Du erst dann wieder aufgefordert, Deinen 2FA-Authentifizierungscode anzugeben, wenn Du Dich abgemeldet hast, ein neues Gerät verwendest oder Deine Sitzung abläuft.
+Nachdem Du Dich mit Deinem Passwort bei {% data variables.product.product_name %} angemeldet hast, wirst Du erst dann wieder aufgefordert, Deinen 2FA-Authentifizierungscode anzugeben, wenn Du Dich abgemeldet hast, ein neues Gerät verwendest oder Deine Sitzung abläuft.
 
 #### Einen Code über eine TOTP-Anwendung generieren
 
-Wenn Du Dich dafür entschieden hast, die Zwei-Faktor-Authentifizierung mit einer TOTP-Anwendung auf Deinem Smartphone einzurichten, kannst Du jederzeit einen Authentifizierungscode für {{ site.data.variables.product.product_name }} generieren. In den meisten Fällen wird beim bloßen Starten der Anwendung ein neuer Code generiert. Spezifische Anweisungen findest Du in der Dokumentation Deiner Anwendung.
+Wenn Du Dich dafür entschieden hast, die Zwei-Faktor-Authentifizierung mit einer TOTP-Anwendung auf Deinem Smartphone einzurichten, kannst Du jederzeit einen Authentifizierungscode für {% data variables.product.product_name %} generieren. In den meisten Fällen wird beim bloßen Starten der Anwendung ein neuer Code generiert. Spezifische Anweisungen findest Du in der Dokumentation Deiner Anwendung.
 
 Wenn Du die mobile Anwendung nach der Konfiguration der Zwei-Faktor-Authentifizierung löschst, musst Du Deinen Wiederherstellungscode angeben, um Zugriff auf Dein Konto zu erhalten. Weitere Informationen findest Du unter „[Dein Konto beim Verlust der Anmeldeinformationen für die Zwei-Faktor-Authentifizierung wiederherstellen](/articles/recovering-your-account-if-you-lose-your-2fa-credentials),“
 
@@ -29,25 +29,25 @@ Wenn Du die mobile Anwendung nach der Konfiguration der Zwei-Faktor-Authentifizi
 
 #### Eine SMS empfangen
 
-Wenn Du die Zwei-Faktor-Authentifizierung per SMS einrichtest, sendet Dir {{ site.data.variables.product.product_name }} eine SMS mit Deinem Authentifizierungscode.
+Wenn Du die Zwei-Faktor-Authentifizierung per SMS einrichtest, sendet Dir {% data variables.product.product_name %} eine SMS mit Deinem Authentifizierungscode.
 
 {% endif %}
 
 ### Zwei-Faktor-Authentifizierung mit der Befehlszeile verwenden
 
-Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie beim Zugriff auf {{ site.data.variables.product.product_name }} in der Befehlszeile anstelle Ihres Passworts ein persönliches Zugriffstoken oder einen SSH-Schlüssel verwenden.
+Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie beim Zugriff auf {% data variables.product.product_name %} in der Befehlszeile anstelle Ihres Passworts ein persönliches Zugriffstoken oder einen SSH-Schlüssel verwenden.
 
 #### In der Befehlszeile mit HTTPS authentifizieren
 
-Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie bei der Authentifizierung bei {{ site.data.variables.product.product_name }} in der Befehlszeile über HTTPS-URLs ein persönliches Zugriffstoken erstellen, das Sie als Passwort verwenden können.
+Nachdem Sie die Zwei-Faktor-Authentifizierung aktiviert haben, müssen Sie bei der Authentifizierung bei {% data variables.product.product_name %} in der Befehlszeile über HTTPS-URLs ein persönliches Zugriffstoken erstellen, das Sie als Passwort verwenden können.
 
-Wenn Sie in der Befehlszeile nach einem Benutzernamen und einem Passwort gefragt werden, verwenden Sie Ihren {{ site.data.variables.product.product_name }}-Benutzernamen und Ihr persönliches Zugriffstoken. In der Eingabeaufforderung wird nicht angegeben, dass Sie Ihr persönliches Zugriffstoken eingeben sollen, wenn Sie nach Ihrem Passwort gefragt werden.
+Wenn Sie in der Befehlszeile nach einem Benutzernamen und einem Passwort gefragt werden, verwenden Sie Ihren {% data variables.product.product_name %}-Benutzernamen und Ihr persönliches Zugriffstoken. In der Eingabeaufforderung wird nicht angegeben, dass Sie Ihr persönliches Zugriffstoken eingeben sollen, wenn Sie nach Ihrem Passwort gefragt werden.
 
 Weitere Informationen finden Sie unter "[Erstellen eines persönlichen Zugriffstokens](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 #### In der Befehlszeile mit SSH authentifizieren
 
-Die Aktivierung der Zwei-Faktor-Authentifizierung ändert nichts daran, wie Sie sich in der Befehlszeile über SSH-URLs bei {{ site.data.variables.product.product_name }} authentifizieren. Weitere Informationen zum Einrichten und Verwenden eines SSH-Schlüssels finden Sie unter „[Verbindung zu {{ site.data.variables.product.prodname_dotcom }} mit SSH herstellen](/articles/connecting-to-github-with-ssh/)“.
+Die Aktivierung der Zwei-Faktor-Authentifizierung ändert nichts daran, wie Sie sich in der Befehlszeile über SSH-URLs bei {% data variables.product.product_name %} authentifizieren. Weitere Informationen zum Einrichten und Verwenden eines SSH-Schlüssels finden Sie unter „[Verbindung zu {% data variables.product.prodname_dotcom %} mit SSH herstellen](/articles/connecting-to-github-with-ssh/)“.
 
 ### Zwei-Faktor-Authentifizierung für den Zugriff auf ein Repository mittels Subversion verwenden
 

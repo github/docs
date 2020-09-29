@@ -9,14 +9,14 @@ redirect_from:
   - /enterprise/admin/2.14/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
-intro: 'Der SSH-Zugriff ermöglicht Ihnen die Ausführung der {{ site.data.variables.product.prodname_ghe_server }}-Befehlszeilendienstprogramme und eignet sich zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation.'
+intro: 'Der SSH-Zugriff ermöglicht Ihnen die Ausführung der {% data variables.product.prodname_ghe_server %}-Befehlszeilendienstprogramme und eignet sich zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation.'
 versions:
   enterprise-server: '*'
 ---
 
 ### Informationen zum Verwaltungsshellzugriff
 
-Wenn Sie über SSH-Zugriff auf die Verwaltungsshell verfügen, können Sie die Befehlszeilendienstprogramme von {{ site.data.variables.product.prodname_ghe_server }} ausführen. Der SSH-Zugriff eignet sich zudem zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation. Der SSH-Verwaltungszugriff wird getrennt vom Git SSH-Zugriff verwaltet und ist nur über Port 122 zugänglich.
+Wenn Sie über SSH-Zugriff auf die Verwaltungsshell verfügen, können Sie die Befehlszeilendienstprogramme von {% data variables.product.prodname_ghe_server %} ausführen. Der SSH-Zugriff eignet sich zudem zur Fehlerbehebung, zum Ausführen von Backups und zum Konfigurieren der Replikation. Der SSH-Verwaltungszugriff wird getrennt vom Git SSH-Zugriff verwaltet und ist nur über Port 122 zugänglich.
 
 ### Zugriff auf die Verwaltungsshell über SSH aktivieren
 
@@ -28,10 +28,10 @@ Zum Aktivieren des SSH-Verwaltungszugriffs müssen Sie Ihren öffentlichen SSH-S
 
 {% endtip %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
 3. Fügen Sie unter „SSH access“ (SSH-Zugriff) Ihren Schlüssel in das Textfeld ein, und klicken Sie anschließend auf **Add key** (Schlüssel hinzufügen). ![Textfeld und Schaltfläche zum Hinzufügen eines SSH-Schlüssels](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ### Verbindung zur Verwaltungsshell über SSH herstellen
 
@@ -45,7 +45,7 @@ admin@github-example-com:~$ █
 
 #### Fehlerbehebung bei SSH-Verbindungsproblemen
 
-Wenn der Fehler `Permission denied (publickey)` (Berechtigung verweigert (öffentlicher Schlüssel)) angezeigt wird, wenn Sie versuchen, über SSH eine Verbindung zu {{ site.data.variables.product.product_location_enterprise }} herzustellen, sollten Sie bestätigen, dass Sie die Verbindung über Port 122 vornehmen. Möglicherweise müssen Sie explizit angeben, welcher private SSH-Schlüssel verwendet werden soll.
+Wenn der Fehler `Permission denied (publickey)` (Berechtigung verweigert (öffentlicher Schlüssel)) angezeigt wird, wenn Sie versuchen, über SSH eine Verbindung zu {% data variables.product.product_location_enterprise %} herzustellen, sollten Sie bestätigen, dass Sie die Verbindung über Port 122 vornehmen. Möglicherweise müssen Sie explizit angeben, welcher private SSH-Schlüssel verwendet werden soll.
 
 Führen Sie zum Angeben eines privaten SSH-Schlüssels an der Befehlszeile `ssh` mit dem Argument `-i` aus.
 
@@ -64,8 +64,8 @@ Host <em>hostname</em>
 
 ### Auf die Verwaltungsshell mithilfe der lokalen Konsole zugreifen
 
-In einer Notfallsituation, beispielsweise wenn SSH nicht verfügbar ist, können Sie lokal auf die Verwaltungsshell zugreifen. Melden Sie sich als der Benutzer `admin` mit dem Passwort an, das während der Ersteinrichtung von {{ site.data.variables.product.prodname_ghe_server }} festgelegt wurde.
+In einer Notfallsituation, beispielsweise wenn SSH nicht verfügbar ist, können Sie lokal auf die Verwaltungsshell zugreifen. Melden Sie sich als der Benutzer `admin` mit dem Passwort an, das während der Ersteinrichtung von {% data variables.product.prodname_ghe_server %} festgelegt wurde.
 
 ### Zugriffseinschränkungen für die Verwaltungsshell
 
-Der Verwaltungsshellzugriff ist nur zur Fehlerbehebung und zum Durchführen dokumentierter Vorgehensweisen zulässig. Ihr Supportvertrag wird ggf. ungültig, wenn Sie System- und Anwendungsdateien ändern, Programme ausführen oder nicht unterstützte Softwarepakete installieren. Kontaktiere bitte den {{ site.data.variables.contact.contact_ent_support }} bei Fragen zu den laut Deinem Supportvertrag zulässigen Aktivitäten.
+Der Verwaltungsshellzugriff ist nur zur Fehlerbehebung und zum Durchführen dokumentierter Vorgehensweisen zulässig. Ihr Supportvertrag wird ggf. ungültig, wenn Sie System- und Anwendungsdateien ändern, Programme ausführen oder nicht unterstützte Softwarepakete installieren. Kontaktiere bitte den {% data variables.contact.contact_ent_support %} bei Fragen zu den laut Deinem Supportvertrag zulässigen Aktivitäten.

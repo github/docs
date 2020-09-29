@@ -1,6 +1,6 @@
 ---
 title: Evitar el acceso no autorizado
-intro: 'Puedes ser alertado sobre un incidente de seguridad en los medios, como el descubrimiento de [Heartbleed bug](http://heartbleed.com/), o pueden robar tu computadora mientras estás registrado en {{ site.data.variables.product.product_location }}. En dichos casos, cambiar tu contraseña previene cualquier acceso futuro no deseado a tu cuenta y a tus proyectos.'
+intro: 'Puedes ser alertado sobre un incidente de seguridad en los medios, como el descubrimiento de [Heartbleed bug](http://heartbleed.com/), o pueden robar tu computadora mientras estás registrado en {% data variables.product.product_location %}. En dichos casos, cambiar tu contraseña previene cualquier acceso futuro no deseado a tu cuenta y a tus proyectos.'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} requiere una contraseña para realizar acciones confidenciales, como agregar nuevas claves SSH, autorizar aplicaciones , o modificar miembros del equipo.
+{% data variables.product.product_name %} requiere una contraseña para realizar acciones confidenciales, como agregar nuevas claves SSH, autorizar aplicaciones , o modificar miembros del equipo.
 
 Después de cambiar tu contraseña, deberías realizar estas acciones para asegurarte que tu cuenta sea segura:
 

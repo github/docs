@@ -1,30 +1,30 @@
 ---
 title: Gerenciar tags
-intro: 'Você pode usar {{ site.data.variables.product.prodname_desktop }} para criar, fazer push e visualizar tags.'
+intro: 'Você pode usar {% data variables.product.prodname_desktop %} para criar, fazer push e visualizar tags.'
 versions:
   free-pro-team: '*'
 ---
 
-### Sobre tags no {{ site.data.variables.product.prodname_desktop }}
+### Sobre tags no {% data variables.product.prodname_desktop %}
 
-O {{ site.data.variables.product.prodname_desktop }} permite que você crie tags anotadas. É possível usar uma tag para marcar um ponto individual no histórico do seu repositório, incluindo um número de versão para uma versão. Para obter mais informações sobre tags de versão, consulte "[Sobre versões](https://help.github.com/en/github/administering-a-repository/about-releases)"
+O {% data variables.product.prodname_desktop %} permite que você crie tags anotadas. É possível usar uma tag para marcar um ponto individual no histórico do seu repositório, incluindo um número de versão para uma versão. Para obter mais informações sobre tags de versão, consulte "[Sobre versões](https://help.github.com/en/github/administering-a-repository/about-releases)"
 
-{{ site.data.reusables.desktop.tags-push-with-commits }}
+{% data reusables.desktop.tags-push-with-commits %}
 
 ### Criar uma tag
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.create-tag }}
-{{ site.data.reusables.desktop.name-tag }}
-{{ site.data.reusables.desktop.confirm-tag }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.create-tag %}
+{% data reusables.desktop.name-tag %}
+{% data reusables.desktop.confirm-tag %}
 
 ### Visualizar tags
 
-{{ site.data.reusables.desktop.history-tab }}
+{% data reusables.desktop.history-tab %}
 2. Clique em commit.
   {% note %}
 
-  **Observação**: {{ site.data.variables.product.prodname_desktop }} exibe uma seta {% octicon "arrow-up" aria-label="The up arrow icon" %} se a tag não foi tiver sido empurrada para o repositório remoto.
+  **Observação**: {% data variables.product.prodname_desktop %} exibe uma seta {% octicon "arrow-up" aria-label="The up arrow icon" %} se a tag não foi tiver sido empurrada para o repositório remoto.
 
   {% endnote %}
 

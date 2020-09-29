@@ -1,6 +1,6 @@
 ---
 title: Preparing to migrate data to your enterprise
-intro: '生成迁移存档后，您可以将数据导入目标 {{ site.data.variables.product.prodname_ghe_server }} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
+intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
@@ -12,15 +12,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the migrated data for import to {{ site.data.variables.product.prodname_ghe_server }}
+### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
-1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {{ site.data.variables.product.prodname_ghe_server }} 目标：
+1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. 使用 `ghe-migrator prepare` 命令准备要在目标实例上导入的存档，并生成新的迁移 GUID 供您在后续步骤中使用：
 
@@ -29,7 +29,7 @@ versions:
     ```
 
     * 要开始新的导入尝试，请再次运行 `ghe-migrator prepare` 并获取新的迁移 GUID。
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### 生成迁移冲突列表
 

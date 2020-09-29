@@ -44,13 +44,13 @@ Um das Überprüfen von Änderungen in einem großen Pull-Request zu vereinfache
 
 ### Vergleiche von Three-Dot- (Dreipunkte-) und Two-Dot- (Zweipunkte-) Diffs von Git
 
-Standardmäßig zeigen Pull-Requests auf {{ site.data.variables.product.prodname_dotcom }} einen three-dot-Diff (Dreipunkte-Diff) an, oder einen Vergleich zwischen der aktuellsten Version des Themenzweiges und dem Commit, in dem der Themenzweig letztmals mit dem Basis-Zweig synchronisiert wurde.
+Standardmäßig zeigen Pull-Requests auf {% data variables.product.prodname_dotcom %} einen three-dot-Diff (Dreipunkte-Diff) an, oder einen Vergleich zwischen der aktuellsten Version des Themenzweiges und dem Commit, in dem der Themenzweig letztmals mit dem Basis-Zweig synchronisiert wurde.
 
-Um zwei Committish-Referenzen in einem Two-Dot-Diff-Vergleich auf {{ site.data.variables.product.prodname_dotcom }} zu sehen, kannst Du die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys bearbeiten. Weitere Informationen findest Du im  [Git-Glossareintrag zu „Committish“](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) auf der Buchseite _Pro Git_.
+Um zwei Committish-Referenzen in einem Two-Dot-Diff-Vergleich auf {% data variables.product.prodname_dotcom %} zu sehen, kannst Du die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys bearbeiten. Weitere Informationen findest Du im  [Git-Glossareintrag zu „Committish“](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) auf der Buchseite _Pro Git_.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-Ein Two-Dot-Diff (Zweipunkte-Diff) vergleicht zwei Git-Committish-Referenzen, wie SHAs oder OIDs (Objekt-IDs), direkt miteinander. Auf {{ site.data.variables.product.prodname_dotcom }} müssen die Git-Committish-Referenzen in einem Two-Dot-Diff-Vergleich an das gleiche Repository oder seine Forks gepusht werden.
+Ein Two-Dot-Diff (Zweipunkte-Diff) vergleicht zwei Git-Committish-Referenzen, wie SHAs oder OIDs (Objekt-IDs), direkt miteinander. Auf {% data variables.product.prodname_dotcom %} müssen die Git-Committish-Referenzen in einem Two-Dot-Diff-Vergleich an das gleiche Repository oder seine Forks gepusht werden.
 
 Wenn Du einen Two-Dot-Diff in einem Pull Request simulieren und einen Vergleich zwischen den neuesten Versionen jedes Branch sehen möchtest, kannst Du den Basis-Branch in Deinen Themen-Branch zusammenführen, wodurch der letzte gemeinsame Vorgänger Deiner Branches aktualisiert wird.
 

@@ -1,6 +1,6 @@
 ---
 title: Searching the audit log
-intro: 'Site administrators can search an extensive list of [audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) on {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Site administrators can search an extensive list of [audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) on {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -38,8 +38,8 @@ For a full list of actions, see "[Audited actions](/enterprise/{{ currentVersion
 
 ### Searching the audit log
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. Type a search query. ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)

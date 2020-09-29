@@ -1,7 +1,7 @@
 ---
 title: 将电子邮件通知限于已批准的域
 intro: 为防止将组织信息泄露到个人帐户，组织所有者可以将关于组织活动的电子邮件通知限于经过验证的域。
-product: '{{ site.data.reusables.gated-features.restrict-email-domain }}'
+product: '{% data reusables.gated-features.restrict-email-domain %}'
 redirect_from:
   - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain/
   - /articles/restricting-email-notifications-to-an-approved-domain
@@ -13,9 +13,9 @@ versions:
 
 外部协作者不受限于已验证域的电子邮件通知。 有关外部协作者的更多信息，请参阅“[组织的权限级别](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#outside-collaborators)”。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.verified-domains }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.verified-domains %}
 5. 在“Enforcement preferences（强制执行首选项）”下，选择 **Restrict email notifications to domain email（将电子邮件通知限制为域电子邮件）**。 ![将电子邮件通知限制为经验证域电子邮件的复选框](/assets/images/help/organizations/restrict-email-notifications-to-domain.png)
 6. 单击 **Save（保存）**。

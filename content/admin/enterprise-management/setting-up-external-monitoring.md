@@ -1,6 +1,6 @@
 ---
 title: Setting up external monitoring
-intro: 'You can monitor basic system resources on your {{ site.data.variables.product.prodname_ghe_server }} appliance using either the SNMP or collectd statistics collection protocols.'
+intro: 'You can monitor basic system resources on your {% data variables.product.prodname_ghe_server %} appliance using either the SNMP or collectd statistics collection protocols.'
 redirect_from:
   - /enterprise/admin/installation/setting-up-external-monitoring
   - /enterprise/admin/enterprise-management/setting-up-external-monitoring
@@ -10,7 +10,7 @@ versions:
 
 ### About SNMP
 
-Simple Network Management Protocol (SNMP) is a widely supported method of monitoring network devices and servers. SNMP is disabled by default but can be configured through the {{ site.data.variables.product.prodname_enterprise }} monitor dashboard. UDP port 161 must be open and reachable from your network management station. For more information, see "[Monitoring using SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)."
+Simple Network Management Protocol (SNMP) is a widely supported method of monitoring network devices and servers. SNMP is disabled by default but can be configured through the {% data variables.product.prodname_enterprise %} monitor dashboard. UDP port 161 must be open and reachable from your network management station. For more information, see "[Monitoring using SNMP](/enterprise/{{ currentVersion }}/admin/guides/installation/monitoring-using-snmp/)."
 
 ### About collectd
 

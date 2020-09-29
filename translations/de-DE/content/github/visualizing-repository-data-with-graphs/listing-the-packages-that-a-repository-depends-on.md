@@ -12,7 +12,7 @@ versions:
 
 Das Abhängigkeitsdiagramm ist für jedes{% if currentVersion == "free-pro-team@latest" %} öffentliche{% endif %} Repository verfügbar, das Abhängigkeiten in einem unterstützten Paket-Ökosystem mit einem unterstützten Dateiformat definiert.{% if currentVersion == "free-pro-team@latest" %} Repository-Administratoren können das Abhängigkeitsdiagramm auch für private Repositorys einrichten.{% endif %}
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 Du kannst angreifbare Abhängigkeiten im Abhängigkeitsdiagramm Deines Repositorys anzeigen und aktualisieren. Das Abhängigkeitsdiagramm listet angreifbare Abhängigkeiten vor allen anderen Abhängigkeiten auf. Weitere Informationen findest Du unter „[Informationen zu Sicherheitswarnungen für angreifbare Abhängigkeiten](/articles/about-security-alerts-for-vulnerable-dependencies).“
 
@@ -39,26 +39,26 @@ Du kannst Abhängigkeiten, die in Organisations-Repositorys verwendet werden, in
 
 ### Abhängigkeiten für ein Repository mit aktiviertem Abhängigkeitsdiagramm auflisten
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Abhängigkeitsdiagramm für ein privates Repository aktivieren
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
-4. Lies die Mitteilung zum Gewähren des {{ site.data.variables.product.product_name }}-Zugriffs auf Repository-Daten zum Aktivieren des Abhängigkeitsdiagramms durch, und klicke dann auf **Allow access** (Zugriff erlauben). ![Schaltfläche, um den Zugriff auf Repository-Daten für die Aktivierung des Abhängigkeitsdiagramms zuzulassen](/assets/images/help/repository/dependency-graph-allow-access-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+4. Lies die Mitteilung zum Gewähren des {% data variables.product.product_name %}-Zugriffs auf Repository-Daten zum Aktivieren des Abhängigkeitsdiagramms durch, und klicke dann auf **Allow access** (Zugriff erlauben). ![Schaltfläche, um den Zugriff auf Repository-Daten für die Aktivierung des Abhängigkeitsdiagramms zuzulassen](/assets/images/help/repository/dependency-graph-allow-access-button.png)
 
-Weitere Informationen findest Du unter „[Grundlegendes zur Verwendung und zum Schutz Deiner Daten durch {{ site.data.variables.product.product_name }}](/categories/understanding-how-github-uses-and-protects-your-data).“
+Weitere Informationen findest Du unter „[Grundlegendes zur Verwendung und zum Schutz Deiner Daten durch {% data variables.product.product_name %}](/categories/understanding-how-github-uses-and-protects-your-data).“
 
 ### Abhängigkeitsdiagramm für ein privates Repository deaktivieren
 
-{{ site.data.reusables.repositories.you-can-enable-or-disable-security-features }}
+{% data reusables.repositories.you-can-enable-or-disable-security-features %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Hebe unter „Data services“ (Datendienste) die Auswahl von **Dependency graph** (Abhängigkeitsdiagramm) auf. ![Kontrollkästchen zum Deaktivieren des Abhängigkeitsdiagramms](/assets/images/help/repository/private-repo-data-use-dependency-graph-disabled.png)
 
 Informationen zum Ablehnen der Datennutzung für Dein Repository findest Du unter „[Datennutzung für Dein privates Repository zulassen oder ablehnen](/articles/opting-into-or-out-of-data-use-for-your-private-repository).“
@@ -66,10 +66,10 @@ Informationen zum Ablehnen der Datennutzung für Dein Repository findest Du unte
 
 ### Fehler beim Abhängigkeitsdiagramm beheben
 
-{{ site.data.reusables.repositories.troubleshooting-dependency-graph }}
+{% data reusables.repositories.troubleshooting-dependency-graph %}
 
 ### Weiterführende Informationen
 
 - „[Die von einem Repository abhängigen Projekte auflisten](/articles/listing-the-projects-that-depend-on-a-repository)“{% if currentVersion == "free-pro-team@latest" %}
-- „[Grundlegendes zur Verwendung und zum Schutz Deiner Daten durch {{ site.data.variables.product.product_name }}](/categories/understanding-how-github-uses-and-protects-your-data)“
+- „[Grundlegendes zur Verwendung und zum Schutz Deiner Daten durch {% data variables.product.product_name %}](/categories/understanding-how-github-uses-and-protects-your-data)“
 - „[Angreifbare Abhängigkeiten in Deinem Repository anzeigen und aktualisieren](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)“{% endif %}

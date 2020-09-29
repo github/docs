@@ -19,7 +19,7 @@ Das Abhängigkeitsdiagramm enthält Daten für die folgenden Sprachen:
 - Maven (nur pom.xml)
 - Nuget
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 {% note %}
 
@@ -31,9 +31,9 @@ Das Abhängigkeitsdiagramm enthält Daten für die folgenden Sprachen:
 
 ### Auf das Abhängige-Diagramm zugreifen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. Klicke unter „Dependency graph“ (Abhängigkeitsdiagramm) auf **Dependents** (Abhängige). ![Registerkarte „Dependents“ (Abhängige) auf der Seite „Dependency graph“ (Abhängigkeitsdiagramm)](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 ### Weiterführende Informationen

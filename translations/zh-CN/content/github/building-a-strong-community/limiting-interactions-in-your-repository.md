@@ -16,8 +16,8 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在仓库的 Settings（设置）侧边栏中，单击 **Interaction limits（交互限制）**。 ![仓库设置中的交互限制 ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 4. 在“Temporary interaction limits（临时交互限制）”下，单击一个或多个选项。 ![临时交互限制选项](/assets/images/help/repository/temporary-interaction-limits-options.png)
     - **Limit to existing users（限于现有用户）**：限制帐户存在时间不到 24 小时、之前没有贡献也不是协作者的用户的活动。

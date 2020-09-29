@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 上安装 GitHub Enterprise Server
-intro: '要在 Azure 上安装 {{ site.data.variables.product.prodname_ghe_server }}，您必须部署到 DS 系列实例上并使用 Premium-LRS 存储。'
+intro: '要在 Azure 上安装 {% data variables.product.prodname_ghe_server %}，您必须部署到 DS 系列实例上并使用 Premium-LRS 存储。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -8,27 +8,27 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以将 {{ site.data.variables.product.prodname_ghe_server }} 部署在全局 Azure 或 Azure Government 上。
+您可以将 {% data variables.product.prodname_ghe_server %} 部署在全局 Azure 或 Azure Government 上。
 
 ### 基本要求
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - 您必须具有能够配置新机器的 Azure 帐户。 更多信息请参阅 [Microsoft Azure 网站](https://azure.microsoft.com)。
 - 启动虚拟机 (VM) 所需的大部分操作也可以使用 Azure Portal 执行。 不过，我们建议安装 Azure 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 Azure CLI 2.0 的示例。 更多信息请参阅 Azure 指南“[安装 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)”。
 
 ### 硬件考量因素
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### 确定虚拟机类型
 
-在 Azure 上启动 {{ site.data.variables.product.product_location_enterprise }} 之前，您需要确定最符合您的组织需求的虚拟机类型。
+在 Azure 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
 
 #### 支持的 VM 类型和地区
 
-{{ site.data.variables.product.prodname_ghe_server }} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 更多信息请参阅 Amuze 文档中的“[支持的 VM](https://docs.microsoft.com/en-us/azure/storage/common/storage-premium-storage#supported-vms)”。 有关可用 VM 的基本信息，请参阅 [Azure 虚拟机概述页](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/#Linux)。
+{% data variables.product.prodname_ghe_server %} 设备需要高级存储数据磁盘，可以在支持高级存储的任何 Azure VM 上使用。 更多信息请参阅 Amuze 文档中的“[支持的 VM](https://docs.microsoft.com/en-us/azure/storage/common/storage-premium-storage#supported-vms)”。 有关可用 VM 的基本信息，请参阅 [Azure 虚拟机概述页](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/#Linux)。
 
-{{ site.data.variables.product.prodname_ghe_server }} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/en-us/regions/services/)”。
+{% data variables.product.prodname_ghe_server %} 可以在支持您的 VM 类型的任何地区使用。 有关各个 VM 的支持地区的更多信息，请参阅 Azure 的“[可用产品（按地区）](https://azure.microsoft.com/en-us/regions/services/)”。
 
 #### 建议的 VM 类型
 
@@ -41,13 +41,13 @@ versions:
 |    3000 - 8000    | Standard_DS14_v2 |
 |   8000 - 10000+   | Standard_DS15_v2 |
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### 创建 {{ site.data.variables.product.prodname_ghe_server }} 虚拟机
+### 创建 {% data variables.product.prodname_ghe_server %} 虚拟机
 
-{{ site.data.reusables.enterprise_installation.create-ghe-instance }}
+{% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 找到最新的 {{ site.data.variables.product.prodname_ghe_server }} 设备映像。 更多关于 `vm image list` 命令的信息，请参阅 Microsoft 文档中的“[az vm image list](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)”。
+1. 找到最新的 {% data variables.product.prodname_ghe_server %} 设备映像。 更多关于 `vm image list` 命令的信息，请参阅 Microsoft 文档中的“[az vm image list](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)”。
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
@@ -68,7 +68,7 @@ versions:
 
   此表列出了每个端口的用途。
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
 4. 创建新的未加密数据磁盘并将其附加至 VM，然后根据用户许可数配置大小。 更多信息请参阅 Microsoft 文档中的“[az vm 磁盘附加](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)”。
 
@@ -84,7 +84,7 @@ versions:
 
    {% endnote %}
 
-### 配置 {{ site.data.variables.product.prodname_ghe_server }} 虚拟机
+### 配置 {% data variables.product.prodname_ghe_server %} 虚拟机
 
 1. 在配置 VM 之前，您必须等待其进入 ReadyRole 状态。 使用 `vm list` 命令检查 VM 的状态。 更多信息请参阅 Microsoft 文档中的“[az vm 列表](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list)”。
   ```shell
@@ -100,11 +100,11 @@ versions:
 
   {% endnote %}
 
-  {{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-  {{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-  {{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }} 更多信息请参阅“[配置 {{ site.data.variables.product.prodname_ghe_server }} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
-  {{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-  {{ site.data.reusables.enterprise_installation.visit-your-instance }}
+  {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+  {% data reusables.enterprise_installation.upload-a-license-file %}
+  {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
+  {% data reusables.enterprise_installation.instance-will-restart-automatically %}
+  {% data reusables.enterprise_installation.visit-your-instance %}
 
 
   ### 延伸阅读

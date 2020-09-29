@@ -1,7 +1,7 @@
 ---
-title: '安装 {{ site.data.variables.product.prodname_enterprise }}'
+title: '安装 {% data variables.product.prodname_enterprise %}'
 shortTitle: Installing
-intro: 'System administrators and operations and security specialists can install {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin-guide/
   - /enterprise/admin/guides/installation/
@@ -13,11 +13,11 @@ versions:
   enterprise-server: '*'
 ---
 
-如需了解更多信息或购买 {{ site.data.variables.product.prodname_enterprise }}，请参阅 [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise)。
+如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
 
-{{ site.data.reusables.enterprise_installation.request-a-trial }}
+{% data reusables.enterprise_installation.request-a-trial %}
 
-如果对安装过程存在疑问，请参阅“[使用 {{ site.data.variables.product.prodname_enterprise }} Support](/enterprise/admin/guides/enterprise-support/)”。
+如果对安装过程存在疑问，请参阅“[使用 {% data variables.product.prodname_enterprise %} Support](/enterprise/admin/guides/enterprise-support/)”。
 
 ### 目录
 

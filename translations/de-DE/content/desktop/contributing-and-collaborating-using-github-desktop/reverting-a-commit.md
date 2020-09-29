@@ -17,16 +17,16 @@ Wenn Du einen vorherigen Commit rückgängig machst, ist das Rückgängigmachen 
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Die Option „Revert“ (Rückgängig machen) oberhalb der Diff-Ansicht](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Die Option „Revert“ (Rückgängig machen) oberhalb der Diff-Ansicht](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

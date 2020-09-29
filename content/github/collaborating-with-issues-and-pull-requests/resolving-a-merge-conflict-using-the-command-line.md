@@ -13,7 +13,7 @@ Merge conflicts occur when competing changes are made to the same line of a file
 
 {% tip %}
 
-**Tip:** You can use the conflict editor on {{ site.data.variables.product.product_name }} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/articles/resolving-a-merge-conflict-on-github)."
+**Tip:** You can use the conflict editor on {% data variables.product.product_name %} to resolve competing line change merge conflicts between branches that are part of a pull request. For more information, see "[Resolving a merge conflict on GitHub](/articles/resolving-a-merge-conflict-on-github)."
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ To resolve a merge conflict caused by competing line changes, you must choose wh
 
 For example, if you and another person both edited the file _styleguide.md_ on the same lines in different branches of the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +53,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ````
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }} In this example, both changes are incorporated into the final merge:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
@@ -67,7 +67,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {{ site.data.variables.product.product_name }} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
 ### Removed file merge conflicts
 
@@ -75,7 +75,7 @@ To resolve a merge conflict caused by competing changes to a file, where a perso
 
 For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -116,7 +116,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {{ site.data.variables.product.product_name }} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
+You can now merge the branches on the command line or [push your changes to your remote repository](/articles/pushing-commits-to-a-remote-repository/) on {% data variables.product.product_name %} and [merge your changes](/articles/merging-a-pull-request/) in a pull request.
 
 ### Further reading
 

@@ -17,9 +17,9 @@ O resumo da lista de métodos e funções é criado a partir destes tipos de arq
   - Python
   - Ruby
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request onde você quer localizar os métodos e funções modificados.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Para ver um resumo da lista das funções e métodos modificados, clique em **Jump to...** (Pular para..). ![Menu suspenso Jump to (Pular para)](/assets/images/help/pull_requests/jump-to-menu.png)
 5. Selecione a função ou método modificado no menu suspenso. Também é possível inserir o nome da função ou método para filtrar os resultados. ![Filtrar funções e métodos](/assets/images/help/pull_requests/filter-function-and-methods.png)
 

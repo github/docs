@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-{{ site.data.variables.product.product_name }} で進行中のアクティビティのサブスクリプションの通知を受け取ります。 There are many reasons you can be subscribed to a conversation. 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)」を参照してください。
+{% data variables.product.product_name %} で進行中のアクティビティのサブスクリプションの通知を受け取ります。 There are many reasons you can be subscribed to a conversation. 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)」を参照してください。
 
 We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -35,7 +35,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 ### サブスクリプションのリストを確認する
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. 左側のサイドバーの、通知元のリポジトリリストの下にある [Manage notifications] ドロップダウンを使用して、[**Subscriptions**] をクリックします。 ![[Manage notifications] ドロップダウンメニューオプション](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. フィルタとソートを使用して、サブスクリプションのリストを絞り込み、通知の受信を希望しない会話のサブスクリプションを解除します。
@@ -69,5 +69,5 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 リポジトリごとに Watch するどうかを選択できます。 また、新しいリリースのみの通知を受け取るか、リポジトリごとに無視するかどうかを選択することもできます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 右上隅の [Watch] ドロップダウンメニューをクリックして、Watch オプションを選択します。 ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications-v2/watch-repository-options.png)

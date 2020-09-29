@@ -1,6 +1,6 @@
 ---
 title: Sobre a replicação geográfica
-intro: 'A replicação geográfica no {{ site.data.variables.product.prodname_ghe_server }} usa várias réplicas ativas para atender às solicitações de datacenters distribuídos geograficamente.'
+intro: 'A replicação geográfica no {% data variables.product.prodname_ghe_server %} usa várias réplicas ativas para atender às solicitações de datacenters distribuídos geograficamente.'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
@@ -18,11 +18,11 @@ As solicitações do Git e as solicitações específicas do servidor de arquivo
 
 ### Limitações
 
-As solicitações de gravação para a réplica exigem o envio dos dados para o servidor principal e todas as réplicas. Ou seja, o desempenho de todas as gravações fica limitado pela réplica mais lenta {% if currentVersion ver_gt "enterprise-server@2.17" %}, embora as novas réplicas geográficas possam propagar a maioria de seus dados das réplicas geográficas localizadas existentes, em vez de propagar a partir do principal {% endif %}. A replicação geográfica não aumentará a capacidade de uma instância do {{ site.data.variables.product.prodname_ghe_server }} nem resolverá problemas de desempenho relacionados a CPU ou recursos de memória insuficientes. Se o appliance primário estiver offline, as réplicas ativas não poderão atender a solicitações de leitura ou gravação.
+As solicitações de gravação para a réplica exigem o envio dos dados para o servidor principal e todas as réplicas. Ou seja, o desempenho de todas as gravações fica limitado pela réplica mais lenta {% if currentVersion ver_gt "enterprise-server@2.17" %}, embora as novas réplicas geográficas possam propagar a maioria de seus dados das réplicas geográficas localizadas existentes, em vez de propagar a partir do principal {% endif %}. A replicação geográfica não aumentará a capacidade de uma instância do {% data variables.product.prodname_ghe_server %} nem resolverá problemas de desempenho relacionados a CPU ou recursos de memória insuficientes. Se o appliance primário estiver offline, as réplicas ativas não poderão atender a solicitações de leitura ou gravação.
 
 ### Monitorar a configuração da replicação geográfica
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Leia mais
 - [Criar réplicas de replicação geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)

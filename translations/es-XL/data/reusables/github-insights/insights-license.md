@@ -1,1 +1,1 @@
-1. Debajo de "Licencia de {{ site.data.variables.product.prodname_insights }}", da clic en "Escoger Archivos", y luego carga tu archivo de licencia de {{ site.data.variables.product.prodname_enterprise }}. ![Botón de escoger archivos](/assets/images/help/insights/choose-files.png)
+1. Debajo de "Licencia de {% data variables.product.prodname_insights %}", da clic en "Escoger Archivos", y luego carga tu archivo de licencia de {% data variables.product.prodname_enterprise %}. ![Botón de escoger archivos](/assets/images/help/insights/choose-files.png)

@@ -29,7 +29,7 @@ Du kannst Tickets auch über die Suchleiste „Filter cards“ (Tickets filtern)
 
 {% tip %}
 
-**Tipp:** Du kannst die gefilterten Tickets per Drag-and-Drop oder mithilfe von Tastenkürzeln zwischen den Spalten verschieben. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**Tipp:** Du kannst die gefilterten Tickets per Drag-and-Drop oder mithilfe von Tastenkürzeln zwischen den Spalten verschieben. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

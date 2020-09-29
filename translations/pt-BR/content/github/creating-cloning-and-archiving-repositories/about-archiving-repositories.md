@@ -11,12 +11,12 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**Observação:** se você tiver um plano de cobrança por repositório herdado, será feita a cobrança pelo seu repositório arquivado. Se não desejar ser cobrado por um repositório arquivado, será preciso atualizar para um novo produto. Para obter mais informações, consulte os "[Produtos da {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+**Observação:** se você tiver um plano de cobrança por repositório herdado, será feita a cobrança pelo seu repositório arquivado. Se não desejar ser cobrado por um repositório arquivado, será preciso atualizar para um novo produto. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
 Depois que um repositório é arquivado, não é possível adicionar nem remover colaboradores ou equipes. Os contribuidores com acesso ao repositório podem apenas bifurcar ou marcar com estrela seu projeto.
 

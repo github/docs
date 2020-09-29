@@ -1,6 +1,6 @@
 ---
 title: Quickstart for GitHub Actions
-intro: 'Add a {{ site.data.variables.product.prodname_actions }} workflow to an existing repository in 5 minutes or less.'
+intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
@@ -9,16 +9,16 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
-You only need an existing {{ site.data.variables.product.prodname_dotcom }} repository to create and run a {{ site.data.variables.product.prodname_actions }} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{{ site.data.variables.product.prodname_dotcom }} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
+You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
 
 ### Creating your first workflow
 
-1. From your repository on {{ site.data.variables.product.prodname_dotcom }}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
+1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
 2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
     {% raw %}
     ```yaml
@@ -55,7 +55,7 @@ Committing the workflow file in your repository triggers the `push` event and ru
 
 ### Viewing your workflow results
 
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to see. ![Workflow list in left sidebar](/assets/images/help/repository/superlinter-workflow-sidebar.png)
 1. From the list of workflow runs, click the name of the run you want to see. ![Name of workflow run](/assets/images/help/repository/superlinter-run-name.png)
 1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
@@ -63,12 +63,12 @@ Committing the workflow file in your repository triggers the `push` event and ru
 
 ### More starter workflows
 
-{{ site.data.variables.product.prodname_dotcom }} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {{ site.data.variables.product.product_location }}{% endif %}.
+{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
 
 ### 다음 단계
 
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {{ site.data.variables.product.prodname_actions }}. Your repository can contain multiple workflows that trigger different jobs based on different events. {{ site.data.variables.product.prodname_actions }} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {{ site.data.variables.product.prodname_actions }}:
+The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
-- "[Learn {{ site.data.variables.product.prodname_actions }}](/actions/learn-github-actions)" for an in-depth tutorial
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
 - "[Guides](/actions/guides)" for specific uses cases and examples
 - [github/super-linter](https://github.com/github/super-linter) for more details about configuring the Super-Linter action

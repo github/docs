@@ -18,12 +18,12 @@ Por defecto, los miembros de una organización tienen acceso de escritura a sus 
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.organization-wide-project }}
-{{ site.data.reusables.project-management.select-project }}
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.organization-wide-project %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 8. Debajo de "Organization member permission" (Permiso para miembro de la organización), elige un nivel base de permiso para todos los miembros de la organización: **Read** (Lectura), **Write** (Escritura), **Administrar** o **None** (Ninguno). ![Opciones de permiso base a un tablero de proyecto para todos los miembros de una organización](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Haz clic en **Save (Guardar)**.
 

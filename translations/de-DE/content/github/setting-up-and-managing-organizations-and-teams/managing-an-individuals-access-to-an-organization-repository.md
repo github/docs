@@ -16,13 +16,13 @@ Personen mit Administratorberechtigungen können den Zugriff von Organisationsmi
 
 Wenn Du einen Mitarbeiter aus einem Repository Deiner Organisation entfernst, verliert er seinen Lese- und Schreibzugriff auf das Repository. Wenn es sich um ein privates Repository handelt und der Mitarbeiter das Repository geforkt hat, wird dieser Fork gelöscht. Der Mitarbeiter behält jedoch alle lokalen Klone Deines Repositorys.
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ### Den Zugriff einer Person auf ein Repository einer Organisation verwalten
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Klicke auf **Members** (Mitglieder) oder **Outside collaborators** (Externe Mitarbeiter), um Benutzer mit unterschiedlichen Arten des Zugriffs zu verwalten. ![Schaltfläche zum Einladen von Mitgliedern oder externen Mitarbeitern zu einer Organisation](/assets/images/help/organizations/select-outside-collaborators.png)
 5. Klicken Sie rechts neben dem Namen der Person, deren Zugriff Sie verwalten möchten, im Dropdownmenü {% octicon "gear" aria-label="The Settings gear" %} auf **Manage** (Verwalten). ![Link zur Zugriffsverwaltung](/assets/images/help/organizations/member-manage-access.png)
 6. Klicke auf der Seite „Manage access“ (Zugriff verwalten) neben dem Repository auf **Manage access** (Zugriff verwalten). ![Schaltfläche „Manage Access“ (Zugriff verwalten) für ein Repository](/assets/images/help/organizations/repository-manage-access.png)

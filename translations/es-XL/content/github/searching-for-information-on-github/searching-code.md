@@ -1,6 +1,6 @@
 ---
 title: Buscar código
-intro: 'Puedes buscar código en {{ site.data.variables.product.product_name }} y acotar los resultados utilizando estos calificadores de búsqueda de código en cualquier combinación.'
+intro: 'Puedes buscar código en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de código en cualquier combinación.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -10,17 +10,17 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar código globalmente a lo largo de todos los {{ site.data.variables.product.product_name }}, o buscar código dentro de un repositorio u organización particular. Para buscar código a través de todos los repositorios públicos, debes estar registrado en una cuenta {{ site.data.variables.product.product_name }}. Para obtener más información, consulta "[Acerca de la búsqueda en GitHub](/articles/about-searching-on-github)".
+Puedes buscar código globalmente a lo largo de todos los {% data variables.product.product_name %}, o buscar código dentro de un repositorio u organización particular. Para buscar código a través de todos los repositorios públicos, debes estar registrado en una cuenta {% data variables.product.product_name %}. Para obtener más información, consulta "[Acerca de la búsqueda en GitHub](/articles/about-searching-on-github)".
 
 Únicamente puedes buscar código utilizando estos calificadores de búsqueda de código. Los calificadores de búsqueda especialmente para repositorios, usuarios o confirmaciones de cambios, no funcionarán cuando busques código.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Consideraciones sobre la búsqueda de código
 
 Debido a la complejidad de la búsqueda de código, hay algunas restricciones sobre cómo se realizan las búsquedas:
 
-- {{ site.data.reusables.search.required_login }}
+- {% data reusables.search.required_login %}
 - El código en [bifurcaciones](/articles/about-forks) es únicamente indexado si la bifurcación tiene más estrellas que el repositorio padre. Las bifurcaciones con menos estrellas que el repositorio padre **no** son indexadas para la búsqueda de código. Para incluir bifurcaciones con más estrellas que sus padres en los resultados de las búsquedas, deberás agregar `fork:true` o `fork:only` en tu consulta. Para obtener más información, consulta "[Buscar en bifurcaciones](/articles/searching-in-forks)".
 - Solo la _rama predeterminada_ se indiza para la búsqueda de código.{% if currentVersion == "free-pro-team@latest" %}
 - Solo los archivos menores de 384 KB son indexados.{% else %}* Solo los archivos menores de 5 MB son indexados.
@@ -102,4 +102,4 @@ El calificador `extension` (extensión) encuentra archivos de código con una de
 
 - "[Clasificar los resultados de la búsqueda](/articles/sorting-search-results/)"
 - "[Buscar en ramificaciones](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Navegar en el código de {{ site.data.variables.product.prodname_dotcom }}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[Navegar en el código de {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

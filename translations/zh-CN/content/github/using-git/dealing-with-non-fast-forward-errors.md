@@ -12,9 +12,9 @@ versions:
 
 ```shell
 $ git push origin master
-> To https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+> To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 >  ! [rejected]        master -> master（非快进）
-> 错误：无法推送某些 ref 至 'https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
+> 错误：无法推送某些 ref 至 'https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
 > 为防止丢失历史记录，非快进更新已被拒绝
 > 再次推送前合并远程更改（例如： ‘git pull’）。  请参阅
 > “git 推送帮助”部分的“快进说明”以了解详细信息。

@@ -1,6 +1,6 @@
 ---
 title: Buscar archivos en GitHub
-intro: 'Puedes buscar un archivo en un repositorio utilizando el buscador de archivos. Para buscar un archivo en distintos repositorios en {{ site.data.variables.product.product_name }}, usa el [calificados de búsqueda de código`filename`](/articles/searching-code#search-by-filename).'
+intro: 'Puedes buscar un archivo en un repositorio utilizando el buscador de archivos. Para buscar un archivo en distintos repositorios en {% data variables.product.product_name %}, usa el [calificados de búsqueda de código`filename`](/articles/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Debajo del nombre del repositorio, haz clic en **Buscar archivo**. ![Botón Buscar archivo](/assets/images/help/search/find-file-button.png)
 {% else %}

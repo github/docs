@@ -9,9 +9,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Choose one of these options:
     - To create a new milestone, click **New Milestone**. ![New milestone button](/assets/images/help/repository/new-milestone.png)
     - To edit a milestone, next to the milestone you want to edit, click **Edit**. ![Edit milestone option](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +21,9 @@ versions:
 
 When you delete milestones, issues and pull requests are not affected.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Next to the milestone you want to delete, click **Delete**. ![Delete milestone option](/assets/images/help/repository/delete-milestone.png)
 
 ### 더 읽을거리

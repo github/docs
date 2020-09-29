@@ -15,39 +15,39 @@ You can set scheduled reminders for personal or team-level review requests for p
 
 ### Creating scheduled reminders for your user account
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Next to the organization you'd like to schedule reminders for, click **Edit**.
 ![Scheduled reminders edit button](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
 8. Optionally, to receive scheduled reminders for reviews you've been assigned to, select **Review requests assigned to you**.
 ![Review requests assigned to you checkbox](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. Optionally, to receive scheduled reminders for reviews assigned to a team you're a member of, select **Review requests assigned to your team**.
 ![Review requests assigned to your team checkbox](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
-{{ site.data.reusables.reminders.real-time-alerts }}
+{% data reusables.reminders.real-time-alerts %}
 ![Enable real-time alerts checkbox](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.create-reminder %}
 
 ### Managing scheduled reminders for your user account
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Next to the organization you'd like to edit scheduled reminders for, click **Edit**.
 ![Scheduled reminders edit button](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### Deleting scheduled reminders for your user account
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Scheduled reminders button](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Next to the organization you'd like to delete reminders for, click **Edit**.
 ![Scheduled reminders edit button](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### Further reading
 

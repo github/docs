@@ -10,24 +10,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Verificar o status de um executor auto-hospedado usando {{ site.data.variables.product.prodname_dotcom }}
+### Verificar o status de um executor auto-hospedado usando {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-management-permissions-required }}
+{% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 
-{{ site.data.reusables.github-actions.self-hosted-runner-navigate-repo-and-org }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.github-actions.self-hosted-runner-navigate-repo-and-org %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. Em "Executores auto-hospedados", você pode ver uma lista de executores registrados, incluindo o nome, etiqueta e status do executor.
 
     ![Lista de executores](/assets/images/help/settings/actions-runner-list.png)
 
     Pode haver os seguintes status:
 
-    * **Inativo**: O executor está conectado a {{ site.data.variables.product.product_name }} e está pronto para executar trabalhos.
+    * **Inativo**: O executor está conectado a {% data variables.product.product_name %} e está pronto para executar trabalhos.
     * **Ativo**: O executor está executando uma tarefa no momento.
-    * **Off-line**: O executor não está conectado a {{ site.data.variables.product.product_name }}. Isto pode ser porque a máquina está off-line, o aplicativo do executor auto-hospedado não está funcionando na máquina, ou o aplicativo do executor auto-hospedado não pode comunicar-se com {{ site.data.variables.product.product_name }}.
+    * **Off-line**: O executor não está conectado a {% data variables.product.product_name %}. Isto pode ser porque a máquina está off-line, o aplicativo do executor auto-hospedado não está funcionando na máquina, ou o aplicativo do executor auto-hospedado não pode comunicar-se com {% data variables.product.product_name %}.
 
 
 ### Revisar os arquivos de registro do aplicativo do executor auto-hospedado

@@ -1,6 +1,6 @@
 ---
 title: Finding files on GitHub
-intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {{ site.data.variables.product.product_name }}, use the [`filename` code search qualifier](/articles/searching-code#search-by-filename).'
+intro: 'You can search for a file in a repository using the file finder. To search for a file in multiple repositories on {% data variables.product.product_name %}, use the [`filename` code search qualifier](/articles/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Under your repository name, click **Find file**. ![Find file button](/assets/images/help/search/find-file-button.png)
 {% else %}

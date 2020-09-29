@@ -1,7 +1,7 @@
 ---
 title: Eventos de webhook e cargas
 intro: 'Para cada evento de webhook, você pode revisar quando o evento ocorrer, uma carga de exemplo, bem como as descrições sobre os parâmetros do objeto da carga.'
-product: '{{ site.data.reusables.gated-features.enterprise_account_webhooks }}'
+product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
   - /v3/activity/events/types/
@@ -16,7 +16,7 @@ versions:
 
 {% endif %}
 
-{{ site.data.reusables.webhooks.webhooks_intro }}
+{% data reusables.webhooks.webhooks_intro %}
 
 Você pode criar webhooks que assinam os eventos listados nesta página. Cada evento de webhook inclui uma descrição das propriedades do webhook e uma carga de exemplo. Para obter mais informações, consulte "[Criar webhooks](/webhooks/creating/)."
 
@@ -29,12 +29,12 @@ Cada carga do evento do webhook também contém propriedades únicas para o even
 | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `Ação` | `string` | A maioria das cargas de webhook contém uma ação `` propriedade que contém a atividade específica que acionou o evento. |
 
-{{ site.data.reusables.webhooks.sender_desc }} Esta propriedade está incluída em todas as cargas do webhook.
-{{ site.data.reusables.webhooks.repo_desc }} As cargas do webhook contêm a propriedade 
+{% data reusables.webhooks.sender_desc %} Esta propriedade está incluída em todas as cargas do webhook.
+{% data reusables.webhooks.repo_desc %} As cargas do webhook contêm a propriedade 
 
 `repository` quando ocorre o evento a partir da atividade em um repositório.
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }} Para obter mais informações, consulte "[Criar um {{ site.data.variables.product.prodname_github_app }}](/apps/building-github-apps/).
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %} Para obter mais informações, consulte "[Criar um {% data variables.product.prodname_github_app %}](/apps/building-github-apps/).
 
 As propriedades únicas para um evento de webhook são as mesmas que você encontrará na propriedade `carga` ao usar a [API de eventos](/v3/activity/events/). Uma exceção é o evento de [`push`](#push). As propriedades únicas da carga do webhook do evento `push` e a propriedade `carga` na API de eventos são diferentes. A carga do webhook contém informações mais detalhadas.
 
@@ -52,8 +52,8 @@ As cargas de HTTP POST que são entregues no ponto de extremidade da URL configu
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `X-GitHub-Event`              | Nome do evento que ativou a entrega.                                                                                                                                                                                                                                                |
 | `X-GitHub-Delivery`           | Um [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) para identificar a entrega.{% if currentVersion != "free-pro-team@latest" %}
-| `X-GitHub-Enterprise-Version` | A versão da instância do {{ site.data.variables.product.prodname_ghe_server }} que enviou a carga do HTTP POST.                                                                                                                                                                   |
-| `X-GitHub-Enterprise-Host`    | O nome do host da instância do {{ site.data.variables.product.prodname_ghe_server }} que enviou a carga HTTP POST.{% endif %}
+| `X-GitHub-Enterprise-Version` | A versão da instância do {% data variables.product.prodname_ghe_server %} que enviou a carga do HTTP POST.                                                                                                                                                                   |
+| `X-GitHub-Enterprise-Host`    | O nome do host da instância do {% data variables.product.prodname_ghe_server %} que enviou a carga HTTP POST.{% endif %}
 | `X-Hub-Signature`             | O resumo hexadecimal de HMAC no texto da resposta. Este cabeçalho será enviado se o webhook for configurado com um [`secredo`](/v3/repos/hooks/#create-hook-config-params). O resumo hexadecimal de HMAC é gerado usando a função hash `sha1` e o `segredo` como a `chave` de HMAC. |
 
 Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hookshot/`.
@@ -76,7 +76,7 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 > {
 >   "action": "opened",
 >   "issue": {
->     "url": "{{ site.data.variables.product.api_url_pre }}/repos/octocat/Hello-World/issues/1347",
+>     "url": "{% data variables.product.api_url_pre %}/repos/octocat/Hello-World/issues/1347",
 >     "number": 1347,
 >     ...
 >   },
@@ -100,23 +100,23 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 
 ### check_run
 
-{{ site.data.reusables.webhooks.check_run_short_desc }}
+{% data reusables.webhooks.check_run_short_desc %}
 
-{{ site.data.reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites }}
+{% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
 #### Disponibilidade
 
 - Os webhooks de repositório só recebem cargas para os tipos de evento `criados` e `concluídos` em um repositório
 - Os webhooks da organização só recebem cargas para os tipos de eventos `criados` e `concluídos` nos repositórios
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `requested_action`. As cargas do tipo de evento `solicitadas` e `requested_action` são enviadas apenas para o {{ site.data.variables.product.prodname_github_app }} que está sendo solicitado. Os {{ site.data.variables.product.prodname_github_app }}s com `checks:write` são automaticamente inscritos neste evento webhook.
+- Os {% data variables.product.prodname_github_app %}s com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `requested_action`. As cargas do tipo de evento `solicitadas` e `requested_action` são enviadas apenas para o {% data variables.product.prodname_github_app %} que está sendo solicitado. Os {% data variables.product.prodname_github_app %}s com `checks:write` são automaticamente inscritos neste evento webhook.
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.check_run_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.check_run_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -124,23 +124,23 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 
 ### check_suite
 
-{{ site.data.reusables.webhooks.check_suite_short_desc }}
+{% data reusables.webhooks.check_suite_short_desc %}
 
-{{ site.data.reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites }}
+{% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
 #### Disponibilidade
 
 - Os webhooks de repositório só recebem cargas para os tipos de evento `concluídos` em um repositório
 - Os webhooks da organização só recebem cargas para os tipos de eventos `concluídos` nos repositórios
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `ressolicitados.`. As cargas de evento `solicitadas` e `ressolicitadas` são enviadas apenas para {{ site.data.variables.product.prodname_github_app }} que está sendo solicitado. Os {{ site.data.variables.product.prodname_github_app }}s com `checks:write` são automaticamente inscritos neste evento webhook.
+- Os {% data variables.product.prodname_github_app %}s com a permissão `checks:read` recebem cargas para os tipos de evento `criados` e `concluídos` que ocorrem no repositório onde o aplicativo está instalado. O aplicativo deve ter a permissão `checks:write` para receber os tipos de eventos `solicitados` e `ressolicitados.`. As cargas de evento `solicitadas` e `ressolicitadas` são enviadas apenas para {% data variables.product.prodname_github_app %} que está sendo solicitado. Os {% data variables.product.prodname_github_app %}s com `checks:write` são automaticamente inscritos neste evento webhook.
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.check_suite_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.check_suite_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -149,20 +149,20 @@ Além disso, o `User-Agent` para as solicitações terá o prefixo `GitHub-Hooks
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### code_scanning_alert
 
-Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `security_events`
+Os {% data variables.product.prodname_github_app %}s com a permissão `security_events`
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de `conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de `conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.code_scanning_alert_event_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
+{% data reusables.webhooks.code_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
 </code>remetente`| <code>objeto` | Se a </code> de ação ` for <code>reopened_by_user` ou `closed_by_user`, o objeto `remetente` será o usuário que ativou o evento. O objeto `remetente` está vazio para todas as outras ações.
 
 #### Exemplo de carga de webhook
@@ -171,21 +171,21 @@ Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `secu
 
 ### commit_comment
 
-{{ site.data.reusables.webhooks.commit_comment_short_desc }}
+{% data reusables.webhooks.commit_comment_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.commit_comment_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.commit_comment_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -194,11 +194,11 @@ Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `secu
 
 ### content_reference
 
-{{ site.data.reusables.webhooks.content_reference_short_desc }}
+{% data reusables.webhooks.content_reference_short_desc %}
 
 Os eventos de webhook são acionados com base na especificidade do domínio que você registra. Por exemplo, se você registrar um subdomínio (`https://subdomain.example.com`), apenas as URLs para o subdomínio irão ativar este evento. Se você registrar um domínio (`https://example.com`), as URLs para domínio e todos os subdomínios irão ativar este evento. Consulte "[Criar um anexo de conteúdo](/v3/apps/installations/#create-a-content-attachment)" para criar um novo anexo de conteúdo.
 
-Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber este evento. Os {{ site.data.variables.product.prodname_github_app }}s devem ter a permissão de `content_reference` `gravação` para assinar este evento.
+Apenas os {% data variables.product.prodname_github_app %}s podem receber este evento. Os {% data variables.product.prodname_github_app %}s devem ter a permissão de `content_reference` `gravação` para assinar este evento.
 
 #### Exemplo de carga de webhook
 
@@ -206,7 +206,7 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### create
 
-{{ site.data.reusables.webhooks.create_short_desc }}
+{% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
@@ -218,15 +218,15 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.create_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -234,7 +234,7 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### delete
 
-{{ site.data.reusables.webhooks.delete_short_desc }}
+{% data reusables.webhooks.delete_short_desc %}
 
 {% note %}
 
@@ -246,15 +246,15 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.delete_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -262,7 +262,7 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### deploy_key
 
-{{ site.data.reusables.webhooks.deploy_key_short_desc }}
+{% data reusables.webhooks.deploy_key_short_desc %}
 
 #### Disponibilidade
 
@@ -271,10 +271,10 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.deploy_key_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.deploy_key_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -282,13 +282,13 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### implantação
 
-{{ site.data.reusables.webhooks.deployment_short_desc }}
+{% data reusables.webhooks.deployment_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de `implantação`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de `implantação`
 
 #### Objeto da carga do webhook
 
@@ -296,10 +296,10 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 | ------------- | --------------------------------------------------------------- | ----------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 | `Ação`        | `string`                                                        | A ação realizada. Pode ser `criado`.{% endif %}
 | `implantação` | `objeto`                                                        | The [implantação](/v3/repos/deployments/#list-deployments). |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -307,13 +307,13 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### implantação_status
 
-{{ site.data.reusables.webhooks.deployment_status_short_desc }}
+{% data reusables.webhooks.deployment_status_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de `implantação`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de `implantação`
 
 #### Objeto da carga do webhook
 
@@ -325,10 +325,10 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 | `deployment_status["target_url"]`  | `string`                                                        | O link opcional adicionado ao status.                                                       |
 | `deployment_status["description"]` | `string`                                                        | A descrição opcional legível para pessoas adicionada ao status.                             |
 | `implantação`                      | `objeto`                                                        | A [implantação](/v3/repos/deployments/#list-deployments) à qual este status está associado. |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -338,7 +338,7 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### enterprise
 
-{{ site.data.reusables.webhooks.enterprise_short_desc }}
+{% data reusables.webhooks.enterprise_short_desc %}
 
 #### Disponibilidade
 
@@ -358,21 +358,21 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### bifurcação
 
-{{ site.data.reusables.webhooks.fork_short_desc }}
+{% data reusables.webhooks.fork_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.fork_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.fork_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -380,20 +380,20 @@ Apenas os {{ site.data.variables.product.prodname_github_app }}s podem receber e
 
 ### github_app_authorization
 
-Este evento ocorre quando alguém revoga a autorização de um {{ site.data.variables.product.prodname_github_app }}. Um {{ site.data.variables.product.prodname_github_app }} recebe este webhook por padrão e não pode cancelar a assinatura deste evento.
+Este evento ocorre quando alguém revoga a autorização de um {% data variables.product.prodname_github_app %}. Um {% data variables.product.prodname_github_app %} recebe este webhook por padrão e não pode cancelar a assinatura deste evento.
 
-{{ site.data.reusables.webhooks.authorization_event }} Para obter informações sobre solicitações de usuário para servidor, que exigem autorização do {{ site.data.variables.product.prodname_github_app }}, consulte "[Identificando e autorizando usuários para os {{ site.data.variables.product.prodname_github_app }}s](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
+{% data reusables.webhooks.authorization_event %} Para obter informações sobre solicitações de usuário para servidor, que exigem autorização do {% data variables.product.prodname_github_app %}, consulte "[Identificando e autorizando usuários para os {% data variables.product.prodname_github_app %}s](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)".
 
 #### Disponibilidade
 
-- {{ site.data.variables.product.prodname_github_app }}s
+- {% data variables.product.prodname_github_app %}s
 
 #### Objeto da carga do webhook
 
 | Tecla  | Tipo     | Descrição                              |
 | ------ | -------- | -------------------------------------- |
 | `Ação` | `string` | A ação realizada. Pode ser `revogada`. |
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -401,21 +401,21 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 ### gollum
 
-{{ site.data.reusables.webhooks.gollum_short_desc }}
+{% data reusables.webhooks.gollum_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.gollum_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.gollum_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -423,7 +423,7 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 ### instalação
 
-{{ site.data.reusables.webhooks.installation_short_desc }}
+{% data reusables.webhooks.installation_short_desc %}
 
 {% note %}
 
@@ -434,20 +434,20 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Observação:** {{ site.data.reusables.pre-release-program.suspend-installation-beta }} Para obter mais informações, consulte "[Suspender uma instalação do {{ site.data.variables.product.prodname_github_app }}](/apps/managing-github-apps/suspending-a-github-app-installation/)".
+**Observação:** {% data reusables.pre-release-program.suspend-installation-beta %} Para obter mais informações, consulte "[Suspender uma instalação do {% data variables.product.prodname_github_app %}](/apps/managing-github-apps/suspending-a-github-app-installation/)".
 
 {% endnote %}
 {% endif %}
 
 #### Disponibilidade
 
-- {{ site.data.variables.product.prodname_github_app }}s
+- {% data variables.product.prodname_github_app %}s
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.installation_properties }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.installation_properties %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -455,7 +455,7 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 ### installation_repositories
 
-{{ site.data.reusables.webhooks.installation_repositories_short_desc }}
+{% data reusables.webhooks.installation_repositories_short_desc %}
 
 {% note %}
 
@@ -465,13 +465,13 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 #### Disponibilidade
 
-- {{ site.data.variables.product.prodname_github_app }}s
+- {% data variables.product.prodname_github_app %}s
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.installation_repositories_properties }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.installation_repositories_properties %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -479,43 +479,43 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 ### issue_comment
 
-{{ site.data.reusables.webhooks.issue_comment_short_desc }}
+{% data reusables.webhooks.issue_comment_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão </code>problemas`</li>
+- Os {% data variables.product.prodname_github_app %}s com a permissão </code>problemas`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.issue_comment_webhook_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.issue_comment_webhook_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.issue_comment_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.issue_comment_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.repo_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.repo_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.org_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.org_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.app_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.app_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.sender_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.sender_desc %}</p>
 
 <h4 spaces-before="0">Exemplo de carga de webhook</h4>
 
@@ -523,44 +523,44 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 <h3 spaces-before="0">Problemas</h3>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.issues_short_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.issues_short_desc %}</p>
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
 <ul>
 <li>Webhooks do repositório</li>
 <li>Webhooks da organização</li>
-<li>Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `problemas`</li>
+<li>Os {% data variables.product.prodname_github_app %}s com a permissão `problemas`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.issue_webhook_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.issue_webhook_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.issue_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.issue_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.repo_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.repo_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.org_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.org_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.app_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.app_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.sender_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.sender_desc %}</p>
 
 <h4 spaces-before="0">Exemplo de carga de webhook quando alguém editar um problema</h4>
 
@@ -568,14 +568,14 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 
 <h3 spaces-before="0">etiqueta</h3>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.label_short_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.label_short_desc %}</p>
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
 <ul>
 <li>Webhooks do repositório</li>
 <li>Webhooks da organização</li>
-<li>Os {{ site.data.variables.product.prodname_github_app }}s com a permissão <code>metadados`
+<li>Os {% data variables.product.prodname_github_app %}s com a permissão <code>metadados`
 
 #### Objeto da carga do webhook
 
@@ -586,10 +586,10 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 | `alterações`           | `objeto` | As alterações na etiqueta se a ação foi `editada`.                    |
 | `changes[name][from]`  | `string` | A versão anterior do nome se a ação foi `editada`.                    |
 | `changes[color][from]` | `string` | A versão anterior da cor se a ação foi `editada`.                     |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -598,11 +598,11 @@ Este evento ocorre quando alguém revoga a autorização de um {{ site.data.vari
 {% if currentVersion == "free-pro-team@latest" %}
 ### marketplace_purchase
 
-Atividade relacionada a uma compra do GitHub Marketplace. {{ site.data.reusables.webhooks.action_type_desc }} Para obter mais informações, consulte o "[GitHub Marketplace](/marketplace/)".
+Atividade relacionada a uma compra do GitHub Marketplace. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte o "[GitHub Marketplace](/marketplace/)".
 
 #### Disponibilidade
 
-- {{ site.data.variables.product.prodname_github_app }}s
+- {% data variables.product.prodname_github_app %}s
 
 #### Objeto da carga do webhook
 
@@ -610,7 +610,7 @@ Atividade relacionada a uma compra do GitHub Marketplace. {{ site.data.reusables
 | ------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `Ação` | `string` | A ação realizada para um plano do [GitHub Marketplace](https://github.com/marketplace). Pode ser uma das ações a seguir:<ul><li>`comprado` - Alguém comprou um plano do GitHub Marketplace. A mudança deve entrar em vigor na conta imediatamente.</li><li>`pending_change` - Você receberá o evento `pending_change` quando alguém tiver feito o downgrade ou cancelado um plano do GitHub Marketplace para indicar que uma alteração ocorrerá na conta. O novo plano ou cancelamento entra em vigor no final do ciclo de cobrança.  O tipo de evento `cancelado` ou `alterado` será enviado quando o ciclo de cobrança terminar e o cancelamento ou o novo plano entrarem em vigor.</li><li>`pending_change_cancelled` - Alguém cancelou uma alteração pendente. Alterações pendentes incluem planos de cancelamento e downgrades que entrarão em vigor ao fim de um ciclo de cobrança. </li><li>`alterado` - Alguém fez o upgrade ou downgrade de um plano do GitHub Marketplace e a alteração entrará em vigor na conta imediatamente.</li><li>`cancelado` - Alguém cancelou um plano do GitHub Marketplace e o último ciclo de cobrança foi finalizado. A mudança deve entrar em vigor na conta imediatamente.</li></ul> |
 
-Para obter uma descrição detalhada desta carga e da carga para cada tipo de `ação`, consulte [eventos do webhook de {{ site.data.variables.product.prodname_marketplace }} ](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
+Para obter uma descrição detalhada desta carga e da carga para cada tipo de `ação`, consulte [eventos do webhook de {% data variables.product.prodname_marketplace %} ](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/).
 
 #### Exemplo de carga de webhook quando alguém compra o plano
 
@@ -620,43 +620,43 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 ### integrante
 
-{{ site.data.reusables.webhooks.member_short_desc }}
+{% data reusables.webhooks.member_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão </code>membros`</li>
+- Os {% data variables.product.prodname_github_app %}s com a permissão </code>membros`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.member_webhook_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.member_webhook_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.member_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.member_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.repo_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.repo_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.org_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.org_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.app_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.app_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.sender_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.sender_desc %}</p>
 
 <h4 spaces-before="0">Exemplo de carga de webhook</h4>
 
@@ -664,33 +664,33 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 <h3 spaces-before="0">filiação</h3>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.membership_short_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.membership_short_desc %}</p>
 
 <h4 spaces-before="0">Disponibilidade</h4>
 
 <ul>
 <li>Webhooks da organização</li>
-<li>Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `membros`</li>
+<li>Os {% data variables.product.prodname_github_app %}s com a permissão `membros`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.membership_properties }}</p>
+<p spaces-before="0">{% data reusables.webhooks.membership_properties %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.org_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.org_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.app_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.app_desc %}</p>
 
 <p spaces-before="0">
 </p>
 
-<p spaces-before="0">{{ site.data.reusables.webhooks.sender_desc }}</p>
+<p spaces-before="0">{% data reusables.webhooks.sender_desc %}</p>
 
 <h4 spaces-before="0">Exemplo de carga de webhook</h4>
 
@@ -722,9 +722,9 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
   <td><code>Ação`</td> 
   </tr> 
   </tbody> </table> </p>
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -732,21 +732,21 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 ### marco
 
-{{ site.data.reusables.webhooks.milestone_short_desc }}
+{% data reusables.webhooks.milestone_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `pull_requests`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `pull_requests`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.milestone_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.milestone_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -754,14 +754,14 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 ### organização
 
-{{ site.data.reusables.webhooks.organization_short_desc }}
+{% data reusables.webhooks.organization_short_desc %}
 
 #### Disponibilidade
 
 {% if currentVersion != "free-pro-team@latest" %}
 - Os webhooks do GitHub Enterprise recebem apenas eventos `criados` e `excluídos`. Para mais informações, consulte "[Webhooks globais](/v3/enterprise-admin/global_webhooks/).{% endif %}
 - Os webhooks da organização recebem apenas os eventos `excluídos`, `adicionados`, `removidos`, `renomeado` e `convidados`
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão </code>membros`</li>
+- Os {% data variables.product.prodname_github_app %}s com a permissão </code>membros`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
@@ -779,9 +779,9 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
   <td><code>Ação`</td> 
   </tr> 
   </tbody> </table> </p>
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -791,12 +791,12 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 ### org_block
 
-{{ site.data.reusables.webhooks.org_block_short_desc }}
+{% data reusables.webhooks.org_block_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `organization_administration`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `organization_administration`
 
 #### Objeto da carga do webhook
 
@@ -804,9 +804,9 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 | -------------- | -------- | --------------------------------------------------------- |
 | `Ação`         | `string` | A ação realizada. Pode ser `bloqueado` ou `desbloqueado`. |
 | `blocked_user` | `objeto` | Informações sobre o usuário bloqueado ou desbloqueado.    |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -814,7 +814,7 @@ Para obter uma descrição detalhada desta carga e da carga para cada tipo de `a
 
 ### pacote
 
-Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ site.data.reusables.webhooks.action_type_desc }} Para obter mais informações, consulte o[Bloqueando usuários da organização](/v3/orgs/blocking/)" da API REST. Para obter mais informações, consulte "[Gerenciando pacotes com {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages)" para saber mais sobre {{ site.data.variables.product.prodname_registry }}.
+Atividade relacionada a {% data variables.product.prodname_registry %}. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte o[Bloqueando usuários da organização](/v3/orgs/blocking/)" da API REST. Para obter mais informações, consulte "[Gerenciando pacotes com {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages)" para saber mais sobre {% data variables.product.prodname_registry %}.
 
 #### Disponibilidade
 
@@ -823,10 +823,10 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.package_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.package_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -835,13 +835,13 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### page_build
 
-{{ site.data.reusables.webhooks.page_build_short_desc }}
+{% data reusables.webhooks.page_build_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `páginas`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `páginas`
 
 #### Objeto da carga do webhook
 
@@ -849,10 +849,10 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 | ------- | --------- | ---------------------------------------------------------------------------------- |
 | `id`    | `inteiro` | O identificador exclusivo da criação de páginas.                                   |
 | `build` | `objeto`  | A [Listar as criações do GitHub Pages](/v3/repos/pages/#list-github-pages-builds). |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -860,13 +860,13 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### ping
 
-{{ site.data.reusables.webhooks.ping_short_desc }}
+{% data reusables.webhooks.ping_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s recebem um evento de ping com um `app_id` usado para registrar o aplicativo
+- Os {% data variables.product.prodname_github_app %}s recebem um evento de ping com um `app_id` usado para registrar o aplicativo
 
 #### Objeto da carga do webhook
 
@@ -875,10 +875,10 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 | `zen`          | `string`  | String aleatória do Github zen.                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `hook_id`      | `inteiro` | O ID do webhook que acionou o ping.                                                                                                                                                                                                                                                                                                                                                                                               |
 | `hook`         | `objeto`  | A [configuração do webhook](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                                           |
-| `hook[app_id]` | `inteiro` | Ao registrar um novo {{ site.data.variables.product.prodname_github_app }}, {{ site.data.variables.product.product_name }} envia um evento de ping para a **URL do webhook** que você especificou no registro. O evento contém o `app_id`, que é necessário para a [efetuar a autenticação](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) em um aplicativo. |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+| `hook[app_id]` | `inteiro` | Ao registrar um novo {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} envia um evento de ping para a **URL do webhook** que você especificou no registro. O evento contém o `app_id`, que é necessário para a [efetuar a autenticação](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) em um aplicativo. |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -886,21 +886,21 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### project_card
 
-{{ site.data.reusables.webhooks.project_card_short_desc }}
+{% data reusables.webhooks.project_card_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `repository_projects` ou `organization_projects`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `repository_projects` ou `organization_projects`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.project_card_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_card_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -908,21 +908,21 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### project_column
 
-{{ site.data.reusables.webhooks.project_column_short_desc }}
+{% data reusables.webhooks.project_column_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `repository_projects` ou `organization_projects`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `repository_projects` ou `organization_projects`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.project_column_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_column_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -930,21 +930,21 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### project
 
-{{ site.data.reusables.webhooks.project_short_desc }}
+{% data reusables.webhooks.project_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `repository_projects` ou `organization_projects`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `repository_projects` ou `organization_projects`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.project_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -952,23 +952,23 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### público
 
-{{ site.data.reusables.webhooks.public_short_desc }}
+{% data reusables.webhooks.public_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `metadados`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `metadados`
 
 #### Objeto da carga do webhook
 
 | Tecla | Tipo | Descrição |
 | ----- | ---- | --------- |
 |       |      |           |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -976,22 +976,22 @@ Atividade relacionada a {{ site.data.variables.product.prodname_registry }}. {{ 
 
 ### pull_request
 
-{{ site.data.reusables.webhooks.pull_request_short_desc }}
+{% data reusables.webhooks.pull_request_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `pull_requests`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `pull_requests`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.pull_request_webhook_properties }}
-{{ site.data.reusables.webhooks.pull_request_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_webhook_properties %}
+{% data reusables.webhooks.pull_request_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1001,21 +1001,21 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 ### pull_request_review
 
-{{ site.data.reusables.webhooks.pull_request_review_short_desc }}
+{% data reusables.webhooks.pull_request_review_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `pull_requests`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `pull_requests`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.pull_request_review_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_review_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1023,22 +1023,22 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 ### pull_request_review_comment
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_short_desc }}
+{% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `pull_requests`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `pull_requests`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_webhook_properties }}
-{{ site.data.reusables.webhooks.pull_request_review_comment_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_review_comment_webhook_properties %}
+{% data reusables.webhooks.pull_request_review_comment_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1046,7 +1046,7 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 ### push
 
-{{ site.data.reusables.webhooks.push_short_desc }}
+{% data reusables.webhooks.push_short_desc %}
 
 {% note %}
 
@@ -1064,7 +1064,7 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
@@ -1082,10 +1082,10 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 | `commits[][url]`           | `url`     | URL que aponta para o recurso de commit de API.                                                                                                                                                                                                                                                                             |
 | `commits[][distinct]`      | `boolean` | Se este compromisso é diferente de qualquer outro que tenha sido carregado anteriormente.                                                                                                                                                                                                                                   |
 | `pusher`                   | `objeto`  | O usuário que fez o push dos commits.                                                                                                                                                                                                                                                                                       |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1093,22 +1093,22 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 
 ### versão
 
-{{ site.data.reusables.webhooks.release_short_desc }}
+{% data reusables.webhooks.release_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de ` conteúdo`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de ` conteúdo`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.release_webhook_properties }}
-{{ site.data.reusables.webhooks.release_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.release_webhook_properties %}
+{% data reusables.webhooks.release_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1117,11 +1117,11 @@ As entregas para eventos `review_requested` e `review_request_removed` terão um
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### repository_dispatch
 
-Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app }} envia uma solicitação de `POST` para o ponto de extremidade "[Criar um evento de envio de repositório](/v3/repos/#create-a-repository-dispatch-event)".
+Este evento ocorre quando um {% data variables.product.prodname_github_app %} envia uma solicitação de `POST` para o ponto de extremidade "[Criar um evento de envio de repositório](/v3/repos/#create-a-repository-dispatch-event)".
 
 #### Disponibilidade
 
-- Os {{ site.data.variables.product.prodname_github_app }}s devem ter a permissão de `conteúdo` para receber este webhook.
+- Os {% data variables.product.prodname_github_app %}s devem ter a permissão de `conteúdo` para receber este webhook.
 
 #### Exemplo de carga de webhook
 
@@ -1130,23 +1130,23 @@ Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app 
 
 ### repositório
 
-{{ site.data.reusables.webhooks.repository_short_desc }}
+{% data reusables.webhooks.repository_short_desc %}
 
 #### Disponibilidade
 
 - Os webhooks do repositório recebem todos os tipos de eventos, exceto `excluído`
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão de `metadados` recebem todos os tipos de eventos, exceto `excluídos`
+- Os {% data variables.product.prodname_github_app %}s com a permissão de `metadados` recebem todos os tipos de eventos, exceto `excluídos`
 
 #### Objeto da carga do webhook
 
 | Tecla  | Tipo     | Descrição                                                                          |
 | ------ | -------- | ---------------------------------------------------------------------------------- |
 | `Ação` | `string` | A ação que foi executada. Este pode ser um dos seguintes:<ul><li>`created` - Um repositório foi criado.</li><li>`deleted` - Um repositório foi excluído. Este tipo de evento está disponível apenas para [hooks de organização](/v3/orgs/hooks/)</li><li>`archived` - Um repositório está arquivado.</li><li>`unarchived` - Um repositório não está arquivado.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - Um repositório está [habilitado para acesso anônimo do Git](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - Um repositório está [desabilitado para acesso anônimo do Git](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - As informações de um repositório são editadas.</li><li>`renamed` - Um repositório é renomeado.</li><li>`transferred` - Um repositório é transferido.</li><li>`publicized` - Um repositório é publicado.</li><li> `privatizado` - Um repositório é privatizado.</li></ul> |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1155,7 +1155,7 @@ Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app 
 {% if currentVersion == "free-pro-team@latest"%}
 ### repository_import
 
-{{ site.data.reusables.webhooks.repository_import_short_desc }} Para receber este evento para um repositório pessoal, você deve criar um repositório vazio antes da importação. Este evento pode ser acionado usando o [Importador do GitHub](/articles/importing-a-repository-with-github-importer/) ou a [API de importações de fonte](/v3/migrations/source_imports/).
+{% data reusables.webhooks.repository_import_short_desc %} Para receber este evento para um repositório pessoal, você deve criar um repositório vazio antes da importação. Este evento pode ser acionado usando o [Importador do GitHub](/articles/importing-a-repository-with-github-importer/) ou a [API de importações de fonte](/v3/migrations/source_imports/).
 
 #### Disponibilidade
 
@@ -1164,10 +1164,10 @@ Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app 
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.repository_import_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repository_import_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1175,7 +1175,7 @@ Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app 
 
 ### repository_vulnerability_alert
 
-{{ site.data.reusables.webhooks.repository_vulnerability_alert_short_desc }}
+{% data reusables.webhooks.repository_vulnerability_alert_short_desc %}
 
 #### Disponibilidade
 
@@ -1184,10 +1184,10 @@ Este evento ocorre quando um {{ site.data.variables.product.prodname_github_app 
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.repository_vulnerability_alert_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repository_vulnerability_alert_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1201,7 +1201,7 @@ Atividade relacionada a uma consultora de segurança. Uma consultoria de seguran
 
 #### Disponibilidade
 
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `security_events`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `security_events`
 
 #### Objeto da carga do webhook
 
@@ -1217,9 +1217,9 @@ Atividade relacionada a uma consultora de segurança. Uma consultoria de seguran
 {% if currentVersion == "free-pro-team@latest" %}
 ### patrocínio
 
-{{ site.data.reusables.webhooks.sponsorship_short_desc }}
+{% data reusables.webhooks.sponsorship_short_desc %}
 
-Você só pode criar um webhook de patrocínio em {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte "[Configurar webhooks para eventos na sua conta patrocinada](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
+Você só pode criar um webhook de patrocínio em {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Configurar webhooks para eventos na sua conta patrocinada](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)".
 
 #### Disponibilidade
 
@@ -1227,9 +1227,9 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.sponsorship_webhook_properties }}
-{{ site.data.reusables.webhooks.sponsorship_properties}}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.sponsorship_webhook_properties %}
+{% data reusables.webhooks.sponsorship_properties %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook quando alguém cria um patrocínio
 
@@ -1243,7 +1243,7 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 ### estrela
 
-{{ site.data.reusables.webhooks.star_short_desc }}
+{% data reusables.webhooks.star_short_desc %}
 
 #### Disponibilidade
 
@@ -1252,10 +1252,10 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.star_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.star_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1263,13 +1263,13 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 ### status
 
-{{ site.data.reusables.webhooks.status_short_desc }}
+{% data reusables.webhooks.status_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `status`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `status`
 
 #### Objeto da carga do webhook
 
@@ -1281,10 +1281,10 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 | `descrição`   | `string`  | A descrição opcional legível para pessoas adicionada ao status.                                                                                                                        |
 | `url_destino` | `string`  | O link opcional adicionado ao status.                                                                                                                                                  |
 | `branches`    | `array`   | Um array de objetos de branch que contém o SHA do status. Cada branch contém o SHA fornecido, mas o SHA pode ou não ser o cabeçalho do branch. O array inclui, no máximo, 10 branches. |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1292,12 +1292,12 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 ### equipe
 
-{{ site.data.reusables.webhooks.team_short_desc }}
+{% data reusables.webhooks.team_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão </code>membros`</li>
+- Os {% data variables.product.prodname_github_app %}s com a permissão </code>membros`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
@@ -1315,8 +1315,8 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
   <td><code>Ação`</td> 
   </tr> 
   </tbody> </table> </p>
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1324,13 +1324,13 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 
 ### team_add
 
-{{ site.data.reusables.webhooks.team_add_short_desc }}
+{% data reusables.webhooks.team_add_short_desc %}
 
 #### Disponibilidade
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão </code>membros`</li>
+- Os {% data variables.product.prodname_github_app %}s com a permissão </code>membros`</li>
 </ul>
 
 <h4 spaces-before="0">Objeto da carga do webhook</h4>
@@ -1347,10 +1347,10 @@ Você só pode criar um webhook de patrocínio em {{ site.data.variables.product
 <tr>
   <td><code>equipe`</td> 
   </tr> </tbody> </table> </p>
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1373,7 +1373,7 @@ Quando um usuário é `criado` ou `excluído`.
 
 ### inspecionar
 
-{{ site.data.reusables.webhooks.watch_short_desc }}
+{% data reusables.webhooks.watch_short_desc %}
 
 O ator do evento é o [usuário](/v3/users/) que favoritou um repositório, e o repositório do evento é [repositório](/v3/repos/) que foi favoritado.
 
@@ -1381,15 +1381,15 @@ O ator do evento é o [usuário](/v3/users/) que favoritou um repositório, e o 
 
 - Webhooks do repositório
 - Webhooks da organização
-- Os {{ site.data.variables.product.prodname_github_app }}s com a permissão `metadados`
+- Os {% data variables.product.prodname_github_app %}s com a permissão `metadados`
 
 #### Objeto da carga do webhook
 
-{{ site.data.reusables.webhooks.watch_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.watch_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 
@@ -1402,7 +1402,7 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 #### Disponibilidade
 
-- Os {{ site.data.variables.product.prodname_github_app }}s devem ter a permissão de `conteúdo` para receber este webhook.
+- Os {% data variables.product.prodname_github_app %}s devem ter a permissão de `conteúdo` para receber este webhook.
 
 #### Exemplo de carga de webhook
 
@@ -1412,20 +1412,20 @@ Esse evento ocorre quando alguém aciona a execução de um fluxo de trabalho no
 
 ### workflow_run
 
-Quando uma execução do fluxo de trabalho de {{ site.data.variables.product.prodname_actions }} for solicitada ou concluída. Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#workflow_run)".
+Quando uma execução do fluxo de trabalho de {% data variables.product.prodname_actions %} for solicitada ou concluída. Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#workflow_run)".
 
 #### Disponibilidade
 
-- {{ site.data.variables.product.prodname_github_app }} com as `ações` ou permissões de `conteúdo`.
+- {% data variables.product.prodname_github_app %} com as `ações` ou permissões de `conteúdo`.
 
 #### Objeto da carga do webhook
 
 | Tecla  | Tipo     | Descrição                                                                                                              |
 | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------- |
 | `Ação` | `string` | A maioria das cargas de webhook contém uma ação `` propriedade que contém a atividade específica que acionou o evento. |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Exemplo de carga de webhook
 

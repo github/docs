@@ -1,18 +1,18 @@
 ---
 title: Opções de configuração para atualizações de dependências
-intro: 'Informações detalhadas para todas as opções que você pode usar para personalizar como o {{ site.data.variables.product.prodname_dependabot }} mantém seus repositórios.'
-permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {{ site.data.variables.product.prodname_dependabot }} para o repositório.'
+intro: 'Informações detalhadas para todas as opções que você pode usar para personalizar como o {% data variables.product.prodname_dependabot %} mantém seus repositórios.'
+permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_dependabot %} para o repositório.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.dependabot.beta-note }}
+{% data reusables.dependabot.beta-note %}
 
 ### Sobre o arquivo *dependabot.yml*
 
-O arquivo de configuração do {{ site.data.variables.product.prodname_dependabot }} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
+O arquivo de configuração do {% data variables.product.prodname_dependabot %} , *dependabot.yml*, usa a sintaxe YAML. Se você não souber o que é YAMLe quiser saber mais, consulte "[Aprender a usar YAML em cinco minutos](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)".
 
-Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar uma pull request para atualização de segurança. Para obter mais informações, consulte "[Configurando {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Você deve armazenar este arquivo no diretório `.github` do seu repositório. Ao adicionar ou atualizar o arquivo *dependabot.yml* , isso aciona uma verificação imediata de atualizações de versão. Quaisquer opções que também afetem as atualizações de segurança são usadas na próxima vez que um alerta de segurança acionar uma pull request para atualização de segurança. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
 
 ### Opções de configuração para *dependabot.yml*
 
@@ -47,7 +47,7 @@ Estas opções se encaixam, geralmente, nas seguintes categorias.
 - Opções para adicionar metadata a pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Opções para alterar o comportamento dos pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
-Além disso, a opção [`open-pull-requests-limite`](#open-pull-requests-limit) altera o número máximo de pull requests para atualizações de versão que o {{ site.data.variables.product.prodname_dependabot }} pode abrir.
+Além disso, a opção [`open-pull-requests-limite`](#open-pull-requests-limit) altera o número máximo de pull requests para atualizações de versão que o {% data variables.product.prodname_dependabot %} pode abrir.
 
 {% note %}
 
@@ -55,15 +55,15 @@ Além disso, a opção [`open-pull-requests-limite`](#open-pull-requests-limit) 
 
 As atualizações de segurança são geradas para manifestos de pacote vulneráveis apenas no branch padrão. Quando as opções de configuração são definidas para o mesmo branch (verdadeiro a menos que você use `target-branch`) e especifica um `package-ecosystem` e o `directory` para o manifesto vulnerável, as pull requests para atualizações de segurança usam opções relevantes.
 
-Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {{ site.data.variables.product.prodname_dependabot_security_updates }}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Em geral, as atualizações de segurança usam quaisquer opções de configuração que afetam pull request, por exemplo, adicionando metadados ou alterando seu comportamento. Para obter mais informações sobre atualizações de segurança, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
 
 {% endnote %}
 
 ### `package-ecosystem`
 
-**Obrigatório** Você adiciona um elemento `package-ecosystem` para cada gerenciador de pacotes que você deseja que {{ site.data.variables.product.prodname_dependabot }} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio de cada um desses gerentes de pacotes.
+**Obrigatório** Você adiciona um elemento `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio de cada um desses gerentes de pacotes.
 
-{{ site.data.reusables.dependabot.supported-package-managers }}
+{% data reusables.dependabot.supported-package-managers %}
 
 ```yaml
 # Configuração básica para três gerenciadores de pacotes
@@ -148,7 +148,7 @@ atualizações:
 
 ### `allow`
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Use a opção `allow` para personalizar quais dependências são atualizadas. Isso não tem impacto nas atualizações de segurança para dependências vulneráveis. Você pode usar o seguinte opções:
 
@@ -204,7 +204,7 @@ atualizações:
 
 Use `assignees` para especificar responsáveis individuais para todas as pull requests criadas para um gerenciador de pacotes.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Especificar responsáveis para pull requests
@@ -222,7 +222,7 @@ atualizações:
 
 ### `commit-message`
 
-Por padrão, o {{ site.data.variables.product.prodname_dependabot }} tenta detectar suas preferências de mensagem do commit e usa padrões similares. Use a opção `commit-message` para especificar suas preferências explicitamente.
+Por padrão, o {% data variables.product.prodname_dependabot %} tenta detectar suas preferências de mensagem do commit e usa padrões similares. Use a opção `commit-message` para especificar suas preferências explicitamente.
 
 Opções suportadas
 
@@ -230,7 +230,7 @@ Opções suportadas
 - `prefix-development` especifica um prefixo separado para todas as mensagens do commit que atualizam dependências no grupo de dependências de Desenvolvimento. Quando você especificar um valor para esta opção, o `prefix` é usado apenas para atualizações para dependências no grupo de dependência de Produção. Isto é suportado por: `bundler`, `composer`, `mix`, `maven`, `npm` e `pip`.
 - `include: "scope"` especifica que qualquer prefixo é seguido por uma lista das dependências atualizadas no commit.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Personalizando mensagens commit 
@@ -269,24 +269,24 @@ atualizações:
 
 ### `ignore`
 
-{{ site.data.reusables.dependabot.warning-ignore-option }}
+{% data reusables.dependabot.warning-ignore-option %}
 
 #### Verificando preferências existentes para ignorar
 
-Antes de adicionar uma opção `ignore` ao arquivo de configuração, verifique se você usou algum dos comandos `@dependabot ignore` em uma atualização de segurança ou pull request da atualização da versão. O {{ site.data.variables.product.prodname_dependabot }} armazena essas preferências para cada gerenciador de pacotes centralmente e esta informação é substituída pela opção `ignore`. Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)".
+Antes de adicionar uma opção `ignore` ao arquivo de configuração, verifique se você usou algum dos comandos `@dependabot ignore` em uma atualização de segurança ou pull request da atualização da versão. O {% data variables.product.prodname_dependabot %} armazena essas preferências para cada gerenciador de pacotes centralmente e esta informação é substituída pela opção `ignore`. Para obter mais informações sobre os comandos `@dependabot ignore`, consulte [Gerenciando pull requests para atualizações de dependências](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)".
 
 Você pode verificar se um repositório tem preferências armazenadas pesquisando no repositório por  `"@dependabot ignore" in:comments`. Se você revisar quaisquer pull requests nos resultados, você pode decidir se especifica ou não essas dependências ou versões ignoradas no arquivo de configuração.
 
 #### Especificando dependências e versões para ignorar
 
-{{ site.data.reusables.dependabot.default-dependencies-allow-ignore}}
+{% data reusables.dependabot.default-dependencies-allow-ignore %}
 
 Você pode usar a opção `ignore` para personalizar quais dependências são atualizadas. A opção `ignore` suporta as seguintes opções.
 
 - `dependency-name`—use para ignorar atualizações para dependências com nomes correspondentes, opcionalmente usando `*` para corresponder a zero ou mais caracteres. Para dependências Java, o formato do atributo `dependency-name` é: `groupId:artifactId`, por exemplo: `org.kohsuke:github-api`.
 - `versions`—use para ignorar versões específicas ou intervalos de versões. Se você deseja definir um intervalo, use o padrão pattern para o gerenciador de pacotes (por exemplo: `^1.0.0` para npm, ou `~> 2.0` para o Bundler).
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Personalizando as dependências para manter com "ignore"
@@ -307,17 +307,17 @@ atualizações:
 
 {% note %}
 
-O {{ site.data.variables.product.prodname_dependabot_version_updates }} não pode executar atualizações de versão para quaisquer dependências no manifesto que contém dependências do Git privadas ou registros Git privados, mesmo se você adicionar as dependências privadas à opção de `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {{ site.data.variables.product.prodname_dependabot_version_updates }}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
+O {% data variables.product.prodname_dependabot_version_updates %} não pode executar atualizações de versão para quaisquer dependências no manifesto que contém dependências do Git privadas ou registros Git privados, mesmo se você adicionar as dependências privadas à opção de `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
 
 {% endnote %}
 
 ### `etiquetas`
 
-{{ site.data.reusables.dependabot.default-labels}}
+{% data reusables.dependabot.default-labels %}
 
 Use `labels` para substituir etiquetas padrão e especificar etiquetas alternativas para todas as pull requests criadas para um gerenciador de pacotes. Se qualquer uma destas etiquetas não for definida no repositório, será ignorado. Para desativar todas as etiquetas, incluindo as etiquetas padrão, use `labels: [ ]`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Especifique etiquetas para pull requests
@@ -338,7 +338,7 @@ atualizações:
 
 Use `milestone` para associar todas as pull requests levantadas por um gerenciador de pacotes com um marco. Você precisa especificar o identificador numérico do marco e não sua etiqueta. Se você visualizar um marco, a parte final da URL da página, depois de `milestone` é o identificador. Por exemplo: `https://github.com/<org>/<repo>/milestone/3`.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Especificar um marco para as pull requests
@@ -355,7 +355,7 @@ updates:
 
 ### `open-pull-requests-limit`
 
-Por padrão, {{ site.data.variables.product.prodname_dependabot }} abre um máximo de cinco pull requests para atualizações de versão. Depois de cinco pull requests abertas, novas solicitações ficam bloqueadas até que você faça o merge ou feche algumas das solicitações abertas. Use `open-pull-requests-limit` para alterar este limite. Isto também fornece uma maneira simples de desativar temporariamente as atualizações de versão para um gerenciador de pacotes.
+Por padrão, {% data variables.product.prodname_dependabot %} abre um máximo de cinco pull requests para atualizações de versão. Depois de cinco pull requests abertas, novas solicitações ficam bloqueadas até que você faça o merge ou feche algumas das solicitações abertas. Use `open-pull-requests-limit` para alterar este limite. Isto também fornece uma maneira simples de desativar temporariamente as atualizações de versão para um gerenciador de pacotes.
 
 Esta opção não tem impacto em atualizações de segurança, que têm um limite interno separado de dez pull requests abertas.
 
@@ -381,11 +381,11 @@ updates:
 
 ### `pull-request-branch-name.separator`
 
-{{ site.data.variables.product.prodname_dependabot }} gera um branch para cada pull request. Cada nome de branch inclui `dependabot` e o gerenciador de pacotes e dependências que são atualizados. Por padrão, essas partes são separadas por um símbolo `/` , por exemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
+{% data variables.product.prodname_dependabot %} gera um branch para cada pull request. Cada nome de branch inclui `dependabot` e o gerenciador de pacotes e dependências que são atualizados. Por padrão, essas partes são separadas por um símbolo `/` , por exemplo: `dependabot/npm_and_yarn/next_js/acorn-6.4.1`.
 
 Use `pull-request-branch-name.separator` para especificar um separador diferente. Pode ser um desses: `"-"`, `_` ou `/`. O símbolo de hífen deve estar entre aspas porque, caso contrário, será interpretado como iniciando uma lista YAML vazia.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Especificando um separador diferente para nomes de branch
@@ -404,14 +404,14 @@ updates:
 
 ### `rebase-strategy`
 
-Por padrão, o {{ site.data.variables.product.prodname_dependabot }} faz o rebasamento automaticamente das pull requests abertas quando detectar conflitos. Use `rebase-strategy` para desativar este comportamento.
+Por padrão, o {% data variables.product.prodname_dependabot %} faz o rebasamento automaticamente das pull requests abertas quando detectar conflitos. Use `rebase-strategy` para desativar este comportamento.
 
 Estratégias de rebase disponíveis
 
 - `disabled` para desabilitar rebasing automático.
 - `auto` para usar o comportamento padrão e rebase das pull request abertas quando conflitos forem detectados.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Desabilitando rebasing automático
@@ -430,7 +430,7 @@ updates:
 
 Use `reviewers` para especificar revisores individuais ou equipes de revisores para todas as pull requests levantadas para um gerenciador de pacotes. Você deve usar o nome completo da equipe, incluindo a organização, como se você estivesse @mencionando a equipe.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 ```yaml
 # Especificar revisores para pull requests
@@ -450,7 +450,7 @@ updates:
 
 ### `schedule.day`
 
-Quando você definiu um cronograma de atualização `semanal` , por padrão, {{ site.data.variables.product.prodname_dependabot }} verifica novas versões na segunda-feira às 05:00 UTC. Use `schedule.day` para especificar um dia alternativo para procurar atualizações.
+Quando você definiu um cronograma de atualização `semanal` , por padrão, {% data variables.product.prodname_dependabot %} verifica novas versões na segunda-feira às 05:00 UTC. Use `schedule.day` para especificar um dia alternativo para procurar atualizações.
 
 Valores suportados
 
@@ -477,7 +477,7 @@ updates:
 
 ### `schedule.time`
 
-Por padrão, {{ site.data.variables.product.prodname_dependabot }} verifica se há novas versões às 05:00 UTC. Use `schedule.time` para especificar um horário alternativo do dia para procurar por atualizações (format: `hh:mm`).
+Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões às 05:00 UTC. Use `schedule.time` para especificar um horário alternativo do dia para procurar por atualizações (format: `hh:mm`).
 
 ```yaml
 # Configurar um horário para verificações
@@ -493,7 +493,7 @@ updates:
 
 ### `schedule.timezone`
 
-Por padrão, {{ site.data.variables.product.prodname_dependabot }} verifica se há novas versões às 05:00 UTC. Use `schedule.timezone` para especificar um fuso horário alternativo. O identificador do fuso horário deve ser do banco de dados do fuso horário mantido por [iana](https://www.iana.org/time-zones). Para obter mais informações, consulte [lista de fusos horários do banco de dados do tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+Por padrão, {% data variables.product.prodname_dependabot %} verifica se há novas versões às 05:00 UTC. Use `schedule.timezone` para especificar um fuso horário alternativo. O identificador do fuso horário deve ser do banco de dados do fuso horário mantido por [iana](https://www.iana.org/time-zones). Para obter mais informações, consulte [lista de fusos horários do banco de dados do tz](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```yaml
 # Especificar o fuso horário para verificações
@@ -511,7 +511,7 @@ updates:
 
 ### `target-branch`
 
-Por padrão, {{ site.data.variables.product.prodname_dependabot }} verifica se há arquivos de manifesto no branch padrão e levanta pull requests para atualizações de versão contra este branch. Use `target-branch` para especificar um branch diferente para arquivos de manifesto e para pull requests. Quando você usa esta opção, as configurações para este gerenciador de pacotes não afetarão mais quaisquer pull requests levantadas para atualizações de segurança.
+Por padrão, {% data variables.product.prodname_dependabot %} verifica se há arquivos de manifesto no branch padrão e levanta pull requests para atualizações de versão contra este branch. Use `target-branch` para especificar um branch diferente para arquivos de manifesto e para pull requests. Quando você usa esta opção, as configurações para este gerenciador de pacotes não afetarão mais quaisquer pull requests levantadas para atualizações de segurança.
 
 ```yaml
 # Especifique um branch não padronizado para pull requests para pip
@@ -542,14 +542,14 @@ updates:
 
 ### `versioning-strategy`
 
-Quando {{ site.data.variables.product.prodname_dependabot }} edita um arquivo arquivo manifesto para atualizar uma versão, ele usa as seguintes estratégias globais:
+Quando {% data variables.product.prodname_dependabot %} edita um arquivo arquivo manifesto para atualizar uma versão, ele usa as seguintes estratégias globais:
 
 - Para apps, os requisitos de versão são aumentados, por exemplo: npm, pip e Composer.
 - Para bibliotecas, o intervalo de versões é alargado, por exemplo: Bundler e Cargo.
 
 Use a opção `versioning-strategy` para alterar esse comportamento para gerenciadores de pacotes suportados.
 
-{{ site.data.reusables.dependabot.option-affects-security-updates }}
+{% data reusables.dependabot.option-affects-security-updates %}
 
 Estratégias de atualização disponíveis
 

@@ -1,6 +1,6 @@
 ---
 title: Acerca de las notificaciones
-intro: 'Las notificaciones ofrecen actualizaciones acerca de las actividades y las conversaciones en las que estás interesado. Puedes recibir notificaciones en {{ site.data.variables.product.product_name }} o mediante tu cliente de correo electrónico.'
+intro: 'Las notificaciones ofrecen actualizaciones acerca de las actividades y las conversaciones en las que estás interesado. Puedes recibir notificaciones en {% data variables.product.product_name %} o mediante tu cliente de correo electrónico.'
 versions:
   enterprise-server: <2.21
 ---
@@ -13,13 +13,13 @@ Las notificaciones que recibes serán notificaciones de *participación* o notif
 - "[Acerca de las notificaciones por correo electrónico](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
 - "[Escoger el método de entrega para tus notificaciones](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
 
-{{ site.data.reusables.notifications.outbound_email_tip }}
+{% data reusables.notifications.outbound_email_tip %}
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 #### Notificaciones de participación
 
-{{ site.data.variables.product.product_name }} envía notificaciones de *participación* cuando estás directamente involucrado en las actividades o las conversaciones dentro de un repositorio o equipo del que eres miembro. Recibirás una notificación si:
+{% data variables.product.product_name %} envía notificaciones de *participación* cuando estás directamente involucrado en las actividades o las conversaciones dentro de un repositorio o equipo del que eres miembro. Recibirás una notificación si:
   - Te mencionan a tí o a un equipo del que eres miembro. Para obtener más información, consulta "[Sintaxis de escritura y formato básicos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)".
   - Se menciona al equipo padre de un equipo hijo del que eres miembro. Para obtener más información, consulta "[Acerca de los equipos](/articles/about-teams)".
   - Eres asignado a una propuesta o solicitud de extracción.
@@ -33,7 +33,7 @@ Las notificaciones que recibes serán notificaciones de *participación* o notif
 
 #### Notificaciones de observación
 
-{{ site.data.variables.product.product_name }} envía notificaciones de *observación* para actualizaciones en repositorios o debates de equipos que estés mirando. {% if currentVersion ver_gt "enterprise-server@2.17" %}{{ site.data.reusables.notifications.auto-watch }}Para obtener más información, consulta la sección "[Observar y dejar de observar los repositorios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)".
+{% data variables.product.product_name %} envía notificaciones de *observación* para actualizaciones en repositorios o debates de equipos que estés mirando. {% if currentVersion ver_gt "enterprise-server@2.17" %}{% data reusables.notifications.auto-watch %}Para obtener más información, consulta la sección "[Observar y dejar de observar los repositorios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)".
 
 {% endif %}Recibirás una notificación si:
   - Se abre una propuesta.

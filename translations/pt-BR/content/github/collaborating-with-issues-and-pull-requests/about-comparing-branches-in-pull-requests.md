@@ -44,13 +44,13 @@ Para simplificar a revisão das alterações em uma pull request extensa, é pos
 
 ### Comparações de diff do Git de três pontos e dois pontos
 
-Por padrão, as pull requests no {{ site.data.variables.product.prodname_dotcom }} mostram um diff de três pontos ou uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch base.
+Por padrão, as pull requests no {% data variables.product.prodname_dotcom %} mostram um diff de três pontos ou uma comparação entre a versão mais recente do branch de tópico e o commit onde o branch de tópico foi sincronizado pela última vez com o branch base.
 
-Para ver duas referências de committish em uma comparação de diff de dois pontos no {{ site.data.variables.product.prodname_dotcom }}, você pode editar o URL da página "Comparing changes" (Comparar alterações) do seu repositório. Para obter mais informações, consulte [Glossário do Git para "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) no book site do _Pro Git_.
+Para ver duas referências de committish em uma comparação de diff de dois pontos no {% data variables.product.prodname_dotcom %}, você pode editar o URL da página "Comparing changes" (Comparar alterações) do seu repositório. Para obter mais informações, consulte [Glossário do Git para "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) no book site do _Pro Git_.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-Um diff de dois pontos compara duas referências de committish do Git, como SHAs ou IDs de objeto (OIDs, Object IDs), diretamente entre si. No {{ site.data.variables.product.prodname_dotcom }}, as referências de committish do Git em uma comparação de diff de dois pontos devem ser enviadas por push ao mesmo repositório ou para suas bifurcações.
+Um diff de dois pontos compara duas referências de committish do Git, como SHAs ou IDs de objeto (OIDs, Object IDs), diretamente entre si. No {% data variables.product.prodname_dotcom %}, as referências de committish do Git em uma comparação de diff de dois pontos devem ser enviadas por push ao mesmo repositório ou para suas bifurcações.
 
 Se desejar simular um diff de dois pontos em uma pull request e ver uma comparação entre as versões mais recentes de cada branch, você poderá fazer merge do branch base no branch de tópico, o que atualiza o último ancestral comum entre seus branches.
 

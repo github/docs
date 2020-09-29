@@ -12,7 +12,7 @@ versions:
 
 
 
-A [API de Implantações][deploy API] fornece seus projetos hospedados em {{ site.data.variables.product.product_name }} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você poderá coordenar suas implantações no momento em que seu código chegar a `mestre`.
+A [API de Implantações][deploy API] fornece seus projetos hospedados em {% data variables.product.product_name %} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você poderá coordenar suas implantações no momento em que seu código chegar a `mestre`.
 
 Este guia usará a API para demonstrar uma configuração que você pode usar. No nosso cenário, iremos:
 
@@ -54,7 +54,7 @@ Clique em **Update webhook** (Atualizar webhook). Você deve ver uma resposta de
 * Status da implantação
 * Pull Request
 
-Esses são os eventos que {{ site.data.variables.product.product_name }} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos configurar nosso servidor para o manipular *apenas* quando pull requests forem mesclados neste momento:
+Esses são os eventos que {% data variables.product.product_name %} serão enviados ao nosso servidor sempre que ocorrer a ação relevante. Vamos configurar nosso servidor para o manipular *apenas* quando pull requests forem mesclados neste momento:
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +69,7 @@ post '/event_handler' do
 end
 ```
 
-O que está acontecendo? Cada evento que {{ site.data.variables.product.product_name }} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. Quando um pull request é mesclado (seu estado é `fechado` e `mesclado` é `verdadeiro`), vamos iniciar uma implantação.
+O que está acontecendo? Cada evento que {% data variables.product.product_name %} envia, anexa um cabeçalho de HTTP de `X-GitHub-Event`. Por enquanto, nos importaremos apenas com os eventos do PR. Quando um pull request é mesclado (seu estado é `fechado` e `mesclado` é `verdadeiro`), vamos iniciar uma implantação.
 
 Para testar esta validação de conceito, faça algumas alterações em um branch no repositório de testes, abra um pull request e faça o merge. Seu servidor deve responder de acordo!
 

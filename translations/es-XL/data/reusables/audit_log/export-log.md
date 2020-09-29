@@ -4,4 +4,4 @@ Puedes exportar el registro como datos JSON o como un archivo con valores separa
 
 Para filtrar los resultados en tu exportación, busca utilizando uno o más de los calificadores antes de recurrir al menú desplegable **Export**.
 
-{{ site.data.reusables.audit_log.keys-and-example-values }}
+{% data reusables.audit_log.keys-and-example-values %}

@@ -16,28 +16,28 @@ versions:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
 ### 检查 Git 版本
 
-与 {{ site.data.variables.product.product_name }} 交互没有最低 Git 版本要求，但我们发现 1.7.10 版是一个方便、稳定的版本，适用于许多平台。 您可随时[在 Git 网站上下载最新版本](https://git-scm.com/downloads)。
+与 {% data variables.product.product_name %} 交互没有最低 Git 版本要求，但我们发现 1.7.10 版是一个方便、稳定的版本，适用于许多平台。 您可随时[在 Git 网站上下载最新版本](https://git-scm.com/downloads)。
 
 ### 确保远程正确
 
-您要提取的仓库必须存在于 {{ site.data.variables.product.product_location }} 上，且 URL 区分大小写。
+您要提取的仓库必须存在于 {% data variables.product.product_location %} 上，且 URL 区分大小写。
 
 您可以打开命令行并输入 `git remote -v` 来查找本地仓库的 URL：
 
@@ -56,13 +56,13 @@ $ git remote -v
 > origin  https://github.com/github/ReactiveCocoa.git (push)
 ```
 
-也可通过 [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/) 应用程序更改 URL。
+也可通过 [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) 应用程序更改 URL。
 
 ### 提供访问令牌
 
-要访问 {{ site.data.variables.product.prodname_dotcom }}，您必须使用个人访问令牌而不是密码进行身份验证。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+要访问 {% data variables.product.prodname_dotcom %}，您必须使用个人访问令牌而不是密码进行身份验证。 更多信息请参阅“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### 检查您的权限
 

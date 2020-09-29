@@ -15,15 +15,15 @@ versions:
 
 ### セキュリティアドバイザリを編集する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. [Security Advisories] のリストから、編集するセキュリティアドバイザリをクリックします。
 5. In the upper-right corner of the details for the security advisory, click
 {% octicon "pencil" aria-label="The edit icon" %}.
   ![セキュリティアドバイザリの [Edit] ボタン](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. 必要に応じて、セキュリティアドバイザリの [Credits] を編集します。 ![セキュリティアドバイザリのクレジット](/assets/images/help/security/security-advisory-credits.png)
 9. [**Update security advisory**] をクリックします。 ![[Add] ボタン](/assets/images/help/security/update-advisory-button.png)
 10. [Credits] セクションに記載されているユーザは、クレジットを受け入れるように勧めるメールまたは Web 通知を受信します。 受け入れた場合、セキュリティアドバイザリが公開されると、そのユーザ名が公開されます。

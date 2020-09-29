@@ -1,6 +1,6 @@
 ---
 title: Testar a conexão SSH
-intro: 'Depois de configurar a chave SSH e adicioná-la à sua conta do {{ site.data.variables.product.product_name }}, você pode testar a conexão.'
+intro: 'Depois de configurar a chave SSH e adicioná-la à sua conta do {% data variables.product.product_name %}, você pode testar a conexão.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
@@ -15,17 +15,17 @@ Antes de testar a conexão SSH, é recomendável que você tenha:
 
 Quando você testar a conexão, precisará autenticar essa ação usando sua senha, que é a frase secreta da chave SSH que você criou anteriormente. Para obter mais informações sobre esse assunto, consulte ["Trabalhar com frases secretas da chave SSH"](/articles/working-with-ssh-key-passphrases).
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Insira o seguinte:
   ```shell
-  $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
-  # Attempts to ssh to {{ site.data.variables.product.product_name }}
+  $ ssh -T git@{% data variables.command_line.codeblock %}
+  # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
   Você poderá receber um aviso como este:
 
   ```shell
-  > Não é possível estabelecer a autenticidade do host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)'.
+  > Não é possível estabelecer a autenticidade do host '{% data variables.command_line.codeblock %} (IP ADDRESS)'.
   > A impressão digital da chave RSA é 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```
@@ -33,7 +33,7 @@ Quando você testar a conexão, precisará autenticar essa ação usando sua sen
   ou como este:
 
   ```shell
-  > Não é possível estabelecer a autenticidade do host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)'.
+  > Não é possível estabelecer a autenticidade do host '{% data variables.command_line.codeblock %} (IP ADDRESS)'.
   > A impressão digital da chave RSA é SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Tem certeza de que deseja continuar com a conexão (sim/não)?
   ```

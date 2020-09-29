@@ -53,7 +53,7 @@ Esses são apenas alguns exemplos da complexidade da legislação em direitos au
 
 ### Como enviar seu contra-aviso
 
-A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {{ site.data.variables.contact.contact_dmca }}.
+A maneira mais rápida de obter uma resposta é inserir suas informações e responder todas as perguntas em nosso {% data variables.contact.contact_dmca %}.
 
 Você também pode enviar notificações de e-mail para <copyright@github.com>. Você pode incluir um anexo, se quiser, mas inclua também uma versão em texto simples da sua carta no corpo da sua mensagem.
 

@@ -1,6 +1,6 @@
 ---
 title: Supervisar por medio de SNMP
-intro: '{{ site.data.variables.product.prodname_enterprise }} proporciona datos sobre el uso del disco, la utilización del CPU, el uso de la memoria y más sobre SNMP.'
+intro: '{% data variables.product.prodname_enterprise %} proporciona datos sobre el uso del disco, la utilización del CPU, el uso de la memoria y más sobre SNMP.'
 redirect_from:
   - /enterprise/admin/installation/monitoring-using-snmp
   - /enterprise/admin/articles/monitoring-using-snmp/
@@ -9,18 +9,18 @@ versions:
   enterprise-server: '*'
 ---
 
-SNMP es una norma común para controlar dispositivos en una red. Recomendamos firmemente habilitar SNMP para que puedas controlar la salud de {{ site.data.variables.product.product_location_enterprise }} y saber cuándo agregar más memoria, almacenamiento, o rendimiento del procesador a la máquina del servidor.
+SNMP es una norma común para controlar dispositivos en una red. Recomendamos firmemente habilitar SNMP para que puedas controlar la salud de {% data variables.product.product_location_enterprise %} y saber cuándo agregar más memoria, almacenamiento, o rendimiento del procesador a la máquina del servidor.
 
-{{ site.data.variables.product.prodname_enterprise }} tiene una instalación SNMP estándar, para poder aprovechar los [diversos plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponibles para Nagios o para cualquier otro sistema de control.
+{% data variables.product.prodname_enterprise %} tiene una instalación SNMP estándar, para poder aprovechar los [diversos plugins](http://www.monitoring-plugins.org/doc/man/check_snmp.html) disponibles para Nagios o para cualquier otro sistema de control.
 
 ### Configurar SNMP v2c
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. En el campo **Community string (Cadena de la comunidad)**, ingresa una nueva cadena de comunidad. Si se deja en blanco, queda predeterminado como `públicp`. ![Campo para añadir la cadena de comunidad](/assets/images/enterprise/management-console/community-string.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 5. Prueba tu configuración SNMP al ejecutar el siguiente comando en una estación de trabajo por separado con soporte de SNMP en tu red:
   ```shell
   # community-string is your community string
@@ -28,7 +28,7 @@ SNMP es una norma común para controlar dispositivos en una red. Recomendamos fi
   $ snmpget -v 2c -c <em>community-string</em> -O e <em>hostname</em> hrSystemDate.0
   ```
 
-Debería devolver la hora del sistema en el host {{ site.data.variables.product.product_location_enterprise }}.
+Debería devolver la hora del sistema en el host {% data variables.product.product_location_enterprise %}.
 
 ### Seguridad basada en el usuario
 
@@ -39,29 +39,29 @@ Si habilitas el SNMP v3, puedes aprovechar la seguridad en base al usuario aumen
 
 ### Configurando usuarios para SNMP v3
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.access-monitoring }}
-{{ site.data.reusables.enterprise_management_console.enable-snmp }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.access-monitoring %}
+{% data reusables.enterprise_management_console.enable-snmp %}
 4. Selecciona **SNMP v3**. ![Botón para habilitar SNMP v3](/assets/images/enterprise/management-console/enable-snmpv3.png)
 5. En "Username (Nombre de usuario)", escribe el nombre de usuario único de tu usuario SNMP v3.![Campo para escribir el nombre de usuario SNMP v3](/assets/images/enterprise/management-console/snmpv3-username.png)
 6. En el menú desplegable **Security Level (Nivel de seguridad)**, haz clic en el nivel de seguridad para tu usuario SNMP v3. ![Menú desplegable para el nivel de seguridad del usuario SNMP v3](/assets/images/enterprise/management-console/snmpv3-securitylevel.png)
 7. Para usuarios SNMP v3 con el nivel de seguridad `authnopriv`: ![Configuración para el nivel de seguridad authnopriv](/assets/images/enterprise/management-console/snmpv3-authnopriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
 8. Para usuarios SNMP v3 con el nivel de seguridad `authpriv`: ![Configuración para el nivel de seguridad authpriv](/assets/images/enterprise/management-console/snmpv3-authpriv.png)
-    - {{ site.data.reusables.enterprise_management_console.authentication-password }}
-    - {{ site.data.reusables.enterprise_management_console.authentication-protocol }}
+    - {% data reusables.enterprise_management_console.authentication-password %}
+    - {% data reusables.enterprise_management_console.authentication-protocol %}
     - De forma opcional, en "Privacy password" (Contraseña de privacidad), escribe la contraseña de privacidad.
     - Hacia la derecha de "Privacy password" (Contraseña de privacidad), en el menú desplegable **Protocol (Protocolo)**, haz clic en el método de protocolo de privacidad que deseas usar.
 9. Haz clic en **Add secret (Agregar secreto)**. ![Botón para añadir usuario SNMP v3](/assets/images/enterprise/management-console/snmpv3-adduser.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
 ##### Consultar datos de SNMP
 
 Tanto la información del nivel de software como de hardware sobre tu aparato está disponible con SNMP v3. Debido a la falta de encriptación y privacidad para los niveles de seguridad `noAuthNoPriv` y `authNoPriv`, excluimos la tabla `hrSWRun` (1.1.3.6.1.2.1.25.41) de los informes SNMP resultantes. Incluimos esta tabla si estás usando el nivel de seguridad `authPriv`.
 
-Con SNMP v2c, solo está disponible la información del nivel de hardware de tu aparato. Estas aplicaciones y servicios dentro de {{ site.data.variables.product.prodname_enterprise }} no tienen configurado OID para informar métricas. Hay varios MIB disponibles, que puedes ver ejecutando `snmpwalk` en una estación de trabajo separada con soporte SNMP en tu red:
+Con SNMP v2c, solo está disponible la información del nivel de hardware de tu aparato. Estas aplicaciones y servicios dentro de {% data variables.product.prodname_enterprise %} no tienen configurado OID para informar métricas. Hay varios MIB disponibles, que puedes ver ejecutando `snmpwalk` en una estación de trabajo separada con soporte SNMP en tu red:
 
 ```shell
 # community-string es tu cadena de comunidad

@@ -1,6 +1,6 @@
 ---
 title: プルリクエストについて
-intro: 'プルリクエストは、他者に対してあなたが{{ site.data.variables.product.product_name }}上のリポジトリ内のブランチにプッシュした変更について知らせます。 プルリクエストがオープンされると、変更がベースブランチにマージされる前に、可能性のある変更についてコラボレーターと議論し、レビューでき、フォローアップのコメントを追加できます。'
+intro: 'プルリクエストは、他者に対してあなたが{% data variables.product.product_name %}上のリポジトリ内のブランチにプッシュした変更について知らせます。 プルリクエストがオープンされると、変更がベースブランチにマージされる前に、可能性のある変更についてコラボレーターと議論し、レビューでき、フォローアップのコメントを追加できます。'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ You can see information about the branch's current deployment status and past de
 
 提案された変更に満足したなら、プルリクエストをマージできます。 共有リポジトリモデルで作業している場合は、プルリクエストを作成し、あなたか他のユーザが、プルリクエストで指定したベースブランチにフィーチャブランチからの変更をマージします。 詳しい情報については[プルリクエストのマージ](/articles/merging-a-pull-request)を参照してください。
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ You can see information about the branch's current deployment status and past de
 
 ### ドラフトプルリクエスト
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 プルリクエストを作成する際には、レビュー可能なプルリクエストを作成するか、ドラフトのプルリクエストを作成するかを選択できます。 ドラフトのプルリクエストはマージできません。また、コードオーナーにはドラフトのプルリクエストのレビューは自動的にはリクエストされません。 ドラフトのプルリクエストの作成に関する詳しい情報については、「[プルリクエストを作成する](/articles/creating-a-pull-request)」および「[フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)」を参照してください。
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} プルリクエストはいつでもドラフトに変換できます。 詳しい情報については、「[プルリクエストのステージの変更](/articles/changing-the-stage-of-a-pull-request)」を参照してください。
+{% data reusables.pull_requests.mark-ready-review %} プルリクエストはいつでもドラフトに変換できます。 詳しい情報については、「[プルリクエストのステージの変更](/articles/changing-the-stage-of-a-pull-request)」を参照してください。
 
 ### 参考リンク
 
-- {{ site.data.variables.product.prodname_dotcom }} 用語集中の[プルリクエスト](/articles/github-glossary/#pull-request)
+- {% data variables.product.prodname_dotcom %} 用語集中の[プルリクエスト](/articles/github-glossary/#pull-request)
 - [ブランチについて](/articles/about-branches)
 - [プルリクエストへのコメント](/articles/commenting-on-a-pull-request)
 - [プルリクエストのマージ](/articles/merging-a-pull-request)

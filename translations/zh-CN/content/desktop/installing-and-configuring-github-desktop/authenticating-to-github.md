@@ -1,7 +1,7 @@
 ---
 title: 向 GitHub 验证
 shortTitle: 身份验证
-intro: '您可以通过向 {{ site.data.variables.product.prodname_dotcom }} 验证来安全地访问您的帐户在 {{ site.data.variables.product.prodname_desktop }} 上的资源。'
+intro: '您可以通过向 {% data variables.product.prodname_dotcom %} 验证来安全地访问您的帐户在 {% data variables.product.prodname_desktop %} 上的资源。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
@@ -11,72 +11,72 @@ versions:
 
 ### 关于身份验证
 
-为确保帐户安全，必须先进行身份验证，然后才可使用 {{ site.data.variables.product.prodname_desktop }} 访问 {{ site.data.variables.product.prodname_dotcom }}上的资源。
+为确保帐户安全，必须先进行身份验证，然后才可使用 {% data variables.product.prodname_desktop %} 访问 {% data variables.product.prodname_dotcom %}上的资源。
 
-在进行身份验证之前，{{ site.data.reusables.desktop.get-an-account }}
+在进行身份验证之前，{% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-### 在 {{ site.data.variables.product.prodname_dotcom }} 上验证帐户
+### 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-3. 在“{{ site.data.variables.product.prodname_dotcom_the_website }}”右边单击 **Sign In（登录）**。 ![GitHub 的登录按钮](/assets/images/help/desktop/mac-sign-in-github.png)
-4. 在“Sign in（登录）”窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 {{ site.data.variables.product.prodname_desktop }} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/mac-sign-in-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+3. 在“{% data variables.product.prodname_dotcom_the_website %}”右边单击 **Sign In（登录）**。 ![GitHub 的登录按钮](/assets/images/help/desktop/mac-sign-in-github.png)
+4. 在“Sign in（登录）”窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 {% data variables.product.prodname_desktop %} 将打开您的默认浏览器。 ![使用浏览器链接登录](/assets/images/help/desktop/mac-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. 在 {{ site.data.variables.product.prodname_dotcom }} 验证帐户后，按照提示返回到 {{ site.data.variables.product.prodname_desktop }}。
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-### 在 {{ site.data.variables.product.prodname_enterprise }} 上验证帐户
+### 在 {% data variables.product.prodname_enterprise %} 上验证帐户
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. 要添加 {{ site.data.variables.product.prodname_enterprise }} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
 
 {% windows %}
 
-### 在 {{ site.data.variables.product.prodname_dotcom }} 上验证帐户
+### 在 {% data variables.product.prodname_dotcom %} 上验证帐户
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
 3. 在 "GitHub.com" 右边单击 **Sign in（登录）**。 ![GitHub 的登录按钮](/assets/images/help/desktop/windows-sign-in-github.png)
 4. 在 Sign in（登录）窗格中，单击 **Sign in using your browser（使用浏览器登录）**。 ![使用浏览器链接登录](/assets/images/help/desktop/windows-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. 在 {{ site.data.variables.product.prodname_dotcom }} 验证帐户后，按照提示返回到 {{ site.data.variables.product.prodname_desktop }}。
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. 在 {% data variables.product.prodname_dotcom %} 验证帐户后，按照提示返回到 {% data variables.product.prodname_desktop %}。
 
-### 在 {{ site.data.variables.product.prodname_enterprise }} 上验证帐户
+### 在 {% data variables.product.prodname_enterprise %} 上验证帐户
 
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. 要添加 {{ site.data.variables.product.prodname_enterprise }} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. 要添加 {% data variables.product.prodname_enterprise %} 帐户，请在“Enterprise server address（企业服务器地址）”下键入您的凭据，然后单击 **Continue（继续）**。 ![GitHub Enterprise 的登录按钮](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
 ### 解决身份验证问题
 
-如果 {{ site.data.variables.product.prodname_desktop }} 遇到身份验证错误，可以使用错误消息进行故障排除。
+如果 {% data variables.product.prodname_desktop %} 遇到身份验证错误，可以使用错误消息进行故障排除。
 
-如果您遇到身份验证错误，请先尝试在 {{ site.data.variables.product.prodname_desktop }} 上注销您的帐户，然后重新登录。
+如果您遇到身份验证错误，请先尝试在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
-对于某些错误，{{ site.data.variables.product.prodname_desktop }} 会以错误消息提示您。 如果没有提示，或者要查找任何错误的更多信息，请使用以下步骤查看 {{ site.data.variables.product.prodname_desktop }} 日志文件。
+对于某些错误，{% data variables.product.prodname_desktop %} 会以错误消息提示您。 如果没有提示，或者要查找任何错误的更多信息，请使用以下步骤查看 {% data variables.product.prodname_desktop %} 日志文件。
 
 {% mac %}
 
@@ -102,7 +102,7 @@ Error: Bad credentials
 
 此错误意味着存储的帐户凭据有问题。
 
-要解决问题，请在 {{ site.data.variables.product.prodname_desktop }} 上注销您的帐户，然后重新登录。
+要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
 #### 空令牌
 
@@ -110,9 +110,9 @@ Error: Bad credentials
 info: [ui] [AppStore.withAuthenticatingUser] account found for repository: node - <username> (empty token)
 ```
 
-这个错误表示 {{ site.data.variables.product.prodname_desktop }} 找不到它在系统密钥链中创建的访问令牌。
+这个错误表示 {% data variables.product.prodname_desktop %} 找不到它在系统密钥链中创建的访问令牌。
 
-要解决问题，请在 {{ site.data.variables.product.prodname_desktop }} 上注销您的帐户，然后重新登录。
+要解决问题，请在 {% data variables.product.prodname_desktop %} 上注销您的帐户，然后重新登录。
 
 #### 未找到仓库
 
@@ -168,7 +168,7 @@ fatal: could not read Username for 'https://github.com': terminal prompts disabl
 
 这个错误可能是多个事件造成的。
 
-如果 `Command Processor` 注册表条目已修改，{{ site.data.variables.product.prodname_desktop }} 将以 `Authentication failed` 错误响应。 要检查这些注册表条目是否已修改，请按照以下步骤操作。
+如果 `Command Processor` 注册表条目已修改，{% data variables.product.prodname_desktop %} 将以 `Authentication failed` 错误响应。 要检查这些注册表条目是否已修改，请按照以下步骤操作。
 
 1. 打开注册表编辑器 (`regedit.exe`) 并导航到以下位置。 `` HKEY_CURRENT_USER\Software\Microsoft\Command Processor\` ``HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
 2. 检查任一位置是否有 `Autorun` 值。

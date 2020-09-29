@@ -1,6 +1,6 @@
 ---
 title: 恢复高可用性配置
-intro: '在故障转移到 {{ site.data.variables.product.prodname_ghe_server }} 设备后，您应尽快恢复冗余，而不应依赖于一台设备。'
+intro: '在故障转移到 {% data variables.product.prodname_ghe_server %} 设备后，您应尽快恢复冗余，而不应依赖于一台设备。'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
@@ -20,9 +20,9 @@ versions:
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. 要验证与新的主设备的连接并为新副本启用副本模式，请再次运行 `ghe-repl-setup`。
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

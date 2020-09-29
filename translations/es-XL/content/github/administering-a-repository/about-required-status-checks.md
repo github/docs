@@ -1,7 +1,7 @@
 ---
 title: Acerca de las verificaciones de estado requeridas
 intro: Las verificaciones de estado requeridas garantizan que todas las pruebas de integración continua (CI) requeridas sean aprobadas antes de que los colaboradores puedan realizar cambios en una rama protegida.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
@@ -19,7 +19,7 @@ Una vez activadas las verificaciones de estado requeridas, todas las verificacio
 
 {% tip %}
 
-**Nota:** Cualquier persona o integración con permisos de escritura en un repositorio puede establecer el estado de cualquier comprobación de estado en el repositorio. {{ site.data.variables.product.product_name }} no verifica que el autor de una comprobación está autorizado para crear un determinado nombre o modificar un estado existente. Antes de fusionar una solicitud de extracción, deberás verificar que se esté esperando al autor de cada estado, los cuales se encuentran listados en la caja de fusión.
+**Nota:** Cualquier persona o integración con permisos de escritura en un repositorio puede establecer el estado de cualquier comprobación de estado en el repositorio. {% data variables.product.product_name %} no verifica que el autor de una comprobación está autorizado para crear un determinado nombre o modificar un estado existente. Antes de fusionar una solicitud de extracción, deberás verificar que se esté esperando al autor de cada estado, los cuales se encuentran listados en la caja de fusión.
 
 {% endtip %}
 

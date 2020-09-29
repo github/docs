@@ -17,16 +17,16 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Diffビューの上にあるRevertオプション](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![Diffビューの上にあるRevertオプション](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

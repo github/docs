@@ -13,21 +13,21 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also view a release using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### Visualizar lanzamientos
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. En la parte superior de la página de lanzamientos, da clic en **Lanzamientos**.
 
 ### Visualizar etiquetas
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. En la parte superior de la página de lanzamiento, haz clic en **Tags** (Etiqueta). ![Página de etiquetas](/assets/images/help/releases/tags-list.png)
 
 ### Leer más

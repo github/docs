@@ -1,6 +1,6 @@
 ---
 title: Issue およびプルリクエストを検索する
-intro: '{{ site.data.variables.product.product_name }} 上の Issue およびプルリクエストを検索することができます。そして、これらの検索用修飾子を組み合わせることで、検索結果を絞ることができます。'
+intro: '{% data variables.product.product_name %} 上の Issue およびプルリクエストを検索することができます。そして、これらの検索用修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 全体にわたってグローバルに Issue およびプルリクエストを検索できます。あるいは、特定の Organization の Issue およびプルリクエストに限った検索もできます。 詳細は「[{{ site.data.variables.product.company_short }} での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルに Issue およびプルリクエストを検索できます。あるいは、特定の Organization の Issue およびプルリクエストに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 {% tip %}
 
 **参考:**{% if currentVersion != "free-pro-team@latest" %}
-  - この記事には、{{ site.data.variables.product.prodname_dotcom }}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {{ site.data.variables.product.product_location_enterprise }} で使えます。{% endif %}
+  - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location_enterprise %} で使えます。{% endif %}
   - 検索結果を改良する検索修飾子を追加できる検索構文のリストについては、「[検索構文を理解する](/articles/understanding-the-search-syntax)」を参照してください。
   - 複数単語の検索用語は引用符で囲みます。 たとえば "In progress" というラベルを持つ Issue を検索したい場合は、`label:"in progress"` とします。 検索では、大文字と小文字は区別されません。
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### Issue またはプルリクエストに限定した検索
 
-デフォルトでは、{{ site.data.variables.product.product_name }} の検索は、Issueとプルリクエストの両方を結果表示します。 ですが、`type` 修飾子または `is` 修飾子を使うことで、Issue またはプルリクエストに限った検索ができます。
+デフォルトでは、{% data variables.product.product_name %} の検索は、Issueとプルリクエストの両方を結果表示します。 ですが、`type` 修飾子または `is` 修飾子を使うことで、Issue またはプルリクエストに限った検索ができます。
 
 | 修飾子          | サンプル                                                                                                                                                                                |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ versions:
 
 ### リポジトリがパブリックかプライベートかで検索
 
-[{{ site.data.variables.product.product_name }} のすべてにわたって検索](https://github.com/search)する場合、リポジトリがパブリックかプライベートかでフィルタリングすると便利です。 `is:public` および `is:private` を使用して、これができます。
+[{% data variables.product.product_name %} のすべてにわたって検索](https://github.com/search)する場合、リポジトリがパブリックかプライベートかでフィルタリングすると便利です。 `is:public` および `is:private` を使用して、これができます。
 
 | 修飾子          | サンプル                                                                                                                                                  |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -249,9 +249,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 作成時期または最終更新時期で Issue をフィルタリングできます。 Issue の作成時期については、`created` の修飾子を使います。Issue の最終更新時期で表示するには、`updated` の修飾子を使います。
 
-どちらの修飾子も、パラメータとして日付を使います。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+どちらの修飾子も、パラメータとして日付を使います。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                            |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,9 +262,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 `closed` 修飾子を使って、Issue およびプルリクエストを、クローズされているかどうかでフィルタリングできます。
 
-この修飾子は、パラメータとして日付を使います。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+この修飾子は、パラメータとして日付を使います。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                                         |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,9 +275,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 `merged` 修飾子を使って、マージされているかどうかでプルリクエストをフィルタリングできます。
 
-この修飾子は、パラメータとして日付を使います。 {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+この修飾子は、パラメータとして日付を使います。 {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 修飾子                        | サンプル                                                                                                                                                                                                                                                       |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

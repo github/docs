@@ -15,9 +15,9 @@ You always create a branch from an existing branch. Typically, you might create 
 
 Once you're satisfied with your work, you can [open a pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request) to merge the changes in the current branch into another branch. Para obter mais informações, consulte "[Sobre pull requests](/articles/about-pull-requests)".
 
-You can always create a branch in {{ site.data.variables.product.prodname_desktop }} if you have read access to a repository, but you can only push the branch to {{ site.data.variables.product.prodname_dotcom }} if you have write access to the repository.
+You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
-{{ site.data.reusables.desktop.protected-branches }}
+{% data reusables.desktop.protected-branches %}
 
 ### Criar um branch
 
@@ -29,30 +29,30 @@ You can always create a branch in {{ site.data.variables.product.prodname_deskto
 
 {% mac %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Opção New Branch (Novo branch) no menu Branch](/assets/images/help/desktop/new-branch-button-mac.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![Campo para criar um nome para o novo branch](/assets/images/help/desktop/create-branch-name-mac.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![Opções do branch base](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Botão Create Branch (Criar branch)](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Opção New Branch (Novo branch) no menu Branch](/assets/images/help/desktop/new-branch-button-win.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![Campo para criar um nome para o novo branch](/assets/images/help/desktop/create-branch-name-win.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![Opções do branch base](/assets/images/help/desktop/create-branch-choose-branch-win.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Botão Create branch (Criar branch)](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
@@ -66,16 +66,16 @@ You can always create a branch in {{ site.data.variables.product.prodname_deskto
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. Se você tiver alterações salvas sem commit, escolha entre **Leave my changes** (Deixar as alterações) ou **Bring my changes** (Levar as alterações) e clique em **Switch Branch** (Alternar branch). ![Alternar branch com opções de alteração](/assets/images/help/desktop/stash-changes-options.png)
 
 ### Recuperar alterações stashed
 Para acessar as alterações com stash em outro branch, volte para o branch em que foi feito o stash das alterações em questão.
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![Lista de branches no repositório](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. Na barra lateral à esquerda, clique em **Stashed Changes** (Alterações stashed). ![Opção Stashed Changes (Alterações stashed)](/assets/images/help/desktop/stashed-changes.png)
 4. Para excluir as alterações stashed, clique em **Discard** (Descartar). Para usá-las, clique em **Restore** (Restaurar). ![Descartar ou restaurar alterações stashed](/assets/images/help/desktop/discard-restore-stash-buttons.png)
@@ -86,25 +86,25 @@ You can't delete a branch if it's currently associated with an open pull request
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-mac }}
+{% data reusables.desktop.delete-branch-mac %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-win}}
+{% data reusables.desktop.delete-branch-win %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 
 ### Leia mais
 
-- "[Clonar um repositório no {{ site.data.variables.product.prodname_desktop }}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
-- "[Branch](/articles/github-glossary/#branch)" no glossário do {{ site.data.variables.product.prodname_dotcom }}
+- "[Clonar um repositório no {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
+- "[Branch](/articles/github-glossary/#branch)" no glossário do {% data variables.product.prodname_dotcom %}
 - "[Sobre branches](/articles/about-branches)"
 - "[Branches em um Nutshell](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)" na documentação do Git

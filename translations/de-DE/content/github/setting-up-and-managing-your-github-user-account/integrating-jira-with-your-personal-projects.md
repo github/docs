@@ -7,16 +7,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-3. Klicke auf der linken Seitenleiste auf **{{ site.data.variables.product.prodname_oauth_app }}**. ![Registerkarte von { site.data.variables.product.prodname_oauth_app } in der linken Seitenleiste](/assets/images/help/settings/developer-settings-oauth-apps.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+3. Klicke auf der linken Seitenleiste auf **{% data variables.product.prodname_oauth_app %}**. ![Registerkarte von { site.data.variables.product.prodname_oauth_app } in der linken Seitenleiste](/assets/images/help/settings/developer-settings-oauth-apps.png)
 3. Klicke auf **Register a new application** (Eine neue Anwendung registrieren).
 4. Gib unter **Application name** (Anwendungsname) „Jira“ ein.
 5. Gib unter **Homepage URL** (URL für Startseite) die vollständige URL Deiner Jira-Instanz ein.
 6. Gib unter **Authorization callback URL** (Autorisierungs-Callback-URL) die vollständige URL Deiner Jira-Instanz ein.
 7. Klicke auf **Register application** (Anwendung registrieren). ![Schaltfläche „Register application“ (Anwendung registrieren)](/assets/images/help/oauth/register-application-button.png)
 8. Notiere Dir unter **Developer applications** (Entwickler-Anwendungen) die Werte für „Client ID“ (Client-ID) und „Client Secret“ (Clientgeheimnis). ![Client-ID und Client-Geheimnis](/assets/images/help/oauth/client-id-and-secret.png)
-{{ site.data.reusables.user_settings.jira_help_docs }}
+{% data reusables.user_settings.jira_help_docs %}
 
 ### Weiterführende Informationen
 

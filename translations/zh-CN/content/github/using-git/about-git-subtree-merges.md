@@ -21,7 +21,7 @@ versions:
 
 ### 创建用于子树合并的空仓库
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 创建一个新目录并找到它。
   ```shell
   $ mkdir test

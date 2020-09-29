@@ -13,7 +13,7 @@ versions:
 
 任意のリポジトリのすべてのサービスフックのデリバリに対する最後のレスポンスに関する情報を調べることができます。
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 調べるリポジトリを開ける。
 3. ナビゲーションサイドバーで **Hooks** のリンクをクリックする。 ![フックのサイドバー](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. 問題が発生しているサービスフックで、**Latest Delivery** へのリンクをクリックする。 ![フックの詳細](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
@@ -21,7 +21,7 @@ versions:
 
 ### ペイロードの表示
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 調べるリポジトリを開ける。
 3. ナビゲーションサイドバーで **Hooks** のリンクをクリックする。 ![フックのサイドバー](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. 問題が発生しているサービスフックで、**Latest Delivery** へのリンクをクリックする。
@@ -31,7 +31,7 @@ versions:
 
 デリバリーは 15 日間保存されます。
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 調べるリポジトリを開ける。
 3. ナビゲーションサイドバーで **Hooks** のリンクをクリックする。 ![フックのサイドバー](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. 問題が発生しているサービスフックで、**Latest Delivery** へのリンクをクリックする。

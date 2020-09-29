@@ -1,6 +1,6 @@
 ---
 title: Suspending a GitHub App installation
-intro: '{{ site.data.reusables.shortdesc.suspending_a_github_app }}'
+intro: '{% data reusables.shortdesc.suspending_a_github_app %}'
 redirect_from:
   - /apps/managing-github-apps/suspending-a-github-app-installation
 versions:
@@ -10,7 +10,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** {{ site.data.reusables.pre-release-program.suspend-installation-beta }}
+**Note:** {% data reusables.pre-release-program.suspend-installation-beta %}
 
 {% endnote %}
 {% endif %}
@@ -21,11 +21,11 @@ The integrator who owns and maintains a GitHub app, also called a GitHub App own
 
 People who have installed a GitHub App, also called installation owners, can only suspend or unsuspend a GitHub App through their app's installation settings. Installation owners cannot use the API to suspend or unsuspend their app installation. Before people can suspend a GitHub app installation, the GitHub App owner must opt-in to the beta release. For more information, see "[Suspending a GitHub App installation](/apps/managing-github-apps/suspending-a-github-app-installation/)."
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
-4. Select the {{ site.data.variables.product.prodname_github_app }} you want to suspend.
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+4. Select the {% data variables.product.prodname_github_app %} you want to suspend.
 ![App selection](/assets/images/github-apps/github_apps_select-app.png)
-{{ site.data.reusables.user-settings.github_apps_advanced }}
+{% data reusables.user-settings.github_apps_advanced %}
 6. Next to the suspension settings for the installation, click **Suspend** or **Unsuspend**.
 ![Suspend a GitHub App](/assets/images/github-apps/suspend-a-github-app.png)

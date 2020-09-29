@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda o una plantilla de propuestas en {{ site.data.variables.product.prodname_dotcom }}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
+Los parámetros de consulta son partes opcionales de una URL que puedes personalizar para compartir una vista de página web específica, como los resultados de filtro de búsqueda o una plantilla de propuestas en {% data variables.product.prodname_dotcom %}. Para crear tus propios parámetros de consulta, debes hacer coincidir el par de clave y valor.
 
 {% tip %}
 
@@ -34,7 +34,7 @@ Si creas una URL no válida usando los parámetros de consulta o si no tienen lo
 
 ### Completar propuestas y solicitudes de extracción con plantillas personalizadas
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Puedes usar el parámetro de consulta `template` para especificar una plantilla para completar de forma automática la propuesta o el cuerpo de la solicitud de extracción. El parámetro de consulta `template` funciona con las plantillas almacenadas en el subdirectorio `ISSUE_TEMPLATE` o `PULL_REQUEST_TEMPLATE` dentro de la raíz, del directorio `docs/` o `.github/` en un repositorio.
 

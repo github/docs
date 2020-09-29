@@ -1,30 +1,30 @@
 ---
 title: Managing tags
-intro: 'You can use {{ site.data.variables.product.prodname_desktop }} to create, push, and view tags.'
+intro: 'You can use {% data variables.product.prodname_desktop %} to create, push, and view tags.'
 versions:
   free-pro-team: '*'
 ---
 
-### About tags in {{ site.data.variables.product.prodname_desktop }}
+### About tags in {% data variables.product.prodname_desktop %}
 
-{{ site.data.variables.product.prodname_desktop }} allows you to create annotated tags. You can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[About releases](https://help.github.com/en/github/administering-a-repository/about-releases)."
+{% data variables.product.prodname_desktop %} allows you to create annotated tags. You can use a tag to mark an individual point in your repository's history, including a version number for a release. For more information about release tags, see "[About releases](https://help.github.com/en/github/administering-a-repository/about-releases)."
 
-{{ site.data.reusables.desktop.tags-push-with-commits }}
+{% data reusables.desktop.tags-push-with-commits %}
 
 ### Creating a tag
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.create-tag }}
-{{ site.data.reusables.desktop.name-tag }}
-{{ site.data.reusables.desktop.confirm-tag }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.create-tag %}
+{% data reusables.desktop.name-tag %}
+{% data reusables.desktop.confirm-tag %}
 
 ### タグを表示する
 
-{{ site.data.reusables.desktop.history-tab }}
+{% data reusables.desktop.history-tab %}
 2. Click the commit.
   {% note %}
 
-  **Note**: {{ site.data.variables.product.prodname_desktop }} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
+  **Note**: {% data variables.product.prodname_desktop %} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
 
   {% endnote %}
 

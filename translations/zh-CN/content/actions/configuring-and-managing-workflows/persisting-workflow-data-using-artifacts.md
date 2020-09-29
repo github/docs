@@ -1,7 +1,7 @@
 ---
 title: 使用构件持久化工作流程数据
 intro: 构件允许您在工作流程完成后，分享工作流程中作业之间的数据并存储数据。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于工作流程构件
 
-构件允许您在作业完成后保留数据，并与同一工作流程中的另一个作业共享该数据。 构件是指在工作流程运行过程中产生的文件或文件集。 例如，在工作流程运行结束后，您可以使用构件保存您的构建和测试输出。 对于推送和拉取请求， {{ site.data.variables.product.product_name }} 会将构件存储 90 天。 每当有人推送新提交到拉取请求时，拉取请求的保存期就会重新开始计算。
+构件允许您在作业完成后保留数据，并与同一工作流程中的另一个作业共享该数据。 构件是指在工作流程运行过程中产生的文件或文件集。 例如，在工作流程运行结束后，您可以使用构件保存您的构建和测试输出。 对于推送和拉取请求， {% data variables.product.product_name %} 会将构件存储 90 天。 每当有人推送新提交到拉取请求时，拉取请求的保存期就会重新开始计算。
 
 以下是您可以上传的一些常见构件：
 
@@ -27,24 +27,24 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-存储构件时使用存储空间 {{ site.data.variables.product.product_name }}。 {{ site.data.reusables.github-actions.actions-billing }} 更多信息请参阅“[管理 {{ site.data.variables.product.prodname_actions }} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)”。
+存储构件时使用存储空间 {% data variables.product.product_name %}。 {% data reusables.github-actions.actions-billing %} 更多信息请参阅“[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)”。
 
 {% else %}
 
-项目会占用外部 Blob 存储上的存储空间，该存储为 {{ site.data.variables.product.prodname_actions }} 配置 {{ site.data.variables.product.product_location }}。
+项目会占用外部 Blob 存储上的存储空间，该存储为 {% data variables.product.prodname_actions %} 配置 {% data variables.product.product_location %}。
 
 {% endif %}
 
-构件会在工作流程运行过程中上传，您可以在 UI 中查看构件的名称和大小。 当构件使用 {{ site.data.variables.product.product_name }} UI 下载时， 作为构件一部分单独上传的所有文件都会压缩到一个 zip 文件中。 这意味着计费是根据上传的构件大小而不是 zip 文件的大小计算的。
+构件会在工作流程运行过程中上传，您可以在 UI 中查看构件的名称和大小。 当构件使用 {% data variables.product.product_name %} UI 下载时， 作为构件一部分单独上传的所有文件都会压缩到一个 zip 文件中。 这意味着计费是根据上传的构件大小而不是 zip 文件的大小计算的。
 
-{{ site.data.variables.product.product_name }} 提供两项可用于上传和下载构建构件的操作。 更多信息请参阅 [action/upload-artifact](https://github.com/actions/upload-artifact) 和 [download-artifact](https://github.com/actions/download-artifact) 操作。
+{% data variables.product.product_name %} 提供两项可用于上传和下载构建构件的操作。 更多信息请参阅 [action/upload-artifact](https://github.com/actions/upload-artifact) 和 [download-artifact](https://github.com/actions/download-artifact) 操作。
 
 要在作业之间共享数据：
 
 * **上传文件**：为上传的文件提供名称并在作业结束前上传数据。
 * **下载文件**：您只能下载在同一工作流程运行过程中上传的构件。 下载文件时，您可以通过名称引用该文件。
 
-作业步骤共享运行器机器的相同环境，但在其各自的进程中运行。 要在作业的步骤之间传递数据，您可以使用输入和输出。 有关输入和输出的更多信息，请参阅“[{{ site.data.variables.product.prodname_actions }} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
+作业步骤共享运行器机器的相同环境，但在其各自的进程中运行。 要在作业的步骤之间传递数据，您可以使用输入和输出。 有关输入和输出的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的元数据语法](/articles/metadata-syntax-for-github-actions)”。
 
 ### 在工作流程中作业之间传递数据
 
@@ -125,17 +125,17 @@ jobs:
 
 ### 在工作流程运行之间共享数据
 
-一个工作流程结束后，您可以通过在 **Actions（操作）**选项卡中找到工作流程运行，下载 {{ site.data.variables.product.product_name }} 上已上传构件的压缩文件。 您还可以使用 {{ site.data.variables.product.prodname_dotcom }} REST API 来下载构件。 更多信息请参阅“[构件](/v3/actions/artifacts/)”。
+一个工作流程结束后，您可以通过在 **Actions（操作）**选项卡中找到工作流程运行，下载 {% data variables.product.product_name %} 上已上传构件的压缩文件。 您还可以使用 {% data variables.product.prodname_dotcom %} REST API 来下载构件。 更多信息请参阅“[构件](/v3/actions/artifacts/)”。
 
-如果需要从以前的工作流运行访问项目，可以使用 REST API {{ site.data.variables.product.product_name }} 检索工件。 有关详细信息，请参阅"获取[项](/rest/reference/actions#artifacts)。
+如果需要从以前的工作流运行访问项目，可以使用 REST API {% data variables.product.product_name %} 检索工件。 有关详细信息，请参阅"获取[项](/rest/reference/actions#artifacts)。
 
 ### 上传构建和测试构件
 
-您可以创建持续集成 (CI) 工作流程来构建和测试您的代码。 关于使用 {{ site.data.variables.product.prodname_actions }} 执行 CI 的更多信息，请参阅“[关于持续集成](/articles/about-continuous-integration)”。
+您可以创建持续集成 (CI) 工作流程来构建和测试您的代码。 关于使用 {% data variables.product.prodname_actions %} 执行 CI 的更多信息，请参阅“[关于持续集成](/articles/about-continuous-integration)”。
 
 构建和测试代码的输出通常会生成可用于调试测试失败的文件和可部署的生产代码。 您可以配置一个工作流程来构建和测试推送到仓库中的代码，并报告成功或失败状态。 您可以上传构建和测试输出，以用于部署、调试失败的测试或崩溃以及查看测试套件范围。
 
-您可以使用 `upload-artifact` 操作上传构件。 上传构件时，您可以指定单个文件或目录，或多个文件或目录。 您还可以排除某些文件或目录，以及使用通配符模式。 我们建议您为构件提供名称，但如果未提供名称，则会使用 `artifact` 作为默认名称。 有关语法的信息，请参阅 {% if currentVersion == "free-pro-team@latest" %}[操作/上传](https://github.com/actions/upload-artifact) 执行{% else %} `/上传项目` 操作 {{ site.data.variables.product.product_location }}{% endif %}。
+您可以使用 `upload-artifact` 操作上传构件。 上传构件时，您可以指定单个文件或目录，或多个文件或目录。 您还可以排除某些文件或目录，以及使用通配符模式。 我们建议您为构件提供名称，但如果未提供名称，则会使用 `artifact` 作为默认名称。 有关语法的信息，请参阅 {% if currentVersion == "free-pro-team@latest" %}[操作/上传](https://github.com/actions/upload-artifact) 执行{% else %} `/上传项目` 操作 {% data variables.product.product_location %}{% endif %}。
 
 #### 示例
 
@@ -225,7 +225,7 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 #### 工作流程运行完成后下载和删除构件
 
-构件在 90 天后自动过期，但您始终可以在构件于 {{ site.data.variables.product.product_name }} 上过期之前删除它们，回收已经使用的 {{ site.data.variables.product.prodname_actions }} 存储。
+构件在 90 天后自动过期，但您始终可以在构件于 {% data variables.product.product_name %} 上过期之前删除它们，回收已经使用的 {% data variables.product.prodname_actions %} 存储。
 
 {% warning %}
 
@@ -233,10 +233,10 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. 要下载构件，请使用 **Artifacts（构件）**下拉菜单，然后选择要下载的构件。 ![下载构件下拉菜单](/assets/images/help/repository/artifact-drop-down.png)
 1. 要删除构件，请使用 **Artifacts（构件）**下拉菜单，然后单击 {% octicon "trashcan" aria-label="The trashcan icon" %}。 ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact.png)
 
@@ -244,6 +244,6 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 ### 延伸阅读
 
-- "[管理 {{ site.data.variables.product.prodname_actions }} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[管理 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% endif %}

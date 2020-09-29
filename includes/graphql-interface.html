@@ -12,7 +12,7 @@
 
   <!-- Calculate and render "Implemented By" section -->
   <!-- TODO instead of calculating in layout, better to calculate in graphql-data? -->
-  <h4>{{ site.data.ui.products.graphql.reference.implemented_by }}</h4>
+  <h4>{% data ui.products.graphql.reference.implemented_by %}</h4>
   <ul>
   <!-- Loop over objects, then loop over object interfaces, and find a match -->
   {% for object in graphql.schemaForCurrentVersion.objects %}
@@ -25,7 +25,7 @@
   </ul>
 
   {% if item.fields %}
-  <h4>{{ site.data.ui.products.graphql.reference.fields }}</h4>
+  <h4>{% data ui.products.graphql.reference.fields %}</h4>
   {% assign fields = item.fields %}
   {% include graphql-fields %}
   {% endif %}

@@ -16,8 +16,8 @@ Nach 24 Stunden können die Benutzer die normale Aktivität in Deinem Repository
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Klicke in der Seitenleiste mit den Einstellungen Deines Repositorys auf **Interaction Limits** (Interaktionsbeschränkungen). ![Interaktionsbeschränkungen in den Repository-Einstellungen ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 4. Klicke unter „Temporary interaction limits" (Temporäre Interaktionsbeschränkungen) auf eine oder mehrere Optionen: ![Optionen für die temporäre Interaktionsbeschränkung](/assets/images/help/repository/temporary-interaction-limits-options.png)
     - **Limit to existing users** (Beschränkung für existierende Benutzer): Begrenzt die Aktivität für Benutzer, deren Konto erst seit weniger 24 Stunden besteht und die bisher keine Beiträge geleistet haben und keine Mitarbeiter sind.

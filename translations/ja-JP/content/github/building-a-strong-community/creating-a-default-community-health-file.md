@@ -13,7 +13,7 @@ versions:
 
 Organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} またはユーザアカウント{% endif %}が所有する `.github` というパブリックリポジトリのルートにデフォルトのコミュニティ健全性ファイルを追加できます。
 
-{{ site.data.variables.product.product_name }}は、次のいずれかの場所にそのタイプの独自のファイルがないアカウントのパブリックリポジトリについては、デフォルトファイルを使用および表示します。
+{% data variables.product.product_name %}は、次のいずれかの場所にそのタイプの独自のファイルがないアカウントのパブリックリポジトリについては、デフォルトファイルを使用および表示します。
 - リポジトリのルート
 - `.github` フォルダ
 - `docs` フォルダ
@@ -40,10 +40,10 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
 
 ### デフォルトのファイル用にリポジトリを作成
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. [**Owner**] ドロップダウンメニューを使用して、デフォルトファイルを作成する Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}またはユーザアカウント{% endif %}を選択します。 ![[Owner] ドロップダウンメニュー](/assets/images/help/repository/create-repository-owner.png)
 3. リポジトリの名前として **.github** と入力し、任意で説明を入力します。 ![リポジトリ作成フィールド](/assets/images/help/repository/default-file-repository-name.png)
 4. リポジトリをパブリックにします。 ![プライベートまたはパブリックのステータスを選択するラジオボタン](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. リポジトリの中に、サポートされているコミュニティ健全性ファイルの 1 つを作成します。 Issue テンプレート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}とその設定ファイル{% endif %}は、`.github/ISSUE_TEMPLATE` というフォルダ内になければなりません。 その他のサポートされているファイルは、リポジトリのルートにある必要があります。 詳細は「[新しいファイルを作成する](/articles/creating-new-files/)」を参照してください。

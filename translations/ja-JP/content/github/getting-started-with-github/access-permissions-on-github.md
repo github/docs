@@ -29,10 +29,10 @@ Organization のメンバーは、*owner (オーナー)*{% if currentVersion == 
 
 *Enterprise のオーナー*は、Enterprise アカウントに対して最大の力を持ち、Enterprise アカウントであらゆるアクションを取ることができます。 *支払いマネージャー*は、Enterprise アカウントの支払い設定を管理できます。 Enterprise アカウントが所有する Organization のメンバーと外部コラボレーターは、自動的に Enterprise アカウントのメンバーになりますが、Enterprise アカウントそのものやその設定にはアクセスできません。 詳細は「[Enterprise アカウントのロール](/articles/roles-for-an-enterprise-account)」を参照してください。
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### 参考リンク
 
-- 「[{{ site.data.variables.product.prodname_dotcom }}アカウントの種類](/articles/types-of-github-accounts)」
+- 「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」

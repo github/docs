@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-如果需要在仓库内分发大型文件，您可以在 {{site.data.variables.product.product_location }} 上创建发行版。 发行版允许您打包软件、发行说明和指向二进制文件的链接，以供其他人使用。 更多信息请参阅“[关于发行版](/github/administering-a-repository/about-releases)”。
+如果需要在仓库内分发大型文件，您可以在 {% data variables.product.product_location %} 上创建发行版。 发行版允许您打包软件、发行说明和指向二进制文件的链接，以供其他人使用。 更多信息请参阅“[关于发行版](/github/administering-a-repository/about-releases)”。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-我们不限制二进制发行版文件的总大小，也不限制用于传递它们的带宽。 但每个文件必须小于 {{ site.data.variables.large_files.max_lfs_size }}。
+我们不限制二进制发行版文件的总大小，也不限制用于传递它们的带宽。 但每个文件必须小于 {% data variables.large_files.max_lfs_size %}。
 
 {% endif %}
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}

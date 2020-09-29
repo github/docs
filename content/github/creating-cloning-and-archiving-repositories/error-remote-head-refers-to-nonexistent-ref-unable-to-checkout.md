@@ -1,6 +1,6 @@
 ---
 title: 'Error: Remote HEAD refers to nonexistent ref, unable to checkout'
-intro: 'This error occurs if the default branch of a repository has been deleted on {{ site.data.variables.product.product_location }}.'
+intro: 'This error occurs if the default branch of a repository has been deleted on {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
@@ -11,7 +11,7 @@ versions:
 Detecting this error is simple; Git will warn you when you try to clone the repository:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -22,7 +22,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-To fix the error, you'll need to be an administrator of the repository on {{ site.data.variables.product.product_location }}.
+To fix the error, you'll need to be an administrator of the repository on {% data variables.product.product_location %}.
 You'll want to [change the default branch](/articles/setting-the-default-branch) of the repository.
 
 After that, you can get a list of all the available branches from the command line:

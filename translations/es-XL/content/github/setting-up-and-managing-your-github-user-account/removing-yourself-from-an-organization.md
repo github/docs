@@ -13,7 +13,7 @@ versions:
 
 {% warning %}
 
-**Advertencia:** Si actualmente eres responsable de pagar {{ site.data.variables.product.product_name }} en tu organización, eliminarte de la organización **no** actualiza la información de facturación archivada de la organización. Si actualmente eres responsable de la facturación, **debes** hacer que otro propietario o gerente de facturación de la organización [actualice el método de pago de la organización](/articles/adding-or-editing-a-payment-method).
+**Advertencia:** Si actualmente eres responsable de pagar {% data variables.product.product_name %} en tu organización, eliminarte de la organización **no** actualiza la información de facturación archivada de la organización. Si actualmente eres responsable de la facturación, **debes** hacer que otro propietario o gerente de facturación de la organización [actualice el método de pago de la organización](/articles/adding-or-editing-a-payment-method).
 
 Para obtener más información, consulta "[Transferir la propiedad de la organización](/articles/transferring-organization-ownership)".
 
@@ -21,6 +21,6 @@ Para obtener más información, consulta "[Transferir la propiedad de la organiz
 
 {% endif %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 3. En "Organizations" (Organizaciones), busca la organización de la que quieres eliminarte, luego haz clic en **Leave** (Abandonar). ![Botón Leave organization (Abandonar organización) con roles exhibidos](/assets/images/help/organizations/context-leave-organization-with-roles-shown.png)

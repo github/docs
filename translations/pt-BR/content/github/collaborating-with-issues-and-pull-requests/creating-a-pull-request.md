@@ -12,9 +12,9 @@ Qualquer pessoa com permissões de leitura em um repositório pode criar uma pul
 
 É possível especificar em qual branch você deseja fazer merge de suas alterações quando cria sua pull request. As pull requests só podem ser abertas entre dois branches que são diferentes.
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### Alterar o intervalo de branches e o repositório de destino
 
@@ -42,18 +42,18 @@ Quando você muda qualquer uma das informações no intervalo de branches, as á
 
 {% tip %}
 
-**Dica**: Você também pode usar {{ site.data.variables.product.prodname_desktop }} para criar uma pull request. Para obter mais informações, consulte “[Criar um problema ou uma pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" na documentação do {{ site.data.variables.product.prodname_desktop }}.
+**Dica**: Você também pode usar {% data variables.product.prodname_desktop %} para criar uma pull request. Para obter mais informações, consulte “[Criar um problema ou uma pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" na documentação do {% data variables.product.prodname_desktop %}.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. No menu "Branch", escolha o branch que contém seus commits. ![Menu suspenso Branch](/assets/images/help/pull_requests/branch-dropdown.png)
-{{ site.data.reusables.repositories.new-pull-request }}
+{% data reusables.repositories.new-pull-request %}
 4. Use o menu suspenso do branch _base_ para selecionar o branch em que deseja fazer merge de suas alterações. Em seguida, use o menu suspenso do branch de _comparação_ para escolher o branch de tópico no qual você fez as alterações. ![Menus suspenso para escolher a base e comparar os branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
-{{ site.data.reusables.repositories.pr-title-description }}
-{{ site.data.reusables.repositories.create-pull-request }}
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 Depois que a pull request tiver sido revisada, ela poderá [sofrer merge no repositório](/articles/merging-a-pull-request).
 

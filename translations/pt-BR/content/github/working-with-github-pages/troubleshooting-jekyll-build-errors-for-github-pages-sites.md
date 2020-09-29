@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de erros de criação do Jekyll para sites do GitHub Pages
-intro: 'Você pode usar mensagens de erro de criação do Jekyll para solucionar problemas com seu site do {{ site.data.variables.product.prodname_pages }}.'
+intro: 'Você pode usar mensagens de erro de criação do Jekyll para solucionar problemas com seu site do {% data variables.product.prodname_pages %}.'
 redirect_from:
   - /articles/page-build-failed-missing-docs-folder/
   - /articles/page-build-failed-invalid-submodule/
@@ -24,7 +24,7 @@ redirect_from:
   - /articles/troubleshooting-github-pages-builds/
   - /articles/troubleshooting-jekyll-builds/
   - /articles/troubleshooting-jekyll-build-errors-for-github-pages-sites
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -32,17 +32,17 @@ versions:
 
 ### Solucionar problemas de erros de criação
 
-Se o Jekyll encontrar um erro ao criar seu site do {{ site.data.variables.product.prodname_pages }} localmente ou no {{ site.data.variables.product.product_name }}, você poderá usar mensagens de erro para solucionar problemas. Para obter mais informações sobre mensagens de erro e como visualizá-las, consulte "[Sobre erros de criação do Jekyll para sites do {{ site.data.variables.product.prodname_pages }}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
+Se o Jekyll encontrar um erro ao criar seu site do {% data variables.product.prodname_pages %} localmente ou no {% data variables.product.product_name %}, você poderá usar mensagens de erro para solucionar problemas. Para obter mais informações sobre mensagens de erro e como visualizá-las, consulte "[Sobre erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/about-jekyll-build-errors-for-github-pages-sites)".
 
 Se você recebeu uma mensagem de erro genérica, verifique os problemas comuns.
-- Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre o {{ site.data.variables.product.prodname_pages }} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% if currentVersion == "free-pro-team@latest" %}
+- Você está usando plugins incompatíveis. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".{% if currentVersion == "free-pro-team@latest" %}
 - Seu repositório excedeu os limites de tamanho. Para obter mais informações, consulte "[Qual é a minha quota de disco?](/articles/what-is-my-disk-quota)"{% endif %}
-- Você alterou a configuração `source` no arquivo *_config.yml*. {{ site.data.variables.product.prodname_pages }} substitui essa configuração durante o processo de criação.
+- Você alterou a configuração `source` no arquivo *_config.yml*. {% data variables.product.prodname_pages %} substitui essa configuração durante o processo de criação.
 - Um nome de arquivo na fonte de publicação contém dois pontos (`:`), o que não é permitido.
 
 Se você recebeu uma mensagem de erro específica, revise abaixo as informações de solução de problemas relativas à mensagem de erro.
 
-Depois que tiver corrigido os possíveis erros, faça push das alterações para a fonte de publicação do seu site para ativar outra criação no {{ site.data.variables.product.product_name }}.
+Depois que tiver corrigido os possíveis erros, faça push das alterações para a fonte de publicação do seu site para ativar outra criação no {% data variables.product.product_name %}.
 
 ### Erro no arquivo de configuração
 
@@ -50,9 +50,9 @@ Este erro significa que ocorreu falha na criação do seu site porque o arquivo 
 
 Para solucionar problemas, verifique se o arquivo *_config.yml* segue estas regras:
 
-{{ site.data.reusables.pages.yaml-rules }}
+{% data reusables.pages.yaml-rules %}
 
-{{ site.data.reusables.pages.yaml-linter }}
+{% data reusables.pages.yaml-linter %}
 
 ### Esta é uma data/hora inválida
 
@@ -64,13 +64,13 @@ Para solucionar problemas, pesquise o arquivo na mensagem de erro e os layouts d
 
 Este erro significa que o código faz referência a um arquivo que não existe no diretório *_includes*.
 
-{{ site.data.reusables.pages.search-for-includes }} Se algum dos arquivos a que você fez referência não estiver no diretório *_includes*, copie ou mova os arquivos para o diretório *_includes*.
+{% data reusables.pages.search-for-includes %} Se algum dos arquivos a que você fez referência não estiver no diretório *_includes*, copie ou mova os arquivos para o diretório *_includes*.
 
 ### O arquivo é um link simbólico
 
 Este erro significa que o código faz referência a um arquivo com link simbólico que não existe na fonte de publicação do seu site.
 
-{{ site.data.reusables.pages.search-for-includes }} Se algum dos arquivos a que você fez referência for com link simbólico, copie ou mova os arquivos para o diretório *_includes*.
+{% data reusables.pages.search-for-includes %} Se algum dos arquivos a que você fez referência for com link simbólico, copie ou mova os arquivos para o diretório *_includes*.
 
 ### Arquivo codificado por UTF-8 incorretamente
 
@@ -85,7 +85,7 @@ encoding: UTF-8
 
 Este erro significa que você especificou algum realçador de sintaxe diferente de [Rouge](https://github.com/jneen/rouge) ou [Pygments](http://pygments.org/) no arquivo de configuração.
 
-Para solucionar problemas, atualize o arquivo *_config.yml* para especificar [Rouge](https://github.com/jneen/rouge) ou [Pigmentos](http://pygments.org/). Para obter mais informações, consulte "[Sobre o {{ site.data.variables.product.product_name }} e o Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)".
+Para solucionar problemas, atualize o arquivo *_config.yml* para especificar [Rouge](https://github.com/jneen/rouge) ou [Pigmentos](http://pygments.org/). Para obter mais informações, consulte "[Sobre o {% data variables.product.product_name %} e o Jekyll](/articles/about-github-pages-and-jekyll#syntax-highlighting)".
 
 ### Data de postagem inválida
 
@@ -105,7 +105,7 @@ Para solucionar problemas, revise o número de linha incluído na mensagem de er
 
 Este erro significa que seu repositório inclui um submódulo que não foi inicializado corretamente.
 
-{{ site.data.reusables.pages.remove-submodule }}
+{% data reusables.pages.remove-submodule %}
 
 Caso queira utilizar o submódulo, lembre-se de usar `https://` quando fizer referência ao submódulo (a não `http://`) e de que o submódulo está em um repositório público.
 
@@ -115,9 +115,9 @@ Este erro significa que um ou mais arquivos na pasta *_data* contém YAML invál
 
 Para solucionar problemas, verifique se os arquivos YAML na pasta *_data* seguem estas regras:
 
-{{ site.data.reusables.pages.yaml-rules }}
+{% data reusables.pages.yaml-rules %}
 
-{{ site.data.reusables.pages.yaml-linter }}
+{% data reusables.pages.yaml-linter %}
 
 Para obter mais informações sobre arquivos de dados do Jekyll, consulte ""[Arquivos de dados](https://jekyllrb.com/docs/datafiles/)" na documentação do Jekyll.
 
@@ -125,7 +125,7 @@ Para obter mais informações sobre arquivos de dados do Jekyll, consulte ""[Arq
 
 Este erro significa que seu repositório contém erros de markdown.
 
-Para solucionar problemas, verifique se você está usando um processador markdown compatível. Para obter mais informações, consulte "[Definir um processador markdown para seu site do {{ site.data.variables.product.prodname_pages }} usando o Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)".
+Para solucionar problemas, verifique se você está usando um processador markdown compatível. Para obter mais informações, consulte "[Definir um processador markdown para seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/setting-a-markdown-processor-for-your-github-pages-site-using-jekyll)".
 
 Em seguida, verifique se o arquivo na mensagem de erro usa uma sintaxe markdown válida. Para obter mais informações, consulte "[Markdown: sintaxe](https://daringfireball.net/projects/markdown/syntax)" no Daring Fireball.
 
@@ -136,21 +136,21 @@ Este erro significa que você escolheu a pasta `docs` em um branch como a sua fo
 Para solucionar esse problema, se a pasta `documentação` foi movida acidentalmente, tente mover a pasta `docs` de volta para a raiz do repositório no branch que você escolheu para a sua fonte de publicação. Se a pasta `docs` tiver sido excluída acidentalmente, siga um destes procedimentos:
 - Use o Git para reverter ou desfazer a exclusão. Para obter mais informações, consulte "[git-revert](https://git-scm.com/docs/git-revert.html)" na documentação do Git.
 - Crie uma nova pasta de `documentação` na raiz do repositório no branch que você escolheu para a sua fonte de publicação e adicione os arquivos de origem do site à pasta. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files)".
-- Altere a fonte de publicação. Para obter mais informações, consulte "[Configurar uma fonte de publicação do {{ site.data.variables.product.prodname_pages }}](/articles/configuring-a-publishing-source-for-github-pages)".
+- Altere a fonte de publicação. Para obter mais informações, consulte "[Configurar uma fonte de publicação do {% data variables.product.prodname_pages %}](/articles/configuring-a-publishing-source-for-github-pages)".
 
 ### Submódulo ausente
 
 Este erro significa que seu repositório inclui um submódulo que não existe ou não foi inicializado corretamente.
 
-{{ site.data.reusables.pages.remove-submodule }}
+{% data reusables.pages.remove-submodule %}
 
 Se você quiser usar um submódulo, inicialize-o. Para obter mais informações, consulte "[Ferramentas Git - Submódulos](https://git-scm.com/book/en/v2/Git-Tools-Submodules)" no livro _Pro Git_.
 
 ### Permalinks relativos configurados
 
-Este erro significa que você tem permalinks relativos, que não são compatíveis com o {{ site.data.variables.product.prodname_pages }} no arquivo *_config.yml*.
+Este erro significa que você tem permalinks relativos, que não são compatíveis com o {% data variables.product.prodname_pages %} no arquivo *_config.yml*.
 
-Permalinks são URLs permanentes que fazem referência a uma determinada página no seu site. Os permalinks absolutos iniciam com a raiz do site, enquanto os permalinks relativos iniciam com a pasta que contém a página referenciada. O {{ site.data.variables.product.prodname_pages }} e o Jekyll não são mais compatíveis com permalinks relativos. Para obter mais informações sobre permalinks, consulte "[Permalinks](https://jekyllrb.com/docs/permalinks/)" na documentação do Jekyll.
+Permalinks são URLs permanentes que fazem referência a uma determinada página no seu site. Os permalinks absolutos iniciam com a raiz do site, enquanto os permalinks relativos iniciam com a pasta que contém a página referenciada. O {% data variables.product.prodname_pages %} e o Jekyll não são mais compatíveis com permalinks relativos. Para obter mais informações sobre permalinks, consulte "[Permalinks](https://jekyllrb.com/docs/permalinks/)" na documentação do Jekyll.
 
 Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_config.yml* e reformate os permalinks relativos no site com permalinks absolutos. Para obter mais informações, consulte "[Editar arquivos no repositório](/articles/editing-files-in-your-repository)".
 
@@ -158,7 +158,7 @@ Para solucionar problemas, remova a linha `relative_permalinks` do arquivo *_con
 
 Este erro significa que seu site inclui um link simbólico que não existe na fonte de publicação do site. Para obter mais informações sobre links simbólicos, consulte "[Link simbólico](https://en.wikipedia.org/wiki/Symbolic_link)" na Wikipédia.
 
-Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% if currentVersion == "free-pro-team@latest" %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Usar submódulos com o {{ site.data.variables.product.prodname_pages }}](/articles/using-submodules-with-github-pages)".{% endif %}
+Para solucionar problemas, determine se o arquivo na mensagem de erro é usado para criar o site. Se ele não for ou se você não quiser que o arquivo seja um link simbólico, exclua o arquivo. Se o arquivo de link simbólico for necessário para criar seu site, verifique se o arquivo ou o diretório a que ele faz referência está na fonte de publicação do site. Para incluir ativos externos, considere usar {% if currentVersion == "free-pro-team@latest" %}`submódulo do Git` ou {% endif %}um gerenciador de pacotes terceirizado como o [Bower](https://bower.io/).{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Usar submódulos com o {% data variables.product.prodname_pages %}](/articles/using-submodules-with-github-pages)".{% endif %}
 
 ### Erro de sintaxe no loop 'for'
 
@@ -184,4 +184,4 @@ Este erro significa que o código contém uma tag do Liquid não reconhecida.
 
 Para solucionar problemas, verifique se todas as tags do Liquid no arquivo da mensagem de erro correspondem a variáveis padrão do Jekyll e se não há erros de digitação nos nomes das tags. Para obter uma lista de variáveis padrão, consulte "[Variáveis](https://jekyllrb.com/docs/variables/)" na documentação do Jekyll.
 
-Plugins incompatíveis são uma fonte comum de tags não reconhecidas. Se você usar um plugin incompatível ao gerar seu site localmente e fazer push dos arquivos estáticos para o {{ site.data.variables.product.product_name }}, verifique se o plugin não está inserindo tags que não estão nas variáveis padrão do Jekyll. Para obter uma lista de plugins compatíveis, consulte "[Sobre o {{ site.data.variables.product.prodname_pages }} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".
+Plugins incompatíveis são uma fonte comum de tags não reconhecidas. Se você usar um plugin incompatível ao gerar seu site localmente e fazer push dos arquivos estáticos para o {% data variables.product.product_name %}, verifique se o plugin não está inserindo tags que não estão nas variáveis padrão do Jekyll. Para obter uma lista de plugins compatíveis, consulte "[Sobre o {% data variables.product.prodname_pages %} e o Jekyll](/articles/about-github-pages-and-jekyll#plugins)".

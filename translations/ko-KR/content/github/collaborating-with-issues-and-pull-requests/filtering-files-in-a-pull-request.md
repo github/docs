@@ -17,9 +17,9 @@ You can filter files in a pull request by file extension type, such as  `.html` 
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the list of pull requests, click the pull request you'd like to filter.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Use the File filter drop-down menu, and select, unselect, or click the desired filters. ![File filter option above pull request diff](/assets/images/help/pull_requests/file-filter-option.png)
 5. Optionally, to clear the filter selection, under the **Files changed** tab, click **Clear**. ![Clear file filter selection](/assets/images/help/pull_requests/clear-file-filter.png)
 

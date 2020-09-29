@@ -1,6 +1,6 @@
 ---
 title: Audit log を検索する
-intro: 'サイト管理者は、{{ site.data.variables.product.product_location_enterprise }} で[監査されたアクション](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)の広範なリストを検索することができます。'
+intro: 'サイト管理者は、{% data variables.product.product_location_enterprise %} で[監査されたアクション](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)の広範なリストを検索することができます。'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -37,8 +37,8 @@ AND/ORの論理演算子で区切られた値のペア:1つ以上のキーを使
 
 ### Audit log を検索する
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. 検索クエリを入力します。![検索クエリ](/assets/images/enterprise/site-admin-settings/search-query.png)

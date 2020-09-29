@@ -1,6 +1,6 @@
 ---
 title: Setting up your development environment to create a GitHub App
-intro: 'Learn the foundations for extending and building new {{ site.data.variables.product.prodname_github_apps }}.'
+intro: 'Learn the foundations for extending and building new {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
 versions:
@@ -28,7 +28,7 @@ Here are the steps you'll take to configure the template GitHub App:
 1. [Start the server](#step-6-start-the-server)
 1. [Install the app on your account](#step-7-install-the-app-on-your-account)
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 ### 必要な環境
 
@@ -382,7 +382,7 @@ If you're wondering where the Terminal output above is coming from, it's written
 
 ### トラブルシューティング
 
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data variables.product.prodname_support_forum_with_url %}.
 
 * **Q:** When I try to install the Smee command-line client, I get the following error:
 

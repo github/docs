@@ -20,31 +20,31 @@ Organization またはユーザアカウント用にデフォルトの行動規�
 
 ### テンプレートを使用して行動規範を追加する
 
-プロジェクトに素早く行動規範を追加できるよう、{{ site.data.variables.product.product_name }}では一般的な行動規範のテンプレートが用意されています。
+プロジェクトに素早く行動規範を追加できるよう、{% data variables.product.product_name %}では一般的な行動規範のテンプレートが用意されています。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名のフィールドに *CODE_OF_CONDUCT.md* と入力します。
 4. [**Choose a code of conduct template**] をクリックします。 ![行動規範テンプレートを選択するボタン](/assets/images/help/repository/code-of-conduct-tool.png)
 5. ページの左側でプレビューしたい行動規範を選択し、プロジェクトに追加してください。 ![行動規範テンプレートの選択](/assets/images/help/repository/code-of-conduct-tool-picker.png)
 6. ページの右側でフィールドに記入し、適切な情報と共に選択した行動規範を作成してください。
 7. [**Review and submit**] をクリックします。 ![行動規範のレビューとプロジェクトへのサブミット](/assets/images/help/repository/code-of-conduct-tool-review.png)
 8. テキスト領域内にある行動規範の内容をレビューしてください。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### 行動規範を手動で追加する
 
 提供されているテンプレートで必要な行動規範が利用できない場合は、行動規範を手動で追加できます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドに、ファイルの名前と拡張子を入力します。 ![新しい行動規範ファイル名](/assets/images/help/repository/new-code-of-conduct-file-name.png)
     - 行動規範をリポジトリのルートディレクトリに表示するには、ファイル名フィールドに *CODE_OF_CONDUCT* と入力します。
     - 行動規範をリポジトリの `docs` ディレクトリに表示するには、*docs/CODE_OF_CONDUCT* と入力します。
     - 行動規範をリポジトリの `.github` ディレクトリに表示するには、 *.github/CODE_OF_CONDUCT* と入力します。
 4. 新しいファイルに、カスタムの行動規範を追加します。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

@@ -29,8 +29,8 @@ versions:
 
 ### 添加 *CONTRIBUTING* 文件
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 决定是在仓库的根目录 `docs` 还是 `.github` 目录中存储您的参与指南。 然后，在文件名字段中，输入文件的名称和扩展名。 参与指南文件名不区分大小写，并且具有 *.md* 或 *.txt* 等扩展名。 ![新文件名](/assets/images/help/repository/new-file-name.png)
     - 要使您的参与指南在仓库的根目录中显示，请输入 *CONTRIBUTING*。
     - 要使您的参与指南在仓库的 `docs` 目录中显示，请输入 *docs/* 以创建新目录，然后再输入 *CONTRIBUTING*。
@@ -38,9 +38,9 @@ versions:
     - 创建良好议题或拉取请求的步骤。
     - 指向外部文档、邮件列表或行为准则的链接。
     - 社区和行为预期。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### 参与指南示例
 
@@ -52,5 +52,5 @@ versions:
 
 ### 延伸阅读
 - 开源指南的“[启动开源项目](https://opensource.guide/starting-a-project/)”部分{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - "[添加许可到仓库](/articles/adding-a-license-to-a-repository)"

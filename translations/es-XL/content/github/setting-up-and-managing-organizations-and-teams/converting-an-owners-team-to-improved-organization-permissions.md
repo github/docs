@@ -23,10 +23,10 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. En el campo de nombre del equipo, escoge un nuevo nombre para el equipo Propietarios. Por ejemplo:
     - Si muy pocos miembros de tu organización fuesen miembros del equipo Propietarios, puedes designarlo como equipo "Central".
     - Si todos los miembros de tu organización fuesen miembros del equipo Propietarios de manera que puedan [@mencionar equipos](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), puedes designar al equipo como "Empleados". ![El campo de nombre del equipo, con el equipo Propietarios con el nuevo nombre Central](/assets/images/help/teams/owners-team-new-name.png)
@@ -41,8 +41,8 @@ Tienes algunas opciones para convertir tu equipo de Propietarios heredado:
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. En la parte inferior de la página, revisa la advertencia y haz clic en **Delete the Owners team** (Eliminar el equipo de Propietarios). ![Enlace para eliminar el equipo de Propietarios](/assets/images/help/teams/owners-team-delete.png)

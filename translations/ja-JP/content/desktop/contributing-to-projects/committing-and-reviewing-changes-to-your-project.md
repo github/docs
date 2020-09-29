@@ -1,6 +1,6 @@
 ---
 title: プロジェクトへの変更のコミットやレビュー
-intro: '{{ site.data.variables.product.prodname_desktop }}では、ファイルを編集すると、全ての変更が追跡されます。 有意義なコミットを作成するために、変更のまとめ方を決めることができます。'
+intro: '{% data variables.product.prodname_desktop %}では、ファイルを編集すると、全ての変更が追跡されます。 有意義なコミットを作成するために、変更のまとめ方を決めることができます。'
 versions:
   free-pro-team: '*'
 ---
@@ -18,19 +18,19 @@ versions:
 ### 1. ブランチの選択と変更の実行
 
 1. [新規ブランチを作成する](/desktop/guides/contributing-to-projects/managing-branches)か、ツールバーにある{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch**をクリックし、既存ブランチをリストから選択します。 ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down.png)
-{{ site.data.reusables.desktop.make-changes }}
+{% data reusables.desktop.make-changes %}
 
 ### 2. コミットに含める変更の選択方法
 
-テキストエディタでファイルに変更を加えて保存していくと、変更は、{{ site.data.variables.product.prodname_desktop }}にも反映されます。
+テキストエディタでファイルに変更を加えて保存していくと、変更は、{% data variables.product.prodname_desktop %}にも反映されます。
 
 * 赤い{% octicon "diff-removed" aria-label="The diff removed icon color-red" %}アイコンは、削除されたファイルを表します。
 * 黄色の{% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}アイコンは変更されたファイルを表します。
 * 緑の{% octicon "diff-added" aria-label="The diff added icon color-green" %}アイコンは、追加されたファイルを表します。
 * stash した変更にアクセスするには、[**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
-* {{ site.data.reusables.desktop.commit-all-desc }}
+* {% data reusables.desktop.commit-all-desc %}
 ![チェックボックスを選択して、変更されたすべてのファイルをコミットします](/assets/images/help/desktop/commit-all.png)
-* {{ site.data.reusables.desktop.commit-some-desc }}
+* {% data reusables.desktop.commit-some-desc %}
 ![コミットするファイルの横のチェックボックスを選択します](/assets/images/help/desktop/commit-some.png)
 
 #### 部分的なコミットの作成方法
@@ -47,10 +47,10 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-discard-files }}
-{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}
+{% data reusables.desktop.click-discard-files %}
   ![コンテキストメニュー内の [Discard Changes] オプション](/assets/images/help/desktop/discard-changes-mac.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 {% tip %}
@@ -63,9 +63,9 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-discard-files }}{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
   ![コンテキストメニュー内の [Discard Changes] オプション](/assets/images/help/desktop/discard-changes-win.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![確定ダイアログ内の [Discard Changes] ボタン](/assets/images/help/desktop/discard-changes-confirm-win.png)
 
 {% tip %}
@@ -82,18 +82,18 @@ versions:
 
 {% note %}
 
-**Note**: {{ site.data.reusables.desktop.tags-push-with-commits }} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
 
 {% endnote %}
 
-{{ site.data.reusables.desktop.commit-message }}
+{% data reusables.desktop.commit-message %}
   ![Commit messageフィールド](/assets/images/help/desktop/commit-message.png)
 2. オプションとして、コミットに別の作者を追加するには、共作者を追加するアイコンをクリックし、追加するユーザ名を入力します。 ![コミットメッセージに共作者を追加](/assets/images/help/desktop/add-co-author-commit.png)
-{{ site.data.reusables.desktop.commit-button }}
+{% data reusables.desktop.commit-button %}
   ![[Commit] ボタン](/assets/images/help/desktop/commit-button.png)
 4. コミットしようとしているブランチが保護されている場合、Desktopは警告します。
     - 変更を移動するには、**switch branches（ブランチを切り替え）**をクリックしてください。
     - 保護されたブランチに変更をコミットするには、**Commit to _BRANCH_（ブランチにコミット）**をクリックしてください。
 
   保護されたブランチに関する詳しい情報については「[保護されたブランチについて](/github/administering-a-repository/about-protected-branches)」を参照してください。 ![保護されたブランチの警告](/assets/images/help/desktop/protected-branch-warning.png)
-{{ site.data.reusables.desktop.push-origin }}
+{% data reusables.desktop.push-origin %}

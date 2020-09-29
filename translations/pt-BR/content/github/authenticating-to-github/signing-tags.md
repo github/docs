@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. Para assinar uma tag, adicione `-s` ao comando `git tag`.
   ```shell

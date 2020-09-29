@@ -1,7 +1,7 @@
 ---
 title: Habilitar y probar el inicio de sesión único SAML para tu organización
 intro: Los administradores y los propietarios de la organización pueden habilitar el inicio de sesión único SAML para agregar una capa más de seguridad a su organización.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enabling-and-testing-saml-single-sign-on-for-your-organization
 versions:
@@ -12,14 +12,14 @@ Puedes habilitar SAML SSO (inicio de sesión único) en tu organización sin req
 
 Si habilitas pero no exiges SAML SSO, los miembros de la organización que elijan no usar SAML SSO pueden seguir siendo miembros de esta. Para obtener más información acerca de la exigencia de SAML SSO, consulta "[Exigir inicio de sesión único SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)".
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado tu proveedor de identidad (IP). Para obtener más información, consulta "[Preparación para exigir inicio de sesión único SAML en tu organización](/articles/preparing-to-enforce-saml-single-sign-on-in-your-organization)".
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
 5. En "inicio de sesión único SAML", selecciona **Habilitar autenticación SAML**. ![Casilla de verificación para habilitar SAML SSO](/assets/images/help/saml/saml_enable.png)
 
   {% note %}
@@ -36,7 +36,7 @@ Antes de exigir SAML SSO en tu organización, verifica que ya tengas configurado
 
   {% tip %}
 
-  **Sugerencia:**{{ site.data.reusables.saml.testing-saml-sso }}
+  **Sugerencia:**{% data reusables.saml.testing-saml-sso %}
 
   {% endtip %}
 11. Para implementar SAML SSO y eliminar a todos los miembros de la organización que no se hayan autenticado mediante tu IdP, selecciona **Require SAML SSO authentication for all members of the _organization name_ organization**.** (Requerir autenticación SAML SSO a todos los miembros de la organización [nombre de la organización]). Para obtener más información acerca de la exigencia de SAML SSO, consulta "[Exigir inicio de sesión único SAML para tu organización](/articles/enforcing-saml-single-sign-on-for-your-organization)". ![Casilla de verificación para requerir SAML SSO para tu organización ](/assets/images/help/saml/saml_require_saml_sso.png)</p></li>

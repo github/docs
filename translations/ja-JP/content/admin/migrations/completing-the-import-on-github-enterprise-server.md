@@ -10,14 +10,14 @@ versions:
 
 ### ターゲットインスタンス上でのリポジトリのアンロック
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### ソース上でのリポジトリのアンロック
 
-#### {{ site.data.variables.product.prodname_dotcom_the_website }} Organization からリポジトリをアンロックする
+#### {% data variables.product.prodname_dotcom_the_website %} Organization からリポジトリをアンロックする
 
-{{ site.data.variables.product.prodname_dotcom_the_website }} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
+{% data variables.product.prodname_dotcom_the_website %} Organization のリポジトリをアンロックするには、`DELETE` リクエストを<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">移行アンロックエンドポイント</a>に送信します。 以下が必要です:
   * 認証のためのアクセストークン
   * 移行のユニーク`id`
   * アンロックするリポジトリの名前
@@ -27,15 +27,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### {{ site.data.variables.product.prodname_dotcom_the_website }} Organization からリポジトリを削除する
+#### {% data variables.product.prodname_dotcom_the_website %} Organization からリポジトリを削除する
 
-After unlocking the {{ site.data.variables.product.prodname_dotcom_the_website }} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 認証のためのアクセストークンが必要になります。
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### {{ site.data.variables.product.prodname_ghe_server }} インスタンスからリポジトリをアンロックする
+#### {% data variables.product.prodname_ghe_server %} インスタンスからリポジトリをアンロックする
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

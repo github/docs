@@ -1,6 +1,6 @@
 ---
 title: Administrar repositorios remotos
-intro: 'Aprende a trabajar con tus repositorios locales en tu computadora y repositorios remotos alojados en {{ site.data.variables.product.product_name }}.'
+intro: 'Aprende a trabajar con tus repositorios locales en tu computadora y repositorios remotos alojados en {% data variables.product.product_name %}.'
 mapTopic: true
 redirect_from:
   - /categories/18/articles/

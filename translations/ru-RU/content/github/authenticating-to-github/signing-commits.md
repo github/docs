@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +34,13 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
   # Creates a signed commit
   ```
 2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
-3. When you've finished creating commits locally, push them to your remote repository on {{ site.data.variables.product.product_name }}:
+3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. On {{ site.data.variables.product.product_name }}, navigate to your pull request.
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. On {% data variables.product.product_name %}, navigate to your pull request.
+{% data reusables.repositories.review-pr-commits %}
 5. To view more detailed information about the verified signature, click Verified. ![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### Дополнительная литература

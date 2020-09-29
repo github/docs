@@ -1,7 +1,7 @@
 ---
 title: Setting up and managing your enterprise account
 shortTitle: Your enterprise account
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /categories/setting-up-and-managing-your-enterprise-account
 versions:

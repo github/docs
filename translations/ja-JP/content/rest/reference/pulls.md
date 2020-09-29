@@ -26,7 +26,7 @@ Pull Request API を使用すると、プルリクエストを一覧表示、編
 
 <a id="diff-error">
 
-diff が破損している場合は、{{ site.data.variables.contact.contact_support }} にお問い合わせください。 メッセージにはリポジトリ名とプルリクエスト ID を記載してください。
+diff が破損している場合は、{% data variables.contact.contact_support %} にお問い合わせください。 メッセージにはリポジトリ名とプルリクエスト ID を記載してください。
 
 ### リンク関係
 

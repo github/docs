@@ -1,6 +1,6 @@
 ---
 title: 検索構文を理解する
-intro: '{{ site.data.variables.product.product_name }} の検索では、特定の数字や単語にマッチするクエリを作成できます。'
+intro: '{% data variables.product.product_name %} の検索では、特定の数字や単語にマッチするクエリを作成できます。'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax
@@ -37,7 +37,7 @@ versions:
 
 ### 日付のクエリ
 
-`>` 、`>=` 、`<` 、`<=` や [range queries](#query-for-values-between-a-range) を使って、他の日より前または後の日付や、一定の範囲内の日付を検索できます。 {{ site.data.reusables.time_date.date_format }}
+`>` 、`>=` 、`<` 、`<=` や [range queries](#query-for-values-between-a-range) を使って、他の日より前または後の日付や、一定の範囲内の日付を検索できます。 {% data reusables.time_date.date_format %}
 
 | クエリ                        | サンプル                                                                                                                                                                                                             |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ versions:
 | <code><em>YYYY</em>-<em>MM</em>-<em>DD</em>..*</code> | **[cats created:2012-04-30..*](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A2012-04-30..*&type=Issues)** は、「cats」という単語を含む、2012 年 4 月 30 日より後に作成された Issue にマッチします。                                   |
 | <code>*..<em>YYYY</em>-<em>MM</em>-<em>DD</em></code> | **[cats created:*..2012-04-30](https://github.com/search?utf8=%E2%9C%93&q=cats+created%3A*..2012-07-04&type=Issues)** は、「cats」という単語のある、2012 年 7 月 4 日より前に作成された Issue にマッチします。                                    |
 
-{{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.time_format %}
 
 | クエリ                        | サンプル                                                                                                                                                                                                                                                                                                                                                                                                    |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -83,7 +83,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### ユーザ名によるクエリ
 
-検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {{ site.data.variables.product.product_name }} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。
+検索クエリに、`user`、`actor`、`assignee`などユーザ名を必要とする修飾子が含まれる場合は、任意の {% data variables.product.product_name %} ユーザ名を使用して特定の個人を指定するか、`@me`を使用して現在のユーザを指定することができます。
 
 | クエリ                  | サンプル                                                                                                                               |
 | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |

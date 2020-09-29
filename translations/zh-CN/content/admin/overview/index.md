@@ -1,13 +1,13 @@
 ---
 title: 概览
-intro: 'With {{ site.data.variables.product.prodname_enterprise }} you can manage accounts and access, licenses, and billing.'
+intro: 'With {% data variables.product.prodname_enterprise %} you can manage accounts and access, licenses, and billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
   enterprise-server: '*'
 ---
 
-如需了解更多信息或购买 {{ site.data.variables.product.prodname_enterprise }}，请参阅 [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise)。
+如需了解更多信息或购买 {% data variables.product.prodname_enterprise %}，请参阅 [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise)。
 
 ### 目录
 

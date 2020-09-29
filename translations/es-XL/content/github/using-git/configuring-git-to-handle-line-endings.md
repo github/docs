@@ -13,7 +13,7 @@ versions:
 
 Cada vez que presionas <kbd>Enter</kbd> en tu teclado, insertas un caracter invisible denominado fin de línea. Esto se maneja de forma diferente en los diferentes sistemas operativos.
 
-Cuando colaboras en proyectos con Git y {{ site.data.variables.product.product_name }}, Git puede producir resultados inesperados si, por ejemplo, trabajas en una máquina Windows y tu colaborador hizo un cambio desde OS X.
+Cuando colaboras en proyectos con Git y {% data variables.product.product_name %}, Git puede producir resultados inesperados si, por ejemplo, trabajas en una máquina Windows y tu colaborador hizo un cambio desde OS X.
 
 Puedes configurar Git para que maneje los fines de línea automáticamente y así puedas colaborar eficazmente con las personas que utilizan otros sistemas operativos.
 

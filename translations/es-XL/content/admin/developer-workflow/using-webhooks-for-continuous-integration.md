@@ -1,6 +1,6 @@
 ---
 title: Usar webhooks para la integración continua
-intro: 'Si ya tienes un ecosistema de desarrollo e implementación en curso, puedes integrarlo con el {{ site.data.variables.product.prodname_ghe_server }} mediante webhooks.'
+intro: 'Si ya tienes un ecosistema de desarrollo e implementación en curso, puedes integrarlo con el {% data variables.product.prodname_ghe_server %} mediante webhooks.'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/continuous-integration-using-travis-ci

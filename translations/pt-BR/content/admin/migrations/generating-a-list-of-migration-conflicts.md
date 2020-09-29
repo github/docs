@@ -11,7 +11,7 @@ versions:
     ```shell
     $ ghe-migrator conflicts -g <em>MIGRATION_GUID</em> > conflicts.csv
     ```
-    - Se nenhum conflito for relatado, você poderá importar os dados com segurança conforme as etapas descritas em "[Aplicar os dados importados no {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
+    - Se nenhum conflito for relatado, você poderá importar os dados com segurança conforme as etapas descritas em "[Aplicar os dados importados no {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server/)".
 2. Se houver conflitos, usando o comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copie *conflicts.csv* para o seu computador local:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:conflicts.csv ~/Desktop

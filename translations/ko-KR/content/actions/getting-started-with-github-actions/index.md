@@ -1,7 +1,7 @@
 ---
 title: Getting started with GitHub Actions
 shortTitle: 시작하기
-intro: '{{ site.data.variables.product.prodname_actions }} feature a powerful execution environment integrated into every step of your workflow. You can discover, create, and share {{ site.data.variables.product.prodname_actions }} to perform any job you''d like.'
+intro: '{% data variables.product.prodname_actions %} feature a powerful execution environment integrated into every step of your workflow. You can discover, create, and share {% data variables.product.prodname_actions %} to perform any job you''d like.'
 redirect_from:
   - /articles/getting-started-with-github-actions
   - /github/automating-your-workflow-with-github-actions/getting-started-with-github-actions
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% topic_link_in_list /overview %}
   {% link_in_list /about-github-actions %}

@@ -1,6 +1,6 @@
 ---
 title: スキーマプレビュー
-intro: '{{ site.data.variables.product.prodname_dotcom }}のGraphQLスキーマの今後の機能や変更を、{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIに追加される前にプレビューできます。'
+intro: '{% data variables.product.prodname_dotcom %}のGraphQLスキーマの今後の機能や変更を、{% data variables.product.prodname_dotcom %}のGraphQL APIに追加される前にプレビューできます。'
 redirect_from:
   - /v4/previews
 versions:

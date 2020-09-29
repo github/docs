@@ -1,6 +1,6 @@
 ---
 title: Enterprise を設定する
-intro: '{{ site.data.variables.product.prodname_ghe_server }} が起動して作動し始めたら、Organization のニーズに合わせてアプライアンスを設定できます。'
+intro: '{% data variables.product.prodname_ghe_server %} が起動して作動し始めたら、Organization のニーズに合わせてアプライアンスを設定できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/

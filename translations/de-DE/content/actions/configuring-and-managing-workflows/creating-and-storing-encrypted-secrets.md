@@ -1,7 +1,7 @@
 ---
 title: Verschlüsselte Geheimnisse erstellen und speichern
 intro: 'Verschlüsselte Geheimnisse ermöglichen es Ihnen, vertrauliche Informationen in Ihrem Repository oder Ihrer Organisation zu speichern.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -10,14 +10,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu verschlüsselten Geheimnissen
 
-Geheimnisse sind verschlüsselte Umgebungsvariablen, die Sie in einem Repository oder einer Organisation erstellen. Die von Ihnen erstellten Geheimnisse können in {{ site.data.variables.product.prodname_actions }} Workflows verwendet werden. {{ site.data.variables.product.prodname_dotcom }} verwendet eine [versiegelte Libsodium-Box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) um sicherzustellen, dass Geheimnisse verschlüsselt werden, bevor sie {{ site.data.variables.product.prodname_dotcom }} erreichen, und verschlüsselt bleiben, bis Du sie in einem Workflow verwendest.
+Geheimnisse sind verschlüsselte Umgebungsvariablen, die Sie in einem Repository oder einer Organisation erstellen. Die von Ihnen erstellten Geheimnisse können in {% data variables.product.prodname_actions %} Workflows verwendet werden. {% data variables.product.prodname_dotcom %} verwendet eine [versiegelte Libsodium-Box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) um sicherzustellen, dass Geheimnisse verschlüsselt werden, bevor sie {% data variables.product.prodname_dotcom %} erreichen, und verschlüsselt bleiben, bis Du sie in einem Workflow verwendest.
 
-{{ site.data.reusables.github-actions.secrets-org-level-overview }}
+{% data reusables.github-actions.secrets-org-level-overview %}
 
 #### Benennen Ihrer Geheimnisse
 
@@ -28,17 +28,17 @@ Die folgenden Regeln gelten für geheime Namen:
 * Geheime Namen dürfen nicht mit einer Zahl beginnen.
 * Geheime Namen müssen auf der Ebene eindeutig sein, auf der sie erstellt werden. Beispielsweise muss ein geheimer Schlüssel, der auf Organisationsebene erstellt wird, einen eindeutigen Namen auf dieser Ebene haben, und ein geheimer Schlüssel, der auf Repository-Ebene erstellt wird, muss einen eindeutigen Namen in diesem Repository haben. Wenn ein Geheimschlüssel auf Organisationsebene denselben Namen wie ein Geheimschlüssel auf Repository-Ebene hat, hat der geheime Schlüssel auf Repository-Ebene Vorrang.
 
-Um sicherzustellen, dass {{ site.data.variables.product.prodname_dotcom }} Ihr Geheimnis in Protokollen redisiert, vermeiden Sie die Verwendung strukturierter Daten als Werte von Geheimnissen. Vermeide beispielsweise Geheimnisse zu erstellen, die JSON oder codierte Git-Blobs enthalten.
+Um sicherzustellen, dass {% data variables.product.prodname_dotcom %} Ihr Geheimnis in Protokollen redisiert, vermeiden Sie die Verwendung strukturierter Daten als Werte von Geheimnissen. Vermeide beispielsweise Geheimnisse zu erstellen, die JSON oder codierte Git-Blobs enthalten.
 
 #### Zugriff auf Ihre Geheimnisse
 
-Um ein Geheimnis für eine Aktion verfügbar zu machen, legen Sie das Geheimnis als Eingabe oder Umgebungsvariable in der Workflow-Datei fest. In der README-Datei der Aktion erfahren Sie, welche Eingaben und Umgebungsvariablen die Aktion erwartet. Weitere Informationen finden Sie unter „[Workflow-Syntax für {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)“.
+Um ein Geheimnis für eine Aktion verfügbar zu machen, legen Sie das Geheimnis als Eingabe oder Umgebungsvariable in der Workflow-Datei fest. In der README-Datei der Aktion erfahren Sie, welche Eingaben und Umgebungsvariablen die Aktion erwartet. Weitere Informationen finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)“.
 
-Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lesen, wenn Du auf die Datei Bearbeitungs-Zugriff hast. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/access-permissions-on-github)“.
+Du kannst verschlüsselte Geheimnisse in einer Workflow-Datei verwenden und lesen, wenn Du auf die Datei Bearbeitungs-Zugriff hast. Weitere Informationen findest Du unter „[Zugriffsberechtigungen auf {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)“.
 
 {% warning %}
 
-**Warnung:** {{ site.data.variables.product.prodname_dotcom }} redigiert Geheimnisse zwar automatisch bei Ausgabe ins Log, aber Du solltest nicht vorsätzlich Geheimnisse ins Log schreiben.
+**Warnung:** {% data variables.product.prodname_dotcom %} redigiert Geheimnisse zwar automatisch bei Ausgabe ins Log, aber Du solltest nicht vorsätzlich Geheimnisse ins Log schreiben.
 
 {% endwarning %}
 
@@ -50,11 +50,11 @@ Beim Generieren von Anmeldeinformationen wird empfohlen, möglichst geringe Bere
 
 ### Erstellen verschlüsselter Geheimnisse für ein Repository
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-repository }}
+{% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Klicken Sie auf **Add a new secret** (Neues Geheimnis hinzufügen).
 1. Geben Sie einen Namen für Ihr Geheimnis in das Eingabefeld **Name** ein.
 1. Geben Sie den Wert für Ihr Geheimnis ein.
@@ -66,11 +66,11 @@ Wenn Ihr Repository auf Geheimnisse der übergeordneten Organisation zugreifen k
 
 Beim Erstellen eines geheimen Schlüssels in einer Organisation können Sie eine Richtlinie verwenden, um einzuschränken, welche Repositorys auf diesen geheimen Schlüssel zugreifen können. Sie können z. B. Zugriff auf alle Repositorys gewähren oder den Zugriff auf nur private Repositorys oder eine angegebene Liste von Repositorys beschränken.
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-organization }}
+{% data reusables.github-actions.permissions-statement-secrets-organization %}
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Klicken Sie auf **Neue geheime**.
 1. Geben Sie einen Namen für Ihr Geheimnis in das Eingabefeld **Name** ein.
 1. Geben Sie den **Value** für Ihr Geheimnis ein.
@@ -81,9 +81,9 @@ Beim Erstellen eines geheimen Schlüssels in einer Organisation können Sie eine
 
 Sie können überprüfen, welche Zugriffsrichtlinien auf einen geheimen Schlüssel in Ihrer Organisation angewendet werden.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Die Liste der Geheimnisse enthält alle konfigurierten Berechtigungen und Richtlinien. Ein Beispiel: ![Geheimliste](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Weitere Informationen zu den konfigurierten Berechtigungen für jeden geheimen Schlüssel finden Sie unter **Aktualisieren**.
 
@@ -91,7 +91,7 @@ Sie können überprüfen, welche Zugriffsrichtlinien auf einen geheimen Schlüss
 
 Mit Ausnahme von `GITHUB_TOKEN` werden Geheimnisse nicht an den Runner übergeben, wenn ein Workflow von einem geforkten Repository aus ausgelöst wird.
 
-Um eine Aktion mit einem Geheimnis als Eingabe- oder Umgebungsvariable zu versehen, kannst Du den `secrets` Kontext verwenden, um auf Geheimnisse zuzugreifen, die Du in Deinem Repository erstellt hast. Weitere Informationen findest Du unter "[Kontext und Ausdrucks-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)" und "[Workflow-Syntax für {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Um eine Aktion mit einem Geheimnis als Eingabe- oder Umgebungsvariable zu versehen, kannst Du den `secrets` Kontext verwenden, um auf Geheimnisse zuzugreifen, die Du in Deinem Repository erstellt hast. Weitere Informationen findest Du unter "[Kontext und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" und "[Workflow-Syntax für {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 {% raw %}
 ```yaml
@@ -151,11 +151,11 @@ steps:
 
 Dein Workflow kann bis zu 100 Geheimnisse haben. Die Namen von Geheimnis-Umgebungsvariablen müssen Repository-weit eindeutig sein.
 
-Geheimnisse sind auf 64 KB beschränkt. Um Geheimnisse zu verwenden, die größer als 64 KB sind, können Sie verschlüsselte Geheimnisse in Ihrem Repository speichern und die Passphrase zur Entschlüsselung als Geheimnis auf {{ site.data.variables.product.prodname_dotcom }} speichern. Sie können beispielsweise `gpg` verwenden, um Ihre Anmeldeinformationen lokal zu verschlüsseln, bevor Sie die Datei in Ihrem Repository auf {{ site.data.variables.product.prodname_dotcom }} einchecken. Weitere Informationen finden Sie auf der „[gpg-Manpage](https://www.gnupg.org/gph/de/manual/r1023.html)“.
+Geheimnisse sind auf 64 KB beschränkt. Um Geheimnisse zu verwenden, die größer als 64 KB sind, können Sie verschlüsselte Geheimnisse in Ihrem Repository speichern und die Passphrase zur Entschlüsselung als Geheimnis auf {% data variables.product.prodname_dotcom %} speichern. Sie können beispielsweise `gpg` verwenden, um Ihre Anmeldeinformationen lokal zu verschlüsseln, bevor Sie die Datei in Ihrem Repository auf {% data variables.product.prodname_dotcom %} einchecken. Weitere Informationen finden Sie auf der „[gpg-Manpage](https://www.gnupg.org/gph/de/manual/r1023.html)“.
 
 {% warning %}
 
-**Warnung**: Achte darauf, dass Deine Geheimnisse nicht gedruckt werden, wenn Deine Aktion ausgeführt wird. Wenn Sie diesen Workaround verwenden, redigiert {{ site.data.variables.product.prodname_dotcom }} keine Geheimnisse, die in Protokollen gedruckt werden.
+**Warnung**: Achte darauf, dass Deine Geheimnisse nicht gedruckt werden, wenn Deine Aktion ausgeführt wird. Wenn Sie diesen Workaround verwenden, redigiert {% data variables.product.prodname_dotcom %} keine Geheimnisse, die in Protokollen gedruckt werden.
 
 {% endwarning %}
 
@@ -165,7 +165,7 @@ Geheimnisse sind auf 64 KB beschränkt. Um Geheimnisse zu verwenden, die größ
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. Du wirst aufgefordert, eine Passphrase einzugeben. Merke Dir die Passphrase, denn Du musst ein neues Geheimnis auf {{ site.data.variables.product.prodname_dotcom }} mit der Passphrase als Wert erstellen.
+1. Du wirst aufgefordert, eine Passphrase einzugeben. Merke Dir die Passphrase, denn Du musst ein neues Geheimnis auf {% data variables.product.prodname_dotcom %} mit der Passphrase als Wert erstellen.
 
 1. Erstellen Sie einen neuen Geheimschlüssel, der die Passphrase enthält. Erstelle beispielsweise ein neues Geheimnis mit dem Namen `LARGE_SECRET_PASSPHRASE` und setze den Wert des Geheimnisses auf die Passphrase, die Du im obigen Schritt ausgewählt hast.
 

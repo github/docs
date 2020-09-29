@@ -1,7 +1,7 @@
 ---
 title: Organization で SAML シングルサインオンを施行する
 intro: Organization のオーナーと管理者は、SAML SSO を施行して Organization のすべてのメンバーがアイデンティティプロバイダを介して認証する必要があるようにできます。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
 versions:
@@ -14,7 +14,7 @@ Organization が、Enterprise アカウントによって所有されている�
 
 {% tip %}
 
-**ヒント:** {{ site.data.reusables.saml.testing-saml-sso }}
+**ヒント:** {% data reusables.saml.testing-saml-sso %}
 
 {% endtip %}
 

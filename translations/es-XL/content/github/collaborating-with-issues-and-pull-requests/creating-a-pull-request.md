@@ -13,9 +13,9 @@ Todo usuario que tenga permisos de lectura para un repositorio puede crear una s
 
 Puedes especificar en qué rama deseas fusionar tus cambios cuando creas tu solicitud de extracción. Las solicitudes de extracción solo se pueden abrir entre dos ramas que sean diferentes.
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 
 
@@ -48,25 +48,25 @@ Cuando cambies alguna información en el rango de la rama, las áreas de vista p
 
 {% tip %}
 
-**Tip**: También puedes utilizar {{ site.data.variables.product.prodname_desktop }} para crear una solicitud de extracción. Para obtener más información, consulta la sección “[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" en la documentación de {{ site.data.variables.product.prodname_desktop }}.
+**Tip**: También puedes utilizar {% data variables.product.prodname_desktop %} para crear una solicitud de extracción. Para obtener más información, consulta la sección “[Crear un informe de problemas o solicitud de extracción](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" en la documentación de {% data variables.product.prodname_desktop %}.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 2. En el menú "Branch" (Rama), elige la rama que contiene tus confirmaciones. ![Menú desplegable de ramas](/assets/images/help/pull_requests/branch-dropdown.png) 
    
-   {{ site.data.reusables.repositories.new-pull-request }}
+   {% data reusables.repositories.new-pull-request %}
 
 4. Usa el menú desplegable de la rama _base_ para seleccionar la rama en la que deseas fusionar tus cambios y luego usa el menú desplegable de la rama de _comparación_ para elegir la rama de tema en la que hiciste los cambios. ![Menús desplegables para elegir la base y comparar ramas](/assets/images/help/pull_requests/choose-base-and-compare-branches.png) 
    
-   {{ site.data.reusables.repositories.pr-title-description }}
+   {% data reusables.repositories.pr-title-description %}
    
    
    
-   {{ site.data.reusables.repositories.create-pull-request }}
+   {% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 Una vez que tu solicitud de extracción ha sido revisada, esta se puede [fusionar en un repositorio](/articles/merging-a-pull-request).
 

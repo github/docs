@@ -1,6 +1,6 @@
 ---
 title: Países em que a autenticação SMS é aceita
-intro: 'Devido às taxas bem-sucedidas de entrega, o {{ site.data.variables.product.product_name }} aceita apenas a autenticação de dois fatores por SMS em determinados países.'
+intro: 'Devido às taxas bem-sucedidas de entrega, o {% data variables.product.product_name %} aceita apenas a autenticação de dois fatores por SMS em determinados países.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
 versions:

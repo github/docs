@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.warning-on-upgrading-physical-resources }}
+{% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-A medida que se suman usuarios {{ site.data.variables.product.product_location_enterprise }}, es posible que necesites ajustar el tamaño de tu volumen de almacenamiento. Consulta la documentación de tu plataforma de virtualización para obtener más información sobre ajuste de tamaño de almacenamiento.
+A medida que se suman usuarios {% data variables.product.product_location_enterprise %}, es posible que necesites ajustar el tamaño de tu volumen de almacenamiento. Consulta la documentación de tu plataforma de virtualización para obtener más información sobre ajuste de tamaño de almacenamiento.
 
 ### Requisitos y recomendaciones
 
@@ -19,12 +19,12 @@ A medida que se suman usuarios {{ site.data.variables.product.product_location_e
 
 {% endnote %}
 
-{{ site.data.reusables.enterprise_installation.hardware-rec-table }}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### Aumentar el tamaño de partición de datos
 
 1. Ajusta el disco de volumen existente del usuario utilizando las herramientas de tu plataforma de virtualización.
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 3. Pon el aparato en modo mantenimiento. Para obtener más información, consulta "[Habilitar y programar el modo mantenimiento](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
 4. Reinicia el aparato para detectar la nueva asignación de almacenamiento.
 5. Ejecuta el comando `ghe-storage-extend` para expandir el sistema de archivos `/data`:
@@ -34,14 +34,14 @@ A medida que se suman usuarios {{ site.data.variables.product.product_location_e
 
 ### Aumentar el tamaño de partición raíz utilizando un nuevo aparato
 
-1. Configura una nueva instancia {{ site.data.variables.product.prodname_ghe_server }} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia {{ site.data.variables.product.prodname_ghe_server }} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Configura una nueva instancia {% data variables.product.prodname_ghe_server %} con un disco raíz más grande utilizando la misma versión que tu aparato actual. Para obtener más información, consulta "[Configurar una instancia {% data variables.product.prodname_ghe_server %} ](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
 2. Cierra el aparato actual.
 3. Desconecta el disco de datos de tu aparato actual utilizando las herramientas de tu plataforma de virtualización.
 4. Conecta el disco de datos al nuevo aparato con un disco raíz más grande.
 
 ### Aumentar el tamaño de partición raíz utilizando un aparato existente
 
-1. Conecta un nuevo disco a tu aparato {{ site.data.variables.product.prodname_ghe_server }}.
+1. Conecta un nuevo disco a tu aparato {% data variables.product.prodname_ghe_server %}.
 2. Ejecuta el comando `parted` para formatear el disco:
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos

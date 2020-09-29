@@ -74,7 +74,7 @@ El periodo de elección comienza después de que GitHub acepta una Cuenta de Des
 
 * Si GitHub descubre cualquier violación potencial, antes de que se otorgue el pago de cualquier fondo compensatorio durante el periodo de elección, GitHub podrá inhabilitar los pagos hasta que se haya completado una investigación, y los fondos compensatorios que se hayan otorgado al desarrollador patrocinado podrán revocarse si se encuentra que éstos constituyen una violación de la presente política.
 
-* {{ site.data.reusables.sponsors.github-contact-applicants }}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ### 3. Obligaciones del programador patrocinado.
 

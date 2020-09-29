@@ -1,6 +1,6 @@
 ---
 title: Criar um selo personalizado para seu aplicativo OAuth
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_oauth_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
 versions:
@@ -27,16 +27,16 @@ Você pode alterar um selo personalizado para um aplicativo GitHub que já possu
 
 Para criar um selo personalizado:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
-{{ site.data.reusables.user-settings.modify_oauth_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+{% data reusables.user-settings.modify_oauth_app %}
 5. Em "Logotipo do aplicativo", arraste e solte uma imagem de uma pasta local ou clique em **Fazer upload de um logotipo** para selecionar uma imagem do seu computador. ![Faça o upload de um logotipo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. Recorte sua imagem. Ao terminar, clique **Definir o novo logotipo do aplicativo**. ![Corte e defina o logotipo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
 7. Em "Cor de fundo do selo", digite o [código de cor hexadecimal](http://www.color-hex.com/) da cor de fundo para o seu selo.
 {% if currentVersion == "free-pro-team@latest" %}**Observação:** O campo de entrada da "Cor de fundo do selo" ficará visível após o upload do logotipo do aplicativo.{% endif %}
 ![Cor de fundo do selo](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
-{{ site.data.reusables.user-settings.update_oauth_app }}
+{% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

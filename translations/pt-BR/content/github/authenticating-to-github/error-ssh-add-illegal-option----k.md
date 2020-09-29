@@ -21,7 +21,7 @@ Para adicionar sua chave SSH privada ao ssh-agent, especifique o caminho para a 
 
 {% note %}
 
-**Observação:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**Observação:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

@@ -10,10 +10,10 @@ versions:
 
 Al eliminar una etiqueta, esta se quitará de todas las propuestas o solicitudes de extracción en las que se la ha aplicado.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
-{{ site.data.reusables.project-management.delete-label }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
+{% data reusables.project-management.delete-label %}
 
 ### Leer más
 

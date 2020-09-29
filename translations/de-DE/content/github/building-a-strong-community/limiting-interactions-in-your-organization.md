@@ -16,9 +16,9 @@ Nach 24 Stunden können die Benutzer die normale Aktivität in den öffentlichen
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. Klicke in der Seitenleiste mit den Einstellungen Deiner Organisation auf **Interaction Limits** (Interaktionsbeschränkungen). ![Interaktionsbeschränkungen in den Organisationseinstellungen ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 5. Klicke unter "Temporary interaction limits" (Temporäre Interaktionsbeschränkungen) auf eine oder mehrere Optionen. ![Optionen für die temporäre Interaktionsbeschränkung](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
    - **Limit to existing users** (Beschränkung für vorhandene Benutzer): Begrenzt die Aktivität für Benutzer der Organisation, deren Konto erst seit weniger als 24 Stunden besteht und die bisher keine Beiträge geleistet haben und keine Mitarbeiter sind.

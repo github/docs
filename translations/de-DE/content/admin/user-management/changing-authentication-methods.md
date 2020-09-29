@@ -1,13 +1,13 @@
 ---
 title: Authentifizierungsmethoden ändern
-intro: 'Sie können jederzeit ändern, wie sich {{ site.data.variables.product.prodname_ghe_server }} mit Ihren vorhandenen Konten authentifiziert.'
+intro: 'Sie können jederzeit ändern, wie sich {% data variables.product.prodname_ghe_server %} mit Ihren vorhandenen Konten authentifiziert.'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
 versions:
   enterprise-server: '*'
 ---
 
-Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {{ site.data.variables.product.product_location_enterprise }} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
+Wenn Sie die Authentifizierungsmethode ändern, werden die Benutzerkonten auf {% data variables.product.product_location_enterprise %} beibehalten, und Benutzer melden sich weiterhin beim selben Konto an, sofern ihr Benutzername nicht geändert wird.
 
 Wenn bei der neuen Authentifizierungsmethode Benutzernamen geändert werden, werden neue Konten erstellt. As an administrator, you can rename users through the site admin settings or by using [the User Administration API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user).
 
@@ -19,7 +19,7 @@ Zudem sollten Sie die folgenden Issues in Betracht ziehen:
 
 * **Teammitgliedschaft:** Nur mit LDAP können Sie über Ihren Verzeichnisserver die [Teammitgliedschaft steuern](/enterprise/admin/guides/user-management/using-ldap/#configuring-ldap-with-your-github-enterprise-server-instance).
 
-* **Benutzersperre:** Wenn Sie LDAP zur Authentifizierung verwenden, kann der Zugriff auf {{ site.data.variables.product.prodname_ghe_server }} über _eingeschränkte Gruppen_ gesteuert werden. Nach dem Umstieg auf LDAP werden nach der Konfiguration von eingeschränkten Gruppen vorhandene Benutzer gesperrt, die sich in keiner dieser Gruppen befinden. Die Sperre erfolgt, wenn sie sich anmelden, oder während der nächsten LDAP-Synchronisierung.
+* **Benutzersperre:** Wenn Sie LDAP zur Authentifizierung verwenden, kann der Zugriff auf {% data variables.product.prodname_ghe_server %} über _eingeschränkte Gruppen_ gesteuert werden. Nach dem Umstieg auf LDAP werden nach der Konfiguration von eingeschränkten Gruppen vorhandene Benutzer gesperrt, die sich in keiner dieser Gruppen befinden. Die Sperre erfolgt, wenn sie sich anmelden, oder während der nächsten LDAP-Synchronisierung.
 
 * **Gruppenmitgliedschaft:** Wenn Sie LDAP zur Authentifizierung verwenden, werden Benutzer auf Basis der eingeschränkten Gruppenmitgliedschaft und des Kontostatus mit Active Directory automatisch [gesperrt und entsperrt](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users).
 
@@ -27,6 +27,6 @@ Zudem sollten Sie die folgenden Issues in Betracht ziehen:
 
 * **API-Authentifizierung:** SAML und CAS unterstützen die API-Authentifizierung nur mit einem [persönlichen Zugriffstoken](/articles/creating-an-access-token-for-command-line-use). Die einfache Authentifizierung wird nicht unterstützt.
 
-* **Zwei-Faktor-Authentifizierung:** {{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+* **Zwei-Faktor-Authentifizierung:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers:** Sie können Benutzer einladen, sich bei {{ site.data.variables.product.product_location_enterprise }} zu authentifizieren, ohne sie zu Ihrem Identity Provider hinzuzufügen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers zulassen](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)“.
+* **Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers:** Sie können Benutzer einladen, sich bei {% data variables.product.product_location_enterprise %} zu authentifizieren, ohne sie zu Ihrem Identity Provider hinzuzufügen. Weitere Informationen finden Sie unter „[Integrierte Authentifizierung für Benutzer außerhalb Ihres Identity Providers zulassen](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)“.

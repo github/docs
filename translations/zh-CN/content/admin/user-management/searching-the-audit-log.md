@@ -1,6 +1,6 @@
 ---
 title: 搜索审核日志
-intro: '站点管理员可以在 {{ site.data.variables.product.product_location_enterprise }} 上搜索[审核的操作](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) 的完整列表。'
+intro: '站点管理员可以在 {% data variables.product.product_location_enterprise %} 上搜索[审核的操作](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) 的完整列表。'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -38,8 +38,8 @@ versions:
 
 ### 搜索审核日志
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. 输入搜索查询。 ![搜索查询](/assets/images/enterprise/site-admin-settings/search-query.png)

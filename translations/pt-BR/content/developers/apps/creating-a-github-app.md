@@ -1,6 +1,6 @@
 ---
 title: Criar um aplicativo GitHub
-intro: '{{ site.data.reusables.shortdesc.creating_github_apps }}'
+intro: '{% data reusables.shortdesc.creating_github_apps %}'
 redirect_from:
   - /early-access/integrations/creating-an-integration/
   - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps/
@@ -15,14 +15,14 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-  **Observação:** {{ site.data.reusables.apps.maximum-github-apps-allowed }}
+  **Observação:** {% data reusables.apps.maximum-github-apps-allowed %}
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
 4. Clique em **Novo aplicativo GitHub**. ![Botão para criar um novo aplicativo GitHub](/assets/images/github-apps/github_apps_new.png)
 5. Em "Nome do aplicativo GitHub App", digite o nome do seu aplicativo. ![Campo para o nome do seu aplicativo GitHub](/assets/images/github-apps/github_apps_app_name.png)
 

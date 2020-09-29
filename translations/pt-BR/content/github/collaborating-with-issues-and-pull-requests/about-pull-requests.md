@@ -1,6 +1,6 @@
 ---
 title: Sobre pull requests
-intro: 'As pull requests permitem que você informe outras pessoas sobre as alterações das quais você fez push para um branch em um repositório no {{ site.data.variables.product.product_name }}. Depois que uma pull request é aberta, você pode discutir e revisar as possíveis alterações com colaboradores e adicionar commits de acompanhamento antes que as alterações sofram merge no branch base.'
+intro: 'As pull requests permitem que você informe outras pessoas sobre as alterações das quais você fez push para um branch em um repositório no {% data variables.product.product_name %}. Depois que uma pull request é aberta, você pode discutir e revisar as possíveis alterações com colaboradores e adicionar commits de acompanhamento antes que as alterações sofram merge no branch base.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ Você pode ver as informações sobre o status da implantação atual do branch 
 
 Quando estiver satisfeito com as alterações propostas, você poderá fazer merge da pull request. Se você está trabalhando em um modelo de repositório compartilhado, você cria uma pull request e, você ou outra pessoa, fará a mesclagem de suas alterações do seu branch de recurso no branch base que você especificar na sua pull request. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ Quando estiver satisfeito com as alterações propostas, você poderá fazer mer
 
 ### Pull requests de rascunho
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 Ao criar uma pull request, você pode optar por criar uma que já está pronta para revisão ou uma pull request de rascunho. Não é possível fazer merge das pull requests, e os proprietários do código não são solicitados automaticamente a revisar pull requests de rascunho. Para obter mais informações sobre como criar uma pull request de rascunho, consulte "[Criar uma pull request](/articles/creating-a-pull-request)" e "[Criar uma pull request de uma bifurcação](/articles/creating-a-pull-request-from-a-fork)".
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} Você pode converter uma pull request em rascunho a qualquer momento. Para obter mais informações, consulte "[Alterar o stage de uma pull request](/articles/changing-the-stage-of-a-pull-request)".
+{% data reusables.pull_requests.mark-ready-review %} Você pode converter uma pull request em rascunho a qualquer momento. Para obter mais informações, consulte "[Alterar o stage de uma pull request](/articles/changing-the-stage-of-a-pull-request)".
 
 ### Leia mais
 
-- "[pull request](/articles/github-glossary/#pull-request)" no glossário do {{ site.data.variables.product.prodname_dotcom }}
+- "[pull request](/articles/github-glossary/#pull-request)" no glossário do {% data variables.product.prodname_dotcom %}
 - "[Sobre branches](/articles/about-branches)"
 - "[Comentar em uma pull request](/articles/commenting-on-a-pull-request)"
 - "[Fazer merge de uma pull request](/articles/merging-a-pull-request)"

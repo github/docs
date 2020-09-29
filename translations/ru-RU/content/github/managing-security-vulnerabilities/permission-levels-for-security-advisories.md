@@ -10,7 +10,7 @@ versions:
 
 ### Permissions overview
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }} For more information about adding a collaborator to a security advisory, see "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
+{% data reusables.repositories.security-advisory-admin-permissions %} For more information about adding a collaborator to a security advisory, see "[Adding a collaborator to a security advisory](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
 
 | Действие                                                                                                                                                                                                                                                          | Write permissions | Admin permissions |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------- |

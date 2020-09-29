@@ -16,28 +16,28 @@ Segue aqui um exemplo de erro HTTPS que você pode receber:
 
 ```shell
 > erro: A URL solicitada retornou o erro: 401 ao acessar
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: solicitação HTTP rejeitada
 ```
 
 ```shell
 > Erro: A URL solicitada retornou o erro: 403 ao acessar
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: solicitação HTTP rejeitada
 ```
 
 ```shell
-> Erro: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: você executou o git
+> Erro: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: você executou o git
 > update-server-info no servidor?
 ```
 
 ### Verifique sua versão do Git
 
-Não há uma versão mínima necessária do Git para interagir com {{ site.data.variables.product.product_name }}, mas achamos que a versão 1.7.10 é uma versão estável e confortável, e que está disponível em muitas plataformas. Sempre é possível [baixar a última versão no site do Git](https://git-scm.com/downloads).
+Não há uma versão mínima necessária do Git para interagir com {% data variables.product.product_name %}, mas achamos que a versão 1.7.10 é uma versão estável e confortável, e que está disponível em muitas plataformas. Sempre é possível [baixar a última versão no site do Git](https://git-scm.com/downloads).
 
 ### Confirme que o remote está correto
 
-O repositório que você está tentando fazer fetch deve existir em {{ site.data.variables.product.product_location }} e a URL diferencia maiúsculas de minúsculas.
+O repositório que você está tentando fazer fetch deve existir em {% data variables.product.product_location %} e a URL diferencia maiúsculas de minúsculas.
 
 Você pode localizar a URL do repositório local abrindo a linha de comando e digitando `git remote -v`:
 
@@ -56,13 +56,13 @@ $ git remote -v
 > origin  https://github.com/github/ReactiveCocoa.git (push)
 ```
 
-Aternativamente, você pode alterar a URL por meio de nosso aplicativo [{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/).
+Aternativamente, você pode alterar a URL por meio de nosso aplicativo [{% data variables.product.prodname_desktop %}](https://desktop.github.com/).
 
 ### Forneça um token de acesso
 
-Para acessar {{ site.data.variables.product.prodname_dotcom }}, você deve efetuar a autenticação com um token de acesso pessoal em vez de sua senha. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
+Para acessar {% data variables.product.prodname_dotcom %}, você deve efetuar a autenticação com um token de acesso pessoal em vez de sua senha. Para mais informação, consulte "[Criando um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### Verifique suas permissões
 

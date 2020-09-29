@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-查询参数是 URL 中可以定制的部分，用于在 {{ site.data.variables.product.prodname_dotcom }} 上共享特定的网页视图，如搜索过滤结果或议题模板。 要创建自己的查询参数，必须将键与值进行配对。
+查询参数是 URL 中可以定制的部分，用于在 {% data variables.product.prodname_dotcom %} 上共享特定的网页视图，如搜索过滤结果或议题模板。 要创建自己的查询参数，必须将键与值进行配对。
 
 {% tip %}
 
@@ -34,7 +34,7 @@ versions:
 
 ### 使用自定义模板填写议题和拉取请求
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 您可以使用 `template` 查询参数指定模板自动填充议题或拉取请求正文。 `template` 查询参数支持仓库根目录 `docs/` 或 `.github/` 的 `ISSUE_TEMPLATE` 或 `PULL_REQUEST_TEMPLATE` 子目录中的模板。
 

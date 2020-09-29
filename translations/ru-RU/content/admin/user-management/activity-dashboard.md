@@ -1,6 +1,6 @@
 ---
 title: Activity dashboard
-intro: 'The Activity dashboard gives you an overview of all the activity on {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'The Activity dashboard gives you an overview of all the activity on {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -23,7 +23,7 @@ The Activity dashboard provides weekly, monthly, and yearly graphs of the number
 
 ![Activity dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-For more analytics based on data from {{ site.data.variables.product.prodname_enterprise }}, you can purchase {{ site.data.variables.product.prodname_insights }}. For more information, see "[About {{ site.data.variables.product.prodname_insights }}](/insights/installing-and-configuring-github-insights/about-github-insights)."
+For more analytics based on data from {% data variables.product.prodname_enterprise %}, you can purchase {% data variables.product.prodname_insights %}. For more information, see "[About {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)."
 
 ### Accessing the Activity dashboard
 

@@ -12,17 +12,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.explore.your_stars_page }} の Star 付きリポジトリとトピックを検索、ソート、フィルタできます。
+{% data variables.explore.your_stars_page %} の Star 付きリポジトリとトピックを検索、ソート、フィルタできます。
 
 ### Star について
 
-Star を付けることで、リポジトリやトピックが後で見つけやすくなります。 {{ site.data.variables.explore.your_stars_page }} にアクセスすると、Star 付きのリポジトリとトピックを確認することができます。
+Star を付けることで、リポジトリやトピックが後で見つけやすくなります。 {% data variables.explore.your_stars_page %} にアクセスすると、Star 付きのリポジトリとトピックを確認することができます。
 
 {% if currentVersion == "free-pro-team@latest" %}
-リポジトリとトピックに Star を付けることで、{{ site.data.variables.product.product_name }} 上で類似のプロジェクトを見つけることができます。 リポジトリあるいはトピックに Star を付けると、{{ site.data.variables.product.product_name }} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+リポジトリとトピックに Star を付けることで、{% data variables.product.product_name %} 上で類似のプロジェクトを見つけることができます。 リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 {% endif %}
 
-リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。 {{ site.data.variables.product.prodname_dotcom }} のリポジトリランキングの多くは、リポジトリに付けられた Star の数を考慮しています。 また、[Explore](https://github.com/explore) は、リポジトリに付けられた Star の数に基づいて、人気のあるリポジトリを表示しています。
+リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。 {% data variables.product.prodname_dotcom %} のリポジトリランキングの多くは、リポジトリに付けられた Star の数を考慮しています。 また、[Explore](https://github.com/explore) は、リポジトリに付けられた Star の数に基づいて、人気のあるリポジトリを表示しています。
 
 ### Star の検索
 

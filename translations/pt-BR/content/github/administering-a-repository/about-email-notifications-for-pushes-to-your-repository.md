@@ -12,13 +12,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{{ site.data.reusables.notifications.outbound_email_tip }}{% endif %}
+{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. Na notificação de e-mail, você verá:
 
 - O nome do repositório onde o commit foi feito
 - O branch em que um commit foi feito
-- O SHA1 do commit, incluindo um link para o diff no {{ site.data.variables.product.product_name }}
+- O SHA1 do commit, incluindo um link para o diff no {% data variables.product.product_name %}
 - O autor do commit
 - A data em que o commit foi feito
 - Os arquivos que foram alterados como parte do commit
@@ -31,21 +31,21 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 
 ### Habilitando notificações de e-mail para pushes no seu repositório
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 
 
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.sidebar-settings %}
 
 
 
-{{ site.data.reusables.repositories.sidebar-notifications }}
+{% data reusables.repositories.sidebar-notifications %}
 
 5. Digite até dois endereços de e-mail, separados por um espaço, para os quais deseja enviar as notificações. Se desejar enviar e-mails a mais de duas contas, defina um dos endereços para um endereço de e-mail de grupo. ![Caixa de texto de endereço de e-mail](/assets/images/help/settings/email_services_addresses.png)
 
-6. Se você é quem opera o seu próprio servidor, será possível verificar a integridade dos e-mails por meio do token **Secret**. Esse token é enviado com o e-mail como o header `Approved`. Se o header `Approved` corresponder ao token enviado, você poderá confiar que esse e-mail é do {{ site.data.variables.product.product_name }}. ![Caixa de texto do segredo do e-mail](/assets/images/help/settings/email_services_token.png)
+6. Se você é quem opera o seu próprio servidor, será possível verificar a integridade dos e-mails por meio do token **Secret**. Esse token é enviado com o e-mail como o header `Approved`. Se o header `Approved` corresponder ao token enviado, você poderá confiar que esse e-mail é do {% data variables.product.product_name %}. ![Caixa de texto do segredo do e-mail](/assets/images/help/settings/email_services_token.png)
 
-7. Como opção, selecione **Send from author** (Enviar do autor) para que os e-mails sejam entregues usando o endereço de e-mail do committer. Caso contrário, os e-mails serão enviados de {{ site.data.variables.notifications.no_reply_address }}. ![Caixa de seleção do autor do email](/assets/images/help/settings/email_services_author.png)
+7. Como opção, selecione **Send from author** (Enviar do autor) para que os e-mails sejam entregues usando o endereço de e-mail do committer. Caso contrário, os e-mails serão enviados de {% data variables.notifications.no_reply_address %}. ![Caixa de seleção do autor do email](/assets/images/help/settings/email_services_author.png)
 
 8. Clique em **Save settings** (Salvar configurações). ![Botão Save settings (Salvar configurações)](/assets/images/help/settings/save_notification_settings.png)
 

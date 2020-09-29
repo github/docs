@@ -10,7 +10,7 @@ versions:
 
 上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/articles/configuring-a-remote-for-a-fork)をする必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
 3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `master` へのコミットは、ローカルブランチ `upstream/master` に保管されます。
   ```shell
@@ -19,7 +19,7 @@ versions:
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. フォークのローカル `master` ブランチをチェックアウトします。
@@ -48,6 +48,6 @@ versions:
 
 {% tip %}
 
-**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {{ site.data.variables.product.product_location }} 上のフォークをアップデートするには、[変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)必要があります。
+**参考**: フォークの同期は、リポジトリのローカルコピーだけをアップデートします。 {% data variables.product.product_location %} 上のフォークをアップデートするには、[変更をプッシュする](/articles/pushing-commits-to-a-remote-repository/)必要があります。
 
 {% endtip %}

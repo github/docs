@@ -18,8 +18,8 @@ The first thing you'll want to do is a Subversion checkout.  Since Git clones ke
 
 Subversion checkouts are different: they mix the repository data in the working directories, so there is a working directory for each branch and tag you've checked out.  For repositories with many branches and tags, checking out everything can be a bandwidth burden, so you should start with a partial checkout.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Make an empty checkout of the repository:
   ```shell

@@ -1,4 +1,4 @@
-This table gives examples of how usernames are normalized in {{ site.data.variables.product.prodname_ghe_server }}:
+This table gives examples of how usernames are normalized in {% data variables.product.prodname_ghe_server %}:
 
 | Username | Normalized username | Result
 |----------|---------------------|-------

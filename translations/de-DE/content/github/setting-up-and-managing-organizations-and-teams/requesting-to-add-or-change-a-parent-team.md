@@ -12,16 +12,16 @@ Wenn Du das Hinzufügen oder die Änderung Deines übergeordneten Teams anforder
 
 Wenn Du Organisationsinhaber bist oder über Team-Betreuer-Berechtigungen sowohl im untergeordneten als auch im übergeordneten Team verfügst, kannst Du das übergeordnete Team auch ohne Anforderung einer Genehmigung hinzufügen oder Dein übergeordnetes Team direkt auf der Einstellungsseite Deines Teams ändern. Weitere Informationen findest Du unter „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy).“
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Klicke in der Teamliste auf den Namen des Teams, dem Du Dein Team unterordnen möchtest. ![Liste der Teams der Organisation](/assets/images/help/teams/click-team-name.png)
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.organizations.team_settings %}
 6. Klicke unter „Parent team“ (Übergeordnetes Team) im Dropdownmenü „Select parent team“ (Übergeordnetes Team auswählen) auf den Namen des neuen übergeordneten Teams. ![Dropdownmenü mit einer Liste der Organisationsteams](/assets/images/help/teams/choose-parent-team.png)
 7. Klicke auf **Save changes** (Änderungen speichern).
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. Klicke auf **Confirm changes** (Änderungen bestätigen), um eine Anfrage zum Hinzufügen oder Ändern Deines übergeordneten Teams zu senden. ![Modales Feld mit Informationen zu den Änderungen an den Berechtigungen für den Repositoryzugriff](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### Weiterführende Informationen

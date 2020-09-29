@@ -3,7 +3,7 @@ Una vez que tengas un token, puedes ingresarlo en lugar de tu contraseña cuando
 Por ejemplo, en la línea de comando ingresarás lo siguiente:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repo</em>.git
 Username: <code>your_username</code>
 Password: <em>your_token</em>
 ```

@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの種類
-intro: 'ユーザアカウントは {{ site.data.variables.product.product_location }} 上での身分証明となります。 ユーザアカウントはいくつでも Organization のメンバーになれます。{% if currentVersion == "free-pro-team@latest" %} Organization は Enterprise アカウントに所属できます。{% endif %}'
+intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 ユーザアカウントはいくつでも Organization のメンバーになれます。{% if currentVersion == "free-pro-team@latest" %} Organization は Enterprise アカウントに所属できます。{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,18 +13,18 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-各 {{ site.data.variables.product.product_name }} 製品の機能の完全なリストについては、「[{{ site.data.variables.product.prodname_dotcom }} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
+各 {% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
 {% endif %}
 
 ### 個人ユーザアカウント
 
-{{ site.data.variables.product.product_location }} を使用するすべての人は、次のような独自のユーザーアカウントを持っています。
+{% data variables.product.product_location %} を使用するすべての人は、次のような独自のユーザーアカウントを持っています。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-- {{ site.data.variables.product.prodname_free_user }} での無制限のパブリックリポジトリおよびプライベートリポジトリ
-- {{ site.data.variables.product.prodname_free_user }} での無制限のコラボレータ
-- {{ site.data.variables.product.prodname_pro }} でのプライベートリポジトリの追加機能
+- {% data variables.product.prodname_free_user %} での無制限のパブリックリポジトリおよびプライベートリポジトリ
+- {% data variables.product.prodname_free_user %} での無制限のコラボレータ
+- {% data variables.product.prodname_pro %} でのプライベートリポジトリの追加機能
 - [リポジトリのコラボレーターを招待する](/articles/inviting-collaborators-to-a-personal-repository)機能
 
 {% else %}
@@ -59,18 +59,18 @@ versions:
 
 Organization は、多くの人がいくつものプロジェクトにわたって同時にコラボレーションできる共有アカウントです。 オーナーと管理者は、Organizationのデータとプロジェクトへのメンバーのアクセスを、洗練されたセキュリティ及び管理機能で管理できます。
 
-{{ site.data.reusables.organizations.organizations_include }}
+{% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Enterprise アカウント
 
-Enterprise アカウントを使用すると、複数の {{ site.data.variables.product.prodname_dotcom_the_website }} Organization のポリシーと支払いを集中管理できます。 {{ site.data.reusables.gated-features.enterprise-accounts }}
+Enterprise アカウントを使用すると、複数の {% data variables.product.prodname_dotcom_the_website %} Organization のポリシーと支払いを集中管理できます。 {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- "[新しい {{ site.data.variables.product.prodname_dotcom }} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)"
-- 「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/githubs-products)」{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)"
+- 「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」{% endif %}
 - 「[新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)」

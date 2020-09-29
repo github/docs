@@ -10,8 +10,8 @@ versions:
 
 Wenn Du Projektboards deaktivierst, kannst Du keine Projektboard-Informationen mehr in Zeitleisten oder [Auditprotokollen](/articles/reviewing-your-security-log/) sehen.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Hebe unter „Features“ (Funktionen) die Auswahl des Kontrollkästchens **Projects** (Projekte) auf. ![Kontrollkästchen „Remove Projects" (Entfernen von Projekten)](/assets/images/help/projects/disable-projects-checkbox.png)
 
-Wenn Projektboards deaktiviert wurden, kannst Du nicht mehr über die früheren URLs auf vorhandene Projektboards zugreifen. {{ site.data.reusables.organizations.disable_project_board_results }}
+Wenn Projektboards deaktiviert wurden, kannst Du nicht mehr über die früheren URLs auf vorhandene Projektboards zugreifen. {% data reusables.organizations.disable_project_board_results %}

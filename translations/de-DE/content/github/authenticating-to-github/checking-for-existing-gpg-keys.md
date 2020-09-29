@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
@@ -16,8 +16,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
 3. Überprüfe die Befehlsausgabe, um zu ermitteln, ob Du ein GPG-Schlüsselpaar besitzt.
     * Wenn es keine GPG-Schlüsselpaare gibt oder wenn Du keines der vorhandenen für das Signieren von Commits und Tags verwenden möchtest, [erzeuge einen neuen GPG-Schlüssel](/articles/generating-a-new-gpg-key).
     * Wenn ein GPG-Schlüsselpaar vorhanden ist und Du es zum Signieren von Commits und Tags verwenden möchtest, [füge den GPG-Schlüssel zu Deinem GitHub-Konto hinzu](/articles/adding-a-new-gpg-key-to-your-github-account).

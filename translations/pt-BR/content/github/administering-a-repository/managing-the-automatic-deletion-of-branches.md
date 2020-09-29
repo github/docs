@@ -10,8 +10,8 @@ versions:
 
 Qualquer pessoa com permissões de administrador em um repositório pode habilitar ou desabilitar a exclusão automática de branches.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Abaixo do "Merge button" (Botão de merge) marque ou desmarque a opção **Automatically delete head branches** (Excluir automaticamente branches head). ![Caixa de seleção para habilitar ou desabilitar a exclusão automática de branches](/assets/images/help/repository/automatically-delete-branches.png)
 
 ### Leia mais

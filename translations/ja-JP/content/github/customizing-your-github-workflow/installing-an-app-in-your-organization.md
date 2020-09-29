@@ -1,44 +1,44 @@
 ---
 title: Organization でアプリケーションをインストールする
-intro: '{{ site.data.variables.product.prodname_marketplace }}から、Organization で使うアプリケーションをインストールできます。'
+intro: '{% data variables.product.prodname_marketplace %}から、Organization で使うアプリケーションをインストールできます。'
 redirect_from:
   - /articles/installing-an-app-in-your-organization
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.marketplace.marketplace-apps-only }}
+{% data reusables.marketplace.marketplace-apps-only %}
 
-{{ site.data.reusables.marketplace.marketplace-org-perms }}
+{% data reusables.marketplace.marketplace-org-perms %}
 
 有料プランを選択している場合は、Organization のこれまでの支払い方法を使って、現在の請求日にアプリケーション プランの料金を支払います。
 
-{{ site.data.reusables.marketplace.free-trials }}
+{% data reusables.marketplace.free-trials %}
 
-### Organization で {{ site.data.variables.product.prodname_github_app }}をインストールする
+### Organization で {% data variables.product.prodname_github_app %}をインストールする
 
-{{ site.data.reusables.marketplace.visit-marketplace }}
-{{ site.data.reusables.marketplace.browse-to-app }}
-{{ site.data.reusables.marketplace.choose-plan }}
-{{ site.data.reusables.marketplace.install-buy }}
-{{ site.data.reusables.marketplace.confirm-install-account-org }}
-{{ site.data.reusables.marketplace.add-payment-method-org }}
-{{ site.data.reusables.marketplace.complete-order-begin-installation }}
+{% data reusables.marketplace.visit-marketplace %}
+{% data reusables.marketplace.browse-to-app %}
+{% data reusables.marketplace.choose-plan %}
+{% data reusables.marketplace.install-buy %}
+{% data reusables.marketplace.confirm-install-account-org %}
+{% data reusables.marketplace.add-payment-method-org %}
+{% data reusables.marketplace.complete-order-begin-installation %}
 8. アプリケーションでリポジトリにアクセスする必要がある場合は、すべてのリポジトリへのアクセスを許可するか、特定のリポジトリへのアクセスのみを許可するかに応じて、[**All repositories**] または [**Only select repositories**] を選択します。 ![すべてのリポジトリまたは特定のリポジトリにアプリをインストールするオプションを備えたラジオボタン](/assets/images/help/marketplace/marketplace-choose-repo-install-option.png)
-{{ site.data.reusables.marketplace.select-installation-repos }}
-{{ site.data.reusables.marketplace.review-app-perms-install }}
+{% data reusables.marketplace.select-installation-repos %}
+{% data reusables.marketplace.review-app-perms-install %}
 
-### Organization で {{ site.data.variables.product.prodname_oauth_app }} をインストールする
+### Organization で {% data variables.product.prodname_oauth_app %} をインストールする
 
-{{ site.data.reusables.saml.saml-session-oauth }}
+{% data reusables.saml.saml-session-oauth %}
 
-{{ site.data.reusables.marketplace.visit-marketplace }}
-{{ site.data.reusables.marketplace.browse-to-app }}
-{{ site.data.reusables.marketplace.choose-plan }}
-{{ site.data.reusables.marketplace.install-buy }}
-{{ site.data.reusables.marketplace.confirm-install-account-org }}
-{{ site.data.reusables.marketplace.add-payment-method-org }}
-{{ site.data.reusables.marketplace.complete-order-begin-installation }}
+{% data reusables.marketplace.visit-marketplace %}
+{% data reusables.marketplace.browse-to-app %}
+{% data reusables.marketplace.choose-plan %}
+{% data reusables.marketplace.install-buy %}
+{% data reusables.marketplace.confirm-install-account-org %}
+{% data reusables.marketplace.add-payment-method-org %}
+{% data reusables.marketplace.complete-order-begin-installation %}
 8. 個人アカウント、Organization、データに対するアプリケーションのアクセスについての情報を確認し、[**Authorize application**] をクリックします。
 
 ### 参考リンク

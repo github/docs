@@ -16,8 +16,8 @@ Você pode criar modelos de pull request padrão para sua organização{% if cur
 
 ### Adicionar um modelo de pull request
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo nome do arquivo:
     -  Para tornar visível o seu modelo de pull request no diretório raiz do repositório, digite o nome do modelo de pull request `pull_request_template.md`. ![Novo nome do modelo de pull request no diretório raiz](/assets/images/help/repository/pr-template-file-name.png)
     - Para tornar seu modelo de pull request visível no diretório de `docs` do repositório, nomeie o modelo pull request `docs/pull_request_template.md`. ![Novo modelo de pull request no diretório docs](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ Você pode criar modelos de pull request padrão para sua organização{% if cur
     - Uma [referência a um problema relacionado](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) no repositório.
     - Uma descrição das alterações propostas na pull request.
     - [@menções](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) da pessoa ou equipe responsável por revisar as alterações propostas.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Os modelos são disponibilizados para os colaboradores quando sofrem merge no branch padrão do repositório.
+{% data reusables.files.propose_new_file %}
 
 ### Leia mais
 

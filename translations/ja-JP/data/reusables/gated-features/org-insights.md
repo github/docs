@@ -1,1 +1,1 @@
-Organizationインサイトは{{ site.data.variables.product.prodname_ghe_cloud }}で利用できます。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/github-s-products)」を参照してください。
+Organizationインサイトは{% data variables.product.prodname_ghe_cloud %}で利用できます。 詳細は「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。

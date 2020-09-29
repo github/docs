@@ -15,16 +15,16 @@ Um colaborador é uma pessoa com permissões em um quadro de projeto pertencente
 ### Convidar colaboradores a um quadro de projeto de propriedade de um usuário
 
 1. Navegue até o quadro de projeto onde você quer adicionar um colaborador.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-5. Em "Search by username, full name or email address" (Pesquisar por nome de usuário, nome completo ou endereço de e-mail), digite o nome, o nome de usuário ou o e-mail do colaborador no {{ site.data.variables.product.prodname_dotcom }}. ![A seção Collaborators (Colaboradores) com o nome de usuário Octocat inserido no campo de pesquisa](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{{ site.data.reusables.project-management.add-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+5. Em "Search by username, full name or email address" (Pesquisar por nome de usuário, nome completo ou endereço de e-mail), digite o nome, o nome de usuário ou o e-mail do colaborador no {% data variables.product.prodname_dotcom %}. ![A seção Collaborators (Colaboradores) com o nome de usuário Octocat inserido no campo de pesquisa](/assets/images/help/projects/org-project-collaborators-find-name.png)
+{% data reusables.project-management.add-collaborator %}
 7. O novo colaborador tem acessos de leitura por padrão. Como opção, ao lado do nome do novo colaborador, use o menu suspenso e escolha um nível de permissão diferente. ![Seção Collaborators (Colaboradores) com menu suspenso Permissions (Permissões) selecionado](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
 ### Remover um colaborador de um quadro de projeto de propriedade de um usuário
 
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-{{ site.data.reusables.project-management.remove-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+{% data reusables.project-management.remove-collaborator %}

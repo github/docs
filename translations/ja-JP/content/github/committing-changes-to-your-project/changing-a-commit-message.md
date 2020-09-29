@@ -3,7 +3,7 @@ title: コミットメッセージの変更
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{{ site.data.variables.product.product_name }}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
+intro: 'コミットメッセージに不明確、不正確、または機密情報が含まれている場合、ローカルでメッセージを修正して、{% data variables.product.product_name %}に新しいメッセージで新しいコミットをプッシュできます。 また、コミットメッセージを変更して、不足している情報を追加することも可能です。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,7 +21,7 @@ Git では、コミットメッセージのテキストはコミットの一部�
 
 #### オンラインにプッシュされていないコミット
 
-コミットがローカルリポジトリにのみ存在し、{{ site.data.variables.product.product_location }}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
+コミットがローカルリポジトリにのみ存在し、{% data variables.product.product_location %}にプッシュされていない場合、`git commit --amend` コマンドでコミットメッセージを修正できます。
 
 1. コマンドラインで、修正したいコミットのあるリポジトリに移動します。
 2. `git commit --amend` と入力し、**Enter** を押します。
@@ -31,7 +31,7 @@ Git では、コミットメッセージのテキストはコミットの一部�
     - コミットにトレーラーを追加することで、Organization の代理でコミットを作成できます。 詳しい情報については「[Organization の代理でコミットを作成](/articles/creating-a-commit-on-behalf-of-an-organization)」を参照してください。
 {% endif %}
 
-次回のプッシュ時に、{{ site.data.variables.product.product_location }}に新たなコミットとメッセージが表示されます。
+次回のプッシュ時に、{% data variables.product.product_location %}に新たなコミットとメッセージが表示されます。
 
 {% tip %}
 
@@ -41,7 +41,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 #### 古いまたは複数のコミットメッセージの修正
 
-すでにコミットを {{ site.data.variables.product.product_location }}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
+すでにコミットを {% data variables.product.product_location %}にプッシュしている場合、修正済みのメッセージでコミットをフォースプッシュする必要があります。
 
 {% warning %}
 
@@ -117,7 +117,7 @@ Git で使うデフォルトのテキストエディタは、`core.editor` の�
 
 {% warning %}
 
-修正したコミットをフォースプッシュしても元のコミットは {{ site.data.variables.product.product_name }}から削除されない場合がありますので、元のコミットメッセージに機密情報が含まれている場合は注意してください。 古いコミットは、以降のクローンには含まれませんが、{{ site.data.variables.product.product_name }}にキャッシュされ、コミット ID でアクセスできます。 リモートリポジトリから古いコミットメッセージをパージするには、古いコミット ID を添えて {{ site.data.variables.contact.contact_support }}にお問い合わせください。
+修正したコミットをフォースプッシュしても元のコミットは {% data variables.product.product_name %}から削除されない場合がありますので、元のコミットメッセージに機密情報が含まれている場合は注意してください。 古いコミットは、以降のクローンには含まれませんが、{% data variables.product.product_name %}にキャッシュされ、コミット ID でアクセスできます。 リモートリポジトリから古いコミットメッセージをパージするには、古いコミット ID を添えて {% data variables.contact.contact_support %}にお問い合わせください。
 
 {% endwarning %}
 

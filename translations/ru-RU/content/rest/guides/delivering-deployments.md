@@ -12,7 +12,7 @@ versions:
 
 
 
-The [Deployments API][deploy API] provides your projects hosted on {{ site.data.variables.product.product_name }} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on `master`.
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on `master`.
 
 This guide will use that API to demonstrate a setup that you can use. In our scenario, we will:
 
@@ -54,7 +54,7 @@ Click **Update webhook**. You should see a body response of `Well, it worked!`. 
 * Deployment status
 * Pull Request
 
-These are the events {{ site.data.variables.product.product_name }} will send to our server whenever the relevant action occurs. We'll configure our server to *just* handle when pull requests are merged right now:
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action occurs. We'll configure our server to *just* handle when pull requests are merged right now:
 
 ``` ruby
 post '/event_handler' do
@@ -69,7 +69,7 @@ post '/event_handler' do
 end
 ```
 
-What's going on? Every event that {{ site.data.variables.product.product_name }} sends out attached a `X-GitHub-Event` HTTP header. We'll only care about the PR events for now. When a pull request is merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event` HTTP header. We'll only care about the PR events for now. When a pull request is merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
 
 To test out this proof-of-concept, make some changes in a branch in your test repository, open a pull request, and merge it. Your server should respond accordingly!
 

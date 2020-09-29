@@ -32,7 +32,7 @@ GitHub 可能会允许您访问在世界上其他地方无法获取的特殊信�
 
 参与本计划，即表示您同意我们将您的个人信息用于研究目的，但不得用于任何其他用途。 作为计划的一部分，我们可能会使用您的个人信息与您联系，或者保留您的信息以便今后联系您。 个人信息不包括汇总的非个人识别信息。 我们可能会使用通过计划收集的汇总信息或其他非个人识别信息来运营、分析和改善我们的产品和服务。
 
-您可以随时撤回您的同意，并请求访问或删除我们持有的有关您的个人信息。 For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {{ site.data.variables.contact.contact_privacy }}.
+您可以随时撤回您的同意，并请求访问或删除我们持有的有关您的个人信息。 For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
 
 ### E. GitHub 服务和软件条款
 

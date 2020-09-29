@@ -10,7 +10,7 @@ versions:
 
 ### URL
 
-{{ site.data.variables.product.product_name }} 自动从标准 URL 创建链接。
+{% data variables.product.product_name %} 自动从标准 URL 创建链接。
 
 `访问 https://github.com`
 
@@ -20,7 +20,7 @@ versions:
 
 ### 议题和拉取请求
 
-在 {{ site.data.variables.product.product_name }} 上的对话中，对议题和拉取请求的引用将自动转换为缩短的链接。 更多信息请参阅“[关于 {{ site.data.variables.product.prodname_dotcom }} 上的对话](/articles/about-conversations-on-github)”。
+在 {% data variables.product.product_name %} 上的对话中，对议题和拉取请求的引用将自动转换为缩短的链接。 更多信息请参阅“[关于 {% data variables.product.prodname_dotcom %} 上的对话](/articles/about-conversations-on-github)”。
 
 {% note %}
 
@@ -38,7 +38,7 @@ versions:
 
 ### 提交 SHA
 
-对提交 SHA 哈希的引用会自动转换为指向 {{ site.data.variables.product.product_name }} 上提交的短链接。
+对提交 SHA 哈希的引用会自动转换为指向 {% data variables.product.product_name %} 上提交的短链接。
 
 | 引用类型                    | 源引用                                                                                  | 短链接                                                                                                               |
 | ----------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 自定义外部资源的自动链接
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 

@@ -1,7 +1,7 @@
 ---
 title: Managing bots and service accounts with SAML single sign-on
 intro: Organizations that have enabled SAML single sign-on can retain access for bots and service accounts.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:

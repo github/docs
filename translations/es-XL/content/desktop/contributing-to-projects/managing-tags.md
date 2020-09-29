@@ -1,30 +1,30 @@
 ---
 title: Administrar etiquetas
-intro: 'Puedes utilizar {{ site.data.variables.product.prodname_desktop }} para crear, cargar y visualizar etiquetas.'
+intro: 'Puedes utilizar {% data variables.product.prodname_desktop %} para crear, cargar y visualizar etiquetas.'
 versions:
   free-pro-team: '*'
 ---
 
-### Acerca de las etiquetas en {{ site.data.variables.product.prodname_desktop }}
+### Acerca de las etiquetas en {% data variables.product.prodname_desktop %}
 
-{{ site.data.variables.product.prodname_desktop }} te permite crear etiquetas anotadas. Puedes utilizar una etiqueta para marcar un punto individual en el historial de tu repositorio, incluyendo un número de versión para un lanzamiento. Para obtener más información acerca de las etiquetas de lanzamiento, consulta la sección "[Acerca de los lanzamientos](https://help.github.com/en/github/administering-a-repository/about-releases)".
+{% data variables.product.prodname_desktop %} te permite crear etiquetas anotadas. Puedes utilizar una etiqueta para marcar un punto individual en el historial de tu repositorio, incluyendo un número de versión para un lanzamiento. Para obtener más información acerca de las etiquetas de lanzamiento, consulta la sección "[Acerca de los lanzamientos](https://help.github.com/en/github/administering-a-repository/about-releases)".
 
-{{ site.data.reusables.desktop.tags-push-with-commits }}
+{% data reusables.desktop.tags-push-with-commits %}
 
 ### Crear una etiqueta
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.create-tag }}
-{{ site.data.reusables.desktop.name-tag }}
-{{ site.data.reusables.desktop.confirm-tag }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.create-tag %}
+{% data reusables.desktop.name-tag %}
+{% data reusables.desktop.confirm-tag %}
 
 ### Visualizar etiquetas
 
-{{ site.data.reusables.desktop.history-tab }}
+{% data reusables.desktop.history-tab %}
 2. Da clic en la confirmación.
   {% note %}
 
-  **Nota**: {{ site.data.variables.product.prodname_desktop }} muestra una flecha {% octicon "arrow-up" aria-label="The up arrow icon" %} si la etiqueta no se ha subido al repositorio remoto.
+  **Nota**: {% data variables.product.prodname_desktop %} muestra una flecha {% octicon "arrow-up" aria-label="The up arrow icon" %} si la etiqueta no se ha subido al repositorio remoto.
 
   {% endnote %}
 

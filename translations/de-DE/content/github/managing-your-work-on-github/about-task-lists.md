@@ -18,7 +18,7 @@ Du kannst zusammenfassende Informationen zu Aufgabenlisten in Issue- und Pull-Re
 
 ### Eine Aufgabenliste erstellen
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### Aufgaben neu anordnen
 

@@ -17,7 +17,7 @@ Você pode vincular um problema a uma pull request {% if currentVersion == "free
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 Quando você vincula uma pull request ao problema que a pull request tem de lidar, os colaboradores poderão ver que alguém está trabalhando no problema.
-{% if currentVersion ver_lt "enterprise-server@2.21" %}Se a pull request e o problema estiverem em repositórios diferentes, {{ site.data.variables.product.product_name }} exibirá o link depois que a pull request sofrer merge, se a pessoa que faz o merge da pull request também tiver permissão para encerrar o problema.{% endif %}{% endif %}
+{% if currentVersion ver_lt "enterprise-server@2.21" %}Se a pull request e o problema estiverem em repositórios diferentes, {% data variables.product.product_name %} exibirá o link depois que a pull request sofrer merge, se a pessoa que faz o merge da pull request também tiver permissão para encerrar o problema.{% endif %}{% endif %}
 
 Quando você mescla uma pull request vinculada no branch padrão de um repositório, o problema vinculado será fechado automaticamente. Para obter mais informações sobre o branch padrão, consulte "[Configurado o branch padrão](/github/administering-a-repository/setting-the-default-branch). "
 
@@ -28,8 +28,8 @@ Qualquer pessoa com permissões de gravação em um repositório pode vincular m
 
 Você pode vincular manualmente até dez problemas para cada pull request. O problema e a pull request devem estar no mesmo repositório.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. Na lista de pull requests, clique na pull request que você gostaria de vincular a um problema.
 4. Na barra lateral direita, clique em **Linked issues** (Problemas vinculados) ![Problemas vinculados na barra lateral direita](/assets/images/help/pull_requests/linked-issues.png)
 5. Clique no problema que você deseja associar à pull request. ![Menu suspenso para problemas vinculados](/assets/images/help/pull_requests/link-issue-drop-down.png)

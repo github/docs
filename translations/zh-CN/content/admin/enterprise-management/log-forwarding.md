@@ -1,6 +1,6 @@
 ---
 title: 日志转发
-intro: '{{ site.data.variables.product.prodname_enterprise }} 使用“syslog-ng”将系统和应用程序日志转发到您在 {{ site.data.variables.enterprise.management_console }} 设置中指定的服务器。'
+intro: '{% data variables.product.prodname_enterprise %} 使用“syslog-ng”将系统和应用程序日志转发到您在 {% data variables.enterprise.management_console %} 设置中指定的服务器。'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -13,7 +13,7 @@ versions:
 
 ### 启用日志转发
 
-1. 在 {{ site.data.variables.enterprise.management_console }} 设置页面的左侧边栏中，单击 **Monitoring**。
+1. 在 {% data variables.enterprise.management_console %} 设置页面的左侧边栏中，单击 **Monitoring**。
 1. 选择 **Enable log forwarding**。
 1. 在 **Server address** 字段中，输入要将日志转发到的服务器的地址。 您可以在以逗号分隔的列表中指定多个地址。
 1. 在 Protocol 下拉菜单中，选择用于与日志服务器通信的协议。 该协议将应用到所有指定的日志目标。
@@ -22,4 +22,4 @@ versions:
 
 ### 疑难解答
 
-如果您遇到日志转发方面的问题，请联系 {{ site.data.variables.contact.contact_ent_support }} 并在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件。
+如果您遇到日志转发方面的问题，请联系 {% data variables.contact.contact_ent_support %} 并在您的电子邮件中附上 `http(s)://[hostname]/setup/diagnostics` 的输出文件。

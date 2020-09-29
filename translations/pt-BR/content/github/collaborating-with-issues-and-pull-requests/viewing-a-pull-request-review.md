@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 Quando você exibe uma revisão completa, vê a mesma versão da pull request que o revisor tinha no momento da revisão.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
 3. Na guia "Conversation" (Conversa), role até a revisão que deseja ver e clique em **View changes** (Exibir alterações). ![Header de revisão com link para revisão completa](/assets/images/help/pull_requests/view-full-review-view-changes.png)
 
 ### Leia mais

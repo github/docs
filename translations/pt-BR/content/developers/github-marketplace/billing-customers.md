@@ -1,6 +1,6 @@
 ---
 title: Cobrar dos clientes
-intro: 'Os aplicativos no {{ site.data.variables.product.prodname_marketplace }} devem aderir às diretrizes de cobrança do GitHub e oferecer suporte aos serviços recomendados. A observância das nossas diretrizes ajuda os clientes a percorrer o processo de cobrança sem nenhuma surpresa.'
+intro: 'Os aplicativos no {% data variables.product.prodname_marketplace %} devem aderir às diretrizes de cobrança do GitHub e oferecer suporte aos serviços recomendados. A observância das nossas diretrizes ajuda os clientes a percorrer o processo de cobrança sem nenhuma surpresa.'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/billing-customers-in-github-marketplace/
   - /apps/marketplace/selling-your-app/billing-customers-in-github-marketplace/
@@ -13,17 +13,17 @@ versions:
 
 ### Entender o ciclo de cobrança
 
-Os clientes podem escolher um ciclo de cobrança mensal ou anual quando ao comprar seu aplicativo. Todas as alterações que os clientes fazem no ciclo de cobrança e seleção de plano acionará um evento de `marketplace_purchase`. Você pode fazer referência à carga do webhook `marketplace_purchase` para ver qual ciclo de cobrança um cliente seleciona e quando começa a próxima data de cobrança (`effective_date`). Para obter mais informações sobre cargas do webhook, "[eventos de webhook {{ site.data.variables.product.prodname_marketplace }}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)".
+Os clientes podem escolher um ciclo de cobrança mensal ou anual quando ao comprar seu aplicativo. Todas as alterações que os clientes fazem no ciclo de cobrança e seleção de plano acionará um evento de `marketplace_purchase`. Você pode fazer referência à carga do webhook `marketplace_purchase` para ver qual ciclo de cobrança um cliente seleciona e quando começa a próxima data de cobrança (`effective_date`). Para obter mais informações sobre cargas do webhook, "[eventos de webhook {% data variables.product.prodname_marketplace %}](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)".
 
 ### Fornecer serviços de cobrança na interface de usuário do seu aplicativo
 
 Os clientes devem ser capazes de executar as seguintes ações no site do seu aplicativo:
-- Os clientes devem ser capazes de modificar ou cancelar seus planos de {{ site.data.variables.product.prodname_marketplace }} para contas pessoais e organizacionais separadamente.
-{{ site.data.reusables.marketplace.marketplace-billing-ui-requirements }}
+- Os clientes devem ser capazes de modificar ou cancelar seus planos de {% data variables.product.prodname_marketplace %} para contas pessoais e organizacionais separadamente.
+{% data reusables.marketplace.marketplace-billing-ui-requirements %}
 
 ### Os serviços de cobrança para upgrade, downgrade e cancelamentos
 
-Siga estas diretrizes para upgrades, downgrade e cancelamentos para manter um processo de cobrança claro e consistente. Para obter instruções mais detalhadas sobre os eventos de compra do {{ site.data.variables.product.prodname_marketplace }}, consulte "[Fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)".
+Siga estas diretrizes para upgrades, downgrade e cancelamentos para manter um processo de cobrança claro e consistente. Para obter instruções mais detalhadas sobre os eventos de compra do {% data variables.product.prodname_marketplace %}, consulte "[Fluxos de cobrança](/marketplace/integrating-with-the-github-marketplace-api/#billing-flows)".
 
 Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` para determinar quando a mudança de um plano irá ocorrer e sincronizar periodicamente as [Lista de contas para um plano](/v3/apps/marketplace/#list-accounts-for-a-plan).
 
@@ -31,7 +31,7 @@ Você pode usar a chave do `marketplace_purchase` do webhook `effective_date` pa
 
 Quando um cliente atualiza seu plano de preços ou altera seu ciclo de cobrança de mensal para anual, você deve implementar mudança imediatamente para este cliente. Você precisa aplicar um desconto proporcional ao novo plano e alterar o ciclo de cobrança.
 
-{{ site.data.reusables.marketplace.marketplace-failed-purchase-event }}
+{% data reusables.marketplace.marketplace-failed-purchase-event %}
 
 Para obter informações sobre a construção de fluxos de trabalho de atualização e downgrade para seu aplicativo, consulte "[Atualizar e fazer downgrade de planos](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)".
 
@@ -42,7 +42,7 @@ Os downgrades ocorrem quando um cliente muda de um plano pago para um plano grat
 Quando um cliente cancela um plano, você deve:
 - Fazer o downgrade automaticamente para o plano grátis, caso exista.
 
-  {{ site.data.reusables.marketplace.cancellation-clarification }}
+  {% data reusables.marketplace.cancellation-clarification %}
 - Habilitá-los para atualizar o plano por meio do GitHub, caso desejem continuar o plano mais adiante.
 
 Para obter informações sobre a criação de fluxos de trabalho de construção no seu aplicativo, consulte "[Cancelar planos](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)".

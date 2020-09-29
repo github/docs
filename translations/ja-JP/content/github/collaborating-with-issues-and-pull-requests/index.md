@@ -1,6 +1,6 @@
 ---
 title: Issue とプルリクエストでのコラボレーション
-intro: '{{ site.data.variables.product.prodname_dotcom }} フローを使用して Issue の変更を追跡およびディスカッションし、プルリクエストの変更を提案してレビューします。'
+intro: '{% data variables.product.prodname_dotcom %} フローを使用して Issue の変更を追跡およびディスカッションし、プルリクエストの変更を提案してレビューします。'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

@@ -1,6 +1,6 @@
 ---
 title: プルリクエストをローカルでチェック アウトする
-intro: '誰かがリポジトリのフォークまたはブランチからプルリクエストを送信した場合、ローカルでマージして、マージコンフリクトを解決するか、{{ site.data.variables.product.product_name }} でマージする前に変更をテストおよび検証できます。'
+intro: '誰かがリポジトリのフォークまたはブランチからプルリクエストを送信した場合、ローカルでマージして、マージコンフリクトを解決するか、{% data variables.product.product_name %} でマージする前に変更をテストおよび検証できます。'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
 permissions: リポジトリへの書き込みアクセスを持つユーザは、リモートプルリクエストをローカルにプルダウンできます。
@@ -17,24 +17,24 @@ versions:
 
 ### アクティブなプルリクエストをローカルで修正する
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、変更するプルリクエストをクリックします。{% if currentVersion == "free-pro-team@latest" %}
 3. プルリクエストをオープンする場所を選択するには、[**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**] ドロップダウンを選択して、いずれかのタブをクリックします。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. マージボックスで、[**command line instructions**] をクリックします。 手順に従い、提案されたプルリクエストをローカルにダウンロードしてください。 ![コマンドラインのプルリクエスト手順へのリンク](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. オプションで、提案された変更を {{ site.data.variables.product.prodname_desktop }} で表示するには、[**open this in {{ site.data.variables.product.prodname_desktop }}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+4. オプションで、提案された変更を {% data variables.product.prodname_desktop %} で表示するには、[**open this in {% data variables.product.prodname_desktop %}**] をクリックします。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 ### アクティブではないプルリクエストをローカルで修正する
 
 プルリクエストの作者がリクエストに応答しない場合や、フォークを削除した場合でも、プルリクエストをマージできます。 一方、プルリクエストを変更したくても作者が応答しないという場合、プルリクエストを更新するには追加的な手順を踏まなければなりません。
 
-プルリクエストがオープンされると、{{ site.data.variables.product.product_name }} はすべての変更をリモートで保存します。 つまり、プルリクエストがマージされる前でも、プルリクエストのコミットはリポジトリで利用できます。 オープンなプルリクエストをフェッチして、自分のものとして再作成できます。
+プルリクエストがオープンされると、{% data variables.product.product_name %} はすべての変更をリモートで保存します。 つまり、プルリクエストがマージされる前でも、プルリクエストのコミットはリポジトリで利用できます。 オープンなプルリクエストをフェッチして、自分のものとして再作成できます。
 
 誰でも、以前にオープンされたプルリクエストを使って、さらに作業を進めたり、テストしたりできます。そこへ変更を追加して新しいプルリクエストをオープンすることもできます。 ただし、プルリクエストをマージできるのは、プッシュアクセスを持つコラボレータだけです。
 
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. [Pull Requests] リストで、マージしたいプルリクエストをクリックします。
 3. アクティブではないプルリクエストの ID 番号を検索します。 ID 番号は、プルリクエストのタイトルの後に付いている数字です。 ![プルリクエストの ID 番号](/assets/images/help/pull_requests/pull_request_id_number.png)
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 5. ID 番号を元に、プルリクエストへの参照をフェッチします。この過程で、新しいブランチが作成されます。
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -53,7 +53,7 @@ versions:
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>repository</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
 9. 新しいブランチで[新しいプルリクエストを作成](/articles/creating-a-pull-request)します。

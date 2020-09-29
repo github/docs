@@ -1,6 +1,6 @@
 ---
 title: Vistas previas del modelo
-intro: 'Puedes obtener una vista previa de las características y cambios por venir para el modelo de GraphQL de {{ site.data.variables.product.prodname_dotcom }} antes de que se agreguen a la API de GraphQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Puedes obtener una vista previa de las características y cambios por venir para el modelo de GraphQL de {% data variables.product.prodname_dotcom %} antes de que se agreguen a la API de GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/previews
 versions:

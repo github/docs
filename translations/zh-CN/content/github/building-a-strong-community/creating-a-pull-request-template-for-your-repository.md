@@ -16,8 +16,8 @@ versions:
 
 ### 添加拉取请求模板
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中：
     -  要使拉取请求模板在存储库的根目录中可见，请将拉取请求模板命名为 `pull_request_template.md`。 ![根目录中的新拉取请求模板名称](/assets/images/help/repository/pr-template-file-name.png)
     - 要使拉取请求模板在仓库的 `docs` 目录中可见，请将拉取请求模板命名为 `docs/pull_request_template.md`。 ![Docs 目录中的新拉取请求模板](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ versions:
     - 对仓库中[相关议题的引用](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
     - 对拉取请求中所提议更改的说明。
     - [@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)负责审查提议更改的人员或团队。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} 模板可供协作者用来合并到仓库的默认分支。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} 模板可供协作者用来合并到仓库的默认分支。
+{% data reusables.files.propose_new_file %}
 
 ### 延伸阅读
 

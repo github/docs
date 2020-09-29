@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### Einen GPG-Schlüssel erzeugen
 
@@ -19,7 +19,7 @@ versions:
 {% endnote %}
 
 1. Lade [die GPG-Befehlszeilentools](https://www.gnupg.org/download/) für Dein Betriebssystem herunter und installiere sie. Wir empfehlen normalerweise, die aktuellste Version für Dein Betriebssystem zu installieren.
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Erzeuge ein GPG-Schlüsselpaar. Da es mehrere Versionen von GPG gibt, musst Du den richtigen Befehl zur Schlüsselerzeugung allenfalls auf der entsprechenden [_man page_](https://en.wikipedia.org/wiki/Man_page) nachschlagen. Dein Schlüssel muss RSA verwenden.
     - Wenn Du Version 2.1.17 oder höher verwendest, füge den folgenden Text ein, um ein GPG-Schlüsselpaar zu erzeugen.
       ```shell
@@ -37,13 +37,13 @@ versions:
 
   {% note %}
 
-  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Deine E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“ und „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
+  **Hinweis:** Wenn Du zur Eingabe Deiner E-Mail-Adresse aufgefordert wirst, stelle sicher, dass Du die verifizierte E-Mail-Adresse für Dein GitHub-Konto eingibst. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Deine E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“ und „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address)“.{% endif %}
 
   {% endnote %}
 
 9. Gib eine sichere Passphrase ein.
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 10. Füge den folgenden Text ein, und ersetzte dabei die GPG-Schlüssel-ID, die Du verwenden möchtest. Im folgenden Beispiel lautet die GPG-Schlüssel-ID `3AA5C34371567BD2`:
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>

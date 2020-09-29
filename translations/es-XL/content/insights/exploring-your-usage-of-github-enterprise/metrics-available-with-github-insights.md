@@ -1,7 +1,7 @@
 ---
 title: Métricas disponibles con GitHub Insights
-product: '{{ site.data.reusables.gated-features.github-insights }}'
-intro: '{{ site.data.variables.product.prodname_insights }} incluye una variedad de métricas para darte visibilidad en el proceso de entrega de software de tu equipo.'
+product: '{% data reusables.gated-features.github-insights %}'
+intro: '{% data variables.product.prodname_insights %} incluye una variedad de métricas para darte visibilidad en el proceso de entrega de software de tu equipo.'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
@@ -9,15 +9,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Acerca de métricas en {{ site.data.variables.product.prodname_insights }}
+### Acerca de métricas en {% data variables.product.prodname_insights %}
 
-{{ site.data.reusables.github-insights.key-metrics-and-reports }}
+{% data reusables.github-insights.key-metrics-and-reports %}
 
-{{ site.data.reusables.github-insights.about-key-metrics }} Puedes configurar y medir tus metas para cada métrica clave. Para obtener más información, consulta "[Administrar metas](/insights/installing-and-configuring-github-insights/managing-goals)".
+{% data reusables.github-insights.about-key-metrics %} Puedes configurar y medir tus metas para cada métrica clave. Para obtener más información, consulta "[Administrar metas](/insights/installing-and-configuring-github-insights/managing-goals)".
 
-{{ site.data.reusables.github-insights.about-reports }}
+{% data reusables.github-insights.about-reports %}
 
-{{ site.data.reusables.github-insights.manage-metrics }}
+{% data reusables.github-insights.manage-metrics %}
 
 ### Métricas clave para la colaboración en solicitudes de extracción (pull requests)
 

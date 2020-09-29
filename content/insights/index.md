@@ -1,7 +1,7 @@
 ---
 title: GitHub Insights Documentation
 shortTitle: GitHub Insights
-intro: 'Understand and improve your software delivery process through data with {{ site.data.variables.product.prodname_insights }}. You can view customized reports based on data from {{ site.data.variables.product.prodname_enterprise }}.'
+intro: 'Understand and improve your software delivery process through data with {% data variables.product.prodname_insights %}. You can view customized reports based on data from {% data variables.product.prodname_enterprise %}.'
 gettingStartedLinks:
   - /insights/installing-and-configuring-github-insights/about-github-insights
   - /insights/installing-and-configuring-github-insights/system-overview-for-github-insights

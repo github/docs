@@ -45,7 +45,7 @@ Se você tem uma conta GitHub, crie uma nova organização em nossa [página pla
 
 ### Como posso comparar quais recursos existem em cada plano?
 
-Você pode ver o preço e uma lista completa dos recursos de cada produto em <{{ site.data.variables.product.pricing_url }}>.
+Você pode ver o preço e uma lista completa dos recursos de cada produto em <{% data variables.product.pricing_url %}>.
 
 ### Por quanto tempo o GitHub Free permitirá colaboradores ilimitados?
 
@@ -57,7 +57,7 @@ Os clientes que atualmente estão pagando anualmente pelos planos Pro e Team e s
 
 ### Qual é a diferença entre o GitHub Free para desenvolvedores individuais e o GitHub Free para organizações?
 
-Para obter informações sobre diferenças entre cada produto GitHub Free, consulte "[Produtos do {{site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+Para obter informações sobre diferenças entre cada produto GitHub Free, consulte "[Produtos do {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
 ### Como posso obter mais minutos de ações se eu preciso de mais do que está alocado no plano GitHub Team?
 
@@ -65,7 +65,7 @@ A maioria das equipes pequenas usa menos de 3.000 ações por minutos/mês, mas 
 
 ### Como as mudanças no limite de estações me afetam?
 
-Agora que {{ site.data.variables.product.prodname_team }} não tem uma exigência mínima de estações, se você estiver usando menos de cinco na sua organização, poderá remover estações pagas para reduzir sua fatura. Para obter mais informações, consulte "[Rebaixando sua assinatura {{ site.data.variables.product.prodname_dotcom }}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
+Agora que {% data variables.product.prodname_team %} não tem uma exigência mínima de estações, se você estiver usando menos de cinco na sua organização, poderá remover estações pagas para reduzir sua fatura. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
 
 ### Muda alguma coisa para as equipes do GitHub Team do plano Open Source?
 

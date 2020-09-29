@@ -1,6 +1,6 @@
 ---
 title: Ver las ramas en tu repositorio
-intro: 'Las ramas son centrales para la colaboración en {{ site.data.variables.product.product_name }}, y la mejor manera de verlas es en la pagina de ramas.'
+intro: 'Las ramas son centrales para la colaboración en {% data variables.product.product_name %}, y la mejor manera de verlas es en la pagina de ramas.'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. Utiliza la navegación en la parte superior de la página para ver las listas de ramas específicas:
     - **Tus ramas**: en los repositorios a los que puedes tener acceso de escritura, la vista **Yours** (Tuyas) muestra todas las ramas a las que has subido contenido, y las más recientes se muestran primero.
     - **Ramas activas**: la vista **Active** (Activas) muestra todas las ramas a las que alguien ha confirmado dentro de los últimos tres meses, ordenadas de forma descendente desde las ramas con las confirmaciones más recientes.

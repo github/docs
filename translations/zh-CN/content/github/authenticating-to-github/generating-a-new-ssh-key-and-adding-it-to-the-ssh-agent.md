@@ -16,8 +16,8 @@ versions:
 
 ### 生成新 SSH 密钥
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. 粘贴下面的文本（替换为您的 {{ site.data.variables.product.product_name }} 电子邮件地址）。
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. 粘贴下面的文本（替换为您的 {% data variables.product.product_name %} 电子邮件地址）。
   ```shell
   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
@@ -63,7 +63,7 @@ versions:
 
 {% mac %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
 2. 如果您使用的是 macOS Sierra 10.12.2 或更高版本，则需要修改 `~/.ssh/config` 文件以自动将密钥加载到 ssh-agent 中并在密钥链中存储密码。
 
@@ -89,7 +89,7 @@ versions:
         IdentityFile ~/.ssh/id_rsa
       ```
 
-3. 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+3. 将 SSH 私钥添加到 ssh-agent 并将密码存储在密钥链中。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_rsa
   ```
@@ -107,7 +107,7 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
 1. 确保 ssh-agent 正在运行。 您可以根据“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”中的“自动启动 ssh-agent”说明，或者手动启动它：
   ```shell
@@ -116,8 +116,8 @@ versions:
   > Agent pid 59566
   ```
 
-2. 将 SSH 私钥添加到 ssh-agent。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. 将 SSH 私钥添加到 ssh-agent。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [将 SSH 密钥添加到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 
@@ -125,10 +125,10 @@ versions:
 
 {% linux %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
-2. 将 SSH 私钥添加到 ssh-agent。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. 将 SSH 私钥添加到 ssh-agent。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [将 SSH 密钥添加到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 

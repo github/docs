@@ -44,13 +44,13 @@ diff の見方には複数の選択肢があります。
 
 ### スリードットおよびツードット Git diff での比較
 
-デフォルトでは、{{ site.data.variables.product.prodname_dotcom }} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
+デフォルトでは、{% data variables.product.prodname_dotcom %} のプルリクエストはスリードットdiff、すなわちトピックブランチの最新バージョンと、トピックブランチが最後に base ブランチと同期されたコミットとの比較を表示します。
 
-{{ site.data.variables.product.prodname_dotcom }} 上で、ツードット diff を比較する際に 2 つの committish のリファレンスを見たい場合には、リポジトリの [Comparing changes] ページの URL を編集できます。 詳しい情報については _Pro Git_ ブックサイトの [Git 用語集の "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) を参照してください。
+{% data variables.product.prodname_dotcom %} 上で、ツードット diff を比較する際に 2 つの committish のリファレンスを見たい場合には、リポジトリの [Comparing changes] ページの URL を編集できます。 詳しい情報については _Pro Git_ ブックサイトの [Git 用語集の "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) を参照してください。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-ツードット diff は SHA あるいは OID (Object ID) など、2 つの Git の committish 参照を直接互いに比較します。 {{ site.data.variables.product.prodname_dotcom }} では、ツードット diff での比較中の Git の committish 参照は、同じリポジトリあるいはそのフォークにプッシュされなければなりません。
+ツードット diff は SHA あるいは OID (Object ID) など、2 つの Git の committish 参照を直接互いに比較します。 {% data variables.product.prodname_dotcom %} では、ツードット diff での比較中の Git の committish 参照は、同じリポジトリあるいはそのフォークにプッシュされなければなりません。
 
 プルリクエスト中でツードット diff をシミュレートし、各ブランチの最新バージョン同士の比較を見たい場合には、ベースブランチをトピックブランチにマージできます。そうすれば、ブランチ間の最後の共通の祖先が更新されます。
 

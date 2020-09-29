@@ -16,24 +16,24 @@ versions:
 
 ### About release management
 
-You can also publish an action from a specific release in {{ site.data.variables.product.prodname_marketplace }}. For more information, see "[Publishing an action in the {{ site.data.variables.product.prodname_marketplace }}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[Publishing an action in the {% data variables.product.prodname_marketplace %}](/actions/creating-actions/publishing-actions-in-github-marketplace)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) objects are included in the ZIP files and tarballs that {{ site.data.variables.product.product_name }} creates for each release. For more information, see "[Managing {{ site.data.variables.large_files.product_name_short }} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### Einen Release erstellen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Klicke auf **Draft a new release** (Einen neuen Release entwerfen). ![Schaltfläche für Release-Entwurf](/assets/images/help/releases/draft_release_button.png)
 4. Gib eine Versionsnummer für Deinen Release ein. Die Versionen basieren auf [Git-Tags](https://git-scm.com/book/en/Git-Basics-Tagging). Wir empfehlen Tags so zu benennen, dass sie zur [semantische Versionierung](http://semver.org/) passen. ![Tag-Version für Release](/assets/images/help/releases/releases-tag-version.png)
 5. Benutze des Dropdownmenü um den Branch zu wählen, der das Projekt enthält, das Du freigeben willst. ![Tag-Branch für Releases](/assets/images/help/releases/releases-tag-branch.png)
@@ -46,8 +46,8 @@ Du kannst auch automatisch einem Release aus der Kommandozeile oder in einem Skr
 
 ### Eine Veröffentlichung bearbeiten
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Klicke rechts auf der Seite neben dem Release, den Du bearbeiten willst, auf **Edit release** (Release bearbeiten). ![Einen Release bearbeiten](/assets/images/help/releases/edit-release.png)
 4. Bearbeite im Formular die Details für den Release, dann klicke auf **Update release** (Release aktualisieren). ![Einen Release aktualisieren](/assets/images/help/releases/update-release.png)
 
@@ -55,8 +55,8 @@ Du kannst auch automatisch einem Release aus der Kommandozeile oder in einem Skr
 
 Du musst alle an einen Release angehängten binären Dateien entfernen, bevor Du den Release löschen kannst.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Klicke auf den Namen des Release, den Du löschen willst. ![Link zur Ansicht des Release](/assets/images/help/releases/release-name-link.png)
 4. Klicke in der oberen rechte Ecke der Seite auf **Delete** (Löschen). ![Schaltfläche „Delete release" (Release löschen)](/assets/images/help/releases/delete-release.png)
 5. Klicke auf **Delete this release** (Lösche diesen Release). ![Das Löschen des Release bestätigen](/assets/images/help/releases/confirm-delete-release.png)

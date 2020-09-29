@@ -21,14 +21,14 @@ When you create issue templates for your repository using the issue template bui
 Using the template builder, you can specify a title and description for each template, add the template content, and either commit the template to the default branch or open a pull request in the repository. The template builder automatically adds the YAML front matter markup that is required for the template to show on the new issue page. For more information, see "[Configuring issue templates for your repository](/articles/configuring-issue-templates-for-your-repository)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a *.md* extension. {{ site.data.reusables.repositories.valid-community-issues }}
+Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a *.md* extension. {% data reusables.repositories.valid-community-issues %}
 
 It is possible to manually create a single issue template in Markdown using the legacy issue template workflow, and project contributors will automatically see the template's contents in the issue body. However, we recommend using the upgraded multiple issue template builder to create issue templates. For more information about the legacy workflow, see "[Manually creating a single issue template for your repository](/articles/manually-creating-a-single-issue-template-for-your-repository)."
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Pull request templates
 

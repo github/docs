@@ -1,6 +1,6 @@
 ---
 title: Criar um selo personalizado para o seu aplicativo GitHub
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_github_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_github_apps %}'
 redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
 versions:
@@ -24,10 +24,10 @@ Você pode alterar um selo personalizado para um aplicativo GitHub que já possu
 
 Para criar um selo personalizado:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
-{{ site.data.reusables.user-settings.modify_github_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+{% data reusables.user-settings.modify_github_app %}
 5. Em "Exibir informações", arraste e solte uma imagem de uma pasta local ou clique em **Fazer upload de um logotipo** para selecionar uma imagem do seu computador. ![Faça o upload de um logotipo](/assets/images/github-apps/github_apps_upload_logo.png)
 6. Recorte sua imagem. Ao terminar, clique em **Definir novo avatar**. ![Corte e defina o logotipo ](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
 7. Em "Cor de fundo do selo", digite o [código de cor hexadecimal](http://www.color-hex.com/) da cor de fundo para o seu selo. {% if currentVersion == "free-pro-team@latest" %}**Observação:** O campo de entrada da "Cor de fundo do selo" só aparecerá depois que você fizer o upload de um logo tipo do aplicativo.{% endif %} ![Cor de fundo do selo](/assets/images/github-apps/github_apps_badge_background_color.png)

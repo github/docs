@@ -1,6 +1,6 @@
 ---
 title: 群集网络配置
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 集群依靠正确的 DNS 名称解析、负载均衡以及节点之间的通信来正常运行。'
+intro: '{% data variables.product.prodname_ghe_server %} 集群依靠正确的 DNS 名称解析、负载均衡以及节点之间的通信来正常运行。'
 redirect_from:
   - /enterprise/admin/clustering/network-configuration
   - /enterprise/admin/clustering/cluster-network-configuration
@@ -77,17 +77,17 @@ versions:
  - 应将 TCP 端口（如下所示）转发到运行 `web-server` 服务的节点。 这些是提供外部客户端请求的唯一节点。
  - 不应启用粘性会话。
 
-{{ site.data.reusables.enterprise_installation.terminating-tls }}
+{% data reusables.enterprise_installation.terminating-tls %}
 
 ### 处理客户端连接信息
 
 由于客户端与集群的连接来自负载均衡器，因此客户端 IP 地址可能会丢失。 要正确捕获客户端连接信息，需要考虑其他因素。
 
-{{ site.data.reusables.enterprise_clustering.proxy_preference }}
+{% data reusables.enterprise_clustering.proxy_preference %}
 
-{{ site.data.reusables.enterprise_clustering.proxy_xff_firewall_warning }}
+{% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### 在 {{ site.data.variables.product.prodname_ghe_server }} 上启用 PROXY 支持
+#### 在 {% data variables.product.prodname_ghe_server %} 上启用 PROXY 支持
 
 我们强烈建议您为实例和负载均衡器启用 PROXY 支持。
 
@@ -97,11 +97,11 @@ versions:
   ```
   - 对于负载均衡器，请使用供应商提供的说明。
 
-  {{ site.data.reusables.enterprise_clustering.proxy_protocol_ports }}
+  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### 在 {{ site.data.variables.product.prodname_ghe_server }} 上启用 X-Forwarded-For 支持
+#### 在 {% data variables.product.prodname_ghe_server %} 上启用 X-Forwarded-For 支持
 
-{{ site.data.reusables.enterprise_clustering.x-forwarded-for }}
+{% data reusables.enterprise_clustering.x-forwarded-for %}
 
 要启用 `X-Fowarded-For` 标头，请使用以下命令：
 
@@ -109,14 +109,14 @@ versions:
 $ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
-{{ site.data.reusables.enterprise_clustering.without_proxy_protocol_ports }}
+{% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 #### 配置状态检查
 如果预配置的检查在该节点上失败，则状态检查允许负载均衡器停止向未响应的节点发送流量。 如果集群节点出现故障，则与冗余节点配对的状态检查可提供高可用性。
 
-{{ site.data.reusables.enterprise_clustering.health_checks }}
-{{ site.data.reusables.enterprise_site_admin_settings.maintenance-mode-status }}
+{% data reusables.enterprise_clustering.health_checks %}
+{% data reusables.enterprise_site_admin_settings.maintenance-mode-status %}
 
 ### DNS 要求
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_dns %}

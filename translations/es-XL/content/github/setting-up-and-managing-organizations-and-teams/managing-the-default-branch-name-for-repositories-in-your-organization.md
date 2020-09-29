@@ -8,18 +8,18 @@ versions:
 
 ### Acerca del nombre de la rama predeterminada
 
-Cuando un miembro de tu organización crea un repositorio nuevo, {{ site.data.variables.product.prodname_dotcom }} creará una sola rama y la configurará como la rama predeterminada del repositorio. Actualmente, {{ site.data.variables.product.prodname_dotcom }} nombra a la rama predeterminada como `master`, pero puedes configurarla para que se llame como quieras de acuerdo con tu ambiente de desarrollo.
+Cuando un miembro de tu organización crea un repositorio nuevo, {% data variables.product.prodname_dotcom %} creará una sola rama y la configurará como la rama predeterminada del repositorio. Actualmente, {% data variables.product.prodname_dotcom %} nombra a la rama predeterminada como `master`, pero puedes configurarla para que se llame como quieras de acuerdo con tu ambiente de desarrollo.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Configurar el nombre de la rama predeterminada
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 3. Debajo de "Rama predeterminada del repositorio", da clic en **Cambiar el nombre de la rama predeterminada ahora**. ![Botón de ignorar](/assets/images/help/organizations/repo-default-name-button.png)
     {% note %}
 

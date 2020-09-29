@@ -1,7 +1,7 @@
 ---
 title: 可视化仓库中的提交
 intro: 您可以在提交图中查看过去一年里对仓库进行的所有提交（不包括合并提交）。
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-commits-in-a-repository
 versions:
@@ -19,6 +19,6 @@ versions:
 
 ### 访问提交图
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Commits（提交）**。 ![提交选项卡](/assets/images/help/graphs/commits_tab.png)

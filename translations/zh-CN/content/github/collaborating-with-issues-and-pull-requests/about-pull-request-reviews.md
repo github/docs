@@ -27,19 +27,19 @@ versions:
 
 ![审查状态图像](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 您可以在“对话”时间表中查看拉取请求收到的所有审查，也可在拉取请求的合并框中按仓库所有者和协作者查看审查。
 
 ![合并框中的审查图像](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### 必要的审查
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 更多信息请参阅“[关于拉取请求的必需审查](/articles/about-required-reviews-for-pull-requests)”。
 

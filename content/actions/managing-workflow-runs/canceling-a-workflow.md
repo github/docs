@@ -1,29 +1,29 @@
 ---
 title: Canceling a workflow
-intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {{ site.data.variables.product.prodname_dotcom }} cancels all jobs and steps that are a part of that workflow.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'You can cancel a workflow run that is in progress. When you cancel a workflow run, {% data variables.product.prodname_dotcom %} cancels all jobs and steps that are a part of that workflow.'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-{{ site.data.reusables.repositories.permissions-statement-write }}
+{% data reusables.repositories.permissions-statement-write %}
 
 ### Canceling a workflow run
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. In the upper-right corner of the workflow, click **Cancel workflow**.
  ![Cancel check suite button](/assets/images/help/repository/cancel-check-suite.png)
 
-### Steps {{ site.data.variables.product.prodname_dotcom }} takes to cancel a workflow run
+### Steps {% data variables.product.prodname_dotcom %} takes to cancel a workflow run
 
-When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {{ site.data.variables.product.prodname_dotcom }} performs to cancel a workflow run.
+When canceling workflow run, you may be running other software that uses resources that are related to the workflow run. To help you free up resources related to the workflow run, it may help to understand the steps {% data variables.product.prodname_dotcom %} performs to cancel a workflow run.
 
 1. To cancel the workflow run, the server re-evaluates `if` conditions for all currently running jobs. If the condition evaluates to `true`, the job will not get canceled. For example, the condition `if: always()` would evaluate to true and the job continues to run. When there is no condition, that is the equivalent of the condition `if: success()`, which only runs if the previous step finished successfully.
 2. For jobs that need to be canceled, the server sends a cancellation message to all the runner machines with jobs that need to be canceled.

@@ -16,7 +16,7 @@ Para incluir rapidamente mais de uma alteração sugerida em um único commit, t
 
 Cada pessoa que sugeriu uma alteração incluída no commit será uma coautora do commit. A pessoa que aplica as alterações sugeridas será uma coautora e committer do commit. Para obter mais informações sobre o termo committer no Git, consulte "[Básido do Git - visualizar o histórico de commits](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)" no site do livro _Pro Git_.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique naquela que você gostaria de aplicar a alteração sugerida.
 3. Navegue até a primeira alteração sugerida que você gostaria de aplicar.
     - Para aplicar a alteração no próprio commit dela, clique em **Commit suggestion** (Fazer commit da sugestão). ![Botão Commit suggestion (Fazer commit de sugestão)](/assets/images/help/pull_requests/commit-suggestion-button.png)

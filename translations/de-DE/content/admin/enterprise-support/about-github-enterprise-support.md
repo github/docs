@@ -1,6 +1,6 @@
 ---
 title: Informationen zum Github Enterprise-Support
-intro: 'Der {{ site.data.variables.product.prodname_ghe_server }}-Support kann Ihnen bei der Behebung von Problemen helfen, die auf Ihrer {{ site.data.variables.product.prodname_ghe_server }}-Appliance auftreten.'
+intro: 'Der {% data variables.product.prodname_ghe_server %}-Support kann Ihnen bei der Behebung von Problemen helfen, die auf Ihrer {% data variables.product.prodname_ghe_server %}-Appliance auftreten.'
 redirect_from:
   - /enterprise/admin/enterprise-support/about-github-enterprise-support
 versions:
@@ -9,19 +9,19 @@ versions:
 
 {% note %}
 
-**Hinweis**: {{ site.data.reusables.support.data-protection-and-privacy }}
+**Hinweis**: {% data reusables.support.data-protection-and-privacy %}
 
 {% endnote %}
 
-### Informationen zum {{ site.data.variables.contact.enterprise_support }}
+### Informationen zum {% data variables.contact.enterprise_support %}
 
-{{ site.data.variables.product.prodname_ghe_server }} umfasst {{ site.data.variables.contact.enterprise_support }} auf Englisch und Japanisch.
+{% data variables.product.prodname_ghe_server %} umfasst {% data variables.contact.enterprise_support %} auf Englisch und Japanisch.
 
-Sie können den {{ site.data.variables.contact.enterprise_support }} über unser Supportportal kontaktieren, um Hilfe bei folgenden Themen zu erhalten:
- - Installation und Verwendung von {{ site.data.variables.product.prodname_ghe_server }}
+Sie können den {% data variables.contact.enterprise_support %} über unser Supportportal kontaktieren, um Hilfe bei folgenden Themen zu erhalten:
+ - Installation und Verwendung von {% data variables.product.prodname_ghe_server %}
  - Identifizierung und Überprüfung der Ursachen von vermuteten Fehlern
 
-Zusätzlich zu den Vorteilen des {{ site.data.variables.contact.enterprise_support }}s bietet Ihnen der {{ site.data.variables.contact.premium_support }} Folgendes:
+Zusätzlich zu den Vorteilen des {% data variables.contact.enterprise_support %}s bietet Ihnen der {% data variables.contact.premium_support %} Folgendes:
   - Schriftlicher Support rund um die Uhr über unser Supportportal
   - Telefonischer Support rund um die Uhr
   - Service Level Agreement (SLA) mit garantierten Antwortzeiten
@@ -29,13 +29,13 @@ Zusätzlich zu den Vorteilen des {{ site.data.variables.contact.enterprise_suppo
   - Geplante Zustandsprüfungen
   - Verwaltete Dienste
 
-Weitere Informationen finden Sie unter „[Informationen zum {{ site.data.variables.contact.premium_support }} für {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
+Weitere Informationen finden Sie unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
 
-{{ site.data.reusables.support.scope-of-support }}
+{% data reusables.support.scope-of-support %}
 
-### {{ site.data.variables.contact.enterprise_support }} kontaktieren
+### {% data variables.contact.enterprise_support %} kontaktieren
 
-Kunden des {{ site.data.variables.contact.enterprise_support }} können das {{ site.data.variables.contact.contact_enterprise_portal }} verwenden, um Probleme schriftlich zu melden.
+Kunden des {% data variables.contact.enterprise_support %} können das {% data variables.contact.contact_enterprise_portal %} verwenden, um Probleme schriftlich zu melden.
 
 ### Geschäftszeiten
 
@@ -49,7 +49,7 @@ Für dringende Probleme stehen wir 24 Stunden am Tag, 7 Tage die Woche zur Verf�
 
 Bei nicht dringenden Problemen ist der Support auf Japanisch von Montag bis Freitag von 9:00 bis 17:00 Uhr JST verfügbar, außer an nationalen Feiertagen in Japan. For urgent issues, we offer support in English 24 hours per day, 7 days per week, even during national U.S. holidays.
 
-For a complete list of U.S. Eine vollständige Liste der vom {{ site.data.variables.contact.enterprise_support }} wahrgenommenen nationalen Feiertage in den USA und Japan finden Sie unter „[Feiertagsübersicht](#holiday-schedules)“.
+For a complete list of U.S. Eine vollständige Liste der vom {% data variables.contact.enterprise_support %} wahrgenommenen nationalen Feiertage in den USA und Japan finden Sie unter „[Feiertagsübersicht](#holiday-schedules)“.
 
 ### Feiertagsübersicht
 
@@ -57,7 +57,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 #### Feiertage in den USA
 
-{{ site.data.variables.contact.enterprise_support }} beobachtet diese Feiertage in den USA. dessen ungeachtet steht unser Support-Team zur Verfügung, um dringende Tickets zu beantworten.
+{% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. dessen ungeachtet steht unser Support-Team zur Verfügung, um dringende Tickets zu beantworten.
 
 | U.S. Weihnachtsfeiertag | Beobachtetes Datum             | Datum in {{ "now:%Y" }} |
 | ----------------------- | ------------------------------ | ----------------------- |
@@ -77,26 +77,26 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 #### Feiertage in Japan
 
-{{ site.data.variables.contact.enterprise_support }} bietet keine japanischsprachige Unterstützung vom 28. Dezember bis 3. Januar sowie an den in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html) aufgelisteten Feiertagen.
+{% data variables.contact.enterprise_support %} bietet keine japanischsprachige Unterstützung vom 28. Dezember bis 3. Januar sowie an den in [国民の祝日について - 内閣府](https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html) aufgelisteten Feiertagen.
 
-{{ site.data.reusables.enterprise_enterprise_support.installing-releases }}
+{% data reusables.enterprise_enterprise_support.installing-releases %}
 
 ### Einem Support-Ticket eine Priorität zuweisen
 
-Wenn Du den {{ site.data.variables.contact.enterprise_support }} kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: „{{ site.data.variables.product.support_ticket_priority_urgent }}“ (dringend), „{{ site.data.variables.product.support_ticket_priority_high }}“ (hoch), „{{ site.data.variables.product.support_ticket_priority_normal }}“ (normal) oder „{{ site.data.variables.product.support_ticket_priority_low }}“ (niedrig).
+Wenn Du den {% data variables.contact.enterprise_support %} kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: „{% data variables.product.support_ticket_priority_urgent %}“ (dringend), „{% data variables.product.support_ticket_priority_high %}“ (hoch), „{% data variables.product.support_ticket_priority_normal %}“ (normal) oder „{% data variables.product.support_ticket_priority_low %}“ (niedrig).
 
-{{ site.data.reusables.support.github-can-modify-ticket-priority }}
+{% data reusables.support.github-can-modify-ticket-priority %}
 
-{{ site.data.reusables.support.ghes-priorities }}
+{% data reusables.support.ghes-priorities %}
 
 ### Support-Tickets lösen und schließen
 
-{{ site.data.reusables.support.enterprise-resolving-and-closing-tickets }}
+{% data reusables.support.enterprise-resolving-and-closing-tickets %}
 
 ### Weiterführende Informationen
 
-- [Häufig gestellte Fragen zu {{ site.data.variables.product.prodname_ghe_server }}](https://enterprise.github.com/faq)
-- Abschnitt 10 zum Support in der „[{{ site.data.variables.product.prodname_ghe_server }}-Lizenzvereinbarung](https://enterprise.github.com/license)“
-- „[{{ site.data.variables.contact.github_support }} erreichen](/enterprise/admin/guides/enterprise-support/reaching-github-support)“
+- [Häufig gestellte Fragen zu {% data variables.product.prodname_ghe_server %}](https://enterprise.github.com/faq)
+- Abschnitt 10 zum Support in der „[{% data variables.product.prodname_ghe_server %}-Lizenzvereinbarung](https://enterprise.github.com/license)“
+- „[{% data variables.contact.github_support %} erreichen](/enterprise/admin/guides/enterprise-support/reaching-github-support)“
 - „[Absenden eines Tickets vorbereiten](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)“
 - „[Ticket absenden](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)“

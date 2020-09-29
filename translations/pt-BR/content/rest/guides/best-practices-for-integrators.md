@@ -1,6 +1,6 @@
 ---
 title: Práticas recomendadas para integradores
-intro: 'Crie um aplicativo que interage de forma confiável com a API do {{ site.data.variables.product.prodname_dotcom }} e fornece a melhor experiência para seus usuários.'
+intro: 'Crie um aplicativo que interage de forma confiável com a API do {% data variables.product.prodname_dotcom %} e fornece a melhor experiência para seus usuários.'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators

@@ -1,6 +1,6 @@
 ---
 title: Fazer checkout de pull requests no local
-intro: 'Quando alguém envia a você uma pull request de uma bifurcação ou um branch do seu repositório, talvez você queira fazer merge dela no local para resolver um conflito de merge ou para testar e verificar as alterações antes de fazer merge no {{ site.data.variables.product.product_name }}.'
+intro: 'Quando alguém envia a você uma pull request de uma bifurcação ou um branch do seu repositório, talvez você queira fazer merge dela no local para resolver um conflito de merge ou para testar e verificar as alterações antes de fazer merge no {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
 permissions: Qualquer pessoa com acesso de gravação a um repositório pode derrubar uma pull request remota localmente.
@@ -17,24 +17,24 @@ versions:
 
 ### Modificar uma pull request ativa no local
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request que você gostaria de modificar.{% if currentVersion == "free-pro-team@latest" %}
 3. Para escolher onde você gostaria de abrir a pull request, selecione **Abrir com o menu suspenso {% octicon "triangle-down" aria-label="The down triangle icon" %}** e clique em uma das abas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Na caixa de merge, clique em **instruções para linha de comando**. Siga a sequência de etapas para rebaixar a pull request proposta. ![Link para acessar instruções de pull request da linha de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. Como opção, para exibir as alterações propostas no {{ site.data.variables.product.prodname_desktop }}, clique em **abrir em {{ site.data.variables.product.prodname_desktop }}**. ![Link para abrir uma pull request localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+4. Como opção, para exibir as alterações propostas no {% data variables.product.prodname_desktop %}, clique em **abrir em {% data variables.product.prodname_desktop %}**. ![Link para abrir uma pull request localmente no Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 ### Modificar uma pull request inativa no local
 
 Se o autor de uma pull request não responde às solicitações ou excluiu sua bifurcação, a pull request ainda poderá ser mesclada. No entanto, se quiser fazer alterações em uma pull request e o autor não estiver respondendo, será preciso executar algumas etapas adicionais para atualizar a pull request.
 
-Depois que uma pull request for aberta, {{ site.data.variables.product.product_name }} armazena todas as alterações remotamente. Em outras palavras, os commits em uma pull request estão disponíveis em um repositório mesmo antes da pull request sofrer merge. Isso significa que é possível fazer fetch de uma pull request aberta e recriá-la como sua própria.
+Depois que uma pull request for aberta, {% data variables.product.product_name %} armazena todas as alterações remotamente. Em outras palavras, os commits em uma pull request estão disponíveis em um repositório mesmo antes da pull request sofrer merge. Isso significa que é possível fazer fetch de uma pull request aberta e recriá-la como sua própria.
 
 Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar trabalhando nela, testá-la ou, até mesmo, abrir uma nova pull request com alterações adicionais. No entanto, somente colaboradores com acesso push podem fazer merge de pull requests.
 
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. Na lista "Pull Requests", clique na pull request da qual deseja fazer merge.
 3. Encontre o número da ID da pull request inativa. Essa é a sequência de dígitos certa após o título da pull request. ![Número da ID de pull requests](/assets/images/help/pull_requests/pull_request_id_number.png)
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 5. Faça fetch da referência à pull request com base no número da ID, criando um branch no processo.
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -53,7 +53,7 @@ Qualquer pessoa pode abrir uma pull request anteriormente aberta para continuar 
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>repository</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
 9. [Crie uma pull request](/articles/creating-a-pull-request) com seu novo branch.

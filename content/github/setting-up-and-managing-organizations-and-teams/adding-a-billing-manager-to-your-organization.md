@@ -32,7 +32,7 @@ Billing managers **are not** able to:
 - Create or access repositories in your organizations
 - See private members of your organization
 - Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {{ site.data.variables.product.prodname_marketplace }} apps
+- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
 
 {% tip %}
 
@@ -44,10 +44,10 @@ Billing managers **are not** able to:
 
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. Next to Billing managers, click **Add a billing manager**.
   ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Type the username or email address of the person you want to add and click **Send invitation**.

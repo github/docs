@@ -1,14 +1,14 @@
 ---
 title: Crear una acción para pasos de ejecución compuestos
 intro: En esta guía aprenderás cómo crear una acción para los pasos de ejecución compuestos.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introducción
 
@@ -18,9 +18,9 @@ Una vez que completes este proyecto, deberás entender cómo construir tu accion
 
 ### Prerrequisitos
 
-Antes de que comiences, crearás un repositorio de {{ site.data.variables.product.product_name }}.
+Antes de que comiences, crearás un repositorio de {% data variables.product.product_name %}.
 
-1. Crea un repositorio público nuevo en {{ site.data.variables.product.product_location }}. Puedes elegir cualquier nombre de repositorio o utilizar el siguiente ejemplo de `hello-world-composite-run-steps-action`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {{ site.data.variables.product.product_name }}. Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
+1. Crea un repositorio público nuevo en {% data variables.product.product_location %}. Puedes elegir cualquier nombre de repositorio o utilizar el siguiente ejemplo de `hello-world-composite-run-steps-action`. Puedes agregar estos archivos después de que tu proyecto se haya subido a {% data variables.product.product_name %}. Para obtener más información, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)".
 
 1. Clona el repositorio en tu computadora. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 

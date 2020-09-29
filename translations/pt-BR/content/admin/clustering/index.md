@@ -1,7 +1,7 @@
 ---
 title: Configurar e gerenciar um cluster para o GitHub Enterprise Server
 shortTitle: Clustering
-intro: 'Este guia descreve como trabalhar com seu representante de conta para determinar se o clustering do {{ site.data.variables.product.prodname_enterprise }} é uma boa solução para a sua organização. O guia também mostra como configurar um cluster.'
+intro: 'Este guia descreve como trabalhar com seu representante de conta para determinar se o clustering do {% data variables.product.prodname_enterprise %} é uma boa solução para a sua organização. O guia também mostra como configurar um cluster.'
 redirect_from:
   - /enterprise/admin/clustering
 versions:

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 您可以过滤议题和拉取请求以查找：
 - 所有打开的议题和拉取请求
@@ -16,10 +16,10 @@ versions:
 - 分配给您的议题和拉取请求
 - [**@提及**](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)您的议题和拉取请求
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. 单击 **Filters（过滤器）**以选择您感兴趣的过滤器类型。 ![使用过滤器下拉菜单](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ### 延伸阅读

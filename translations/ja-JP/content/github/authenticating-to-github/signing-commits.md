@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +34,13 @@ Git バージョン 2.0.0 以降で、ローカルリポジトリでデフォル
   # 署名済みのコミットを作成する
   ```
 2. コミットの作成後にGPGを使っている場合、設定したパスフレーズをGPGキーを作成する時に提供します。
-3. ローカルでのコミット作成が完了したら、{{ site.data.variables.product.product_name }} 上のリモートリポジトリにプッシュします。
+3. ローカルでのコミット作成が完了したら、{% data variables.product.product_name %} 上のリモートリポジトリにプッシュします。
   ```shell
   $ git push
   # ローカルコミットをリモートリポジトリにプッシュする
   ```
-4. {{ site.data.variables.product.product_name }}上で、プルリクエストに移動します。
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. {% data variables.product.product_name %}上で、プルリクエストに移動します。
+{% data reusables.repositories.review-pr-commits %}
 5. ベリファイされた署名の詳しい情報を見るには、Verifiedをクリックします。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### 参考リンク

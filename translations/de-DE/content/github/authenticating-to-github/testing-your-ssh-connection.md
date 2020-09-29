@@ -1,6 +1,6 @@
 ---
 title: SSH-Verbindung testen
-intro: 'Wenn Du Deinen SSH-Schlüssel eingerichtet und Deinem {{ site.data.variables.product.product_name }}-Konto hinzugefügt hast, kannst Du die Verbindung testen.'
+intro: 'Wenn Du Deinen SSH-Schlüssel eingerichtet und Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du die Verbindung testen.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
@@ -15,17 +15,17 @@ Vor dem Test Deiner SSH-Verbindung solltest Du:
 
 Für den Test Deiner Verbindung musst Du diese Aktion mit Deinem Passwort authentifizieren, welches der zuvor erstellten SSH-Schlüssel-Passphrase entspricht. Weitere Informationen zur Verwendung von SSH-Schlüssel-Passphrasen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/articles/working-with-ssh-key-passphrases)“.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Gib den folgenden Befehl ein:
   ```shell
-  $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
-  # versucht ssh zu {{ site.data.variables.product.product_name }}
+  $ ssh -T git@{% data variables.command_line.codeblock %}
+  # versucht ssh zu {% data variables.product.product_name %}
   ```
 
   Eventuell erhälst Du eine Warnung wie die folgende:
 
   ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
   > Are you sure you want to continue connecting (yes/no)?
   ```
@@ -33,7 +33,7 @@ Für den Test Deiner Verbindung musst Du diese Aktion mit Deinem Passwort authen
   oder wie diese:
 
   ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```

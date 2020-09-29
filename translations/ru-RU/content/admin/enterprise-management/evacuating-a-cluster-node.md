@@ -25,7 +25,7 @@ If you're taking a node offline that has any data services (like git, pages, or 
     ```
     ghe-spokes evac-status
     ```
-    For {{ site.data.variables.product.prodname_pages }}
+    For {% data variables.product.prodname_pages %}
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
@@ -40,7 +40,7 @@ If you're taking a node offline that has any data services (like git, pages, or 
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
-    For {{ site.data.variables.product.prodname_pages }}
+    For {% data variables.product.prodname_pages %}
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```

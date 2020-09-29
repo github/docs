@@ -8,25 +8,25 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. Führen Sie den Befehl `ghe-migrator add` mit der URL des Repositorys aus, um ein Repository auf den Export vorzubereiten:
     * Hängen Sie beim Sperren des Repositorys dem Befehl `--lock` an. Wenn Sie einen Probelauf ausführen, ist `--lock` nicht erforderlich.
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
-    * Dateianhänge können ausgeschlossen werden. Hängen Sie dazu dem Befehl `--exclude_attachments` an. {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }}
+    * Dateianhänge können ausgeschlossen werden. Hängen Sie dazu dem Befehl `--exclude_attachments` an. {% data reusables.enterprise_migrations.exclude-file-attachments %}
     * Um mehrere Repositorys gleichzeitig für den Export vorzubereiten, erstellen Sie eine Textdatei, in der die URL jedes Repositorys in einer separaten Zeile aufgelistet wird, und führen Sie den Befehl `ghe-migrator add` mit dem Flag `-i` und dem Pfad zu Ihrer Textdatei aus.
       ```shell
       $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
       ```
 
-3. Geben Sie Ihren {{ site.data.variables.product.prodname_ghe_server }}-Benutzernamen ein, wenn Sie dazu aufgefordert werden:
+3. Geben Sie Ihren {% data variables.product.prodname_ghe_server %}-Benutzernamen ein, wenn Sie dazu aufgefordert werden:
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. Geben Sie das unter „[{{ site.data.variables.product.prodname_ghe_server }}-Quellinstanz vorbereiten](/enterprise/admin/guides/migrations/preparing-the-github-enterprise-server-source-instance/)“ von Ihnen erstellte Zugriffstoken ein, wenn Sie zur Eingabe eines persönlichen Zugriffstokens aufgefordert werden:
+4. Geben Sie das unter „[{% data variables.product.prodname_ghe_server %}-Quellinstanz vorbereiten](/enterprise/admin/guides/migrations/preparing-the-github-enterprise-server-source-instance/)“ von Ihnen erstellte Zugriffstoken ein, wenn Sie zur Eingabe eines persönlichen Zugriffstokens aufgefordert werden:
   ```shell
   Enter personal access token:  **************
   ```
@@ -69,9 +69,9 @@ versions:
     $ ghe-migrator export -g <em>MIGRATION_GUID</em>
     > Archive saved to: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
     ```
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Schließen Sie die Verbindung zu {{ site.data.variables.product.product_location_enterprise }}:
+8. Schließen Sie die Verbindung zu {% data variables.product.product_location_enterprise %}:
   ```shell
   $ exit
   > logout
@@ -81,4 +81,4 @@ versions:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

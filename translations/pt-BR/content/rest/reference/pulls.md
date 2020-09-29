@@ -26,7 +26,7 @@ For more information, see "[Custom media types](/rest/overview/media-types)."
 
 <a id="diff-error">
 
-If a diff is corrupt, contact {{ site.data.variables.contact.contact_support }}. Include the repository name and pull request ID in your message.
+If a diff is corrupt, contact {% data variables.contact.contact_support %}. Include the repository name and pull request ID in your message.
 
 ### Link Relations
 

@@ -1,7 +1,7 @@
 ---
 title: Configurar Gradle para usar con paquetes de GitHub
-intro: 'Puedes configurar Gradle para publicar paquetes para {{ site.data.variables.product.prodname_registry }} y utilizar paquetes almacenados en {{ site.data.variables.product.prodname_registry }} como dependencias en un proyecto Java.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'Puedes configurar Gradle para publicar paquetes para {% data variables.product.prodname_registry %} y utilizar paquetes almacenados en {% data variables.product.prodname_registry %} como dependencias en un proyecto Java.'
+product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-gradle-for-use-with-github-package-registry
   - /github/managing-packages-with-github-package-registry/configuring-gradle-for-use-with-github-package-registry
@@ -11,29 +11,29 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
-**Nota:** Cuando instalas o publicas una imagen de docker, {{ site.data.variables.product.prodname_registry }} no es compatible con capas externas, tales como imágenes de Windows.
+**Nota:** Cuando instalas o publicas una imagen de docker, {% data variables.product.prodname_registry %} no es compatible con capas externas, tales como imágenes de Windows.
 
-### Autenticar a {{ site.data.variables.product.prodname_registry }}
+### Autenticar a {% data variables.product.prodname_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-packages }}
+{% data reusables.package_registry.authenticate-packages %}
 
 #### Autenticando con un token de acceso personal
 
-{{ site.data.reusables.package_registry.required-scopes }}
+{% data reusables.package_registry.required-scopes %}
 
-Puedes autenticar a {{ site.data.variables.product.prodname_registry }} con Gradle usando ya sea Gradle Groovy o Kotlin DSL editando tu archivo *build.gradle* (Gradle Groovy) o archivo *build.gradle.kts* (Kotlin DSL) para incluir tu token de acceso personal. También puedes configurar Gradle Groovy y Kotlin DSL para que reconozcan un paquete único o múltiples paquetes en un repositorio.
+Puedes autenticar a {% data variables.product.prodname_registry %} con Gradle usando ya sea Gradle Groovy o Kotlin DSL editando tu archivo *build.gradle* (Gradle Groovy) o archivo *build.gradle.kts* (Kotlin DSL) para incluir tu token de acceso personal. También puedes configurar Gradle Groovy y Kotlin DSL para que reconozcan un paquete único o múltiples paquetes en un repositorio.
 
 {% if currentVersion != "free-pro-team@latest" %}
-Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {{ site.data.variables.product.prodname_ghe_server }} instance.
+Replace *REGISTRY-URL* with the URL for your instance's Maven registry. If your instance has subdomain isolation enabled, use `maven.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/maven`. In either case, replace *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance.
 {% endif %}
 
-Reemplaza *USERNAME* con tu nombre de usuario {{ site.data.variables.product.prodname_dotcom }}, *TOKEN* con tu token de acceso personal, *REPOSITORY* con el nombre del repositorio que contiene el paquete que deseas publicar y *OWNER* con el nombre de la cuenta de usuario o de organización en {{ site.data.variables.product.prodname_dotcom }} que posee el repositorio. {{ site.data.reusables.package_registry.lowercase-name-field }}
+Reemplaza *USERNAME* con tu nombre de usuario {% data variables.product.prodname_dotcom %}, *TOKEN* con tu token de acceso personal, *REPOSITORY* con el nombre del repositorio que contiene el paquete que deseas publicar y *OWNER* con el nombre de la cuenta de usuario o de organización en {% data variables.product.prodname_dotcom %} que posee el repositorio. {% data reusables.package_registry.lowercase-name-field %}
 
 {% note %}
 
-**Nota:** {{ site.data.reusables.package_registry.apache-maven-snapshot-versions-supported }} Para obtener un ejemplo, consulta "[Configurar Apache Maven para usar con {{ site.data.variables.product.prodname_registry }}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)."
+**Nota:** {% data reusables.package_registry.apache-maven-snapshot-versions-supported %} Para obtener un ejemplo, consulta "[Configurar Apache Maven para usar con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)."
 
 {% endnote %}
 
@@ -170,17 +170,17 @@ publishing {
 
   #### Autenticarse con el `GITHUB_TOKEN`
 
-  {{ site.data.reusables.package_registry.package-registry-with-github-tokens }}
+  {% data reusables.package_registry.package-registry-with-github-tokens %}
 
   Para obtener más información acerca del uso de `GITHUB_TOKEN` con Maven, consulta "[Publicar paquetes Java con Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)".
 
   ### Publicar un paquete
 
-  {{ site.data.reusables.package_registry.default-name }} Por ejemplo, {{ site.data.variables.product.prodname_dotcom }} publicará un paquete denominado `com.example.test` en el repositorio `OWNER/test` {{ site.data.variables.product.prodname_registry }}.
+  {% data reusables.package_registry.default-name %} Por ejemplo, {% data variables.product.prodname_dotcom %} publicará un paquete denominado `com.example.test` en el repositorio `OWNER/test` {% data variables.product.prodname_registry %}.
 
-  {{ site.data.reusables.package_registry.viewing-packages }}
+  {% data reusables.package_registry.viewing-packages %}
 
-  {{ site.data.reusables.package_registry.authenticate-step}}
+  {% data reusables.package_registry.authenticate-step %}
   2. Después de crear tu paquete, puedes publicar el paquete.
 
    ```shell
@@ -191,7 +191,7 @@ publishing {
 
 Puedes instalar un paquete agregando el paquete como una dependencia a tu proyecto. Para obtener más información, consulta "[Declarar dependencias](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" en la documentación de Gradle.
 
-{{ site.data.reusables.package_registry.authenticate-step}}
+{% data reusables.package_registry.authenticate-step %}
 2. Agrega las dependencias del paquete a tu archivo *build.gradle* (Gradle Groovy) o archivo *build.gradle.kts* (Kotlin DSL).
 
   Ejemplo de uso de Grady Groovy:
@@ -230,5 +230,5 @@ Puedes instalar un paquete agregando el paquete como una dependencia a tu proyec
 
 ### Leer más
 
-- "[Configurar Apache Maven para usar con {{ site.data.variables.product.prodname_registry }}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
+- "[Configurar Apache Maven para usar con {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages)"
 - "[Eliminar un paquete](/packages/publishing-and-managing-packages/deleting-a-package/)"

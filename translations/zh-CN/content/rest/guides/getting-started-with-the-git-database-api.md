@@ -1,6 +1,6 @@
 ---
 title: Git 数据库 API 入门指南
-intro: 'Git 数据库 API 使您能够在 {{ site.data.variables.product.product_name }} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新您的引用（分支头部和标记）。'
+intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name %} 上的 Git 数据库中读取和写入原始 Git 对象，并列出和更新您的引用（分支头部和标记）。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ versions:
 
 这基本上允许您通过我们的 API 重新实现大量 Git 功能 - 通过直接在数据库中创建原始对象并更新分支引用，从技术上讲，您可以在不安装 Git 的情况下完成 Git 能做的任何事情。
 
-如果 Git 仓库为空或不可用，Git 数据库 API 函数将返回 `409 Conflict`。  仓库不可用通常意味着 {{ site.data.variables.product.product_name }} 正在创建仓库。 对于空仓库，您可以使用“[创建或更新文件内容](/v3/repos/contents/#create-or-update-file-contents)”端点来创建内容并初始化仓库，以便您可以使用 Git 数据库 API。 如果此响应状态仍然存在，请联系 {{ site.data.variables.contact.contact_support }}。
+如果 Git 仓库为空或不可用，Git 数据库 API 函数将返回 `409 Conflict`。  仓库不可用通常意味着 {% data variables.product.product_name %} 正在创建仓库。 对于空仓库，您可以使用“[创建或更新文件内容](/v3/repos/contents/#create-or-update-file-contents)”端点来创建内容并初始化仓库，以便您可以使用 Git 数据库 API。 如果此响应状态仍然存在，请联系 {% data variables.contact.contact_support %}。
 
 ![git 数据库概述](/assets/images/git-database-overview.png)
 

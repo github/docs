@@ -29,10 +29,10 @@ versions:
 
 *企业所有者*对企业帐户拥有最终权力，可在企业帐户中执行任何操作。 *帐单管理员*可以管理企业帐户的帐单设置。 企业帐户拥有的组织的成员和外部协作者自动成为企业帐户的成员，但他们对企业帐户本身或其设置没有访问权限。 更多信息请参阅“[企业帐户的角色](/articles/roles-for-an-enterprise-account)”。
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### 延伸阅读
 
-- "[{{ site.data.variables.product.prodname_dotcom }} 帐户的类型](/articles/types-of-github-accounts)"
+- "[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)"

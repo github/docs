@@ -1,6 +1,6 @@
 ---
 title: 键盘快捷键
-intro: '几乎 {{ site.data.variables.product.product_name }} 上的每一页都有键盘快捷键，可以更快地执行操作。'
+intro: '几乎 {% data variables.product.product_name %} 上的每一页都有键盘快捷键，可以更快地执行操作。'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### 关于键盘快捷键
 
-在 {{ site.data.variables.product.product_name }} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
+在 {% data variables.product.product_name %} 中输入 <kbd>?</kbd> 可弹出一个对话框，列出可用于该页面的键盘快捷键。 您可以使用这些键盘快捷键对站点执行操作，而无需使用鼠标导航。
 
 下面是一些可用键盘快捷键的列表。
 
@@ -22,7 +22,7 @@ versions:
 
 | 键盘快捷键                       | 描述                                                                                                                                                                                                                                                                                |
 | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {{ site.data.variables.product.company_short }} 上搜索](/articles/about-searching-on-github)”。                                                                                                                                                                  |
+| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。                                                                                                                                                                  |
 | <kbd>g</kbd> <kbd>n</kbd>   | 转到您的通知。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。 |
 | <kbd>esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                                            |
 
@@ -97,7 +97,7 @@ versions:
 | <kbd>q</kbd>                                                | 请求审查者。 更多信息请参阅“[申请拉取请求审查](/articles/requesting-a-pull-request-review/)”。                                                                                |
 | <kbd>m</kbd>                                                | 设置里程碑。 更多信息请参阅“[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests/)”。                                                      |
 | <kbd>l</kbd>                                                | 应用标签。 更多信息请参阅“[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests/)”。                                                                  |
-| <kbd>a</kbd>                                                | 设置受理人。 更多信息请参阅“[分配议题和拉取请求到其他 {{ site.data.variables.product.company_short }} 用户](/articles/assigning-issues-and-pull-requests-to-other-github-users/)”。 |
+| <kbd>a</kbd>                                                | 设置受理人。 更多信息请参阅“[分配议题和拉取请求到其他 {% data variables.product.company_short %} 用户](/articles/assigning-issues-and-pull-requests-to-other-github-users/)”。 |
 | <kbd>cmd + shift + p</kbd> 或 <kbd>control + shift + p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**选项卡之间切换                                                                                                                 |
 
 ### 拉取请求中的更改
@@ -153,7 +153,7 @@ versions:
 | <kbd>esc</kbd> | 关闭卡片预览窗格 |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | 键盘快捷键                                                | 描述                      |
 | ---------------------------------------------------- | ----------------------- |

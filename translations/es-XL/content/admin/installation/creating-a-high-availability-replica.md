@@ -9,8 +9,8 @@ versions:
 
 ### Crear una réplica de alta disponibilidad
 
-1. Configurar un aparato para el {{ site.data.variables.product.prodname_ghe_server }} nuevo en la plataforma que desees. El aparato réplica debe espejar la CPU, la RAM y los ajustes de almacenamiento del aparato principal. Recomendamos que instales el aparato réplica en un entorno separado. El hardward subyacente, el software y los componentes de red deben estar aislados de los del aparato principal. Si estás usando un proveedor de nube, utiliza una región o zona separada. Para obtener más información, consulta ["Configurar una instancia {{ site.data.variables.product.prodname_ghe_server }}"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
-2. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia de {{ site.data.variables.product.prodname_enterprise }}.
+1. Configurar un aparato para el {% data variables.product.prodname_ghe_server %} nuevo en la plataforma que desees. El aparato réplica debe espejar la CPU, la RAM y los ajustes de almacenamiento del aparato principal. Recomendamos que instales el aparato réplica en un entorno separado. El hardward subyacente, el software y los componentes de red deben estar aislados de los del aparato principal. Si estás usando un proveedor de nube, utiliza una región o zona separada. Para obtener más información, consulta ["Configurar una instancia {% data variables.product.prodname_ghe_server %}"](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance).
+2. Desde un navegador, dirígete a la nueva dirección IP del aparato réplica y carga tu licencia de {% data variables.product.prodname_enterprise %}.
 3. Establece una contraseña de administrador que coincida con la contraseña del aparato principal y continúa.
 4. Haz clic en **Configure as Replica** (Configurar como réplica). ![Opciones de instalación con enlace para configurar tu nueva instancia como una réplica](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. En "Add new SSH key" (Agregar nueva clave SSH), escribe tu clave SSH. ![Agrega la clave SSH](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -23,12 +23,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. Para verificar la conexión con la primaria y habilitar el modo de réplica para una nueva réplica, ejecuta nuevamente `ghe-repl-setup`.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. Para verificar el estado de cada canal de replicación del almacén de datos, utiliza el comando `ghe-repl-status`.
   ```shell
   $ ghe-repl-status

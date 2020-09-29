@@ -80,7 +80,7 @@
 - 
   term: Check
   description: >-
-    Ein Check ist eine Art Statusprüfung auf {{ site.data.variables.product.product_name }}. Siehe „[Status checks](#status-Checks)."
+    Ein Check ist eine Art Statusprüfung auf {% data variables.product.product_name %}. Siehe „[Status checks](#status-Checks)."
 - 
   term: Auschecken
   description: >-
@@ -213,7 +213,7 @@
   description: An die E-Mail-Adresse eines Benutzers gesendete Benachrichtigungen.
 - 
   term: Enterprise-Konto
-  description: Enterprise-Konten erlauben Dir die zentrale Verwaltung von Richtlinien und Abrechnungen für mehrere {{ site.data.variables.product.prodname_dotcom_the_website }} Organisationen. {{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: Enterprise-Konten erlauben Dir die zentrale Verwaltung von Richtlinien und Abrechnungen für mehrere {% data variables.product.prodname_dotcom_the_website %} Organisationen. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -665,7 +665,7 @@
 - 
   term: SSH-Schlüssel
   description: >-
-    SSH-Schlüssel sind ein Weg, sich selber gegenüber einem Online-Server mittels einer verschlüsselten Nachricht zu identifizieren. Es ist wie wenn Dein Computer ein eigenes, eindeutiges Passwort für einen anderen Dienst hat. {{ site.data.variables.product.product_name }} verwendet SSH-Schlüssel um Informationen sicher an Deinen Computer zu übermitteln.
+    SSH-Schlüssel sind ein Weg, sich selber gegenüber einem Online-Server mittels einer verschlüsselten Nachricht zu identifizieren. Es ist wie wenn Dein Computer ein eigenes, eindeutiges Passwort für einen anderen Dienst hat. {% data variables.product.product_name %} verwendet SSH-Schlüssel um Informationen sicher an Deinen Computer zu übermitteln.
 - 
   term: Testinstanz
   description: >-

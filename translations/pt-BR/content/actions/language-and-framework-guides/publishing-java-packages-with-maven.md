@@ -1,18 +1,18 @@
 ---
 title: Publicar pacotes Java com Maven
 intro: Você pode usar o Maven para publicar pacotes Java para um registro como parte do seu fluxo de trabalho de integração contínua (CI).
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introdução
 
-{{ site.data.reusables.github-actions.publishing-java-packages-intro }}
+{% data reusables.github-actions.publishing-java-packages-intro %}
 
 ### Pré-requisitos
 
@@ -22,8 +22,8 @@ Para obter mais informações sobre a criação de um fluxo de trabalho de CI pa
 
 Você também pode achar útil ter um entendimento básico do seguinte:
 
-- "[Conceitos básicos para{{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
-- "[Configurar o npm para uso com o {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
+- "[Conceitos básicos para{% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
+- "[Configurar o npm para uso com o {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)"
 - "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 - "[Criar e usar segredos criptografados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)"
 - "[Autenticando com o GITHUB_TOKEN](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)"
@@ -40,7 +40,7 @@ O arquivo _pom.xml_ também contém a configuração para os repositórios de ge
 
 Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `versão` é acionado com o tipo `criado`. O fluxo de trabalho publica o pacote no Repositório Central Maven se o teste de CI for aprovado. Para obter mais informações sobre o evento da `versão`, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#release)".
 
-Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação instala uma determinada versão do JDK no `PATH`, mas também define _settings.xml_ do Maven para publicação de pacotes. Por padrão, o arquivo de configurações será definido como {{ site.data.variables.product.prodname_registry }}. No entanto, ele pode ser configurado para implementar outro registro de pacote, como, por exemplo, o Repositório Central do Maven. Se você já tem um repositório de gerenciamento de distribuição configurado em _pom.xml_, você poderá especificar esse `id` durante a chamada da ação `setup-java`.
+Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação instala uma determinada versão do JDK no `PATH`, mas também define _settings.xml_ do Maven para publicação de pacotes. Por padrão, o arquivo de configurações será definido como {% data variables.product.prodname_registry %}. No entanto, ele pode ser configurado para implementar outro registro de pacote, como, por exemplo, o Repositório Central do Maven. Se você já tem um repositório de gerenciamento de distribuição configurado em _pom.xml_, você poderá especificar esse `id` durante a chamada da ação `setup-java`.
 
 Por exemplo, se você estava implantando no Repositório Central do Maven por meio do projeto de hospedagem OSSRH, seu _pom.xml_ poderia especificar um repositório de gerenciamento de distribuição com o `id` de `ossrh`.
 
@@ -94,21 +94,21 @@ Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Configura o Java JDK e o arquivo _settings.xml_ do Maven para adicionar autenticação ao repositório `ossrh` usando as variáveis de ambiente `MAVEN_USERNAME` e `MAVEN_PASSWORD`.
-1. {{ site.data.reusables.github-actions.publish-to-maven-workflow-step }}
+1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-### Publicar pacotes em {{ site.data.variables.product.prodname_registry }}
+### Publicar pacotes em {% data variables.product.prodname_registry %}
 
-Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `versão` é acionado com o tipo `criado`. O fluxo de trabalho publica o pacote em {{ site.data.variables.product.prodname_registry }} se o teste de CI for aprovado. Para obter mais informações sobre o evento da `versão`, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#release)".
+Cada vez que você criar uma nova versão, você poderá acionar um fluxo de trabalho para publicar o seu pacote. O fluxo de trabalho no exemplo abaixo é executado quando o evento `versão` é acionado com o tipo `criado`. O fluxo de trabalho publica o pacote em {% data variables.product.prodname_registry %} se o teste de CI for aprovado. Para obter mais informações sobre o evento da `versão`, consulte "[Eventos que acionam fluxos de trabalho](/actions/reference/events-that-trigger-workflows#release)".
 
-Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação instala a versão determinada do JDK no `PATH`, e também configura _settings.xml_ do Maven para a publicação {{ site.data.variables.product.prodname_registry }}. O _settings.xml_ gerado define a autenticação para um servidor com um `id` do `github`, usando a variável de ambiente `GITHUB_ACTOR` como o nome de usuário e a variável de ambiente `GITHUB_TOKEN` como a senha.
+Neste fluxo de trabalho, você pode usar a ação `setup-java`. Esta ação instala a versão determinada do JDK no `PATH`, e também configura _settings.xml_ do Maven para a publicação {% data variables.product.prodname_registry %}. O _settings.xml_ gerado define a autenticação para um servidor com um `id` do `github`, usando a variável de ambiente `GITHUB_ACTOR` como o nome de usuário e a variável de ambiente `GITHUB_TOKEN` como a senha.
 
 O `GITHUB_TOKEN` existe no repositório por padrão e tem permissões de leitura e gravação para pacotes no repositório em que o fluxo de trabalho é executado. Para obter mais informações, consulte "[Autenticação com o GITHUB_TOKEN](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)".
 
-Para um projeto baseado no Maven, você pode usar essas configurações ao criar um repositório de distribuição no seu arquivo _pom.xml_ com um `id` do `github` que aponta para seu ponto final {{ site.data.variables.product.prodname_registry }}.
+Para um projeto baseado no Maven, você pode usar essas configurações ao criar um repositório de distribuição no seu arquivo _pom.xml_ com um `id` do `github` que aponta para seu ponto final {% data variables.product.prodname_registry %}.
 
-Por exemplo, se sua organização é denominada "octocat" e seu repositório é denominado "hello-world", a configuração do {{ site.data.variables.product.prodname_registry }} no _pom.xml_ será parecida ao exemplo abaixo.
+Por exemplo, se sua organização é denominada "octocat" e seu repositório é denominado "hello-world", a configuração do {% data variables.product.prodname_registry %} no _pom.xml_ será parecida ao exemplo abaixo.
 
 {% raw %}
 ```xml
@@ -125,7 +125,7 @@ Por exemplo, se sua organização é denominada "octocat" e seu repositório é 
 ```
 {% endraw %}
 
-Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {{ site.data.variables.product.prodname_registry }}, fazendo uso do _settings.xml_ gerado automaticamente.
+Com esta configuração, você pode criar um fluxo de trabalho que publica seu pacote em {% data variables.product.prodname_registry %}, fazendo uso do _settings.xml_ gerado automaticamente.
 
 {% raw %}
 ```yaml
@@ -152,15 +152,15 @@ Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Configura o Java JDK e também configura automaticamente o arquivo _settings.xml_ do Maven para adicionar autenticação para o repositório do `github` do Maven para usar a variável de ambiente `GITHUB_TOKEN`.
-1. {{ site.data.reusables.github-actions.publish-to-packages-workflow-step }}
+1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
-### Publicar imagens no Repositório Central do Maven e em {{ site.data.variables.product.prodname_registry }}
+### Publicar imagens no Repositório Central do Maven e em {% data variables.product.prodname_registry %}
 
-Você pode publicar seus pacotes no Repositório Central Maven e em {{ site.data.variables.product.prodname_registry }}, usando a ação de `setup-java` para cada registro.
+Você pode publicar seus pacotes no Repositório Central Maven e em {% data variables.product.prodname_registry %}, usando a ação de `setup-java` para cada registro.
 
-Certifique-se de que seu arquivo _pom.xml_ inclui um repositório de gerenciamento de distribuição tanto para seu repositório {{ site.data.variables.product.prodname_dotcom }} como para o seu provedor de Repositório Central do Maven. Por exemplo, se você fizer a implementação em um Repositório Central por meio do projeto de hospedagem OSSRH, é possível que você deseje especificá-la em um repositório de gerenciamento de distribuição com o `id` definido como `ossrh`. Além disso, você pode desejar especificar {{ site.data.variables.product.prodname_registry }} em um repositório de gerenciamento de distribuição com o `id` definido como `github`.
+Certifique-se de que seu arquivo _pom.xml_ inclui um repositório de gerenciamento de distribuição tanto para seu repositório {% data variables.product.prodname_dotcom %} como para o seu provedor de Repositório Central do Maven. Por exemplo, se você fizer a implementação em um Repositório Central por meio do projeto de hospedagem OSSRH, é possível que você deseje especificá-la em um repositório de gerenciamento de distribuição com o `id` definido como `ossrh`. Além disso, você pode desejar especificar {% data variables.product.prodname_registry %} em um repositório de gerenciamento de distribuição com o `id` definido como `github`.
 
 {% raw %}
 ```yaml
@@ -202,8 +202,8 @@ Este fluxo de trabalho executa os seguintes passos:
 
 1. Verifica uma cópia do repositório do projeto.
 1. Chama `setup-java` pela primeira vez. Isso configura o arquivo _settings.xml_ do Maven para o repositório `ossrh` e define as opções de autenticação para variáveis de ambiente definidas na próxima etapa.
-1. {{ site.data.reusables.github-actions.publish-to-maven-workflow-step }}
-1. Chama `setup-java` pela segunda vez. Isso configura automaticamente o arquivo _settings.xml_ do Maven para {{ site.data.variables.product.prodname_registry }}.
-1. {{ site.data.reusables.github-actions.publish-to-packages-workflow-step }}
+1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. Chama `setup-java` pela segunda vez. Isso configura automaticamente o arquivo _settings.xml_ do Maven para {% data variables.product.prodname_registry %}.
+1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
    Para obter mais informações sobre o uso de segredos no seu fluxo de trabalho, consulte "[Criando e usando segredos encriptados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".

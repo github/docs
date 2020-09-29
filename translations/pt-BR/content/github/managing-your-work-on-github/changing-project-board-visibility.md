@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-board-visibility }}
+{% data reusables.project-management.project-board-visibility %}
 
 {% tip %}
 
@@ -17,6 +17,6 @@ versions:
 {% endtip %}
 
 1. Navegue até o quadro de projeto que deseja tornar público ou privado.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Em "Visibility" (Visibilidade), selecione **Public** (Público) ou **Private** (Privado). Em seguida, clique em **Save** (Salvar). ![Botões de opção Public (Público) e Private (Privado)](/assets/images/help/projects/project-board-visibility-options.png)

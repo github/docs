@@ -26,7 +26,7 @@ Para obtener más información, consulta la sección "[Tipos de medios personali
 
 <a id="diff-error">
 
-Si existe alguna diff que se haya dañado, contacta a {{ site.data.variables.contact.contact_support }}. Incluye el nombre del repositorio y la ID de la solicitud de extracción en tu mensaje.
+Si existe alguna diff que se haya dañado, contacta a {% data variables.contact.contact_support %}. Incluye el nombre del repositorio y la ID de la solicitud de extracción en tu mensaje.
 
 ### Relaciones de los enlaces
 

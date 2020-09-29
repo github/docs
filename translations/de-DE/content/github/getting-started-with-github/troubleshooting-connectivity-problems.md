@@ -1,6 +1,6 @@
 ---
 title: Fehlerbehebung bei Verbindungsproblemen
-intro: 'Wenn Du mit {{ site.data.variables.product.prodname_dotcom }} Verbindungsprobleme hast, solltest Du zunächst versuchen, das Problem zu beheben, indem Du den typischen Fehlerursachen auf den Grund gehst. Danach kannst Du das Problem mit dem {{ site.data.variables.product.prodname_debug }}-Tool diagnostizieren und dem Support einen Bericht senden.'
+intro: 'Wenn Du mit {% data variables.product.prodname_dotcom %} Verbindungsprobleme hast, solltest Du zunächst versuchen, das Problem zu beheben, indem Du den typischen Fehlerursachen auf den Grund gehst. Danach kannst Du das Problem mit dem {% data variables.product.prodname_debug %}-Tool diagnostizieren und dem Support einen Bericht senden.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
 versions:
@@ -8,15 +8,15 @@ versions:
 ---
 
 
-Häufig treten Verbindungsprobleme auf, weil eine Firewall, ein Proxyserver, das Unternehmensnetzwerk oder ein anderes Netzwerk so konfiguriert ist, dass {{ site.data.variables.product.prodname_dotcom }} blockiert wird.
+Häufig treten Verbindungsprobleme auf, weil eine Firewall, ein Proxyserver, das Unternehmensnetzwerk oder ein anderes Netzwerk so konfiguriert ist, dass {% data variables.product.prodname_dotcom %} blockiert wird.
 
-### Allowing {{ site.data.variables.product.prodname_dotcom }}'s IP addresses
+### Allowing {% data variables.product.prodname_dotcom %}'s IP addresses
 
-Make sure your network is configured to allow {{ site.data.variables.product.prodname_dotcom }}'s IP addresses. Weitere Informationen findest Du unter „[Informationen zu den IP-Adressen von {{ site.data.variables.product.prodname_dotcom }}](/articles/about-github-s-ip-addresses).“
+Make sure your network is configured to allow {% data variables.product.prodname_dotcom %}'s IP addresses. Weitere Informationen findest Du unter „[Informationen zu den IP-Adressen von {% data variables.product.prodname_dotcom %}](/articles/about-github-s-ip-addresses).“
 
 ### Unternehmens- oder Organisationsnetzwerk benutzen
 
-Wenn Du Verbindungsprobleme auf Deinem Unternehmens- oder Organisationsnetzwerk hast, frage Deinen Netzwerkadministrator, ob Netzwerkregeln bestimmten Datenverkehr blockieren. If there are rules in place, ask your network administrator to allow traffic to {{ site.data.variables.product.prodname_dotcom }}.
+Wenn Du Verbindungsprobleme auf Deinem Unternehmens- oder Organisationsnetzwerk hast, frage Deinen Netzwerkadministrator, ob Netzwerkregeln bestimmten Datenverkehr blockieren. If there are rules in place, ask your network administrator to allow traffic to {% data variables.product.prodname_dotcom %}.
 
 ### Fehlerbehebung des Captcha
 
@@ -28,16 +28,16 @@ Wenn die Verifizierung mit dem Captcha Probleme bereitet:
 
 ### Klonmethode ändern
 
-Eventuell lässt sich die Konnektivität durch einen Wechsel des Klonverfahrens von SSH zu HTTPS (oder umgekehrt) verbessern. Weitere Informationen findest Du unter „[Repository von {{ site.data.variables.product.prodname_dotcom }} klonen](/articles/cloning-a-repository-from-github).“
+Eventuell lässt sich die Konnektivität durch einen Wechsel des Klonverfahrens von SSH zu HTTPS (oder umgekehrt) verbessern. Weitere Informationen findest Du unter „[Repository von {% data variables.product.prodname_dotcom %} klonen](/articles/cloning-a-repository-from-github).“
 
 Bei Zeitüberschreitungen bei der Verwendung von SSH findest Du Details unter „[Error: „Bad file number“ ](/articles/error-bad-file-number)“ (Fehler: „Ungültige Dateinummer").
 
 ### Fehlerbehebung bei langsamen Downloads und gelegentlich langsamen Verbindungen
 
-{{ site.data.variables.product.prodname_dotcom }} drosselt die Bandbreite nicht für einzelne Benutzer.
+{% data variables.product.prodname_dotcom %} drosselt die Bandbreite nicht für einzelne Benutzer.
 
-Wenn sich die Verbindung nur zu gewissen Tageszeiten verlangsamt, wird dies ziemlich sicher durch Netzwerk-Überlastung verursacht. Da {{ site.data.variables.product.prodname_dotcom }} Netzwerk-Überlastung nicht beheben kann, solltest Du dieses Problem bei Deinem Internet-Serviceprovider eskalieren.
+Wenn sich die Verbindung nur zu gewissen Tageszeiten verlangsamt, wird dies ziemlich sicher durch Netzwerk-Überlastung verursacht. Da {% data variables.product.prodname_dotcom %} Netzwerk-Überlastung nicht beheben kann, solltest Du dieses Problem bei Deinem Internet-Serviceprovider eskalieren.
 
-### Fehlerbehebung mit {{ site.data.variables.product.prodname_debug }}
+### Fehlerbehebung mit {% data variables.product.prodname_debug %}
 
-Wenn Du alle oben genannten Empfehlungen zur Fehlerbehebung befolgt hast, Dein Verbindungsproblem aber weiterhin besteht, folge den Anweisungen auf der {{ site.data.variables.product.prodname_debug }}-Website, um Tests durchzuführen und dem {{ site.data.variables.product.prodname_dotcom }}-Support einen Problembericht zu senden. Weitere Informationen findest Du unter „[{{ site.data.variables.product.prodname_debug }}](https://github-debug.com/)“.
+Wenn Du alle oben genannten Empfehlungen zur Fehlerbehebung befolgt hast, Dein Verbindungsproblem aber weiterhin besteht, folge den Anweisungen auf der {% data variables.product.prodname_debug %}-Website, um Tests durchzuführen und dem {% data variables.product.prodname_dotcom %}-Support einen Problembericht zu senden. Weitere Informationen findest Du unter „[{% data variables.product.prodname_debug %}](https://github-debug.com/)“.

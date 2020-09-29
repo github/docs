@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### Ciclo de versões do {{ site.data.variables.product.prodname_dotcom }}
+### Ciclo de versões do {% data variables.product.prodname_dotcom %}
 
-Os produtos e recursos do {{ site.data.variables.product.product_name }} podem passar por várias fases de versão.
+Os produtos e recursos do {% data variables.product.product_name %} podem passar por várias fases de versão.
 
 | Fase                       | Descrição                                                                                                                                                                                                                                                                                                                                                                             |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

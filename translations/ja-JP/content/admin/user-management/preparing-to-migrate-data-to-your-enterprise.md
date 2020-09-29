@@ -1,6 +1,6 @@
 ---
 title: Preparing to migrate data to your enterprise
-intro: '移行アーカイブを作成すると、ターゲットの {{ site.data.variables.product.prodname_ghe_server }} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
+intro: '移行アーカイブを作成すると、ターゲットの {% data variables.product.prodname_ghe_server %} インスタンスにデータをインポートできます。 変更を恒久的にターゲットのインスタンスに適用する前に、潜在的なコンフリクトがないか変更をレビューできます。'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
@@ -12,15 +12,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the migrated data for import to {{ site.data.variables.product.prodname_ghe_server }}
+### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
-1. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {{ site.data.variables.product.prodname_ghe_server }} ターゲットにコピーします:
+1. [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) コマンドを使って、ソースインスタンスまたは Organization から生成された移行アーカイブを {% data variables.product.prodname_ghe_server %} ターゲットにコピーします:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. `ghe-migrator prepare` コマンドを使ってターゲットインスタンスにインポートするためのアーカイブを準備し、次のステップで使用する新たな移行 GUID を生成します。
 
@@ -29,7 +29,7 @@ versions:
     ```
 
     * 新たにインポートを試みるには、再び `ghe-migrator prepare` を実行して、新しい Migration GUID を取得します。
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### 移行のコンフリクトのリストの生成
 

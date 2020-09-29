@@ -1,6 +1,6 @@
 ---
 title: Ver registros de subidas
-intro: 'Los administradores del sitio pueden ver una lista de operaciones de subida de Git para un repositorio en {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Los administradores del sitio pueden ver una lista de operaciones de subida de Git para un repositorio en {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
@@ -21,7 +21,7 @@ Las entradas de registro de subida muestran:
 ### Ver registros de subida de un repositorio
 
 1. Navegar a un repositorio.
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 3. En la esquina superior derecha de la página, haz clic en {% octicon "shield" aria-label="The shield" %} **Security (Seguridad)**. ![Pestaña de seguridad](/assets/images/enterprise/site-admin-settings/repo/repo-security-top-tab.png)
 4. En la barra lateral izquierda, haz clic en **Push Log (Registro de subida)**. ![Pestaña de registro de subida](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 

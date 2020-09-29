@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 ### GPG キーの生成
 
@@ -19,7 +19,7 @@ versions:
 {% endnote %}
 
 1. オペレーティングシステムに [GPG コマンドラインツール](https://www.gnupg.org/download/)をダウンロードしてインストールします。 通常はオペレーティングシステム向けの最新バージョンをインストールすることをおすすめします。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. GPG キーペアを生成します。 GPG には複数のバージョンがあるため、関連する [_man ページ_](https://en.wikipedia.org/wiki/Man_page)を参考にして適切なキーの生成コマンドを見つける必要があります。 キーには RSA を使用する必要があります。
     - バージョン 2.1.17 以降の場合は、以下のテキストを貼り付けて GPG キーペアを生成します。
       ```shell
@@ -37,13 +37,13 @@ versions:
 
   {% note %}
 
-  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
 
   {% endnote %}
 
 9. 安全なパスフレーズを入力します。
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 10. 以下のテキストを貼り付けます。GPG キー ID は実際に使用するものを入力してください。 この例では、GPG キー ID は `3AA5C34371567BD2` です。
   ```shell
   $ gpg --armor --export <em>3AA5C34371567BD2</em>

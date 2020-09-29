@@ -1,6 +1,6 @@
 ---
 title: 发起到副本设备的故障转移
-intro: '您可以使用命令行故障转移到 {{ site.data.variables.product.prodname_ghe_server }} 副本设备以进行维护和测试，也可以在主设备发生故障时进行故障转移。'
+intro: '您可以使用命令行故障转移到 {% data variables.product.prodname_ghe_server %} 副本设备以进行维护和测试，也可以在主设备发生故障时进行故障转移。'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
 versions:
@@ -9,7 +9,7 @@ versions:
 
 故障转移所需的时间取决于手动升级副本和重定向流量所需的时长。 平均时间范围为 2-10 分钟。
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. 要允许复制在切换设备之前完成，请将主设备置于维护模式：
     - 要使用 Management Console，请参阅“[启用和排定维护模式](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)”。

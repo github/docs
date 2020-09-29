@@ -1,6 +1,6 @@
 ---
 title: 身份验证
-intro: '您可以使用 {{ site.data.variables.product.prodname_ghe_server }} 的内置身份验证，或者在 CAS、LDAP 或 SAML 中选择来集成您的现有帐户并集中管理 {{ site.data.variables.product.product_location_enterprise }} 的用户访问权限。'
+intro: '您可以使用 {% data variables.product.prodname_ghe_server %} 的内置身份验证，或者在 CAS、LDAP 或 SAML 中选择来集成您的现有帐户并集中管理 {% data variables.product.product_location_enterprise %} 的用户访问权限。'
 redirect_from:
   - /enterprise/admin/authentication
 versions:

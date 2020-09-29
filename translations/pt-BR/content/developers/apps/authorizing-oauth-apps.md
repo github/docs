@@ -1,6 +1,6 @@
 ---
 title: Autorizar aplicativos OAuth
-intro: '{{ site.data.reusables.shortdesc.authorizing_oauth_apps }}'
+intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/directing-users-to-review-their-access/
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-A implementação do OAuth de {{ site.data.variables.product.product_name }} é compatível com o [tipo de autorização para a concessão de código](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} e com a [concessão de autorização para dispositivos](https://tools.ietf.org/html/rfc8628) do OAuth 2.0 para as aplicações que não têm acesso a um navegador web{% endif %}.
+A implementação do OAuth de {% data variables.product.product_name %} é compatível com o [tipo de autorização para a concessão de código](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} e com a [concessão de autorização para dispositivos](https://tools.ietf.org/html/rfc8628) do OAuth 2.0 para as aplicações que não têm acesso a um navegador web{% endif %}.
 
 Se você desejar ignorar a autorização do seu aplicativo da forma-padrão, como no teste do seu aplicativo, você poderá usar o fluxo do aplicativo [que não é web](#non-web-application-flow).
 
@@ -46,7 +46,7 @@ O fluxo do aplicativo web para autorizar os usuários para seu aplicativo é:
 
 #### 1. Solicitar identidade do GitHub de um usuário
 
-    GET {{ site.data.variables.product.oauth_host_code }}/login/oauth/authorize
+    GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
 Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita aos usuários com uma conta específica que podem usar para iniciar sessão e autorizar seu aplicativo.
 
@@ -58,23 +58,23 @@ Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita a
 | `redirect_uri` | `string` | A URL no seu aplicativo para o qual os usuários serão enviados após a autorização. Veja os detalhes abaixo sobre [redirecionamento das urls](#redirect-urls).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `login`        | `string` | Sugere uma conta específica para iniciar a sessão e autorizar o aplicativo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `escopo`       | `string` | Uma lista de [escopos](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/) delimitada por espaço. Caso não seja fornecido, o `escopo`-padrão será uma lista vazia para usuários que não autorizaram nenhum escopo para o aplicativo. Para usuários que têm escopos autorizados para o aplicativo, a página de autorização OAuth com a lista de escopos não será exibida para o usuário. Em vez disso, esta etapa do fluxo será concluída automaticamente com o conjunto de escopos que o usuário autorizou para o aplicativo. Por exemplo, se um usuário já executou o fluxo web duas vezes e autorizou um token com escopo do `usuário` e outro token com o escopo do `repositório`, um terceiro fluxo web que não fornece um escopo `` receberá um token com os escopos do `usuário` e do `repositório`. |
-| `estado`       | `string` | {{ site.data.reusables.apps.state_description }}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| `estado`       | `string` | {% data reusables.apps.state_description %}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `allow_signup` | `string` | Independentemente de os usuários serem autenticados, eles receberão uma opção para inscrever-se no GitHub durante o fluxo do OAuth. O padrão é `verdadeiro`. Use `falso` quando uma política proibir inscrições.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 #### 2. Os usuários são redirecionados de volta para o seu site pelo GitHub
 
-Se o usuário aceitar a sua solicitação, o {{ site.data.variables.product.product_name }} redireciona de volta para seu site com `código` temporário em um parâmetro de código, bem como o estado que você forneceu na etapa anterior em um `parâmetro de estado`. O código temporário irá expirar após 10 minutos. Se os estados não corresponderem, significa que uma terceira criou a solicitação, e você deverá abortar o processo.
+Se o usuário aceitar a sua solicitação, o {% data variables.product.product_name %} redireciona de volta para seu site com `código` temporário em um parâmetro de código, bem como o estado que você forneceu na etapa anterior em um `parâmetro de estado`. O código temporário irá expirar após 10 minutos. Se os estados não corresponderem, significa que uma terceira criou a solicitação, e você deverá abortar o processo.
 
 Troque este `código` por um token de acesso:
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
 ##### Parâmetros
 
 | Nome            | Tipo     | Descrição                                                                                                                                                               |
 | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`     | `string` | **Obrigatório.** O ID do cliente que você recebeu do {{ site.data.variables.product.product_name }} para o seu {{ site.data.variables.product.prodname_github_app }}. |
-| `client_secret` | `string` | **Obrigatório.** O segredo do cliente que recebeu do {{ site.data.variables.product.product_name }} para o seu {{ site.data.variables.product.prodname_github_app }}. |
+| `client_id`     | `string` | **Obrigatório.** O ID do cliente que você recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_github_app %}. |
+| `client_secret` | `string` | **Obrigatório.** O segredo do cliente que recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_github_app %}. |
 | `código`        | `string` | **Obrigatório.** O código que você recebeu como resposta ao Passo 1.                                                                                                    |
 | `redirect_uri`  | `string` | A URL do seu aplicativo para onde os usuários são enviados após a autorização.                                                                                          |
 | `estado`        | `string` | A string aleatória inexplicável que você forneceu na etapa 1.                                                                                                           |
@@ -102,12 +102,12 @@ Você também pode receber o conteúdo em diferentes formatos, dependendo do cab
 O token de acesso permite que você faça solicitações para a API em nome de um usuário.
 
     Autorização: token OUTH-TOKEN
-    GET {{ site.data.variables.product.api_url_code }}/user
+    GET {% data variables.product.api_url_code %}/user
 
 Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguinte forma:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {{ site.data.variables.product.api_url_pre }}/user
+curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -124,12 +124,12 @@ O fluxo de dispositivos permite que você autorize usuários para um aplicativo 
 #### Visão geral do fluxo do dispositivo
 
 1. O seu aplicativo solicita o dispositivo e o código de verificação do usuário e obtém a URL de autorização em que o usuário digitará o código de verificação do usuário.
-2. O aplicativo solicita que o usuário insira um código de verificação em {{ site.data.variables.product.device_authorization_url }}.
+2. O aplicativo solicita que o usuário insira um código de verificação em {% data variables.product.device_authorization_url %}.
 3.  O aplicativo pesquisa status de autenticação do usuário. Uma vez que o usuário tenha autorizado o dispositivo, o aplicativo poderá fazer chamadas de API com um novo token de acesso.
 
 #### Passo 1: O aplicativo solicita o dispositivo e os códigos de verificação de usuário do GitHub
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/device/code
+    POST {% data variables.product.oauth_host_code %}/login/device/code
 
 O seu aplicativo deve solicitar um código de verificação e uma URL de verificação que o aplicativo usará para solicitar que o usuário seja autenticado na próxima etapa. Essa solicitação também retorna um código de verificação de dispositivo que o aplicativo deve usar para receber um token de acesso e verificar o status da autenticação do usuário.
 
@@ -137,7 +137,7 @@ O seu aplicativo deve solicitar um código de verificação e uma URL de verific
 
 | Nome        | Tipo     | Descrição                                                                                                                  |
 | ----------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `client_id` | `string` | **Obrigatório.** O ID do cliente que você recebeu do {{ site.data.variables.product.product_name }} para o seu aplicativo. |
+| `client_id` | `string` | **Obrigatório.** O ID do cliente que você recebeu do {% data variables.product.product_name %} para o seu aplicativo. |
 | `escopo`    | `string` | O escopo ao qual o seu aplicativo está solicitando acesso.                                                                 |
 
 ##### Resposta
@@ -171,23 +171,23 @@ O seu aplicativo deve solicitar um código de verificação e uma URL de verific
 | ------------------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `device_code`      | `string`  | O código de verificação do dispositivo tem 40 caracteres e é usado para verificar o dispositivo.                                                                                                                                                                                                                                                                                                                                                                                    |
 | `user_code`        | `string`  | O código de verificação do usuário é exibido no dispositivo para que o usuário possa inserir o código no navegador. Este código tem 8 caracteres com um hífen no meio.                                                                                                                                                                                                                                                                                                              |
-| `verification_uri` | `string`  | A URL de verificação em que os usuários devem digitar o código do usuário ``: {{ site.data.variables.product.device_authorization_url }}.                                                                                                                                                                                                                                                                                                                                         |
+| `verification_uri` | `string`  | A URL de verificação em que os usuários devem digitar o código do usuário ``: {% data variables.product.device_authorization_url %}.                                                                                                                                                                                                                                                                                                                                         |
 | `expires_in`       | `inteiro` | O número de segundos antes dos códigos `device_code` e `user_code` expirarem. O padrão é 900 segundos ou 15 minutos.                                                                                                                                                                                                                                                                                                                                                                |
-| `interval`         | `inteiro` | O número mínimo de segundos que decorridos antes de você poder fazer uma nova solicitação de token de acesso (`POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`) para concluir a autorização do dispositivo. Por exemplo, se o intervalo for 5, você não poderá fazer uma nova solicitação a partir de 5 segundos. Se você fizer mais de uma solicitação em 5 segundos, você atingirá o limite de taxa e receberá uma mensagem de erro `slow_down`. |
+| `interval`         | `inteiro` | O número mínimo de segundos que decorridos antes de você poder fazer uma nova solicitação de token de acesso (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) para concluir a autorização do dispositivo. Por exemplo, se o intervalo for 5, você não poderá fazer uma nova solicitação a partir de 5 segundos. Se você fizer mais de uma solicitação em 5 segundos, você atingirá o limite de taxa e receberá uma mensagem de erro `slow_down`. |
 
 #### Passo 2: Solicite ao usuário que insira o código do usuário em um navegador
 
-O seu dispositivo mostrará o código de verificação do usuário e solicitará que o usuário insira o código em {{ site.data.variables.product.device_authorization_url }}.
+O seu dispositivo mostrará o código de verificação do usuário e solicitará que o usuário insira o código em {% data variables.product.device_authorization_url %}.
 
   ![Campo para digitar o código de verificação do usuário exibido no seu dispositivo](/assets/images/github-apps/device_authorization_page_for_user_code.png)
 
 #### Passo 3: O aplicativo solicita que o GitHub verifique se o usuário autorizou o dispositivo
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-O seu aplicativo fará solicitações de autorização do dispositivo que pesquisem `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token`, até que o dispositivo e códigos de usuário expirem ou o usuário autorizem com sucesso o aplicativo com um código de usuário válido. O aplicativo deve usar o `intervalo` mínimo de sondagem recuperado na etapa 1 para evitar erros de limite de taxa. Para obter mais informações, consulte "[Limites de taxa para o fluxo do dispositivo](#rate-limits-for-the-device-flow)".
+O seu aplicativo fará solicitações de autorização do dispositivo que pesquisem `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, até que o dispositivo e códigos de usuário expirem ou o usuário autorizem com sucesso o aplicativo com um código de usuário válido. O aplicativo deve usar o `intervalo` mínimo de sondagem recuperado na etapa 1 para evitar erros de limite de taxa. Para obter mais informações, consulte "[Limites de taxa para o fluxo do dispositivo](#rate-limits-for-the-device-flow)".
 
-O usuário deve inserir um código válido em de 15 minutos (ou 900 segundos). Após 15 minutos, você deverá solicitar um novo código de autorização do dispositivo com `POST {{ site.data.variables.product.oauth_host_code }}/login/dispositivo/código`.
+O usuário deve inserir um código válido em de 15 minutos (ou 900 segundos). Após 15 minutos, você deverá solicitar um novo código de autorização do dispositivo com `POST {% data variables.product.oauth_host_code %}/login/dispositivo/código`.
 
 Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de acesso que poderá ser usado para fazer solicitações para a API em nome de um usuário.
 
@@ -195,8 +195,8 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 | Nome          | Tipo     | Descrição                                                                                                                                                                  |
 | ------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `client_id`   | `string` | **Obrigatório.** O ID do cliente que você recebeu do {{ site.data.variables.product.product_name }} para o seu {{ site.data.variables.product.prodname_oauth_app }}.     |
-| `device_code` | `string` | **Obrigatório.** O código de verificação do dispositivo que você recebeu da solicitação `POST {{ site.data.variables.product.oauth_host_code }}/login/dispositivo/código`. |
+| `client_id`   | `string` | **Obrigatório.** O ID do cliente que você recebeu do {% data variables.product.product_name %} para o seu {% data variables.product.prodname_oauth_app %}.     |
+| `device_code` | `string` | **Obrigatório.** O código de verificação do dispositivo que você recebeu da solicitação `POST {% data variables.product.oauth_host_code %}/login/dispositivo/código`. |
 | `grant_type`  | `string` | **Obrigatório.** O tipo de concessão deve ser `urn:ietf:params:oauth:grant-type:device_code`.                                                                              |
 
 ##### Resposta
@@ -213,16 +213,16 @@ Uma vez que o usuário tenha autorizado, o aplicativo receberá um token de aces
 
 Quando um usuário envia o código de verificação no navegador, existe um limite de taxa máximo de 50 submissões em uma hora por aplicativo.
 
-Se você fizer mais de uma solicitação de token de acesso (`POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/oaccess_token`) no período mínimo necessário entre solicitações (ou `intervalo`), você atingirá o limite de taxa e receberá uma resposta de erro `slow_down`. A resposta de erro `slow_down`adiciona 5 segundos ao último `intervalo`. Para obter mais informações, consulte [Erros para o fluxo do dispositivo](#errors-for-the-device-flow).
+Se você fizer mais de uma solicitação de token de acesso (`POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`) no período mínimo necessário entre solicitações (ou `intervalo`), você atingirá o limite de taxa e receberá uma resposta de erro `slow_down`. A resposta de erro `slow_down`adiciona 5 segundos ao último `intervalo`. Para obter mais informações, consulte [Erros para o fluxo do dispositivo](#errors-for-the-device-flow).
 
 #### Códigos de erro para o fluxo do dispositivo
 
 | Código do erro                 | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `authorization_pending`        | Este erro ocorre quando a solicitação de autorização está pendente e o usuário ainda não inseriu o código do usuário. Espera-se que o aplicativo continue fazendo a sondagem da solicitação `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/oaccess_token` sem exceder o [`intervalo`](#response-parameters), que exige um número mínimo de segundos entre cada solicitação.                                                                                                                                                                                |
-| `slow_down`                    | Ao receber o erro `slow_down`, são adicionados 5 segundos extras ao intervalo mínimo `` ou período de tempo necessário entre as suas solicitações usando `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/oaccess_token`. Por exemplo, se o intervalo inicial for necessário pelo menos 5 segundos entre as solicitações e você receber uma resposta de erro de `slow_down`, você deverá aguardar pelo menos 10 segundos antes de fazer uma nova solicitação para um token de acesso OAuth. A resposta de erro inclui o novo `intervalo` que você deve usar. |
+| `authorization_pending`        | Este erro ocorre quando a solicitação de autorização está pendente e o usuário ainda não inseriu o código do usuário. Espera-se que o aplicativo continue fazendo a sondagem da solicitação `POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token` sem exceder o [`intervalo`](#response-parameters), que exige um número mínimo de segundos entre cada solicitação.                                                                                                                                                                                |
+| `slow_down`                    | Ao receber o erro `slow_down`, são adicionados 5 segundos extras ao intervalo mínimo `` ou período de tempo necessário entre as suas solicitações usando `POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`. Por exemplo, se o intervalo inicial for necessário pelo menos 5 segundos entre as solicitações e você receber uma resposta de erro de `slow_down`, você deverá aguardar pelo menos 10 segundos antes de fazer uma nova solicitação para um token de acesso OAuth. A resposta de erro inclui o novo `intervalo` que você deve usar. |
 | `expired_token`                | Se o código do dispositivo expirou, você verá o erro `token_expired`. Você deve fazer uma nova solicitação para um código de dispositivo.                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `unsupported_grant_type`       | O tipo de concessão deve ser `urn:ietf:params:oauth:grant-type:device_code` e incluído como um parâmetro de entrada quando você faz a sondagem da solicitação do token do OAuth `POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/oaccess_token`.                                                                                                                                                                                                                                                                                                             |
+| `unsupported_grant_type`       | O tipo de concessão deve ser `urn:ietf:params:oauth:grant-type:device_code` e incluído como um parâmetro de entrada quando você faz a sondagem da solicitação do token do OAuth `POST {% data variables.product.oauth_host_code %}/login/oauth/oaccess_token`.                                                                                                                                                                                                                                                                                                             |
 | `incorrect_client_credentials` | Para o fluxo do dispositivo, você deve passar o ID de cliente do aplicativo, que pode ser encontrado na página de configurações do aplicativo. O `client_secret` não é necessário para o fluxo do dispositivo.                                                                                                                                                                                                                                                                                                                                                                  |
 | `incorrect_device_code`        | O device_code fornecido não é válido.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `access_denied`                | Quando um usuário clica em cancelar durante o processo de autorização, você receberá uma mensagem de erro de `access_denied` e o usuário não poderá usar o código de verificação novamente.                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -271,7 +271,7 @@ Isso é útil se o seu aplicativo OAuth for compatível com um fluxo de trabalho
 
 Há um limite para o número de tokens emitidos por combinação de usuário/aplicativo/escopo. Se seu aplicativo solicitar tokens suficientes para ultrapassar um dos limites, os tokens antigos _com o mesmo escopo sendo solicitado_ irão parar de funcionar.
 
-{{ site.data.reusables.apps.deletes_ssh_keys }}
+{% data reusables.apps.deletes_ssh_keys %}
 
 ### Direcionar os usuários para revisar seus acessos
 
@@ -280,7 +280,7 @@ Você pode vincular informações sobre a autorização de um aplicativo OAuth p
 Para criar esse vínculo, você precisará do `client_id` dos aplicativos OAuth, que você recebeu do GitHub quando fez o cadastro no aplicativo.
 
 ```
-{{ site.data.variables.product.oauth_host_code }}/settings/connections/applications/:client_id
+{% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
 {% tip %}

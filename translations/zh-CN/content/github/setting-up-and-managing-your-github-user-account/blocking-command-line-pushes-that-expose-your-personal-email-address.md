@@ -9,11 +9,11 @@ versions:
 
 从命令行推送提交时，您[在 Git 中设置](/articles/setting-your-commit-email-address)的电子邮件地址会与您的提交相关联。 此设置可阻止您在使用您个人电子邮件地址的命令行上推送提交。
 
-{{ site.data.reusables.user_settings.about-commit-email-addresses }}
+{% data reusables.user_settings.about-commit-email-addresses %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
-{{ site.data.reusables.user_settings.keeping_your_email_address_private }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
+{% data reusables.user_settings.keeping_your_email_address_private %}
 4. 要在您从命令行推送的提交中保密电子邮件地址，请选择 **Block command line pushes that expose my email（阻止会暴露我个人电子邮件地址的命令行推送）**。 ![阻止会暴露个人电子邮件地址的命令行推送的选项](/assets/images/help/settings/email_privacy_block_command_line_pushes.png)
 
 ### 延伸阅读

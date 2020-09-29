@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
 1. Navigate to the project board where you want to disable project progress tracking.  
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Unselect **Track project progress**.

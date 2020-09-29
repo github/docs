@@ -9,16 +9,16 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.choose-a-theme }}
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.choose-a-theme %}
   ![Die Optionen für das „Theme“ (Design) auf der Registerkarte „Appearance“ (Erscheinungsbild) beim Mac](/assets/images/help/desktop/mac-appearance-tab-themes.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.choose-a-theme }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.choose-a-theme %}
   ![Die Optionen für das „Theme“ (Design) auf der Registerkarte „Appearance“ (Erscheinungsbild) bei Windows](/assets/images/help/desktop/windows-appearance-tab-themes.png)
 
 {% endwindows %}

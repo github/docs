@@ -1,6 +1,6 @@
 ---
 title: Dateien auf GitHub suchen
-intro: 'Du kannst mit dem Dateifinder eine Datei in einem Repository suchen. Um eine Datei über mehreren Repositorys auf {{ site.data.variables.product.product_name }} zu suchen, verwende den [Code-Suchqualifizierer `filename`](/articles/searching-code#search-by-filename).'
+intro: 'Du kannst mit dem Dateifinder eine Datei in einem Repository suchen. Um eine Datei über mehreren Repositorys auf {% data variables.product.product_name %} zu suchen, verwende den [Code-Suchqualifizierer `filename`](/articles/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter dem Namen des Repositorys auf **Find file** (Datei suchen). ![Schaltfläche „Find file“ (Datei finden)](/assets/images/help/search/find-file-button.png)
 {% else %}

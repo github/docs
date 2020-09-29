@@ -1,6 +1,6 @@
 ---
 title: Escaneo de secretos
-intro: 'Como proveedor de servicios, puedes asociarte con {{ site.data.variables.product.prodname_dotcom }} para que se aseguren nuestros formatos de token secretos a través de un escaneo de secretos, el cual busca las confirmaciones accidentales de tus formatos secretos y puede enviarse a la terminal de verificación de un proveedor de servicios.'
+intro: 'Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que se aseguren nuestros formatos de token secretos a través de un escaneo de secretos, el cual busca las confirmaciones accidentales de tus formatos secretos y puede enviarse a la terminal de verificación de un proveedor de servicios.'
 redirect_from:
   - /partnerships/token-scanning/
   - /partnerships/secret-scanning
@@ -9,11 +9,11 @@ versions:
 ---
 
 
-{{ site.data.variables.product.prodname_dotcom }} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El escaneo de secretos ocurre predeterminadamente en los repositorios públicos, y se puede habilitar en los privados por parte de los administradores de dicho repositorio o de los propietarios de la organización. Como proveedor de servicios, puedes asociarte con {{ site.data.variables.product.prodname_dotcom }} para que tus formatos secretos se incluyan en nuestro escaneo de secretos.
+{% data variables.product.prodname_dotcom %} escanea los repositorios en busca de formatos secretos para prevenir el uso fraudulento de las credenciales que se confirmaron por accidente. El escaneo de secretos ocurre predeterminadamente en los repositorios públicos, y se puede habilitar en los privados por parte de los administradores de dicho repositorio o de los propietarios de la organización. Como proveedor de servicios, puedes asociarte con {% data variables.product.prodname_dotcom %} para que tus formatos secretos se incluyan en nuestro escaneo de secretos.
 
 Cuando se encuentra una coincidencia de tu formato secreto en un repositorio público, se envía una carga útil a una terminal HTTP de tu elección.
 
-Cuando se encuentra una coincidencia de tu formato secreto en un repositorio privado configurado para el escaneo de secretos, entonces se les alerta a los administradores del repositorio y estos pueden ver y administrar los resultados del escaneo de secretos en {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta la sección "[Administrar alertas del escaneo de secretos](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
+Cuando se encuentra una coincidencia de tu formato secreto en un repositorio privado configurado para el escaneo de secretos, entonces se les alerta a los administradores del repositorio y estos pueden ver y administrar los resultados del escaneo de secretos en {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Administrar alertas del escaneo de secretos](/github/administering-a-repository/managing-alerts-from-secret-scanning)".
 
 {% note %}
 
@@ -21,7 +21,7 @@ Cuando se encuentra una coincidencia de tu formato secreto en un repositorio pri
 
 {% endnote %}
 
-Este artículo describe cómo puedes asociarte con {{ site.data.variables.product.prodname_dotcom }} como un proveedor de servicios y unirte al programa de escaneo de secretos.
+Este artículo describe cómo puedes asociarte con {% data variables.product.prodname_dotcom %} como un proveedor de servicios y unirte al programa de escaneo de secretos.
 
 ### El proceso de escaneo de secretos
 
@@ -31,33 +31,33 @@ El siguiente diagrama resume el proceso de escaneo de secretos para los reposito
 
 ![Diagrama de flujo que muestra el proceso de escaneo para un secreto y el envío de coincidencias a una terminal de verificación del proveedor de servicios](/assets/images/secret-scanning-flow.png "Flujo de escaneo de secretos")
 
-### Unirse al programa de escaneo de secretos en {{ site.data.variables.product.prodname_dotcom }}
+### Unirse al programa de escaneo de secretos en {% data variables.product.prodname_dotcom %}
 
-1. Contacta a {{ site.data.variables.product.prodname_dotcom }} para iniciar el proceso.
+1. Contacta a {% data variables.product.prodname_dotcom %} para iniciar el proceso.
 1. Identifica los secretos relevantes que quieres escanear y crea expresiones regulares para capturarlos.
-1. Para las coincidencias de secretos que estén en repositorios públicos, crea un servicio de alerta de secretos que acepte webhooks de {{ site.data.variables.product.prodname_dotcom }} que contengan la carga útil del mensaje del escaneo de secretos.
+1. Para las coincidencias de secretos que estén en repositorios públicos, crea un servicio de alerta de secretos que acepte webhooks de {% data variables.product.prodname_dotcom %} que contengan la carga útil del mensaje del escaneo de secretos.
 1. Implementa la verificación de firmas en tu servicio de alerta secreto.
 1. Implementa la revocación de secretos y las notificaciones al usuario en tu servicio de alerta de secretos.
 
-#### Contacta a {{ site.data.variables.product.prodname_dotcom }} para iniciar el proceso
+#### Contacta a {% data variables.product.prodname_dotcom %} para iniciar el proceso
 
 Para iniciar con el proceso de inscripción, manda un mensaje de correo electrónico a secret-scanning@github.com.
 
-Recibirás los detalles del programa de escane de secretos, y necesitarás aceptar las condiciones de participación de {{ site.data.variables.product.prodname_dotcom }} antes de seguir con el proceso.
+Recibirás los detalles del programa de escane de secretos, y necesitarás aceptar las condiciones de participación de {% data variables.product.prodname_dotcom %} antes de seguir con el proceso.
 
 #### Identifica tus secretos y crea expresiones regulares
 
-Para escanear en busca de tus secretos, {{ site.data.variables.product.prodname_dotcom }} necesita saber los siguientes detalles de cada secreto que quieras incluir en el programa de escaneo de secretos:
+Para escanear en busca de tus secretos, {% data variables.product.prodname_dotcom %} necesita saber los siguientes detalles de cada secreto que quieras incluir en el programa de escaneo de secretos:
 
 * Un nombre único y legible para las personas para el tipo de secreto. Lo utilizaremos para generar el valor `Type` en la carga útil del mensaje más adelante.
 * Una expresión regular que encuentre el tipo de secreto. Sé tan preciso como sea posible, ya que esto reducirá la cantidad de falsos positivos.
-* La URL de la terminal que recibe mensajes de {{ site.data.variables.product.prodname_dotcom }}. Esto no tiene que ser único para cada tipo de secreto.
+* La URL de la terminal que recibe mensajes de {% data variables.product.prodname_dotcom %}. Esto no tiene que ser único para cada tipo de secreto.
 
 Envía esta información a secret-scanning@github.com.
 
 #### Crea un servicio de alerta de secretos
 
-Crea una terminal HTTP pública y accesible desde la internet en la URL que nos proporcionaste. Cuando se encuentre una coincidencia de tu expresión regular en un repositorio público, {{ site.data.variables.product.prodname_dotcom }} enviará un mensaje HTTP de tipo `POST` a tu terminal.
+Crea una terminal HTTP pública y accesible desde la internet en la URL que nos proporcionaste. Cuando se encuentre una coincidencia de tu expresión regular en un repositorio público, {% data variables.product.prodname_dotcom %} enviará un mensaje HTTP de tipo `POST` a tu terminal.
 
 ##### Ejemplo del POST que se envía a tu terminal
 
@@ -79,7 +79,7 @@ Content-Length: 0123
 ]
 ```
 
-El cuerpo del mensaje es una matriz de JSON que contiene uno o más objetos con el siguiente contenido. Cuando se encuentran coincidencias múltiples, {{ site.data.variables.product.prodname_dotcom }} podría enviar un solo mensaje con más de una coincidencia del secreto.
+El cuerpo del mensaje es una matriz de JSON que contiene uno o más objetos con el siguiente contenido. Cuando se encuentran coincidencias múltiples, {% data variables.product.prodname_dotcom %} podría enviar un solo mensaje con más de una coincidencia del secreto.
 
 * **Token**: El valor de la coincidencia del secreto.
 * **Tipo**: El nombre único que proporcionaste para identificar tu expresión regular.
@@ -87,9 +87,9 @@ El cuerpo del mensaje es una matriz de JSON que contiene uno o más objetos con 
 
 #### Implementa la verificación de firmas en tu servicio de alerta de secretos
 
-Te recomendamos que implementes la validación de firmas en tu servicio de alerta de secretos para garantizar que los mensajes que recibes son auténticamente de {{ site.data.variables.product.prodname_dotcom }} y no son malintencionados.
+Te recomendamos que implementes la validación de firmas en tu servicio de alerta de secretos para garantizar que los mensajes que recibes son auténticamente de {% data variables.product.prodname_dotcom %} y no son malintencionados.
 
-Puedes recuperar la llave pública del escaneo de secretos de {{ site.data.variables.product.prodname_dotcom }} desde https://api.github.com/meta/public_keys/secret_scanning y validar el mensaje utilizando el algoritmo `ECDSA-NIST-P256V1-SHA256`.
+Puedes recuperar la llave pública del escaneo de secretos de {% data variables.product.prodname_dotcom %} desde https://api.github.com/meta/public_keys/secret_scanning y validar el mensaje utilizando el algoritmo `ECDSA-NIST-P256V1-SHA256`.
 
 Asumiendo que recibes el siguiente mensaje, los extractos de código que presentamos a continuación demuestran cómo pudiste realizar la validación de firmas. El código también asume que configuraste una variable de ambiente llamada `GITHUB_PRODUCTION_TOKEN` con un PAT generado (https://github.com/settings/tokens). El token no necesita que se configure ningún permiso.
 
@@ -277,4 +277,4 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 
 #### Implementa la revocación de secretos y la notificación a usuarios en tu servicio de alerta de secretos
 
-Para escanear secretos en los repositorios públicos, puedes ampliar tu servicio de alerta de secretos para revocar los secretos expuestos y notificar a los usuarios afectados. Depende de ti el cómo implementas esto en tu servicio de alerta de secretos, pero te recomendamos considerar cualquier secreto del cual {{ site.data.variables.product.prodname_dotcom }} te envíe mensajes de que es público y está puesto en riesgo.
+Para escanear secretos en los repositorios públicos, puedes ampliar tu servicio de alerta de secretos para revocar los secretos expuestos y notificar a los usuarios afectados. Depende de ti el cómo implementas esto en tu servicio de alerta de secretos, pero te recomendamos considerar cualquier secreto del cual {% data variables.product.prodname_dotcom %} te envíe mensajes de que es público y está puesto en riesgo.

@@ -6,61 +6,61 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introdução
 
-O CircleCI e {{ site.data.variables.product.prodname_actions }} permitem criar fluxos de trabalho que criam, testam, publicam, lançam e implementam código automaticamente. O CircleCI e o {{ site.data.variables.product.prodname_actions }} compartilham algumas semelhanças em termos de configuração do fluxo de trabalho:
+O CircleCI e {% data variables.product.prodname_actions %} permitem criar fluxos de trabalho que criam, testam, publicam, lançam e implementam código automaticamente. O CircleCI e o {% data variables.product.prodname_actions %} compartilham algumas semelhanças em termos de configuração do fluxo de trabalho:
 
 - Os arquivos de configuração do fluxo de trabalho são gravados no YAML e armazenados no repositório.
 - Os fluxos de trabalho incluem um ou mais trabalhos.
 - Os trabalhos incluem uma ou mais etapas ou comandos individuais.
 - É possível reutilizar e compartilhar novamente etapas ou tarefas com a comunidade.
 
-Para obter mais informações, consulte "[Conceitos básicos para {{ site.data.variables.product.prodname_actions }}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
+Para obter mais informações, consulte "[Conceitos básicos para {% data variables.product.prodname_actions %}](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)".
 
 ### Principais diferenças
 
 Ao fazer a migração do CircleCI, considere as seguintes diferenças:
 
-- O paralelismo do teste automático do CircleCI agrupa automaticamente os testes de acordo com regras especificadas pelo usuário ou com informações históricas de temporização. Esta funcionalidade não foi criada em {{ site.data.variables.product.prodname_actions }}.
-- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {{ site.data.variables.product.product_name }}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+- O paralelismo do teste automático do CircleCI agrupa automaticamente os testes de acordo com regras especificadas pelo usuário ou com informações históricas de temporização. Esta funcionalidade não foi criada em {% data variables.product.prodname_actions %}.
+- As ações que são executadas em contêineres Docker são sensíveis a problemas de permissões, uma vez que os contêineres têm um mapeamento diferente de usuários. Você pode evitar muitos desses problemas se não usar a instrução `USUÁRIO` no seu *arquivo Docker*. Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
 
 ### Migrar fluxos de trabalhos e trabalhos
 
-O CircleCI define os `fluxos de trabalho` no arquivo *config.yml*, o que permite configurar mais de um fluxo de trabalho. O {{ site.data.variables.product.product_name }} exige um arquivo de fluxo de trabalho por fluxo de trabalho e, consequentemente, não exige que você declare os `fluxos de trabalho`. Será necessário criar um novo arquivo de fluxo de trabalho para cada fluxo de trabalho configurado em *config.yml*.
+O CircleCI define os `fluxos de trabalho` no arquivo *config.yml*, o que permite configurar mais de um fluxo de trabalho. O {% data variables.product.product_name %} exige um arquivo de fluxo de trabalho por fluxo de trabalho e, consequentemente, não exige que você declare os `fluxos de trabalho`. Será necessário criar um novo arquivo de fluxo de trabalho para cada fluxo de trabalho configurado em *config.yml*.
 
-Tanto o CircleCI quanto o {{ site.data.variables.product.prodname_actions }} configuram `trabalhos` no arquivo de configuração usando uma sintaxe similar. Se você configurar qualquer dependência entre trabalhos usando `requires` em seu fluxo de trabalho CircleCI, você poderá usar a sintaxe equivalente {{ site.data.variables.product.prodname_actions }} `needs`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {{ site.data.variables.product.prodname_actions }}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
+Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} configuram `trabalhos` no arquivo de configuração usando uma sintaxe similar. Se você configurar qualquer dependência entre trabalhos usando `requires` em seu fluxo de trabalho CircleCI, você poderá usar a sintaxe equivalente {% data variables.product.prodname_actions %} `needs`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)".
 
 ### Migrar orbes para ações
 
-Tanto o CircleCI quanto o {{ site.data.variables.product.prodname_actions }} fornecem um mecanismo para reutilizar e compartilhar tarefas em um fluxo de trabalho. O CircleCI usa um conceito chamado orbs, escrito em YAML, para fornecer tarefas que as pessoas podem reutilizar em um fluxo de trabalho. O {{ site.data.variables.product.prodname_actions }} tem componentes potentes, reutilizáveis e flexíveis denominados ações, que você cria com arquivos JavaScript ou imagens Docker. Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {{ site.data.variables.product.product_name }} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
+Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} fornecem um mecanismo para reutilizar e compartilhar tarefas em um fluxo de trabalho. O CircleCI usa um conceito chamado orbs, escrito em YAML, para fornecer tarefas que as pessoas podem reutilizar em um fluxo de trabalho. O {% data variables.product.prodname_actions %} tem componentes potentes, reutilizáveis e flexíveis denominados ações, que você cria com arquivos JavaScript ou imagens Docker. Você pode criar ações gravando códigos personalizados que interajam com o seu repositório da maneira que você quiser, inclusive fazendo integrações com as APIs do {% data variables.product.product_name %} e qualquer API de terceiros disponível publicamente. Por exemplo, as ações podem publicar módulos npm, enviar alertas SMS quando problemas urgentes forem criados ou implantar códigos prontos para produção. Para obter mais informações, consulte "[Criar ações](/actions/creating-actions)".
 
-O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. O {{ site.data.variables.product.prodname_actions }} suporta a necessidade mais comum de reutilização usando matrizes de criação. Para obter mais informações sobre matrizes de criação, consulte "[Configurando um fluxo de trabalho](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)".
+O CircleCI pode reutilizar partes dos fluxos de trabalho com âncoras e aliases YAML. O {% data variables.product.prodname_actions %} suporta a necessidade mais comum de reutilização usando matrizes de criação. Para obter mais informações sobre matrizes de criação, consulte "[Configurando um fluxo de trabalho](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)".
 
 ### Usar imagens do Docker
 
 
-Tanto o CircleCI quanto o {{ site.data.variables.product.prodname_actions }} suportam executar etapas dentro de uma imagem do Docker.
+Tanto o CircleCI quanto o {% data variables.product.prodname_actions %} suportam executar etapas dentro de uma imagem do Docker.
 
-O CircleCI fornece um conjunto de imagens pré-construídas com dependências comuns. Estas imagens têm o `USUÁRIO` definido como `circleci`, o que faz com que as permissões entrem em conflito com {{ site.data.variables.product.prodname_actions }}.
+O CircleCI fornece um conjunto de imagens pré-construídas com dependências comuns. Estas imagens têm o `USUÁRIO` definido como `circleci`, o que faz com que as permissões entrem em conflito com {% data variables.product.prodname_actions %}.
 
-Recomendamos que você se afaste das imagens pré-criadas do CircleCI, ao migrar para {{ site.data.variables.product.prodname_actions }}. Em muitos casos, você pode usar ações para instalar as dependências adicionais de que você precisa.
+Recomendamos que você se afaste das imagens pré-criadas do CircleCI, ao migrar para {% data variables.product.prodname_actions %}. Em muitos casos, você pode usar ações para instalar as dependências adicionais de que você precisa.
 
-Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {{ site.data.variables.product.product_name }}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
+Para obter mais informações sobre o sistema de arquivos Docker, consulte "[Ambientes virtuais para executores hospedados em {% data variables.product.product_name %}](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)".
 
-Para obter mais informações sobre ferramentas e pacotes disponíveis em ambientes virtuais hospedados em {{ site.data.variables.product.prodname_dotcom }}, consulte "[Software instalado em executores hospedados no GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
+Para obter mais informações sobre ferramentas e pacotes disponíveis em ambientes virtuais hospedados em {% data variables.product.prodname_dotcom %}, consulte "[Software instalado em executores hospedados no GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
 
 ### Usar variáveis e segredos
 
-O CircleCI e o {{ site.data.variables.product.prodname_actions }} suportam configurações das variáveis de ambiente no arquivo de configuração e criação de segredos usando o CircleCI ou a interface de usuário do {{ site.data.variables.product.product_name }}.
+O CircleCI e o {% data variables.product.prodname_actions %} suportam configurações das variáveis de ambiente no arquivo de configuração e criação de segredos usando o CircleCI ou a interface de usuário do {% data variables.product.product_name %}.
 
 Para obter mais informações, consulte "[Usar variáveis de ambiente](/actions/configuring-and-managing-workflows/using-environment-variables)" e "[Criar e usar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
 ### Armazenar em cache
 
-O CircleCI e o {{ site.data.variables.product.prodname_actions }} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
+O CircleCI e o {% data variables.product.prodname_actions %} fornecem um método para armazenar arquivos de cache no arquivo de configuração manualmente.
 
 Abaixo, há um exemplo da sintaxe para cada sistema.
 
@@ -101,13 +101,13 @@ GitHub Actions
 
 Para obter mais informações, consulte "[Memorizando dependências para acelerar fluxos de trabalho](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)".
 
-{{ site.data.variables.product.prodname_actions }} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
+{% data variables.product.prodname_actions %} não tem o equivalente ao Docker Layer Caching (DLC) do CircleCI.
 
 ### Dados persistentes entre trabalhos
 
-Tanto a CircleCI quanto a {{ site.data.variables.product.prodname_actions }} fornecem mecanismos para persistir dados entre trabalhos.
+Tanto a CircleCI quanto a {% data variables.product.prodname_actions %} fornecem mecanismos para persistir dados entre trabalhos.
 
-Abaixo está um exemplo no CircleCI e na sintaxe de configuração do {{ site.data.variables.product.prodname_actions }}.
+Abaixo está um exemplo no CircleCI e na sintaxe de configuração do {% data variables.product.prodname_actions %}.
 
 <table>
 <tr>
@@ -161,9 +161,9 @@ Para obter mais informações, consulte "[Dados persistentes do fluxo de trabalh
 
 Ambos os sistemas permitem que você inclua contêineres adicionais para bases de dados, memorização ou outras dependências.
 
-No CircleCI, a primeira imagem listada no *config.yaml* é a imagem principal usada para executar comandos. O {{ site.data.variables.product.prodname_actions }} usa seções explícitas: usa o`contêiner` para o contêiner primário e lista contêineres adicionais em `serviços`.
+No CircleCI, a primeira imagem listada no *config.yaml* é a imagem principal usada para executar comandos. O {% data variables.product.prodname_actions %} usa seções explícitas: usa o`contêiner` para o contêiner primário e lista contêineres adicionais em `serviços`.
 
-Abaixo está um exemplo no CircleCI e na sintaxe de configuração do {{ site.data.variables.product.prodname_actions }}.
+Abaixo está um exemplo no CircleCI e na sintaxe de configuração do {% data variables.product.prodname_actions %}.
 
 <table class="d-block">
 <tr>
@@ -283,7 +283,7 @@ Para obter mais informações, consulte "[Sobre contêineres de serviço](/actio
 
 ### Exemplo completo
 
-Abaixo, há um exemplo concreto. O lado esquerdo mostra o CircleCI *config.yml* atual para o repositório [thoughtbot/administrador](https://github.com/thoughtbot/administrate). O lado direito mostra o equivalente {{ site.data.variables.product.prodname_actions }}.
+Abaixo, há um exemplo concreto. O lado esquerdo mostra o CircleCI *config.yml* atual para o repositório [thoughtbot/administrador](https://github.com/thoughtbot/administrate). O lado direito mostra o equivalente {% data variables.product.prodname_actions %}.
 
 <table class="d-block">
 <tr>

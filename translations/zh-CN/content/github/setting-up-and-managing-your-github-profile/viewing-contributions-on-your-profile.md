@@ -1,6 +1,6 @@
 ---
 title: 在个人资料中查看贡献
-intro: '您的 {{ site.data.variables.product.product_name }} 个人资料显示固定仓库以及过去一年中您的仓库贡献图。'
+intro: '您的 {% data variables.product.product_name %} 个人资料显示固定仓库以及过去一年中您的仓库贡献图。'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**注：**如果您已[将用于本地 Git 配置的电子邮件地址添加到 {{ site.data.variables.product.product_name }} 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)，提交将仅在您的贡献图中显示。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)”
+**注：**如果您已[将用于本地 Git 配置的电子邮件地址添加到 {% data variables.product.product_name %} 电子邮件设置](/articles/adding-an-email-address-to-your-github-account)，提交将仅在您的贡献图中显示。 更多信息请参阅“[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)”
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ versions:
 - 提交拉取请求审查{% if currentVersion != "free-pro-team@latest" %}
 - 合作创作仓库默认分支或 `gh-pages` 分支中的提交{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### 受欢迎的仓库
 
@@ -63,11 +63,11 @@ versions:
 
 对于提交和拉取请求，时间戳的计算方式不同：
 - **提交**使用提交时间戳中的时区信息。 更多信息请参阅“[对时间表上的提交进行故障排除](/articles/troubleshooting-commits-on-your-timeline)”。
-- 在 {{ site.data.variables.product.product_name }} 上打开的**拉取请求**和**议题**使用浏览器的时区。 通过 API 打开的内容使用 [API 调用中指定的](https://developer.github.com/changes/2014-03-04-timezone-handling-changes)时间戳或时区。
+- 在 {% data variables.product.product_name %} 上打开的**拉取请求**和**议题**使用浏览器的时区。 通过 API 打开的内容使用 [API 调用中指定的](https://developer.github.com/changes/2014-03-04-timezone-handling-changes)时间戳或时区。
 
 ### 活动概览
 
-{{ site.data.reusables.profile.activity-overview-summary }} 更多信息请参阅“[在个人资料中显示活动概览](/articles/showing-an-overview-of-your-activity-on-your-profile)”。
+{% data reusables.profile.activity-overview-summary %} 更多信息请参阅“[在个人资料中显示活动概览](/articles/showing-an-overview-of-your-activity-on-your-profile)”。
 
 ![个人资料中的活动概览部分](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ versions:
 
 ![贡献活动时间过滤器](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### 在 {{ site.data.variables.product.prodname_dotcom_the_website }} 上查看 {{ site.data.variables.product.product_location_enterprise }}的贡献
+### 在 {% data variables.product.prodname_dotcom_the_website %} 上查看 {% data variables.product.product_location_enterprise %}的贡献
 
-如果您的站点管理员已启用{{ site.data.variables.product.prodname_unified_contributions }}，您可以将 {{ site.data.variables.product.prodname_enterprise }} 贡献计数发送到 {{ site.data.variables.product.prodname_dotcom_the_website }} 配置文件。 更多信息请参阅“[将 {{ site.data.variables.product.prodname_ghe_server }} 贡献发送到 {{ site.data.variables.product.prodname_dotcom_the_website }}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
+如果您的站点管理员已启用{% data variables.product.prodname_unified_contributions %}，您可以将 {% data variables.product.prodname_enterprise %} 贡献计数发送到 {% data variables.product.prodname_dotcom_the_website %} 配置文件。 更多信息请参阅“[将 {% data variables.product.prodname_ghe_server %} 贡献发送到 {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)”。
 
 ### 延伸阅读
 

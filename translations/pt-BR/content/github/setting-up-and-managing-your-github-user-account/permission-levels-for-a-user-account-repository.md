@@ -29,12 +29,12 @@ O proprietário do repositório tem controle total do repositório. Além de tod
 - Excluir pacotes. Para obter mais informações, consulte "[Excluir um pacote](/github/managing-packages-with-github-packages/deleting-a-package)".{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - Criar e editar cartões sociais do repositório. Para obter mais informações, consulte "[Personalizar a exibição das redes sociais do repositório](/articles/customizing-your-repositorys-social-media-preview)".
 - Transformar o repositório em um modelo. Para obter mais informações, consulte "[Criar um repositório modelo](/articles/creating-a-template-repository)".{% endif %}
-- Receber [{% if currentVersion == "free-pro-team@latest" %}{{ site.data.variables.product.prodname_dependabot_alerts }}{% else %}alertas de segurança{% endif %} para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) em um repositório{% if currentVersion == "free-pro-team@latest" %}
-- Ignorar {{ site.data.variables.product.prodname_dependabot_alerts }} no seu repositório. Para obter mais informações, consulte "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository). "
+- Receber [{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %} para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) em um repositório{% if currentVersion == "free-pro-team@latest" %}
+- Ignorar {% data variables.product.prodname_dependabot_alerts %} no seu repositório. Para obter mais informações, consulte "[Visualizar e atualizar dependências vulneráveis no seu repositório](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository). "
 - [Gerenciar o uso de dados para o seu repositório privado](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [Definir os proprietários do código do repositório](/articles/about-code-owners)
 - [Arquivar repositórios](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- Criar consultorias de segurança. Para obter mais informações, consulte "[Sobre {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
+- Criar consultorias de segurança. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)".
 - Exibir um botão de patrocinador. Para obter mais informações, consulte "[Exibir um botão de patrocinador no seu repositório](/articles/displaying-a-sponsor-button-in-your-repository)".{% endif %}
 
 Só existe um **único proprietário** de um repositório pertencente a uma conta de usuário. Essa permissão não pode ser compartilhada com outra conta de usuário. Para transferir a propriedade de um repositório a outro usuário, consulte "[Como transferir um repositório](/articles/how-to-transfer-a-repository)".
@@ -64,7 +64,7 @@ Em um repositório pessoal, os colaboradores podem:
 - Enviar uma revisão de uma pull request que afetará a capacidade de merge dela
 - Atuar como um proprietário do código designado do repositório. Para obter mais informações, consulte "[Sobre proprietários do código](/articles/about-code-owners)".
 - Bloquear uma conversa. Para obter mais informações, consulte "[Bloquear conversas](/articles/locking-conversations)".{% if currentVersion == "free-pro-team@latest" %}
-- Denunciar conteúdo abusivo para o {{ site.data.variables.contact.contact_support }}. Para obter mais informações, consulte "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)".{% endif %}
+- Denunciar conteúdo abusivo para o {% data variables.contact.contact_support %}. Para obter mais informações, consulte "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)".{% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - Transferir um problema para um repositório diferente. Para obter mais informações, consulte "[Transferir um problema para outro repositório](/articles/transferring-an-issue-to-another-repository)".{% endif %}
 

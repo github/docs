@@ -27,19 +27,19 @@ Ein Review kann drei verschiedene Status haben:
 
 ![Bild des Review-Status](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 Du kannst alle Reviews eines Pull Requests in der Zeitleiste der Unterhaltung anzeigen, und Du kannst Reviews von Repository-Inhabern und -Mitarbeitern im Merge-Feld des Pull Requests sehen.
 
 ![Bild von Reviews in einem Merge-Feld](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
-{{ site.data.reusables.search.requested_reviews_search_tip }}
+{% data reusables.search.requested_reviews_search_tip %}
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Erforderlicher Review
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 Weitere Informationen findest Du unter „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests).“
 

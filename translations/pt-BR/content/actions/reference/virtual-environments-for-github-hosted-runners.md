@@ -1,7 +1,7 @@
 ---
 title: Ambientes virtuais para os executores do GitHub Actions
-intro: 'O {{ site.data.variables.product.prodname_dotcom }} oferece máquinas virtuais hospedadas para executar fluxos de trabalho. A máquina virtual tem um ambiente de ferramentas, pacotes e configurações disponíveis para uso no {{ site.data.variables.product.prodname_actions }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'O {% data variables.product.prodname_dotcom %} oferece máquinas virtuais hospedadas para executar fluxos de trabalho. A máquina virtual tem um ambiente de ferramentas, pacotes e configurações disponíveis para uso no {% data variables.product.prodname_actions %}.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/virtual-environments-for-github-actions
@@ -12,26 +12,26 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre os executores hospedados no {{ site.data.variables.product.prodname_dotcom }}
+### Sobre os executores hospedados no {% data variables.product.prodname_dotcom %}
 
-Um executor hospedado no {{ site.data.variables.product.prodname_dotcom }} é uma máquina virtual hospedada pelo {{ site.data.variables.product.prodname_dotcom }} com o aplicativo do executor {{ site.data.variables.product.prodname_actions }} instalado. O {{ site.data.variables.product.prodname_dotcom }} oferece executores com os sistemas operacionais Linux, Windows e macOS.
+Um executor hospedado no {% data variables.product.prodname_dotcom %} é uma máquina virtual hospedada pelo {% data variables.product.prodname_dotcom %} com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. O {% data variables.product.prodname_dotcom %} oferece executores com os sistemas operacionais Linux, Windows e macOS.
 
-Ao usar um executor hospedada no {{ site.data.variables.product.prodname_dotcom }}, a manutenção e as atualizações da máquina são feitas para você. É possível executar fluxos de trabalho diretamente na máquina virtual ou em um contêiner Docker.
+Ao usar um executor hospedada no {% data variables.product.prodname_dotcom %}, a manutenção e as atualizações da máquina são feitas para você. É possível executar fluxos de trabalho diretamente na máquina virtual ou em um contêiner Docker.
 
 Você pode especificar o tipo de executor para cada trabalho em um fluxo de trabalho. Cada trabalho em um fluxo de trabalho é executado em uma nova instância da máquina virtual. Todas as etapas de um trabalho são executadas na mesma instância da máquina virtual, o que permite que ações de cada trabalho compartilhem informações usando o sistema de arquivos.
 
-{{ site.data.reusables.github-actions.runner-app-open-source }}
+{% data reusables.github-actions.runner-app-open-source %}
 
-#### Hosts da nuvem para os executores hospedados em {{ site.data.variables.product.prodname_dotcom }}
+#### Hosts da nuvem para os executores hospedados em {% data variables.product.prodname_dotcom %}
 
-O {{ site.data.variables.product.prodname_dotcom }} hospeda executores do Linux e Windows no Standard_DS2_v2 máquinas virtuais no Microsoft Azure com o aplicativo do executor {{ site.data.variables.product.prodname_actions }} instalado. A o aplicativo do executor hospedado no {{ site.data.variables.product.prodname_dotcom }} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos da máquina Standard_DS2_v2, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
+O {% data variables.product.prodname_dotcom %} hospeda executores do Linux e Windows no Standard_DS2_v2 máquinas virtuais no Microsoft Azure com o aplicativo do executor {% data variables.product.prodname_actions %} instalado. A o aplicativo do executor hospedado no {% data variables.product.prodname_dotcom %} é uma bifurcação do agente do Azure Pipelines. Os pacotes ICMP de entrada estão bloqueados para todas as máquinas virtuais do Azure. Portanto, é possível que os comandos ping ou traceroute não funcionem. Para obter mais informações sobre os recursos da máquina Standard_DS2_v2, consulte "[Dv2 e DSv2-series](https://docs.microsoft.com/en-us/azure/virtual-machines/dv2-dsv2-series#dsv2-series)" na documentação do Microsoft Azure.
 
-O {{ site.data.variables.product.prodname_dotcom }} usa [MacStadium](https://www.macstadium.com/) para hospedar os executores do macOS.
+O {% data variables.product.prodname_dotcom %} usa [MacStadium](https://www.macstadium.com/) para hospedar os executores do macOS.
 
-#### Privilégios administrativos os executores hospedados no {{ site.data.variables.product.prodname_dotcom }}
+#### Privilégios administrativos os executores hospedados no {% data variables.product.prodname_dotcom %}
 
 As máquinas virtuais Linux e macOS executam usando autenticação sem senha `sudo`. Quando precisar executar comandos ou instalar ferramentas que exigem mais permissões que o usuário atual possui, você pode usar `sudo` sem a necessidade de fornecer uma senha. Para obter mais informações, consulte o "[Manual do Sudo](https://www.sudo.ws/man/1.8.27/sudo.man.html)".
 
@@ -45,24 +45,24 @@ Cada máquina virtual tem os mesmos recursos de hardware disponíveis.
 - 7 GB de memória RAM
 - 14 GB de espaço de disco SSD
 
-{{ site.data.reusables.github-actions.supported-github-runners }}
+{% data reusables.github-actions.supported-github-runners %}
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
-Para obter uma lista de softwares, ferramentas e pacotes para cada executor, consulte "[Software instalado em executores hospedados em {{ site.data.variables.product.prodname_dotcom }}](/actions/reference/software-installed-on-github-hosted-runners)".
+Para obter uma lista de softwares, ferramentas e pacotes para cada executor, consulte "[Software instalado em executores hospedados em {% data variables.product.prodname_dotcom %}](/actions/reference/software-installed-on-github-hosted-runners)".
 
 Você pode visualizar os registros de uma execução do fluxo de trabalho para ver o ambiente exato do executor usado para um trabalho, bem como um link para as ferramentas pré-instaladas que estavam no executor. Para obter mais informações, consulte "[Gerenciar a execução de fluxos de trabalho](/actions/configuring-and-managing-workflows/managing-a-workflow-run#viewing-your-workflow-history)".
 
 
-#### Os endereços IP dos executores hospedados no {{ site.data.variables.product.prodname_dotcom }}
+#### Os endereços IP dos executores hospedados no {% data variables.product.prodname_dotcom %}
 
 {% note %}
 
-**Observação:** Se você usar uma lista de permissões de endereço IP para a sua organização ou conta corporativa de {{ site.data.variables.product.prodname_dotcom }}, você não poderá usar executores hospedados em {{ site.data.variables.product.prodname_dotcom }}. Em vez disso, deverá usar executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+**Observação:** Se você usar uma lista de permissões de endereço IP para a sua organização ou conta corporativa de {% data variables.product.prodname_dotcom %}, você não poderá usar executores hospedados em {% data variables.product.prodname_dotcom %}. Em vez disso, deverá usar executores auto-hospedados. Para obter mais informações, consulte "[Sobre os executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)."
 
 {% endnote %}
 
-Executores do Windows e Ubuntu são hospedados no Azure e têm os mesmos intervalos de endereços IP dos centros de dados Azure. Atualmente, todos os executores hospedados em {{ site.data.variables.product.prodname_dotcom }} do Windows e Ubuntu encontram-se nas seguintes regiões do Azure:
+Executores do Windows e Ubuntu são hospedados no Azure e têm os mesmos intervalos de endereços IP dos centros de dados Azure. Atualmente, todos os executores hospedados em {% data variables.product.prodname_dotcom %} do Windows e Ubuntu encontram-se nas seguintes regiões do Azure:
 
 - Leste dos EUA (`eastus`)
 - Leste dos EUA 2 (`eastus2`)
@@ -101,31 +101,31 @@ Você pode encontrar os intervalos de endereços IP compatíveis no objeto `"add
 }
 ```
 
-### Sistemas de arquivos nos executores hospedados no {{ site.data.variables.product.prodname_dotcom }}
+### Sistemas de arquivos nos executores hospedados no {% data variables.product.prodname_dotcom %}
 
-O {{ site.data.variables.product.prodname_dotcom }} executa ações e comandos de shell em diretórios específicos na máquina virtual. Os caminhos dos arquivos nas máquinas virtuais não são estáticos. Use as variáveis de ambiente que {{ site.data.variables.product.prodname_dotcom }} fornece para construir caminhos de arquivos para os diretórios `home`, `workspace` e `workflow`.
+O {% data variables.product.prodname_dotcom %} executa ações e comandos de shell em diretórios específicos na máquina virtual. Os caminhos dos arquivos nas máquinas virtuais não são estáticos. Use as variáveis de ambiente que {% data variables.product.prodname_dotcom %} fornece para construir caminhos de arquivos para os diretórios `home`, `workspace` e `workflow`.
 
 | Diretório             | Variável de ambiente | Descrição                                                                                                                                                                                                          |
 | --------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `casa`                | `HOME`               | Contém dados relacionados ao usuário. Por exemplo, esse diretório pode conter credenciais de uma tentativa de login.                                                                                               |
 | `área de trabalho`    | `GITHUB_WORKSPACE`   | As ações e comandos do shell executados neste diretório. Uma ação pode modificar o conteúdo desse diretório, que fica acessível nas ações subsequentes.                                                            |
-| `workflow/event.json` | `GITHUB_EVENT_PATH`  | A carga `POST` do evento webhook que acionou o fluxo de trabalho. O {{ site.data.variables.product.prodname_dotcom }} o rescreve sempre que uma ação é executada para isolar o conteúdo do arquivo entre as ações. |
+| `workflow/event.json` | `GITHUB_EVENT_PATH`  | A carga `POST` do evento webhook que acionou o fluxo de trabalho. O {% data variables.product.prodname_dotcom %} o rescreve sempre que uma ação é executada para isolar o conteúdo do arquivo entre as ações. |
 
-Para obter uma lista das variáveis de ambiente que {{ site.data.variables.product.prodname_dotcom }} cria para cada fluxo de trabalho, consulte "[Usar variáveis de ambiente](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
+Para obter uma lista das variáveis de ambiente que {% data variables.product.prodname_dotcom %} cria para cada fluxo de trabalho, consulte "[Usar variáveis de ambiente](/github/automating-your-workflow-with-github-actions/using-environment-variables)".
 
 #### Sistema de arquivos do contêiner Docker
 
 Ações executadas em contêineres Docker têm diretórios estáticos no caminho `/github`. No entanto, é altamente recomendável usar as variáveis de ambiente padrão para elaborar caminhos de arquivos em contêineres do Docker.
 
-O {{ site.data.variables.product.prodname_dotcom }} reserva o prefixo de caminho `/github` e cria três diretórios para ações.
+O {% data variables.product.prodname_dotcom %} reserva o prefixo de caminho `/github` e cria três diretórios para ações.
 
 - `/github/home`
-- `/github/workspace` - {{ site.data.reusables.repositories.action-root-user-required }}
+- `/github/workspace` - {% data reusables.repositories.action-root-user-required %}
 - `/github/workflow`
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Leia mais
-- "[gestão de faturamento para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[gestão de faturamento para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 
 {% endif %}

@@ -13,7 +13,7 @@ Die Diagramme eines Repositorys geben Dir Informationen über {% if currentVersi
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {{ site.data.variables.product.prodname_free_user }} verfügbar:
+Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {% data variables.product.prodname_free_user %} verfügbar:
 - Pulse
 - Mitarbeiter
 - Traffic
@@ -21,7 +21,7 @@ Einige Repository-Diagramme sind nur in öffentlichen Repositorys mit {{ site.da
 - Code-Verlauf
 - Netzwerk
 
-Alle anderen Repository-Diagramme sind in allen Repositorys verfügbar. Jedes Repository-Diagramm ist in öffentlichen und privaten Repositorys mit {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }} und {{ site.data.variables.product.prodname_ghe_cloud }} verfügbar. {{ site.data.reusables.gated-features.more-info }}
+Alle anderen Repository-Diagramme sind in allen Repositorys verfügbar. Jedes Repository-Diagramm ist in öffentlichen und privaten Repositorys mit {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} und {% data variables.product.prodname_ghe_cloud %} verfügbar. {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

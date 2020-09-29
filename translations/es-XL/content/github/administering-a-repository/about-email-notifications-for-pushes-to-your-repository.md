@@ -12,13 +12,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{{ site.data.reusables.notifications.outbound_email_tip }}{% endif %}
+{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 Cada notificación por correo electrónico para una subida a un repositorio enumera las confirmaciones nuevas y las vincula a una diferencia que solo contenga esas confirmaciones. En la notificación por correo electrónico verás:
 
 - El nombre del repositorio donde se realizó la confirmación.
 - La rama en la que se realizó la confirmación.
-- El SHA1 de la confirmación, incluido un enlace a la diferencia en {{ site.data.variables.product.product_name }}.
+- El SHA1 de la confirmación, incluido un enlace a la diferencia en {% data variables.product.product_name %}.
 - El autor de la confirmación.
 - La fecha en que se realizó la confirmación.
 - Los archivos que fueron modificados como parte de la confirmación.
@@ -28,12 +28,12 @@ Puedes filtrar las notificaciones por correo electrónico que recibes para las i
 
 ### Habilitar las notificaciones por correo electrónico para las subidas de información en tu repositorio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-notifications }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-notifications %}
 5. Escribe hasta dos direcciones de correo electrónico, separadas por espacio en blanco, donde quieras que se envíen las notificaciones. Si quieres enviar los correos electrónicos a más de dos cuentas, configura una de las direcciones de correo electrónico a una dirección de correo electrónico del grupo. ![Cuadro de texto dirección de correo electrónico](/assets/images/help/settings/email_services_addresses.png)
-6. Si operas tu propio servidor, puedes verificar la integridad de los correos electrónicos mediante el token **Secreto**. Este token se envía con el correo electrónico como el encabezado `Aprobado`. Si el encabezado `Aprobado` coincide con el token que enviaste, puedes confiar en que el correo electrónico es de {{ site.data.variables.product.product_name }}. ![Cuadro de texto correo electrónico secreto](/assets/images/help/settings/email_services_token.png)
-7. Opcionalmente, selecciona **Enviar desde autor** para que los correos electrónicos se envíen usando la dirección de correo electrónico de la persona que confirma el cambio. De lo contrario, los correos electrónicos se envían desde {{ site.data.variables.notifications.no_reply_address }}. ![Casilla de autor del correo electrónico](/assets/images/help/settings/email_services_author.png)
+6. Si operas tu propio servidor, puedes verificar la integridad de los correos electrónicos mediante el token **Secreto**. Este token se envía con el correo electrónico como el encabezado `Aprobado`. Si el encabezado `Aprobado` coincide con el token que enviaste, puedes confiar en que el correo electrónico es de {% data variables.product.product_name %}. ![Cuadro de texto correo electrónico secreto](/assets/images/help/settings/email_services_token.png)
+7. Opcionalmente, selecciona **Enviar desde autor** para que los correos electrónicos se envíen usando la dirección de correo electrónico de la persona que confirma el cambio. De lo contrario, los correos electrónicos se envían desde {% data variables.notifications.no_reply_address %}. ![Casilla de autor del correo electrónico](/assets/images/help/settings/email_services_author.png)
 8. Haz clic en **Guardar parámetros**. ![Botón Guardar parámetros](/assets/images/help/settings/save_notification_settings.png)
 
 ### Leer más

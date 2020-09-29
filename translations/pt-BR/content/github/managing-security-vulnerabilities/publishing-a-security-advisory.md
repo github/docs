@@ -20,7 +20,7 @@ Se você criou uma consultoria de segurança, mas ainda não forneceu as informa
 
 Ao publicar uma consultoria de segurança, você notifica a sua comunidade sobre a vulnerabilidade de segurança que a consultoria de segurança aborda. A publicação de uma consultoria de segurança torna mais fácil para a sua comunidade atualizar as dependências do pacote e pesquisar o impacto da vulnerabilidade de segurança.
 
-{{ site.data.reusables.repositories.security-advisories-republishing }}
+{% data reusables.repositories.security-advisories-republishing %}
 
 Antes de publicar uma consultoria de segurança, você pode colaborar de forma privada para consertar a vulnerabilidade em uma bifurcação privada temporária. Para obter mais informações, consulte "[Colaborar em uma bifurcação privada temporária para resolver uma vulnerabilidade de segurança](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)".
 
@@ -43,11 +43,11 @@ Se você precisar atualizar ou corrigir informações em uma consultoria de segu
 
 Qualquer pessoa com permissão de administrador a uma consultora de segurança pode solicitar um número de identificação CVE para a consultoria de segurança.
 
-{{ site.data.reusables.repositories.request-security-advisory-cve-id }} Para obter mais informações, consulte "[Sobre o {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers).
+{% data reusables.repositories.request-security-advisory-cve-id %} Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers).
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Na lista "consultoria de segurança", clique na consultoria de segurança para o qual deseja solicitar um número de identificação CVE. ![Consultoria de segurança na lista](/assets/images/help/security/security-advisory-in-list.png)
 5. Use o menu suspenso **Publicar consultoria** e clique em **Solicitar CVE**. ![Solicitar CVE no menu suspenso](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. Clique **Solicitar CVE**. ![Botão "Solicitar CVE"](/assets/images/help/security/security-advisory-request-cve-button.png)
@@ -56,15 +56,15 @@ Qualquer pessoa com permissão de administrador a uma consultora de segurança p
 
 A publicação de uma consultor de segurança elimina a bifurcação privada temporária para a consultoria de segurança.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Na lista "consultoria de segurança", clique na consultoria de segurança que deseja publicar. ![Consultoria de segurança na lista](/assets/images/help/security/security-advisory-in-list.png)
 5. Na parte inferior da página, clique em **Publicar consultoria**. ![Botão Publish advisory (Publicar consultoria)](/assets/images/help/security/publish-advisory-button.png)
 
-### {{ site.data.variables.product.prodname_dependabot_alerts }} para consultoria de segurança publicada
+### {% data variables.product.prodname_dependabot_alerts %} para consultoria de segurança publicada
 
-{{ site.data.reusables.repositories.github-reviews-security-advisories }}
+{% data reusables.repositories.github-reviews-security-advisories %}
 
 ### Leia mais
 

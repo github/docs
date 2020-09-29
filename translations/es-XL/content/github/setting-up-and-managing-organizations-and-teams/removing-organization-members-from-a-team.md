@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 4. Selecciona la persona o las personas que quieres eliminar. ![Casilla junto al miembro de la organización](/assets/images/help/teams/team-member-check-box.png)
 5. Arriba de la lista de miembros del equipo, utiliza el menú desplegable y haz clic en **Eliminar del equipo**. ![Menú desplegable con opción para cambiar el rol](/assets/images/help/teams/bulk-edit-drop-down.png)

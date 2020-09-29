@@ -4,7 +4,7 @@ intro: CODEOWNERS ファイルを使い、リポジトリ中のコードに対�
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -33,15 +33,15 @@ versions:
 
 CODEOWNERS ファイルを使うためには、コードオーナーを追加したいブランチで、リポジトリのルート、`docs/`、`.github/` のいずれかのディレクトリに `CODEOWNERS` という新しいファイルを作成してください。
 
-各CODEOWNERSファイルは、リポジトリ内の単一のブランチにコードオーナーを割り当てます。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+各CODEOWNERSファイルは、リポジトリ内の単一のブランチにコードオーナーを割り当てます。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 コードオーナーがレビューのリクエストを受け取るためには、CODEOWNERS ファイルがプルリクエストの base ブランチになければなりません。 たとえばリポジトリ中の`gh-pages`ブランチの、*.js*ファイルのコードオーナーとして`@octocat`を割り当てたなら、*.js*に変更を加えるプルリクエストがheadブランチと`gh-pages`の間でオープンされると、`@octocat`はレビューのリクエストを受けることになります。
 
 ### CODEOWNERSの構文
 
-CODEOWNERS ファイルは、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使われているのと同じルールに従うパターンを利用します。 パターンの後には1つ以上の{{ site.data.variables.product.prodname_dotcom }}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 たとえば `user@example.com` のような、ユーザの {{ site.data.variables.product.product_name }} アカウントに追加されたメールアドレスでユーザを参照することもできます。
+CODEOWNERS ファイルは、[gitignore](https://git-scm.com/docs/gitignore#_pattern_format) ファイルで使われているのと同じルールに従うパターンを利用します。 パターンの後には1つ以上の{% data variables.product.prodname_dotcom %}のユーザー名あるいはTeam名が続きます。これらの名前には標準の`@username`あるいは`@org/team-name`フォーマットが使われます。 たとえば `user@example.com` のような、ユーザの {% data variables.product.product_name %} アカウントに追加されたメールアドレスでユーザを参照することもできます。
 
-CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。 無効な構文には、{{ site.data.variables.product.product_name }} に存在しないインラインコメントとユーザ名または Team 名が含まれます。
+CODEOWNERS ファイルのいずれかの行に無効な構文が含まれている場合、そのファイルは検出されず、レビューのリクエストには使用されません。 無効な構文には、{% data variables.product.product_name %} に存在しないインラインコメントとユーザ名または Team 名が含まれます。
 #### CODEOWNERS ファイルの例
 ```
 # これはコメントです。

@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Aprenda mais sobre conceitos e terminologia {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Aprenda mais sobre conceitos e terminologia {% data variables.product.prodname_actions %}.'
 mapTopic: true
 versions:
   free-pro-team: '*'

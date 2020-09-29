@@ -1,7 +1,7 @@
 ---
 title: Sobre autoridades certificadas de SSH
 intro: 'Com uma autoridade certificada SSH, a organização ou conta corporativa pode oferecer certificados SSH para os integrantes usarem ao acessar seus recursos com o Git.'
-product: '{{ site.data.reusables.gated-features.ssh-certificate-authorities }}'
+product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
 versions:
@@ -13,15 +13,15 @@ Um certificado SSH é um mecanismo utilizado para uma chave SSH assinar outra ch
 
 Depois de adicionar uma CA SSH à sua organização ou conta corporativa, você pode usar a CA para assinar certificados SSH de cliente para integrantes da organização. Integrantes da organização podem usar os certificados assinados para acessar os repositórios da sua organização (e somente os repositórios da sua organização) no Git. Você pode exigir que os integrantes usem certificados SSH para acessar os recursos da organização.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Aplicar configurações de segurança na conta corporativa](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)".{% endif %}
 
-Por exemplo, você pode desenvolver um sistema interno que emite um novo certificado para seus desenvolvedores todas as manhãs. Cada desenvolvedor pode usar o certificado diário para trabalhar nos repositórios da organização no {{ site.data.variables.product.product_name }}. No final do dia, o certificado pode expirar automaticamente, protegendo seus repositórios caso o certificado seja adulterado mais tarde.
+Por exemplo, você pode desenvolver um sistema interno que emite um novo certificado para seus desenvolvedores todas as manhãs. Cada desenvolvedor pode usar o certificado diário para trabalhar nos repositórios da organização no {% data variables.product.product_name %}. No final do dia, o certificado pode expirar automaticamente, protegendo seus repositórios caso o certificado seja adulterado mais tarde.
 
-A cada emissão de certificado, você deve incluir uma extensão especificando para qual usuário do {{ site.data.variables.product.product_name }} é o certificado. Por exemplo, você pode usar o comando do OpenSSH `ssh-keygen` substituindo _KEY-IDENTITY_ por sua identidade chave e _USERNAME_ por um nome de usuário do {{ site.data.variables.product.product_name }}:
+A cada emissão de certificado, você deve incluir uma extensão especificando para qual usuário do {% data variables.product.product_name %} é o certificado. Por exemplo, você pode usar o comando do OpenSSH `ssh-keygen` substituindo _KEY-IDENTITY_ por sua identidade chave e _USERNAME_ por um nome de usuário do {% data variables.product.product_name %}:
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME</em> ./user-key.pub
 ```
 
-Para emitir um certificado para alguém que tem nomes de usuário diferentes no {{ site.data.variables.product.prodname_ghe_server }} e no {{ site.data.variables.product.prodname_ghe_cloud }}, você pode incluir duas extensões de login.
+Para emitir um certificado para alguém que tem nomes de usuário diferentes no {% data variables.product.prodname_ghe_server %} e no {% data variables.product.prodname_ghe_cloud %}, você pode incluir duas extensões de login.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>CLOUD-USERNAME</em> extension:login@<em>HOSTNAME</em>=<em>SERVER-USERNAME</em> ./user-key.pub

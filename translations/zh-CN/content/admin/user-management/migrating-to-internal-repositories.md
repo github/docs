@@ -1,6 +1,6 @@
 ---
 title: 迁移到内部仓库
-intro: '您可以迁移到内部仓库，以便为同时使用 {{ site.data.variables.product.prodname_ghe_server }} 和 {{ site.data.variables.product.prodname_ghe_cloud }} 的开发者统一内源体验。'
+intro: '您可以迁移到内部仓库，以便为同时使用 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 的开发者统一内源体验。'
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
   - /enterprise/admin/user-management/migrating-to-internal-repositories
@@ -11,9 +11,9 @@ versions:
 
 ### 关于内部仓库
 
-内部仓库适用于 {{ site.data.variables.product.prodname_ghe_server }} 2.20+。 {{ site.data.reusables.repositories.about-internal-repos }} 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)。”
+内部仓库适用于 {% data variables.product.prodname_ghe_server %} 2.20+。 {% data reusables.repositories.about-internal-repos %} 更多信息请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)。”
 
-在未来版本的 {{ site.data.variables.product.prodname_ghe_server }} 中，我们将调整仓库可见性的工作方式，以便公共、内部和私有术语对 {{ site.data.variables.product.prodname_ghe_server }} 和 {{ site.data.variables.product.prodname_ghe_cloud }} 上的开发者具有统一的含义。
+在未来版本的 {% data variables.product.prodname_ghe_server %} 中，我们将调整仓库可见性的工作方式，以便公共、内部和私有术语对 {% data variables.product.prodname_ghe_server %} 和 {% data variables.product.prodname_ghe_cloud %} 上的开发者具有统一的含义。
 
 要为这些变更做准备，如果您已启用私有模式，可在实例上运行迁移，将公共仓库转换为内部仓库。 此迁移目前是可选操作，可用于测试非生产实例的变更。 此迁移未来将变成强制操作。
 

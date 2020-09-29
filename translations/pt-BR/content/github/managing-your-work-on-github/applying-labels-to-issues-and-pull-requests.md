@@ -15,9 +15,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. No canto superior direito, clique em **Label** (Etiqueta) e comece a digitar o nome de uma etiqueta existente. Clique no nome da etiqueta para associá-la aos itens selecionados. ![Menu suspenso atribuição Marco Problemas](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 
 ### Leia mais

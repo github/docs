@@ -1,6 +1,6 @@
 ---
 title: Protokollweiterleitung
-intro: '{{ site.data.variables.product.prodname_enterprise }} verwendet „syslog-ng“, um System- und Anwendungsprotokolle an den Server weiterzuleiten, den Sie in den {{ site.data.variables.enterprise.management_console }}-Einstellungen angegeben haben.'
+intro: '{% data variables.product.prodname_enterprise %} verwendet „syslog-ng“, um System- und Anwendungsprotokolle an den Server weiterzuleiten, den Sie in den {% data variables.enterprise.management_console %}-Einstellungen angegeben haben.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding/
   - /enterprise/admin/installation/log-forwarding
@@ -12,7 +12,7 @@ Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-St
 
 ### Protokollweiterleitung aktivieren
 
-1. Klicken Sie auf der Seite mit den Einstellungen der {{ site.data.variables.enterprise.management_console }} auf der linken Seitenleiste auf **Monitoring** (Überwachung).
+1. Klicken Sie auf der Seite mit den Einstellungen der {% data variables.enterprise.management_console %} auf der linken Seitenleiste auf **Monitoring** (Überwachung).
 1. Wählen Sie **Enable log forwarding** (Protokollweiterleitung aktivieren) aus.
 1. Geben Sie im Feld **Server address** (Serveradresse) die Adresse des Servers ein, an den Sie Protokolle weiterleiten möchten. Sie können mehrere Adressen in einer kommagetrennten Liste angeben.
 1. Wählen Sie im Dropdownmenü „Protocol“ (Protokoll) das Protokoll aus, das für die Kommunikation mit dem Protokollserver verwendet werden soll. Das Protokoll wird auf alle angegebenen Protokollziele angewendet.
@@ -21,4 +21,4 @@ Unterstützt werden Protokollsammlungssysteme, die Protokollstreams im Syslog-St
 
 ### Problemlösungen
 
-Wenden Sie sich bei Protokollweiterleitungsproblemen an den {{ site.data.variables.contact.contact_ent_support }}, und hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an.
+Wenden Sie sich bei Protokollweiterleitungsproblemen an den {% data variables.contact.contact_ent_support %}, und hängen Sie die Ausgabedatei von `http(s)://[hostname]/setup/diagnostics` an Ihre E-Mail an.

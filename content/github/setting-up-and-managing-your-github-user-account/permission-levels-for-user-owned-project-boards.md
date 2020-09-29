@@ -14,7 +14,7 @@ There is only one owner of a user-owned project board; this permission cannot be
 
 There are three levels of permissions for project board collaborators:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### Owner and admin permissions for a user-owned project board
 

@@ -20,7 +20,7 @@ Before you can publish a security advisory or request a CVE identification numbe
 
 When you publish a security advisory, you notify your community about the security vulnerability that the security advisory addresses. Publishing a security advisory makes it easier for your community to update package dependencies and research the impact of the security vulnerability.
 
-{{ site.data.reusables.repositories.security-advisories-republishing }}
+{% data reusables.repositories.security-advisories-republishing %}
 
 Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. 更多信息请参阅“[在临时私有复刻中协作以解决安全漏洞](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)”。
 
@@ -43,11 +43,11 @@ When you publish a draft advisory from a public repository, everyone is able to 
 
 Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
 
-{{ site.data.reusables.repositories.request-security-advisory-cve-id }} For more information, see "[About {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击要为其申请 CVE 识别号的安全通告。 ![列表中的安全通告](/assets/images/help/security/security-advisory-in-list.png)
 5. 使用 **Publish advisory（发布通告）**下拉菜单，然后单击 **Request CVE（申请 CVE）**。 ![下拉列表中的“申请 CVE”](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. 单击 **Request CVE（申请 CVE）**。 ![申请 CVE 按钮](/assets/images/help/security/security-advisory-request-cve-button.png)
@@ -56,15 +56,15 @@ Anyone with admin permissions to a security advisory can request a CVE identific
 
 Publishing a security advisory deletes the temporary private fork for the security advisory.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. 在“Security Advisories（安全通告）”列表中，单击您要发布的安全通告。 ![列表中的安全通告](/assets/images/help/security/security-advisory-in-list.png)
 5. 在页面底部，单击 **Publish advisory（发布通告）**。 ![发布通告按钮](/assets/images/help/security/publish-advisory-button.png)
 
-### 对于发布的安全通告的 {{ site.data.variables.product.prodname_dependabot_alerts }}
+### 对于发布的安全通告的 {% data variables.product.prodname_dependabot_alerts %}
 
-{{ site.data.reusables.repositories.github-reviews-security-advisories }}
+{% data reusables.repositories.github-reviews-security-advisories %}
 
 ### 延伸阅读
 

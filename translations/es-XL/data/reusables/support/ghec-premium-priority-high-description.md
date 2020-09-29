@@ -1,1 +1,1 @@
-Los problemas de cuenta o de seguridad con tu organización o empresa en {{ site.data.variables.product.prodname_ghe_cloud }} están causando un impacto limitado en tu negocio.
+Los problemas de cuenta o de seguridad con tu organización o empresa en {% data variables.product.prodname_ghe_cloud %} están causando un impacto limitado en tu negocio.

@@ -85,17 +85,17 @@ Você pode criar um link inline colocando o texto do link entre colchetes `[ ]` 
 
 {% tip %}
 
-**Dica:** o {{ site.data.variables.product.product_name }} cria links automaticamente quando URLs válidos são escritos em um comentário. Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
+**Dica:** o {% data variables.product.product_name %} cria links automaticamente quando URLs válidos são escritos em um comentário. Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
 
 {% endtip %}
 
 ### Links de seção
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### Links relativos
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Listas
 
@@ -123,7 +123,7 @@ Para ordenar a lista, coloque um número na frente de cada linha.
 
 Você pode criar uma lista aninhada recuando um ou mais itens da lista abaixo de outro item.
 
-Para criar uma lista aninhada usando o editor web do {{ site.data.variables.product.product_name }} ou um editor de texto que usa uma fonte monoespaçada, como o [Atom](https://atom.io/), você pode alinhar sua lista visualmente. Digite caracteres de espaço na fonte do item da lista aninhada, até que o caractere de marcador da lista (`-` ou `*`) fique diretamente abaixo do primeiro caractere do texto no item acima dele.
+Para criar uma lista aninhada usando o editor web do {% data variables.product.product_name %} ou um editor de texto que usa uma fonte monoespaçada, como o [Atom](https://atom.io/), você pode alinhar sua lista visualmente. Digite caracteres de espaço na fonte do item da lista aninhada, até que o caractere de marcador da lista (`-` ou `*`) fique diretamente abaixo do primeiro caractere do texto no item acima dele.
 
 ```
 1. Primeiro item da lista
@@ -135,7 +135,7 @@ Para criar uma lista aninhada usando o editor web do {{ site.data.variables.prod
 
 ![Lista com dois níveis de itens aninhados](/assets/images/help/writing/nested-list-example-1.png)
 
-Para criar uma lista aninhada no editor de comentários do {{ site.data.variables.product.product_name }}, que não usa uma fonte monoespaçada, você pode observar o item da lista logo acima da lista aninhada e contar o número de caracteres que aparecem antes do conteúdo do item. Em seguida, digite esse número de caracteres de espaço na fonte do item da linha aninhada.
+Para criar uma lista aninhada no editor de comentários do {% data variables.product.product_name %}, que não usa uma fonte monoespaçada, você pode observar o item da lista logo acima da lista aninhada e contar o número de caracteres que aparecem antes do conteúdo do item. Em seguida, digite esse número de caracteres de espaço na fonte do item da linha aninhada.
 
 Neste exemplo, você pode adicionar um item de lista aninhada abaixo do item de lista `100. Primeiro item da lista` recuando o item da lista aninhada com no mínimo cinco espaços, uma vez que há cinco caracteres (`100.`) antes de `Primeiro item da lista`.
 
@@ -160,7 +160,7 @@ Para obter mais exemplos, consulte a [Especificação de markdown em estilo GitH
 
 ### Listas de tarefas
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 Se a descrição de um item da lista de tarefas começar com parênteses, você precisará usar `\` para escape:
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ### Mencionar pessoas e equipes
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {{ site.data.variables.product.product_name }} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -191,21 +191,21 @@ Para obter mais informações, consulte "[Referências e URLs vinculados automat
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Fazer referência a recursos externos
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 
 ### Anexos de conteúdo
 
-Alguns {{ site.data.variables.product.prodname_github_app }}s fornecem informações no {{ site.data.variables.product.product_name }} para URLs que são vinculados aos respectivos domínios registrados. O {{ site.data.variables.product.product_name }} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
+Alguns {% data variables.product.prodname_github_app %}s fornecem informações no {% data variables.product.product_name %} para URLs que são vinculados aos respectivos domínios registrados. O {% data variables.product.product_name %} renderiza as informações fornecidas pelo app sob o URL no texto ou comentário de um problema ou uma pull request.
 
 ![Anexo de conteúdo](/assets/images/help/writing/content-attachment.png)
 
-Para ver anexos de conteúdo, você deve ter um {{ site.data.variables.product.prodname_github_app }} que use a API Content Attachments (anexos de conteúdo) instalada no repositório.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Instalar um app em sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um app em sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para ver anexos de conteúdo, você deve ter um {% data variables.product.prodname_github_app %} que use a API Content Attachments (anexos de conteúdo) instalada no repositório.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Instalar um app em sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um app em sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
 
 Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
 
-Para obter mais informações sobre como compilar um {{ site.data.variables.product.prodname_github_app }} que use anexos de conteúdo, consulte "[Usar anexos de conteúdo](/apps/using-content-attachments)".
+Para obter mais informações sobre como compilar um {% data variables.product.prodname_github_app %} que use anexos de conteúdo, consulte "[Usar anexos de conteúdo](/apps/using-content-attachments)".
 
 ### Usar emoji
 
@@ -225,7 +225,7 @@ Você pode criar um parágrafo deixando uma linha em branco entre as linhas de t
 
 ### Ignorar formatação markdown
 
-Para informar ao {{ site.data.variables.product.product_name }} que deve ignorar a formatação markdown (ou usar escape nela), anteceda o caractere markdown com `\`.
+Para informar ao {% data variables.product.product_name %} que deve ignorar a formatação markdown (ou usar escape nela), anteceda o caractere markdown com `\`.
 
 `Vamos renomear \*our-new-project\* para \*our-old-project\*.`
 
@@ -235,7 +235,7 @@ Para obter mais informações, consulte "[Sintaxe markdown](https://daringfireba
 
 ### Leia mais
 
-- [Especificações de markdown em estilo {{ site.data.variables.product.prodname_dotcom }}](https://github.github.com/gfm/)
+- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
 - "[Sobre escrita e formatação no GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Trabalhar com formatação avançada](/articles/working-with-advanced-formatting)"
 - "[Dominar o markdown](https://guides.github.com/features/mastering-markdown/)"

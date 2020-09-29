@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zur fortlaufenden Integration
 
@@ -58,5 +58,5 @@ Weitere Informationen finden Sie unter „[Einen Workflow konfigurieren](/articl
 
 - "[Einrichtung einer kontinuierlichen Integration mit {% data variables.product.prodname_actions %}](/articles/setting-up-continuous-integration-using-github-actions)"
 {% if currentVersion == "free-pro-team@latest" %}
-- „[Abrechnung für {{ site.data.variables.product.prodname_actions }} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“
+- „[Abrechnung für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“
 {% endif %}

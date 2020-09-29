@@ -1,6 +1,6 @@
 ---
 title: 审核实例上的用户
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 审核日志仪表板可以向站点管理员显示 {{ site.data.variables.product.product_location_enterprise }} 上所有用户和组织在过去 90 天内执行的操作。 其中包含操作执行人、操作内容和执行时间等详细信息。'
+intro: '{% data variables.product.prodname_ghe_server %} 审核日志仪表板可以向站点管理员显示 {% data variables.product.product_location_enterprise %} 上所有用户和组织在过去 90 天内执行的操作。 其中包含操作执行人、操作内容和执行时间等详细信息。'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### 访问 {{ site.data.variables.product.prodname_ghe_server }} 审核日志
+### 访问 {% data variables.product.prodname_ghe_server %} 审核日志
 
-审核日志仪表板让您能够直观地看到 {{ site.data.variables.product.product_location_enterprise }} 中的审计数据。
+审核日志仪表板让您能够直观地看到 {% data variables.product.product_location_enterprise %} 中的审计数据。
 
 ![实例级审核日志仪表板](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 在地图中，您可以平移和缩放来查看世界范围内的事件。 将鼠标悬停在国家/地区上，可以看到该国家/地区内事件的快速盘点。
 
 ### 在实例中搜索事件
 
-审核日志会列出与 {{ site.data.variables.product.product_location_enterprise }} 中的操作有关的以下信息：
+审核日志会列出与 {% data variables.product.product_location_enterprise %} 中的操作有关的以下信息：
 
 * 操作发生的[仓库](#search-based-on-the-repository)
 * 执行操作的[用户](#search-based-on-the-user)
@@ -36,7 +36,7 @@ versions:
 
 **注意：**
 
-- 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 支持使用多个运算符[在 {{ site.data.variables.product.prodname_ghe_server }} 内搜索](/enterprise/{{ currentVersion }}/user/articles/searching-github)。
+- 您无法使用文本搜索审核条目，但您可以使用多个筛选器构建搜索查询。 支持使用多个运算符[在 {% data variables.product.prodname_ghe_server %} 内搜索](/enterprise/{{ currentVersion }}/user/articles/searching-github)。
 - 要搜索 90 天之前的事件，请使用 `created` 限定符。
 
 {% endwarning %}
@@ -59,7 +59,7 @@ versions:
 * `actor:octocat actor:hubot` 会找到 `octocat` 和 `hubot` 执行的所有事件。
 * `-actor:hubot` 会排除 `hubot` 执行的所有事件。
 
-您可以仅使用 {{ site.data.variables.product.prodname_ghe_server }} 用户名，而不是个人的真实姓名。
+您可以仅使用 {% data variables.product.prodname_ghe_server %} 用户名，而不是个人的真实姓名。
 
 #### 基于组织搜索
 

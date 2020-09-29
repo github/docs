@@ -13,20 +13,20 @@ versions:
 
 ## Eventos
 
-La API de eventos es una API de solo lectura para los eventos de {{ site.data.variables.product.prodname_dotcom }}. Estos eventos alimentan a los diversos flujos de actividad en el sitio.
+La API de eventos es una API de solo lectura para los eventos de {% data variables.product.prodname_dotcom %}. Estos eventos alimentan a los diversos flujos de actividad en el sitio.
 
-La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {{ site.data.variables.product.product_name }}. La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {{ site.data.variables.product.product_name }}. Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos, consulta la sección "[Tipos de evento en {{ site.data.variables.product.prodname_dotcom }}](/developers/webhooks-and-events/github-event-types)". Para obtener más información, consulta la "[API de Eventos de Informes de Problemas](/rest/reference/issues#events)".
+La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {% data variables.product.product_name %}. La API de eventos puede devolver tipos diferentes de eventos que se activan por actividad en {% data variables.product.product_name %}. Para obtener más información acerca de los eventos específicos que puedes recibir de la API de Eventos, consulta la sección "[Tipos de evento en {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)". Para obtener más información, consulta la "[API de Eventos de Informes de Problemas](/rest/reference/issues#events)".
 
 Los eventos se optimizan para el sondeo con el encabezado "ETag". Si no se han desencadenado eventos nuevos, verás la respuesta "304 Sin Modificar", y tu límite de tasa actual permanecerá intacto. También hay un encabezado de "X-Poll-Interval" que especifica la frecuencia (en segundos) en la que se te permite hacer sondeos. Este tiempo podría incrementarse durante los periodos de carga fuerte en el servidor. Por favor obedece al encabezado.
 
 ``` shell
-$ curl -I {{ site.data.variables.product.api_url_pre }}/users/tater/events
+$ curl -I {% data variables.product.api_url_pre %}/users/tater/events
 > HTTP/1.1 200 OK
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
-$ curl -I {{ site.data.variables.product.api_url_pre }}/users/tater/events \
+$ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
@@ -120,13 +120,13 @@ Las notificaciones se optimizan para el sondeo con el encabezado `Last-Modified`
 
 ``` shell
 # Add authentication to your requests
-$ curl -I {{ site.data.variables.product.api_url_pre }}/notifications
+$ curl -I {% data variables.product.api_url_pre %}/notifications
 HTTP/1.1 200 OK
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
-$ curl -I {{ site.data.variables.product.api_url_pre }}/notifications
+$ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
@@ -147,7 +147,7 @@ Hay una lista potencial de `reason` para recibir una notificación:
 | `manual`           | Te suscribiste al hilo (a través de un informe de problemas o solicitud de extracción).                                                                                                                         |
 | `mención `         | Se te **@mencionó** específicamente en el contenido.                                                                                                                                                            |
 | `review_requested` | Se te solicitó, o se solicitó a un equipo del cual eres miembro, revisar una solicitud de extracción.{% if currentVersion == "free-pro-team@latest" %}
-| `security_alert`   | {{ site.data.variables.product.prodname_dotcom }} descubrió una [vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) en tu repositorio.{% endif %}
+| `security_alert`   | {% data variables.product.prodname_dotcom %} descubrió una [vulnerabilidad de seguridad](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) en tu repositorio.{% endif %}
 | `state_change`     | Cambiaste el estado del hilo (por ejemplo, cerraste un informe de problemas o fusionaste una solicitud de extracción).                                                                                          |
 | `subscribed`       | Estás observando el repositorio.                                                                                                                                                                                |
 | `team_mention`     | Estuviste en un equipo al que se mencionó.                                                                                                                                                                      |
@@ -166,7 +166,7 @@ El marcar a los repositorios con una estrella es una característica que permite
 
 ### Marcar con estrella vs. Observar
 
-En agosto de 2012, [cambiamos la forma en la que funciona el observar repositorios](https://github.com/blog/1204-notifications-stars) en {{ site.data.variables.product.prodname_dotcom }}. Muchas aplicaciones de cliente de la API podrían estar utilizando las terminales de "observación" originales para acceder a estos datos. Ahora puedes comenzar a utilizar las terminales de "estrella" como sustitución (como se describe más adelante). Para obtener más información, consulta la [publicación de Cambio de la API de observaciones](https://developer.github.com/changes/2012-09-05-watcher-api/) y la "[API para Observar Repositorios](/rest/reference/activity#watching)".
+En agosto de 2012, [cambiamos la forma en la que funciona el observar repositorios](https://github.com/blog/1204-notifications-stars) en {% data variables.product.prodname_dotcom %}. Muchas aplicaciones de cliente de la API podrían estar utilizando las terminales de "observación" originales para acceder a estos datos. Ahora puedes comenzar a utilizar las terminales de "estrella" como sustitución (como se describe más adelante). Para obtener más información, consulta la [publicación de Cambio de la API de observaciones](https://developer.github.com/changes/2012-09-05-watcher-api/) y la "[API para Observar Repositorios](/rest/reference/activity#watching)".
 
 ### Tipos de medio personalizados para marcar con estrella
 

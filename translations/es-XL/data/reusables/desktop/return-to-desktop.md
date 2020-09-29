@@ -1,1 +1,1 @@
-1. Regresa a {{ site.data.variables.product.prodname_desktop }}.
+1. Regresa a {% data variables.product.prodname_desktop %}.

@@ -1,7 +1,7 @@
 ---
 title: PostgreSQL-Service-Container erstellen
 intro: 'Du kannst einen PostgreSQL-Service-Container zur Verwendung in Deinem Workflow erstellen. Dieser Leitfaden zeigt Beispiele für die Erstellung eines PostgreSQL-Dienstes für Jobs, die in Containern oder direkt auf der Runner-Maschine laufen.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/creating-postgresql-service-containers
 versions:
@@ -9,31 +9,31 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einführung
 
 Diese Anleitung zeigt Dir Workflow-Beispiele, die einen Service-Container mit dem `postgres`-Bild vom Docker-Hub konfigurieren. Der Workflow führt ein Skript aus, um einen PostgreSQL-Client zu erstellen und den Client mit Daten zu füllen. Um zu testen, ob der Workflow den PostgreSQL-Client erstellt und mit Daten füllt, gibt das Skript die Daten des Clients in der Konsole aus.
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ### Vorrausetzungen
 
-{{ site.data.reusables.github-actions.service-container-prereqs }}
+{% data reusables.github-actions.service-container-prereqs %}
 
-Es kann Dir auch helfen, YAML, die Syntax für {{ site.data.variables.product.prodname_actions }} und PostgreSQL grundlegende zu verstehen. Weitere Informationen findest Du unter:
+Es kann Dir auch helfen, YAML, die Syntax für {% data variables.product.prodname_actions %} und PostgreSQL grundlegende zu verstehen. Weitere Informationen findest Du unter:
 
 - "[Einen Workflow konfigurieren](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 - "[PostgreSQL-Tutorial](https://www.postgresqltutorial.com/)" in der PostgreSQL-Dokumentation
-- „[Kernkonzepte für {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
+- „[Kernkonzepte für {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)“
 - "[Umgebungsvariablen verwenden](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 
 ### Jobs in Containern ausführen
 
-{{ site.data.reusables.github-actions.container-jobs-intro }}
+{% data reusables.github-actions.container-jobs-intro %}
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -89,9 +89,9 @@ jobs:
 
 #### Runner-Job konfigurieren
 
-{{ site.data.reusables.github-actions.service-container-host }}
+{% data reusables.github-actions.service-container-host %}
 
-{{ site.data.reusables.github-actions.postgres-label-description }}
+{% data reusables.github-actions.postgres-label-description %}
 
 ```yaml
 jobs:
@@ -121,7 +121,7 @@ jobs:
 
 #### „Steps“ (Schritte) konfigurieren
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -147,7 +147,7 @@ steps:
           POSTGRES_PORT: 5432
 ```
 
-{{ site.data.reusables.github-actions.postgres-environment-variables }}
+{% data reusables.github-actions.postgres-environment-variables %}
 
 Der Hostname des PostgreSQL-Dienstes ist der Label, den Du in Deinem Workflow konfiguriert hast, in diesem Fall `postgres`. Da Docker-Container im gleichen benutzerdefinierten Bridge-Netzwerk standardmäßig alle Ports öffnen, kannst Du auf den Service-Container durch den standardmäßigen PostgreSQL-Port 5432 zugreifen.
 
@@ -155,7 +155,7 @@ Der Hostname des PostgreSQL-Dienstes ist der Label, den Du in Deinem Workflow ko
 
 Wenn Du einen Job direkt auf der Runner-Maschine ausführst, musst Du die Ports des Service-Containers den Ports des Docker-Hosts zuordnen. Du kannst über den Docker-Host auf den Service-Container zugreifen, indem Du `localhost` und die Port-Nummer des Docker-Hosts verwendest.
 
-{{ site.data.reusables.github-actions.copy-workflow-file }}
+{% data reusables.github-actions.copy-workflow-file %}
 
 {% raw %}
 ```yaml
@@ -213,9 +213,9 @@ jobs:
 
 #### Runner-Job konfigurieren
 
-{{ site.data.reusables.github-actions.service-container-host-runner }}
+{% data reusables.github-actions.service-container-host-runner %}
 
-{{ site.data.reusables.github-actions.postgres-label-description }}
+{% data reusables.github-actions.postgres-label-description %}
 
 Der Workflow ordnet Port 5432 des PostgreSQL-Service-Containers dem Docker-Host zu. Weitere Informationen über das Schlüsselwort `ports` findest Du unter "[Informationen über Service-Container](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
@@ -248,7 +248,7 @@ jobs:
 
 #### „Steps“ (Schritte) konfigurieren
 
-{{ site.data.reusables.github-actions.service-template-steps }}
+{% data reusables.github-actions.service-template-steps %}
 
 ```yaml
 steps:
@@ -274,9 +274,9 @@ steps:
       POSTGRES_PORT: 5432
 ```
 
-{{ site.data.reusables.github-actions.postgres-environment-variables }}
+{% data reusables.github-actions.postgres-environment-variables %}
 
-{{ site.data.reusables.github-actions.service-container-localhost }}
+{% data reusables.github-actions.service-container-localhost %}
 
 ### Den PostgreSQL-Service-Container testen
 
@@ -284,7 +284,7 @@ Du kannst Deinen Workflow mit dem folgenden Skript testen, das einen PostgreSQL-
 
 Du kannst *client.js* anpassen, um alle PostgreSQL-Vorgänge einzuschließen, die für Deinen Workflow erforderlich sind. In diesem Beispiel erstellt das Skript die Instanz des PostgreSQL-Clients, erstellt eine Tabelle, fügt Platzhalter-Daten hinzu und ruft dann die Daten ab.
 
-{{ site.data.reusables.github-actions.service-container-add-script }}
+{% data reusables.github-actions.service-container-add-script %}
 
 ```javascript
 const { Client } = require('pg');

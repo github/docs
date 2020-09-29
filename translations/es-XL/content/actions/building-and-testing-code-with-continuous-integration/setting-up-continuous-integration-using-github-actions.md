@@ -1,7 +1,7 @@
 ---
 title: Configurar la integración continua usando las acciones de GitHub
 intro: Puedes configurar una integración continua para tu proyecto mediante el uso de una plantilla de flujo de trabajo que coincida con el idioma y las herramientas que deseas utilizar.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/setting-up-continuous-integration-using-github-actions
   - /github/automating-your-workflow-with-github-actions/setting-up-continuous-integration-using-github-actions
@@ -11,24 +11,24 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-Cualquier persona con permiso de escritura en un repositorio puede configurar la integración continua (CI) utilizando {{ site.data.variables.product.prodname_actions }}.
+Cualquier persona con permiso de escritura en un repositorio puede configurar la integración continua (CI) utilizando {% data variables.product.prodname_actions %}.
 
 Una vez que hayas configurado la IC, puedes personalizar el flujo de trabajo para satisfacer tus necesidades.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 3. Busca la plantilla que coincida con el idioma y las herramientas que deseas utilizar; a continuación, haz clic en **Configurar este flujo de trabajo**. ![Configurar el botón de flujo de trabajo](/assets/images/help/repository/setup-workflow-button.png)
 5. Haz clic en **Iniciar confirmación**. ![Botón Start commit (Iniciar confirmación)](/assets/images/help/repository/start-commit.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
-Una vez que se hace una inserción en tu repositorio, puedes seguir el estado y los registros detallados de tu flujo de trabajo de integración continua ejecutado en {{ site.data.variables.product.prodname_dotcom }} y recibir notificaciones personalizadas. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" y "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)".
+Una vez que se hace una inserción en tu repositorio, puedes seguir el estado y los registros detallados de tu flujo de trabajo de integración continua ejecutado en {% data variables.product.prodname_dotcom %} y recibir notificaciones personalizadas. Para obtener más información, consulta la sección "[Configurar notificaciones](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-actions-notification-options)" y "[Administrar una ejecución de flujo de trabajo](/articles/managing-a-workflow-run)".
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
 Para obtener más información, consulta "[ Configuración de flujo de trabajo](/articles/configuring-a-workflow)".
 

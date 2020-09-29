@@ -11,7 +11,7 @@ versions:
 
 自定义媒体类型在 API 中用于让使用者选择他们希望接收的数据格式。 此功能通过在发出请求时将以下一种或多种类型添加到 `Accept` 标头中来实现。 媒体类型特定于资源，可以进行独立更改并支持其他资源不支持的格式。
 
-所有 {{ site.data.variables.product.product_name }} 媒体类型如下所示：
+所有 {% data variables.product.product_name %} 媒体类型如下所示：
 
     application/vnd.github[.version].param[+json]
 
@@ -39,16 +39,16 @@ API 支持的最基本媒体类型是：
 您可以通过每个响应的标头检查当前版本。  查看 `X-GitHub-Media-Type` 标头：
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json

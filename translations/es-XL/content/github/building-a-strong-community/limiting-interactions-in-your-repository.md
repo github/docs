@@ -16,8 +16,8 @@ Después de 24 horas, los usuarios pueden reanudar la actividad normal en tu rep
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En la barra lateral de tus Parámetros del repositorio, haz clic en **Interaction limits** (Límites de interacción). ![Límites de interacción en los parámetros del repositorio ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 4. Da clic en una o más opciones debajo de "límites de interacción temporales": ![Opciones de límites de interacción temporal](/assets/images/help/repository/temporary-interaction-limits-options.png)
     - **Limit to existing users** (Límites para usuarios existentes): Limita la actividad de usuarios con cuentas que tienen menos de 24 horas y que no han realizado contribuciones anteriores ni son colaboradores.

@@ -1,6 +1,6 @@
 ---
 title: Recuperar una configuración de disponibilidad alta
-intro: 'Después de la conmutación por error de un aparato {{ site.data.variables.product.prodname_ghe_server }}, debes recuperar redundancia tan pronto como sea posible en lugar de depender de un aparato único.'
+intro: 'Después de la conmutación por error de un aparato {% data variables.product.prodname_ghe_server %}, debes recuperar redundancia tan pronto como sea posible en lugar de depender de un aparato único.'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
 versions:
@@ -19,9 +19,9 @@ Puedes utilizar el aparato principal antiguo como el nuevo aparato de réplica s
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. Para verificar la conexión con el aparato principal nuevo y habilitar el modo réplica para la nueva réplica, ejecuta nuevamente `ghe-repl-setup`.
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

@@ -1,6 +1,6 @@
 ---
 title: Public schema
-intro: 'Download the public schema for the {{ site.data.variables.product.prodname_dotcom }} GraphQL API.'
+intro: 'Download the public schema for the {% data variables.product.prodname_dotcom %} GraphQL API.'
 redirect_from:
   - /v4/public_schema
 versions:

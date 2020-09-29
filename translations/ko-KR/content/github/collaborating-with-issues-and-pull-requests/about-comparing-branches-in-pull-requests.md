@@ -44,13 +44,13 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 
 ### Three-dot and two-dot Git diff comparisons
 
-By default, pull requests on {{ site.data.variables.product.prodname_dotcom }} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
+By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff, or a comparison between the most recent version of the topic branch and the commit where the topic branch was last synced with the base branch.
 
-To see two committish references in a two-dot diff comparison on {{ site.data.variables.product.prodname_dotcom }}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
+To see two committish references in a two-dot diff comparison on {% data variables.product.prodname_dotcom %}, you can edit the URL of your repository's "Comparing changes" page. For more information, see the  [Git Glossary for "committish"](https://git-scm.com/docs/gitglossary#gitglossary-aiddefcommit-ishacommit-ishalsocommittish) from the _Pro Git_ book site.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
-A two-dot diff compares two Git committish references, such as SHAs or OIDs (Object IDs), directly with each other. On {{ site.data.variables.product.prodname_dotcom }}, the Git committish references in a two-dot diff comparison must be pushed to the same repository or its forks.
+A two-dot diff compares two Git committish references, such as SHAs or OIDs (Object IDs), directly with each other. On {% data variables.product.prodname_dotcom %}, the Git committish references in a two-dot diff comparison must be pushed to the same repository or its forks.
 
 If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
 

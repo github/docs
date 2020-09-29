@@ -1,6 +1,6 @@
 ---
 title: Resumen
-intro: 'Aprende sobre las API de {{ site.data.variables.product.prodname_dotcom }}, asegura tus despliegues, y únete al Programa de Desarrollador de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprende sobre las API de {% data variables.product.prodname_dotcom %}, asegura tus despliegues, y únete al Programa de Desarrollador de {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

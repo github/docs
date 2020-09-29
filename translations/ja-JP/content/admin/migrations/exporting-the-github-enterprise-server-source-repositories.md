@@ -8,25 +8,25 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. エクスポートするリポジトリを準備するには、`ghe-migrator add` コマンドをリポジトリの URL と一緒に使用します:
     * リポジトリをロックする場合は、コマンドの末尾に `--lock` を付けます。 トライアル実行を行う場合は、`--lock` は必要ありません。
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
-    * コマンドの後ろに `--exclude_attachments` を付けると添付ファイルを除外できます。 {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }}
+    * コマンドの後ろに `--exclude_attachments` を付けると添付ファイルを除外できます。 {% data reusables.enterprise_migrations.exclude-file-attachments %}
     * エクスポートする複数のリポジトリを同時に準備するには、各リポジトリ URL を 1 行ずつ記載したテキストファイルを作成し、`ghe-migrator add` コマンドに `-i` フラグとテキストファイルのパスを付けて実行します。
       ```shell
       $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
       ```
 
-3. 入力を求められたら、{{ site.data.variables.product.prodname_ghe_server }} ユーザ名を入力します:
+3. 入力を求められたら、{% data variables.product.prodname_ghe_server %} ユーザ名を入力します:
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. 個人用アクセストークンを求められたら、「[{{ site.data.variables.product.prodname_ghe_server }}ソースインスタンスの準備](/enterprise/admin/guides/migrations/preparing-the-github-enterprise-server-source-instance/)」で作成したアクセストークンを入力します。
+4. 個人用アクセストークンを求められたら、「[{% data variables.product.prodname_ghe_server %}ソースインスタンスの準備](/enterprise/admin/guides/migrations/preparing-the-github-enterprise-server-source-instance/)」で作成したアクセストークンを入力します。
   ```shell
   Enter personal access token:  **************
   ```
@@ -69,9 +69,9 @@ versions:
     $ ghe-migrator export -g <em>MIGRATION_GUID</em>
     > Archive saved to: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
     ```
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. {{ site.data.variables.product.product_location_enterprise }} への接続をクローズします。
+8. {% data variables.product.product_location_enterprise %} への接続をクローズします。
   ```shell
   $ exit
   > logout
@@ -81,4 +81,4 @@ versions:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

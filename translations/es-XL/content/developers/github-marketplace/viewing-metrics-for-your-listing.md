@@ -1,6 +1,6 @@
 ---
 title: Visualizar las métricas para tu listado
-intro: 'La página de perspectivas de {{ site.data.variables.product.prodname_marketplace }} muestra métricas para tu {{ site.data.variables.product.prodname_github_app }}. Puedes utilizar las métricas para rastrear el desempeño de tu {{ site.data.variables.product.prodname_github_app }} y tomar decisiones informadas acerca de los precios, planes, periodos de prueba gratuitos, y de cómo visualizar los efectos de las campañas de marketing.'
+intro: 'La página de perspectivas de {% data variables.product.prodname_marketplace %} muestra métricas para tu {% data variables.product.prodname_github_app %}. Puedes utilizar las métricas para rastrear el desempeño de tu {% data variables.product.prodname_github_app %} y tomar decisiones informadas acerca de los precios, planes, periodos de prueba gratuitos, y de cómo visualizar los efectos de las campañas de marketing.'
 redirect_from:
   - /apps/marketplace/managing-github-marketplace-listings/viewing-performance-metrics-for-a-github-marketplace-listing/
   - /apps/marketplace/viewing-performance-metrics-for-a-github-marketplace-listing/
@@ -12,7 +12,7 @@ versions:
 
 
 
-Puedes ver las métricas del día anterior (24 horas), de la semana, el mes, o de la duración total de tiempo que ha estado listada tu {{ site.data.variables.product.prodname_github_app }}.
+Puedes ver las métricas del día anterior (24 horas), de la semana, el mes, o de la duración total de tiempo que ha estado listada tu {% data variables.product.prodname_github_app %}.
 
 {% note %}
 
@@ -42,12 +42,12 @@ La página de perspectivas muestra estas métricas de rendimiento para el period
 
 ![Perspectivas de Marketplace](/assets/images/marketplace/marketplace_insights.png)
 
-Para acceder a las perspectivas de {{ site.data.variables.product.prodname_marketplace }}:
+Para acceder a las perspectivas de {% data variables.product.prodname_marketplace %}:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.marketplace_apps }}
-4. Selecciona la {{ site.data.variables.product.prodname_github_app }} para la cual quisieras ver las perspectivas.
-{{ site.data.reusables.user-settings.edit_marketplace_listing }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.marketplace_apps %}
+4. Selecciona la {% data variables.product.prodname_github_app %} para la cual quisieras ver las perspectivas.
+{% data reusables.user-settings.edit_marketplace_listing %}
 6. Da clic en la pestaña **Perspectivas**.
 7. Opcionalmente, selecciona cualquier periodo de tiempo diferente dando clic en el menú desplegable de dicho periodo en la esquina superior derecha de la página de perspectivas. ![Periodo de tiempo de Marketplace](/assets/images/marketplace/marketplace_insights_time_period.png)

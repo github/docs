@@ -9,16 +9,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team_maintainers_can }}
+{% data reusables.organizations.team_maintainers_can %}
 
 ### Promover um integrante de organização a mantenedor de equipe
 
 Antes de promover um integrante de organização a mantenedor de equipe, a pessoa já deve ser um integrante da equipe.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 4. Selecione a pessoa que você gostaria de promover a mantenedor de equipe. ![Caixa de seleção ao lado de integrante de organização](/assets/images/help/teams/team-member-check-box.png)
 5. Acesse o menu suspenso que está acima da lista de integrantes da equipe e clique em **Change role...** (Alterar função). ![Menu suspenso com opção change role (alterar função)](/assets/images/help/teams/bulk-edit-drop-down.png)
 6. Selecione uma nova função e clique em **Change role** (Alterar função). ![Botão de rádio para funções de Mantendor ou Integrante](/assets/images/help/teams/team-role-modal.png)

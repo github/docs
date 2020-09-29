@@ -12,13 +12,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{{ site.data.reusables.notifications.outbound_email_tip }}{% endif %}
+{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 リポジトリへのプッシュに対する各メール通知は、新しいコミットとそれらのコミットだけを含む diff へのリンクのリストを含みます。 このメール通知には以下が含まれます:
 
 - コミットが行われたリポジトリの名前
 - コミットが行われたブランチ
-- {{ site.data.variables.product.product_name }} 内での diff へのリンクを含むコミットの SHA1
+- {% data variables.product.product_name %} 内での diff へのリンクを含むコミットの SHA1
 - コミットの作者
 - コミットが作成された日付
 - コミットの一部として変更されたファイル群
@@ -28,12 +28,12 @@ versions:
 
 ### リポジトリへのプッシュに対するメール通知の有効化
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-notifications }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-notifications %}
 5. 最大で 2 個まで、通知の送信先にしたいメールアドレスを空白で区切って入力します。 2 つを超える数のアカウントにメールを送信させたい場合は、メールアドレスの 1 つをグループメールアドレスにしてください。 ![メールアドレスのテキストボックス](/assets/images/help/settings/email_services_addresses.png)
-6. 自分のサーバーを運用している場合は、**Secret** トークンでメールの整合性を検証できます。 このトークンは `Approved` ヘッダとしてメールとともに送信されます。 `Approved`ヘッダが、あなたが送信したトークンにマッチすれば、そのメールが {{ site.data.variables.product.product_name }} からのものであると信頼できます。 ![メールのシークレットテキストボックス](/assets/images/help/settings/email_services_token.png)
-7. [**Send from author**] (作者から送信) を選択して、コミッターのメールアドレスを使ってメールを配信することもできます。 そうしない場合、メールの送信元は {{ site.data.variables.notifications.no_reply_address }}となります。 ![メール作成者のチェックボックス](/assets/images/help/settings/email_services_author.png)
+6. 自分のサーバーを運用している場合は、**Secret** トークンでメールの整合性を検証できます。 このトークンは `Approved` ヘッダとしてメールとともに送信されます。 `Approved`ヘッダが、あなたが送信したトークンにマッチすれば、そのメールが {% data variables.product.product_name %} からのものであると信頼できます。 ![メールのシークレットテキストボックス](/assets/images/help/settings/email_services_token.png)
+7. [**Send from author**] (作者から送信) を選択して、コミッターのメールアドレスを使ってメールを配信することもできます。 そうしない場合、メールの送信元は {% data variables.notifications.no_reply_address %}となります。 ![メール作成者のチェックボックス](/assets/images/help/settings/email_services_author.png)
 8. **Save settings（設定の保存）**をクリックしてください。 ![設定保存のボタン](/assets/images/help/settings/save_notification_settings.png)
 
 ### 参考リンク

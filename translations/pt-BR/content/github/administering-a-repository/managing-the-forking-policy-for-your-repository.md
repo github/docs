@@ -12,10 +12,10 @@ versions:
 
 Um proprietário de organização deve permitir bifurcações de repositórios privados{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e internos{% endif %} no nível da organização antes que você possa permitir ou impedir bifurcações de um repositório específico. Para obter mais informações, consulte "[Gerenciando a política de bifurcação para sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)".
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Em "Features" (Recursos), selecione **Allow forking** (Permitir bifurcação). ![Caixa de seleção para permitir ou proibir a bifurcação de um repositório privado](/assets/images/help/repository/allow-forking-specific-org-repo.png)
 
 ### Leia mais

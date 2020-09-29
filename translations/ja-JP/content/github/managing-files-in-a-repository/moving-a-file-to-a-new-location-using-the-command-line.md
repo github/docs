@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-多くのファイルは {{ site.data.variables.product.product_name }} で[直接移動](/articles/moving-a-file-to-a-new-location)できますが、画像など一部のファイルは、コマンドラインで移動する必要があります。
+多くのファイルは {% data variables.product.product_name %} で[直接移動](/articles/moving-a-file-to-a-new-location)できますが、画像など一部のファイルは、コマンドラインで移動する必要があります。
 
-{{ site.data.reusables.command_line.manipulating_file_prereqs }}
+{% data reusables.command_line.manipulating_file_prereqs %}
 
 1. リポジトリをクローンするときにコンピュータのローカルに作成したディレクトリ内で、新しい場所にファイルを移動します。
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. `git status` を使用して、ファイルの古い場所と新しい場所をチェックします。
   ```shell
   $ git status
@@ -31,11 +31,11 @@ versions:
   > #
   > # no changes added to commit (use "git add" and/or "git commit -a")
   ```
-{{ site.data.reusables.git.stage_for_commit }}これにより古い場所のファイルが削除 (`git rm`) され、新しい場所にファイルが追加 (`git add`) されます。
+{% data reusables.git.stage_for_commit %}これにより古い場所のファイルが削除 (`git rm`) され、新しい場所にファイルが追加 (`git add`) されます。
   ```shell
   $ git add .
   # ファイルをローカルリポジトリに追加し、コミットするためにステージします。
-  # {{ site.data.reusables.git.unstage-codeblock }}
+  # {% data reusables.git.unstage-codeblock %}
   ```
 5. `git status` を使用して、コミットのステージされた変更を確認します。
   ```shell
@@ -47,13 +47,13 @@ versions:
   > #    renamed:    /old-folder/image.png -> /new-folder/image.png
   # コミットするためにステージされた変更を表示します。
   ```
-{{ site.data.reusables.git.commit-file }}
+{% data reusables.git.commit-file %}
   ```shell
   $ git commit -m "Move file to new directory"
   # 追跡された変更をコミットし、リモートリポジトリへのプッシュに備えます。
-  # {{ site.data.reusables.git.reset-head-to-previous-commit-codeblock }}
+  # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-{{ site.data.reusables.git.git-push }}
+{% data reusables.git.git-push %}
 
 ### 参考リンク
 

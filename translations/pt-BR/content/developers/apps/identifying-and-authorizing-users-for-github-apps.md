@@ -1,6 +1,6 @@
 ---
 title: Identificar e autorizar usuários para aplicativos GitHub
-intro: '{{ site.data.reusables.shortdesc.identifying_and_authorizing_github_apps }}'
+intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
   - /early-access/integrations/user-identification-authorization/
   - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps/
@@ -11,11 +11,11 @@ versions:
 ---
 
 
-{{ site.data.reusables.pre-release-program.expiring-user-access-tokens-beta }}
+{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
 
 Quando o seu aplicativo GitHub age em nome de um usuário, ele realiza solicitações de usuário para servidor. Essas solicitações devem ser autorizadas com o token de acesso de um usuário. As solicitações de usuário para servidor incluem a solicitação de dados para um usuário, como determinar quais repositórios devem ser exibidos para um determinado usuário. Essas solicitações também incluem ações acionadas por um usuário, como executar uma criação.
 
-{{ site.data.reusables.apps.expiring_user_authorization_tokens }}
+{% data reusables.apps.expiring_user_authorization_tokens %}
 
 ### Identificando usuários no seu site
 
@@ -37,7 +37,7 @@ Se você selecionar **Solicitar autorização de usuário (OAuth) durante a inst
 
 #### 1. Solicitar identidade do GitHub de um usuário
 
-    GET {{ site.data.variables.product.oauth_host_code }}/login/oauth/authorize
+    GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
 Quando seu aplicativo GitHub especifica um parâmetro do `login`, ele solicita aos usuários com uma conta específica que podem usar para iniciar sessão e autorizar seu aplicativo.
 
@@ -70,7 +70,7 @@ Troque este `código` por um token de acesso. {% if currentVersion == "free-pro-
 
 Os tokens de usuário expirados atualmente fazem parte da expiração do token beta de usuário para servidor e estão sujeitos a alterações. Para optar por participar do recurso beta do token de usuário para servidor com expiração, consulte "[Ativar os recursos beta para aplicativos](/developers/apps/activating-beta-features-for-apps)".{% endif %}
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
 ##### Parâmetros
 
@@ -111,12 +111,12 @@ Por padrão, a resposta assume o seguinte formato:
 O token de acesso do usuário permite que o aplicativo GitHub faça solicitações para a API em nome de um usuário.
 
     Autorização: token OUTH-TOKEN
-    GET {{ site.data.variables.product.api_url_code }}/user
+    GET {% data variables.product.api_url_code %}/user
 
 Por exemplo, no cURL você pode definir o cabeçalho de autorização da seguinte forma:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {{ site.data.variables.product.api_url_pre }}/user
+curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -137,8 +137,8 @@ Para obter mais informações sobre autorização de usuários que usam o fluxo 
 ### Verifique quais recursos de instalação um usuário pode acessar
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.machine-man-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.machine-man-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
 Depois de ter um token OAuth para um usuário, você pode verificar quais instalações o usuário poderá acessar.
@@ -155,7 +155,7 @@ Você pode encontrar mais informações em: [Listar instalações de aplicativos
 
 ### Tratar uma autorização revogada do aplicativo GitHub
 
-Se um usuário revogar sua autorização de um aplicativo GitHub, o aplicativo receberá o webhook [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) por padrão. Os aplicativos GitHub não podem cancelar a assinatura deste evento. {{ site.data.reusables.webhooks.authorization_event }}
+Se um usuário revogar sua autorização de um aplicativo GitHub, o aplicativo receberá o webhook [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) por padrão. Os aplicativos GitHub não podem cancelar a assinatura deste evento. {% data reusables.webhooks.authorization_event %}
 
 ### Permissões no nível do usuário
 

@@ -1,6 +1,6 @@
 ---
 title: Auditprotokollierung
-intro: '{{ site.data.variables.product.prodname_enterprise }} speichert Protokolle von überwachten Benutzer-, Organisations-, Repository- und Systemereignissen. Protokolle eignen sich zum Debuggen und für die interne und externe Compliance.'
+intro: '{% data variables.product.prodname_enterprise %} speichert Protokolle von überwachten Benutzer-, Organisations-, Repository- und Systemereignissen. Protokolle eignen sich zum Debuggen und für die interne und externe Compliance.'
 redirect_from:
   - /enterprise/admin/articles/audit-logging/
   - /enterprise/admin/installation/audit-logging
@@ -18,7 +18,7 @@ Jeder Git-Push-Vorgang wird protokolliert. Weitere Informationen finden Sie unte
 
 Alle überwachten Systemereignisse, darunter alle Push- und Abrufvorgänge, werden in `/var/log/github/audit.log` protokolliert. Protokolle werden automatisch alle 24 Stunden rotiert und werden für sieben Tage gespeichert.
 
-Das Support-Bundle enthält Systemprotokolle. Weitere Informationen finden Sie unter „[Daten für den {{ site.data.variables.product.prodname_dotcom }}-Support bereitstellen](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)“.
+Das Support-Bundle enthält Systemprotokolle. Weitere Informationen finden Sie unter „[Daten für den {% data variables.product.prodname_dotcom %}-Support bereitstellen](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)“.
 
 ### Support-Bundles
 

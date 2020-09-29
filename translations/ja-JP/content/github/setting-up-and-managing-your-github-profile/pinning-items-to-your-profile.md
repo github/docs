@@ -17,7 +17,7 @@ You can pin any public gist you own.
 
 [Pinned] セクションでは、アイテムを並べ替えることができます。 ピンの右上隅で {% octicon "grabber" aria-label="The grabber symbol" %} をクリックして、ピンを新しい場所にドラッグしてください。
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. [Popular repositories] または [Pinned] セクションで、[**Customize your pins**] をクリックします。 ![[Customize your pins] ボタン](/assets/images/help/profile/customize-pinned-repositories.png)
 3. ピン止めするアイテムを検索できるリストで、[Repositories] か [Gists]、または両方を選択します。![表示するアイテムの種類を選択するチェックボックス](/assets/images/help/profile/pinned-repo-picker.png)
 4. オプションで、特定のアイテムを探しやすいように、フィールドフィールドでユーザ、Organization、リポジトリ、Gist の名前を入力します。![アイテムをフィルタリング](/assets/images/help/profile/pinned-repo-search.png)

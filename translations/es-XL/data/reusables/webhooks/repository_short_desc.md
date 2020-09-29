@@ -1,1 +1,1 @@
-La actividad relacionada con un repositorio. {{ site.data.reusables.webhooks.action_type_desc }} Para obtener más información, consulta la API de REST de "[repositorios](/v3/repos/)".
+La actividad relacionada con un repositorio. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[repositorios](/v3/repos/)".

@@ -25,11 +25,11 @@ versions:
 リポジトリへの読み取りアクセス権を持つ人はリリースを表示および比較できますが、リリースの管理はリポジトリへの書き込み権限を持つ人のみができます。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-リポジトリへの管理者権限を持つユーザは、{{ site.data.variables.large_files.product_name_long }}（{{ site.data.variables.large_files.product_name_short }}）オブジェクトを、{{ site.data.variables.product.product_name }} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {{ site.data.variables.large_files.product_name_short }} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+リポジトリへの管理者権限を持つユーザは、{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。 {{ site.data.variables.product.prodname_dotcom }} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {{ site.data.variables.product.prodname_dependabot_short }} アラートを送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
+リリースでセキュリティの脆弱性が修正された場合は、リポジトリにセキュリティアドバイザリを公開する必要があります。 {% data variables.product.prodname_dotcom %} は公開された各セキュリティアドバイザリを確認し、それを使用して、影響を受けるリポジトリに {% data variables.product.prodname_dependabot_short %} アラートを送信できます。 詳しい情報については、「[GitHub セキュリティアドバイザリについて](/github/managing-security-vulnerabilities/about-github-security-advisories)」 を参照してください。
 
 リポジトリ内のコードに依存しているリポジトリとパッケージを確認するために、依存関係グラフの [**依存関係**] タブを表示することができますが、それによって、新しいリリースの影響を受ける可能性があります。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。
 {% endif %}
@@ -39,6 +39,6 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 ### ストレージと帯域幅の容量
 
- リリースに含まれる各ファイルは、{{ site.data.variables.large_files.max_file_size }}以下でなければなりません。 リリースの合計サイズにも帯域幅の使用量にも制限はありません。
+ リリースに含まれる各ファイルは、{% data variables.large_files.max_file_size %}以下でなければなりません。 リリースの合計サイズにも帯域幅の使用量にも制限はありません。
 
 {% endif %}

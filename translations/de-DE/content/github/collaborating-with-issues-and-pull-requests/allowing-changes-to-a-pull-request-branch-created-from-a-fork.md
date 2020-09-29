@@ -17,10 +17,10 @@ Du kannst Commit-Berechtigungen festlegen, wenn Du erstmalig einen Pull Request 
 
 ### Repository-Betreuer-Berechtigungen auf vorhandene Pull Requests aktivieren
 
-1. Navigiere auf {{ site.data.variables.product.product_name }} zur Hauptseite des vorgelagerten Repositorys Deines Pull Requests.
+1. Navigiere auf {% data variables.product.product_name %} zur Hauptseite des vorgelagerten Repositorys Deines Pull Requests.
 2. Klicke unter dem Namen des vorgelagerten Repositorys auf {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests** (Pull Requests). ![Auswahl der Issue- und Pull-Request-Registerkarten](/assets/images/help/repository/repo-tabs-pull-requests.png)
 3. Navigiere in der Liste der Pull Requests zu dem Pull Request, für den Du Commits zulassen möchtest.
-{{ site.data.reusables.repositories.allow-maintainers-user-forks }}
+{% data reusables.repositories.allow-maintainers-user-forks %}
 
   ![Kontrollkästchen in Seitenleiste, um Bearbeitung durch Maintainer zuzulassen](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 

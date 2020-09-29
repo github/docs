@@ -16,13 +16,13 @@ versions:
 
 从组织中的仓库删除协作者时，该协作者会失去对仓库的读写权限。 如果仓库是私有的，并且协作者对仓库进行了复刻，则其复刻也会被检测到，但协作者仍然保留仓库的任何本地克隆副本。
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ### 管理个人对组织仓库的访问
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. 单击 **Members（成员）**或 **Outside collaborators（外部协作者）**以管理具有不同访问权限的人员。 ![邀请成员或外部协作者参加组织的按钮](/assets/images/help/organizations/select-outside-collaborators.png)
 5. 在您要管理的人员名称右侧，使用 {% octicon "gear" aria-label="The Settings gear" %} 下拉菜单，并单击 **Manage（管理）**。 ![管理访问链接](/assets/images/help/organizations/member-manage-access.png)
 6. 在 "Manage access"（管理访问权限）页面上的仓库旁边，单击 **Manage access（管理访问权限）**。 ![管理对仓库的访问权限按钮](/assets/images/help/organizations/repository-manage-access.png)

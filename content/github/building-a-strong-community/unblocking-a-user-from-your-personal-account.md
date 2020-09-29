@@ -1,6 +1,6 @@
 ---
 title: Unblocking a user from your personal account
-intro: 'If you''ve mended fences with a {{ site.data.variables.product.prodname_dotcom }} user you''ve blocked, you can unblock their account.'
+intro: 'If you''ve mended fences with a {% data variables.product.prodname_dotcom %} user you''ve blocked, you can unblock their account.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:
@@ -15,14 +15,14 @@ You can unblock a user in your account settings or from the user's profile page.
 
 ### Unblocking a user in your account settings
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.blocked_users }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.blocked_users %}
 3. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 ![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ### Unblocking a user from their profile page
 
-{{ site.data.reusables.profile.user_profile_page_navigation }}
+{% data reusables.profile.user_profile_page_navigation %}
 2. In the left sidebar, under the user's profile picture, click **Unblock or report user**.
 ![Unblock or report user link](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. Click **Unblock user**.

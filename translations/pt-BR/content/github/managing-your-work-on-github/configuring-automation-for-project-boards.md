@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }} Para obter mais informações, consulte "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)".
+{% data reusables.project-management.automate-project-board-permissions %} Para obter mais informações, consulte "[Sobre a automação para quadros de projeto](/articles/about-automation-for-project-boards)".
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 {% tip %}
 

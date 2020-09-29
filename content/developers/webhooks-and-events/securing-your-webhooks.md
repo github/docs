@@ -1,6 +1,6 @@
 ---
 title: Securing your webhooks
-intro: 'Ensure your server is only receiving the expected {{ site.data.variables.product.prodname_dotcom }} requests for security reasons.'
+intro: 'Ensure your server is only receiving the expected {% data variables.product.prodname_dotcom %} requests for security reasons.'
 redirect_from:
   - /webhooks/securing
 versions:

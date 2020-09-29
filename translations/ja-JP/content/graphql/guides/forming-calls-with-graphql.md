@@ -43,7 +43,7 @@ read:gpg_key
 
 REST APIは多数のエンドポイントを持ちますが、GraphQL APIは単一のエンドポイントを持ちます。
 
-<pre>{{ site.data.variables.product.graphql_url_pre }}</pre>
+<pre>{% data variables.product.graphql_url_pre %}</pre>
 
 行う操作にかかわらず、エンドポイントは一定のままです。
 
@@ -60,7 +60,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {{ site.data.variables.product.graphql_url_code }}
+" {% data variables.product.graphql_url_code %}
 ```
 
 {% tip %}
@@ -340,7 +340,7 @@ IDが分かれば、ミューテーションで先に進むことができます
 
   どの値がcontentとして使われるのかは、どのように分かるのでしょうか？ [`addReaction`のドキュメント](/v4/mutation/addreaction/)は、`content`フィールドが[`ReactionContent`](/v4/enum/reactioncontent/)という型を持っていることを教えてくれます。GitHubのIssueでは特定の絵文字リアクションだけがサポートされているので、これは[enum](/v4/enum)です。 リアクションとして使える値は以下のとおりです（いくつかの値は対応する絵文字の名前とは異なっていることに注意してください）。
 
-  {{ site.data.reusables.repositories.reaction_list }}
+  {% data reusables.repositories.reaction_list %}
 
 * 呼び出しの残りの部分は、ペイロードオブジェクトから構成されます。 ここでは、ミューテーションを行った後にサーバーから返してほしいデータを指定します。 これらの行は、[`addReaction`のドキュメント](/v4/mutation/addreaction)から来ています。指定できる返値フィールドは3つあります。
 

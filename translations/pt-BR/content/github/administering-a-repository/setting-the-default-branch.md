@@ -10,7 +10,7 @@ versions:
 
 ### Sobre o branch-padrão
 
-{{ site.data.reusables.branches.new-repo-default-branch }} {{ site.data.reusables.branches.default-branch-automatically-base-branch }} se você tiver mais de um branch no seu repositório, qualquer pessoa com direitos de administrador sobre um repositório pode selecionar um desses branches existentes como branch-padrão no repositório.
+{% data reusables.branches.new-repo-default-branch %} {% data reusables.branches.default-branch-automatically-base-branch %} se você tiver mais de um branch no seu repositório, qualquer pessoa com direitos de administrador sobre um repositório pode selecionar um desses branches existentes como branch-padrão no repositório.
 
 ### Definir o branch padrão
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. No menu suspenso do branch-padrão, selecione o novo branch-padrão. ![Seletor suspenso de branch padrão](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. Clique em **Atualizar**.
 
-Você pode selecionar somente branches que já existem no {{ site.data.variables.product.product_location }}. Para criar um novo branch por meio da UI, consulte "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository)".
+Você pode selecionar somente branches que já existem no {% data variables.product.product_location %}. Para criar um novo branch por meio da UI, consulte "[Criar e excluir branches no repositório](/articles/creating-and-deleting-branches-within-your-repository)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

@@ -1,6 +1,6 @@
 ---
 title: Configuring high availability replication for a cluster
-intro: 'You can configure a passive replica of your entire {{ site.data.variables.product.prodname_ghe_server }} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
+intro: 'You can configure a passive replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
@@ -10,11 +10,11 @@ versions:
 
 ### About high availability replication for clusters
 
-You can configure a cluster deployment of {{ site.data.variables.product.prodname_ghe_server }} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests without data loss.
+You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests without data loss.
 
 In high availability mode, each active node syncs regularly with a corresponding passive node. The passive node runs in standby and does not serve applications or process user requests.
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {{ site.data.variables.product.prodname_ghe_server }}. We also recommend performing regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
+We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %}. We also recommend performing regular backups. For more information, see "[Configuring backups on your appliance](/enterprise/admin/configuration/configuring-backups-on-your-appliance)."
 
 ### Требования
 
@@ -22,11 +22,11 @@ We recommend configuring high availability as a part of a comprehensive disaster
 
 For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 64 GB of RAM, and 750 GB of attached storage.
 
-On each new virtual machine, install the same version of {{ site.data.variables.product.prodname_ghe_server }} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[Setting up a {{ site.data.variables.product.prodname_ghe_server }} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
+On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)."
 
 {% note %}
 
-**Note**: The nodes that you intend to use for high availability replication should be standalone {{ site.data.variables.product.prodname_ghe_server }} instances. Don't initialize the passive nodes as a second cluster.
+**Note**: The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the passive nodes as a second cluster.
 
 {% endnote %}
 
@@ -46,9 +46,9 @@ We don't recommend configuring a firewall between the network with your active c
 
 Before you define a secondary datacenter for your passive nodes, ensure that you assign your active nodes to the primary datacenter.
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-{{ site.data.reusables.enterprise_clustering.open-configuration-file }}
+{% data reusables.enterprise_clustering.open-configuration-file %}
 
 3. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair. By default, the primary datacenter for your cluster is named `default`.
 
@@ -61,11 +61,11 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
     - Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
 
-4. {{ site.data.reusables.enterprise_clustering.configuration-file-heading }} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
 
       datacenter = default
 
-    When you're done, the section for each node in the cluster configuration file should look like the following example. {{ site.data.reusables.enterprise_clustering.key-value-pair-order-irrelevant }}
+    When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
 
   ```shell
   [cluster "<em>HOSTNAME</em>"]
@@ -84,11 +84,11 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
   {% endnote %}
 
-{{ site.data.reusables.enterprise_clustering.apply-configuration }}
+{% data reusables.enterprise_clustering.apply-configuration %}
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
-After {{ site.data.variables.product.prodname_ghe_server }} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
+After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
 
 #### Adding passive nodes to the cluster configuration file
 
@@ -101,7 +101,7 @@ To configure high availability, you must define a corresponding passive node for
 
 For an example configuration, see "[Example configuration](#example-configuration)."
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {{ site.data.variables.product.prodname_ghe_server }}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
   {% note %}
 
@@ -109,7 +109,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
   {% endnote %}
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
 3. Back up your existing cluster configuration.
    
@@ -143,7 +143,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
         sudo vim ~/cluster-passive.conf
     ```
 
-9. In each section within the temporary cluster configuration file, update the node's configuration. {{ site.data.reusables.enterprise_clustering.configuration-file-heading }}
+9. In each section within the temporary cluster configuration file, update the node's configuration. {% data reusables.enterprise_clustering.configuration-file-heading %}
 
     - Change the quoted hostname in the section heading and the value for `hostname` within the section to the passive node's hostname, per the pattern you chose in step 7 above.
     - Add a new key named `ipv4`, and set the value to the passive node's static IPv4 address.
@@ -198,21 +198,21 @@ For an example configuration, see "[Example configuration](#example-configuratio
 
   {% endwarning %}
 
-13. Initialize the new cluster configuration. {{ site.data.reusables.enterprise.use-a-multiplexer }}
+13. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
 
     ```shell
     ghe-cluster-config-init
     ```
 
-14. After the initialization finishes, {{ site.data.variables.product.prodname_ghe_server }} displays the following message.
+14. After the initialization finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
 
     ```shell
         Finished cluster initialization
     ```
 
-{{ site.data.reusables.enterprise_clustering.apply-configuration }}
+{% data reusables.enterprise_clustering.apply-configuration %}
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
 17. Configure a load balancer that will accept connections from users if you fail over to the passive nodes. For more information, see "[Cluster network configuration](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer)."
 
@@ -260,7 +260,7 @@ The configuration for an active node in your cluster's storage tier should look 
 The configuration for the corresponding passive node in the storage tier should look like the following example.
 
 - Important differences from the corresponding active node are **bold**.
-- {{ site.data.variables.product.prodname_ghe_server }} assigns values for `vpn`, `uuid`, and `wireguard-pubkey` automatically, so you shouldn't define the values for passive nodes that you will initialize.
+- {% data variables.product.prodname_ghe_server %} assigns values for `vpn`, `uuid`, and `wireguard-pubkey` automatically, so you shouldn't define the values for passive nodes that you will initialize.
 - The server roles, defined by `*-server` keys, match the corresponding active node.
 
 ```shell
@@ -288,9 +288,9 @@ The configuration for the corresponding passive node in the storage tier should 
 
 ### Monitoring replication between active and passive cluster nodes
 
-Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {{ site.data.variables.product.prodname_ghe_server }}.
+Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {{ site.data.variables.product.prodname_ghe_server }} administrative shell. For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
+You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
 - Monitor replication of databases:
   
@@ -327,18 +327,18 @@ The process for reconfiguring high availability is identical to the initial conf
 
 ### Disabling high availability replication for a cluster
 
-You can stop replication to the passive nodes for your cluster deployment of {{ site.data.variables.product.prodname_ghe_server }}.
+You can stop replication to the passive nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
 
-{{ site.data.reusables.enterprise_clustering.ssh-to-a-node }}
+{% data reusables.enterprise_clustering.ssh-to-a-node %}
 
-{{ site.data.reusables.enterprise_clustering.open-configuration-file }}
+{% data reusables.enterprise_clustering.open-configuration-file %}
 
 3. In the top-level `[cluster]` section, delete the `mysql-auto-failover`, `redis-master-replica`, and `mysql-master-replica` key-value pairs.
 
 4. Delete each section for a passive node. For passive nodes, `replica` is configured as `enabled`.
 
-{{ site.data.reusables.enterprise_clustering.apply-configuration }}
+{% data reusables.enterprise_clustering.apply-configuration %}
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
-After {{ site.data.variables.product.prodname_ghe_server }} returns you to the prompt, you've finished disabling high availability replication.
+After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished disabling high availability replication.

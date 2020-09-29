@@ -1,6 +1,6 @@
 ---
 title: Receiving payment for app purchases
-intro: 'At the end of each month, you''ll receive payment for your {{ site.data.variables.product.prodname_marketplace }} listing.'
+intro: 'At the end of each month, you''ll receive payment for your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
   - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
@@ -13,8 +13,8 @@ versions:
 
 
 
-After your {{ site.data.variables.product.prodname_marketplace }} listing is created and approved, you'll provide payment details to {{ site.data.variables.product.product_name }} as part of the onboarding process.
+After your {% data variables.product.prodname_marketplace %} listing is created and approved, you'll provide payment details to {% data variables.product.product_name %} as part of the onboarding process.
 
-Once your revenue reaches a minimum of $500 U.S. Dollars for the month, you'll receive an electronic payment from {{ site.data.variables.product.product_name }} for 75% of the sales price.
+Once your revenue reaches a minimum of $500 U.S. Dollars for the month, you'll receive an electronic payment from {% data variables.product.product_name %} for 75% of the sales price.
 
-{{ site.data.reusables.apps.marketplace_revenue_share }}
+{% data reusables.apps.marketplace_revenue_share %}

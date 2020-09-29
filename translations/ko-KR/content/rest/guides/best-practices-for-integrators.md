@@ -1,6 +1,6 @@
 ---
 title: Best practices for integrators
-intro: 'Build an app that reliably interacts with the {{ site.data.variables.product.prodname_dotcom }} API and provides the best experience for your users.'
+intro: 'Build an app that reliably interacts with the {% data variables.product.prodname_dotcom %} API and provides the best experience for your users.'
 redirect_from:
   - /guides/best-practices-for-integrators/
   - /v3/guides/best-practices-for-integrators

@@ -1,1 +1,1 @@
-1. Navigate to [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors).
+1. Navigate to [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

@@ -1,6 +1,6 @@
 ---
 title: Escribir la descripción de un listado para tu app
-intro: 'Para [Listar tu app](/marketplace/listing-on-github-marketplace/) en {{ site.data.variables.product.prodname_marketplace }}, necesitarás escribir una descripción de ésta y proporcionar imágenes que se apeguen a los lineamientos de GitHub.'
+intro: 'Para [Listar tu app](/marketplace/listing-on-github-marketplace/) en {% data variables.product.prodname_marketplace %}, necesitarás escribir una descripción de ésta y proporcionar imágenes que se apeguen a los lineamientos de GitHub.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
@@ -22,13 +22,13 @@ Aquí te mostramos los lineamientos de los campos que necesitas llenar en la sec
 
 #### Nombre del listado
 
-El nombre de tu app se mostrará en la [página de inicio de {{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace). El nombre se limita a 255 caracteres.
+El nombre de tu app se mostrará en la [página de inicio de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace). El nombre se limita a 255 caracteres.
 
 #### Descripción muy corta
 
-La comunidad verá la descripción "muy corta" debajo del nombre de tu app en la [página principal de {{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace).
+La comunidad verá la descripción "muy corta" debajo del nombre de tu app en la [página principal de {% data variables.product.prodname_marketplace %}](https://github.com/marketplace).
 
-![Descripción corta de la app en {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_short_description.png)
+![Descripción corta de la app en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_short_description.png)
 
 ##### Longitud
 
@@ -78,11 +78,11 @@ Te remcomendamos mantener un largo de 40 a 80 caracteres para las descripciones 
 
 #### Categorías
 
-Las apps en {{ site.data.variables.product.prodname_marketplace }} se pueden mostrar por categoría. Selecciona la categoría que describa mejor la funcionalidad principal de tu app en el menú desplegable de **Categoría principal** y, opcionalmente, selecciona una **Categoría secundaria** si es que describe mejor a tu app.
+Las apps en {% data variables.product.prodname_marketplace %} se pueden mostrar por categoría. Selecciona la categoría que describa mejor la funcionalidad principal de tu app en el menú desplegable de **Categoría principal** y, opcionalmente, selecciona una **Categoría secundaria** si es que describe mejor a tu app.
 
 #### Lenguajes compatibles
 
-Si tu app funciona únicamente con lenguajes específicos, selecciona hasta 10 lenguajes de programación que sean compatibles con ella. Estos lenguajes se muestran en la página del listado de {{ site.data.variables.product.prodname_marketplace }} de tu app. Este campo es opcional.
+Si tu app funciona únicamente con lenguajes específicos, selecciona hasta 10 lenguajes de programación que sean compatibles con ella. Estos lenguajes se muestran en la página del listado de {% data variables.product.prodname_marketplace %} de tu app. Este campo es opcional.
 
 #### Listar las URL
 
@@ -98,15 +98,15 @@ Si tu app funciona únicamente con lenguajes específicos, selecciona hasta 10 l
 
 ### Logo y tarjeta de características
 
-{{ site.data.variables.product.prodname_marketplace }} muestra todos los listados con un logo de imagen cuadrada dentro de una insignia circular para distinguir a las apps visualmente.
+{% data variables.product.prodname_marketplace %} muestra todos los listados con un logo de imagen cuadrada dentro de una insignia circular para distinguir a las apps visualmente.
 
 ![Imágenes de logo e insignia en GitHub marketplace](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-Una tarjeta de características consiste en el logo, nombre e imagen personalizada de fondo para tu app, la cual captura la personalidad de ésta. {{ site.data.variables.product.prodname_marketplace }} muestra esta tarjeta si tu app es una de las cuatro apps que se presentan aleatoriamente en la parte superior de la [página principal](https://github.com/marketplace). Cada descripción muy corta de las apps se muestra debajo de su tarjeta de características.
+Una tarjeta de características consiste en el logo, nombre e imagen personalizada de fondo para tu app, la cual captura la personalidad de ésta. {% data variables.product.prodname_marketplace %} muestra esta tarjeta si tu app es una de las cuatro apps que se presentan aleatoriamente en la parte superior de la [página principal](https://github.com/marketplace). Cada descripción muy corta de las apps se muestra debajo de su tarjeta de características.
 
 ![Tarjeta de características](/assets/images/marketplace/marketplace_feature_card.png)
 
-En medidad que subas imágenes y selecciones los colores, tu borrador de listado de {{ site.data.variables.product.prodname_marketplace }} mostrará una vista previa de tu logo y de tu tarjeta de características.
+En medidad que subas imágenes y selecciones los colores, tu borrador de listado de {% data variables.product.prodname_marketplace %} mostrará una vista previa de tu logo y de tu tarjeta de características.
 
 ##### Lineamientos para los logos
 
@@ -122,21 +122,21 @@ Debes cargar una imagen personalizada para el logo. Para el caso de la insignia,
 
 Debes cargar una imagen personalizada de fondo para la tarjeta de características. Elige el color del texto para el nombre de la app.
 
-- Utiliza un patrón o textura en la imagen de fondo para dar a tu tarjeta una identidad visual específica y ayudar a que resalten contra el fondo oscuro de la página de inicio de {{ site.data.variables.product.prodname_marketplace }}. Las tarjetas de caracetrísticas capturan la personalidad de la marca de tu app.
+- Utiliza un patrón o textura en la imagen de fondo para dar a tu tarjeta una identidad visual específica y ayudar a que resalten contra el fondo oscuro de la página de inicio de {% data variables.product.prodname_marketplace %}. Las tarjetas de caracetrísticas capturan la personalidad de la marca de tu app.
 - La imagen de fondo mide 065 pixeles x 482 pixeles (ancho x alto).
 - Elige un color de texto para el nombre de tu app, el cual se muestre claramente sobre la imagen de fondo.
 
 ### Detalles del listado
 
-Para obtener la página de llegada de tu app, da clic en su nombre desde la página principal de {{ site.data.variables.product.prodname_marketplace }} o desde su página de categoría. La página de llegada muestra una descripción más larga de tu app, la cual incluye dos partes: una "Descripción de introducción" y una "Descripción detallada".
+Para obtener la página de llegada de tu app, da clic en su nombre desde la página principal de {% data variables.product.prodname_marketplace %} o desde su página de categoría. La página de llegada muestra una descripción más larga de tu app, la cual incluye dos partes: una "Descripción de introducción" y una "Descripción detallada".
 
-Tu "Descripción de introducción" se muestra en la parte superior de la página de llegada de {{ site.data.variables.product.prodname_marketplace }} para tu app.
+Tu "Descripción de introducción" se muestra en la parte superior de la página de llegada de {% data variables.product.prodname_marketplace %} para tu app.
 
-![Descripción de introducción en {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_intro_description.png)
+![Descripción de introducción en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_intro_description.png)
 
 El dar clic en **Leer más...** mostrará la "Descripción detallada".
 
-![Descripción detallada en {{ site.data.variables.product.prodname_marketplace }}](/assets/images/marketplace/marketplace_detailed_description.png)
+![Descripción detallada en {% data variables.product.prodname_marketplace %}](/assets/images/marketplace/marketplace_detailed_description.png)
 
 Sigue estos lineamientos para escribir estas descripciones.
 

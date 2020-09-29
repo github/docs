@@ -1,14 +1,14 @@
 ---
 title: Conectar o provedor de identidade à organização
-intro: 'Para usar o logon único SAML e o SCIM, é preciso conectar o provedor de identidade à organização do {{ site.data.variables.product.product_name }}.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Para usar o logon único SAML e o SCIM, é preciso conectar o provedor de identidade à organização do {% data variables.product.product_name %}.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/connecting-your-identity-provider-to-your-organization
 versions:
   free-pro-team: '*'
 ---
 
-Antes de [habilitar o SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) na organização do {{ site.data.variables.product.product_name }}, você precisará conectar o provedor de identidade (IdP) à sua organização.
+Antes de [habilitar o SAML SSO](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization) na organização do {% data variables.product.product_name %}, você precisará conectar o provedor de identidade (IdP) à sua organização.
 
 Você pode encontrar os detalhes de implementação do SAML e SCIM para seu IdP na respectiva documentação:
 - [SAML](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services) do Active Directory Federation Services (AD FS)
@@ -20,7 +20,7 @@ Você pode encontrar os detalhes de implementação do SAML e SCIM para seu IdP 
 
 {% note %}
 
-**Observação:** os provedores de identidade aceitos pelo {{ site.data.variables.product.product_name }} para SCIM são Azure AD, Okta e OneLogin. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/articles/about-scim)."
+**Observação:** os provedores de identidade aceitos pelo {% data variables.product.product_name %} para SCIM são Azure AD, Okta e OneLogin. Para obter mais informações sobre o SCIM, consulte "[Sobre o SCIM](/articles/about-scim)."
 
 {% endnote %}
 

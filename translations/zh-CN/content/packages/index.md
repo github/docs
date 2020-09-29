@@ -1,7 +1,7 @@
 ---
 title: GitHub 包文档
 shortTitle: GitHub Packages
-intro: '了解如何安全地发布和使用包，将包与代码存储在一起，以及与您的团队私下分享或与开源社区公开分享您的包。 还可以使用 {{ site.data.variables.product.prodname_actions }} 自动执行您的包。'
+intro: '了解如何安全地发布和使用包，将包与代码存储在一起，以及与您的团队私下分享或与开源社区公开分享您的包。 还可以使用 {% data variables.product.prodname_actions %} 自动执行您的包。'
 gettingStartedLinks:
   - /packages/publishing-and-managing-packages/about-github-packages
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
@@ -23,7 +23,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_with_intro /getting-started-with-github-container-registry %}
 {% link_with_intro /managing-container-images-with-github-container-registry %}

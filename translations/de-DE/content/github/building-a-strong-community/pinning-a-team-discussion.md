@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 5. Klicke neben der Teamdiskussion, die Du anheften möchtest, auf {% octicon "pin" aria-label="The pin icon" %}. Du kannst eine angeheftete Diskussion auch wieder entfernen, indem Du auf das Symbol klickst. ![Eine Diskussion anheften](/assets/images/help/projects/pin-discussion-button.png)
 
 ### Weiterführende Informationen

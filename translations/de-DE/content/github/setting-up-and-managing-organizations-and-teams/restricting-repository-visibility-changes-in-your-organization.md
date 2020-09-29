@@ -17,9 +17,9 @@ Du kannst die Möglichkeit der Änderung der Sichtbarkeit von Repositorys aussch
 {% endwarning %}
 
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Deaktiviere unter „Repository visibility change“ (Änderung der Sichtbarkeit von Repositorys) das Kontrollkästchen **Allow members to change repository visibilities for this organization** (Mitgliedern die Änderung der Sichtbarkeit von Repositorys für diese Organisation erlauben). ![Kontrollkästchen zur Erlaubnis der Änderung der Sichtbarkeit von Repositorys durch Mitglieder](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
 6. Klicke auf **Save** (Speichern).

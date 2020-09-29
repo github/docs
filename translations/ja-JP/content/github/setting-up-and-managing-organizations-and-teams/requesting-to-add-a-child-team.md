@@ -12,16 +12,16 @@ versions:
 
 あなたが Organization のオーナーである場合、または子チームと親チームの両方でチームメンテナー権限を所有している場合は、リクエストなしで子チームを追加したり、子チームの設定ページから子チームの親を変更したりできます。 詳細については、「[Organization の階層内で Team を移動する](/articles/moving-a-team-in-your-organization-s-hierarchy)」を参照してください。
 
-{{ site.data.reusables.organizations.child-team-inherits-permissions }}
+{% data reusables.organizations.child-team-inherits-permissions %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 4. Team のリストで、子チームを追加する先の Team の名前をクリックします。 ![Organization の Team のリスト](/assets/images/help/teams/click-team-name.png)
 5. Team ページの上部で、{% octicon "people" aria-label="The people icon" %} [**Teams**] をクリックします。 ![Team ページでの [Teams] タブ](/assets/images/help/teams/team-teams-tab.png)
 6. [**Add a team**] をクリックします。 ![Team ページでの [Add a team] ボタン](/assets/images/help/teams/add-a-team.png)
 7. 子チームとして追加する Team の名前を入力し、ドロップダウン リストからそれを選択します。 ![入力するテキストボックスと、子チームの名前を選択するドロップダウンメニュー](/assets/images/help/teams/type-child-team-name.png)
-{{ site.data.reusables.repositories.changed-repository-access-permissions }}
+{% data reusables.repositories.changed-repository-access-permissions %}
 9. [**Confirm changes**] をクリックして、子チームを追加するリクエストを送信します。 ![リポジトリアクセス権の変更に関する情報のモーダルボックス](/assets/images/help/teams/confirm-new-parent-team.png)
 
 ### 参考リンク

@@ -18,7 +18,7 @@ versions:
 
 ### タスクリストの作成
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### タスクの順序変更
 

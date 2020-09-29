@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Para automatizar las tareas comunes, respaldar tus datos, o crear integraciones que se extienden {{ site.data.variables.product.product_name }}, puedes utilizar la API de {{ site.data.variables.product.product_name }}.
+Para automatizar las tareas comunes, respaldar tus datos, o crear integraciones que se extienden {% data variables.product.product_name %}, puedes utilizar la API de {% data variables.product.product_name %}.
 
-Para obtener más información acerca de la API, consulta la [API de REST de GitHub](/rest) y la [API de GraphQL de GitHub](/graphql). También puedes mantenerte actualizado respecto de las novedades relacionadas con la API siguiendo el [{{ site.data.variables.product.prodname_dotcom }}Blog del programador](https://developer.github.com/changes/).
+Para obtener más información acerca de la API, consulta la [API de REST de GitHub](/rest) y la [API de GraphQL de GitHub](/graphql). También puedes mantenerte actualizado respecto de las novedades relacionadas con la API siguiendo el [{% data variables.product.prodname_dotcom %}Blog del programador](https://developer.github.com/changes/).
 
 ### Leer más
 

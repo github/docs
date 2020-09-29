@@ -8,16 +8,16 @@ versions:
 
 ### Acerca del nombre de la rama predeterminada
 
-{{ site.data.reusables.branches.new-repo-default-branch }} Esta rama se llama `master` actualmente, pero puedes configurar el nombre de la rama predeterminada como mejor se ajuste a tu ambiente de desarrollo.
+{% data reusables.branches.new-repo-default-branch %} Esta rama se llama `master` actualmente, pero puedes configurar el nombre de la rama predeterminada como mejor se ajuste a tu ambiente de desarrollo.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Configurar el nombre de la rama predeterminada
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
 3. Debajo de "Rama predeterminada del repositorio", da clic en **Cambiar el nombre de la rama predeterminada ahora**. ![Botón de ignorar](/assets/images/help/settings/repo-default-name-button.png)
 4. Teclea el nombre predeterminado que quisieras utilizar para las ramas nuevas. ![Caja de texto para ingresar el nombre predeterminado](/assets/images/help/settings/repo-default-name-text.png)
 5. Da clic en **Actualizar**. ![Botón de actualizar](/assets/images/help/settings/repo-default-name-update.png)

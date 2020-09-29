@@ -17,9 +17,9 @@ Puedes filtrar archivos en una solicitud de extracción por tipo de extensión d
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción que deseas filtrar.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Usa el menú desplegable para Filtrar archivos y selecciona, elimina la marca de selección o haz clic en los filtros deseados. ![Opción Filtrar archivos sobre la diferencia de la solicitud de extracción](/assets/images/help/pull_requests/file-filter-option.png)
 5. Para borrar la selección de filtro en la pestaña **Archivos modificados** puedes hacer clic en **Borrar**. ![Borrar selección de filtro de archivo](/assets/images/help/pull_requests/clear-file-filter.png)
 

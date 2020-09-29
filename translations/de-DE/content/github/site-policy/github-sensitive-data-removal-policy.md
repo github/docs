@@ -25,7 +25,7 @@ Für die Zwecke dieses Dokuments bezieht sich „sensible Daten“ auf Inhalte, 
 - Ledigliche Erwähnung der Identität, des Namens, der Marke, des Domain-Namens oder anderer Verweise auf Ihr Unternehmen in Dateien auf GitHub. Sie müssen in der Lage sein zu erklären, warum die Verwendung Ihrer Firmenidentität eine Bedrohung für die Sicherheitshaltung Ihres Unternehmens darstellt, bevor wir Maßnahmen im Rahmen dieser Richtlinie ergreifen.
 - Datenschutzbeschwerden. Wenn Sie Bedenken bezüglich Ihrer eigenen Datenschutzes haben oder uns wegen eines Bedenken bezüglich des Datenschutzes im Namen Ihrer Mitarbeiter kontaktieren – zum Beispiel bezüglich privater E-Mail-Adressen oder anderer persönlicher Informationen — kontaktieren Sie uns bitte über [unser Kontaktformular zum Datenschutz](https://github.com/contact/privacy).
 - Ganze Dateien oder Repositorys, die kein spezifisches Sicherheitsrisiko darstellen, aber von denen Sie glauben, dass sie anderweitig zu beanstanden sind.
-- Inhalte, die unseren [Community-Richtlinien](/articles/github-community-guidelines/) unterliegen, wie Malware oder allgemeine Tools. Wenn Sie Fragen zu unseren Community-Richtlinien haben oder der Meinung sind, dass Inhalte auf GitHub gegen unsere Richtlinien verstoßen könnten, können Sie uns über {{ site.data.variables.contact.report_content }} kontaktieren.
+- Inhalte, die unseren [Community-Richtlinien](/articles/github-community-guidelines/) unterliegen, wie Malware oder allgemeine Tools. Wenn Sie Fragen zu unseren Community-Richtlinien haben oder der Meinung sind, dass Inhalte auf GitHub gegen unsere Richtlinien verstoßen könnten, können Sie uns über {% data variables.contact.report_content %} kontaktieren.
 
 ### Was es zu beachten gibt
 

@@ -11,9 +11,9 @@ versions:
 
 
 
-Cuando se hacen solicitudes autenticadas a la API de {{ site.data.variables.product.product_name }}, las aplicaciones a menudo tienen que obtener los repositorios y organizaciones del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
+Cuando se hacen solicitudes autenticadas a la API de {% data variables.product.product_name %}, las aplicaciones a menudo tienen que obtener los repositorios y organizaciones del usuario. En esta guía, te explicaremos cómo descubrir estos recursos de forma confiable.
 
-Para interactuar con la API de {{ site.data.variables.product.product_name }}, estaremos utilizando [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
+Para interactuar con la API de {% data variables.product.product_name %}, estaremos utilizando [Octokit.rb][octokit.rb]. Puedes encontrar todo el código fuente de este proyecto en el repositorio [platform-samples][platform samples].
 
 ### Empezar
 

@@ -1,6 +1,6 @@
 ---
 title: About pre-receive hooks
-intro: '*Pre-receive hooks* are scripts that run on the {{ site.data.variables.product.prodname_ghe_server }} appliance that you can use to implement quality checks.'
+intro: '*Pre-receive hooks* are scripts that run on the {% data variables.product.prodname_ghe_server %} appliance that you can use to implement quality checks.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
@@ -23,4 +23,4 @@ Examples of how you can use pre-receive hooks:
 ### Impact on performance and workflows
 Impact to developers and their workflows can be significant and must be considered carefully. Pre-receive hooks that are based on business needs and implemented thoughtfully will provide the most benefit to the organization as a whole.
 
-Pre-receive hooks can have unintended effects on the performance of {{ site.data.variables.product.product_location_enterprise }} and should be carefully implemented and reviewed.
+Pre-receive hooks can have unintended effects on the performance of {% data variables.product.product_location_enterprise %} and should be carefully implemented and reviewed.

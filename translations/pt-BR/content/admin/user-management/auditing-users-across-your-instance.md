@@ -1,6 +1,6 @@
 ---
 title: Auditar usuários na instância
-intro: 'O painel do log de auditoria do {{ site.data.variables.product.prodname_ghe_server }} mostra aos administradores do site as ações realizadas por todos os usuários e organizações na {{ site.data.variables.product.product_location_enterprise }} durante os últimos 90 dias. O painel detalha informações como o tipo de ação, o autor da ação e quando a ação foi executada.'
+intro: 'O painel do log de auditoria do {% data variables.product.prodname_ghe_server %} mostra aos administradores do site as ações realizadas por todos os usuários e organizações na {% data variables.product.product_location_enterprise %} durante os últimos 90 dias. O painel detalha informações como o tipo de ação, o autor da ação e quando a ação foi executada.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### Acessar o log de auditoria do {{ site.data.variables.product.prodname_ghe_server }}
+### Acessar o log de auditoria do {% data variables.product.prodname_ghe_server %}
 
-O painel do log de auditoria mostra uma exibição visual dos dados de auditoria na {{ site.data.variables.product.product_location_enterprise }}.
+O painel do log de auditoria mostra uma exibição visual dos dados de auditoria na {% data variables.product.product_location_enterprise %}.
 
 ![Painel de log de auditoria da instância](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 No mapa, você pode aplicar zoom e visão panorâmica para ver os eventos do mundo todo. Posicione o mouse sobre um país para ver a contagem de eventos ocorridos nele.
 
 ### Pesquisar eventos na sua instância
 
-O log de auditoria lista as seguintes informações sobre as ações feitas na {{ site.data.variables.product.product_location_enterprise }}:
+O log de auditoria lista as seguintes informações sobre as ações feitas na {% data variables.product.product_location_enterprise %}:
 
 * [O repositório](#search-based-on-the-repository) em que a ação ocorreu;
 * [O usuário](#search-based-on-the-user) que fez a ação;
@@ -36,7 +36,7 @@ O log de auditoria lista as seguintes informações sobre as ações feitas na {
 
 **Notas:**
 
-- Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. Vários operadores de [pesquisa no {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/{{ currentVersion }}/user/articles/searching-github) são compatíveis.
+- Embora não seja possível usar texto para pesquisar entradas de auditoria, você pode criar consultas de pesquisa usando filtros diversificados. Vários operadores de [pesquisa no {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/user/articles/searching-github) são compatíveis.
 - Para pesquisar eventos com mais de 90 dias, use o qualificador `created`.
 
 {% endwarning %}
@@ -59,7 +59,7 @@ O qualificador `actor` incluir eventos com base no integrante da organização q
 * `actor:octocat actor:hubot` localiza todos os eventos realizados por ambos `octocat` e `hubot`.
 * `-actor:hubot` exclui todos os eventos realizados por `hubot`.
 
-Só é possível usar o nome de usuário do {{ site.data.variables.product.prodname_ghe_server }}, e não o nome verdadeiro da pessoa.
+Só é possível usar o nome de usuário do {% data variables.product.prodname_ghe_server %}, e não o nome verdadeiro da pessoa.
 
 #### Pesquisar com base na organização
 

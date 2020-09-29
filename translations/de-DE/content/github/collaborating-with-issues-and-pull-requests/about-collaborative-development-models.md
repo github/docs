@@ -13,7 +13,7 @@ Es gibt zwei Hauptarten von Entwicklungsmodellen, mit denen Du Pull Requests ver
 
 {% tip %}
 
-**Tipp:** {{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**Tipp:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

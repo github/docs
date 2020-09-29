@@ -1,1 +1,1 @@
-{{ site.data.variables.product.prodname_enterprise_api }}を使ってグローバルなwebhookを管理することもできます。 For a complete list of actions, see "[Global webhooks](/v3/enterprise-admin/global_webhooks)."
+{% data variables.product.prodname_enterprise_api %}を使ってグローバルなwebhookを管理することもできます。 For a complete list of actions, see "[Global webhooks](/v3/enterprise-admin/global_webhooks)."

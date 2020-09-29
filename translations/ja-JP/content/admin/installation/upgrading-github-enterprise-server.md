@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server をアップグレードする
-intro: '最新の機能とセキュリティアップデートを入手するために、{{ site.data.variables.product.prodname_ghe_server }} をアップグレードしてください。'
+intro: '最新の機能とセキュリティアップデートを入手するために、{% data variables.product.prodname_ghe_server %} をアップグレードしてください。'
 redirect_from:
   - /enterprise/admin/articles/upgrading-to-the-latest-release/
   - /enterprise/admin/articles/migrations-and-upgrades/
@@ -19,8 +19,8 @@ versions:
 ### アップグレードの準備
 
 1. アップグレードの戦略を決定し、アップグレード先のバージョンを選択してください。 詳しい情報については、「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
-3. {{ site.data.variables.product.prodname_enterprise_backup_utilities }} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{{ site.data.variables.product.prodname_enterprise_backup_utilities }}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
-4. アップグレードパッケージを使ってアップグレードをする場合は、{{ site.data.variables.product.prodname_ghe_server }} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
+3. {% data variables.product.prodname_enterprise_backup_utilities %} で、プライマリインスタンスの新しいバックアップを作成してください。 詳しい情報については、[{% data variables.product.prodname_enterprise_backup_utilities %}README.md ファイル](https://github.com/github/backup-utils#readme)を参照してください。
+4. アップグレードパッケージを使ってアップグレードをする場合は、{% data variables.product.prodname_ghe_server %} のエンドユーザのためにメンテナンス時間枠をスケジューリングしてください。 ホットパッチを利用している場合、メンテナンスモードは必要ありません。
 
   {% note %}
 
@@ -56,22 +56,22 @@ versions:
 
 ### ホットパッチでのアップグレード
 
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }}{{ site.data.variables.enterprise.management_console }} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
+{% data reusables.enterprise_installation.hotpatching-explanation %}{% data variables.enterprise.management_console %} を使うと、ホットパッチを即座にインストールすることや、後にインストールするようにスケジュールすることができます。 管理シェルを使って `ghe-upgrade` ユーティリティでホットパッチをインストールすることもできます。 詳細は「[アップグレードの要求事項](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)」を参照してください。
 
 {% note %}
 
-**注釈**: クラスタ環境では、{{ site.data.variables.enterprise.management_console }} を使ったホットパッチのインストールはできません。 クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
+**注釈**: クラスタ環境では、{% data variables.enterprise.management_console %} を使ったホットパッチのインストールはできません。 クラスタ環境でホットパッチをインストールするには、「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)」を参照してください。
 
 {% endnote %}
 
 #### ホットパッチでの単一のアプライアンスのアップグレード
 
-##### {{ site.data.variables.enterprise.management_console }} を使ってホットパッチをインストールする
+##### {% data variables.enterprise.management_console %} を使ってホットパッチをインストールする
 
 1. 自動アップデートを有効化してください。 詳しい情報については「[自動アップデートの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)」を参照してください。
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.updates-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.updates-tab %}
 4. 新しいホットパッチがダウンロードされたなら、Install package（パッケージのインストール）ドロップダウンメニューを使ってください。
     - すぐにインストールするなら**Now（即時）**を選択してください。
     - 後でインストールするなら、後の日付を選択してください。 ![ホットパッチインストール日のドロップダウン](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
@@ -79,11 +79,11 @@ versions:
 
 ##### 管理シェルを使ったホットパッチのインストール
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }}アップグレードのホットパッケージ（*.hpkg*ファイル）のURLをコピーしてください。
-{{ site.data.reusables.enterprise_installation.download-package }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}アップグレードのホットパッケージ（*.hpkg*ファイル）のURLをコピーしてください。
+{% data reusables.enterprise_installation.download-package %}
 4. パッケージのファイル名を使って `ghe-upgrade` コマンドを実行してください。
   ```shell
   admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.hpkg</em>
@@ -114,8 +114,8 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% endnote %}
 
 1. 「[管理シェルを使ってホットパッチをインストールする](#installing-a-hotpatch-using-the-administrative-shell)」の指示に従ってレプリカインスタンスをアップグレードしてください。Geo-replication のために複数のレプリカを使っているなら、この手順は各レプリカ 1 つずつに繰り返さなければなりません。
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
 ### アップグレードパッケージでのアップグレード
 
@@ -123,12 +123,12 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 #### アップグレードパッケージでの単一のアプライアンスのアップグレード
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} 適切なプラットフォームを選択し、アップグレードパッケージ (*.pkg*ファイル) の URL をコピーしてください。
-{{ site.data.reusables.enterprise_installation.download-package }}
-4. メンテナンスモードを有効にし、{{ site.data.variables.product.prodname_ghe_server }} インスタンス上のすべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} 適切なプラットフォームを選択し、アップグレードパッケージ (*.pkg*ファイル) の URL をコピーしてください。
+{% data reusables.enterprise_installation.download-package %}
+4. メンテナンスモードを有効にし、{% data variables.product.prodname_ghe_server %} インスタンス上のすべてのアクティブなプロセスが完了するのを待ってください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 
   {% note %}
 
@@ -149,7 +149,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {{ site.data.variables.product.product_location_enterprise }} を利用できるようにしてください。
+7. 単一アプライアンスのアップグレードであれば、メンテナンスモードを無効化してユーザが {% data variables.product.product_location_enterprise %} を利用できるようにしてください。
 
   {% note %}
 
@@ -170,7 +170,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% endwarning %}
 
 1. プライマリインスタンスでメンテナンスモードを有効化し、すべてのアクティブなプロセスが完了するのを待ちます。 詳しい情報については、「[メンテナンスモードの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)」を参照してください。
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
+{% data reusables.enterprise_installation.replica-ssh %}
 3. レプリカインスタンス、あるいは Geo-replication の一部として複数のレプリカインスタンスを動作させている場合は、すべてのレプリカインスタンスで `ghe-repl-stop` を実行してレプリケーションを停止させます。
 4. 「[アップグレードパッケージで単一アプライアンスをアップグレードする](#upgrading-a-single-appliance-with-an-upgrade-package)」の指示に従い、プライマリインスタンスをアップグレードしてください。
 
@@ -183,12 +183,12 @@ High Availability と Geo-replication が設定されたアプライアンスは
 {% endnote %}
 
 1. 「[アップグレードパッケージで単一のアプライアンスをアップグレードする](#upgrading-a-single-appliance-with-an-upgrade-package)」の指示に従ってレプリカインスタンスをアップグレードしてください。Geo-replication 用に複数のレプリカを利用しているなら、この手順を各レプリカ 1 つずつに繰り返さなければなりません。
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
-{{ site.data.reusables.enterprise_installation.start-replication }}
+{% data reusables.enterprise_installation.start-replication %}
 
-{{ site.data.reusables.enterprise_installation.replication-status }} コマンドが `Replication is not running` を返すなら、レプリケーションはまだ開始中かもしれません。 `ghe-repl-status` をもう一度実行する前に 1 分間ほど待ってください。
+{% data reusables.enterprise_installation.replication-status %} コマンドが `Replication is not running` を返すなら、レプリケーションはまだ開始中かもしれません。 `ghe-repl-status` をもう一度実行する前に 1 分間ほど待ってください。
 
    {% note %}
 
@@ -200,9 +200,9 @@ High Availability と Geo-replication が設定されたアプライアンスは
    `ghe-repl-status` が `OK` を返さない場合は、以下の手順に従って手動でレプリケーションを開始してください。
 
    1. レプリカインスタンスで再度 `ghe-repl-setup <primary-instance-ip>` を実行してください。
-   {{ site.data.reusables.enterprise_installation.start-replication }}
-   {{ site.data.reusables.enterprise_installation.replication-status }}
-6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {{ site.data.variables.product.product_location_enterprise }} を使えるようにメンテナンスモードを無効化してください。
+   {% data reusables.enterprise_installation.start-replication %}
+   {% data reusables.enterprise_installation.replication-status %}
+6. 最後のレプリカのアップグレードが完了し、resync も完了したなら、ユーザが {% data variables.product.product_location_enterprise %} を使えるようにメンテナンスモードを無効化してください。
 
 ### 失敗したアップグレードからのリストア
 
@@ -210,7 +210,7 @@ High Availability と Geo-replication が設定されたアプライアンスは
 
 #### パッチリリースのロールバック
 
-パッチリリースをロールバックするには、`--allow-patch-rollback` を付けて `ghe-upgrade` コマンドを使います。 {{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+パッチリリースをロールバックするには、`--allow-patch-rollback` を付けて `ghe-upgrade` コマンドを使います。 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)」を参照してください。
 

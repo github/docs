@@ -1,6 +1,6 @@
 ---
 title: Acerca de la Replicación geográfica
-intro: 'La Replicación geográfica en {{ site.data.variables.product.prodname_ghe_server }} utiliza múltiples réplicas activas para responder las solicitudes de los centros de datos distribuidos geográficamente.'
+intro: 'La Replicación geográfica en {% data variables.product.prodname_ghe_server %} utiliza múltiples réplicas activas para responder las solicitudes de los centros de datos distribuidos geográficamente.'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
 versions:
@@ -17,11 +17,11 @@ Se solicita un DNS geográfico, como [Amazon's Route 53 service](http://docs.aws
 
 ### Limitaciones
 
-Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todas las escrituras está limitado por la réplica más lenta {% if currentVersion ver_gt "enterprise-server@2.17" %}, aunque las nuevas réplicas geográficas pueden poblar la mayoría de sus datos de las réplicas geográficas ubicadas en el mismo lugar, en lugar del primario{% endif %}. La replicación geográfica no le agregará capacidad a una instancia de {{ site.data.variables.product.prodname_ghe_server }} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura.
+Escribir solicitudes para la réplica exige que se envíen los datos al principal y a todas las réplicas. Esto significa que el rendimiento de todas las escrituras está limitado por la réplica más lenta {% if currentVersion ver_gt "enterprise-server@2.17" %}, aunque las nuevas réplicas geográficas pueden poblar la mayoría de sus datos de las réplicas geográficas ubicadas en el mismo lugar, en lugar del primario{% endif %}. La replicación geográfica no le agregará capacidad a una instancia de {% data variables.product.prodname_ghe_server %} ni resolverá problemas de rendimiento relacionados con recursos de CPU o de memoria insuficientes. Si el aparato principal está fuera de línea, las réplicas activas no podrán atender ninguna solicitud de lectura o escritura.
 
 ### Monitorear la configuración de una replicación geográfica
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Leer más
 - "[Crear réplicas de replicación geográfica](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

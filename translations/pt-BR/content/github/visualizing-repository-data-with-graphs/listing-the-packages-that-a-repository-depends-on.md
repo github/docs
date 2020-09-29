@@ -12,7 +12,7 @@ versions:
 
 The dependency graph is available for every{% if currentVersion == "free-pro-team@latest" %} public{% endif %} repository that define dependencies in a supported package ecosystem using a supported file format.{% if currentVersion == "free-pro-team@latest" %} Repository administrators can also set up the dependency graph for private repositories.{% endif %}
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 Você pode visualizar e atualizar dependências vulneráveis no gráfico de dependências do repositório. O gráfico de dependências lista dependências vulneráveis antes de outras dependências. Para obter mais informações, consulte "[Sobre alertas de segurança para dependências vulneráveis](/articles/about-security-alerts-for-vulnerable-dependencies)".
 
@@ -39,26 +39,26 @@ Você pode visualizar as dependências usadas em repositórios da organização 
 
 ### Listar dependências em um repositório com gráfico de dependências habilitado
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Habilitar o gráfico de dependências em um repositório privado
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
-4. Leia a mensagem sobre concessão de {{ site.data.variables.product.product_name }} acesso a dados de repositórios para habilitar o gráfico de dependências e depois clique em **Allow access** (Habilitar acesso). ![Botão para permitir acesso a dados do repositório para habilitar o gráfico de dependências](/assets/images/help/repository/dependency-graph-allow-access-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+4. Leia a mensagem sobre concessão de {% data variables.product.product_name %} acesso a dados de repositórios para habilitar o gráfico de dependências e depois clique em **Allow access** (Habilitar acesso). ![Botão para permitir acesso a dados do repositório para habilitar o gráfico de dependências](/assets/images/help/repository/dependency-graph-allow-access-button.png)
 
-Para obter mais informações, consulte "[Entender como o {{ site.data.variables.product.product_name }} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)".
+Para obter mais informações, consulte "[Entender como o {% data variables.product.product_name %} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)".
 
 ### Desabilitar o gráfico de dependências em um repositório privado
 
-{{ site.data.reusables.repositories.you-can-enable-or-disable-security-features }}
+{% data reusables.repositories.you-can-enable-or-disable-security-features %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Em "Data services" (Serviços de dados), desmarque **Dependency graph** (Gráfico de dependências). ![Caixa de seleção para desabilitar o gráfico de dependências](/assets/images/help/repository/private-repo-data-use-dependency-graph-disabled.png)
 
 Para optar por recusar o uso de dados do repositório, consulte "[Aceitar ou recusar o uso de dados do repositório privado](/articles/opting-into-or-out-of-data-use-for-your-private-repository)".
@@ -66,10 +66,10 @@ Para optar por recusar o uso de dados do repositório, consulte "[Aceitar ou rec
 
 ### Solução de problemas para o gráfico de dependências
 
-{{ site.data.reusables.repositories.troubleshooting-dependency-graph }}
+{% data reusables.repositories.troubleshooting-dependency-graph %}
 
 ### Leia mais
 
 - "[Listar os projetos com dependências em um repositório](/articles/listing-the-projects-that-depend-on-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Entender como o {{ site.data.variables.product.product_name }} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)"
+- "[Entender como o {% data variables.product.product_name %} usa e protege seus dados](/categories/understanding-how-github-uses-and-protects-your-data)"
 - "[Exibir e atualizar dependências vulneráveis no repositório](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}

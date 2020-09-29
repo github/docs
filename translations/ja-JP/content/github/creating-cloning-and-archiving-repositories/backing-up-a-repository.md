@@ -18,7 +18,7 @@ versions:
 - リポジトリの Git データをローカルマシンにダウンロードするには、リポジトリをクローンする必要があります。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 - また、リポジトリの wiki をダウンロードすることもできます。 詳細は「[ウィキページを追加または編集する](/articles/adding-or-editing-wiki-pages)」を参照してください。
 
-リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 {{ site.data.variables.product.product_name }}リポジトリの他の要素をローカルマシンにエクスポートするには、弊社の API が利用できます。
+リポジトリもしくは wiki をクローンすると、プロジェクトのファイルやコミット履歴などの Git のデータだけがダウンロードされます。 {% data variables.product.product_name %}リポジトリの他の要素をローカルマシンにエクスポートするには、弊社の API が利用できます。
 
 - [問題](/v3/issues/#list-issues-for-a-repository)
 - [プルリクエスト](/v3/pulls/#list-pull-requests)
@@ -36,7 +36,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 ### サードパーティのバックアップツール
 
-リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {{ site.data.variables.product.product_name }} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{{ site.data.variables.product.prodname_dotcom }} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。
+リポジトリのバックアップを自動化するセルフサービスのツールはたくさんあります。 オプトアウトしておらず、誰でもデータにアクセスできるようにする {% data variables.product.product_name %} 上の_すべての_パブリックリポジトリをアーカイブするアーカイブプロジェクトとは異なり、バックアップツールは_特定の_リポジトリからデータをダウンロードし、新しいブランチまたはディレクトリ内に整理します。 アーカイブプロジェクトの詳細については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。
 
-リポジトリのすべての Git データ (プロジェクトファイルやコミット履歴) は、{{ site.data.variables.product.product_name }}からのデータの大部分 (Issue やプルリクエストなど) と共に[ BackHub](https://github.com/marketplace/backhub)でバックアップできます。BackHub は、リポジトリの日次の循環バックアップを、最大で 30 日までさかのぼったスナップショットと共に作成します。 BackHub は {{ site.data.variables.product.prodname_marketplace }}から利用できます。
+リポジトリのすべての Git データ (プロジェクトファイルやコミット履歴) は、{% data variables.product.product_name %}からのデータの大部分 (Issue やプルリクエストなど) と共に[ BackHub](https://github.com/marketplace/backhub)でバックアップできます。BackHub は、リポジトリの日次の循環バックアップを、最大で 30 日までさかのぼったスナップショットと共に作成します。 BackHub は {% data variables.product.prodname_marketplace %}から利用できます。
 {% endif %}

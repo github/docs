@@ -1,6 +1,6 @@
 ---
 title: クラスタのアップグレード
-intro: '管理シェル (SSH) を使用して {{ site.data.variables.product.prodname_ghe_server }}クラスタを最新のリリースにアップグレードします。'
+intro: '管理シェル (SSH) を使用して {% data variables.product.prodname_ghe_server %}クラスタを最新のリリースにアップグレードします。'
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
@@ -9,23 +9,23 @@ versions:
 ---
 
 ### ホットパッチでのアップグレード
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }}ホットパッチのインストールスクリプトは、ホットパッチをクラスタ内の各ノードにインストールし、サービスを適切な順序で再起動し、ダウンタイムを回避します。
+{% data reusables.enterprise_installation.hotpatching-explanation %}ホットパッチのインストールスクリプトは、ホットパッチをクラスタ内の各ノードにインストールし、サービスを適切な順序で再起動し、ダウンタイムを回避します。
 
-1. データを[{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme)でバックアップしてください。
+1. データを[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme)でバックアップしてください。
 2. 任意のノードの管理シェルから `ghe-cluster-hotpatch` コマンドを使って最新のホットパッチをインストールしてください。 ホットパッチの URL を指定するか、手動でホットパッチをダウンロードしてローカルのファイル名を指定することができます。
   ```shell
   $ ghe-cluster-hotpatch https://<em>HOTPATCH-URL/FILENAME</em>.hpkg
   ```
 
 ### アップグレードパッケージでのアップグレード
-アップグレードパッケージを使用して、{{ site.data.variables.product.prodname_ghe_server }} クラスタを最新のフィーチャリリースにアップグレードします。 たとえば`2.11`から`2.13`へのアップグレードが行えます。
+アップグレードパッケージを使用して、{% data variables.product.prodname_ghe_server %} クラスタを最新のフィーチャリリースにアップグレードします。 たとえば`2.11`から`2.13`へのアップグレードが行えます。
 
 #### アップグレードの準備
 
 1. アップグレードしようとしているバージョンの[クラスタネットワーク設定](/enterprise/admin/guides/clustering/cluster-network-configuration)をレビューして、必要に応じて設定を更新してください。
-2. データを[{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme)でバックアップしてください。
-3. アップグレード中は通常どおりに使用できないため、{{ site.data.variables.product.prodname_ghe_server }}クラスタのエンドユーザーに対してメンテナンス期間をスケジュールします。 メンテナンスモードは、クラスタのアップグレードの進行中、ユーザーのアクセスをブロックし、データが変更されないようにします。
-4. [{{ site.data.variables.product.prodname_ghe_server }}のダウンロードページ](https://enterprise.github.com/download)で、アップグレード *.pkg* ファイルの URL をクリップボードにコピーします。
+2. データを[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme)でバックアップしてください。
+3. アップグレード中は通常どおりに使用できないため、{% data variables.product.prodname_ghe_server %}クラスタのエンドユーザーに対してメンテナンス期間をスケジュールします。 メンテナンスモードは、クラスタのアップグレードの進行中、ユーザーのアクセスをブロックし、データが変更されないようにします。
+4. [{% data variables.product.prodname_ghe_server %}のダウンロードページ](https://enterprise.github.com/download)で、アップグレード *.pkg* ファイルの URL をクリップボードにコピーします。
 5. 任意のノードの管理シェルから `ghe-cluster-each` コマンドを `curl` と組み合わせて使い、一度のステップでリリースパッケージを各ノードにダウンロードしてください。 先ほどのステップでコピーした URL を引数として使ってください。
   ```shell
   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://<em>PACKAGE-URL</em>.pkg"
@@ -50,7 +50,7 @@ versions:
 #### クラスタノードのアップグレード
 
 1. 任意のクラスタノードの管理シェルに接続し、`ghe-cluster-maintenance -s` を実行して、スケジュールしたウィンドウに従ってメンテナンスモードを有効にします。
-2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {{ site.data.variables.product.prodname_ghe_server }} nodes. [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
+2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes. [アップグレードの準備](#preparing-to-upgrade)のステップ 4 でダウンロードしたパッケージのファイル名を用いて、`ghe-upgrade` コマンドを実行してください。
   ```shell
   $ ghe-upgrade <em>PACKAGE-FILENAME</em>.pkg
   > *** verifying upgrade package signature...

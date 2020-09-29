@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### セルフホストランナーのグループについて
 
@@ -35,9 +35,9 @@ Enterprise の管理者が Organization にランナーグループへのアク�
 
 グループを作成する場合、ランナーグループにアクセスできるリポジトリを定義するポリシーを選択する必要があります。 ランナーグループを設定して、リポジトリの特定のリスト、すべてのプライベートリポジトリ、または Organization 内のすべてのリポジトリにアクセスできます。
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. [**Self-hosted runners**] セクションで、[**Add new**] をクリックし、次に [**New group**] をクリックします。
 
     ![新しいランナーを追加](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -55,13 +55,13 @@ Enterprise は、セルフホストランナーをグループに追加して、
 グループを作成するときは、Enterprise 内のすべての Organization にアクセスを付与するポリシーを選択するか、特定の Organization を選択する必要があります。
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
 1. [**Self-hosted runners**] タブをクリックします。
 1. [**Add new**] をクリックしてから、[**New group**] をクリックします。
 
@@ -75,7 +75,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 ランナーグループのアクセスポリシーを更新したり、ランナーグループの名前を変更したりすることができます。
 
-{{ site.data.reusables.github-actions.self-hosted-runner-configure-runner-group-access }}
+{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 
 ### セルフホストランナーをグループに移動する
 

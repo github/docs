@@ -12,17 +12,17 @@ versions:
   enterprise-server: '*'
 ---
 
-You can search, sort, and filter your starred repositories and topics on your {{ site.data.variables.explore.your_stars_page }}.'
+You can search, sort, and filter your starred repositories and topics on your {% data variables.explore.your_stars_page %}.'
 
 ### About stars
 
-Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {{ site.data.variables.explore.your_stars_page }}.
+Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can star repositories and topics to discover similar projects on {{ site.data.variables.product.product_name }}. When you star repositories or topics, {{ site.data.variables.product.product_name }} may recommend related content in the discovery view of your news feed. For more information, see "[Finding ways to contribute to open source on {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content in the discovery view of your news feed. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 {% endif %}
 
-Starring a repository also shows appreciation to the repository maintainer for their work. Many of {{ site.data.variables.product.prodname_dotcom }}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
+Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore](https://github.com/explore) shows popular repositories based on the number of stars they have.
 
 ### Searching stars
 

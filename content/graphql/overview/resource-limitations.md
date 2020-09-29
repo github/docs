@@ -1,6 +1,6 @@
 ---
 title: Resource limitations
-intro: 'The {{ site.data.variables.product.prodname_dotcom }} GraphQL API has limitations in place to protect against excessive or abusive calls to {{ site.data.variables.product.prodname_dotcom }}''s servers.'
+intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
@@ -139,7 +139,7 @@ The GraphQL API v4 rate limit is **5,000 points per hour**.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-For {{ site.data.variables.product.prodname_github_apps }} or {{ site.data.variables.product.prodname_oauth_app }}s that belong to a {{ site.data.variables.product.prodname_ghe_cloud }} account, requests to resources owned by the same {{ site.data.variables.product.prodname_ghe_cloud }} account have an increased limit of 15,000 points per hour.
+For {% data variables.product.prodname_github_apps %} or {% data variables.product.prodname_oauth_app %}s that belong to a {% data variables.product.prodname_ghe_cloud %} account, requests to resources owned by the same {% data variables.product.prodname_ghe_cloud %} account have an increased limit of 15,000 points per hour.
 
 {% endif %}
 

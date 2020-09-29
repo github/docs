@@ -12,7 +12,7 @@ versions:
 ### 关于收件箱
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
 To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ By default, your inbox has filters for when you are assigned, participating in a
 
 You can add up to 15 of your own custom filters.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. 若要打开过滤器设置，在左侧边栏的“Filters（过滤器）”旁边，单击 {% octicon "gear" aria-label="The Gear icon" %}。
 
   {% tip %}
@@ -113,7 +113,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 
 #### 支持的 `is:` 查询
 
-要在 {{ site.data.variables.product.product_name }} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`.
+要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

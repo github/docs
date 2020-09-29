@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.warning-on-upgrading-physical-resources }}
+{% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-{{ site.data.variables.product.product_location_enterprise }}に参加するユーザが増えるにつれて、ストレージボリュームをリサイズする必要があるかもしれません。 ストレージのリサイズに関する情報については、使用している仮想化プラットフォームのドキュメンテーションを参照してください。
+{% data variables.product.product_location_enterprise %}に参加するユーザが増えるにつれて、ストレージボリュームをリサイズする必要があるかもしれません。 ストレージのリサイズに関する情報については、使用している仮想化プラットフォームのドキュメンテーションを参照してください。
 
 ### 要求及び推奨事項
 
@@ -19,12 +19,12 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.enterprise_installation.hardware-rec-table }}
+{% data reusables.enterprise_installation.hardware-rec-table %}
 
 ### データパーティションサイズの増加
 
 1. 仮想化プラットフォームのツールを使用して、既存のユーザーボリュームのディスクのサイズを変更します。
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 3. アプライアンスをメンテナンスモードにしてください。 詳しい情報については"[メンテナンスモードの有効化とスケジューリング](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)"を参照してください。
 4. アプライアンスを再起動して、新しいストレージの割り当てを検出させてください。
 5. `ghe-storage-extend` コマンドを実行して、`/data` のファイルシステムを拡張します。
@@ -34,14 +34,14 @@ versions:
 
 ### 新しいアプライアンスを使用したルートパーティションサイズの増加
 
-1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {{ site.data.variables.product.prodname_ghe_server }} をセットアップします。 詳細は「[{{ site.data.variables.product.prodname_ghe_server }} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+1. 現在のアプライアンスと同じバージョンを使用して、より大きなルートディスクで新たな {% data variables.product.prodname_ghe_server %} をセットアップします。 詳細は「[{% data variables.product.prodname_ghe_server %} インスタンスをセットアップする](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 2. 現在のアプライアンスをシャットダウンします。
 3. 使用している仮想化プラットフォームのツールを使い、現在のアプライアンスからデータディスクをデタッチします。
 4. 大きなルートディスクを持つ新しいアプライアンスにデータディスクをアタッチします。
 
 ### 既存のアプライアンスを使用したルートパーティションサイズの増加
 
-1. {{ site.data.variables.product.prodname_ghe_server }} アプライアンスに新しいディスクを取り付けます。
+1. {% data variables.product.prodname_ghe_server %} アプライアンスに新しいディスクを取り付けます。
 2. `parted` コマンドを実行して、ディスクをフォーマットします。
   ```shell
   $ sudo parted /dev/xvdg mklabel msdos

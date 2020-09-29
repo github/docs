@@ -1,6 +1,6 @@
 ---
 title: 错误：远程 HEAD 引用不存在的 ref，无法检出
-intro: '如果已在 {{ site.data.variables.product.product_location }} 上删除仓库的默认分支，会发生此错误。'
+intro: '如果已在 {% data variables.product.product_location %} 上删除仓库的默认分支，会发生此错误。'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
@@ -11,7 +11,7 @@ versions:
 检测此错误很简单；当您尝试克隆以下仓库时，Git 会警告您：
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -22,7 +22,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-要修复此错误，您需要成为 {{ site.data.variables.product.product_location }} 上仓库的管理员。 您需要[更改仓库的默认分支](/articles/setting-the-default-branch)。
+要修复此错误，您需要成为 {% data variables.product.product_location %} 上仓库的管理员。 您需要[更改仓库的默认分支](/articles/setting-the-default-branch)。
 
 之后，您可以从命令行获取所有可用分支的列表：
 

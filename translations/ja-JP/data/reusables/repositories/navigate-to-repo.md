@@ -1,1 +1,1 @@
-1. {{ site.data.variables.product.product_name }}で、リポジトリのメインページにアクセスしてください。
+1. {% data variables.product.product_name %}で、リポジトリのメインページにアクセスしてください。

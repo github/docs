@@ -4,7 +4,7 @@ intro: 'Du kannst eine CODEOWNERS-Datei verwenden, um Personen oder Teams zu def
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -33,15 +33,15 @@ Wenn eine Datei einen Codeinhaber hat, kannst Du sehen, wer der Codeinhaber ist,
 
 Um eine CODEINHABER-Datei zu verwenden, erstellen Sie eine neue Datei mit dem Namen `CODEOWNERS` im Stammverzeichnis `docs/` oder im Verzeichnis `.github/` des Repositorys, in dem Branch, in dem Sie die Codeinhaber hinzufügen möchten.
 
-Jede CODEINHABER-Datei ordnet die Codeinhaber für einen einzelnen Branch im Repository zu. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+Jede CODEINHABER-Datei ordnet die Codeinhaber für einen einzelnen Branch im Repository zu. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 Damit Codeinhaber Review-Anfragen erhalten können, muss sich die CODEINHABER-Datei auf dem Basis-Branch des Pull Requests befinden. Wenn Sie beispielsweise `@octocat` als Codeinhaber für *.js*-Dateien auf dem Branch `gh-pages` Ihres Repositorys festlegen, erhält `@octocat` Review-Anforderungen, wenn ein Pull Request mit Änderungen für die *.js*-Dateien zwischen dem Head-Branch und dem Branch `gh-pages` geöffnet wird.
 
 ### CODEOWNERS-Syntax
 
-Eine CODEINHABER-Datei verwendet ein Muster, das den gleichen Regeln folgt wie in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format)-Dateien. Dem Muster folgen ein oder mehrere {{ site.data.variables.product.prodname_dotcom }}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Sie können auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {{ site.data.variables.product.product_name }}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
+Eine CODEINHABER-Datei verwendet ein Muster, das den gleichen Regeln folgt wie in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format)-Dateien. Dem Muster folgen ein oder mehrere {% data variables.product.prodname_dotcom %}-Benutzernamen oder Teamnamen im Standardformat `@benutzername` oder `@org/teamname`. Sie können auf einen Benutzer auch über eine E-Mail-Adresse verweisen, die zu dessen {% data variables.product.product_name %}-Konto hinzugefügt wurde, z. B. `benutzer@beispiel.com`.
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {{ site.data.variables.product.product_name }}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
 #### Beispiel für eine CODEOWNERS-Datei
 ```
 # Dies ist ein Kommentar.

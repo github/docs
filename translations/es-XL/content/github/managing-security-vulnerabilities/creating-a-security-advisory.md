@@ -10,17 +10,17 @@ versions:
 
 Cualquier usuario con permisos de administrador puede crear un aviso de seguridad.
 
-{{ site.data.reusables.security-advisory.security-researcher-cannot-create-advisory }}
+{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ### Crear una asesoría de seguridad
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Da clic en **Nuevo borrador de asesoría de seguridad**. ![Botón Abrir aviso en borrador](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. Escribe un título para tu aviso de seguridad. ![Campo de título](/assets/images/help/security/security-advisory-title.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Da clic en **Crear asesoría de seguridad**". ![Botón para crear asesoría de seguridad](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### Pasos siguientes

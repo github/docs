@@ -17,8 +17,8 @@ versions:
 {% endtip %}
 
 1. Navegue até o quadro de projeto que deseja editar.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Modifique o nome e a descrição do quadro de projeto conforme necessário e clique em **Save project** (Salvar projeto). ![Campos com o nome e a descrição do quadro de projeto e o botão Save project (Salvar projeto)](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ### Leia mais

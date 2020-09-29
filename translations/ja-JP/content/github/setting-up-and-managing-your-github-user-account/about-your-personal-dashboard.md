@@ -12,15 +12,15 @@ versions:
 
 ### パーソナルダッシュボードにアクセスする
 
-パーソナルダッシュボードは、{{ site.data.variables.product.product_name }}にサインインしたときに最初に表示されるページです。
+パーソナルダッシュボードは、{% data variables.product.product_name %}にサインインしたときに最初に表示されるページです。
 
-サインインした後にパーソナルダッシュボードにアクセスするには、{{ site.data.variables.product.product_url }} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
+サインインした後にパーソナルダッシュボードにアクセスするには、{% data variables.product.product_url %} の任意のページの左上の隅にある {% octicon "mark-github" aria-label="The github octocat logo" %} をクリックします。
 
 ### 最近のアクティビティを見つける
 
 ニュースフィードの [Recent activity] セクションでは、あなたが作業している最近更新された Issue やプルリクエストを素早く見つけてフォローアップできます。 [Recent activity] の下では、過去 2 週間に行われた更新のプレビューを最大 12 件見ることができます。
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### トップリポジトリと Team を見つける
 
@@ -28,7 +28,7 @@ versions:
 
 ![さまざまな Organization のリポジトリや Team のリスト](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-{{ site.data.variables.product.product_name }} 上の任意のページの上部にある検索バーをクリックすれば、最近アクセスしたリポジトリ、Team、プロジェクトボードのリストを見つけることもできます。
+{% data variables.product.product_name %} 上の任意のページの上部にある検索バーをクリックすれば、最近アクセスしたリポジトリ、Team、プロジェクトボードのリストを見つけることもできます。
 
 ### コミュニティからのアクティビティの更新を受ける
 
@@ -46,7 +46,7 @@ versions:
 
 ### 推奨されているリポジトリを調べる
 
-ダッシュボードの右側にある [Explore repositories] セクションでは、コミュニティで推奨されているリポジトリを調べることができます。 推奨は、Star を付けたりアクセスしたりしたリポジトリ、フォローしているユーザ、アクセスしたリポジトリ内のアクティビティに基づいています。{% if currentVersion == "free-pro-team@latest" %}詳細は、「[{{ site.data.variables.product.prodname_dotcom }} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。{% endif %}
+ダッシュボードの右側にある [Explore repositories] セクションでは、コミュニティで推奨されているリポジトリを調べることができます。 推奨は、Star を付けたりアクセスしたりしたリポジトリ、フォローしているユーザ、アクセスしたリポジトリ内のアクティビティに基づいています。{% if currentVersion == "free-pro-team@latest" %}詳細は、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。{% endif %}
 
 ### 参考リンク
 

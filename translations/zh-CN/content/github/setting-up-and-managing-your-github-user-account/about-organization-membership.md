@@ -22,7 +22,7 @@ versions:
 - 申请来源国家/地区
 - 您的 IP 地址
 
-更多信息请参阅 <a href="/articles/github-privacy-statement/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }} 隐私声明</a>。
+更多信息请参阅 <a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} 隐私声明</a>。
 
   {% note %}
 

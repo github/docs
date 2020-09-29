@@ -1,6 +1,6 @@
 ---
 title: Supervisar los nodos de agrupación
-intro: 'Una agrupación de {{ site.data.variables.product.prodname_ghe_server }} está compuesta por servicios redundantes que se distribuyen entre dos o más nodos. Si un servicio individual o un nodo completo falla, los usuarios de la agrupación no deberían percibirlo inmediatamente. Sin embargo, si el rendimiento y la redundancia se ven afectados, es importante supervisar el estado de una agrupación de {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'Una agrupación de {% data variables.product.prodname_ghe_server %} está compuesta por servicios redundantes que se distribuyen entre dos o más nodos. Si un servicio individual o un nodo completo falla, los usuarios de la agrupación no deberían percibirlo inmediatamente. Sin embargo, si el rendimiento y la redundancia se ven afectados, es importante supervisar el estado de una agrupación de {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Comprobación manual del estado de la agrupación
 
-{{ site.data.variables.product.prodname_ghe_server }} tiene una utilidad de línea de comando incorporada para supervisar el estado de la agrupación. Desde el shell administrativo, la puesta en funcionamiento de un comando `ghe-cluster-status` ejecuta una serie de revisiones de estado en cada nodo, incluida la verificación de la conectividad y el estado del servicio. La salida muestra todos los resultados de la prueba incluido el texto `ok` o `error`. Por ejemplo, para mostrar solamente las pruebas fallidas, ejecuta:
+{% data variables.product.prodname_ghe_server %} tiene una utilidad de línea de comando incorporada para supervisar el estado de la agrupación. Desde el shell administrativo, la puesta en funcionamiento de un comando `ghe-cluster-status` ejecuta una serie de revisiones de estado en cada nodo, incluida la verificación de la conectividad y el estado del servicio. La salida muestra todos los resultados de la prueba incluido el texto `ok` o `error`. Por ejemplo, para mostrar solamente las pruebas fallidas, ejecuta:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -24,14 +24,14 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 ### Supervisar el estado de la agrupación con Natgios
 
-Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {{ site.data.variables.product.prodname_ghe_server }}. Además de supervisar la conectividad básica para cada uno de los nodos de la agrupación, puedes comprobar el estado de la agrupación al configurar Nagios para que use el comando `ghe-cluster-status -n`. Esto devuelve salidas en un formato que Nagios comprende.
+Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {% data variables.product.prodname_ghe_server %}. Además de supervisar la conectividad básica para cada uno de los nodos de la agrupación, puedes comprobar el estado de la agrupación al configurar Nagios para que use el comando `ghe-cluster-status -n`. Esto devuelve salidas en un formato que Nagios comprende.
 
 #### Prerrequisitos
 * Host Linux que ejecuta Nagios.
-* Acceso de red para la agrupación {{ site.data.variables.product.prodname_ghe_server }}.
+* Acceso de red para la agrupación {% data variables.product.prodname_ghe_server %}.
 
 #### Configurar el host de Nagios
-1. Genera una clave SSH con una contraseña en blanco. Nagios usa esto para autenticar la agrupación de {{ site.data.variables.product.prodname_ghe_server }}.
+1. Genera una clave SSH con una contraseña en blanco. Nagios usa esto para autenticar la agrupación de {% data variables.product.prodname_ghe_server %}.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
   > Generating public/private rsa key pair.
@@ -79,7 +79,7 @@ Puedes configurar [Nagios](https://www.nagios.org/) para supervisar {{ site.data
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. Agrega este comando a una definición de servicio para un nodo en la agrupación de {{ site.data.variables.product.prodname_ghe_server }}.
+7. Agrega este comando a una definición de servicio para un nodo en la agrupación de {% data variables.product.prodname_ghe_server %}.
 
 
   ###### Definición de ejemplo

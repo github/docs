@@ -45,7 +45,7 @@ Si tienes una cuenta en GitHub, crea una nueva organización en nuestra [página
 
 ### ¿Cómo puedo comparar las características de cada plan?
 
-Puedes ver los precios y una lista completa de las funciones de cada producto en <{{ site.data.variables.product.pricing_url }}>.
+Puedes ver los precios y una lista completa de las funciones de cada producto en <{% data variables.product.pricing_url %}>.
 
 ### ¿Por cuánto tiempo se permitirá un número ilimitado de colaboradores en GitHub Free?
 
@@ -57,7 +57,7 @@ Los clientes que están pagando anualmente por los planes de Pro o Team y se reg
 
 ### ¿Cuál es la diferencia entre GitHub Free para desarrolladores individuales y GitHub Free para organizaciones?
 
-Para encontrar los detalles de las diferencias entre los productos de GitHub free, consulta la sección "[productos de {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+Para encontrar los detalles de las diferencias entre los productos de GitHub free, consulta la sección "[productos de {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".
 
 ### ¿Cómo puedo tener más minutos de Actions si necesito más que la cantidad que se designa en el plan de GitHub Team?
 
@@ -65,7 +65,7 @@ La mayoría de los equipos pequeños utiliza menos de 3,000 minutos mensuales de
 
 ### ¿Cómo me afectan los cambios en el límite de plazas?
 
-Ahora que {{ site.data.variables.product.prodname_team }} no requiere de un mínimo de plazas, si utilizas menos de cinco en tu organización, podrás eliminar las plazas pagadas para reducir tu cuenta. Para obtener más información, consulta la sección "[Bajar la categoría de tu suscripción de {{ site.data.variables.product.prodname_dotcom }}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
+Ahora que {% data variables.product.prodname_team %} no requiere de un mínimo de plazas, si utilizas menos de cinco en tu organización, podrás eliminar las plazas pagadas para reducir tu cuenta. Para obtener más información, consulta la sección "[Bajar la categoría de tu suscripción de {% data variables.product.prodname_dotcom %}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)".
 
 ### ¿Cambiará algo para los equipos con plan de GitHub Team para código abierto?
 

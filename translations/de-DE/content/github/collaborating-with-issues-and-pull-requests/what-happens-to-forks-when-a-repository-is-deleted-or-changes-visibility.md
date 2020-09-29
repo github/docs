@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 #### Privates Repository löschen
 
@@ -21,7 +21,7 @@ Wenn Du ein öffentliches Repository löschst, wird einer der vorhandenen öffen
 
 #### Private Forks und Berechtigungen
 
-{{ site.data.reusables.repositories.private_forks_inherit_permissions }}
+{% data reusables.repositories.private_forks_inherit_permissions %}
 
 #### Öffentliches Repository in ein privates Repository ändern
 

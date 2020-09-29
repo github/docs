@@ -20,7 +20,7 @@ Los propietarios o colaboradores pueden asignar una revisión de solicitud de ex
 
 Puedes solicitar una revisión de una persona sugerida o de una persona específica. Los revisores sugeridos se basan en los [datos del último responsable de git](/articles/tracking-changes-in-a-file/). Si solicitas una revisión, otras personas con acceso de escritura al repositorio pueden seguir revisando tu solicitud de extracción. Una vez que alguien haya revisado tu solicitud de código y hayas implementado los cambios necesarios, puedes volver a solicitar la revisión al mismo revisor. Si el revisor solicitado no emite una revisión y la solicitud de extracción cumple con los [requisitos para fusión](/articles/defining-the-mergeability-of-pull-requests) del repositorio, puedes fusionarla de todos modos.
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción que quieres que una persona específica o un equipo revise.
 3. Navega hacia **Reviewers** (Revisores) en la barra lateral derecha.
 4. Para solicitar la revisión de una persona sugerida en **Reviewers** (Revisores), al lado del nombre de usuario, haz clic en **Request** (Solicitar). ![Icono Reviewers request (Solicitud de revisores) en la barra lateral derecha](/assets/images/help/pull_requests/request-suggested-review.png)

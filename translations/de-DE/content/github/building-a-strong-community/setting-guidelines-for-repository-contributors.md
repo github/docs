@@ -29,8 +29,8 @@ Du kannst Standard-Beitragsrichtlinien für Deine Organisation{% if currentVersi
 
 ### *CONTRIBUTING*-Datei hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Entscheide, ob die Beitragsrichtlinien im Stammverzeichnis, im Verzeichnis `docs` oder im Verzeichnis `.github` Deines Repositorys gespeichert werden sollen. Gib danach im Feld „Filename“ (Dateiname) den Namen und die Erweiterung der Datei ein. In Dateinamen von Beitragsrichtlinien wird die Groß-/Kleinschreibung ignoriert, und die Dateien können die Erweiterung *.md* oder *.txt* haben. ![Neuer Dateiname](/assets/images/help/repository/new-file-name.png)
     - Wenn Deine Beitragsrichtlinien im Stammverzeichnis Deines Repositorys erscheinen sollen, gib *CONTRIBUTING* ein.
     - Wenn Deine Beitragsrichtlinien im Verzeichnis `docs` Deines Repositorys erscheinen sollen, gib zur Erstellung des neuen Verzeichnisses *docs/* ein und anschließend *CONTRIBUTING*.
@@ -38,9 +38,9 @@ Du kannst Standard-Beitragsrichtlinien für Deine Organisation{% if currentVersi
     - Schritte zur Erstellung korrekt formulierter Issues oder Pull Requests.
     - Links zu externer Dokumentation, zu Verteilerlisten oder zu einem Verhaltenskodex.
     - Erwartungen der Community und Verhaltensregeln
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Beispiele für Beitragsrichtlinien
 
@@ -52,5 +52,5 @@ Wenn Du nun nicht sicher bist, was Du hier festlegen sollst, findest Du nachfolg
 
 ### Weiterführende Informationen
 - Abschnitt „[Starting an Open Source Project](https://opensource.guide/starting-a-project/)“ (Open-Source-Projekt starten) der Open-Source-Leitfäden{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - „[Eine Lizenz zu einem Repository hinzufügen](/articles/adding-a-license-to-a-repository)“

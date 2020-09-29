@@ -10,7 +10,7 @@ Para ajudá-lo a entender suas assinaturas e decidir se deseja cancelar sua assi
 
 {% note %}
 
-**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver sendo incomodado e quiser ignorar um repositório, [entre em contato com o suporte](/contact) para que possamos ajudá-lo. {{ site.data.reusables.policies.abuse }}{% endif %}
+**Observação:** Em vez de cancelar a assinatura, você tem a opção de ignorar um repositório. Nesse caso, você deixará de receber notificações. Não recomendamos ignorar repositórios porque você não será notificado caso seja @mencionado. {% if currentVersion == "free-pro-team@latest" %}Se você estiver sendo incomodado e quiser ignorar um repositório, [entre em contato com o suporte](/contact) para que possamos ajudá-lo. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -36,13 +36,13 @@ Você só pode filtrar suas assinaturas por repositório e pelo motivo pelo qual
 
 Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desaparecerão automaticamente da sua caixa de entrada.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Na caixa de entrada de notificações, selecione as notificações das quais você deseja cancelar sua assinatura.
 2. Use o menu suspenso **selecionado** {% octicon "triangle-down" aria-label="The down triangle icon" %} para clicar em **Cancelar assinatura**. ![Opção de cancelamento de assinatura da caixa de entrada principal](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Cancelar assinatura de notificações na página de assinaturas
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Assinaturas**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Selecione as notificações que você deseja cancelar a assinatura. No canto superior direito, clique em **Cancelar a assinatura**. ![Página de assinaturas](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
@@ -51,7 +51,7 @@ Ao cancelar a assinatura de notificações em sua caixa de entrada, elas desapar
 
 Quando você deixa de inspecionar um repositório, você cancela sua assinatura de atualizações futuras daquele repositório, a menos que você participe de uma conversa ou seja @mencionado.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Na barra lateral esquerda, na lista de repositórios, use o menu suspenso "Gerenciar notificações" para clicar em **Inspecionar repositórios**. ![Gerenciar as opções do menu suspenso notificações](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Na página de repositórios inspecionados, depois de ter avaliado os repositórios que você está inspecionando, escolha se deseja:
     - deixar de inspecionar um repositório

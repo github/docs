@@ -25,20 +25,20 @@ $ ssh -T -p 443 git@ssh.github.com
 
 ### HTTPS を介した SSH 接続を有効化する
 
-ポート 443 経由で SSH を `git@ssh.{{ site.data.variables.command_line.backticks }}` に実行できる場合、SSH 設定をオーバーライドして、{{ site.data.variables.product.product_location }} への接続をそのサーバーとポート経由で実行するように強制できます。
+ポート 443 経由で SSH を `git@ssh.{% data variables.command_line.backticks %}` に実行できる場合、SSH 設定をオーバーライドして、{% data variables.product.product_location %} への接続をそのサーバーとポート経由で実行するように強制できます。
 
 ssh 設定でこれを設定するには、`~/.ssh/config` のファイルを編集して、このセクションを追加してください:
 
 ```
-Host {{ site.data.variables.command_line.codeblock }}
-  Hostname ssh.{{ site.data.variables.command_line.codeblock }}
+Host {% data variables.command_line.codeblock %}
+  Hostname ssh.{% data variables.command_line.codeblock %}
   Port 443
 ```
 
-もう一度 {{ site.data.variables.product.product_location }} に接続することでこれが機能するかテストできます:
+もう一度 {% data variables.product.product_location %} に接続することでこれが機能するかテストできます:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```

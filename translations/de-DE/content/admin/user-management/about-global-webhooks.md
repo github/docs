@@ -17,4 +17,4 @@ Mithilfe von globalen Webhooks können Sie Regeln für die Benutzer- und Organis
 
 Weitere Informationen zum Konfigurieren von Webhooks finden Sie unter „[Globale Webhooks verwalten](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-global-webhooks)“.
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}

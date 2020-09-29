@@ -1,1 +1,1 @@
-Benutzer können {{ site.data.variables.large_files.product_name_short }}-Objekte nicht nach {{ site.data.variables.product.prodname_ghe_server }} verschieben, wenn {{ site.data.variables.large_files.product_name_short }} auf der Appliance oder im Repository deaktiviert ist.
+Benutzer können {% data variables.large_files.product_name_short %}-Objekte nicht nach {% data variables.product.prodname_ghe_server %} verschieben, wenn {% data variables.large_files.product_name_short %} auf der Appliance oder im Repository deaktiviert ist.

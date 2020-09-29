@@ -32,24 +32,24 @@ Para responder a um comentário em linha existente, é preciso navegar até o co
 {% tip %}
 
 **Dicas:**
-- Os comentários da pull request aceitam a mesma [formatação](/categories/writing-on-github) como comentários regulares no {{ site.data.variables.product.product_name }}, como @menções, emoji e referências.
+- Os comentários da pull request aceitam a mesma [formatação](/categories/writing-on-github) como comentários regulares no {% data variables.product.product_name %}, como @menções, emoji e referências.
 - Você pode [adicionar reações](/articles/about-conversations-on-github#reacting-to-ideas-in-comments) a comentários em pull requests na guia **Files changed** (Arquivos alterados).
 
 {% endtip %}
 
 ### Adicionar comentários em linha a uma pull request
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista de pull requests, clique na pull request onde deseja deixar comentários em linha.
-{{ site.data.reusables.repositories.changed-files }}
-{{ site.data.reusables.repositories.start-line-comment }}
-{{ site.data.reusables.repositories.type-line-comment }}
-{{ site.data.reusables.repositories.suggest-changes }}
+{% data reusables.repositories.changed-files %}
+{% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.type-line-comment %}
+{% data reusables.repositories.suggest-changes %}
 5. Quando tiver concluído, clique em **>Add single comment** (Adicionar único comentário). ![Janela de comentários inline](/assets/images/help/commits/inline-comment.png)
 
 Qualquer pessoa que inspeciona a pull request ou o repositório receberá uma notificação de seu comentário.
 
-{{ site.data.reusables.pull_requests.resolving-conversations }}
+{% data reusables.pull_requests.resolving-conversations %}
 
 ### Leia mais
 

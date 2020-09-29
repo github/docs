@@ -23,7 +23,7 @@ versions:
     ```
     ghe-spokes evac-status
     ```
-    {{ site.data.variables.product.prodname_pages }}:
+    {% data variables.product.prodname_pages %}:
     ```
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
@@ -38,7 +38,7 @@ versions:
     ```
     ghe-spokes server evacuate git-server-<uuid>
     ```
-    {{ site.data.variables.product.prodname_pages }}:
+    {% data variables.product.prodname_pages %}:
     ```
     ghe-dpages evacuate pages-server-<uuid>
     ```

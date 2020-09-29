@@ -9,20 +9,20 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. 要查看或更改设置，请在这些窗格之间切换： ![首选项菜单导航](/assets/images/help/desktop/mac-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 2. 要查看或更改设置，请在这些窗格之间切换： ![选项菜单导航](/assets/images/help/desktop/windows-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endwindows %}
 
 ### 延伸阅读
 
-- "[设置 {{ site.data.variables.product.prodname_desktop }} 的主题](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"
+- "[设置 {% data variables.product.prodname_desktop %} 的主题](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

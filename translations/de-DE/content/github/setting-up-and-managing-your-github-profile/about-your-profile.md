@@ -14,7 +14,7 @@ Du kannst persönliche Informationen über Dich selbst in Deiner Bio hinzufügen
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
 
@@ -27,8 +27,8 @@ Außerdem ist Folgendes sichtbar:
 - Repositories and gists you own or contribute to. You can showcase your best work by pinning repositories and gists to your profile. Weitere Informationen finden Sie unter „[Elemente an Ihr Profil anheften](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)“.
 - Repositorys, die Sie mit einem Stern versehen haben. Weitere Informationen finden Sie unter „[Repositorys mit Sternen speichern](/articles/saving-repositories-with-stars/)“.
 - Eine Übersicht über Deine Aktivitäten in den Organisationen, Repositorys und Teams, in denen Du am meisten aktiv bist. For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
-- Badges that advertise your participation in programs like the {{ site.data.variables.product.prodname_arctic_vault }}, {{ site.data.variables.product.prodname_sponsors }}, or the {{ site.data.variables.product.company_short }} Developer Program.
-- Bei Verwendung von {{ site.data.variables.product.prodname_pro }}. Weitere Informationen findest Du unter „[Dein Profil personalisieren](/articles/personalizing-your-profile)“.{% endif %}
+- Badges that advertise your participation in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program.
+- Bei Verwendung von {% data variables.product.prodname_pro %}. Weitere Informationen findest Du unter „[Dein Profil personalisieren](/articles/personalizing-your-profile)“.{% endif %}
 
 Sie können auch einen Status auf Ihrem Profil einstellen, um Angaben zu Ihrer Verfügbarkeit zu machen. Weitere Informationen findest Du unter „[Status festlegen](/articles/personalizing-your-profile/#setting-a-status).“
 

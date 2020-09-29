@@ -85,17 +85,17 @@ You can create an inline link by wrapping link text in brackets `[ ]`, and then 
 
 {% tip %}
 
-**Tip:** {{ site.data.variables.product.product_name }} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLS](/articles/autolinked-references-and-urls)."
+**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[Autolinked references and URLS](/articles/autolinked-references-and-urls)."
 
 {% endtip %}
 
 ### Section links
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### Relative links
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Lists
 
@@ -123,7 +123,7 @@ To order your list, precede each line with a number.
 
 You can create a nested list by indenting one or more list items below another item.
 
-To create a nested list using the web editor on {{ site.data.variables.product.product_name }} or a text editor that uses a monospaced font, like [Atom](https://atom.io/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (`-` or `*`) lies directly below the first character of the text in the item above it.
+To create a nested list using the web editor on {% data variables.product.product_name %} or a text editor that uses a monospaced font, like [Atom](https://atom.io/), you can align your list visually. Type space characters in front of your nested list item, until the list marker character (`-` or `*`) lies directly below the first character of the text in the item above it.
 
 ```
 1. First list item
@@ -135,7 +135,7 @@ To create a nested list using the web editor on {{ site.data.variables.product.p
 
 ![List with two levels of nested items](/assets/images/help/writing/nested-list-example-1.png)
 
-To create a nested list in the comment editor on {{ site.data.variables.product.product_name }}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
+To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
 In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100.`) before `First list item`.
 
@@ -160,7 +160,7 @@ For more examples, see the [GitHub Flavored Markdown Spec](https://github.github
 
 ### Task lists
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 If a task list item description begins with a parenthesis, you'll need to escape it with `\`:
 
@@ -170,7 +170,7 @@ For more information, see "[About task lists](/articles/about-task-lists)."
 
 ### Mentioning people and teams
 
-You can mention a person or [team](/articles/setting-up-teams/) on {{ site.data.variables.product.product_name }} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+You can mention a person or [team](/articles/setting-up-teams/) on {% data variables.product.product_name %} by typing `@` plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support What do you think about these updates?`
 
@@ -191,21 +191,21 @@ For more information, see "[Autolinked references and URLs](/articles/autolinked
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Referencing external resources
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 
 ### Content attachments
 
-Some {{ site.data.variables.product.prodname_github_app }}s provide information in {{ site.data.variables.product.product_name }} for URLs that link to their registered domains. {{ site.data.variables.product.product_name }} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
+Some {% data variables.product.prodname_github_app %}s provide information in {% data variables.product.product_name %} for URLs that link to their registered domains. {% data variables.product.product_name %} renders the information provided by the app under the URL in the body or comment of an issue or pull request.
 
 ![Content attachment](/assets/images/help/writing/content-attachment.png)
 
-To see content attachments, you must have a {{ site.data.variables.product.prodname_github_app }} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 Content attachments will not be displayed for URLs that are part of a markdown link.
 
-For more information about building a {{ site.data.variables.product.prodname_github_app }} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
 
 ### Using emoji
 
@@ -225,7 +225,7 @@ You can create a new paragraph by leaving a blank line between lines of text.
 
 ### Ignoring Markdown formatting
 
-You can tell {{ site.data.variables.product.product_name }} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
+You can tell {% data variables.product.product_name %} to ignore (or escape) Markdown formatting by using `\` before the Markdown character.
 
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 
@@ -235,7 +235,7 @@ For more information, see Daring Fireball's "[Markdown Syntax](https://daringfir
 
 ### Дополнительная литература
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown Spec](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
 - "[About writing and formatting on GitHub](/articles/about-writing-and-formatting-on-github)"
 - "[Working with advanced formatting](/articles/working-with-advanced-formatting)"
 - "[Mastering Markdown](https://guides.github.com/features/mastering-markdown/)"

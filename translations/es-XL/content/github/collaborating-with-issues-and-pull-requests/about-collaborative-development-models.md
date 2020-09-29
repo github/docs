@@ -13,7 +13,7 @@ Hay dos tipos principales de modelos de desarrollo con los cuales usar las solic
 
 {% tip %}
 
-**Sugerencia:** {{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**Sugerencia:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

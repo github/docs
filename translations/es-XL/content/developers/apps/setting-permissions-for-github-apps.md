@@ -1,6 +1,6 @@
 ---
 title: Configurar los permisos para las GitHub Apps
-intro: '{{ site.data.reusables.shortdesc.permissions_github_apps }}'
+intro: '{% data reusables.shortdesc.permissions_github_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps/
   - /apps/building-github-apps/permissions-for-github-apps/
@@ -16,4 +16,4 @@ Cuando creas una GitHub App, puedes seleccionar los permisos a los que necesita 
 
 Predeterminadamente, las GitHub Apps tienen acceso de `Read-only` a las terminales de metadatos. Los metadatos son un conjunto de terminales de solo lectura que proporcionan información general acerca de los recursos a los que puede acceder la instalación autorizada.
 
-{{ site.data.reusables.apps.metadata-permissions }}Para encontrar una lista de terminales de metadatos, consulta la sección "[Permisos de metadatos](/v3/apps/permissions/#metadata-permissions)".
+{% data reusables.apps.metadata-permissions %}Para encontrar una lista de terminales de metadatos, consulta la sección "[Permisos de metadatos](/v3/apps/permissions/#metadata-permissions)".

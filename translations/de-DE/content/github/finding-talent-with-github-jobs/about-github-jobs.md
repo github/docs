@@ -3,12 +3,12 @@ title: Informationen zu GitHub Jobs
 redirect_from:
   - /articles/how-to-write-a-great-job-post/
   - /articles/about-github-jobs
-intro: 'Sie können eine Stellenausschreibung auf {{ site.data.variables.product.prodname_jobs }} veröffentlichen, um talentierte Mitarbeiter für Ihr Unternehmen zu finden.'
+intro: 'Sie können eine Stellenausschreibung auf {% data variables.product.prodname_jobs %} veröffentlichen, um talentierte Mitarbeiter für Ihr Unternehmen zu finden.'
 versions:
   free-pro-team: '*'
 ---
 
-Bevor Sie eine Stellenausschreibung veröffentlichen können, müssen Sie ein {{ site.data.variables.product.prodname_dotcom }}-Konto erstellen und Ihre E-Mail-Adresse verifizieren. Weitere Informationen finden Sie unter „[Für ein neues {{ site.data.variables.product.prodname_dotcom }}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“ und „[Ihre E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.
+Bevor Sie eine Stellenausschreibung veröffentlichen können, müssen Sie ein {% data variables.product.prodname_dotcom %}-Konto erstellen und Ihre E-Mail-Adresse verifizieren. Weitere Informationen finden Sie unter „[Für ein neues {% data variables.product.prodname_dotcom %}-Konto anmelden](/articles/signing-up-for-a-new-github-account)“ und „[Ihre E-Mail-Adresse verifizieren](/articles/verifying-your-email-address)“.
 
 ### Best Practices für das Verfassen einer Stellenausschreibung
 
@@ -18,11 +18,11 @@ Fügen Sie in der Stellenbeschreibung Informationen über die Kultur Ihres Unter
 
 Damit Bewerber Ihre Stellenausschreibung leichter finden, aktivieren Sie **Hot Searches** (Topsuche) unten auf der Hauptseite. Wenn sich eine dieser Kategorien auf Ihre offene Stelle bezieht, nehmen Sie sie in Ihre Stellenbeschreibung auf.
 
-![Abschnitt zur Topsuche von {{ site.data.variables.product.prodname_dotcom }}](/assets/images/help/jobs/hot-searches.png)
+![Abschnitt zur Topsuche von {% data variables.product.prodname_dotcom %}](/assets/images/help/jobs/hot-searches.png)
 
 {% tip %}
 
-**Tipp:** {{ site.data.variables.product.prodname_dotcom }} verfolgt keine Aufrufe Ihrer Stellenausschreibung oder Klicks. Wenn Sie Klicks verfolgen möchten, können Sie Tracking-Parameter zu der URL hinzufügen, die Sie im Feld **How to Apply** (So bewerben Sie sich) angeben. Weitere Informationen finden Sie unter „[URL-Parameter](https://support.google.com/google-ads/answer/6277564?hl=en)“ auf Google.
+**Tipp:** {% data variables.product.prodname_dotcom %} verfolgt keine Aufrufe Ihrer Stellenausschreibung oder Klicks. Wenn Sie Klicks verfolgen möchten, können Sie Tracking-Parameter zu der URL hinzufügen, die Sie im Feld **How to Apply** (So bewerben Sie sich) angeben. Weitere Informationen finden Sie unter „[URL-Parameter](https://support.google.com/google-ads/answer/6277564?hl=en)“ auf Google.
 
 {% endtip %}
 
@@ -32,4 +32,4 @@ Sie können Ihre Stellenausschreibung mit Markdown formatieren. Weitere Informat
 
 ### Weiterführende Informationen
 
-- „[Funktionsweise von {{ site.data.variables.product.prodname_jobs }}](https://jobs.github.com/faq)“ auf {{ site.data.variables.product.prodname_jobs }}
+- „[Funktionsweise von {% data variables.product.prodname_jobs %}](https://jobs.github.com/faq)“ auf {% data variables.product.prodname_jobs %}

@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. No canto superior direito, clique em **Milestones** (Marcos). ![Botão Milestones (Marcos) de problemas](/assets/images/help/issues/issues_milestone_button.png)
 4. Selecione o marco sobre o qual deseja ver mais informações.
 

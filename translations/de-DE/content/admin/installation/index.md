@@ -1,7 +1,7 @@
 ---
-title: '{{ site.data.variables.product.prodname_enterprise }} installieren'
+title: '{% data variables.product.prodname_enterprise %} installieren'
 shortTitle: Installing
-intro: 'System administrators and operations and security specialists can install {{ site.data.variables.product.prodname_ghe_server }}.'
+intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin-guide/
   - /enterprise/admin/guides/installation/
@@ -13,11 +13,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Weitere Informationen zu oder zum Kauf von {{ site.data.variables.product.prodname_enterprise }} finden Sie unter [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise).
+Weitere Informationen zu oder zum Kauf von {% data variables.product.prodname_enterprise %} finden Sie unter [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise).
 
-{{ site.data.reusables.enterprise_installation.request-a-trial }}
+{% data reusables.enterprise_installation.request-a-trial %}
 
-Wenn Sie Fragen zum Installationsprozess haben, finden Sie unter „[Mit dem {{ site.data.variables.product.prodname_enterprise }}-Support arbeiten](/enterprise/admin/guides/enterprise-support/)“ entsprechende Informationen.
+Wenn Sie Fragen zum Installationsprozess haben, finden Sie unter „[Mit dem {% data variables.product.prodname_enterprise %}-Support arbeiten](/enterprise/admin/guides/enterprise-support/)“ entsprechende Informationen.
 
 ### Inhaltsverzeichnis
 

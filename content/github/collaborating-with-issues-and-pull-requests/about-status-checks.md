@@ -17,18 +17,18 @@ Anyone with write permissions to a repository can set the state for any status c
 
 You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Types of status checks on {{ site.data.variables.product.product_name }}
+### Types of status checks on {% data variables.product.product_name %}
 
-There are two types of status checks on {{ site.data.variables.product.product_name }}:
+There are two types of status checks on {% data variables.product.product_name %}:
 
 - Checks
 - Statuses
 
-_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {{ site.data.variables.product.prodname_github_app }}s.
+_Checks_ are different from _statuses_ in that they provide line annotations, more detailed messaging, and are only available for use with {% data variables.product.prodname_github_app %}s.
 
-Organization owners and users with push access to a repository can create checks and statuses with {{ site.data.variables.product.product_name }}'s API. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
+Organization owners and users with push access to a repository can create checks and statuses with {% data variables.product.product_name %}'s API. For more information, see "[Checks](/v3/checks/)" and "[Statuses](/v3/repos/statuses/)."
 
 ### Checks
 

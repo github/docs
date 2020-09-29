@@ -34,7 +34,7 @@ El token que se utiliza para autenticar la llamada debe tener el alcance de `adm
 
 ## Webhooks
 
-Los webhooks de la organización te permiten recibir cargas útiles HTTP de tipo `POST` cada que suceden eventos específicos dentro de la misma. Cuando te suscribes a estos eventos puedes crear integraciones que reaccionen a las acciones de {{ site.data.variables.product.prodname_dotcom }}.com. Para obtener más información sobre las acciones a las cuales te puedes suscribir, consulta los "[tipos de eventos de {{ site.data.variables.product.prodname_dotcom }}](/developers/webhooks-and-events/github-event-types)".
+Los webhooks de la organización te permiten recibir cargas útiles HTTP de tipo `POST` cada que suceden eventos específicos dentro de la misma. Cuando te suscribes a estos eventos puedes crear integraciones que reaccionen a las acciones de {% data variables.product.prodname_dotcom %}.com. Para obtener más información sobre las acciones a las cuales te puedes suscribir, consulta los "[tipos de eventos de {% data variables.product.prodname_dotcom %}](/developers/webhooks-and-events/github-event-types)".
 
 ### Alcances & Restricciones
 
@@ -47,13 +47,13 @@ Para porteger los datos sensibles que pueden encontrarse en las configuraciones 
 
 ### Recibir Webhooks
 
-Para que {{ site.data.variables.product.product_name }} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
+Para que {% data variables.product.product_name %} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
 
 Para encontrar más de las mejores prácticas, [consulta nuestra guía](/guides/best-practices-for-integrators/).
 
 #### Encabezados de Webhook
 
-{{ site.data.variables.product.product_name }} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/webhooks/event-payloads/#delivery-headers) para encontrar más detalles.
+{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/webhooks/event-payloads/#delivery-headers) para encontrar más detalles.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}

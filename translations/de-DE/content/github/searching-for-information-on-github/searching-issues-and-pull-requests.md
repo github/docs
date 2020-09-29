@@ -1,6 +1,6 @@
 ---
 title: Issues und Pull Requests durchsuchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Qualifizierern in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} kannst Du nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Qualifizierern in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst global auf {{ site.data.variables.product.product_name }} oder in einer bestimmten Organisation nach Issues und Pull Requests suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github).“
+Du kannst global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation nach Issues und Pull Requests suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% tip %}
 
 **Tipps:**{% if currentVersion != "free-pro-team@latest" %}
-  - Dieser Artikel enthält Beispielsuchen für die Website {{ site.data.variables.product.prodname_dotcom }}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {{ site.data.variables.product.product_location_enterprise }} verwenden.{% endif %}
+  - Dieser Artikel enthält Beispielsuchen für die Website {% data variables.product.prodname_dotcom %}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {% data variables.product.product_location_enterprise %} verwenden.{% endif %}
   - Eine Liste mit Suchsyntax, die Du jedem Qualifizierer hinzufügen kannst, um Deine Ergebnisse zu verbessern, findest Du unter „[Grundlagen der Suchsyntax](/articles/understanding-the-search-syntax)“.
   - Schließe Suchbegriffe, die aus mehreren Wörtern bestehen, in Anführungszeichen ein. Möchtest Du beispielsweise nach Issues mit der Kennzeichnung „In progress“ suchen, gib `label:"in progress"` ein. Bei der Suche wird die Groß-/Kleinschreibung ignoriert.
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### Suche nur nach Issues oder nur nach Pull Requests
 
-Die Suche auf {{ site.data.variables.product.product_name }} gibt standardmäßig sowohl Issues als auch Pull Requests zurück. Mit dem Qualifizierer `type` oder `is` kannst Du in den Suchergebnissen jedoch auch nur nach Issues oder nur nach Pull Requests filtern.
+Die Suche auf {% data variables.product.product_name %} gibt standardmäßig sowohl Issues als auch Pull Requests zurück. Mit dem Qualifizierer `type` oder `is` kannst Du in den Suchergebnissen jedoch auch nur nach Issues oder nur nach Pull Requests filtern.
 
 | Qualifizierer | Beispiel                                                                                                                                                                                                               |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ Mit dem Qualifizierer `state` oder `is` kannst Du Issues und Pull Requests danac
 
 ### Suche nach öffentlichen oder privaten Repositorys
 
-Wenn Du [{{ site.data.variables.product.product_name }} vollständig durchsuchst](https://github.com/search), ist ein Filtern der Ergebnisse nach öffentlichen oder privaten Repositorys oft sehr nützlich. Hierzu verwendest Du die Qualifizierer `is:public` und `is:private`.
+Wenn Du [{% data variables.product.product_name %} vollständig durchsuchst](https://github.com/search), ist ein Filtern der Ergebnisse nach öffentlichen oder privaten Repositorys oft sehr nützlich. Hierzu verwendest Du die Qualifizierer `is:public` und `is:private`.
 
 | Qualifizierer | Beispiel                                                                                                                                                                                     |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -249,9 +249,9 @@ Du kannst Pull Requests nach ihrem [Review-Status](/articles/about-pull-request-
 
 Du kannst Issues nach dem Zeitpunkt der Erstellung oder letzten Änderung filtern. Für die Suche nach dem Erstellungsdatum verwende den Qualifizierer `created`, für die Suche nach dem letzten Änderungsdatum den Qualifizierer `updated`.
 
-Beide Qualifizierer verwenden als Parameter ein Datum. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Beide Qualifizierer verwenden als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,9 +262,9 @@ Beide Qualifizierer verwenden als Parameter ein Datum. {{ site.data.reusables.ti
 
 Mit dem Qualifizierer `closed` kannst Du Issues und Pull Requests nach dem Datum der Schließung filtern.
 
-Der Kennzeichner verwendet als Parameter ein Datum. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                   |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -275,9 +275,9 @@ Der Kennzeichner verwendet als Parameter ein Datum. {{ site.data.reusables.time_
 
 Mit dem Qualifizierer `merged` kannst Du Pull Requests nach ihrem Merge-Datum filtern.
 
-Der Kennzeichner verwendet als Parameter ein Datum. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Der Kennzeichner verwendet als Parameter ein Datum. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer              | Beispiel                                                                                                                                                                                                                                                                 |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

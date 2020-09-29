@@ -111,7 +111,7 @@ query {
 * `GET`リクエストを通じてスキーマの_イントロスペクションクエリ_を実行することもできます。
 
   ```shell
-  $ curl -H "Authorization: bearer <em>token</em>" {{ site.data.variables.product.graphql_url_pre }}
+  $ curl -H "Authorization: bearer <em>token</em>" {% data variables.product.graphql_url_pre %}
   ```
 
   結果はJSONで返されるので、読んだり検索したりしやすくするために、プリティプリントすることをおすすめします。 そのためには、[jq](https://stedolan.github.io/jq/)のようなコマンドラインツールを使ったり、結果を`python -m json.tool`にパイプしたりすることができます。
@@ -120,7 +120,7 @@ query {
 
   ```shell
   $ curl -H "Authorization: bearer <em>token</em>" -H "Accept: application/vnd.github.v4.idl" \
-  {{ site.data.variables.product.graphql_url_pre }}
+  {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}

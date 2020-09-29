@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. Wenn Du Mitgliedern erlaubst, Repositories zu erstellen, kannst Du auswählen, welche Arten von Repositories Mitglieder erstellen können.{% if currentVersion == "free-pro-team@latest" %} Damit Mitglieder nur private Repositories erstellen können, muss Deine Organisation {{ site.data.variables.product.prodname_ghe_cloud }}verwenden.{% endif %} Weitere Informationen findest Du unter „[Über Repository-Sichtbarkeit](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+Du kannst wählen, ob Mitglieder in Deiner Organisation Repositorys erstellen können. Wenn Du Mitgliedern erlaubst, Repositories zu erstellen, kannst Du auswählen, welche Arten von Repositories Mitglieder erstellen können.{% if currentVersion == "free-pro-team@latest" %} Damit Mitglieder nur private Repositories erstellen können, muss Deine Organisation {% data variables.product.prodname_ghe_cloud %}verwenden.{% endif %} Weitere Informationen findest Du unter „[Über Repository-Sichtbarkeit](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 Organisationsinhaber können immer jede Art von Repository erstellen.
 
@@ -20,11 +20,11 @@ Organisationsinhaber können immer jede Art von Repository erstellen.
 
 {% endwarning %}
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Wähle unter „Repository Creation" (Repository Erstellung) {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}eine oder mehrere Optionen{% else %}eine Einstellung{% endif %} aus. ![Optionen für die Repository-Erstellung](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Klicke auf **Save** (Speichern).

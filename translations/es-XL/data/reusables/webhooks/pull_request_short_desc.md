@@ -1,1 +1,1 @@
-La actividad relacionada con las solicitudes de extracción. {{ site.data.reusables.webhooks.action_type_desc }} Para obtener más información, consulta la API de REST de "[solicitudes de extracción](/v3/pulls/)".
+La actividad relacionada con las solicitudes de extracción. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[solicitudes de extracción](/v3/pulls/)".

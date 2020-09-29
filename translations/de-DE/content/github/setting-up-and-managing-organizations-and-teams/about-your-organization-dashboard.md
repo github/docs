@@ -10,13 +10,13 @@ versions:
 
 ### Auf das Dashboard Deiner Organisation zugreifen
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### Neueste Aktivitäten finden
 
 Im Abschnitt „Recent activity" (Neueste Aktivitäten) Deines Newsfeed kannst Du schnell die zuletzt aktualisierten Issues und Pull Requests in Deiner Organisation finden und weiterverfolgen.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Repositorys in Deiner Organisation finden
 

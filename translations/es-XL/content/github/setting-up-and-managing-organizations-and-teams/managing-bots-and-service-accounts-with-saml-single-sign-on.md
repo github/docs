@@ -1,7 +1,7 @@
 ---
 title: Administrar bot y cuentas de servicio con inicio de sesión único de SAML
 intro: Las organizaciones que han habilitado el inicio de sesión único de SAML pueden conservar el acceso para los bot y las cuentas de servicio.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on
 versions:

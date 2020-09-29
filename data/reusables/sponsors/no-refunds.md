@@ -1,1 +1,1 @@
-There are no refunds for payments for {{ site.data.variables.product.prodname_sponsors }}.
+There are no refunds for payments for {% data variables.product.prodname_sponsors %}.

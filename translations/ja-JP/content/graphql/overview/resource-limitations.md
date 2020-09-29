@@ -1,6 +1,6 @@
 ---
 title: リソース制限
-intro: '{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIは、{{ site.data.variables.product.prodname_dotcom }}のサービスに対する過剰な呼び出し、あるいは悪用の呼び出しに対する保護としてかけられている制限があります。'
+intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、{% data variables.product.prodname_dotcom %}のサービスに対する過剰な呼び出し、あるいは悪用の呼び出しに対する保護としてかけられている制限があります。'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
@@ -131,7 +131,7 @@ GraphQL API v4のレート制限は、**1時間あたり5,000ポイント**で�
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.variables.product.prodname_ghe_cloud }} アカウントに属する {{ site.data.variables.product.prodname_github_apps }} または{{ site.data.variables.product.prodname_oauth_app }} の場合、同じ {{ site.data.variables.product.prodname_ghe_cloud }} アカウントが所有するリソースへのリクエストの制限が 1 時間あたり 15,000 ポイントに増加しました。
+{% data variables.product.prodname_ghe_cloud %} アカウントに属する {% data variables.product.prodname_github_apps %} または{% data variables.product.prodname_oauth_app %} の場合、同じ {% data variables.product.prodname_ghe_cloud %} アカウントが所有するリソースへのリクエストの制限が 1 時間あたり 15,000 ポイントに増加しました。
 
 {% endif %}
 

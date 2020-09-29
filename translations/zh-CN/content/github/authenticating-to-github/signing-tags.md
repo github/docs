@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. 要对标记签名，请将 `-s` 添加到您的 `git tag` 命令。
   ```shell

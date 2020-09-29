@@ -19,7 +19,7 @@ versions:
 - Maven (pom.xml のみ)
 - Nuget
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 {% note %}
 
@@ -31,9 +31,9 @@ versions:
 
 ### 依存グラフにアクセスする
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. [Dependency graph] で **[Dependents]** をクリックします。 ![依存関係グラフ ページの [Dependents] タブ](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 ### 参考リンク

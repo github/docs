@@ -13,9 +13,9 @@ Informationen zu Forks</a.></p>
 
 Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möchtest, wenn Du Deinen Pull Request erstellst. Pull Requests können nur zwischen zwei unterschiedlichen Branches geöffnet werden.
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 
 
@@ -48,25 +48,25 @@ Wenn Du Informationen im Branch-Bereich änderst, werden die Vorschauen für „
 
 {% tip %}
 
-**Tipp**: Du kannst auch {{ site.data.variables.product.prodname_desktop }} verwenden, um einen Pull Request zu erstellen. Weitere Informationen findest Du unter „[Issue oder Pull Request erstellen](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)“ in der {{ site.data.variables.product.prodname_desktop }}-Dokumentation.
+**Tipp**: Du kannst auch {% data variables.product.prodname_desktop %} verwenden, um einen Pull Request zu erstellen. Weitere Informationen findest Du unter „[Issue oder Pull Request erstellen](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)“ in der {% data variables.product.prodname_desktop %}-Dokumentation.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 2. Wähle im Menü „Branch“ den Branch aus, der Deine Commits enthält. ![Branch-Dropdownmenü](/assets/images/help/pull_requests/branch-dropdown.png) 
    
-   {{ site.data.reusables.repositories.new-pull-request }}
+   {% data reusables.repositories.new-pull-request %}
 
 4. Wähle im _base_ (Basis) Branch-Dropdownmenü den Branch aus, in den Du Deine Änderungen zusammenführen möchtest. Wähle dann im _compare_ (vergleichen) Branch-Dropdownmenü den Themen-Branch aus, in dem Du die Änderungen vorgenommen hast. ![Dropdown-Menüs zur Auswahl von Basis- und Vergleichs-Branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png) 
    
-   {{ site.data.reusables.repositories.pr-title-description }}
+   {% data reusables.repositories.pr-title-description %}
    
    
    
-   {{ site.data.reusables.repositories.create-pull-request }}
+   {% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 Nachdem Dein Pull Request geprüft wurde, kann er [in das Repository zusammengeführt werden](/articles/merging-a-pull-request).
 

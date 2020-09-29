@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
 1. Navega hasta el tablero de proyecto en el que quieres inhabilitar el seguimiento del progreso del proyecto.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Anula la selección de **Track project progress** (Rastrear progreso del proyecto).

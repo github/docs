@@ -1,6 +1,6 @@
 ---
 title: GitHubでのディスカッションについて
-intro: '{{ site.data.variables.product.product_name }} 上で様々な種類のディスカッションを用い、特定のプロジェクトや変更について、そしてもっと幅広くプロジェクトや Team のゴールについて議論できます。'
+intro: '{% data variables.product.product_name %} 上で様々な種類のディスカッションを用い、特定のプロジェクトや変更について、そしてもっと幅広くプロジェクトや Team のゴールについて議論できます。'
 redirect_from:
   - /articles/about-discussions-in-issues-and-pull-requests/
   - /articles/about-conversations-on-github
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.product_name }}上でのディスカッション
+### {% data variables.product.product_name %}上でのディスカッション
 
 持ちたい会話の種類に応じて、Issue、プルリクエスト、Team ディスカッションを作成して参加できます。
 
 Issueは、バグレポートや計画された改善など、プロジェクトの特定の詳細についての議論に役立ちます。 詳細は「[Issue について](/articles/about-issues)」を参照してください。 プルリクエストでは、提案された変更に直接コメントできます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)及び[プルリクエストへコメントする](/articles/commenting-on-a-pull-request)を参照してください。
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}詳しい情報については「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
+{% data reusables.organizations.team-discussions-purpose %}詳しい情報については「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
 
 ### コメント中のアイデアへの反応
 
@@ -43,4 +43,4 @@ Issueあるいはプルリクエストをオープンする前に、そのリポ
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
 - [コメントと会話の管理](/articles/moderating-comments-and-conversations)
-- [{{ site.data.variables.product.prodname_dotcom }}での執筆](/articles/writing-on-github)
+- [{% data variables.product.prodname_dotcom %}での執筆](/articles/writing-on-github)

@@ -1,7 +1,7 @@
 ---
 title: 暗号化されたシークレットの作成と保存
 intro: 暗号化されたシークレットを使用すると、機密情報をリポジトリまたは Organization に保存できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -10,14 +10,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 暗号化されたシークレットについて
 
-シークレットは、リポジトリまたは Organization で作成する暗号化された環境変数です。 作成したシークレットは、{{ site.data.variables.product.prodname_actions }} ワークフローで使用できます。 {{ site.data.variables.product.prodname_dotcom }}は、[ libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使って、シークレットが{{ site.data.variables.product.prodname_dotcom }}に到達する前に暗号化され、ワークフローで使われるまで暗号化されたままになっていることを保証する手助けをします。
+シークレットは、リポジトリまたは Organization で作成する暗号化された環境変数です。 作成したシークレットは、{% data variables.product.prodname_actions %} ワークフローで使用できます。 {% data variables.product.prodname_dotcom %}は、[ libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes)を使って、シークレットが{% data variables.product.prodname_dotcom %}に到達する前に暗号化され、ワークフローで使われるまで暗号化されたままになっていることを保証する手助けをします。
 
-{{ site.data.reusables.github-actions.secrets-org-level-overview }}
+{% data reusables.github-actions.secrets-org-level-overview %}
 
 #### シークレットに名前を付ける
 
@@ -28,17 +28,17 @@ versions:
 * シークレット名の最初を数字にすることはできません。
 * シークレット名は、作成されたレベルで一意である必要があります。 たとえば、Organization レベルで作成されたシークレット名はそのレベルで一意である必要があり、リポジトリレベルで作成されたシークレット名はそのリポジトリ内で一意である必要があります。 Organization レベルのシークレット名がリポジトリレベルのシークレット名と同じ場合、リポジトリレベルのシークレット名が優先されます。
 
-{{ site.data.variables.product.prodname_dotcom }} がログのシークレットを確実に削除するよう、シークレットの値として構造化データを使用しないでください。 たとえば、JSONやエンコードされたGit blobを含むシークレットは作成しないでください。
+{% data variables.product.prodname_dotcom %} がログのシークレットを確実に削除するよう、シークレットの値として構造化データを使用しないでください。 たとえば、JSONやエンコードされたGit blobを含むシークレットは作成しないでください。
 
 #### シークレットにアクセスする
 
-シークレットをアクションが使用できるようにするには、ワークフローファイルでシークレットを入力または環境変数に設定する必要があります。 アクションに必要な入力および環境変数については、アクションのREADMEファイルを確認します。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
+シークレットをアクションが使用できるようにするには、ワークフローファイルでシークレットを入力または環境変数に設定する必要があります。 アクションに必要な入力および環境変数については、アクションのREADMEファイルを確認します。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)」を参照してください。
 
-ファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
+ファイルを編集するアクセス権を持っていれば、ワークフローファイル中の暗号化されたシークレットを使い、読み取ることができます。 詳細は「[{% data variables.product.prodname_dotcom %} 上のアクセス権限](/github/getting-started-with-github/access-permissions-on-github)」を参照してください。
 
 {% warning %}
 
-**警告：** {{ site.data.variables.product.prodname_dotcom }}は、ログに出力されたシークレットを自動的に削除しますが、シークレットをログに出力することは意識的に避けなくてはなりません。
+**警告：** {% data variables.product.prodname_dotcom %}は、ログに出力されたシークレットを自動的に削除しますが、シークレットをログに出力することは意識的に避けなくてはなりません。
 
 {% endwarning %}
 
@@ -50,11 +50,11 @@ REST API を使用してシークレットを管理することもできます�
 
 ### リポジトリの暗号化されたシークレットの作成
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-repository }}
+{% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. [**Add a new secret**] をクリックします。
 1. [名前]</strong> 入力ボックスにシークレットの名前 **入力します。</li>
 1 シークレットの値を入力します。
@@ -66,11 +66,11 @@ REST API を使用してシークレットを管理することもできます�
 
 組織でシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-organization }}
+{% data reusables.github-actions.permissions-statement-secrets-organization %}
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. [新しいシークレット ****] をクリックします。
 1. [名前]</strong> 入力ボックスにシークレットの名前 **入力します。</li>
 1 シークレットの **値** を入力します。
@@ -81,9 +81,9 @@ REST API を使用してシークレットを管理することもできます�
 
 組織内のシークレットに適用されているアクセス ポリシーを確認できます。
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. シークレットのリストには、構成済みのアクセス許可とポリシーが含まれます。 例: ![シークレットリスト](/assets/images/help/settings/actions-org-secrets-list.png)
 1. 各シークレットに構成されているアクセス許可の詳細については、[更新</strong>**] をクリックしてください。</p></li> </ol>
 
@@ -91,7 +91,7 @@ REST API を使用してシークレットを管理することもできます�
 
 `GITHUB_TOKEN`を除き、フォークしたリポジトリからワークフローがトリガーされた場合、シークレットは runner に渡されません。
 
-アクションに入力あるいは環境変数としてシークレットを提供するには、リポジトリ内に作成したシークレットにアクセスする`secrets`コンテキストを使うことができます。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」及び「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
+アクションに入力あるいは環境変数としてシークレットを提供するには、リポジトリ内に作成したシークレットにアクセスする`secrets`コンテキストを使うことができます。 詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」及び「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
 ```yaml
@@ -151,11 +151,11 @@ steps:
 
 ワークフローは、最大で100のシークレットを持てます。 シークレット環境変数の名前は、リポジトリ内でユニークでなければなりません。
 
-シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{{ site.data.variables.product.prodname_dotcom }}に保存します。 たとえば、{{ site.data.variables.product.prodname_dotcom }}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
+シークレットの容量は最大64 KBです。 64 KBより大きなシークレットを使うには、暗号化されたシークレットをリポジトリ内に保存して、復号化パスフレーズを{% data variables.product.prodname_dotcom %}に保存します。 たとえば、{% data variables.product.prodname_dotcom %}のリポジトリにファイルをチェックインする前に、`gpg`を使って認証情報をローカルで暗号化します。 詳しい情報については、「[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)」を参照してください。
 
 {% warning %}
 
-**警告**: アクションを実行する際、シークレットは出力されないので注意してください。 この回避策を用いる場合、{{ site.data.variables.product.prodname_dotcom }}はログに出力されたシークレットを削除しません。
+**警告**: アクションを実行する際、シークレットは出力されないので注意してください。 この回避策を用いる場合、{% data variables.product.prodname_dotcom %}はログに出力されたシークレットを削除しません。
 
 {% endwarning %}
 
@@ -165,7 +165,7 @@ steps:
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. パスフレーズを入力するよう求められます。 このパスフレーズを覚えておいてください。{{ site.data.variables.product.prodname_dotcom }}で、このパスフレーズを値として用いる新しいシークレットを作成するために必要になります。
+1. パスフレーズを入力するよう求められます。 このパスフレーズを覚えておいてください。{% data variables.product.prodname_dotcom %}で、このパスフレーズを値として用いる新しいシークレットを作成するために必要になります。
 
 1. パスフレーズを含む新しいシークレットを作成します。 たとえば、`LARGE_SECRET_PASSPHRASE`という名前で新しいシークレットを作成し、シークレットの値を上記のステップで選択したパスフレーズに設定します。
 

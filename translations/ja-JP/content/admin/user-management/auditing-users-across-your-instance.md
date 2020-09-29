@@ -1,6 +1,6 @@
 ---
 title: インスタンスにわたるユーザの監査
-intro: '{{ site.data.variables.product.prodname_ghe_server }} Audit log ダッシュボードは、サイト管理者に対して過去 90 日間に {{ site.data.variables.product.product_location_enterprise }} にわたってすべてのユーザおよび Organization が行ったアクションを示します。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。'
+intro: '{% data variables.product.prodname_ghe_server %} Audit log ダッシュボードは、サイト管理者に対して過去 90 日間に {% data variables.product.product_location_enterprise %} にわたってすべてのユーザおよび Organization が行ったアクションを示します。 これには、誰がいつ何のアクションを実行したかなどの詳細が残されます。'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.prodname_ghe_server }} Audit log にアクセスする
+### {% data variables.product.prodname_ghe_server %} Audit log にアクセスする
 
-Audit logダッシュボードは、{{ site.data.variables.product.product_location_enterprise }}にわたる視覚的な監査データを表示してくれます。
+Audit logダッシュボードは、{% data variables.product.product_location_enterprise %}にわたる視覚的な監査データを表示してくれます。
 
 ![インスタンスにわたるAudit logのダッシュボード](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 地図内では、世界中のイベントを見るためにパンやズームができます。 国にカーソルを合わせれば、その国のイベントの簡単な集計が表示されます。
 
 ### インスタンスにわたるイベントの検索
 
-Audit logには、{{ site.data.variables.product.product_location_enterprise }}内で行われたアクションに関する以下の情報がリスト化されます。
+Audit logには、{% data variables.product.product_location_enterprise %}内で行われたアクションに関する以下の情報がリスト化されます。
 
 * アクションが行われた[リポジトリ](#search-based-on-the-repository)
 * アクションを行った[ユーザ](#search-based-on-the-user)
@@ -36,7 +36,7 @@ Audit logには、{{ site.data.variables.product.product_location_enterprise }}�
 
 **ノート:**
 
-- Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 [{{ site.data.variables.product.prodname_ghe_server }} にわたる検索](/enterprise/{{ currentVersion }}/user/articles/searching-github)のために多くの演算子がサポートされています。
+- Audit logのエントリはテキストを使った検索はできませんが、様々なフィルタを使って検索クエリを構築できます。 [{% data variables.product.prodname_ghe_server %} にわたる検索](/enterprise/{{ currentVersion }}/user/articles/searching-github)のために多くの演算子がサポートされています。
 - 90日よりも古いイベントの検索には、`created`修飾子を使ってください。
 
 {% endwarning %}
@@ -59,7 +59,7 @@ Audit logには、{{ site.data.variables.product.product_location_enterprise }}�
 * `actor:octocat actor:hubot`は、`octocat`及び`hubot`が行ったすべてのイベントを検索します。
 * `-actor:hubot`は、`hubot`が行ったすべてのイベントを除外します。
 
-使用できるのは {{ site.data.variables.product.prodname_ghe_server }} ユーザ名のみで、個人の本当の名前ではありません。
+使用できるのは {% data variables.product.prodname_ghe_server %} ユーザ名のみで、個人の本当の名前ではありません。
 
 #### Organizationに基づく検索
 

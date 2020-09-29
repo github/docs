@@ -1,6 +1,6 @@
 ---
 title: Reemplazar los GitHub Services
-intro: 'Si aún estás dependiendo de los {{ site.data.variables.product.prodname_dotcom }} Services obsoletizados, aprende cómomigrar los ganchos de tu servicio a webhooks.'
+intro: 'Si aún estás dependiendo de los {% data variables.product.prodname_dotcom %} Services obsoletizados, aprende cómomigrar los ganchos de tu servicio a webhooks.'
 redirect_from:
   - /guides/replacing-github-services/
   - /v3/guides/automating-deployments-to-integrators/
@@ -55,12 +55,12 @@ Para reemplazar los GitHub Services con Webhooks:
 
 3. Migra las configuraciones adicionales desde fuera de GitHub. Algunos GitHub Services necesitan configuraciones personalizadas adicionales en la página de configuración dentro de GitHub. Si tu servicio hace esto, necesitarás migrar esta funcionalidad en tu aplicación o depender de GitHub o de las Apps de OAuth conforme esto aplique.
 
-### Compatibilidad con {{ site.data.variables.product.prodname_ghe_server }}
+### Compatibilidad con {% data variables.product.prodname_ghe_server %}
 
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.17**: El {{ site.data.variables.product.prodname_ghe_server }} con lanzamiento 2.17 y superior descontinuará el permitir que los administradores instalen servicios. Los aministradores podrán seguir modificando los ganchos de servicio existentes y recibiendo ganchos en el {{ site.data.variables.product.prodname_ghe_server }} con lanzamiento 2.17 hasta el 2.19. Como una alternativa al servicio de correo electrónico, podrás utilizar las notificaciones de correo electrónico para las cargas de información a tu repositorio en el {{ site.data.variables.product.prodname_ghe_server }} 2.17 y superior. Consulta [esta publicación del blog](https://developer.github.com/changes/2019-01-29-life-after-github-services) para conocer más al respecto.
-- **{{ site.data.variables.product.prodname_ghe_server }} 2.20**: El {{ site.data.variables.product.prodname_ghe_server }} con lanzamiento 2.20 y superior dejará de entregar cualquier evento de los servicios instalados.
+- **{% data variables.product.prodname_ghe_server %} 2.17**: El {% data variables.product.prodname_ghe_server %} con lanzamiento 2.17 y superior descontinuará el permitir que los administradores instalen servicios. Los aministradores podrán seguir modificando los ganchos de servicio existentes y recibiendo ganchos en el {% data variables.product.prodname_ghe_server %} con lanzamiento 2.17 hasta el 2.19. Como una alternativa al servicio de correo electrónico, podrás utilizar las notificaciones de correo electrónico para las cargas de información a tu repositorio en el {% data variables.product.prodname_ghe_server %} 2.17 y superior. Consulta [esta publicación del blog](https://developer.github.com/changes/2019-01-29-life-after-github-services) para conocer más al respecto.
+- **{% data variables.product.prodname_ghe_server %} 2.20**: El {% data variables.product.prodname_ghe_server %} con lanzamiento 2.20 y superior dejará de entregar cualquier evento de los servicios instalados.
 
-El lanzamiento 2.17 de {{ site.data.variables.product.prodname_ghe_server }} será el primer lanzamiento que no permite a los administradores instalar GitHub Services. Únicamente admitiremos los GitHub Services existentes hasta el lanzamiento 2.20 de {{ site.data.variables.product.prodname_ghe_server }}. También aceptaremos cualquier parche crítico para tu Github Service que se ejecute en el {{ site.data.variables.product.prodname_ghe_server }} hasta el 1 de octubre de 2019.
+El lanzamiento 2.17 de {% data variables.product.prodname_ghe_server %} será el primer lanzamiento que no permite a los administradores instalar GitHub Services. Únicamente admitiremos los GitHub Services existentes hasta el lanzamiento 2.20 de {% data variables.product.prodname_ghe_server %}. También aceptaremos cualquier parche crítico para tu Github Service que se ejecute en el {% data variables.product.prodname_ghe_server %} hasta el 1 de octubre de 2019.
 
 ### Migrarte con nuestra ayuda
 
@@ -69,4 +69,4 @@ Por favor [contáctanos](https://github.com/contact?form%5Bsubject%5D=GitHub+Ser
 Como un resumen de alto nivel, el proceso de migración involucra habitualmente:
   - Identificar cómo y dónde tu producto está utilizando los GitHub Services.
   - Identificar los eventos de webhook correspondientes que necesites configurar para poder migrarlos a webhooks sencillos.
-  - Implementar el diseño utilizando ya sea [{{ site.data.variables.product.prodname_oauth_app }}](/apps/building-oauth-apps/) o [{{ site.data.variables.product.prodname_github_app }}. Se prefieren las {{ site.data.variables.product.prodname_github_app }}](/apps/building-github-apps/). Para aprender más acerca del porqué se prefieren las {{ site.data.variables.product.prodname_github_app }}, consulta la sección "[Razones para cambiar a {{ site.data.variables.product.prodname_github_app }}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)".
+  - Implementar el diseño utilizando ya sea [{% data variables.product.prodname_oauth_app %}](/apps/building-oauth-apps/) o [{% data variables.product.prodname_github_app %}. Se prefieren las {% data variables.product.prodname_github_app %}](/apps/building-github-apps/). Para aprender más acerca del porqué se prefieren las {% data variables.product.prodname_github_app %}, consulta la sección "[Razones para cambiar a {% data variables.product.prodname_github_app %}](/apps/migrating-oauth-apps-to-github-apps/#reasons-for-switching-to-github-apps)".

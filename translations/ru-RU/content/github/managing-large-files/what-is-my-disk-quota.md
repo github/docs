@@ -3,24 +3,24 @@ title: What is my disk quota?
 redirect_from:
   - /articles/what-is-the-size-limit-for-a-repository/
   - /articles/what-is-my-disk-quota
-intro: '{{ site.data.variables.product.product_name }} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes.'
+intro: '{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes.'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}
 
 ### File and repository size limitations
 
 To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
 
-We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. Individual files in a repository are strictly limited to a {{ site.data.variables.large_files.max_github_size }} maximum size limit. For more information, see "[Working with large files](/github/managing-large-files/working-with-large-files)."
+We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. Individual files in a repository are strictly limited to a {% data variables.large_files.max_github_size %} maximum size limit. For more information, see "[Working with large files](/github/managing-large-files/working-with-large-files)."
 
-If your repository excessively impacts our infrastructure, you might receive an email from {{ site.data.variables.contact.github_support }} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
+If your repository excessively impacts our infrastructure, you might receive an email from {% data variables.contact.github_support %} asking you to take corrective action. We try to be flexible, especially with large projects that have many collaborators, and will work with you to find a resolution whenever possible. You can prevent your repository from impacting our infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [`github/git-sizer`](https://github.com/github/git-sizer) repository.
 
 {% note %}
 
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {{ site.data.variables.large_files.max_github_browser_size }}. For more information, see "[Adding a file to a repository](/github/managing-files-in-a-repository/adding-a-file-to-a-repository)."
+**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/github/managing-files-in-a-repository/adding-a-file-to-a-repository)."
 
 {% endnote %}
 

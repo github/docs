@@ -1,14 +1,14 @@
 ---
 title: Viewing branches in your repository
-intro: 'Branches are central to collaboration on {{ site.data.variables.product.product_name }}, and the best way to view them is the branches page.'
+intro: 'Branches are central to collaboration on {% data variables.product.product_name %}, and the best way to view them is the branches page.'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. Use the navigation at the top of the page to view specific lists of branches:
     - **Your branches**: In repositories that you have push access to, the **Yours** view shows all branches that you’ve pushed to, with the most recent branches first.
     - **Active branches**: The **Active** view shows all branches that anyone has committed to within the last three months, ordered by the branches with the most recent commits first.

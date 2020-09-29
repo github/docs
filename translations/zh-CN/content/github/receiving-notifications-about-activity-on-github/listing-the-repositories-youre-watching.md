@@ -5,7 +5,7 @@ versions:
   enterprise-server: <2.21
 ---
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. 单击 **Watching（关注）**以查看您关注的仓库列表。 ![关注的仓库列表](/assets/images/help/notifications/notifications-watching-tab.png)
 3. 单击您不再想接收其通知的仓库旁边的**Unwatch（取消关注）**或 **Unwatch releases（取消关注发行版）**。
 

@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-permissions }} For more information, see "[About team discussions](/articles/about-team-discussions)."
+{% data reusables.organizations.team-discussions-permissions %} For more information, see "[About team discussions](/articles/about-team-discussions)."
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 6. Type a team discussion title and a comment to start a conversation.
   ![New team discussions comment](/assets/images/help/projects/team-discussions-comment.png)
 7. Optionally, select whether you want your post to be private or public using the drop-down menu.

@@ -1,6 +1,6 @@
 ---
 title: Revisar suas chaves SSH
-intro: 'Para manter suas credenciais protegidas, você deve auditar regularmente as chaves SSH e as chaves de implantação, bem como revisar os aplicativos autorizados que acessam sua conta do {{ site.data.variables.product.product_name }}.'
+intro: 'Para manter suas credenciais protegidas, você deve auditar regularmente as chaves SSH e as chaves de implantação, bem como revisar os aplicativos autorizados que acessam sua conta do {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -14,8 +14,8 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 {% mac %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves SSH válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -26,7 +26,7 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 4. Abra o terminal.
 
-5. {{ site.data.reusables.command_line.start_ssh_agent }}
+5. {% data reusables.command_line.start_ssh_agent %}
 
 6. Encontre e anote a impressão digital da chave pública. Se estiver usando OpenSSH 6.7 ou anterior:
   ```shell
@@ -40,14 +40,14 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. As chaves SSH keys {{ site.data.variables.product.product_name }} *devem* corresponder às chaves no computador.
+7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves SSH válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -56,11 +56,11 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
   {% endtip %}
 
-4. Abra o Git Bash. Se estiver usando o Git Shell, que faz parte do {{ site.data.variables.product.prodname_desktop }}, abra o Git Shell e passe para a etapa 6.
+4. Abra o Git Bash. Se estiver usando o Git Shell, que faz parte do {% data variables.product.prodname_desktop %}, abra o Git Shell e passe para a etapa 6.
 
-5. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
 6. Encontre e anote a impressão digital da chave pública. Se estiver usando OpenSSH 6.7 ou anterior:
   ```shell
@@ -74,14 +74,14 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. As chaves SSH keys {{ site.data.variables.product.product_name }} *devem* corresponder às chaves no computador.
+7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 
 {% endwindows %}
 
 {% linux %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. Na página das chaves SSH, anote as chaves SSH associadas à sua conta. Para as chaves não reconhecidas ou desatualizadas, clique em **Delete** (Excluir). Se houver chaves SSH válidas que deseja manter, clique em **Approve** (Aprovar). ![Lista de chaves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -92,7 +92,7 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
 
 4. Abra o terminal.
 
-5. {{ site.data.reusables.command_line.start_ssh_agent }}
+5. {% data reusables.command_line.start_ssh_agent %}
 
 6. Encontre e anote a impressão digital da chave pública. Se estiver usando OpenSSH 6.7 ou anterior:
   ```shell
@@ -106,12 +106,12 @@ Você pode excluir chaves SSH não autorizadas (ou potencialmente comprometidas)
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. As chaves SSH keys {{ site.data.variables.product.product_name }} *devem* corresponder às chaves no computador.
+7. As chaves SSH keys {% data variables.product.product_name %} *devem* corresponder às chaves no computador.
 
 {% endlinux %}
 
 {% warning %}
 
-**Aviso**: se você encontrar uma chave SSH com a qual não esteja familiarizado em {{ site.data.variables.product.product_name }}, delete-a imediatamente e entre em contato com o {{ site.data.variables.contact.contact_support }} para obter ajuda. Uma chave pública desconhecida pode indicar um possível problema de segurança.
+**Aviso**: se você encontrar uma chave SSH com a qual não esteja familiarizado em {% data variables.product.product_name %}, delete-a imediatamente e entre em contato com o {% data variables.contact.contact_support %} para obter ajuda. Uma chave pública desconhecida pode indicar um possível problema de segurança.
 
 {% endwarning %}

@@ -12,7 +12,7 @@ versions:
 
 La gráfica de dependencias se encuentra disponible para cualquier repositorio {% if currentVersion == "free-pro-team@latest" %}público{% endif %} que defina dependencias en un ecosistema de paquetes compatible utilizando un formato de archivos compatible.{% if currentVersion == "free-pro-team@latest" %}Los administradores de repositorio también pueden configurar la gráfica de dependencias para los repositorios privados.{% endif %}
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 Puedes ver y actualizar las dependencias vulnerables en tu gráfico de dependencias del repositorio. El gráfico de dependencias detalla las dependencias vulnerables ante otras dependencias. Para obtener más información, consulta "[Acerca de las alertas de seguridad de las dependencias vulnerables](/articles/about-security-alerts-for-vulnerable-dependencies)".
 
@@ -39,26 +39,26 @@ Puedes ver las dependencias utilizadas en los repositorios de la organización e
 
 ### Detallar dependencias para un repositorio con el gráfico de dependencias habilitado
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Habilitar el gráfico de dependencias para un repositorio privado
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
-4. Lee el mensaje acerca de conceder {{ site.data.variables.product.product_name }} acceso a los datos del repositorio para habilitar el gráfico de dependencias, luego haz clic en **Allow access** (Permitir acceso). ![Botón para permitir el acceso a los datos del repositorio para habilitar el gráfico de dependencias](/assets/images/help/repository/dependency-graph-allow-access-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
+4. Lee el mensaje acerca de conceder {% data variables.product.product_name %} acceso a los datos del repositorio para habilitar el gráfico de dependencias, luego haz clic en **Allow access** (Permitir acceso). ![Botón para permitir el acceso a los datos del repositorio para habilitar el gráfico de dependencias](/assets/images/help/repository/dependency-graph-allow-access-button.png)
 
-Para obtener más información, consulta "[Entender cómo {{ site.data.variables.product.product_name }} utiliza y protege tus datos](/categories/understanding-how-github-uses-and-protects-your-data)".
+Para obtener más información, consulta "[Entender cómo {% data variables.product.product_name %} utiliza y protege tus datos](/categories/understanding-how-github-uses-and-protects-your-data)".
 
 ### Inhabilitar el gráfico de dependencias de un repositorio privado
 
-{{ site.data.reusables.repositories.you-can-enable-or-disable-security-features }}
+{% data reusables.repositories.you-can-enable-or-disable-security-features %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En "Data services" (Servicios de datos), anula la selección de **Dependency graph** (Gráfico de dependencias). ![Casilla para inhabilitar el gráfico de dependencias](/assets/images/help/repository/private-repo-data-use-dependency-graph-disabled.png)
 
 Para excluir el uso de datos de tu repositorio, consulta "[Incluir o excluir el uso de datos de tu repositorio privado](/articles/opting-into-or-out-of-data-use-for-your-private-repository)".
@@ -66,10 +66,10 @@ Para excluir el uso de datos de tu repositorio, consulta "[Incluir o excluir el 
 
 ### Solución de problemas del gráfico de dependencias
 
-{{ site.data.reusables.repositories.troubleshooting-dependency-graph }}
+{% data reusables.repositories.troubleshooting-dependency-graph %}
 
 ### Leer más
 
 - "[Detallar los proyectos que dependen de un repositorio](/articles/listing-the-projects-that-depend-on-a-repository)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Entender cómo {{ site.data.variables.product.product_name }} utiliza y protege tus datos](/categories/understanding-how-github-uses-and-protects-your-data)"
+- "[Entender cómo {% data variables.product.product_name %} utiliza y protege tus datos](/categories/understanding-how-github-uses-and-protects-your-data)"
 - "[Ver y actualizar las dependencias vulnerables en tu repositorio](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"{% endif %}

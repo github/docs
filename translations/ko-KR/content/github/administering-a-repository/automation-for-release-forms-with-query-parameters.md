@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results, an issue template, or the release form page on {{ site.data.variables.product.prodname_dotcom }}. To create your own query parameters, you must match the key and value pair.
+Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results, an issue template, or the release form page on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to create releases to pre-fill the releases form. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository)."
 

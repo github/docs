@@ -14,7 +14,7 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. [Pull Requests] リストで、変更するプルリクエストをクリックします。
 3. プルリクエストのタイトルの隣にある [**Edit**] をクリックします。 ![プルリクエスト編集ボタン](/assets/images/help/pull_requests/pull-request-edit.png)
 4. ベースブランチのドロップダウンメニューで、 [変更の比較対象](/github/committing-changes-to-your-project/comparing-commits#comparing-branches)にするベースブランチを選択します。 ![ベースブランチのドロップダウンメニュー ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)

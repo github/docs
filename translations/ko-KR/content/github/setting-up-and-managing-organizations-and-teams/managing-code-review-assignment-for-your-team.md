@@ -1,7 +1,7 @@
 ---
 title: Managing code review assignment for your team
 intro: Code review assignments clearly indicate which members of a team are expected to submit a review for a pull request.
-product: '{{ site.data.reusables.gated-features.code-review-assignment }}'
+product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -24,10 +24,10 @@ The round robin algorithm chooses reviewers based on who's received the least re
 The load balance algorithm chooses reviewers based on each member's total number of recent review requests and considers the number of outstanding reviews for each member. The load balance algorithm tries to ensure that each team member reviews an equal number of pull requests in any 30 day period.
 
 ### Configuring code review assignment
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. In the left sidebar, click **Code review assignment** ![Code review assignment button](/assets/images/help/teams/review-assignment-button.png)
 6. Select **Enable auto assignment**. ![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
 7. Under "How many team members should be assigned to review?", use the drop-down menu and choose a number of reviewers to be assigned to each pull request. ![Number of reviewers dropdown](/assets/images/help/teams/review-assignment-number.png)
@@ -37,9 +37,9 @@ The load balance algorithm chooses reviewers based on each member's total number
 11. Click **Save changes**.
 
 ### Disabling code review assignment
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Select **Enable auto assignment** to remove the checkmark. ![Code review assignment button](/assets/images/help/teams/review-assignment-enable.png)
 6. Click **Save changes**.

@@ -13,13 +13,13 @@ Você acessa todas essas informações do seu Painel de Patrocinadores.
 
 ### Visualizando seu painel de Patrocinadores
 
-1. No canto superior direito de qualquer página, clique na sua foto do perfil e depois em **{{ site.data.variables.product.prodname_sponsors }}**. ![Botão {{ site.data.variables.product.prodname_sponsors }}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+1. No canto superior direito de qualquer página, clique na sua foto do perfil e depois em **{% data variables.product.prodname_sponsors %}**. ![Botão {% data variables.product.prodname_sponsors %}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
 2. Na lista exibida, à direita da conta ou da organização cujo painel de Patrocinadores você deseja visualizar, clique em **Painel**. ![Botão do painel de patrocinadores de desenvolvedor](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)
 
 ### Exibir patrocinadores e patrocínios
 
 1. Vá para seu painel de Patrocinadores, consulte [Visualizar seu painel de Patrocinadores](#viewing-your-sponsors-dashboard).
-{{ site.data.reusables.sponsors.navigate-to-sponsors-tab }}
+{% data reusables.sponsors.navigate-to-sponsors-tab %}
 1. Como alternativa, para filtrar os patrocinadores por nível, use o menu suspenso **Filter** (Filtro), clique em **Active tiers** (Níveis ativos) ou **Retired tiers** (Níveis removidos) e selecione um nível. ![Menu suspenso para filtrar por nível](/assets/images/help/sponsors/filter-drop-down.png)
 
 ### Visualizando atividade de patrocínio recente
@@ -30,11 +30,11 @@ Você acessa todas essas informações do seu Painel de Patrocinadores.
 ### Exportando seus dados de patrocínio
 
 1. Vá para seu painel de Patrocinadores, consulte [Visualizar seu painel de Patrocinadores](#viewing-your-sponsors-dashboard).
-{{ site.data.reusables.sponsors.navigate-to-sponsors-tab }}
+{% data reusables.sponsors.navigate-to-sponsors-tab %}
 1. Clique em **Exportar tudo**. ![Botão Exportar tudo](/assets/images/help/sponsors/export-all.png)
 
    Este botão não será exibido se você não tiver nenhum patrocinador.
 
 1. Escolha um período de tempo e um formato para os dados que você gostaria de exportar, e clique em **Iniciar a exportação**. ![Opções de Exportar dados](/assets/images/help/sponsors/export-your-sponsors.png)
 
-  O {{ site.data.variables.product.prodname_dotcom }} começa a exportar dados de todos os seus patrocinadores a partir do mês selecionado. Você receberá e-mail em breve com um anexo contendo os dados. Depois que a exportação estiver concluída, você pode exportar mais um mês de dados. Você pode exportar até 10 conjuntos de dados por hora para qualquer uma das suas organizações patrocinadas ou contas de usuário.
+  O {% data variables.product.prodname_dotcom %} começa a exportar dados de todos os seus patrocinadores a partir do mês selecionado. Você receberá e-mail em breve com um anexo contendo os dados. Depois que a exportação estiver concluída, você pode exportar mais um mês de dados. Você pode exportar até 10 conjuntos de dados por hora para qualquer uma das suas organizações patrocinadas ou contas de usuário.

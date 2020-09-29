@@ -12,10 +12,10 @@ versions:
 
 An organization owner must allow forks of private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[Managing the forking policy for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)."
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Features", select **Allow forking**. ![Checkbox to allow or disallow forking of a private repository](/assets/images/help/repository/allow-forking-specific-org-repo.png)
 
 ### 더 읽을거리

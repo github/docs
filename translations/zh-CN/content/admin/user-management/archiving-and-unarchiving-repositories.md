@@ -9,20 +9,20 @@ versions:
 ---
 
 ### 存档仓库
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. 在 Danger Zone 下，单击 **Archive**。 ![Archive 按钮](/assets/images/enterprise/site-admin-settings/repo-archive.png)
 6. 单击 **Archive repository** ![Archive repository 按钮](/assets/images/enterprise/site-admin-settings/repo-archive-confirm.png)
 
 ### 取消存档仓库
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. 在 Danger Zone 下，单击 **Unarchive**。 ![Archive 按钮](/assets/images/enterprise/site-admin-settings/repo-unarchive.png)
 6. 单击 **Unarchive repository** ![Archive repository 按钮](/assets/images/enterprise/site-admin-settings/repo-unarchive-confirm.png)
 

@@ -1,7 +1,7 @@
 ---
 title: アーティファクトを使用してワークフローデータを永続化する
 intro: アーティファクトを使うと、ワークフローが完了したときに、そのワークフローのジョブとストアデータの間でデータを共有することができます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### ワークフローの成果物について
 
-成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 アーティファクトとは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、成果物を使ってワークフローの実行が終了した後、ビルドとテストの出力を保存しておけます。 プッシュとプルリクエストについては、{{ site.data.variables.product.product_name }}は90日間成果物を保存します。 プルリクエストの場合の保持期間は、そのプルリクエストに対して新しいコミットがプッシュされるたびにリセットされます。
+成果物を使えば、ジョブの完了後にデータを永続化でき、そのデータを同じワークフロー中の他のジョブと共有できます。 アーティファクトとは、ワークフロー実行中に生成されるファイル、またはファイルのコレクションです。 たとえば、成果物を使ってワークフローの実行が終了した後、ビルドとテストの出力を保存しておけます。 プッシュとプルリクエストについては、{% data variables.product.product_name %}は90日間成果物を保存します。 プルリクエストの場合の保持期間は、そのプルリクエストに対して新しいコミットがプッシュされるたびにリセットされます。
 
 以下は、アップロードできる一般的な成果物の一部です。
 
@@ -27,24 +27,24 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-成果物の保存には、{{ site.data.variables.product.product_name }}上のストレージ領域が使われます。 {{ site.data.reusables.github-actions.actions-billing }} 詳細は「[{{ site.data.variables.product.prodname_actions }} の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」を参照してください。
+成果物の保存には、{% data variables.product.product_name %}上のストレージ領域が使われます。 {% data reusables.github-actions.actions-billing %} 詳細は「[{% data variables.product.prodname_actions %} の支払いの管理](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)」を参照してください。
 
 {% else %}
 
-アーティファクトは、 {{ site.data.variables.product.product_location }}で {{ site.data.variables.product.prodname_actions }} 用に構成された外部 BLOB ストレージのストレージ領域を消費します。
+アーティファクトは、 {% data variables.product.product_location %}で {% data variables.product.prodname_actions %} 用に構成された外部 BLOB ストレージのストレージ領域を消費します。
 
 {% endif %}
 
-成果物はワークフローの実行中にアップロードされ、成果物の名前とサイズはUIで見ることができます。 {{ site.data.variables.product.product_name }}のUIを使って成果物がダウンロードされる場合、成果物の一部として個別にアップロードされたすべてのファイルはzipして1つのファイルにまとめられます。 これはすなわち、支払いはこのzipファイルのサイズではなく、アップロードされた成果物のサイズを元に計算されるということです。
+成果物はワークフローの実行中にアップロードされ、成果物の名前とサイズはUIで見ることができます。 {% data variables.product.product_name %}のUIを使って成果物がダウンロードされる場合、成果物の一部として個別にアップロードされたすべてのファイルはzipして1つのファイルにまとめられます。 これはすなわち、支払いはこのzipファイルのサイズではなく、アップロードされた成果物のサイズを元に計算されるということです。
 
-{{ site.data.variables.product.product_name }}には、ビルドアーティファクトのアップロードとダウンロードに使用できるアクションが2つあります。 詳細については、[actions/upload-artifact](https://github.com/actions/upload-artifact)アクションと[download-artifact](https://github.com/actions/download-artifact)アクションを参照してください。
+{% data variables.product.product_name %}には、ビルドアーティファクトのアップロードとダウンロードに使用できるアクションが2つあります。 詳細については、[actions/upload-artifact](https://github.com/actions/upload-artifact)アクションと[download-artifact](https://github.com/actions/download-artifact)アクションを参照してください。
 
 ジョブ間でデータを共有するには:
 
 * **ファイルをアップロード**: アップロードされたファイルに名前を付けて、ジョブが終了する前にデータをアップロードしてください。
 * **ファイルをダウンロード**: 成果物は、同じワークフローの実行中にアップロードされたものだけがダウンロードできます。 ファイルをダウンロードする際には、名前で参照できます。
 
-ジョブのステップは、ランナーマシン上で同じ環境を共有しますが、それぞれが個別のプロセス内で実行されます。 ジョブのステップ間のデータを受け渡すには、入力と出力を使用できます。 入力と出力の詳細については、「[{{ site.data.variables.product.prodname_actions }}構文のメタデータ](/articles/metadata-syntax-for-github-actions)」を参照してください。
+ジョブのステップは、ランナーマシン上で同じ環境を共有しますが、それぞれが個別のプロセス内で実行されます。 ジョブのステップ間のデータを受け渡すには、入力と出力を使用できます。 入力と出力の詳細については、「[{% data variables.product.prodname_actions %}構文のメタデータ](/articles/metadata-syntax-for-github-actions)」を参照してください。
 
 ### ワークフローのジョブ間でデータを受け渡す
 
@@ -125,21 +125,21 @@ versions:
 
 ### ワークフロー実行間でデータを共有する
 
-ワークフローが終了した後、**Actions**タブでワークフローの実行を見つけて、{{ site.data.variables.product.product_name }}上にアップロードされた成果物の圧縮ファイルをダウンロードできます。 {{ site.data.variables.product.prodname_dotcom }}のREST APIを使って成果物をダウンロードすることもできます。 詳細については、「アーティファクト</a>
+ワークフローが終了した後、**Actions**タブでワークフローの実行を見つけて、{% data variables.product.product_name %}上にアップロードされた成果物の圧縮ファイルをダウンロードできます。 {% data variables.product.prodname_dotcom %}のREST APIを使って成果物をダウンロードすることもできます。 詳細については、「アーティファクト</a>
 
 」を参照してください。</p> 
 
-{{ site.data.variables.product.product_name }}には、ビルドの成果物のアップロードとダウンロードに使用できるアクションが2つあります。 詳細については、[actions/upload-artifact](https://github.com/actions/upload-artifact)アクションと[download-artifact](https://github.com/actions/download-artifact)アクションを参照してください。
+{% data variables.product.product_name %}には、ビルドの成果物のアップロードとダウンロードに使用できるアクションが2つあります。 詳細については、[actions/upload-artifact](https://github.com/actions/upload-artifact)アクションと[download-artifact](https://github.com/actions/download-artifact)アクションを参照してください。
 
 
 
 ### ビルドおよびテストの成果物をアップロードする
 
-継続的インテグレーション（CI）ワークフローを作成して、コードのビルドやテストを行えます。 {{ site.data.variables.product.prodname_actions }} を使用して CI を実行する方法の詳細については、「継続的な統合</a>について」を参照してください。</p> 
+継続的インテグレーション（CI）ワークフローを作成して、コードのビルドやテストを行えます。 {% data variables.product.prodname_actions %} を使用して CI を実行する方法の詳細については、「継続的な統合</a>について」を参照してください。</p> 
 
 コードのビルドおよびテストを出力すると多くの場合、エラーのデバッグに使用できるファイルと、デプロイできる本番コードが生成されます。 リポジトリにプッシュされるコードをビルドしてテストし、成功または失敗のステータスをレポートするワークフローを構成することができます。 デプロイメントに使用するビルドおよびテスト出力をアップロードし、失敗したテストまたはクラッシュをデバッグしてテストスイートの範囲を確認できます。
 
-成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリー、または複数のファイルまたはディレクトリーを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 アーティファクトの名前を指定することをお勧めしますが、名前を指定しない場合は、 `アーティファクト` が既定の名前として使用されます。 構文の詳細については、 {{ site.data.variables.product.product_location }}{% endif %}のアクション/アーティファクトのアップロード</a> アクション{% else %} `アクション/` アーティファクトのアップロードアクションを {% if currentVersion == "free-pro-team@latest" %}するを参照してください。</p> 
+成果物をアップロードするには、`upload-artifact`アクションが使用できます。 成果物をアップロードする場合は、単一のファイルまたはディレクトリー、または複数のファイルまたはディレクトリーを指定できます。 また、特定のファイルやディレクトリを除外したり、ワイルドカードパターンを使用したりすることもできます。 アーティファクトの名前を指定することをお勧めしますが、名前を指定しない場合は、 `アーティファクト` が既定の名前として使用されます。 構文の詳細については、 {% data variables.product.product_location %}{% endif %}のアクション/アーティファクトのアップロード</a> アクション{% else %} `アクション/` アーティファクトのアップロードアクションを {% if currentVersion == "free-pro-team@latest" %}するを参照してください。</p> 
 
 
 
@@ -245,7 +245,7 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 #### ワークフローの実行完了後の成果物のダウンロードと削除
 
-成果物は90日後に自動的に期限切れになりますが、{{ site.data.variables.product.product_name }}で期限切れになる前に成果物を削除すれば、使用された{{ site.data.variables.product.prodname_actions }}のストレージをいつでも回収できます。
+成果物は90日後に自動的に期限切れになりますが、{% data variables.product.product_name %}で期限切れになる前に成果物を削除すれば、使用された{% data variables.product.prodname_actions %}のストレージをいつでも回収できます。
 
 {% warning %}
 
@@ -253,19 +253,19 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 
 
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.actions-tab %}
 
 
 
-{{ site.data.reusables.repositories.navigate-to-workflow }}
+{% data reusables.repositories.navigate-to-workflow %}
 
 
 
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.view-run %}
 
 1. 成果物をダウンロードするには、[**Artifacts**] ドロップダウンメニューを使用して、ダウンロードしたい成果物を選択します。 ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
 1. 成果物を削除するには、**Artifacts**ドロップダウンメニューを使って{% octicon "trashcan" aria-label="The trashcan icon" %}をクリックしてください。 ![成果物の削除のドロップダウンメニュー](/assets/images/help/repository/actions-delete-artifact.png)

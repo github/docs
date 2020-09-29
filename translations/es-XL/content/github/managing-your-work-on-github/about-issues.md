@@ -1,6 +1,6 @@
 ---
 title: Acerca de las propuestas
-intro: 'Usa las propuestas para rastrear ideas, mejoras, tareas o errores para tu trabajo en {{ site.data.variables.product.product_name }}.'
+intro: 'Usa las propuestas para rastrear ideas, mejoras, tareas o errores para tu trabajo en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-issues/
   - /articles/about-issues
@@ -11,7 +11,7 @@ versions:
 
 Puedes recopilar opiniones del usuario, informar errores de software y organizar tareas que quieras realizar con las propuestas en un repositorio. Las propuestas pueden actuar como más que un simple lugar para informar errores de software.
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 Para estar actualizado sobre los comentarios más recientes en una propuesta, puedes ver una propuesta para recibir notificaciones acerca de los últimos comentarios. Para obtener más información, consulta la sección {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Acerca de las notificaciones](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
 
@@ -26,6 +26,6 @@ Con las propuestas, puedes hacer lo siguiente:
 - Transferir propuestas abiertas a otros repositorios. Para obtener más información, consulta "[Transferir una propuesta a otro repositorio](/articles/transferring-an-issue-to-another-repository)."{% endif %}
 - Anclar propuestas importantes para hacer que sea más fácil encontrarlas, evitando las propuestas duplicadas y reduciendo el ruido. Para obtener más información, consulta "[Anclar una propuesta a tu repositorio](/articles/pinning-an-issue-to-your-repository)".
 - Rastrear propuestas duplicadas usando las respuestas guardadas. Para obtener más información, consulta "[Acerca de las respuestas guardadas](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
-- Informar comentarios que violan las [Pautas de la comunidad](/articles/github-community-guidelines) de {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta "[Informar abuso o spam](/articles/reporting-abuse-or-spam)".{% endif %}
+- Informar comentarios que violan las [Pautas de la comunidad](/articles/github-community-guidelines) de {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta "[Informar abuso o spam](/articles/reporting-abuse-or-spam)".{% endif %}
 
 Las propuestas también se pueden [asignar a otros usuarios](/articles/assigning-issues-and-pull-requests-to-other-github-users), [marcar con etiquetas](/articles/applying-labels-to-issues-and-pull-requests) para una búsqueda más rápida y [agrupar con hitos](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).

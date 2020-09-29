@@ -35,12 +35,12 @@ Wenn Du möchtest, dass Deine Organisation denselben Namen aufweist, den Du aktu
 Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwandeln. Beim Umwandeln Deines Kontos geschieht Folgendes:
  - Die Repositorys werden so beibehalten, wie sie sind, ohne dass Du sie manuell an ein anderes Konto übertragen musst
  - Es werden automatisch Mitarbeiter zu Teams eingeladen, wobei die Berechtigungen den bisherigen Berechtigungen entsprechen.
- {% if currentVersion == "free-pro-team@latest" %}– Bei Benutzerkonten auf {{ site.data.variables.product.prodname_pro }} wird die Abrechnung automatisch auf [das bezahlte {{ site.data.variables.product.prodname_team }}](/articles/about-billing-for-github-accounts) umgestellt, ohne dass Du die Zahlungsinformationen erneut eingeben, Deinen Abrechnungszeitraum anpassen oder doppelt bezahlen musst.{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}– Bei Benutzerkonten auf {% data variables.product.prodname_pro %} wird die Abrechnung automatisch auf [das bezahlte {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) umgestellt, ohne dass Du die Zahlungsinformationen erneut eingeben, Deinen Abrechnungszeitraum anpassen oder doppelt bezahlen musst.{% endif %}
 
 1. Erstelle ein neues persönliches Konto, mit dem Du Dich nach der Umwandlung bei GitHub anmelden und auf die Organisation und Deine Repositorys zugreifst.
 2.  [Verlasse alle Organisationen](/articles/removing-yourself-from-an-organization), denen das Benutzerkonto angehört, das Du gerade umwandelst.
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 5. Klicke unter „Transform account“ (Konto umwandeln) auf **Turn <username> into an organization** (Benutzer in eine Organisation umwandeln). ![Schaltfläche „Organization conversion" (Umwandeln in eine Organisation)](/assets/images/help/settings/convert-to-organization.png)
 6. Überprüfe und bestätige im Dialogfeld „Account Transformation Warning“ (Warnung zur Kontoumwandlung) die Umwandlung. Beachte, dass die Informationen in diesem Feld mit der Warnung oben in diesem Artikel übereinstimmt. ![Warnung zur Umwandlung](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. Wähle auf der Seite „Transform your user into an organization“ (Benutzer in eine Organisation umwandeln) unter „Choose an organization owner“ (Organisationsinhaber auswählen) entweder das sekundäre persönliche Konto, das Du im vorherigen Abschnitt erstellt hast, oder einen anderen vertrauenswürdigen Benutzer für die Verwaltung der Organisation aus. ![Seite „Add organization owner" (Hinzufügen eines Organisationsinhabers)](/assets/images/help/organizations/organization-add-owner.png)

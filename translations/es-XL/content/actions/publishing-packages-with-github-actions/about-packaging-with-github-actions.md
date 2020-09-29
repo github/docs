@@ -1,7 +1,7 @@
 ---
 title: Acerca del empaquetado con acciones de GitHub
-intro: 'Puedes configurar flujos de trabajo en {{ site.data.variables.product.prodname_actions }} para generar paquetes y cargarlos en {{ site.data.variables.product.prodname_registry }} u otro proveedor de alojamiento del paquete.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Puedes configurar flujos de trabajo en {% data variables.product.prodname_actions %} para generar paquetes y cargarlos en {% data variables.product.prodname_registry %} u otro proveedor de alojamiento del paquete.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los pasos de empaquetado
 
@@ -32,10 +32,10 @@ Esto te permitirá ejecutar el código en la solicitud de extracción en tu máq
 
 Además de cargar artefactos de empaquetado para las pruebas en un flujo de trabajo de integración continua, puedes crear flujos de trabajo que construyan tu proyecto y publiquen paquetes en un registro de paquete.
 
-* **Publicar paquetes para {{ site.data.variables.product.prodname_registry }}**  
-  {{ site.data.variables.product.prodname_registry }} puede actuar como un servicio de alojamiento de paquetes para muchos tipos de paquetes. Puedes elegir compartir tus paquetes con todos los {{ site.data.variables.product.prodname_dotcom }}, o paquetes privados para compartir con los colaboradores o una organización. Para obtener más información, consulta "[Acerca de {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/about-github-packages)".
+* **Publicar paquetes para {% data variables.product.prodname_registry %}**  
+  {% data variables.product.prodname_registry %} puede actuar como un servicio de alojamiento de paquetes para muchos tipos de paquetes. Puedes elegir compartir tus paquetes con todos los {% data variables.product.prodname_dotcom %}, o paquetes privados para compartir con los colaboradores o una organización. Para obtener más información, consulta "[Acerca de {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/about-github-packages)".
 
-  Es posible que desees publicar paquetes para {{ site.data.variables.product.prodname_registry }} en cada subida a la rama principal. Esto permitirá que los programadores en tu proyecto siempre puedan ejecutar y probar la última construcción fuera del principal fácilmente, instalándolo desde {{ site.data.variables.product.prodname_registry }}.
+  Es posible que desees publicar paquetes para {% data variables.product.prodname_registry %} en cada subida a la rama principal. Esto permitirá que los programadores en tu proyecto siempre puedan ejecutar y probar la última construcción fuera del principal fácilmente, instalándolo desde {% data variables.product.prodname_registry %}.
 
 * **Publicar paquetes en un registro de paquetes**  
   Para muchos proyectos, publicar en un registro de paquete se realiza cada vez que se lanza una nueva versión de un proyecto. Por ejemplo, un proyecto que produce un archivo JAR puede cargar nuevos lanzamientos en el repositorio central de Maven. O bien, un proyecto de .NET puede generar un paquete NuGet y cargarlo en la galería de NuGet.

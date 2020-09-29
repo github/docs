@@ -21,14 +21,14 @@ Wenn Du mit dem Issue-Vorlagengenerator neue Issuevorlagen für Dein Repository 
 Mit dem Vorlagengenerator kannst Du für jede Vorlage einen Titel und eine Beschreibung angeben, den Vorlageninhalt hinzufügen und einen Commit der Vorlage auf dem Standardbranch durchführen oder einen Pull Request im Repository öffnen. Der Vorlagengenerator fügt automatisch das YAML-Titelei-Markup hinzu, das erforderlich ist, damit die Vorlage auf der „Neuer Issue"-Seite angezeigt wird. Weitere Informationen findest Du unter „[Issuevorlagen für Dein Repository konfigurieren](/articles/configuring-issue-templates-for-your-repository).“
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} Weitere Informationen findest Du unter „[Issuevorlagen für Dein Repository konfigurieren](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% data reusables.repositories.issue-template-config %} Weitere Informationen findest Du unter „[Issuevorlagen für Dein Repository konfigurieren](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-Issuevorlagen werden auf dem Standardbranch des Repositorys in einem verborgenen `.github/ISSUE_TEMPLATE`-Verzeichnis gespeichert. Wenn Du eine Vorlage in einem anderen Branch erstellst, steht sie Mitarbeitern nicht zur Verfügung. Bei den Dateinamen von Issuevorlagen wird nicht zwischen Groß- und Kleinschreibung unterschieden, und es wird eine *.md*-Erweiterung benötigt. {{ site.data.reusables.repositories.valid-community-issues }}
+Issuevorlagen werden auf dem Standardbranch des Repositorys in einem verborgenen `.github/ISSUE_TEMPLATE`-Verzeichnis gespeichert. Wenn Du eine Vorlage in einem anderen Branch erstellst, steht sie Mitarbeitern nicht zur Verfügung. Bei den Dateinamen von Issuevorlagen wird nicht zwischen Groß- und Kleinschreibung unterschieden, und es wird eine *.md*-Erweiterung benötigt. {% data reusables.repositories.valid-community-issues %}
 
 Es ist möglich, manuell eine einzelne Issuevorlage in Markdown mit dem Workflow für ältere Issuevorlagen zu erstellen, und Projektmitarbeiter werden automatisch den Inhalt der Vorlage im Issue-Text sehen. Wir empfehlen jedoch, den aktualisierten Mehrfach-Issue-Vorlagengenerator zu verwenden, um Issuevorlagen zu erstellen. Weitere Informationen zum veralteten Workflow findest Du unter „[Eine einzelne Issue-Vorlage für Dein Repository manuell erstellen](/articles/manually-creating-a-single-issue-template-for-your-repository).“
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Vorlagen für Pull-Requests
 

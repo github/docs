@@ -1,7 +1,7 @@
 ---
 title: Workflow-Daten mit Artefakten als dauerhaft festlegen
 intro: Mit Artefakten kannst Du Daten zwischen Aufträgen in einem Workflow freigeben und Daten nach Abschluss des Workflows speichern.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Workflow-Artefakten
 
-Artefakte erlauben es dir, Daten nach dem Job-Abschluss abzuspeichern und diese Daten an einen anderen Job im selben Workflow weiterzugeben. Ein Artefakt ist eine Datei oder eine Dateisammlung, die während einer Workflow-Ausführung erstellt wird. Zum Beispiel kannst Du Artefakte verwenden, um Deine Build- und Testausgabe zu speichern, nachdem ein Workflow-Lauf beendet ist. Für Pushes und Pull-Requests speichert {{ site.data.variables.product.product_name }} Artefakte für 90 Tage. Die Aufbewahrungsfrist für einen Pull-Request beginnt jedes Mal neu, wenn jemand an den Pull-Request pusht.
+Artefakte erlauben es dir, Daten nach dem Job-Abschluss abzuspeichern und diese Daten an einen anderen Job im selben Workflow weiterzugeben. Ein Artefakt ist eine Datei oder eine Dateisammlung, die während einer Workflow-Ausführung erstellt wird. Zum Beispiel kannst Du Artefakte verwenden, um Deine Build- und Testausgabe zu speichern, nachdem ein Workflow-Lauf beendet ist. Für Pushes und Pull-Requests speichert {% data variables.product.product_name %} Artefakte für 90 Tage. Die Aufbewahrungsfrist für einen Pull-Request beginnt jedes Mal neu, wenn jemand an den Pull-Request pusht.
 
 Dies sind einige der gängigen Artefakte, die du hochladen kannst:
 
@@ -27,24 +27,24 @@ Dies sind einige der gängigen Artefakte, die du hochladen kannst:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Das Speichern von Artefakten verwendet Speicherplatz auf {{ site.data.variables.product.product_name }}. {{ site.data.reusables.github-actions.actions-billing }} Weitere Informationen findest Du unter „[Abrechnung für {{ site.data.variables.product.prodname_actions }} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“.
+Das Speichern von Artefakten verwendet Speicherplatz auf {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Weitere Informationen findest Du unter „[Abrechnung für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)“.
 
 {% else %}
 
-Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verwendeten Speicher auf {{ site.data.variables.product.prodname_actions }} wieder verfügbar machen, indem du Artefakte löschst, bevor sie auf {{ site.data.variables.product.product_name }} ablaufen.
+Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verwendeten Speicher auf {% data variables.product.prodname_actions %} wieder verfügbar machen, indem du Artefakte löschst, bevor sie auf {% data variables.product.product_name %} ablaufen.
 
 {% endif %}
 
-Artefakte werden während eines Workflow-Laufs hochgeladen und Du kannst den Namen und die Größe eines Artefakts in der Benutzeroberfläche anzeigen. Wenn ein Artefakt mit der {{ site.data.variables.product.product_name }}-Oberfläche heruntergeladen wird, werden alle Dateien, die als Teil des Artefakts einzeln hochgeladen wurden, zusammen in eine einzige Datei gezippt. Die Abrechnung erfolgt anhand der Größe des hochgeladenen Artefakts und nicht der Größe der Zip-Datei erfolgt.
+Artefakte werden während eines Workflow-Laufs hochgeladen und Du kannst den Namen und die Größe eines Artefakts in der Benutzeroberfläche anzeigen. Wenn ein Artefakt mit der {% data variables.product.product_name %}-Oberfläche heruntergeladen wird, werden alle Dateien, die als Teil des Artefakts einzeln hochgeladen wurden, zusammen in eine einzige Datei gezippt. Die Abrechnung erfolgt anhand der Größe des hochgeladenen Artefakts und nicht der Größe der Zip-Datei erfolgt.
 
-{{ site.data.variables.product.product_name }} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. Weitere Informationen finden Sie in den Themen zu den Aktionen [actions/upload-artifact](https://github.com/actions/upload-artifact) und [download-artifact](https://github.com/actions/download-artifact).
+{% data variables.product.product_name %} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. Weitere Informationen finden Sie in den Themen zu den Aktionen [actions/upload-artifact](https://github.com/actions/upload-artifact) und [download-artifact](https://github.com/actions/download-artifact).
 
 Daten zwischen Aufträgen freigeben:
 
 * **Dateien hochladen**: Gib der hochgeladenen Datei einen Namen und lade die Daten hoch, bevor der Job endet.
 * **Dateien herunterladen**: Du kannst nur Artefakte herunterladen, die während des gleichen Workflow-Laufs hochgeladen wurden. Wenn Du eine Datei herunterlädst, kannst Du sie mit Namen referenzieren.
 
-Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben finden Sie unter „[Metadatensyntax für {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)“.
+Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben finden Sie unter „[Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)“.
 
 ### Daten zwischen Aufträgen in einem Workflow weitergeben
 
@@ -125,13 +125,13 @@ Jobs:
 
 ### Daten zwischen Workflow-Ausführungen freigeben
 
-Nach dem Ende eines Workflows kannst Du eine komprimiert Datei der hochgeladenen Artefakte auf {{ site.data.variables.product.product_name }} herunterladen. Suche dazu auf der Registerkarte **Actions** (Aktionen) nach dem gewünschten Workflow-Lauf. Sie können auch die {{ site.data.variables.product.prodname_dotcom }} REST-API verwenden, um Artefakte herunterzuladen. Weitere Informationen finden Sie unter "[Artefakte](/v3/actions/artifacts/)".
+Nach dem Ende eines Workflows kannst Du eine komprimiert Datei der hochgeladenen Artefakte auf {% data variables.product.product_name %} herunterladen. Suche dazu auf der Registerkarte **Actions** (Aktionen) nach dem gewünschten Workflow-Lauf. Sie können auch die {% data variables.product.prodname_dotcom %} REST-API verwenden, um Artefakte herunterzuladen. Weitere Informationen finden Sie unter "[Artefakte](/v3/actions/artifacts/)".
 
-{{ site.data.variables.product.product_name }} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. Weitere Informationen findest Du in den Themen zu den Aktionen [actions/upload-artifact](https://github.com/actions/upload-artifact) und [download-artifact](https://github.com/actions/download-artifact).
+{% data variables.product.product_name %} bietet zwei Aktionen, über die Sie Build-Artefakte hoch- und herunterladen können. Weitere Informationen findest Du in den Themen zu den Aktionen [actions/upload-artifact](https://github.com/actions/upload-artifact) und [download-artifact](https://github.com/actions/download-artifact).
 
 ### Build- und Testartefakte hochladen
 
-Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Deinen Code zu bauen und zu testen. Weitere Informationen zur Verwendung von {{ site.data.variables.product.prodname_actions }} zum Ausführen von CI finden Sie unter "[Über kontinuierliche Integration](/articles/about-continuous-integration)."
+Du kannst einen Workflow für kontinuierliche Integration (CI) erstellen, um Deinen Code zu bauen und zu testen. Weitere Informationen zur Verwendung von {% data variables.product.prodname_actions %} zum Ausführen von CI finden Sie unter "[Über kontinuierliche Integration](/articles/about-continuous-integration)."
 
 Durch die Ergebnisse der Erstellung und des Tests Deines Codes werden oft zum Debuggen von Testfehlern einsetzbare Dateien und bereitstellbarer Produktionscode erstellt. Du kannst einen Workflow konfigurieren, um den per Push-Vorgang an Dein Repository übertragenen Code zu erstellen und zu testen und um einen erfolgreichen oder fehlerhaften Status zu melden. Du kannst die Build- und Testausgabe hochladen, um sie für Bereitstellungen, zum Debuggen fehlerhafter Tests oder von Abstürzen und zum Anzeigen der Testsuite-Abdeckung zu verwenden.
 
@@ -225,7 +225,7 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 #### Herunterladen und Löschen von Artefakten nach Abschluss eines Workflowlaufs
 
-Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verwendeten Speicher auf {{ site.data.variables.product.prodname_actions }} wieder verfügbar machen, indem du Artefakte löschst, bevor sie auf {{ site.data.variables.product.product_name }} ablaufen.
+Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verwendeten Speicher auf {% data variables.product.prodname_actions %} wieder verfügbar machen, indem du Artefakte löschst, bevor sie auf {% data variables.product.product_name %} ablaufen.
 
 {% warning %}
 
@@ -233,10 +233,10 @@ Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verw
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. Um Artefakte herunterzuladen, verwendest Du das Dropdownmenü **Artifacts** (Artefakte), und wählst die Artefakte aus, die Du herunterladen möchtest. ![Dropdown-Menü zum Herunterladen von Artefakten](/assets/images/help/repository/artifact-drop-down.png)
 1. Um Artefakte zu löschen, benutze das Dropdown-Menü **Artifacts** und klicke auf {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Dropdown-Menü zum Löschen von Artefakten](/assets/images/help/repository/actions-delete-artifact.png)
 
@@ -244,6 +244,6 @@ Artefakte verfallen automatisch nach 90 Tagen, aber du kannst jederzeit den verw
 
 ### Weiterführende Informationen
 
-- "[ Abrechnung für {{ site.data.variables.product.prodname_actions }} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[ Abrechnung für {% data variables.product.prodname_actions %} verwalten](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% endif %}

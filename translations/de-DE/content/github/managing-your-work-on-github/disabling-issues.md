@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Hebe unter „Features“ (Funktionen) die Auswahl des Kontrollkästchens **Issues** (Issues) auf. ![Kontrollkästchen „Remove Issues" (Entfernen von Issues)](/assets/images/help/issues/issues_settings_remove_from_repo.png)
 
 Wenn Du Issues zukünftig erneut aktivieren möchtest, sind alle Issues wieder verfügbar, die zuvor hinzugefügt wurden.
@@ -18,8 +18,8 @@ Wenn Du Issues zukünftig erneut aktivieren möchtest, sind alle Issues wieder v
 
 {% tip %}
 
-Wende Dich an {{ site.data.variables.contact.contact_support }}, wenn Du Issues wegen missbräuchlicher Verwendung durch Fremde deaktivieren möchtest.
-{{ site.data.reusables.policies.abuse }}
+Wende Dich an {% data variables.contact.contact_support %}, wenn Du Issues wegen missbräuchlicher Verwendung durch Fremde deaktivieren möchtest.
+{% data reusables.policies.abuse %}
 
 {% endtip %}
 

@@ -9,14 +9,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Issuevorlagen erstellen
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Klicke im Abschnitt „Features“ (Funktionen) unter „Issues“ auf **Set up templates** (Vorlagen einrichten). ![Schaltfläche „Start template setup" (Starten der Vorlageneinrichtung)](/assets/images/help/repository/set-up-templates.png)
 4. Klicke im Dropdownmenü „Add template“ (Vorlage hinzufügen) auf den gewünschten Vorlagentyp, den Du erstellen möchtest. ![Dropdownmenü „Add template“ (Vorlage hinzufügen)](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. Um eine Vorschau der Vorlage anzuzeigen oder die Vorlage zu bearbeiten, bevor Du sie an das Repository freigibst, klicke auf **Preview and edit** (Anzeigen und Bearbeiten). ![Schaltfläche „Preview and edit“ (anzeigen und bearbeiten)](/assets/images/help/repository/preview-and-edit-button.png)
@@ -30,7 +30,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Konfigurieren der Vorlagenauswahl
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. Wenn Du `blank_issues_enabled` (leere Issues ermöglichen) auf `true` (gültig) setzt, haben Personen die Möglichkeit, leere Issues zu eröffnen.
 
@@ -40,30 +40,30 @@ You can encourage contributors to use issue templates by setting `blank_issues_e
 
 {% endnote %}
 
-Wenn Du bestimmte Berichte außerhalb von {{ site.data.variables.product.product_name }} erhalten möchtest, kannst Du Personen mit `contact_links` auf externe Websites leiten.
+Wenn Du bestimmte Berichte außerhalb von {% data variables.product.product_name %} erhalten möchtest, kannst Du Personen mit `contact_links` auf externe Websites leiten.
 
 Hier ist ein Beispiel für die *config.yml*-Datei.
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Please ask and answer questions here.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Security Bug Bounty
+  - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
 Deine Konfigurationsdatei wird die Vorlagenauswahl anpassen, wenn die Datei in den Standardbranch des Repository zusammengeführt wird.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Gib im Feld Dateiname `.github/ISSUE_TEMPLATE/config.yml` ein. ![Konfigurationsdateiname](/assets/images/help/repository/template-config-file-name.png)
 4. Gib im Textfeld der neuen Datei den Inhalt Deiner Konfigurationsdatei ein. ![Inhalt der Konfigurationsdatei](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### Weiterführende Informationen

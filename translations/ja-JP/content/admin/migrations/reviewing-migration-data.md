@@ -78,4 +78,4 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-失敗したインポートに関する懸念があるなら、{{ site.data.variables.contact.contact_ent_support }}に連絡してください。
+失敗したインポートに関する懸念があるなら、{% data variables.contact.contact_ent_support %}に連絡してください。

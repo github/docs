@@ -1,7 +1,7 @@
 ---
 title: Acerca de las ramas protegidas
 intro: 'Las ramas protegidas garantizan que los colaboradores en tu repositorio no puedan realizar cambios irrevocables a las ramas. Activar las ramas protegidas también te permite activar otros requisitos y verificaciones opcionales, como las verificaciones de estado requeridas y as revisiones requeridas.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} Puedes decidir imponer restricciones de cómo se fusionan las solicitudes de extracción en tu repositorio.
+{% data reusables.pull_requests.about-protected-branches %} Puedes decidir imponer restricciones de cómo se fusionan las solicitudes de extracción en tu repositorio.
 
 Los propietarios del repositorio y las personas con permisos de administrador para un repositorio pueden implementar ciertos flujos de trabajo o requisitos, antes de que un colaborador pueda fusionar una rama en tu repositorio al crear las reglas de rama protegida.
 
-{{ site.data.reusables.repositories.branch-rules-example }} Para obtener más información, consulta "[Configurar ramas protegidas](/articles/configuring-protected-branches/)".
+{% data reusables.repositories.branch-rules-example %} Para obtener más información, consulta "[Configurar ramas protegidas](/articles/configuring-protected-branches/)".
 
 ### Priorización de las reglas de la rama protegida
 

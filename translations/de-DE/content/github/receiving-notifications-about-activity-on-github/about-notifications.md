@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Benachrichtigungen
-intro: 'Benachrichtigungen bieten aktuelle Informationen zu den Aktivitäten und Unterhaltungen, an denen Du interessiert bist. Du kannst Benachrichtigungen auf {{ site.data.variables.product.product_name }} oder über Deinen E-Mail-Client erhalten.'
+intro: 'Benachrichtigungen bieten aktuelle Informationen zu den Aktivitäten und Unterhaltungen, an denen Du interessiert bist. Du kannst Benachrichtigungen auf {% data variables.product.product_name %} oder über Deinen E-Mail-Client erhalten.'
 versions:
   enterprise-server: <2.21
 ---
@@ -13,13 +13,13 @@ Die Benachrichtigungen, die Du erhältst, sind entweder *Teilnahmebenachrichtigu
 - „[Über E-Mail-Benachrichtigungen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)"
 - „[Auslieferungsmethode für Deine Benachrichtigungen wählen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)"
 
-{{ site.data.reusables.notifications.outbound_email_tip }}
+{% data reusables.notifications.outbound_email_tip %}
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 #### Teilnahmebenachrichtigungen
 
-{{ site.data.variables.product.product_name }} versendet *Teilnahmebenachrichtigungen*, wenn Du direkt an Aktivitäten oder Unterhaltungen innerhalb eines Repositorys oder eines Teams beteiligt bist, dem Du angehörst. In folgenden Fällen erhältst Du eine Benachrichtigung:
+{% data variables.product.product_name %} versendet *Teilnahmebenachrichtigungen*, wenn Du direkt an Aktivitäten oder Unterhaltungen innerhalb eines Repositorys oder eines Teams beteiligt bist, dem Du angehörst. In folgenden Fällen erhältst Du eine Benachrichtigung:
   - Du oder ein Team, dem Du angehörst, werden erwähnt. Weitere Informationen findest Du unter „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams).“
   - Das übergeordnete Team eines untergeordneten Teams, dem Du angehörst, wird erwähnt. Weitere Informationen finden Sie unter „[Informationen zu Teams](/articles/about-teams)“.
   - Dir wird ein Issue oder Pull Request zugewiesen.
@@ -33,7 +33,7 @@ Die Benachrichtigungen, die Du erhältst, sind entweder *Teilnahmebenachrichtigu
 
 #### Beobachtungsbenachrichtigungen
 
-{{ site.data.variables.product.product_name }} versendet *Beobachtungsbenachrichtigungen* bei Aktualisierungen in Repositorys oder Teamdiskussionen, die Du gerade beobachtest. {% if currentVersion ver_gt "enterprise-server@2.17" %} {{ site.data.reusables.notifications.auto-watch }}Weitere Informationen findest Du auf „[Beobachtung von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
+{% data variables.product.product_name %} versendet *Beobachtungsbenachrichtigungen* bei Aktualisierungen in Repositorys oder Teamdiskussionen, die Du gerade beobachtest. {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}Weitere Informationen findest Du auf „[Beobachtung von Repositorys aktivieren oder deaktivieren](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)."
 
 {% endif %}In folgenden Fällen erhältst Du eine Benachrichtigung:
   - Ein Issue wird geöffnet.

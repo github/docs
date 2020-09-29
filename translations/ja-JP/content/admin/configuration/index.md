@@ -1,7 +1,7 @@
 ---
 title: GitHub Enterprise を設定する
 shortTitle: GitHub Enterprise を設定する
-intro: '{{ site.data.variables.product.prodname_ghe_server }} がインストールされ設定されたら、Organization のニーズに合わせてアプライアンスを設定できます。'
+intro: '{% data variables.product.prodname_ghe_server %} がインストールされ設定されたら、Organization のニーズに合わせてアプライアンスを設定できます。'
 redirect_from:
   - /enterprise/admin/configuration
 versions:

@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present:
 
   ```shell
@@ -23,9 +23,9 @@ versions:
     - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
     - *id_dsa.pub*{% endif %}
 
-If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to {{ site.data.variables.product.product_name }}, then [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to {% data variables.product.product_name %}, then [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
-If you see an existing public and private key pair listed (for example *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {{ site.data.variables.product.product_name }}, you can [add your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent).
+If you see an existing public and private key pair listed (for example *id_rsa.pub* and *id_rsa*) that you would like to use to connect to {% data variables.product.product_name %}, you can [add your SSH key to the ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent).
 
 {% tip %}
 

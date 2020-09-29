@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. Con el comando `ghe-migrator import`, inicia el proceso de importación. Necesitarás:
     * Tu GUID de migración.
@@ -21,4 +21,4 @@ versions:
     > Importación 100 % completa /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}

@@ -5,23 +5,23 @@ redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
   - /articles/inviting-collaborators-to-a-personal-repository
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {{ site.data.variables.product.product_name }}](/articles/access-permissions-on-github)".
+Os repositórios de propriedade de uma organização podem conceder mais acesso granular. Para obter mais informações, consulte "[Permissões de acesso no {% data variables.product.product_name %}](/articles/access-permissions-on-github)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-{{ site.data.reusables.organizations.org-invite-expiration }}
+{% data reusables.organizations.org-invite-expiration %}
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% note %}
 
-**Observação:** o {{ site.data.variables.product.company_short }} limita o número de pessoas que podem ser convidadas para um repositório dentro de um período de 24 horas. Se você exceder esse limite, aguarde 24 horas ou crie uma organização para colaborar com mais pessoas.
+**Observação:** o {% data variables.product.company_short %} limita o número de pessoas que podem ser convidadas para um repositório dentro de um período de 24 horas. Se você exceder esse limite, aguarde 24 horas ou crie uma organização para colaborar com mais pessoas.
 
 {% endnote %}
 
@@ -29,11 +29,11 @@ Os repositórios de propriedade de uma organização podem conceder mais acesso 
 
 1. Pergunte o nome de usuário da pessoa que você está convidando como colaborador.
 
-{% if currentVersion == "free-pro-team@latest" %} Caso ela ainda não tenha um nome de usuário, pode se inscrever para o {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte "[Inscrever-se para uma nova conta do {{ site.data.variables.product.prodname_dotcom }}](/articles/signing-up-for-a-new-github-account)".{% endif %}"
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% if currentVersion == "free-pro-team@latest" %} Caso ela ainda não tenha um nome de usuário, pode se inscrever para o {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Inscrever-se para uma nova conta do {% data variables.product.prodname_dotcom %}](/articles/signing-up-for-a-new-github-account)".{% endif %}"
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.navigate-to-manage-access }}
+{% data reusables.repositories.navigate-to-manage-access %}
 1. Clique em **Convidar um colaborador**. ![Botão "Convidar um colaborador"](/assets/images/help/repository/invite-a-collaborator-button.png)
 2. No campo de pesquisa, comece a digitar o nome da pessoa que deseja convidar e, em seguida, clique em um nome na lista de correspondências. ![Campo de pesquisa para digitar o nome de uma pessoa para convidar para o repositório](/assets/images/help/repository/manage-access-invite-search-field-user.png)
 3. Clique em **Adicionar NOME ao REPOSITÓRIO**. ![Botão para adicionar um colaborador](/assets/images/help/repository/add-collaborator-user-repo.png)

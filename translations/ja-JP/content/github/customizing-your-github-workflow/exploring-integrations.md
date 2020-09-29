@@ -1,6 +1,6 @@
 ---
 title: インテグレーションに触れる
-intro: '{{ site.data.variables.product.product_name }} コミュニティによって構築されたツールやサービスを使用して、{{ site.data.variables.product.product_name }} のワークフローをカスタマイズしたり拡張したりできます。'
+intro: '{% data variables.product.product_name %} コミュニティによって構築されたツールやサービスを使用して、{% data variables.product.product_name %} のワークフローをカスタマイズしたり拡張したりできます。'
 mapTopic: true
 redirect_from:
   - /articles/exploring-integrations

@@ -14,7 +14,7 @@ Es gibt nur einen Inhaber eines Benutzer-Projektboards. Diese Berechtigung kann 
 
 Für Projektboard-Mitarbeiter gibt es drei Berechtigungsstufen:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### Inhaber- und Administratorberechtigungen für ein Benutzer-Projektboard
 

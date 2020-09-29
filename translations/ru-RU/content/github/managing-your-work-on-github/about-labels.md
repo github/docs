@@ -1,6 +1,6 @@
 ---
 title: About labels
-intro: 'Labels on {{ site.data.variables.product.product_name }} help you organize and prioritize your work. You can apply labels to issues and pull requests to signify priority, category, or any other information you find useful.'
+intro: 'Labels on {% data variables.product.product_name %} help you organize and prioritize your work. You can apply labels to issues and pull requests to signify priority, category, or any other information you find useful.'
 redirect_from:
   - /articles/about-labels
 versions:
@@ -14,7 +14,7 @@ Anyone with read access to a repository can view and search the repository’s l
 
 ### Using default labels
 
-{{ site.data.variables.product.product_name }} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository:
+{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository:
 
 | Label              | Description                                                                                                           |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------- |

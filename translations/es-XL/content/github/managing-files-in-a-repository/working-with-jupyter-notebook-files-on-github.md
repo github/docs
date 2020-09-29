@@ -1,6 +1,6 @@
 ---
 title: Trabajar con archivos notebook Jupyter en GitHub
-intro: 'Cuando agregas archivos notebook Jupyter o notebook iPython con una extensión *.ipynb* en {{ site.data.variables.product.product_location }}, se representarán como archivos HTML estáticos en tu repositorio.'
+intro: 'Cuando agregas archivos notebook Jupyter o notebook iPython con una extensión *.ipynb* en {% data variables.product.product_location %}, se representarán como archivos HTML estáticos en tu repositorio.'
 redirect_from:
   - /articles/working-with-jupyter-notebook-files-on-github
 versions:
@@ -9,7 +9,7 @@ versions:
 ---
 
 
-Las funciones interactivas de notebook, como los gráficos JavaScript personalizados, no funcionarán en tu repositorio en {{ site.data.variables.product.product_location }}. Para obtener un ejemplo, consulta [*Enlaces e interacciones.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+Las funciones interactivas de notebook, como los gráficos JavaScript personalizados, no funcionarán en tu repositorio en {% data variables.product.product_location %}. Para obtener un ejemplo, consulta [*Enlaces e interacciones.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
 Para ver tu notebook Jupyter con el contenido representado de JavaScript o para compartir tus archivos notebook con otros, puedes usar [nbviewer](https://nbviewer.jupyter.org/). Para obtener un ejemplo, consulta [*Enlaces e interacciones.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) representados en nbviewer.
 

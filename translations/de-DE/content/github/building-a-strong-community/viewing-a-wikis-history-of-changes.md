@@ -1,7 +1,7 @@
 ---
 title: Änderungsverlauf eines Wikis anzeigen
 intro: 'Da es sich bei Wikis um Git-Repositorys handelt, ist jede von Dir vorgenommene Änderung ein Commit, den Du anzeigen kannst.'
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
@@ -17,8 +17,8 @@ Zum Wiki-Verlauf zählen:
 - Die von ihm bereitgestellte Commit-Mitteilung
 - Der Zeitpunkt der Änderung
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Navigiere auf der Wiki-Seitenleiste zur Seite, deren Verlauf Du anzeigen möchtest.
 4. Klicke im oberen Bereich des Wikis auf den Revisionslink. ![Wiki-Revisionslink](/assets/images/help/wiki/wiki_revision_link.png)
 

@@ -23,10 +23,10 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. Lege im Feld für den Teamnamen einen neuen Namen für das Inhaberteam fest. Ein Beispiel:
     - Wenn nur sehr wenige Mitglieder Deiner Organisation Mitglieder des Inhaberteams waren, könntest Du das Team beispielsweise „Kern“ nennen.
     - Wenn alle Mitglieder Deiner Organisation Mitglieder des Inhaberteams waren, damit sie [Teams @erwähnen](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) konnten, könntest Du das Team „Mitarbeiter“ nennen. ![Das Feld für den Teamnamen mit „Core“ (Kern) als neuen Namen für das Inhaberteam](/assets/images/help/teams/owners-team-new-name.png)
@@ -41,8 +41,8 @@ Du hast mehrere Möglichkeiten, Dein altes Inhaberteam umzuwandeln:
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. Lies unten auf der Seite die Warnung, und klicke dann auf **Delete the Owners team** (Inhaberteam löschen). ![Link zum Löschen des Inhaberteams](/assets/images/help/teams/owners-team-delete.png)

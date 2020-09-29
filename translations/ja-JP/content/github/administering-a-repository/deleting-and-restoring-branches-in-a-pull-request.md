@@ -15,9 +15,9 @@ versions:
 
 プルリクエストがマージまたはクローズされていて、ブランチを参照している他のオープンなプルリクエストがない場合は、プルリクエストに関連付けられているブランチを削除できます。 プルリクエストに関連付けられていないブランチをクローズする方法については、「[リポジトリ内でブランチを作成および削除する](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)」をご覧ください。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. プルリクエストのリストで、削除対象のブランチに関連付けられているプルリクエストをクリックします。
 5. プルリクエストの下の方にある [**Delete branch**] をクリックします。 ![[Delete branch] ボタン](/assets/images/help/pull_requests/delete_branch_button.png)
 
@@ -27,9 +27,9 @@ versions:
 
 クローズされたプルリクエストの head ブランチを復元できます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.list-closed-pull-requests }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.list-closed-pull-requests %}
 4. プルリクエストのリストで、復元対象のブランチに関連付けられているプルリクエストをクリックします。
 5. プルリクエストの下の方にある [**Restore branch**] をクリックします。 ![削除されたブランチの復元ボタン](/assets/images/help/branches/branches-restore-deleted.png)
 

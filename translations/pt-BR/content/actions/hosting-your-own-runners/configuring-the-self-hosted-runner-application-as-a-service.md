@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Pare o aplicativo do executor auto-hospedado se estiver em execução no momento.{% endcapture %}
 {% capture service_non_windows_intro_shell %}Na máquina, abra um shell no diretório onde você instalou o aplicativo do executor auto-hospedado. Use os comandos abaixo para instalar e gerenciar o serviço do executor auto-hospedado.{% endcapture %}
-{% capture service_nonwindows_intro %}Você deve adicionar um executor a {{ site.data.variables.product.product_name }} antes de poder configurar o aplicativo do executor auto-hospedado um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".{% endcapture %}
+{% capture service_nonwindows_intro %}Você deve adicionar um executor a {% data variables.product.product_name %} antes de poder configurar o aplicativo do executor auto-hospedado um serviço. Para obter mais informações, consulte "[Adicionando executores auto-hospedados](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -31,7 +31,7 @@ Para os sistemas Linux que usam o `systemd`, você pode usar o script `svc. h` d
 
 {% note %}
 
-**Observação:** A configuração do executor auto-hospedado como um serviço no Windows faz parte do processo de configuração do aplicativo. Se você já configurou o aplicativo de executor auto-hospedado, mas não escolheu configurá-lo como um serviço, você deve remover o executor do {{ site.data.variables.product.prodname_dotcom }} e reconfigurar o aplicativo. Ao reconfigurar o aplicativo, selecione a opção para configurar o aplicativo como um serviço.
+**Observação:** A configuração do executor auto-hospedado como um serviço no Windows faz parte do processo de configuração do aplicativo. Se você já configurou o aplicativo de executor auto-hospedado, mas não escolheu configurá-lo como um serviço, você deve remover o executor do {% data variables.product.prodname_dotcom %} e reconfigurar o aplicativo. Ao reconfigurar o aplicativo, selecione a opção para configurar o aplicativo como um serviço.
 
 Para obter mais informações, consulte "[Removendo os executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)" e "[Adicionando executores auto-hospedados](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)".
 

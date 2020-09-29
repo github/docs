@@ -12,17 +12,17 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Deine mit Stern versehene Repositorys und Themen auf Deiner {{ site.data.variables.explore.your_stars_page }} durchsuchen, sortieren und filtern.
+Du kannst Deine mit Stern versehene Repositorys und Themen auf Deiner {% data variables.explore.your_stars_page %} durchsuchen, sortieren und filtern.
 
 ### Informationen zu Sternen
 
-Mit Stern zu versehen macht es einfacher, Repositorys oder Themen später wieder zu finden. Du kannst alle Repositorys und Themen, die Du mit Stern versehen hast, auf Deiner {{ site.data.variables.explore.your_stars_page }} sehen.
+Mit Stern zu versehen macht es einfacher, Repositorys oder Themen später wieder zu finden. Du kannst alle Repositorys und Themen, die Du mit Stern versehen hast, auf Deiner {% data variables.explore.your_stars_page %} sehen.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Du kannst Repositorys und Themen mit Sternen versehen, um auf {{ site.data.variables.product.product_name }} auf für Dich relevante Projekte hingewiesen zu werden. Sofern verfügbar, schlägt Dir {{ site.data.variables.product.product_name }} in diesem Fall in der Entdecken-Ansicht Deines News-Feeds ähnliche Inhalte vor. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {{ site.data.variables.product.prodname_dotcom }} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
+Du kannst Repositorys und Themen mit Sternen versehen, um auf {% data variables.product.product_name %} auf für Dich relevante Projekte hingewiesen zu werden. Sofern verfügbar, schlägt Dir {% data variables.product.product_name %} in diesem Fall in der Entdecken-Ansicht Deines News-Feeds ähnliche Inhalte vor. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
 {% endif %}
 
-Mit der Auszeichnung durch einen Stern zeigst Du dem Repository-Betreuer auch Deine Wertschätzung für seine Arbeit. Verschiedene Repository-Rankings von {{ site.data.variables.product.prodname_dotcom }} basieren auf der Anzahl der Sterne, die für ein Repository vergeben wurden. Auch [Explore](https://github.com/explore) (Erkunden) stuft die Beliebtheit von Repositorys nach der Anzahl der erhaltenen Sterne ein.
+Mit der Auszeichnung durch einen Stern zeigst Du dem Repository-Betreuer auch Deine Wertschätzung für seine Arbeit. Verschiedene Repository-Rankings von {% data variables.product.prodname_dotcom %} basieren auf der Anzahl der Sterne, die für ein Repository vergeben wurden. Auch [Explore](https://github.com/explore) (Erkunden) stuft die Beliebtheit von Repositorys nach der Anzahl der erhaltenen Sterne ein.
 
 ### Sterne durchsuchen
 

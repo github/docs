@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Os parâmetros de consulta são partes opcionais de uma URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa ou um modelo de problemas no {{ site.data.variables.product.prodname_dotcom }}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
+Os parâmetros de consulta são partes opcionais de uma URL que podem ser personalizadas para compartilhar uma exibição de página web específica, como resultados do filtro de pesquisa ou um modelo de problemas no {% data variables.product.prodname_dotcom %}. Para criar seus próprios parâmetros de consulta, você deve corresponder o par de chave e valor.
 
 {% tip %}
 
@@ -34,7 +34,7 @@ Se você criar um URL inválido usando parâmetros de consulta, ou se não tiver
 
 ### Preencher problemas e pull requests com modelos personalizados
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Você pode usar o parâmetro de consulta `template` para especificar um modelo a fim de preencher o problema ou o texto da pull request automaticamente. O parâmetro de consulta `template` trabalha com modelos armazenados em um subdiretório `ISSUE_TEMPLATE` ou `PULL_REQUEST_TEMPLATE` na raiz, no diretório `docs/` ou `.github/` em um repositório.
 

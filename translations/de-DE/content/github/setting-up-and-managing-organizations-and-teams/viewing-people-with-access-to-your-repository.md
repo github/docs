@@ -1,6 +1,6 @@
 ---
 title: Personen mit Zugriff auf Dein Repository anzeigen
-intro: 'Organisationsinhaber können den Zugriff von Personen auf ein Repository innerhalb einer Organisation anzeigen. Organisationsinhaber mit {{ site.data.variables.product.prodname_ghe_cloud }} oder {{ site.data.variables.product.prodname_ghe_server }} können zudem eine CSV-Liste der Personen exportieren, die auf ein Repository zugreifen können.'
+intro: 'Organisationsinhaber können den Zugriff von Personen auf ein Repository innerhalb einer Organisation anzeigen. Organisationsinhaber mit {% data variables.product.prodname_ghe_cloud %} oder {% data variables.product.prodname_ghe_server %} können zudem eine CSV-Liste der Personen exportieren, die auf ein Repository zugreifen können.'
 redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
 versions:
@@ -22,15 +22,15 @@ Anhand dieser Informationen können Administratoren außenstehende Personen unte
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 
 ### Liste der Personen mit Zugriff auf Dein Repository exportieren
 
-Organisationsinhaber auf {{ site.data.variables.product.prodname_ghe_cloud }} oder {{ site.data.variables.product.prodname_ghe_server }} können eine CSV-Liste der Personen exportieren, die auf ein Repository zugreifen können.
+Organisationsinhaber auf {% data variables.product.prodname_ghe_cloud %} oder {% data variables.product.prodname_ghe_server %} können eine CSV-Liste der Personen exportieren, die auf ein Repository zugreifen können.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.accessing-repository-people }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.accessing-repository-people %}
 4. Klicke auf **Export CSV** (CSV exportieren). ![Registerkarte „People“ (Personen) auf der Repository-Seitenleiste](/assets/images/help/repository/export-repository-permissions.png)

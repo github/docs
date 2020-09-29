@@ -11,12 +11,12 @@ versions:
 リモート Git コマンドや SSH の実行時に、接続がタイムアウトする場合があります:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [207.97.227.239] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Bad file number
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Bad file number
 ```
 
 ### 問題の解決
@@ -26,7 +26,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 最もシンプルな解決策は、単に SSH を一切回避することです。 多くのファイアウォールやプロキシでは、HTTPS トラフィックを問題なく許可しています。 これを活かすには、使用している[リモート URL](/articles/which-remote-url-should-i-use) を変更します。
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>reponame</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
 > Cloning into 'reponame'...
 > remote: Counting objects: 84, done.
 > remote: Compressing objects: 100% (45/45), done.
@@ -36,7 +36,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>usernam
 
 #### 別のネットワークからテストする
 
-ファイアウォールのない別のネットワークにコンピュータを接続できる場合は、{{ site.data.variables.product.product_name }} への SSH 接続をテストしてみることができます。 想定通りにすべてが機能する場合は、ネットワーク管理者に問い合わせし、ファイアウォール設定で {{ site.data.variables.product.product_name }} への SSH 接続が成功するように許可するよう、サポートしてもらってください。
+ファイアウォールのない別のネットワークにコンピュータを接続できる場合は、{% data variables.product.product_name %} への SSH 接続をテストしてみることができます。 想定通りにすべてが機能する場合は、ネットワーク管理者に問い合わせし、ファイアウォール設定で {% data variables.product.product_name %} への SSH 接続が成功するように許可するよう、サポートしてもらってください。
 
 {% if currentVersion == "free-pro-team@latest" %}
 

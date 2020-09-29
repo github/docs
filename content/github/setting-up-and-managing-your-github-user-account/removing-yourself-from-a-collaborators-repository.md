@@ -7,13 +7,13 @@ redirect_from:
   - /articles/removing-yourself-from-a-collaborator-s-repo/
   - /articles/removing-yourself-from-a-collaborator-s-repository
   - /articles/removing-yourself-from-a-collaborators-repository
-product: '{{ site.data.reusables.gated-features.user-repo-collaborators }}'
+product: '{% data reusables.gated-features.user-repo-collaborators %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 2. In the left sidebar, click **Repositories**.
   ![Repositories tab](/assets/images/help/settings/settings-sidebar-repositories.png)
 3. Next to the repository you want to leave, click **Leave**.

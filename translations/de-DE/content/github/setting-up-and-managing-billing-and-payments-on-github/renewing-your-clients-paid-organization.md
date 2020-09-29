@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.organizations.reseller-ask-to-become-billing-manager }}
+{% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
 {% tip %}
 
@@ -18,10 +18,10 @@ versions:
 
 ### Kreditkarteninformationen Deiner Organisation ändern
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
-{{ site.data.reusables.dotcom_billing.update_payment_method }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
+{% data reusables.dotcom_billing.update_payment_method %}
 1. Gib Deine neuen Kreditkarteninformationen in das sichere Formular ein. ![Formular für Kreditkarteninformationen](/assets/images/help/settings/creditcard-billing-form.png)
 1. Klicke auf **Update credit card** (Kreditkarte aktualisieren) oder auf **Save credit card** (Kreditkarte speichern).

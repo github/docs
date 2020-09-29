@@ -8,29 +8,29 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
 このガイドは、Pythonパッケージのビルド、テスト、公開の方法を紹介します。
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーは、Python及びPyPyを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 自分では何もインストールする必要がありません！ 最新のソフトウェアとプリインストールされたバージョンのPython及びPyPyの完全なリストについては、[{{ site.data.variables.product.prodname_dotcom }}ホストランナー上にインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーは、Python及びPyPyを含むプリインストールされたソフトウェアを伴うツールキャッシュを持ちます。 自分では何もインストールする必要がありません！ 最新のソフトウェアとプリインストールされたバージョンのPython及びPyPyの完全なリストについては、[{% data variables.product.prodname_dotcom %}ホストランナー上にインストールされているソフトウェア](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)を参照してください。
 
 ### 必要な環境
 
-YAMLと{{ site.data.variables.product.prodname_actions }}の構文に馴染んでいる必要があります。 詳細については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
+YAMLと{% data variables.product.prodname_actions %}の構文に馴染んでいる必要があります。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)」を参照してください。
 
 Python、PyPy、pipの基本的な理解をしておくことをおすすめします。 詳しい情報については、以下を参照してください。
 - [Getting started with Python](https://www.python.org/about/gettingstarted/)
 - [PyPy](https://pypy.org/)
 - [Pip package manager](https://pypi.org/project/pip/)
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Pythonワークフローテンプレートでの開始
 
-{{ site.data.variables.product.prodname_dotcom }}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については[Pythonのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/python-package.yml)を参照してください。
+{% data variables.product.prodname_dotcom %}は、ほとんどのPythonプロジェクトで使えるPythonのワークフローテンプレートを提供しています。 このガイドには、テンプレートのカスタマイズに利用できる例が含まれます。 詳しい情報については[Pythonのワークフローテンプレート](https://github.com/actions/starter-workflows/blob/master/ci/python-package.yml)を参照してください。
 
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
@@ -73,11 +73,11 @@ jobs:
 
 ### Pythonのバージョンの指定
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナー上でPythonもしくはPyPyのプリインストールされたバージョンを使うには、`setup-python`アクションを使ってください。 このアクションは各ランナーのツールキャッシュから指定されたバージョンのPythonもしくはPyPyを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 特定のバージョンの Python がツールキャッシュにプリインストールされていない場合、`setup-python` アクションは [`python-versions`](https://github.com/actions/python-versions) リポジトリから適切なバージョンをダウンロードして設定します。
+{% data variables.product.prodname_dotcom %}ホストランナー上でPythonもしくはPyPyのプリインストールされたバージョンを使うには、`setup-python`アクションを使ってください。 このアクションは各ランナーのツールキャッシュから指定されたバージョンのPythonもしくはPyPyを見つけ、必要なバイナリを`PATH`に追加します。設定されたバイナリは、ジョブでそれ以降永続化されます。 特定のバージョンの Python がツールキャッシュにプリインストールされていない場合、`setup-python` アクションは [`python-versions`](https://github.com/actions/python-versions) リポジトリから適切なバージョンをダウンロードして設定します。
 
-`setup-action`の利用は、{{ site.data.variables.product.prodname_actions }}でPythonを使うための推奨される方法です。 これは、そうすることで様々なランナーや様々なバージョンのPythonで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Pythonをインストールして`PATH`に追加しなければなりません。 詳しい情報については、[`setup-python`アクション](https://github.com/marketplace/actions/setup-python)を参照してください。
+`setup-action`の利用は、{% data variables.product.prodname_actions %}でPythonを使うための推奨される方法です。 これは、そうすることで様々なランナーや様々なバージョンのPythonで一貫した振る舞いが保証されるためです。 セルフホストランナーを使っている場合は、Pythonをインストールして`PATH`に追加しなければなりません。 詳しい情報については、[`setup-python`アクション](https://github.com/marketplace/actions/setup-python)を参照してください。
 
-以下の表は、各{{ site.data.variables.product.prodname_dotcom }}ホストランナー内でのツールキャッシュの場所です。
+以下の表は、各{% data variables.product.prodname_dotcom %}ホストランナー内でのツールキャッシュの場所です。
 
 |                    | Ubuntu                          | Mac                                      | Windows                                    |
 | ------------------ | ------------------------------- | ---------------------------------------- | ------------------------------------------ |
@@ -87,7 +87,7 @@ jobs:
 
 セルフホストランナーを使用している場合は、`setup-python` アクションを使用して依存関係を管理するようにランナーを設定できます。 詳しい情報については、`setup-python` の README にある「[セルフホストランナーで setup-python を使用する](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner)」を参照してください。
 
-{{ site.data.variables.product.prodname_dotcom }}は、セマンティックバージョン構文をサポートしています。 詳しい情報については「[セマンティックバージョンの利用](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)」及び「[セマンティックバージョンの仕様](https://semver.org/)」を参照してください。
+{% data variables.product.prodname_dotcom %}は、セマンティックバージョン構文をサポートしています。 詳しい情報については「[セマンティックバージョンの利用](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)」及び「[セマンティックバージョンの仕様](https://semver.org/)」を参照してください。
 
 #### Pythonの複数バージョンの利用
 
@@ -153,7 +153,7 @@ jobs:
 
 使用できないPythonのバージョンを指定すると、`setup-python`は`##[error]Version 3.4 with arch x64 not found`といったエラーで失敗します。 このエラーメッセージには、利用できるバージョンが含まれます。
 
-実行したくないPythonの環境があるなら、ワークフロー中で`exclude`キーワードを使うこともできます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)」を参照してください。
+実行したくないPythonの環境があるなら、ワークフロー中で`exclude`キーワードを使うこともできます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のワークフロー構文](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategy)」を参照してください。
 
 {% raw %}
 ```yaml
@@ -179,17 +179,17 @@ jobs:
 
 #### デフォルトバージョンのPythonの利用
 
-依存関係を明示的にしやすくなるので、ワークフロー中で使うPythonのバージョンの設定には`setup-python`を使うことをおすすめします。 `setup-python`を使わない場合、いずれかのシェルで`python`を呼ぶと`PATH`に設定されたデフォルトバージョンのPythonが使われます。 デフォルトバージョンのPythonは、{{ site.data.variables.product.prodname_dotcom }}ホストランナーによって様々なので、予想外の変更が生じたり、期待しているよりも古いバージョンが使われたりするかもしれません。
+依存関係を明示的にしやすくなるので、ワークフロー中で使うPythonのバージョンの設定には`setup-python`を使うことをおすすめします。 `setup-python`を使わない場合、いずれかのシェルで`python`を呼ぶと`PATH`に設定されたデフォルトバージョンのPythonが使われます。 デフォルトバージョンのPythonは、{% data variables.product.prodname_dotcom %}ホストランナーによって様々なので、予想外の変更が生じたり、期待しているよりも古いバージョンが使われたりするかもしれません。
 
-| {{ site.data.variables.product.prodname_dotcom }}ホストランナー | 説明                                                                                                                                                                                                                    |
+| {% data variables.product.prodname_dotcom %}ホストランナー | 説明                                                                                                                                                                                                                    |
 | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ubuntu                                                   | Ubuntuランナーでは`/usr/bin/python`及び`/usr/bin/python3`の下に複数バージョンのシステムPythonがあります。 {{ site.data.variables.product.prodname_dotcom }}がツールキャッシュにインストールしエチルバージョンに加えて、UbuntuにパッケージングされているバージョンのPythonがあります。                     |
-| Windows                                                  | ツールキャッシュにあるPythonのバージョンを除けば、WindowsにはシステムPythonに相当するバージョンは含まれていません。 他のランナーとの一貫した動作を保ち、`setup-python`アクションなしですぐにPythonが使えるようにするため、{{ site.data.variables.product.prodname_dotcom }}はツールキャッシュからいくつかのバージョンを`PATH`に追加します。 |
+| Ubuntu                                                   | Ubuntuランナーでは`/usr/bin/python`及び`/usr/bin/python3`の下に複数バージョンのシステムPythonがあります。 {% data variables.product.prodname_dotcom %}がツールキャッシュにインストールしエチルバージョンに加えて、UbuntuにパッケージングされているバージョンのPythonがあります。                     |
+| Windows                                                  | ツールキャッシュにあるPythonのバージョンを除けば、WindowsにはシステムPythonに相当するバージョンは含まれていません。 他のランナーとの一貫した動作を保ち、`setup-python`アクションなしですぐにPythonが使えるようにするため、{% data variables.product.prodname_dotcom %}はツールキャッシュからいくつかのバージョンを`PATH`に追加します。 |
 | macOS                                                    | macOSランナーには、ツールキャッシュ内のバージョンに加えて、複数バージョンのシステムPythonがインストールされています。 システムのPythonバージョンは`/usr/local/Cellar/python/*`mディレクトリにあります。                                                                                           |
 
 ### 依存関係のインストール
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
+{% data variables.product.prodname_dotcom %}ホストランナーには、パッケージマネージャーのpipがインストールされています。 コードのビルドとテストに先立って、pipを使ってパッケージレジストリのPyPIから依存関係をインストールできます。 たとえば以下のYAMLは`pip`パッケージインストーラーと`setuptools`及び`wheel`パッケージのインストールやアップグレードを行います。
 
 ワークフローの速度を上げるために、依存関係をキャッシュすることもできます。 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
@@ -333,7 +333,7 @@ steps:
 
 #### toxでのテストの実行
 
-{{ site.data.variables.product.prodname_actions }}では、toxでテストを実行し、その処理を複数のジョブに分散できます。 toxを起動する際には、特定のバージョンを指定するのではなく、`-e py`オプションを使って`PATH`中のPythonのバージョンを選択しなければなりません。 詳しい情報については [tox](https://tox.readthedocs.io/en/latest/)を参照してください。
+{% data variables.product.prodname_actions %}では、toxでテストを実行し、その処理を複数のジョブに分散できます。 toxを起動する際には、特定のバージョンを指定するのではなく、`-e py`オプションを使って`PATH`中のPythonのバージョンを選択しなければなりません。 詳しい情報については [tox](https://tox.readthedocs.io/en/latest/)を参照してください。
 
 {% raw %}
 

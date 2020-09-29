@@ -14,7 +14,7 @@ versions:
 
 {% tip %}
 
-**提示：**{{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**提示：**{% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

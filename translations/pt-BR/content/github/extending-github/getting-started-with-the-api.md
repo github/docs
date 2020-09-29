@@ -7,10 +7,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {{ site.data.variables.product.product_name }}, você poderá usar a API do {{ site.data.variables.product.product_name }}.
+Para automatizar tarefas comuns, fazer backup dos seus dados ou criar integrações que estendem o {% data variables.product.product_name %}, você poderá usar a API do {% data variables.product.product_name %}.
 
 Para obter mais informações sobre a API, consulte a [API REST do GitHub](/rest) e [API do GraphQL do GitHub](/graphql). Também é possível atualizar-se sobre as notícias relacionadas a APIs seguindo o blog do desenvolvedor</a>
-{{ site.data.variables.product.prodname_dotcom }}.</p> 
+{% data variables.product.prodname_dotcom %}.</p> 
 
 
 

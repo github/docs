@@ -14,12 +14,12 @@ versions:
 
 Organization レベルでプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} および内部{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}または内部{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. [Repository forking] で、[**Allow forking of private repositories**] または [**Allow forking of private and internal repositories**] を選択します。 ![Organization でフォークを許可または禁止するチェックボックス](/assets/images/help/repository/allow-disable-forking-organization.png)
 6. [**Save**] をクリックします。
 

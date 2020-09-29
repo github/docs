@@ -12,10 +12,10 @@ versions:
 
 El propietario de la organización debe permitir que las ramificaciones de repositorios privados {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} e internos {% endif %} a nivel organizacional antes de que puedas permitir o impedir las ramificaciones de un repositorio específico. Para obtener más información, consulta "[Administrar la política de ramificación para tu organización](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization)."
 
-{{ site.data.reusables.organizations.internal-repos-enterprise }}
+{% data reusables.organizations.internal-repos-enterprise %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En "Features" (Características), selecciona **Allow forking** (Permitir bifurcación). ![Casilla de verificación para permitir o prohibir la bifurcación de un repositorio privado](/assets/images/help/repository/allow-forking-specific-org-repo.png)
 
 ### Leer más

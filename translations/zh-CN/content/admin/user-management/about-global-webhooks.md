@@ -17,4 +17,4 @@ versions:
 
 有关配置 web 挂钩的更多信息，请参阅“[管理全局 web 挂钩](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-global-webhooks)”。
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}
