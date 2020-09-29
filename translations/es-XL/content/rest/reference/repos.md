@@ -84,7 +84,7 @@ Puedes leer más acerca del uso de los tipos de medios en la API [aquí](/v3/med
 
 ## Llaves de implementación
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
 Las llaves de despliegue pueden ya sea configurarse utilizando las siguientes terminales de la API, o mediante GitHub. Para aprender cómo configurar las llaves de despliegue en GitHub, consulta la sección "[Administrar las llaves de despliegue](/developers/overview/managing-deploy-keys)".
 
@@ -139,7 +139,7 @@ Nota que el [alcance de OAuth](/developers/apps/scopes-for-oauth-apps) `repo_dep
 
 Cuando configuras el estado de un despliegue como `success`, entonces todos los despliegues de ambiente no productivos y no transitorios previos en el mismo repositorio se pondrán como `inactive`. Para evitar esto, puedes configurar a `auto_inactive` como `false` cuando creas el estado del servidor.
 
-Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {{ site.data.variables.product.prodname_dotcom }} y elimina el acceso al mismo.
+Puedes comunicar que un ambiente transitorio ya no existe si configuras el `state` como `inactive`.  El configurar al `state` como `inactive`muestra el despliegue como `destroyed` en {% data variables.product.prodname_dotcom %} y elimina el acceso al mismo.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
@@ -167,7 +167,7 @@ Utiliza la terminal de la API para agregar un colaborador. Para obtener más inf
 
 ## Fusionar
 
-La API de Fusión de Repositorios puede fusionar ramas en un repositorio. Esto logra esencialmente lo mismo que el fusionar una rama con otra en un repositorio local para después cargarlo a {{ site.data.variables.product.product_name }}. El beneficio es que esta fusión se lleva a cabo del lado del servidor y no se requiere un repositorio local. Esto lo hace más adecuado para la automatización y para otras herramientas mientras que el mantener repositorios locales sería incómodo e ineficiente.
+La API de Fusión de Repositorios puede fusionar ramas en un repositorio. Esto logra esencialmente lo mismo que el fusionar una rama con otra en un repositorio local para después cargarlo a {% data variables.product.product_name %}. El beneficio es que esta fusión se lleva a cabo del lado del servidor y no se requiere un repositorio local. Esto lo hace más adecuado para la automatización y para otras herramientas mientras que el mantener repositorios locales sería incómodo e ineficiente.
 
 El usuario autenticado será el autor de cualquier fusión que se realice a través de esta terminal.
 
@@ -177,16 +177,16 @@ El usuario autenticado será el autor de cualquier fusión que se realice a trav
 
 ## Pages
 
-La API de {{ site.data.variables.product.prodname_pages }} recupera información sobre tu configuración de {{ site.data.variables.product.prodname_pages }} y sobre los estados de tus compilaciones. La información sobre este sitio y sobre las compilaciones solo es accesible mediante los propietarios autenticados, aún cuando los sitios web son públicos. For more information, see "[About {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages)."
+La API de {% data variables.product.prodname_pages %} recupera información sobre tu configuración de {% data variables.product.prodname_pages %} y sobre los estados de tus compilaciones. La información sobre este sitio y sobre las compilaciones solo es accesible mediante los propietarios autenticados, aún cuando los sitios web son públicos. For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
 
-En las terminales de la API de {{ site.data.variables.product.prodname_pages }} que llevan una clave de `status` en su respuesta, el valor puede ser uno de entre los siguientes:
+En las terminales de la API de {% data variables.product.prodname_pages %} que llevan una clave de `status` en su respuesta, el valor puede ser uno de entre los siguientes:
 * `null`: El sitio aún tiene que crearse.
 * `queued`: Se solicitó la compilación, pero no ha iniciado.
 * `building`: La compilación está en curso.
 * `built`: Se creó el sitio.
 * `errored`: Indica que ocurrió un error durante la compilación.
 
-En {{ site.data.variables.product.prodname_pages }}, las terminales de la API que {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} son compatibles con el `mister-fantastic-preview` y que {% endif %} devuelven la información de sitio de GitHub Pages, las respuestas de JSON incluyen estos campos:
+En {% data variables.product.prodname_pages %}, las terminales de la API que {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} son compatibles con el `mister-fantastic-preview` y que {% endif %} devuelven la información de sitio de GitHub Pages, las respuestas de JSON incluyen estos campos:
 * `html_url`: La URL absoluta (incluyendo el modelo) del sitio de Páginas que se interpretó. For example, `https://username.github.io`.
 * `source`: Un objeto que contiene la rama origen y el directorio del sitio de Páginas que se interpretó. Esto incluye:
    - `branch`: La rama del repositorio que se utilizó para publicar los [archivos de código fuente de tu sitio](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). Por ejemplo, _master_ o _gh-pages_.
@@ -210,7 +210,7 @@ En {{ site.data.variables.product.prodname_pages }}, las terminales de la API qu
 
 ## Estadísticas
 
-La API de Estadísticas del Repositorio te permite recuperar los datos que {{ site.data.variables.product.product_name }} utiliza para visualizar los diferentes tipos de actividad del repositorio.
+La API de Estadísticas del Repositorio te permite recuperar los datos que {% data variables.product.product_name %} utiliza para visualizar los diferentes tipos de actividad del repositorio.
 
 ### Unas palabras sobre el almacenamiento en caché
 
@@ -268,11 +268,11 @@ Si te gustaría configurar un solo webhook para recibir eventos de todos los rep
 
 ### Recibir Webhooks
 
-Para que {{ site.data.variables.product.product_name }} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
+Para que {% data variables.product.product_name %} envíe cargas útiles de webhooks, se necesita que se pueda acceder a tu servidor desde la internet. También sugerimos ampliamente utilizar SSL para que podamos enviar cargas útiles cifradas a través de HTTPS.
 
 #### Encabezados de Webhook
 
-{{ site.data.variables.product.product_name }} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) para encontrar más detalles.
+{% data variables.product.product_name %} enviará varios encabezados de HTTP para diferenciar los tipos de eventos y los identificadores de las cargas útiles. Consulta la sección de [encabezados de webhook](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) para encontrar más detalles.
 
 ### PubSubHubbub
 
@@ -293,7 +293,7 @@ El formato predeterminado es lo que [deberían esperar los ganchos de pre-recepc
 Las URL de rellamado puede utilizar el protocolo `http://`.
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}También puedes hacer rellamados de `github://` para especificar un servicio de GitHub.
-{{ site.data.reusables.apps.deprecating_github_services_ghe }}
+{% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
@@ -305,11 +305,11 @@ Las URL de rellamado puede utilizar el protocolo `http://`.
 
 #### Suscribirse
 
-La terminal de PubSubHubbub de GitHub es: `{{ site.data.variables.product.api_url_code }}/hub`. Una solicitud exitosa con curl se vería así:
+La terminal de PubSubHubbub de GitHub es: `{% data variables.product.api_url_code %}/hub`. Una solicitud exitosa con curl se vería así:
 
 ``` shell
 curl -u "user" -i \
-  {{ site.data.variables.product.api_url_pre }}/hub \
+  {% data variables.product.api_url_pre %}/hub \
   -F "hub.mode=subscribe" \
   -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
   -F "hub.callback=http://postbin.org/123"

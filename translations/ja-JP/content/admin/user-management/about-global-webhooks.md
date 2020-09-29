@@ -17,4 +17,4 @@ versions:
 
 webhook の構成に関する詳しい情報については「[グローバル webhook を管理する](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-global-webhooks)」を参照してください。
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}

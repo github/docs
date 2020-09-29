@@ -1,7 +1,7 @@
 ---
 title: Guides
 shortTitle: Guides
-intro: 'These guides for {{ site.data.variables.product.prodname_actions }} include specific use cases and examples to help you configure workflows.'
+intro: 'These guides for {% data variables.product.prodname_actions %} include specific use cases and examples to help you configure workflows.'
 redirect_from:
   - /actions/guides/caching-and-storing-workflow-data
   - /actions/automating-your-workflow-with-github-actions/using-databases-and-services
@@ -19,12 +19,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Creating custom continuous integration workflows
 
-You can use {{ site.data.variables.product.prodname_actions }} to create custom continuous integration (CI) workflows that build and test projects written in different programming languages.
+You can use {% data variables.product.prodname_actions %} to create custom continuous integration (CI) workflows that build and test projects written in different programming languages.
 
 {% link_in_list /about-continuous-integration %}
 {% link_in_list /setting-up-continuous-integration-using-workflow-templates %}
@@ -36,7 +36,7 @@ You can use {{ site.data.variables.product.prodname_actions }} to create custom 
 
 ### Publishing software packages
 
-You can automate publishing software packages as part your continuous delivery (CD) workflow. Packages can be published to any package host and to {{ site.data.reusables.gated-features.packages }}.
+You can automate publishing software packages as part your continuous delivery (CD) workflow. Packages can be published to any package host and to {% data reusables.gated-features.packages %}.
 
 {% link_in_list /about-packaging-with-github-actions %}
 {% link_in_list /publishing-nodejs-packages %}

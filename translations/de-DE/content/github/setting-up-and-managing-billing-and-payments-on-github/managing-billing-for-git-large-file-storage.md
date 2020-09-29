@@ -1,6 +1,6 @@
 ---
 title: Abrechnung für Git Large File Storage verwalten
-intro: 'Du kannst die Nutzung anzeigen und {{ site.data.variables.large_files.product_name_long }} herauf- oder herabstufen.'
+intro: 'Du kannst die Nutzung anzeigen und {% data variables.large_files.product_name_long %} herauf- oder herabstufen.'
 redirect_from:
   - /articles/managing-large-file-storage-and-bandwidth-for-your-personal-account/
   - /articles/managing-large-file-storage-and-bandwidth-for-your-organization/

@@ -4,7 +4,7 @@ intro: 您可以使用 CODEOWNERS 文件定义负责仓库代码的个人或团�
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -33,15 +33,15 @@ versions:
 
 要使用 CODEOWNERS 文件，请在仓库中您要添加代码所有者的分支的根目录 `docs/` 或 `.github/` 中，创建一个名为 `CODEOWNERS` 的新文件。
 
-每个 CODEOWNERS 文件将为仓库中的一个分支分配代码所有者。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+每个 CODEOWNERS 文件将为仓库中的一个分支分配代码所有者。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 为使代码所有者接收审查请求，CODEOWNERS 文件必须在拉取请求的基本分支上。 例如，如果您将 `@octocat` 分配为仓库 `gh-pages` 分支上 *.js* 文件的代码所有者，则在头部分支与 `gh-pages` 之间打开更改 *.js* 文件的拉取请求时，`@octocat` 将会收到审查请求。
 
 ### CODEOWNERS 语法
 
-CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) 文件中所用规则的模式。 模式后接一个或多个使用标准 `@username` 或 `@org/team-name` 格式的 {{ site.data.variables.product.prodname_dotcom }} 用户名或团队名称。 您也可以通过已经添加到其 {{ site.data.variables.product.product_name }} 帐户的电子邮件地址来指代用户，如 `user@example.com`。
+CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) 文件中所用规则的模式。 模式后接一个或多个使用标准 `@username` 或 `@org/team-name` 格式的 {% data variables.product.prodname_dotcom %} 用户名或团队名称。 您也可以通过已经添加到其 {% data variables.product.product_name %} 帐户的电子邮件地址来指代用户，如 `user@example.com`。
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {{ site.data.variables.product.product_name }}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
 #### CODEOWNERS 文件示例
 ```
 # This is a comment.

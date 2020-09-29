@@ -15,14 +15,14 @@ If someone accepts credit, the person's username appears in the "Credits" sectio
 
 ### Editing a security advisory
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. In the "Security Advisories" list, click the security advisory you'd like to edit.
 5. In the upper-right corner of the details for the security advisory, click {% octicon "pencil" aria-label="The edit icon" %}.
   ![Edit button for a security advisory](/assets/images/help/security/security-advisory-edit-button.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Optionally, edit the "Credits" for the security advisory.
   ![Credits for a security advisory](/assets/images/help/security/security-advisory-credits.png)
 9. Click **Update security advisory**.

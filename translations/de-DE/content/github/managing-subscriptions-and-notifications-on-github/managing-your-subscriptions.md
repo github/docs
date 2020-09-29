@@ -10,7 +10,7 @@ Um Dir zu helfen, Deine Abonnements zu verstehen und zu entscheiden, ob du Dich 
 
 {% note %}
 
-**Hinweis:** Anstatt Dich abzumelden, hast Du die Möglichkeit, ein Repository zu ignorieren. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% if currentVersion == "free-pro-team@latest" %}Wenn du Missbrauch feststellst und ein Repository ignorieren willst, [kontaktiere bitte den Support](/contact), damit wir Dir helfen können. {{ site.data.reusables.policies.abuse }}{% endif %}
+**Hinweis:** Anstatt Dich abzumelden, hast Du die Möglichkeit, ein Repository zu ignorieren. Wenn Du ein Repository ignorierst, erhältst du keine Benachrichtigungen. Es wird nicht empfohlen, Repositorys zu ignorieren, da Du in diesem Fall auch keine Benachrichtigung erhältst, wenn Du @erwähnt wirst. {% if currentVersion == "free-pro-team@latest" %}Wenn du Missbrauch feststellst und ein Repository ignorieren willst, [kontaktiere bitte den Support](/contact), damit wir Dir helfen können. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 
@@ -36,13 +36,13 @@ Du kannst Deine Abonnements nur nach Repository und dem Grund filtern, warum Du 
 
 Wenn Du Benachrichtigungen in Deinem Posteingang abmeldest, werden diese automatisch aus Deinem Posteingang verschwinden.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Wähle im Posteingang für Benachrichtigungen diejenige Benachrichtigungen aus, die Du abmelden möchtest.
 2. Benutze das Dropdownmenü **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} (ausgewählt), und klicke auf **Unsubscribe** (Abmelden). ![Option „Unsubscribe" (Abmelden) aus dem Hauptposteingang](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### Abmeldung von Benachrichtigungen auf der Abonnementseite
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Subscriptions** (Abonnements). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Wähle die Benachrichtigungen, die Du abmelden möchtest. Klicke oben rechts auf **Unsubscribe** (Abmelden). ![Abonnementseite](/assets/images/help/notifications-v2/unsubscribe-from-subscriptions-page.png)
@@ -51,7 +51,7 @@ Wenn Du Benachrichtigungen in Deinem Posteingang abmeldest, werden diese automat
 
 Wenn Du ein Repository nicht mehr beobachtest, meldest Du Dich von zukünftigen Aktualisierungen dieses Repositorys ab, außer wenn du an einer Unterhaltung teilnimmst oder @erwähnt wirst.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, das Dropdownmenü „Manage Notifications" (Benachrichtigungen verwalten) und klicke auf **Watched repositories** (beobachtete Repositorys). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 2. Nimm auf der Seite der beobachteten Repositorys eine Bewertung dieser Repositorys vor und wähle dann aus:
     - ein Repository nicht mehr beobachten

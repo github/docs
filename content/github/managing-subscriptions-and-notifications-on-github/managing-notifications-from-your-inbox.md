@@ -12,7 +12,7 @@ versions:
 ### About your inbox
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.notifications-v2.notifications-inbox-required-setting }} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
 {% endif %}
 
 To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
@@ -60,7 +60,7 @@ By default, your inbox has filters for when you are assigned, participating in a
 
 You can add up to 15 of your own custom filters.
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
 
   {% tip %}
@@ -113,7 +113,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 
 #### Supported `is:` queries
 
-To filter notifications for specific activity on {{ site.data.variables.product.product_name }}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`.
+To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`.
 
 - `is:check-suite`
 - `is:commit`

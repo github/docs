@@ -1,7 +1,7 @@
 ---
 title: 保護されたブランチについて
 intro: 保護されたブランチは、リポジトリのコラボレーターが回復不能な変更をブランチに行えないようにしてくれます。 保護されたブランチを有効にすると、ステータスチェック必須やレビュー必須といった他のオプションのチェックや必須事項を有効にすることもできるようになります。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} プルリクエストのリポジトリへのマージ方法に制限を適用することができます。
+{% data reusables.pull_requests.about-protected-branches %} プルリクエストのリポジトリへのマージ方法に制限を適用することができます。
 
 リポジトリのオーナーおよびリポジトリの管理権限を持つ人は、コラボレーターがリポジトリでブランチをマージする前に特定のワークフローや必須事項を強制できます。そのためには保護されたブランチのルールを作成します。
 
-{{ site.data.reusables.repositories.branch-rules-example }}詳しい情報については[保護されたブランチの設定](/articles/configuring-protected-branches/)を参照してください。
+{% data reusables.repositories.branch-rules-example %}詳しい情報については[保護されたブランチの設定](/articles/configuring-protected-branches/)を参照してください。
 
 ### 保護されたブランチのルールの優先順位付け
 

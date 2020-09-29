@@ -22,12 +22,12 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
 
 ### プロジェクトへのサポートリソースの追加
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドで、*SUPPORT.md* (すべて大文字) と入力します。
 4. [**Edit new file**] (新規ファイルの編集) タブで、プロジェクトについてのサポートを得る方法に関する情報を追加してください。
 5. SUPPORT ファイルをレビューするには [**Preview**] をクリックします。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

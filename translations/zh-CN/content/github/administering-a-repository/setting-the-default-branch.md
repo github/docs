@@ -10,7 +10,7 @@ versions:
 
 ### About the default branch
 
-{{ site.data.reusables.branches.new-repo-default-branch }} {{ site.data.reusables.branches.default-branch-automatically-base-branch }} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
+{% data reusables.branches.new-repo-default-branch %} {% data reusables.branches.default-branch-automatically-base-branch %} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
 
 ### 设置默认分支
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. In the default branch drop-down, choose the new default branch. ![默认分支下拉选择器](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. Click **Update**.
 
-您只能在 {{ site.data.variables.product.product_location }} 上已存在的分支之间切换。 要通过 UI 创建新分支，请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository)”。
+您只能在 {% data variables.product.product_location %} 上已存在的分支之间切换。 要通过 UI 创建新分支，请参阅“[创建和删除仓库中的分支](/articles/creating-and-deleting-branches-within-your-repository)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

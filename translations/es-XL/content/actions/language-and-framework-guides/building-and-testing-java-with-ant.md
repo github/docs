@@ -1,34 +1,34 @@
 ---
 title: Construir y probar Java con Ant
 intro: Puedes crear un flujo de trabajo de integración continua (CI) en Acciones de GitHub para construir y probar tu proyecto Java con Ant.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introducción
 
 Esta guía te muestra cómo crear un flujo de trabajo que realiza integración continua (CI) para tu proyecto de Java por medio del sistema de construcción Ant. El flujo de trabajo que creas te permitirá ver cuándo las confirmaciones de una solicitud de extracción causan la construcción o las fallas de prueba en tu rama por defecto; este enfoque puede ayudar a garantizar que tu código siempre sea correcto. Puedes ampliar tu flujo de trabajo de CI para cargar artefactos desde una ejecución de flujo de trabajo.
 
-Los ejecutores alojados en {{ site.data.variables.product.prodname_dotcom }} tienen un caché de herramientas con software preinstalado, que incluye Java Development Kits (JDK) y Ant. Para obtener una lista de software y versiones preinstaladas para JDK y Ant, consulta "[Software instalado en ejecutores alojados en {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
+Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen un caché de herramientas con software preinstalado, que incluye Java Development Kits (JDK) y Ant. Para obtener una lista de software y versiones preinstaladas para JDK y Ant, consulta "[Software instalado en ejecutores alojados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
 
 ### Prerrequisitos
 
-Deberías estar familiarizado con YAML y la sintaxis para las {{ site.data.variables.product.prodname_actions }}. Para obtener más información, consulta:
-- "[Sintaxis de flujo de trabajo para las {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+Deberías estar familiarizado con YAML y la sintaxis para las {% data variables.product.prodname_actions %}. Para obtener más información, consulta:
+- "[Sintaxis de flujo de trabajo para las {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 - "[Configurar un flujo de trabajo](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 
 Recomendamos que tengas un conocimiento básico de Java y de la estructura de Ant. Para obtener más información, consulta el [Manual de Apache Ant](https://ant.apache.org/manual/).
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Comenzar con una plantilla de flujo de trabajo de Ant
 
-{{ site.data.variables.product.prodname_dotcom }} proporciona una plantilla de flujo de trabajo de Ant que funcionará para la mayoría de los proyectos de Java basados en Ant. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Ant](https://github.com/actions/starter-workflows/blob/master/ci/ant.yml).
+{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Ant que funcionará para la mayoría de los proyectos de Java basados en Ant. Para obtener más información, consulta la [Plantilla de flujo de trabajo de Ant](https://github.com/actions/starter-workflows/blob/master/ci/ant.yml).
 
 Para comenzar rápidamente, puedes elegir la plantilla de Ant preconfigurada cuando crees un nuevo flujo de trabajo. Para obtener más información, consulta "[Comenzar con plantillas de flujo de trabajo preconfiguradas](/actions/automating-your-workflow-with-github-actions/starting-with-preconfigured-workflow-templates)."
 
@@ -63,9 +63,9 @@ Este flujo de trabajo realiza los siguientes pasos:
 
 Las plantillas de flujo de trabajo predeterminadas son excelentes puntos de inicio cuando creas tu flujo de trabajo de construcción y prueba, y puedes personalizar la plantilla para adaptarla a las necesidades de tu proyecto.
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
-{{ site.data.reusables.github-actions.java-jvm-architecture }}
+{% data reusables.github-actions.java-jvm-architecture %}
 
 ### Construir y probar tu código
 

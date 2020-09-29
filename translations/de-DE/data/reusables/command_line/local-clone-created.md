@@ -1,6 +1,6 @@
 6. Drücke **Eingabe**, um Deinen lokalen Klon zu erstellen.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.

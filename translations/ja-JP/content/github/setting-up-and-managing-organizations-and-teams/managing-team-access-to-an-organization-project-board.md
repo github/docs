@@ -22,16 +22,16 @@ versions:
 
 {% note %}
 
-**メモ:** {{ site.data.reusables.project-management.cascading-permissions }} たとえば、Organization のオーナーが、あるプロジェクトボードに対する読み取り権限をチームに付与しており、プロジェクトボードの管理者がチームのメンバーいずれかに、個別のコラボレーターとしてそのボードに対する管理者権限を付与している場合、そのユーザはプロジェクトボードに対する管理者権限を持つことになります。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+**メモ:** {% data reusables.project-management.cascading-permissions %} たとえば、Organization のオーナーが、あるプロジェクトボードに対する読み取り権限をチームに付与しており、プロジェクトボードの管理者がチームのメンバーいずれかに、個別のコラボレーターとしてそのボードに対する管理者権限を付与している場合、そのユーザはプロジェクトボードに対する管理者権限を持つことになります。 詳細は「[Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.organization-wide-project }}
-{{ site.data.reusables.project-management.select-project }}
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.organization-wide-project %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 8. 左サイトバーで [**Teams**] をクリックします。
 9. チームを追加する場合は、[**Add a team: Select team**] をクリックします。 次に、ドロップダウン メニューからチームを選択するか、追加したいチームを検索します。 ![Organization のチームのリストが表示される [Add a team] ドロップダウン メニュー](/assets/images/help/projects/add-a-team.png)
 10. チーム名の隣にあるドロップダウン メニューを使って、目的の権限レベルを [**Read**]、[**Write**]、[**Admin**] から選択します。 ![[Read]、[Write]、[Admin] のオプションがあるチームの権限](/assets/images/help/projects/org-project-team-choose-permissions.png)
@@ -40,8 +40,8 @@ versions:
 
 チームのプロジェクトボードへのアクセスが親チームから継承されている場合は、その子チームへのアクセスを更新するために、親チームのプロジェクトボードへのアクセスを変更する必要があります。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 4. チームの会話の上にある {% octicon "project" aria-label="The Projects icon" %}[**Projects**] をクリックします。 ![チームの [Repositories] タブ](/assets/images/help/organizations/team-project-board-button.png)
 5. 権限レベルを変更するには、更新するプロジェクトボードの右にあるドロップダウンを使用します。 プロジェクトボードを削除するには、[**{% octicon "trashcan" aria-label="The trashcan icon" %}**] をクリックします。 ![チームからプロジェクトボードを削除する [Trash] ボタン](/assets/images/help/organizations/trash-button.png)

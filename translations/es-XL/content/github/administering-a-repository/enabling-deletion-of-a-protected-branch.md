@@ -1,7 +1,7 @@
 ---
 title: Habilitar la eliminación de una rama protegida
 intro: Puedes permitir que cualquiera que tenga acceso de escritura para un repositorio borre una rama protegida.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -11,11 +11,11 @@ Cualquiera con permisos de administrador para un repositorio puede habilitar eli
 
 Por defecto, no puedes eliminar una rama protegida. Cuando habilitas la eliminación a una rama protegida, cualquiera con al menos permisos de escritura en el repositorio puede eliminar la rama incluyendo aquellos con permisos de administración.
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. En la sección "Reglas aplicadas a todos, incluidos los administradores", selecciona **Allow deletions**. ![Opción para habilitar las eliminaciones de ramas](/assets/images/help/repository/allow-branch-deletions.png)
 7. Haz clic en **Create** (crear).

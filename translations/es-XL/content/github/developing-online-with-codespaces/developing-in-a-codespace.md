@@ -1,7 +1,7 @@
 ---
 title: Desarrollar en un codespace
-intro: 'Puedes abrir un codespace en {{ site.data.variables.product.product_name }} y después desarrollar utilizando las características de {{ site.data.variables.product.prodname_vscode }}.'
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+intro: 'Puedes abrir un codespace en {% data variables.product.product_name %} y después desarrollar utilizando las características de {% data variables.product.prodname_vscode %}.'
+product: '{% data reusables.gated-features.codespaces %}'
 permissions: Cualquiera puede desarrollar en un codespace que pertenezca a su cuenta de usuario.
 redirect_from:
   - /github/developing-online-with-github-codespaces/developing-in-a-codespace
@@ -9,24 +9,24 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
-{{ site.data.reusables.codespaces.use-visual-studio-features }}
+{% data reusables.codespaces.use-visual-studio-features %}
 
-{{ site.data.reusables.codespaces.use-chrome }} Para obtener más información, consulta la sección "[Solucionar problemas de tu codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)".
+{% data reusables.codespaces.use-chrome %} Para obtener más información, consulta la sección "[Solucionar problemas de tu codespace](/github/developing-online-with-codespaces/troubleshooting-your-codespace)".
 
-### Conectarse a un codespace desde {{ site.data.variables.product.prodname_vscode }}
-{{ site.data.reusables.codespaces.connect-to-codespace-from-vscode }}
+### Conectarse a un codespace desde {% data variables.product.prodname_vscode %}
+{% data reusables.codespaces.connect-to-codespace-from-vscode %}
 
 ### Navegar a tu codespace
-{{ site.data.reusables.codespaces.navigate-to-codespaces }}
+{% data reusables.codespaces.navigate-to-codespaces %}
 2. Da clic en el nombre del codespace en el cual quieras desarrollar. ![Nombre del codespace](/assets/images/help/codespaces/click-name-codespace.png)
 
 ### Puertos de redireccionamiento
 
 La redirección de puertos te otorga acceso a los puertos CRP dentro de tu codespace. Por ejemplo, si estás ejecutando una aplicación web en el puerto 3000, puedes acceder a la aplicación desde tu buscador para probarla y depurarla.
 
-Cuando una aplicación que se ejecuta dentro de un codespace tiene una salida en un puerto de la consola, {{ site.data.variables.product.prodname_codespaces }} detecta el patrón de la URL del localhost y redirecciona esos puertos automáticamente. Puedes dar clic en la URL dentro de la terminal para abrirla en un buscador. Por ejemplo, si una aplicación da como salida `http://127.0.0.1:3000` o `http://localhost:3000` en la consola, la bitácora convertirá la salida automáticamente en una URL para el puerto 3000 en la que se puede dar clic.
+Cuando una aplicación que se ejecuta dentro de un codespace tiene una salida en un puerto de la consola, {% data variables.product.prodname_codespaces %} detecta el patrón de la URL del localhost y redirecciona esos puertos automáticamente. Puedes dar clic en la URL dentro de la terminal para abrirla en un buscador. Por ejemplo, si una aplicación da como salida `http://127.0.0.1:3000` o `http://localhost:3000` en la consola, la bitácora convertirá la salida automáticamente en una URL para el puerto 3000 en la que se puede dar clic.
 
 ![Reenvío Automático de Puertos](/assets/images/help/codespaces/automatic-port-forwarding.png)
 

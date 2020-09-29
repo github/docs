@@ -1,6 +1,6 @@
 ---
 title: Migrating data to your enterprise
-intro: '生成迁移存档后，您可以将数据导入目标 {{ site.data.variables.product.prodname_ghe_server }} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
+intro: '生成迁移存档后，您可以将数据导入目标 {% data variables.product.prodname_ghe_server %} 实例。 在将变更永久应用到目标实例之前，您需要检查变更，查看有无潜在的冲突。'
 redirect_from:
   - /enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise/
   - /enterprise/admin/migrations/applying-the-imported-data-on-github-enterprise-server
@@ -15,9 +15,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### Applying the imported data on {{ site.data.variables.product.prodname_ghe_server }}
+### Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. 使用 `ghe-migrator import` 命令启动导入过程。 您需要：
     * 迁移 GUID.
@@ -30,7 +30,7 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### 检查迁移数据
 
@@ -104,22 +104,22 @@ $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g <
 > repository,https://gh.source/octo-org/octo-project,https://ghe.target/octo-org/octo-project,failed
 ```
 
-如果您对失败的导入有任何疑问，请联系 {{ site.data.variables.contact.contact_ent_support }}。
+如果您对失败的导入有任何疑问，请联系 {% data variables.contact.contact_ent_support %}。
 
-### Completing the import on {{ site.data.variables.product.prodname_ghe_server }}
+### Completing the import on {% data variables.product.prodname_ghe_server %}
 
 After your migration is applied to your target instance and you have reviewed the migration, you''ll unlock the repositories and delete them off the source. 我们建议等待两周再删除您的源数据，以便确保所有数据都能按预期运行。
 
 ### 在目标实例上解锁仓库
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### 在源上解锁仓库
 
-#### Unlocking repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-要在 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
+要在 {% data variables.product.prodname_dotcom_the_website %} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
   * 身份验证的访问令牌
   * 迁移的唯一 `id`
   * 要解锁的仓库的名称
@@ -129,15 +129,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Deleting repositories from an organization on {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
-在解锁 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织的仓库后，您应当使用[仓库删除端点](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository)删除之前迁移的每一个仓库。 您需要身份验证的访问令牌：
+在解锁 {% data variables.product.prodname_dotcom_the_website %} 组织的仓库后，您应当使用[仓库删除端点](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository)删除之前迁移的每一个仓库。 您需要身份验证的访问令牌：
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### 从 {{ site.data.variables.product.prodname_ghe_server }} 实例解锁仓库
+#### 从 {% data variables.product.prodname_ghe_server %} 实例解锁仓库
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

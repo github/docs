@@ -1,6 +1,6 @@
 ---
 title: Configurar seu ambiente de desenvolvimento para criar um aplicativo GitHub
-intro: 'Aprenda os princípios básicos para estender e criar um novo {{ site.data.variables.product.prodname_github_apps }}.'
+intro: 'Aprenda os princípios básicos para estender e criar um novo {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /apps/quickstart-guides/setting-up-your-development-environment
 versions:
@@ -28,7 +28,7 @@ Aqui estão as etapas que você vai seguir para configurar o modelo do aplicativ
 1. [Inicie servidor](#step-6-start-the-server)
 1. [Instale o aplicativo em sua conta](#step-7-install-the-app-on-your-account)
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 ### Pré-requisitos
 
@@ -382,7 +382,7 @@ Se você estiver se perguntando de onde vem a saída do Terminal acima, ela é e
 
 ### Solução de Problemas
 
-Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** Quando eu tento instalar o cliente de linha de comando da Smee, eu recebo o seguinte erro:
 

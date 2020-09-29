@@ -1,7 +1,7 @@
 ---
 title: Exibir um resumo da atividade do repositório
 intro: 'É possível exibir uma visão geral da atividade de um repositório por meio do gráfico Pulse. Ele inclui uma lista de pull requests abertas e com merge, problemas abertos e fechados e um gráfico que mostra a atividade de commit dos 15 principais usuários que fizeram commit no branch padrão do projeto durante o [período] selecionado(/articles/viewing-a-summary-of-repository-activity#filtering-by-time).'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
 versions:
@@ -13,8 +13,8 @@ Os coautores de commit serão incluídos no resumo da atividade de commit caso t
 
 ### Acessar o Pulse
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 
 ### Filtrar por hora
 

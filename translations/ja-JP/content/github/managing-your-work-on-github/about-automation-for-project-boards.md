@@ -8,17 +8,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }} 詳細は「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
+{% data reusables.project-management.automate-project-board-permissions %} 詳細は「[Organization のプロジェクトボードの権限](/articles/project-board-permissions-for-an-organization)」を参照してください。
 
 プロジェクトボードの列に対するトリガーとなるイベントに基づいて、アクションを自動化できます。 これによって、プロジェクトボードを管理するための手作業のタスクの一部を撤廃できます。 たとえば"To do"列を設定して、プロジェクトボードに追加された新しいIssueあるいはプルリクエストが自動的に設定された列に移動するようにできます。 詳しい情報については[プロジェクトボードのための自動化の設定](/articles/configuring-automation-for-project-boards)を参照してください。
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 プロジェクトボードの自動化は、特定のアクションに対する標準化されたワークフローを作成することによって、プロジェクトボードの目的とTeamの開発プロセスの共通理解を育むための役にも立ちます。
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 ### 自動化のオプション
 
@@ -29,7 +29,7 @@ versions:
 | 完了          | <ul><li>クローズされたすべてのIssueをここに移動させる</li><li>マージされたすべてのプルリクエストをここに移動させる</li><li>マージされずにクローズされたすべてのプルリクエストをここに移動させる</li></ul> |
 
 ### プロジェクトの進捗の追跡
-プロジェクトボードの自動化によって、デフォルトで進捗を追跡できるようになります。 "To do"、"In progress"、"Done" がプリセットされた列内のカードは、プロジェクト全体の進捗に対してカウントされます。 {{ site.data.reusables.project-management.project-progress-locations }}
+プロジェクトボードの自動化によって、デフォルトで進捗を追跡できるようになります。 "To do"、"In progress"、"Done" がプリセットされた列内のカードは、プロジェクト全体の進捗に対してカウントされます。 {% data reusables.project-management.project-progress-locations %}
 
 ### 参考リンク
 - 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% if currentVersion == "free-pro-team@latest" %}

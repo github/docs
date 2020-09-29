@@ -1,6 +1,6 @@
 ---
 title: Organization で脆弱性のある依存関係に関するアラートを管理する
-intro: 'Organization のリポジトリで脆弱性のある依存関係を検出すると、Organization のオーナーとリポジトリ管理者は {{ site.data.variables.product.prodname_dependabot_alerts }} を受け取ります。 書き込みアクセスのある追加の Organization メンバーまたは Team も、脆弱性のある依存関係に関するアラートを受け取るよう指定することができます。'
+intro: 'Organization のリポジトリで脆弱性のある依存関係を検出すると、Organization のオーナーとリポジトリ管理者は {% data variables.product.prodname_dependabot_alerts %} を受け取ります。 書き込みアクセスのある追加の Organization メンバーまたは Team も、脆弱性のある依存関係に関するアラートを受け取るよう指定することができます。'
 redirect_from:
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organization-s-repositories/
   - /articles/managing-alerts-for-vulnerable-dependencies-in-your-organizations-repositories/
@@ -10,14 +10,14 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.repositories.you-can-manage-access-to-security-alerts }}
+{% data reusables.repositories.you-can-manage-access-to-security-alerts %}
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 左サイドバーで、[**Dependabot alerts**] をクリックします。 ![[Settings] サイドバーの [Dependabot alerts] タブ](/assets/images/help/settings/settings-sidebar-dependabot-alerts.png)
-4. {{ site.data.variables.product.product_name }} が脆弱性のある依存関係を検出したときに {{ site.data.variables.product.prodname_dependabot_alerts }} を受け取るユーザまたは Team の名前を入力し、ユーザ名または Team 名をクリックして選択します。
-5. {{ site.data.variables.product.prodname_dependabot_alerts }} を受け取るすべてのユーザまたは Team を選択したら、[**Save changes**] をクリックします。
+4. {% data variables.product.product_name %} が脆弱性のある依存関係を検出したときに {% data variables.product.prodname_dependabot_alerts %} を受け取るユーザまたは Team の名前を入力し、ユーザ名または Team 名をクリックして選択します。
+5. {% data variables.product.prodname_dependabot_alerts %} を受け取るすべてのユーザまたは Team を選択したら、[**Save changes**] をクリックします。
 
 ### 参考リンク
 

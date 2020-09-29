@@ -1,9 +1,9 @@
 ---
 title: Configuring the CodeQL action for compiled languages
 shortTitle: コンパイルされた言語を設定する
-intro: 'You can configure how {{ site.data.variables.product.prodname_dotcom }} uses the {{ site.data.variables.product.prodname_codeql_workflow }} to scan code written in compiled languages for vulnerabilities and errors.'
-product: '{{ site.data.reusables.gated-features.code-scanning }}'
-permissions: 'リポジトリへの書き込み権限を持つユーザは、リポジトリの {{ site.data.variables.product.prodname_code_scanning }} を設定できます。'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+product: '{% data reusables.gated-features.code-scanning %}'
+permissions: 'リポジトリへの書き込み権限を持つユーザは、リポジトリの {% data variables.product.prodname_code_scanning %} を設定できます。'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
 versions:
@@ -11,23 +11,23 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.code-scanning.beta }}
-{{ site.data.reusables.code-scanning.enterprise-enable-code-scanning-actions }}
+{% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### About the {{ site.data.variables.product.prodname_codeql_workflow }} and compiled languages
+### About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
 
-You enable {{ site.data.variables.product.prodname_dotcom }} to run {{ site.data.variables.product.prodname_code_scanning }} for your repository by adding a {{ site.data.variables.product.prodname_actions }} workflow to the repository. **Note**: This article refers to {{ site.data.variables.product.prodname_code_scanning }} powered by {{ site.data.variables.product.prodname_codeql }}, not to {{ site.data.variables.product.prodname_code_scanning }} resulting from the upload of third-party static analysis tools. デフォルトの {{ site.data.variables.product.prodname_code_scanning }} ワークフローは、`on.push` イベントを使用して、ワークフローファイルを含むブランチへのプッシュごとにコードスキャンをトリガーします。
+You enable {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. **Note**: This article refers to {% data variables.product.prodname_code_scanning %} powered by {% data variables.product.prodname_codeql %}, not to {% data variables.product.prodname_code_scanning %} resulting from the upload of third-party static analysis tools. デフォルトの {% data variables.product.prodname_code_scanning %} ワークフローは、`on.push` イベントを使用して、ワークフローファイルを含むブランチへのプッシュごとにコードスキャンをトリガーします。
 
-{{ site.data.reusables.code-scanning.edit-workflow }}
-For general information about configuring {{ site.data.variables.product.prodname_code_scanning }} and editing workflow files, see "[Configuring {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
+{% data reusables.code-scanning.edit-workflow %}
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
 
-### {{ site.data.variables.product.prodname_codeql }} の autobuild について
+### {% data variables.product.prodname_codeql %} の autobuild について
 
-{{ site.data.reusables.code-scanning.autobuild-compiled-languages }}
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% note %}
 
-**注釈**: {{ site.data.variables.product.prodname_actions }} にセルフホストランナーを使用する場合、`autobuild` プロセスを使用するために追加のソフトウェアをインストールする必要がある場合があります。 さらに、リポジトリに特定のバージョンのビルドツールが必要な場合は、手動でインストールする必要があります。 詳しい情報については「[GitHUbホストランナーにインストールされているソフトウェア](/actions/reference/software-installed-on-github-hosted-runners)」を参照してください。
+**注釈**: {% data variables.product.prodname_actions %} にセルフホストランナーを使用する場合、`autobuild` プロセスを使用するために追加のソフトウェアをインストールする必要がある場合があります。 さらに、リポジトリに特定のバージョンのビルドツールが必要な場合は、手動でインストールする必要があります。 詳しい情報については「[GitHUbホストランナーにインストールされているソフトウェア](/actions/reference/software-installed-on-github-hosted-runners)」を参照してください。
 
 {% endnote %}
 
@@ -72,7 +72,7 @@ For general information about configuring {{ site.data.variables.product.prodnam
 
 ### コンパイル言語のビルドステップを追加する
 
-{{ site.data.reusables.code-scanning.autobuild-add-build-steps }} ワークフローの編集については、「[{{ site.data.variables.product.prodname_code_scanning }} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。
+{% data reusables.code-scanning.autobuild-add-build-steps %} ワークフローの編集については、「[{% data variables.product.prodname_code_scanning %} を設定する](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)」を参照してください。
 
 `autobuild` ステップを削除した後、`run` ステップのコメントを外して、リポジトリに適したビルドコマンドを追加します。 ワークフロー `run` ステップは、オペレーティングシステムのシェルを使用してコマンドラインプログラムを実行します。 これらのコマンドを変更し、さらにコマンドを追加して、ビルドプロセスをカスタマイズできます。
 
@@ -82,7 +82,7 @@ For general information about configuring {{ site.data.variables.product.prodnam
   make release
 ```
 
-`run` キーワードに関する詳しい情報については、「"[{{ site.data.variables.product.prodname_actions }}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
+`run` キーワードに関する詳しい情報については、「"[{% data variables.product.prodname_actions %}のためのワークフローの構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)」を参照してください。
 
 ビルドマトリックスを使用してワークフローを更新し、複数のコンパイルされた言語をビルドすることもできます（これがシステムに適切なアプローチであり、競合が発生しない場合）。 詳しい情報については、「[ビルドマトリックスを設定する](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)」を参照してください。
 
@@ -129,6 +129,6 @@ jobs:
       uses: github/codeql-action/analyze@v1
 ```
 
-`autobuild` がコードをビルドしない理由に関するヒントと方法については、「[{{ site.data.variables.product.prodname_code_scanning }} のトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)」を参照してください。
+`autobuild` がコードをビルドしない理由に関するヒントと方法については、「[{% data variables.product.prodname_code_scanning %} のトラブルシューティング](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)」を参照してください。
 
-コンパイルされた言語の手動ビルドステップを追加した場合、またはビルドマトリックスを使用しても、{{ site.data.variables.product.prodname_code_scanning }} がリポジトリで機能しない場合は、{{ site.data.variables.contact.contact_support }} にお問い合わせください。
+コンパイルされた言語の手動ビルドステップを追加した場合、またはビルドマトリックスを使用しても、{% data variables.product.prodname_code_scanning %} がリポジトリで機能しない場合は、{% data variables.contact.contact_support %} にお問い合わせください。

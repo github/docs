@@ -1,6 +1,6 @@
 ---
 title: Pesquisar commits
-intro: 'Você pode pesquisar commits no {{ site.data.variables.product.product_name }} e limitar os resultados usando qualquer combinação dos qualificadores de pesquisa de commits.'
+intro: 'Você pode pesquisar commits no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação dos qualificadores de pesquisa de commits.'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Você pode pesquisar commits globalmente no {{ site.data.variables.product.product_name }} ou pesquisar em uma organização ou um repositório específico. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+Você pode pesquisar commits globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 Quando você pesquisa commits, somente o [branch padrão](/articles/about-branches) de um repositório é pesquisado.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Pesquisar em mensagens do commit
 
@@ -45,7 +45,7 @@ Os qualificadores `author-email` e `committer-email` identificam commits pelo en
 
 Use os qualificadores `author-date` e `committer-date` para identificar commits criados ou feitos em um intervalo de datas específico.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Exemplo                                                                                                                                                             |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

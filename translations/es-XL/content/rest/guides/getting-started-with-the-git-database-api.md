@@ -1,6 +1,6 @@
 ---
 title: Comenzar con la API de la Base de Datos de Git
-intro: 'La API de la Base de datos de Git te da acceso de escritura y lectora para los objetos sin procesar de Git que se encuentran en tu base de datos de Git en {{ site.data.variables.product.product_name }} y para listar y actualizar tus referencias (cabezas de rama y etiquetas).'
+intro: 'La API de la Base de datos de Git te da acceso de escritura y lectora para los objetos sin procesar de Git que se encuentran en tu base de datos de Git en {% data variables.product.product_name %} y para listar y actualizar tus referencias (cabezas de rama y etiquetas).'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ versions:
 
 Básicamente, esto te permite volver a implementar muchas de las funcionalidades de Git sobre nuestra API mediante la creación de objetos sin procesar (raw) directamente en la base de datos y actualizando las referencias de rama que técnicamente podrían hacer todo lo que pueda hacer Git sin que se éste se instale.
 
-La API de la Base de Datos de Git devolverá un `409 Conflict` si el repositorio de Git está vacío o no disponible.  Que un repositorio se muestre como no disponible habitualmente significa que {{ site.data.variables.product.product_name }} está en el proceso de crearlo. Para los casos de repositorios vacíos, puedes utilizar la terminal "[Crear o actualizar el contenido de un archivo](/v3/repos/contents/#create-or-update-file-contents)" para crear contenido e inicializar el repositorio para que puedas utilizar la API de la Base de Datos de Git. Contacta a {{ site.data.variables.contact.contact_support }} si este estado de respuesta persiste.
+La API de la Base de Datos de Git devolverá un `409 Conflict` si el repositorio de Git está vacío o no disponible.  Que un repositorio se muestre como no disponible habitualmente significa que {% data variables.product.product_name %} está en el proceso de crearlo. Para los casos de repositorios vacíos, puedes utilizar la terminal "[Crear o actualizar el contenido de un archivo](/v3/repos/contents/#create-or-update-file-contents)" para crear contenido e inicializar el repositorio para que puedas utilizar la API de la Base de Datos de Git. Contacta a {% data variables.contact.contact_support %} si este estado de respuesta persiste.
 
 ![resumen de la base de datos de git](/assets/images/git-database-overview.png)
 

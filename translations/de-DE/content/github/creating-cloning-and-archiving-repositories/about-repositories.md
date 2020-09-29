@@ -15,7 +15,7 @@ Du kannst einschränken, wer Zugriff auf ein Repository hat, indem Du die Sichtb
 Bei benutzereigenen Repositorys kannst du anderen Personen Mitarbeiterzugriff geben, damit sie an Deinem Projekt mitarbeiten können. Wenn ein Repository im Besitz einer Organisation ist, kannst Du den Mitgliedern der Organisation Zugriffsberechtigungen für die Mitarbeit in Deinem Repository erteilen. Weitere Informationen findest Du unter „[Berechtigungsebenen für ein Repository eines Benutzerkontos](/articles/permission-levels-for-a-user-account-repository/)“ und „[Berechtigungsebenen für die Repositorys einer Organisation](/articles/repository-permission-levels-for-an-organization/).“
 
 {% if currentVersion == "free-pro-team@latest" %}
-Mit {{ site.data.variables.product.prodname_free_team }} für Benutzerkonten und Organisationen kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten oder an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang. Um erweiterte Werkzeuge für private Repositorys zu erhalten, kannst Du auf {{ site.data.variables.product.prodname_pro }}, {{ site.data.variables.product.prodname_team }} oder{{ site.data.variables.product.prodname_ghe_cloud }} upgraden. {{ site.data.reusables.gated-features.more-info }}
+Mit {% data variables.product.prodname_free_team %} für Benutzerkonten und Organisationen kannst Du mit einer unbegrenzten Anzahl von Mitarbeitern an unbegrenzten öffentlichen Repositorys mit einem vollen Funktionsumfang arbeiten oder an unbegrenzten privaten Repositorys mit einem begrenzten Funktionsumfang. Um erweiterte Werkzeuge für private Repositorys zu erhalten, kannst Du auf {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %} oder{% data variables.product.prodname_ghe_cloud %} upgraden. {% data reusables.gated-features.more-info %}
 {% else %}
 Jede Person und Organisation kann unbegrenzte Repositorys besitzen und eine unbegrenzte Anzahl von Mitarbeitern in alle Repositorys einladen.
 {% endif %}
@@ -24,14 +24,14 @@ Mithilfe der Issues, Pull Requests und Projektboards Deines Repositorys kannst D
 
 ![Hauptseite des Octocat-/Hello-World-Repositorys](/assets/images/help/repository/repo-main-page.png)
 
-{{ site.data.reusables.repositories.repo-size-limit }}
+{% data reusables.repositories.repo-size-limit %}
 
 ### Weiterführende Informationen
 
 - „[Ein neues Repository erstellen](/articles/creating-a-new-repository)“
 - „[Mithilfe von Issues und Pull Requests zusammenarbeiten](/categories/collaborating-with-issues-and-pull-requests)“
-- „[Deine Arbeit auf {{ site.data.variables.product.prodname_dotcom }} verwalten](/categories/managing-your-work-on-github/)“
+- „[Deine Arbeit auf {% data variables.product.prodname_dotcom %} verwalten](/categories/managing-your-work-on-github/)“
 - „[Ein Repository verwalten](/categories/administering-a-repository)“
 - „[Repository-Daten mit Diagrammen visualisieren](/categories/visualizing-repository-data-with-graphs/)“
 - „[Informationen zu Wikis](/articles/about-wikis)“
-- „[{{ site.data.variables.product.prodname_dotcom }}-Glossar](/articles/github-glossary)“
+- „[{% data variables.product.prodname_dotcom %}-Glossar](/articles/github-glossary)“

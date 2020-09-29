@@ -1,6 +1,6 @@
 ---
 title: Configurar a sua empresa
-intro: 'Quando o {{ site.data.variables.product.prodname_ghe_server }} estiver pronto para uso, você poderá configurar o appliance conforme as demandas da sua organização.'
+intro: 'Quando o {% data variables.product.prodname_ghe_server %} estiver pronto para uso, você poderá configurar o appliance conforme as demandas da sua organização.'
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/

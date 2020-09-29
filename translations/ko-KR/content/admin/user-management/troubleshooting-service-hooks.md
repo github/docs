@@ -13,7 +13,7 @@ versions:
 
 You can find information for the last response of all service hooks deliveries on any repository.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar. ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Click on the **Latest Delivery** link under the service hook having problems. ![Hook Details](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
@@ -21,7 +21,7 @@ You can find information for the last response of all service hooks deliveries o
 
 ### Viewing the payload
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar. ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Click on the **Latest Delivery** link under the service hook having problems.
@@ -31,7 +31,7 @@ You can find information for the last response of all service hooks deliveries o
 
 Deliveries are stored for 15 days.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Browse to the repository you're investigating.
 3. Click on the **Hooks** link in the navigation sidebar. ![Hooks Sidebar](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Click on the **Latest Delivery** link under the service hook having problems.

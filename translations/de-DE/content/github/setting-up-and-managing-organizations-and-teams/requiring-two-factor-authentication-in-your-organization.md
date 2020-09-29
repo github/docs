@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
 
@@ -26,12 +26,12 @@ Bevor Du von {% if currentVersion == "free-pro-team@latest" %}Organisationsmitgl
 
 Vor der Erzwingung der Zwei-Faktor-Authentifizierung empfehlen wir Dir, Deine {% if currentVersion == "free-pro-team@latest" %}Organisationsmitglieder, externen Mitarbeiter und Abrechnungsmanager{% else %}Organisationsmitglieder und externen Mitarbeiter{% endif %} zu benachrichtigen und sie zu bitten, die 2FA für ihre Konten einzurichten. Auf der Personenseite Deiner Organisation kannst Du [überprüfen, ob die Mitglieder und externen Mitarbeiter Deiner Organisation die 2FA bereits verwenden](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled).
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. Wenn Mitglieder und externe Mitarbeiter aus Deiner Organisation entfernt werden, weil sie keine 2FA verwenden, empfehlen wir Dir, diesen Personen eine Einladung zur Wiedereinsetzung ihrer bisherigen Privilegien und Zugriffsrechte für Deine Organisation zu senden. Vor der Annahme dieser Einladung müssen sie allerdings die Zwei-Faktor-Authentifizierung aktivieren.
 {% endif %}
@@ -42,9 +42,9 @@ Wenn Du wissen möchtest, welche Personen automatisch aus Deiner Organisation en
 
 ![Ereignis im Auditprotokoll zur Entfernung eines Benutzers aufgrund der Nichterfüllung der 2FA-Anforderung](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Gib Deine Suchabfrage ein. Verwende für Deine Suche die folgenden Abfragen:
     - für die Suche nach entfernten Organisationsmitgliedern die Suchabfrage `action:org.remove_member`
     - für die Suche nach entfernten externen Mitarbeitern die Suchabfrage `action:org.remove_outside_collaborator`{% if currentVersion == "free-pro-team@latest" %}

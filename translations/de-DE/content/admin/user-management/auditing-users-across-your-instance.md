@@ -1,6 +1,6 @@
 ---
 title: Benutzer instanzweit überwachen
-intro: 'Im {{ site.data.variables.product.prodname_ghe_server }}-Auditprotokoll-Dashboard sehen Websiteadministratoren die Aktionen, die in den letzten 90 Tagen von allen Benutzern und Organisationen auf {{ site.data.variables.product.product_location_enterprise }} durchgeführt wurden. Es enthält Details wie den Ausführenden, die Art und den Zeitpunkt der Aktionen.'
+intro: 'Im {% data variables.product.prodname_ghe_server %}-Auditprotokoll-Dashboard sehen Websiteadministratoren die Aktionen, die in den letzten 90 Tagen von allen Benutzern und Organisationen auf {% data variables.product.product_location_enterprise %} durchgeführt wurden. Es enthält Details wie den Ausführenden, die Art und den Zeitpunkt der Aktionen.'
 redirect_from:
   - /enterprise/admin/guides/user-management/auditing-users-across-an-organization/
   - /enterprise/admin/user-management/auditing-users-across-your-instance
@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-### Auf das {{ site.data.variables.product.prodname_ghe_server }}-Auditprotokoll zugreifen
+### Auf das {% data variables.product.prodname_ghe_server %}-Auditprotokoll zugreifen
 
-Im Auditprotokoll-Dashboard sehen Sie die {{ site.data.variables.product.product_location_enterprise }}-weiten Audit-Daten.
+Im Auditprotokoll-Dashboard sehen Sie die {% data variables.product.product_location_enterprise %}-weiten Audit-Daten.
 
 ![Instanzweites Auditprotokoll-Dashboard](/assets/images/enterprise/site-admin-settings/audit-log-dashboard-admin-center.png)
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 
 Auf der Karte können Sie schwenken und zoomen, um Ereignisse auf der gesamten Welt zu sehen. Bewegen Sie den Mauszeiger über ein Land, um eine schnelle Zählung der Ereignisse für dieses Land zu sehen.
 
 ### Instanzweit nach Ereignissen suchen
 
-Das Auditprotokoll listet die folgenden Informationen zu den auf der {{ site.data.variables.product.product_location_enterprise }} vorgenommenen Aktionen auf:
+Das Auditprotokoll listet die folgenden Informationen zu den auf der {% data variables.product.product_location_enterprise %} vorgenommenen Aktionen auf:
 
 * [das Repository](#search-based-on-the-repository), in dem eine Aktion ausgeführt wurde
 * [den Benutzer](#search-based-on-the-user), der die Aktion ausgeführt hat
@@ -36,7 +36,7 @@ Das Auditprotokoll listet die folgenden Informationen zu den auf der {{ site.dat
 
 **Hinweise:**
 
-- Sie können zwar keinen Text für die Suche nach Audit-Einträgen verwenden, aber Sie können Suchabfragen mit einer Vielzahl von Filtern erstellen. Es werden viele Operatoren für die [{{ site.data.variables.product.prodname_ghe_server }}-weite Suche](/enterprise/{{ currentVersion }}/user/articles/searching-github) unterstützt.
+- Sie können zwar keinen Text für die Suche nach Audit-Einträgen verwenden, aber Sie können Suchabfragen mit einer Vielzahl von Filtern erstellen. Es werden viele Operatoren für die [{% data variables.product.prodname_ghe_server %}-weite Suche](/enterprise/{{ currentVersion }}/user/articles/searching-github) unterstützt.
 - Verwenden Sie den Kennzeichner `created`, wenn Sie nach Ereignissen suchen möchten, die länger als 90 Tage zurückliegen.
 
 {% endwarning %}
@@ -59,7 +59,7 @@ Der Kennzeichner </code>actor</code> analysiert die Ereignisse anhand der Mitgli
 * `actor:octocat actor:hubot` findet alle Ereignisse in Verbindung mit Aktionen, die von `octocat` oder `hubot` ausgeführt wurden.
 * `-actor:hubot` schließt alle Ereignisse in Verbindung mit Aktionen aus, die von `hubot` ausgeführt wurden.
 
-Sie können nur einen {{ site.data.variables.product.prodname_ghe_server }}-Benutzernamen verwenden, nicht den wirklichen Namen einer Einzelperson.
+Sie können nur einen {% data variables.product.prodname_ghe_server %}-Benutzernamen verwenden, nicht den wirklichen Namen einer Einzelperson.
 
 #### Organisationsbasierte Suche
 

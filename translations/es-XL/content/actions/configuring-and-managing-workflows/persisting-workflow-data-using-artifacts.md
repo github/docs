@@ -1,7 +1,7 @@
 ---
 title: Almacenar datos de flujo de trabajo mediante artefactos
 intro: Los artefactos te permiten compartir datos entre puestos en un flujo de trabajo y almacenar los datos una vez que se ha completado ese flujo de trabajo.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/persisting-workflow-data-using-artifacts
   - /GitHub/Automating-Your-Workflow-with-GitHub-Actions/Persisting-Workflow-Data-using-Artifacts
@@ -11,12 +11,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de los artefactos de flujo de trabajo
 
-Los artefactos te permiten hacer datos persistentes después de que se complete un job y comparten estos datos con otro job en el mismo flujo de trabajo. Un artefacto es un archivo o recopilación de archivos producidos durante una ejecución de flujo de trabajo. Por ejemplo, puedes utilizar artefactos para guardar tu compilación y probar el resultado después de que haya terminado una ejecución de flujo de trabajo. Para cargas y solicitudes de extracción, {{ site.data.variables.product.product_name }} almacena artefactos por 90 días. El periodo de retención para una solicitud de extracción se restablece cada vez que alguien sube una confirmación nueva a la solicitud de extracción.
+Los artefactos te permiten hacer datos persistentes después de que se complete un job y comparten estos datos con otro job en el mismo flujo de trabajo. Un artefacto es un archivo o recopilación de archivos producidos durante una ejecución de flujo de trabajo. Por ejemplo, puedes utilizar artefactos para guardar tu compilación y probar el resultado después de que haya terminado una ejecución de flujo de trabajo. Para cargas y solicitudes de extracción, {% data variables.product.product_name %} almacena artefactos por 90 días. El periodo de retención para una solicitud de extracción se restablece cada vez que alguien sube una confirmación nueva a la solicitud de extracción.
 
 Estos son algunos de los artefactos comunes que puedes subir:
 
@@ -27,24 +27,24 @@ Estos son algunos de los artefactos comunes que puedes subir:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Almacenar artefactos consume espacio de almacenamiento en {{ site.data.variables.product.product_name }}. {{ site.data.reusables.github-actions.actions-billing }} Para obtener más información, consulta "[Administrar la facturación para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+Almacenar artefactos consume espacio de almacenamiento en {% data variables.product.product_name %}. {% data reusables.github-actions.actions-billing %} Para obtener más información, consulta "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% else %}
 
-Los artefactos caducan automáticamente después de 90 días, pero siempre puedes reclamar el almacenamiento utilizado de {{ site.data.variables.product.prodname_actions }} si borras artefactos antes de que caduquen en {{ site.data.variables.product.product_name }}.
+Los artefactos caducan automáticamente después de 90 días, pero siempre puedes reclamar el almacenamiento utilizado de {% data variables.product.prodname_actions %} si borras artefactos antes de que caduquen en {% data variables.product.product_name %}.
 
 {% endif %}
 
-Los artefactos se cargan durante una ejecución de flujo de trabajo y puedes ver el nombre y tamaño de estos en la IU. Cuando se descarga un artefacto utilizando la IU de {{ site.data.variables.product.product_name }}, todos los archivos que se hayan subido de manera individual como parte del mismo se comprimirán en un solo archivo. Esto significa que los costos se calcularán con base en el tamaño del artefacto cargado y no en aquél del archivo comprimido.
+Los artefactos se cargan durante una ejecución de flujo de trabajo y puedes ver el nombre y tamaño de estos en la IU. Cuando se descarga un artefacto utilizando la IU de {% data variables.product.product_name %}, todos los archivos que se hayan subido de manera individual como parte del mismo se comprimirán en un solo archivo. Esto significa que los costos se calcularán con base en el tamaño del artefacto cargado y no en aquél del archivo comprimido.
 
-{{ site.data.variables.product.product_name }} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más informaicón, consulta las acciones [actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact).
+{% data variables.product.product_name %} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más informaicón, consulta las acciones [actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact).
 
 Para compartir datos entre puestos:
 
 * **Cargar archivos**: Asigna un nombre al archivo cargado y sube los datos antes de que termine el job.
 * **Descargar archivos**: Solo puedes descargar artefactos que se hayan subido durante la misma ejecución del flujo de trabajo. Cuando descargas un archivo, puedes referenciarlo por su nombre.
 
-Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)".
+Los pasos de un job comparten el mismo ambiente en la máquina ejecutora, pero se ejecutan en su propio proceso individual. Para pasar datos entre pasos en un trabajo, puedes usar entradas y salidas. Para obtener más información sobre entradas y salidas, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)".
 
 ### Pasar datos entre puestos en un flujo de trabajo
 
@@ -125,17 +125,17 @@ jobs:
 
 ### Compartir datos entre ejecuciones de flujo de trabajo
 
-Una vez que termina un flujo de trabajo, puedes descargar un archivo comprimido de los artefactos cargados en {{ site.data.variables.product.product_name }} si encuentras la ejecución del flujo de trabajo en la pestaña de **Acciones**. También puedes utilizar la API REST de {{ site.data.variables.product.prodname_dotcom }} para descargar artefactos. Para obtener más información, consulta la sección "[Artefactos](/v3/actions/artifacts/)".
+Una vez que termina un flujo de trabajo, puedes descargar un archivo comprimido de los artefactos cargados en {% data variables.product.product_name %} si encuentras la ejecución del flujo de trabajo en la pestaña de **Acciones**. También puedes utilizar la API REST de {% data variables.product.prodname_dotcom %} para descargar artefactos. Para obtener más información, consulta la sección "[Artefactos](/v3/actions/artifacts/)".
 
-{{ site.data.variables.product.product_name }} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más informaicón, consulta las acciones [actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact).
+{% data variables.product.product_name %} proporciona dos acciones que puedes usar para cargar y descargar artefactos de construcción. Para obtener más informaicón, consulta las acciones [actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact).
 
 ### Cargar artefactos de construcción y prueba
 
-Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu código. Para obtener más información acerca de cómo utilizar {{ site.data.variables.product.prodname_actions }} para realizar la IC, consulta la sección "[Acerca de la integración contínua](/articles/about-continuous-integration)".
+Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu código. Para obtener más información acerca de cómo utilizar {% data variables.product.prodname_actions %} para realizar la IC, consulta la sección "[Acerca de la integración contínua](/articles/about-continuous-integration)".
 
 El resultado de la construcción y la prueba de tu código frecuentemente produce archivos que puedes usar para depurar fallas de prueba y códigos de producción que puedes implementar. Puedes configurar un flujo de trabajo para construir y probar el código subido a tu repositorio e informar un estado satisfactorio o de falla. Puedes cargar los resultados de construcción y prueba para usar en implementaciones, pruebas de depuración fallidas o fallos, y para visualizar la cobertura del conjunto de prueba.
 
-Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {{ site.data.variables.product.product_location }}{% endif %}.
+Puedes usar la acción `upload-Artifact` para cargar artefactos. Cuando cargues un artefacto, puedes especificar un archivo sencillo o un directorio, o varios archivos o directorios. También puedes excluir ciertos archivos o directorios y utilizar patrones de comodín. Te recomendamos que proporciones un nombre para cada artefacto pero, si no se lo das, entonces el nombre predeterminado que se utilizará será `artifact`. For more information on syntax, see the {% if currentVersion == "free-pro-team@latest" %}[actions/upload-artifact](https://github.com/actions/upload-artifact) action{% else %} `actions/upload-artifact` action on {% data variables.product.product_location %}{% endif %}.
 
 #### Ejemplo
 
@@ -225,7 +225,7 @@ For more information on syntax, see the [actions/download-artifact](https://gith
 
 #### Descargar y borrar los artefactos después de que se complete una ejecución de flujo de trabajo
 
-Los artefactos caducan automáticamente después de 90 días, pero siempre puedes reclamar el almacenamiento utilizado de {{ site.data.variables.product.prodname_actions }} si borras artefactos antes de que caduquen en {{ site.data.variables.product.product_name }}.
+Los artefactos caducan automáticamente después de 90 días, pero siempre puedes reclamar el almacenamiento utilizado de {% data variables.product.prodname_actions %} si borras artefactos antes de que caduquen en {% data variables.product.product_name %}.
 
 {% warning %}
 
@@ -233,10 +233,10 @@ Los artefactos caducan automáticamente después de 90 días, pero siempre puede
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
-{{ site.data.reusables.repositories.navigate-to-workflow }}
-{{ site.data.reusables.repositories.view-run }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+{% data reusables.repositories.view-run %}
 1. Para descargar artefactos, usa el menú desplegable **Artifacts** (Artefactos) y selecciona el artefacto que deseas descargar. ![Menú desplegable Download artifact (Descargar artefacto)](/assets/images/help/repository/artifact-drop-down.png)
 1. Para eliminar artefactos, usa el menú desplegable **Artifacts** (Artefactos) y haz clic en {% octicon "trashcan" aria-label="The trashcan icon" %}. ![Menú desplegable Delete artifact (Eliminar artefacto)](/assets/images/help/repository/actions-delete-artifact.png)
 
@@ -244,6 +244,6 @@ Los artefactos caducan automáticamente después de 90 días, pero siempre puede
 
 ### Leer más
 
-- "[Administrar la facturación para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
+- "[Administrar la facturación para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)".
 
 {% endif %}

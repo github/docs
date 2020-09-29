@@ -9,14 +9,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Issue テンプレートを作成する
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. [Features] セクションの [Issues] の下で、[**Set up templates**] をクリックします。 ![[Start template setup] ボタン](/assets/images/help/repository/set-up-templates.png)
 4. [Add template] ドロップダウンメニューで、作成するテンプレートの種類をクリックします。 ![[Add template] ドロップダウンメニュー](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. テンプレートをリポジトリにコミットする前にプレビューまたは編集するには、[**Preview and edit**] をクリックします。 ![[Preview and edit] ボタン](/assets/images/help/repository/preview-and-edit-button.png)
@@ -30,7 +30,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### テンプレート選択画面を設定する
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 `blank_issues_enabled` を `false` に設定すると、コントリビューターに Issue テンプレートの使用を促すことができます。 `blank_issues_enabled` を `true` に設定すると、空白の Issue を開くこともできます。
 
@@ -40,30 +40,30 @@ versions:
 
 {% endnote %}
 
-{{ site.data.variables.product.product_name }}外で特定のレポートを受信する場合は、`contact_links` を使用して外部サイトにユーザを誘導できます。
+{% data variables.product.product_name %}外で特定のレポートを受信する場合は、`contact_links` を使用して外部サイトにユーザを誘導できます。
 
 *config.yml* ファイルの例は次のとおりです。
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Please ask and answer questions here.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Security Bug Bounty
+  - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
 設定ファイルでは、ファイルがリポジトリのデフォルトブランチにマージされるときにテンプレート選択画面をカスタマイズします。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドに `.github/ISSUE_TEMPLATE/config.yml` と入力します。 ![ファイル名の設定](/assets/images/help/repository/template-config-file-name.png)
 4. 新しいファイルの本文に、設定ファイルのコンテンツを入力します。 ![ファイルコンテンツの設定](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### 参考リンク

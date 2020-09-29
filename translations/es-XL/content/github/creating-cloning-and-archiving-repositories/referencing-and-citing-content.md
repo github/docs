@@ -9,7 +9,7 @@ versions:
 
 ### Emitir un identificador persistente para tu repositorio con Zenodo
 
-Para hacer que sea más sencillo referenciar tus repositorios en la literatura académica, puedes crear identificadores persistentes, también conocidos como Identificadores de Objetos Digitales (DOI). Puedes utilizar la herramienta de archivo de datos [Zenodo](https://zenodo.org/about) para archivar un repositorio {{ site.data.variables.product.product_name }} y emitir un DOI para el archivo.
+Para hacer que sea más sencillo referenciar tus repositorios en la literatura académica, puedes crear identificadores persistentes, también conocidos como Identificadores de Objetos Digitales (DOI). Puedes utilizar la herramienta de archivo de datos [Zenodo](https://zenodo.org/about) para archivar un repositorio {% data variables.product.product_name %} y emitir un DOI para el archivo.
 
 {% tip %}
 
@@ -27,7 +27,7 @@ Para hacer que sea más sencillo referenciar tus repositorios en la literatura a
 5. Navega hasta la [Página de GitHub de Zenodo](https://zenodo.org/account/settings/github/). ![Página de GitHub de Zenodo](/assets/images/help/repository/zenodo_github_page.png)
 6. A la derecha del nombre del repositorio que quieras archivar, cambia el botón de **Off** (Apagado) a **On** (Encendido) para habilitarlo para el archivo. ![Habilitar que Zenodo archive en el repositorio](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archiva tu repositorio y emite un DOI nuevo cada vez que creas un {{ site.data.variables.product.product_name }} [lanzamiento](/articles/about-releases/) nuevo. Sigue los pasos en "[Creating releases](/articles/creating-releases/)" (Crear lanzamientos) para crear uno nuevo.
+Zenodo archiva tu repositorio y emite un DOI nuevo cada vez que creas un {% data variables.product.product_name %} [lanzamiento](/articles/about-releases/) nuevo. Sigue los pasos en "[Creating releases](/articles/creating-releases/)" (Crear lanzamientos) para crear uno nuevo.
 
 ### Publicitar y citar material de investigación con Figshare
 

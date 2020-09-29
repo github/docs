@@ -11,10 +11,10 @@ versions:
 
 ### リポジトリで保護されたブランチを有効化する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. **Create（作成）**をクリックしてください。
 
 ### 必須ステータスチェックのタイプ
@@ -27,16 +27,16 @@ versions:
 
 ### 必須ステータスチェックを有効にする
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. [**Require status checks to pass before merging**] を選択します。 ![必須ステータスチェックのオプション](/assets/images/help/repository/required-status-checks.png)
 6. 使用可能なステータスチェックのリストから、必須としたいものを選択します。 ![利用可能なステータスチェックの一覧](/assets/images/help/repository/required-statuses-list.png)
-{{ site.data.reusables.repositories.include-administrators }}
+{% data reusables.repositories.include-administrators %}
 8. オプションとして、[**Require branches to be up to date before merging**] の選択を解除します。 選択すると、ベースブランチ上でブランチが最新のコードでテストされるようにできます。 ![必須ステータスのチェックボックス、ゆるい、または厳格な](/assets/images/help/repository/protecting-branch-loose-status-new.png)
 9. 必要に応じて、 {% if currentVersion ver_gt "enterprise-server@2.18" %}**Restrict who can push to matching branches（マッチするブランチにプッシュできるユーザーを制限する）**{% else %}**Restrict who can push to this branch（このブランチにプッシュできるユーザーを制限する）**{% endif %}を選択してください。 ![Branch restriction checkbox]{% if currentVersion ver_gt "enterprise-server@2.18" %}(/assets/images/help/repository/restrict-branch.png){% else %}(/assets/images/help/repository/restrict-branch-push.png){% endif %}
 10. 保護されたブランチにプッシュできる権限を持つ人{% if currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}または{% endif %}チーム{% if currentVersion ver_gt "enterprise-server@2.18" %}、またはアプリ{% endif %}を検索し、選択します。 ![ブランチ制限の検索](/assets/images/help/repository/restrict-branch-search.png)
 11. **Create（作成）**をクリックしてください。
 
-{{ site.data.reusables.repositories.required-status-merge-tip }}
+{% data reusables.repositories.required-status-merge-tip %}

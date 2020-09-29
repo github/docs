@@ -1,22 +1,22 @@
 ---
 title: Managing complex workflows
 shortTitle: Managing complex workflows
-intro: 'This guide shows you how to use the advanced features of {{ site.data.variables.product.prodname_actions }}, with secret management, dependent jobs, caching, build matrices, and labels.'
+intro: 'This guide shows you how to use the advanced features of {% data variables.product.prodname_actions %}, with secret management, dependent jobs, caching, build matrices, and labels.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
 
-This article describes some of the advanced features of {{ site.data.variables.product.prodname_actions }} that help you work create more complex workflows. 
+This article describes some of the advanced features of {% data variables.product.prodname_actions %} that help you work create more complex workflows. 
 
 ### Storing secrets
 
-If your workflows use sensitive data, such as passwords or certificates, you can save these in {{ site.data.variables.product.prodname_dotcom }} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow. 
+If your workflows use sensitive data, such as passwords or certificates, you can save these in {% data variables.product.prodname_dotcom %} as _secrets_ and then use them in your workflows as environment variables. This means that you will be able to create and share workflows without having to embed sensitive values directly in the YAML workflow. 
 
 This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
@@ -79,7 +79,7 @@ For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/w
 
 ### Caching dependencies
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository. 
+{% data variables.product.prodname_dotcom %}-hosted runners are started as fresh environments for each job, so if your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository. 
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 
@@ -142,4 +142,4 @@ For more information, see  ["Using labels with self-hosted runners](/actions/hos
 
 ### Next steps
 
-To continue learning about {{ site.data.variables.product.prodname_actions }}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Sharing workflows with your organization](/actions/learn-github-actions/sharing-workflows-with-your-organization)."

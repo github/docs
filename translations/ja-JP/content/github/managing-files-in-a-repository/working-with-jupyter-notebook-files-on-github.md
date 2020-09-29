@@ -1,6 +1,6 @@
 ---
 title: GitHub で Jupyter notebook ファイルを使って作業する
-intro: 'Jupyter Notebook または IPython Notebook ファイルに *.ipynb* 拡張子を付けて {{ site.data.variables.product.product_location }} に追加すると、それらはリポジトリに静的 HTML ファイルとしてレンダリングされます。'
+intro: 'Jupyter Notebook または IPython Notebook ファイルに *.ipynb* 拡張子を付けて {% data variables.product.product_location %} に追加すると、それらはリポジトリに静的 HTML ファイルとしてレンダリングされます。'
 redirect_from:
   - /articles/working-with-jupyter-notebook-files-on-github
 versions:
@@ -9,7 +9,7 @@ versions:
 ---
 
 
-カスタム JavaScript プロットなど、Notebook のインタラクティブ機能は、{{ site.data.variables.product.product_location }} のリポジトリでは機能しません。 例については、[*リンキングおよび Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) を参照してください。
+カスタム JavaScript プロットなど、Notebook のインタラクティブ機能は、{% data variables.product.product_location %} のリポジトリでは機能しません。 例については、[*リンキングおよび Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) を参照してください。
 
 レンダリングした JavaScript コンテンツで Jupyter notebook を表示する、または、notebook ファイルを他のユーザーと共有する場合、[nbviewer](https://nbviewer.jupyter.org/) を使用できます。 例については、[*nbviewerでレンダリングされたリンキングおよびInteractions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) を参照してください。
 

@@ -13,21 +13,21 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Dica**: Você também pode ver uma versão usando o {{ site.data.variables.product.prodname_cli }}. Para obter mais informações, consulte "[`vista da versão `](https://cli.github.com/manual/gh_release_view)" na documentação do {{ site.data.variables.product.prodname_cli }}.
+**Dica**: Você também pode ver uma versão usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`vista da versão `](https://cli.github.com/manual/gh_release_view)" na documentação do {% data variables.product.prodname_cli %}.
 
 {% endtip %}
 {% endif %}
 
 ### Visualizar versões
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. Na parte superior da página Versões, clique em **Releases** (Versões).
 
 ### Visualizar tags
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. Na parte superior da página Versões, clique em **Tags**. ![Página de tags](/assets/images/help/releases/tags-list.png)
 
 ### Leia mais

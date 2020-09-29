@@ -12,15 +12,15 @@ versions:
 
 ### Acceder a tu tablero personal
 
-Tu tablero personal es la primera página que verás cuando inicias sesión en {{ site.data.variables.product.product_name }}.
+Tu tablero personal es la primera página que verás cuando inicias sesión en {% data variables.product.product_name %}.
 
-Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en el {% octicon "mark-github" aria-label="The github octocat logo" %} en la esquina superior izquierda de cualquier página en {{ site.data.variables.product.product_url }}.
+Para acceder a tu tablero personal una vez que has iniciado sesión, haz clic en el {% octicon "mark-github" aria-label="The github octocat logo" %} en la esquina superior izquierda de cualquier página en {% data variables.product.product_url %}.
 
 ### Encontrar tu actividad reciente
 
 En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes encontrar las propuestas y solicitudes de extracción recién actualizadas en las que estás trabajando y hacerles el seguimiento. En "Recent activity" (Actividad reciente), puedes previsualizar hasta 12 actualizaciones recientes, realizadas durante las últimas dos semanas.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Encontrar tus equipos y repositorios principales
 
@@ -28,7 +28,7 @@ En la barra lateral izquierda de tu tablero, puedes acceder a los equipos y los 
 
 ![listado de repositorios y equipos de diferentes organizaciones](/assets/images/help/dashboard/repositories-and-teams-from-personal-dashboard.png)
 
-También puedes encontrar un listado de los repositorios, los equipos y los tableros de proyecto recientemente visitados al hacer clic en la barra de búsqueda en la parte principal de cualquier página en {{ site.data.variables.product.product_name }}.
+También puedes encontrar un listado de los repositorios, los equipos y los tableros de proyecto recientemente visitados al hacer clic en la barra de búsqueda en la parte principal de cualquier página en {% data variables.product.product_name %}.
 
 ### Estar actualizado con la actividad desde tu organización
 
@@ -46,7 +46,7 @@ Para obtener más información acerca de cómo destacar repositorios y seguir pe
 
 ### Explorar los repositorios recomendados
 
-Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en repositorios que has visitado o a los que has marcado con una estrella, las personas que sigues, y la actividad dentro de los repositorios a los cuales tienes acceso. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta "[Encontrar maneras de contribuir al código abierto en {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
+Puedes explorar los repositorios recomendados en tus comunidades en la sección "Explorar repositorios" en el costado derecho de tu tablero. Las recomendaciones se basan en repositorios que has visitado o a los que has marcado con una estrella, las personas que sigues, y la actividad dentro de los repositorios a los cuales tienes acceso. {% if currentVersion == "free-pro-team@latest" %}Para obtener más información, consulta "[Encontrar maneras de contribuir al código abierto en {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)".{% endif %}
 
 ### Leer más
 

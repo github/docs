@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Veja exemplos de hooks pre-receive para o {{ site.data.variables.product.prodname_ghe_server }} no repositório  [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
+Veja exemplos de hooks pre-receive para o {% data variables.product.prodname_ghe_server %} no repositório  [`github/platform-samples`](https://github.com/github/platform-samples/tree/master/pre-receive-hooks).
 
 ### Gravar um script de hook pre-receive
-Um script de hook pre-receive é executado em um ambiente de hook pre-receive no appliance do {{ site.data.variables.product.prodname_ghe_server }}. Ao criar um script de hook pre-receive, pense nas variáveis disponíveis de entrada, saída, status de saída e ambiente.
+Um script de hook pre-receive é executado em um ambiente de hook pre-receive no appliance do {% data variables.product.prodname_ghe_server %}. Ao criar um script de hook pre-receive, pense nas variáveis disponíveis de entrada, saída, status de saída e ambiente.
 
 #### Entrada (stdin)
 Após a ocorrência de um push e antes que qualquer ref seja atualizada no repositório remoto, o processo `git-receive-pack` invoca o script de hook pre-receive com a entrada padrão de uma linha por ref a ser atualizada:
@@ -42,7 +42,7 @@ O `exit-status` de um script pre-receive determina se o push será aceito.
 | Diferente de zero | O push será rejeitado. |
 
 #### Variáveis de ambiente
-Fora dos valores fornecidos para `stdin`, há variáveis adicionais disponíveis para o script de hook pre-receive em execução no {{ site.data.variables.product.prodname_ghe_server }}.
+Fora dos valores fornecidos para `stdin`, há variáveis adicionais disponíveis para o script de hook pre-receive em execução no {% data variables.product.prodname_ghe_server %}.
 
 | Variável                              | Descrição                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 |:------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,9 +60,9 @@ Fora dos valores fornecidos para `stdin`, há variáveis adicionais disponíveis
 | $GIT_PUSH_OPTION_N                  | Quando <em>N</em> for um número inteiro a partir de 0, esta variável vai conter a string de opção de push enviada pelo cliente. A primeira opção enviada é armazenada em GIT_PUSH_OPTION_0, a segunda é armazenada em GIT_PUSH_OPTION_1 e assim por diante. Para obter mais informações sobre as opções de push, consulte "[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)" na documentação do Git. |{% if currentVersion ver_gt "enterprise-server@2.21" %}
 | $GIT_USER_AGENT                     | A string do user-agent enviada pelo cliente que fez push das alterações. |{% endif %}
 
-### Configurar permissões e fazer push de um hook pre-receive para o {{ site.data.variables.product.prodname_ghe_server }}
+### Configurar permissões e fazer push de um hook pre-receive para o {% data variables.product.prodname_ghe_server %}
 
-Um script de hook pre-receive está contido em um repositório no appliance do {{ site.data.variables.product.prodname_ghe_server }}. O administrador do site deve considerar as permissões do repositório e garantir que somente os usuários adequados tenham acesso.
+Um script de hook pre-receive está contido em um repositório no appliance do {% data variables.product.prodname_ghe_server %}. O administrador do site deve considerar as permissões do repositório e garantir que somente os usuários adequados tenham acesso.
 
 Recomendamos consolidar os hooks em um único repositório. Se o repositório consolidado do hook for público, será possível usar `LEIAME.md` para explicar a execução das políticas. Além disso, é possível aceitar contribuições via pull request. No entanto, os hooks pre-receive só podem ser adicionados pelo branch padrão. Em fluxos de trabalho de teste, devem ser usados forks do repositório com a devida configuração.
 
@@ -77,19 +77,19 @@ Recomendamos consolidar os hooks em um único repositório. Se o repositório co
   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
   ```
 
-2. Faça commit e push para o seu repositório designado de hooks pre-receive na instância do {{ site.data.variables.product.prodname_ghe_server }}.
+2. Faça commit e push para o seu repositório designado de hooks pre-receive na instância do {% data variables.product.prodname_ghe_server %}.
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
   ```
 
-3. [Crie o hook pre-receive](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) na instância do {{ site.data.variables.product.prodname_ghe_server }}.
+3. [Crie o hook pre-receive](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks) na instância do {% data variables.product.prodname_ghe_server %}.
 
 ### Testar scripts pre-receive no local
-Antes de criar ou atualizar um script de hook pre-receive no appliance do {{ site.data.variables.product.prodname_ghe_server }}, você pode testá-lo no local. Uma forma de fazer isso é criar um ambiente Docker local para funcionar como repositório remoto que pode executar o hook pre-receive.
+Antes de criar ou atualizar um script de hook pre-receive no appliance do {% data variables.product.prodname_ghe_server %}, você pode testá-lo no local. Uma forma de fazer isso é criar um ambiente Docker local para funcionar como repositório remoto que pode executar o hook pre-receive.
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. Crie um arquivo de nome `Dockerfile.dev` contendo:
 

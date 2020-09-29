@@ -16,7 +16,7 @@ versions:
 默认情况下也会启用项目板的自动化。 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards/)”。
 
 1. 导航到要复制的项目板。
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Copy（复制）**。 ![项目板侧边栏的下拉菜单中的复制选项](/assets/images/help/projects/project-board-copy-setting.png)
 4. 在“Owner（所有者）”下，使用下拉菜单并单击要复制项目板的仓库或组织。 ![从下拉菜单中选择所复制项目板的所有者](/assets/images/help/projects/copied-project-board-owner.png)
 5. （可选）在“Project board name（项目板名称）”下，键入所复制项目板的名称。 ![用于键入所复制项目板名称的字段](/assets/images/help/projects/copied-project-board-name.png)

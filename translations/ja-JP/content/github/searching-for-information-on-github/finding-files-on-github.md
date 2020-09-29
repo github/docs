@@ -1,6 +1,6 @@
 ---
 title: GitHub でファイルを検索する
-intro: 'ファイルファインダーを使ってリポジトリにあるファイルを検索できます。 {{ site.data.variables.product.product_name }}上の複数のリポジトリのファイルを検索するには、[`filename` コード検索修飾子](/articles/searching-code#search-by-filename)を使用します。'
+intro: 'ファイルファインダーを使ってリポジトリにあるファイルを検索できます。 {% data variables.product.product_name %}上の複数のリポジトリのファイルを検索するには、[`filename` コード検索修飾子](/articles/searching-code#search-by-filename)を使用します。'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. リポジトリ名の下で、[**Find file**] をクリックします。 ![[Find file] ボタン](/assets/images/help/search/find-file-button.png)
 {% else %}

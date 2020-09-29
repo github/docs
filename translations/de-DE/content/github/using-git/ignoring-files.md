@@ -4,7 +4,7 @@ redirect_from:
   - /git-ignore/
   - /ignore-files/
   - /articles/ignoring-files
-intro: 'Du kannst Git so konfigurieren, dass Dateien ignoriert werden, die Du nicht nach {{ site.data.variables.product.product_name }} einchecken willst.'
+intro: 'Du kannst Git so konfigurieren, dass Dateien ignoriert werden, die Du nicht nach {% data variables.product.product_name %} einchecken willst.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,7 +16,7 @@ Du kannst eine *.gitignore*-Datei im Stammverzeichnis Deines Repository erstelle
 
 GitHub pflegt eine offizielle Liste an empfohlenen *.gitignore*-Dateien für viele gängige Betriebssysteme, Umgebungen und Sprachen im öffentlichen Repository `github/gitignore`. Du kannst auch mit gitignore.io eine *.gitignore*-Datei für Dein Betriebssystem, Deine Programmiersprache oder Deine integrierte Entwicklungsumgebung (IDE) erstellen. Weitere Informationen findest Du unter „[github/gitignore](https://github.com/github/gitignore)" und auf der „[gitignore.io](https://www.gitignore.io/)"-Website.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigiere zum Speicherort Deines Git-Repositorys.
 3. Erstelle eine *.gitignore*-Datei für Dein Repository.
    ```shell
@@ -35,7 +35,7 @@ $ git rm --cached <em>FILENAME</em>
 
 Du kannst auch eine globale *.gitignore*-Datei erstellen, um eine Liste der Regeln für das ignorieren von Dateien in allen Git-Repositorys auf Deinem Computer zu definieren. Du kannst beispielsweise eine Datei unter *~/.gitignore_global* erstellen und ihr dann einige Regeln hinzufügen.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Konfiguriere Git so, dass die Ausschlussdatei *~/.gitignore_global* für alle Git-Repositories verwendet wird.
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
@@ -47,7 +47,7 @@ Wenn Du keine *.gitignore*-Datei erstellen und mit anderen teilen möchtest, kan
 
 Öffne die Datei *.git/info/exclude* im Root Deines Git-Repositorys mit Deinem bevorzugten Texteditor. Alle Regeln, die Du hier hinzufügst, werden nicht eingecheckt und ignorieren nur Dateien für Dein lokales Repository.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigiere zum Speicherort Deines Git-Repositorys.
 3. Öffne die Datei *.git/info/exclude* mit Deinem bevorzugten Texteditor.
 

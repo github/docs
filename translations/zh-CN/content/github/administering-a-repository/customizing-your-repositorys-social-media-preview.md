@@ -16,8 +16,8 @@ versions:
 Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. 为获取质量最佳的渲染，建议图像的像素保持在 640 x 320 像素。
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在“Social preview（社交预览）”下，单击 **Edit（编辑）**
     - 要添加新图像，请单击 **Upload an image...（上传图像）**
     - 要删除图像，请单击 **Remove image（删除图像）**

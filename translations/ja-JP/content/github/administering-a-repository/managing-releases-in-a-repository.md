@@ -16,24 +16,24 @@ versions:
 
 ### リリース管理について
 
-特定のリリースのアクションを {{ site.data.variables.product.prodname_marketplace }} で公開することもできます。 詳しい情報については、「[アクションを {{ site.data.variables.product.prodname_marketplace }} で公開する](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。
+特定のリリースのアクションを {% data variables.product.prodname_marketplace %} で公開することもできます。 詳しい情報については、「[アクションを {% data variables.product.prodname_marketplace %} で公開する](/actions/creating-actions/publishing-actions-in-github-marketplace)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{{ site.data.variables.large_files.product_name_long }}（{{ site.data.variables.large_files.product_name_short }}）オブジェクトを、{{ site.data.variables.product.product_name }} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {{ site.data.variables.large_files.product_name_short }} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトを、{% data variables.product.product_name %} がリリースごとに作成する ZIP ファイルと tarball に含めるかどうかを選択できます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### リリースの作成
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. [**Draft a new release**] をクリックします。 ![新しいリリースのドラフトを作成するボタン](/assets/images/help/releases/draft_release_button.png)
 4. リリースのバージョン番号を入力します。 バージョンは [Git タグ](https://git-scm.com/book/en/Git-Basics-Tagging)に基づきます。 名前付けタグは[セマンティック バージョニング ](http://semver.org/)に準じることをおすすめします。 ![タグ付きバージョンのリリース](/assets/images/help/releases/releases-tag-version.png)
 5. ドロップダウンメニューを使ってリリース対象のプロジェクトを含むブランチを選択します。 ![タグ付きブランチのリリース](/assets/images/help/releases/releases-tag-branch.png)
@@ -46,8 +46,8 @@ versions:
 
 ### リリースの編集
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. ページの右側で、編集するリリースの横にある [**Edit release**] をクリックします。 ![リリースの編集](/assets/images/help/releases/edit-release.png)
 4. フォームでリリースの詳細を編集し、[**Update release**] をクリックします。 ![リリースの更新](/assets/images/help/releases/update-release.png)
 
@@ -55,8 +55,8 @@ versions:
 
 リリースを削除するには、まずリリースに添付されているバイナリファイルをすべて削除する必要があります。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. 削除するリリースの名前をクリックします。 ![リリースを表示するリンク](/assets/images/help/releases/release-name-link.png)
 4. ページの右上にある [**Delete**] をクリックします。 ![リリースの削除ボタン](/assets/images/help/releases/delete-release.png)
 5. [**Delete this release**] をクリックします。 ![リリースの削除を確認](/assets/images/help/releases/confirm-delete-release.png)

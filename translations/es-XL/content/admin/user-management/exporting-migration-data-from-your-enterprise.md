@@ -1,6 +1,6 @@
 ---
 title: Exportar los datos de migración de tu empresa
-intro: 'Para cambiar las plataformas o migrarse de una instancia de pruebas a una productiva, puedes exportar los datos de migración de una instancia de {{ site.data.variables.product.prodname_ghe_server }} si preparas la instancia, bloqueas los repositorios, y generas un archivo de migración.'
+intro: 'Para cambiar las plataformas o migrarse de una instancia de pruebas a una productiva, puedes exportar los datos de migración de una instancia de {% data variables.product.prodname_ghe_server %} si preparas la instancia, bloqueas los repositorios, y generas un archivo de migración.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -13,35 +13,35 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparar la instancia origen de {{ site.data.variables.product.prodname_ghe_server }}
+### Preparar la instancia origen de {% data variables.product.prodname_ghe_server %}
 
-1. Verifica que eres un administrador del sitio en el origen {{ site.data.variables.product.prodname_ghe_server }}. La mejor manera de hacerlo es verificar que puedes usar [SSH en la instancia](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+1. Verifica que eres un administrador del sitio en el origen {% data variables.product.prodname_ghe_server %}. La mejor manera de hacerlo es verificar que puedes usar [SSH en la instancia](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
 
-2. {{ site.data.reusables.enterprise_migrations.token-generation }} en la instancia de origen {{ site.data.variables.product.prodname_ghe_server }}.
+2. {% data reusables.enterprise_migrations.token-generation %} en la instancia de origen {% data variables.product.prodname_ghe_server %}.
 
-{{ site.data.reusables.enterprise_migrations.make-a-list }}
+{% data reusables.enterprise_migrations.make-a-list %}
 
-### Exportar los repositorios origen de {{ site.data.variables.product.prodname_ghe_server }}
+### Exportar los repositorios origen de {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. Para preparar un repositorio para la exportación, usa el comando `ghe-migrator add` con la URL del repositorio:
     * Si estás bloqueando el repositorio, agrega el comando `--lock`. Si estás efectuando una ejecución de prueba, el comando `--lock` no es necesario.
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
-    * Puedes excluir archivos adjuntos agregando ` --exclude_attachments ` al comando. {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }}
+    * Puedes excluir archivos adjuntos agregando ` --exclude_attachments ` al comando. {% data reusables.enterprise_migrations.exclude-file-attachments %}
     * Para preparar varios repositorios al mismo tiempo para exportación, crea un archivo de texto que incluya las URL del repositorio en una línea separada, y ejecuta el comando `ghe-migrator add` con el indicador `-i` y la ruta a tu archivo de texto.
       ```shell
       $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
       ```
 
-3. Cuando se te indique, ingresa tu nombre de usuario {{ site.data.variables.product.prodname_ghe_server }}:
+3. Cuando se te indique, ingresa tu nombre de usuario {% data variables.product.prodname_ghe_server %}:
   ```shell
   Ingresa el nombre de usuario autorizado para la migración: admin
   ```
-4. Cuando se te pida un token de acceso personal, ingresa el token de acceso que creaste en"[Preparación de {{ site.data.variables.product.prodname_ghe_server }} la instancia de origen](#preparing-the-github-enterprise-server-source-instance)":
+4. Cuando se te pida un token de acceso personal, ingresa el token de acceso que creaste en"[Preparación de {% data variables.product.prodname_ghe_server %} la instancia de origen](#preparing-the-github-enterprise-server-source-instance)":
   ```shell
   Ingresa el token de acceso personal:  **************
   ```
@@ -84,9 +84,9 @@ versions:
     $ ghe-migrator export -g <em>MIGRATION_GUID</em>
     > Archivo guardado en: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
     ```
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. Cierra la conexión a {{ site.data.variables.product.product_location_enterprise }}:
+8. Cierra la conexión a {% data variables.product.product_location_enterprise %}:
   ```shell
   $ exit
   > logout
@@ -96,4 +96,4 @@ versions:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

@@ -1,6 +1,6 @@
 ---
 title: 管理 GitHub Enterprise Server 设备上的预接收挂钩
-intro: '配置如何在 {{ site.data.variables.product.prodname_ghe_server }} 设备中使用预接收挂钩。'
+intro: '配置如何在 {% data variables.product.prodname_ghe_server %} 设备中使用预接收挂钩。'
 redirect_from:
   - /enterprise/admin/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
   - /enterprise/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-appliance/
@@ -11,10 +11,10 @@ versions:
 
 ### 创建预接收挂钩
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 4. 单击 **Add pre-receive hook**。 ![添加预接收挂钩](/assets/images/enterprise/site-admin-settings/add-pre-receive-hook.png)
 5. 在 **Hook name** 字段中，输入要创建的挂钩的名称。 ![为预接收挂钩命名](/assets/images/enterprise/site-admin-settings/hook-name.png)
 6. 从 **Environment** 下拉菜单中，选择要在其上运行挂钩的环境。 ![挂钩环境](/assets/images/enterprise/site-admin-settings/environment.png)
@@ -25,27 +25,27 @@ versions:
 
 ### 编辑预接收挂钩
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 1. 在要编辑的预接收挂钩旁边，单击 {% octicon "pencil" aria-label="The edit icon" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/edit-pre-receive-hook.png)
 
 ### 删除预接收挂钩
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 2. 在要删除的预接收挂钩旁边，单击 {% octicon "x" aria-label="X symbol" %}。 ![编辑预接收挂钩](/assets/images/enterprise/site-admin-settings/delete-pre-receive-hook.png)
 
 ### 为组织配置预接收挂钩
 
 仅当站点管理员在创建预接收挂钩时选择了 **Administrators can enable or disable this hook** 选项，组织管理员才能为组织配置挂钩权限。 要为仓库配置预接收挂钩，您必须是组织管理员或所有者。
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.enterprise_access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. 在左侧侧边栏中，单击 **Hooks**。 ![挂钩侧边栏](/assets/images/enterprise/orgs-and-teams/hooks-sidebar.png)
 5. 在要配置的预接收挂钩旁边，单击 **Hook permissions** 下拉菜单。 选择要启用还是禁用预接收挂钩，或者允许仓库管理员对其进行配置。 ![挂钩权限](/assets/images/enterprise/orgs-and-teams/hook-permissions.png)
 
@@ -53,8 +53,8 @@ versions:
 
 仅当站点管理员在创建预接收挂钩时选择了 **Administrators can enable or disable this hook** 选项，仓库所有者才能配置挂钩。 在组织中，组织所​​有者还必须选择 **Configurable** 挂钩权限。 要为仓库配置预接收挂钩，您必须是仓库所有者。
 
-{{ site.data.reusables.profile.enterprise_access_profile }}
+{% data reusables.profile.enterprise_access_profile %}
 2. 单击 **Repositories**，然后选择要为其配置预接收挂钩的仓库。 ![仓库](/assets/images/enterprise/repos/repositories.png)
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.sidebar-settings %}
 4. 在左侧边栏中，单击 **Hooks & Services**。 ![挂钩和服务](/assets/images/enterprise/repos/hooks-services.png)
 5. 在要配置的预接收挂钩旁边，单击 **Hook permissions** 下拉菜单。 选择要启用还是禁用预接收挂钩。 ![仓库挂钩权限](/assets/images/enterprise/repos/repo-hook-permissions.png)

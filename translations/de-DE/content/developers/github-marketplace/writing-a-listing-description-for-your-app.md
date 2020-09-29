@@ -1,6 +1,6 @@
 ---
 title: Writing a listing description for your app
-intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {{ site.data.variables.product.prodname_marketplace }}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
+intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/
@@ -22,13 +22,13 @@ Here are guidelines about the fields you'll need to fill out in the **Listing de
 
 #### Listing name
 
-Your app's name will appear on the [{{ site.data.variables.product.prodname_marketplace }} homepage](https://github.com/marketplace). The name is limited to 255 characters.
+Your app's name will appear on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace). The name is limited to 255 characters.
 
 #### Very short description
 
-The community will see the "very short" description under your app's name on the [{{ site.data.variables.product.prodname_marketplace }} homepage](https://github.com/marketplace).
+The community will see the "very short" description under your app's name on the [{% data variables.product.prodname_marketplace %} homepage](https://github.com/marketplace).
 
-![{{ site.data.variables.product.prodname_marketplace }} app short description](/assets/images/marketplace/marketplace_short_description.png)
+![{% data variables.product.prodname_marketplace %} app short description](/assets/images/marketplace/marketplace_short_description.png)
 
 ##### Length
 
@@ -78,11 +78,11 @@ We recommend keeping short descriptions to 40-80 characters. Although you are al
 
 #### Kategorien
 
-Apps in {{ site.data.variables.product.prodname_marketplace }} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
+Apps in {% data variables.product.prodname_marketplace %} can be displayed by category. Select the category that best describes the main functionality of your app in the **Primary category** dropdown, and optionally select a **Secondary category** that fits your app.
 
 #### Unterstützte Sprachen
 
-If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {{ site.data.variables.product.prodname_marketplace }} listing page. This field is optional.
+If your app only works with specific languages, select up to 10 programming languages that your app supports. These languages are displayed on your app's {% data variables.product.prodname_marketplace %} listing page. This field is optional.
 
 #### Listing URLs
 
@@ -98,15 +98,15 @@ If your app only works with specific languages, select up to 10 programming lang
 
 ### Logo and feature card
 
-{{ site.data.variables.product.prodname_marketplace }} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
+{% data variables.product.prodname_marketplace %} displays all listings with a square logo image inside a circular badge to visually distinguish apps.
 
 ![GitHub Marketplace logo and badge images](/assets/images/marketplace/marketplace-logo-and-badge.png)
 
-A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {{ site.data.variables.product.prodname_marketplace }} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
+A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
 ![Feature card](/assets/images/marketplace/marketplace_feature_card.png)
 
-As you upload images and select colors, your {{ site.data.variables.product.prodname_marketplace }} draft listing will display a preview of your logo and feature card.
+As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
 ##### Guidelines for logos
 
@@ -122,21 +122,21 @@ You must upload a custom image for the logo. For the badge, choose a background 
 
 You must upload a custom background image for the feature card. For the app's name, choose a text color.
 
-- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {{ site.data.variables.product.prodname_marketplace }} homepage. Feature cards should capture your app's brand personality.
+- Use a pattern or texture in your background image to give your card a visual identity and help it stand out against the dark background of the {% data variables.product.prodname_marketplace %} homepage. Feature cards should capture your app's brand personality.
 - Background image measures 965 pixels x 482 pixels (width x height).
 - Choose a text color for your app's name that shows up clearly over the background image.
 
 ### Listing details
 
-To get to your app's landing page, click your app's name from the {{ site.data.variables.product.prodname_marketplace }} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
+To get to your app's landing page, click your app's name from the {% data variables.product.prodname_marketplace %} homepage or category page. The landing page displays a longer description of the app, which includes two parts: an "Introductory description" and a "Detailed description."
 
-Your "Introductory description" is displayed at the top of your app's {{ site.data.variables.product.prodname_marketplace }} landing page.
+Your "Introductory description" is displayed at the top of your app's {% data variables.product.prodname_marketplace %} landing page.
 
-![{{ site.data.variables.product.prodname_marketplace }} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
+![{% data variables.product.prodname_marketplace %} introductory description](/assets/images/marketplace/marketplace_intro_description.png)
 
 Clicking **Read more...**, displays the "Detailed description."
 
-![{{ site.data.variables.product.prodname_marketplace }} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
+![{% data variables.product.prodname_marketplace %} detailed description](/assets/images/marketplace/marketplace_detailed_description.png)
 
 Follow these guidelines for writing these descriptions.
 

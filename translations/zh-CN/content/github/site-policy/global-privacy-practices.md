@@ -33,7 +33,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
   - 我们在收集您的个人信息时会通知您。
   - 我们在[隐私声明](/articles/github-privacy-statement/)中告诉您，我们收集和使用您的信息的目的是什么、我们在什么限制条件下与谁分享该信息，以及您对自己数据的访问权限。
   - 我们告诉您，我们正在参与隐私盾框架以及这对您意味着什么。
-  - 我们有一个 {{ site.data.variables.contact.contact_privacy }}，遇到隐私权问题时可通过它联系我们。
+  - 我们有一个 {% data variables.contact.contact_privacy %}，遇到隐私权问题时可通过它联系我们。
   - 我们告诉您，在出现争议时您有权诉诸有约束力的仲裁，并且这对您是免费的。
   - 我们告诉您，我们受联邦贸易委员会的管辖。
 - **选择**
@@ -51,7 +51,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
 - **访问**
   - 您始终可以在[用户个人资料](https://github.com/settings/profile)中访问您提供的数据。 您可以在那里访问、更新、更改或删除您的信息。
 - **追索、执行和责任**
-  - 如果您对我们的隐私实践有疑问，可通过 {{ site.data.variables.contact.contact_privacy }} 联系我们，我们最迟在 45 天内答复您。
+  - 如果您对我们的隐私实践有疑问，可通过 {% data variables.contact.contact_privacy %} 联系我们，我们最迟在 45 天内答复您。
   - 万一发生我们无法解决的争议，您可以免费申请有约束力的仲裁。 更多信息请参阅我们的[隐私声明](/articles/github-privacy-statement/)。
   - 我们将对相关的隐私实践进行定期审核，以核实我们是否遵守承诺。
   - 我们要求员工尊重我们的隐私承诺，违反隐私政策的行为将受到纪律处分，包括终止雇佣关系。

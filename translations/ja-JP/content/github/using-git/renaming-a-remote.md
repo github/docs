@@ -20,16 +20,16 @@ These examples assume you're [cloning using HTTPS](/articles/which-remote-url-sh
 ```shell
 $ git remote -v
 # 既存のリモートを表示
-> origin https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
-> origin https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 
 $ git remote rename origin destination
 # リモート名を「origin」から「destination」に変更
 
 $ git remote -v
 # リモートの新しい名前を確認
-> destination https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
-> destination https://{{ site.data.variables.command_line.codeblock }}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (fetch)
+> destination https://{% data variables.command_line.codeblock %}/<em>オーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 ### トラブルシューティング
@@ -45,8 +45,8 @@ $ git remote -v
 ```shell
 $ git remote -v
 # 既存のリモートを表示
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>コードオーナー</em>/<em>リポジトリ</em>.git (push)
 ```
 
 #### Remote [新しい名前] already exists.

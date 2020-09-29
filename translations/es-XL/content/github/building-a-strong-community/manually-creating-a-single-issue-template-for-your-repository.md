@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 Puedes crear un subdirectorio de *ISSUE_TEMPLATE/* (PLANTILLA DE PROPUESTA) en alguna de las carpetas admitidas para incluir múltiples plantillas de propuestas, y utilizar el parámetro de consulta `template` para especificar la plantilla que completará el cuerpo de la propuesta. Para obtener más información, consulta "[Acerca de la automatización para las propuestas y las solicitudes de extracción con parámetros de consulta ](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)"
 
@@ -34,16 +34,16 @@ asignados: octocat
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 ### Agregar una plantilla de propuesta
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. En el campo del nombre del archivo:
     -  Para que tu plantilla de propuesta sea visible en el directorio raíz del repositorio, escribe el nombre de tu *issue_template* (plantilla de propuesta). Por ejemplo, `issue_template.md`. ![Nuevo nombre de la plantilla de propuesta en un directorio raíz](/assets/images/help/repository/issue-template-file-name.png)
     - Para que tu plantilla de propuesta sea visible en el directorio `docs` del repositorio, escribe *docs/* seguido del nombre de tu *issue_template*. Por ejemplo, `docs/issue_template.md`, ![Nueva plantilla de propuesta en el directorio docs](/assets/images/help/repository/issue-template-file-name-docs.png)
@@ -54,9 +54,9 @@ asignados: octocat
     - Comportamiento esperado y comportamiento real
     - Pasos para reproducir el problema
     - Specifications like the version of the project, operating system, or hardware
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Las plantillas están a disposición de los colaboradores cuando se fusionan en la rama predeterminada del repositorio.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Las plantillas están a disposición de los colaboradores cuando se fusionan en la rama predeterminada del repositorio.
+{% data reusables.files.propose_new_file %}
 
 ### Leer más
 

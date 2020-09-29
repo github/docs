@@ -3,12 +3,12 @@ title: About GitHub Jobs
 redirect_from:
   - /articles/how-to-write-a-great-job-post/
   - /articles/about-github-jobs
-intro: 'You can post a job on {{ site.data.variables.product.prodname_jobs }} to find talent for your business.'
+intro: 'You can post a job on {% data variables.product.prodname_jobs %} to find talent for your business.'
 versions:
   free-pro-team: '*'
 ---
 
-Before you can post a job, you must create a {{ site.data.variables.product.prodname_dotcom }} account and verify your email address. For more information, see "[Signing up for a new {{ site.data.variables.product.prodname_dotcom }} account](/articles/signing-up-for-a-new-github-account)" and "[Verifying your email address](/articles/verifying-your-email-address)."
+Before you can post a job, you must create a {% data variables.product.prodname_dotcom %} account and verify your email address. For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)" and "[Verifying your email address](/articles/verifying-your-email-address)."
 
 ### Best practices for writing a job post
 
@@ -18,11 +18,11 @@ In the job description, include information about your company's culture and any
 
 To help candidates find your job post, check **Hot Searches** on the bottom of the main page. If any of these categories apply to your open position, include them in your job description.
 
-![Hot Searches section of {{ site.data.variables.product.prodname_dotcom }}](/assets/images/help/jobs/hot-searches.png)
+![Hot Searches section of {% data variables.product.prodname_dotcom %}](/assets/images/help/jobs/hot-searches.png)
 
 {% tip %}
 
-**Tip:** {{ site.data.variables.product.prodname_dotcom }} does not track views of your job post or click-throughs. If you want to track click-throughs, you can add tracking parameters to the URL you include in the **How to Apply** field. For more information, see Google's "[URL parameters](https://support.google.com/google-ads/answer/6277564?hl=en)."
+**Tip:** {% data variables.product.prodname_dotcom %} does not track views of your job post or click-throughs. If you want to track click-throughs, you can add tracking parameters to the URL you include in the **How to Apply** field. For more information, see Google's "[URL parameters](https://support.google.com/google-ads/answer/6277564?hl=en)."
 
 {% endtip %}
 
@@ -32,4 +32,4 @@ You can use markdown to format your job post. For more information, see "[Basic 
 
 ### Further reading
 
-- [How {{ site.data.variables.product.prodname_jobs }} works](https://jobs.github.com/faq) on {{ site.data.variables.product.prodname_jobs }}
+- [How {% data variables.product.prodname_jobs %} works](https://jobs.github.com/faq) on {% data variables.product.prodname_jobs %}

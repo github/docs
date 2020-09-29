@@ -8,16 +8,16 @@ versions:
 
 ### About the default branch name
 
-{{ site.data.reusables.branches.new-repo-default-branch }} This branch is currently named `master`, but you can set the default branch name to anything that makes sense for your development environment.
+{% data reusables.branches.new-repo-default-branch %} This branch is currently named `master`, but you can set the default branch name to anything that makes sense for your development environment.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Setting the default branch name
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
 3. Under "Repository default branch", click **Change default branch name now**. ![Override button](/assets/images/help/settings/repo-default-name-button.png)
 4. Type the default name that you would like to use for new branches. ![Text box for entering default name](/assets/images/help/settings/repo-default-name-text.png)
 5. Click **Update**. ![Update button](/assets/images/help/settings/repo-default-name-update.png)

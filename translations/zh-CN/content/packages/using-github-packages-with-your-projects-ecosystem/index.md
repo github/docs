@@ -1,7 +1,7 @@
 ---
 title: 将 GitHub 包用于项目的生态系统
 shortTitle: 将 GitHub 包用于项目的生态系统
-intro: '您可以配置 {{ site.data.variables.product.prodname_actions }} 或您的包客户端以支持 {{ site.data.variables.product.prodname_registry }}。'
+intro: '您可以配置 {% data variables.product.prodname_actions %} 或您的包客户端以支持 {% data variables.product.prodname_registry %}。'
 redirect_from:
   - /github/managing-packages-with-github-packages/using-github-packages-with-your-projects-ecosystem
 versions:
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_in_list /using-github-packages-with-github-actions %}
 {% link_in_list /configuring-docker-for-use-with-github-packages %}

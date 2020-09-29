@@ -22,12 +22,12 @@ Du kannst Standard-Supportressourcen für Deine Organisation{% if currentVersion
 
 ### Support-Ressourcen zu Deinem Projekt hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Gib im Feld für den Dateinamen *SUPPORT.md* (in Großbuchstaben) ein.
 4. Füge auf der Registerkarte **Edit new file** (Neue Datei bearbeiten) Informationen zu den Support-Möglichkeiten in Deinem Projekt hinzu.
 5. Um die SUPPORT-Datei zu überprüfen, klicke auf **Preview** (Vorschau).
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {{ site.data.variables.product.product_name }} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
+复刻按仓库复刻者用户名的字母顺序列出。 您可以单击要重定向到用户 {% data variables.product.product_name %} 个人资料页面的用户名，或者单击要重定向到仓库特定复刻的复刻名称。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -22,6 +22,6 @@ versions:
 
 ### 访问成员图
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. 在左侧边栏中，单击 **Forks（复刻）**。 ![复刻选项卡](/assets/images/help/graphs/graphs-sidebar-forks-tab.png)

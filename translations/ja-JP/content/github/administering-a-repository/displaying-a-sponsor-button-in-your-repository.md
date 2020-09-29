@@ -10,14 +10,14 @@ versions:
 
 ### FUNDING ファイルについて
 
-デフォルトブランチの、リポジトリ内の `.github` フォルダにある _FUNDING.yml_ ファイルを編集することで、スポンサーボタンを設定できます。 ボタンには、{{ site.data.variables.product.prodname_sponsors }} のスポンサード開発者、外部の資金獲得プラットフォーム、またはカスタムの資金獲得 URL を含めることができます。 {{ site.data.variables.product.prodname_sponsors }} の詳細は、「[GitHub Sponsors について](/articles/about-github-sponsors)」を参照してください。
+デフォルトブランチの、リポジトリ内の `.github` フォルダにある _FUNDING.yml_ ファイルを編集することで、スポンサーボタンを設定できます。 ボタンには、{% data variables.product.prodname_sponsors %} のスポンサード開発者、外部の資金獲得プラットフォーム、またはカスタムの資金獲得 URL を含めることができます。 {% data variables.product.prodname_sponsors %} の詳細は、「[GitHub Sponsors について](/articles/about-github-sponsors)」を参照してください。
 
-外部の資金獲得プラットフォームごとに 1 つのユーザ名、パッケージ名、またはプロジェクト名と、最大 4 つのカスタム URL を追加できます。 {{ site.data.variables.product.prodname_sponsors }} には、スポンサード開発者または Organization を最大 4 人追加できます。 追加する場合は、プラットフォームごとに改行し、以下の構文に従ってください:
+外部の資金獲得プラットフォームごとに 1 つのユーザ名、パッケージ名、またはプロジェクト名と、最大 4 つのカスタム URL を追加できます。 {% data variables.product.prodname_sponsors %} には、スポンサード開発者または Organization を最大 4 人追加できます。 追加する場合は、プラットフォームごとに改行し、以下の構文に従ってください:
 
 | プラットフォーム                                                                           | 構文                                                         |
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
 | [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: プロジェクト名`                                |
-| [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors) | `github: ユーザ名` または `github: [ユーザ名, ユーザ名, ユーザ名, ユーザ名]`      |
+| [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: ユーザ名` または `github: [ユーザ名, ユーザ名, ユーザ名, ユーザ名]`      |
 | [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: ユーザ名`                                          |
 | [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: ユーザ名`                                              |
 | [Liberapay](https://en.liberapay.com/)                                             | `liberapay: ユーザ名`                                          |
@@ -56,7 +56,7 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 {% note %}
 
-資金獲得リンクは、オープンソースプロジェクトが、コミュニティから直接的に資金援助を受ける方法を提供します。 資金獲得リンクをその他の目的、たとえば広告や、政治団体、地域団体、または慈善団体を支援する目的で利用することについて、弊社ではサポートいたしかねます。 あなたが意図する利用方法がサポートされているかについてのご質問は、{{ site.data.variables.contact.contact_support }} にお問い合わせください。
+資金獲得リンクは、オープンソースプロジェクトが、コミュニティから直接的に資金援助を受ける方法を提供します。 資金獲得リンクをその他の目的、たとえば広告や、政治団体、地域団体、または慈善団体を支援する目的で利用することについて、弊社ではサポートいたしかねます。 あなたが意図する利用方法がサポートされているかについてのご質問は、{% data variables.contact.contact_support %} にお問い合わせください。
 
 {% endnote %}
 
@@ -64,15 +64,15 @@ custom: ["https://www.paypal.me/octocat", octocat.com]
 
 管理者権限があるユーザなら誰でも、リポジトリのスポンサーボタンを有効化できます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. [Features] で [**Sponsorships**] を選択します。 ![[Sponsorships] を有効化するチェックボックス](/assets/images/help/sponsors/sponsorships-checkbox.png)
 4. [Sponsorships] で、[**Set up sponsor button**] または [**Override funding links**] をクリックします。 ![スポンサーボタンを設定するボタン](/assets/images/help/sponsors/sponsor-set-up-button.png)
 5. ファイルエディタで、_FUNDING.yml_ ファイルにある指示に従って、資金獲得の場所へのリンクを追加します。 ![FUNDING ファイルを編集して資金獲得の場所へのリンクを追加する](/assets/images/help/sponsors/funding-yml-file.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### 参考リンク
-- 「[オープンソースコントリビューターに対する {{ site.data.variables.product.prodname_sponsors }} について](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)」
-- {{ site.data.variables.product.prodname_blog}} の「[{{ site.data.variables.product.prodname_sponsors }} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」
+- 「[オープンソースコントリビューターに対する {% data variables.product.prodname_sponsors %} について](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)」
+- {% data variables.product.prodname_blog %} の「[{% data variables.product.prodname_sponsors %} Team に関するよくある質問](https://github.blog/2019-06-12-faq-with-the-github-sponsors-team/)」

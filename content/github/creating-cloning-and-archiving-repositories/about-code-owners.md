@@ -4,7 +4,7 @@ intro: You can use a CODEOWNERS file to define individuals or teams that are res
 redirect_from:
   - /articles/about-codeowners/
   - /articles/about-code-owners
-product: '{{ site.data.reusables.gated-features.code-owners }}'
+product: '{% data reusables.gated-features.code-owners %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -32,15 +32,15 @@ If a file has a code owner, you can see who the code owner is before you open a 
 
 To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `docs/`, or `.github/` directory of the repository, in the branch where you'd like to add the code owners.
 
-Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {{ site.data.variables.product.prodname_pages }} site on the `gh-pages` branch.
+Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
 For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
 
 ### CODEOWNERS syntax
 
-A CODEOWNERS file uses a pattern that follows the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {{ site.data.variables.product.prodname_dotcom }} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {{ site.data.variables.product.product_name }} account, for example `user@example.com`.
+A CODEOWNERS file uses a pattern that follows the same rules used in [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) files. The pattern is followed by one or more {% data variables.product.prodname_dotcom %} usernames or team names using the standard `@username` or `@org/team-name` format. You can also refer to a user by an email address that has been added to their {% data variables.product.product_name %} account, for example `user@example.com`.
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {{ site.data.variables.product.product_name }}.
+If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
 #### Example of a CODEOWNERS file
 ```
 # This is a comment.

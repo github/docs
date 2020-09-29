@@ -8,12 +8,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 {% capture service_first_step %}1. セルフホストランナー アプリケーションが現在実行中の場合は、そのアプリケーションを停止します。{% endcapture %}
 {% capture service_non_windows_intro_shell %}ランナー マシンで、セルフホストランナー アプリケーションをインストールしたディレクトリでシェルを開きます。 以下のコマンドを使って、セルフホストランナーサービスをインストール及び管理します。{% endcapture %}
-{% capture service_nonwindows_intro %}セルフホストランナーアプリケーションをサービスとして設定する前に、ランナーを{{ site.data.variables.product.product_name }}に追加しなければなりません。 詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。{% endcapture %}
+{% capture service_nonwindows_intro %}セルフホストランナーアプリケーションをサービスとして設定する前に、ランナーを{% data variables.product.product_name %}に追加しなければなりません。 詳しい情報については「[セルフホストランナーの追加](/github/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。{% endcapture %}
 {% capture service_win_name %}actions.runner.*{% endcapture %}
 
 
@@ -31,7 +31,7 @@ versions:
 
 {% note %}
 
-**ノート:** Windows上でサービスとしてセルフホストランナーアプリケーションを設定するのは、アプリケーションの設定プロセスの一部です。 セルフホストランナーアプリケーションをすでに設定していて、サービスとして設定していない場合には、そのランナーを{{ site.data.variables.product.prodname_dotcom }}から削除して、アプリケーションを設定しなおさなければなりません。 アプリケーションを再設定する場合には、アプリケーションをサービスとして設定するオプションを選択してください。
+**ノート:** Windows上でサービスとしてセルフホストランナーアプリケーションを設定するのは、アプリケーションの設定プロセスの一部です。 セルフホストランナーアプリケーションをすでに設定していて、サービスとして設定していない場合には、そのランナーを{% data variables.product.prodname_dotcom %}から削除して、アプリケーションを設定しなおさなければなりません。 アプリケーションを再設定する場合には、アプリケーションをサービスとして設定するオプションを選択してください。
 
 詳しい情報については「[セルフホストランナーの削除](/actions/automating-your-workflow-with-github-actions/removing-self-hosted-runners)」及び「[セルフホストランナーの追加](/actions/automating-your-workflow-with-github-actions/adding-self-hosted-runners)」を参照してください。
 

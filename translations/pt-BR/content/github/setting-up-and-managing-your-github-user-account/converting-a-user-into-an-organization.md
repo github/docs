@@ -35,12 +35,12 @@ Se quiser que sua organização tenha o mesmo nome que atualmente você está us
 Você também pode converter sua conta de usuário pessoal diretamente em uma organização. A conversão da conta:
  - Preserva os repositórios como estão sem a necessidade de transferi-los para outra conta manualmente
  - Convida automaticamente colaboradores para equipes com permissões equivalentes às que tinham antes
- {% if currentVersion == "free-pro-team@latest" %}- Para contas de usuário no {{ site.data.variables.product.prodname_pro }}, faz a transição da cobrança automaticamente para o [{{ site.data.variables.product.prodname_team }} pago](/articles/about-billing-for-github-accounts) sem a necessidade de inserir novamente as informações de pagamento, ajustar o ciclo de cobrança ou pagar em dobro{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- Para contas de usuário no {% data variables.product.prodname_pro %}, faz a transição da cobrança automaticamente para o [{% data variables.product.prodname_team %} pago](/articles/about-billing-for-github-accounts) sem a necessidade de inserir novamente as informações de pagamento, ajustar o ciclo de cobrança ou pagar em dobro{% endif %}
 
 1. Crie uma conta pessoal, que você usará para entrar no GitHub e acessar a organização e seus repositórios após conversão.
 2.  [Saia das organizações](/articles/removing-yourself-from-an-organization) nas quais a conta de usuário que você está convertendo ingressou.
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 5. Em "Transform account" (Transformar conta), clique em **Turn <username> into an organization** (Transformar <username> em uma organização). ![Botão de conversão da organização](/assets/images/help/settings/convert-to-organization.png)
 6. Na caixa de diálogo Account Transformation Warning (Aviso de transformação da conta), revise e confirme a conversão. Observe que as informações nessa caixa são as mesmas do aviso no início deste artigo. ![Aviso de conversão](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. Na página "Transform your user into an organization" (Transformar usuário em uma organização), em "Choose an organization owner" (Escolher um proprietário da organização), escolha a conta pessoal secundária que você criou na seção anterior ou outro usuário em que confia para gerenciar a organização. ![Página Add organization owner (Adicionar proprietário da organização)](/assets/images/help/organizations/organization-add-owner.png)

@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの支払いを管理する
-intro: '{{ site.data.variables.product.product_name }} は、アカウントごとに無償版と有償版の製品が用意されています。 アカウントのプランのアップグレードとダウングレード、保留中の変更の閲覧はいつでもできます。'
+intro: '{% data variables.product.product_name %} は、アカウントごとに無償版と有償版の製品が用意されています。 アカウントのプランのアップグレードとダウングレード、保留中の変更の閲覧はいつでもできます。'
 redirect_from:
   - /categories/97/articles/
   - /categories/paying-for-user-accounts/

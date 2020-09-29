@@ -1,7 +1,7 @@
 ---
 title: Soporte a la comunidad de código abierto con los patrocinadores de GitHub
 shortTitle: Patrocinadores de GitHub
-intro: 'You can support the people and organizations who design, build, and maintain the open source projects you depend on by compensating them via {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'You can support the people and organizations who design, build, and maintain the open source projects you depend on by compensating them via {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
 versions:

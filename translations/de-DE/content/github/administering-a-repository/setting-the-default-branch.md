@@ -10,7 +10,7 @@ versions:
 
 ### About the default branch
 
-{{ site.data.reusables.branches.new-repo-default-branch }} {{ site.data.reusables.branches.default-branch-automatically-base-branch }} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
+{% data reusables.branches.new-repo-default-branch %} {% data reusables.branches.default-branch-automatically-base-branch %} If you have more than one branch in your repository, anyone with admin rights over a repository can select one of these existing branches as the default branch on the repository.
 
 ### Standardbranch festlegen
 
@@ -20,13 +20,13 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
 4. In the default branch drop-down, choose the new default branch. ![Dropdown-Auswahl für Standardbranch](/assets/images/help/repository/repository-options-defaultbranch.png)
 5. Klicke auf **Update** (Aktualisieren).
 
-Sie können nur zwischen Branches wechseln, die auf {{ site.data.variables.product.product_location }} vorhanden sind. Informationen zur Erstellung eines neuen Branch in der Benutzeroberfläche finden Sie unter „[Branches in Ihrem Repository erstellen und löschen](/articles/creating-and-deleting-branches-within-your-repository)“.
+Sie können nur zwischen Branches wechseln, die auf {% data variables.product.product_location %} vorhanden sind. Informationen zur Erstellung eines neuen Branch in der Benutzeroberfläche finden Sie unter „[Branches in Ihrem Repository erstellen und löschen](/articles/creating-and-deleting-branches-within-your-repository)“.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 

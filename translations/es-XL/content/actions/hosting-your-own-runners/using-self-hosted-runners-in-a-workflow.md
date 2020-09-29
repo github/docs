@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Para obtener más información sobre cómo crear etiquetas personalizadas y predeterminadas, consulta la sección "[Utilizar etiquetas con ejecutores auto-hospedados](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)".
 
@@ -18,13 +18,13 @@ Para obtener más información sobre cómo crear etiquetas personalizadas y pred
 
 Las etiquetas te permiten enviar jobs de flujo de trabajo a tipos específicos de ejecutores auto-hospedados, de acuerdo con sus características compartidas. Por ejemplo, si tu job requiere una componente de hardware o paquete de software específico, puedes asignar una etiqueta personalizada a un ejecutor y después configurar tu job para que solo se ejecute en los ejecutores con esta etiqueta.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
+Para obtener más información, consulta la sección "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)".
 
 ### Utilizar etiquetas predeterminadas para enrutar jobs
 
-Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se agrega a {{ site.data.variables.product.prodname_actions }}. Estas se utilizan para indicar su sistema operativo y plataforma de hardware:
+Un ejecutor auto-hospedado recibe ciertas etiquetas automáticamente cuando se agrega a {% data variables.product.prodname_actions %}. Estas se utilizan para indicar su sistema operativo y plataforma de hardware:
 
 * `autoalojado`: Etiqueta por defecto aplicada a todos los ejecutores autoalojados.
 * `linux`, `windows`, o `macOS`: Se aplican dependiendo del sistema operativo.
@@ -63,8 +63,8 @@ Estas etiquetas operan acumulativamente, así que las etiquetas de un ejecutor a
 
 ### Precedencia de enrutamiento para los ejecutores auto-hospedados
 
-Si utilizas ejecutores tanto a nivel de repositorio como a nivel de organización, {{ site.data.variables.product.prodname_dotcom }} sigue un orden de precedencia cuando enruta los jobs hacia los ejecutores auto-hospedados:
+Si utilizas ejecutores tanto a nivel de repositorio como a nivel de organización, {% data variables.product.prodname_dotcom %} sigue un orden de precedencia cuando enruta los jobs hacia los ejecutores auto-hospedados:
 
-1. Se procesan las etiquetas de `runs-on` del job. Entonces, {{ site.data.variables.product.prodname_dotcom }} intenta ubicar un ejecutor que coincida con los requisitos de la etiqueta:
+1. Se procesan las etiquetas de `runs-on` del job. Entonces, {% data variables.product.prodname_dotcom %} intenta ubicar un ejecutor que coincida con los requisitos de la etiqueta:
 2. El job se envía a un ejecutor a nivel de repositorio que coincida con las etiquetas del mismo. Si no hay un ejecutor a nivel de repositorio disponible (ya sea que esté ocupado, sin conexión, o no tenga etiquetas que coincidan):
 3. El job se envía a un ejecutor de nivel organizacional que coincida con las etiquetas del mismo. Si hay un ejecutor de nivel organizacional disponible, el la solicitud del job falla con un error.

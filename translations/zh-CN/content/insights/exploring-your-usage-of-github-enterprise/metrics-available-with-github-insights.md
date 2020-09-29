@@ -1,7 +1,7 @@
 ---
 title: GitHub Insights 可用的指标
-product: '{{ site.data.reusables.gated-features.github-insights }}'
-intro: '{{ site.data.variables.product.prodname_insights }} 包括各种指标，便于您了解团队的软件交付流程。'
+product: '{% data reusables.gated-features.github-insights %}'
+intro: '{% data variables.product.prodname_insights %} 包括各种指标，便于您了解团队的软件交付流程。'
 redirect_from:
   - /github/installing-and-configuring-github-insights/metrics-available-with-github-insights
   - /github/installing-and-configuring-github-insights/key-metrics-for-collaboration-in-pull-requests
@@ -9,15 +9,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### 关于 {{ site.data.variables.product.prodname_insights }} 中的指标
+### 关于 {% data variables.product.prodname_insights %} 中的指标
 
-{{ site.data.reusables.github-insights.key-metrics-and-reports }}
+{% data reusables.github-insights.key-metrics-and-reports %}
 
-{{ site.data.reusables.github-insights.about-key-metrics }} 您可以设定并衡量每个关键指标的目标。 更多信息请参阅“[管理目标](/insights/installing-and-configuring-github-insights/managing-goals)。”
+{% data reusables.github-insights.about-key-metrics %} 您可以设定并衡量每个关键指标的目标。 更多信息请参阅“[管理目标](/insights/installing-and-configuring-github-insights/managing-goals)。”
 
-{{ site.data.reusables.github-insights.about-reports }}
+{% data reusables.github-insights.about-reports %}
 
-{{ site.data.reusables.github-insights.manage-metrics }}
+{% data reusables.github-insights.manage-metrics %}
 
 ### 拉取请求中协作的关键指标
 

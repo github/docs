@@ -9,17 +9,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_members_tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_members_tab %}
 6. Above the list of team members, click **Add a member**. ![Add member button](/assets/images/help/teams/add-member-button.png)
-{{ site.data.reusables.organizations.invite_to_team }}
-{{ site.data.reusables.organizations.review-team-repository-access }}
+{% data reusables.organizations.invite_to_team %}
+{% data reusables.organizations.review-team-repository-access %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.organizations.cancel_org_invite }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.organizations.cancel_org_invite %}{% endif %}
 
 ### Дополнительная литература
 

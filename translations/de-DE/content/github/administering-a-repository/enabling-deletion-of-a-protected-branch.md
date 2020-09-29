@@ -1,7 +1,7 @@
 ---
 title: Löschen eines geschützten Branch aktivieren
 intro: 'Du kannst jedem Benutzer mit Schreibzugriff auf ein Repository erlauben, einen geschützten Branch zu löschen.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
@@ -11,11 +11,11 @@ Jeder Benutzer mit Administratorberechtigungen für ein Repository kann Branch-L
 
 Standardmäßig kannst Du einen geschützten Branch nicht löschen. Wenn Du das Löschen eines geschützten Branch aktivierst, kann jeder Benutzer, der mindestens Schreibberechtigung im Repository hat, den Branch löschen, inbegriffen diejenigen mit Administratorberechtigungen.
 
-{{ site.data.reusables.repositories.protected-branches-options }}
+{% data reusables.repositories.protected-branches-options %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 6. Wähle unter „Rules applied to everyone including administrators" (Regeln für jedermann, Administratoren inbegriffen) **Allow deletions** (Löschungen erlauben). ![Option „Allow branch deletions" (Erlaube Branch-Löschungen)](/assets/images/help/repository/allow-branch-deletions.png)
 7. Klicke auf **Create** (Erstellen).

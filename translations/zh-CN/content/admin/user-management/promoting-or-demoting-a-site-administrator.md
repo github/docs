@@ -19,19 +19,19 @@ versions:
 
 ### 从企业设置升级用户
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 5. 在页面的右上角，单击 **Add owner（添加所有者）**。 ![用于添加管理员的按钮](/assets/images/help/business-accounts/business-account-add-admin-button.png)
 6. 在搜索字段中，输入用户的名称，然后单击 **Add**。 ![用于添加管理员的搜索字段](/assets/images/help/business-accounts/business-account-search-to-add-admin.png)
 
 ### 从企业设置降级站点管理员
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.people-tab }}
-{{ site.data.reusables.enterprise-accounts.administrators-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.people-tab %}
+{% data reusables.enterprise-accounts.administrators-tab %}
 1. 在页面左上角的“Find an administrator（查找管理员）”搜索字段中，输入您想要降级的人员的用户名。 ![用于查找管理员的搜索字段](/assets/images/help/business-accounts/business-account-search-for-admin.png)
 
 1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**. ![从企业选项中删除](/assets/images/help/business-accounts/demote-admin-button.png)

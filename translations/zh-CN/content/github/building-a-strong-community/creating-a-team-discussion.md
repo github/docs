@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-permissions }} 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
+{% data reusables.organizations.team-discussions-permissions %} 更多信息请参阅“[关于团队讨论](/articles/about-team-discussions)”。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 6. 输入团队讨论标题和评论以开始对话。 ![新的团队讨论评论](/assets/images/help/projects/team-discussions-comment.png)
 7. （可选）使用下拉菜单选择您的帖子是私密还是公开。 ![团队讨论隐私设置菜单](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Click **Comment**. ![创建新的团队讨论评论按钮](/assets/images/help/projects/team-discussions-comment-button.png)

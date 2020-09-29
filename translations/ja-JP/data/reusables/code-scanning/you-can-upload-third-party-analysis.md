@@ -1,1 +1,1 @@
-サードパーティの静的解析ツールから{{ site.data.variables.product.prodname_dotcom }}にSARIFファイルをアップロードし、リポジトリ内でそれらのツールからの{{ site.data.variables.product.prodname_code_scanning }}アラートを見ることができます。
+サードパーティの静的解析ツールから{% data variables.product.prodname_dotcom %}にSARIFファイルをアップロードし、リポジトリ内でそれらのツールからの{% data variables.product.prodname_code_scanning %}アラートを見ることができます。

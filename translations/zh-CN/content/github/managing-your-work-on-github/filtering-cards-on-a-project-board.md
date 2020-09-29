@@ -29,7 +29,7 @@ versions:
 
 {% tip %}
 
-**提示：**您可以拖放过滤出的卡或使用键盘快捷键在各列之间移动它们。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**提示：**您可以拖放过滤出的卡或使用键盘快捷键在各列之间移动它们。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

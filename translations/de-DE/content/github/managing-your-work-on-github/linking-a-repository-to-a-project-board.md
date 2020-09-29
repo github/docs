@@ -10,11 +10,11 @@ versions:
 
 Jeder, der Schreibberechtigung auf ein Projektboard hat, kann Repositories im Besitz dieser Organisation oder dieses Benutzerkontos mit dem Projektboard verknüpfen. Weitere Informationen findest Du unter „[Projektboardberechtigungen für eine Organisation](/articles/project-board-permissions-for-an-organization/)" oder „[Berechtigungsebenen für benutzereigene Projektboards](/articles/permission-levels-for-user-owned-project-boards/)."
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }} Du kannst Issues und Pull Requests von nicht verknüpften Repositorys hinzufügen, indem Du die URL des Issues oder Pull Requests in ein Ticket eingibst. Weitere Informationen findest Du unter „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board).“
+{% data reusables.project-management.link-repos-to-project-board %} Du kannst Issues und Pull Requests von nicht verknüpften Repositorys hinzufügen, indem Du die URL des Issues oder Pull Requests in ein Ticket eingibst. Weitere Informationen findest Du unter „[Issues und Pull Requests zu einem Projektboard hinzufügen](/articles/adding-issues-and-pull-requests-to-a-project-board).“
 
 1. Navigiere zu dem Projektboard, zu dem Du ein Repository verknüpfen möchtest.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Klicke in der linken Seitenleiste auf **Linked repositories** (Verknüpfte Repositorys). ![Menüoption „Linked repositories“ (Verknüpfte Repositorys) in der linken Seitenleiste](/assets/images/help/projects/project-board-linked-repositories-setting.png)
 5. Klicke auf **Link a repository** (Ein Repository verknüpfen). ![Schaltfläche „Link a repository“ (Ein Repository verknüpfen) auf der Registerkarte „Linked repositories“ (Verknüpfte Repositorys)](/assets/images/help/projects/link-repository-button.png)
 6. Suche das Repository, das Du verknüpfen möchtest. ![Suchfeld im Fenster „Link a repository“ (Ein Repository verknüpfen)](/assets/images/help/projects/search-to-link-repository.png)

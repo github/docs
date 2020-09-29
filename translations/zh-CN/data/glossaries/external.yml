@@ -80,7 +80,7 @@
 - 
   term: 检查
   description: >-
-    检查是指 {{ site.data.variables.product.product_name }} 上的一种状态检查。请参阅“[状态检查](#status-checks)”。
+    检查是指 {% data variables.product.product_name %} 上的一种状态检查。请参阅“[状态检查](#status-checks)”。
 - 
   term: 检出
   description: >-
@@ -213,7 +213,7 @@
   description: 发送到用户电子邮件地址的通知。
 - 
   term: 企业帐户
-  description: 企业帐户允许您集中管理多个 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织的策略和帐单。{{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: 企业帐户允许您集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单。{% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -665,7 +665,7 @@
 - 
   term: SSH 密钥
   description: >-
-    SSH 密钥是一种使用加密消息向在线服务器标识自己的方法。就好像您的计算机使用唯一密码登录其他服务一样。{{ site.data.variables.product.product_name }} 使用 SSH 密钥将信息安全地传输到您的计算机。
+    SSH 密钥是一种使用加密消息向在线服务器标识自己的方法。就好像您的计算机使用唯一密码登录其他服务一样。{% data variables.product.product_name %} 使用 SSH 密钥将信息安全地传输到您的计算机。
 - 
   term: 暂存实例
   description: >-

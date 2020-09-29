@@ -1,7 +1,7 @@
 ---
 title: Memorizar dependências para acelerar os fluxos de trabalho
 intro: 'Para agilizar os seus fluxos de trabalho e torná-los mais eficientes, você pode criar e usar caches para dependências e outros arquivos reutilizados geralmente.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -13,9 +13,9 @@ versions:
 
 As execuções do fluxo de trabalho geralmente reutilizam as mesmas saídas ou dependências baixadas de uma execução para outra. Por exemplo, as ferramentas de gerenciamento de pacotes e de dependência, como, por exemplo, Maven, Gradle, npm e Yarn mantêm uma cache local de dependências baixadas.
 
-Os trabalhos nos executores hospedados em {{ site.data.variables.product.prodname_dotcom }} começam em um ambiente virtual limpo e devem baixar as dependências todas as vezes, o que gera uma maior utilização da rede, maior tempo de execução e aumento dos custos. Para ajudar a acelerar o tempo que leva para recrear esses arquivos, {{ site.data.variables.product.prodname_dotcom }} pode memorizar as dependências que você usa frequentemente nos fluxos de trabalho.
+Os trabalhos nos executores hospedados em {% data variables.product.prodname_dotcom %} começam em um ambiente virtual limpo e devem baixar as dependências todas as vezes, o que gera uma maior utilização da rede, maior tempo de execução e aumento dos custos. Para ajudar a acelerar o tempo que leva para recrear esses arquivos, {% data variables.product.prodname_dotcom %} pode memorizar as dependências que você usa frequentemente nos fluxos de trabalho.
 
-Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {{ site.data.variables.product.prodname_dotcom }}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
+Para memorizar as dependências para um trabalho, você precisará usar a ação `cache` do {% data variables.product.prodname_dotcom %}. A ação recupera uma cache identificada por uma chave única. Para obter mais informações, consulte [`ações/cache`](https://github.com/actions/cache).
 
 {% warning %}
 
@@ -25,7 +25,7 @@ Para memorizar as dependências para um trabalho, você precisará usar a ação
 
 ### Comparando artefatos e memorização de dependência
 
-Os artefatos são similares, pois fornecem a habilidade de armazenar arquivos em {{ site.data.variables.product.prodname_dotcom }}, mas cada recurso oferece usos diferentes e não podem ser usados de forma intercambiável.
+Os artefatos são similares, pois fornecem a habilidade de armazenar arquivos em {% data variables.product.prodname_dotcom %}, mas cada recurso oferece usos diferentes e não podem ser usados de forma intercambiável.
 
 - Use a memorização quando desejar reutilizar os arquivos que não mudam com frequência entre trabalhos ou execuções de fluxos de trabalho.
 - Use artefatos quando desejar salvar arquivos produzidos por um trabalho a ser visualizado após a conclusão de um fluxo de trabalho. Para obter mais informações, consulte "[Dados recorrentes do fluxo de trabalho que usam artefatos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
@@ -116,7 +116,7 @@ Para memorizar os arquivos em mais de um diretório, você precisará de uma eta
 
 #### Usar contextos para criar chaves da cache
 
-Uma chave da cache pode incluir quaisquer contextos, funções, literais e operadores suportados por {{ site.data.variables.product.prodname_actions }}. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Uma chave da cache pode incluir quaisquer contextos, funções, literais e operadores suportados por {% data variables.product.prodname_actions %}. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 Usar expressões para criar uma `chave` permite que você crie automaticamente uma nova cache quando as dependências forem alteradas. Por exemplo, você pode criar uma `chave` usando uma expressão que calcula o hash de um arquivo `package-lock.json` de npm.
 
@@ -126,7 +126,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }} avalia a expressão `hash "package-lock.json"` para derivar a `chave` final.
+{% data variables.product.prodname_dotcom %} avalia a expressão `hash "package-lock.json"` para derivar a `chave` final.
 
 ```
 npm-d5ea0750
@@ -187,4 +187,4 @@ Por exemplo, se um pull request contiver um branch `de recurso` (escopo atual) e
 
 ### Limites de uso e política de eliminação
 
-{{ site.data.variables.product.prodname_dotcom }} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 5 GB. Se você exceder este limite, {{ site.data.variables.product.prodname_dotcom }} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 5 GB.
+{% data variables.product.prodname_dotcom %} removerá todas as entradas da cache não acessadas há mais de 7 dias. Não há limite para o número de caches que você pode armazenar, mas o limite do tamanho total de todas as caches em um repositório é 5 GB. Se você exceder este limite, {% data variables.product.prodname_dotcom %} salvará a sua cache, mas começará a eliminar as caches até que o tamanho total seja inferior a 5 GB.

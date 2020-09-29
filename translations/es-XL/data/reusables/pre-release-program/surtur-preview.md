@@ -1,7 +1,7 @@
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% note %}
 
-**Nota:** Los permisos de creación de repositorios nuevos se encuentran disponibles para su previsualización. Ahora puedes utilizar `members_can_create_public_repositories`, `members_can_create_private_repositories`, and `members_can_create_internal_repositories`. Solo puedes permitir que los miembros creen repositorios internos si tu organización está asociada con una cuenta empresarial que utilice {{ site.data.variables.product.prodname_ghe_cloud }} o {{ site.data.variables.product.prodname_ghe_server }} 2.20+. Estos parámetros proporcionan permisos más granulares para configurar el tipo de repositorios que pueden crear los miembros de la organización.
+**Nota:** Los permisos de creación de repositorios nuevos se encuentran disponibles para su previsualización. Ahora puedes utilizar `members_can_create_public_repositories`, `members_can_create_private_repositories`, and `members_can_create_internal_repositories`. Solo puedes permitir que los miembros creen repositorios internos si tu organización está asociada con una cuenta empresarial que utilice {% data variables.product.prodname_ghe_cloud %} o {% data variables.product.prodname_ghe_server %} 2.20+. Estos parámetros proporcionan permisos más granulares para configurar el tipo de repositorios que pueden crear los miembros de la organización.
 
 Para acceder a estos parámetros nuevos durante el periodo de previsualización, debes proporcionar un [tipo de medios](/v3/media) personalizado en el encabezado `Accept`:
 ```

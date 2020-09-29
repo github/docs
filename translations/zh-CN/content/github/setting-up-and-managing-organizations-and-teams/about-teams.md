@@ -21,15 +21,15 @@ versions:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {{ site.data.variables.product.product_location_enterprise }} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {{ site.data.variables.product.product_location_enterprise }} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
+您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location_enterprise %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location_enterprise %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### 团队可见性
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### 团队页面
 
@@ -41,7 +41,7 @@ versions:
 
 ### 嵌套团队
 
-您可以在 {{ site.data.variables.product.product_name }} 组织中通过多级嵌套团队反映您的组或公司的层级。 一个父团队可有多个子团队，而每个子团队只能有一个父团队。 您无法嵌套机密团队。
+您可以在 {% data variables.product.product_name %} 组织中通过多级嵌套团队反映您的组或公司的层级。 一个父团队可有多个子团队，而每个子团队只能有一个父团队。 您无法嵌套机密团队。
 
 子团队继承父团队的访问权限，简化大组的权限管理。 当父团队被 @提及时，子团队的成员也会收到通知，因此简化与多组人员的沟通。
 
@@ -57,7 +57,7 @@ versions:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% endif %}
 

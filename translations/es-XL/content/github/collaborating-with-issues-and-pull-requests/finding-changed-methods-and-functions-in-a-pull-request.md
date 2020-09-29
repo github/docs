@@ -17,9 +17,9 @@ La lista resumida de métodos y funciones se crea a partir de estos tipos de arc
   - Python
   - Ruby
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, haz clic en la solicitud de extracción en la que deseas encontrar los métodos y funciones modificados.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Para ver una lista resumida de los métodos y funciones modificados, haz clic en **Ir a...**. ![Ir al menú desplegable](/assets/images/help/pull_requests/jump-to-menu.png)
 5. Selecciona el método o la función cambiada dentro del menú desplegable. También puedes ingresar el nombre del método o la función en los resultados del filtro. ![Filtrar función y métodos](/assets/images/help/pull_requests/filter-function-and-methods.png)
 

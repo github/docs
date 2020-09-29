@@ -13,17 +13,17 @@ versions:
 
 ### Sobre gists
 
-Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e clonado. Se estiver conectado ao {{ site.data.variables.product.product_name }} quando criar um gist, o gist será associado à sua conta e você o verá na lista de gists quando navegar para sua {{ site.data.variables.gists.gist_homepage }}.
+Cada gist é um repositório Git, o que significa que ele pode ser bifurcado e clonado. Se estiver conectado ao {% data variables.product.product_name %} quando criar um gist, o gist será associado à sua conta e você o verá na lista de gists quando navegar para sua {% data variables.gists.gist_homepage %}.
 
-Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {{ site.data.variables.gists.discover_url }}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+Os gists podem ser públicos ou secretos. Os gists públicos são mostrados no {% data variables.gists.discover_url %}, onde as pessoas podem navegar por novos gists à medida que eles são criados. Eles também são pesquisáveis, de modo que é possível usá-los se desejar que outras pessoas encontrem e vejam seu trabalho. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Os gists secretos não são mostrados no {{ site.data.variables.gists.discover_url }}{% if currentVersion != "free-pro-team@latest" %},{% endif %} e não são pesquisáveis. {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
+Os gists secretos não são mostrados no {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} e não são pesquisáveis. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Os gists secretos não são privados. Se você enviar a URL de um gist secreto a uma amigo, ele poderá vê-la. No entanto, se alguém que você não conhece descobrir a URL, ele também poderá ver seu gist. Se precisar manter seu código longe de olhares curiosos, pode ser mais conveniente [criar um repositório privado](/articles/creating-a-new-repository).
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 Se o administrador do site tiver desabilitado o modo privado, você também poderá usar gists anônimos, que podem ser públicos ou secretos.
 
-{{ site.data.reusables.gist.anonymous-gists-cannot-be-deleted }}
+{% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Você receberá uma notificação quando:
 
 Você pode fixar os gists no seu perfil para que outras pessoas possam vê-los facilmente. Para obter mais informações, consulte "[Fixar itens ao seu perfil](/articles/pinning-items-to-your-profile)".
 
-É possível descobrir gists que outras pessoas criaram acessando a {{ site.data.variables.gists.gist_homepage }} e clicando em **All Gists** (Todos os gists). Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {{ site.data.variables.gists.gist_search_url }}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
+É possível descobrir gists que outras pessoas criaram acessando a {% data variables.gists.gist_homepage %} e clicando em **All Gists** (Todos os gists). Isso levará você a uma página com todos os gists classificados e exibidos por data de criação ou atualização. Também é possível pesquisar gists por linguagem com {% data variables.gists.gist_search_url %}. A pesquisa de gist usa a mesma sintaxe de pesquisa que a [pesquisa de código](/articles/searching-code).
 
 Uma vez que os gists são repositórios Git, você pode exibir o histórico completo de commits deles, com diffs. Também é possível bifurcar ou clonar gists. Para obter mais informações, consulte ["Bifurcar e clonar gists"](/articles/forking-and-cloning-gists).
 
@@ -45,7 +45,7 @@ Você pode baixar um arquivo ZIP de um gist clicando no botão **Download ZIP** 
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gists inseridos, de modo que você pode compartilhar e inserir mapas facilmente. Para obter mais informações, consulte "[Mapear arquivos geoJSON no {{ site.data.variables.product.product_name }}](/articles/mapping-geojson-files-on-github)".
+O gist permite mapeamento de arquivos geoJSON. Esses mapas são exibidos em gists inseridos, de modo que você pode compartilhar e inserir mapas facilmente. Para obter mais informações, consulte "[Mapear arquivos geoJSON no {% data variables.product.product_name %}](/articles/mapping-geojson-files-on-github)".
 
 {% endif %}
 
@@ -56,13 +56,13 @@ Você também pode arrastar e soltar um arquivo de texto da sua área de trabalh
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% note %}
 
-Você também pode criar um gist usando o {{ site.data.variables.product.prodname_cli }}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {{ site.data.variables.product.prodname_cli }}.
+Você também pode criar um gist usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`gh gist cria`](https://cli.github.com/manual/gh_gist_create)" na documentação do {% data variables.product.prodname_cli %}.
 
 {% endnote %}
 {% endif %}
 
-1. Entre no {{ site.data.variables.product.product_name }}.
-2. Navegue até sua {{ site.data.variables.gists.gist_homepage }}.
+1. Entre no {% data variables.product.product_name %}.
+2. Navegue até sua {% data variables.gists.gist_homepage %}.
 3. Digite uma descrição opcional e o nome do seu gist. ![Descrição do nome do gist](/assets/images/help/gist/gist_name_description.png)
 
 4. Digite o texto do seu gist na caixa de texto do gist. ![Caixa de texto do gist](/assets/images/help/gist/gist_text_box.png)
@@ -73,6 +73,6 @@ Você também pode criar um gist usando o {{ site.data.variables.product.prodnam
 
   {% note %}
 
-  **Observação:** {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+  **Observação:** {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
   {% endnote %}

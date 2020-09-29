@@ -20,13 +20,13 @@ versions:
 
 {% note %}
 
-**注釈:** ノートをタスクのリマインダ、{{ site.data.variables.product.product_name }} 上の任意のリポジトリからの Issue やプルリクエストへの参照、プロジェクトボードへの関連情報の追加として働くようにプロジェクトボードに追加することもできます。 詳細は「[プロジェクトボードにノートを追加する](/articles/adding-notes-to-a-project-board)」を参照してください。
+**注釈:** ノートをタスクのリマインダ、{% data variables.product.product_name %} 上の任意のリポジトリからの Issue やプルリクエストへの参照、プロジェクトボードへの関連情報の追加として働くようにプロジェクトボードに追加することもできます。 詳細は「[プロジェクトボードにノートを追加する](/articles/adding-notes-to-a-project-board)」を参照してください。
 
 {% endnote %}
 
-{{ site.data.reusables.project-management.edit-in-project }}
+{% data reusables.project-management.edit-in-project %}
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }}プロジェクトボードに追加するために Issue やプルリクエストを検索する場合、自動的にその検索の対象はリンクされたリポジトリになります。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
+{% data reusables.project-management.link-repos-to-project-board %}プロジェクトボードに追加するために Issue やプルリクエストを検索する場合、自動的にその検索の対象はリンクされたリポジトリになります。 それらの条件を取り除いて、Organization のすべてのリポジトリを対象に検索することができます。 詳しい情報については、「[リポジトリをプロジェクトボードにリンクする](/articles/linking-a-repository-to-a-project-board)」を参照してください。
 
 ### プロジェクトボードへの Issue およびプルリクエストの追加
 
@@ -41,11 +41,11 @@ versions:
     - 特定の機能について作業をしているなら、その機能に関連する Issue あるいはプルリクエストにラベルを適用して、そのラベル名を検索することでプロジェクトボードに簡単にカードを追加することができます。 詳細は「[Issue およびプルリクエストへのラベルの適用](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。
 
   {% endtip %}
-4. フィルタリングされた Issue とプルリクエストのリストから、プロジェクトボードに追加したいカードをドラッグして、正しい列にドロップします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+4. フィルタリングされた Issue とプルリクエストのリストから、プロジェクトボードに追加したいカードをドラッグして、正しい列にドロップします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **ヒント:** ドラッグアンドドロップやキーボードのショートカットを使用してカードを並び替えたり列間で移動させたりできます。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+    **ヒント:** ドラッグアンドドロップやキーボードのショートカットを使用してカードを並び替えたり列間で移動させたりできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
@@ -61,7 +61,7 @@ versions:
 {% else %}
 5. Issue あるいはプルリクエストの右側で、[**PROJECT-BOARD-NAME (awaiting triage)**] (プロジェクトボード名、トリアージ待ち) をクリックします。 ![プロジェクトボードへのリンク](/assets/images/help/projects/sidebar-project-board-link.png)
 6. プロジェクトボードで [**{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)**] をクリックします。 ![カードの追加ボタン](/assets/images/help/projects/add-cards-pending-button.png)
-7. [**Triage**] セクションから Issue あるいはプルリクエストのカードを、プロジェクトボードの希望する列へドラッグします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+7. [**Triage**] セクションから Issue あるいはプルリクエストのカードを、プロジェクトボードの希望する列へドラッグします。 あるいは、キーボードショートカットを使ってカードを移動させることもできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 {% endif %}
 
 ### 参考リンク

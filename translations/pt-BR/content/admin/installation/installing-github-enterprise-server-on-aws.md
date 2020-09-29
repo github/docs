@@ -1,6 +1,6 @@
 ---
 title: Instalar o GitHub Enterprise Server no AWS
-intro: 'Para instalar o {{ site.data.variables.product.prodname_ghe_server }} no Amazon Web Services (AWS), você deve iniciar uma instância do Amazon Elastic Compute Cloud (EC2) e, em seguida, criar e vincular um volume de dados separado do Amazon Elastic Block Store (EBS).'
+intro: 'Para instalar o {% data variables.product.prodname_ghe_server %} no Amazon Web Services (AWS), você deve iniciar uma instância do Amazon Elastic Compute Cloud (EC2) e, em seguida, criar e vincular um volume de dados separado do Amazon Elastic Block Store (EBS).'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
@@ -10,9 +10,9 @@ versions:
 
 ### Pré-requisitos
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - Você deve ter uma conta do AWS que possa iniciar instâncias do EC2 e criar volumes EBS. Para obter mais informações, consulte o [site do Amazon Web Services](https://aws.amazon.com/).
-- A maioria das ações necessárias para iniciar a {{ site.data.variables.product.product_location_enterprise }} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
+- A maioria das ações necessárias para iniciar a {% data variables.product.product_location_enterprise %} também pode ser executada usando o console de gerenciamento do AWS. No entanto, é recomendável instalar a interface da linha de comando (CLI) do AWS para a configuração inicial. Veja abaixo alguns exemplos de uso da CLI do AWS. Para obter mais informações, consulte os guias "[Trabalhar com o console de gerenciamento do AWS](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)" e "[O que é a interface da linha de comando do AWS](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)".
 
 Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
@@ -24,46 +24,46 @@ Para usar este guia, você deve conhecer os seguintes conceitos do AWS:
 
 ### Considerações de hardware
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### Determinar o tipo de instância
 
-Antes de iniciar a {{ site.data.variables.product.product_location_enterprise }} no AWS, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
+Antes de iniciar a {% data variables.product.product_location_enterprise %} no AWS, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
 
 #### Tipos de instância compatíveis
 
-{{ site.data.reusables.enterprise_installation.aws-supported-instance-types }}
+{% data reusables.enterprise_installation.aws-supported-instance-types %}
 
 #### Tipos de instância recomendados
 
-{{ site.data.reusables.enterprise_installation.aws-recommended-instance-types }}
+{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### Selecionar a AMI do {{ site.data.variables.product.prodname_ghe_server }}
+### Selecionar a AMI do {% data variables.product.prodname_ghe_server %}
 
-É possível selecionar uma Amazon Machine Image (AMI) para o {{ site.data.variables.product.prodname_ghe_server }} usando o portal do {{ site.data.variables.product.prodname_ghe_server }} na CLI do AWS.
+É possível selecionar uma Amazon Machine Image (AMI) para o {% data variables.product.prodname_ghe_server %} usando o portal do {% data variables.product.prodname_ghe_server %} na CLI do AWS.
 
-As AMIs para o {{ site.data.variables.product.prodname_ghe_server }} estão disponíveis na região (EUA-Leste e EUA-Oeste) do AWS GovCloud. Com isso, os clientes dos EUA com requisitos regulamentares específicos podem executar o {{ site.data.variables.product.prodname_ghe_server }} em um ambiente em nuvem de conformidade federal. Para obter mais informações sobre a conformidade do AWS com padrões federais e outros, consulte a [página do AWS GovCloud (EUA)](http://aws.amazon.com/govcloud-us/) e a [página de conformidade do AWS](https://aws.amazon.com/compliance/).
+As AMIs para o {% data variables.product.prodname_ghe_server %} estão disponíveis na região (EUA-Leste e EUA-Oeste) do AWS GovCloud. Com isso, os clientes dos EUA com requisitos regulamentares específicos podem executar o {% data variables.product.prodname_ghe_server %} em um ambiente em nuvem de conformidade federal. Para obter mais informações sobre a conformidade do AWS com padrões federais e outros, consulte a [página do AWS GovCloud (EUA)](http://aws.amazon.com/govcloud-us/) e a [página de conformidade do AWS](https://aws.amazon.com/compliance/).
 
-#### Usar o portal do {{ site.data.variables.product.prodname_ghe_server }} para selecionar uma AMI
+#### Usar o portal do {% data variables.product.prodname_ghe_server %} para selecionar uma AMI
 
-{{ site.data.reusables.enterprise_installation.enterprise-download-procedural }}
-{{ site.data.reusables.enterprise_installation.download-appliance }}
+{% data reusables.enterprise_installation.enterprise-download-procedural %}
+{% data reusables.enterprise_installation.download-appliance %}
 3. No menu suspenso Select your platform (Selecionar plataforma), clique em **Amazon Web Services**.
 4. No menu suspenso Select your AWS region (Selecionar região do AWS), escolha a região.
 5. Anote a ID da AMI.
 
 #### Usar a CLI do AWS para selecionar uma AMI
 
-1. Usando a CLI do AWS, obtenha uma lista de imagens do {{ site.data.variables.product.prodname_ghe_server }} publicadas pelas IDs do AWS no {{ site.data.variables.product.prodname_dotcom }}(`025577942450` para GovCloud e `895557238572` para outras regiões). Para obter mais informações, consulte "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" na documentação do AWS.
+1. Usando a CLI do AWS, obtenha uma lista de imagens do {% data variables.product.prodname_ghe_server %} publicadas pelas IDs do AWS no {% data variables.product.prodname_dotcom %}(`025577942450` para GovCloud e `895557238572` para outras regiões). Para obter mais informações, consulte "[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" na documentação do AWS.
   ```shell
   aws ec2 describe-images \
   --owners <em>OWNER ID</em> \
   --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
   --output=text
   ```
-2. Anote a ID da AMI para a imagem mais recente do {{ site.data.variables.product.prodname_ghe_server }}.
+2. Anote a ID da AMI para a imagem mais recente do {% data variables.product.prodname_ghe_server %}.
 
 ### Criar um grupo de segurança
 
@@ -82,11 +82,11 @@ Se estiver configurando a AMI pela primeira vez, você terá que criar um grupo 
   ```
   Esta tabela identifica o uso de cada porta.
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
-### Criar a instância do {{ site.data.variables.product.prodname_ghe_server }}
+### Criar a instância do {% data variables.product.prodname_ghe_server %}
 
-Para criar a instância, você deve iniciar uma instância EC2 com sua AMI do {{ site.data.variables.product.prodname_ghe_server }} e vincular um volume de armazenamento adicional aos dados da sua instância. Para obter mais informações, consulte "[Considerações de hardware](#hardware-considerations)".
+Para criar a instância, você deve iniciar uma instância EC2 com sua AMI do {% data variables.product.prodname_ghe_server %} e vincular um volume de armazenamento adicional aos dados da sua instância. Para obter mais informações, consulte "[Considerações de hardware](#hardware-considerations)".
 
 {% note %}
 
@@ -116,17 +116,17 @@ aws ec2 run-instances \
 
 #### Alocar uma IP elástica e associá-la com a instância
 
-Se for uma instância de produção, é recomendável alocar uma IP Elástica (EIP) e associá-la à instância antes de seguir para a configuração do {{ site.data.variables.product.prodname_ghe_server }}. Caso contrário, o endereço IP público da instância não será retido após a reinicialização da instância. Para obter mais informações, consulte "[Alocar um endereço de IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" e "[Associar um endereço de IP elástica a uma instância em execução](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" na documentação da Amazon.
+Se for uma instância de produção, é recomendável alocar uma IP Elástica (EIP) e associá-la à instância antes de seguir para a configuração do {% data variables.product.prodname_ghe_server %}. Caso contrário, o endereço IP público da instância não será retido após a reinicialização da instância. Para obter mais informações, consulte "[Alocar um endereço de IP elástica](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)" e "[Associar um endereço de IP elástica a uma instância em execução](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)" na documentação da Amazon.
 
-As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {{ site.data.variables.product.prodname_ghe_server }} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+As instâncias primária e de réplica devem receber EIPs separados nas configurações de alta disponibilidade de produção. Para obter mais informações, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
 
-### Configurar a instância do {{ site.data.variables.product.prodname_ghe_server }}
+### Configurar a instância do {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }} Para obter mais informações, consulte "[Configurar o appliance do {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)".
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-{{ site.data.reusables.enterprise_installation.visit-your-instance }}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} Para obter mais informações, consulte "[Configurar o appliance do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)".
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+{% data reusables.enterprise_installation.visit-your-instance %}
 
 ### Leia mais
 

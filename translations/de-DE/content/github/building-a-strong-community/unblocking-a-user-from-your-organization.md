@@ -25,10 +25,10 @@ Wenn Du beim blockieren des Benutzers einen bestimmten Zeitraum für die Sperre 
 
 ### Sperre eines Benutzers in den Organisationseinstellungen aufheben
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.block_users}}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.block_users %}
 5. Klicke unter „Blocked users“ (Blockierte Benutzer) neben dem Benutzer, dessen Sperre Du aufheben möchtest, auf **Unblock** (Entsperren). ![Schaltfläche „Unblock User" (Sperre des Benutzers aufheben)](/assets/images/help/organizations/org-unblock-user-button.png)
 
 ### Weiterführende Informationen

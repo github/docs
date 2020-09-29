@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 5. Clique em {% octicon "pin" aria-label="The pin icon" %} ao lado da discussão de equipe que deseja fixar. Você também pode desafixar uma discussão ao clicar no ícone. ![Fixar uma discussão](/assets/images/help/projects/pin-discussion-button.png)
 
 ### Leia mais

@@ -1,6 +1,6 @@
 ---
 title: 重大变更
-intro: '了解最近和即将发生的 {{ site.data.variables.product.prodname_dotcom }} GraphQL API 重大变更。'
+intro: '了解最近和即将发生的 {% data variables.product.prodname_dotcom %} GraphQL API 重大变更。'
 redirect_from:
   - /v4/breaking_changes
 versions:

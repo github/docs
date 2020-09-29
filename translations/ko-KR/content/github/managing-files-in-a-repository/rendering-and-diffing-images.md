@@ -1,6 +1,6 @@
 ---
 title: Rendering and diffing images
-intro: '{{ site.data.variables.product.product_name }} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
+intro: '{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.'
 redirect_from:
   - /articles/rendering-and-diffing-images
 versions:
@@ -10,13 +10,13 @@ versions:
 
 {% note %}
 
-**Note:** If you are using the Firefox browser, SVGs on {{ site.data.variables.product.prodname_dotcom }} may not render.
+**Note:** If you are using the Firefox browser, SVGs on {% data variables.product.prodname_dotcom %} may not render.
 
 {% endnote %}
 
 ### Viewing images
 
-You can directly browse and view images in your {{ site.data.variables.product.product_name }} repository:
+You can directly browse and view images in your {% data variables.product.product_name %} repository:
 
 ![inline image](/assets/images/help/images/view.png)
 

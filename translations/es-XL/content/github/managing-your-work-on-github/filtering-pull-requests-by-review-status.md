@@ -16,8 +16,8 @@ Puedes filtrar la lista de solicitudes de extracción de un repositorio para bus
 - Solicitudes de extracción que tú has revisado
 - Solicitudes de extracción que [alguien te ha pedido a ti que revises o a un equipo del que eres miembro](/articles/requesting-a-pull-request-review)
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. En el ángulo superior derecho, selecciona el menú desplegable Revisiones. ![Menú desplegable Revisiones en el menú de filtros sobre la lista de solicitudes de extracción](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
 4. Elige un filtro para buscar todas las solicitudes de extracción con ese estado de filtro. ![Lista de filtros en el menú desplegable Revisiones](/assets/images/help/pull_requests/pr-review-filters.png)
 

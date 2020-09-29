@@ -7,20 +7,20 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. Para visualizar ou alterar as suas configurações, alterne entre os painéis a seguir: ![Navegação no menu Preferences (Preferências)](/assets/images/help/desktop/mac-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 2. Para visualizar ou alterar as suas configurações, alterne entre os painéis a seguir: ![Navegação no menu Options (Opções)](/assets/images/help/desktop/windows-select-accounts-pane.png)
-{{ site.data.reusables.desktop.preferences-options-tabs }}
+{% data reusables.desktop.preferences-options-tabs %}
 
 {% endwindows %}
 
 ### Further reading
 
-- "[Configurar tema para o {{ site.data.variables.product.prodname_desktop }}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"
+- "[Configurar tema para o {% data variables.product.prodname_desktop %}](/desktop/guides/getting-started-with-github-desktop/setting-a-theme-for-github-desktop)"

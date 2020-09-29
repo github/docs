@@ -1,7 +1,7 @@
 ---
 title: Ver el historial de cambios de una wiki
 intro: 'Debido a que las wikis son repositorios de Git, cada cambio que realices es una confirmación que puedes ver.'
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/viewing-a-wiki-s-history-of-changes
   - /articles/viewing-a-wikis-history-of-changes
@@ -17,8 +17,8 @@ El historial de una wiki incluye:
 - El mensaje de confirmación que proporcionó
 - Cuándo se realizó el cambio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Utilizando la barra lateral de wiki, desplázate hasta la página cuyo historial deseas ver.
 4. En la parte superior de la wiki, haz clic en el vínculo de revisión. ![Vínculo de revisión de wiki](/assets/images/help/wiki/wiki_revision_link.png)
 

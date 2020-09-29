@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.apps.deprecating_token_oauth_authorizations }}
-{{ site.data.reusables.apps.deprecating_password_auth }}
+{% data reusables.apps.deprecating_token_oauth_authorizations %}
+{% data reusables.apps.deprecating_password_auth %}
 
 您可以使用此 API 来管理 OAuth 应用程序对您帐户的访问权限。 您只能使用您的用户名和密码（而不是令牌），通过[基本身份验证](/rest/overview/other-authentication-methods#basic-authentication)访问此 API。
 

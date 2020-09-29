@@ -12,9 +12,9 @@ Repository administrators can change the anonymous Git read access setting for a
 - The repository is public on the instance and is not a fork.
 - A site administrator has not disabled anonymous Git read access for the repository.
 
-{{ site.data.reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access }}
+{% data reusables.enterprise_user_management.exceptions-for-enabling-anonymous-git-read-access %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Next to "Enable anonymous Git read access", click **Enable**. !["Enabled" button under "Anonymous Git read access"](/assets/images/help/repository/enable-git-read-access-for-a-repo.png)
 4. Review the changes. To confirm, type in the name of the repository and click **I understand, enable anonymous Git read access.**

@@ -1,6 +1,6 @@
 ---
 title: Tipos de cuentas de GitHub
-intro: 'Tu cuenta de usuario es tu identidad en {{ site.data.variables.product.product_location }}. Tu cuenta de usuario puede ser miembro de cualquier cantidad de organizaciones.{% if currentVersion == "free-pro-team@latest" %} Las organizaciones pueden pertenecer a cuentas de empresa.{% endif %}'
+intro: 'Tu cuenta de usuario es tu identidad en {% data variables.product.product_location %}. Tu cuenta de usuario puede ser miembro de cualquier cantidad de organizaciones.{% if currentVersion == "free-pro-team@latest" %} Las organizaciones pueden pertenecer a cuentas de empresa.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,18 +13,18 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-Para encontrar un listado completo de características para cada producto de {{ site.data.variables.product.product_name }}, consulta la sección "[Productos de {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/githubs-products)".
+Para encontrar un listado completo de características para cada producto de {% data variables.product.product_name %}, consulta la sección "[Productos de {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)".
 {% endif %}
 
 ### Cuentas de usuarios personales
 
-Toda persona que utilice {{ site.data.variables.product.product_location }} tiene su propia cuenta de usuario, la cual incluye:
+Toda persona que utilice {% data variables.product.product_location %} tiene su propia cuenta de usuario, la cual incluye:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-- Repositorios públicos y privados ilimitados con {{ site.data.variables.product.prodname_free_user }}
-- Colaboradores ilimitados con {{ site.data.variables.product.prodname_free_user }}
-- Funciones adicionales para los repositorios privados con {{ site.data.variables.product.prodname_pro }}
+- Repositorios públicos y privados ilimitados con {% data variables.product.prodname_free_user %}
+- Colaboradores ilimitados con {% data variables.product.prodname_free_user %}
+- Funciones adicionales para los repositorios privados con {% data variables.product.prodname_pro %}
 - Capacidad para [invitar colaboradores del repositorio](/articles/inviting-collaborators-to-a-personal-repository)
 
 {% else %}
@@ -59,18 +59,18 @@ Toda persona que utilice {{ site.data.variables.product.product_location }} tien
 
 Las organizaciones son cuentas compartidas donde grupos de personas pueden colaborar en muchos proyectos a la vez. Los propietarios y los administradores pueden administrar el acceso de los miembros a los datos y los proyectos de la organización con características administrativas y de seguridad sofisticadas.
 
-{{ site.data.reusables.organizations.organizations_include }}
+{% data reusables.organizations.organizations_include %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Cuentas de empresa
 
-Con las cuentas de empresa, puedes administrar de forma centralizada la política y la facturación de múltiples {{ site.data.variables.product.prodname_dotcom_the_website }} organizaciones. {{ site.data.reusables.gated-features.enterprise-accounts }}
+Con las cuentas de empresa, puedes administrar de forma centralizada la política y la facturación de múltiples {% data variables.product.prodname_dotcom_the_website %} organizaciones. {% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Leer más
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Iniciar sesión en una cuenta {{ site.data.variables.product.prodname_dotcom }} nueva](/articles/signing-up-for-a-new-github-account)"
-- "Productos de [{{ site.data.variables.product.prodname_dotcom }}](/articles/githubs-products)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Iniciar sesión en una cuenta {% data variables.product.prodname_dotcom %} nueva](/articles/signing-up-for-a-new-github-account)"
+- "Productos de [{% data variables.product.prodname_dotcom %}](/articles/githubs-products)"{% endif %}
 - "[Crear una cuenta de organización nueva](/articles/creating-a-new-organization-account)"

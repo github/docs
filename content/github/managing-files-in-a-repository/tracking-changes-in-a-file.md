@@ -24,7 +24,7 @@ In a file or pull request, you can also use the {% octicon "kebab-horizontal" ar
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Click to open the file whose line history you want to view.
 3. In the upper-right corner of the file view, click **Blame** to open the blame view.
 ![Blame button](/assets/images/help/repository/blame-button.png)

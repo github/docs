@@ -23,10 +23,10 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. Team 名のフィールドで、オーナー Team の新しい名前を選びます。 例:
     - Organization において、オーナー Team のメンバーがとても少ない場合には、"Core" といったチーム名がいいかもしれません。
     - Organization のすべてのメンバーがオーナー Team のメンバーでもあり、[Team に @mention](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) できる場合は、"Employees" といったチーム名がいいかもしれません。 ![オーナー Team の名前を "Core" にした、Team 名フィールド](/assets/images/help/teams/owners-team-new-name.png)
@@ -41,8 +41,8 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. ページの下部にある警告を確認し、[**Delete the Owners team**] をクリックします。 ![オーナー Team を削除するリンク](/assets/images/help/teams/owners-team-delete.png)

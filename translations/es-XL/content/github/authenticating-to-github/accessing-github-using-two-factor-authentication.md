@@ -1,6 +1,6 @@
 ---
 title: Acceder a GitHub utilizando la autenticación de dos factores
-intro: 'Cuando habilitas la 2FA, se te pedirá que proporciones tu código de 2FA así como tu contraseña al momento de iniciar sesión en {{ site.data.variables.product.product_name }}.'
+intro: 'Cuando habilitas la 2FA, se te pedirá que proporciones tu código de 2FA así como tu contraseña al momento de iniciar sesión en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/providing-your-2fa-security-code/
   - /articles/providing-your-2fa-authentication-code/
@@ -11,17 +11,17 @@ versions:
   enterprise-server: '*'
 ---
 
-Al tener la autenticación de dos factores habilitada, necesitarás proporcionar el código de autenticación cuando accedes a {{ site.data.variables.product.product_name }} a través de tu buscador. Si accedes a {{ site.data.variables.product.product_name }} utilizando otros métodos, tales como la API o la línea de comandos, necesitarás utilizar una forma alterna de autenticación. Para obtener más información, consulta la sección "[Acerca de la autenticación en {{ site.data.variables.product.prodname_dotcom }}](/github/authenticating-to-github/about-authentication-to-github)".
+Al tener la autenticación de dos factores habilitada, necesitarás proporcionar el código de autenticación cuando accedes a {% data variables.product.product_name %} a través de tu buscador. Si accedes a {% data variables.product.product_name %} utilizando otros métodos, tales como la API o la línea de comandos, necesitarás utilizar una forma alterna de autenticación. Para obtener más información, consulta la sección "[Acerca de la autenticación en {% data variables.product.prodname_dotcom %}](/github/authenticating-to-github/about-authentication-to-github)".
 
 ### Proporcionar un código 2FA al iniciar sesión en el sitio web
 
-Después de iniciar sesión en {{ site.data.variables.product.product_name }} con tu contraseña, se te pedirá que brindes un código de autenticación desde un mensaje de texto de {% if currentVersion == "free-pro-team@latest" %} o {% endif %} tu app TOTP.
+Después de iniciar sesión en {% data variables.product.product_name %} con tu contraseña, se te pedirá que brindes un código de autenticación desde un mensaje de texto de {% if currentVersion == "free-pro-team@latest" %} o {% endif %} tu app TOTP.
 
-{{ site.data.variables.product.product_name }} solo te pedirá que brindes tu código de autenticación 2FA nuevamente si has cerrado sesión, estás usando un dispositivo nuevo o si caduca tu sesión.
+{% data variables.product.product_name %} solo te pedirá que brindes tu código de autenticación 2FA nuevamente si has cerrado sesión, estás usando un dispositivo nuevo o si caduca tu sesión.
 
 #### Generar un código a través de una aplicación TOTP
 
-Si decides configurar una autenticación de dos factores mediante una aplicación TOTP en tu smartphone, puedes generar un código de autenticación para {{ site.data.variables.product.product_name }} en cualquier momento. En la mayoría de los casos, el lanzamiento de la aplicación generará un código nuevo. Deberías consultar la documentación de la aplicación para conocer las instrucciones específicas.
+Si decides configurar una autenticación de dos factores mediante una aplicación TOTP en tu smartphone, puedes generar un código de autenticación para {% data variables.product.product_name %} en cualquier momento. En la mayoría de los casos, el lanzamiento de la aplicación generará un código nuevo. Deberías consultar la documentación de la aplicación para conocer las instrucciones específicas.
 
 Si eliminas las aplicaciones móviles después de configurar la autenticación de dos factores, deberás proporcionar tu código de recuperación para obtener acceso a tu cuenta. Para obtener más información, consulta "[Recuperar tu cuenta si perdiste las credenciales de autenticación de dos factores](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)"
 
@@ -29,25 +29,25 @@ Si eliminas las aplicaciones móviles después de configurar la autenticación d
 
 #### Recibir un mensaje de texto
 
-Si configuras una autenticación de dos factores mediante mensajes de texto, {{ site.data.variables.product.product_name }} te enviará un mensaje de texto con tu código de autenticación.
+Si configuras una autenticación de dos factores mediante mensajes de texto, {% data variables.product.product_name %} te enviará un mensaje de texto con tu código de autenticación.
 
 {% endif %}
 
 ### Usar autenticación de dos factores con la línea de comando
 
-Después de haber habilitado 2FA, debes usar un token de acceso personal o una clave SSH en lugar de tu contraseña al acceder a {{ site.data.variables.product.product_name }} en la línea de comando.
+Después de haber habilitado 2FA, debes usar un token de acceso personal o una clave SSH en lugar de tu contraseña al acceder a {% data variables.product.product_name %} en la línea de comando.
 
 #### Autenticar en la línea de comando mediante HTTPS
 
-Después de haber habilitado 2FA, debes crear un token de acceso personal para usar una contraseña al autenticar a {{ site.data.variables.product.product_name }} en la línea de comando mediante las URL HTTPS.
+Después de haber habilitado 2FA, debes crear un token de acceso personal para usar una contraseña al autenticar a {% data variables.product.product_name %} en la línea de comando mediante las URL HTTPS.
 
-Cuando se te solicite el nombre de usuario y la contraseña en la línea de comando, usa tu nombre de usuario {{ site.data.variables.product.product_name }} y el token de acceso personal. La indicación de la línea de comando no especificará que debes ingresar tu token de acceso personal cuando se te solicite la contraseña.
+Cuando se te solicite el nombre de usuario y la contraseña en la línea de comando, usa tu nombre de usuario {% data variables.product.product_name %} y el token de acceso personal. La indicación de la línea de comando no especificará que debes ingresar tu token de acceso personal cuando se te solicite la contraseña.
 
 Para obtener más información, consulta la sección "[Crear un token de acceso personal](/github/authenticating-to-github/creating-a-personal-access-token)".
 
 #### Autenticar en la línea de comandos mediante SSH
 
-La habilitación de 2FA no cambia el modo de autenticar a {{ site.data.variables.product.product_name }} en la línea de comando mediante las URL SSH. Para obtener más información sobre cómo establecer y usar una clave SSH, consulta "[Conectar a {{ site.data.variables.product.prodname_dotcom }} con SSH](/articles/connecting-to-github-with-ssh/)".
+La habilitación de 2FA no cambia el modo de autenticar a {% data variables.product.product_name %} en la línea de comando mediante las URL SSH. Para obtener más información sobre cómo establecer y usar una clave SSH, consulta "[Conectar a {% data variables.product.prodname_dotcom %} con SSH](/articles/connecting-to-github-with-ssh/)".
 
 ### Usar autenticación de dos factores para acceder a un repositorio mediante Subversion
 

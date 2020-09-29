@@ -1,6 +1,6 @@
 ---
 title: Using a proxy server with self-hosted runners
-intro: 'You can configure self-hosted runners to use a proxy server to communicate with {{ site.data.variables.product.product_name }}.'
+intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.product_name %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Configuring a proxy server using environment variables
 

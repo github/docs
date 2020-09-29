@@ -16,7 +16,7 @@ versions:
 ---
 
 "Activity" includes, but is not limited to:
-- Signing in to {{ site.data.variables.product.prodname_ghe_server }}.
+- Signing in to {% data variables.product.prodname_ghe_server %}.
 - Commenting on issues and pull requests.
 - Creating, deleting, watching, and starring repositories.
 - Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -26,7 +26,7 @@ versions:
 
 You can view a list of all dormant users who have not been suspended and who are not site administrators.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 3. In the left sidebar, click **Dormant users**.
 ![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
 4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
@@ -34,24 +34,24 @@ You can view a list of all dormant users who have not been suspended and who are
 
 ### Determining whether a user account is dormant
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.search-user }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-user }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user %}
+{% data reusables.enterprise_site_admin_settings.click-user %}
 5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
 ![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
 ![Active user account](/assets/images/enterprise/stafftools/active-user.png)
 
 ### Configuring the dormancy threshold
 
-{{ site.data.reusables.enterprise_site_admin_settings.dormancy-threshold }}
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.options-tab }}
+{% data reusables.enterprise-accounts.options-tab %}
 4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
 ![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)

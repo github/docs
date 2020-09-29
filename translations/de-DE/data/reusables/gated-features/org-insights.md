@@ -1,1 +1,1 @@
-Organisationseinblicke sind mit {{ site.data.variables.product.prodname_ghe_cloud }} verfügbar. Weitere Informationen findest Du unter „[Produkte von {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products).“
+Organisationseinblicke sind mit {% data variables.product.prodname_ghe_cloud %} verfügbar. Weitere Informationen findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products).“

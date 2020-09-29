@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-Recibes notificaciones para tus suscripciones de la actividad reciente en {{ site.data.variables.product.product_name }}. Hay muchas razones por las cuales puedes estar suscrito a una conversación. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
+Recibes notificaciones para tus suscripciones de la actividad reciente en {% data variables.product.product_name %}. Hay muchas razones por las cuales puedes estar suscrito a una conversación. Para obtener más información, consulta la sección "[Acerca de las notificaciones](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)".
 
 Te recomendamos auditar tus suscripciones y desuscribirte de las que no sean necesarias como parte de un flujo de trabajo de notificaciones saludable. Para obtener más información acerca de tus opciones para desuscribirte, consulta la sección "[Administrar suscripciones](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)".
 
@@ -35,7 +35,7 @@ Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[
 
 ### Revisar todas tus suscripciones
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. En la barra lateral izquierda, debajo de la lista de repositorios de los cuales recibes notificaciones, utiliza el menú desplegable "Administrar notificaciones" para dar clic en **Suscripciones**. ![Opciones del menú desplegable "Administrar notificaciones"](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Utiliza los filtros y organiza para reducir la lista de suscripciones y comenzar a darte de baja de las conversaciones de las cuales ya no quieres recibir notificaciones.
@@ -69,5 +69,5 @@ Para ver un resumen de tus suscripciones a repositorios, consulta la sección "[
 
 Puedes elegir si quieres observar o dejar de observar un repositorio individual. También puedes elegir que se te notifique únicamente sobre los lanzamientos nuevos o ignorar un repositorio individual.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. En la esquina superior derecha, da clic en el menú desplegable "Observar" para seleccionar una opción de observación. ![Ver opciones en un menú desplegable para un repositorio](/assets/images/help/notifications-v2/watch-repository-options.png)

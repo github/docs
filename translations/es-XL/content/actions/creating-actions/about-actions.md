@@ -1,7 +1,7 @@
 ---
 title: Acerca de acciones
-intro: 'Las acciones son tareas individuales que puedes combinar para crear trabajos y personalizar tu flujo de trabajo. Puedes crear tus propias acciones, o utilizar y personalizar a quellas que comparte la comunidad de {{ site.data.variables.product.prodname_dotcom }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'Las acciones son tareas individuales que puedes combinar para crear trabajos y personalizar tu flujo de trabajo. Puedes crear tus propias acciones, o utilizar y personalizar a quellas que comparte la comunidad de {% data variables.product.prodname_dotcom %}.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/about-actions
   - /github/automating-your-workflow-with-github-actions/about-actions
@@ -12,22 +12,22 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de acciones
 
-Puedes crear acciones escribiendo un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {{ site.data.variables.product.prodname_dotcom }} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
+Puedes crear acciones escribiendo un código personalizado que interactúe con tu repositorio de la manera que desees, incluida la integración con las API de {% data variables.product.prodname_dotcom %} y cualquier API de terceros disponible públicamente. Por ejemplo, una acción puede publicar módulos npm, enviar alertas por SMS cuando se crean propuestas urgentes o implementar un código listo para producción.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad de {{ site.data.variables.product.prodname_dotcom }}. Para compartir las acciones que creaste, tu repositorio debe ser público.
+Puedes escribir tus propias acciones para usar en tu flujo de trabajo o compartir las acciones que crees con la comunidad de {% data variables.product.prodname_dotcom %}. Para compartir las acciones que creaste, tu repositorio debe ser público.
 {% endif %}
 
 Las acciones pueden ejecutarse directamente en una máquina o en un contenedor Docker. Puedes definir las entradas, las salidas y las variables de entorno de una acción.
 
 ### Tipos de acciones
 
-Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {{ site.data.variables.product.prodname_actions }}](/articles/metadata-syntax-for-github-actions)"
+Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren un archivo de metadatos para definir las entradas, salidas y puntos de entrada para tu acción. El nombre del archivo de metadatos debe ser `action.yml` o `action.yaml`. Para obtener más información, consulta "[Sintaxis de metadatos para {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)"
 
 | Tipo                          | Sistema operativo     |
 | ----------------------------- | --------------------- |
@@ -37,19 +37,19 @@ Puedes crear acciones de contenedor Docker y JavaScript. Las acciones requieren 
 
 #### Acciones del contenedor Docker
 
-Los contenedores Docker empaquetan el entorno con el código {{ site.data.variables.product.prodname_actions }}. Esto crea una unidad de trabajo más consistente y confiable, ya que el consumidor de la acción no necesita preocuparse por las herramientas o las dependencias.
+Los contenedores Docker empaquetan el entorno con el código {% data variables.product.prodname_actions %}. Esto crea una unidad de trabajo más consistente y confiable, ya que el consumidor de la acción no necesita preocuparse por las herramientas o las dependencias.
 
 Un contenedor Docker te permite usar versiones específicas de un sistema operativo, dependencias, herramientas y código. Para las acciones que se deben ejecutar en una configuración de entorno específica, Docker es una opción ideal porque puedes personalizar el sistema operativo y las herramientas. Debido a la latencia para crear y recuperar el contenedor, las acciones del contenedor Docker son más lentas que las acciones de JavaScript.
 
-Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {{ site.data.reusables.github-actions.self-hosted-runner-reqs-docker }}
+Las acciones de contenedor de Docker solo pueden ejecutarse en ejecutores con un sistema operativo Linux. {% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
 #### Acciones de JavaScript
 
 Las acciones de JavaScript pueden ejecutarse directamente en una máquina del ejecutor y separar el código de acción del entorno utilizado para ejecutar el código. El uso de una acción de JavaScript simplifica el código de acción y se ejecuta más rápido que una acción de contenedor Docker.
 
-{{ site.data.reusables.github-actions.pure-javascript }}
+{% data reusables.github-actions.pure-javascript %}
 
-Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {{ site.data.variables.product.prodname_actions }} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
+Si estás desarrollando un proyecto Node.js, el conjunto de herramientas de las {% data variables.product.prodname_actions %} te ofrece paquetes que puedes usar en tu proyecto para acelerar el desarrollo. Para obtener más información, consulta el repositorio [actions/toolkit](https://github.com/actions/toolkit).
 
 #### Acciones compuestas de los pasos de ejecución
 
@@ -60,14 +60,14 @@ Una acción para los _pasos de ejecución compuestos_ te permite combinar varios
 Si estás desarrollando una acción para que otras personas la utilicen, te recomendamos mantener la acción en su propio repositorio en lugar de agruparla con otro código de aplicación. Esto te permite versionar, rastrear y lanzar la acción como cualquier otro software.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Con el almacenamiento de una acción en su propio repositorio es más fácil para la comunidad de {{ site.data.variables.product.prodname_dotcom }} descubrir la acción, reduce el alcance de la base de código para que los desarrolladores solucionen problemas y extiendan la acción, y desacopla el control de versiones de otro código de aplicación.
+Con el almacenamiento de una acción en su propio repositorio es más fácil para la comunidad de {% data variables.product.prodname_dotcom %} descubrir la acción, reduce el alcance de la base de código para que los desarrolladores solucionen problemas y extiendan la acción, y desacopla el control de versiones de otro código de aplicación.
 {% endif %}
 
 Si estás creando una acción que no planeas poner a disposición del público, puedes almacenar los archivos de la acción en cualquier ubicación de tu repositorio. Si tienes la intención de combinar la acción, el flujo de trabajo y el código de aplicación en un único repositorio, es recomendable que almacenes las acciones en el directorio `.github`. Por ejemplo, `.github/actions/action-a` y `.github/actions/action-b`.
 
 ### Utilizar la administración de lanzamientos para las acciones
 
-Para garantizar de que tu acción es compatible con {{ site.data.variables.product.prodname_ghe_server }}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {{ site.data.variables.product.prodname_dotcom }}. En vez de esto, utiliza variables de ambiente para referirte a la API de {{ site.data.variables.product.prodname_dotcom }}:
+Para garantizar de que tu acción es compatible con {% data variables.product.prodname_ghe_server %}, debes asegurarte de que no utilices ninguna referencia escrita a mano para las URL de la API de {% data variables.product.prodname_dotcom %}. En vez de esto, utiliza variables de ambiente para referirte a la API de {% data variables.product.prodname_dotcom %}:
 
 - Crear y validar un lanzamiento en una rama de lanzamiento (tal como `release/v1`) antes de crear la etiqueta de lanzamiento (por ejemplo, `v1.0.2`).
 - Para el caso de GraphQL, utiliza la variable de ambiente `GITHUB_GRAPHQL_URL`.
@@ -84,7 +84,7 @@ Si estás desarrollando una acción para que la utilicen otras personas, te reco
 
 Bajo este acercamiento de administración de lanzamientos, los usuarios no deberían referenciar una rama `master` de una acción, ya que es probable que contenga el código más reciente y, en consecuencia, podría ser inestable. En vez de esto, puedes recomendar a tus usuarios que especifiquen una versión mayor cuando utilicen tu acción, y únicamente dirigirlos a una versión más específica si encuentran algún problema.
 
-Para utilizar una versión específica de la acción, los usuarios pueden configurar su flujo de trabajo de {{ site.data.variables.product.prodname_actions }} para apuntar a una etiqueta, el SHA de una confirmación o a una rama denominada para un lanzamiento.
+Para utilizar una versión específica de la acción, los usuarios pueden configurar su flujo de trabajo de {% data variables.product.prodname_actions %} para apuntar a una etiqueta, el SHA de una confirmación o a una rama denominada para un lanzamiento.
 
 #### Utilizar etiquetas para la administración de lanzamientos
 
@@ -139,21 +139,21 @@ Si tienes la intención de compartir públicamente tu acción, te recomendamos c
 - Variables de entorno que utiliza la acción.
 - Un ejemplo de cómo usar tu acción en un flujo de trabajo.
 
-### Comparar {{ site.data.variables.product.prodname_actions }} para {{ site.data.variables.product.prodname_github_apps}}
+### Comparar {% data variables.product.prodname_actions %} para {% data variables.product.prodname_github_apps %}
 
-{{ site.data.variables.product.prodname_marketplace }} ofrece herramientas para mejorar tu flujo de trabajo. Comprender las diferencias y los beneficios de cada herramienta te permitirá seleccionar la mejor herramienta para tu trabajo. Para obtener más información acerca de la creacción de acciones y apps, consulta las secciones "[Acerca de Github Actions](/actions/getting-started-with-github-actions/about-github-actions)" y "[Acerca de las apps](/apps/about-apps/)".
+{% data variables.product.prodname_marketplace %} ofrece herramientas para mejorar tu flujo de trabajo. Comprender las diferencias y los beneficios de cada herramienta te permitirá seleccionar la mejor herramienta para tu trabajo. Para obtener más información acerca de la creacción de acciones y apps, consulta las secciones "[Acerca de Github Actions](/actions/getting-started-with-github-actions/about-github-actions)" y "[Acerca de las apps](/apps/about-apps/)".
 
 #### Fortalezas de las acciones y las aplicaciones de GitHub
 
-Mientras que tanto las {{ site.data.variables.product.prodname_actions }} como las {{ site.data.variables.product.prodname_github_app }} proporcionan formas de construir herramientas de automatización y flujo de trabajo, cada una tiene fortalezas que las hacen útiles de diferentes maneras.
+Mientras que tanto las {% data variables.product.prodname_actions %} como las {% data variables.product.prodname_github_app %} proporcionan formas de construir herramientas de automatización y flujo de trabajo, cada una tiene fortalezas que las hacen útiles de diferentes maneras.
 
-{{ site.data.variables.product.prodname_github_apps }}:
+{% data variables.product.prodname_github_apps %}:
 * Se ejecutan de manera persistente y pueden reaccionar rápidamente a los eventos.
 * Funcionan bien cuando se necesitan datos de manera persistente.
 * Funcionan mejor con las solicitudes de API que no consumen mucho tiempo.
 * Se ejecutan en un servidor o infraestructura de computación que proporciones.
 
-{{ site.data.variables.product.prodname_actions }}:
+{% data variables.product.prodname_actions %}:
 * Brindan automatización que puede realizar una integración continua y una implementación continua.
 * Pueden ejecutarse directamente en máquinas de ejecutor o en contenedores Docker.
 * Pueden incluir acceso a un clon de tu repositorio, lo que permite que las herramientas de implementación y publicación, los formateadores de código y las herramientas de la línea de comando accedan a tu código.
@@ -162,4 +162,4 @@ Mientras que tanto las {{ site.data.variables.product.prodname_actions }} como l
 
 ### Leer más
 
-- "[Herramientas de desarrollo para {{ site.data.variables.product.prodname_actions }}](/articles/development-tools-for-github-actions)"
+- "[Herramientas de desarrollo para {% data variables.product.prodname_actions %}](/articles/development-tools-for-github-actions)"

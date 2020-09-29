@@ -7,7 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
@@ -15,8 +15,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
 3. Check the command output to see if you have a GPG key pair.
     * If there are no GPG key pairs or you don't want to use any that are available for signing commits and tags, then [generate a new GPG key](/articles/generating-a-new-gpg-key).
     * If there's an existing GPG key pair and you want to use it to sign commits and tags, then [add your GPG key to your GitHub account](/articles/adding-a-new-gpg-key-to-your-github-account).

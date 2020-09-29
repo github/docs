@@ -1,6 +1,6 @@
 ---
 title: Iniciar uma failover no seu cluster de réplicas
-intro: 'Se seu cluster de {{ site.data.variables.product.prodname_ghe_server }} falhar, você poderá gerar uma falha na réplica passiva.'
+intro: 'Se seu cluster de {% data variables.product.prodname_ghe_server %} falhar, você poderá gerar uma falha na réplica passiva.'
 redirect_from:
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
 versions:
@@ -29,8 +29,8 @@ Para gerar falha em nós de réplica passiva, você deve ter configurado alta di
   ghe-cluster-failover
   ```
 
-{{ site.data.reusables.enterprise_clustering.configuration-finished }}
+{% data reusables.enterprise_clustering.configuration-finished %}
 
 3. Atualize o registro de DNS para apontar para o endereço IP do balanceador de carga para o seu cluster passivo. O tráfego é direcionado para o réplica após o término do período TTL.
 
-Depois de {{ site.data.variables.product.prodname_ghe_server }} redirecionar você para a instrução e após a propagação de DNS, você concluiu a failover. Os usuários podem acessar {{ site.data.variables.product.prodname_ghe_server }} usando o nome de host habitual para o seu cluster.
+Depois de {% data variables.product.prodname_ghe_server %} redirecionar você para a instrução e após a propagação de DNS, você concluiu a failover. Os usuários podem acessar {% data variables.product.prodname_ghe_server %} usando o nome de host habitual para o seu cluster.

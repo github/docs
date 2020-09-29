@@ -1,6 +1,6 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'ごくまれに、Linux で SSH 経由で {{ site.data.variables.product.product_name }} に接続すると、「Agent admitted failure to sign using the key」というエラーが発生する場合があります。 この問題を解決するには以下の手順に従ってください。'
+intro: 'ごくまれに、Linux で SSH 経由で {% data variables.product.product_name %} に接続すると、「Agent admitted failure to sign using the key」というエラーが発生する場合があります。 この問題を解決するには以下の手順に従ってください。'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key/
   - /articles/error-agent-admitted-failure-to-sign
@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Linux コンピュータで {{ site.data.variables.product.product_location }}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:
+Linux コンピュータで {% data variables.product.product_location %}に SSH 接続しようとすると、ターミナルに以下のメッセージが表示されることがあります:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > Agent admitted failure to sign using the key.
 > debug1: No more authentication methods to try.

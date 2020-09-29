@@ -1,6 +1,6 @@
 ---
 title: Diferenças entre clustering e alta disponibilidade
-intro: 'A configuração de alta disponibilidade do {{ site.data.variables.product.prodname_ghe_server }} é uma configuração de failover primário/secundário que fornece redundância, enquanto o cluster fornece redundância e dimensionamento distribuindo a carga de leitura e gravação em vários nós.'
+intro: 'A configuração de alta disponibilidade do {% data variables.product.prodname_ghe_server %} é uma configuração de failover primário/secundário que fornece redundância, enquanto o cluster fornece redundância e dimensionamento distribuindo a carga de leitura e gravação em vários nós.'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
 versions:
@@ -11,11 +11,11 @@ versions:
 
 Tanto a alta disponibilidade (High Availability, HA) quanto o cluster fornecem redundância ao eliminar o nó único como ponto de falha. Ambos podem fornecer disponibilidade nos seguintes cenários:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 ### Dimensionamento
 
-{{site.data.reusables.enterprise_clustering.clustering-scalability }} Na alta disponibilidade (HA), a dimensão do appliance depende exclusivamente do nó primário, e a carga não é distribuída para o servidor réplica.
+{% data reusables.enterprise_clustering.clustering-scalability %} Na alta disponibilidade (HA), a dimensão do appliance depende exclusivamente do nó primário, e a carga não é distribuída para o servidor réplica.
 
 ### Diferenças entre configuração e método de failover
 
@@ -33,5 +33,5 @@ Nem o clustering nem a HA devem ser considerados como substitutos para as medida
 Os recursos de disponibilidade, especialmente os que têm failover automático, como clustering, podem mascarar falhas porque geralmente o serviço não é interrompido em caso de falha. Seja qual for a opção em uso (HA ou cluster), é importante monitorar a integridade de cada instância para você se manter a par das possíveis falhas. Para obter mais informações sobre monitoramento, consulte "[Limites recomendados de alerta](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)" e "[Monitoramento de nós de cluster](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)."
 
 ### Leia mais
-- Para obter mais informações sobre clustering no {{ site.data.variables.product.prodname_ghe_server }}, consulte "[Sobre clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)".
-- Para obter mais informações sobre HA, consulte "[Configurar o {{ site.data.variables.product.prodname_ghe_server }} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".
+- Para obter mais informações sobre clustering no {% data variables.product.prodname_ghe_server %}, consulte "[Sobre clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)".
+- Para obter mais informações sobre HA, consulte "[Configurar o {% data variables.product.prodname_ghe_server %} para alta disponibilidade](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)".

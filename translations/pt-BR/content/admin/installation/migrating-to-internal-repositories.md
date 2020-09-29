@@ -1,6 +1,6 @@
 ---
 title: Migrando para repositórios internos
-intro: 'Você pode migrar para repositórios internos para unificar a experiência interna para desenvolvedores usando {{ site.data.variables.product.prodname_ghe_server }} e {{ site.data.variables.product.prodname_ghe_cloud }}.'
+intro: 'Você pode migrar para repositórios internos para unificar a experiência interna para desenvolvedores usando {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}.'
 permissions: Os administradores do site podem migrar para repositórios internos.
 redirect_from:
   - /enterprise/admin/installation/migrating-to-internal-repositories
@@ -10,9 +10,9 @@ versions:
 
 ### Sobre repositórios internos
 
-Os repositórios internos estão disponíveis em {{ site.data.variables.product.prodname_ghe_server }} 2.20+. {{ site.data.reusables.repositories.about-internal-repos }} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)".
+Os repositórios internos estão disponíveis em {% data variables.product.prodname_ghe_server %} 2.20+. {% data reusables.repositories.about-internal-repos %} Para obter mais informações, consulte "[Sobre a visibilidade do repositório](/github/creating-cloning-and-archiving-repositories/about-repository-visibility#about-internal-repositories)".
 
-Em versões futuras do {{ site.data.variables.product.prodname_ghe_server }}, ajustaremos como a visibilidade do repositório funciona para que os termos público, interno e privado tenham significados uniformes para desenvolvedores em {{ site.data.variables.product.prodname_ghe_server }} e {{ site.data.variables.product.prodname_ghe_cloud }}.
+Em versões futuras do {% data variables.product.prodname_ghe_server %}, ajustaremos como a visibilidade do repositório funciona para que os termos público, interno e privado tenham significados uniformes para desenvolvedores em {% data variables.product.prodname_ghe_server %} e {% data variables.product.prodname_ghe_cloud %}.
 
 Para se preparar para essas alterações, se você tiver o modo privado ativado, é possível executar uma migração em sua instância para converter repositórios públicos em internos. Essa migração é atualmente opcional, para permitir que você teste as mudanças em uma instância não produtiva. A migração será obrigatória no futuro.
 

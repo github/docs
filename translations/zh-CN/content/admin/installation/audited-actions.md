@@ -99,7 +99,7 @@ versions:
 | --------------------:| ---------------------------------------------------------------------- |
 | `staff.disable_repo` | 站点管理员已禁用对仓库及其所有复刻的访问。                                                  |
 |  `staff.enable_repo` | 站点管理员已重新启用对仓库及其所有复刻的访问。                                                |
-|   `staff.fake_login` | 站点管理员以另一用户的身份登录 {{ site.data.variables.product.prodname_enterprise }}。 |
+|   `staff.fake_login` | 站点管理员以另一用户的身份登录 {% data variables.product.prodname_enterprise %}。 |
 |  `staff.repo_unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                         |
 |       `staff.unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                         |
 

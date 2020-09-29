@@ -1,6 +1,6 @@
 ---
 title: Revisar solicitudes de extracción localmente
-intro: 'Cuando alguien te manda una solicitud de extracción desde una bifurcación o rama de tu repositorio, puedes fusionarla localmente para resolver un conflicto de fusión o para probar y verificar los cambios antes de fusionarlos en {{ site.data.variables.product.product_name }}.'
+intro: 'Cuando alguien te manda una solicitud de extracción desde una bifurcación o rama de tu repositorio, puedes fusionarla localmente para resolver un conflicto de fusión o para probar y verificar los cambios antes de fusionarlos en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
 permissions: Cualquiera con acceso de escritura a un repositorio puede extraer una solicitud de extracción remota localmente.
@@ -17,24 +17,24 @@ versions:
 
 ### Modificar una solicitud de extracción activa localmente
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. En la lista de solicitudes de extracción, da clic en aquella que quieras modificar.{% if currentVersion == "free-pro-team@latest" %}
 3. Para elegir dónde te gustaría abrir la solicitud de extracción, selecciona la opción **Abrir con {% octicon "triangle-down" aria-label="The down triangle icon" %}** del menú desplegable y da clic en una de las pestañas. ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. En la caja de fusión, da clic en **instrucciones para línea de comandos**. Sigue la secuencia de pasos para disminuir la solicitud de extracción propuesta. ![Enlace para acceder a las instrucciones de la solicitud de extracción de la línea de comando](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. De manera opcional, para ver los cambios propuestos en {{ site.data.variables.product.prodname_desktop }}, da clic en **abrir en {{ site.data.variables.product.prodname_desktop }}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+4. De manera opcional, para ver los cambios propuestos en {% data variables.product.prodname_desktop %}, da clic en **abrir en {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 ### Modificar una solicitud de extracción inactiva localmente
 
 Si algún autor de una solicitud de extracción no responde a las solicitudes o ha eliminado su bifurcación, dicha solicitud se fusionará de todos modos. Sin embargo, si deseas realizar cambios a una solicitud de extracción y el autor no responde, necesitarás realizar algunos pasos adicionales para actualizar la solicitud de extracción.
 
-Una vez que se abre una solicitud de extracción, {{ site.data.variables.product.product_name }} almacena todos los cambios remotamente. Es decir, Los repositorios cuentan con confirmaciones de cambios en una solicitud de extracción aún antes de que esta solicitud se fusione. Puedes extraer una solicitud y recrearla como tuya.
+Una vez que se abre una solicitud de extracción, {% data variables.product.product_name %} almacena todos los cambios remotamente. Es decir, Los repositorios cuentan con confirmaciones de cambios en una solicitud de extracción aún antes de que esta solicitud se fusione. Puedes extraer una solicitud y recrearla como tuya.
 
 Cualquier persona puede trabajar con una solicitud de extracción abierta anteriormente para seguir trabajando en ella, probarla o incluso abrir nuevas solicitud de extracción con cambios adicionales. Sin embargo, solo los colaboradores con acceso de escritura pueden fusionar las solicitudes de extracción.
 
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. En la lista "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción que deseas fusionar.
 3. Busca el número de la ID de la solicitud de extracción inactiva. Esta es la secuencia de dígitos inmediatamente después del título de la solicitud de extracción. ![Número de ID de las solicitudes de extracción](/assets/images/help/pull_requests/pull_request_id_number.png)
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 5. Extrae la referencia de la solicitud de extracción en función de su número de ID, creando una nueva rama en el proceso.
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -53,7 +53,7 @@ Cualquier persona puede trabajar con una solicitud de extracción abierta anteri
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>repository</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
 9. [Crea una nueva solicitud de extracción](/articles/creating-a-pull-request) con tu nueva rama.

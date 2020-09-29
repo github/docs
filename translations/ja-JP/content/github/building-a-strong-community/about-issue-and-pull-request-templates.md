@@ -21,14 +21,14 @@ Issueテンプレートビルダーを使ってリポジトリにIssueのテン�
 テンプレートビルダーを使うと、各テンプレートに対してタイトルと説明を指定し、テンプレートの内容を追加し、リポジトリ中でそのテンプレートをデフォルトブランチにコミットするか、プルリクエストをオープンできます。 テンプレートビルダーは、新しい Issue ページにテンプレートを表示するのに必要となる YAML front matter マークアップを自動的に追加してくれます。 詳しい情報については、「[リポジトリ用に Issue テンプレートを設定する](/articles/configuring-issue-templates-for-your-repository)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
+{% data reusables.repositories.issue-template-config %} For more information, see "[Configuring issue templates for your repository](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 {% endif %}
 
-Issue テンプレートは、リポジトリのデフォルトブランチ中の隠しディレクトリ `.github/ISSUE_TEMPLATE` に保存されます。 テンプレートを他のブランチで作成した場合、それをコラボレーターが使うことはできません。 Issue テンプレートのファイル名では大文字と小文字は区別されません。拡張子は *.md* でなければなりません。 {{ site.data.reusables.repositories.valid-community-issues }}
+Issue テンプレートは、リポジトリのデフォルトブランチ中の隠しディレクトリ `.github/ISSUE_TEMPLATE` に保存されます。 テンプレートを他のブランチで作成した場合、それをコラボレーターが使うことはできません。 Issue テンプレートのファイル名では大文字と小文字は区別されません。拡張子は *.md* でなければなりません。 {% data reusables.repositories.valid-community-issues %}
 
 レガシーの Issue テンプレートワークフローを使い、手作業で単一の Issue テンプレートを Markdown で作成することもできます。その場合、プロジェクトのコントリビューターは自動的に Issue の本文にテンプレートの内容を見ることになります。 とはいえ、Issue テンプレートの作成にはアップグレードされた複数 Issue テンプレートビルダーを使うことをおすすめします。 レガシーのワークフローに関する詳しい情報については、「[リポジトリ用の単一 Issue テンプレートを手動で作成する](/articles/manually-creating-a-single-issue-template-for-your-repository)」を参照してください。
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### プルリクエストのテンプレート
 

@@ -1,6 +1,6 @@
 ---
 title: High Availability設定のリカバリ
-intro: '{{ site.data.variables.product.prodname_ghe_server }} アプライアンスにフェイルオーバーした後は、単一のアプライアンスに頼るのではなく、できるだけ早く冗長性を取り戻す必要があります。'
+intro: '{% data variables.product.prodname_ghe_server %} アプライアンスにフェイルオーバーした後は、単一のアプライアンスに頼るのではなく、できるだけ早く冗長性を取り戻す必要があります。'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
@@ -20,9 +20,9 @@ versions:
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. 新しいプライマリへの接続を確認し、新しいレプリカのレプリカモードを有効にするには、`ghe-repl-setup` をもう一度実行します。
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

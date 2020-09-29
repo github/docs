@@ -13,13 +13,13 @@ versions:
 Para determinar onde a chave foi usada, abra um terminal e digite o comando `ssh`. Use o sinalizador `-i` para fornecer o caminho para a chave que deseja marcar:
 
 ```shell
-$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{{ site.data.variables.command_line.codeblock }}
-# Conecte-se a {{ site.data.variables.product.product_location }} usando uma chave ssh específica
+$ ssh -T -ai <em>~/.ssh/id_rsa</em> git@{% data variables.command_line.codeblock %}
+# Conecte-se a {% data variables.product.product_location %} usando uma chave ssh específica
 > Olá, <em>username</em>! Você conseguiu se autenticar, mas o GitHub não
 > fornece acesso shell.
 ```
 
-O *username* na resposta é a conta do {{ site.data.variables.product.product_name }} a que a chave está vinculada no momento. Se a resposta for parecida com "username/repo", a chave foi vinculada a um repositório como [*chave de implantação*](/guides/managing-deploy-keys#deploy-keys).
+O *username* na resposta é a conta do {% data variables.product.product_name %} a que a chave está vinculada no momento. Se a resposta for parecida com "username/repo", a chave foi vinculada a um repositório como [*chave de implantação*](/guides/managing-deploy-keys#deploy-keys).
 
 ### Corrigir o problema
 

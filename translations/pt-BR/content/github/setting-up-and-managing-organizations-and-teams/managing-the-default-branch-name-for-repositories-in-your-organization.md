@@ -8,18 +8,18 @@ versions:
 
 ### Sobre o nome do branch-padrão
 
-Quando um membro da sua organização cria um novo repositório, o {{ site.data.variables.product.prodname_dotcom }} criará um único branch e o irá defini-lo como branch-padrão do repositório. {{ site.data.variables.product.prodname_dotcom }} atualmente nomeia o branch-padrão `mestre`, mas você pode definir o branch-padrão com qualquer nome que faça sentido para o seu ambiente de desenvolvimento.
+Quando um membro da sua organização cria um novo repositório, o {% data variables.product.prodname_dotcom %} criará um único branch e o irá defini-lo como branch-padrão do repositório. {% data variables.product.prodname_dotcom %} atualmente nomeia o branch-padrão `mestre`, mas você pode definir o branch-padrão com qualquer nome que faça sentido para o seu ambiente de desenvolvimento.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Definir o nome do branch-padrão
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 3. Em "Branch padrão do repositório", clique em **Alterar o nome do branch-padrão agora**. ![Botão de sobrescrever](/assets/images/help/organizations/repo-default-name-button.png)
     {% note %}
 

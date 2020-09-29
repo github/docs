@@ -1,6 +1,6 @@
 ---
 title: Testing webhooks
-intro: 'Review your webhook deliveries on {{ site.data.variables.product.prodname_dotcom }}, including the HTTP Request and payload as well as the response.'
+intro: 'Review your webhook deliveries on {% data variables.product.prodname_dotcom %}, including the HTTP Request and payload as well as the response.'
 redirect_from:
   - /webhooks/testing
 versions:
@@ -18,7 +18,7 @@ view provides some tooling for testing your deployed payloads.
 
 Every webhook has its own "Recent Deliveries" section, which lists, at a glance whether a deployment was successful (green check) or failed (red x). You can also identify when each delivery was attempted.
 
-{{ site.data.variables.product.product_name }} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
+{% data variables.product.product_name %} keeps a log of each webhook delivery for {% if currentVersion == "free-pro-team@latest" %} 30 {% else %} 8 {% endif %} days.
 
 ![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
 

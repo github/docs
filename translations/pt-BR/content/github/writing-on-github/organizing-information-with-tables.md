@@ -72,5 +72,5 @@ Para incluir uma barra vertical `|` como conteúdo dentro da célula, use `\` an
 
 ### Leia mais
 
-- [Especificações de markdown em estilo {{ site.data.variables.product.prodname_dotcom }}](https://github.github.com/gfm/)
+- [Especificações de markdown em estilo {% data variables.product.prodname_dotcom %}](https://github.github.com/gfm/)
 - "[Sintaxe básica de gravação e formatação](/articles/basic-writing-and-formatting-syntax)"

@@ -1,6 +1,6 @@
 ---
 title: 許可されていないアクセスを防止する
-intro: '[Heartbleed bug](http://heartbleed.com/) などのセキュリティインシデントについては、メディアで警告を見たことがあるかもしれません。そうでなければ、{{ site.data.variables.product.product_location }} にサインインしている間にコンピュータから情報を盗まれている可能性があります。 そのような場合でも、パスワードを変更すれば、アカウントやプロジェクトにこれ以上不正にアクセスされるのを防ぐことができます。'
+intro: '[Heartbleed bug](http://heartbleed.com/) などのセキュリティインシデントについては、メディアで警告を見たことがあるかもしれません。そうでなければ、{% data variables.product.product_location %} にサインインしている間にコンピュータから情報を盗まれている可能性があります。 そのような場合でも、パスワードを変更すれば、アカウントやプロジェクトにこれ以上不正にアクセスされるのを防ぐことができます。'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} では、新しい SSH キーを追加する、アプリケーションを認証する、Team メンバーを変更するといった重要なアクションを実行するとき、パスワードが要求されます。
+{% data variables.product.product_name %} では、新しい SSH キーを追加する、アプリケーションを認証する、Team メンバーを変更するといった重要なアクションを実行するとき、パスワードが要求されます。
 
 アカウントのセキュリティを保つために、パスワードを変更してから次のアクションを実行するようにしてください:
 

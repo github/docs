@@ -1,7 +1,7 @@
 ---
 title: Almacenar en caché las dependencias para agilizar los flujos de trabajo
 intro: 'Para hacer que tus flujos de trabajo sean más rápidos y eficientes, puedes crear y usar cachés para las dependencias y otros archivos comúnmente reutilizados.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
   - /actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows
@@ -13,9 +13,9 @@ versions:
 
 Las ejecuciones de flujo de trabajo a menudo reutilizan las mismas salidas o dependencias descargadas de una ejecución a otra. Por ejemplo, las herramientas de administración de paquetes y dependencias como Maven, Gradle, npm y Yarn mantienen una caché local de las dependencias descargadas.
 
-Los trabajos en los ejecutores alojados {{ site.data.variables.product.prodname_dotcom }} se inician en un entorno virtual limpio y deben descargar dependencias cada vez, lo que provoca una mayor utilización de la red, un tiempo de ejecución más largo y un mayor costo. Para ayudar a acelerar el tiempo que se tarda en volver a crear estos archivos, {{ site.data.variables.product.prodname_dotcom }} puede almacenar en caché las dependencias que utilizas con frecuencia en los flujos de trabajo.
+Los trabajos en los ejecutores alojados {% data variables.product.prodname_dotcom %} se inician en un entorno virtual limpio y deben descargar dependencias cada vez, lo que provoca una mayor utilización de la red, un tiempo de ejecución más largo y un mayor costo. Para ayudar a acelerar el tiempo que se tarda en volver a crear estos archivos, {% data variables.product.prodname_dotcom %} puede almacenar en caché las dependencias que utilizas con frecuencia en los flujos de trabajo.
 
-Para almacenar en caché las dependencias de un trabajo, deberás usar la acción de `caché` de {{ site.data.variables.product.prodname_dotcom }}. La acción recupera una caché identificada por una clave única. Para más información, consulta [`actions/cache`](https://github.com/actions/cache).
+Para almacenar en caché las dependencias de un trabajo, deberás usar la acción de `caché` de {% data variables.product.prodname_dotcom %}. La acción recupera una caché identificada por una clave única. Para más información, consulta [`actions/cache`](https://github.com/actions/cache).
 
 {% warning %}
 
@@ -25,7 +25,7 @@ Para almacenar en caché las dependencias de un trabajo, deberás usar la acció
 
 ### Comparar artefactos y caché de dependencias
 
-Los artefactos y el almacenamiento en caché son similares porque brindan la posibilidad de almacenar archivos en {{ site.data.variables.product.prodname_dotcom }}, pero cada característica ofrece diferentes casos de uso y no se puede usar indistintamente.
+Los artefactos y el almacenamiento en caché son similares porque brindan la posibilidad de almacenar archivos en {% data variables.product.prodname_dotcom %}, pero cada característica ofrece diferentes casos de uso y no se puede usar indistintamente.
 
 - Usa el almacenamiento en caché cuando quieras reutilizar archivos que no cambien a menudo entre trabajos o ejecuciones de flujo de trabajo.
 - Usa artefactos cuando quieras guardar los archivos producidos por un trabajo para ver después de que haya finalizado un flujo de trabajo. Para obtener más información, consulta "[Conservar datos de flujo de trabajo mediante artefactos](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)".
@@ -116,7 +116,7 @@ Para almacenar en caché los archivos en más de un directorio, necesitarás un 
 
 #### Usar contextos para crear claves de caché
 
-Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {{ site.data.variables.product.prodname_actions }}. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Una clave de caché puede incluir cualquiera de los contextos, funciones, literales y operadores admitidos por {% data variables.product.prodname_actions %}. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 Usar expresiones para crear una `key` te permite crear automáticamente una nueva caché cuando las dependencias han cambiado. Por ejemplo, puedes crear una `key` utilizando una expresión que calcule el hash de un archivo `package-lock.json` de npm.
 
@@ -126,7 +126,7 @@ npm-${{ hashFiles('package-lock.json') }}
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }} evalúa la expresión `hash "package-lock.json"` para obtener la última `key`.
+{% data variables.product.prodname_dotcom %} evalúa la expresión `hash "package-lock.json"` para obtener la última `key`.
 
 ```
 npm-d5ea0750
@@ -187,4 +187,4 @@ Por ejemplo, si una solicitud de extracción contiene una rama `feature` (el alc
 
 ### Límites de uso y política de desalojo
 
-{{ site.data.variables.product.prodname_dotcom }} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todas las cachés en un repositorio está limitado a 5 GB. Si excedes este límite, {{ site.data.variables.product.prodname_dotcom }} guardará tu caché, pero comenzará a desalojar las cachés hasta que el tamaño total sea inferior a 5 GB.
+{% data variables.product.prodname_dotcom %} eliminará todas las entradas de caché a las que no se haya accedido en más de 7 días. No hay límite en la cantidad de cachés que puedes almacenar, pero el tamaño total de todas las cachés en un repositorio está limitado a 5 GB. Si excedes este límite, {% data variables.product.prodname_dotcom %} guardará tu caché, pero comenzará a desalojar las cachés hasta que el tamaño total sea inferior a 5 GB.

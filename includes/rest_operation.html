@@ -9,7 +9,7 @@
   <div>
     {% if operation.parameters.size > 0 %}
       <h4 id="{{operation.slug}}--parameters">
-        <a href="#{{operation.slug}}--parameters">{{ site.data.ui.products.rest.reference.parameters }}</a>
+        <a href="#{{operation.slug}}--parameters">{% data ui.products.rest.reference.parameters %}</a>
       </h4>
       <table>
         <thead>
@@ -39,9 +39,9 @@
                 {% if operation.x-github.previews.size > 0 %}
                   <a href="#{{operation.slug}}-preview-notices">
                     {% if operation.x-github.previews.size > 1 %}
-                      {{ site.data.ui.products.rest.reference.see_preview_notices }}
+                      {% data ui.products.rest.reference.see_preview_notices %}
                     {% else %}
-                      {{ site.data.ui.products.rest.reference.see_preview_notice }}
+                      {% data ui.products.rest.reference.see_preview_notice %}
                     {% endif %}
                   </a>
                 {% endif %}
@@ -95,7 +95,7 @@
     {% endif %}
     {% if operation.x-codeSamples.size > 0 %}
       <h4 id="{{operation.slug}}--code-samples">
-        <a href="#{{operation.slug}}--code-samples">{{ site.data.ui.products.rest.reference.code_samples }}</a>
+        <a href="#{{operation.slug}}--code-samples">{% data ui.products.rest.reference.code_samples %}</a>
       </h4>
       {% for sample in operation.x-codeSamples %}
         {% unless sample.lang == "Ruby" %}
@@ -126,15 +126,15 @@
     {% if operation.x-github.previews.size > 0 %}
       <h4 id="{{operation.slug}}-preview-notices">
         {% if operation.x-github.previews.size > 1 %}
-          {{ site.data.ui.products.rest.reference.preview_notices }}
+          {% data ui.products.rest.reference.preview_notices %}
         {% else %}
-          {{ site.data.ui.products.rest.reference.preview_notice }}
+          {% data ui.products.rest.reference.preview_notice %}
         {% endif %}
       </h4>
       {% for preview in operation.x-github.previews %}
         <div class="extended-markdown note border rounded-1 mb-4 p-3 border-blue bg-blue-light f5">
           {{ preview.html }}
-          {% if preview.required %}☝️ {{site.data.ui.products.rest.reference.preview_header_is_required}}.{% endif %}
+          {% if preview.required %}☝️ {% data ui.products.rest.reference.preview_header_is_required %}.{% endif %}
         </div>
       {% endfor %}
     {% endif %}

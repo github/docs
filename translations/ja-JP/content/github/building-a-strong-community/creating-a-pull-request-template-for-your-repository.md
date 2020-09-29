@@ -16,8 +16,8 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
 
 ### プルリクエストテンプレートの追加
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. ファイル名フィールドで:
     -  プルリクエストテンプレートをリポジトリのルートディレクトリで表示するには、プルリクエストテンプレートに `.github/pull_request_template.md` という名前を付けます。 ![ルートディレクトリの新しいプルリクエストテンプレート名](/assets/images/help/repository/pr-template-file-name.png)
     - プルリクエストテンプレートをリポジトリの `docs` ディレクトリで表示するには、プルリクエストテンプレートに `docs/pull_request_template.md`という名前を付けます。 ![docs ディレクトリの新しいプルリクエストテンプレート](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ve
     - リポジトリ内の[関連する Issue への参照](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests)。
     - プルリクエストで提案された変更の説明。
     - 提案された変更のレビューを担当する個人やチームの[@メンション](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} テンプレートがリポジトリのデフォルトブランチにマージされると、コラボレーターがテンプレートを使用できるようになります。
+{% data reusables.files.propose_new_file %}
 
 ### 参考リンク
 

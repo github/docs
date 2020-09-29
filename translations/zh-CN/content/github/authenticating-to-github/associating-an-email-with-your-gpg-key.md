@@ -1,6 +1,6 @@
 ---
 title: 将电子邮件与 GPG 密钥关联
-intro: 'GPG 密钥必须 {{ site.data.variables.product.product_name }} 验证过与提交者身份匹配的电子邮件地址匹配。'
+intro: 'GPG 密钥必须 {% data variables.product.product_name %} 验证过与提交者身份匹配的电子邮件地址匹配。'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
 versions:
@@ -10,13 +10,13 @@ versions:
 
 {% note %}
 
-如果使用的 GPG 密钥匹配提交者身份以及与 {{ site.data.variables.product.product_name }} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
+如果使用的 GPG 密钥匹配提交者身份以及与 {% data variables.product.product_name %} 帐户关联的已验证电子邮件地址，则您可以开始对提交和标记签名。
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
 4. 输入 `gpg --edit-key GPG key ID`，替换要使用的 GPG 密钥 ID。 在以下示例中，GPG 密钥 ID 是 `3AA5C34371567BD2`：
   ```shell
   $ gpg --edit-key <em>3AA5C34371567BD2</em>
@@ -25,7 +25,7 @@ versions:
   ```shell
   $ gpg> adduid
   ```
-6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {{ site.data.reusables.gpg.private-email }} {% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
+6. 按照提示提供您的真实姓名、电子邮件地址和任何注释。 您可以选择 `N`、`C` 或 `E` 来修改各个条目。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

@@ -11,9 +11,9 @@ versions:
 
 
 
-{{ site.data.variables.product.product_name }} API 为开发人员提供大量的可用信息。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
+{% data variables.product.product_name %} API 为开发人员提供大量的可用信息。 在很多时候，您甚至会发现自己请求的信息_太多_，为了满足我们的服务器，API 会自动[对请求的项目进行分页][pagination]。
 
-在本指南中，我们将对 {{ site.data.variables.product.product_name }} 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
+在本指南中，我们将对 {% data variables.product.product_name %} 搜索 API 进行一些调用，并使用分页遍历结果。 您可以在[平台样本][platform samples]仓库中找到此项目的完整源代码。
 
 ### 分页基础知识
 
@@ -26,13 +26,13 @@ versions:
 有关分页的信息包含在 API 调用的 [Link 标头](http://tools.ietf.org/html/rfc5988)中。 例如，我们向搜索 API 发出一个 curl 请求，以查明 Mozilla 项目使用短语 `addClass` 的次数：
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla"
 ```
 
 `-I` 参数表示我们只关注标头，而不关注实际内容。 在检查结果时，您会注意到 Link 标头中的一些信息，如下所示：
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 我们来分解说明。 `rel="next"` 表示下一页是 `page=2`。 这是合理的，因为在默认情况下，所有分页查询都是从第 `1` 页开始。`rel="last"` 提供了更多信息，指示结果的最后一页是第 `34` 页。 因此，我们还有 33 页有关 `addClass` 的信息可用。 不错！
 
@@ -43,15 +43,15 @@ $ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+
 现在您知道要接收多少页面，可以开始浏览页面以使用结果。 您可以通过传递 `page` 参数进行浏览。 默认情况下，`page` 总是从 `1` 开始。 让我们跳到第 14 页，看看会发生什么：
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&page=14"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&page=14"
 ```
 
 以下是再次出现的 Link 标头：
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 果然，`rel="next"` 是 15，而 `rel="last"` 仍是 34。 但是现在我们得到了更多信息：`rel="first"` 表示_第一_页的 URL，更重要的是，`rel="prev"` 让您知道了上一页的页码。 根据这些信息，您可以构造一些 UI，使用户可以在 API 调用结果列表的第一页、上一页、下一页或最后一页之间跳转。
 
@@ -60,13 +60,13 @@ $ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+
 通过传递 `per_page` 参数，您可以指定希望每页返回多少个条目，最多 100 个。 我们来尝试请求 50 个关于 `addClass` 的条目：
 
 ```shell
-$ curl -I "{{ site.data.variables.product.api_url_pre }}/search/code?q=addClass+user:mozilla&per_page=50"
+$ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:mozilla&per_page=50"
 ```
 
 请注意它对标头响应的影响：
 
-    Link: <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 您可能已经猜到了，`rel="last"` 信息表明最后一页现在是第 20 页。 这是因为我们要求每页提供更多的结果相关信息。
 

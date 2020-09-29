@@ -11,18 +11,18 @@ versions:
   enterprise-server: '*'
 ---
 
-Personal access tokens (PATs) are an alternative to using passwords for authentication to {{ site.data.variables.product.product_name }} when using the [GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
+Personal access tokens (PATs) are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/v3/auth/#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
 
 {% if currentVersion == "free-pro-team@latest" %}If you want to use a PAT to access resources owned by an organization that uses SAML SSO, you must authorize the PAT. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/articles/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines persönlichen Zugriffstokens für die Verwendung mit SAML Single Sign-On](/articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Ein Token erstellen
 
 {% if currentVersion == "free-pro-team@latest" %}1. [Überprüfe Deine E-Mail-Adresse](/articles/verifying-your-email-address), falls Du dies noch nicht getan hast.{% endif %}
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 4. Klicke auf **Generate new token** (Neues Token erzeugen). ![Schaltfläche „Generate new token“ (Neues Token erzeugen)](/assets/images/help/settings/generate_new_token.png)
 5. Gib dem Token einen beschreibenden Namen. ![Feld „Token description“ (Token-Beschreibung)](/assets/images/help/settings/token_description.png)
 6. Wähle die Scopes oder Berechtigungen aus, die Du diesem Token zuweisen möchtest. Um das Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wähle **repo** aus. ![Token-Scopes auswählen](/assets/images/help/settings/token_scopes.gif)
@@ -39,7 +39,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 
 ### Ein Token in der Befehlszeile verwenden
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 Persönliche Zugriffstoken können nur für HTTPS-Git-Vorgänge verwendet werden. Wenn Ihr Repository eine SSH-Remote-URL verwendet, müssen Sie [das Remote-Repository von SSH auf HTTPS umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-ssh-to-https).
 

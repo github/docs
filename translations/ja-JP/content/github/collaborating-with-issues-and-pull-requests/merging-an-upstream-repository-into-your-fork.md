@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
 3. マージ先のブランチをチェックアウトします。 Usually, you will merge into the default branch.
   ```shell
@@ -16,7 +16,7 @@ versions:
   ```
 4. 上流リポジトリから目的のブランチをプルします。 この方法では、コミット履歴が修正されずに維持されます。
   ```shell
-  $ git pull https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git <em>BRANCH_NAME</em>
+  $ git pull https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git <em>BRANCH_NAME</em>
   ```
 5. コンフリクトがある場合は解決します。 詳細は「[マージコンフリクトに対処する](/articles/addressing-merge-conflicts)」を参照してください。
 6. マージをコミットします。

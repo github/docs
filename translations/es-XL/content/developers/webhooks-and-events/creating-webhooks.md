@@ -1,6 +1,6 @@
 ---
 title: Crear webhooks
-intro: 'Aprende a crear un webhook, escoger los eventos a los cuales escuchará en {{ site.data.variables.product.prodname_dotcom }} y cómo configurar un servidor para recibir y administrar su carga útil.'
+intro: 'Aprende a crear un webhook, escoger los eventos a los cuales escuchará en {% data variables.product.prodname_dotcom %} y cómo configurar un servidor para recibir y administrar su carga útil.'
 redirect_from:
   - /webhooks/creating
 versions:
@@ -12,7 +12,7 @@ versions:
 
 Ahora que entendemos [lo básico de los webhooks][webhooks-overview], vamos a revisar el proceso de creación de nuestra propia integración impulsada por webhooks. En este tutorial, crearemos un webhook de repositorio que será responsable de listar qué tan popular es nuestro repositorio con base en la cantidad de informes de problemas que recibe diariamente.
 
-Crear un webhook es un proceso de dos pasos. Primero necesitas configurar la forma en la que quieres que se comporte tu webhook a través de {{ site.data.variables.product.product_name }}, es decir: a qué eventos quieres que escuche. Después, configurarás tu servidor para recibir y administrar la carga útil.
+Crear un webhook es un proceso de dos pasos. Primero necesitas configurar la forma en la que quieres que se comporte tu webhook a través de {% data variables.product.product_name %}, es decir: a qué eventos quieres que escuche. Después, configurarás tu servidor para recibir y administrar la carga útil.
 
 ### Configurar un Webhook
 
@@ -26,21 +26,21 @@ Los Webhooks necesitan configurar algunas de sus opciones antes de que los pueda
 
 ### URL de la carga útil
 
-{{ site.data.reusables.webhooks.payload_url }}
+{% data reusables.webhooks.payload_url %}
 
 Ya que estamos desarrollando todo localmente para nuestro tutorial, configurémosla como `http://localhost:4567/payload`. Te explicaremos por qué en los documentos de [Configurar tu Servidor](/webhooks/configuring/).
 
 ### Tipo de Contenido
 
-{{ site.data.reusables.webhooks.content_type }} Para efecto de este tutorial, está bien si usas el tipo de contenido predeterminado de `application/json`.
+{% data reusables.webhooks.content_type %} Para efecto de este tutorial, está bien si usas el tipo de contenido predeterminado de `application/json`.
 
 ### Secreto
 
-{{ site.data.reusables.webhooks.secret }}
+{% data reusables.webhooks.secret %}
 
 ### Verificación de SSL
 
-{{ site.data.reusables.webhooks.webhooks_ssl }}
+{% data reusables.webhooks.webhooks_ssl %}
 
 ### Activo
 

@@ -34,11 +34,11 @@ compare の最も一般的な使い方は、新しいプルリクエストを開
 
 ### コミットを比較する
 
-リポジトリやそのフォークの、2 つの任意のコミットを、 {{ site.data.variables.product.prodname_dotcom }}のツードット diff 比較によって比較することも可能です。
+リポジトリやそのフォークの、2 つの任意のコミットを、 {% data variables.product.prodname_dotcom %}のツードット diff 比較によって比較することも可能です。
 
-{{ site.data.variables.product.prodname_dotcom }} のツードット diff 比較で、2 つのコミット間または Git Object ID (OID) 間を素早く直接比較するには、リポジトリの [Comparing changes] ページの URL を編集してください。
+{% data variables.product.prodname_dotcom %} のツードット diff 比較で、2 つのコミット間または Git Object ID (OID) 間を素早く直接比較するには、リポジトリの [Comparing changes] ページの URL を編集してください。
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 他の比較方法に関する詳しい情報については、「[スリードットおよびツードット diff 比較](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)」を参照してください。
 

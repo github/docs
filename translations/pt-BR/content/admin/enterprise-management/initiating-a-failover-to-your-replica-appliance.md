@@ -1,6 +1,6 @@
 ---
 title: Iniciar failover do appliance réplica
-intro: 'É possível fazer failover de um appliance réplica do {{ site.data.variables.product.prodname_ghe_server }} usando a linha de comando para manutenção e teste ou em caso de falha do appliance primário.'
+intro: 'É possível fazer failover de um appliance réplica do {% data variables.product.prodname_ghe_server %} usando a linha de comando para manutenção e teste ou em caso de falha do appliance primário.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -10,7 +10,7 @@ versions:
 
 O tempo do failover dependerá do tempo necessário para promover manualmente a réplica e redirecionar o tráfego. Em média, o procedimento leva de dois a dez minutos.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. Para permitir que a replicação termine antes de você alternar os appliances, coloque o appliance principal no modo de manutenção:
     - Para usar o console de gerenciamento, consulte "[Habilitar e programar o modo de manutenção](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)";

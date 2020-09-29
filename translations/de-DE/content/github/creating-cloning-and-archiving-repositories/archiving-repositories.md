@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Klicke unter „Danger Zone“ (Gefahrenzone) auf **Archive this repository** (Dieses Repository archivieren) oder **Unarchive this repository** (Archivierung dieses Repositorys aufheben). ![Schaltfläche „Archive this repository“ (Dieses Repository archivieren)](/assets/images/help/repository/archive-repository.png)
 4. Lies die Warnungen.
 5. Gib den Namen des Repositorys ein, das Du archivieren beziehungsweise dessen Archivierung Du aufheben möchtest. ![Warnungen beim Archivieren des Repositorys](/assets/images/help/repository/archive-repository-warnings.png)

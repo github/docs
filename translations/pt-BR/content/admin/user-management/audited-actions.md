@@ -100,7 +100,7 @@ versions:
 | --------------------:| -------------------------------------------------------------------------------------------------------------------------- |
 | `staff.disable_repo` | Um administrador do site desabilitou o acesso a um repositório e a todas as suas bifurcações.                              |
 |  `staff.enable_repo` | Um administrador do site habilitou novamente o acesso a um repositório e a todas as suas bifurcações.                      |
-|   `staff.fake_login` | Um administrador do site fez login no {{ site.data.variables.product.prodname_enterprise }} como outro usuário.            |
+|   `staff.fake_login` | Um administrador do site fez login no {% data variables.product.prodname_enterprise %} como outro usuário.            |
 |  `staff.repo_unlock` | Um administrador do site desbloqueou (obteve acesso total temporariamente a) um dos repositórios privados de um usuário.   |
 |       `staff.unlock` | Um administrador do site desbloqueou (obteve acesso total temporariamente a) todos os repositórios privados de um usuário. |
 

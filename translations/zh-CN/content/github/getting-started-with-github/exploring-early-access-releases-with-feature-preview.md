@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### {{ site.data.variables.product.prodname_dotcom }} 的发行周期
+### {% data variables.product.prodname_dotcom %} 的发行周期
 
-{{ site.data.variables.product.product_name }} 的产品和功能可能经过多个发行阶段。
+{% data variables.product.product_name %} 的产品和功能可能经过多个发行阶段。
 
 | 阶段      | 描述                                                                                            |
 | ------- | --------------------------------------------------------------------------------------------- |

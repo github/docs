@@ -1,1 +1,1 @@
-Es kann ein paar Tage dauern, bis {{ site.data.variables.product.prodname_dotcom }} Deinen Antrag überprüft hat. Wenn wir Deinen Antrag genehmigt haben, wird Dein Profil automatisch auf [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors) freigeschaltet.
+Es kann ein paar Tage dauern, bis {% data variables.product.prodname_dotcom %} Deinen Antrag überprüft hat. Wenn wir Deinen Antrag genehmigt haben, wird Dein Profil automatisch auf [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) freigeschaltet.

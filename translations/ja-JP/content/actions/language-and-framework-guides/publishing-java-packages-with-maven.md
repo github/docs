@@ -1,18 +1,18 @@
 ---
 title: MavenでのJavaのパッケージの公開
 intro: 継続的インテグレーション（CI）ワークフローの一部として、Javaのパッケージをレジストリに公開するためにMavenを利用できます。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
-{{ site.data.reusables.github-actions.publishing-java-packages-intro }}
+{% data reusables.github-actions.publishing-java-packages-intro %}
 
 ### 必要な環境
 
@@ -22,8 +22,8 @@ MavenでのJavaプロジェクトのためのCIワークフローの作成に関
 
 また、以下の基本的な理解があれば役立ちます。
 
-- [{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
-- [{{ site.data.variables.product.prodname_registry }} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
+- [{% data variables.product.prodname_actions %}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
+- [{% data variables.product.prodname_registry %} で利用するために npm を設定する](/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)
 - [環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)
 - [暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
 - [GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)
@@ -40,7 +40,7 @@ _pom.xml_ファイルには、Mavenがパッケージをデプロイする配布
 
 新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすればMaven Central Repositoryにパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{{ site.data.variables.product.prodname_registry }}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリが酢デイあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールしますが、パッケージの公開のためのMavenの_settings.xml_も設定します。 デフォルトでは、設定ファイルは{% data variables.product.prodname_registry %}に対して設定されますが、Maven Central Repositoryなどの他のパッケージレジストリにデプロイするようにも設定できます。 _pom.xml_に設定済みの配布管理リポジトリが酢デイあるなら、`setup-java`アクションの呼び出しの際にその`id`を指定できます。
 
 たとえば、OSSRHホスティングプロジェクトを通じてMaven Central Repositoryにデプロイしていたなら、_pom.xml_ は`ossrh`の`id`で配布管理リポジトリを指定できます。
 
@@ -94,21 +94,21 @@ jobs:
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. Java JDKをセットアップし、環境変数の`MAVEN_USERNAME`と`MAVEN_PASSWORD`を使って`ossrh`リポジトリに対する認証を追加するためにMavenの_settings.xml_ファイルも設定します。
-1. {{ site.data.reusables.github-actions.publish-to-maven-workflow-step }}
+1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-### {{ site.data.variables.product.prodname_registry }}へのパッケージの公開
+### {% data variables.product.prodname_registry %}へのパッケージの公開
 
-新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{{ site.data.variables.product.prodname_registry }}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
+新しいリリースを作成するたびに、パッケージを公開するワークフローを起動できます。 以下の例でのワークフローは、`created`という種類で`release`イベントが発生したときに実行されます。 このワークフローは、CIテストをパスすれば{% data variables.product.prodname_registry %}にパッケージを公開します。 `release`イベントに関する詳しい情報については「[ワークフローを起動するイベント](/actions/reference/events-that-trigger-workflows#release)」を参照してください。
 
-このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{{ site.data.variables.product.prodname_registry }}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。
+このワークフロー内では、`setup-java`アクションを利用できます。 このアクションは、指定されたバージョンのJDKを`PATH`にインストールし、{% data variables.product.prodname_registry %}にパッケージを公開するためにMavenの_settings.xml_もセットアップします。 生成された_settings.xml_は、環境変数の`GITHUB_ACTOR`をユーザ名、`GITHUB_TOKEN`をパスワードとして使い、`github`の`id`でサーバーの認証を定義します。
 
 `GITHUB_TOKEN`は、デフォルトでリポジトリ中に存在し、ワークフローが実行されるリポジトリ中のパッケージには読み書きの権限があります。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-Mavenベースのプロジェクトでは、{{ site.data.variables.product.prodname_registry }}のエンドポイントを指す`github`の`id`で_pom.xml_ファイル中に配布リポジトリを作成することによって、これらの設定を利用できます。
+Mavenベースのプロジェクトでは、{% data variables.product.prodname_registry %}のエンドポイントを指す`github`の`id`で_pom.xml_ファイル中に配布リポジトリを作成することによって、これらの設定を利用できます。
 
-たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_pom.xml_中の{{ site.data.variables.product.prodname_registry }}の設定は以下の例のようになるでしょう。
+たとえば、Organizationの名前が"octocat"でリポジトリの名前が"hello-world"なら、_pom.xml_中の{% data variables.product.prodname_registry %}の設定は以下の例のようになるでしょう。
 
 {% raw %}
 ```xml
@@ -125,7 +125,7 @@ Mavenベースのプロジェクトでは、{{ site.data.variables.product.prodn
 ```
 {% endraw %}
 
-この設定で、自動的に生成された_settings.xml_を利用して{{ site.data.variables.product.prodname_registry }}にパッケージを公開するワークフローを作成できます。
+この設定で、自動的に生成された_settings.xml_を利用して{% data variables.product.prodname_registry %}にパッケージを公開するワークフローを作成できます。
 
 {% raw %}
 ```yaml
@@ -152,15 +152,15 @@ jobs:
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. Java JDKをセットアップし、自動的にMavenの_settings.xml_ファイルを設定して環境変数の`GITHUB_TOKEN`を使うように`github` Mavenリポジトリの認証を追加します。
-1. {{ site.data.reusables.github-actions.publish-to-packages-workflow-step }}
+1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 
-### Maven Central Repositoryと{{ site.data.variables.product.prodname_registry }}へのパッケージの公開
+### Maven Central Repositoryと{% data variables.product.prodname_registry %}へのパッケージの公開
 
-`setup-java`アクションをそれぞれのレジストリに対して利用すれば、Maven Central Repositoryと{{ site.data.variables.product.prodname_registry }}の両方にパッケージを公開できます。
+`setup-java`アクションをそれぞれのレジストリに対して利用すれば、Maven Central Repositoryと{% data variables.product.prodname_registry %}の両方にパッケージを公開できます。
 
-_pom.xml_ファイルに、{{ site.data.variables.product.prodname_dotcom }}リポジトリとMaven Central Repositoryプロバイダの双方に対する配布管理リポジトリを確実に含めてください。 たとえば、OSSRHホスティングプロジェクトを通じてCentral Repositoryへデプロイするなら、それを`id`を`ossrh`に設定して配布管理リポジトリ内で指定し、`id`を`github`に設定して配布管理リポジトリ内で{{ site.data.variables.product.prodname_registry }}を指定することになるかもしれません。
+_pom.xml_ファイルに、{% data variables.product.prodname_dotcom %}リポジトリとMaven Central Repositoryプロバイダの双方に対する配布管理リポジトリを確実に含めてください。 たとえば、OSSRHホスティングプロジェクトを通じてCentral Repositoryへデプロイするなら、それを`id`を`ossrh`に設定して配布管理リポジトリ内で指定し、`id`を`github`に設定して配布管理リポジトリ内で{% data variables.product.prodname_registry %}を指定することになるかもしれません。
 
 {% raw %}
 ```yaml
@@ -202,8 +202,8 @@ jobs:
 
 1. プロジェクトのリポジトリのコピーをチェックアウトします。
 1. 1回目の`setup-java`の呼び出しを行います。 これはMavenの_settings.xml_ファイルを`ossrh`に対して設定し、認証のオプションを次のステップで定義される環境変数に設定します。
-1. {{ site.data.reusables.github-actions.publish-to-maven-workflow-step }}
-1. 2回目の`setup-java`の呼び出しを行います。 Mavenの_settings.xml_ファイルを{{ site.data.variables.product.prodname_registry }}に対して自動的に設定します。
-1. {{ site.data.reusables.github-actions.publish-to-packages-workflow-step }}
+1. {% data reusables.github-actions.publish-to-maven-workflow-step %}
+1. 2回目の`setup-java`の呼び出しを行います。 Mavenの_settings.xml_ファイルを{% data variables.product.prodname_registry %}に対して自動的に設定します。
+1. {% data reusables.github-actions.publish-to-packages-workflow-step %}
 
    ワークフロー中でのシークレットの利用に関する詳しい情報については「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。

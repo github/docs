@@ -15,16 +15,16 @@ versions:
 ### 邀请协作者参加用户拥有的项目板
 
 1. 导航到您要在其中添加协作者的项目板。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-5. 在 "Search by username, full name or email address"（按用户名、全名或电子邮件地址搜索）下，输入协作者的姓名、用户名或 {{ site.data.variables.product.prodname_dotcom }} 电子邮件地址。 ![在搜索字段中输入了 Octocat 用户名的协作者部分](/assets/images/help/projects/org-project-collaborators-find-name.png)
-{{ site.data.reusables.project-management.add-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+5. 在 "Search by username, full name or email address"（按用户名、全名或电子邮件地址搜索）下，输入协作者的姓名、用户名或 {% data variables.product.prodname_dotcom %} 电子邮件地址。 ![在搜索字段中输入了 Octocat 用户名的协作者部分](/assets/images/help/projects/org-project-collaborators-find-name.png)
+{% data reusables.project-management.add-collaborator %}
 7. 新协作者默认具有读取权限。 在新协作者名称旁边，可以选择使用下拉菜单选择不同的权限级别。 ![选择了权限下拉菜单的协作者部分](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
 ### 从用户拥有的项目板删除协作者
 
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
-{{ site.data.reusables.project-management.collaborator-option }}
-{{ site.data.reusables.project-management.remove-collaborator }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
+{% data reusables.project-management.collaborator-option %}
+{% data reusables.project-management.remove-collaborator %}

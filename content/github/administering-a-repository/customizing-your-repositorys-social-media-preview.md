@@ -16,8 +16,8 @@ You can upload an image to a private repository, but your image can only be shar
 Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Under "Social preview," click **Edit**
     - To add a new image, click **Upload an image...**.
     - To remove an image, click **Remove image**

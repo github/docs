@@ -1,7 +1,7 @@
 ---
 title: 查看企业帐户中组织的审核日志
 intro: 企业所有者可以在其审核日志中查看企业帐户拥有的所有组织的汇总操作。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/viewing-the-audit-logs-for-organizations-in-your-business-account/
   - /articles/viewing-the-audit-logs-for-organizations-in-your-enterprise-account
@@ -20,6 +20,6 @@ versions:
 
 您可以在审核日志中搜索特定事件并导出审核日志数据。 有关搜索审核日志和特定组织事件的更多信息，请参阅“[审查组织的审核日志](/articles/reviewing-the-audit-log-for-your-organization)”。
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}

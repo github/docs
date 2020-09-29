@@ -1,6 +1,6 @@
 ---
 title: 库
-intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化 {{ site.data.variables.product.prodname_dotcom }} API 的使用方式。'
+intro: '您可以使用官方的 Octokit 库和其他第三方库来扩展和简化 {% data variables.product.prodname_dotcom %} API 的使用方式。'
 redirect_from:
   - /libraries/
   - /v3/libraries

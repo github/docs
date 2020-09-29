@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以在 [`github/platform-samples` 仓库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {{ site.data.variables.product.prodname_ghe_server }} 的预接收挂钩示例。
+您可以在 [`github/platform-samples` 仓库](https://github.com/github/platform-samples/tree/master/pre-receive-hooks)中查看 {% data variables.product.prodname_ghe_server %} 的预接收挂钩示例。
 
 ### 编写预接收挂钩脚本
-预接收挂钩脚本在 {{ site.data.variables.product.prodname_ghe_server }} 设备上的预接收挂钩环境中执行。 创建预接收挂钩脚本时，请考虑可用的输入、输出、exit-status 和环境变量。
+预接收挂钩脚本在 {% data variables.product.prodname_ghe_server %} 设备上的预接收挂钩环境中执行。 创建预接收挂钩脚本时，请考虑可用的输入、输出、exit-status 和环境变量。
 
 #### 输入 (stdin)
 在推送发生之后以及在远程仓库上更新任何 ref 之前，`git-receive-pack` 进程会调用预接收挂钩脚本，其中要更新的每个 ref 使用一行标准输入：
@@ -42,7 +42,7 @@ versions:
 |      非零       | 将拒绝推送。 |
 
 #### 环境变量
-除了提供给 `stdin` 的值以外，还有一些其他变量可用于在 {{ site.data.variables.product.prodname_ghe_server }} 上运行的预接收挂钩脚本。
+除了提供给 `stdin` 的值以外，还有一些其他变量可用于在 {% data variables.product.prodname_ghe_server %} 上运行的预接收挂钩脚本。
 
 | 变量                                    | 描述                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |:------------------------------------- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -60,9 +60,9 @@ versions:
 | $GIT_PUSH_OPTION_N                  | 其中 <em>N</em> 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 GIT_PUSH_OPTION_0 中，发送的第二个选项存储在 GIT_PUSH_OPTION_1 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
 | $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
 
-### 设置权限并将预接收挂钩推送到 {{ site.data.variables.product.prodname_ghe_server }}
+### 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.variables.product.prodname_ghe_server }} 设备上的仓库中包含预接收挂钩脚本。 站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
+{% data variables.product.prodname_ghe_server %} 设备上的仓库中包含预接收挂钩脚本。 站点管理员必须考虑仓库权限，确保只有适当的用户才能访问。
 
 我们建议将挂钩合并到单个仓库。 如果统一的挂钩仓库是公共的，则可以使用 `README.md` 来解释策略强制实施。 此外，也可以通过拉取请求接受贡献。 但是，只能从默认分支添加预接收挂钩。 对于测试工作流程，应使用具有配置的仓库的分支。
 
@@ -77,19 +77,19 @@ versions:
   git update-index --chmod=+x <em>SCRIPT_FILE.sh</em>
   ```
 
-2. 提交并推送到 {{ site.data.variables.product.prodname_ghe_server }} 实例上指定的预接收挂钩仓库。
+2. 提交并推送到 {% data variables.product.prodname_ghe_server %} 实例上指定的预接收挂钩仓库。
 
    ```shell
    $ git commit -m "<em>YOUR COMMIT MESSAGE</em>"
    $ git push
   ```
 
-3. 在 {{ site.data.variables.product.prodname_ghe_server }} 实例上[创建预接收挂钩](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
+3. 在 {% data variables.product.prodname_ghe_server %} 实例上[创建预接收挂钩](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance/#creating-pre-receive-hooks)。
 
 ### 在本地测试预接收脚本
-在 {{ site.data.variables.product.prodname_ghe_server }} 设备上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。 一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
+在 {% data variables.product.prodname_ghe_server %} 设备上创建或更新预接收挂钩脚本之前，您可以在本地对其进行测试。 一种方法是创建本地 Docker 环境以充当可以执行预接收挂钩的远程仓库。
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. 创建一个名为 `Dockerfile.dev` 的文件，其中包含：
 

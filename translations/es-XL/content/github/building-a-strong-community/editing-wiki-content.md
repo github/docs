@@ -10,7 +10,7 @@ redirect_from:
   - /articles/adding-images-to-wikis/
   - /articles/supported-mediawiki-formats/
   - /articles/editing-wiki-content
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -27,8 +27,8 @@ Puedes crear enlaces en wikis usando el markup estándar admitido por tu página
 
 Las wikis pueden presentar imágenes PNG, JPEG y GIF.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. Usando la barra lateral de la wiki, dirígete a la página que deseas cambiar y luego haz clic en **Editar**.
 4. En la barra de herramientas de la wiki, haz clic en **Imagen**. ![Botón de la wiki Agregar imagen](/assets/images/help/wiki/wiki_add_image.png)
 5. En el cuadro de diálogo "Insertar imagen", escribe la URL de la imagen y el texto alternativo (el que usan los motores de búsqueda y los lectores de pantalla).
@@ -36,7 +36,7 @@ Las wikis pueden presentar imágenes PNG, JPEG y GIF.
 
 #### Establecer enlaces a las imágenes en un repositorio
 
-Puedes establecer un enlace a una imagen en un repositorio en {{ site.data.variables.product.product_name }} copiando la URL en tu navegador y usándola como la ruta que lleva a la imagen. Por ejemplo, cuando insertas una imagen en tu wiki usando Markdown, la imagen debe verse de la siguiente manera:
+Puedes establecer un enlace a una imagen en un repositorio en {% data variables.product.product_name %} copiando la URL en tu navegador y usándola como la ruta que lleva a la imagen. Por ejemplo, cuando insertas una imagen en tu wiki usando Markdown, la imagen debe verse de la siguiente manera:
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 

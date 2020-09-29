@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-permissions }} 詳細は「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
+{% data reusables.organizations.team-discussions-permissions %} 詳細は「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 6. Team ディスカッションのタイトルとコメントを入力して会話を開始します。 ![新しい Team ディスカッション コメント](/assets/images/help/projects/team-discussions-comment.png)
 7. 任意で、自分のポストをプライベートにするかパブリックにするかをドロップダウンメニューから選択します。 ![Team ディスカッションのプライバシー設定メニュー](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Click **Comment**. ![新しい Team ディスカッションの [Comment] ボタン](/assets/images/help/projects/team-discussions-comment-button.png)

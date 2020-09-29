@@ -13,20 +13,20 @@ versions:
 
 ## Ereignisse
 
-The Events API is a read-only API to the {{ site.data.variables.product.prodname_dotcom }} events. These events power the various activity streams on the site.
+The Events API is a read-only API to the {% data variables.product.prodname_dotcom %} events. These events power the various activity streams on the site.
 
-The Events API can return different types of events triggered by activity on {{ site.data.variables.product.product_name }}. The Events API can return different types of events triggered by activity on {{ site.data.variables.product.product_name }}. For more information about the specific events that you can receive from the Events API, see "[{{ site.data.variables.product.prodname_dotcom }} Event types](/developers/webhooks-and-events/github-event-types)." For more information, see the "[Issue Events API](/rest/reference/issues#events)."
+The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. The Events API can return different types of events triggered by activity on {% data variables.product.product_name %}. For more information about the specific events that you can receive from the Events API, see "[{% data variables.product.prodname_dotcom %} Event types](/developers/webhooks-and-events/github-event-types)." For more information, see the "[Issue Events API](/rest/reference/issues#events)."
 
 Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
 
 ``` shell
-$ curl -I {{ site.data.variables.product.api_url_pre }}/users/tater/events
+$ curl -I {% data variables.product.api_url_pre %}/users/tater/events
 > HTTP/1.1 200 OK
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
-$ curl -I {{ site.data.variables.product.api_url_pre }}/users/tater/events \
+$ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
@@ -120,13 +120,13 @@ Notifications are optimized for polling with the `Last-Modified` header.  If the
 
 ``` shell
 # Add authentication to your requests
-$ curl -I {{ site.data.variables.product.api_url_pre }}/notifications
+$ curl -I {% data variables.product.api_url_pre %}/notifications
 HTTP/1.1 200 OK
 Last-Modified: Thu, 25 Oct 2012 15:16:27 GMT
 X-Poll-Interval: 60
 
 # Pass the Last-Modified header exactly
-$ curl -I {{ site.data.variables.product.api_url_pre }}/notifications
+$ curl -I {% data variables.product.api_url_pre %}/notifications
 $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 > HTTP/1.1 304 Not Modified
 > X-Poll-Interval: 60
@@ -147,7 +147,7 @@ Here's a list of potential `reason`s for receiving a notification:
 | `manual`           | You subscribed to the thread (via an issue or pull request).                                                                                                                                               |
 | `erwähnen`         | You were specifically **@mentioned** in the content.                                                                                                                                                       |
 | `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% if currentVersion == "free-pro-team@latest" %}
-| `security_alert`   | {{ site.data.variables.product.prodname_dotcom }} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
+| `security_alert`   | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in your repository.{% endif %}
 | `state_change`     | You changed the thread state (for example, closing an issue or merging a pull request).                                                                                                                    |
 | `subscribed`       | You're watching the repository.                                                                                                                                                                            |
 | `team_mention`     | You were on a team that was mentioned.                                                                                                                                                                     |
@@ -166,7 +166,7 @@ Repository starring is a feature that lets users bookmark repositories. Stars ar
 
 ### Starring vs. Watching
 
-In August 2012, we [changed the way watching works](https://github.com/blog/1204-notifications-stars) on {{ site.data.variables.product.prodname_dotcom }}. Many API client applications may be using the original "watcher" endpoints for accessing this data. You can now start using the "star" endpoints instead (described below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
+In August 2012, we [changed the way watching works](https://github.com/blog/1204-notifications-stars) on {% data variables.product.prodname_dotcom %}. Many API client applications may be using the original "watcher" endpoints for accessing this data. You can now start using the "star" endpoints instead (described below). For more information, see the [Watcher API Change post](https://developer.github.com/changes/2012-09-05-watcher-api/) and the "[Repository Watching API](/rest/reference/activity#watching)."
 
 ### Custom media types for starring
 

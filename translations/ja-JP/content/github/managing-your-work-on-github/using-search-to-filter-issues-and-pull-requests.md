@@ -14,7 +14,7 @@ Issue とプルリクエストの検索バーを使用すると、独自のカ�
 
 {% tip %}
 
-**ヒント:** {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**ヒント:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

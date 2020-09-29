@@ -1,6 +1,6 @@
 ---
 title: Migrar de Apps de OAuth a GitHub Apps
-intro: 'Aprende sobre las ventajas de migrarte de tu {{ site.data.variables.product.prodname_oauth_app }} a una {{ site.data.variables.product.prodname_github_app }} y sobre como migrar una {{ site.data.variables.product.prodname_oauth_app }} que no se encuentre listada en {{ site.data.variables.product.prodname_marketplace }}.'
+intro: 'Aprende sobre las ventajas de migrarte de tu {% data variables.product.prodname_oauth_app %} a una {% data variables.product.prodname_github_app %} y sobre como migrar una {% data variables.product.prodname_oauth_app %} que no se encuentre listada en {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
 versions:
@@ -19,7 +19,7 @@ Las [GitHub Apps](/apps/) son la forma recomendada de integrarse con GitHub, ya 
 - [Permisos detallados](/apps/differences-between-apps/#requesting-permission-levels-for-resources) que se enfocan en la información específica a la que puede acceder una GitHub App, lo cual permite que las personas y organizaciones la utilicen más ampliamente con políticas de seguridad a diferencia de las Apps de OAuth, las cuales no se pueden limitar con permisos.
 - [Tokens de vida corta](/apps/differences-between-apps/#token-based-identification) que proporcionan un método de autenticación más segura qu la de los tokens de OAuth. Un token de OAuth no caduca hasta que la persona que autorizó la App de OAuth revoque el token. Las GitHub Apps utilizan tokens que caducan rápidamente, lo cual permite tener una ventana de tiempo mucho menor para que se utilicen los tokens que se hayan puesto en riesgo, en caso de existir.
 - [Webhooks integrados y centralizados](/apps/differences-between-apps/#webhooks) que reciben eventos para todos los repositorios y organizaciones a los cuales puede acceder la app. Por el contrario, las Apps de OAuth requieren configurar un webhook para cada repositorio y organización que sea accesible para el usuario.
-- [Cuentas Bot](/apps/differences-between-apps/#machine-vs-bot-accounts) que no consument una plaza de {{ site.data.variables.product.prodname_ghe_server }} y permanecen instaladas aún cuando la persona que las instaló inicialmente deja la organización.
+- [Cuentas Bot](/apps/differences-between-apps/#machine-vs-bot-accounts) que no consument una plaza de {% data variables.product.prodname_ghe_server %} y permanecen instaladas aún cuando la persona que las instaló inicialmente deja la organización.
 - El soporte integrado para OAuth aún estará disponible para las GitHub Apps que utilicen [terminales de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - Los [límites de tasa de la API](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) dedicados para cuentas bot se escalarán con tu integración.
 - Los propietarios de los repositorios pueden [Instalar GitHub Apps](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) en repositorios de organización. Si la configuración de una GitHub App tiene permisos que solicitan los recursos de una organización, el propietario de dicha organización debe aprobar la instalación.
@@ -44,7 +44,7 @@ Estos lineamientos asumen que has registrado una App de OAuth{% if currentVersio
 
 Mientras que la mayoría de las terminales de la [API de REST](/v3) y de las consultas de [GraphQL](/v4) están disponibles hoy en día para las GitHub Apps, aún estamos en el proceso de habilitar algunas de ellas. Revisa las [terminales disponibles de REST](/v3/apps/available-endpoints/) para garantizar que las terminales que necesitas sean compatibles con las GitHub Apps. Nota que algunas de las terminales de la API que están habilitadas para las GtiHub Apps permiten que éstas interactúen en nombre del usuario. Consulta la sección "[Solicitudes de usuario a servidor](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#user-to-server-requests)" para encontrar una lista de terminales disponibles para que una GitHub App se autentique como un usuario.
 
-Te recomendamos revisar la lista de terminales de la API que necesitas tan pronto como te sea posible. Por favor, comunícale a soporte si hay alguna terminal que requieras y que no esté habilitada aún para las {{ site.data.variables.product.prodname_github_app }}.
+Te recomendamos revisar la lista de terminales de la API que necesitas tan pronto como te sea posible. Por favor, comunícale a soporte si hay alguna terminal que requieras y que no esté habilitada aún para las {% data variables.product.prodname_github_app %}.
 
 #### Diseñar con apego a los límites de tasa de la API
 

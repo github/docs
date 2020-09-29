@@ -8,32 +8,32 @@ versions:
   enterprise-server: '*'
 ---
 
-Solo puedes resolver los conflictos de fusión en {{ site.data.variables.product.product_name }} que hayan sido provocados por realizar cambios de líneas, como cuando las personas hacen cambios diferentes en la misma línea del mismo archivo en ramas diferentes de tu repositorio de Git. Para todos los demás tipos de conflictos de fusión, debes resolver el conflicto de manera local desde la línea de comando. Para obtener más información, consulta "[Resolver un conflicto de fusión en la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".
+Solo puedes resolver los conflictos de fusión en {% data variables.product.product_name %} que hayan sido provocados por realizar cambios de líneas, como cuando las personas hacen cambios diferentes en la misma línea del mismo archivo en ramas diferentes de tu repositorio de Git. Para todos los demás tipos de conflictos de fusión, debes resolver el conflicto de manera local desde la línea de comando. Para obtener más información, consulta "[Resolver un conflicto de fusión en la línea de comandos](/articles/resolving-a-merge-conflict-using-the-command-line/)".
 
 {% if currentVersion != "free-pro-team@latest" %}
-Si un administrador del sitio inhabilita el editor de conflictos de fusión para las solicitudes de extracción entre repositorios, no podrás utilizar el editor de conflictos en {{ site.data.variables.product.product_name }} y deberás resolver los conflictos de fusión desde la línea de comandos. Por ejemplo, si el editor de conflictos de fusión está inhabilitado, no podrás utilizarlo en una solicitud de extracción entre una bifurcación y el repositorio ascendente.
+Si un administrador del sitio inhabilita el editor de conflictos de fusión para las solicitudes de extracción entre repositorios, no podrás utilizar el editor de conflictos en {% data variables.product.product_name %} y deberás resolver los conflictos de fusión desde la línea de comandos. Por ejemplo, si el editor de conflictos de fusión está inhabilitado, no podrás utilizarlo en una solicitud de extracción entre una bifurcación y el repositorio ascendente.
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Advertencia:** Cuando resuelvas un conflcto de fusión en {{ site.data.variables.product.product_name }}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusionará en la [rama de encabezado](/github/getting-started-with-github/github-glossary#head-branch), aún si dicha rama es la rama predeterminada de tu repositorio o está protegida. Asegúrate que realmente quieras hacer una confirmación para esta rama.
+**Advertencia:** Cuando resuelvas un conflcto de fusión en {% data variables.product.product_name %}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusionará en la [rama de encabezado](/github/getting-started-with-github/github-glossary#head-branch), aún si dicha rama es la rama predeterminada de tu repositorio o está protegida. Asegúrate que realmente quieras hacer una confirmación para esta rama.
 {% else %}
-**Advertencia:** Cuando resuelves un conflicto de fusión en {{ site.data.variables.product.product_name }}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusiona en la [rama principal](/github/getting-started-with-github/github-glossary#head-branch). Asegúrate que realmente quieras hacer una confirmación para esta rama. Si la rama de encabezado es la predeterminada para tu repositorio, se te dará la opción de crear una rama nueva para que funcione como rama de encabezado para tu solicitud de extracción. Si la rama principal está protegida, no podrás fusionar tu resolución de conflictos con ella, así que se te pedirá crear una nueva rama principal. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
+**Advertencia:** Cuando resuelves un conflicto de fusión en {% data variables.product.product_name %}, toda la [rama base](/github/getting-started-with-github/github-glossary#base-branch) de tu solicitud de extracción se fusiona en la [rama principal](/github/getting-started-with-github/github-glossary#head-branch). Asegúrate que realmente quieras hacer una confirmación para esta rama. Si la rama de encabezado es la predeterminada para tu repositorio, se te dará la opción de crear una rama nueva para que funcione como rama de encabezado para tu solicitud de extracción. Si la rama principal está protegida, no podrás fusionar tu resolución de conflictos con ella, así que se te pedirá crear una nueva rama principal. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches)".
 {% endif %}
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 1. En la lista de "Pull Requests" (Solicitudes de extracción), haz clic en la solicitud de extracción con un conflicto de fusión que quieres resolver.
 1. Cerca de la parte de abajo de tu solicitud de extracción, haz clic en **Resolve conflicts** (Resolver conflictos). ![Botón para resolver conflictos de fusión](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **Sugerencias:** Si el botón **Resolve conflicts** (Resolver conflictos) está desactivado, el conflicto de fusión de tu solicitud de extracción es demasiado complejo para resolverlo en {{ site.data.variables.product.product_name }}{% if currentVersion != "free-pro-team@latest" %} o el administrador del sitio inhabilitó el editor de conflictos para las solicitudes de extracción entre repositorios{% endif %}. Debes resolver el conflicto de fusión utilizando un cliente de Git alterno, o utilizando Git en la línea de comandos. Para obtener más información, consulta "[Resolver un conflicto de fusión con la línea de comando](/articles/resolving-a-merge-conflict-using-the-command-line)".
+ **Sugerencias:** Si el botón **Resolve conflicts** (Resolver conflictos) está desactivado, el conflicto de fusión de tu solicitud de extracción es demasiado complejo para resolverlo en {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} o el administrador del sitio inhabilitó el editor de conflictos para las solicitudes de extracción entre repositorios{% endif %}. Debes resolver el conflicto de fusión utilizando un cliente de Git alterno, o utilizando Git en la línea de comandos. Para obtener más información, consulta "[Resolver un conflicto de fusión con la línea de comando](/articles/resolving-a-merge-conflict-using-the-command-line)".
 
  {% endtip %}
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }}
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
  ![Ver el ejemplo de conflicto de fusión con los marcadores de conflicto](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
 1. Si tienes más de un conflicto de fusión en tu archivo, desplázate hacia abajo hasta el siguiente conjunto de marcadores de conflicto y repite los pasos cuatro y cinco para resolver el conflicto de fusión.
 1. Una vez que hayas resuelto todos los conflictos en el archivo, haz clic en **Mark as resolved** (Marcar como resuelto). ![Dar clic en el botón de marcar como resuelto](/assets/images/help/pull_requests/mark-as-resolved-button.png)

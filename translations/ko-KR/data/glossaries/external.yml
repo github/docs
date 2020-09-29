@@ -80,7 +80,7 @@
 - 
   term: 확인
   description: >-
-    확인은 {{ site.data.variables.product.product_name }} 상태 확인 유형입니다. "[상태 확인](#status-checks)"을 참조하십시오.
+    확인은 {% data variables.product.product_name %} 상태 확인 유형입니다. "[상태 확인](#status-checks)"을 참조하십시오.
 - 
   term: 체크아웃
   description: >-
@@ -213,7 +213,7 @@
   description: 사용자의 이메일 주소로 전송된 알림입니다.
 - 
   term: 엔터프라이즈 계정
-  description: 엔터프라이즈 계정을 사용하면 여러 {{ site.data.variables.product.prodname_dotcom_the_website }} 조직에 대한 정책 및 청구를 중앙집중적으로 관리할 수 있습니다. {{ site.data.reusables.gated-features.enterprise-accounts }}
+  description: 엔터프라이즈 계정을 사용하면 여러 {% data variables.product.prodname_dotcom_the_website %} 조직에 대한 정책 및 청구를 중앙집중적으로 관리할 수 있습니다. {% data reusables.gated-features.enterprise-accounts %}
 - 
   term: Explorer
   description: >-
@@ -665,7 +665,7 @@
 - 
   term: SSH 키
   description: >-
-    SSH 키는 암호화된 메시지를 사용하여 온라인 서버에서 자신을 식별하는 방법입니다. 컴퓨터가 다른 서비스에 고유한 암호를 가지고 있는 것처럼 {{ site.data.variables.product.product_name }}은 SSH 키를 사용하여 GitHub.com에서 사용자 컴퓨터로 정보를 안전하게 전송합니다.
+    SSH 키는 암호화된 메시지를 사용하여 온라인 서버에서 자신을 식별하는 방법입니다. 컴퓨터가 다른 서비스에 고유한 암호를 가지고 있는 것처럼 {% data variables.product.product_name %}은 SSH 키를 사용하여 GitHub.com에서 사용자 컴퓨터로 정보를 안전하게 전송합니다.
 - 
   term: 스테이징 인스턴스
   description: >-

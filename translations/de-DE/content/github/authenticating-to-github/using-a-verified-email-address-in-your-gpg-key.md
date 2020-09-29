@@ -1,6 +1,6 @@
 ---
 title: Eine verifizierte E-Mail-Adresse in Deinem GPG-Schlüssel verwenden
-intro: 'Bei der Verifizierung einer Signatur überprüft {{ site.data.variables.product.product_name }}, ob die E-Mail-Adresse des Beitragenden oder des Taggers mit einer E-Mail-Adresse aus den Identitäten des GPG-Schlüssels übereinstimmt und ob es sich dabei im Konto des Benutzers um eine verifizierte E-Mail-Adresse handelt. Dadurch wird sichergestellt, dass der Schlüssel zu Dir gehört und dass Du den Commit oder das Tag erstellt hast.'
+intro: 'Bei der Verifizierung einer Signatur überprüft {% data variables.product.product_name %}, ob die E-Mail-Adresse des Beitragenden oder des Taggers mit einer E-Mail-Adresse aus den Identitäten des GPG-Schlüssels übereinstimmt und ob es sich dabei im Konto des Benutzers um eine verifizierte E-Mail-Adresse handelt. Dadurch wird sichergestellt, dass der Schlüssel zu Dir gehört und dass Du den Commit oder das Tag erstellt hast.'
 redirect_from:
   - /articles/using-a-verified-email-address-in-your-gpg-key
 versions:

@@ -20,7 +20,7 @@ Before you can publish a security advisory or request a CVE identification numbe
 
 When you publish a security advisory, you notify your community about the security vulnerability that the security advisory addresses. Publishing a security advisory makes it easier for your community to update package dependencies and research the impact of the security vulnerability.
 
-{{ site.data.reusables.repositories.security-advisories-republishing }}
+{% data reusables.repositories.security-advisories-republishing %}
 
 Before you publish a security advisory, you can privately collaborate to fix the vulnerability in a temporary private fork. 詳細は「[一時的なプライベートフォークで、セキュリティ脆弱性を解決するためにコラボレートする](/articles/collaborating-in-a-temporary-private-fork-to-resolve-a-security-vulnerability)」を参照してください。
 
@@ -43,11 +43,11 @@ When you publish a draft advisory from a public repository, everyone is able to 
 
 Anyone with admin permissions to a security advisory can request a CVE identification number for the security advisory.
 
-{{ site.data.reusables.repositories.request-security-advisory-cve-id }} For more information, see "[About {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
+{% data reusables.repositories.request-security-advisory-cve-id %} For more information, see "[About {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories#cve-identification-numbers)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. [Security Advisories] のリストから、CVE 識別番号をリクエストするセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
 5. [**Edit**] ドロップダウンメニューを使用して、[**Request CVE**] をクリックします。 ![ドロップダウンの [Request CVE]](/assets/images/help/security/security-advisory-drop-down-request-cve.png)
 6. [**Request CVE**] をクリックします。 ![[Request CVE] ボタン](/assets/images/help/security/security-advisory-request-cve-button.png)
@@ -56,15 +56,15 @@ Anyone with admin permissions to a security advisory can request a CVE identific
 
 Publishing a security advisory deletes the temporary private fork for the security advisory.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. [Security Advisories] のリストから、公開するセキュリティアドバイザリをクリックします。 ![リスト内のセキュリティアドバイザリ](/assets/images/help/security/security-advisory-in-list.png)
 5. ページの下部で、[**Publish advisory**] をクリックします。 ![[Publish advisory] ボタン](/assets/images/help/security/publish-advisory-button.png)
 
-### 公開されたセキュリティアドバイザリの {{ site.data.variables.product.prodname_dependabot_alerts }}
+### 公開されたセキュリティアドバイザリの {% data variables.product.prodname_dependabot_alerts %}
 
-{{ site.data.reusables.repositories.github-reviews-security-advisories }}
+{% data reusables.repositories.github-reviews-security-advisories %}
 
 ### 参考リンク
 

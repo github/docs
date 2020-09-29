@@ -12,7 +12,7 @@ Weitere Informationen zu erforderlichen Reviews findest Du unter „[Information
 
 Du kannst Pull Requests kommentieren, die Änderungen genehmigen oder vor der Genehmigung Verbesserungen anfordern. Weitere Informationen findest Du unter „[Informationen zu erforderlichen Reviews für Pull Requests](/articles/about-required-reviews-for-pull-requests)“ und „[Vorgeschlagene Änderungen in einem Pull Request überprüfen](/articles/reviewing-proposed-changes-in-a-pull-request).“
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
@@ -20,16 +20,16 @@ Du kannst Pull Requests kommentieren, die Änderungen genehmigen oder vor der Ge
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
 4. Überprüfe die Änderungen im Pull Request. Optional kannst Du [bestimmte Zeilen kommentieren](/articles/reviewing-proposed-changes-in-a-pull-request/#starting-a-review).
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 7. Wähle **Approve** (Genehmigen) aus, um das Zusammenführen der im Pull Request vorgeschlagenen Änderungen zu genehmigen.
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### Weiterführende Informationen
 

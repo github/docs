@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
-Para exportar os dados do repositório do {{ site.data.variables.product.prodname_dotcom_the_website }}, use a <a href="/rest/reference/migrations" class="dotcom-only"> API de Migrações</a>.
+Para exportar os dados do repositório do {% data variables.product.prodname_dotcom_the_website %}, use a <a href="/rest/reference/migrations" class="dotcom-only"> API de Migrações</a>.
 
 No momento, a API de Migrações está em período de exibição. Ou seja, os pontos de extremidade e os parâmetros podem mudar no futuro. Para acessar a API de Migrações, você deve informar um [tipo de mídia](/v3/media) personalizado no cabeçalho `Accept`: `application/vnd.github.wyandotte-preview+json`. Os exemplos abaixo incluem o tipo de mídia personalizado.
 
 ### Gerar arquivos de migração
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
 1. Informe os integrantes da organização que você fará uma migração. Dependendo do número de repositórios exportados, a exportação pode levar vários minutos. A migração completa (com importação) pode levar horas. Portanto, é recomendável fazer uma avaliação para determinar a duração do processo completo. Para obter mais informações, consulte "[Sobre migrações](/enterprise/admin/migrations/about-migrations#types-of-migrations)".
 
@@ -30,7 +30,7 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
     *  Se quiser bloquear os repositórios antes da migração, verifique se `lock_repositories` está definido como `true`. Fazer isso é altamente recomendável.
-    * Você pode excluir anexos de arquivos adicionando `exclude_attachments: true` ao ponto de extremidade. {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }} O tamanho do arquivo final deve ser menor do que 20 GB.
+    * Você pode excluir anexos de arquivos adicionando `exclude_attachments: true` ao ponto de extremidade. {% data reusables.enterprise_migrations.exclude-file-attachments %} O tamanho do arquivo final deve ser menor do que 20 GB.
 
   A solicitação retorna um `id ` exclusivo que representa a migração. Você precisará dele em ações subsequentes que envolvam a API de Migrações.
 
@@ -67,4 +67,4 @@ No momento, a API de Migrações está em período de exibição. Ou seja, os po
       -H "Accept: application/vnd.github.wyandotte-preview+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

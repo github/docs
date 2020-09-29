@@ -17,17 +17,17 @@ En el caso de los temas, puedes explorar repositorios en un área temática part
 
 Para explorar los temas más usados, visita https://github.com/topics/.
 
-{% if currentVersion == "free-pro-team@latest" %}También puedes contribuir al conjunto de temas presentados de {{ site.data.variables.product.product_name }} en el repositorio [github/explore](https://github.com/github/explore). {% endif %}
+{% if currentVersion == "free-pro-team@latest" %}También puedes contribuir al conjunto de temas presentados de {% data variables.product.product_name %} en el repositorio [github/explore](https://github.com/github/explore). {% endif %}
 
-Los administradores del repositorio pueden agregar los temas que deseen a un repositorio. Entre los temas útiles para clasificar un repositorio se incluyen fines previstos, áreas temáticas, comunidad o idioma.{% if currentVersion == "free-pro-team@latest" %}Además, {{ site.data.variables.product.product_name }} analiza el contenido de repositorios públicos y genera temas sugeridos que los administradores de los repositorios pueden aceptar o rechazar. El contenido del repositorio privado no se analiza y no recibe sugerencias de tema.{% endif %}
+Los administradores del repositorio pueden agregar los temas que deseen a un repositorio. Entre los temas útiles para clasificar un repositorio se incluyen fines previstos, áreas temáticas, comunidad o idioma.{% if currentVersion == "free-pro-team@latest" %}Además, {% data variables.product.product_name %} analiza el contenido de repositorios públicos y genera temas sugeridos que los administradores de los repositorios pueden aceptar o rechazar. El contenido del repositorio privado no se analiza y no recibe sugerencias de tema.{% endif %}
 
 Los repositorios públicos y privados pueden tener temas, si bien solo verás los repositorios privados a los que tienes acceso en los resultados de búsqueda de temas.
 
-Puedes buscar los repositorios que están asociados con un tema en particular. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)". También puedes buscar un listado de temas en {{ site.data.variables.product.product_name }}. Para obtener más información, consulta "[Buscar temas](/articles/searching-topics)".
+Puedes buscar los repositorios que están asociados con un tema en particular. Para obtener más información, consulta "[Buscar repositorios](/articles/searching-for-repositories/#search-by-topic)". También puedes buscar un listado de temas en {% data variables.product.product_name %}. Para obtener más información, consulta "[Buscar temas](/articles/searching-topics)".
 
 ### Agregar temas a tu repositorio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. En la descripción de tu repositorio, haz clic en **Add topics** (Agregar temas). ![Enlace para agregar temas en la página principal de un repositorio](/assets/images/help/repository/add-topics-link.png)
 3. Escribe el tema que deseas agregar a tu repositorio, luego escribe un espacio. ![Formulario para ingresar temas](/assets/images/help/repository/add-topic-form.png)
 4. Cuando hayas finalizado de agregar temas, haz clic en **Done** (Listo). ![Formulario con una lista de temas y botón Done (Listo)](/assets/images/help/repository/add-topics-done-button.png)

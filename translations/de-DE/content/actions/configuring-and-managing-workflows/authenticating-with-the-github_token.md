@@ -1,7 +1,7 @@
 ---
 title: Authentifizieren mit dem „GITHUB_TOKEN“
-intro: '{{ site.data.variables.product.prodname_dotcom }} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {{ site.data.variables.product.prodname_actions }} authentifizieren kannst.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '{% data variables.product.prodname_dotcom %} stellt ein Token zur Verfügung, mit dem Du Dich im Namen von {% data variables.product.prodname_actions %} authentifizieren kannst.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -10,26 +10,26 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Jeder mit `write`(schreiben)-Zugriff auf ein Repository kann Geheimnisse erstellen, lesen und verwenden.
 
 ### Informationen zum `GITHUB_TOKEN`-Geheimnis
 
-{{ site.data.variables.product.prodname_dotcom }} erstellt automatisch ein `GITHUB_TOKEN`-Geheimnis für Deinen Workflow. Du kannst den `GITHUB_TOKEN` verwenden, um Dich in einem Workflow zu authentifizieren.
+{% data variables.product.prodname_dotcom %} erstellt automatisch ein `GITHUB_TOKEN`-Geheimnis für Deinen Workflow. Du kannst den `GITHUB_TOKEN` verwenden, um Dich in einem Workflow zu authentifizieren.
 
-Wenn Du {{ site.data.variables.product.prodname_actions }} aktivierst, installiert {{ site.data.variables.product.prodname_dotcom }} eine {{ site.data.variables.product.prodname_github_app }} in Deinem Repository. Das `GITHUB_TOKEN`-Geheimnis ist ein {{ site.data.variables.product.prodname_github_app }}-Token für Installations-Zugriff. Du kannst das Installationszugriffs-Token verwenden, um Dich im Namen der auf Deinem Repository installierten {{ site.data.variables.product.prodname_github_app }} zu authentifizieren. Die Berechtigungen des Tokens sind auf das Repository beschränkt, in dem sich der Workflow befindet. Weitere Informationen findest Du unter "[Berechtigungen für das `GITHUB_TOKEN`](#permissions-for-the-github_token)."
+Wenn Du {% data variables.product.prodname_actions %} aktivierst, installiert {% data variables.product.prodname_dotcom %} eine {% data variables.product.prodname_github_app %} in Deinem Repository. Das `GITHUB_TOKEN`-Geheimnis ist ein {% data variables.product.prodname_github_app %}-Token für Installations-Zugriff. Du kannst das Installationszugriffs-Token verwenden, um Dich im Namen der auf Deinem Repository installierten {% data variables.product.prodname_github_app %} zu authentifizieren. Die Berechtigungen des Tokens sind auf das Repository beschränkt, in dem sich der Workflow befindet. Weitere Informationen findest Du unter "[Berechtigungen für das `GITHUB_TOKEN`](#permissions-for-the-github_token)."
 
-Bevor jeder Auftrag beginnt, ruft {{ site.data.variables.product.prodname_dotcom }} ein Installationszugriffstoken für den Auftrag ab. Das Token läuft ab, wenn der Auftrag abgeschlossen ist.
+Bevor jeder Auftrag beginnt, ruft {% data variables.product.prodname_dotcom %} ein Installationszugriffstoken für den Auftrag ab. Das Token läuft ab, wenn der Auftrag abgeschlossen ist.
 
-Das Token ist auch im `github.token`-Kontext verfügbar. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+Das Token ist auch im `github.token`-Kontext verfügbar. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
 ### Das `GITHUB_TOKEN` in einem Workflow verwenden
 
-Um das `GITHUB_TOKEN`-Geheimnis zu verwenden, musst Du es in Deiner Workflow-Datei referenzieren. Hierbei musst Du das Token ggf. als Eingabe für eine Aktion übergeben, für die dieses Token erforderlich ist, oder authentifizierte Aufrufe der {{ site.data.variables.product.prodname_dotcom }}-API ausführen.
+Um das `GITHUB_TOKEN`-Geheimnis zu verwenden, musst Du es in Deiner Workflow-Datei referenzieren. Hierbei musst Du das Token ggf. als Eingabe für eine Aktion übergeben, für die dieses Token erforderlich ist, oder authentifizierte Aufrufe der {% data variables.product.prodname_dotcom %}-API ausführen.
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }}
+{% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
 #### Beispiel: Das `GITHUB_TOKEN` als Eingabe übergeben
 
@@ -52,7 +52,7 @@ Dieser Beispielworkflow verwendet die [Labeler-Aktion](https://github.com/action
 
 #### Beispiel zum Aufrufen der REST-API
 
-Du kannst das `GITHUB_TOKEN` verwenden, um authentifizierte API-Aufrufe durchzuführen. Dieser Beispiel-Workflow erzeugt eine Lieferung („issue“) mittels der {{ site.data.variables.product.prodname_dotcom }}-REST-API:
+Du kannst das `GITHUB_TOKEN` verwenden, um authentifizierte API-Aufrufe durchzuführen. Dieser Beispiel-Workflow erzeugt eine Lieferung („issue“) mittels der {% data variables.product.prodname_dotcom %}-REST-API:
 
   {% raw %}
   ```yaml
@@ -78,7 +78,7 @@ Du kannst das `GITHUB_TOKEN` verwenden, um authentifizierte API-Aufrufe durchzuf
 
 ### Berechtigungen für das `GITHUB_TOKEN`
 
-Informationen zu den API-Endpunkten, auf die {{ site.data.variables.product.prodname_github_apps }} mit jeder Berechtigung zugreifen können, finden Sie unter "[{{ site.data.variables.product.prodname_github_app }} Berechtigungen](/v3/apps/permissions/)".
+Informationen zu den API-Endpunkten, auf die {% data variables.product.prodname_github_apps %} mit jeder Berechtigung zugreifen können, finden Sie unter "[{% data variables.product.prodname_github_app %} Berechtigungen](/v3/apps/permissions/)".
 
 | Berechtigung             | Zugriffstyp     | Zugriff durch geforktes Repository |
 | ------------------------ | --------------- | ---------------------------------- |

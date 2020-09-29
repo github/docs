@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. En el ángulo superior izquierdo, haz clic en **Milestones (Hitos)**. ![Botón de propuestas del hito](/assets/images/help/issues/issues_milestone_button.png)
 4. Selecciona el hito sobre el que deseas ver más información.
 

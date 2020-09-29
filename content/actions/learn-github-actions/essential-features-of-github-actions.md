@@ -1,22 +1,22 @@
 ---
 title: Essential features of GitHub Actions
 shortTitle: Essential features
-intro: '{{ site.data.variables.product.prodname_actions }} are designed to help you build robust and dynamic automations. This guide will show you how to craft {{ site.data.variables.product.prodname_actions }} workflows that include environment variables, customized scripts, and more.'
+intro: '{% data variables.product.prodname_actions %} are designed to help you build robust and dynamic automations. This guide will show you how to craft {% data variables.product.prodname_actions %} workflows that include environment variables, customized scripts, and more.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
 
-{{ site.data.variables.product.prodname_actions }} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
+{% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
 
 ###  Using variables in your workflows
 
-{{ site.data.variables.product.prodname_actions }} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
+{% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
 
 ```yaml
 jobs:
@@ -53,11 +53,11 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
 ### Sharing data between jobs
 
-If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {{ site.data.variables.product.prodname_dotcom }} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job.
+If your job generates files that you want to share with another job in the same workflow, or if you want to save the files for later reference, you can store them in {% data variables.product.prodname_dotcom %} as _artifacts_. Artifacts are the files created when you build and test your code. For example, artifacts might include binary or package files, test results, screenshots, or log files. Artifacts are associated with the workflow run where they were created and can be used by another job.
 
 For example, you can create a file and then upload it as an artifact.
 
@@ -92,4 +92,4 @@ For more information about artifacts, see "[Persisting workflow data using artif
 
 ### Next steps
 
-To continue learning about {{ site.data.variables.product.prodname_actions }}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."

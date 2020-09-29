@@ -11,32 +11,32 @@ Weitere Informationen zum Ändern Deiner Sponsoring-Stufe findest Du unter „[S
 
 ### Die Datenschutzeinstellung für Dein Entwickler-Sponsoring verwalten
 
-{{ site.data.reusables.sponsors.navigate-to-sponsored-developer }}
-{{ site.data.reusables.sponsors.manage-developer-sponsorship }}
-{{ site.data.reusables.sponsors.who-can-see-your-sponsorship }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.navigate-to-sponsored-developer %}
+{% data reusables.sponsors.manage-developer-sponsorship %}
+{% data reusables.sponsors.who-can-see-your-sponsorship %}
+{% data reusables.sponsors.update-sponsorship %}
 
 ### Die Datenschutzeinstellung für Dein Organisations-Sponsoring verwalten
 
-{{ site.data.reusables.sponsors.navigate-to-sponsored-org }}
-{{ site.data.reusables.sponsors.manage-org-sponsorship }}
-{{ site.data.reusables.sponsors.who-can-see-your-sponsorship }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.navigate-to-sponsored-org %}
+{% data reusables.sponsors.manage-org-sponsorship %}
+{% data reusables.sponsors.who-can-see-your-sponsorship %}
+{% data reusables.sponsors.update-sponsorship %}
 
 ### E-Mail-Aktualisierungen eines unterstützten Entwicklers verwalten
 
 Du kannst auswählen, ob ein unterstützter Entwickler Dir E-Mails mit Aktualisierungen zu seiner Arbeit senden darf. Der unterstützte Entwickler kann nicht auf Deine E-Mail-Adresse zugreifen.
 
-{{ site.data.reusables.sponsors.navigate-to-sponsored-developer }}
-{{ site.data.reusables.sponsors.manage-developer-sponsorship }}
-{{ site.data.reusables.sponsors.developer-sponsored-choose-updates }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.navigate-to-sponsored-developer %}
+{% data reusables.sponsors.manage-developer-sponsorship %}
+{% data reusables.sponsors.developer-sponsored-choose-updates %}
+{% data reusables.sponsors.update-sponsorship %}
 
 ### E-Mail-Aktualisierungen einer unterstützten Organisation verwalten
 
 Du kannst auswählen, ob eine unterstützte Organisation Dir E-Mails mit Aktualisierungen zu ihrer Arbeit senden darf. Die unterstützten Organisation kann nicht auf Deine E-Mail-Adresse zugreifen.
 
-{{ site.data.reusables.sponsors.navigate-to-sponsored-org }}
-{{ site.data.reusables.sponsors.manage-org-sponsorship }}
-{{ site.data.reusables.sponsors.org-sponsored-choose-updates }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.navigate-to-sponsored-org %}
+{% data reusables.sponsors.manage-org-sponsorship %}
+{% data reusables.sponsors.org-sponsored-choose-updates %}
+{% data reusables.sponsors.update-sponsorship %}

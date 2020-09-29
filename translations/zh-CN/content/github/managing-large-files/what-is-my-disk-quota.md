@@ -3,24 +3,24 @@ title: 我的磁盘配额是多少？
 redirect_from:
   - /articles/what-is-the-size-limit-for-a-repository/
   - /articles/what-is-my-disk-quota
-intro: '{{ site.data.variables.product.product_name }} 尝试为所有 Git 仓库提供丰富的存储空间，尽管文件和仓库大小存在硬性限制。'
+intro: '{% data variables.product.product_name %} 尝试为所有 Git 仓库提供丰富的存储空间，尽管文件和仓库大小存在硬性限制。'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}
 
 ### 文件和仓库大小限制
 
 为确保用户的性能和可靠性，我们积极监控整个仓库运行状况的信号。 仓库运行状况是各种交互因素共同作用的结果，包括大小、提交频率、内容和结构。
 
-建议仓库保持较小，理想情况下小于 1 GB，强烈建议小于 5 GB。 较小的仓库克隆速度更快，使用和维护更容易。 仓库中的单个文件严格限于 {{ site.data.variables.large_files.max_github_size }} 的大小上限。 更多信息请参阅“[使用大文件](/github/managing-large-files/working-with-large-files)”。
+建议仓库保持较小，理想情况下小于 1 GB，强烈建议小于 5 GB。 较小的仓库克隆速度更快，使用和维护更容易。 仓库中的单个文件严格限于 {% data variables.large_files.max_github_size %} 的大小上限。 更多信息请参阅“[使用大文件](/github/managing-large-files/working-with-large-files)”。
 
-如果您的仓库过度影响我们的基础架构，您可能会收到来自 {{ site.data.variables.contact.github_support }} 的电子邮件，要求您采取纠正措施。 我们力求灵活，特别是对于拥有很多协作者的大型项目，并且尽可能与您一起找到解决方案。 您可以有效地管理仓库的大小和整体运行状况，以免您的仓库影响我们的基础架构。 在 [`github/git-sizer`](https://github.com/github/git-sizer) 仓库中可以找到用于仓库分析的建议和工具。
+如果您的仓库过度影响我们的基础架构，您可能会收到来自 {% data variables.contact.github_support %} 的电子邮件，要求您采取纠正措施。 我们力求灵活，特别是对于拥有很多协作者的大型项目，并且尽可能与您一起找到解决方案。 您可以有效地管理仓库的大小和整体运行状况，以免您的仓库影响我们的基础架构。 在 [`github/git-sizer`](https://github.com/github/git-sizer) 仓库中可以找到用于仓库分析的建议和工具。
 
 {% note %}
 
-**注：**如果您通过浏览器将文件添加到仓库，该文件不得大于 {{ site.data.variables.large_files.max_github_browser_size }}。 更多信息请参阅“[添加文件到仓库](/github/managing-files-in-a-repository/adding-a-file-to-a-repository)”。
+**注：**如果您通过浏览器将文件添加到仓库，该文件不得大于 {% data variables.large_files.max_github_browser_size %}。 更多信息请参阅“[添加文件到仓库](/github/managing-files-in-a-repository/adding-a-file-to-a-repository)”。
 
 {% endnote %}
 

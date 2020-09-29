@@ -1,6 +1,6 @@
 ---
 title: 测试 SSH 连接
-intro: '设置 SSH 密钥并将其添加到您的 {{ site.data.variables.product.product_name }} 帐户后，您可以测试连接。'
+intro: '设置 SSH 密钥并将其添加到您的 {% data variables.product.product_name %} 帐户后，您可以测试连接。'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
@@ -15,17 +15,17 @@ versions:
 
 测试连接时，您将需要使用密码（即您之前创建的 SSH 密钥密码）验证此操作。 有关使用 SSH 密钥密码的更多信息，请参阅“[使用 SSH 密钥密码](/articles/working-with-ssh-key-passphrases)”。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 输入以下内容：
   ```shell
-  $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
-  # Attempts to ssh to {{ site.data.variables.product.product_name }}
+  $ ssh -T git@{% data variables.command_line.codeblock %}
+  # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
   您可能会看到类似如下的警告：
 
   ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
   > Are you sure you want to continue connecting (yes/no)?
   ```
@@ -33,7 +33,7 @@ versions:
   或类似如下：
 
   ```shell
-  > The authenticity of host '{{ site.data.variables.command_line.codeblock }} (IP ADDRESS)' can't be established.
+  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
   > RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > Are you sure you want to continue connecting (yes/no)?
   ```

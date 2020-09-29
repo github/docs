@@ -1,6 +1,6 @@
 ---
 title: GitHub上のマージ方法について
-intro: 'リポジトリへのプッシュアクセスを持つコントリビューターに対し、{{ site.data.variables.product.product_location }}上でプルリクエストを様々なマージオプションでマージすることを許可するか、リポジトリへのすべてのプルリクエストに特定のマージ方法を強制することができます。'
+intro: 'リポジトリへのプッシュアクセスを持つコントリビューターに対し、{% data variables.product.product_location %}上でプルリクエストを様々なマージオプションでマージすることを許可するか、リポジトリへのすべてのプルリクエストに特定のマージ方法を強制することができます。'
 redirect_from:
   - /articles/about-merge-methods-on-github
 versions:
@@ -8,16 +8,16 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.configure_pull_request_merges_intro }}コミットsquashingあるいはリベースのようなマージの1つの種類を、リポジトリでその方法だけを有効化することで強制できます。
+{% data reusables.pull_requests.configure_pull_request_merges_intro %}コミットsquashingあるいはリベースのようなマージの1つの種類を、リポジトリでその方法だけを有効化することで強制できます。
 
-{{ site.data.reusables.pull_requests.default_merge_option }}
+{% data reusables.pull_requests.default_merge_option %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 デフォルトのマージ方法では、マージコミットが作成されます。 直線状のコミット履歴を強制して、保護されたブランチにマージコミットをプッシュできないようにすることができます。 詳しい情報については「[直線状のコミット履歴を必須とする](/github/administering-a-repository/requiring-a-linear-commit-history)」を参照してください。{% endif %}
 
 ### マージコミットのsquash
 
-{{ site.data.reusables.pull_requests.squash_and_merge_summary }}
+{% data reusables.pull_requests.squash_and_merge_summary %}
 
 コミットの squash を有効化する前に、以下の欠点について考慮してください:
 - 特定の変更が元々いつ行われたのか、そして squash されたコミットを誰が作成したのかという情報が失われます。
@@ -28,9 +28,9 @@ versions:
 
 ### リベースとコミットのマージ
 
-{{ site.data.reusables.pull_requests.rebase_and_merge_summary }}
+{% data reusables.pull_requests.rebase_and_merge_summary %}
 
 コミットのリベースを有効化する前に、以下の欠点について考慮してください:
-- リポジトリのコントリビューターは、コマンドライン上でリベースし、コンフリクトがあれば解決し、変更をプルリクエストのトピックブランチ (あるいはリモートの head ブランチ) へフォースプッシュしなければ、{{ site.data.variables.product.product_location }} 上で**リベースとマージ**という選択肢を使えるようにならないかもしれません。 フォースプッシュは、コントリビューターが他者が作業のベースとしている作業を上書きすることがないよう、慎重に行わなければなりません。 {{ site.data.variables.product.product_location }}で**リベースとマージ**の選択肢が無効化されている場合と、それを再度有効にするワークフローについてもっと知るには、[プルリクエストのマージについて](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)を参照してください。
+- リポジトリのコントリビューターは、コマンドライン上でリベースし、コンフリクトがあれば解決し、変更をプルリクエストのトピックブランチ (あるいはリモートの head ブランチ) へフォースプッシュしなければ、{% data variables.product.product_location %} 上で**リベースとマージ**という選択肢を使えるようにならないかもしれません。 フォースプッシュは、コントリビューターが他者が作業のベースとしている作業を上書きすることがないよう、慎重に行わなければなりません。 {% data variables.product.product_location %}で**リベースとマージ**の選択肢が無効化されている場合と、それを再度有効にするワークフローについてもっと知るには、[プルリクエストのマージについて](/articles/about-pull-request-merges/#rebase-and-merge-your-pull-request-commits)を参照してください。
 
 詳しい情報については[プルリクエストのためのコミットのリベースの設定](/articles/configuring-commit-rebasing-for-pull-requests)を参照してください。

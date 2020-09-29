@@ -15,7 +15,7 @@ the following types to the `Accept` header when you make a request. Media types
 are specific to resources, allowing them to change independently and support
 formats that other resources don't.
 
-All {{ site.data.variables.product.product_name }} media types look like this:
+All {% data variables.product.product_name %} media types look like this:
 
     application/vnd.github[.version].param[+json]
 
@@ -49,16 +49,16 @@ You can check the current version through every response's headers.  Look
 for the `X-GitHub-Media-Type` header:
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json

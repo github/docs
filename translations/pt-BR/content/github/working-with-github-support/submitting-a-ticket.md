@@ -1,21 +1,21 @@
 ---
 title: Enviar um tíquete
-intro: 'Você pode enviar um tíquete para o {{ site.data.variables.contact.github_support }} usando o portal de suporte.'
+intro: 'Você pode enviar um tíquete para o {% data variables.contact.github_support %} usando o portal de suporte.'
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
   free-pro-team: '*'
 ---
 
-Se a sua conta usa um produto {{ site.data.variables.product.prodname_dotcom }} pago, você pode entrar em contato diretamente com {{ site.data.variables.contact.github_support }}. Se a sua conta usa {{ site.data.variables.product.prodname_free_user }} para contas de usuários e organizações, você pode entrar em contato com {{ site.data.variables.contact.contact_support }} para relatar problemas com a conta, de segurança e abusos. Para obter mais informações, consulte "[Sobre GitHub Support](/github/working-with-github-support/about-github-support)".
+Se a sua conta usa um produto {% data variables.product.prodname_dotcom %} pago, você pode entrar em contato diretamente com {% data variables.contact.github_support %}. Se a sua conta usa {% data variables.product.prodname_free_user %} para contas de usuários e organizações, você pode entrar em contato com {% data variables.contact.contact_support %} para relatar problemas com a conta, de segurança e abusos. Para obter mais informações, consulte "[Sobre GitHub Support](/github/working-with-github-support/about-github-support)".
 
-Se você usar o {{ site.data.variables.product.prodname_ghe_server }}, {{ site.data.variables.product.prodname_ghe_cloud }} ou o {{ site.data.variables.product.premium_support_plan }}, você deve enviar tíquetes usando o {{ site.data.variables.contact.enterprise_portal }}.
+Se você usar o {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_ghe_cloud %} ou o {% data variables.product.premium_support_plan %}, você deve enviar tíquetes usando o {% data variables.contact.enterprise_portal %}.
 
-### Enviando um tíquete usando o {{ site.data.variables.contact.support_portal }}
+### Enviando um tíquete usando o {% data variables.contact.support_portal %}
 
-1. Navegue até o {{ site.data.variables.contact.contact_support_portal }}.
+1. Navegue até o {% data variables.contact.contact_support_portal %}.
 2. Em "Name" (Nome), insira seu nome. ![Campo Nome](/assets/images/help/support/name-field.png)
-3. Use o menu suspenso Email (E-mail) e selecione o endereço de e-mail com o qual você gostaria que {{ site.data.variables.contact.github_support }} entrasse em contato. ![Campo Email (E-mail)](/assets/images/help/support/email-field.png)
+3. Use o menu suspenso Email (E-mail) e selecione o endereço de e-mail com o qual você gostaria que {% data variables.contact.github_support %} entrasse em contato. ![Campo Email (E-mail)](/assets/images/help/support/email-field.png)
 4. Em "Subject" (Assunto), insira um título descritivo para o problema que está ocorrendo. ![Campo Subject (Assunto)](/assets/images/help/support/subject-field.png)
 5. Em "How can we help" (Como podemos ajudar), insira as informações adicionais que ajudarão a equipe de suporte a resolver o problema. As informações úteis podem incluir: ![Campo How can we help (Como podemos ajudar)](/assets/images/help/support/how-can-we-help-field.png)
     - Etapas para reproduzir o problema
@@ -24,14 +24,14 @@ Se você usar o {{ site.data.variables.product.prodname_ghe_server }}, {{ site.d
 6. Opcionalmente, anexe arquivos arrastando e soltando, fazendo upload ou colando da área de transferência.
 7. Clique em **Send request** (Enviar solicitação). ![Botão Send request (Enviar solicitação)](/assets/images/help/support/send-request-button.png)
 
-### Enviar um tíquete usando o {{ site.data.variables.contact.enterprise_portal }}
+### Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
-1. Navegue até o {{ site.data.variables.contact.contact_enterprise_portal }}.
+1. Navegue até o {% data variables.contact.contact_enterprise_portal %}.
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
-{{ site.data.reusables.enterprise_enterprise_support.submit-support-ticket-first-section }}
-{{ site.data.reusables.enterprise_enterprise_support.submit-support-ticket-second-section }}
+{% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
+{% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
 ### Leia mais
-- "[Produtos do {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/githubs-products)"
-- "[Sobre o {{ site.data.variables.contact.github_support }}](/articles/about-github-support)"
-- "[Sobre o {{ site.data.variables.contact.premium_support }} para {{ site.data.variables.product.prodname_ghe_cloud }}](/articles/about-github-premium-support-for-github-enterprise-cloud)."
+- "[Produtos do {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/githubs-products)"
+- "[Sobre o {% data variables.contact.github_support %}](/articles/about-github-support)"
+- "[Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_cloud %}](/articles/about-github-premium-support-for-github-enterprise-cloud)."

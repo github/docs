@@ -1,4 +1,4 @@
-以下类型的 EC2 实例支持 {{ site.data.variables.product.prodname_ghe_server }}。 更多信息请参阅 [the AWS EC2 实例类型概述页面](http://aws.amazon.com/ec2/instance-types/)。
+以下类型的 EC2 实例支持 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅 [the AWS EC2 实例类型概述页面](http://aws.amazon.com/ec2/instance-types/)。
 
 | EC2 实例类型 | 模型                               |
 | -------- | -------------------------------- |

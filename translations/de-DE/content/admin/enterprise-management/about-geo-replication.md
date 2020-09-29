@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Geo-Replikation
-intro: 'Die Geo-Replikation auf {{ site.data.variables.product.prodname_ghe_server }} verwendet mehrere aktive Replikate, um Anforderungen von geografisch verteilten Rechenzentren zu erfüllen.'
+intro: 'Die Geo-Replikation auf {% data variables.product.prodname_ghe_server %} verwendet mehrere aktive Replikate, um Anforderungen von geografisch verteilten Rechenzentren zu erfüllen.'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
@@ -18,11 +18,11 @@ Damit die Geo-Replikation ordnungsgemäß funktioniert, ist Geo DNS, beispielswe
 
 ### Einschränkungen
 
-Zum Senden von Anforderungen an das Replikat müssen die Daten an die primäre Instanz und an alle Replikate gesendet werden. Folglich ist die Leistung sämtlicher Schreibvorgänge auf das langsamste Replikat begrenzt{% if currentVersion ver_gt "enterprise-server@2.17" %}, wobei neue Geo-Replikate ein Seeding für den Großteil ihrer Daten von bestehenden Geo-Replikaten mit gleichem Speicherort aus anstatt von der primären Instanz aus ausführen können{% endif %}. Von der Geo-Replikation werden einer {{ site.data.variables.product.prodname_ghe_server }}-Instanz weder Kapazitäten hinzugefügt noch werden Leistungsprobleme in Bezug auf unzureichende CPU- oder Arbeitsspeicherressourcen behoben. Wenn die primäre Appliance offline ist, können aktive Replikate keine Lese- oder Schreibanforderungen verarbeiten.
+Zum Senden von Anforderungen an das Replikat müssen die Daten an die primäre Instanz und an alle Replikate gesendet werden. Folglich ist die Leistung sämtlicher Schreibvorgänge auf das langsamste Replikat begrenzt{% if currentVersion ver_gt "enterprise-server@2.17" %}, wobei neue Geo-Replikate ein Seeding für den Großteil ihrer Daten von bestehenden Geo-Replikaten mit gleichem Speicherort aus anstatt von der primären Instanz aus ausführen können{% endif %}. Von der Geo-Replikation werden einer {% data variables.product.prodname_ghe_server %}-Instanz weder Kapazitäten hinzugefügt noch werden Leistungsprobleme in Bezug auf unzureichende CPU- oder Arbeitsspeicherressourcen behoben. Wenn die primäre Appliance offline ist, können aktive Replikate keine Lese- oder Schreibanforderungen verarbeiten.
 
 ### Geo-Replikationskonfiguration überwachen
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Weiterführende Informationen
 - „[Geo-Replikationsreplikate erstellen](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)“

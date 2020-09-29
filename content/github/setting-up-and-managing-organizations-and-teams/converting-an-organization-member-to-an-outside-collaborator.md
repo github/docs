@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.owners-and-admins-can }} convert organization members into outside collaborators.
+{% data reusables.organizations.owners-and-admins-can %} convert organization members into outside collaborators.
 
-{{ site.data.reusables.organizations.outside-collaborators-use-seats }} {{ site.data.reusables.organizations.outside_collaborator_forks }}
+{% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
 After converting an organization member to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The person will no longer be an explicit member of the organization, and will no longer be able to:
 
@@ -25,9 +25,9 @@ We recommend reviewing the organization member's access to repositories to ensur
 
 When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[Reinstating a former member of your organization](/articles/reinstating-a-former-member-of-your-organization)."
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Select the person or people you'd like to convert to outside collaborators.
   ![List of members with two members selected](/assets/images/help/teams/list-of-members-selected-bulk.png)
 5. Above the list of members, use the drop-down menu and click **Convert to outside collaborator**.

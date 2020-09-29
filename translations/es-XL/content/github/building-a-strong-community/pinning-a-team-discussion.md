@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team-discussions-tab }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team-discussions-tab %}
 5. Haz clic en {% octicon "pin" aria-label="The pin icon" %} al lado del debate de equipo que deseas anclar. También puedes desanclar un debate al hacer clic en el ícono. ![Anclar un debate](/assets/images/help/projects/pin-discussion-button.png)
 
 ### Leer más

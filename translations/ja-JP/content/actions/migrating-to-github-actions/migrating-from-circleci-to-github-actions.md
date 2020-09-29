@@ -6,61 +6,61 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、どちらも自動的にコードのビルド、テスト、公開、リリース、デプロイを行うワークフローを作成できます。 CircleCIと{{ site.data.variables.product.prodname_actions }}は、ワークフローの設定において似ているところがあります。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらも自動的にコードのビルド、テスト、公開、リリース、デプロイを行うワークフローを作成できます。 CircleCIと{% data variables.product.prodname_actions %}は、ワークフローの設定において似ているところがあります。
 
 - ワークフローの設定ファイルはYAMLで書かれ、リポジトリに保存されます。
 - ワークフローには1つ以上のジョブが含まれます。
 - ジョブには1つ以上のステップもしくは個別のコマンドが含まれます。
 - ステップもしくはタスクは、再利用とコミュニティとの共有が可能です。
 
-詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
+詳しい情報については、「[{% data variables.product.prodname_actions %}の中核的概念](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)」を参照してください。
 
 ### 主要な差異
 
 CircleCIから移行する際には、以下の差異を考慮してください。
 
-- CircleCIの自動テストの並列性は、ユーザが指定したルールもしくは過去のタイミングの情報に基づいて、自動的にテストをグループ化します。 この機能は{{ site.data.variables.product.prodname_actions }}には組み込まれていません。
-- コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 Dockerのファイルシステムに関する詳しい情報については「[{{ site.data.variables.product.product_name }}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+- CircleCIの自動テストの並列性は、ユーザが指定したルールもしくは過去のタイミングの情報に基づいて、自動的にテストをグループ化します。 この機能は{% data variables.product.prodname_actions %}には組み込まれていません。
+- コンテナはユーザのマッピングが異なるので、Dockerコンテナ内で実行されるアクションは、権限の問題に敏感です。 これらの問題の多くは、*Dockerfile*中で`USER`命令を使わなければ回避できます。 Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
 
 ### ワークフローとジョブの移行
 
-CircleCIは*config.yml*ファイル中で`workflows`を定義するので、複数のワークフローを設定できます。 {{ site.data.variables.product.product_name }}はワークフローごとに1つのワークフローファイルを必要とするので、結果として`workflows`を宣言する必要がありません。 それぞれのワークフローごとに、*config.yml*で内で設定された新しいワークフローファイルを作成しなければなりません。
+CircleCIは*config.yml*ファイル中で`workflows`を定義するので、複数のワークフローを設定できます。 {% data variables.product.product_name %}はワークフローごとに1つのワークフローファイルを必要とするので、結果として`workflows`を宣言する必要がありません。 それぞれのワークフローごとに、*config.yml*で内で設定された新しいワークフローファイルを作成しなければなりません。
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、どちらも似た構文を使って設定ファイル中で`jobs`を設定します。 CircleCIワークフロー中で`requires`を使ってジョブ間の依存関係を設定しているなら、相当する{{ site.data.variables.product.prodname_actions }}の`needs`構文を利用できます。 詳細については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらも似た構文を使って設定ファイル中で`jobs`を設定します。 CircleCIワークフロー中で`requires`を使ってジョブ間の依存関係を設定しているなら、相当する{% data variables.product.prodname_actions %}の`needs`構文を利用できます。 詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idneeds)」を参照してください。
 
 ### orbsからアクションへの移行
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、どちらもワークフロー中のタスクを再利用し、共有するための仕組みを提供しています。 CircleCIはorbsという概念を利用します。これはYAMLで書かれ、ワークフロー中で再利用できるタスクを提供します。 {{ site.data.variables.product.prodname_actions }}はアクションと呼ばれる協力で柔軟な再利用できるコンポーネントを持っており、これはJavaScriptファイルもしくはDockerイメージで構築できます。 {{ site.data.variables.product.product_name }}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急の問題が発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもワークフロー中のタスクを再利用し、共有するための仕組みを提供しています。 CircleCIはorbsという概念を利用します。これはYAMLで書かれ、ワークフロー中で再利用できるタスクを提供します。 {% data variables.product.prodname_actions %}はアクションと呼ばれる協力で柔軟な再利用できるコンポーネントを持っており、これはJavaScriptファイルもしくはDockerイメージで構築できます。 {% data variables.product.product_name %}の API やパブリックに利用可能なサードパーティAPIとのインテグレーションなど、好きな方法でリポジトリを操作するカスタムコードを書いて、アクションを作成することができます。 たとえば、アクションでnpmモジュールを公開する、緊急の問題が発生したときにSMSアラートを送信する、本番対応のコードをデプロイすることなどが可能です。 詳細については、「[アクションを作成する](/actions/creating-actions)」を参照してください。
 
-CircleCIは、YAMLのアンカーとエイリアスでワークフローの部分を再利用できます。 {{ site.data.variables.product.prodname_actions }}はビルドマトリックスを使って、再利用性についての一般的な要求のほとんどをサポートします。 ビルドマトリックスに関する詳細な情報については「[ワークフローの設定](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)」を参照してください。
+CircleCIは、YAMLのアンカーとエイリアスでワークフローの部分を再利用できます。 {% data variables.product.prodname_actions %}はビルドマトリックスを使って、再利用性についての一般的な要求のほとんどをサポートします。 ビルドマトリックスに関する詳細な情報については「[ワークフローの設定](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)」を参照してください。
 
 ### Dockerイメージの利用
 
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、どちらもDockerイメージ内でのステップの実行をサポートします。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもDockerイメージ内でのステップの実行をサポートします。
 
-CircleCIは、共通の依存関係を持つ一連のビルド済みのイメージを提供します。 これらのイメージでは`USER`が`circleci`に設定されており、それが{{ site.data.variables.product.prodname_actions }}との権限の衝突を引き起こすことになります。
+CircleCIは、共通の依存関係を持つ一連のビルド済みのイメージを提供します。 これらのイメージでは`USER`が`circleci`に設定されており、それが{% data variables.product.prodname_actions %}との権限の衝突を引き起こすことになります。
 
-{{ site.data.variables.product.prodname_actions }}への移行に際しては、CircleCIの構築済みイメージから離脱することをおすすめします。 多くの場合、必要な追加の依存関係のインストールにアクションを使うことができます。
+{% data variables.product.prodname_actions %}への移行に際しては、CircleCIの構築済みイメージから離脱することをおすすめします。 多くの場合、必要な追加の依存関係のインストールにアクションを使うことができます。
 
-Dockerのファイルシステムに関する詳しい情報については「[{{ site.data.variables.product.product_name }}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
+Dockerのファイルシステムに関する詳しい情報については「[{% data variables.product.product_name %}ホストランナーの仮想環境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)」を参照してください。
 
-{{ site.data.variables.product.prodname_dotcom }}ホストの仮想環境で利用できるツールとパッケージに関する詳しい情報については「[GitHubホストランナーにインストールされているソフトウェア](/actions/reference/software-installed-on-github-hosted-runners)」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストの仮想環境で利用できるツールとパッケージに関する詳しい情報については「[GitHubホストランナーにインストールされているソフトウェア](/actions/reference/software-installed-on-github-hosted-runners)」を参照してください。
 
 ### 変数とシークレットの利用
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、設定ファイル内での環境変数の設定と、CircleCIもしくは{{ site.data.variables.product.product_name }}のUIを使ったシークレットの作成をサポートしています。
+CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル内での環境変数の設定と、CircleCIもしくは{% data variables.product.product_name %}のUIを使ったシークレットの作成をサポートしています。
 
 詳しい情報については「[環境変数の利用](/actions/configuring-and-managing-workflows/using-environment-variables)」及び「[暗号化されたシークレットの作成と利用](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
 
 ### キャッシング
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、設定ファイル中で手動でファイルをキャッシュする方法を提供しています。
+CircleCIと{% data variables.product.prodname_actions %}は、設定ファイル中で手動でファイルをキャッシュする方法を提供しています。
 
 以下は、それぞれのシステムにおける構文の例です。
 
@@ -101,13 +101,13 @@ GitHub Actions
 
 詳しい情報については「[ワークフローを高速化するための依存関係のキャッシング](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)」を参照してください。
 
-{{ site.data.variables.product.prodname_actions }}は、CircleCIのDocker Layer Caching（DLC）に相当する機能を持っていません。
+{% data variables.product.prodname_actions %}は、CircleCIのDocker Layer Caching（DLC）に相当する機能を持っていません。
 
 ### ジョブ間でのデータの永続化
 
-CircleCIと{{ site.data.variables.product.prodname_actions }}は、どちらもジョブ間でデータを永続化するための仕組みを提供しています。
+CircleCIと{% data variables.product.prodname_actions %}は、どちらもジョブ間でデータを永続化するための仕組みを提供しています。
 
-以下は、CircleCIと{{ site.data.variables.product.prodname_actions }}の設定構文の例です。
+以下は、CircleCIと{% data variables.product.prodname_actions %}の設定構文の例です。
 
 <table>
 <tr>
@@ -161,9 +161,9 @@ GitHub Actions
 
 どちらのシステムでも、データベース、キャッシング、あるいはその他の依存関係のための追加コンテナを含めることができます。
 
-CircleCIでは、*config.yaml*で最初に挙げられているイメージが、コマンドの実行に使われる主要なイメージです。 {{ site.data.variables.product.prodname_actions }}は明示的なセクションを使います。主要なコンテナには`container`を使い、追加のコンテナは`services`にリストしてください。
+CircleCIでは、*config.yaml*で最初に挙げられているイメージが、コマンドの実行に使われる主要なイメージです。 {% data variables.product.prodname_actions %}は明示的なセクションを使います。主要なコンテナには`container`を使い、追加のコンテナは`services`にリストしてください。
 
-以下は、CircleCIと{{ site.data.variables.product.prodname_actions }}の設定構文の例です。
+以下は、CircleCIと{% data variables.product.prodname_actions %}の設定構文の例です。
 
 <table class="d-block">
 <tr>
@@ -283,7 +283,7 @@ jobs:
 
 ### 完全な例
 
-以下は実際の例です。 左は[ thoughtbot/administrator](https://github.com/thoughtbot/administrate)リポジトリのための実際の*config.yml*を示しています。 右は、同等の{{ site.data.variables.product.prodname_actions }}を示しています。
+以下は実際の例です。 左は[ thoughtbot/administrator](https://github.com/thoughtbot/administrate)リポジトリのための実際の*config.yml*を示しています。 右は、同等の{% data variables.product.prodname_actions %}を示しています。
 
 <table class="d-block">
 <tr>

@@ -9,9 +9,9 @@ versions:
 
 Organization が所有する公開リポジトリのレポートコンテンツを有効または無効にすることができます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
 4. [Reported content] で、[**Accept content reports from collaborators and prior contributors**] を選択または選択解除します。 ![報告されたリポジトリのコンテンツにオプトインまたはオプトアウトするためのチェックボックス](/assets/images/help/repository/reported-content-opt-in-checkbox.png)
 
 ### 参考リンク

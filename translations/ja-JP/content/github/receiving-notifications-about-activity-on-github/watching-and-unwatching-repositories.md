@@ -6,36 +6,36 @@ versions:
 ---
 
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
-{{ site.data.reusables.notifications.auto-watch }}詳細は「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」を参照してください。
+{% data reusables.notifications.auto-watch %}詳細は「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」を参照してください。
 {% endif %}
 
 リポジトリ内のリリースを Watch および Watch 解除することもできます。 詳細は「[リポジトリのリリースの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)」を参照してください。
 
 ### プッシュアクセス権を持っているすべてのリポジトリを Watch する
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Click **Watching**. ![Watch しているリポジトリのリスト](/assets/images/help/notifications/notifications-watching-tab.png)
 3. ページの右側にある [**Automatically watch**] を選択します。 ![Watch するリポジトリを自動的に設定するためのチェックボックス](/assets/images/help/notifications/ent-automatically-watch-repos.png)
 
 ### 単一リポジトリを Watch する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 右上隅にある [Watch] ドロップダウンメニューから、[**Watching**] をクリックします。 ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications/watch-repository.png)
 
 ### プッシュアクセス権を持っているすべてのリポジトリを Watch 解除する
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Click **Watching**. ![Watch しているリポジトリのリスト](/assets/images/help/notifications/notifications-watching-tab.png)
 3. ページの右側にある [**Automatically watch**] の選択を解除します。 ![Watch するリポジトリを自動的に設定するためのチェックボックス](/assets/images/help/notifications/ent-automatically-watch-repos.png)
 
 ### 単一リポジトリの Watch を解除する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 右上隅にある [Watch] ドロップダウンメニューから、[**Unwatch**] をクリックします。 ![リポジトリのドロップダウンメニューの Watch オプション](/assets/images/help/notifications/unwatch-repository.png)
 
 {% note %}
 
-**メモ:** リポジトリを無視することもできます。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% if currentVersion == "free-pro-team@latest" %}あなたが嫌がらせにあっていて、リポジトリを無視したい場合は、私たちがサポートしますので、[サポートに連絡してください](/contact)。 {{ site.data.reusables.policies.abuse }}{% endif %}
+**メモ:** リポジトリを無視することもできます。 リポジトリを無視した場合、通知は届きません。 あなたが @メンションされても通知されなくなるため、リポジトリを無視することはおすすめしません。 {% if currentVersion == "free-pro-team@latest" %}あなたが嫌がらせにあっていて、リポジトリを無視したい場合は、私たちがサポートしますので、[サポートに連絡してください](/contact)。 {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

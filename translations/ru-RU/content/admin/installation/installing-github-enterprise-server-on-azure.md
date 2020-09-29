@@ -1,6 +1,6 @@
 ---
 title: Installing GitHub Enterprise Server on Azure
-intro: 'To install {{ site.data.variables.product.prodname_ghe_server }} on Azure, you must deploy onto a DS-series instance and use Premium-LRS storage.'
+intro: 'To install {% data variables.product.prodname_ghe_server %} on Azure, you must deploy onto a DS-series instance and use Premium-LRS storage.'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -8,27 +8,27 @@ versions:
   enterprise-server: '*'
 ---
 
-You can deploy {{ site.data.variables.product.prodname_ghe_server }} on global Azure or Azure Government.
+You can deploy {% data variables.product.prodname_ghe_server %} on global Azure or Azure Government.
 
 ### Требования
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - You must have an Azure account capable of provisioning new machines. For more information, see the [Microsoft Azure website](https://azure.microsoft.com).
 - Most actions needed to launch your virtual machine (VM) may also be performed using the Azure Portal. However, we recommend installing the Azure command line interface (CLI) for initial setup. Examples using the Azure CLI 2.0 are included below. For more information, see Azure's guide "[Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)."
 
 ### Hardware considerations
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### Determining the virtual machine type
 
-Before launching {{ site.data.variables.product.product_location_enterprise }} on Azure, you'll need to determine the type of virtual machine that best fits the needs of your organization.
+Before launching {% data variables.product.product_location_enterprise %} on Azure, you'll need to determine the type of virtual machine that best fits the needs of your organization.
 
 #### Supported VM types and regions
 
-The {{ site.data.variables.product.prodname_ghe_server }} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. For more information, see "[Supported VMs](https://docs.microsoft.com/en-us/azure/storage/common/storage-premium-storage#supported-vms)" in the Azure documentation. For general information about available VMs, see [the Azure virtual machines overview page](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/#Linux).
+The {% data variables.product.prodname_ghe_server %} appliance requires a premium storage data disk, and is supported on any Azure VM that supports premium storage. For more information, see "[Supported VMs](https://docs.microsoft.com/en-us/azure/storage/common/storage-premium-storage#supported-vms)" in the Azure documentation. For general information about available VMs, see [the Azure virtual machines overview page](http://azure.microsoft.com/en-us/pricing/details/virtual-machines/#Linux).
 
-{{ site.data.variables.product.prodname_ghe_server }} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/en-us/regions/services/)."
+{% data variables.product.prodname_ghe_server %} supports any region that supports your VM type. For more information about the supported regions for each VM, see Azure's "[Products available by region](https://azure.microsoft.com/en-us/regions/services/)."
 
 #### Recommended VM types
 
@@ -41,13 +41,13 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
 |          3000 - 8000           | Standard_DS14_v2 |
 |         8000 - 10000+          | Standard_DS15_v2 |
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### Creating the {{ site.data.variables.product.prodname_ghe_server }} virtual machine
+### Creating the {% data variables.product.prodname_ghe_server %} virtual machine
 
-{{ site.data.reusables.enterprise_installation.create-ghe-instance }}
+{% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. Find the most recent {{ site.data.variables.product.prodname_ghe_server }} appliance image. For more information about the `vm image list` command, see "[az vm image list](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
+1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[az vm image list](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
@@ -68,7 +68,7 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
 
   This table identifies what each port is used for.
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
 4. Create and attach a new unencrypted data disk to the VM, and configure the size based on your user license count. For more information, see "[az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)" in the Microsoft documentation.
 
@@ -84,7 +84,7 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
 
    {% endnote %}
 
-### Configuring the {{ site.data.variables.product.prodname_ghe_server }} virtual machine
+### Configuring the {% data variables.product.prodname_ghe_server %} virtual machine
 
 1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[az vm list](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
   ```shell
@@ -100,11 +100,11 @@ We recommend you use a DS v2 instance type with at least 14 GB of RAM. You can u
 
   {% endnote %}
 
-  {{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-  {{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-  {{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }} For more information, see "[Configuring the {{ site.data.variables.product.prodname_ghe_server }} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
-  {{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-  {{ site.data.reusables.enterprise_installation.visit-your-instance }}
+  {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+  {% data reusables.enterprise_installation.upload-a-license-file %}
+  {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+  {% data reusables.enterprise_installation.instance-will-restart-automatically %}
+  {% data reusables.enterprise_installation.visit-your-instance %}
 
 
   ### Дополнительная литература

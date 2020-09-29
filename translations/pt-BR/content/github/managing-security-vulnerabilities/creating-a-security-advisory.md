@@ -10,17 +10,17 @@ versions:
 
 Qualquer pessoa com permissões de administrador em um repositório pode criar uma consultoria de segurança.
 
-{{ site.data.reusables.security-advisory.security-researcher-cannot-create-advisory }}
+{% data reusables.security-advisory.security-researcher-cannot-create-advisory %}
 
 ### Criar uma consultoria de segurança
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security}}
-{{ site.data.reusables.repositories.sidebar-advisories}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
+{% data reusables.repositories.sidebar-advisories %}
 4. Clique em **Novo rascunho de consultoria de segurança**. ![Botão Open draft advisory (Abrir consultoria de rascunho)](/assets/images/help/security/security-advisory-new-draft-security-advisory-button.png)
 5. Digite um título para sua consultoria de segurança. ![Campo de título](/assets/images/help/security/security-advisory-title.png)
-{{ site.data.reusables.repositories.security-advisory-edit-details }}
-{{ site.data.reusables.repositories.security-advisory-edit-description }}
+{% data reusables.repositories.security-advisory-edit-details %}
+{% data reusables.repositories.security-advisory-edit-description %}
 8. Clique em **Criar consultoria de segurança**. ![Botão para criar consultoria de segurança](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### Próximas etapas

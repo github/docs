@@ -1,6 +1,6 @@
 ---
 title: Connecting with third-party applications
-intro: 'You can connect your {{ site.data.variables.product.product_name }} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
 versions:
@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-When a third-party application wants to identify you by your {{ site.data.variables.product.product_name }} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
+When a third-party application wants to identify you by your {% data variables.product.product_name %} login, you'll see a page with the developer contact information and a list of the specific data that's being requested.
 
 ### Contacting the application developer
 
-Because an application is developed by a third-party who isn't {{ site.data.variables.product.product_name }}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
+Because an application is developed by a third-party who isn't {% data variables.product.product_name %}, we don't know exactly how an application uses the data it's requesting access to. You can use the developer information at the top of the page to contact the application admin if you have questions or concerns about their application.
 
-![{{ site.data.variables.product.prodname_oauth_app }} owner information](/assets/images/help/platform/oauth_owner_bar.png)
+![{% data variables.product.prodname_oauth_app %} owner information](/assets/images/help/platform/oauth_owner_bar.png)
 
 If the developer has chosen to supply it, the right-hand side of the page provides a detailed description of the application, as well as its associated website.
 
@@ -22,7 +22,7 @@ If the developer has chosen to supply it, the right-hand side of the page provid
 
 ### Types of application access and data
 
-Applications can have *read* or *write* access to your {{ site.data.variables.product.product_name }} data.
+Applications can have *read* or *write* access to your {% data variables.product.product_name %} data.
 
 - **Read access** only allows an application to *look at* your data.
 - **Write access** allows an application to *change* your data.
@@ -31,7 +31,7 @@ Applications can have *read* or *write* access to your {{ site.data.variables.pr
 
 *Scopes* are named groups of permissions that an application can request to access both public and non-public data.
 
-When you want to use a third-party application that integrates with {{ site.data.variables.product.product_name }}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {{ site.data.variables.product.prodname_oauth_app }}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
+When you want to use a third-party application that integrates with {% data variables.product.product_name %}, that application lets you know what type of access to your data will be required. If you grant access to the application, then the application will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[About scopes for {% data variables.product.prodname_oauth_app %}s](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)."
 
 {% tip %}
 
@@ -47,7 +47,7 @@ There are several types of data that applications can request.
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
@@ -57,7 +57,7 @@ There are several types of data that applications can request.
 | Deployments               | Deployment status access allows applicationss to determine if a deployment is successful against a specific commit for public and private repositories. Applicationss won't have access to your code.                                                                                                                                   |
 | Gists                     | [Gist](https://gist.github.com) access allows applications to read or write to both your public and secret Gists.                                                                                                                                                                                                                       |
 | Hooks                     | [Webhooks](/webhooks) access allows applications to read or write hook configurations on repositories you manage.                                                                                                                                                                                                                       |
-| Notification (Оповещения) | Notification access allows applicationss to read your {{ site.data.variables.product.product_name }} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories.                                                                                          |
+| Notification (Оповещения) | Notification access allows applicationss to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, applications remain unable to access anything in your repositories.                                                                                          |
 | Organizations and teams   | Organization and teams access allows apps to access and manage organization and team membership.                                                                                                                                                                                                                                        |
 | Personal user data        | User data includes information found in your user profile, like your name, e-mail address, and location.                                                                                                                                                                                                                                |
 | Repositories              | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Applications can request access for either public or private repositories on a user-wide level.                                                                                                    |

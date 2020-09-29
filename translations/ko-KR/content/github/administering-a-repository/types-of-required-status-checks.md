@@ -1,7 +1,7 @@
 ---
 title: Types of required status checks
 intro: You can set up required status checks to either be "loose" or "strict." The type of required status check you choose determines whether your branch is required to be up to date with the base branch before merging.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/types-of-required-status-checks
 versions:

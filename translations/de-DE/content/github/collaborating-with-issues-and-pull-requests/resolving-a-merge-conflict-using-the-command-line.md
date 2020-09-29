@@ -13,7 +13,7 @@ Mergekonflikte entstehen, wenn in der gleichen Zeile derselben Datei von verschi
 
 {% tip %}
 
-**Tipp:** Zur Behebung von Mergekonflikten aufgrund konkurrierender Änderungen in der gleichen Zeile kannst Du den Konflikteditor von {{ site.data.variables.product.product_name }} verwenden, sofern der Konflikt zwischen den Branches eines Pull Requests auftritt. Weitere Informationen findest Du unter „[Mergekonflikt auf GitHub beheben](/articles/resolving-a-merge-conflict-on-github).“
+**Tipp:** Zur Behebung von Mergekonflikten aufgrund konkurrierender Änderungen in der gleichen Zeile kannst Du den Konflikteditor von {% data variables.product.product_name %} verwenden, sofern der Konflikt zwischen den Branches eines Pull Requests auftritt. Weitere Informationen findest Du unter „[Mergekonflikt auf GitHub beheben](/articles/resolving-a-merge-conflict-on-github).“
 
 {% endtip %}
 
@@ -23,7 +23,7 @@ Zur Behebung eines Mergekonflikts durch konkurrierende Änderungen in der gleich
 
 Ein Beispiel: Du und eine andere Person haben die gleichen Zeilen der Datei _styleguide.md_ in verschiedenen Branches des gleichen Git-Repositorys bearbeitet. Beim Versuch, diese Branches zusammenzuführen, erhältst Du nun einen Mergekonflikt. Diesen Mergekonflikt musst Du durch einen neuen Commit beheben, um die beiden Branches zusammenführen zu können.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigiere zu dem lokalen Git-Repository, in dem der Mergekonflikt auftritt.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -53,7 +53,7 @@ open an issue
 ask your question in IRC.
 >>>>>>> branch-a
   ```
-{{ site.data.reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict }} In diesem Beispiel werden beide Änderungen in den Merge übernommen:
+{% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In diesem Beispiel werden beide Änderungen in den Merge übernommen:
 
   ```shell
   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
@@ -67,7 +67,7 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {{ site.data.variables.product.product_name }} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
+Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
 ### Mergekonflikte durch das Entfernen einer Datei
 
@@ -75,7 +75,7 @@ Zur Behebung eines Mergekonflikts, der entsteht, wenn eine Person eine Datei in 
 
 Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md*, und eine andere Person hat die gleiche Datei in einem anderen Branch des gleichen Git-Repositorys gelöscht. Beim Zusammenführen beider Branches erhältst Du einen Mergekonflikt. Diesen Mergekonflikt musst Du durch einen neuen Commit beheben, um die beiden Branches zusammenführen zu können.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigiere zu dem lokalen Git-Repository, in dem der Mergekonflikt auftritt.
   ```shell
   cd <em>REPOSITORY-NAME</em>
@@ -116,7 +116,7 @@ Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {{ site.data.variables.product.product_name }} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
+Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
 
 ### Weiterführende Informationen
 

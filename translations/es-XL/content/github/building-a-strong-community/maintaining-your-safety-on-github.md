@@ -1,6 +1,6 @@
 ---
 title: Mantener tu seguridad en GitHub
-intro: 'Para construir un ambiente seguro y positivo para ti y para la comunidad de tu proyecto en {{ site.data.variables.product.prodname_dotcom }}, puedes bloquear y desbloquear a los usuarios y reportar el contenido ofensivo.'
+intro: 'Para construir un ambiente seguro y positivo para ti y para la comunidad de tu proyecto en {% data variables.product.prodname_dotcom %}, puedes bloquear y desbloquear a los usuarios y reportar el contenido ofensivo.'
 mapTopic: true
 redirect_from:
   - /articles/encouraging-positive-contributions-in-your-organization

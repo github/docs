@@ -31,10 +31,10 @@ Für die Ausführung dieses Skripts benötigst Du Folgendes:
 * Die alte E-Mail-Adresse, die in den Autoren-/Freigebenden-Feldern steht und die Du ändern möchtest
 * Den richtigen Namen und die richtige E-Mail-Adresse, die mit diesen Commits verknüpft werden sollen
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Erstelle einen neuen, leeren Klon Deines Repositorys:
   ```shell
-  git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+  git clone --bare https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
   cd <em>repo</em>.git
   ```
 3. Kopiere das Skript in das Terminal. Ersetze dabei die folgenden Variablen entsprechend den vorliegenden Informationen:
@@ -66,7 +66,7 @@ Für die Ausführung dieses Skripts benötigst Du Folgendes:
 
 4. Drücke die **Eingabetaste**, um das Skript auszuführen.
 5. Überprüfe den neuen Git-Verlauf auf Fehler.
-6. Überführe den korrigierten Verlauf zu {{ site.data.variables.product.product_name }}:
+6. Überführe den korrigierten Verlauf zu {% data variables.product.product_name %}:
   ```shell
   git push --force --tags origin 'refs/heads/*'
   ```

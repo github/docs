@@ -1,6 +1,6 @@
 ---
 title: 关于 GraphQL API
-intro: '{{ site.data.variables.product.prodname_dotcom }} GraphQL API 具有灵活性，而且能够准确定义您要获取的数据。'
+intro: '{% data variables.product.prodname_dotcom %} GraphQL API 具有灵活性，而且能够准确定义您要获取的数据。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -38,7 +38,7 @@ GitHub 选择将 GraphQL 用于 API v4，因为它可以为我们的集成商提
 
 ### 关于 GraphQL 架构引用
 
-边栏中的文档是从 {{ site.data.variables.product.prodname_dotcom }} GraphQL [架构](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) 生成的。 所有调用均根据架构验证和执行。 使用这些文档查找您可以调用的数据：
+边栏中的文档是从 {% data variables.product.prodname_dotcom %} GraphQL [架构](/v4/guides/intro-to-graphql/#discovering-the-graphql-api) 生成的。 所有调用均根据架构验证和执行。 使用这些文档查找您可以调用的数据：
 
 * 允许的操作：[查询](/v4/query)和[突变](/v4/mutation)。
 
@@ -50,4 +50,4 @@ GitHub 选择将 GraphQL 用于 API v4，因为它可以为我们的集成商提
 
 ### 请求支持
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}

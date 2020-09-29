@@ -13,17 +13,17 @@ versions:
 
 ### 关于 gists
 
-每个 gist 都是一个 Git 仓库，意即可以复刻和克隆。 如果您在创建 Gist 时登录了 {{ site.data.variables.product.product_name }}，则该 Gist 将与您的帐户相关联， 当您导航到 {{ site.data.variables.gists.gist_homepage }} 时，您会在 Gist 列表中看到它。
+每个 gist 都是一个 Git 仓库，意即可以复刻和克隆。 如果您在创建 Gist 时登录了 {% data variables.product.product_name %}，则该 Gist 将与您的帐户相关联， 当您导航到 {% data variables.gists.gist_homepage %} 时，您会在 Gist 列表中看到它。
 
-Gist 可为公共或秘密。 公共 gists 显示在 {{ site.data.variables.gists.discover_url }} 中，人们可在其中浏览新建的 gists。 它们也可供搜索，因此，如果您希望其他人查找和查看您的工作，便可使用公共 gists。 {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+Gist 可为公共或秘密。 公共 gists 显示在 {% data variables.gists.discover_url %} 中，人们可在其中浏览新建的 gists。 它们也可供搜索，因此，如果您希望其他人查找和查看您的工作，便可使用公共 gists。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-秘密 gists 不会显示在 {{ site.data.variables.gists.discover_url }}{% if currentVersion != "free-pro-team@latest" %},{% endif %} 中，也不可搜索。 {{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
+秘密 gists 不会显示在 {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} 中，也不可搜索。 {% data reusables.gist.cannot-convert-public-gists-to-secret %} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 如果您的站点管理员禁用了私有模式，您也可以使用匿名 gists，可以是公共 gists 或秘密 gists。
 
-{{ site.data.reusables.gist.anonymous-gists-cannot-be-deleted }}
+{% data reusables.gist.anonymous-gists-cannot-be-deleted %}
 
 {% endif %}
 
@@ -37,7 +37,7 @@ Gist 可为公共或秘密。 公共 gists 显示在 {{ site.data.variables.gist
 
 You can pin gists to your profile so other people can see them easily. 更多信息请参阅“[将项目嵌入到个人资料](/articles/pinning-items-to-your-profile)”。
 
-您可以到 {{ site.data.variables.gists.gist_homepage }} 单击 **All Gists（所有 Gists）**发现其他人创建的 gists。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {{ site.data.variables.gists.gist_search_url }} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/articles/searching-code)相同。
+您可以到 {% data variables.gists.gist_homepage %} 单击 **All Gists（所有 Gists）**发现其他人创建的 gists。 将会显示所有 gists 存储的页面，gist 按创建或更新时间显示。 您也可以通过 {% data variables.gists.gist_search_url %} 按语言搜索 gist。 Gist 搜索使用的搜索语法与[代码搜索](/articles/searching-code)相同。
 
 由于 gists 是 Git 仓库，因此您可以查看其整个提交历史记录，包括差异。 您也可以复刻或克隆 gists。 更多信息请参阅[“复刻和克隆 gists”](/articles/forking-and-cloning-gists)。
 
@@ -45,7 +45,7 @@ You can pin gists to your profile so other people can see them easily. 更多信
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，因此您可以轻松分享和嵌入地图。 更多信息请参阅“[{{ site.data.variables.product.product_name }} 上的地图 GeoJSON 文件](/articles/mapping-geojson-files-on-github)”。
+Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，因此您可以轻松分享和嵌入地图。 更多信息请参阅“[{% data variables.product.product_name %} 上的地图 GeoJSON 文件](/articles/mapping-geojson-files-on-github)”。
 
 {% endif %}
 
@@ -56,13 +56,13 @@ Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，�
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% note %}
 
-You can also create a gist using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endnote %}
 {% endif %}
 
-1. 登录 {{ site.data.variables.product.product_name }}。
-2. 导航到 {{ site.data.variables.gists.gist_homepage }}。
+1. 登录 {% data variables.product.product_name %}。
+2. 导航到 {% data variables.gists.gist_homepage %}。
 3. 键入 Gist 的说明（可选）和名称。 ![Gist 名称说明](/assets/images/help/gist/gist_name_description.png)
 
 4. 在 Gist 文本框中键入 Gist 的文本内容。 ![Gist 文本框](/assets/images/help/gist/gist_text_box.png)
@@ -73,6 +73,6 @@ You can also create a gist using the {{ site.data.variables.product.prodname_cli
 
   {% note %}
 
-  **注：**{{ site.data.reusables.gist.cannot-convert-public-gists-to-secret }}
+  **注：**{% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
   {% endnote %}

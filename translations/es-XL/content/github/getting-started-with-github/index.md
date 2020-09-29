@@ -1,7 +1,7 @@
 ---
 title: Comenzar con GitHub
 shortTitle: Empezar
-intro: 'Aprende sobre los productos de {{ site.data.variables.product.prodname_dotcom }}, regístrate para obtener una cuenta y explora la comunidad {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Aprende sobre los productos de {% data variables.product.prodname_dotcom %}, regístrate para obtener una cuenta y explora la comunidad {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/

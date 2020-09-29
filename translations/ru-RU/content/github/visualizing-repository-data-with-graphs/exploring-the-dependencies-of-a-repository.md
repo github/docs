@@ -14,32 +14,32 @@ versions:
 
 ### Viewing the dependency graph
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 The dependency graph shows the dependencies{% if currentVersion == "free-pro-team@latest" %} and dependents{% endif %} of your repository. For information about the detection of dependencies and which ecosystems are supported, see "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}{% if currentVersion == "free-pro-team@latest" %}
 4. Optionally, under "Dependency graph", click **Dependents**. ![Dependents tab on the dependency graph page](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 #### Dependencies view
 
 {% if currentVersion == "free-pro-team@latest" %}
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies on public repositories hosted on {{ site.data.variables.product.product_name }}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
+Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies on public repositories hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. Dependencies on private repositories, private packages, or unrecognized files are shown in plain text.
 
-If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {{ site.data.variables.product.prodname_dependabot_alerts }}.
+If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
 ![График зависимостей](/assets/images/help/graphs/dependencies_graph.png)
 
 {% endif %}
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {{ site.data.variables.product.prodname_dependabot_short }} alerts.
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed, grouped by ecosystem. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_short %} alerts.
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_ghe_server }} does not populate the **Dependents** view.
+**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_ghe_server }} does not populate the **Dependents** view.
+**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
 {% endnote %}
 
@@ -58,7 +58,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_ghe_server }} does not populate the **Dependents** view.
+**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
 {% endnote %}
 
@@ -66,7 +66,7 @@ Any direct and indirect dependencies that are specified in the repository's mani
 
 {% note %}
 
-**Note:** {{ site.data.variables.product.prodname_ghe_server }} does not populate the **Dependents** view.
+**Note:** {% data variables.product.prodname_ghe_server %} does not populate the **Dependents** view.
 
 {% endnote %}
 
@@ -85,10 +85,10 @@ Repository administrators can enable or disable the dependency graph for private
 
 You can also enable or disable the dependency graph for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.navigate-to-security-and-analysis }}
-4. Read the message about granting {{ site.data.variables.product.product_name }} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**. !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Read the message about granting {% data variables.product.product_name %} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**. !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
 {% endif %}
@@ -98,7 +98,7 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
 
 {% if currentVersion == "free-pro-team@latest" %}
-If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a {{ site.data.variables.product.prodname_enterprise }} user. It processes up to 20 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
+If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a {% data variables.product.prodname_enterprise %} user. It processes up to 20 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
 
 If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for vulnerable dependencies.
 
@@ -107,5 +107,5 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 - "[About the dependency graph](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Viewing insights for your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)"
 - "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Understanding how {{ site.data.variables.product.product_name }} uses and protects your data](/github/understanding-how-github-uses-and-protects-your-data)"
+- "[Understanding how {% data variables.product.product_name %} uses and protects your data](/github/understanding-how-github-uses-and-protects-your-data)"
 {% endif %}

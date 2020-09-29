@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 将当前工作目录更改为您的本地仓库。
 3. 检出要合并到其中的分支。 Usually, you will merge into the default branch.
   ```shell
@@ -16,7 +16,7 @@ versions:
   ```
 4. 从上游仓库拉取所需的分支。 此方法将保留提交历史记录而不做修改。
   ```shell
-  $ git pull https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git <em>BRANCH_NAME</em>
+  $ git pull https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git <em>BRANCH_NAME</em>
   ```
 5. 如有冲突，请解决。 更多信息请参阅“[解决合并冲突](/articles/addressing-merge-conflicts)”。
 6. 提交合并。

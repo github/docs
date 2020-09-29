@@ -48,10 +48,10 @@ versions:
 ### 在组织设置中阻止用户
 
 1. 要阻止组织成员，请先从组织中[删除用户](/articles/removing-a-member-from-your-organization) 。
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.block_users}}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.block_users %}
 6. 在“Block a user（阻止用户）”下，键入要阻止的用户的用户名。 ![用户名字段](/assets/images/help/organizations/org-block-username-field.png)
 7. 如果要设置阻止的时限，请使用 Block options（阻止选项）下拉菜单，选择要阻止该用户的时间段。 ![阻止选项下拉菜单](/assets/images/help/organizations/org-block-options-menu.png)
 8. 单击 **Block user（阻止用户）**。 ![阻止按钮](/assets/images/help/organizations/org-block-user-button.png)

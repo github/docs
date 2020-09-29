@@ -16,7 +16,7 @@ Una vez que has agregado una respuesta guardada, se puede usar tanto en las prop
 
 Puedes crear un máximo de 100 respuestas guardadas. Si has alcanzado el límite máximo, puedes eliminar las respuestas guardadas que ya no usas o editar las respuestas guardadas existentes.
 
-También puedes usar la respuesta guardada "Duplicar propuesta" proporcionada por {{ site.data.variables.product.product_name }} para marcar una propuesta como un duplicado y hacerle un seguimiento con una propuesta similar.
+También puedes usar la respuesta guardada "Duplicar propuesta" proporcionada por {% data variables.product.product_name %} para marcar una propuesta como un duplicado y hacerle un seguimiento con una propuesta similar.
 
 ### Leer más
 

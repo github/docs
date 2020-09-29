@@ -1,1 +1,1 @@
-Activity related to GitHub Packages. {{ site.data.reusables.webhooks.action_type_desc }} For more information, see "[GitHub Packages](/packages)".
+Activity related to GitHub Packages. {% data reusables.webhooks.action_type_desc %} For more information, see "[GitHub Packages](/packages)".

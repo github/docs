@@ -1,6 +1,6 @@
 ---
 title: 站点管理员仪表板
-intro: '站点管理员仪表板提供了多种工具，这些工具可以帮助您管理 {{ site.data.variables.product.product_location_enterprise }}。'
+intro: '站点管理员仪表板提供了多种工具，这些工具可以帮助您管理 {% data variables.product.product_location_enterprise %}。'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -12,11 +12,11 @@ versions:
 
 ### 许可信息与搜索
 
-请参照站点管理员仪表板的此部分检查您当前的 {{ site.data.variables.product.prodname_enterprise }} 许可；搜索用户和仓库；查询[审核日志](#audit-log)。
+请参照站点管理员仪表板的此部分检查您当前的 {% data variables.product.prodname_enterprise %} 许可；搜索用户和仓库；查询[审核日志](#audit-log)。
 
-### {{ site.data.variables.enterprise.management_console }}
+### {% data variables.enterprise.management_console %}
 
-您可以在此处启动 {{ site.data.variables.enterprise.management_console }}，以管理域、身份验证和 SSL 等虚拟设备设置。
+您可以在此处启动 {% data variables.enterprise.management_console %}，以管理域、身份验证和 SSL 等虚拟设备设置。
 
 ### 探索
 
@@ -24,7 +24,7 @@ versions:
 
 ### 审核日志
 
-{{ site.data.variables.product.prodname_enterprise }} 会实时记录您可以查询的审核操作。
+{% data variables.product.prodname_enterprise %} 会实时记录您可以查询的审核操作。
 
 默认情况下，审核日志会按时间倒序显示所有已审核操作的列表。 要对此列表进行筛选，您可以在 **Query** 文本框中输入键值对，然后单击 **Search**，如“[搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)”所述。
 
@@ -32,7 +32,7 @@ versions:
 
 ### 报告
 
-如果您需要获取关于 {{ site.data.variables.product.product_location_enterprise }} 中用户、组织和仓库的信息，正常些情况下，您将通过 [GitHub API](http://developer.github.com/v3/) 提取 JSON 数据。 但遗憾的是，此 API 可能无法提供您需要的所有数据，并且需要一定的专业技术知识才能使用。 因此，站点管理员仪表板提供 **Reports** 部分代替 API 方法，您可以通过仪表板轻松下载 CSV 报告，其中包含大部分您有可能需要的用户、组织和仓库信息。
+如果您需要获取关于 {% data variables.product.product_location_enterprise %} 中用户、组织和仓库的信息，正常些情况下，您将通过 [GitHub API](http://developer.github.com/v3/) 提取 JSON 数据。 但遗憾的是，此 API 可能无法提供您需要的所有数据，并且需要一定的专业技术知识才能使用。 因此，站点管理员仪表板提供 **Reports** 部分代替 API 方法，您可以通过仪表板轻松下载 CSV 报告，其中包含大部分您有可能需要的用户、组织和仓库信息。
 
 具体来讲，您可以下载列出以下信息的 CSV 报告：
 
@@ -125,7 +125,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 - 开始新的索引修复作业
 - 重置所有索引修复状态
 
-{{ site.data.variables.product.prodname_enterprise }} 使用修复作业协调搜索索引的状态与数据库中存储的数据（问题、拉取请求、仓库和用户）以及 Git 仓库中存储的数据（源代码）。 以下情况下会进行此操作：
+{% data variables.product.prodname_enterprise %} 使用修复作业协调搜索索引的状态与数据库中存储的数据（问题、拉取请求、仓库和用户）以及 Git 仓库中存储的数据（源代码）。 以下情况下会进行此操作：
 
 - 创建新的搜索索引；
 - 需要重新填入缺失的数据；或者
@@ -135,7 +135,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 此外，修复作业还使用“修复偏移”实现并行化。 偏移是指协调的记录在数据库表中的偏移。 多个后台作业可以基于此偏移同步工作。
 
-进度条会在所有后台工作进程中显示修复作业的当前状态。 此值是修复偏移与数据中最高记录 ID 的百分比差异。 不用担心修复作业完成后在进度条中显示的值：因为它表示的是修复偏移与数据库中最高记录 ID 之差，随着更多的仓库添加到 {{ site.data.variables.product.product_location_enterprise }} 中，即使这些仓库实际上已编制索引，此值也会减小。
+进度条会在所有后台工作进程中显示修复作业的当前状态。 此值是修复偏移与数据中最高记录 ID 的百分比差异。 不用担心修复作业完成后在进度条中显示的值：因为它表示的是修复偏移与数据库中最高记录 ID 之差，随着更多的仓库添加到 {% data variables.product.product_location_enterprise %} 中，即使这些仓库实际上已编制索引，此值也会减小。
 
 您可以随时启动新的代码搜索索引修复作业。 在协调搜索索引与数据库和 Git 仓库数据时，它将使用单个 CPU。 为了最大限度地减小对 I/O 性能的影响并减小操作超时的几率，请先尝试在非高峰期运行修复作业。 使用 `top` 等实用程序监视系统的平均负载和 CPU 利用率；如果您没有注意到任何显著的变化，那么在高峰期运行索引修复作业也应当是安全的。
 
@@ -149,30 +149,30 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 ### 仓库
 
-这是 {{ site.data.variables.product.product_location_enterprise }} 上的仓库列表。 您可以单击仓库名称，然后访问各项功能，对仓库进行管理。
+这是 {% data variables.product.product_location_enterprise %} 上的仓库列表。 您可以单击仓库名称，然后访问各项功能，对仓库进行管理。
 
 - [阻止对仓库进行强制推送](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [配置 {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [配置 {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [存档和取消存档仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
 ### 所有用户
 
-您可以在此查看 {{ site.data.variables.product.product_location_enterprise }} 上的所有用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
+您可以在此查看 {% data variables.product.product_location_enterprise %} 上的所有用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
 
 ### 站点管理员
 
-您可以在此查看 {{ site.data.variables.product.product_location_enterprise }} 上的所有管理员，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
+您可以在此查看 {% data variables.product.product_location_enterprise %} 上的所有管理员，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
 
 ### 休眠用户
 
-您可以在此查看并[挂起](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) {{ site.data.variables.product.product_location_enterprise }} 上的所有非活动用户。 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
+您可以在此查看并[挂起](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) {% data variables.product.product_location_enterprise %} 上的所有非活动用户。 以下情况下，会认定用户帐户处于非活动状态（“休眠”）：
 
-- 存在时间长于为 {{ site.data.variables.product.product_location_enterprise }} 设置的休眠阈值。
+- 存在时间长于为 {% data variables.product.product_location_enterprise %} 设置的休眠阈值。
 - 在该时间段内没有发生任何活动。
 - 不是站点管理员。
 
-{{ site.data.reusables.enterprise_site_admin_settings.dormancy-threshold }} 更多信息请参阅“[管理休眠用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)”。
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} 更多信息请参阅“[管理休眠用户](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)”。
 
 ### 已挂起的用户
 
-您可以在此查看 {{ site.data.variables.product.product_location_enterprise }} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
+您可以在此查看 {% data variables.product.product_location_enterprise %} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。

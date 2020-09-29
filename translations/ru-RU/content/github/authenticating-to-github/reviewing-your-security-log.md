@@ -12,11 +12,11 @@ versions:
 
 The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
 
-{{ site.data.reusables.user_settings.access_settings }}
+{% data reusables.user_settings.access_settings %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 2. In the user settings sidebar, click **Security log**. ![Security log tab](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.security %}
 3. Under "Security history," your log is displayed. ![Security log](/assets/images/help/settings/user_security_log.png)
 4. Click on an entry to see more information about the event. ![Security log](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
@@ -24,7 +24,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Searching your security log
 
-{{ site.data.reusables.audit_log.audit-log-search }}
+{% data reusables.audit_log.audit-log-search %}
 
 #### Search based on the action performed
 {% else %}
@@ -35,15 +35,15 @@ Actions listed in your security log are grouped within the following categories:
 | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
 | `account_recovery_token`          | Contains all activities related to [adding a recovery token](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                          |
 | `биллинг`                         | Contains all activities related to your billing information.                                                                                                                                                                                                                                                                                                             |
-| `marketplace_agreement_signature` | Contains all activities related to signing the {{ site.data.variables.product.prodname_marketplace }} Developer Agreement.                                                                                                                                                                                                                                               |
-| `marketplace_listing`             | Contains all activities related to listing apps in {{ site.data.variables.product.prodname_marketplace }}.{% endif %}
-| `oauth_access`                    | Contains all activities related to [{{ site.data.variables.product.prodname_oauth_app }}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
-| `payment_method`                  | Contains all activities related to paying for your {{ site.data.variables.product.prodname_dotcom }} subscription.{% endif %}
+| `marketplace_agreement_signature` | Contains all activities related to signing the {% data variables.product.prodname_marketplace %} Developer Agreement.                                                                                                                                                                                                                                               |
+| `marketplace_listing`             | Contains all activities related to listing apps in {% data variables.product.prodname_marketplace %}.{% endif %}
+| `oauth_access`                    | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
+| `payment_method`                  | Contains all activities related to paying for your {% data variables.product.prodname_dotcom %} subscription.{% endif %}
 | `profile_picture`                 | Contains all activities related to your profile picture.                                                                                                                                                                                                                                                                                                                 |
 | `проект`                          | Contains all activities related to project boards.                                                                                                                                                                                                                                                                                                                       |
 | `public_key`                      | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).                                                                                                                                                                                                                                                        |
 | `repo`                            | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors`                        | Contains all events related to {{ site.data.variables.product.prodname_sponsors }} and sponsor buttons (see "[About {{ site.data.variables.product.prodname_sponsors }}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+| `sponsors`                        | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
 | `команда`                         | Contains all activities related to teams you are a part of.{% endif %}
 | `two_factor_authentication`       | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).                                                                                                                                                                                                                                      |
 | `пользователь`                    | Contains all activities related to your account.                                                                                                                                                                                                                                                                                                                         |
@@ -58,30 +58,30 @@ A description of the events within these categories is listed below.
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | confirm       | Triggered when you successfully [store a new token with a recovery provider](/articles/configuring-two-factor-authentication-recovery-methods). |
 | recover       | Triggered when you successfully [redeem an account recovery token](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).         |
-| recover_error | Triggered when a token is used but {{ site.data.variables.product.prodname_dotcom }} is not able to validate it.                                |
+| recover_error | Triggered when a token is used but {% data variables.product.prodname_dotcom %} is not able to validate it.                                |
 
 #### The `billing` category
 
 | Действие              | Description                                                                                                                                  |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| change_billing_type | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {{ site.data.variables.product.prodname_dotcom }}. |
+| change_billing_type | Triggered when you [change how you pay](/articles/adding-or-editing-a-payment-method) for {% data variables.product.prodname_dotcom %}. |
 | change_email          | Triggered when you [change your email address](/articles/changing-your-primary-email-address).                                               |
 
 #### The `marketplace_agreement_signature` category
 
 | Действие | Description                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------- |
-| create   | Triggered when you sign the {{ site.data.variables.product.prodname_marketplace }} Developer Agreement. |
+| create   | Triggered when you sign the {% data variables.product.prodname_marketplace %} Developer Agreement. |
 
 #### The `marketplace_listing` category
 
 | Действие  | Description                                                                                                          |
 | --------- | -------------------------------------------------------------------------------------------------------------------- |
-| утвердить | Triggered when your listing is approved for inclusion in {{ site.data.variables.product.prodname_marketplace }}.     |
-| create    | Triggered when you create a listing for your app in {{ site.data.variables.product.prodname_marketplace }}.          |
-| delist    | Triggered when your listing is removed from {{ site.data.variables.product.prodname_marketplace }}.                  |
+| утвердить | Triggered when your listing is approved for inclusion in {% data variables.product.prodname_marketplace %}.     |
+| create    | Triggered when you create a listing for your app in {% data variables.product.prodname_marketplace %}.          |
+| delist    | Triggered when your listing is removed from {% data variables.product.prodname_marketplace %}.                  |
 | redraft   | Triggered when your listing is sent back to draft state.                                                             |
-| reject    | Triggered when your listing is not accepted for inclusion in {{ site.data.variables.product.prodname_marketplace }}. |
+| reject    | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}. |
 
 {% endif %}
 
@@ -89,8 +89,8 @@ A description of the events within these categories is listed below.
 
 | Действие | Description                                                                                                                                                       |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| create   | Triggered when you [grant access to an {{ site.data.variables.product.prodname_oauth_app }}](/articles/authorizing-oauth-apps).                                 |
-| destroy  | Triggered when you [revoke an {{ site.data.variables.product.prodname_oauth_app }}'s access to your account](/articles/reviewing-your-authorized-integrations). |
+| create   | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps).                                 |
+| destroy  | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/articles/reviewing-your-authorized-integrations). |
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -127,15 +127,15 @@ A description of the events within these categories is listed below.
 
 | Действие         | Description                                                                                                                                                          |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| create           | Triggered when you [add a new public SSH key to your {{ site.data.variables.product.product_name }} account](/articles/adding-a-new-ssh-key-to-your-github-account). |
-| delete - Удалить | Triggered when you [remove a public SSH key to your {{ site.data.variables.product.product_name }} account](/articles/reviewing-your-ssh-keys).                      |
+| create           | Triggered when you [add a new public SSH key to your {% data variables.product.product_name %} account](/articles/adding-a-new-ssh-key-to-your-github-account). |
+| delete - Удалить | Triggered when you [remove a public SSH key to your {% data variables.product.product_name %} account](/articles/reviewing-your-ssh-keys).                      |
 
 #### The `repo` category
 
 | Действие                              | Description                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | access                                | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).                                                                                                                                                                                         |
-| add_member                            | Triggered when a {{ site.data.variables.product.product_name }} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
+| add_member                            | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
 | add_topic                             | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.                                                                                                                                                                                                                    |
 | archived                              | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if currentVersion != "free-pro-team@latest" %}
 | config.disable_anonymous_git_access | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.                                                                                                                                                        |
@@ -146,7 +146,7 @@ A description of the events within these categories is listed below.
 | destroy                               | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
 | деактивировать                        | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | активировать                          | Triggered when a repository is re-enabled.{% endif %}
-| remove_member                         | Triggered when a {{ site.data.variables.product.product_name }} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                    |
+| remove_member                         | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).                                                                                                                                                    |
 | remove_topic                          | Triggered when a repository owner removes a topic from a repository.                                                                                                                                                                                                                                                                    |
 | rename                                | Triggered when [a repository is renamed](/articles/renaming-a-repository).                                                                                                                                                                                                                                                              |
 | передача                              | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).                                                                                                                                                                                                                                                   |
@@ -164,14 +164,14 @@ A description of the events within these categories is listed below.
 | sponsor_sponsorship_create                    | Triggered when you sponsor a developer (see "[Sponsoring an open source contributor](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-an-open-source-contributor#sponsoring-a-developer)")                                                                                                             |
 | sponsor_sponsorship_preference_change         | Triggered when you change whether you receive email updates from a sponsored developer (see "[Managing your sponsorship](/articles/managing-your-sponsorship)")                                                                                                                                                                    |
 | sponsor_sponsorship_tier_change               | Triggered when you upgrade or downgrade your sponsorship (see "[Upgrading a sponsorship](/articles/upgrading-a-sponsorship)" and "[Downgrading a sponsorship](/articles/downgrading-a-sponsorship)")                                                                                                                               |
-| sponsored_developer_approve                   | Triggered when your {{ site.data.variables.product.prodname_sponsors }} account is approved (see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                     |
-| sponsored_developer_create                    | Triggered when your {{ site.data.variables.product.prodname_sponsors }} account is created (see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                      |
-| sponsored_developer_profile_update            | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {{ site.data.variables.product.prodname_sponsors }}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                        |
-| sponsored_developer_request_approval          | Triggered when you submit your application for {{ site.data.variables.product.prodname_sponsors }} for approval (see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
+| sponsored_developer_approve                   | Triggered when your {% data variables.product.prodname_sponsors %} account is approved (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                     |
+| sponsored_developer_create                    | Triggered when your {% data variables.product.prodname_sponsors %} account is created (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                      |
+| sponsored_developer_profile_update            | Triggered when you edit your sponsored developer profile (see "[Editing your profile details for {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/editing-your-profile-details-for-github-sponsors)")                                                        |
+| sponsored_developer_request_approval          | Triggered when you submit your application for {% data variables.product.prodname_sponsors %} for approval (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)") |
 | sponsored_developer_tier_description_update | Triggered when you change the description for a sponsorship tier (see "[Changing your sponsorship tiers](/articles/changing-your-sponsorship-tiers)")                                                                                                                                                                              |
 | sponsored_developer_update_newsletter_send  | Triggered when you send an email update to your sponsors (see "[Contacting your sponsors](/articles/contacting-your-sponsors)")                                                                                                                                                                                                    |
-| waitlist_invite_sponsored_developer           | Triggered when you are invited to join {{ site.data.variables.product.prodname_sponsors }} from the waitlist (see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")    |
-| waitlist_join                                   | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {{ site.data.variables.product.prodname_sponsors }} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                                            |
+| waitlist_invite_sponsored_developer           | Triggered when you are invited to join {% data variables.product.prodname_sponsors %} from the waitlist (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")    |
+| waitlist_join                                   | Triggered when you join the waitlist to become a sponsored developer (see "[Setting up {% data variables.product.prodname_sponsors %} for your user account](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)")                                            |
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -218,9 +218,9 @@ A description of the events within these categories is listed below.
 | rename                             | Triggered when you rename your account.                                                                                                                                       |
 | change_password                    | Triggered when you change your password.                                                                                                                                      |
 | forgot_password                    | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).                                                                                         |
-| login                              | Triggered when you log in to {{ site.data.variables.product.product_location }}.                                                                                              |
+| login                              | Triggered when you log in to {% data variables.product.product_location %}.                                                                                              |
 | failed_login                       | Triggered when you failed to log in successfully.                                                                                                                             |
-| two_factor_requested             | Triggered when {{ site.data.variables.product.product_name }} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication). |
+| two_factor_requested             | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication). |
 | show_private_contributions_count | Triggered when you [publicize private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).                             |
 | hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
 | report_content                     | Triggered when you [report an issue or pull request, or a comment on an issue, pull request, or commit](/articles/reporting-abuse-or-spam).{% endif %}
@@ -236,7 +236,7 @@ A description of the events within these categories is listed below.
 
 ### Exporting your security log
 
-{{ site.data.reusables.audit_log.export-log }}
-{{ site.data.reusables.audit_log.exported-log-keys-and-values }}
+{% data reusables.audit_log.export-log %}
+{% data reusables.audit_log.exported-log-keys-and-values %}
 
 {% endif %}

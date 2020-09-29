@@ -1,6 +1,6 @@
 ---
 title: Preparing to migrate data to your enterprise
-intro: 'After generating a migration archive, you can import the data to your target {{ site.data.variables.product.prodname_ghe_server }} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
+intro: 'After generating a migration archive, you can import the data to your target {% data variables.product.prodname_ghe_server %} instance. You''ll be able to review changes for potential conflicts before permanently applying the changes to your target instance.'
 redirect_from:
   - /enterprise/admin/migrations/preparing-the-migrated-data-for-import-to-github-enterprise-server
   - /enterprise/admin/migrations/generating-a-list-of-migration-conflicts
@@ -12,15 +12,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the migrated data for import to {{ site.data.variables.product.prodname_ghe_server }}
+### Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}
 
-1. Using the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command, copy the migration archive generated from your source instance or organization to your {{ site.data.variables.product.prodname_ghe_server }} target:
+1. Using the [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) command, copy the migration archive generated from your source instance or organization to your {% data variables.product.prodname_ghe_server %} target:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
@@ -29,7 +29,7 @@ versions:
     ```
 
     * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ### Generating a list of migration conflicts
 

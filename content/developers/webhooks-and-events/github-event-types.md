@@ -1,7 +1,7 @@
 ---
 title: GitHub event types
-intro: 'For the {{ site.data.variables.product.prodname_dotcom }} Events API, learn about each event type, the triggering action on {{ site.data.variables.product.prodname_dotcom }}, and each event''s unique properties.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'For the {% data variables.product.prodname_dotcom %} Events API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /v3/activity/event_types
 versions:
@@ -81,90 +81,90 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 
 ### CommitCommentEvent
 
-{{ site.data.reusables.webhooks.commit_comment_short_desc }}
+{% data reusables.webhooks.commit_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.commit_comment_properties }}
+{% data reusables.webhooks.commit_comment_properties %}
 
 ### CreateEvent
 
-{{ site.data.reusables.webhooks.create_short_desc }}
+{% data reusables.webhooks.create_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.create_properties }}
+{% data reusables.webhooks.create_properties %}
 
 ### DeleteEvent
 
-{{ site.data.reusables.webhooks.delete_short_desc }}
+{% data reusables.webhooks.delete_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.delete_properties }}
+{% data reusables.webhooks.delete_properties %}
 
 ### ForkEvent
 
-{{ site.data.reusables.webhooks.fork_short_desc }}
+{% data reusables.webhooks.fork_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.fork_properties }}
+{% data reusables.webhooks.fork_properties %}
 
 ### GollumEvent
 
-{{ site.data.reusables.webhooks.gollum_short_desc }}
+{% data reusables.webhooks.gollum_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.gollum_properties }}
+{% data reusables.webhooks.gollum_properties %}
 
 ### IssueCommentEvent
 
-{{ site.data.reusables.webhooks.issue_comment_short_desc }}
+{% data reusables.webhooks.issue_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.issue_comment_webhook_properties }}
-{{ site.data.reusables.webhooks.issue_comment_properties }}
+{% data reusables.webhooks.issue_comment_webhook_properties %}
+{% data reusables.webhooks.issue_comment_properties %}
 
 ### IssuesEvent
 
-{{ site.data.reusables.webhooks.issues_short_desc }}
+{% data reusables.webhooks.issues_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.issue_event_api_properties }}
-{{ site.data.reusables.webhooks.issue_properties }}
+{% data reusables.webhooks.issue_event_api_properties %}
+{% data reusables.webhooks.issue_properties %}
 
 ### MemberEvent
 
-{{ site.data.reusables.webhooks.member_short_desc }}
+{% data reusables.webhooks.member_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.member_event_api_properties }}
-{{ site.data.reusables.webhooks.member_properties }}
+{% data reusables.webhooks.member_event_api_properties %}
+{% data reusables.webhooks.member_properties %}
 
 ### PublicEvent
 
-{{ site.data.reusables.webhooks.public_short_desc }}
+{% data reusables.webhooks.public_short_desc %}
 
 #### Event `payload` object
 
@@ -172,31 +172,31 @@ This event returns an empty `payload` object.
 
 ### PullRequestEvent
 
-{{ site.data.reusables.webhooks.pull_request_short_desc }}
+{% data reusables.webhooks.pull_request_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.pull_request_event_api_properties }}
-{{ site.data.reusables.webhooks.pull_request_properties }}
+{% data reusables.webhooks.pull_request_event_api_properties %}
+{% data reusables.webhooks.pull_request_properties %}
 
 ### PullRequestReviewCommentEvent
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_short_desc }}
+{% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_event_api_properties }}
-{{ site.data.reusables.webhooks.pull_request_review_comment_properties }}
+{% data reusables.webhooks.pull_request_review_comment_event_api_properties %}
+{% data reusables.webhooks.pull_request_review_comment_properties %}
 
 ### PushEvent
 
-{{ site.data.reusables.webhooks.push_short_desc }}
+{% data reusables.webhooks.push_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 Key | Type | Description
 ----|------|-------------
@@ -217,32 +217,32 @@ Key | Type | Description
 
 ### ReleaseEvent
 
-{{ site.data.reusables.webhooks.release_short_desc }}
+{% data reusables.webhooks.release_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.release_event_api_properties }}
-{{ site.data.reusables.webhooks.release_properties }}
+{% data reusables.webhooks.release_event_api_properties %}
+{% data reusables.webhooks.release_properties %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### SponsorshipEvent
 
-{{ site.data.reusables.webhooks.sponsorship_short_desc }}
+{% data reusables.webhooks.sponsorship_short_desc %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.sponsorship_event_api_properties }}
-{{ site.data.reusables.webhooks.sponsorship_properties}}
+{% data reusables.webhooks.sponsorship_event_api_properties %}
+{% data reusables.webhooks.sponsorship_properties %}
 {% endif %}
 
 ### WatchEvent
 
-{{ site.data.reusables.webhooks.watch_short_desc }}
+{% data reusables.webhooks.watch_short_desc %}
 
-{{ site.data.reusables.webhooks.events_api_payload }}
+{% data reusables.webhooks.events_api_payload %}
 
 #### Event `payload` object
 
-{{ site.data.reusables.webhooks.watch_properties }}
+{% data reusables.webhooks.watch_properties %}

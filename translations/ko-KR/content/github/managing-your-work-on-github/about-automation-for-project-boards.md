@@ -8,17 +8,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.automate-project-board-permissions }}  For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
+{% data reusables.project-management.automate-project-board-permissions %}  For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)."
 
 You can automate actions based on triggering events for project board columns. This eliminates some of the manual tasks in managing a project board. For example, you can configure a "To do" column, where any new issues or pull requests you add to a project board are automatically moved to the configured column. For more information, see "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)."
 
-{{ site.data.reusables.project-management.use-automated-template }}
+{% data reusables.project-management.use-automated-template %}
 
-{{ site.data.reusables.project-management.copy-project-boards }}
+{% data reusables.project-management.copy-project-boards %}
 
 Project board automation can also help teams develop a shared understanding of a project board's purpose and the team's development process by creating a standard workflow for certain actions.
 
-{{ site.data.reusables.project-management.resync-automation }}
+{% data reusables.project-management.resync-automation %}
 
 ### Automation options
 
@@ -29,7 +29,7 @@ Project board automation can also help teams develop a shared understanding of a
 | Done          | <ul><li>Move all closed issues here</li><li>Move all merged pull requests here</li><li>Move all closed, unmerged pull requests here</li></ul> |
 
 ### Project progress tracking
-Project board automation enables progress tracking by default. Cards in columns with the "To do", "In progress", or "Done" presets count toward the overall project progress. {{ site.data.reusables.project-management.project-progress-locations }}
+Project board automation enables progress tracking by default. Cards in columns with the "To do", "In progress", or "Done" presets count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
 
 ### 더 읽을거리
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}

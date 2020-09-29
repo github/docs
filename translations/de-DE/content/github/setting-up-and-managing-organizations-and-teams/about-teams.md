@@ -21,15 +21,15 @@ Weitere Informationen findest Du unter:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-Du kannst außerdem mit LDAP Sync {{ site.data.variables.product.product_location_enterprise }}-Teammitglieder und -Teamrollen mit Deinen bestehenden LDAP-Gruppen synchronisieren. Dadurch kannst Du eine rollenbasierte Zugriffskontrolle für Benutzer von Deinem LDAP-Server aus einrichten statt manuell innerhalb von {{ site.data.variables.product.product_location_enterprise }}. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
+Du kannst außerdem mit LDAP Sync {% data variables.product.product_location_enterprise %}-Teammitglieder und -Teamrollen mit Deinen bestehenden LDAP-Gruppen synchronisieren. Dadurch kannst Du eine rollenbasierte Zugriffskontrolle für Benutzer von Deinem LDAP-Server aus einrichten statt manuell innerhalb von {% data variables.product.product_location_enterprise %}. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
 {% endif %}
 
-{{ site.data.reusables.organizations.team-synchronization }}
+{% data reusables.organizations.team-synchronization %}
 
 ### Sichtbarkeit eines Teams
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 ### Teamseiten
 
@@ -41,7 +41,7 @@ Organisationsmitglieder können Diskussionen mit dem Team erstellen und daran te
 
 ### Verschachtelte Teams
 
-Du kannst die Hierarchie Deiner Gruppe oder Deines Unternehmens innerhalb Deiner {{ site.data.variables.product.product_name }}-Organisation mit mehreren Ebenen von verschachtelten Teams abbilden. Ein übergeordnetes Team kann mehrere untergeordnete Teams haben, wohingegen jedes untergeordnete Team nur ein übergeordnetes Team hat. Nicht öffentliche Teams können nicht verschachtelt werden.
+Du kannst die Hierarchie Deiner Gruppe oder Deines Unternehmens innerhalb Deiner {% data variables.product.product_name %}-Organisation mit mehreren Ebenen von verschachtelten Teams abbilden. Ein übergeordnetes Team kann mehrere untergeordnete Teams haben, wohingegen jedes untergeordnete Team nur ein übergeordnetes Team hat. Nicht öffentliche Teams können nicht verschachtelt werden.
 
 Für untergeordnete Teams gelten die Zugriffsberechtigungen des übergeordneten Teams, wodurch die Verwaltung von Berechtigungen für große Gruppen vereinfacht wird. Mitglieder von untergeordneten Teams erhalten außerdem Benachrichtigungen, wenn das übergeordnete Team @erwähnt wird, was die Kommunikation mit mehreren Personengruppen vereinfacht.
 
@@ -57,7 +57,7 @@ Du kannst beim Erstellen des Teams ein übergeordnetes Team auswählen oder ein 
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-{{ site.data.reusables.enterprise_user_management.ldap-sync-nested-teams }}
+{% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 
 {% endif %}
 

@@ -10,7 +10,7 @@ versions:
 
 ### Überblick über die Berechtigungen
 
-{{ site.data.reusables.repositories.security-advisory-admin-permissions }} Weitere Informationen zum Hinzufügen eines Mitarbeiter zu einem Sicherheitshinweis findest Du unter [Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
+{% data reusables.repositories.security-advisory-admin-permissions %} Weitere Informationen zum Hinzufügen eines Mitarbeiter zu einem Sicherheitshinweis findest Du unter [Einen Mitarbeiter zu einem Sicherheitshinweis hinzufügen](/github/managing-security-vulnerabilities/adding-a-collaborator-to-a-security-advisory)."
 
 | Aktion                                                                                                                                                                                                                                                                                 | Schreib-berechtigungen | Administratorberechtigungen |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | --------------------------- |

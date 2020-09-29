@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### 强制执行双重身份验证的要求
 
@@ -26,12 +26,12 @@ versions:
 
 在您需要使用双重身份验证之前，我们建议您通知{% if currentVersion == "free-pro-team@latest" %}组织成员、外部协作者和帐单管理员{% else %}组织成员和外部协作者{% endif %}，并要求他们为其帐户设置 2FA。 您可以在组织的 People（人员）页面中[查看成员和外部协作者是否已使用 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. 如果从组织中删除了任何成员或外部协作者，我们建议向他们发送邀请，以恢复其以前对组织的权限和访问权限。 他们必须启用双重身份验证，然后才能接受您的邀请。
 {% endif %}
@@ -42,9 +42,9 @@ versions:
 
 ![显示因 2FA 不合规而删除的用户的审核日志事件](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. 输入您的搜索查询。 要搜索：
     - 删除的组织成员，请在搜索查询中使用 `action:org.remove_member`
     - 删除的外部协作者，请在搜索查询中使用 `action:org.remove_outside_collaborator`{% if currentVersion == "free-pro-team@latest" %}

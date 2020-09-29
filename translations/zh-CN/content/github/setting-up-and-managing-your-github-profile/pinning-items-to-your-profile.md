@@ -17,7 +17,7 @@ You can pin any public gist you own.
 
 您可以重新排序“Pinned（已嵌入）”部分的项目。 在嵌入的右上角，单击 {% octicon "grabber" aria-label="The grabber symbol" %}  并将该嵌入拖至新位置。
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. 在“Popular repositories（常用仓库）”或“Pinned（已嵌入）”部分，单击 **Customize your pins（自定义嵌入）**。 ![自定义嵌入按钮](/assets/images/help/profile/customize-pinned-repositories.png)
 3. 要显示要固定项目的可搜索列表，请选择“Repositories（仓库）”、"Gists" 或两者。 ![用于选择显示的项目类型的复选框](/assets/images/help/profile/pinned-repo-picker.png)
 4. （可选）为便于查找特定项目，在过滤器字段中输入用户、组织、仓库或 gist 的名称。 ![过滤项目](/assets/images/help/profile/pinned-repo-search.png)

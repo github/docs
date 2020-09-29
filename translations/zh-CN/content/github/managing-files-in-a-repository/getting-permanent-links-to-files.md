@@ -1,6 +1,6 @@
 ---
 title: 创建文件的永久链接
-intro: '在 {{ site.data.variables.product.product_location }} 上查看文件时，您可以按 "y" 键将 URL 更新为指向所查看文件精确版本的永久链接。'
+intro: '在 {% data variables.product.product_location %} 上查看文件时，您可以按 "y" 键将 URL 更新为指向所查看文件精确版本的永久链接。'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**提示**：在 {{ site.data.variables.product.product_name }} 的任意页面上按 "?" 键可查看所有可用的键盘快捷键。
+**提示**：在 {% data variables.product.product_name %} 的任意页面上按 "?" 键可查看所有可用的键盘快捷键。
 
 {% endtip %}
 
 ### 文件视图显示分支上的最新版本
 
-在 {{ site.data.variables.product.product_location }} 上查看文件时，通常会在分支头部看到当前版本。  例如：
+在 {% data variables.product.product_location %} 上查看文件时，通常会在分支头部看到当前版本。  例如：
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

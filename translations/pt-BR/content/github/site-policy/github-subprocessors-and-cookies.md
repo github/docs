@@ -45,7 +45,7 @@ Quando compartilhamos suas informações com terceiros subprocessadores, tais co
 | Zendesk                | Sistema de bilhetagem de suporte ao cliente                           | Estados Unidos         | Estados Unidos          |
 | Zuora                  | Sistema de faturamento corporativo                                    | Estados Unidos         | Estados Unidos          |
 
-Quando trouxermos um novo subprocessador que lida com as Informações Pessoais de nossos Usuários, ou removermos um subprocessador, ou mudarmos a forma como usamos um subprocessador, atualizaremos esta página. Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos felizes em ajudar. Entre em contato conosco via {{ site.data.variables.contact.contact_privacy }}.
+Quando trouxermos um novo subprocessador que lida com as Informações Pessoais de nossos Usuários, ou removermos um subprocessador, ou mudarmos a forma como usamos um subprocessador, atualizaremos esta página. Se você tiver dúvidas ou preocupações sobre um novo subprocessador, ficaremos felizes em ajudar. Entre em contato conosco via {% data variables.contact.contact_privacy %}.
 
 ### Cookies no GitHub
 

@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pre-release-program.content-attachments-public-beta}}
+{% data reusables.pre-release-program.content-attachments-public-beta %}
 
 ### About content attachments
 
 A GitHub App can register domains that will trigger `content_reference` events. When someone includes a URL that links to a registered domain in the body or comment of an issue or pull request, the app receives the [`content_reference` webhook](/webhooks/event-payloads/#content_reference). You can use content attachments to visually provide more context or data for the URL added to an issue or pull request. The URL must be a fully-qualified URL, starting with either `http://` or `https://`. URLs that are part of a markdown link are ignored and don't trigger the `content_reference` event.
 
-Before you can use the {{ site.data.variables.product.prodname_unfurls }} API, you'll need to configure content references for your GitHub App:
+Before you can use the {% data variables.product.prodname_unfurls %} API, you'll need to configure content references for your GitHub App:
 * Give your app `Read & write` permissions for "Content references."
 * Register up to 5 valid, publicly accessible domains when configuring the "Content references" permission. Do not use IP addresses when configuring content reference domains. You can register a domain name (example.com) or a subdomain (subdomain.example.com).
 * Subscribe your app to the "Content reference" event.
@@ -56,8 +56,8 @@ The content attachment flow shows you the relationship between the URL in the is
 
 **Step 4.** The app uses the `content_reference` `id`, to [Create a content attachment](/v3/apps/installations/#create-a-content-attachment) using the REST API. You'll also need the `installation` `id` to authenticate as a [GitHub App installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation).
 
-{{ site.data.reusables.pre-release-program.corsair-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.corsair-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
 The `body` parameter can contain markdown:
 
@@ -81,8 +81,8 @@ For more information about creating an installation token, see "[Authenticating 
 ### Using content attachments in GraphQL
 We provide the `node_id` in the [`content_reference` webhook](/webhooks/event-payloads/#content_reference) event so you can refer to the `createContentAttachment` mutation in the GraphQL API.
 
-{{ site.data.reusables.pre-release-program.corsair-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.corsair-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 
 Например:
 
@@ -119,7 +119,7 @@ For more information on `node_id`, see "[Using Global Node IDs](/v4/guides/using
 
 ### Example using Probot and GitHub App Manifests
 
-To quickly setup a GitHub App that can use the {{ site.data.variables.product.prodname_unfurls }} API, you can use [Probot](https://probot.github.io/). See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" to learn how Probot uses GitHub App Manifests.
+To quickly setup a GitHub App that can use the {% data variables.product.prodname_unfurls %} API, you can use [Probot](https://probot.github.io/). See "[Creating GitHub Apps from a manifest](/apps/building-github-apps/creating-github-apps-from-a-manifest/)" to learn how Probot uses GitHub App Manifests.
 
 To create a Probot App, follow these steps:
 

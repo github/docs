@@ -1,6 +1,6 @@
 ---
 title: メンテナンスモードの有効化とスケジューリング
-intro: '標準的なメンテナンス手順のうち、{{ site.data.variables.product.product_location_enterprise }} のアップグレードやバックアップの復元などは、通常の使用のためにインスタンスをオフラインにしなければならないものがあります。'
+intro: '標準的なメンテナンス手順のうち、{% data variables.product.product_location_enterprise %} のアップグレードやバックアップの復元などは、通常の使用のためにインスタンスをオフラインにしなければならないものがあります。'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,11 +16,11 @@ versions:
 
 ### メンテナンスモードについて
 
-操作の種類によっては、{{ site.data.variables.product.product_location_enterprise }} をオフラインにしてメンテナンスモードにする必要があります。
-- {{ site.data.variables.product.prodname_ghe_server }} の新規バージョンにアップグレードする
+操作の種類によっては、{% data variables.product.product_location_enterprise %} をオフラインにしてメンテナンスモードにする必要があります。
+- {% data variables.product.prodname_ghe_server %} の新規バージョンにアップグレードする
 - 仮想マシンに割り当てられている CPU、メモリ、またはストレージリソースを拡大する
 - ある仮想マシンから別の仮想マシンへデータを移行する
-- {{ site.data.variables.product.prodname_enterprise_backup_utilities }} スナップショットからデータを復元する
+- {% data variables.product.prodname_enterprise_backup_utilities %} スナップショットからデータを復元する
 - 特定の種類の重要なアプリケーション問題のトラブルシューティング
 
 メンテナンスウィンドウのスケジュールは、ユーザに準備時間を与えるために少なくとも30分は先にすることをおすすめします。 メンテナンスウィンドウがスケジューリングされると、すべてのユーザにはサイトにアクセスしたときにバナーが表示されます。
@@ -33,18 +33,18 @@ versions:
 
 ### メンテナンスモードの即時有効化あるいは後のためのメンテナンスウィンドウのスケジューリング
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-2. {{ site.data.variables.enterprise.management_console }}の上部で**Maintenance（メンテナンス）**をクリックしてください ![[Maintenance] タブ](/assets/images/enterprise/management-console/maintenance-tab.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+2. {% data variables.enterprise.management_console %}の上部で**Maintenance（メンテナンス）**をクリックしてください ![[Maintenance] タブ](/assets/images/enterprise/management-console/maintenance-tab.png)
 3. "Enable and schedule（有効化とスケジュール）"の下で、即時にメンテナンスモードを有効化するか、将来にメンテナンスウィンドウをスケジューリングするかを決めてください。
     - メンテナンスモードを直ちに有効にするには、プルダウンメニューを使用して [**now**] をクリックします。 ![メンテナンスモードを有効にするオプションが選択されたドロップダウンメニュー](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
     - 今後のメンテナンス時間枠をスケジュール設定するには、ドロップダウンメニューを使用して開始時間をクリックします。 ![メンテナンス時間枠を 2 時間でスケジュール設定するオプションが選択されたドロップダウンメニュー](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
 4. **Enable maintenance mode（メンテナンスモードの有効化）**を選択してください。 ![メンテナンスモードの有効化とスケジューリングのためのチェックボックス](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
-### {{ site.data.variables.product.prodname_enterprise_api }}でのメンテナンスモードのスケジューリング
+### {% data variables.product.prodname_enterprise_api %}でのメンテナンスモードのスケジューリング
 
-{{ site.data.variables.product.prodname_enterprise_api }}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳しい情報については、「[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)」を参照してください。
+{% data variables.product.prodname_enterprise_api %}では、様々な時間や日付にメンテナンスをスケジューリングできます。 詳しい情報については、「[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)」を参照してください。
 
 ### クラスタ内の全ノードでのメンテナンスモードの有効化もしくは無効化
 

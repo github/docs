@@ -1,6 +1,6 @@
 ---
 title: Criar testes de CI com a API de verificações
-intro: 'Crie um servidor de integração contínua para executar testes usando um {{ site.data.variables.product.prodname_github_app }} e a API de verificações.'
+intro: 'Crie um servidor de integração contínua para executar testes usando um {% data variables.product.prodname_github_app %} e a API de verificações.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
 versions:
@@ -18,7 +18,7 @@ A CI é uma prática de software que exige o commit do código em um repositóri
 
 Um código de host do servidor de CI que executa testes de CI, como, por exemplo, linters de código (que verificam formatação de estilo), verificações de segurança, cobertura de código e outras verificações de novos commits de códigos em um repositório. OS ervidores de CI podem até criar e implementar código para servidores de treinamento ou produção. Para obter alguns exemplos dos tipos de testes de CI que você pode criar com um aplicativo GitHub, consulte os [aplicativos de integração contínua](https://github.com/marketplace/category/continuous-integration) disponíveis no GitHub Marketplace.
 
-{{ site.data.reusables.apps.app-ruby-guides }}
+{% data reusables.apps.app-ruby-guides %}
 
 #### Visão geral da API de verificação
 
@@ -92,7 +92,7 @@ Para atualizar as permissões do aplicativo:
 1. Selecione seu aplicativo na [página de configurações do aplicativo](https://github.com/settings/apps) e clique em **Permissões & Webhooks** na barra lateral.
 1. Na seção "Permissões", localize "Verificações" e selecione **Leitura & gravação** no menu suspenso de Acesso ao lado.
 1. Na seção "Assinar eventos", selecione **Conjunto de verificações** e **Execução de verificações ** para assinar esses eventos.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 Ótimo! Seu aplicativo tem permissão para realizar as tarefas que você deseja que ele realize. Agora você pode adicionar o código para gerenciar os eventos.
 
@@ -170,7 +170,7 @@ Para testar esse código, reinicie o servidor a partir do seu terminal:
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 Agora abra um pull request no repositório em que você instalou seu aplicativo. Seu aplicativo deve responder, criando uma verificação executada em seu pull request. Clique na aba **Verificações** e você deve ver algo parecido com isso:
 
@@ -328,7 +328,7 @@ Seu aplicativo deve permissão de leitura para "Conteúdo do repositório" para 
 
 1. Selecione seu aplicativo na [página de configurações do aplicativo](https://github.com/settings/apps) e clique em **Permissões & Webhooks** na barra lateral.
 1. Na seção "Permissões", encontre "Conteúdo do repositório" e selecione **Leitura & gravação ** no menu suspenso "Acesso" ao lado.
-{{ site.data.reusables.apps.accept_new_permissions_steps }}
+{% data reusables.apps.accept_new_permissions_steps %}
 
 Para clonar um repositório usando as permissões do seu aplicativo GitHub você pode usar o token de instalação do aplicativo (`x-access-token:<token>`) mostrado no exemplo abaixo:
 
@@ -698,7 +698,7 @@ Pronto! O código que você escreveu agora conclui o servidor de CI da API de ve
 $ ruby template_server.rb
 ```
 
-{{ site.data.reusables.apps.sinatra_restart_instructions }}
+{% data reusables.apps.sinatra_restart_instructions %}
 
 Desta vez, clique no botão "Corrija isso" para corrigir automaticamente os erros encontrados no RuboCop na aba **Verificações**.
 
@@ -730,7 +730,7 @@ fim
 
 ### Solução de Problemas
 
-Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {{ site.data.variables.product.prodname_support_forum_with_url }}.
+Aqui estão alguns problemas comuns e algumas soluções sugeridas. Se você tiver qualquer outro problema, poderá pedir ajuda ou orientação em {% data variables.product.prodname_support_forum_with_url %}.
 
 * **P:** Meu aplicativo não está enviando código para o GitHub. Eu não vejo as correções que o RuboCop faz automaticamente!
 

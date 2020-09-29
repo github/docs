@@ -3,10 +3,10 @@
 
 You can use [smimesign](https://github.com/github/smimesign) to sign commits and tags using S/MIME instead of GPG.
 
-{{ site.data.reusables.gpg.smime-git-version }}
+{% data reusables.gpg.smime-git-version %}
 
 1. Install [smimesign](https://github.com/github/smimesign#installation).
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 3. Configure Git to use S/MIME to sign commits and tags. In Git 2.19 or later, use the `git config gpg.x509.program` and `git config gpg.format` commands:
   - To use S/MIME to sign for all repositories:
   ```shell

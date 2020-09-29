@@ -10,32 +10,32 @@ versions:
 
 
 
-API は複数の認証方式を提供していますが、本番アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト（完全な OAuth では過剰になる場合）に使用するために提供されています。 認証に {{ site.data.variables.product.product_name }} を使用するサードパーティのアプリケーションは、{{ site.data.variables.product.product_name }} の認証情報を要求または収集してはなりません。 代わりに、[OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使用してください。
+API は複数の認証方式を提供していますが、本番アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト（完全な OAuth では過剰になる場合）に使用するために提供されています。 認証に {% data variables.product.product_name %} を使用するサードパーティのアプリケーションは、{% data variables.product.product_name %} の認証情報を要求または収集してはなりません。 代わりに、[OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使用してください。
 
 ### Basic 認証
 
-API は、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている Basic 認証をサポートしていますが、若干の違いがあります。 主な違いは、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要がある点です。 これにより、多くの場所でユーザデータの存在が明らかになります。 代わりに、{{ site.data.variables.product.product_name }} API は `404 Not Found` で応答します。 これにより、`401 Unauthorized` レスポンスを想定する HTTP ライブラリで問題が発生する可能性があります。 これは `Authorization` ヘッダを手動で作成することで解決できます。
+API は、[RFC2617](http://www.ietf.org/rfc/rfc2617.txt) で定義されている Basic 認証をサポートしていますが、若干の違いがあります。 主な違いは、RFC では、認証されていないリクエストに `401 Unauthorized` レスポンスで応える必要がある点です。 これにより、多くの場所でユーザデータの存在が明らかになります。 代わりに、{% data variables.product.product_name %} API は `404 Not Found` で応答します。 これにより、`401 Unauthorized` レスポンスを想定する HTTP ライブラリで問題が発生する可能性があります。 これは `Authorization` ヘッダを手動で作成することで解決できます。
 
 #### OAuth と個人アクセストークンを使用する
 
 GitHub API への認証には OAuth トークンを使用することをお勧めします。 OAuth トークンには[個人アクセストークン][personal-access-tokens]が含まれており、ユーザはいつでもアクセスを取り消すことができます。
 
 ```shell
-$ curl -u <em>username</em>:<em>token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre %}/user
 ```
 
 このアプローチは、ツールが Basic 認証のみをサポートしているが、OAuth アクセストークンのセキュリティ機能を利用したい場合に役立ちます。
 
 #### ユーザ名とパスワードを使用する
 
-{{ site.data.reusables.apps.deprecating_password_auth }}
+{% data reusables.apps.deprecating_password_auth %}
 
-{{ site.data.variables.product.product_name }} API で Basic 認証を使用するには、アカウントに関連付けられているユーザ名とパスワードを送信します。
+{% data variables.product.product_name %} API で Basic 認証を使用するには、アカウントに関連付けられているユーザ名とパスワードを送信します。
 
-たとえば、[cURL][curl] を介して API にアクセスしている場合、`<username>` を {{ site.data.variables.product.product_name }} のユーザ名に置き換えると、次のコマンドで認証されます。 （cURL からパスワードの入力を求められます。）
+たとえば、[cURL][curl] を介して API にアクセスしている場合、`<username>` を {% data variables.product.product_name %} のユーザ名に置き換えると、次のコマンドで認証されます。 （cURL からパスワードの入力を求められます。）
 
 ```shell
-$ curl -u <em>username</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
 2 要素認証を有効にしている場合は、[2 要素認証の使用方法](/v3/auth/#working-with-two-factor-authentication)を理解した上で行ってください。
 
@@ -51,7 +51,7 @@ $ curl -u <em>username</em> {{ site.data.variables.product.api_url_pre }}/user
 認証に[SAML SSO][saml-sso]を強制しているOrganizationにアクセスするためAPIを使用している場合は、個人アクセストークン (PAT) を作成し、Organizationに対して[そのトークンを認証する][allowlist]必要があります。 `X-GitHub-SSO` で指定された URL にアクセスして、Organization のトークンを承認します。
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {{ site.data.variables.product.api_url_pre }}/repos/octodocs-test/test
+$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/repos/octodocs-test/test
 
 > X-GitHub-SSO: required; url=https://github.com/orgs/octodocs-test/sso?authorization_request=AZSCKtL4U8yX1H3sCQIVnVgmjmon5fWxks5YrqhJgah0b2tlbl9pZM4EuMz4
 {
@@ -63,7 +63,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {{ site.data.variables.produc
 複数の Organization からのデータをリクエストする場合（たとえば、[ユーザが作成した Issue のリストをリクエストする場合][user-issues]）、`X-GitHub-SSO` ヘッダは、個人アクセストークンを承認する必要がある Organization を示します。
 
 ```shell
-$ curl -v -H "Authorization: token <em>TOKEN</em>" {{ site.data.variables.product.api_url_pre }}/user/issues
+$ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api_url_pre %}/user/issues
 
 > X-GitHub-SSO: partial-results; organizations=21955855,20582480
 ```
@@ -73,11 +73,11 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {{ site.data.variables.produc
 
 ### 2 要素認証を使用する
 
-{{ site.data.reusables.apps.deprecating_password_auth }}
+{% data reusables.apps.deprecating_password_auth %}
 
 2 要素認証を有効にしている場合、REST API の_ほとんど_のエンドポイントの [Basic 認証](#basic-authentication)では、ユーザ名とパスワードの代わりに個人アクセストークンまたは OAuth トークンを使用する必要があります。
 
-{% if currentVersion == "free-pro-team@latest" %}[{{ site.data.variables.product.product_name }}開発者設定](https://github.com/settings/tokens/new)で{% endif %}新しい個人用アクセストークンを生成するか、OAuth Authorizations APIのエンドポイントで「[新しい認可を生成][create-access]」して新しいOAuthトークンを作成することができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 次に、これらのトークンを使って、GitHub API で [OAuth トークンを使用して認証][oauth-auth]します。 ユーザ名とパスワードで認証する必要があるのは、OAuth トークンを作成するとき、または OAuth Authorizations API を使用するときだけです。
+{% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.product_name %}開発者設定](https://github.com/settings/tokens/new)で{% endif %}新しい個人用アクセストークンを生成するか、OAuth Authorizations APIのエンドポイントで「[新しい認可を生成][create-access]」して新しいOAuthトークンを作成することができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 次に、これらのトークンを使って、GitHub API で [OAuth トークンを使用して認証][oauth-auth]します。 ユーザ名とパスワードで認証する必要があるのは、OAuth トークンを作成するとき、または OAuth Authorizations API を使用するときだけです。
 
 #### 2 要素認証で OAuth Authorizations API を使用する
 

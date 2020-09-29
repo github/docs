@@ -12,7 +12,7 @@ versions:
 
 Você pode encontrar informações sobre a resposta mais recente de todas as entregas de hooks de serviço em qualquer repositório.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navegue até o repositório que você está investigando.
 3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas. ![Detalhes de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Details.png)
@@ -20,7 +20,7 @@ Você pode encontrar informações sobre a resposta mais recente de todas as ent
 
 ### Exibir a carga
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navegue até o repositório que você está investigando.
 3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas.
@@ -30,7 +30,7 @@ Você pode encontrar informações sobre a resposta mais recente de todas as ent
 
 As entregas ficam armazenadas por 15 dias.
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Navegue até o repositório que você está investigando.
 3. Clique no link **Hooks** na barra de navegação lateral. ![Barra lateral de hooks](/assets/images/enterprise/settings/Enterprise-Hooks-Sidebar.png)
 4. Clique no link **Latest Delivery** (Entrega mais recente) no hook de serviço que apresentou problemas.

@@ -1,7 +1,7 @@
 
 ### Unterstützte GPG-Schlüsselalgorithmen
 
-{{ site.data.variables.product.product_name }} unterstützt mehrere GPG-Schlüsselalgorithmen. Wenn Du versuchst, einen Schlüssel hinzuzufügen, der mit einem nicht unterstützten Algorithmus generiert wurde, kann es zu einem Fehler kommen.
+{% data variables.product.product_name %} unterstützt mehrere GPG-Schlüsselalgorithmen. Wenn Du versuchst, einen Schlüssel hinzuzufügen, der mit einem nicht unterstützten Algorithmus generiert wurde, kann es zu einem Fehler kommen.
 
 - RSA
 - ElGamal

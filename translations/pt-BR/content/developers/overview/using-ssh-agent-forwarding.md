@@ -13,7 +13,7 @@ versions:
 
 O encaminhamento do agente SSH pode ser usado para simplificar a implantação em um servidor.  Isso permite que você use suas chaves SSH locais em vez de deixar as chaves (sem frase secreta!) no seu servidor.
 
-Se você já configurou uma chave SSH para interagir com {{ site.data.variables.product.product_name }}, você provavelmente está familiarizado com o `ssh-agent`. É um programa que é executado em segundo plano e mantém sua chave carregada na memória para que você não precise digitar a sua frase secreta toda vez que precisar usar a chave. O fato é que você pode optar por deixar os servidores acessarem seu `ssh-agent local` como se já estivessem em execução no servidor. Isso é como pedir a um amigo para digitar sua senha para que você possa usar o computador.
+Se você já configurou uma chave SSH para interagir com {% data variables.product.product_name %}, você provavelmente está familiarizado com o `ssh-agent`. É um programa que é executado em segundo plano e mantém sua chave carregada na memória para que você não precise digitar a sua frase secreta toda vez que precisar usar a chave. O fato é que você pode optar por deixar os servidores acessarem seu `ssh-agent local` como se já estivessem em execução no servidor. Isso é como pedir a um amigo para digitar sua senha para que você possa usar o computador.
 
 Confira o [Guia das Dicas Técnicas de Steve Friedl][tech-tips] para obter uma explicação mais detalhada sobre encaminhamento do agente SSH.
 

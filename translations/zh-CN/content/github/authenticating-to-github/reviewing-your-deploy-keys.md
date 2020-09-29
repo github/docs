@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{site.data.reusables.repositories.navigate-to-repo}}
-{{site.data.reusables.repositories.sidebar-settings}}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. 在左侧边栏中，单击 **Deploy keys（部署密钥）**。 ![部署密钥设置](/assets/images/help/settings/settings-sidebar-deploy-keys.png)
 4. 在 Deploy keys（部署密钥）页面中，记下与您的帐户关联的部署密钥。 对于您无法识别或已过期的密钥，请单击 **Delete（删除）**。 如果有您要保留的有效部署密钥，请单击 **Approve（批准）**。 ![部署密钥列表](/assets/images/help/settings/settings-deploy-key-review.png)
 

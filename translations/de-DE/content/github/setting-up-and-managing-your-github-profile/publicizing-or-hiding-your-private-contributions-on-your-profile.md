@@ -1,6 +1,6 @@
 ---
 title: Private Beiträge in Deinem Profil veröffentlichen oder verbergen
-intro: 'Dein {{ site.data.variables.product.product_name }}-Profil zeigt ein Diagramm Deiner Repository-Beiträge des letzten Jahres an. Du kannst auswählen, ob neben den Aktivitäten in öffentlichen Repositorys auch anonymisierte Aktivitäten in privaten Repositorys angezeigt werden sollen.'
+intro: 'Dein {% data variables.product.product_name %}-Profil zeigt ein Diagramm Deiner Repository-Beiträge des letzten Jahres an. Du kannst auswählen, ob neben den Aktivitäten in öffentlichen Repositorys auch anonymisierte Aktivitäten in privaten Repositorys angezeigt werden sollen.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
@@ -14,7 +14,7 @@ Wenn Du Deine privaten Beiträge veröffentlichst, können Benutzer, die keinen 
 
 Standardmäßig sehen Besucher nur die öffentlichen Beiträge in Deinem Profil.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Veröffentliche Deine privaten Beiträge in Deinem Profil, oder blende sie aus:
     - Um Deine privaten Beiträge zu veröffentlichen, wähle über Deinem Beteiligungsdiagramm im Dropdownmenü **Contribution settings** (Beitragseinstellungen) die Option **Private contributions** (Private Beiträge) aus. Besucher sehen die Anzahl Deiner privaten Beiträge ohne weitere Details. ![Im Dropdownmenü mit den Beitragseinstellungen festlegen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-on.png)
     - Um Deine privaten Beiträge auszublenden, hebe über Deinem Beteiligungsdiagramm im Dropdownmenü **Contribution settings** (Beitragseinstellungen) die Auswahl der Option **Private contributions** (Private Beiträge) auf. Besucher sehen dann nur Deine öffentlichen Beiträge. ![Im Dropdownmenü mit den Beitragseinstellungen festlegen, dass Besucher private Beiträge sehen können](/assets/images/help/profile/private-contributions-off.png)

@@ -35,12 +35,12 @@ If you want your organization to have the same name that you are currently using
 You can also convert your personal user account directly into an organization. Converting your account:
  - Preserves the repositories as they are without the need to transfer them to another account manually
  - Automatically invites collaborators to teams with permissions equivalent to what they had before
- {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {{ site.data.variables.product.prodname_pro }}, automatically transitions billing to [the paid {{ site.data.variables.product.prodname_team }}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
 1. Create a new personal account, which you'll use to sign into GitHub and access the organization and your repositories after you convert.
 2.  [Leave any organizations](/articles/removing-yourself-from-an-organization) the user account you're converting has joined.
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.organizations }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.organizations %}
 5. Under "Transform account", click **Turn <username> into an organization**. ![Organization conversion button](/assets/images/help/settings/convert-to-organization.png)
 6. In the Account Transformation Warning dialog box, review and confirm the conversion. Note that the information in this box is the same as the warning at the top of this article. ![Conversion warning](/assets/images/help/organizations/organization-account-transformation-warning.png)
 7. On the "Transform your user into an organization" page, under "Choose an organization owner", choose either the secondary personal account you created in the previous section or another user you trust to manage the organization. ![Add organization owner page](/assets/images/help/organizations/organization-add-owner.png)

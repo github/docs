@@ -15,34 +15,34 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Branch（分支）菜单中的 New Branch（新分支）选项](/assets/images/help/desktop/new-branch-button-mac.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![用于创建新分支名称的字段](/assets/images/help/desktop/create-branch-name-mac.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![基础分支选项](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![创建分支按钮](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Branch（分支）菜单中的 New Branch（新分支）选项](/assets/images/help/desktop/new-branch-button-win.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![用于创建新分支名称的字段](/assets/images/help/desktop/create-branch-name-win.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![基础分支选项](/assets/images/help/desktop/create-branch-choose-branch-win.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![创建分支按钮](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
 
 ### 延伸阅读
 
-- "[从 {{ site.data.variables.product.prodname_desktop }} 克隆仓库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
+- "[从 {% data variables.product.prodname_desktop %} 克隆仓库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"

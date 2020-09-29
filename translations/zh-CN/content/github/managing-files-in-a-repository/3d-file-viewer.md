@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 可托管和渲染扩展名为 *.stl* 的 3D 文件。
+{% data variables.product.product_name %} 可托管和渲染扩展名为 *.stl* 的 3D 文件。
 
-直接在 {{ site.data.variables.product.product_name }} 上查看 STL 文件时，可以：
+直接在 {% data variables.product.product_name %} 上查看 STL 文件时，可以：
 
 * 单击并拖动以旋转模型。
 * 右键单击并拖动便可转换视图。

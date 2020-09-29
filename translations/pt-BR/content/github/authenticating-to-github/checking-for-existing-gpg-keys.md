@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.supported-gpg-key-algorithms }}
+{% data reusables.gpg.supported-gpg-key-algorithms %}
 
 {% note %}
 
@@ -16,8 +16,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
 3. Verifique a saída do comando para ver se você tem um par de chaves GPG.
     * Se não houver pares de chaves GPG ou se você não quiser usar as que estiverem disponíveis para assinatura de commits e tags, [gere outra chave GPG](/articles/generating-a-new-gpg-key).
     * Se houver um par de chaves GPG e você quiser usá-lo para assinar commits e tags, [adicione a chave GPG à sua conta do GitHub](/articles/adding-a-new-gpg-key-to-your-github-account).

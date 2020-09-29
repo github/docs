@@ -1,7 +1,7 @@
 ---
 title: Web 挂钩事件和有效负载
 intro: 'For each webhook event, you can review when the event occurs, an example payload, and descriptions about the payload object parameters.'
-product: '{{ site.data.reusables.gated-features.enterprise_account_webhooks }}'
+product: '{% data reusables.gated-features.enterprise_account_webhooks %}'
 redirect_from:
   - /early-access/integrations/webhooks/
   - /v3/activity/events/types/
@@ -16,7 +16,7 @@ versions:
 
 {% endif %}
 
-{{ site.data.reusables.webhooks.webhooks_intro }}
+{% data reusables.webhooks.webhooks_intro %}
 
 您可以创建订阅此页所列事件的 web 挂钩。 每个 web 挂钩事件都包括 web 挂钩属性的说明和示例有效负载。 更多信息请参阅“[创建 web 挂钩](/webhooks/creating/)”。
 
@@ -29,12 +29,12 @@ versions:
 | -------- | ----- | -------------------------------------------- |
 | `action` | `字符串` | 大多数 web 挂钩有效负载都包括 `action` 属性，其中包含触发事件的特定活动。 |
 
-{{ site.data.reusables.webhooks.sender_desc }} 此属性包含在每个 web 挂钩有效负载中。
-{{ site.data.reusables.webhooks.repo_desc }} 当事件发生源于仓库中的活动时，web 挂钩有效负载包含 
+{% data reusables.webhooks.sender_desc %} 此属性包含在每个 web 挂钩有效负载中。
+{% data reusables.webhooks.repo_desc %} 当事件发生源于仓库中的活动时，web 挂钩有效负载包含 
 
 `repository` 属性。
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }} 更多信息请参阅“[构建 {{ site.data.variables.product.prodname_github_app }}](/apps/building-github-apps/)”。
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %} 更多信息请参阅“[构建 {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)”。
 
 Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) 时在 `payload` 属性中发现的属性相同。 唯一的例外是 [`push` 事件](#push)。 `push` 事件 web 挂钩有效负载的独特属性与 Events API 中的 `payload` 属性不同。 Web 挂钩有效负载包含更详细的信息。
 
@@ -52,8 +52,8 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `X-GitHub-Event`              | 触发递送的事件名称。                                                                                                                                                  |
 | `X-GitHub-Delivery`           | 用于标识递送的 [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier)。{% if currentVersion != "free-pro-team@latest" %}
-| `X-GitHub-Enterprise-Version` | 发送 HTTP POST 有效负载的 {{ site.data.variables.product.prodname_ghe_server }} 实例的版本。                                                                           |
-| `X-GitHub-Enterprise-Host`    | 发送 HTTP POST 有效负载的 {{ site.data.variables.product.prodname_ghe_server }} 实例的主机名。{% endif %}
+| `X-GitHub-Enterprise-Version` | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的版本。                                                                           |
+| `X-GitHub-Enterprise-Host`    | 发送 HTTP POST 有效负载的 {% data variables.product.prodname_ghe_server %} 实例的主机名。{% endif %}
 | `X-Hub-Signature`             | 响应正文的 HMAC 十六进制摘要。 如果使用 [`secret`](/v3/repos/hooks/#create-hook-config-params) 配置了 web 挂钩，则将发送此标头。 HMAC 十六进制摘要是使用 `sha1` 哈希函数和作为 HMAC `key` 的 `secret` 生成的。 |
 
 此外，请求的 `User-Agent` 将含有前缀 `GitHub-Hookshot/`。
@@ -76,7 +76,7 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 > {
 >   "action": "opened",
 >   "issue": {
->     "url": "{{ site.data.variables.product.api_url_pre }}/repos/octocat/Hello-World/issues/1347",
+>     "url": "{% data variables.product.api_url_pre %}/repos/octocat/Hello-World/issues/1347",
 >     "number": 1347,
 >     ...
 >   },
@@ -100,23 +100,23 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 ### check_run
 
-{{ site.data.reusables.webhooks.check_run_short_desc }}
+{% data reusables.webhooks.check_run_short_desc %}
 
-{{ site.data.reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites }}
+{% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
 #### 可用性
 
 - 仓库 web 挂钩只接收仓库中 `created` 和 `completed` 事件类型的有效负载
 - 组织 web 挂钩只接收仓库中 `created` 和 `completed` 事件类型的有效负载
-- 具有 `checks:read` 权限的 {{ site.data.variables.product.prodname_github_app }} 接收应用程序所在仓库中发生的 `created` 和 `completed` 事件的有效负载。 应用程序必须具有 `checks:write` 权限才能接收 `rerequested` 和 `requested_action` 事件类型。 `rerequested` 和 `requested_action` 事件类型有效负载仅发送到被请求的 {{ site.data.variables.product.prodname_github_app }}。 具有 `checks:write` 权限的 {{ site.data.variables.product.prodname_github_app }} 会自动订阅此 web 挂钩事件。
+- 具有 `checks:read` 权限的 {% data variables.product.prodname_github_app %} 接收应用程序所在仓库中发生的 `created` 和 `completed` 事件的有效负载。 应用程序必须具有 `checks:write` 权限才能接收 `rerequested` 和 `requested_action` 事件类型。 `rerequested` 和 `requested_action` 事件类型有效负载仅发送到被请求的 {% data variables.product.prodname_github_app %}。 具有 `checks:write` 权限的 {% data variables.product.prodname_github_app %} 会自动订阅此 web 挂钩事件。
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.check_run_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.check_run_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -124,23 +124,23 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 ### check_suite
 
-{{ site.data.reusables.webhooks.check_suite_short_desc }}
+{% data reusables.webhooks.check_suite_short_desc %}
 
-{{ site.data.reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites }}
+{% data reusables.apps.undetected-pushes-to-a-forked-repository-for-check-suites %}
 
 #### 可用性
 
 - 仓库 web 挂钩只接收仓库中 `completed` 事件类型的有效负载
 - 组织 web 挂钩只接收仓库中 `completed` 事件类型的有效负载
-- 具有 `checks:read` 权限的 {{ site.data.variables.product.prodname_github_app }} 接收应用程序所在仓库中发生的 `created` 和 `completed` 事件的有效负载。 应用程序必须具有 `checks:write` 权限才能接收 `requested` 和 `rerequested` 事件类型。 `requested` 和 `rerequested` 事件类型有效负载仅发送到被请求的 {{ site.data.variables.product.prodname_github_app }}。 具有 `checks:write` 权限的 {{ site.data.variables.product.prodname_github_app }} 会自动订阅此 web 挂钩事件。
+- 具有 `checks:read` 权限的 {% data variables.product.prodname_github_app %} 接收应用程序所在仓库中发生的 `created` 和 `completed` 事件的有效负载。 应用程序必须具有 `checks:write` 权限才能接收 `requested` 和 `rerequested` 事件类型。 `requested` 和 `rerequested` 事件类型有效负载仅发送到被请求的 {% data variables.product.prodname_github_app %}。 具有 `checks:write` 权限的 {% data variables.product.prodname_github_app %} 会自动订阅此 web 挂钩事件。
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.check_suite_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.check_suite_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -149,20 +149,20 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ### code_scanning_alert
 
-{{ site.data.reusables.webhooks.code_scanning_alert_event_short_desc }}
+{% data reusables.webhooks.code_scanning_alert_event_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.code_scanning_alert_event_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
+{% data reusables.webhooks.code_scanning_alert_event_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
 `sender` | `object` | If the `action` is `reopened_by_user` or `closed_by_user`, the `sender` object will be the user that triggered the event. The `sender` object is empty for all other actions.
 
 #### Web 挂钩有效负载示例
@@ -171,21 +171,21 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 ### commit_comment
 
-{{ site.data.reusables.webhooks.commit_comment_short_desc }}
+{% data reusables.webhooks.commit_comment_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.commit_comment_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.commit_comment_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -194,11 +194,11 @@ Web 挂钩事件的独特属性与您使用 [Events API](/v3/activity/events/) �
 
 ### content_reference
 
-{{ site.data.reusables.webhooks.content_reference_short_desc }}
+{% data reusables.webhooks.content_reference_short_desc %}
 
 Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如果您注册了一个子域 (`https://subdomain.example.com`)，则只有该子域的 URL 才会触发此事件。 如果您注册了一个域 (`https://example.com`)，则该域及所有子域的 URL 都会触发此事件。 请参阅“[创建内容附件](/v3/apps/installations/#create-a-content-attachment)”以创建新的内容附件。
 
-只有 {{ site.data.variables.product.prodname_github_app }} 才能接收此事件。 {{ site.data.variables.product.prodname_github_app }} 必须具有 `content_references` `write` 权限才能订阅此事件。
+只有 {% data variables.product.prodname_github_app %} 才能接收此事件。 {% data variables.product.prodname_github_app %} 必须具有 `content_references` `write` 权限才能订阅此事件。
 
 #### Web 挂钩有效负载示例
 
@@ -206,7 +206,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### create
 
-{{ site.data.reusables.webhooks.create_short_desc }}
+{% data reusables.webhooks.create_short_desc %}
 
 {% note %}
 
@@ -218,15 +218,15 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.create_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.create_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -234,7 +234,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### delete
 
-{{ site.data.reusables.webhooks.delete_short_desc }}
+{% data reusables.webhooks.delete_short_desc %}
 
 {% note %}
 
@@ -246,15 +246,15 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.delete_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.delete_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -262,7 +262,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### deploy_key
 
-{{ site.data.reusables.webhooks.deploy_key_short_desc }}
+{% data reusables.webhooks.deploy_key_short_desc %}
 
 #### 可用性
 
@@ -271,10 +271,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.deploy_key_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.deploy_key_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -282,13 +282,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### deployment
 
-{{ site.data.reusables.webhooks.deployment_short_desc }}
+{% data reusables.webhooks.deployment_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `deployments` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `deployments` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -296,10 +296,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | ------------ | --------------------------------------------------------------- | ---------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 | `action`     | `字符串`                                                           | 执行的操作。 可以是 `created`。{% endif %}
 | `deployment` | `对象`                                                            | [部署](/v3/repos/deployments/#list-deployments)。 |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -307,13 +307,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### deployment_status
 
-{{ site.data.reusables.webhooks.deployment_status_short_desc }}
+{% data reusables.webhooks.deployment_status_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `deployments` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `deployments` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -325,10 +325,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `deployment_status["target_url"]`  | `字符串`                                                           | 添加到状态的可选链接。                                              |
 | `deployment_status["description"]` | `字符串`                                                           | 添加到状态的可选人类可读说明。                                          |
 | `deployment`                       | `对象`                                                            | 此状态关联的[部署](/v3/repos/deployments/#list-deployments)。     |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -338,7 +338,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### enterprise
 
-{{ site.data.reusables.webhooks.enterprise_short_desc }}
+{% data reusables.webhooks.enterprise_short_desc %}
 
 #### 可用性
 
@@ -358,21 +358,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 复刻
 
-{{ site.data.reusables.webhooks.fork_short_desc }}
+{% data reusables.webhooks.fork_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.fork_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.fork_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -380,20 +380,20 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### github_app_authorization
 
-当有人撤销对 {{ site.data.variables.product.prodname_github_app }} 的授权时，将发生此事件。 {{ site.data.variables.product.prodname_github_app }} 默认情况下会接收此 web 挂钩，并且无法取消订阅此事件。
+当有人撤销对 {% data variables.product.prodname_github_app %} 的授权时，将发生此事件。 {% data variables.product.prodname_github_app %} 默认情况下会接收此 web 挂钩，并且无法取消订阅此事件。
 
-{{ site.data.reusables.webhooks.authorization_event }} 有关 user-to-server 请求（需要 {{ site.data.variables.product.prodname_github_app }} 授权）的详细信息，请参阅“[识别和授权 {{ site.data.variables.product.prodname_github_app }} 用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
+{% data reusables.webhooks.authorization_event %} 有关 user-to-server 请求（需要 {% data variables.product.prodname_github_app %} 授权）的详细信息，请参阅“[识别和授权 {% data variables.product.prodname_github_app %} 用户](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)”。
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }}
+- {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
 | 键        | 类型    | 描述                    |
 | -------- | ----- | --------------------- |
 | `action` | `字符串` | 执行的操作。 可以是 `revoked`。 |
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -401,21 +401,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### gollum
 
-{{ site.data.reusables.webhooks.gollum_short_desc }}
+{% data reusables.webhooks.gollum_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.gollum_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.gollum_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -423,7 +423,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 安装
 
-{{ site.data.reusables.webhooks.installation_short_desc }}
+{% data reusables.webhooks.installation_short_desc %}
 
 {% note %}
 
@@ -434,20 +434,20 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**注：**{{ site.data.reusables.pre-release-program.suspend-installation-beta }} 更多信息请参阅“[挂起 {{ site.data.variables.product.prodname_github_app }} 安装](/apps/managing-github-apps/suspending-a-github-app-installation/)”。
+**注：**{% data reusables.pre-release-program.suspend-installation-beta %} 更多信息请参阅“[挂起 {% data variables.product.prodname_github_app %} 安装](/apps/managing-github-apps/suspending-a-github-app-installation/)”。
 
 {% endnote %}
 {% endif %}
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }}
+- {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.installation_properties }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.installation_properties %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -455,7 +455,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### installation_repositories
 
-{{ site.data.reusables.webhooks.installation_repositories_short_desc }}
+{% data reusables.webhooks.installation_repositories_short_desc %}
 
 {% note %}
 
@@ -465,13 +465,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }}
+- {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.installation_repositories_properties }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.installation_repositories_properties %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -479,22 +479,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### issue_comment
 
-{{ site.data.reusables.webhooks.issue_comment_short_desc }}
+{% data reusables.webhooks.issue_comment_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `issues` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `issues` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.issue_comment_webhook_properties }}
-{{ site.data.reusables.webhooks.issue_comment_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.issue_comment_webhook_properties %}
+{% data reusables.webhooks.issue_comment_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -502,22 +502,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### issues
 
-{{ site.data.reusables.webhooks.issues_short_desc }}
+{% data reusables.webhooks.issues_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `issues` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `issues` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.issue_webhook_properties }}
-{{ site.data.reusables.webhooks.issue_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.issue_webhook_properties %}
+{% data reusables.webhooks.issue_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### 有人编辑议题时的 web 挂钩示例
 
@@ -525,13 +525,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 标签
 
-{{ site.data.reusables.webhooks.label_short_desc }}
+{% data reusables.webhooks.label_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `metadata` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -542,10 +542,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `changes`              | `对象`  | 对标签的更改（如果操作为 `edited`）。                      |
 | `changes[name][from]`  | `字符串` | 名称的先前版本（如果操作为 `edited`）。                     |
 | `changes[color][from]` | `字符串` | 颜色的先前版本（如果操作为 `edited`）。                     |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -554,11 +554,11 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" %}
 ### marketplace_purchase
 
-与 GitHub Marketplace 购买相关的活动。 {{ site.data.reusables.webhooks.action_type_desc }} 更多信息请参阅“[GitHub Marketplace](/marketplace/)”。
+与 GitHub Marketplace 购买相关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[GitHub Marketplace](/marketplace/)”。
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }}
+- {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -566,7 +566,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | -------- | ----- | --------------------------------------------------------------------------------------------------- |
 | `action` | `字符串` | 为 [GitHub Marketplace](https://github.com/marketplace) 计划执行的操作。 可以是以下选项之一：<ul><li>`purchased` - 有人购买了 GitHub Marketplace 计划。 更改应立即对帐户生效。</li><li>`pending_change` - 当有人降级或取消了 GitHub Marketplace 计划以指示帐户上将发生更改时，您将收到 `pending_change` 事件。 新的计划或取消将在结算周期结束时生效。  当结算周期结束并且取消或新计划应生效时，将发送 `cancelled` 或 `changed` 事件类型。</li><li>`pending_change_cancelled` - 有人取消了待处理更改。 待处理更改包括将在结算周期结束时生效的计划取消和降级。 </li><li>`changed` - 有人升级或降级了 GitHub Marketplace 计划，并且该更改应立即对帐户生效。</li><li>`cancelled` - 有人取消了 GitHub Marketplace 计划并且最后一个结算周期已结束。 更改应立即对帐户生效。</li></ul> |
 
-有关此有效负载和每种 `action` 类型的有效负载的详细说明，请参阅 [{{ site.data.variables.product.prodname_marketplace }} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)。
+有关此有效负载和每种 `action` 类型的有效负载的详细说明，请参阅 [{% data variables.product.prodname_marketplace %} web 挂钩事件](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)。
 
 #### 有人购买计划时的 web 挂钩示例
 
@@ -576,22 +576,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 成员
 
-{{ site.data.reusables.webhooks.member_short_desc }}
+{% data reusables.webhooks.member_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `members` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `members` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.member_webhook_properties }}
-{{ site.data.reusables.webhooks.member_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.member_webhook_properties %}
+{% data reusables.webhooks.member_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -599,19 +599,19 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### membership
 
-{{ site.data.reusables.webhooks.membership_short_desc }}
+{% data reusables.webhooks.membership_short_desc %}
 
 #### 可用性
 
 - 组织 web 挂钩
-- 具有 `members` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `members` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.membership_properties }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.membership_properties %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -633,9 +633,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `action`  | `字符串` | 执行的操作。 可以是 `deleted`。                                                                       |
 | `hook_id` | `整数`  | 修改后的 web 挂钩的 ID。                                                                            |
 | `挂钩`      | `对象`  | 修改后的 web 挂钩。 它将包含基于 web 挂钩类型的不同键：repository、organization、business、app 或 GitHub Marketplace。 |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -643,21 +643,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 里程碑
 
-{{ site.data.reusables.webhooks.milestone_short_desc }}
+{% data reusables.webhooks.milestone_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `pull_requests` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.milestone_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.milestone_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -665,14 +665,14 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 组织
 
-{{ site.data.reusables.webhooks.organization_short_desc }}
+{% data reusables.webhooks.organization_short_desc %}
 
 #### 可用性
 
 {% if currentVersion != "free-pro-team@latest" %}
 - GitHub Enterprise web 挂钩只接收 `created` 和 `deleted` 事件。 更多信息请参阅“[全局 web 挂钩](/v3/enterprise-admin/global_webhooks/)”。{% endif %}
 - 组织 web 挂钩只接收 `deleted`、`added`、`removed`、`renamed` 和 `invited` 事件
-- 具有 `members` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `members` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -681,9 +681,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `action`     | `字符串` | 执行的操作内容. 可以是以下选项之一：{% if currentVersion != "free-pro-team@latest" %}`created`、{% endif %}`deleted`、`renamed`、`member_added`、`member_removed` 或 `member_invited`。 |
 | `邀请`         | `对象`  | 对用户的邀请或电子邮件邀请（如果操作为 `member_invited`）。                                                                                                           |
 | `membership` | `对象`  | 用户和组织之间的成员资格。  当操作为 `member_invited` 时不存在。                                                                                                       |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -693,12 +693,12 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### org_block
 
-{{ site.data.reusables.webhooks.org_block_short_desc }}
+{% data reusables.webhooks.org_block_short_desc %}
 
 #### 可用性
 
 - 组织 web 挂钩
-- 具有 `organization_administration` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `organization_administration` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -706,9 +706,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | -------------- | ----- | ----------------------------------- |
 | `action`       | `字符串` | 执行的操作。 可以是 `blocked` 或 `unblocked`。 |
 | `blocked_user` | `对象`  | 有关被阻止或取消阻止的用户的信息。                   |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -716,7 +716,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### package
 
-与 {{ site.data.variables.product.prodname_registry }} 有关的活动。 {{ site.data.reusables.webhooks.action_type_desc }} 更多信息请参阅“[阻止组织用户](/v3/orgs/blocking/)”REST API。 更多信息请参阅“[使用 {{ site.data.variables.product.prodname_registry }} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {{ site.data.variables.product.prodname_registry }}。
+与 {% data variables.product.prodname_registry %} 有关的活动。 {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[阻止组织用户](/v3/orgs/blocking/)”REST API。 更多信息请参阅“[使用 {% data variables.product.prodname_registry %} 管理包](/github/managing-packages-with-github-packages)”以详细了解 {% data variables.product.prodname_registry %}。
 
 #### 可用性
 
@@ -725,10 +725,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.package_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.package_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -737,13 +737,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### page_build
 
-{{ site.data.reusables.webhooks.page_build_short_desc }}
+{% data reusables.webhooks.page_build_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `pages` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `pages` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -751,10 +751,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | ---- | ---- | --------------------------------------------------------------------------------- |
 | `id` | `整数` | 页面构建的唯一标识符。                                                                       |
 | `构建` | `对象` | The [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds) itself. |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -762,13 +762,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### ping
 
-{{ site.data.reusables.webhooks.ping_short_desc }}
+{% data reusables.webhooks.ping_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- {{ site.data.variables.product.prodname_github_app }} 接收带有用于注册应用程序的 `app_id` 的 ping 事件。
+- {% data variables.product.prodname_github_app %} 接收带有用于注册应用程序的 `app_id` 的 ping 事件。
 
 #### Web 挂钩有效负载对象
 
@@ -777,10 +777,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `zen`          | `字符串` | GitHub zen 的随机字符串。                                                                                                                                                                                                                                                                                    |
 | `hook_id`      | `整数`  | 触发 ping 的 web 挂钩的 ID。                                                                                                                                                                                                                                                                                 |
 | `挂钩`           | `对象`  | [web 挂钩配置](/v3/repos/hooks/#get-a-repository-webhook)。                                                                                                                                                                                                                                                |
-| `hook[app_id]` | `整数`  | 注册新的 {{ site.data.variables.product.prodname_github_app }} 时，{{ site.data.variables.product.product_name }} 将 ping 事件发送到您在注册过程中指定的 **web 挂钩 URL**。 该事件包含 `app_id`，这是[验证](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)应用程序的必需项。 |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+| `hook[app_id]` | `整数`  | 注册新的 {% data variables.product.prodname_github_app %} 时，{% data variables.product.product_name %} 将 ping 事件发送到您在注册过程中指定的 **web 挂钩 URL**。 该事件包含 `app_id`，这是[验证](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/)应用程序的必需项。 |
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -788,21 +788,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### project_card
 
-{{ site.data.reusables.webhooks.project_card_short_desc }}
+{% data reusables.webhooks.project_card_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `repository_projects` 或 `organization_projects` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.project_card_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_card_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -810,21 +810,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### project_column
 
-{{ site.data.reusables.webhooks.project_column_short_desc }}
+{% data reusables.webhooks.project_column_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `repository_projects` 或 `organization_projects` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.project_column_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_column_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -832,21 +832,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### project
 
-{{ site.data.reusables.webhooks.project_short_desc }}
+{% data reusables.webhooks.project_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `repository_projects` 或 `organization_projects` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `repository_projects` 或 `organization_projects` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.project_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.project_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -854,23 +854,23 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### public
 
-{{ site.data.reusables.webhooks.public_short_desc }}
+{% data reusables.webhooks.public_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `metadata` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
 | 键 | 类型 | 描述 |
 | - | -- | -- |
 |   |    |    |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -878,22 +878,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### pull_request
 
-{{ site.data.reusables.webhooks.pull_request_short_desc }}
+{% data reusables.webhooks.pull_request_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `pull_requests` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.pull_request_webhook_properties }}
-{{ site.data.reusables.webhooks.pull_request_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_webhook_properties %}
+{% data reusables.webhooks.pull_request_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -903,21 +903,21 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### pull_request_review
 
-{{ site.data.reusables.webhooks.pull_request_review_short_desc }}
+{% data reusables.webhooks.pull_request_review_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `pull_requests` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.pull_request_review_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_review_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -925,22 +925,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### pull_request_review_comment
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_short_desc }}
+{% data reusables.webhooks.pull_request_review_comment_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `pull_requests` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `pull_requests` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.pull_request_review_comment_webhook_properties }}
-{{ site.data.reusables.webhooks.pull_request_review_comment_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.pull_request_review_comment_webhook_properties %}
+{% data reusables.webhooks.pull_request_review_comment_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -948,7 +948,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 推送
 
-{{ site.data.reusables.webhooks.push_short_desc }}
+{% data reusables.webhooks.push_short_desc %}
 
 {% note %}
 
@@ -966,7 +966,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -984,10 +984,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `commits[][url]`           | `url` | 指向提交 API 资源的 URL。                                                                                                 |
 | `commits[][distinct]`      | `布尔值` | 此提交是否与之前推送的任何提交不同。                                                                                                |
 | `pusher`                   | `对象`  | 推送提交的用户。                                                                                                          |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -995,22 +995,22 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 发行版
 
-{{ site.data.reusables.webhooks.release_short_desc }}
+{% data reusables.webhooks.release_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `contents` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `contents` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.release_webhook_properties }}
-{{ site.data.reusables.webhooks.release_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.release_webhook_properties %}
+{% data reusables.webhooks.release_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1019,11 +1019,11 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### repository_dispatch
 
-当 {{ site.data.variables.product.prodname_github_app }} 将 `POST` 请求发送到“[创建仓库分发事件](/v3/repos/#create-a-repository-dispatch-event)”端点时，此事件发生。
+当 {% data variables.product.prodname_github_app %} 将 `POST` 请求发送到“[创建仓库分发事件](/v3/repos/#create-a-repository-dispatch-event)”端点时，此事件发生。
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }} 必须具有 `contents` 权限才能接收此 web 挂钩。
+- {% data variables.product.prodname_github_app %} 必须具有 `contents` 权限才能接收此 web 挂钩。
 
 #### Web 挂钩有效负载示例
 
@@ -1032,23 +1032,23 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 仓库
 
-{{ site.data.reusables.webhooks.repository_short_desc }}
+{% data reusables.webhooks.repository_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩接收除 `deleted` 之外的所有事件类型
 - 组织 web 挂钩
-- 具有 `metadata` 权限的 {{ site.data.variables.product.prodname_github_app }} 接收除 `deleted` 之外的所有事件类型
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_app %} 接收除 `deleted` 之外的所有事件类型
 
 #### Web 挂钩有效负载对象
 
 | 键        | 类型    | 描述                                           |
 | -------- | ----- | -------------------------------------------- |
 | `action` | `字符串` | 执行的操作内容. 可以是以下选项之一：<ul><li>`created` - 创建了仓库。</li><li>`deleted` - 仓库被删除。 此事件类型仅适用于[组织挂钩](/v3/orgs/hooks/)</li><li>`archived` - 仓库被存档。</li><li>`unarchived` - 仓库被取消存档。</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - 仓库被[启用匿名 Git 访问](/v3/previews/#anonymous-git-access-to-repositories)，`anonymous_access_disabled` - 仓库被[禁用匿名 Git 访问](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - 仓库的信息被编辑。</li><li>`renamed` - 仓库被重命名。</li><li>`transferred` - 仓库被转让。</li><li>`publicized` - 仓库被设为公共。</li><li> `privatized` - 仓库被设为私有。</li></ul> |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1057,7 +1057,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest"%}
 ### repository_import
 
-{{ site.data.reusables.webhooks.repository_import_short_desc }} 要在个人仓库中接收此事件，必须在导入之前创建一个空仓库。 此事件可使用 [GitHub 导入工具](/articles/importing-a-repository-with-github-importer/)或[来源导入 API](/v3/migrations/source_imports/) 触发。
+{% data reusables.webhooks.repository_import_short_desc %} 要在个人仓库中接收此事件，必须在导入之前创建一个空仓库。 此事件可使用 [GitHub 导入工具](/articles/importing-a-repository-with-github-importer/)或[来源导入 API](/v3/migrations/source_imports/) 触发。
 
 #### 可用性
 
@@ -1066,10 +1066,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.repository_import_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repository_import_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1077,7 +1077,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### repository_vulnerability_alert
 
-{{ site.data.reusables.webhooks.repository_vulnerability_alert_short_desc }}
+{% data reusables.webhooks.repository_vulnerability_alert_short_desc %}
 
 #### 可用性
 
@@ -1086,10 +1086,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.repository_vulnerability_alert_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repository_vulnerability_alert_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1103,7 +1103,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### 可用性
 
-- 具有 `security_events` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `security_events` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -1119,9 +1119,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 {% if currentVersion == "free-pro-team@latest" %}
 ### sponsorship
 
-{{ site.data.reusables.webhooks.sponsorship_short_desc }}
+{% data reusables.webhooks.sponsorship_short_desc %}
 
-您只能在 {{ site.data.variables.product.prodname_dotcom }} 上创建赞助 web 挂钩。 更多信息请参阅“[为赞助帐户中的事件配置 web 挂钩](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)”。
+您只能在 {% data variables.product.prodname_dotcom %} 上创建赞助 web 挂钩。 更多信息请参阅“[为赞助帐户中的事件配置 web 挂钩](/github/supporting-the-open-source-community-with-github-sponsors/configuring-webhooks-for-events-in-your-sponsored-account)”。
 
 #### 可用性
 
@@ -1129,9 +1129,9 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.sponsorship_webhook_properties }}
-{{ site.data.reusables.webhooks.sponsorship_properties}}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.sponsorship_webhook_properties %}
+{% data reusables.webhooks.sponsorship_properties %}
+{% data reusables.webhooks.sender_desc %}
 
 #### 有人创建赞助时的 web 挂钩示例
 
@@ -1145,7 +1145,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 星标
 
-{{ site.data.reusables.webhooks.star_short_desc }}
+{% data reusables.webhooks.star_short_desc %}
 
 #### 可用性
 
@@ -1154,10 +1154,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.star_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.star_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1165,13 +1165,13 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 状态
 
-{{ site.data.reusables.webhooks.status_short_desc }}
+{% data reusables.webhooks.status_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `statuses` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `statuses` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -1183,10 +1183,10 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `说明`         | `字符串` | 添加到状态的可选人类可读说明。                                                     |
 | `target_url` | `字符串` | 添加到状态的可选链接。                                                         |
 | `分支`         | `数组`  | 包含状态的 SHA 的分支对象数组。 每个分支都包含给定的 SHA，但 SHA 不一定是该分支的头部。 该数组最多包含 10 个分支。 |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1194,12 +1194,12 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 团队
 
-{{ site.data.reusables.webhooks.team_short_desc }}
+{% data reusables.webhooks.team_short_desc %}
 
 #### 可用性
 
 - 组织 web 挂钩
-- 具有 `members` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `members` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
@@ -1215,8 +1215,8 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 | `changes[repository][permissions][from][pull]`  | `布尔值` | 团队成员对仓库 `pull` 权限的先前版本（如果操作为 `edited`）。                                                                                         |
 | `changes[repository][permissions][from][push]`  | `布尔值` | 团队成员对仓库 `push` 权限的先前版本（如果操作为 `edited`）。                                                                                         |
 | `仓库`                                            | `对象`  | 在团队权限范围中添加或删除的仓库（如果操作为 `added_to_repository`、`removed_from_repository` 或 `edited`）。 对于 `edited` 操作，`repository` 还包含团队对仓库的新权限级别。 |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1224,23 +1224,23 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### team_add
 
-{{ site.data.reusables.webhooks.team_add_short_desc }}
+{% data reusables.webhooks.team_add_short_desc %}
 
 #### 可用性
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `members` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `members` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
 | 键    | 类型   | 描述                                                |
 | ---- | ---- | ------------------------------------------------- |
 | `团队` | `对象` | 被修改的[团队](/v3/teams/)。  **注：**较旧的事件可能不会在有效负载中包括此值。 |
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1263,7 +1263,7 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 ### 查看
 
-{{ site.data.reusables.webhooks.watch_short_desc }}
+{% data reusables.webhooks.watch_short_desc %}
 
 事件的执行者是标星仓库的[用户](/v3/users/)，并且事件的仓库是被标星的[仓库](/v3/repos/)。
 
@@ -1271,15 +1271,15 @@ Web 挂钩事件是基于您注册的域的特异性而触发的。 例如，如
 
 - 仓库 web 挂钩
 - 组织 web 挂钩
-- 具有 `metadata` 权限的 {{ site.data.variables.product.prodname_github_app }}
+- 具有 `metadata` 权限的 {% data variables.product.prodname_github_app %}
 
 #### Web 挂钩有效负载对象
 
-{{ site.data.reusables.webhooks.watch_properties }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.app_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.watch_properties %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.app_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 
@@ -1292,7 +1292,7 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }} 必须具有 `contents` 权限才能接收此 web 挂钩。
+- {% data variables.product.prodname_github_app %} 必须具有 `contents` 权限才能接收此 web 挂钩。
 
 #### Web 挂钩有效负载示例
 
@@ -1302,20 +1302,20 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 ### workflow_run
 
-When a {{ site.data.variables.product.prodname_actions }} workflow run is requested or completed. 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_run)”。
+When a {% data variables.product.prodname_actions %} workflow run is requested or completed. 更多信息请参阅“[触发工作流程的事件](/actions/reference/events-that-trigger-workflows#workflow_run)”。
 
 #### 可用性
 
-- {{ site.data.variables.product.prodname_github_app }}s with the `actions` or `contents` permissions.
+- {% data variables.product.prodname_github_app %}s with the `actions` or `contents` permissions.
 
 #### Web 挂钩有效负载对象
 
 | 键        | 类型    | 描述                                           |
 | -------- | ----- | -------------------------------------------- |
 | `action` | `字符串` | 大多数 web 挂钩有效负载都包括 `action` 属性，其中包含触发事件的特定活动。 |
-{{ site.data.reusables.webhooks.org_desc }}
-{{ site.data.reusables.webhooks.repo_desc }}
-{{ site.data.reusables.webhooks.sender_desc }}
+{% data reusables.webhooks.org_desc %}
+{% data reusables.webhooks.repo_desc %}
+{% data reusables.webhooks.sender_desc %}
 
 #### Web 挂钩有效负载示例
 

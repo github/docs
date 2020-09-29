@@ -12,19 +12,19 @@ versions:
 
 ![コードから開いた Issue で表示されるコードスニペット](/assets/images/help/repository/issue-opened-from-code.png)
 
-{{ site.data.reusables.repositories.create-issue-in-public-repository }}
+{% data reusables.repositories.create-issue-in-public-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Issue で参照したいコードを探します。
     - ファイルのコードに関する Issue を開くには、そのファイルに移動します。
     - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
-{{ site.data.reusables.repositories.choose-line-or-range }}
+{% data reusables.repositories.choose-line-or-range %}
 4. To the left of the code range, click
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. ドロップダウンメニューで、[**Reference in new issue**] をクリックします。
   ![選択した行から新しいIssueを開くオプションのある三点メニュー](/assets/images/help/repository/open-new-issue-specific-line.png)
-{{ site.data.reusables.repositories.type-issue-title-and-description }}
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
-{{ site.data.reusables.repositories.submit-new-issue }}
+{% data reusables.repositories.type-issue-title-and-description %}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
+{% data reusables.repositories.submit-new-issue %}
 
 ### 参考リンク
 

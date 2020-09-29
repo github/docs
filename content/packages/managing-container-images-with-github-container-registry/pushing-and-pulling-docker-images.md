@@ -1,20 +1,20 @@
 ---
 title: Pushing and pulling Docker images
-intro: 'You can store and manage Docker images in {{ site.data.variables.product.prodname_github_container_registry }}.'
-product: '{{ site.data.reusables.gated-features.packages }}'
+intro: 'You can store and manage Docker images in {% data variables.product.prodname_github_container_registry %}.'
+product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.package_registry.container-registry-beta }}
+{% data reusables.package_registry.container-registry-beta %}
 
-To push and pull container images owned by an organization, an organization admin must enable {{ site.data.variables.product.prodname_github_container_registry }} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
+To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
 
-### Authenticating to {{ site.data.variables.product.prodname_github_container_registry }}
+### Authenticating to {% data variables.product.prodname_github_container_registry %}
 
-{{ site.data.reusables.package_registry.authenticate_with_pat_for_container_registry }}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
 
-{{ site.data.reusables.package_registry.authenticate-to-container-registry-steps }}
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Pushing container images
 

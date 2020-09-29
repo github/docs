@@ -21,14 +21,14 @@ Cuando creas plantillas de propuestas para tu repositorio usando el creador de p
 Al usar el creador de plantillas, puedes especificar un título y una descripción para cada plantilla, agregar el contenido de la plantilla y asignar la plantilla a la rama por defecto o bien abrir una solicitud de extracción en el repositorio. El creador de plantillas automáticamente agrega el markup del texto preliminar de YAML que se requiere para que la plantilla aparezca en la página de la propuesta nueva. Para obtener más información, consulta "[Configurar plantillas de reporte de problemas para tu repositorio](/articles/configuring-issue-templates-for-your-repository)".
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-{{ site.data.reusables.repositories.issue-template-config }} Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)".
+{% data reusables.repositories.issue-template-config %} Para obtener más información, consulta "[Configurar plantillas de propuestas para tu repositorio](/github/building-a-strong-community/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)".
 {% endif %}
 
-Las plantillas de propuestas se almacenan en la rama por defecto del repositorio, en un directorio oculto `.github/ISSUE_TEMPLATE`. Si creas una plantilla en otra rama, no estará disponible para que la usen los colaboradores. Los nombres de archivo de la plantilla de propuesta no distinguen entre mayúsculas y minúsculas y necesitan una extensión *.md*. {{ site.data.reusables.repositories.valid-community-issues }}
+Las plantillas de propuestas se almacenan en la rama por defecto del repositorio, en un directorio oculto `.github/ISSUE_TEMPLATE`. Si creas una plantilla en otra rama, no estará disponible para que la usen los colaboradores. Los nombres de archivo de la plantilla de propuesta no distinguen entre mayúsculas y minúsculas y necesitan una extensión *.md*. {% data reusables.repositories.valid-community-issues %}
 
 Es posible crear de forma manual una única plantilla de propuesta en Markdown usando el flujo de trabajo de la plantilla de propuesta heredado. Los colaboradores del proyecto automáticamente ven el contenido de la plantilla en el cuerpo de la propuesta. Si embargo, recomendamos usar el creador de varias plantillas de propuestas actualizado para crear plantillas de propuestas. Para obtener más información acerca del flujo de trabajo heredado, consulta "[Crear de forma manual una plantilla de propuesta para tu repositorio](/articles/manually-creating-a-single-issue-template-for-your-repository)".
 
-{{ site.data.reusables.repositories.security-guidelines }}
+{% data reusables.repositories.security-guidelines %}
 
 ### Plantillas de solicitudes de extracción
 

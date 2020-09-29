@@ -14,7 +14,7 @@ Puedes agregar información personal acerca de ti mismo en tu biobiografía, com
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![Archivo de README del perfil que se muestra en éste](/assets/images/help/repository/profile-with-readme.png)
 
@@ -27,8 +27,8 @@ También pueden ver:
 - Repositorios y gists que te pertenezcan o en los que contribuyas. Puedes exhibir tus mejores obras si fijas los repositorios y los gists a tu perfil. Para obtener más información, consulta "[A nclar elementos a tu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".
 - Repositorios que has destacado. Para obtener más información, consulta "[Guardar repositorios con estrellas](/articles/saving-repositories-with-stars/)".
 - Una descripción general de tu actividad en organizaciones, repositorios y equipos en los que eres más activo. Para obtener más información, consulta la sección "[Mostrar un resumen de tu actividad en tu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)".{% if currentVersion == "free-pro-team@latest" %}
-- Las insignias que anuncian tu particiapción en los programas como {{ site.data.variables.product.prodname_arctic_vault }}, {{ site.data.variables.product.prodname_sponsors }}, oen el Programa de Desarrollador de {{ site.data.variables.product.company_short }}.
-- Si estás usando {{ site.data.variables.product.prodname_pro }}. Para obtener más información, consulta la sección "[Personalizar tu perfil](/articles/personalizing-your-profile)".{% endif %}
+- Las insignias que anuncian tu particiapción en los programas como {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, oen el Programa de Desarrollador de {% data variables.product.company_short %}.
+- Si estás usando {% data variables.product.prodname_pro %}. Para obtener más información, consulta la sección "[Personalizar tu perfil](/articles/personalizing-your-profile)".{% endif %}
 
 También puedes establecer un estado en tu perfil para brindar información sobre tu disponibilidad. Para obtener más información, consulta "[Configurar un estado](/articles/personalizing-your-profile/#setting-a-status)".
 

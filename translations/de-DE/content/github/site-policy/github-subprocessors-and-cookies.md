@@ -45,7 +45,7 @@ Wenn wir Ihre Daten an Unterauftragsverarbeiter, wie z. B. unsere Anbieter und D
 | Zendesk                            | Kundensupport-Ticketing-System                        | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 | Zuora                              | Unternehmens-Abrechnungssystem                        | Vereinigte Staaten von Amerika | Vereinigte Staaten von Amerika |
 
-Wenn wir einen neuen Unterauftragsverarbeiter einsetzen, der die personenbezogenen Daten unserer Benutzer verarbeitet, oder einen Unterauftragsverarbeiter entfernen oder die Verwendung eines Unterauftragsverarbeiter ändern, werden wir diese Seite aktualisieren. Wenn Sie Fragen oder Bedenken zu einem neuen Unterauftragsverarbeiter haben, helfen wir Ihnen gerne weiter. Bitte kontaktieren Sie uns über {{ site.data.variables.contact.contact_privacy }}.
+Wenn wir einen neuen Unterauftragsverarbeiter einsetzen, der die personenbezogenen Daten unserer Benutzer verarbeitet, oder einen Unterauftragsverarbeiter entfernen oder die Verwendung eines Unterauftragsverarbeiter ändern, werden wir diese Seite aktualisieren. Wenn Sie Fragen oder Bedenken zu einem neuen Unterauftragsverarbeiter haben, helfen wir Ihnen gerne weiter. Bitte kontaktieren Sie uns über {% data variables.contact.contact_privacy %}.
 
 ### Cookies auf GitHub
 

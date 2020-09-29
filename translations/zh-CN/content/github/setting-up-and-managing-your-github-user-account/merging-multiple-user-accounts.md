@@ -21,4 +21,4 @@ versions:
 
 ### 延伸阅读
 
-- "[{{ site.data.variables.product.prodname_dotcom }} 帐户的类型](/articles/types-of-github-accounts)"
+- "[{% data variables.product.prodname_dotcom %} 帐户的类型](/articles/types-of-github-accounts)"

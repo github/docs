@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-board-visibility }}
+{% data reusables.project-management.project-board-visibility %}
 
 {% tip %}
 
@@ -17,6 +17,6 @@ versions:
 {% endtip %}
 
 1. 导航到您要设为公共或私有的项目板。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. 在“Visibility（可见性）”下，选择 **Public（公共）**或 **Private（私有）**。 然后单击 **Save（保存）**。 ![公共和私有单选按钮](/assets/images/help/projects/project-board-visibility-options.png)

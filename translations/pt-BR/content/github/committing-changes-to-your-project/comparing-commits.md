@@ -34,11 +34,11 @@ Veja a seguir o exemplo de uma [comparação entre duas tags](https://github.com
 
 ### Comparar commits
 
-Você também pode comparar dois commits arbitrários em seu repositório ou suas bifurcações no {{ site.data.variables.product.prodname_dotcom }} em uma comparação de diff de dois pontos.
+Você também pode comparar dois commits arbitrários em seu repositório ou suas bifurcações no {% data variables.product.prodname_dotcom %} em uma comparação de diff de dois pontos.
 
-Para comparar rapidamente dois commits ou IDs de objeto do Git (OIDs, Object IDs) diretamente entre si em uma comparação de diff de dois pontos no {{ site.data.variables.product.prodname_dotcom }}, edite a URL da página "Comparar alterações" do seu repositório.
+Para comparar rapidamente dois commits ou IDs de objeto do Git (OIDs, Object IDs) diretamente entre si em uma comparação de diff de dois pontos no {% data variables.product.prodname_dotcom %}, edite a URL da página "Comparar alterações" do seu repositório.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 Para saber mais sobre outras opções de comparação, consulte "[Comparações de diff de três pontos e dois pontos](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)".
 

@@ -1,6 +1,6 @@
 ---
 title: Tablero de administración del sitio
-intro: 'El tablero de administración del sitio brinda una cantidad de herramientas para ayudarte a administrar {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'El tablero de administración del sitio brinda una cantidad de herramientas para ayudarte a administrar {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -12,11 +12,11 @@ Para acceder al tablero, en la esquina superior derecha de cualquier página, ha
 
 ### Información de la licencia & buscar
 
-Consulta esta sección del tablero de administración del sitio para controlar tu licencia {{ site.data.variables.product.prodname_enterprise }} actual, para buscar usuarios y repositorios y para consultar el [registro de auditoría](#audit-log).
+Consulta esta sección del tablero de administración del sitio para controlar tu licencia {% data variables.product.prodname_enterprise %} actual, para buscar usuarios y repositorios y para consultar el [registro de auditoría](#audit-log).
 
-### {{ site.data.variables.enterprise.management_console }}
+### {% data variables.enterprise.management_console %}
 
-Aquí puedes iniciar la {{ site.data.variables.enterprise.management_console }} para administrar las configuraciones del aparato virtual como el dominio, la autenticación y SSL.
+Aquí puedes iniciar la {% data variables.enterprise.management_console %} para administrar las configuraciones del aparato virtual como el dominio, la autenticación y SSL.
 
 ### Explorar
 
@@ -24,7 +24,7 @@ Aquí puedes iniciar la {{ site.data.variables.enterprise.management_console }} 
 
 ### Registro de auditoría
 
-{{ site.data.variables.product.prodname_enterprise }} mantiene un registro continuo de las acciones auditadas que puedes consultar.
+{% data variables.product.prodname_enterprise %} mantiene un registro continuo de las acciones auditadas que puedes consultar.
 
 Por defecto, el registro de auditoría te muestra una lista de todas las acciones auditadas en orden cronológico reverso. Puedes filtrar esta lista al ingresar pares de valores clave en el casillero de texto de **Query (Consulta)** y después hacer clic en **Search (Buscar)**, como se explicó en "[Buscar el registro de auditoría](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
 
@@ -32,7 +32,7 @@ Para obtener más información sobre el registro de auditoría en general, consu
 
 ### Informes
 
-Si necesitas obtener información sobre los usuarios, organizaciones y repositorios en {{ site.data.variables.product.product_location_enterprise }}, comúnmente extraerías datos JSON a través de la [API de GitHub](http://developer.github.com/v3/). Lamentablemente, es posible que la API no proporcione todos los datos que deseas y se requiera algo de conocimiento técnico para usarla. Este tablero de administración del sitio ofrece una sección de **Reports (Informes)** como una alternativa, haciendo que sea fácil descargar informes CSV con la mayoría de la información que probablemente necesites para los usuarios, las organizaciones y los repositorios.
+Si necesitas obtener información sobre los usuarios, organizaciones y repositorios en {% data variables.product.product_location_enterprise %}, comúnmente extraerías datos JSON a través de la [API de GitHub](http://developer.github.com/v3/). Lamentablemente, es posible que la API no proporcione todos los datos que deseas y se requiera algo de conocimiento técnico para usarla. Este tablero de administración del sitio ofrece una sección de **Reports (Informes)** como una alternativa, haciendo que sea fácil descargar informes CSV con la mayoría de la información que probablemente necesites para los usuarios, las organizaciones y los repositorios.
 
 Específicamente, puedes descargar informes CSV que enumeren a
 
@@ -125,7 +125,7 @@ Esto controla cómo se repara el índice de búsqueda de código. Puedes
 - comenzar una nueva tarea de reparación de índice
 - restablecer todos los estados de reparación de índices
 
-{{ site.data.variables.product.prodname_enterprise }} utiliza tareas de reparación para compaginar el estado del índice de búsqueda con los datos almacenados en una base de datos (propuestas, solicitudes de extracción, repositorios y usuarios) y los datos almacenados en los repositorios de Git (código fuente). Esto sucede cuando
+{% data variables.product.prodname_enterprise %} utiliza tareas de reparación para compaginar el estado del índice de búsqueda con los datos almacenados en una base de datos (propuestas, solicitudes de extracción, repositorios y usuarios) y los datos almacenados en los repositorios de Git (código fuente). Esto sucede cuando
 
 - se crea un nuevo índice de búsqueda;
 - faltan datos que se deben reponer; o
@@ -135,7 +135,7 @@ En otras palabras, las tareas de reparación se inician según se necesiten y se
 
 Además, las tareas de reparación utilizan una "compensación de reparación" para la paralelización. Esto es una compensación dentro de la tabla de base de datos para el registro que se está compaginando. Múltiples tareas en segundo plano pueden sincronizar el trabajo en base a esta compensación.
 
-Una barra de progreso muestra el estado actual de la tarea de reparación a través de todos sus trabajadores en segundo plano. Es la diferencia de porcentaje de la compensación de reparación con el ID de registro más alto en la base de datos. No te preocupes sobre el valor que se muestra en la barra de progreso después de que una tarea de reparación se haya completado: ya que muestra la diferencia entre la compensación de reparación y el ID del registro más alto en la base de datos, disminuirá a medida que se agreguen más repositorios a {{ site.data.variables.product.product_location_enterprise }} incluso aquellos repositorios que están de hecho indexados.
+Una barra de progreso muestra el estado actual de la tarea de reparación a través de todos sus trabajadores en segundo plano. Es la diferencia de porcentaje de la compensación de reparación con el ID de registro más alto en la base de datos. No te preocupes sobre el valor que se muestra en la barra de progreso después de que una tarea de reparación se haya completado: ya que muestra la diferencia entre la compensación de reparación y el ID del registro más alto en la base de datos, disminuirá a medida que se agreguen más repositorios a {% data variables.product.product_location_enterprise %} incluso aquellos repositorios que están de hecho indexados.
 
 Puedes comenzar una nueva tarea de reparación de índice de búsqueda de código en cualquier momento. Utilizará una CPU única ya que compagina el índice de búsqueda con la base de datos y los datos del repositorio de Git. Para minimizar los efectos que esto tendrá en el desempeño de I/O y reducir las posibilidades de que las operaciones queden inactivas, trata de ejecutar una tarea de reparación durante las horas valle en primer lugar. Controla las cargas promedio de tu sistema y el uso de tu CPU con una herramienta como `top`; si no notas cambios significativos, debería ser seguro ejecutar una tarea de reparación de índice también durante las horas pico.
 
@@ -149,30 +149,30 @@ Puedes comenzar una nueva tarea de reparación de índice de búsqueda de códig
 
 ### Repositorios
 
-Es una lista de los repositorios en {{ site.data.variables.product.product_location_enterprise }}. Puedes hacer clic en un nombre de repositorio y acceder a las funciones para administrar el repositorio.
+Es una lista de los repositorios en {% data variables.product.product_location_enterprise %}. Puedes hacer clic en un nombre de repositorio y acceder a las funciones para administrar el repositorio.
 
 - [Bloquear empujes forzados en un repositorio](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [Configurar {{ site.data.variables.large_files.product_name_long }}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [Configurar {% data variables.large_files.product_name_long %}](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [Archivar y desarchivar repositorios](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
 ### Todos los usuarios
 
-Aquí puedes ver todos los usuarios en {{ site.data.variables.product.product_location_enterprise }}—, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Aquí puedes ver todos los usuarios en {% data variables.product.product_location_enterprise %}—, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Administrador del sitio
 
-Aquí puedes ver todos los administradores en {{ site.data.variables.product.product_location_enterprise }}, e [iniciar una auditoría clave en SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Aquí puedes ver todos los administradores en {% data variables.product.product_location_enterprise %}, e [iniciar una auditoría clave en SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
 
 ### Usuarios inactivos
 
-Aquí puedes ver y [suspender](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) todos los usuarios inactivos en {{ site.data.variables.product.product_location_enterprise }}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
+Aquí puedes ver y [suspender](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users) todos los usuarios inactivos en {% data variables.product.product_location_enterprise %}. Una cuenta de usuario se considera inactiva ("dormant") cuando:
 
-- Ha existido durante más tiempo del umbral de inactividad que está establecido para {{ site.data.variables.product.product_location_enterprise }}.
+- Ha existido durante más tiempo del umbral de inactividad que está establecido para {% data variables.product.product_location_enterprise %}.
 - No ha generado ninguna actividad dentro de ese período.
 - No es un administrador del sitio.
 
-{{ site.data.reusables.enterprise_site_admin_settings.dormancy-threshold }} Para obtener más información, consulta "[Administrar usuarios inactivos](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} Para obtener más información, consulta "[Administrar usuarios inactivos](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)."
 
 ### Usuarios suspendidos
 
-Aquí puedes ver todos los usuarios que han sido suspendidos en {{ site.data.variables.product.product_location_enterprise }}, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Aquí puedes ver todos los usuarios que han sido suspendidos en {% data variables.product.product_location_enterprise %}, e [iniciar una auditoría clave de SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).

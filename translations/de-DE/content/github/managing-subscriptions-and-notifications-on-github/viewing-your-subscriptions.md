@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-Du erhältst Benachrichtigungen zu Deinen Abonnements über laufende Aktivitäten auf {{ site.data.variables.product.product_name }}. Es gibt mehrere Gründe, warum Du eine Unterhaltung abonniert haben kannst. Weitere Informationen findest Du unter „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
+Du erhältst Benachrichtigungen zu Deinen Abonnements über laufende Aktivitäten auf {% data variables.product.product_name %}. Es gibt mehrere Gründe, warum Du eine Unterhaltung abonniert haben kannst. Weitere Informationen findest Du unter „[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
 
 Wir empfehlen Dir, Deine Abonnements als Teil eines effizienten Workflows für Benachrichtigungen zu überprüfen und allenfalls abzubestellen. Weitere Informationen über Deine Abmeldeoptionen findest Du unter „[Abonnements verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -35,7 +35,7 @@ Eine Übersicht Deiner Repository-Abonnements findest Du unter „[Repositorys �
 
 ### Alle Deine Abonnements überprüfen
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Verwende in der linken Seitenleiste, unterhalb der Liste der Repositorys, von denen Du Benachrichtigungen erhältst, das Dropdownmenü „Manage notifications" (Benachrichtigungen verwalten) und klicke auf **Subscriptions** (Abonnements). ![Dropdownmenü-Optionen „Manage Notifications" (Benachrichtigungen verwalten)](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Verwende Filter und Sortierung, um die Liste der Abonnements einzuschränken, und beginne Dich von Unterhaltungen abzumelden, von denen Du keine Benachrichtigungen mehr erhalten willst.
@@ -69,5 +69,5 @@ Eine Übersicht Deiner Repository-Abonnements findest Du unter „[Repositorys �
 
 Du kannst wählen, ob Du ein einzelnes Repository ansehen möchtest oder nicht mehr. Du kannst auch wählen, dass Du nur bei neuen Releases benachrichtigt wirst oder Du kannst ein einzelnes Repository komplett ignorieren.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Klicke in der oberen rechten Ecke auf das Dropdownmenü „Watch" (Beobachten), um eine der Beobachtungsoptionen zu wählen. ![Beobachtungsoptionen in einem Dropdownmenü für ein Repository](/assets/images/help/notifications-v2/watch-repository-options.png)

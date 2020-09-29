@@ -1,6 +1,6 @@
 ---
 title: 破壊的変更
-intro: '最近の、及び今後の{{ site.data.variables.product.prodname_dotcom }} GraphQL APIに対する破壊的変更について学んでください。'
+intro: '最近の、及び今後の{% data variables.product.prodname_dotcom %} GraphQL APIに対する破壊的変更について学んでください。'
 redirect_from:
   - /v4/breaking_changes
 versions:

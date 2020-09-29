@@ -23,10 +23,10 @@ You have a few options to convert your legacy Owners team:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. In the team name field, choose a new name for the Owners team. Например:
     - If very few members of your organization were members of the Owners team, you might name the team "Core".
     - If all members of your organization were members of the Owners team so that they could [@mention teams](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams), you might name the team "Employees". ![The team name field, with the Owners team renamed to Core](/assets/images/help/teams/owners-team-new-name.png)
@@ -41,8 +41,8 @@ You have a few options to convert your legacy Owners team:
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.owners-team }}
-{{ site.data.reusables.organizations.convert-owners-team-confirm }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.owners-team %}
+{% data reusables.organizations.convert-owners-team-confirm %}
 5. At the bottom of the page, review the warning and click **Delete the Owners team**. ![Link for deleting the Owners team](/assets/images/help/teams/owners-team-delete.png)

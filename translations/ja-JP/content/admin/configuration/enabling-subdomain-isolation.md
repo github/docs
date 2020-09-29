@@ -1,6 +1,6 @@
 ---
 title: Subdomain Isolationの有効化
-intro: 'Subdomain Isolation をセットアップすれば、ユーザーが提供したコンテンツを {{ site.data.variables.product.prodname_ghe_server }} アプライアンスの他の部分から安全に分離できるようになります。'
+intro: 'Subdomain Isolation をセットアップすれば、ユーザーが提供したコンテンツを {% data variables.product.prodname_ghe_server %} アプライアンスの他の部分から安全に分離できるようになります。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-subdomain-isolation/
   - /enterprise/admin/installation/enabling-subdomain-isolation
@@ -11,14 +11,14 @@ versions:
 
 ### Subdomain Isolationについて
 
-Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {{ site.data.variables.product.product_location_enterprise }}ではSubdomain Isolationを有効化することを強くお勧めします。
+Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location_enterprise %}ではSubdomain Isolationを有効化することを強くお勧めします。
 
-Subdomain Isolation が有効な場合、{{ site.data.variables.product.prodname_ghe_server }} はいくつかのパスをサブドメインで置き換えます。
+Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Docker を {{ site.data.variables.product.prodname_registry }} で使用するには、Subdomain Isolation も有効化する必要があります。 詳しい情報については、「[{{ site.data.variables.product.prodname_registry }} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
+Docker を {% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効化する必要があります。 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
 | Subdomain Isolationなしのパス                                                                                  | Subdomain Isolationされたパス                                               |
@@ -33,7 +33,7 @@ Docker を {{ site.data.variables.product.prodname_registry }} で使用する�
 | `http(s)://HOSTNAME/render/`                                                                              | `http(s)://render.HOSTNAME/`                                           |
 | `http(s)://HOSTNAME/reply/`                                                                               | `http(s)://reply.HOSTNAME/`                                            |
 | `http(s)://HOSTNAME/uploads/`                                                                             | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| N/A、{{ site.data.variables.product.prodname_registry }} を使用した Docker は、Subdomain Isolation を無効化すると機能しません。 | `http(s)://uploads.HOSTNAME/`                                          |
+| N/A、{% data variables.product.prodname_registry %} を使用した Docker は、Subdomain Isolation を無効化すると機能しません。 | `http(s)://uploads.HOSTNAME/`                                          |
 | `https://HOSTNAME/_registry/npm/`                                                                         | `https://npm.HOSTNAME/`                                                |
 | `https://HOSTNAME/_registry/rubygems/`                                                                    | `https://rubygems.HOSTNAME/`                                           |
 | `https://HOSTNAME/_registry/maven/`                                                                       | `https://maven.HOSTNAME/`                                              |
@@ -41,13 +41,13 @@ Docker を {{ site.data.variables.product.prodname_registry }} で使用する�
 
 ### 必要な環境
 
-{{ site.data.reusables.enterprise_installation.disable-github-pages-warning }}
+{% data reusables.enterprise_installation.disable-github-pages-warning %}
 
 Subdomain Isolationを有効化する前に、新しいドメインに合わせてネットワークを設定しなければなりません。
 
 - 有効なドメイン名を、IP アドレスではなくホスト名として指定します。 詳しい情報については、「[ホスト名を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-a-hostname)」を参照してください。
 
-{{ site.data.reusables.enterprise_installation.changing-hostname-not-supported }}
+{% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 - 上記のサブドメインに対して、ワイルドカードのドメインネームシステム (DNS) レコードまたは個々の DNS レコードをセットアップします。 各サブドメイン用に複数のレコードを作成せずに済むよう、サーバのIPアドレスを指す`*.HOSTNAME`のAレコードを作成することをおすすめします。
 - `HOSTNAME` とワイルドカードのドメイン `*.HOSTNAME` の両方に対するサブジェクト代替名 (SAN) が記載された、`*.HOSTNAME` に対するワイルドカードの Transport Layer Security (TLS) 証明書を取得します。 たとえば、ホスト名が `github.octoinc.com` である場合は、Common Name の値が `*.github.octoinc.com` に設定され、SAN の値が `github.octoinc.com` と `*.github.octoinc.com` の両方に設定された証明書を取得します。
@@ -55,8 +55,8 @@ Subdomain Isolationを有効化する前に、新しいドメインに合わせ�
 
 ### Subdomain Isolationの有効化
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.hostname-menu-item }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.hostname-menu-item %}
 4. **Subdomain isolation (recommended)（Subdomain Isolation（推奨））**を選択してください。 ![Subdomain Isolation を有効化するチェックボックス](/assets/images/enterprise/management-console/subdomain-isolation.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}

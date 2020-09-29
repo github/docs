@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-You receive notifications for your subscriptions of ongoing activity on {{ site.data.variables.product.product_name }}. There are many reasons you can be subscribed to a conversation. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
+You receive notifications for your subscriptions of ongoing activity on {% data variables.product.product_name %}. There are many reasons you can be subscribed to a conversation. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."
 
 We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -35,7 +35,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 ### Reviewing all of your subscriptions
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. In the left sidebar, under the list of repositories that you have notifications from, use the "Manage notifications" drop-down to click **Subscriptions**. ![Manage notifications drop down menu options](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. Use the filters and sort to narrow the list of subscriptions and begin unsubscribing to conversations you no longer want to receive notifications for.
@@ -69,5 +69,5 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 You can choose whether to watch or unwatch an individual repository. You can also choose to only be notified of new releases or ignore an individual repository.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click the "Watch" drop-down menu to select a watch option. ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications-v2/watch-repository-options.png)

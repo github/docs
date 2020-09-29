@@ -14,7 +14,7 @@ versions:
 
 项目板协作者有三种权限级别：
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### 用户拥有的项目板的所有者和管理员权限
 

@@ -1,6 +1,6 @@
 ---
 title: Web 通知について
-intro: 'Web 通知を受信しているなら、{{ site.data.variables.product.product_name }} の通知ページ上で参加通知と Watch 対象の通知を見ることができます。'
+intro: 'Web 通知を受信しているなら、{% data variables.product.product_name %} の通知ページ上で参加通知と Watch 対象の通知を見ることができます。'
 versions:
   enterprise-server: <2.21
 ---
@@ -9,7 +9,7 @@ versions:
 
 アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 アカウントで Web 通知が有効化したなら、通知ページ上のアイテムをクリックすると通知が参照している会話へリダイレクトされます。 Web 通知の有効化に関する詳しい情報については「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」を参照してください。
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 通知ページからは、通知を既読としてマークしたり、後に備えて通知を保存したり、スレッドのサブスクライブを解除することもできます。 詳しい情報については、以下を参照してください。
 

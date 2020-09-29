@@ -1,7 +1,7 @@
 ---
 title: Netzwerk eines Repositorys anzeigen
 intro: 'Das Netzwerkdiagramm zeigt den Branch-Verlauf des gesamten Repository-Netzwerks an, einschließlich der Branches des Root-Repositorys und der Branches der Forks, die netzwerkspezifische Commits enthalten.'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-repository-s-network
   - /articles/viewing-a-repositorys-network
@@ -20,6 +20,6 @@ versions:
 
 ### Auf das Netzwerkdiagramm zugreifen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. Klicke auf der linken Seitenleiste auf **Network** (Netzwerk). ![Registerkarte „Network“ (Netzwerk)](/assets/images/help/graphs/network_tab.png)

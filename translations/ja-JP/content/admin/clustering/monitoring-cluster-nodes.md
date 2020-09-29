@@ -1,6 +1,6 @@
 ---
 title: クラスタノードのモニタリング
-intro: '{{ site.data.variables.product.prodname_ghe_server }} クラスタは、2 つ以上のノードに分散された冗長サービスで構成されています。 もしも個々のサービスまたは1つのノード全体に障害があっても、それがクラスタのユーザに即座に見えることはありません。 ただし、パフォーマンスと冗長性が影響を受けるため、{{ site.data.variables.product.prodname_ghe_server }} クラスタの健全性を監視することが重要です。'
+intro: '{% data variables.product.prodname_ghe_server %} クラスタは、2 つ以上のノードに分散された冗長サービスで構成されています。 もしも個々のサービスまたは1つのノード全体に障害があっても、それがクラスタのユーザに即座に見えることはありません。 ただし、パフォーマンスと冗長性が影響を受けるため、{% data variables.product.prodname_ghe_server %} クラスタの健全性を監視することが重要です。'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### クラスタのステータスの手動でのチェック
 
-{{ site.data.variables.product.prodname_ghe_server }} には、クラスタの健全性をモニタリングするためのコマンドラインユーティリティが組み込まれています。 管理シェルから`ghe-cluster-status`コマンドを実行すると、接続性やサービスステータスの検証を含む一連のヘルスチェックが各ノード上で実行されます。 結果出力には、すべてのテスト結果にtext `ok`もしくは`error`が含まれます。 たとえば失敗したテストだけを表示するには以下のようにしてください。
+{% data variables.product.prodname_ghe_server %} には、クラスタの健全性をモニタリングするためのコマンドラインユーティリティが組み込まれています。 管理シェルから`ghe-cluster-status`コマンドを実行すると、接続性やサービスステータスの検証を含む一連のヘルスチェックが各ノード上で実行されます。 結果出力には、すべてのテスト結果にtext `ok`もしくは`error`が含まれます。 たとえば失敗したテストだけを表示するには以下のようにしてください。
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -24,14 +24,14 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 ### Nagiosでのクラスタステータスのモニタリング
 
-{{ site.data.variables.product.prodname_ghe_server }} をモニタリングするよう、[Nagios](https://www.nagios.org/) を設定できます。 各クラスタノードの基本的な接続性のモニタリングに加えて、`ghe-cluster-status -n`コマンドを使うようNagiosを設定してクラスタステータスをチェックできます。 これは、Nagiosが理解できるフォーマットの出力を返します。
+{% data variables.product.prodname_ghe_server %} をモニタリングするよう、[Nagios](https://www.nagios.org/) を設定できます。 各クラスタノードの基本的な接続性のモニタリングに加えて、`ghe-cluster-status -n`コマンドを使うようNagiosを設定してクラスタステータスをチェックできます。 これは、Nagiosが理解できるフォーマットの出力を返します。
 
 #### 必要な環境
 * Nagiosを動作させるLinuxのホスト。
-* {{ site.data.variables.product.prodname_ghe_server }}クラスターへのネットワークアクセス。
+* {% data variables.product.prodname_ghe_server %}クラスターへのネットワークアクセス。
 
 #### Nagiosホストの設定
-1. 空のパスフレーズで SSH キーを生成してください。 Nagios はこれを使用して {{ site.data.variables.product.prodname_ghe_server }} クラスタへの認証を行います。
+1. 空のパスフレーズで SSH キーを生成してください。 Nagios はこれを使用して {% data variables.product.prodname_ghe_server %} クラスタへの認証を行います。
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
   > Generating public/private rsa key pair.
@@ -80,7 +80,7 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. このコマンドを {{ site.data.variables.product.prodname_ghe_server }} クラスタ内のノードのサービス定義に追加します。
+7. このコマンドを {% data variables.product.prodname_ghe_server %} クラスタ内のノードのサービス定義に追加します。
 
 
   ###### 定義の例

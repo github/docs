@@ -1,6 +1,6 @@
 ---
 title: Clusterknoten überwachen
-intro: 'Ein {{ site.data.variables.product.prodname_ghe_server }}-Cluster besteht aus redundanten Diensten, die auf mindestens zwei Knoten verteilt sind. Wenn ein einzelner Dienst oder ein gesamter Knoten fehlschlägt, sollte dies den Benutzern des Clusters sofort auffallen. Da jedoch Leistung und Redundanz betroffen sind, ist es wichtig, den Zustand eines {{ site.data.variables.product.prodname_ghe_server }}-Clusters zu überwachen.'
+intro: 'Ein {% data variables.product.prodname_ghe_server %}-Cluster besteht aus redundanten Diensten, die auf mindestens zwei Knoten verteilt sind. Wenn ein einzelner Dienst oder ein gesamter Knoten fehlschlägt, sollte dies den Benutzern des Clusters sofort auffallen. Da jedoch Leistung und Redundanz betroffen sind, ist es wichtig, den Zustand eines {% data variables.product.prodname_ghe_server %}-Clusters zu überwachen.'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Clusterstatus manuell überprüfen
 
-{{ site.data.variables.product.prodname_ghe_server }} besitzt ein integriertes Befehlszeilendienstprogramm zum Überwachen des Clusterzustands. Wenn in der Verwaltungsshell der Befehl `ghe-cluster-status` ausgeführt wird, werden einige Zustandsprüfungen auf jedem Knoten ausgeführt, darunter die Verifizierung der Konnektivität und des Dienststatus. Die Ausgabe enthält alle Testergebnisse, darunter der Text `ok` oder `error`. Führen Sie beispielsweise Folgendes aus, um nur fehlgeschlagene Tests anzuzeigen:
+{% data variables.product.prodname_ghe_server %} besitzt ein integriertes Befehlszeilendienstprogramm zum Überwachen des Clusterzustands. Wenn in der Verwaltungsshell der Befehl `ghe-cluster-status` ausgeführt wird, werden einige Zustandsprüfungen auf jedem Knoten ausgeführt, darunter die Verifizierung der Konnektivität und des Dienststatus. Die Ausgabe enthält alle Testergebnisse, darunter der Text `ok` oder `error`. Führen Sie beispielsweise Folgendes aus, um nur fehlgeschlagene Tests anzuzeigen:
 
 ```shell
 admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
@@ -24,14 +24,14 @@ admin@ghe-data-node-0:~$ <em>ghe-cluster-status | grep error</em>
 
 ### Clusterstatus mit Nagios überwachen
 
-Sie können [Nagios](https://www.nagios.org/) für die Überwachung von {{ site.data.variables.product.prodname_ghe_server }} konfigurieren. Zusätzlich zur Überwachung der grundlegenden Konnektivität jedes Clusterknotens können Sie den Clusterstatus überprüfen, indem Sie Nagios für die Verwendung des Befehls `ghe-cluster-status -n` konfigurieren. Dadurch wird eine für Nagios verständliche Ausgabe zurückgegeben.
+Sie können [Nagios](https://www.nagios.org/) für die Überwachung von {% data variables.product.prodname_ghe_server %} konfigurieren. Zusätzlich zur Überwachung der grundlegenden Konnektivität jedes Clusterknotens können Sie den Clusterstatus überprüfen, indem Sie Nagios für die Verwendung des Befehls `ghe-cluster-status -n` konfigurieren. Dadurch wird eine für Nagios verständliche Ausgabe zurückgegeben.
 
 #### Voraussetzungen
 * Linux-Host, auf dem Nagios ausgeführt wird.
-* Netzwerkzugriff auf den {{ site.data.variables.product.prodname_ghe_server }}-Cluster.
+* Netzwerkzugriff auf den {% data variables.product.prodname_ghe_server %}-Cluster.
 
 #### Nagios-Host konfigurieren
-1. Generieren Sie einen SSH-Schlüssel mit einer leeren Passphrase. Nagios verwendet diese, um sich beim {{ site.data.variables.product.prodname_ghe_server }}-Cluster zu authentifizieren.
+1. Generieren Sie einen SSH-Schlüssel mit einer leeren Passphrase. Nagios verwendet diese, um sich beim {% data variables.product.prodname_ghe_server %}-Cluster zu authentifizieren.
   ```shell
   nagiosuser@nagios:~$ <em>ssh-keygen -t rsa -b 4096</em>
   > Generating public/private rsa key pair.
@@ -79,7 +79,7 @@ Sie können [Nagios](https://www.nagios.org/) für die Überwachung von {{ site.
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
   }
   ```
-7. Fügen Sie diesen Befehl zu einer Dienstdefinition für einen Knoten im {{ site.data.variables.product.prodname_ghe_server }}-Cluster hinzu.
+7. Fügen Sie diesen Befehl zu einer Dienstdefinition für einen Knoten im {% data variables.product.prodname_ghe_server %}-Cluster hinzu.
 
 
   ###### Beispieldefinition

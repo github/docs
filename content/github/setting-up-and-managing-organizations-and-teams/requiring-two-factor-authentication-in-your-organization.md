@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.two_fa.auth_methods_2fa }}
+{% data reusables.two_fa.auth_methods_2fa %}
 
 ### Requirements for enforcing two-factor authentication
 
@@ -26,12 +26,12 @@ Before you can require {% if currentVersion == "free-pro-team@latest" %}organiza
 
 Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can [see if members and outside collaborators already use 2FA](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled) on your organization's People page.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.security }}
-{{ site.data.reusables.organizations.require_two_factor_authentication }}
-{{ site.data.reusables.organizations.removed_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.security %}
+{% data reusables.organizations.require_two_factor_authentication %}
+{% data reusables.organizations.removed_outside_collaborators %}
 {% if currentVersion == "free-pro-team@latest" %}
 8. If any members or outside collaborators are removed from the organization, we recommend sending them an invitation that can reinstate their former privileges and access to your organization. They must enable two-factor authentication before they can accept your invitation.
 {% endif %}
@@ -42,9 +42,9 @@ To view people who were automatically removed from your organization for non-com
 
 ![Audit log event showing a user removed for 2FA non-compliance](/assets/images/help/2fa/2fa_noncompliance_audit_log_search.png)
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.audit_log.audit_log_sidebar_for_org_admins }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. Enter your search query. To search for:
     - Organization members removed, use `action:org.remove_member` in your search query
     - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% if currentVersion == "free-pro-team@latest" %}

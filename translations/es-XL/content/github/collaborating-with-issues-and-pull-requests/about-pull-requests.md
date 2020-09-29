@@ -1,6 +1,6 @@
 ---
 title: Acerca de las solicitudes de extracción
-intro: 'Las solicitudes de extracción te permiten comentarle a otros acerca de los cambios que has subido a una rama en un repositorio en {{ site.data.variables.product.product_name }}. Una vez que se abre una solicitud de extracción, puedes debatir y revisar los posibles cambios con los colaboradores y agregar confirmaciones de seguimientos antes de que tus cambios se fusionen en la rama base.'
+intro: 'Las solicitudes de extracción te permiten comentarle a otros acerca de los cambios que has subido a una rama en un repositorio en {% data variables.product.product_name %}. Una vez que se abre una solicitud de extracción, puedes debatir y revisar los posibles cambios con los colaboradores y agregar confirmaciones de seguimientos antes de que tus cambios se fusionen en la rama base.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests
@@ -31,9 +31,9 @@ You can see information about the branch's current deployment status and past de
 
 Una vez que estás conforme con los cambios propuestos, puedes fusionar la solicitud de extracción. Si estás trabajando en un modelo de repositorio compartido, creas una solicitud de extracción y tú o alguien más fusionará tus cambios desde tu rama de característica en la rama base que especificaste en tu solicitud de extracción. Para obtener más información, consulta "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request)".
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 {% tip %}
 
@@ -47,15 +47,15 @@ Puedes visitar tu tablero para encontrar de forma rápida los enlaces a las soli
 
 ### Solicitudes de extracción en borrador
 
-{{ site.data.reusables.gated-features.draft-prs }}
+{% data reusables.gated-features.draft-prs %}
 
 Cuando creas una solicitud de extracción, puedes elegir crear una solicitud de extracción que está lista para revisión o una solicitud de extracción en borrador. Las solicitudes de extracción en borrador no se pueden fusionar y no se les solicita automáticamentes a los propietarios del código que revisen las solicitudes de extracción en borrador. Para obtener más información acerca de la creación de una solicitud de extracción en borrador, consulta "[Crear una solicitud de extracción](/articles/creating-a-pull-request)" y "[Crear una solicitud de extracción desde una bifurcación](/articles/creating-a-pull-request-from-a-fork)".
 
-{{ site.data.reusables.pull_requests.mark-ready-review }} Puedes convertir una solicitud de extracción en borrador cuando lo desees. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/articles/changing-the-stage-of-a-pull-request)".
+{% data reusables.pull_requests.mark-ready-review %} Puedes convertir una solicitud de extracción en borrador cuando lo desees. Para obtener más información, consulta la sección "[Cambiar el estado de una solicitud de extracción](/articles/changing-the-stage-of-a-pull-request)".
 
 ### Leer más
 
-- "[Solicitud de extracción](/articles/github-glossary/#pull-request)" en el glosario de {{ site.data.variables.product.prodname_dotcom }}
+- "[Solicitud de extracción](/articles/github-glossary/#pull-request)" en el glosario de {% data variables.product.prodname_dotcom %}
 - "[Acerca de las ramas](/articles/about-branches)"
 - "[Comentar sobre una solicitud de extracción](/articles/commenting-on-a-pull-request)"
 - "[Fusionar una solicitud de extracción](/articles/merging-a-pull-request)"

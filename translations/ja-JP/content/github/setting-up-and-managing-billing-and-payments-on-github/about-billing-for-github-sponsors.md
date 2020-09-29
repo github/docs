@@ -7,11 +7,11 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.sponsors.sponsorship-details }}
+{% data reusables.sponsors.sponsorship-details %}
 
-{{ site.data.reusables.dotcom_billing.view-all-subscriptions }}
+{% data reusables.dotcom_billing.view-all-subscriptions %}
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_sponsors }} について](/articles/about-github-sponsors)
+- [{% data variables.product.prodname_sponsors %} について](/articles/about-github-sponsors)
 - [オープンソースコントリビューターをスポンサーする](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)

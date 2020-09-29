@@ -1,14 +1,14 @@
 ---
 title: Freigeben von Workflowvorlagen in Ihrer Organisation
 intro: Sie können einen standardisierten Satz von Workflowvorlagen speziell für Ihre Organisation erstellen. Organisationsmitglieder können die Vorlagen dann beim Erstellen neuer Workflows in den Organisations-Repositorys verwenden.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Workflowvorlagen können von Benutzern mit Schreibzugriff auf die `.github` Repository der Organisation erstellt werden. Die Vorlagen können dann von Organisationsmitgliedern verwendet werden, die über die Berechtigung zum Erstellen von Workflows verfügen.
 
@@ -75,7 +75,7 @@ Um eine weitere Workflowvorlage hinzuzufügen, fügen Sie Ihre Dateien `Workflow
 
 In diesem Verfahren wird veranschaulicht, wie ein Mitglied Ihrer Organisation eine Workflowvorlage finden und verwenden kann, um einen neuen Workflow zu erstellen. Die Workflowvorlagen einer Organisation können von jedem Benutzer verwendet werden, der Mitglied der Organisation ist.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. Wenn Ihr Repository bereits über vorhandene Workflows verfügt: Klicken Sie in der linken oberen Ecke auf **Neuer Workflow**. ![Erstelle einen neuen Workflow](/assets/images/help/repository/actions-new-workflow.png)
 1. Die Workflowvorlagen Ihrer Organisation befinden sich in ihrem eigenen Abschnitt mit dem Titel "Workflows, die von _Organisationsnamen_erstellt wurden". Klicke unter dem Namen der zu verwendenden Vorlage auf **Set up this workflow** (Workflow einrichten). ![Einrichten dieses Workflows](/assets/images/help/settings/actions-create-starter-workflow.png)

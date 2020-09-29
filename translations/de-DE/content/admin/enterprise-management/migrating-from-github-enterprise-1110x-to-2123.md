@@ -9,22 +9,22 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-a-different-platform-or-from-github-enterprise-11-10-34x/
   - /enterprise/admin/guides/installation/migrating-from-github-enterprise-11-10-x-to-2-1-23
   - /enterprise/admin/enterprise-management/migrating-from-github-enterprise-1110x-to-2123
-intro: 'Um {{ site.data.variables.product.prodname_enterprise }} von 11.10.x zu 2.1.23 zu migrieren, müssen Sie eine neue Appliance-Instanz einrichten und Daten aus der vorherigen Instanz migrieren.'
+intro: 'Um {% data variables.product.prodname_enterprise %} von 11.10.x zu 2.1.23 zu migrieren, müssen Sie eine neue Appliance-Instanz einrichten und Daten aus der vorherigen Instanz migrieren.'
 versions:
   enterprise-server: '*'
 ---
 
-Migrationen von {{ site.data.variables.product.prodname_enterprise }} 11.10.348 und höher werden unterstützt. Migrationen von {{ site.data.variables.product.prodname_enterprise }} 11.10.348 und früher werden nicht unterstützt. Sie müssen zunächst in verschiedenen Upgrades ein Upgrade auf die Version 11.10.348 durchführen. Weitere Informationen finden Sie in der 11.10.348-Upgrade-Prozedur „[Upgrade auf die neueste Version durchführen](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)“.
+Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und höher werden unterstützt. Migrationen von {% data variables.product.prodname_enterprise %} 11.10.348 und früher werden nicht unterstützt. Sie müssen zunächst in verschiedenen Upgrades ein Upgrade auf die Version 11.10.348 durchführen. Weitere Informationen finden Sie in der 11.10.348-Upgrade-Prozedur „[Upgrade auf die neueste Version durchführen](/enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release/)“.
 
-Um ein Upgrade auf die neueste Version von {{ site.data.variables.product.prodname_enterprise }} durchzuführen, müssen Sie zunächst ein Upgrade auf {{ site.data.variables.product.prodname_ghe_server }} 2.1 vornehmen. Anschließend können Sie den normalen Upgrade-Prozess befolgen. Weitere Informationen finden Sie unter „[Upgrade von {{ site.data.variables.product.prodname_enterprise }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.
+Um ein Upgrade auf die neueste Version von {% data variables.product.prodname_enterprise %} durchzuführen, müssen Sie zunächst ein Upgrade auf {% data variables.product.prodname_ghe_server %} 2.1 vornehmen. Anschließend können Sie den normalen Upgrade-Prozess befolgen. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_enterprise %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.
 
 ### Migrationsvorbereitung
 
-1. Konsultieren Sie den Leitfaden „Bereitstellung und Installation“, und überprüfen Sie, ob alle Voraussetzungen erfüllt sind, um {{ site.data.variables.product.prodname_enterprise }} 2.1.23 in Ihrer Umgebung bereitzustellen und zu konfigurieren. Weitere Informationen finden Sie unter „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“.
+1. Konsultieren Sie den Leitfaden „Bereitstellung und Installation“, und überprüfen Sie, ob alle Voraussetzungen erfüllt sind, um {% data variables.product.prodname_enterprise %} 2.1.23 in Ihrer Umgebung bereitzustellen und zu konfigurieren. Weitere Informationen finden Sie unter „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“.
 2. Verifizieren Sie, dass die aktuelle Instanz eine unterstützte Upgrade-Version ausführt.
-3. Richten Sie die neueste Version von {{ site.data.variables.product.prodname_enterprise_backup_utilities }} ein. Weitere Informationen finden Sie unter „[{{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils)“.
-    - Wenn Sie geplante Backups bereits mit {{ site.data.variables.product.prodname_enterprise_backup_utilities }} konfiguriert haben, sollten Sie sicherstellen, dass Sie die neueste Version verwenden.
-    - Wenn Sie aktuell keine geplanten Backups ausführen, richten Sie {{ site.data.variables.product.prodname_enterprise_backup_utilities }} ein.
+3. Richten Sie die neueste Version von {% data variables.product.prodname_enterprise_backup_utilities %} ein. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils)“.
+    - Wenn Sie geplante Backups bereits mit {% data variables.product.prodname_enterprise_backup_utilities %} konfiguriert haben, sollten Sie sicherstellen, dass Sie die neueste Version verwenden.
+    - Wenn Sie aktuell keine geplanten Backups ausführen, richten Sie {% data variables.product.prodname_enterprise_backup_utilities %} ein.
 4. Führen Sie den Befehl `ghe-backup` aus, um einen anfänglichen vollständigen Backup-Snapshot der aktuellen Instanz zu erstellen. Falls Sie bereits geplante Backups für Ihre aktuelle Instanz konfiguriert haben, müssen Sie keinen Snapshot Ihrer Instanz erstellen.
 
    {% tip %}
@@ -40,8 +40,8 @@ Um ein Upgrade auf die neueste Version von {{ site.data.variables.product.prodna
 
 ### Führen Sie die Migration durch.
 
-1. Stellen Sie eine neue {{ site.data.variables.product.prodname_enterprise }} 2.1-Instanz bereit. Weitere Informationen finden Sie im Leitfaden „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“ für Ihre Zielplattform.
-2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {{ site.data.variables.product.prodname_enterprise }}-Lizenz hoch.
+1. Stellen Sie eine neue {% data variables.product.prodname_enterprise %} 2.1-Instanz bereit. Weitere Informationen finden Sie im Leitfaden „[Bereitstellung und Installation](/enterprise/2.1/admin/guides/installation/provisioning-and-installation/)“ für Ihre Zielplattform.
+2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz hoch.
 3. Legen Sie ein Administratorpasswort fest.
 5. Klicken Sie auf **Migrate** (Migrieren). ![Installationstyp auswählen](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. Fügen Sie Ihren Backup-Host-SSH-Zugriffschlüssel in „Add new SSH key“ (Neuen SSH-Schlüssel hinzufügen) ein.![Backup-Autorisierung](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
@@ -88,4 +88,4 @@ Um ein Upgrade auf die neueste Version von {{ site.data.variables.product.prodna
   {% endnote %}
 
 15. Leiten Sie mittels DNS oder IP-Adressenzuweisung den Benutzernetzwerk-Traffic von der alten Instanz zur neuen Instanz.
-16. Upgraden Sie auf die neueste Patch-Veröffentlichung von {{ currentVersion }}. Weitere Informationen finden Sie unter „[Upgrade von {{ site.data.variables.product.prodname_ghe_server }}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.
+16. Upgraden Sie auf die neueste Patch-Veröffentlichung von {{ currentVersion }}. Weitere Informationen finden Sie unter „[Upgrade von {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/installation/upgrading-github-enterprise-server/)“.

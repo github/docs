@@ -17,18 +17,18 @@ Qualquer pessoa com permissão de gravação em um repositório pode configurar 
 
 É possível ver o estado geral do último commit em um branch na página de branches do seu repositório ou na lista de pull requests do seu repositório.
 
-{{ site.data.reusables.pull_requests.required-checks-must-pass-to-merge }}
+{% data reusables.pull_requests.required-checks-must-pass-to-merge %}
 
-### Tipos de verificação de status no {{ site.data.variables.product.product_name }}
+### Tipos de verificação de status no {% data variables.product.product_name %}
 
-Há dois tipos de verificação de status no {{ site.data.variables.product.product_name }}:
+Há dois tipos de verificação de status no {% data variables.product.product_name %}:
 
 - Verificações
 - Status
 
-_Verificações_ são diferentes de _status_, pois elas fornecem anotações em linha, mensagens mais detalhadas e estão disponíveis apenas para uso com os {{ site.data.variables.product.prodname_github_app }}s.
+_Verificações_ são diferentes de _status_, pois elas fornecem anotações em linha, mensagens mais detalhadas e estão disponíveis apenas para uso com os {% data variables.product.prodname_github_app %}s.
 
-Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {{ site.data.variables.product.product_name }}. Para obter mais informações, consulte "[Verificações](/v3/checks/)" e "[Status](/v3/repos/statuses/)".
+Os proprietários da organização e usuários com acesso push a um repositório podem criar verificações e status com a API do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Verificações](/v3/checks/)" e "[Status](/v3/repos/statuses/)".
 
 ### Verificações
 

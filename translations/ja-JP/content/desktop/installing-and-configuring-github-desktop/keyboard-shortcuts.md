@@ -1,6 +1,6 @@
 ---
 title: キーボードショートカット
-intro: '{{ site.data.variables.product.prodname_desktop }}ではキーボードショートカットを利用できます。'
+intro: '{% data variables.product.prodname_desktop %}ではキーボードショートカットを利用できます。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop/
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
@@ -17,9 +17,9 @@ macOSでのGitHub Desktopキーボードショートカット
 | キーボードショートカット                         | 説明                                                              |
 | ------------------------------------ | --------------------------------------------------------------- |
 | <kbd>⌘</kbd><kbd>,</kbd>             | 設定に移動                                                           |
-| <kbd>⌘</kbd><kbd>H</kbd>             | {{ site.data.variables.product.prodname_desktop }}のアプリケーションの非表示 |
+| <kbd>⌘</kbd><kbd>H</kbd>             | {% data variables.product.prodname_desktop %}のアプリケーションの非表示 |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>H</kbd> | 他の全てのアプリケーションの非表示                                               |
-| <kbd>⌘</kbd><kbd>Q</kbd>             | {{ site.data.variables.product.prodname_desktop }}を終了           |
+| <kbd>⌘</kbd><kbd>Q</kbd>             | {% data variables.product.prodname_desktop %}を終了           |
 | <kbd>⌃</kbd><kbd>⌘</kbd><kbd>F</kbd> | フルスクリーン表示をオン/オフにする                                              |
 | <kbd>⌘</kbd><kbd>0</kbd>             | ズームをデフォルトのテキストサイズにリセット                                          |
 | <kbd>⌘</kbd><kbd>=</kbd>             | ズームインして、テキストとグラフィックスを大きくする                                      |
@@ -32,16 +32,16 @@ macOSでのGitHub Desktopキーボードショートカット
 | ------------------------------------ | --------------------------------------------------------------- |
 | <kbd>⌘</kbd><kbd>N</kbd>             | 新規リポジトリの追加                                                      |
 | <kbd>⌘</kbd><kbd>O</kbd>             | ローカルリポジトリの追加                                                    |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> | {{ site.data.variables.product.prodname_dotcom }}からリポジトリをクローンする |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> | {% data variables.product.prodname_dotcom %}からリポジトリをクローンする |
 | <kbd>⌘</kbd><kbd>T</kbd>             | リポジトリリストの表示                                                     |
-| <kbd>⌘</kbd><kbd>P</kbd>             | 最新コミットを{{ site.data.variables.product.prodname_dotcom }}にプッシュ   |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> | 最新変更を{{ site.data.variables.product.prodname_dotcom }}からプルダウン   |
+| <kbd>⌘</kbd><kbd>P</kbd>             | 最新コミットを{% data variables.product.prodname_dotcom %}にプッシュ   |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> | 最新変更を{% data variables.product.prodname_dotcom %}からプルダウン   |
 | <kbd>⌘</kbd><kbd>⌫</kbd>             | 既存リポジトリの削除                                                      |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd> | {{ site.data.variables.product.prodname_dotcom }}にリポジトリを表示      |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd> | {% data variables.product.prodname_dotcom %}にリポジトリを表示      |
 | <kbd>⌃</kbd><kbd>&grave;</kbd>       | リポジトリをお好みのターミナルツールで開く                                           |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>F</kbd> | Finderでリポジトリを表示                                                 |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | リポジトリをお好みのエディタツールで開く                                            |
-| <kbd>⌘</kbd><kbd>I</kbd>             | {{ site.data.variables.product.prodname_dotcom }}でIssueを作成      |
+| <kbd>⌘</kbd><kbd>I</kbd>             | {% data variables.product.prodname_dotcom %}でIssueを作成      |
 
 ### ブランチ
 
@@ -59,8 +59,8 @@ macOSでのGitHub Desktopキーボードショートカット
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd> | 既存のブランチと比較                                                      |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>M</kbd> | 現在ブランチにマージ                                                      |
 | <kbd>⌃</kbd><kbd>H</kbd>             | stash した変更の表示または非表示                                             |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | {{ site.data.variables.product.prodname_dotcom }}のブランチを比較       |
-| <kbd>⌘</kbd><kbd>R</kbd>             | 現在のプルリクエストを{{ site.data.variables.product.prodname_dotcom }}に表示 |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | {% data variables.product.prodname_dotcom %}のブランチを比較       |
+| <kbd>⌘</kbd><kbd>R</kbd>             | 現在のプルリクエストを{% data variables.product.prodname_dotcom %}に表示 |
 
 {% endmac %}
 
@@ -85,16 +85,16 @@ WindowsでのGitHub Desktopキーボードのショートカット
 | ------------------------------------------- | --------------------------------------------------------------- |
 | <kbd>Ctrl</kbd><kbd>N</kbd>                 | 新規リポジトリの追加                                                      |
 | <kbd>Ctrl</kbd><kbd>O</kbd>                 | ローカルリポジトリの追加                                                    |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>O</kbd> | {{ site.data.variables.product.prodname_dotcom }}からリポジトリをクローンする |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>O</kbd> | {% data variables.product.prodname_dotcom %}からリポジトリをクローンする |
 | <kbd>Ctrl</kbd><kbd>T</kbd>                 | リポジトリリストの表示                                                     |
-| <kbd>Ctrl</kbd><kbd>P</kbd>                 | 最新コミットを{{ site.data.variables.product.prodname_dotcom }}にプッシュ   |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> | 最新変更を{{ site.data.variables.product.prodname_dotcom }}からプルダウン   |
+| <kbd>Ctrl</kbd><kbd>P</kbd>                 | 最新コミットを{% data variables.product.prodname_dotcom %}にプッシュ   |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd> | 最新変更を{% data variables.product.prodname_dotcom %}からプルダウン   |
 | <kbd>Ctrl</kbd><kbd>Delete</kbd>            | 既存リポジトリの削除                                                      |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd> | {{ site.data.variables.product.prodname_dotcom }}にリポジトリを表示      |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>G</kbd> | {% data variables.product.prodname_dotcom %}にリポジトリを表示      |
 | <kbd>Ctrl</kbd><kbd>&grave;</kbd>           | リポジトリをお好みのコマンドラインルツールで開く                                        |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>F</kbd> | Explorerでリポジトリを表示                                               |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>A</kbd> | リポジトリをお好みのエディタツールで開く                                            |
-| <kbd>Ctrl</kbd><kbd>I</kbd>                 | {{ site.data.variables.product.prodname_dotcom }}でIssueを作成      |
+| <kbd>Ctrl</kbd><kbd>I</kbd>                 | {% data variables.product.prodname_dotcom %}でIssueを作成      |
 
 ### ブランチ
 
@@ -112,7 +112,7 @@ WindowsでのGitHub Desktopキーボードのショートカット
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> | 既存のブランチと比較                                                      |
 | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>M</kbd> | 現在ブランチにマージ                                                      |
 | <kbd>Ctrl</kbd><kbd>H</kbd>                 | stash した変更の表示または非表示                                             |
-| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd> | {{ site.data.variables.product.prodname_dotcom }}のブランチを比較       |
-| <kbd>Ctrl</kbd><kbd>R</kbd>                 | 現在のプルリクエストを{{ site.data.variables.product.prodname_dotcom }}に表示 |
+| <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>C</kbd> | {% data variables.product.prodname_dotcom %}のブランチを比較       |
+| <kbd>Ctrl</kbd><kbd>R</kbd>                 | 現在のプルリクエストを{% data variables.product.prodname_dotcom %}に表示 |
 
 {% endwindows %}

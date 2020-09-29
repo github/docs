@@ -11,7 +11,7 @@ versions:
 
 
 
-The [Status API][status API] is responsible for tying together commits with a testing service, so that every push you make can be tested and represented in a {{ site.data.variables.product.product_name }} pull request.
+The [Status API][status API] is responsible for tying together commits with a testing service, so that every push you make can be tested and represented in a {% data variables.product.product_name %} pull request.
 
 This guide will use that API to demonstrate a setup that you can use. In our scenario, we will:
 
@@ -51,7 +51,7 @@ Klicken Sie auf **Update webhook** (Webhook aktualisieren). You should see a bod
 * Status
 * Pull Request
 
-These are the events {{ site.data.variables.product.product_name }} will send to our server whenever the relevant action occurs. Let's update our server to *just* handle the Pull Request scenario right now:
+These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action occurs. Let's update our server to *just* handle the Pull Request scenario right now:
 
 ``` ruby
 post '/event_handler' do
@@ -72,7 +72,7 @@ helpers do
 end
 ```
 
-What's going on? Every event that {{ site.data.variables.product.product_name }} sends out attached a `X-GitHub-Event` HTTP header. We'll only care about the PR events for now. From there, we'll take the payload of information, and return the title field. In an ideal scenario, our server would be concerned with every time a pull request is updated, not just when it's opened. That would make sure that every new push passes the CI tests. But for this demo, we'll just worry about when it's opened.
+What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event` HTTP header. We'll only care about the PR events for now. From there, we'll take the payload of information, and return the title field. In an ideal scenario, our server would be concerned with every time a pull request is updated, not just when it's opened. That would make sure that every new push passes the CI tests. But for this demo, we'll just worry about when it's opened.
 
 To test out this proof-of-concept, make some changes in a branch in your test repository, and open a pull request. Your server should respond accordingly!
 
@@ -80,7 +80,7 @@ To test out this proof-of-concept, make some changes in a branch in your test re
 
 With our server in place, we're ready to start our first requirement, which is setting (and updating) CI statuses. Note that at any time you update your server, you can click **Redeliver** to send the same payload. There's no need to make a new pull request every time you make a change!
 
-Since we're interacting with the {{ site.data.variables.product.product_name }} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. We'll configure that client with
+Since we're interacting with the {% data variables.product.product_name %} API, we'll use [Octokit.rb][octokit.rb] to manage our interactions. We'll configure that client with
 
 ``` ruby
 # !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
@@ -92,7 +92,7 @@ before do
 end
 ```
 
-After that, we'll just need to update the pull request on {{ site.data.variables.product.product_name }} to make clear that we're processing on the CI:
+After that, we'll just need to update the pull request on {% data variables.product.product_name %} to make clear that we're processing on the CI:
 
 ``` ruby
 def process_pull_request(pull_request)

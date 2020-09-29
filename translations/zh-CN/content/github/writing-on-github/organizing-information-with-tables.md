@@ -72,5 +72,5 @@ versions:
 
 ### 延伸阅读
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown 规格](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown 规格](https://github.github.com/gfm/)
 - "[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax)"

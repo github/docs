@@ -1,7 +1,7 @@
 ---
 title: GitHub Actionsでのパッケージング
-intro: 'パッケージを生成し、{{ site.data.variables.product.prodname_registry }}あるいはその他のパッケージホスティングプロバイダにアップロードするワークフローを{{ site.data.variables.product.prodname_actions }}でセットアップできます。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'パッケージを生成し、{% data variables.product.prodname_registry %}あるいはその他のパッケージホスティングプロバイダにアップロードするワークフローを{% data variables.product.prodname_actions %}でセットアップできます。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### パッケージングのステップについて
 
@@ -32,9 +32,9 @@ versions:
 
 継続的インテグレーションのワークフロー中で、テストのためにパッケージ化された成果物をアップロードすることに加えて、プロジェクトをビルドして、パッケージをパッケージレジストリに公開するワークフローを作成できます。
 
-* **{{ site.data.variables.product.prodname_registry }}へのパッケージの公開** {{ site.data.variables.product.prodname_registry }}は、多くの種類のパッケージについてパッケージホストティングサービスとして振る舞うことができます。 パッケージを{{ site.data.variables.product.prodname_dotcom }}のすべてと共有することも、パッケージをプライベートにしてコラボレータやOrganizationと共有することもできます。 詳しい情報については「[{{ site.data.variables.product.prodname_registry }}について](/github/managing-packages-with-github-packages/about-github-packages)」を参照してください。
+* **{% data variables.product.prodname_registry %}へのパッケージの公開** {% data variables.product.prodname_registry %}は、多くの種類のパッケージについてパッケージホストティングサービスとして振る舞うことができます。 パッケージを{% data variables.product.prodname_dotcom %}のすべてと共有することも、パッケージをプライベートにしてコラボレータやOrganizationと共有することもできます。 詳しい情報については「[{% data variables.product.prodname_registry %}について](/github/managing-packages-with-github-packages/about-github-packages)」を参照してください。
 
-  masterブランチにプッシュがある度に、パッケージを{{ site.data.variables.product.prodname_registry }}に公開したいかもしれません。 そうすれば、プロジェクトの開発者は常にmasterからの最新のビルドを{{ site.data.variables.product.prodname_registry }}からインストールして実行及びテストできるようになります。
+  masterブランチにプッシュがある度に、パッケージを{% data variables.product.prodname_registry %}に公開したいかもしれません。 そうすれば、プロジェクトの開発者は常にmasterからの最新のビルドを{% data variables.product.prodname_registry %}からインストールして実行及びテストできるようになります。
 
 * **パッケージレジストリへのパッケージの公開** 多くのプロジェクトで、新しいバージョンのプロジェクトがリリースされたときにパッケージレジストリへの公開が行われます。 たとえば、JARファイルを生成するプロジェクトは、新しいリリースをMaven Centralリポジトリにアップロードするかもしれません。 あるいは、.NETのプロジェクトはnugetのパッケージを生成し、NuGet Galleryへアップロードするかもしれません。
 

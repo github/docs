@@ -10,7 +10,7 @@ versions:
 
 Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst, musst Du in Git [ein Remote-Repository konfigurieren, das auf das vorgelagerte Repository verweist](/articles/configuring-a-remote-for-a-fork).
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits am `master`-Branch werden in einem lokalen Branch mit dem Namen `upstream/master` gespeichert.
   ```shell
@@ -19,7 +19,7 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. Checke den lokalen `master`-Branch Deiner Fork aus.
@@ -48,6 +48,6 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
 
 {% tip %}
 
-**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. Für eine Aktualisierung Deiner Fork auf {{ site.data.variables.product.product_location }} musst Du [Deine Änderungen per Push übertragen](/articles/pushing-commits-to-a-remote-repository/).
+**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. Für eine Aktualisierung Deiner Fork auf {% data variables.product.product_location %} musst Du [Deine Änderungen per Push übertragen](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

@@ -25,10 +25,10 @@ versions:
 
 ### 从组织中的所有仓库删除外部协作者
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. 选择您想要从组织中删除的一个或多个外部协作者。 ![已选择两个外部协作者的外部协作者列表](/assets/images/help/teams/list-of-outside-collaborators-selected-bulk.png)
 6. 在外部协作者列表上方，使用下拉菜单，然后单击 **Remove from all repositories（从所有仓库中删除）**。 ![含有删除外部协作者选项的下拉菜单 ](/assets/images/help/teams/user-bulk-management-options-for-outside-collaborators.png)
 7. 查看将从组织中删除的一个或多个外部协作者，然后单击 **Remove outside collaborators（删除外部协作者）**。 ![将被删除的外部协作者列表和删除外部协作者按钮](/assets/images/help/teams/confirm-remove-outside-collaborators-bulk.png)
@@ -37,10 +37,10 @@ versions:
 
 如果只是想要从组织的特定仓库中删除外部协作者，则可以一次删除此人员对一个特定仓库的访问权限。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. 在您想要删除的人员用户名右侧，使用 {% octicon "gear" aria-label="The Settings gear" %} 下拉菜单，并单击 **Manage（管理）**。 ![管理访问权限按钮](/assets/images/help/organizations/member-manage-access.png)
 6. 在您想要从其删除外部协作者的仓库右侧，单击 **Manage access（管理访问权限）**。 ![选择外部协作者具有访问权限的仓库旁边的管理访问权限按钮](/assets/images/help/organizations/second-manage-access-selection-for-collaborator.png)
 7. 要完全删除外部协作者对仓库的访问权限，在右上角单击 **Remove access to this repository（删除对此仓库的访问权限）**。 ![删除此仓库访问权限按钮](/assets/images/help/organizations/remove-access-to-this-repository.png)

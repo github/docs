@@ -1,6 +1,6 @@
 ---
 title: Eliminar archivos
-intro: 'Puedes eliminar cualquier archivo dentro de tus repositorios en {{ site.data.variables.product.product_name }}.'
+intro: 'Puedes eliminar cualquier archivo dentro de tus repositorios en {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-files
 versions:
@@ -17,10 +17,10 @@ versions:
 1. Dirígete al archivo que deseas eliminar de tu repositorio.
 2. At the top of the file, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

@@ -13,18 +13,18 @@ versions:
 
 ### Viewing the dependency graph
 
-{{ site.data.reusables.repositories.enable-security-alerts }}
+{% data reusables.repositories.enable-security-alerts %}
 
 The dependency graph has tabs that show the dependencies and dependents of your repository. For information about how these views are populated and which ecosystems are supported, see "[About the dependency graph](about-the-dependency-graph)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
-{{ site.data.reusables.repositories.click-dependency-graph }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
+{% data reusables.repositories.click-dependency-graph %}
 4. Optionally, under "Dependency graph", click **Dependents**. ![Registerkarte „Dependents“ (Abhängige) auf der Seite „Dependency graph“ (Abhängigkeitsdiagramm)](/assets/images/help/graphs/dependency-graph-dependents-tab.png)
 
 #### Dependencies view
 
-Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies hosted on {{ site.data.variables.product.product_name }}, you can also click a dependency to view the repository. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% if currentVersion == "free-pro-team@latest" %}{{ site.data.variables.product.prodname_dependabot_alerts }}{% else %}security alerts{% endif %}.
+Dependencies are grouped by ecosystem. You can expand a dependency to view its dependencies. For dependencies hosted on {% data variables.product.product_name %}, you can also click a dependency to view the repository. If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}.
 
 ![Abhängigkeitsdiagramm](/assets/images/help/graphs/dependencies_graph.png)
 
@@ -39,10 +39,10 @@ For public repositories, the dependents view shows how the repository is used by
 
 Repository administrators can enable or disable the dependency graph for private repositories.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.navigate-to-security-and-analysis }}
-4. Read the message about granting {{ site.data.variables.product.product_name }} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**. !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-security-and-analysis %}
+4. Read the message about granting {% data variables.product.product_name %} read-only access to the repository data to enable the dependency graph, then next to "Dependency Graph", click **Enable**. !["Enable" button for the dependency graph](/assets/images/help/repository/dependency-graph-enable-button.png)
 
 You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
 {% endif %}
@@ -52,7 +52,7 @@ You can disable the dependency graph at any time by clicking **Disable** next to
 If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
 
 {% if currentVersion == "free-pro-team@latest" %}
-If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a {{ site.data.variables.product.prodname_enterprise }} user. It processes up to 20 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
+If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 0.5 Mb, unless you are a {% data variables.product.prodname_enterprise %} user. It processes up to 20 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
 
 If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for vulnerable dependencies.
 
@@ -61,5 +61,5 @@ If a manifest or lock file is not processed, its dependencies are omitted from t
 - "[About the dependency graph](about-the-dependency-graph)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Einblicke für Ihre Organisation anzeigen ](/github/setting-up-and-managing-organizations-and-teams/viewing-insights-for-your-organization)“
 - „[Angreifbare Abhängigkeiten in Ihrem Repository anzeigen und aktualisieren](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)“
-- „[Grundlegendes zur Verwendung und zum Schutz Ihrer Daten durch {{ site.data.variables.product.product_name }}](/github/understanding-how-github-uses-and-protects-your-data)“
+- „[Grundlegendes zur Verwendung und zum Schutz Ihrer Daten durch {% data variables.product.product_name %}](/github/understanding-how-github-uses-and-protects-your-data)“
 {% endif %}

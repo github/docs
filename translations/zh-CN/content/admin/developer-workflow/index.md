@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/integrations/
   - /enterprise/admin/categories/integration/
   - /enterprise/admin/developer-workflow
-intro: '本指南介绍了 {{ site.data.variables.product.prodname_enterprise }} 上的可用工具，这些工具有助于实现开发者工作流程和强制实施组织策略以降低风险和提升质量。'
+intro: '本指南介绍了 {% data variables.product.prodname_enterprise %} 上的可用工具，这些工具有助于实现开发者工作流程和强制实施组织策略以降低风险和提升质量。'
 versions:
   enterprise-server: '*'
 ---

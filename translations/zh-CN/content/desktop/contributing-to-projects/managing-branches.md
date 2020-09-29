@@ -15,9 +15,9 @@ You can use branches to safely experiment with changes to your project. Branches
 
 Once you're satisfied with your work, you can [open a pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request) to merge the changes in the current branch into another branch. 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。
 
-You can always create a branch in {{ site.data.variables.product.prodname_desktop }} if you have read access to a repository, but you can only push the branch to {{ site.data.variables.product.prodname_dotcom }} if you have write access to the repository.
+You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
 
-{{ site.data.reusables.desktop.protected-branches }}
+{% data reusables.desktop.protected-branches %}
 
 ### 创建分支
 
@@ -29,30 +29,30 @@ You can always create a branch in {{ site.data.variables.product.prodname_deskto
 
 {% mac %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Branch（分支）菜单中的 New Branch（新分支）选项](/assets/images/help/desktop/new-branch-button-mac.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![用于创建新分支名称的字段](/assets/images/help/desktop/create-branch-name-mac.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![基础分支选项](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![创建分支按钮](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Branch（分支）菜单中的 New Branch（新分支）选项](/assets/images/help/desktop/new-branch-button-win.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![用于创建新分支名称的字段](/assets/images/help/desktop/create-branch-name-win.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![基础分支选项](/assets/images/help/desktop/create-branch-choose-branch-win.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![创建分支按钮](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
@@ -66,16 +66,16 @@ You can always create a branch in {{ site.data.variables.product.prodname_deskto
 
 {% endtip %}
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 如有已保存但未提交的更改，请选择 **Leave my changes（留下我的更改）**或 **Bring my changes（带上我的更改）**，然后单击 **Switch Branch（切换分支）**。 ![通过更改选项切换分支](/assets/images/help/desktop/stash-changes-options.png)
 
 ### 检索隐藏的更改
 要访问在另一个分支中隐藏的更改，请切换回隐藏更改的分支。
 
-{{ site.data.reusables.desktop.current-branch-menu }}
-{{ site.data.reusables.desktop.switching-between-branches }}
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
   ![仓库中的分支列表](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
 3. 在左侧边栏中，单击 **Stashed Changes（隐藏的更改）**。 ![隐藏的更改选项](/assets/images/help/desktop/stashed-changes.png)
 4. 要删除隐藏的更改，请单击 **Discard（放弃）**，或者，要使用隐藏的更改，则单击 **Restore（恢复）**。 ![放弃或恢复隐藏的更改](/assets/images/help/desktop/discard-restore-stash-buttons.png)
@@ -86,25 +86,25 @@ You can always create a branch in {{ site.data.variables.product.prodname_deskto
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-mac }}
+{% data reusables.desktop.delete-branch-mac %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-branch-to-delete}}
+{% data reusables.desktop.select-branch-to-delete %}
   ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
-{{ site.data.reusables.desktop.delete-branch-win}}
+{% data reusables.desktop.delete-branch-win %}
   ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 
 ### 延伸阅读
 
-- "[从 {{ site.data.variables.product.prodname_desktop }} 克隆仓库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
-- {{ site.data.variables.product.prodname_dotcom }} 词汇中的“[分支](/articles/github-glossary/#branch)”
+- "[从 {% data variables.product.prodname_desktop %} 克隆仓库](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
+- {% data variables.product.prodname_dotcom %} 词汇中的“[分支](/articles/github-glossary/#branch)”
 - "[关于分支](/articles/about-branches)"
 - Git 文档中的“[Nutshell 中的分支](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)”

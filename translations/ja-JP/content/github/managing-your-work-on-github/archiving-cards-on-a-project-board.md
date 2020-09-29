@@ -17,6 +17,6 @@ versions:
 
 ### サイドバーからのプロジェクトボード上のカードのリストア
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} をクリックし、続いて [** View archive**] をクリックします。 ![メニューからのアーカイブの表示オプションの選択](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. アーカイブを解除するプロジェクトボードの上で [**Restore**] をクリックします。 ![プロジェクトボードカードのリストアの選択](/assets/images/help/projects/restore-card.png)

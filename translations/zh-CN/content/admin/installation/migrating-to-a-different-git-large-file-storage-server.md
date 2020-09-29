@@ -1,6 +1,6 @@
 ---
 title: 迁移到其他 Git Large File Storage 服务器
-intro: '您可以使用 {{ site.data.variables.large_files.product_name_short }} 客户端从现有服务器提取资产并将它们推送到新位置，通过这种方式迁移到新的 {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) 服务器。'
+intro: '您可以使用 {% data variables.large_files.product_name_short %} 客户端从现有服务器提取资产并将它们推送到新位置，通过这种方式迁移到新的 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) 服务器。'
 redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-迁移到其他 {{ site.data.variables.large_files.product_name_long }} 服务器之前，您必须将 {{ site.data.variables.large_files.product_name_short }} 配置为使用第三方服务器。 更多信息请参阅“[将 {{ site.data.variables.large_files.product_name_long }} 配置为使用第三方服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)”。
+迁移到其他 {% data variables.large_files.product_name_long %} 服务器之前，您必须将 {% data variables.large_files.product_name_short %} 配置为使用第三方服务器。 更多信息请参阅“[将 {% data variables.large_files.product_name_long %} 配置为使用第三方服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)”。
 
 1. 使用第二个远端配置仓库。
   ```shell

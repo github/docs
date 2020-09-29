@@ -13,21 +13,21 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also view a release using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### 查看发行版
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. 在 Releases（发行版）页面的顶部，单击 **Releases（发行版）**。
 
 ### 查看标记
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 2. 在 Releases（版本）页面的顶部，单击 **Tags（标记）**。 ![标记页面](/assets/images/help/releases/tags-list.png)
 
 ### 延伸阅读

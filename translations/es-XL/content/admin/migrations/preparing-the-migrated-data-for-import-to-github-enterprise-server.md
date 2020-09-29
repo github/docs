@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-1. Con el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copia el archivo de migración generado desde tu instancia u organización de origen a tu {{ site.data.variables.product.prodname_ghe_server }} destino:
+1. Con el comando [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp), copia el archivo de migración generado desde tu instancia u organización de origen a tu {% data variables.product.prodname_ghe_server %} destino:
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. Usa el comando `ghe-migrator prepare` para preparar el archivo para importar en la instancia de destino y generar un nuevo GUID de Migración para que uses en los pasos subsiguientes:
 
@@ -23,4 +23,4 @@ versions:
     ```
 
     * Para comenzar un nuevo intento de importación, ejecuta `ghe-migrator prepare` nuevamente y obtén un nuevo GUID de migración.
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}

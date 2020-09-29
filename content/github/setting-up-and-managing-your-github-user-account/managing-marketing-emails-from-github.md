@@ -1,13 +1,13 @@
 ---
 title: Managing marketing emails from GitHub
-intro: 'In addition to notifications and account emails, {{ site.data.variables.product.prodname_dotcom }} occasionally sends marketing emails with news and information about our products. If you unsubscribe from existing marketing emails, you won''t be included in future campaigns unless you change your {{ site.data.variables.product.prodname_dotcom }} email settings.'
+intro: 'In addition to notifications and account emails, {% data variables.product.prodname_dotcom %} occasionally sends marketing emails with news and information about our products. If you unsubscribe from existing marketing emails, you won''t be included in future campaigns unless you change your {% data variables.product.prodname_dotcom %} email settings.'
 redirect_from:
   - /articles/managing-marketing-emails-from-github
 versions:
   free-pro-team: '*'
 ---
 
-### Unsubscribing from {{ site.data.variables.product.prodname_dotcom }} marketing emails
+### Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 
 {% tip %}
 
@@ -15,8 +15,8 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.emails }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.emails %}
 3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
   ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
 4. Click **Save email preferences**.

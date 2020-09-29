@@ -1,6 +1,6 @@
 ---
 title: Exibir branches no repositório
-intro: 'Os branches são fundamentais para a colaboração no {{ site.data.variables.product.product_name }}, e a melhor maneira de exibi-los é a página de branches.'
+intro: 'Os branches são fundamentais para a colaboração no {% data variables.product.product_name %}, e a melhor maneira de exibi-los é a página de branches.'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. Use a navegação na parte superior da página para exibir listas específicas de branches:
     - **Your branches** (Seus branches): nos repositórios aos quais você tem acesso push, a exibição **Yours** (Seus) mostra todos os branches em que você fez push, com os mais recentes primeiro.
     - **Active branches** (Branches ativos): a exibição **Active** (Ativos) mostra todos os branches em que alguém fez commit nos últimos três meses, ordenados pelos branches com os commits mais recentes primeiro.

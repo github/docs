@@ -1,6 +1,6 @@
 ---
 title: Resumen
-intro: 'Obtener más información acerca de conceptos y terminología de {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Obtener más información acerca de conceptos y terminología de {% data variables.product.prodname_actions %}.'
 mapTopic: true
 versions:
   free-pro-team: '*'

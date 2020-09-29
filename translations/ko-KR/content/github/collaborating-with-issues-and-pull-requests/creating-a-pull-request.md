@@ -12,9 +12,9 @@ Anyone with read permissions to a repository can create a pull request, but you 
 
 You can specify which branch you'd like to merge your changes into when you create your pull request. Pull requests can only be opened between two branches that are different.
 
-{{ site.data.reusables.pull_requests.perms-to-open-pull-request }}
+{% data reusables.pull_requests.perms-to-open-pull-request %}
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### Changing the branch range and destination repository
 
@@ -42,18 +42,18 @@ When you change any of the information in the branch range, the Commit and Files
 
 {% tip %}
 
-**Tip**: You can also use {{ site.data.variables.product.prodname_desktop }} to create a pull request. For more information, see “[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" in the {{ site.data.variables.product.prodname_desktop }} documentation.
+**Tip**: You can also use {% data variables.product.prodname_desktop %} to create a pull request. For more information, see “[Creating an issue or pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request)" in the {% data variables.product.prodname_desktop %} documentation.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. In the "Branch" menu, choose the branch that contains your commits. ![Branch dropdown menu](/assets/images/help/pull_requests/branch-dropdown.png)
-{{ site.data.reusables.repositories.new-pull-request }}
+{% data reusables.repositories.new-pull-request %}
 4. Use the _base_ branch dropdown menu to select the branch you'd like to merge your changes into, then use the _compare_ branch drop-down menu to choose the topic branch you made your changes in. ![Drop-down menus for choosing the base and compare branches](/assets/images/help/pull_requests/choose-base-and-compare-branches.png)
-{{ site.data.reusables.repositories.pr-title-description }}
-{{ site.data.reusables.repositories.create-pull-request }}
+{% data reusables.repositories.pr-title-description %}
+{% data reusables.repositories.create-pull-request %}
 
-{{ site.data.reusables.repositories.asking-for-review }}
+{% data reusables.repositories.asking-for-review %}
 
 After your pull request has been reviewed, it can be [merged into the repository](/articles/merging-a-pull-request).
 

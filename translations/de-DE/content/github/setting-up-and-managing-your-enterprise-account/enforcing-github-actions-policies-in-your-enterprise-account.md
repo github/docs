@@ -1,33 +1,33 @@
 ---
 title: Enforcing GitHub Actions policies in your enterprise account
-intro: 'Enterprise owners can disable, enable, and limit {{ site.data.variables.product.prodname_actions }} for an enterprise account.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: 'Enterprise owners can disable, enable, and limit {% data variables.product.prodname_actions %} for an enterprise account.'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 miniTocMaxHeadingLevel: 4
 versions:
   free-pro-team: '*'
 ---
 
-### About {{ site.data.variables.product.prodname_actions }} permissions for your enterprise account
+### About {% data variables.product.prodname_actions %} permissions for your enterprise account
 
-By default, {{ site.data.variables.product.prodname_actions }} is enabled in all organizations owned by an enterprise account. You can choose to disable {{ site.data.variables.product.prodname_actions }} for all organizations owned by an enterprise account, or only allow specified organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your organization.
+By default, {% data variables.product.prodname_actions %} is enabled in all organizations owned by an enterprise account. You can choose to disable {% data variables.product.prodname_actions %} for all organizations owned by an enterprise account, or only allow specified organizations. You can also limit the use of public actions, so that people can only use local actions that exist in your organization.
 
-Before you can configure {{ site.data.variables.product.prodname_code_scanning }} for a repository, you must enable {{ site.data.variables.product.prodname_code_scanning }} by adding a {{ site.data.variables.product.prodname_actions }} workflow to the repository.
+Before you can configure {% data variables.product.prodname_code_scanning %} for a repository, you must enable {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository.
 
 
-### Managing {{ site.data.variables.product.prodname_actions }} permissions for your enterprise account
+### Managing {% data variables.product.prodname_actions %} permissions for your enterprise account
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
-{{ site.data.reusables.actions.enterprise-actions-permissions }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.actions.enterprise-actions-permissions %}
 
 ### Enabling workflows for private repository forks
 
-{{ site.data.reusables.github-actions.private-repository-forks-overview }}
+{% data reusables.github-actions.private-repository-forks-overview %}
 
 #### Configuring the private fork policy for your enterprise account
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
-{{ site.data.reusables.github-actions.private-repository-forks-configure }}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.github-actions.private-repository-forks-configure %}

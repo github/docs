@@ -10,8 +10,8 @@ versions:
 
 Cualquier persona con permisos de administrador a un repositorio puede habilitar e inhabilitar la eliminación automática de ramas.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Dentro de "Merge button" (Botón fusionar), selecciona o deselecciona **Automatically delete head branches (Eliminar automáticamente ramas centrales)**. ![Casilla de verificación para habilitar o inhabilitar la eliminación automática de ramas](/assets/images/help/repository/automatically-delete-branches.png)
 
 ### Leer más

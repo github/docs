@@ -1,7 +1,7 @@
 ---
 title: Docker コンテナのアクションを作成する
 intro: このガイドでは、Docker コンテナのアクションを作成するために最低限必要なステップを案内します。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
   - /github/automating-your-workflow-with-github-actions/creating-a-docker-container-action
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
@@ -21,18 +21,18 @@ versions:
 
 このプロジェクトを完了すると、あなたの Docker コンテナのアクションをビルドして、ワークフローでテストする方法が理解できます。
 
-{{ site.data.reusables.github-actions.self-hosted-runner-reqs-docker }}
+{% data reusables.github-actions.self-hosted-runner-reqs-docker %}
 
 ### 必要な環境
 
-{{ site.data.variables.product.prodname_actions }}の環境変数及びDockerコンテナのファイルシステムに関する基本的な理解があれば役立つでしょう。
+{% data variables.product.prodname_actions %}の環境変数及びDockerコンテナのファイルシステムに関する基本的な理解があれば役立つでしょう。
 
 - [環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)
-- [{{ site.data.variables.product.prodname_dotcom }}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)
+- [{% data variables.product.prodname_dotcom %}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners#docker-container-filesystem)
 
 開始する前に、GitHub リポジトリを作成する必要があります。
 
-1. {{ site.data.variables.product.product_location }} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-docker-action" を使ってもいいでしょう。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
+1. {% data variables.product.product_location %} に新しいリポジトリを作成します。 リポジトリ名は任意です。この例のように "hello-world-docker-action" を使ってもいいでしょう。 詳しい情報については、「[新しいリポジトリの作成](/articles/creating-a-new-repository)」を参照してください。
 
 1. リポジトリをお手元のコンピューターにクローンします。 詳しい情報については[リポジトリのクローン](/articles/cloning-a-repository)を参照してください。
 
@@ -44,7 +44,7 @@ versions:
 
 ### Dockerfileの作成
 
-新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のためのDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
+新しい`hello-world-docker-action`ディレクトリ内に、新たに`Dockerfile`というファイルを作成してください。 詳しい情報については「[{% data variables.product.prodname_actions %}のためのDockerfileサポート](/actions/creating-actions/dockerfile-support-for-github-actions)」を参照してください。
 
 **Dockerfile**
 ```dockerfile
@@ -61,7 +61,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ### アクションのメタデータファイルの作成
 
-新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
+新しい `action.yml` ファイルを、上で作成した `hello-world-docker-action` ディレクトリの中に作成します。 詳しい情報については「[{% data variables.product.prodname_actions %}のメタデータ構文](/actions/creating-actions/metadata-syntax-for-github-actions)」を参照してください。
 
 {% raw %}
 **アクション.yml**
@@ -87,13 +87,13 @@ runs:
 
 このメタデータは、1 つの `who-to-greet` 入力と 1 つの `time` 出力パラメータを定義しています。 Docker コンテナに入力を渡すには、`inputs` を使用して入力を宣言したうえで `args` キーワードを使用します。
 
-{{ site.data.variables.product.prodname_dotcom }} は `Dockerfile` からイメージをビルドし、このイメージを使用して新しいコンテナでコマンドを実行します。
+{% data variables.product.prodname_dotcom %} は `Dockerfile` からイメージをビルドし、このイメージを使用して新しいコンテナでコマンドを実行します。
 
 ### アクションのコードの記述
 
 任意のベース Docker イメージを選択できるので、アクションに任意の言語を選択できます。 次のシェルスクリプトの例では、`who-to-greet` 入力変数を使って、ログファイルに "Hello [who-to-greet]" と出力します。
 
-次に、スクリプトは現在の時刻を取得し、それをジョブ内で後に実行するアクションが利用できる出力変数に設定します。 {{ site.data.variables.product.prodname_dotcom }}に出力変数を認識させるには、`echo "::set-output name=<output name>::<value>"`という構文でワークフローコマンドを使わなければなりません。 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)」を参照してください。
+次に、スクリプトは現在の時刻を取得し、それをジョブ内で後に実行するアクションが利用できる出力変数に設定します。 {% data variables.product.prodname_dotcom %}に出力変数を認識させるには、`echo "::set-output name=<output name>::<value>"`という構文でワークフローコマンドを使わなければなりません。 詳しい情報については「[{% data variables.product.prodname_actions %}のワークフローコマンド](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)」を参照してください。
 
 1. `hello-world-docker-action` ディレクトリに、新しい `entrypoint.sh` を作成します。
 
@@ -171,7 +171,7 @@ git push --follow-tags
 
 これで、ワークフローでアクションをテストできるようになりました。 プライベートリポジトリにあるアクションは、同じリポジトリのワークフローでしか使用できません。 パブリックアクションは、どのリポジトリのワークフローでも使用できます。
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 #### パブリックアクションを使用する例
 

@@ -17,9 +17,9 @@ versions:
   - Python
   - Ruby
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. プルリクエストのリストで、変更された機能とメソッドを検索したいプルリクエストをクリックします。
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. 変更された機能とメソッドのサマリーリストを確認するには、[**Jump to...**] をクリックします。 ![[Jump to] ドロップダウンメニュー](/assets/images/help/pull_requests/jump-to-menu.png)
 5. ドロップダウンメニューから、変更された機能やメソッドを選択します。 機能やメソッドの名前を入力して結果をフィルタリングすることもできます。 ![機能とメソッドのフィルタリング](/assets/images/help/pull_requests/filter-function-and-methods.png)
 

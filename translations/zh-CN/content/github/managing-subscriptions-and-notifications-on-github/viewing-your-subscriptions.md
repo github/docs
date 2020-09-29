@@ -19,7 +19,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-接收 {{ site.data.variables.product.product_name }} 上长期活动的订阅通知。 There are many reasons you can be subscribed to a conversation. 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
+接收 {% data variables.product.product_name %} 上长期活动的订阅通知。 There are many reasons you can be subscribed to a conversation. 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)”。
 
 We recommend auditing and unsubscribing from your subscriptions as a part of a healthy notifications workflow. For more information about your options for unsubscribing, see "[Managing subscriptions](/github/managing-subscriptions-and-notifications-on-github/managing-your-subscriptions)."
 
@@ -35,7 +35,7 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 ### 查看所有订阅
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. 在左侧边栏中您接收其通知的仓库列表下，使用“Manage notifications（管理通知）”下拉按钮单击 **Subscriptions（订阅）**。 ![管理通知下拉菜单选项](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
 2. 使用过滤器和排序来缩小订阅列表，并开始取消订阅您不想再接收其通知的对话。
@@ -69,5 +69,5 @@ To see an overview of your repository subscriptions, see "[Reviewing repositorie
 
 您可以选择关注还是取消关注单个仓库。 也可以选择仅在有新发行版时才收到通知或者忽略单个仓库。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. 在右上角，单击“Watch（关注）”下拉菜单选择关注选项。 ![仓库下拉菜单中的关注选项](/assets/images/help/notifications-v2/watch-repository-options.png)

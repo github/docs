@@ -1,6 +1,6 @@
 ---
 title: Permalinks zu Dateien abrufen
-intro: 'Wenn Du eine Datei auf {{ site.data.variables.product.product_location }} anzeigst, kannst Du die Taste „y" drücken, um aus der URL einen Permalink zu genau der angezeigten Version der Datei zu erstellen.'
+intro: 'Wenn Du eine Datei auf {% data variables.product.product_location %} anzeigst, kannst Du die Taste „y" drücken, um aus der URL einen Permalink zu genau der angezeigten Version der Datei zu erstellen.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**Tipp:** Drücke auf einer beliebigen Seite von {{ site.data.variables.product.product_name }} auf die „?"-Taste, um alle verfügbaren Tastenkürzel anzuzeigen.
+**Tipp:** Drücke auf einer beliebigen Seite von {% data variables.product.product_name %} auf die „?"-Taste, um alle verfügbaren Tastenkürzel anzuzeigen.
 
 {% endtip %}
 
 ### Dateiansichten zeigen die aktuelle Version auf einem Branch
 
-Wenn Du eine Datei auf {{ site.data.variables.product.product_location }} anzeigst, siehst Du in der Regel die Version am aktuellen Head eines Branches.  Ein Beispiel:
+Wenn Du eine Datei auf {% data variables.product.product_location %} anzeigst, siehst Du in der Regel die Version am aktuellen Head eines Branches.  Ein Beispiel:
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

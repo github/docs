@@ -1,6 +1,6 @@
 ---
 title: Acerca de la configuración de alta disponibilidad
-intro: 'En una configuración de alta disponibilidad, un aparato secundario {{ site.data.variables.product.prodname_ghe_server }} totalmente redundante se mantiene en sincronización con el aparato principal mediante la replicación de todos los almacenes de datos importantes.'
+intro: 'En una configuración de alta disponibilidad, un aparato secundario {% data variables.product.prodname_ghe_server %} totalmente redundante se mantiene en sincronización con el aparato principal mediante la replicación de todos los almacenes de datos importantes.'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
 versions:
@@ -9,13 +9,13 @@ versions:
 
 Cuando configuras la alta disponibilidad, hay una configuración automática unidireccional, una replicación asincrónica de todos los almacenes de datos (repositorios de Git, MySQL, Redis y Elasticsearch) desde el aparato principal hacia la réplica.
 
-{{ site.data.variables.product.prodname_ghe_server }} admite una configuración activa/pasiva, en la que el aparato réplica se ejecuta como en un modo de espera con los servicios de base de datos ejecutándose en modo de replicación, pero con los servicios de aplicación detenidos.
+{% data variables.product.prodname_ghe_server %} admite una configuración activa/pasiva, en la que el aparato réplica se ejecuta como en un modo de espera con los servicios de base de datos ejecutándose en modo de replicación, pero con los servicios de aplicación detenidos.
 
 ### Escenarios de fallas específicas
 
 Utiliza la configuración de alta disponibilidad para la protección contra lo siguiente:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 Una configuración de alta disponibilidad no es una buena solución para lo siguiente:
 
@@ -29,7 +29,7 @@ Durante la conmutación por error, debes configurar por separado y administrar e
 
 #### Conmutación por error de DNS
 
-Con la conmutación por error de DNS, utiliza valores TTL cortos en los registros DNS que se dirijan al aparato principal {{ site.data.variables.product.prodname_ghe_server }}. Recomendamos un TTL de entre 60 segundos y cinco minutos.
+Con la conmutación por error de DNS, utiliza valores TTL cortos en los registros DNS que se dirijan al aparato principal {% data variables.product.prodname_ghe_server %}. Recomendamos un TTL de entre 60 segundos y cinco minutos.
 
 Durante la conmutación por error, debes colocar el aparato principal en modo de mantenimiento y redirigir sus registros DNS hacia la dirección IP del aparato réplica. El tiempo necesario para redirigir el tráfico desde el aparato principal hacia la réplica dependerá de la configuración TTL y del tiempo necesario para actualizar los registros DNS.
 
@@ -37,19 +37,19 @@ Si estás utilizando la replicación geográfica, debes configurar Geo DNS en tr
 
 #### Balanceador de carga
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_intro }} {{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-Durante la conmutación por error, debes colocar el aparato principal en el modo de mantenimiento. Puedes configurar el balanceador de carga para que detecte automáticamente cuando la réplica se haya promovido a principal, o puede que se requiera un cambio de configuración manual. Debes promover manualmente la réplica a principal antes de que responda al tráfico de usuarios. Para obtener más información, consulta "[Utilizar {{ site.data.variables.product.prodname_ghe_server }} con un balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
+Durante la conmutación por error, debes colocar el aparato principal en el modo de mantenimiento. Puedes configurar el balanceador de carga para que detecte automáticamente cuando la réplica se haya promovido a principal, o puede que se requiera un cambio de configuración manual. Debes promover manualmente la réplica a principal antes de que responda al tráfico de usuarios. Para obtener más información, consulta "[Utilizar {% data variables.product.prodname_ghe_server %} con un balanceador de carga](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)."
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### Utilidades para la administración de la replicación
 
-Para administrar la replicación en {{ site.data.variables.product.prodname_ghe_server }}, haz uso de estas utilidades de la línea de comando conectándote al aparato réplica con SSH.
+Para administrar la replicación en {% data variables.product.prodname_ghe_server %}, haz uso de estas utilidades de la línea de comando conectándote al aparato réplica con SSH.
 
 #### ghe-repl-setup
 
-El comando `ghe-repl-setup` coloca un aparato {{ site.data.variables.product.prodname_ghe_server }} en modo de espera de réplica.
+El comando `ghe-repl-setup` coloca un aparato {% data variables.product.prodname_ghe_server %} en modo de espera de réplica.
 
  - Un túnel cifrado {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} está configurado para la comunicación entre los dos aparatos.
  - Se configuran los servicios de bases de datos para la replicación y se inician.
@@ -152,7 +152,7 @@ Exitoso: se detuvo la replicación para todos los servicios.
 
 El comando `ghe-repl-promote` inhabilita la replicación y convierte el aparato réplica en principal. El aparato se configura con los mismos ajustes que el principal original y se habilitan todos los servicios.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote

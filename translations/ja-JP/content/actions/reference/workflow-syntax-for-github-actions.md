@@ -2,7 +2,7 @@
 title: GitHub Actionsのワークフロー構文
 shortTitle: ワークフロー構文
 intro: ワークフローは、1つ以上のジョブからなる設定可能な自動化プロセスです。 ワークフローの設定を定義するには、YAMLファイルを作成しなければなりません。
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### ワークフロー用のYAML構文について
 
@@ -23,17 +23,17 @@ versions:
 
 ### 使用制限
 
-{{ site.data.reusables.github-actions.github-actions-usage-limits }}
+{% data reusables.github-actions.github-actions-usage-limits %}
 
 ### **`name`**
 
-ワークフローの名前。 {{ site.data.variables.product.prodname_dotcom }}では、リポジトリのアクションページにワークフローの名前が表示されます。 `name`を省略すると、{{ site.data.variables.product.prodname_dotcom }}はリポジトリのルートに対するワークフローファイルの相対パスをその値に設定します。
+ワークフローの名前。 {% data variables.product.prodname_dotcom %}では、リポジトリのアクションページにワークフローの名前が表示されます。 `name`を省略すると、{% data variables.product.prodname_dotcom %}はリポジトリのルートに対するワークフローファイルの相対パスをその値に設定します。
 
 ### **`on`**
 
-**必須** ワークフローをトリガーする{{ site.data.variables.product.prodname_dotcom }}イベントの名前。 指定できるのは、1つのイベント`string`、複数イベントの`array`、イベント`types`の`array`です。あるいは、ワークフローをスケジュールする、またはワークフロー実行を特定のファイルやタグ、ブランチ変更に限定するイベント設定`map`も指定できます。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
+**必須** ワークフローをトリガーする{% data variables.product.prodname_dotcom %}イベントの名前。 指定できるのは、1つのイベント`string`、複数イベントの`array`、イベント`types`の`array`です。あるいは、ワークフローをスケジュールする、またはワークフロー実行を特定のファイルやタグ、ブランチ変更に限定するイベント設定`map`も指定できます。 使用可能なイベントの一覧は、「[ワークフローをトリガーするイベント](/articles/events-that-trigger-workflows)」を参照してください。
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
 ### **`on.<event_name>.types`**
 
@@ -124,7 +124,7 @@ on:
 
 #### バスを無視する例
 
-パス名が `paths-ignore` のパターンとマッチする場合は常に、ワークフローは実行されません。 {{ site.data.variables.product.prodname_dotcom }} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
+パス名が `paths-ignore` のパターンとマッチする場合は常に、ワークフローは実行されません。 {% data variables.product.prodname_dotcom %} は、`paths-ignore` に定義されているパターンを、パス名に対して評価します。 以下のパスフィルタを持つワークフローは、リポジトリのルートにある `docs`ディレクトリ外のファイルを少なくとも1つ含む`push`イベントでのみ実行されます。
 
 ```yaml
 on:
@@ -170,13 +170,13 @@ on:
 
 {% note %}
 
-**ノート：** 1,000以上のコミットをプッシュする場合、あるいは{{ site.data.variables.product.prodname_dotcom }}がタイムアウトのためにdiffを生成できない（あまりにdiffが大きい）場合、そのワークフローは常に実行されます。
+**ノート：** 1,000以上のコミットをプッシュする場合、あるいは{% data variables.product.prodname_dotcom %}がタイムアウトのためにdiffを生成できない（あまりにdiffが大きい）場合、そのワークフローは常に実行されます。
 
 {% endnote %}
 
 フィルタは、変更されたファイルを`paths-ignore`あるいは`paths`リストに対して評価することによって、ワークフローを実行すべきか判断します。 ファイルが変更されていない場合、ワークフローは実行されません。
 
-{{ site.data.variables.product.prodname_dotcom }}はプッシュに対してはツードットdiff、プルリクエストに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
+{% data variables.product.prodname_dotcom %}はプッシュに対してはツードットdiff、プルリクエストに対してはスリードットdiffを使って変更されたファイルのリストを生成します。
 - **プルリクエスト：** スリードットdiffは、トピックブランチの最新バージョンとトピックブランチがベースブランチと最後に同期されたコミットとの比較です。
 - **既存のブランチへのプッシュ：** ツードットdiffは、headとベースのSHAを互いに直接比較します。
 - **新しいブランチへのプッシュ：** 最も深いプッシュの先祖の親に対するツードットdiffです。
@@ -185,7 +185,7 @@ on:
 
 ### **`on.schedule`**
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 cron構文に関する詳しい情報については、「[ワークフローをトリガーするイベント](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)」を参照してください。
 
@@ -193,7 +193,7 @@ cron構文に関する詳しい情報については、「[ワークフローを
 
 ワークフロー中のすべてのジョブやステップから利用できる環境変数の`map`です。 1つのジョブあるいはステップからだけ利用できる環境変数を設定することもできます。 詳しい情報については「[`jobs.<job_id>.env`](#jobsjob_idenv)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)を参照してください。
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### サンプル
 
@@ -206,13 +206,13 @@ env:
 
 デフォルト設定の`map`で、ワークフロー中のすべてのジョブに適用されます。 1つのジョブだけで利用できるデフォルト設定を設定することもできます。 詳しい情報については[`jobs.<job_id>.defaults`](#jobsjob_iddefaults)を参照してください。
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`defaults.run`**
 
 ワークフロー中のすべての[`run`](#jobsjob_idstepsrun)ステップに対するデフォルトの`shell`及び`working-directory`オプションを提供することができます。 1つのジョブだけで利用できる`run`のデフォルト設定を設定することもできます。 詳しい情報については[`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun)を参照してください。 このキーワード中では、コンテキストや式を使うことはできません。
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### サンプル
 
@@ -231,7 +231,7 @@ defaults:
 
 ワークフローの利用限度内であれば、実行するジョブ数に限度はありません。 詳細については「[利用限度](#usage-limits)」を参照してください。
 
-ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{{ site.data.variables.product.prodname_dotcom }} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/v3/actions/workflow-jobs)」を参照してください。
+ワークフローの実行中で動作しているジョブのユニークな識別子が必要な場合は、{% data variables.product.prodname_dotcom %} APIが利用できます。 詳しい情報については、「[ワークフロージョブ](/v3/actions/workflow-jobs)」を参照してください。
 
 ### **`jobs.<job_id>`**
 
@@ -249,7 +249,7 @@ jobs:
 
 ### **`jobs.<job_id>.name`**
 
-{{ site.data.variables.product.prodname_dotcom }}に表示されるジョブの名前。
+{% data variables.product.prodname_dotcom %}に表示されるジョブの名前。
 
 ### **`jobs.<job_id>.needs`**
 
@@ -276,19 +276,19 @@ jobs:
 
 ### **`jobs.<job_id>.runs-on`**
 
-**必須** ジョブを実行するマシンの種類。 マシンは{{ site.data.variables.product.prodname_dotcom }}ホストランナーあるいはセルフホストランナーのいずれかです。
+**必須** ジョブを実行するマシンの種類。 マシンは{% data variables.product.prodname_dotcom %}ホストランナーあるいはセルフホストランナーのいずれかです。
 
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-#### {{ site.data.variables.product.prodname_dotcom }}ホストランナー
+#### {% data variables.product.prodname_dotcom %}ホストランナー
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定された仮想環境の新しいインスタンスで実行されます。
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合、それぞれのジョブは`runs-on`で指定された仮想環境の新しいインスタンスで実行されます。
 
-利用可能な{{ site.data.variables.product.prodname_dotcom }}ホストランナーの種類は以下のとおりです。
+利用可能な{% data variables.product.prodname_dotcom %}ホストランナーの種類は以下のとおりです。
 
-{{ site.data.reusables.github-actions.supported-github-runners }}
+{% data reusables.github-actions.supported-github-runners %}
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
 ##### **サンプル**
 
@@ -296,11 +296,11 @@ jobs:
 ランオン:Ubuntu-最新
 ```
 
-詳しい情報については「[{{ site.data.variables.product.prodname_dotcom }}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+詳しい情報については「[{% data variables.product.prodname_dotcom %}ホストランナーの仮想環境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
 
 #### セルフホストランナー
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
 ##### **サンプル**
 
@@ -314,9 +314,9 @@ runs-on: [self-hosted, linux]
 
 ジョブからの出力の`map`です。 ジョブの出力は、そのジョブに依存しているすべての下流のジョブから利用できます。 ジョブの依存関係の定義に関する詳しい情報については[`jobs.<job_id>.needs`](#jobsjob_idneeds)を参照してください。
 
-ジョブの出力は文字列であり、式を含むジョブの出力は、それぞれのジョブの終了時にランナー上で評価されます。 シークレットを含む出力はランナー上で編集され、{{ site.data.variables.product.prodname_actions }}には送られません。
+ジョブの出力は文字列であり、式を含むジョブの出力は、それぞれのジョブの終了時にランナー上で評価されます。 シークレットを含む出力はランナー上で編集され、{% data variables.product.prodname_actions %}には送られません。
 
-依存するジョブでジョブの出力を使いたい場合には、`needs`コンテキストが利用できます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)」を参照してください。
+依存するジョブでジョブの出力を使いたい場合には、`needs`コンテキストが利用できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)」を参照してください。
 
 #### **サンプル**
 
@@ -346,7 +346,7 @@ jobs:
 
 ジョブ中のすべてのステップから利用できる環境変数の`map`です。 ワークフロー全体あるいは個別のステップのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv)」を参照してください。
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### **サンプル**
 
@@ -361,7 +361,7 @@ jobs:
 
 ジョブ中のすべてのステップに適用されるデフォルト設定の`map`。 ワークフロー全体に対してデフォルト設定を設定することもできます。 詳しい情報については[`defaults`](#defaults)を参照してください。
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`jobs.<job_id>.defaults.run`**
 
@@ -369,7 +369,7 @@ jobs:
 
 ジョブ中のすべての[`run`](#jobsjob_idstepsrun)ステップにデフォルトの`shell`及び`working-directory`を提供できます。 ワークフロー全体について`run`のためのデフォルト設定を設定することもできます。 詳しい情報については[`jobs.defaults.run`](#defaultsrun)を参照してください。 このキーワード中では、コンテキストや式を使うことはできません。
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### サンプル
 
@@ -387,11 +387,11 @@ jobs:
 
 条件文の`if`を使って、条件が満たされなければジョブを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+{% data reusables.github-actions.expression-syntax-if %} 詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 ### **`jobs.<job_id>.steps`**
 
-1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {{ site.data.variables.product.prodname_dotcom }}には、ジョブを設定して完了するステップが組み込まれています。
+1つのジョブには、`steps` (ステップ) と呼ばれる一連のタスクがあります。 ステップでは、コマンドを実行する、設定タスクを実行する、あるいはリポジトリやパブリックリポジトリ、Dockerレジストリで公開されたアクションを実行することができます。 すべてのステップでアクションを実行するとは限りませんが、すべてのアクションはステップとして実行されます。 各ステップは、ランナー環境のそれ自体のプロセスで実行され、ワークスペースとファイルシステムにアクセスします。 ステップはそれ自体のプロセスで実行されるため、環境変数を変更しても、ステップ間では反映されません。 {% data variables.product.prodname_dotcom %}には、ジョブを設定して完了するステップが組み込まれています。
 
 ワークフローの利用限度内であれば、実行するステップ数に限度はありません。 詳細については「[利用限度](#usage-limits)」を参照してください。
 
@@ -421,13 +421,13 @@ jobs:
 
 #### **`jobs.<job_id>.steps.id`**
 
-ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+ステップの一意の識別子。 `id`を使って、コンテキストのステップを参照することができます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 #### **`jobs.<job_id>.steps.if`**
 
 条件文の`if`を使って、条件が満たされなければステップを実行しないようにできます。 条件文を作成するには、サポートされている任意のコンテキストや式が使えます。
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} 詳しい情報については「[{{ site.data.variables.product.prodname_actions }}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+{% data reusables.github-actions.expression-syntax-if %} 詳しい情報については「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 ##### コンテキストの使用例
 
@@ -442,7 +442,7 @@ steps:
 
 ##### ステータスチェック関数の使用例
 
-`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)」を参照してください。
+`my backup step`は、ジョブの前のステップが失敗した場合にのみ実行されます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)」を参照してください。
 
 ```yaml
 steps:
@@ -455,7 +455,7 @@ steps:
 
 #### **`jobs.<job_id>.steps.name`**
 
-{{ site.data.variables.product.prodname_dotcom }}で表示されるステップの名前。
+{% data variables.product.prodname_dotcom %}で表示されるステップの名前。
 
 #### **`jobs.<job_id>.steps.uses`**
 
@@ -488,7 +488,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-パブリック{{ site.data.variables.product.prodname_dotcom }}リポジトリのブランチ、ref、SHAを指定できます。
+パブリック{% data variables.product.prodname_dotcom %}リポジトリのブランチ、ref、SHAを指定できます。
 
 ```yaml
 jobs:
@@ -506,7 +506,7 @@ jobs:
 
 `{owner}/{repo}/{path}@{ref}`
 
-パブリック{{ site.data.variables.product.prodname_dotcom }}リポジトリで特定のブランチ、ref、SHAにあるサブディレクトリ。
+パブリック{% data variables.product.prodname_dotcom %}リポジトリで特定のブランチ、ref、SHAにあるサブディレクトリ。
 
 ```yaml
 jobs:
@@ -599,11 +599,11 @@ jobs:
 | サポートされているプラットフォーム | `shell` パラメータ | 説明                                                                                                                        | 内部で実行されるコマンド                                    |
 | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | すべて               | `bash`        | 非Windowsプラットフォームのデフォルトシェルで、`sh`へのフォールバックがあります。 Windowsでbashシェルを指定すると、Windows用Gitに含まれるbashシェルが使用されます。                      | `bash --noprofile --norc -eo pipefail {0}`      |
-| すべて               | `pwsh`        | PowerShell Coreです。 {{ site.data.variables.product.prodname_dotcom }}はスクリプト名に拡張子`.ps1`を追加します。                              | `pwsh -command "& '{0}'"`                   |
+| すべて               | `pwsh`        | PowerShell Coreです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。                              | `pwsh -command "& '{0}'"`                   |
 | すべて               | `python`      | Pythonのコマンドを実行します。                                                                                                        | `python {0}`                                    |
 | Linux / macOS     | `sh`          | 非Windowsプラットフォームにおいてシェルが提供されておらず、パス上で`bash`が見つからなかった場合のフォールバック動作です。                                                       | `sh -e {0}`                                     |
-| Windows           | `cmd`         | {{ site.data.variables.product.prodname_dotcom }}はスクリプト名に拡張子`.cmd`を追加し、`{0}`を置き換えます。                                      | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows           | `powershell`  | これはWindowsで使われるデフォルトのシェルです。 デスクトップPowerShellです。 {{ site.data.variables.product.prodname_dotcom }}はスクリプト名に拡張子`.ps1`を追加します。 | `powershell -command "& '{0}'"`.            |
+| Windows           | `cmd`         | {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.cmd`を追加し、`{0}`を置き換えます。                                      | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows           | `powershell`  | これはWindowsで使われるデフォルトのシェルです。 デスクトップPowerShellです。 {% data variables.product.prodname_dotcom %}はスクリプト名に拡張子`.ps1`を追加します。 | `powershell -command "& '{0}'"`.            |
 
 ##### bashを使用してスクリプトを実行する例
 
@@ -645,11 +645,11 @@ steps:
 
 ##### カスタムシェル
 
-`command […options] {0} [..more_options]`を使用すると、テンプレート文字列に`shell`値を設定できます。 {{ site.data.variables.product.prodname_dotcom }}は、空白区切りで最初の文字列をコマンドとして解釈し、`{0}`にある一時的なスクリプトのファイル名を挿入します。
+`command […options] {0} [..more_options]`を使用すると、テンプレート文字列に`shell`値を設定できます。 {% data variables.product.prodname_dotcom %}は、空白区切りで最初の文字列をコマンドとして解釈し、`{0}`にある一時的なスクリプトのファイル名を挿入します。
 
 ##### 終了コードとエラーアクションの環境設定
 
-組み込みのshellキーワードについては、{{ site.data.variables.product.prodname_dotcom }}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
+組み込みのshellキーワードについては、{% data variables.product.prodname_dotcom %}がホストする実行環境で以下のデフォルトが提供されます。 シェルスクリプトを実行する際には、以下のガイドラインを使ってください。
 
 - `bash`/`sh`:
   - `set -e o pipefail`を使用するフェイルファースト動作: `bash`のデフォルトで、組み込みの`shell`。 Windows以外のプラットフォームでオプションを指定しない場合のデフォルトでもあります。
@@ -687,7 +687,7 @@ jobs:
 
 #### **`jobs.<job_id>.steps.with.args`**
 
-Dockerコンテナへの入力を定義する`文字列`。 {{ site.data.variables.product.prodname_dotcom }}は、コンテナの起動時にコンテナの`ENTRYPOINT`に`args`を渡します。 このパラメータは、`文字列の配列`をサポートしません。
+Dockerコンテナへの入力を定義する`文字列`。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時にコンテナの`ENTRYPOINT`に`args`を渡します。 このパラメータは、`文字列の配列`をサポートしません。
 
 ##### サンプル
 
@@ -729,9 +729,9 @@ steps:
 
 ランナー環境でステップが使う環境変数を設定します。 ワークフロー全体あるいはジョブのための環境変数を設定することもできます。 詳しい情報については「[`env`](#env)」及び「[`jobs.<job_id>.env`](#jobsjob_idenv)」を参照してください。
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
-パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 詳しい情報については「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」及び「[{{ site.data.variables.product.prodname_actions }}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+パブリックなアクションは、READMEファイル中で期待する環境変数を指定できます。 環境変数に秘密情報を設定しようとしている場合、秘密情報は`secrets`コンテキストを使って設定しなければなりません。 詳しい情報については「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」及び「[{% data variables.product.prodname_actions %}のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 ##### サンプル
 
@@ -756,7 +756,7 @@ steps:
 
 ### **`jobs.<job_id>.timeout-minutes`**
 
-{{ site.data.variables.product.prodname_dotcom }}で自動的にキャンセルされるまでジョブを実行する最長時間 (分)。 デフォルト: 360
+{% data variables.product.prodname_dotcom %}で自動的にキャンセルされるまでジョブを実行する最長時間 (分)。 デフォルト: 360
 
 ### **`jobs.<job_id>.strategy`**
 
@@ -766,9 +766,9 @@ strategy (戦略) によって、ジョブのビルドマトリクスが作成�
 
 様々なジョブの設定のマトリックスを定義できます。 マトリックスによって、単一のジョブの定義内の変数の置き換えを行い、複数のジョブを作成できるようになります。 たとえば、マトリックスを使って複数のサポートされているバージョンのプログラミング言語、オペレーティングシステム、ツールに対するジョブを作成できます。 マトリックスは、ジョブの設定を再利用し、設定した各マトリクスに対してジョブを作成します。
 
-{{ site.data.reusables.github-actions.matrix-limits }}
+{% data reusables.github-actions.matrix-limits %}
 
-`matrix`内で定義した各オプションは、キーと値を持ちます。 定義したキーは`matrix`コンテキスト中のプロパティとなり、ワークフローファイルの他のエリア内のプロパティを参照できます。 たとえば、オペレーティングシステムの配列を含む`os`というキーを定義したなら、`matrix.os`プロパティを`runs-on`キーワードの値として使い、それぞれのオペレーティングシステムに対するジョブを作成できます。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
+`matrix`内で定義した各オプションは、キーと値を持ちます。 定義したキーは`matrix`コンテキスト中のプロパティとなり、ワークフローファイルの他のエリア内のプロパティを参照できます。 たとえば、オペレーティングシステムの配列を含む`os`というキーを定義したなら、`matrix.os`プロパティを`runs-on`キーワードの値として使い、それぞれのオペレーティングシステムに対するジョブを作成できます。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions)」を参照してください。
 
 `matrix`を定義する順序は意味を持ちます。 最初に定義したオプションは、ワークフロー中で最初に実行されるジョブになります。
 
@@ -792,7 +792,7 @@ steps:
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーを使う場合にNode.jsのバージョンを設定する方法としては、`setup-node`アクションをおすすめします。 詳しい情報については[`setup-node`](https://github.com/actions/setup-node)アクションを参照してください。
 
 ##### 複数のオペレーティングシステムで実行する例
 
@@ -801,7 +801,7 @@ steps:
 - 配列`os`で指定された2つのオペレーティングシステム
 - 配列`node`で指定された3つのバージョンのNode.js
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -817,7 +817,7 @@ steps:
 ```
 {% endraw %}
 
-{{ site.data.variables.product.prodname_dotcom }}ホストランナーでサポートされている設定オプションについては、「[{{ site.data.variables.product.prodname_dotcom }}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
+{% data variables.product.prodname_dotcom %}ホストランナーでサポートされている設定オプションについては、「[{% data variables.product.prodname_dotcom %}の仮想環境](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)」を参照してください。
 
 ##### 組み合わせに追加の値が含まれる例
 
@@ -884,11 +884,11 @@ strategy:
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
-`true`に設定すると、いずれかの`matrix`ジョブが失敗した場合に{{ site.data.variables.product.prodname_dotcom }}は進行中のジョブをすべてキャンセルします。 デフォルト: `true`
+`true`に設定すると、いずれかの`matrix`ジョブが失敗した場合に{% data variables.product.prodname_dotcom %}は進行中のジョブをすべてキャンセルします。 デフォルト: `true`
 
 ### **`jobs.<job_id>.strategy.max-parallel`**
 
-`matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 デフォルトでは、{{ site.data.variables.product.prodname_dotcom }}は{{ site.data.variables.product.prodname_dotcom }}がホストしている仮想マシン上で利用できるrunnerに応じてできるかぎりの数のジョブを並列に実行します。
+`matrix`ジョブ戦略を使用するとき、同時に実行できるジョブの最大数。 デフォルトでは、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_dotcom %}がホストしている仮想マシン上で利用できるrunnerに応じてできるかぎりの数のジョブを並列に実行します。
 
 ```yaml
 strategy:
@@ -987,7 +987,7 @@ volumes:
 
 ### **`jobs.<job_id>.services`**
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 ワークフロー中のジョブのためのサービスコンテナをホストするために使われます。 サービスコンテナは、データベースやRedisのようなキャッシュサービスの作成に役立ちます。 ランナーは自動的にDockerネットワークを作成し、サービスコンテナのライフサイクルを管理します。
 
@@ -999,7 +999,7 @@ volumes:
 
 #### localhostを使用する例
 
-この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {{ site.data.variables.product.prodname_dotcom }}は、割り当てられたコンテナポートを{% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}コンテキストに設定します。 以下の例では、サービスコンテナのポートへは{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 及び{% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} コンテキストでアクセスできます。
+この例では、nginxとredisという2つのサービスを作成します。 Dockerホストのポートを指定して、コンテナのポートを指定しなかった場合、コンテナのポートは空いているポートにランダムに割り当てられます。 {% data variables.product.prodname_dotcom %}は、割り当てられたコンテナポートを{% raw %}`${{job.services.<service_name>.ports}}`{% endraw %}コンテキストに設定します。 以下の例では、サービスコンテナのポートへは{% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} 及び{% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} コンテキストでアクセスできます。
 
 ```yaml
 services:

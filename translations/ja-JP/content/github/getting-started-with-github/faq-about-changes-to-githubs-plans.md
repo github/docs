@@ -45,7 +45,7 @@ GitHub アカウントをお持ちの場合は、[Team プランページ](https
 
 ### 各プランの機能を比較する方法
 
-各製品の料金と機能の全リストは <{{ site.data.variables.product.pricing_url }}> に掲載されています。
+各製品の料金と機能の全リストは <{% data variables.product.pricing_url %}> に掲載されています。
 
 ### GitHub Free で無制限のコラボレータが許可される期間
 
@@ -57,7 +57,7 @@ GitHub アカウントをお持ちの場合は、[Team プランページ](https
 
 ### 個人の開発者向けの GitHub Free と Organization 向けの GitHub Free の違い
 
-GitHub Free の各製品の違いに関する詳細は、「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/github-s-products)」を参照してください。
+GitHub Free の各製品の違いに関する詳細は、「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。
 
 ### GitHub Team プランで割り当てられた以上の分数が必要な場合、どうすればアクションの分数を増やすことができますか？
 
@@ -65,7 +65,7 @@ GitHub Free の各製品の違いに関する詳細は、「[{{ site.data.variab
 
 ### シート制限の変更の影響はどのようなものですか？
 
-{{ site.data.variables.product.prodname_team }}の最小シートの要求がなくなったので、Organizationで5シート未満しか使っていないなら、有料シートを削除して支払いを引き下げられます。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} プランのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)」を参照してください。
+{% data variables.product.prodname_team %}の最小シートの要求がなくなったので、Organizationで5シート未満しか使っていないなら、有料シートを削除して支払いを引き下げられます。 詳細は「[{% data variables.product.prodname_dotcom %} プランのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)」を参照してください。
 
 ### GitHub Team for Open Source プランの Team の変更
 

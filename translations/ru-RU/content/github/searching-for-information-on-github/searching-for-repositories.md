@@ -1,6 +1,6 @@
 ---
 title: Searching for repositories
-intro: 'You can search for repositories on {{ site.data.variables.product.product_name }} and narrow the results using these repository search qualifiers in any combination.'
+intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-You can search for repositories globally across all of {{ site.data.variables.product.product_name }}, or search for repositories within a particular organization. For more information, see "[About searching on {{ site.data.variables.product.prodname_dotcom }}](/articles/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.product_name %}, or search for repositories within a particular organization. For more information, see "[About searching on {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)."
 
 To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[Searching in forks](/articles/searching-in-forks)."
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Search by repository name, description, or contents of the README file
 
@@ -30,7 +30,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in its README file, using the `in:readme` qualifier.
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {{ site.data.variables.product.prodname_dotcom }}](/articles/finding-files-on-github)" and "[Searching code](/articles/searching-code)."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[Finding files on {% data variables.product.prodname_dotcom %}](/articles/finding-files-on-github)" and "[Searching code](/articles/searching-code)."
 
 | Qualifier   | Пример                                                                                                                                                     |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -90,9 +90,9 @@ You can search repositories based on the number of [stars](/articles/saving-repo
 
 You can filter repositories based on time of creation or time of last update. For repository creation, you can use the `created` qualifier; to find out when a repository was last updated, you'll want to use the `pushed` qualifier. The `pushed` qualifier will return a list of repositories, sorted by the most recent commit made on any branch in the repository.
 
-Both take a date as a parameter. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Both take a date as a parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Пример                                                                                                                                                                                                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,7 +146,7 @@ You can filter your search based on whether a repository is public or private.
 
 ### Search based on whether a repository is a mirror
 
-You can search repositories based on whether or not they're a mirror and are hosted elsewhere. For more information, see "[Finding ways to contribute to open source on {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+You can search repositories based on whether or not they're a mirror and are hosted elsewhere. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 | Qualifier      | Пример                                                                                                                                                                  |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

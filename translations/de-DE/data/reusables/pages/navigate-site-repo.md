@@ -1,1 +1,1 @@
-1. Navigiere in {{ site.data.variables.product.product_name }} zum Repository Deiner Website.
+1. Navigiere in {% data variables.product.product_name %} zum Repository Deiner Website.

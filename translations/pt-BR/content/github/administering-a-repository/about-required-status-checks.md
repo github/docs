@@ -1,7 +1,7 @@
 ---
 title: Sobre verificações de status obrigatórias
 intro: As verificações de status obrigatórias garantem que todos os testes de CI sejam aprovados antes que os colaboradores possam fazer alterações em um branch protegido.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
@@ -19,7 +19,7 @@ Depois de habilitar as verificações de status obrigatórias, todas elas dever�
 
 {% tip %}
 
-**Observação:** Qualquer pessoa ou integração com permissões de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório. O {{ site.data.variables.product.product_name }} não analisa se o autor de uma verificação está autorizado a criar uma verificação com um determinado nome ou modificar um status existente. Antes de realizar o merge de uma pull request, você deve verificar se o autor de cada status, listado na caixa de merge, é esperado.
+**Observação:** Qualquer pessoa ou integração com permissões de gravação em um repositório pode configurar o estado de qualquer verificação de status no repositório. O {% data variables.product.product_name %} não analisa se o autor de uma verificação está autorizado a criar uma verificação com um determinado nome ou modificar um status existente. Antes de realizar o merge de uma pull request, você deve verificar se o autor de cada status, listado na caixa de merge, é esperado.
 
 {% endtip %}
 

@@ -29,7 +29,7 @@ versions:
 
 {% tip %}
 
-**ヒント:** フィルタリングされたカードをドラッグアンドドロップしたり、キーボードのショートカットを使用して列間で移動させたりできます。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**ヒント:** フィルタリングされたカードをドラッグアンドドロップしたり、キーボードのショートカットを使用して列間で移動させたりできます。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

@@ -11,19 +11,19 @@ versions:
 
 ### Sobre merges de pull request
 
-Em uma pull request, você propõe que as alterações feitas em um branch head sejam mescladas em um branch base. {{ site.data.reusables.pull_requests.about-protected-branches }} No entanto, pode haver restrições sobre quando você pode fazer merge de um pull request em um branch específico. Por exemplo, você só pode fazer merge de um pull request no branch-padrão se as verificações de status necessárias forem aprovadas. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
+Em uma pull request, você propõe que as alterações feitas em um branch head sejam mescladas em um branch base. {% data reusables.pull_requests.about-protected-branches %} No entanto, pode haver restrições sobre quando você pode fazer merge de um pull request em um branch específico. Por exemplo, você só pode fazer merge de um pull request no branch-padrão se as verificações de status necessárias forem aprovadas. Para obter mais informações, consulte "[Sobre branches protegidos](/github/administering-a-repository/about-protected-branches)".
 
 Se a pull request apresenta conflitos de merges ou se você deseja testar as alterações antes de fazer merge, é possível [fazer checkout da pull request localmente](/articles/checking-out-pull-requests-locally) e fazer merge usando a linha de comando.
 
 Você não pode realizar o merge de um rascunho de um pull request. Para obter mais informações sobre pull requests em rascunho, consulte "[Sobre pull requests](/articles/about-pull-requests#draft-pull-requests)".
 
-{{ site.data.reusables.pull_requests.automatically-delete-branches }}
+{% data reusables.pull_requests.automatically-delete-branches %}
 
 Se decidir que não quer que as alterações em um branch de tópico sofram merge no branch upstream, é possível [fechar a pull request](/articles/closing-a-pull-request) sem fazer merge.
 
-### Fazer merge de uma pull request no {{ site.data.variables.product.prodname_dotcom }}
+### Fazer merge de uma pull request no {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Na lista "Pull Requests", clique na pull request da qual deseja fazer merge.
 3. Dependendo das opções de merge habilitadas em seu repositório, é possível:
     - [Fazer merge de todos os commits no branch de base](/articles/about-pull-request-merges/) ao clicar em **Merge pull request** (Fazer merge de pull request). Se a opção **Merge pull request** (Fazer merge da pull request) não está visível, clique no menu suspenso merge e selecione **Create a merge commit** (Criar um commit de merge). ![botão-merge-pull-request](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
@@ -37,10 +37,10 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
     {% endnote %}
 4. Se solicitado, digite uma mensagem do commit ou aceite a mensagem padrão.
 
-   {{ site.data.reusables.pull_requests.default-commit-message-squash-merge }}
+   {% data reusables.pull_requests.default-commit-message-squash-merge %}
    ![Campo Commit message (Mensagem do commit)](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.choose-commit-email %}
 
 6. Clique em **Confirm merge** (Confirmar merge), **Confirm squash and merge** (Confirmar combinação por squash e merge) ou **Confirm rebase and merge** (Confirmar rebase e merge).
 6. Opcionalmente, [exclua o branch](/articles/deleting-unused-branches). Assim, a lista de branches do repositório ficará limpa.
@@ -50,7 +50,7 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **Observação**: {{ site.data.reusables.pull_requests.retargeted-on-branch-deletion }} Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".
+   **Observação**: {% data reusables.pull_requests.retargeted-on-branch-deletion %} Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)".
 
    {% endnote %}
    {% endif %}
@@ -58,13 +58,13 @@ Se decidir que não quer que as alterações em um branch de tópico sofram merg
 As pull requests sofrem merge com [a opção`--no-ff`](https://git-scm.com/docs/git-merge#_fast_forward_merge), exceto pelas
 pull requests com commits com combinação por squash ou com rebase/<2>, que passam por merge com a opção fast-forward.</p> 
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 
 
 ### Leia mais
 
 - "[Reverter uma pull request](/articles/reverting-a-pull-request)"
-- "[Sincronizar seu branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" usando o {{ site.data.variables.product.prodname_desktop }}
+- "[Sincronizar seu branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" usando o {% data variables.product.prodname_desktop %}
 - "[Sobre merges de pull request](/articles/about-pull-request-merges)"
 - "[Solucionar conflitos de merge](/articles/addressing-merge-conflicts)"

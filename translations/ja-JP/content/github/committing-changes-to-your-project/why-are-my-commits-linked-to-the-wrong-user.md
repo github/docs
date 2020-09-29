@@ -3,7 +3,7 @@ title: コミットが間違ったユーザにリンクされているのはな�
 redirect_from:
   - /articles/how-do-i-get-my-commits-to-link-to-my-github-account/
   - /articles/why-are-my-commits-linked-to-the-wrong-user
-intro: '{{ site.data.variables.product.product_name }} は、コミットヘッダのメールアドレスを使用して、コミットを GitHub ユーザにリンクします。 コミットが別のユーザにリンクされている場合、あるいはどのユーザにもリンクされていない場合は、ローカルの Git 設定を変更するか、アカウントのメール設定にメールアドレスを追加するか、あるいはその両方を行う必要があります。'
+intro: '{% data variables.product.product_name %} は、コミットヘッダのメールアドレスを使用して、コミットを GitHub ユーザにリンクします。 コミットが別のユーザにリンクされている場合、あるいはどのユーザにもリンクされていない場合は、ローカルの Git 設定を変更するか、アカウントのメール設定にメールアドレスを追加するか、あるいはその両方を行う必要があります。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -18,7 +18,7 @@ versions:
 
 ### コミットは別のユーザにリンクされています
 
-コミットが別のユーザにリンクされている場合は、あなたのローカル Git 設定のメールアドレスを、そのユーザが自分の {{ site.data.variables.product.product_name }} アカウントに追加したことを意味します。 この場合、ローカル Git 設定でメールアドレスを変更し、アカウントに将来のコミットをリンクするために、新しいメールアドレスを {{ site.data.variables.product.product_name }} アカウントに追加すれば解決します。
+コミットが別のユーザにリンクされている場合は、あなたのローカル Git 設定のメールアドレスを、そのユーザが自分の {% data variables.product.product_name %} アカウントに追加したことを意味します。 この場合、ローカル Git 設定でメールアドレスを変更し、アカウントに将来のコミットをリンクするために、新しいメールアドレスを {% data variables.product.product_name %} アカウントに追加すれば解決します。
 
 1. ローカル Git 設定でメールアドレスを変更するには、「<[Git にコミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」の手順に従ってください。 複数のマシンで作業している場合は、各マシンでこの設定を変更する必要があります。
 2. 「[GitHub アカウントにメールアドレスを追加する](/articles/adding-an-email-address-to-your-github-account)」の手順に従って、ステップ 2 のメールアドレスをアカウント設定に追加します。

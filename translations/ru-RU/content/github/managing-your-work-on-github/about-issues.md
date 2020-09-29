@@ -1,6 +1,6 @@
 ---
 title: About issues
-intro: 'Use issues to track ideas, enhancements, tasks, or bugs for work on {{ site.data.variables.product.product_name }}.'
+intro: 'Use issues to track ideas, enhancements, tasks, or bugs for work on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-issues/
   - /articles/about-issues
@@ -11,7 +11,7 @@ versions:
 
 You can collect user feedback, report software bugs, and organize tasks you'd like to accomplish with issues in a repository. Issues can act as more than just a place to report software bugs.
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 To stay updated on the most recent comments in an issue, you can watch an issue to receive notifications about the latest comments. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
@@ -26,6 +26,6 @@ With issues, you can:
 - Transfer open issues to other repositories. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."{% endif %}
 - Pin important issues to make them easier to find, preventing duplicate issues and reducing noise. For more information, see "[Pinning an issue to your repository](/articles/pinning-an-issue-to-your-repository)."
 - Track duplicate issues using saved replies. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
-- Report comments that violate {{ site.data.variables.product.prodname_dotcom }}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}
+- Report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}
 
 Issues can also be [assigned to other users](/articles/assigning-issues-and-pull-requests-to-other-github-users), [tagged with labels](/articles/applying-labels-to-issues-and-pull-requests) for quicker searching, and [grouped together with milestones](/articles/creating-and-editing-milestones-for-issues-and-pull-requests).

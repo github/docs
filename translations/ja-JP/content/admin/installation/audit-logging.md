@@ -1,6 +1,6 @@
 ---
 title: 監査ログ
-intro: '{{ site.data.variables.product.prodname_enterprise }} は、監査済みのユーザ、Organization、リポジトリ、およびシステムイベントのログを保管します。 ログはデバッグや内部および外部のコンプライアンスに役立ちます。'
+intro: '{% data variables.product.prodname_enterprise %} は、監査済みのユーザ、Organization、リポジトリ、およびシステムイベントのログを保管します。 ログはデバッグや内部および外部のコンプライアンスに役立ちます。'
 redirect_from:
   - /enterprise/admin/articles/audit-logging/
   - /enterprise/admin/installation/audit-logging
@@ -18,7 +18,7 @@ Git プッシュ操作はすべてログに記録されます。 詳細は「[�
 
 すべてのプッシュとプルを含む監査されたすべてのシステムイベントは、`/var/log/github/audit.log` に記録されます。 ログは 24 時間ごとに自動的に交換され、7 日間保持されます。
 
-Support Bundle にはシステムログが含まれています。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} Support にデータを提供する](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
+Support Bundle にはシステムログが含まれています。 詳細は「[{% data variables.product.prodname_dotcom %} Support にデータを提供する](/enterprise/{{ currentVersion }}/admin/guides/enterprise-support/providing-data-to-github-support)」を参照してください。
 
 ### Support Bundle
 

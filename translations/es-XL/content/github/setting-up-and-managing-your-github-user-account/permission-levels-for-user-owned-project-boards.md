@@ -14,7 +14,7 @@ Solamente hay un único propietario de un tablero de proyecto propiedad de un us
 
 Hay tres niveles de permisos para los colaboradores de un tablero de proyecto:
 
-{{ site.data.reusables.project-management.project-board-permissions }}
+{% data reusables.project-management.project-board-permissions %}
 
 ### Permisos de propietario y de administrador para un tablero de proyecto propiedad del usuario
 

@@ -1,6 +1,6 @@
 ---
 title: サイトアドミンのダッシュボード
-intro: 'サイトアドミンのダッシュボードには、{{ site.data.variables.product.product_location_enterprise }} インスタンスを管理するのに役立つ多数のツールが備わっています。'
+intro: 'サイトアドミンのダッシュボードには、{% data variables.product.product_location_enterprise %} インスタンスを管理するのに役立つ多数のツールが備わっています。'
 redirect_from:
   - /enterprise/admin/articles/site-admin-dashboard/
   - /enterprise/admin/installation/site-admin-dashboard
@@ -12,11 +12,11 @@ versions:
 
 ### ライセンスの情報と検索
 
-現在の {{ site.data.variables.product.prodname_enterprise }} のライセンスを確認する、ユーザとリポジトリを検索する、そして [Audit log](#audit-log) を照会するには、サイトアドミンのダッシュボードのこのセクションを参照してください。
+現在の {% data variables.product.prodname_enterprise %} のライセンスを確認する、ユーザとリポジトリを検索する、そして [Audit log](#audit-log) を照会するには、サイトアドミンのダッシュボードのこのセクションを参照してください。
 
-### {{ site.data.variables.enterprise.management_console }}
+### {% data variables.enterprise.management_console %}
 
-ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {{ site.data.variables.enterprise.management_console }}を起動することができます。
+ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {% data variables.enterprise.management_console %}を起動することができます。
 
 ### Explorer
 
@@ -24,7 +24,7 @@ versions:
 
 ### Audit log
 
-{{ site.data.variables.product.prodname_enterprise }}は、クエリで確認できる、監査されたアクションのログを保持しています。
+{% data variables.product.prodname_enterprise %}は、クエリで確認できる、監査されたアクションのログを保持しています。
 
 デフォルトでは、Audit log は、監査されたアクション全てを新しい順で表示します。 「[Audit log を検索する](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)」で説明されているように、[**Query**] テキストボックスにキーと値のペアを入力して [**Search**] をクリックすることで、このリストをフィルタリングできます。
 
@@ -32,7 +32,7 @@ versions:
 
 ### 報告
 
-{{ site.data.variables.product.product_location_enterprise }}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](http://developer.github.com/v3/) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
+{% data variables.product.product_location_enterprise %}にある、ユーザやOrganization、リポジトリについての情報が必要な場合、一般的には、[GitHub API](http://developer.github.com/v3/) を使って、JSON のデータをフェッチします。 残念ながら、API は、必要なデータを提供しない可能性があり、使用するのには専門知識が必要です。 サイトアドミンのダッシュボードには代替手段として [**Reports**] セクションがあり、ユーザー、Organization、およびリポジトリに必要と思われるほぼすべての情報を掲載した CSV レポートを簡単にダウンロードできます。
 
 具体的には、次の情報を含む CSV 報告をダウンロードできます。
 
@@ -125,7 +125,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 - 新規インデックス修理ジョブを開始する
 - インデックス修理状態を全てリセットする
 
-{{ site.data.variables.product.prodname_enterprise }}は、修理ジョブを使って、検索インデックスの状態をデータベースで保存されているデータ（Issueやプルリクエスト、リポジトリ、ユーザ）と Git リポジトリに保存されているデータ（ソースコード）を照合することができます。 これは次の場合に使用されます。
+{% data variables.product.prodname_enterprise %}は、修理ジョブを使って、検索インデックスの状態をデータベースで保存されているデータ（Issueやプルリクエスト、リポジトリ、ユーザ）と Git リポジトリに保存されているデータ（ソースコード）を照合することができます。 これは次の場合に使用されます。
 
 - 新規検索インデックスが作成される
 - 欠損データを埋め戻ししなければいけない場合
@@ -135,7 +135,7 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 さらに、修理ジョブは、並列化のために"修理オフセット"を使っています。 これは照合されているレコードのデータベーステーブルへのオフセットです。 このオフセットによって、複数の背景ジョブの作業を同期化できます。
 
-プログレスバーは、全ての背景ワーカープロセスによる、現在の修理ステータスを表示します。 それは、データベースの中の最高レコード ID と修理オフセットでのパーセント差です。 修復ジョブが完了した後にプログレスバーに表示される値については心配しないでください。それは修復オフセットとデータベース内の最大レコード ID の差を示すものであるため、たとえリポジトリが実際にインデックス付けされていても、{{ site.data.variables.product.product_location_enterprise }} にリポジトリが追加されるにつれて値は減少します。
+プログレスバーは、全ての背景ワーカープロセスによる、現在の修理ステータスを表示します。 それは、データベースの中の最高レコード ID と修理オフセットでのパーセント差です。 修復ジョブが完了した後にプログレスバーに表示される値については心配しないでください。それは修復オフセットとデータベース内の最大レコード ID の差を示すものであるため、たとえリポジトリが実際にインデックス付けされていても、{% data variables.product.product_location_enterprise %} にリポジトリが追加されるにつれて値は減少します。
 
 いつでも新規コード検索インデックスの修理ジョブを開始できます。 1つの CPU を使って、検索インデックスをデータベース及びGitのリポジトリデータと照合します。 I/O パフォーマンスに与える影響を最小限にするため、および、オペレーションがタイムアウトする可能性を減少するために混雑していない時間帯に修理ジョブを実行してみてください。 `top` のようなユーティリティで、システム負荷と CPU 使用率の平均を監視しましょう。大差がない場合は、混雑している時間帯にもインデックスの修理ジョブを実行しても安全なはずです。
 
@@ -149,30 +149,30 @@ curl -L -u <em>username</em>:<em>token</em> http(s)://<em>hostname</em>/stafftoo
 
 ### リポジトリ
 
-これは {{ site.data.variables.product.product_location_enterprise }} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
+これは {% data variables.product.product_location_enterprise %} 上のリポジトリのリストです。 リポジトリ名をクリックしてリポジトリを管理するための機能にアクセスできます。
 
 - [リポジトリへのフォースプッシュをブロックする](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)
-- [{{ site.data.variables.large_files.product_name_long }} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
+- [{% data variables.large_files.product_name_long %} を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage/#configuring-git-large-file-storage-for-an-individual-repository)
 - [リポジトリのアーカイブへの保管と削除](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)
 
 ### 全ユーザ
 
-ここでは、{{ site.data.variables.product.product_location_enterprise }} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location_enterprise %} 上のすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 ### サイトアドミン
 
-ここでは、{{ site.data.variables.product.product_location_enterprise }} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location_enterprise %} 上のすべての管理者を確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 ### 休眠ユーザ
 
-ここでは、{{ site.data.variables.product.product_location_enterprise }} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
+ここでは、{% data variables.product.product_location_enterprise %} 上のすべての非アクティブなユーザーを確認して、[一時停止](/enterprise/{{ currentVersion }}/admin/guides/user-management/suspending-and-unsuspending-users)することができます。 ユーザアカウントは、次の場合において、非アクティブ（休眠）とみなされます。
 
-- {{ site.data.variables.product.product_location_enterprise }} 用に設定されている休眠しきい値よりも長く存在している。
+- {% data variables.product.product_location_enterprise %} 用に設定されている休眠しきい値よりも長く存在している。
 - その期間内にどのアクティビティも生成していない。
 - サイト管理人ではない
 
-{{ site.data.reusables.enterprise_site_admin_settings.dormancy-threshold }} 詳細は「[休眠ユーザを管理する](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)」を参照してください。
+{% data reusables.enterprise_site_admin_settings.dormancy-threshold %} 詳細は「[休眠ユーザを管理する](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-dormant-users/#configuring-the-dormancy-threshold)」を参照してください。
 
 ### 停止されたユーザ
 
-ここでは、{{ site.data.variables.product.product_location_enterprise }} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{% data variables.product.product_location_enterprise %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。

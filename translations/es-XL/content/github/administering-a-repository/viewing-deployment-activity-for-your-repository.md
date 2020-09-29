@@ -14,13 +14,13 @@ versions:
 
 {% endnote %}
 
-Las personas con acceso de lectura a un repositorio pueden ver un resumen de todas las implementaciones actuales y un registro de la actividad de implementación pasada, si el flujo de trabajo de implementación del repositorio está integrado con {{ site.data.variables.product.product_name }} a través de las implementaciones API o una app de [{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace/category/deployment). Para obtener más información, consulta la sección "[Despliegues](/v3/repos/deployments/)".
+Las personas con acceso de lectura a un repositorio pueden ver un resumen de todas las implementaciones actuales y un registro de la actividad de implementación pasada, si el flujo de trabajo de implementación del repositorio está integrado con {% data variables.product.product_name %} a través de las implementaciones API o una app de [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment). Para obtener más información, consulta la sección "[Despliegues](/v3/repos/deployments/)".
 
 También puedes ver información de implementación en la pestaña "Conversation" (Conversación) de una solicitud de extracción.
 
 ### Ver el tablero de implementaciones
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Arriba de la lista de archivos, haz clic en **Environments (Entornos)**. ![Entornos por encima de la página del repositorio](/assets/images/help/repository/environments.png)
 
 ### Leer más

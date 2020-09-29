@@ -20,13 +20,13 @@ versions:
 
 {% note %}
 
-**注：**您可以添加注释到项目板以用作任务提醒，引用 {{ site.data.variables.product.product_name }} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 更多信息请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
+**注：**您可以添加注释到项目板以用作任务提醒，引用 {% data variables.product.product_name %} 上任何仓库中的议题和拉取请求，或者添加与项目板相关的信息。 更多信息请参阅“[添加注释到项目板](/articles/adding-notes-to-a-project-board)”。
 
 {% endnote %}
 
-{{ site.data.reusables.project-management.edit-in-project }}
+{% data reusables.project-management.edit-in-project %}
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }} 在搜索要添加到项目板的议题和拉取请求时，搜索会自动将范围限于您链接的仓库。 您可以删除这些限定符以搜索所有组织仓库。 更多信息请参阅“[链接仓库到项目板](/articles/linking-a-repository-to-a-project-board)”。
+{% data reusables.project-management.link-repos-to-project-board %} 在搜索要添加到项目板的议题和拉取请求时，搜索会自动将范围限于您链接的仓库。 您可以删除这些限定符以搜索所有组织仓库。 更多信息请参阅“[链接仓库到项目板](/articles/linking-a-repository-to-a-project-board)”。
 
 ### 添加议题和拉取请求到项目板
 
@@ -41,11 +41,11 @@ versions:
     - 如果您在使用特定功能，可以将标签贴到该功能的每个相关议题或拉取请求，然后通过搜索标签名称轻松地将卡片添加到项目板。 更多信息请参阅“[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests)”。
 
   {% endtip %}
-4. 从过滤的议题和拉取请求列表，将要添加到项目板的卡片拖放到正确的列中。 也可以使用键盘快捷键移动卡片。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+4. 从过滤的议题和拉取请求列表，将要添加到项目板的卡片拖放到正确的列中。 也可以使用键盘快捷键移动卡片。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **提示：**可以通过拖放或键盘快捷键对卡片重新排序以及在列之间移动它们。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+    **提示：**可以通过拖放或键盘快捷键对卡片重新排序以及在列之间移动它们。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
@@ -61,7 +61,7 @@ versions:
 {% else %}
 5. 在议题或拉取请求右侧，单击 **PROJECT-BOARD-NAME（等待分类）**。 ![链接到项目板](/assets/images/help/projects/sidebar-project-board-link.png)
 6. 在项目板中，单击 **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)（添加卡 [1 新]）**。 ![添加卡按钮](/assets/images/help/projects/add-cards-pending-button.png)
-7. 将议题或拉取请求的卡片从 **Triage（分类）**部分拖到项目板中所需的列。 也可以使用键盘快捷键移动卡片。 {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+7. 将议题或拉取请求的卡片从 **Triage（分类）**部分拖到项目板中所需的列。 也可以使用键盘快捷键移动卡片。 {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 {% endif %}
 
 ### 延伸阅读

@@ -1,6 +1,6 @@
 ---
 title: Azure で GitHub Enterprise Server をインストールする
-intro: 'Azure に {{ site.data.variables.product.prodname_ghe_server }} をインストールするには、DS シリーズのインスタンスにデプロイし、Premium-LRS ストレージを使用する必要があります。'
+intro: 'Azure に {% data variables.product.prodname_ghe_server %} をインストールするには、DS シリーズのインスタンスにデプロイし、Premium-LRS ストレージを使用する必要があります。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-azure/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-azure
@@ -8,27 +8,27 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.prodname_ghe_server }} をグローバル Azure または Azure Government にデプロイできます。
+{% data variables.product.prodname_ghe_server %} をグローバル Azure または Azure Government にデプロイできます。
 
 ### 必要な環境
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - 新しいコンピューターをプロビジョニングできる Azure アカウントを所有していなければなりません。 詳しい情報については [Microsoft Azure のウェブサイト](https://azure.microsoft.com)を参照してください。
 - 仮想マシン（VM）を起動するのに必要なアクションのほとんどは、Azureポータルを使っても行えます。 とはいえ、初期セットアップ用にはAzureコマンドラインインターフェース（CLI）をインストールすることをお勧めします。 以下の例では、Azure CLI 2.0が使われています。 詳しい情報についてはAzureのガイドの"[Azure CLI 2.0のインストール](https://docs.microsoft.com/ja-jp/cli/azure/install-azure-cli?view=azure-cli-latest)"を参照してください。
 
 ### ハードウェアについて
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### 仮想マシンタイプの決定
 
-{{ site.data.variables.product.product_location_enterprise }}をAzure上で起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
+{% data variables.product.product_location_enterprise %}をAzure上で起動する前に、組織の要求に最も適した仮想マシンのタイプを決定しなければなりません。
 
 #### サポートされているVMタイプとリージョン
 
-{{ site.data.variables.product.prodname_ghe_server }} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 詳しい情報については、Azureドキュメンテーション中の"[サポート対象のVM](https://docs.microsoft.com/ja-jp/azure/virtual-machines/windows/premium-storage#supported-vms)"を参照してください。 利用可能なVMに関する一般的な情報については[Azure仮想マシンの概要ページ](https://azure.microsoft.com/ja-jp/pricing/details/virtual-machines/linux/)を参照してください。
+{% data variables.product.prodname_ghe_server %} アプライアンスは、プレミアムストレージのデータディスクを必要としており、プレミアムストレージをサポートするあらゆる Azure VM でサポートされます。 詳しい情報については、Azureドキュメンテーション中の"[サポート対象のVM](https://docs.microsoft.com/ja-jp/azure/virtual-machines/windows/premium-storage#supported-vms)"を参照してください。 利用可能なVMに関する一般的な情報については[Azure仮想マシンの概要ページ](https://azure.microsoft.com/ja-jp/pricing/details/virtual-machines/linux/)を参照してください。
 
-{{ site.data.variables.product.prodname_ghe_server }} は、VM タイプをサポートするあらゆる地域をサポートします。 各VMがサポートされるリージョンに関する詳しい情報については"[リージョン別の利用可能な製品](https://azure.microsoft.com/ja-jp/global-infrastructure/services/)"を参照してください。
+{% data variables.product.prodname_ghe_server %} は、VM タイプをサポートするあらゆる地域をサポートします。 各VMがサポートされるリージョンに関する詳しい情報については"[リージョン別の利用可能な製品](https://azure.microsoft.com/ja-jp/global-infrastructure/services/)"を参照してください。
 
 #### 推奨VMタイプ
 
@@ -41,13 +41,13 @@ versions:
 |      3000 - 8000       | Standard_DS14_v2 |
 |     8000 - 10000+      | Standard_DS15_v2 |
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### {{ site.data.variables.product.prodname_ghe_server }} 仮想マシンを作成する
+### {% data variables.product.prodname_ghe_server %} 仮想マシンを作成する
 
-{{ site.data.reusables.enterprise_installation.create-ghe-instance }}
+{% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. 最新の {{ site.data.variables.product.prodname_ghe_server }} アプライアンスイメージを見つけます。 `vm image list` コマンドに関する詳しい情報については、Microsoftのドキュメンテーション中の"[az vm image list](https://docs.microsoft.com/ja-jp/cli/azure/vm/image?view=azure-cli-latest)"を参照してください。
+1. 最新の {% data variables.product.prodname_ghe_server %} アプライアンスイメージを見つけます。 `vm image list` コマンドに関する詳しい情報については、Microsoftのドキュメンテーション中の"[az vm image list](https://docs.microsoft.com/ja-jp/cli/azure/vm/image?view=azure-cli-latest)"を参照してください。
   ```shell
   $ az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
   ```
@@ -68,7 +68,7 @@ versions:
 
   次の表に、各ポートの使用目的を示します
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
 4. 暗号化されていない新しいデータディスクを作成してVMにアタッチし、ユーザライセンス数に応じてサイズを設定してください。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm disk attach](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach)」を参照してください。
 
@@ -84,7 +84,7 @@ versions:
 
    {% endnote %}
 
-### {{ site.data.variables.product.prodname_ghe_server }} 仮想マシンを設定する
+### {% data variables.product.prodname_ghe_server %} 仮想マシンを設定する
 
 1. VM を設定する前に、VMがReadyRole ステータスになるのを待つ必要があります。 VM のステータスを `vm list` コマンドで確認します。 詳しい情報については、Microsoft ドキュメンテーションの「[az vm list](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az_vm_list)」を参照してください。
   ```shell
@@ -100,11 +100,11 @@ versions:
 
   {% endnote %}
 
-  {{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-  {{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-  {{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }}詳しい情報については、「[{{ site.data.variables.product.prodname_ghe_server }} アプライアンスを設定する](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
-  {{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-  {{ site.data.reusables.enterprise_installation.visit-your-instance }}
+  {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+  {% data reusables.enterprise_installation.upload-a-license-file %}
+  {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}詳しい情報については、「[{% data variables.product.prodname_ghe_server %} アプライアンスを設定する](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)」を参照してください。
+  {% data reusables.enterprise_installation.instance-will-restart-automatically %}
+  {% data reusables.enterprise_installation.visit-your-instance %}
 
 
   ### 参考リンク

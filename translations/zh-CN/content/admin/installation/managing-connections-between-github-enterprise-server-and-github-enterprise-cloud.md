@@ -1,6 +1,6 @@
 ---
 title: 管理 GitHub Enterprise Server 与 GitHub Enterprise Cloud 之间的连接
-intro: '利用 {{ site.data.variables.product.prodname_github_connect }}，您可以在 {{ site.data.variables.product.product_location_enterprise }} 与 {{ site.data.variables.product.prodname_dotcom_the_website }} 上的 {{ site.data.variables.product.prodname_ghe_cloud }} 组织或企业帐户之间共享某些功能和数据。'
+intro: '利用 {% data variables.product.prodname_github_connect %}，您可以在 {% data variables.product.product_location_enterprise %} 与 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_ghe_cloud %} 组织或企业帐户之间共享某些功能和数据。'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/connecting-github-enterprise-to-github-com

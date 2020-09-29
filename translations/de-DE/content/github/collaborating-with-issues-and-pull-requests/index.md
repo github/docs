@@ -1,6 +1,6 @@
 ---
 title: Mithilfe von Issues und Pull Requests zusammenarbeiten
-intro: 'Mit dem {{ site.data.variables.product.prodname_dotcom }}-Flow kannst Du Änderungen in Issues verfolgen und diskutieren und dann Änderungen in Pull Requests vorschlagen und überprüfen.'
+intro: 'Mit dem {% data variables.product.prodname_dotcom %}-Flow kannst Du Änderungen in Issues verfolgen und diskutieren und dann Änderungen in Pull Requests vorschlagen und überprüfen.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

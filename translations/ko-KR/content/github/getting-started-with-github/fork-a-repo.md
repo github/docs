@@ -26,18 +26,18 @@ Open source software is based on the idea that by sharing code, we can make bett
 
 When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](http://choosealicense.com/)" at choosealicense.
 
-{{ site.data.reusables.open-source.open-source-guide-repositories }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% note %}
 
-**Note**: {{ site.data.reusables.repositories.desktop-fork }}
+**Note**: {% data reusables.repositories.desktop-fork %}
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also fork a repository using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -46,7 +46,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 Forking a repository is a simple two-step process. We've created a repository for you to practice with.
 
-1. On {{ site.data.variables.product.product_location }}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+1. On {% data variables.product.product_location %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 2. In the top-right corner of the page, click **Fork**. ![Fork button](/assets/images/help/repository/fork_button.jpg)
 
 ### Keep your fork synced
@@ -55,24 +55,24 @@ You might fork a project to propose changes to the upstream, or original, reposi
 
 #### Step 1: Set up Git
 
-If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {{ site.data.variables.product.product_location }} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
+If you haven't yet, you should first [set up Git](/articles/set-up-git). Don't forget to [set up authentication to {% data variables.product.product_location %} from Git](/articles/set-up-git#next-steps-authenticating-with-github-from-git) as well.
 
 #### Step 2: Create a local clone of your fork
 
 Right now, you have a fork of the Spoon-Knife repository, but you don't have the files in that repository on your computer. Let's create a clone of your fork locally on your computer.
 
-1. On {{ site.data.variables.product.product_name }}, navigate to **your fork** of the Spoon-Knife repository.
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.change-current-directory-clone }}
-4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {{ site.data.variables.product.product_name }} username instead of `YOUR-USERNAME`:
+1. On {% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
 5. Press **Enter**. Your local clone will be created.
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -86,9 +86,9 @@ Now, you have a local copy of your fork of the Spoon-Knife repository.
 
 When you fork a project in order to propose changes to the original repository, you can configure Git to pull changes from the original, or upstream, repository into the local clone of your fork.
 
-1. On {{ site.data.variables.product.product_name }}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. On {% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 4. Change directories to the location of the fork you cloned in [Step 2: Create a local clone of your fork](#step-2-create-a-local-clone-of-your-fork).
     - To go to your home directory, type just `cd` with no other text.
     - To list the files and folders in your current directory, type `ls`.
@@ -97,22 +97,22 @@ When you fork a project in order to propose changes to the original repository, 
 5. Type `git remote -v` and press **Enter**. You'll see the current configured remote repository for your fork.
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 2 and press **Enter**. It will look like this:
   ```shell
-  $ git remote add upstream https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
 
 7. To verify the new upstream repository you've specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the original repository as `upstream`.
   ```shell
   $ git remote -v
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
 Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[Syncing a fork](/articles/syncing-a-fork)."
@@ -126,9 +126,9 @@ You can make any changes to a fork, including:
 
 ### Find another repository to fork
 
-Fork a repository to start contributing to a project. {{ site.data.reusables.repositories.you-can-fork }}
+Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
@@ -139,4 +139,4 @@ You have now forked a repository, practiced cloning your fork, and configured an
 - "[Set up Git](/articles/set-up-git)"
 - "[Create a repository](/articles/create-a-repo)"
 - "[Be social](/articles/be-social)"
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

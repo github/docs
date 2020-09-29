@@ -21,7 +21,7 @@ The best way to explain subtree merges is to show by example. We will:
 
 ### Setting up the empty repository for a subtree merge
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a new directory and navigate to it.
   ```shell
   $ mkdir test

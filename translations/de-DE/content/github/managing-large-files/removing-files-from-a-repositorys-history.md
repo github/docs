@@ -1,6 +1,6 @@
 ---
 title: Dateien aus dem Verlauf eines Repositorys entfernen
-intro: 'Um eine große Datei aus Deinem Repository zu löschen, musst Du sie vollständig aus Deinem lokalen Repository und von {{ site.data.variables.product.product_location }} löschen.'
+intro: 'Um eine große Datei aus Deinem Repository zu löschen, musst Du sie vollständig aus Deinem lokalen Repository und von {% data variables.product.product_location %} löschen.'
 redirect_from:
   - /articles/removing-files-from-a-repository-s-history
   - /articles/removing-files-from-a-repositorys-history
@@ -11,7 +11,7 @@ versions:
 
 {% warning %}
 
-**Warnung**: Mit den hier beschriebenen Verfahren löschst Du Dateien dauerhaft aus dem Repository auf Deinem Computer und von {{ site.data.variables.product.product_location }}. Wichtige Dateien solltest Du vor dem Entfernen unbedingt lokal in einem Verzeichnis außerhalb des Repositorys sichern.
+**Warnung**: Mit den hier beschriebenen Verfahren löschst Du Dateien dauerhaft aus dem Repository auf Deinem Computer und von {% data variables.product.product_location %}. Wichtige Dateien solltest Du vor dem Entfernen unbedingt lokal in einem Verzeichnis außerhalb des Repositorys sichern.
 
 {% endwarning %}
 
@@ -21,10 +21,10 @@ Wenn Du eine Datei in einem früheren Commit hinzugefügt hast, musst Du sie aus
 
 ### Datei entfernen, die beim letzten noch nicht übertragenen Commit hinzugefügt wurde
 
-Wenn eine Datei bei Deinem letzten Commit hinzugefügt, aber noch nicht per Push auf {{ site.data.variables.product.product_location }} übertragen wurde, kannst Du die Datei löschen und den Commit anpassen:
+Wenn eine Datei bei Deinem letzten Commit hinzugefügt, aber noch nicht per Push auf {% data variables.product.product_location %} übertragen wurde, kannst Du die Datei löschen und den Commit anpassen:
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.switching_directories_procedural }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.switching_directories_procedural %}
 3. Gib zum Entfernen der Datei `git rm --cached` ein:
   ```shell
   $ git rm --cached <em>giant_file</em>
@@ -37,7 +37,7 @@ Wenn eine Datei bei Deinem letzten Commit hinzugefügt, aber noch nicht per Push
   # nur einen neuen Commit zu machen, wird nicht funktionieren,
   # weil Du die Datei auch aus dem nicht uebertragenen Verlauf entfernen musst
   ```
-5. Übertrage Deine Commits per Push auf {{ site.data.variables.product.product_location }}:
+5. Übertrage Deine Commits per Push auf {% data variables.product.product_location %}:
   ```shell
   $ git push
   # Uebertrage unseren neu geschriebenen, kleineren Commit

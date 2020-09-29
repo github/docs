@@ -1,6 +1,6 @@
 ---
 title: ファイルへのパーマリンクを取得する
-intro: '{{ site.data.variables.product.product_location }} でファイルを表示する際に y キーを押すと、URL を、表示されているファイルと完全に同じバージョンへのパーマリンクへと更新できます。'
+intro: '{% data variables.product.product_location %} でファイルを表示する際に y キーを押すと、URL を、表示されているファイルと完全に同じバージョンへのパーマリンクへと更新できます。'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**参考**: {{ site.data.variables.product.product_name }} のすべてのページで [?] を押すと、使用可能なキーボードのショートカットすべてを確認できます。
+**参考**: {% data variables.product.product_name %} のすべてのページで [?] を押すと、使用可能なキーボードのショートカットすべてを確認できます。
 
 {% endtip %}
 
 ### ファイルのビューにはブランチの最新バージョンが表示されます
 
-{{ site.data.variables.product.product_location }} でファイルを表示する際、通常はブランチの現在の head でのバージョンが表示されます。  例:
+{% data variables.product.product_location %} でファイルを表示する際、通常はブランチの現在の head でのバージョンが表示されます。  例:
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

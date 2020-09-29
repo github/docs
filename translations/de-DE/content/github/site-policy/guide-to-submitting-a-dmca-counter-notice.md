@@ -53,7 +53,7 @@ Dies sind nur einige Beispiele für die Komplexität des Urheberrechts. Da es in
 
 ### So reichen Sie Ihre DMCA Counter Notice ein
 
-Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {{ site.data.variables.contact.contact_dmca }} zu beantworten.
+Der schnellste Weg, um eine Antwort zu erhalten, ist, Ihre Informationen einzugeben und alle Fragen auf unserer {% data variables.contact.contact_dmca %} zu beantworten.
 
 Sie können auch eine E-Mail-Benachrichtigung an <copyright@github.com> senden. Sie können eine Anlage einfügen, wenn Sie möchten, aber bitte auch eine Text-Version Ihres Schreibens in den Text Ihrer Nachricht einfügen.
 

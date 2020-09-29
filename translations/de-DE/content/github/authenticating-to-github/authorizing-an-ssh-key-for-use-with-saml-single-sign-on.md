@@ -16,8 +16,8 @@ Du kannst einen vorhandenen SSH-Schlüssel autorisieren oder einen neuen SSH-Sch
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. Klicke neben dem SSH-Schlüssel, den Du autorisieren möchtest, auf **Enable SSO** (SSO aktivieren) oder **Disable SSO)** (SSO deaktivieren). ![Schaltfläche „SSO token authorize" (Autorisieren des SSO-Tokens)](/assets/images/help/settings/ssh-sso-button.png)
 4. Suche die Organisation, für die Du den SSH-Schlüssel autorisieren möchtest.
 5. Klicken Sie auf **Authorize** (Autorisieren). ![Schaltfläche „Token authorize" (Autorisieren des Tokens)](/assets/images/help/settings/ssh-sso-authorize.png)

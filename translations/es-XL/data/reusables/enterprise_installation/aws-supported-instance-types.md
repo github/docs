@@ -1,4 +1,4 @@
-{{ site.data.variables.product.prodname_ghe_server }} se admite en los siguientes tipos de instancias EC2. Para obtener más información, consulta [la página de AWS de resumen de tipo de instancia EC2 ](http://aws.amazon.com/ec2/instance-types/).
+{% data variables.product.prodname_ghe_server %} se admite en los siguientes tipos de instancias EC2. Para obtener más información, consulta [la página de AWS de resumen de tipo de instancia EC2 ](http://aws.amazon.com/ec2/instance-types/).
 
 | Tipo de instancia EC2 | Modelo                             |
 | --------------------- | ---------------------------------- |

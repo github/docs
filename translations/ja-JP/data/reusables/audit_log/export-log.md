@@ -4,4 +4,4 @@
 
 エクスポート中で結果をフィルタリングするには、**Export（エクスポート）**ドロップダウンメニューを使う前に以下のサポートされている1つ以上の修飾子で検索してください。
 
-{{ site.data.reusables.audit_log.keys-and-example-values }}
+{% data reusables.audit_log.keys-and-example-values %}

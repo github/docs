@@ -1,6 +1,6 @@
 ---
 title: 验证组织的域
-intro: '您可以验证组织控制的域来确认组织在 {{ site.data.variables.product.product_name }} 上的身份。'
+intro: '您可以验证组织控制的域来确认组织在 {% data variables.product.product_name %} 上的身份。'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -8,9 +8,9 @@ versions:
   free-pro-team: '*'
 ---
 
-要在 {{ site.data.variables.product.product_name }} 上验证域，您必须拥有组织中的所有者权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。 您还需要访问权限以使用您的域托管服务修改域记录。
+要在 {% data variables.product.product_name %} 上验证域，您必须拥有组织中的所有者权限。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。 您还需要访问权限以使用您的域托管服务修改域记录。
 
-验证组织域的所有权后，将在组织的资料中显示“Verified（已验证）”徽章。 如果您的组织位于 {{ site.data.variables.product.prodname_ghe_cloud }} 上并且已同意公司服务条款，则组织所有者将能够通过查看验证域内每个成员的电子邮件地址来验证组织成员的身份。 更多信息请参阅“[关于组织的资料页面](/articles/about-your-organization-s-profile/)”和“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
+验证组织域的所有权后，将在组织的资料中显示“Verified（已验证）”徽章。 如果您的组织位于 {% data variables.product.prodname_ghe_cloud %} 上并且已同意公司服务条款，则组织所有者将能够通过查看验证域内每个成员的电子邮件地址来验证组织成员的身份。 更多信息请参阅“[关于组织的资料页面](/articles/about-your-organization-s-profile/)”和“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
 
 要显示“Verified（已验证）”徽章，组织资料中显示的网站和电子邮件信息必须匹配经验证的一个或多个域。 如果组织资料中显示的网站和电子邮件地址在不同的域中托管，则必须验证两个域。
 
@@ -20,12 +20,12 @@ versions:
 
 {% endnote %}
 
-在 {{ site.data.variables.product.prodname_ghe_cloud }} 上，验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 更多信息请参阅“[将电子邮件通知限于经批准的域](/articles/restricting-email-notifications-to-an-approved-domain)”。
+在 {% data variables.product.prodname_ghe_cloud %} 上，验证组织域的所有权后，您可以将组织的电子邮件通知限制为该域。 更多信息请参阅“[将电子邮件通知限于经批准的域](/articles/restricting-email-notifications-to-an-approved-domain)”。
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.verified-domains }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.verified-domains %}
 5. 单击 **Add a domain（添加域）**。 ![添加域按钮](/assets/images/help/organizations/add-a-domain-button.png)
 6. 在域字段中，输入您想要验证的域，然后单击 **Add domain（添加域）**。 ![添加域字段](/assets/images/help/organizations/add-domain-field.png)
 7. 按照 **Add a DNS TXT record（添加 DNS TXT 记录）**下的说明操作，使用您的域托管服务创建 DNS TXT 记录。 您的 DNS 配置可能需要 72 小时才能更改。 DNS 配置更改后，继续下一步。 ![创建 DNS txt 记录的说明](/assets/images/help/organizations/create-dns-txt-record-instructions.png)

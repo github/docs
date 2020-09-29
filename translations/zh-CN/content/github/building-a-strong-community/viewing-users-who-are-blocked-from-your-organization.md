@@ -7,10 +7,10 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.block_users}}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.block_users %}
 5. 在“Blocked users（被阻止的用户）”下，查看被阻止访问组织的用户的列表。 ![被阻止的用户的列表](/assets/images/help/settings/list-of-blocked-users-for-org.png)
 
 ### 延伸阅读

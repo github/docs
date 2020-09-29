@@ -9,22 +9,22 @@ versions:
 
 ### Bajar de categoría un patrocinio
 
-Cuando bajas de categoría un patrocinio, el cambio entra en vigencia en tu próxima fecha de facturación. {{ site.data.reusables.sponsors.no-refunds }}
+Cuando bajas de categoría un patrocinio, el cambio entra en vigencia en tu próxima fecha de facturación. {% data reusables.sponsors.no-refunds %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.sponsors.change-tier }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.sponsors.change-tier %}
 4. Del lado derecho de la página, al lado del nivel seleccionado, haz clic en **Edit** (Editar). ![Botón Edit tier (Editar nivel)](/assets/images/help/billing/edit-tier-button.png)
-{{ site.data.reusables.sponsors.select-a-tier }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.update-sponsorship %}
 
 ### Cancelar un patrocinio
 
-Cuando cancelas un patrocinio, el cambio entra en vigencia en tu próxima fecha de facturación. {{ site.data.reusables.sponsors.no-refunds }}
+Cuando cancelas un patrocinio, el cambio entra en vigencia en tu próxima fecha de facturación. {% data reusables.sponsors.no-refunds %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-3. Debajo de "{{ site.data.variables.product.prodname_sponsors }}", a la derecha del contribuyente de código abierto, da clic en {% octicon "triangle-down" aria-label="The down triangle octicon" %} a un costado de tu cantidad patrocinada. Posteriormente, da clic en **Cancelar patrocinio**. ![Botón Cancelar patrocinio](/assets/images/help/billing/edit-sponsor-billing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+3. Debajo de "{% data variables.product.prodname_sponsors %}", a la derecha del contribuyente de código abierto, da clic en {% octicon "triangle-down" aria-label="The down triangle octicon" %} a un costado de tu cantidad patrocinada. Posteriormente, da clic en **Cancelar patrocinio**. ![Botón Cancelar patrocinio](/assets/images/help/billing/edit-sponsor-billing.png)
 4. Revisa la información acerca de la cancelación de tu patrocinio y luego haz clic en **Aceptar**. ![Casilla de confirmación de cancelación](/assets/images/help/billing/confirm-sponsorship-cancellation.png)

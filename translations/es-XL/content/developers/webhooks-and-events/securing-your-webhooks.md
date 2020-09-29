@@ -1,6 +1,6 @@
 ---
 title: Asegurar tus webhooks
-intro: 'Asegúrate de que tu servidor está recibiendo únicamente las solicitudes de {{ site.data.variables.product.prodname_dotcom }} esperadas por razones de seguridad.'
+intro: 'Asegúrate de que tu servidor está recibiendo únicamente las solicitudes de {% data variables.product.prodname_dotcom %} esperadas por razones de seguridad.'
 redirect_from:
   - /webhooks/securing
 versions:

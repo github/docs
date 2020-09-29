@@ -11,8 +11,8 @@ versions:
 
 Issue またはプルリクエストの Conversation をサブスクライブ解除した場合、その Conversation についての通知を受けることはなくなります。 あなたやメンバーになっている Team が、Conversation で @メンションされた場合は、通知の受信が再開されます。 @メンションの詳しい情報については、「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」を参照してください。{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. サブスクライブの設定を行う Issue またはプルリクエストを選択します。
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
 4. 右サイドバーで [**Subscribe**] または [**Unsubscribe**] をクリックします。 ![Conversation サブスクライブボタン](/assets/images/help/notifications/subscribe_button_with_gear.png)
@@ -25,28 +25,28 @@ You can see a list of all the issues and pull requests you're subscribed to. 詳
 
 ### Team ディスカッションをサブスクライブする
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. Team ページ上で、サブスクライブしたいディスカッションを見つけます。
 6. ディスカッションの右上にある {% octicon "unmute" aria-label="The subscribe symbol" %} をクリックして、ディスカッションをサブスクライブします。 ![Team ディスカッション サブスクライブボタン](/assets/images/help/notifications/team-discussion-subscribe-button.png)
 
 ### Team ディスカッションをサブスクライブ解除する
 
-{{ site.data.reusables.organizations.team-discussions-are-for-orgs }}
+{% data reusables.organizations.team-discussions-are-for-orgs %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
 5. Team ページ上で、サブスクライブ解除したいディスカッションを見つけます。
 6. ディスカッションの右上にある {% octicon "mute" aria-label="The unsubscribe symbol" %} をクリックして、ディスカッションをサブスクライブ解除します。 ![Team ディスカッション サブスクライブボタン](/assets/images/help/notifications/team-discussion-unsubscribe-button.png)
 
 ### 参考リンク
 
 - 「[通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)」
-- 「[{{ site.data.variables.product.product_name }} での会話について](/articles/about-conversations-on-github)」
+- 「[{% data variables.product.product_name %} での会話について](/articles/about-conversations-on-github)」
 - [リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)
 
 - [Watch しているリポジトリのリスト](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)

@@ -2,7 +2,7 @@
 title: Sintaxis de flujo de trabajo para acciones de GitHub
 shortTitle: Sintaxis de flujos de trabajo
 intro: Un flujo de trabajo es un proceso automatizado configurable formado por uno o más trabajos. Debes crear un archivo YAML para definir tu configuración de flujo de trabajo.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
   - /github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions
@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Acerca de la sintaxis de YAML para flujos de trabajo
 
@@ -23,17 +23,17 @@ Debes almacenar los archivos de flujos de trabajo en el directorio `.github/work
 
 ### Límites de uso
 
-{{ site.data.reusables.github-actions.github-actions-usage-limits }}
+{% data reusables.github-actions.github-actions-usage-limits %}
 
 ### **`name (nombre)`**
 
-El nombre de tu flujo de trabajo. {{ site.data.variables.product.prodname_dotcom }} muestra los nombres de tus flujos de trabajo en la página de acciones de tu repositorio. Si omites `nombre`, {{ site.data.variables.product.prodname_dotcom }} lo establece en la ruta del archivo de flujo de trabajo en relación con la raíz del repositorio.
+El nombre de tu flujo de trabajo. {% data variables.product.prodname_dotcom %} muestra los nombres de tus flujos de trabajo en la página de acciones de tu repositorio. Si omites `nombre`, {% data variables.product.prodname_dotcom %} lo establece en la ruta del archivo de flujo de trabajo en relación con la raíz del repositorio.
 
 ### **`on`**
 
-**Obligatorio** El nombre del evento {{ site.data.variables.product.prodname_dotcom }} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
+**Obligatorio** El nombre del evento {% data variables.product.prodname_dotcom %} que activa el flujo de trabajo. Puedes proporcionar una única `cadena` de eventos, `matriz` de eventos, `matriz` de `tipos` de eventos o `mapa` de configuración de eventos que programe un flujo de trabajo o restrinja la ejecución de un flujo de trabajo para archivos, etiquetas o cambios de rama específicos. Para obtener una lista de eventos disponibles, consulta "[Eventos que desencadenan flujos de trabajo](/articles/events-that-trigger-workflows)".
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
 ### **`on.<event_name>.types`**
 
@@ -124,7 +124,7 @@ Las palabras clave `paths-ignore` y `paths` aceptan los patrones globales que us
 
 #### Ejemplo de ignorar rutas
 
-Cada vez que un nombre de ruta coincida con `paths-ignore`, no se ejecutará el flujo de trabajo. {{ site.data.variables.product.prodname_dotcom }} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
+Cada vez que un nombre de ruta coincida con `paths-ignore`, no se ejecutará el flujo de trabajo. {% data variables.product.prodname_dotcom %} evalúa los patrones definidos en `paths-ignore` para compararlos con el nombre de ruta. Un flujo de trabajo con el siguiente filtro de ruta solo se ejecutará en los eventos de `subida` que incluyan al menos un archivo externo al directorio `docs` en la raíz del repositorio.
 
 ```yaml
 on:
@@ -170,13 +170,13 @@ on:
 
 {% note %}
 
-**Nota:** Si subes más de 1.000 confirmaciones, o si {{ site.data.variables.product.prodname_dotcom }} no genera la diferencia debido a una interrupción (diferencias que son diferencias demasiado grandes), siempre se ejecutará el flujo de trabajo.
+**Nota:** Si subes más de 1.000 confirmaciones, o si {% data variables.product.prodname_dotcom %} no genera la diferencia debido a una interrupción (diferencias que son diferencias demasiado grandes), siempre se ejecutará el flujo de trabajo.
 
 {% endnote %}
 
 El filtro determina si un flujo de trabajo se debe ejecutar al evaluar los archivos modificados y al ejecutarlos comparándolos con la lista de `paths-ignore` o `paths`. Si no hay archivos modificados, no se ejecutará el flujo de trabajo.
 
-{{ site.data.variables.product.prodname_dotcom }} genera la lista de archivos modificados usando diferencias de dos puntos para las subidas y de tres puntos para las solicitudes de extracción:
+{% data variables.product.prodname_dotcom %} genera la lista de archivos modificados usando diferencias de dos puntos para las subidas y de tres puntos para las solicitudes de extracción:
 - **Solicitudes de extracción:** las diferencias de tres puntos son una comparación entre la versión más reciente de la rama de tema y la confirmación, cuando la rama de tema se sincronizó por última vez con la rama base.
 - **Subidas a ramas existentes:** una diferencia de dos puntos compara las SHA de encabezado y de base directamente entre sí.
 - **Subidas a ramas nuevas:** una diferencia de dos puntos comparada con el padre del antepasado de la confirmación más profunda subida.
@@ -185,7 +185,7 @@ Para obtener más información, consulta "[Acerca de comparar ramas en las solic
 
 ### **`on.schedule`**
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 Para obtener más información acerca de la sintaxis cron, consulta "[Eventos que activan flujos de trabajo](/actions/automating-your-workflow-with-github-actions/events-that-trigger-workflows#scheduled-events)."
 
@@ -193,7 +193,7 @@ Para obtener más información acerca de la sintaxis cron, consulta "[Eventos qu
 
 Un `mapa` de las variables de entorno que están disponibles para todas las tareas y los pasos del flujo de trabajo. También puedes configurar variables de entorno que estén solo disponibles para una tarea o paso. Para obtener más información, consulta [`jobs.<job_id>.env`](#jobsjob_idenv) y [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### Ejemplo
 
@@ -206,13 +206,13 @@ env:
 
 Un `map` de configuración predeterminada que se aplicará a todos los jobs en el flujo de trabajo. También puedes configurar los ajustes predeterminados que solo estén disponibles para un job. Para obtener más información, consulta la sección [`jobs.<job_id>.defaults`](#jobsjob_iddefaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`defaults.run`**
 
 Puedes proporcionar opciones predeterminadas de `shell` y `working-directory` para todos los pasos de [`run`](#jobsjob_idstepsrun) en un flujo de trabajo. También puedes configurar ajustes predeterminados para `run` que solo estén disponibles para un job. Para obtener más información, consulta [`jobs.<job_id>.defaults.run`](#jobsjob_iddefaultsrun). No podrás utilizar contextos o expresiones en esta palabra clave.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Ejemplo
 
@@ -231,7 +231,7 @@ Cada trabajo se ejecuta en un entorno especificado por `runs-on`.
 
 Puedes ejecutar una cantidad ilimitada de trabajos siempre que estés dentro de los límites de uso del flujo de trabajo. Para obtener más información, consulta "[Límites de uso](#usage-limits)".
 
-Si necesitas encontrar el identificador único de un trabajo que se ejecuta en una ejecución de flujo de trabajo, puedes usar el API {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta la sección "[Jobs de los Flujos de Trabajo](/v3/actions/workflow-jobs)".
+Si necesitas encontrar el identificador único de un trabajo que se ejecuta en una ejecución de flujo de trabajo, puedes usar el API {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la sección "[Jobs de los Flujos de Trabajo](/v3/actions/workflow-jobs)".
 
 ### **`jobs.<job_id>`**
 
@@ -249,7 +249,7 @@ jobs:
 
 ### **`jobs.<job_id>.name`**
 
-El nombre del trabajo que se muestra en {{ site.data.variables.product.prodname_dotcom }}.
+El nombre del trabajo que se muestra en {% data variables.product.prodname_dotcom %}.
 
 ### **`jobs.<job_id>.needs`**
 
@@ -276,19 +276,19 @@ En este ejemplo, los trabajos se ejecutan de manera secuencial:
 
 ### **`jobs.<job_id>.runs-on`**
 
-**Obligatorio** El tipo de máquina en la que se ejecuta el trabajo. La máquina puede ser un ejecutor alojado {{ site.data.variables.product.prodname_dotcom }} o un ejecutor autoalojado.
+**Obligatorio** El tipo de máquina en la que se ejecuta el trabajo. La máquina puede ser un ejecutor alojado {% data variables.product.prodname_dotcom %} o un ejecutor autoalojado.
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Ejecutores alojados {{ site.data.variables.product.prodname_dotcom }}
+#### Ejecutores alojados {% data variables.product.prodname_dotcom %}
 
-Si usas un ejecutor alojado {{ site.data.variables.product.prodname_dotcom }}, cada trabajo se ejecuta en una nueva instancia de un entorno virtual especificado por `runs-on`.
+Si usas un ejecutor alojado {% data variables.product.prodname_dotcom %}, cada trabajo se ejecuta en una nueva instancia de un entorno virtual especificado por `runs-on`.
 
-Los tipos de ejecutores alojados {{ site.data.variables.product.prodname_dotcom }} disponibles son:
+Los tipos de ejecutores alojados {% data variables.product.prodname_dotcom %} disponibles son:
 
-{{ site.data.reusables.github-actions.supported-github-runners }}
+{% data reusables.github-actions.supported-github-runners %}
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
 ##### **Ejemplo**
 
@@ -296,11 +296,11 @@ Los tipos de ejecutores alojados {{ site.data.variables.product.prodname_dotcom 
 runs-on: ubuntu-latest
 ```
 
-Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados de {{ site.data.variables.product.prodname_dotcom }}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+Para obtener más información, consulta "[Entornos virtuales para ejecutores alojados de {% data variables.product.prodname_dotcom %}](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
 
 #### Ejecutores autoalojados
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
 ##### **Ejemplo**
 
@@ -314,9 +314,9 @@ Para obtener más información, consulta "[Acerca de los ejecutores autoalojados
 
 Un `map` de salidas para un job. Las salidas de un job se encuentran disponibles para todos los jobs descendentes que dependan de este job. Para obtener más información sobre la definición de dependencias, consulta [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
-Las salidas de un job son secuencias, y las salidas de un job que contienen expresiones se evalúan en el ejecutor al final de cada job. Las salidas que contienen secretos se redactan en el ejecutor y no se envían a {{ site.data.variables.product.prodname_actions }}.
+Las salidas de un job son secuencias, y las salidas de un job que contienen expresiones se evalúan en el ejecutor al final de cada job. Las salidas que contienen secretos se redactan en el ejecutor y no se envían a {% data variables.product.prodname_actions %}.
 
-Para utilizar salidas de jobs en un job dependiente, puedes utilizar el contexto `needs`. Para obtener más información, consulta "[Sintaxis de contexto y expresión para las {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)."
+Para utilizar salidas de jobs en un job dependiente, puedes utilizar el contexto `needs`. Para obtener más información, consulta "[Sintaxis de contexto y expresión para las {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#needs-context)."
 
 #### **Ejemplo**
 
@@ -346,7 +346,7 @@ jobs:
 
 Un `mapa` de las variables de entorno que están disponibles para todos los pasos de la tarea. También puedes establecer las variables de entorno para todo el flujo de trabajo o para un paso en particular. Para obtener más información, consulta [`env`](#env) y [`jobs.<job_id>.steps.env`](#jobsjob_idstepsenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
 #### **Ejemplo**
 
@@ -361,7 +361,7 @@ jobs:
 
 Un `map` de configuración predeterminada que se aplicará a todos los pasos del job. También puedes configurar ajustes predeterminados para todo el flujo de trabajo. Para obtener más información, consulta [`defaults`](#defaults).
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 ### **`jobs.<job_id>.defaults.run`**
 
@@ -369,7 +369,7 @@ Proporciona `shell` y `working-directory` predeterminados a todos los pasos de `
 
 Puedes proporcionar opciones predeterminadas de `shell` y `working-directory` para todos los pasos de [`run`](#jobsjob_idstepsrun) en un job. También puedes configurar ajustes predeterminados para `run` para todo el flujo de trabajo. Para obtener más información, consulta [`jobs.defaults.run`](#defaultsrun). No podrás utilizar contextos o expresiones en esta palabra clave.
 
-{{ site.data.reusables.github-actions.defaults-override }}
+{% data reusables.github-actions.defaults-override %}
 
 #### Ejemplo
 
@@ -387,11 +387,11 @@ jobs:
 
 Puedes usar el condicional `if` para impedir que se ejecute una tarea si no se cumple una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} Para obtener más información, consulta la sección "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ### **`jobs.<job_id>.steps`**
 
-Un trabajo contiene una secuencia de tareas llamadas `pasos`. Los pasos pueden ejecutar comandos, tareas de configuración o una acción en tu repositorio, un repositorio público o una acción publicada en un registro de Docker. Not all steps run actions, but all actions run as a step. Cada paso se ejecuta en su propio proceso en el entorno del ejecutor y tiene acceso al espacio de trabajo y al sistema de archivos. Debido a que los pasos se ejecutan en su propio proceso, los cambios en las variables de entorno no se conservan entre los pasos. {{ site.data.variables.product.prodname_dotcom }} proporciona pasos integrados para configurar y completar un trabajo.
+Un trabajo contiene una secuencia de tareas llamadas `pasos`. Los pasos pueden ejecutar comandos, tareas de configuración o una acción en tu repositorio, un repositorio público o una acción publicada en un registro de Docker. Not all steps run actions, but all actions run as a step. Cada paso se ejecuta en su propio proceso en el entorno del ejecutor y tiene acceso al espacio de trabajo y al sistema de archivos. Debido a que los pasos se ejecutan en su propio proceso, los cambios en las variables de entorno no se conservan entre los pasos. {% data variables.product.prodname_dotcom %} proporciona pasos integrados para configurar y completar un trabajo.
 
 Puedes ejecutar un número de pasos ilimitado siempre que estés dentro de los límites de uso del flujo de trabajo. Para obtener más información, consulta "[Límites de uso](#usage-limits)".
 
@@ -421,13 +421,13 @@ jobs:
 
 #### **`jobs.<job_id>.steps.id`**
 
-Un identificador único para el paso. Puede usar el `id` para hacer referencia al paso en contextos. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Un identificador único para el paso. Puede usar el `id` para hacer referencia al paso en contextos. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 #### **`jobs.<job_id>.steps.if`**
 
 Puedes usar el condiciona `if` para impedir que se ejecute un paso si no se cumple una condición. Puedes usar cualquier contexto y expresión admitidos para crear un condicional.
 
-{{ site.data.reusables.github-actions.expression-syntax-if }} Para obtener más información, consulta la sección "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+{% data reusables.github-actions.expression-syntax-if %} Para obtener más información, consulta la sección "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ##### Ejemplos usando contextos
 
@@ -442,7 +442,7 @@ steps:
 
 ##### Ejemplo usando funciones de verificación de estado
 
-El `paso mi copia de seguridad` solo se ejecuta cuando se produce un error en el paso anterior de un trabajo. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
+El `paso mi copia de seguridad` solo se ejecuta cuando se produce un error en el paso anterior de un trabajo. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
 
 ```yaml
 steps:
@@ -455,7 +455,7 @@ steps:
 
 #### **`jobs.<job_id>.steps.name`**
 
-Un nombre para que tu paso se muestre en {{ site.data.variables.product.prodname_dotcom }}.
+Un nombre para que tu paso se muestre en {% data variables.product.prodname_dotcom %}.
 
 #### **`jobs.<job_id>.steps.uses`**
 
@@ -488,7 +488,7 @@ steps:
 
 `{owner}/{repo}@{ref}`
 
-Puedes usar ramas, ref o SHA específicos en un repositorio público {{ site.data.variables.product.prodname_dotcom }}.
+Puedes usar ramas, ref o SHA específicos en un repositorio público {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 jobs:
@@ -506,7 +506,7 @@ jobs:
 
 `{owner}/{repo}/{path}@{ref}`
 
-Un subdirectorio en un repositorio público de {{ site.data.variables.product.prodname_dotcom }} en una rama específica, ref o SHA.
+Un subdirectorio en un repositorio público de {% data variables.product.prodname_dotcom %} en una rama específica, ref o SHA.
 
 ```yaml
 jobs:
@@ -599,11 +599,11 @@ Puedes anular los parámetros predeterminados del shell en el sistema operativo 
 | Plataforma compatible | parámetro `shell` | Descripción                                                                                                                                                                          | Comando ejecutado interamente                   |
 | --------------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
 | Todas                 | `bash`            | El shell predeterminado en plataformas que no son de Windows con una reserva para `sh`. Al especificar un bash shell en Windows, se usa el bash shell incluido con Git para Windows. | `bash --noprofile --norc -eo pipefail {0}`      |
-| Todas                 | `pwsh`            | Powershell Core. {{ site.data.variables.product.prodname_dotcom }} agrega la extensión `.ps1` al nombre de tu script.                                                                | `pwsh -command "& '{0}'"`                   |
+| Todas                 | `pwsh`            | Powershell Core. {% data variables.product.prodname_dotcom %} agrega la extensión `.ps1` al nombre de tu script.                                                                | `pwsh -command "& '{0}'"`                   |
 | Todas                 | `python`          | Ejecuta el comando python.                                                                                                                                                           | `python {0}`                                    |
 | Linux / macOS         | `sh`              | El comportamiento de reserva para plataformas que no son Windows si no se proporciona un shell y `bash` no se encuentra en la ruta.                                                  | `sh -e {0}`                                     |
-| Windows               | `cmd`             | {{ site.data.variables.product.prodname_dotcom }} agrega la extensión `.cmd` a tu nombre de script y la sustituye por `{0}`.                                                         | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows               | `powershell`      | Este es el shell predeterminado que se usa en Windows. El Desktop PowerShell. {{ site.data.variables.product.prodname_dotcom }} agrega la extensión `.ps1` al nombre de tu script.   | `powershell -command "& '{0}'"`.            |
+| Windows               | `cmd`             | {% data variables.product.prodname_dotcom %} agrega la extensión `.cmd` a tu nombre de script y la sustituye por `{0}`.                                                         | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows               | `powershell`      | Este es el shell predeterminado que se usa en Windows. El Desktop PowerShell. {% data variables.product.prodname_dotcom %} agrega la extensión `.ps1` al nombre de tu script.   | `powershell -command "& '{0}'"`.            |
 
 ##### Ejemplo de ejecución de un script mediante bash
 
@@ -645,11 +645,11 @@ steps:
 
 ##### Shell personalizado
 
-Puede establecer el valor `shell` en una cadena de plantilla utilizando el comando `command […options] {0} [..more_options]`. {{ site.data.variables.product.prodname_dotcom }} interpreta la primera palabra delimitada por espacios en blanco de la cadena como el comando, e inserta el nombre del archivo para el script temporal en `{0}`.
+Puede establecer el valor `shell` en una cadena de plantilla utilizando el comando `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interpreta la primera palabra delimitada por espacios en blanco de la cadena como el comando, e inserta el nombre del archivo para el script temporal en `{0}`.
 
 ##### Códigos de salida y preferencia de acción de error
 
-Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutadores alojados por {{ site.data.variables.product.prodname_dotcom }}. Deberías usar estos lineamientos al ejecutar scripts shell.
+Para palabras clave shell incorporadas, brindamos los siguientes valores predeterminados accionados por los ejecutadores alojados por {% data variables.product.prodname_dotcom %}. Deberías usar estos lineamientos al ejecutar scripts shell.
 
 - `bash`/`sh`:
   - Comportamiento a prueba de fallos utilizando `set -e o pipefail`: valor predeterminado para `bash` y `shell` incorporado. También es el valor predeterminado cuando no proporcionas una opción en plataformas que no son de Windows.
@@ -687,7 +687,7 @@ jobs:
 
 #### **`jobs.<job_id>.steps.with.args`**
 
-Una `cadena` que define las entradas para un contenedor Docker. {{ site.data.variables.product.prodname_dotcom }} comunica los `args`en el `ENTRYPOINT` del contenedor cuando se inicia el contenedor. Una `matriz de cadenas` no es compatible para este parámetro.
+Una `cadena` que define las entradas para un contenedor Docker. {% data variables.product.prodname_dotcom %} comunica los `args`en el `ENTRYPOINT` del contenedor cuando se inicia el contenedor. Una `matriz de cadenas` no es compatible para este parámetro.
 
 ##### Ejemplo
 
@@ -729,9 +729,9 @@ La palabra clave `punto de entrada` se usa con acciones del contenedor Docker, p
 
 Establece variables de entorno para los pasos a utilizar en el entorno del ejecutor. También puedes establecer las variables de entorno para todo el flujo de trabajo o para una tarea. Para obtener más información, consulta [`env`](#env) y [`jobs.<job_id>.env`](#jobsjob_idenv).
 
-{{ site.data.reusables.repositories.actions-env-var-note }}
+{% data reusables.repositories.actions-env-var-note %}
 
-Es posible que las acciones públicas especifiquen las variables de entorno esperadas en el archivo README. Si estás estableciendo un secreto en una variable de entorno, debes establecer secretos usando el contexto `secretos`. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" y "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Es posible que las acciones públicas especifiquen las variables de entorno esperadas en el archivo README. Si estás estableciendo un secreto en una variable de entorno, debes establecer secretos usando el contexto `secretos`. Para obtener más información, consulta "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)" y "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ##### Ejemplo
 
@@ -756,7 +756,7 @@ El número máximo de minutos para ejecutar el paso antes de terminar el proceso
 
 ### **`jobs.<job_id>.timeout-minutes`**
 
-La cantidad máxima de minutos para permitir que un trabajo se ejecute antes que {{ site.data.variables.product.prodname_dotcom }} lo cancele automáticamente. Predeterminado: 360
+La cantidad máxima de minutos para permitir que un trabajo se ejecute antes que {% data variables.product.prodname_dotcom %} lo cancele automáticamente. Predeterminado: 360
 
 ### **`jobs.<job_id>.strategy`**
 
@@ -766,9 +766,9 @@ Una estrategia crea una matriz de construcción para tus trabajos. Puedes defini
 
 Puedes definir una matriz de diferentes configuraciones de trabajo. Una matriz te permite crear múltiples trabajos realizando la sustitución de variables en una definición de trabajo único. Por ejemplo, puedes usar una matriz para crear trabajos para más de una versión compatible de un lenguaje de programación, sistema operativo o herramienta. Una matriz reutiliza la configuración del trabajo y crea un trabajo para cada matriz que configuras.
 
-{{ site.data.reusables.github-actions.matrix-limits }}
+{% data reusables.github-actions.matrix-limits %}
 
-Cada opción que definas en la `matriz` tiene una clave y un valor. Las claves que defines se convierten en propiedades en el contexto `matriz` y puedes hacer referencia a la propiedad en otras áreas de tu archivo de flujo de trabajo. Por ejemplo, si defines la clave `os` que contiene una matriz de sistemas operativos, puedes usar la propiedad `matrix.os` como el valor de la palabra clave `runs-on` para crear un trabajo para cada sistema operativo. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Cada opción que definas en la `matriz` tiene una clave y un valor. Las claves que defines se convierten en propiedades en el contexto `matriz` y puedes hacer referencia a la propiedad en otras áreas de tu archivo de flujo de trabajo. Por ejemplo, si defines la clave `os` que contiene una matriz de sistemas operativos, puedes usar la propiedad `matrix.os` como el valor de la palabra clave `runs-on` para crear un trabajo para cada sistema operativo. Para obtener más información, consulta "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 El orden en que defines una `matriz` importa. La primera opción que definas será el primer trabajo que se ejecuta en tu flujo de trabajo.
 
@@ -792,7 +792,7 @@ steps:
 ```
 {% endraw %}
 
-La acción `setup-node` es la forma recomendada de configurar una versión de Node.js cuando se usan ejecutores alojados {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta la acción [`setup-node`](https://github.com/actions/setup-node).
+La acción `setup-node` es la forma recomendada de configurar una versión de Node.js cuando se usan ejecutores alojados {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta la acción [`setup-node`](https://github.com/actions/setup-node).
 
 ##### Ejemplo de ejecución con más de un sistema operativo
 
@@ -801,7 +801,7 @@ Puedes crear una matriz para ejecutar flujos de trabajo en más de un sistema op
 - 2 sistemas operativos especificados en la matriz `os`
 - 3 versiones de Node.js especificadas en la matriz `node`
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -817,7 +817,7 @@ steps:
 ```
 {% endraw %}
 
-Para encontrar opciones de configuración compatibles para ejecutores alojados {{ site.data.variables.product.prodname_dotcom }}, consulta "[Entornos virtuales para ejecutores alojados {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
+Para encontrar opciones de configuración compatibles para ejecutores alojados {% data variables.product.prodname_dotcom %}, consulta "[Entornos virtuales para ejecutores alojados {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)".
 
 ##### Ejemplo que incluye valores adicionales en combinaciones
 
@@ -884,11 +884,11 @@ strategy:
 
 ### **`jobs.<job_id>.strategy.fail-fast`**
 
-Cuando se establece en `true`, {{ site.data.variables.product.prodname_dotcom }} cancela todos los trabajos en curso si falla cualquier trabajo de `matriz`. Predeterminado: `true`
+Cuando se establece en `true`, {% data variables.product.prodname_dotcom %} cancela todos los trabajos en curso si falla cualquier trabajo de `matriz`. Predeterminado: `true`
 
 ### **`jobs.<job_id>.strategy.max-parallel`**
 
-La cantidad máxima de trabajos que se pueden ejecutar de manera simultánea cuando se utiliza una estrategia de trabajo `matrix`. De manera predeterminada, {{ site.data.variables.product.prodname_dotcom }} maximizará el número de trabajos ejecutados en paralelo dependiendo de los ejecutadores disponibles en las máquinas virtuales alojadas en {{ site.data.variables.product.prodname_dotcom }}.
+La cantidad máxima de trabajos que se pueden ejecutar de manera simultánea cuando se utiliza una estrategia de trabajo `matrix`. De manera predeterminada, {% data variables.product.prodname_dotcom %} maximizará el número de trabajos ejecutados en paralelo dependiendo de los ejecutadores disponibles en las máquinas virtuales alojadas en {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 strategy:
@@ -987,7 +987,7 @@ Opciones adicionales de recursos del contenedor Docker. Para obtener una lista d
 
 ### **`jobs.<job_id>.services`**
 
-{{ site.data.reusables.github-actions.docker-container-os-support }}
+{% data reusables.github-actions.docker-container-os-support %}
 
 Se usa para hospedar contenedores de servicio para un trabajo en un flujo de trabajo. Los contenedores de servicio son útiles para crear bases de datos o servicios de caché como Redis. El ejecutor crea automáticamente una red Docker y administra el ciclo de vida de los contenedores de servicio.
 
@@ -999,7 +999,7 @@ Para obtener más información acerca de las diferencias entre los contenedores 
 
 #### Ejemplo de uso de host local
 
-Este ejemplo crea dos servicios: nginx y Redis. Cuando especificas el puerto del host de Docker pero no el puerto del contenedor, el puerto del contenedor se asigna aleatoriamente a un puerto gratuito. {{ site.data.variables.product.prodname_dotcom }} establece el puerto del contenedor asignado en el contexto {% raw %}`$ {{job.services.<service_name>.ports}}`{% endraw %}. En este ejemplo, puedes acceder a los puertos del contenedor de servicio utilizando los contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} y {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
+Este ejemplo crea dos servicios: nginx y Redis. Cuando especificas el puerto del host de Docker pero no el puerto del contenedor, el puerto del contenedor se asigna aleatoriamente a un puerto gratuito. {% data variables.product.prodname_dotcom %} establece el puerto del contenedor asignado en el contexto {% raw %}`$ {{job.services.<service_name>.ports}}`{% endraw %}. En este ejemplo, puedes acceder a los puertos del contenedor de servicio utilizando los contextos {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} y {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %}.
 
 ```yaml
 services:

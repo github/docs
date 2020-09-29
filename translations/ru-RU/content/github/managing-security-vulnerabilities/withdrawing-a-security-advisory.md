@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-If you publish a security advisory in error, you can withdraw the security advisory by contacting {{ site.data.variables.contact.contact_support }}.
+If you publish a security advisory in error, you can withdraw the security advisory by contacting {% data variables.contact.contact_support %}.
 
 ### Дополнительная литература
 

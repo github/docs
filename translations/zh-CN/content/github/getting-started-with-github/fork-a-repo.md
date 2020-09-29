@@ -26,18 +26,18 @@ versions:
 
 从其他人的项目复刻创建公共仓库时，请确保包含许可文件以确定您希望与其他人共享项目。 更多信息请参阅 choosealicense 上的“[选择开源许可](http://choosealicense.com/)”。
 
-{{ site.data.reusables.open-source.open-source-guide-repositories }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% note %}
 
-**注**：{{ site.data.reusables.repositories.desktop-fork }}
+**注**：{% data reusables.repositories.desktop-fork %}
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also fork a repository using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -46,7 +46,7 @@ versions:
 
 复刻仓库是一个简单的两步过程。 我们创建了一个供您练习的仓库。
 
-1. 在 {{ site.data.variables.product.product_location }} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+1. 在 {% data variables.product.product_location %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
 2. 在页面的右上角，单击 **Fork（复刻）**。 ![复刻按钮](/assets/images/help/repository/fork_button.jpg)
 
 ### 让复刻保持同步
@@ -55,24 +55,24 @@ versions:
 
 #### 第 1 步：设置 Git
 
-如果尚未[设置 Git](/articles/set-up-git)，您应该先设置它。 不要忘记[从 Git 设置向 {{ site.data.variables.product.product_location }} 验证](/articles/set-up-git#next-steps-authenticating-with-github-from-git)。
+如果尚未[设置 Git](/articles/set-up-git)，您应该先设置它。 不要忘记[从 Git 设置向 {% data variables.product.product_location %} 验证](/articles/set-up-git#next-steps-authenticating-with-github-from-git)。
 
 #### 第 2 步：创建复刻的本地克隆
 
 现在，您有了 Spoon-Knife 仓库的复刻，但您的计算机上还没有该仓库中的文件。 Let's create a clone of your fork locally on your computer.
 
-1. 在 {{ site.data.variables.product.product_name }} 上，导航到 Spoon-Knife 仓库的**复刻**。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.change-current-directory-clone }}
-4. 键入 `git clone`，然后粘贴先前复制的 URL。 它将如下所示，使用您的 {{ site.data.variables.product.product_name }} 用户名替换 `YOUR-USERNAME`：
+1. 在 {% data variables.product.product_name %} 上，导航到 Spoon-Knife 仓库的**复刻**。
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. 键入 `git clone`，然后粘贴先前复制的 URL。 它将如下所示，使用您的 {% data variables.product.product_name %} 用户名替换 `YOUR-USERNAME`：
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
 5. 按 **Enter** 键。 将创建您的本地克隆。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -86,9 +86,9 @@ versions:
 
 为了对原始仓库提议更改而复刻项目时，您可以配置 Git 以将更改从原始或上游仓库拉取到复刻的本地克隆。
 
-1. 在 {{ site.data.variables.product.product_name }} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. 在 {% data variables.product.product_name %} 上，导航到 [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) 仓库。
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 4. 将目录更改为您在[第 2 步：创建复刻的本地克隆](#step-2-create-a-local-clone-of-your-fork)中克隆复刻的位置。
     - 要转到主目录，请只键入 `cd`，不要键入其他文本。
     - 要列出当前目录中的文件和文件夹，请键入 `ls`。
@@ -97,22 +97,22 @@ versions:
 5. 键入 `git remote -v`，然后按 **Enter** 键。 您将看到当前为复刻配置的远程仓库。
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
 6. 键入 `git remote add upstream`，然后粘贴您在第 2 步中复制的 URL 并按 **Enter** 键。 它将如下所示：
   ```shell
-  $ git remote add upstream https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
 
 7. 要验证为复刻指定的新上游仓库，请再次键入 `git remote -v`。 您应该看到复刻的 URL 为 `origin`，原始仓库的 URL 为 `upstream`。
   ```shell
   $ git remote -v
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
 现在，您可以使用一些 Git 命令使您的复刻与上游仓库保持同步。 更多信息请参阅“[同步复刻](/articles/syncing-a-fork)”。
@@ -126,9 +126,9 @@ versions:
 
 ### 另找一个仓库进行复刻
 
-复刻仓库，开始参与项目。 {{ site.data.reusables.repositories.you-can-fork }}
+复刻仓库，开始参与项目。 {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {{ site.data.variables.product.prodname_dotcom }} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
+{% if currentVersion == "free-pro-team@latest" %}您可以浏览 [Explore](https://github.com/explore) 以查找项目并开始参与开源仓库。 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。
 
 {% endif %}
 
@@ -139,4 +139,4 @@ versions:
 - “[设置 Git](/articles/set-up-git)”
 - “[创建仓库](/articles/create-a-repo)”
 - “[社交化](/articles/be-social)”
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

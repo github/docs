@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 カスタム及びデフォルトラベルの作成に関する情報については「[セルフホストランナーでのラベルの利用](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)」を参照してください。
 
@@ -18,13 +18,13 @@ versions:
 
 ラベルを使うと、セルフホストランナーの共有される特徴に基づき、ワークフローのジョブを特定の種類のセルフホストランナーに送れます。 たとえば、ジョブが特定のハードウェアコンポーネントやソフトウェアパッケージを必要とするなら、カスタムラベルをランナーに割り当て、そのラベルを持つランナー上でのみ実行されるようジョブを設定できます。
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-詳細については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)」を参照してください。
+詳細については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)」を参照してください。
 
 ### デフォルトラベルを使ったジョブの転送
 
-セルフホストランナーは、{{ site.data.variables.product.prodname_actions }}に追加されたときに特定のラベルを自動的に受信します。 それらは、ランナーのオペレーティングシステムとハードウェアプラットフォームを示すために使われます。
+セルフホストランナーは、{% data variables.product.prodname_actions %}に追加されたときに特定のラベルを自動的に受信します。 それらは、ランナーのオペレーティングシステムとハードウェアプラットフォームを示すために使われます。
 
 * `self-hosted`: セルフホストランナーに適用されるデフォルトのラベル。
 * `linux`、`windows`、`macOS`: オペレーティングシステムに基づいて適用されます。
@@ -63,8 +63,8 @@ runs-on: [self-hosted, linux, x64, gpu]
 
 ### セルフホストランナーのルーティングの優先順位
 
-リポジトリレベルと Organization レベルの両方のランナーを使用する場合、{{ site.data.variables.product.prodname_dotcom }} は、次の優先順位に従ってジョブをセルフホストランナーにルーティングします。
+リポジトリレベルと Organization レベルの両方のランナーを使用する場合、{% data variables.product.prodname_dotcom %} は、次の優先順位に従ってジョブをセルフホストランナーにルーティングします。
 
-1. ジョブの `runs-on` ラベルが処理されます。 次に、{{ site.data.variables.product.prodname_dotcom }} は、ラベル要件に一致するランナーを検索します。
+1. ジョブの `runs-on` ラベルが処理されます。 次に、{% data variables.product.prodname_dotcom %} は、ラベル要件に一致するランナーを検索します。
 2. ジョブは、ジョブラベルに一致するリポジトリレベルのランナーに送信されます。 リポジトリレベルのランナーが利用できない（ビジー、オフライン、または一致するラベルがない）場合:
 3. ジョブは、ジョブラベルに一致する Organization レベルのランナーに送信されます。 Organization レベルのランナーが利用できない場合、ジョブ要求はエラーで失敗します。

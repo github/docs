@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.types-of-team-visibility }}
+{% data reusables.organizations.types-of-team-visibility %}
 
 {% tip %}
 
@@ -16,9 +16,9 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.teams }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.teams %}
 3. 可視性を変更したいチームを選択します。 ![2 つの Team を選択した状態の Team リスト](/assets/images/help/teams/list-of-teams-selected.png)
 4. Team 一覧の上にあるドロップダウンメニューで [**Change visibility**] をクリックします。 ![Team の可視性を変更するオプションのあるドロップダウンメニュー](/assets/images/help/teams/team-bulk-management-options.png)
 5. 選択した Team を可視にするかシークレットにするか選び、[**Change visibility**] をクリックします。 ![チームを表示するまたはシークレットにするラジオボタンと、[Change visibility] ボタン](/assets/images/help/teams/select-and-confirm-new-visibility.png)

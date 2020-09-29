@@ -1,6 +1,6 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {{ site.data.variables.product.product_name }}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation }}
+{% data reusables.user_settings.password-authentication-deprecation %}
 
 ### Updating your credentials via Keychain Access
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app. ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **{{ site.data.variables.command_line.backticks }}**.
-3. Find the "internet password" entry for `{{ site.data.variables.command_line.backticks }}`. ![GitHub Password Entry in Keychain](/assets/images/help/setup/keychain-entry.png)
+2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
+3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`. ![GitHub Password Entry in Keychain](/assets/images/help/setup/keychain-entry.png)
 4. Edit or delete the entry accordingly.
 
 ### Deleting your credentials via the command line
@@ -26,13 +26,13 @@ To do this, type the following command:
 
 ```shell
 $ git credential-osxkeychain erase
-host={{ site.data.variables.command_line.codeblock }}
+host={% data variables.command_line.codeblock %}
 protocol=https
 > <em>[Press Return]</em>
 ```
 
-If it's successful, nothing will print out. To test that it works, try and clone a repository from {{ site.data.variables.product.product_location }}. If you are prompted for a password, the keychain entry was deleted.
+If it's successful, nothing will print out. To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ### Дополнительная литература
 
-- "[Caching your {{ site.data.variables.product.prodname_dotcom }} credentials in Git](/github/using-git/caching-your-github-credentials-in-git/)"
+- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git/)"

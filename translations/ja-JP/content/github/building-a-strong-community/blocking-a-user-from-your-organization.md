@@ -48,10 +48,10 @@ Organization の設定内、もしくはユーザが作成した特定のコメ�
 ### Organization 設定でユーザをブロックする
 
 1. Organization のメンバーをブロックするには、まず Organization から[メンバーを削除](/articles/removing-a-member-from-your-organization)します。
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.block_users}}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.block_users %}
 6. [Block a user] の下で、ブロックしたいユーザ名を入力します。 ![ユーザ名フィールド](/assets/images/help/organizations/org-block-username-field.png)
 7. ブロックに期限を設定したい場合には、[Block option] ドロップダウンメニューを使い、ユーザをブロックする期間を選択します。 ![ブロックオプションのドロップダウンメニュー](/assets/images/help/organizations/org-block-options-menu.png)
 8. [**Block user**] (ユーザをブロック) をクリックします。 ![ブロックボタン](/assets/images/help/organizations/org-block-user-button.png)

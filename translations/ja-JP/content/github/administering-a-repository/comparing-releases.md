@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. ベースとして使用するリリースの横にある [**Compare**] をクリックします。 ![リリースタグの比較メニュー](/assets/images/help/releases/compare-tags-menu.png)
 4. [Compare] ドロップダウンメニューを使用して、比較するタグを選択します。 ![リリースタグの比較メニューオプション](/assets/images/help/releases/compare-tags-menu-options.png)

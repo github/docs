@@ -1,7 +1,7 @@
 ---
 title: About required status checks
 intro: Required status checks ensure that all required CI tests are passing before collaborators can make changes to a protected branch.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
@@ -19,7 +19,7 @@ After enabling required status checks, all required status checks must pass befo
 
 {% tip %}
 
-**Note:** Any person or integration with write permissions to a repository can set the state of any status check in the repository. {{ site.data.variables.product.product_name }} does not verify that the author of a check is authorized to create a check with a certain name or modify an existing status. Before merging a pull request, you should verify that the author of each status, listed in the merge box, is expected.
+**Note:** Any person or integration with write permissions to a repository can set the state of any status check in the repository. {% data variables.product.product_name %} does not verify that the author of a check is authorized to create a check with a certain name or modify an existing status. Before merging a pull request, you should verify that the author of each status, listed in the merge box, is expected.
 
 {% endtip %}
 

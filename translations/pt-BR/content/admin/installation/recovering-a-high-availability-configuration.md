@@ -1,6 +1,6 @@
 ---
 title: Recuperar configuração de alta disponibilidade
-intro: 'Após o failover para um appliance do {{ site.data.variables.product.prodname_ghe_server }}, você deve recuperar a redundância o quanto antes, em vez de usar somente um appliance.'
+intro: 'Após o failover para um appliance do {% data variables.product.prodname_ghe_server %}, você deve recuperar a redundância o quanto antes, em vez de usar somente um appliance.'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
 versions:
@@ -19,9 +19,9 @@ Você pode usar o appliance primário anterior como novo appliance de réplica e
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. Para verificar a conexão com o novo primário e habilitar o modo de réplica para a nova réplica, execute `ghe-repl-setup` novamente.
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

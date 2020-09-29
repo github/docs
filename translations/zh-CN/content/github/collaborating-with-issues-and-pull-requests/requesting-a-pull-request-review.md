@@ -20,7 +20,7 @@ versions:
 
 您可以向建议的或特定的人员请求审查。 建议的审查者基于 [git 追溯数据](/articles/tracking-changes-in-a-file/)。 如果您请求审查，则具有仓库读取权限的其他人仍可审查您的拉取请求。 在有人审查您的拉取请求后您做了必要的更改，您可以重新请求同一审查者再次审查。 如果请求的审查者未提交审查，并且拉取请求满足仓库的[可合并性要求](/articles/defining-the-mergeability-of-pull-requests)，则您仍然可以合并该拉取请求。
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在拉取请求列表中，单击您想要请求特定人员或团队审查的拉取请求。
 3. 导航到右侧边栏中的 **Reviewers（审查者）**。
 4. 要向建议的人员请求审查，在 **Reviewers（审查者）**下其用户名旁边，单击 **Request（请求）**。 ![右侧边栏中的审查者请求图标](/assets/images/help/pull_requests/request-suggested-review.png)

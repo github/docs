@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_migrations.fork-persistence }}
+{% data reusables.enterprise_migrations.fork-persistence %}
 
-{{ site.data.variables.product.prodname_dotcom_the_website }} からリポジトリデータをエクスポートするには、<a href="/rest/reference/migrations" class="dotcom-only">移行 API</a> を使います。
+{% data variables.product.prodname_dotcom_the_website %} からリポジトリデータをエクスポートするには、<a href="/rest/reference/migrations" class="dotcom-only">移行 API</a> を使います。
 
 移行APIは現在プレビュー期間です。すなわち、エンドポイントとパラメータは将来変更されることがあります。 移行APIにアクセスするには、カスタムの[メディアタイプ](/v3/media)として`application/vnd.github.wyandotte-preview+json`を`Accept`ヘッダで渡さなければなりません。 以下の例にはカスタムのメディアタイプが含まれています。
 
 ### 移行アーカイブの生成
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
 1. 移行を行うOrganizationのメンバーに通知します。 エクスポートには、対象のリポジトリ数に応じて数分がかかることがあります。 インポートを含む完全な移行には何時間もかかる可能性があるため、完全な処理にかかる時間を判断するためにまず試行することをおすすめします。 詳細は「[移行について](/enterprise/admin/migrations/about-migrations#types-of-migrations)」を参照してください。
 
@@ -30,7 +30,7 @@ versions:
       https://api.github.com/orgs/<em>orgname</em>/migrations
       ```
     *  移行する前にリポジトリをロックするには、`lock_repositories` が `true` になっていることを確認してください。 これについては強くおすすめします。
-    * `exclude_attachments: true` をエンドポイントに渡すと、添付ファイルを除外できます。 {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }} 最終的なアーカイブのサイズは 20 GB 未満でなければなりません。
+    * `exclude_attachments: true` をエンドポイントに渡すと、添付ファイルを除外できます。 {% data reusables.enterprise_migrations.exclude-file-attachments %} 最終的なアーカイブのサイズは 20 GB 未満でなければなりません。
 
   このリクエストは移行を表す一意の `id` を返します。 これは次の移行 API の呼び出しに必要となります。
 
@@ -67,4 +67,4 @@ versions:
       -H "Accept: application/vnd.github.wyandotte-preview+json" \
       https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/archive
       ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

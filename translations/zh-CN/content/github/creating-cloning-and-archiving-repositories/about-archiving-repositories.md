@@ -11,12 +11,12 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**注：**如果原本有各仓库计费计划，您仍然需要对存档的仓库付费。 如果不想对存档的仓库付费，则必须升级到新产品。 更多信息请参阅“[{{ site.data.variables.product.prodname_dotcom }} 的产品](/articles/github-s-products)”。
+**注：**如果原本有各仓库计费计划，您仍然需要对存档的仓库付费。 如果不想对存档的仓库付费，则必须升级到新产品。 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
 在仓库存档后，便无法添加或删除协作者或团队。 具有仓库访问权限的贡献者只能对项目复刻或标星。
 

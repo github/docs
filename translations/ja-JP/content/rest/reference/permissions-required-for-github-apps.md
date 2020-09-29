@@ -1,6 +1,6 @@
 ---
 title: GitHub Appに必要な権限
-intro: '{{ site.data.variables.product.prodname_github_app }}互換の各エンドポイントについて、必要な権限を確認できます。'
+intro: '{% data variables.product.prodname_github_app %}互換の各エンドポイントについて、必要な権限を確認できます。'
 redirect_from:
   - /v3/apps/permissions ---
 versions:
@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.prodname_github_app }}の権限について
+### {% data variables.product.prodname_github_app %}の権限について
 
-{{ site.data.variables.product.prodname_github_app }}は、一連の権限を付けて作成されます。 {{ site.data.variables.product.prodname_github_app }}がAPIを介してアクセスできるリソースが、権限によって決まります。 詳細は、「[GitHub Appの権限の設定](/apps/building-github-apps/setting-permissions-for-github-apps/)」を参照してください。
+{% data variables.product.prodname_github_app %}は、一連の権限を付けて作成されます。 {% data variables.product.prodname_github_app %}がAPIを介してアクセスできるリソースが、権限によって決まります。 詳細は、「[GitHub Appの権限の設定](/apps/building-github-apps/setting-permissions-for-github-apps/)」を参照してください。
 
 ### メタデータ権限
 
 GitHub Appは、デフォルトで`Read-only`メタデータ権限を持ちます。 メタデータ権限は、各種リソースのメタデータを持つ読み取り専用のエンドポイントのコレクションへのアクセスを提供します。 これらのエンドポイントで、機密のプライベートリポジトリ情報が漏洩することはありません。
 
-{{ site.data.reusables.apps.metadata-permissions }}
+{% data reusables.apps.metadata-permissions %}
 
 
 - [`GET /`](/v3/#root-endpoint)

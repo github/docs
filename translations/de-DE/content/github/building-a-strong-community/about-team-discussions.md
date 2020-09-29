@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.organizations.team-discussions-purpose }}
+{% data reusables.organizations.team-discussions-purpose %}
 
-Jedes Organisationsmitglied kann Beiträge auf der Seite Deines Teams veröffentlichen oder an einer öffentlichen Diskussion teilnehmen. {{ site.data.reusables.organizations.team-discussions-permissions }}
+Jedes Organisationsmitglied kann Beiträge auf der Seite Deines Teams veröffentlichen oder an einer öffentlichen Diskussion teilnehmen. {% data reusables.organizations.team-discussions-permissions %}
 
 ![Registerkarte mit Diskussionen auf einer Teamseite mit öffentlichen und privaten Diskussionen](/assets/images/help/organizations/team-page-discussions-tab.png)
 
@@ -18,7 +18,7 @@ Du kannst auf jede Teamdiskussion verknüpfen, um sie an anderer Stelle zu refer
 
 ![Registerkarte mit angehefteten Diskussionen auf einer Teamseite mit angehefteter Diskussion](/assets/images/help/organizations/team-discussions-pinned.png)
 
-{{ site.data.reusables.organizations.team-discussions-default }}-Inhaber können Teamdiskussionen für die gesamte Organisation deaktivieren. Weitere Informationen findest Du unter „[Teamdiskussionen innerhalb Deiner Organisation deaktivieren](/articles/disabling-team-discussions-for-your-organization).“
+{% data reusables.organizations.team-discussions-default %}-Inhaber können Teamdiskussionen für die gesamte Organisation deaktivieren. Weitere Informationen findest Du unter „[Teamdiskussionen innerhalb Deiner Organisation deaktivieren](/articles/disabling-team-discussions-for-your-organization).“
 
 ### Benachrichtigungen für Teamdiskussionen
 
@@ -26,7 +26,7 @@ Wenn jemand eine öffentliche Diskussion auf der Seite eines Teams veröffentlic
 
 {% tip %}
 
-**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {{ site.data.variables.product.product_name }} oder beide. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" und „[Über Webbenachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
+**Tipp:** Abhängig von Deinen Benachrichtigungseinstellungen erhältst Du Updates per E-Mail, über die Seite mit den Webbenachrichtigungen auf {% data variables.product.product_name %} oder beide. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications){% else %}„[Über E-Mail-Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-email-notifications)" und „[Über Webbenachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-web-notifications){% endif %}."
 
 {% endtip %}
 
@@ -38,7 +38,7 @@ Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@late
 
 ### Weiterführende Informationen
 
-- „[Informationen zu Unterhaltungen auf {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github)“
+- „[Informationen zu Unterhaltungen auf {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github)“
 - „[Informationen zu Teams](/articles/about-teams)“
 - „[Eine Teamdiskussion erstellen](/articles/creating-a-team-discussion)“
 - „[Eine Teamdiskussion bearbeiten oder löschen](/articles/editing-or-deleting-a-team-discussion)“

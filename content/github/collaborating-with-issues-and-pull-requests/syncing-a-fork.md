@@ -10,7 +10,7 @@ versions:
 
 Before you can sync your fork with an upstream repository, you must [configure a remote that points to the upstream repository](/articles/configuring-a-remote-for-a-fork) in Git.
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
 3. Fetch the branches and their respective commits from the upstream repository. Commits to `master` will be stored in a local branch, `upstream/master`.
   ```shell
@@ -19,7 +19,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   > remote: Compressing objects: 100% (53/53), done.
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
-  > From https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
+  > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      master     -> upstream/master
   ```
 4. Check out your fork's local `master` branch.
@@ -48,6 +48,6 @@ Before you can sync your fork with an upstream repository, you must [configure a
 
 {% tip %}
 
-**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {{ site.data.variables.product.product_location }}, you must [push your changes](/articles/pushing-commits-to-a-remote-repository/).
+**Tip**: Syncing your fork only updates your local copy of the repository. To update your fork on {% data variables.product.product_location %}, you must [push your changes](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

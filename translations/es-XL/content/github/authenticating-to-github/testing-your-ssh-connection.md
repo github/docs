@@ -1,6 +1,6 @@
 ---
 title: Probar tu conexión SSH
-intro: 'Después de haber configurado tu clave SSH y haberla agregado a tu {{ site.data.variables.product.product_name }} cuenta, puedes probar tu conexión.'
+intro: 'Después de haber configurado tu clave SSH y haberla agregado a tu {% data variables.product.product_name %} cuenta, puedes probar tu conexión.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
@@ -15,17 +15,17 @@ Antes de probar tu conexión SSH, debes haber hecho lo siguiente:
 
 Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu contraseña, que es la contraseña de clave SSH que ya creaste. Para obtener más información acerca de trabajar con contraseñas de clave SSH, consulta ["Trabajar con contraseñas de clave SSH"](/articles/working-with-ssh-key-passphrases).
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Ingresa lo siguiente:
   ```shell
-  $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
-  # Attempts to ssh to {{ site.data.variables.product.product_name }}
+  $ ssh -T git@{% data variables.command_line.codeblock %}
+  # Attempts to ssh to {% data variables.product.product_name %}
   ```
 
   Puedes ver una advertencia como la siguiente:
 
   ```shell
-  > La autenticidad del host '{{ site.data.variables.command_line.codeblock }} (DIRECCIÓN IP)' no se puede establecer.
+  > La autenticidad del host '{% data variables.command_line.codeblock %} (DIRECCIÓN IP)' no se puede establecer.
   > La clave de huella digital RSA es 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
   > ¿Estás seguro de que quieres continuar conectado (sí/no)?
   ```
@@ -33,7 +33,7 @@ Cuando pruebes tu conexión, tendrás que autenticar esta acción utilizando tu 
   o como la siguiente:
 
   ```shell
-  > La autenticidad del host '{{ site.data.variables.command_line.codeblock }} (DIRECCIÓN IP)' no se puede establecer.
+  > La autenticidad del host '{% data variables.command_line.codeblock %} (DIRECCIÓN IP)' no se puede establecer.
   > La clave de huella digital RSA es SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
   > ¿Estás seguro de que quieres continuar conectado (sí/no)?
   ```

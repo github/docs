@@ -1,9 +1,9 @@
 ---
 title: Configuring the CodeQL action for compiled languages
 shortTitle: Configurar para linguagens compiladas
-intro: 'You can configure how {{ site.data.variables.product.prodname_dotcom }} uses the {{ site.data.variables.product.prodname_codeql_workflow }} to scan code written in compiled languages for vulnerabilities and errors.'
-product: '{{ site.data.reusables.gated-features.code-scanning }}'
-permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {{ site.data.variables.product.prodname_code_scanning }} para o repositório.'
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.product.prodname_codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+product: '{% data reusables.gated-features.code-scanning %}'
+permissions: 'Pessoas com permissões de gravação para um repositório podem configurar {% data variables.product.prodname_code_scanning %} para o repositório.'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-for-compiled-languages
 versions:
@@ -11,23 +11,23 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.code-scanning.beta }}
-{{ site.data.reusables.code-scanning.enterprise-enable-code-scanning-actions }}
+{% data reusables.code-scanning.beta %}
+{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
-### About the {{ site.data.variables.product.prodname_codeql_workflow }} and compiled languages
+### About the {% data variables.product.prodname_codeql_workflow %} and compiled languages
 
-Para habilitar o {{ site.data.variables.product.prodname_code_scanning }} para seu repositório, você deve adicionar ao repositório um fluxo de trabalho do {{ site.data.variables.product.prodname_actions }} que inclui análise do {{ site.data.variables.product.prodname_codeql }}. For {{ site.data.variables.product.prodname_codeql }} {{ site.data.variables.product.prodname_code_scanning }}, you add the {{ site.data.variables.product.prodname_codeql_workflow }}. Para obter mais informações, consulte "[Habilitando {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning).
+Para habilitar o {% data variables.product.prodname_code_scanning %} para seu repositório, você deve adicionar ao repositório um fluxo de trabalho do {% data variables.product.prodname_actions %} que inclui análise do {% data variables.product.prodname_codeql %}. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.product.prodname_codeql_workflow %}. Para obter mais informações, consulte "[Habilitando {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning).
 
-{{ site.data.reusables.code-scanning.edit-workflow }}
-For general information about configuring {{ site.data.variables.product.prodname_code_scanning }} and editing workflow files, see "[Configuring {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
+{% data reusables.code-scanning.edit-workflow %}
+For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[Configuring {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning)" and  "[Configuring a workflow](/actions/configuring-and-managing-workflows/configuring-a-workflow)."
 
-### Sobre a autobuild para {{ site.data.variables.product.prodname_codeql }}
+### Sobre a autobuild para {% data variables.product.prodname_codeql %}
 
-{{ site.data.reusables.code-scanning.autobuild-compiled-languages }}
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% note %}
 
-**Observação**: Se você usa executores auto-hospedados para {{ site.data.variables.product.prodname_actions }}, talvez seja necessário instalar um software adicional para usar o processo de `autobuild`. Além disso, se seu repositório precisar de uma versão específica de uma ferramenta de criação, talvez seja necessário instalá-lo manualmente. Para obter mais informações, consulte "[Software instalado nos executores hospedados no GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
+**Observação**: Se você usa executores auto-hospedados para {% data variables.product.prodname_actions %}, talvez seja necessário instalar um software adicional para usar o processo de `autobuild`. Além disso, se seu repositório precisar de uma versão específica de uma ferramenta de criação, talvez seja necessário instalá-lo manualmente. Para obter mais informações, consulte "[Software instalado nos executores hospedados no GitHub](/actions/reference/software-installed-on-github-hosted-runners)".
 
 {% endnote %}
 
@@ -88,7 +88,7 @@ O processo de `autobuild` tenta determinar o sistema de criação para bases de 
 
 ### Adicionar passos de criação a uma linguagem compilada
 
-{{ site.data.reusables.code-scanning.autobuild-add-build-steps }} Para obter informações sobre a edição do fluxo de trabalho, consulte "[Configurar {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
+{% data reusables.code-scanning.autobuild-add-build-steps %} Para obter informações sobre a edição do fluxo de trabalho, consulte "[Configurar {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#editing-a-code-scanning-workflow)".
 
 Depois de remover a etapa de `autobuild`, remova o comentário da etapa `executar` e adicione comandos de criação adequados ao seu repositório. A etapa do fluxo de trabalho `executar` executa programas da linha de comando que usam o shell do sistema operacional. Você pode modificar esses comandos e adicionar mais comandos para personalizar o processo de criação.
 
@@ -98,7 +98,7 @@ Depois de remover a etapa de `autobuild`, remova o comentário da etapa `executa
   make release
 ```
 
-Para obter mais informações sobre a palavra-chave `executar`, consulte "[Sintaxe de fluxo de trabalho para {{ site.data.variables.product.prodname_actions }}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
+Para obter mais informações sobre a palavra-chave `executar`, consulte "[Sintaxe de fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)".
 
 Também é possível usar uma matriz para atualizar o fluxo de trabalho para criar mais de uma linguagem compilada, se esta for a abordagem apropriada para o seu sistema e não causar conflitos. Para obter mais informações, consulte "[Configurar uma matriz de criação](/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix)".
 
@@ -146,6 +146,6 @@ jobs:
       uses: github/codeql-action/analyze@v1
 ```
 
-Para obter mais dicas e truques sobre por que o `autobuild` não criará seu código, consulte[Solução de problemas para {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)".
+Para obter mais dicas e truques sobre por que o `autobuild` não criará seu código, consulte[Solução de problemas para {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning)".
 
-Se você adicionou etapas manuais de criação para linguagens compiladas ou usou uma matriz de criação e o {{ site.data.variables.product.prodname_code_scanning }} ainda não está funcionando no seu repositório, entre em contato com {{ site.data.variables.contact.contact_support }}.
+Se você adicionou etapas manuais de criação para linguagens compiladas ou usou uma matriz de criação e o {% data variables.product.prodname_code_scanning %} ainda não está funcionando no seu repositório, entre em contato com {% data variables.contact.contact_support %}.

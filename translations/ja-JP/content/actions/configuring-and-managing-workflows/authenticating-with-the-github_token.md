@@ -1,7 +1,7 @@
 ---
 title: '`GITHUB_TOKEN`での認証'
-intro: '{{ site.data.variables.product.prodname_dotcom }}は、{{ site.data.variables.product.prodname_actions }}の代理で認証を受けるために利用できるトークンを提供します。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -10,26 +10,26 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 リポジトリに対して`write`アクセスがあるユーザなら、誰でもシークレットの作成、読み取りおよび使用ができます。
 
 ### `GITHUB_TOKEN`シークレットについて
 
-{{ site.data.variables.product.prodname_dotcom }}は、ワークフローで利用する`GITHUB_TOKEN`シークレットを自動的に生成します。 この`GITHUB_TOKEN`は、ワークフローの実行内での認証に利用できます。
+{% data variables.product.prodname_dotcom %}は、ワークフローで利用する`GITHUB_TOKEN`シークレットを自動的に生成します。 この`GITHUB_TOKEN`は、ワークフローの実行内での認証に利用できます。
 
-{{ site.data.variables.product.prodname_actions }}を有効化すると、{{ site.data.variables.product.prodname_dotcom }}はリポジトリに{{ site.data.variables.product.prodname_github_app }}をインストールします。 `GITHUB_TOKEN`シークレットは、{{ site.data.variables.product.prodname_github_app }}インストールアクセストークンです。 このインストールアクセストークンは、リポジトリにインストールされた{{ site.data.variables.product.prodname_github_app }}の代わりに認証を受けるために利用できます このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
+{% data variables.product.prodname_actions %}を有効化すると、{% data variables.product.prodname_dotcom %}はリポジトリに{% data variables.product.prodname_github_app %}をインストールします。 `GITHUB_TOKEN`シークレットは、{% data variables.product.prodname_github_app %}インストールアクセストークンです。 このインストールアクセストークンは、リポジトリにインストールされた{% data variables.product.prodname_github_app %}の代わりに認証を受けるために利用できます このトークンの権限は、ワークフローを含むリポジトリに限定されます。 詳しい情報については「[`GITHUB_TOKEN`の権限](#permissions-for-the-github_token)」を参照してください。
 
-各ジョブの開始前に、{{ site.data.variables.product.prodname_dotcom }} はジョブのインストールアクセストークンをフェッチします。 トークンはジョブが終了すると期限切れになります。
+各ジョブの開始前に、{% data variables.product.prodname_dotcom %} はジョブのインストールアクセストークンをフェッチします。 トークンはジョブが終了すると期限切れになります。
 
-このトークンは、`github.token`コンテキストにもあります。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
+このトークンは、`github.token`コンテキストにもあります。 詳しい情報については、「[{% data variables.product.prodname_actions %} のコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 
 ### ワークフロー内での`GITHUB_TOKEN`の利用
 
-`GITHUB_TOKEN`シークレットを利用するためには、ワークフローファイル内で参照しなければなりません。 トークンの利用には、そのトークンを要求するアクションへ入力としてそのトークンを渡すことや、認証を受けた{{ site.data.variables.product.prodname_dotcom }} APIコールの発行が含まれます。
+`GITHUB_TOKEN`シークレットを利用するためには、ワークフローファイル内で参照しなければなりません。 トークンの利用には、そのトークンを要求するアクションへ入力としてそのトークンを渡すことや、認証を受けた{% data variables.product.prodname_dotcom %} APIコールの発行が含まれます。
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }}
+{% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
 #### `GITHUB_TOKEN`を入力として渡す例
 
@@ -52,7 +52,7 @@ versions:
 
 #### REST APIの呼び出しの例
 
-`GITHUB_TOKEN`を使って、認証されたAPIコールを発行できます。 以下のワークフローの例では、{{ site.data.variables.product.prodname_dotcom }} REST APIを使ってIssueを作成しています。
+`GITHUB_TOKEN`を使って、認証されたAPIコールを発行できます。 以下のワークフローの例では、{% data variables.product.prodname_dotcom %} REST APIを使ってIssueを作成しています。
 
   {% raw %}
   ```yaml
@@ -78,7 +78,7 @@ versions:
 
 ### `GITHUB_TOKEN`の権限
 
-{{ site.data.variables.product.prodname_github_apps }} が各権限でアクセできる API エンドポイントについては、「[{{ site.data.variables.product.prodname_github_app }} の権限](/v3/apps/permissions/)」を参照してください。
+{% data variables.product.prodname_github_apps %} が各権限でアクセできる API エンドポイントについては、「[{% data variables.product.prodname_github_app %} の権限](/v3/apps/permissions/)」を参照してください。
 
 | 権限          | アクセスタイプ   | フォークしたリポジトリからのアクセス |
 | ----------- | --------- | ------------------ |

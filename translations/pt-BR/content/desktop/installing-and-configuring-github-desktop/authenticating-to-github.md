@@ -1,7 +1,7 @@
 ---
 title: Autenticar com o GitHub
 shortTitle: Autenticação
-intro: 'Você pode acessar com segurança os recursos da sua conta em {{ site.data.variables.product.prodname_desktop }} através da autenticação no {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Você pode acessar com segurança os recursos da sua conta em {% data variables.product.prodname_desktop %} através da autenticação no {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
@@ -11,72 +11,72 @@ versions:
 
 ### Sobre a autenticação
 
-Para manter sua conta segura, você deve autenticar antes de usar o {{ site.data.variables.product.prodname_desktop }} para acessar os recursos no {{ site.data.variables.product.prodname_dotcom }}.
+Para manter sua conta segura, você deve autenticar antes de usar o {% data variables.product.prodname_desktop %} para acessar os recursos no {% data variables.product.prodname_dotcom %}.
 
-Antes de autenticar, {{ site.data.reusables.desktop.get-an-account }}
+Antes de autenticar, {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
-### Autenticando uma conta no {{ site.data.variables.product.prodname_dotcom }}
+### Autenticando uma conta no {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-3. À direita de "{{ site.data.variables.product.prodname_dotcom_the_website }}," clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
-4. No painel "Entrar", clique em **Entrar usando seu navegador**. {{ site.data.variables.product.prodname_desktop }} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/mac-sign-in-browser.png)
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+3. À direita de "{% data variables.product.prodname_dotcom_the_website %}," clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/mac-sign-in-github.png)
+4. No painel "Entrar", clique em **Entrar usando seu navegador**. {% data variables.product.prodname_desktop %} abrirá seu navegador padrão. ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/mac-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. Depois que o {{ site.data.variables.product.prodname_dotcom }} autenticar sua conta, siga as instruções para retornar a {{ site.data.variables.product.prodname_desktop }}.
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. Depois que o {% data variables.product.prodname_dotcom %} autenticar sua conta, siga as instruções para retornar a {% data variables.product.prodname_desktop %}.
 
-### Autenticando uma conta no {{ site.data.variables.product.prodname_enterprise }}
+### Autenticando uma conta no {% data variables.product.prodname_enterprise %}
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
-{{ site.data.reusables.desktop.mac-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. Para adicionar uma conta no {{ site.data.variables.product.prodname_enterprise }}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.mac-select-desktop-menu %}
+{% data reusables.desktop.mac-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. Para adicionar uma conta no {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
 
 {% windows %}
 
-### Autenticando uma conta no {{ site.data.variables.product.prodname_dotcom }}
+### Autenticando uma conta no {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
 3. À direita do "GitHub.com", clique **Iniciar sessão**. ![Botão Sign In (Entrar) do GitHub](/assets/images/help/desktop/windows-sign-in-github.png)
 4. No painel Sign in (Entrar), clique em **Sign in using your browser** (Entrar via navegador). ![Link Sign in using your browser (Entrar via navegador)](/assets/images/help/desktop/windows-sign-in-browser.png)
 
-  {{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+  {% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.authenticate-in-browser }}
-{{ site.data.reusables.desktop.2fa-in-browser }}
-7. Depois que o {{ site.data.variables.product.prodname_dotcom }} autenticar sua conta, siga as instruções para retornar a {{ site.data.variables.product.prodname_desktop }}.
+{% data reusables.desktop.authenticate-in-browser %}
+{% data reusables.desktop.2fa-in-browser %}
+7. Depois que o {% data variables.product.prodname_dotcom %} autenticar sua conta, siga as instruções para retornar a {% data variables.product.prodname_desktop %}.
 
-### Autenticando uma conta no {{ site.data.variables.product.prodname_enterprise }}
+### Autenticando uma conta no {% data variables.product.prodname_enterprise %}
 
 
-{{ site.data.reusables.user_settings.password-authentication-deprecation-desktop }}
+{% data reusables.user_settings.password-authentication-deprecation-desktop %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
-{{ site.data.reusables.desktop.windows-select-accounts }}
-{{ site.data.reusables.desktop.choose-product-authenticate }}
-4. Para adicionar uma conta no {{ site.data.variables.product.prodname_enterprise }}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
-{{ site.data.reusables.desktop.retrieve-2fa }}
+{% data reusables.desktop.windows-choose-options %}
+{% data reusables.desktop.windows-select-accounts %}
+{% data reusables.desktop.choose-product-authenticate %}
+4. Para adicionar uma conta no {% data variables.product.prodname_enterprise %}, digite suas credenciais em "Endereço de servidor corporativo" e clique em **Continuar**. ![Botão Sign In (Entrar) do GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+{% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
 
 ### Solução de problemas de autenticação
 
-Se o {{ site.data.variables.product.prodname_desktop }} encontrar um erro de autenticação, você pode usar mensagens de erro para solucionar problemas.
+Se o {% data variables.product.prodname_desktop %} encontrar um erro de autenticação, você pode usar mensagens de erro para solucionar problemas.
 
-Se você encontrar um erro de autenticação, primeiro tente sair e entrar novamente em sua conta no {{ site.data.variables.product.prodname_desktop }}.
+Se você encontrar um erro de autenticação, primeiro tente sair e entrar novamente em sua conta no {% data variables.product.prodname_desktop %}.
 
-Para alguns erros, {{ site.data.variables.product.prodname_desktop }} enviará a você uma mensagem de erro. Se você não receber a mensagem, ou caso queira encontrar mais informações sobre qualquer erro, visualize os arquivos de log de {{ site.data.variables.product.prodname_desktop }} usando as seguintes etapas.
+Para alguns erros, {% data variables.product.prodname_desktop %} enviará a você uma mensagem de erro. Se você não receber a mensagem, ou caso queira encontrar mais informações sobre qualquer erro, visualize os arquivos de log de {% data variables.product.prodname_desktop %} usando as seguintes etapas.
 
 {% mac %}
 
@@ -102,7 +102,7 @@ Erro: credenciais inválidas
 
 Este erro significa que há um problema com suas credenciais da conta armazenada.
 
-Para solucionar problemas, saia da sua conta no {{ site.data.variables.product.prodname_desktop }} e entre novamente.
+Para solucionar problemas, saia da sua conta no {% data variables.product.prodname_desktop %} e entre novamente.
 
 #### Token vazio
 
@@ -110,9 +110,9 @@ Para solucionar problemas, saia da sua conta no {{ site.data.variables.product.p
 info: [ui] [AppStore.withAuthenticatingUser] conta encontrada para o repositório: node - <username> (token vazio)
 ```
 
-Este erro significa que {{ site.data.variables.product.prodname_desktop }} não foi possível encontrar o token de acesso que ele criou no keychain do sistema.
+Este erro significa que {% data variables.product.prodname_desktop %} não foi possível encontrar o token de acesso que ele criou no keychain do sistema.
 
-Para solucionar problemas, saia da sua conta no {{ site.data.variables.product.prodname_desktop }} e entre novamente.
+Para solucionar problemas, saia da sua conta no {% data variables.product.prodname_desktop %} e entre novamente.
 
 #### Repositório não encontrado
 
@@ -167,7 +167,7 @@ fatal: não pôde ler o nome de usuário para 'https://github.com': terminal pro
 
 Este erro pode ser causado por vários eventos.
 
-Se as entradas de registro do `Processador de Comando` forem modificadas, {{ site.data.variables.product.prodname_desktop }} responderá com um erro de` falha de Autenticação`. Para verificar se estas entradas de registro foram modificadas, siga estas etapas.
+Se as entradas de registro do `Processador de Comando` forem modificadas, {% data variables.product.prodname_desktop %} responderá com um erro de` falha de Autenticação`. Para verificar se estas entradas de registro foram modificadas, siga estas etapas.
 
 1. Abra o Editor de Registro (`regedit.exe`) e navegue para os seguintes locais. `` HKEY_CURRENT_USER\Software\Microsoft\Command Processor\` ``HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
 2. Verifique se há um valor de `Autorun` em algum local.

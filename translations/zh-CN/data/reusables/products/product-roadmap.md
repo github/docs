@@ -1,1 +1,1 @@
-For information on planned features and products, see the [{{ site.data.variables.product.prodname_roadmap }}]({{ site.data.variables.product.prodname_roadmap_link }}).
+For information on planned features and products, see the [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}).

@@ -43,7 +43,7 @@ La API te notifica si algún recurso requiere de un alcance específico.
 
 La API de REST tiene varias terminales; la API de GraphQL solo tiene una terminal:
 
-<pre>{{ site.data.variables.product.graphql_url_pre }}</pre>
+<pre>{% data variables.product.graphql_url_pre %}</pre>
 
 La terminal permanece constante sin importar la operación que realices.
 
@@ -60,7 +60,7 @@ curl -H "Authorization: bearer <em>token</em>" -X POST -d " \
  { \
    \"query\": \"query { viewer { login }}\" \
  } \
-" {{ site.data.variables.product.graphql_url_code }}
+" {% data variables.product.graphql_url_code %}
 ```
 
 {% tip %}
@@ -340,7 +340,7 @@ Una vez conociendo la ID, podemos proceder con la mutación:
 
   ¿Cómo sabemos qué valor utilizar para el contenido? Los [docs `addReaction`](/v4/mutation/addreaction/) nos dicen que el campo `content` es de tipo [`ReactionContent`](/v4/enum/reactioncontent/), lo cual es un [enumerador](/v4/enum) ya que solo ciertas reacciones de emoji son compatibles con los informes de problemas de GitHub. Estos son los valores permitidos para las reacciones (nota que algunos valores son diferentes de sus nombres de emoji correspondientes):
 
-  {{ site.data.reusables.repositories.reaction_list }}
+  {% data reusables.repositories.reaction_list %}
 
 * El resto del llamado se compone del objeto de carga útil. Aquí es donde especificamos los datos que queremos recuperar del servidor después de que realicemos la mutación. Estas líneas vienen de los [docs `AddReaction`](/v4/mutation/addreaction), que tienen tres campos de recuperación posibles:
 

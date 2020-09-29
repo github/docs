@@ -1,6 +1,6 @@
 ---
 title: アラートの推奨閾値
-intro: '{{ site.data.variables.product.prodname_ghe_server }} アプライアンスのパフォーマンスに影響を与える前に、システムリソースの問題を通知するようにアラートを設定できます。'
+intro: '{% data variables.product.prodname_ghe_server %} アプライアンスのパフォーマンスに影響を与える前に、システムリソースの問題を通知するようにアラートを設定できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/recommended-alert-thresholds
@@ -32,7 +32,7 @@ versions:
 
 ### メモリの利用状況のモニタリング
 
-{{ site.data.variables.product.product_location_enterprise }}に割り当てられている物理メモリの量は、全体的なパフォーマンスとアプリケーションの反応性に大きな影響があります。 システムは、Gitの処理を高速化するためにカーネルのディスクキャッシュを頻繁に利用するよう設計されています。 ピークの利用状況で、通常のRSSワーキングセットがRAMの総容量の50%以内に収まるようにすることをおすすめします。
+{% data variables.product.product_location_enterprise %}に割り当てられている物理メモリの量は、全体的なパフォーマンスとアプリケーションの反応性に大きな影響があります。 システムは、Gitの処理を高速化するためにカーネルのディスクキャッシュを頻繁に利用するよう設計されています。 ピークの利用状況で、通常のRSSワーキングセットがRAMの総容量の50%以内に収まるようにすることをおすすめします。
 
 | 重要度          | 閾値                              |
 | ------------ | ------------------------------- |

@@ -21,4 +21,4 @@ versions:
 
 ### 参考リンク
 
-- 「[{{ site.data.variables.product.prodname_dotcom }}アカウントの種類](/articles/types-of-github-accounts)」
+- 「[{% data variables.product.prodname_dotcom %}アカウントの種類](/articles/types-of-github-accounts)」

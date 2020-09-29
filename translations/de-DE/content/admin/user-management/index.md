@@ -7,7 +7,7 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-intro: 'In diesem Leitfaden werden die Authentifizierungsmethoden beschrieben, über die sich Benutzer bei Ihrer {{ site.data.variables.product.prodname_enterprise }}-Instanz anmelden können. Zudem wird darin beschrieben, wie Organisationen und Teams für den Zugriff auf und die Zusammenarbeit am Repository erstellt werden können. Letztlich finden sich darin auch vorgeschlagene Best Practices für die Benutzersicherheit.'
+intro: 'In diesem Leitfaden werden die Authentifizierungsmethoden beschrieben, über die sich Benutzer bei Ihrer {% data variables.product.prodname_enterprise %}-Instanz anmelden können. Zudem wird darin beschrieben, wie Organisationen und Teams für den Zugriff auf und die Zusammenarbeit am Repository erstellt werden können. Letztlich finden sich darin auch vorgeschlagene Best Practices für die Benutzersicherheit.'
 versions:
   enterprise-server: '*'
 ---

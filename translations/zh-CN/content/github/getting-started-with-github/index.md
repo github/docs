@@ -1,7 +1,7 @@
 ---
 title: 开始使用 GitHub
 shortTitle: 入门指南
-intro: '了解 {{ site.data.variables.product.prodname_dotcom }} 的产品，注册帐户，并探索 {{ site.data.variables.product.prodname_dotcom }} 社区。'
+intro: '了解 {% data variables.product.prodname_dotcom %} 的产品，注册帐户，并探索 {% data variables.product.prodname_dotcom %} 社区。'
 redirect_from:
   - /categories/54/articles/
   - /categories/bootcamp/

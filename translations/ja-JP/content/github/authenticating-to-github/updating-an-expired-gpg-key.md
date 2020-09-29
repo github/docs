@@ -1,6 +1,6 @@
 ---
 title: 期限切れ GPG キーを更新する
-intro: '署名を検証するとき、{{ site.data.variables.product.product_name }} は、キーが取り消しまたは期限切れになっていないか確認します。 もしサインインのキーが取り消しまたは期限切れになっている場合、{{ site.data.variables.product.product_name }} は、お客様の署名を検証できません。 キーが取り消されている場合、プライマリーまたは取り消されていない他のキーを使って、コミットに署名します。'
+intro: '署名を検証するとき、{% data variables.product.product_name %} は、キーが取り消しまたは期限切れになっていないか確認します。 もしサインインのキーが取り消しまたは期限切れになっている場合、{% data variables.product.product_name %} は、お客様の署名を検証できません。 キーが取り消されている場合、プライマリーまたは取り消されていない他のキーを使って、コミットに署名します。'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

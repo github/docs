@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „Agent admitted failure to sign“ (Agent gibt Signierfehler zu)'
-intro: 'In Ausnahmefällen kann beim Verbinden mit {{ site.data.variables.product.product_name }} über SSH unter Linux der Fehler `"Agent admitted failure to sign using the key"` (Agent gibt Signierfehler mittels Schlüssel zu) auftreten. Führe diese Schritte aus, um das Problem zu beheben.'
+intro: 'In Ausnahmefällen kann beim Verbinden mit {% data variables.product.product_name %} über SSH unter Linux der Fehler `"Agent admitted failure to sign using the key"` (Agent gibt Signierfehler mittels Schlüssel zu) auftreten. Führe diese Schritte aus, um das Problem zu beheben.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key/
   - /articles/error-agent-admitted-failure-to-sign
@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Wenn Du auf einem Linux-Computer versuchst, eine SSH-Verbindung mit {{ site.data.variables.product.product_location }} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:
+Wenn Du auf einem Linux-Computer versuchst, eine SSH-Verbindung mit {% data variables.product.product_location %} herzustellen, wird möglicherweise die folgende Meldung im Terminal angezeigt:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > Agent admitted failure to sign using the key.
 > debug1: No more authentication methods to try.

@@ -15,16 +15,16 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![差异视图上方的还原选项](/assets/images/help/desktop/commit-revert-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.history-tab }}
-{{ site.data.reusables.desktop.revert-commit }}
+{% data reusables.desktop.history-tab %}
+{% data reusables.desktop.revert-commit %}
   ![差异视图上方的还原选项](/assets/images/help/desktop/commit-revert-win.png)
 
 {% endwindows %}

@@ -1,7 +1,7 @@
 ---
 title: Indrodução ao GitHub Actions
 shortTitle: Introdução
-intro: 'O {{ site.data.variables.product.prodname_actions }} tem um ambiente de execução avançado e integrado a cada etapa do seu fluxo de trabalho. Você pode descobrir, criar e compartilhar o {{ site.data.variables.product.prodname_actions }} para fazer qualquer trabalho.'
+intro: 'O {% data variables.product.prodname_actions %} tem um ambiente de execução avançado e integrado a cada etapa do seu fluxo de trabalho. Você pode descobrir, criar e compartilhar o {% data variables.product.prodname_actions %} para fazer qualquer trabalho.'
 redirect_from:
   - /articles/getting-started-with-github-actions
   - /github/automating-your-workflow-with-github-actions/getting-started-with-github-actions
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% topic_link_in_list /overview %}
   {% link_in_list /about-github-actions %}

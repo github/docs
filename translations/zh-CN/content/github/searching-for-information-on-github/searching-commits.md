@@ -1,6 +1,6 @@
 ---
 title: 搜索提交
-intro: '您可以在 {{ site.data.variables.product.product_name }} 上搜索提交，并使用这些提交搜索限定符的任意组合缩小结果范围。'
+intro: '您可以在 {% data variables.product.product_name %} 上搜索提交，并使用这些提交搜索限定符的任意组合缩小结果范围。'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以在所有 {{ site.data.variables.product.product_name }} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {{ site.data.variables.product.company_short }} 上搜索](/articles/about-searching-on-github)”。
+您可以在所有 {% data variables.product.product_name %} 内全局搜索提交，也可以在特定仓库或组织内搜索提交。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。
 
 当您搜索提交时，仅搜索仓库的[默认分支](/articles/about-branches)。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### 在提交消息内搜索
 
@@ -45,7 +45,7 @@ versions:
 
 使用 `author-date` 和 `committer-date` 限定符可匹配指定日期范围内创作或提交的提交。
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | 限定符                       | 示例                                                                                                                                      |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |

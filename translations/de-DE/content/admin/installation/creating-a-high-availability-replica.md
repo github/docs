@@ -9,8 +9,8 @@ versions:
 
 ### Hochverfügbarkeitsreplikat erstellen
 
-1. Richten Sie eine neue {{ site.data.variables.product.prodname_ghe_server }}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{{ site.data.variables.product.prodname_ghe_server }}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
-2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {{ site.data.variables.product.prodname_enterprise }}-Lizenz hoch.
+1. Richten Sie eine neue {% data variables.product.prodname_ghe_server %}-Appliance auf Ihrer gewünschten Plattform ein. Die Replikat-Appliance sollte die CPU-, RAM- und Speichereinstellungen der primären Appliance spiegeln. Sie sollten die Replikat-Appliance in einer unabhängigen Umgebung installieren. Die zugrunde liegenden Hardware-, Software und Netzwerkkomponenten sollten von denen der primären Appliance isoliert sein. Wenn Sie einen Cloud-Anbieter verwenden, sollten Sie eine separate Region oder Zone verwenden. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %}-Instanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)“.
+2. Navigieren Sie in einem Browser zur IP-Adresse der neuen Replikat-Appliance, und laden Sie Ihre {% data variables.product.prodname_enterprise %}-Lizenz hoch.
 3. Legen Sie ein Administratorpasswort fest, das dem Passwort auf der primären Appliance entspricht, und setzen Sie den Vorgang fort.
 4. Klicken Sie auf **Configure as Replica** (Als Replikat konfigurieren). ![Installationsoptionen mit einem Link zum Konfigurieren Ihrer neuen Instanz als ein Replikat](/assets/images/enterprise/management-console/configure-as-replica.png)
 5. Geben Sie unter „Add new SSH key“ (Neuen SSH-Schlüssel hinzufügen) Ihren SSH-Schlüssel ein.![Option zum Hinzufügen eines SSH-Schlüssels](/assets/images/enterprise/management-console/add-ssh-key.png)
@@ -23,12 +23,12 @@ versions:
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 9. Führen Sie den Befehl `ghe-repl-setup` erneut aus, um die Verbindung zur primären Instanz zu verifizieren und um den Replikatmodus für das neue Replikat zu aktivieren.
   ```shell
   $ ghe-repl-setup <em>PRIMARY IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}
 11. Führen Sie den Befehl `ghe-repl-status` aus, um den Status des Replikationskanals jedes Datenspeichers zu verifizieren.
   ```shell
   $ ghe-repl-status

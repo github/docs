@@ -4,7 +4,7 @@ redirect_from:
   - /articles/git-over-https-using-oauth-token/
   - /articles/git-over-http-using-oauth-token/
   - /articles/git-automation-with-oauth-tokens
-intro: 'You can use OAuth tokens to interact with {{ site.data.variables.product.product_name }} via automated scripts.'
+intro: 'You can use OAuth tokens to interact with {% data variables.product.product_name %} via automated scripts.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -19,18 +19,18 @@ Create a personal access token on your application settings page. For more infor
 {% if currentVersion == "free-pro-team@latest" %}
 **팁:**
 - You must verify your email address before you can create a personal access token. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
-- {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+- {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
-**Tip:** {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+**Tip:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% endif %}
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" %}{{ site.data.reusables.user_settings.removes-personal-access-tokens }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}{% data reusables.user_settings.removes-personal-access-tokens %}{% endif %}
 
 ### Step 2: Clone a repository
 
-{{ site.data.reusables.command_line.providing-token-as-password }}
+{% data reusables.command_line.providing-token-as-password %}
 
 To avoid these prompts, you can use Git password caching. For information, see "[Caching your GitHub credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
 

@@ -10,10 +10,10 @@ versions:
 
 ラベルを削除すると、適用されていたあらゆる Issue やプルリクエストからラベルが消し去られます。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
-{{ site.data.reusables.project-management.delete-label }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
+{% data reusables.project-management.delete-label %}
 
 ### 参考リンク
 

@@ -1,1 +1,1 @@
-Opcionalmente, selecciona **Permitir autenticación integrada** para invitar a los usuarios a utilizar la autenticación integrada si no pertenecen a el proveedor de identidad de {{ site.data.variables.product.product_location_enterprise }}.
+Opcionalmente, selecciona **Permitir autenticación integrada** para invitar a los usuarios a utilizar la autenticación integrada si no pertenecen a el proveedor de identidad de {% data variables.product.product_location_enterprise %}.

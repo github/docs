@@ -29,8 +29,8 @@ Você pode criar diretrizes de contribuição padrão para sua organização{% i
 
 ### Adicionar um arquivo *CONTRIBUTING*
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Decida se deseja armazenar as diretrizes de contribuição no diretório root, `docs` ou `.github` do repositório. Em seguida, no campo de nome do arquivo, digite o nome e a extensão do arquivo. Os nomes de arquivo das diretrizes de contribuição não diferenciam maiúsculas de minúsculas e podem ter uma extensão *.md* ou *.txt*. ![Nome do novo arquivo](/assets/images/help/repository/new-file-name.png)
     - Para tornar as diretrizes de contribuição visíveis no diretório raiz do repositório, digite *CONTRIBUTING*.
     - Para tornar as diretrizes de contribuição visíveis no diretório `docs` do repositório, digite *docs/* para criar o diretório e, em seguida, digite *CONTRIBUTING*.
@@ -38,9 +38,9 @@ Você pode criar diretrizes de contribuição padrão para sua organização{% i
     - Etapas para criar bons problemas ou pull requests.
     - Links para documentações externas, listas de distribuição ou um código de conduta.
     - Expectativas de comportamento e da comunidade.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Exemplos de diretrizes de contribuição
 
@@ -52,5 +52,5 @@ Caso tenha dúvidas, estes são alguns bons exemplos de diretrizes de contribui�
 
 ### Leia mais
 - Seção "[Iniciar um projeto de código aberto](https://opensource.guide/starting-a-project/)" de Guias de código aberto{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - "[Adicionar uma licença a um repositório](/articles/adding-a-license-to-a-repository)"

@@ -1,6 +1,6 @@
 ---
 title: Definir políticas para organizações na conta corporativa
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 mapTopic: true
 redirect_from:
   - /articles/setting-policies-for-organizations-in-your-enterprise-account

@@ -1,6 +1,6 @@
 ---
 title: Configuring a custom domain for your GitHub Pages site
-intro: 'You can customize the domain name of your {{ site.data.variables.product.prodname_pages }} site.'
+intro: 'You can customize the domain name of your {% data variables.product.prodname_pages %} site.'
 redirect_from:
   - /articles/tips-for-configuring-an-a-record-with-your-dns-provider/
   - /articles/adding-or-removing-a-custom-domain-for-your-github-pages-site/
@@ -10,7 +10,7 @@ redirect_from:
   - /articles/setting-up-a-custom-domain-with-pages/
   - /articles/setting-up-a-custom-domain-with-github-pages/
   - /articles/configuring-a-custom-domain-for-your-github-pages-site
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 mapTopic: true
 versions:
   free-pro-team: '*'

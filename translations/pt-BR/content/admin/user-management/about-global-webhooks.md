@@ -17,4 +17,4 @@ Você pode usar webhooks globais para monitorar, responder ou impor regras autom
 
 Para obter mais informações sobre como configurar webhooks, consulte "[Gerenciar webhooks globais](/enterprise/{{ currentVersion }}/admin/guides/user-management/managing-global-webhooks)".
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}

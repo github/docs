@@ -40,7 +40,7 @@ const languageCodes = Object.keys(languages)
 //  - [link text][link-definition-ref] (other text)
 //  - etc.
 //
-const relativeArticleLinkRegex = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?!\/|#|https?:\/\/|tel:|mailto:|\{\{\s*)[^)\s]+(?:(?:\s*\}\})?\)|\s+|$)/gm
+const relativeArticleLinkRegex = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?!\/|#|https?:\/\/|tel:|mailto:|\{[%{]\s*)[^)\s]+(?:(?:\s*[%}]\})?\)|\s+|$)/gm
 
 // Things matched by this RegExp:
 //  - [link text](/en/github/blah)
@@ -77,6 +77,9 @@ const versionLinkRegEx = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?:(?:http
 //
 const domainLinkRegex = /(?=^|[^\]]\s*)\[[^\]]+\](?::\n?[ \t]+|\s*\()(?:https?:)?\/\/(?:help|docs|developer)\.github\.com(?!\/changes\/)[^)\s]*(?:\)|\s+|$)/gm
 
+// {{ site.data.example.pizza }}
+const oldVariableRegex = /{{\s?site\.data\..*}}/g
+
 //  - {{ octicon-plus }}
 //  - {{ octicon-plus An example label }}
 //
@@ -93,6 +96,7 @@ const relativeArticleLinkErrorText = 'Found unexpected relative article links:'
 const languageLinkErrorText = 'Found article links with hard-coded language codes:'
 const versionLinkErrorText = 'Found article links with hard-coded version numbers:'
 const domainLinkErrorText = 'Found article links with hard-coded domain names:'
+const oldVariableErrorText = 'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText = 'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
 const oldExtendedMarkdownErrorText = 'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 
@@ -203,6 +207,17 @@ describe('lint-files', () => {
         expect(matches.length, errorMessage).toBe(0)
       })
 
+      test('does not use old site.data variable syntax', async () => {
+        const matches = (content.match(oldVariableRegex) || [])
+        const matchesWithExample = matches.map(match => {
+          const example = match
+            .replace(/{{\s?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*}}/g, '{% data $1 %}')
+          return `${match} => ${example}`
+        })
+        const errorMessage = formatLinkError(oldVariableErrorText, matchesWithExample)
+        expect(matches.length, errorMessage).toBe(0)
+      })
+
       test('does not use old octicon variable syntax', async () => {
         const matches = (content.match(oldOcticonRegex) || [])
         const errorMessage = formatLinkError(oldOcticonErrorText, matches)
@@ -300,6 +315,24 @@ describe('lint-files', () => {
         }
 
         const errorMessage = formatLinkError(domainLinkErrorText, matches)
+        expect(matches.length, errorMessage).toBe(0)
+      })
+
+      test('does not use old site.data variable syntax', async () => {
+        const matches = []
+
+        for (const [key, content] of Object.entries(dictionary)) {
+          const valMatches = (content.match(oldVariableRegex) || [])
+          if (valMatches.length > 0) {
+            matches.push(...valMatches.map((match) => {
+              const example = match
+                .replace(/{{\s?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*}}/g, '{% data $1 %}')
+              return `Key "${key}": ${match} => ${example}`
+            }))
+          }
+        }
+
+        const errorMessage = formatLinkError(oldVariableErrorText, matches)
         expect(matches.length, errorMessage).toBe(0)
       })
 

@@ -18,7 +18,7 @@ Você poderá exibir informações de resumo da lista de tarefas nas listas de p
 
 ### Criar listas de tarefas
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 ### Reordenar tarefas
 

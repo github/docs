@@ -1,6 +1,6 @@
 ---
 title: La confirmación existe en GitHub pero no en mi clon local
-intro: 'Algunas veces una confirmación estará visible en {{ site.data.variables.product.product_name }}, pero no existirá en tu clon local del repositorio.'
+intro: 'Algunas veces una confirmación estará visible en {% data variables.product.product_name %}, pero no existirá en tu clon local del repositorio.'
 redirect_from:
   - /articles/commit-exists-on-github-but-not-in-my-local-clone
 versions:
@@ -17,7 +17,7 @@ $ git show 1095ff3d0153115e75b7bca2c09e5136845b5592
 > fatal: bad object 1095ff3d0153115e75b7bca2c09e5136845b5592
 ```
 
-Sin embargo, cuando ves la confirmación en {{ site.data.variables.product.product_location }}, podrás verla sin problemas:
+Sin embargo, cuando ves la confirmación en {% data variables.product.product_location %}, podrás verla sin problemas:
 
 `github.com/$account/$repository/commit/1095ff3d0153115e75b7bca2c09e5136845b5592`
 
@@ -47,9 +47,9 @@ Esto copia información de manera segura desde el repositorio remoto hasta tu cl
 
 Si un colaborador del repositorio ha eliminado la rama que contiene la confirmación o ha realizado un empuje forzado sobre la rama, es posible que la confirmación faltante haya quedado huérfana (es decir, no puede ser alcanzado desde cualquier referencia) y, por lo tanto, no se extraerá en tu clon local.
 
-Afortunadamente, si un colaborador tiene un clon local del repositorio con la confirmación faltante, puede volver a forzarla en {{ site.data.variables.product.product_name }}.  Necesitan asegurarse de que la confirmación sea utilizada como referencia por parte de una rama local y que luego la suban como una rama nueva a {{ site.data.variables.product.product_name }}.
+Afortunadamente, si un colaborador tiene un clon local del repositorio con la confirmación faltante, puede volver a forzarla en {% data variables.product.product_name %}.  Necesitan asegurarse de que la confirmación sea utilizada como referencia por parte de una rama local y que luego la suban como una rama nueva a {% data variables.product.product_name %}.
 
-Digamos que la persona todavía tiene una rama local (llamémosla `B`) que contiene la confirmación.  Esto puede realizar el seguimiento de la rama que tuvo un empuje forzado o eliminado y que simplemente todavía no han actualizado.  Para preservar la confirmación, pueden subir esa rama local a una rama nueva (llamémosla `recover-B`) en {{ site.data.variables.product.product_name }}.  Para este ejemplo, supongamos que tienen un remoto denominado `ascendente` mediante el cual tienen acceso de escritura a `github.com/$account/$repository`.
+Digamos que la persona todavía tiene una rama local (llamémosla `B`) que contiene la confirmación.  Esto puede realizar el seguimiento de la rama que tuvo un empuje forzado o eliminado y que simplemente todavía no han actualizado.  Para preservar la confirmación, pueden subir esa rama local a una rama nueva (llamémosla `recover-B`) en {% data variables.product.product_name %}.  Para este ejemplo, supongamos que tienen un remoto denominado `ascendente` mediante el cual tienen acceso de escritura a `github.com/$account/$repository`.
 
 La otra persona ejecuta:
 

@@ -1,6 +1,6 @@
 ---
 title: コミュニティのワークフローとアクションの利用
-intro: '{{ site.data.variables.product.prodname_dotcom }}を含む他の人々やOrganizationによってビルドされたアクションやワークフローを利用しましょう。'
+intro: '{% data variables.product.prodname_dotcom %}を含む他の人々やOrganizationによってビルドされたアクションやワークフローを利用しましょう。'
 mapTopic: true
 versions:
   free-pro-team: '*'

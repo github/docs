@@ -1,6 +1,6 @@
 ---
 title: Links permanentes em arquivos
-intro: 'Ao visualizar um arquivo em {{ site.data.variables.product.product_location }}, é possível pressionar a tecla "y" para atualizar a URL para um permalink com a versão exata do arquivo visualizado.'
+intro: 'Ao visualizar um arquivo em {% data variables.product.product_location %}, é possível pressionar a tecla "y" para atualizar a URL para um permalink com a versão exata do arquivo visualizado.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**Dica**: Pressione "?" em qualquer página de {{ site.data.variables.product.product_name }} para visualizar todos os atalhos de teclado disponíveis.
+**Dica**: Pressione "?" em qualquer página de {% data variables.product.product_name %} para visualizar todos os atalhos de teclado disponíveis.
 
 {% endtip %}
 
 ### As visualizações de arquivos mostram a versão mais recente de um branch
 
-Ao visualizar um arquivo em {{ site.data.variables.product.product_location }}, normalmente você vê a versão do head atual de um branch.  Por exemplo:
+Ao visualizar um arquivo em {% data variables.product.product_location %}, normalmente você vê a versão do head atual de um branch.  Por exemplo:
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

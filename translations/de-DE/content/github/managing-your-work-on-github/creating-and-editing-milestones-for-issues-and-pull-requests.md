@@ -9,9 +9,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Wähle eine der folgenden Optionen aus:
     - Um einen neuen Meilenstein zu erstellen, klicke auf **New Milestone** (Neuer Meilenstein). ![Schaltfläche „New milestone“ (Neuer Meilenstein)](/assets/images/help/repository/new-milestone.png)
     - Um einen Meilenstein zu bearbeiten, klicke neben dem Meilenstein, den Du bearbeiten möchtest, auf **Edit** (Bearbeiten). ![Option „Edit“ (Bearbeiten) zum Bearbeiten des Meilensteins](/assets/images/help/repository/edit-milestone.png)
@@ -21,9 +21,9 @@ versions:
 
 Wenn Du Meilensteine löschst, hat dies keine Auswirkungen auf Issues und Pull Requests.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.milestones }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.milestones %}
 4. Klicke neben dem Meilenstein, den Du löschen möchtest, auf **Delete** (Löschen). ![Option „Delete“ (Löschen) zum Löschen des Meilensteins](/assets/images/help/repository/delete-milestone.png)
 
 ### Weiterführende Informationen

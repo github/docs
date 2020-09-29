@@ -11,7 +11,7 @@ GitHub admite la representación de datos tabulares en la forma de archivos *.cs
 
 ![Muestra de CSV representado](/assets/images/help/repository/rendered_csv.png)
 
-Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ confirmado en un repositorio de {{ site.data.variables.product.product_name }} se representa automáticamente como una tabla interactiva, completa con encabezados y numeración de filas. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
+Cuando se visualiza, cualquier archivo _.csv_ o _.tsv_ confirmado en un repositorio de {% data variables.product.product_name %} se representa automáticamente como una tabla interactiva, completa con encabezados y numeración de filas. Por defecto, siempre asumimos que la primera fila es tu fila de encabezados.
 
 Puedes generar un enlace a una fila particular haciendo clic en el número de fila o seleccionar varias filas manteniendo presionada la tecla shift. Tan solo copia la URL y envíasela a un amigo.
 

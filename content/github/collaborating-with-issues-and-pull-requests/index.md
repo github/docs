@@ -1,6 +1,6 @@
 ---
 title: Collaborating with issues and pull requests
-intro: 'Use the {{ site.data.variables.product.prodname_dotcom }} flow to track and discuss changes in issues, then propose and review changes in pull requests.'
+intro: 'Use the {% data variables.product.prodname_dotcom %} flow to track and discuss changes in issues, then propose and review changes in pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

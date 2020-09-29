@@ -14,7 +14,7 @@ Mit der Suchleiste für Issues und Pull Requests kannst Du Deine eigenen benutze
 
 {% tip %}
 
-**Tipp:** {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+**Tipp:** {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
 {% endtip %}
 

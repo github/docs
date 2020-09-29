@@ -7,9 +7,9 @@ versions:
   free-pro-team: '*'
 ---
 
-### {{ site.data.variables.product.prodname_dotcom }} のリリースサイクル
+### {% data variables.product.prodname_dotcom %} のリリースサイクル
 
-{{ site.data.variables.product.product_name }} の製品と機能は、複数のリリースフェーズを経る場合があります。
+{% data variables.product.product_name %} の製品と機能は、複数のリリースフェーズを経る場合があります。
 
 | フェーズ        | 説明                                                                                                                                                                           |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Pre-Receive-Hooks
-intro: '*Pre-Receive-Hooks* sind Skripts, die auf der {{ site.data.variables.product.prodname_ghe_server }}-Appliance ausgeführt werden, die Sie zum Implementieren von Qualitätsprüfungen verwenden können.'
+intro: '*Pre-Receive-Hooks* sind Skripts, die auf der {% data variables.product.prodname_ghe_server %}-Appliance ausgeführt werden, die Sie zum Implementieren von Qualitätsprüfungen verwenden können.'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
 versions:
@@ -22,4 +22,4 @@ Beispiele zur möglichen Verwendungsweise von Pre-Receive-Hooks:
 ### Auswirkung auf die Leistung und Workflows
 Die Auswirkung auf Entwickler und auf deren Workflows kann erheblich sein und muss sorgsam durchdacht werden. Von Pre-Receive-Hooks, die auf Geschäftsanforderungen basieren und durchdacht implementiert werden, kann die Organisation als Ganzes am meisten profitieren.
 
-Pre-Receive-Hooks können unerwünschte Auswirkungen auf die Leistung von {{ site.data.variables.product.product_location_enterprise }} haben und sollten sorgsam implementiert und überprüft werden.
+Pre-Receive-Hooks können unerwünschte Auswirkungen auf die Leistung von {% data variables.product.product_location_enterprise %} haben und sollten sorgsam implementiert und überprüft werden.

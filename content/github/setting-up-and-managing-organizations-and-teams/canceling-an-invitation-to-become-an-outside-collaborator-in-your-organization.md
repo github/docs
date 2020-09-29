@@ -10,10 +10,10 @@ You can view a list of all people with pending invitations to become an outside 
 
 For each pending collaborator, you can cancel all invitations to join organization repositories at the same time.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.people_tab_outside_collaborators }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.people_tab_outside_collaborators %}
 5. Click **X pending collaborators**.
   !["Pending collaborators" button](/assets/images/help/organizations/pending-collaborator-list.png)
 6. To the right of the person you want to cancel invitations for, click **Cancel invitations**.

@@ -16,28 +16,28 @@ Here's an example of an HTTPS error you might receive:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
 ### Check your Git version
 
-There's no minimum Git version necessary to interact with {{ site.data.variables.product.product_name }}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
 
 ### Ensure the remote is correct
 
-The repository you're trying to fetch must exist on {{ site.data.variables.product.product_location }}, and the URL is case-sensitive.
+The repository you're trying to fetch must exist on {% data variables.product.product_location %}, and the URL is case-sensitive.
 
 You can find the URL of the local repository by opening the command line and
 typing `git remote -v`:
@@ -58,13 +58,13 @@ $ git remote -v
 ```
 
 Alternatively, you can change the URL through our
-[{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/) application.
+[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) application.
 
 ### Provide an access token
 
-To access {{ site.data.variables.product.prodname_dotcom }}, you must authenticate with a personal access token instead of your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
+To access {% data variables.product.prodname_dotcom %}, you must authenticate with a personal access token instead of your password. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### Check your permissions
 

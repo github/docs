@@ -19,13 +19,13 @@ Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines 
 - Wo erhalten Benutzer Hilfe zu Ihrem Projekt?
 - Wer verwaltet das Projekt und trägt dazu bei?
 
-Wenn Du Deine README-Datei im root-, `docs`- oder im verborgenen `.github`-Verzeichnis Deines Repositorys ablegst, erkennt {{ site.data.variables.product.product_name }} Deine README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
+Wenn Du Deine README-Datei im root-, `docs`- oder im verborgenen `.github`-Verzeichnis Deines Repositorys ablegst, erkennt {% data variables.product.product_name %} Deine README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
 
 ![Hauptseite des github/scientist-Repositorys und seiner README-Datei](/assets/images/help/repository/repo-with-readme.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +33,11 @@ Wenn Du Deine README-Datei im root-, `docs`- oder im verborgenen `.github`-Verze
 
 ### Links zu Abschnitten in README-Dateien und auf Blob-Seiten
 
-Bei vielen Projekten gibt es zu Beginn einer README-Datei ein Inhaltsverzeichnis, mit dem Benutzer zu verschiedenen Abschnitten der Datei navigieren können. {{ site.data.reusables.repositories.section-links }}
+Bei vielen Projekten gibt es zu Beginn einer README-Datei ein Inhaltsverzeichnis, mit dem Benutzer zu verschiedenen Abschnitten der Datei navigieren können. {% data reusables.repositories.section-links %}
 
 ### Relative Links und Bildpfade in README-Dateien
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Weiterführende Informationen
 

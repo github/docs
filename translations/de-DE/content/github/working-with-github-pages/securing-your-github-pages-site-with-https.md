@@ -1,34 +1,34 @@
 ---
 title: GitHub Pages-Website mit HTTPS schützen
-intro: 'HTTPS fügt eine Verschlüsselungsebene hinzu, die das Ausspionieren oder Manipulieren des Datenverkehrs zu Deiner Website durch Fremde verhindert. Du kannst HTTPS für Deine {{ site.data.variables.product.prodname_pages }}-Website erzwingen und so alle HTTP-Anforderungen transparent an HTTPS weiterleiten.'
-product: '{{ site.data.reusables.gated-features.pages }}'
+intro: 'HTTPS fügt eine Verschlüsselungsebene hinzu, die das Ausspionieren oder Manipulieren des Datenverkehrs zu Deiner Website durch Fremde verhindert. Du kannst HTTPS für Deine {% data variables.product.prodname_pages %}-Website erzwingen und so alle HTTP-Anforderungen transparent an HTTPS weiterleiten.'
+product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/securing-your-github-pages-site-with-https
 versions:
   free-pro-team: '*'
 ---
 
-Personen mit Administratorberechtigungen für ein Repository können HTTPS für eine {{ site.data.variables.product.prodname_pages }}-Website erzwingen.
+Personen mit Administratorberechtigungen für ein Repository können HTTPS für eine {% data variables.product.prodname_pages %}-Website erzwingen.
 
-### Informationen zu HTTPS und {{ site.data.variables.product.prodname_pages }}
+### Informationen zu HTTPS und {% data variables.product.prodname_pages %}
 
-Alle {{ site.data.variables.product.prodname_pages }}-Websites, auch Websites, die korrekt mit einer benutzerdefinierten Domäne konfiguriert sind, unterstützen HTTPS und die Erzwingung von HTTPS. Weitere Informationen findest Du unter „[Informationen zu benutzerdefinierten Domänen und {{ site.data.variables.product.prodname_pages }}](/articles/about-custom-domains-and-github-pages)“ und „[Fehlerbehebung bei benutzerdefinierten Domänen und {{ site.data.variables.product.prodname_pages }}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors).“
+Alle {% data variables.product.prodname_pages %}-Websites, auch Websites, die korrekt mit einer benutzerdefinierten Domäne konfiguriert sind, unterstützen HTTPS und die Erzwingung von HTTPS. Weitere Informationen findest Du unter „[Informationen zu benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)“ und „[Fehlerbehebung bei benutzerdefinierten Domänen und {% data variables.product.prodname_pages %}](/articles/troubleshooting-custom-domains-and-github-pages#https-errors).“
 
-Die HTTPS-Erzwingung ist für {{ site.data.variables.product.prodname_pages }}-Websites mit einer `github.io`-Domain obligatorisch, wenn die Website nach dem 15. Juni 2016 erstellt wurde. Wenn Du Deine Website vor dem 15. Juni 2016 erstellt hast, kannst Du die HTTPS-Erzwingung manuell aktivieren.
+Die HTTPS-Erzwingung ist für {% data variables.product.prodname_pages %}-Websites mit einer `github.io`-Domain obligatorisch, wenn die Website nach dem 15. Juni 2016 erstellt wurde. Wenn Du Deine Website vor dem 15. Juni 2016 erstellt hast, kannst Du die HTTPS-Erzwingung manuell aktivieren.
 
-{{ site.data.reusables.pages.no_sensitive_data_pages }}
+{% data reusables.pages.no_sensitive_data_pages %}
 
-{{ site.data.reusables.pages.private_pages_are_public_warning }}
+{% data reusables.pages.private_pages_are_public_warning %}
 
-### HTTPS für Deine {{ site.data.variables.product.prodname_pages }}-Website erzwingen
+### HTTPS für Deine {% data variables.product.prodname_pages %}-Website erzwingen
 
-{{ site.data.reusables.pages.navigate-site-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-3. Wähle unter „{{ site.data.variables.product.prodname_pages }}“ die Option **Enforce HTTPS** (HTTPS erzwingen). ![Kontrollkästchen „Enforce HTTPS“ (HTTPS erzwingen)](/assets/images/help/pages/enforce-https-checkbox.png)
+{% data reusables.pages.navigate-site-repo %}
+{% data reusables.repositories.sidebar-settings %}
+3. Wähle unter „{% data variables.product.prodname_pages %}“ die Option **Enforce HTTPS** (HTTPS erzwingen). ![Kontrollkästchen „Enforce HTTPS“ (HTTPS erzwingen)](/assets/images/help/pages/enforce-https-checkbox.png)
 
 ### Probleme bei gemischten Inhalten beheben
 
-Wenn Du für Deine {{ site.data.variables.product.prodname_pages }}-Website HTTPS aktivierst, die HTML Deiner Website aber noch Bilder, CSS oder JavaScript über HTTP referenziert, stellt Deine Website *gemischte Inhalte* bereit. In diesem Fall ist Deine Website möglicherweise weniger sicher und das Laden dieser Objekte bereitet eventuell Probleme.
+Wenn Du für Deine {% data variables.product.prodname_pages %}-Website HTTPS aktivierst, die HTML Deiner Website aber noch Bilder, CSS oder JavaScript über HTTP referenziert, stellt Deine Website *gemischte Inhalte* bereit. In diesem Fall ist Deine Website möglicherweise weniger sicher und das Laden dieser Objekte bereitet eventuell Probleme.
 
 Sollen die gemischten Inhalte Deiner Website entfernt werden, stelle zunächst alle Objekte über HTTPS bereit. Ersetze hierzu `http://` in der HTML Deiner Website durch `https://`.
 
@@ -40,7 +40,7 @@ Objekte befinden sich meist in den folgenden Speicherorten:
 
 {% tip %}
 
-**Tipp:** Wenn Du die Objekte nicht in den Quelldateien Deiner Website findest, suche mit dem Texteditor oder mit {{ site.data.variables.product.product_name }} in den Quelldateien nach `http`.
+**Tipp:** Wenn Du die Objekte nicht in den Quelldateien Deiner Website findest, suche mit dem Texteditor oder mit {% data variables.product.product_name %} in den Quelldateien nach `http`.
 
 {% endtip %}
 

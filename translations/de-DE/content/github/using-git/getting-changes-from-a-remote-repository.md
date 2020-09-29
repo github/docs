@@ -16,11 +16,11 @@ Diese Befehle sind bei der Interaktion mit einem [Remote-Repository](/articles/a
 Um eine vollständige Kopie eines Repositorys eines anderen Benutzers zu bekommen, verwende `git clone` wie folgt:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 # Klont ein Repository auf Deinen Computer
 ```
 
-Beim Klonen eines Repositorys stehen [mehrere unterschiedliche URLs](/articles/which-remote-url-should-i-use) zur Auswahl. Wenn Du bei {{ site.data.variables.product.prodname_dotcom }} angemeldet bist, findest Du diese URLs unter den Repository-Details:
+Beim Klonen eines Repositorys stehen [mehrere unterschiedliche URLs](/articles/which-remote-url-should-i-use) zur Auswahl. Wenn Du bei {% data variables.product.prodname_dotcom %} angemeldet bist, findest Du diese URLs unter den Repository-Details:
 
 ![Remote-URL-Liste](/assets/images/help/repository/remotes-url.png)
 

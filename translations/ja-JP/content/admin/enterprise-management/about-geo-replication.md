@@ -1,6 +1,6 @@
 ---
 title: Geo-replicationについて
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 上の Geo-replication は、地理的に分散したデータセンターからの要求を満たすために、複数のアクティブなレプリカを使用します。'
+intro: '{% data variables.product.prodname_ghe_server %} 上の Geo-replication は、地理的に分散したデータセンターからの要求を満たすために、複数のアクティブなレプリカを使用します。'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
@@ -18,11 +18,11 @@ Geo-replicationがスムーズに動作するためには、[Amazon's Route 53 �
 
 ### 制限事項
 
-レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 これはすなわち、すべての書き込みのパフォーマンスは最も低速なレプリカによって制約されるということです。{% if currentVersion ver_gt "enterprise-server@2.17" %}ただし、Geoレプリカは、大部分のデータをプライマリからではなく、既存の共在するGeoレプリカからシードできます。{% endif %} Geo-replication は、{{ site.data.variables.product.prodname_ghe_server }} インスタンスに容量を追加したり、不十分な CPU やメモリリソースに関連するパフォーマンスの問題を解決したりしません。 プライマリのアプライアンスがオフラインである場合、アクティブなレプリカはいかなる読み込みや書き込みのリクエストも処理できません。
+レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 これはすなわち、すべての書き込みのパフォーマンスは最も低速なレプリカによって制約されるということです。{% if currentVersion ver_gt "enterprise-server@2.17" %}ただし、Geoレプリカは、大部分のデータをプライマリからではなく、既存の共在するGeoレプリカからシードできます。{% endif %} Geo-replication は、{% data variables.product.prodname_ghe_server %} インスタンスに容量を追加したり、不十分な CPU やメモリリソースに関連するパフォーマンスの問題を解決したりしません。 プライマリのアプライアンスがオフラインである場合、アクティブなレプリカはいかなる読み込みや書き込みのリクエストも処理できません。
 
 ### Geo-replication設定のモニタリング
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### 参考リンク
 - "[Geo-replicationレプリカの作成](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

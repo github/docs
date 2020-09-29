@@ -29,8 +29,8 @@ You can create default contribution guidelines for your organization{% if curren
 
 ### Adding a *CONTRIBUTING* file
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive, and can have an extension such as *.md* or *.txt*.
   ![New file name](/assets/images/help/repository/new-file-name.png)
     - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
@@ -39,9 +39,9 @@ You can create default contribution guidelines for your organization{% if curren
     - Steps for creating good issues or pull requests.
     - Links to external documentation, mailing lists, or a code of conduct.
     - Community and behavioral expectations.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 
 ### Examples of contribution guidelines
 
@@ -53,5 +53,5 @@ If you're stumped, here are some good examples of contribution guidelines:
 
 ### Further reading
 - The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
-- [{{ site.data.variables.product.prodname_learning }}]({{ site.data.variables.product.prodname_learning_link }}){% endif %}
+- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - "[Adding a license to a repository](/articles/adding-a-license-to-a-repository)"

@@ -16,8 +16,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. 在要授权的 SSH 密钥旁边，单击 **Enable SSO（启用 SSO）**或 **Disable SSO（禁用 SSO）**。 ![SSO 令牌授权按钮](/assets/images/help/settings/ssh-sso-button.png)
 4. 找到要为其授权访 SSH 密钥的组织。
 5. Click **Authorize**. ![令牌授权按钮](/assets/images/help/settings/ssh-sso-authorize.png)

@@ -13,7 +13,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-リポジトリグラフの中には {{ site.data.variables.product.prodname_free_user }} のパブリックリポジトリでしか利用できないものもあります。
+リポジトリグラフの中には {% data variables.product.prodname_free_user %} のパブリックリポジトリでしか利用できないものもあります。
 - パルス
 - コントリビューター
 - トラフィック
@@ -21,7 +21,7 @@ versions:
 - コードの更新頻度
 - ネットワーク
 
-その他のリポジトリグラフは、すべてのリポジトリで利用できます。 {{ site.data.variables.product.prodname_pro }}、{{ site.data.variables.product.prodname_team }}、および {{ site.data.variables.product.prodname_ghe_cloud }} では、パブリックおよびプライベートリポジトリですべてのリポジトリグラフを利用できます。 {{ site.data.reusables.gated-features.more-info }}
+その他のリポジトリグラフは、すべてのリポジトリで利用できます。 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、および {% data variables.product.prodname_ghe_cloud %} では、パブリックおよびプライベートリポジトリですべてのリポジトリグラフを利用できます。 {% data reusables.gated-features.more-info %}
 
 {% endif %}
 

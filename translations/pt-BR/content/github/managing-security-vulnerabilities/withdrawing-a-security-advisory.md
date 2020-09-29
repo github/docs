@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Se você publicar uma consultoria de segurança por engano, poderá retirar a consultoria de segurança entrando em contato com {{ site.data.variables.contact.contact_support }}.
+Se você publicar uma consultoria de segurança por engano, poderá retirar a consultoria de segurança entrando em contato com {% data variables.contact.contact_support %}.
 
 ### Leia mais
 

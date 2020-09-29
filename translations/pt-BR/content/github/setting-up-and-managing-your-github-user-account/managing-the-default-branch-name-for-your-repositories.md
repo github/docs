@@ -8,16 +8,16 @@ versions:
 
 ### Sobre o nome do branch-padrão
 
-{{ site.data.reusables.branches.new-repo-default-branch }} Este branch é atualmente denominado `mestre`, mas você pode definir o nome do branch-padrão como qualquer coisa que faça sentido para seu ambiente de desenvolvimento.
+{% data reusables.branches.new-repo-default-branch %} Este branch é atualmente denominado `mestre`, mas você pode definir o nome do branch-padrão como qualquer coisa que faça sentido para seu ambiente de desenvolvimento.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Definir o nome do branch-padrão
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
 3. Em "Branch padrão do repositório", clique em **Alterar o nome do branch-padrão agora**. ![Botão de sobrescrever](/assets/images/help/settings/repo-default-name-button.png)
 4. Digite o nome-padrão que você gostaria de usar para novos branches. ![Caixa de texto para digitar o nome-padrão](/assets/images/help/settings/repo-default-name-text.png)
 5. Clique em **Atualizar**. ![Botão de atualizar](/assets/images/help/settings/repo-default-name-update.png)

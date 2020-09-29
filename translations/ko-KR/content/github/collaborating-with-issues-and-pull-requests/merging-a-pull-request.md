@@ -11,19 +11,19 @@ versions:
 
 ### About pull request merges
 
-In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. {{ site.data.reusables.pull_requests.about-protected-branches }} However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
+In a pull request, you propose that changes you've made on a head branch should be merged into a base branch. {% data reusables.pull_requests.about-protected-branches %} However, there may be restrictions on when you can merge a pull request into a specific branch. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
 If the pull request has merge conflicts, or if you'd like to test the changes before merging, you can [check out the pull request locally](/articles/checking-out-pull-requests-locally) and merge it using the command line.
 
 You can't merge a draft pull request. For more information about draft pull requests, see "[About pull requests](/articles/about-pull-requests#draft-pull-requests)."
 
-{{ site.data.reusables.pull_requests.automatically-delete-branches }}
+{% data reusables.pull_requests.automatically-delete-branches %}
 
 If you decide you don't want the changes in a topic branch to be merged to the upstream branch, you can [close the pull request](/articles/closing-a-pull-request) without merging.
 
-### Merging a pull request on {{ site.data.variables.product.prodname_dotcom }}
+### Merging a pull request on {% data variables.product.prodname_dotcom %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the "Pull Requests" list, click the pull request you'd like to merge.
 3. Depending on the merge options enabled for your repository, you can:
     - [Merge all of the commits into the base branch](/articles/about-pull-request-merges/) by clicking **Merge pull request**. If the **Merge pull request** option is not shown, then click the merge drop down menu and select **Create a merge commit**. ![merge-pull-request-button](/assets/images/help/pull_requests/pullrequest-mergebutton.png)
@@ -37,10 +37,10 @@ If you decide you don't want the changes in a topic branch to be merged to the u
     {% endnote %}
 4. If prompted, type a commit message, or accept the default message.
 
-   {{ site.data.reusables.pull_requests.default-commit-message-squash-merge }}
+   {% data reusables.pull_requests.default-commit-message-squash-merge %}
    ![Commit message field](/assets/images/help/pull_requests/merge_box/pullrequest-commitmessage.png)
 
-{{ site.data.reusables.files.choose-commit-email }}
+{% data reusables.files.choose-commit-email %}
 
 6. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
 6. Optionally, [delete the branch](/articles/deleting-unused-branches). This keeps the list of branches in your repository tidy.
@@ -50,7 +50,7 @@ If you decide you don't want the changes in a topic branch to be merged to the u
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **Note:** {{ site.data.reusables.pull_requests.retargeted-on-branch-deletion }}
+   **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
@@ -58,11 +58,11 @@ For more information, see "[About branches](/github/collaborating-with-issues-an
 
 Pull requests are merged using [the `--no-ff` option](https://git-scm.com/docs/git-merge#_fast_forward_merge), except for [pull requests with squashed or rebased commits](/articles/about-pull-request-merges), which are merged using the fast-forward option.
 
-{{ site.data.reusables.pull_requests.close-issues-using-keywords }}
+{% data reusables.pull_requests.close-issues-using-keywords %}
 
 ### 더 읽을거리
 
 - "[Reverting a pull request](/articles/reverting-a-pull-request)"
-- "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {{ site.data.variables.product.prodname_desktop }}
+- "[Syncing your branch](/desktop/guides/contributing-to-projects/syncing-your-branch/)" using {% data variables.product.prodname_desktop %}
 - "[About pull request merges](/articles/about-pull-request-merges)"
 - "[Addressing merge conflicts](/articles/addressing-merge-conflicts)"

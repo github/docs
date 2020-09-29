@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.gpg.desktop-support-for-commit-signing }}
+{% data reusables.gpg.desktop-support-for-commit-signing %}
 
 {% tip %}
 
@@ -34,13 +34,13 @@ Se você tiver várias chaves ou estiver tentando assinar commits ou tags com um
   # Creates a signed commit
   ```
 2. Ao usar o GPG, depois de criar o commit, forneça a frase secreta configurada quando você [gerou a chave GPG](/articles/generating-a-new-gpg-key).
-3. Quando terminar de criar os commits localmente, faça o push para o repositório remoto no {{ site.data.variables.product.product_name }}:
+3. Quando terminar de criar os commits localmente, faça o push para o repositório remoto no {% data variables.product.product_name %}:
   ```shell
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. No {{ site.data.variables.product.product_name }}, navegue até sua pull request.
-{{ site.data.reusables.repositories.review-pr-commits }}
+4. No {% data variables.product.product_name %}, navegue até sua pull request.
+{% data reusables.repositories.review-pr-commits %}
 5. Para exibir informações mais detalhadas sobre a assinatura verificada, clique em Verified (Verificada). ![Commit assinado](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 
 ### Leia mais

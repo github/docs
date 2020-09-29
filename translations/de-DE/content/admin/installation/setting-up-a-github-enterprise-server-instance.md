@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server-Instanz einrichten
-intro: 'Du kannst {{ site.data.variables.product.prodname_ghe_server }} auf der unterstützten Virtualisierungsplattform Deiner Wahl installieren.'
+intro: 'Du kannst {% data variables.product.prodname_ghe_server %} auf der unterstützten Virtualisierungsplattform Deiner Wahl installieren.'
 redirect_from:
   - /enterprise/admin/installation/getting-started-with-github-enterprise-server
   - /enterprise/admin/guides/installation/supported-platforms/

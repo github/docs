@@ -85,17 +85,17 @@ Du kannst einen Inline-Link erstellen, indem Du den Text in eckige Klammern `[ ]
 
 {% tip %}
 
-**Tipp:** {{ site.data.variables.product.product_name }} erstellt automatisch Links, wenn Du gültige URLs in einen Kommentar einfügst. Weitere Informationen findest Du unter „[Automatisch verknüpfte Verweise und URLs](/articles/autolinked-references-and-urls).“
+**Tipp:** {% data variables.product.product_name %} erstellt automatisch Links, wenn Du gültige URLs in einen Kommentar einfügst. Weitere Informationen findest Du unter „[Automatisch verknüpfte Verweise und URLs](/articles/autolinked-references-and-urls).“
 
 {% endtip %}
 
 ### Links zu Abschnitten
 
-{{ site.data.reusables.repositories.section-links }}
+{% data reusables.repositories.section-links %}
 
 ### Relative Links
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### Listen
 
@@ -123,7 +123,7 @@ Um Deine Liste zu ordnen, stelle jeder Zeile eine Zahl voran.
 
 Du kannst eine verschachtelte Liste erstellen, indem Du ein Listenelement oder mehrere Listenelemente unter einem anderen Element einrückst.
 
-Beim Web-Editor auf {{ site.data.variables.product.product_name }} oder bei einem Texteditor wie [Atom](https://atom.io/), der eine nicht proportionale Schriftart verwendet, kannst Du Deine Liste visuell ausrichten. Gib vor dem einzurückenden Listenelement so viele Leerzeichen ein, bis das Listenzeichen (`-` oder `*`) direkt unter dem ersten Zeichen des darüber liegenden Elements liegt.
+Beim Web-Editor auf {% data variables.product.product_name %} oder bei einem Texteditor wie [Atom](https://atom.io/), der eine nicht proportionale Schriftart verwendet, kannst Du Deine Liste visuell ausrichten. Gib vor dem einzurückenden Listenelement so viele Leerzeichen ein, bis das Listenzeichen (`-` oder `*`) direkt unter dem ersten Zeichen des darüber liegenden Elements liegt.
 
 ```
 1. First list item
@@ -135,7 +135,7 @@ Beim Web-Editor auf {{ site.data.variables.product.product_name }} oder bei eine
 
 ![Liste mit zwei Ebenen untergeordneter Elemente](/assets/images/help/writing/nested-list-example-1.png)
 
-Um eine verschachtelte Liste im Kommentareditor auf {{ site.data.variables.product.product_name }} zu erstellen, der keine nicht proportionale Schriftart verwendet, kannst Du Dir das Listenelement direkt über der verschachtelten Liste ansehen und die Anzahl der Zeichen zählen, die vor dem Inhalt dieses Elements stehen. Gib diese Anzahl an Leerzeichen dann vor dem untergeordneten Listenelement ein.
+Um eine verschachtelte Liste im Kommentareditor auf {% data variables.product.product_name %} zu erstellen, der keine nicht proportionale Schriftart verwendet, kannst Du Dir das Listenelement direkt über der verschachtelten Liste ansehen und die Anzahl der Zeichen zählen, die vor dem Inhalt dieses Elements stehen. Gib diese Anzahl an Leerzeichen dann vor dem untergeordneten Listenelement ein.
 
 Im folgenden Beispiel kannst Du ein untergeordnetes Listenelement unter dem Listenelement `100. <code>Erstes Listenelement` hinzufügen, indem Du das untergeordnete Listenelement um mindestens fünf Leerzeichen einrückst, da sich vor `Erstes Listenelement` fünf Zeichen (`100.`) befinden.
 
@@ -160,7 +160,7 @@ Weitere Beispiele findest Du in den [GitHub Flavored Markdown-Spezifikationen](h
 
 ### Aufgabenlisten
 
-{{ site.data.reusables.repositories.task-list-markdown }}
+{% data reusables.repositories.task-list-markdown %}
 
 Wenn die Beschreibung eines Aufgabenlistenelements mit einer Klammer beginnt, musst Du die Klammer mit einem `\` maskieren:
 
@@ -170,7 +170,7 @@ Weitere Informationen findest Du unter „[Informationen zu Aufgabenlisten](/art
 
 ### Personen und Teams erwähnen
 
-Du kannst auf {{ site.data.variables.product.product_name }} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. Weitere Informationen zu Benachrichtigungen findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+Du kannst auf {% data variables.product.product_name %} eine Person oder ein [Team](/articles/setting-up-teams/) erwähnen, indem Du `@` gefolgt vom Benutzer- respektive Teamnamen eingibst. This will trigger a notification and bring their attention to the conversation. Wenn Du einen Kommentar bearbeitest und dabei den Benutzer- oder Teamnamen erwähnst, wird die Person respektive das Team ebenfalls benachrichtigt. Weitere Informationen zu Benachrichtigungen findest Du unter {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Über Benachrichtigungen](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}„[Über Benachrichtigungen](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support Wie findet ihr diese Aktualisierungen?`
 
@@ -191,21 +191,21 @@ Weitere Informationen findest Du unter „[Automatisch verknüpfte Verweise und 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Auf externe Ressourcen verweisen
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 
 ### Inhaltsanhänge
 
-Einige {{ site.data.variables.product.prodname_github_app }}s stellen Informationen in {{ site.data.variables.product.product_name }} für URLs bereit, die auf die registrierten Domänen verknüpfen. {{ site.data.variables.product.product_name }} zeigt die von der App bereitgestellten Informationen unter der URL im Text oder Kommentar eines Issues bzw. Pull Requests an.
+Einige {% data variables.product.prodname_github_app %}s stellen Informationen in {% data variables.product.product_name %} für URLs bereit, die auf die registrierten Domänen verknüpfen. {% data variables.product.product_name %} zeigt die von der App bereitgestellten Informationen unter der URL im Text oder Kommentar eines Issues bzw. Pull Requests an.
 
 ![Inhaltsanhang](/assets/images/help/writing/content-attachment.png)
 
-Um Inhaltsanhänge zu sehen, musst Du eine {{ site.data.variables.product.prodname_github_app }} besitzen, die das API für Inhaltsanhänge nutzt, welche auf dem Repository installiert ist.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Eine App in Deinem persönlichen Konto installieren](/articles/installing-an-app-in-your-personal-account)“ und „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“.{% endif %}
+Um Inhaltsanhänge zu sehen, musst Du eine {% data variables.product.prodname_github_app %} besitzen, die das API für Inhaltsanhänge nutzt, welche auf dem Repository installiert ist.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Eine App in Deinem persönlichen Konto installieren](/articles/installing-an-app-in-your-personal-account)“ und „[Eine App in Deiner Organisation installieren](/articles/installing-an-app-in-your-organization)“.{% endif %}
 
 Für URLs, die Teil eines Markdown-Links sind, werden keine Inhaltsanhänge angezeigt.
 
-For more information about building a {{ site.data.variables.product.prodname_github_app }} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
+For more information about building a {% data variables.product.prodname_github_app %} that uses content attachments, see "[Using Content Attachments](/apps/using-content-attachments)."
 
 ### Emojis verwenden
 
@@ -225,7 +225,7 @@ Um einen neuen Absatz zu erstellen, lasse eine Zeile zwischen den Textzeilen lee
 
 ### Markdown-Formatierung ignorieren
 
-Du kannst {{ site.data.variables.product.product_name }} anweisen, die Markdown-Formatierung zu ignorieren (oder zu verlassen), indem Du das Markdown-Zeichen mit `\` maskierst.
+Du kannst {% data variables.product.product_name %} anweisen, die Markdown-Formatierung zu ignorieren (oder zu verlassen), indem Du das Markdown-Zeichen mit `\` maskierst.
 
 `Wir benennen \*unser-neues-Projekt\* in \*unser-altes-Projekt\* um.`
 
@@ -235,7 +235,7 @@ Weitere Informationen findest Du unter „[Markdown-Syntax](https://daringfireba
 
 ### Weiterführende Informationen
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown – Spezifikation](https://github.github.com/gfm/)
 - „[Informationen zum Schreiben und Formatieren bei GitHub](/articles/about-writing-and-formatting-on-github)“
 - „[Mit erweiterter Formatierung arbeiten](/articles/working-with-advanced-formatting)“
 - „[Markdown meistern](https://guides.github.com/features/mastering-markdown/)“

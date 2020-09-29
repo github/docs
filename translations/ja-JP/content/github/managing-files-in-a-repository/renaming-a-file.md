@@ -1,6 +1,6 @@
 ---
 title: ファイルの名前を変更する
-intro: '{{ site.data.variables.product.product_name }}では、リポジトリにあるファイルの名前を直接変更できます。 ファイルの名前を変更することで、[ファイルを新しい場所に移動する](/articles/moving-a-file-to-a-new-location)機会も得られます。'
+intro: '{% data variables.product.product_name %}では、リポジトリにあるファイルの名前を直接変更できます。 ファイルの名前を変更することで、[ファイルを新しい場所に移動する](/articles/moving-a-file-to-a-new-location)機会も得られます。'
 redirect_from:
   - /articles/renaming-a-file
 versions:
@@ -21,6 +21,6 @@ versions:
 1. リポジトリで、名前を変更するファイルを見つけます。
 2. ファイルビューの右上の隅で、{% octicon "pencil" aria-label="The edit icon" %} をクリックしてファイルエディタを開きます。 ![ファイル編集アイコン](/assets/images/help/repository/edit-file-icon.png)
 3. ファイル名フィールドで、ファイルの名前を新しいファイル名に変更します。 ファイルのコンテンツも同時に更新できます。 ![ファイル名を編集する](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

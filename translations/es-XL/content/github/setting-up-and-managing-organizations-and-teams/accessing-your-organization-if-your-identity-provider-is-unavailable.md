@@ -1,7 +1,7 @@
 ---
 title: Acceder a tu organización si tu proveedor de identidad no está disponible
-intro: 'Los administradores de la organización pueden iniciar sesión en {{ site.data.variables.product.product_name }} incluso si su proveedor de identidad no está disponible al saltear el inicio de sesión único y usar sus códigos de recuperación.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Los administradores de la organización pueden iniciar sesión en {% data variables.product.product_name %} incluso si su proveedor de identidad no está disponible al saltear el inicio de sesión único y usar sus códigos de recuperación.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:

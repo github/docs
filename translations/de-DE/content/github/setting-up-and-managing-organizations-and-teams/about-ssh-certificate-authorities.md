@@ -1,7 +1,7 @@
 ---
 title: Informationen zu SSH-Zertifizierungsstellen
 intro: 'Mit einer SSH-Zertifizierungsstelle kann Deine Organisation oder Dein Enterprise-Konto SSH-Zertifikate bereitstellen, mit denen Mitglieder mit Git auf Deine Ressourcen zugreifen können.'
-product: '{{ site.data.reusables.gated-features.ssh-certificate-authorities }}'
+product: '{% data reusables.gated-features.ssh-certificate-authorities %}'
 redirect_from:
   - /articles/about-ssh-certificate-authorities
 versions:
@@ -13,15 +13,15 @@ Ein SSH-Zertifikat ist ein Mechanismus, mit dem ein SSH-Schlüssel einen anderen
 
 Wenn Du eine SSH-Zertifizierungsstelle zu Deiner Organisation oder Deinem Enterprise-Konto hinzugefügt hast, kannst Du mit der Zertifizierungsstelle Client-SSH-Zertifikate für Organisationsmitglieder signieren. Organisationsmitglieder können mit den signierten Zertifikaten mit Git auf die Repositorys Deiner Organisation (und nur auf diese) zugreifen. Du kannst vorschreiben, dass die Mitglieder SSH-Zertifikate für den Zugriff auf die Organisationsressourcen verwenden müssen.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Sicherheitseinstellungen für Organisationen in Deinem Enterprise-Konto erzwingen](/articles/enforcing-security-settings-in-your-enterprise-account#managing-your-enterprise-accounts-ssh-certificate-authorities)“.{% endif %}
 
-Du kannst beispielsweise ein internes System einrichten, das jeden Morgen ein neues Zertifikat für Deine Entwickler herausgibt. Die Entwickler können dann mit ihren täglichen Zertifikaten in den Repositorys Deiner Organisation auf {{ site.data.variables.product.product_name }} arbeiten. Am Ende des Tages läuft das Zertifikat automatisch ab. So werden Deine Repositorys geschützt, falls das Zertifikat zu einem späteren Zeitpunkt kompromittiert wird.
+Du kannst beispielsweise ein internes System einrichten, das jeden Morgen ein neues Zertifikat für Deine Entwickler herausgibt. Die Entwickler können dann mit ihren täglichen Zertifikaten in den Repositorys Deiner Organisation auf {% data variables.product.product_name %} arbeiten. Am Ende des Tages läuft das Zertifikat automatisch ab. So werden Deine Repositorys geschützt, falls das Zertifikat zu einem späteren Zeitpunkt kompromittiert wird.
 
-Beim Herausgeben der einzelnen Zertifikate musst Du eine Erweiterung hinzufügen, die festlegt, für welchen {{ site.data.variables.product.product_name }}-Benutzer das Zertifikat gedacht ist. Du kannst beispielsweise den OpenSSH-Befehl `ssh-keygen` verwenden und dabei _KEY-IDENTITY_ durch Deine Schlüssel-Identität und _USERNAME_ durch einen {{ site.data.variables.product.product_name }}-Benutzernamen ersetzen:
+Beim Herausgeben der einzelnen Zertifikate musst Du eine Erweiterung hinzufügen, die festlegt, für welchen {% data variables.product.product_name %}-Benutzer das Zertifikat gedacht ist. Du kannst beispielsweise den OpenSSH-Befehl `ssh-keygen` verwenden und dabei _KEY-IDENTITY_ durch Deine Schlüssel-Identität und _USERNAME_ durch einen {% data variables.product.product_name %}-Benutzernamen ersetzen:
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>USERNAME</em> ./user-key.pub
 ```
 
-Soll ein Zertifikat für eine Person mit unterschiedlichen Benutzernamen für {{ site.data.variables.product.prodname_ghe_server }} und {{ site.data.variables.product.prodname_ghe_cloud }} ausgegeben werden, kannst Du zwei Anmeldeerweiterungen angeben.
+Soll ein Zertifikat für eine Person mit unterschiedlichen Benutzernamen für {% data variables.product.prodname_ghe_server %} und {% data variables.product.prodname_ghe_cloud %} ausgegeben werden, kannst Du zwei Anmeldeerweiterungen angeben.
 
 ```shell
 $ ssh-keygen -s ./ca-key -I <em>KEY-IDENTITY</em> -O extension:login@github.com=<em>CLOUD-USERNAME</em> extension:login@<em>HOSTNAME</em>=<em>SERVER-USERNAME</em> ./user-key.pub

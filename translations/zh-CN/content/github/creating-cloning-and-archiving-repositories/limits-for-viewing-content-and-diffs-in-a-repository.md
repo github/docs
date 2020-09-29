@@ -1,6 +1,6 @@
 ---
 title: 限制查看仓库中的内容和差异
-intro: '有些类型的资源可能很大，需要在 {{ site.data.variables.product.product_name }} 上额外处理。 因此，可设置限制，以确保申请在合理的时间内完成。'
+intro: '有些类型的资源可能很大，需要在 {% data variables.product.product_name %} 上额外处理。 因此，可设置限制，以确保申请在合理的时间内完成。'
 redirect_from:
   - /articles/what-are-the-limits-for-viewing-content-and-diffs-in-my-repository/
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-以下限制大多会影响 {{ site.data.variables.product.product_name }} 和 API。
+以下限制大多会影响 {% data variables.product.product_name %} 和 API。
 
 ### 文本限制
 
 超过 **1 MB** 的文本文件始终显示为纯文本。 代码不强调语法，散文文件不会转换成 HTML（如 Markdown、AsciiDoc *等*）。
 
-超过 **5 MB** 的文本文件仅通过其源 URL 访问，将通过 `{{ site.data.variables.product.raw_github_com }}` 提供；例如 `https://{{ site.data.variables.product.raw_github_com }}/octocat/Spoon-Knife/master/index.html`。 单击 **Raw（源）**按钮获取文件的源 URL。
+超过 **5 MB** 的文本文件仅通过其源 URL 访问，将通过 `{% data variables.product.raw_github_com %}` 提供；例如 `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`。 单击 **Raw（源）**按钮获取文件的源 URL。
 
 ### 差异限制
 

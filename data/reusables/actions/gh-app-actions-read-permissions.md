@@ -1,1 +1,1 @@
-{{ site.data.variables.product.prodname_github_app }}s must have the `actions:read` permission to use this endpoint.
+{% data variables.product.prodname_github_app %}s must have the `actions:read` permission to use this endpoint.

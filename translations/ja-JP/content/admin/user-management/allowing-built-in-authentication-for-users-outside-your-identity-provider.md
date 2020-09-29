@@ -23,24 +23,24 @@ versions:
 
 ### アイデンティティプロバイダ外のユーザのためのビルトイン認証の設定
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.authentication }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.authentication %}
 4. アイデンティティプロバイダを選択してください。 ![アイデンティティプロバイダの選択オプション](/assets/images/enterprise/management-console/identity-provider-select.gif)
 5. **Allow creation of accounts with built-in authentication（ビルトイン認証でのアカウントの作成の許可）**を選択してください。 ![ビルトイン認証のオプションの選択](/assets/images/enterprise/management-console/built-in-auth-identity-provider-select.png)
 6. 警告を読んで、**Ok**をクリックしてください。
 
-{{ site.data.reusables.enterprise_user_management.two_factor_auth_header }}
-{{ site.data.reusables.enterprise_user_management.2fa_is_available }}
+{% data reusables.enterprise_user_management.two_factor_auth_header %}
+{% data reusables.enterprise_user_management.2fa_is_available %}
 
 ### 使用しているアイデンティティプロバイダ外のユーザをインスタンスで認証するために招待する
 
 ユーザが招待を受け付けると、ユーザはIdPを通じてサインインするのではなく、ユーザ名とパスワードを使ってサインインできます。
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-sidebar-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.invite-user-reset-link }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.invite-user-sidebar-tab %}
+{% data reusables.enterprise_site_admin_settings.invite-user-reset-link %}
 
 ### 参考リンク
 

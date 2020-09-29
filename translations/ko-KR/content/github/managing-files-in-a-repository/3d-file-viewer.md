@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} can host and render 3D files with the *.stl* extension.
+{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
 
-When looking directly at an STL file on {{ site.data.variables.product.product_name }} you can:
+When looking directly at an STL file on {% data variables.product.product_name %} you can:
 
 * Click and drag to spin the model.
 * Right click and drag to translate the view.

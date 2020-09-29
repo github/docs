@@ -1,7 +1,7 @@
 ---
 title: リポジトリアクティビティの概要を表示する
 intro: 'Pulse を使ってリポジトリアクティビティの概要を表示することができます。 Pulse には、オープンおよびマージされたプルリクエストのリスト、オープンおよびクローズされた Issue、および選択した[期間](/articles/viewing-a-summary-of-repository-activity#filtering-by-time)にプロジェクトのデフォルトブランチにコミットした上位 15 人のユーザーのコミットアクティビティを示すグラフが含まれます。'
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/viewing-a-summary-of-repository-activity
 versions:
@@ -13,8 +13,8 @@ versions:
 
 ### Pulse にアクセスする
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 
 ### 時間によるフィルタリング
 

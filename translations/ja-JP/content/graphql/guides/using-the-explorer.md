@@ -1,6 +1,6 @@
 ---
 title: Explorerの利用
-intro: 'ブラウザ内で動作する統合開発環境であるGraphQL Explorerを使って、本物の{{ site.data.variables.product.prodname_dotcom }}のデータに対してクエリを実行できます。GraphQL Explorerには、ドキュメント、シンタックスハイライト、検証エラーが含まれています。'
+intro: 'ブラウザ内で動作する統合開発環境であるGraphQL Explorerを使って、本物の{% data variables.product.prodname_dotcom %}のデータに対してクエリを実行できます。GraphQL Explorerには、ドキュメント、シンタックスハイライト、検証エラーが含まれています。'
 redirect_from:
   - /v4/guides/using-the-explorer
 versions:
@@ -16,7 +16,7 @@ versions:
 
 {% note %}
 
-**ノート**: {{ site.data.variables.product.prodname_dotcom }}はExplorer内での[ミューテーション](/v4/mutation/)を無効化していますが、独自のGraphiQLのインスタンスではミューテーションが利用できます。
+**ノート**: {% data variables.product.prodname_dotcom %}はExplorer内での[ミューテーション](/v4/mutation/)を無効化していますが、独自のGraphiQLのインスタンスではミューテーションが利用できます。
 
 {% endnote %}
 
@@ -38,7 +38,7 @@ GraphiQLアプリケーションを使うには、https://github.com/skevy/graph
 1. **Key**フィールドに、`Authorization`と入力してください。 **Value**フィールドには`Bearer <token>`と入力してください。ここで、`<token>`は生成したOAuthトークンです。 ![graphiqlのヘッダー](/assets/images/developer/graphiql-headers.png)
 1. トークンの右のチェックマークをクリックして保存してください。
 1. エディタに戻るには、**Edit HTTP Headers（HTTPヘッダの編集）**モーダルの外をクリックしてください。
-1. **GraphQL Endpoint**フィールドに、`{{ site.data.variables.product.graphql_url_pre }}`を入力してください。
+1. **GraphQL Endpoint**フィールドに、`{% data variables.product.graphql_url_pre %}`を入力してください。
 1. **Method（メソッド）**ドロップダウンメニューで、**POST**を選択してください。
 
 {% note %}
@@ -101,7 +101,7 @@ variables {
 
 ### サポートのリクエスト
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}
 
 ### エラーのトラブルシューティング
 
@@ -146,6 +146,6 @@ GraphQLのレスポンスには、`data`ハッシュや`errors`配列といっ�
 
 {% note %}
 
-**ノート:** {{ site.data.variables.product.prodname_dotcom }}は、データを実働環境で使う前にエラーをチェックしておくことをおすすめします。 GraphQLでは、失敗は全体的なものではありません。GraphQLクエリの一部が成功し、その他の部分が失敗しているということもあります。
+**ノート:** {% data variables.product.prodname_dotcom %}は、データを実働環境で使う前にエラーをチェックしておくことをおすすめします。 GraphQLでは、失敗は全体的なものではありません。GraphQLクエリの一部が成功し、その他の部分が失敗しているということもあります。
 
 {% endnote %}

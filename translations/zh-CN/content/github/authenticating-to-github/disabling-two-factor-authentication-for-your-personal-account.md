@@ -22,8 +22,8 @@ versions:
  - 作为组织成员或所有者，请参阅“[从组织中删除自己](/articles/removing-yourself-from-an-organization/)”。
  - 作为外部协作者，请要求组织所有者或仓库管理员从组织的仓库中删除自己。 更多信息请参阅“[查看组织中的人员角色](/articles/viewing-people-s-roles-in-an-organization)”和“[从组织仓库中删除外部协作者](/articles/removing-an-outside-collaborator-from-an-organization-repository/)”。
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.security %}
 3. Click **Disable**. ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 延伸阅读

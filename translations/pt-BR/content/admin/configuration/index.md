@@ -1,7 +1,7 @@
 ---
 title: Configurar o GitHub Enterprise
 shortTitle: Configurar o GitHub Enterprise
-intro: 'Depois que o {{ site.data.variables.product.prodname_ghe_server }} estiver instalado e configurado, você poderá configurar o aplicativo para atender às necessidades da sua organização.'
+intro: 'Depois que o {% data variables.product.prodname_ghe_server %} estiver instalado e configurado, você poderá configurar o aplicativo para atender às necessidades da sua organização.'
 redirect_from:
   - /enterprise/admin/configuration
 versions:

@@ -45,7 +45,7 @@ Wenn Du ein GitHub-Konto hast, erstelle eine neue Organisation auf unserer [Team
 
 ### Wie kann ich die Funktionen zwischen den Plänen vergleichen?
 
-Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {{ site.data.variables.product.pricing_url }}.
+Die Preise und eine vollständige Liste der Features für jedes Produkt findest Du unter {% data variables.product.pricing_url %}.
 
 ### Wie lange wird GitHub Free eine unbegrenzte Anzahl Mitarbeiter zulassen?
 
@@ -57,7 +57,7 @@ Kunden, die derzeit für jährliche Pro- und Team-Pläne bezahlen und sich vor d
 
 ### Was ist der Unterschied zwischen GitHub Free für einzelne Entwickler und GitHub Free für Organisationen?
 
-Weitere Informationen zu den Differenzen zwischen den GitHub Free Produkten findest Du unter „[Produkte von {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)."
+Weitere Informationen zu den Differenzen zwischen den GitHub Free Produkten findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)."
 
 ### Wie erhalte ich mehr Aktionsminuten, wenn ich mehr benötige als im GitHub-Teamplan zugewiesen?
 
@@ -65,7 +65,7 @@ Die meisten kleinen Teams verwenden weniger als 3.000 Aktionsminuten pro Monat, 
 
 ### Wie beeinflussen mich die Änderungen der Sitzplatzlimiten?
 
-Da {{ site.data.variables.product.prodname_team }} keine Mindestplatzanforderung mehr hat und wenn Du weniger als fünf Plätze in Deiner Organisation benötigst, kannst Du bezahlte Plätze entfernen, um Deine Rechnung zu reduzieren. Weitere Informationen findest Du unter „[Dein {{ site.data.variables.product.prodname_dotcom }}-Abonnement herabstufen](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)-"
+Da {% data variables.product.prodname_team %} keine Mindestplatzanforderung mehr hat und wenn Du weniger als fünf Plätze in Deiner Organisation benötigst, kannst Du bezahlte Plätze entfernen, um Deine Rechnung zu reduzieren. Weitere Informationen findest Du unter „[Dein {% data variables.product.prodname_dotcom %}-Abonnement herabstufen](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)-"
 
 ### Ändert sich etwas für Teams im 'GitHub Team for Open Source'-Plan?
 

@@ -1,6 +1,6 @@
 ---
 title: Crear una insignia personalizada para tu GitHub App
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_github_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_github_apps %}'
 redirect_from:
   - /apps/building-github-apps/creating-custom-badges-for-github-apps
 versions:
@@ -24,10 +24,10 @@ Puedes cambiar una insignia personalizada para una GitHub App que ya tenga una l
 
 Para crear una insignia personalizada:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.github_apps }}
-{{ site.data.reusables.user-settings.modify_github_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+{% data reusables.user-settings.modify_github_app %}
 5. En "Mostrar información", arrastra y suelta una imagen de una carpeta local, o da clic en **Cargar un logo** para seleccionar una imagen de tu ordenador. ![Cargar un logo](/assets/images/github-apps/github_apps_upload_logo.png)
 6. Recorta tu imagen. Cuando termines, da clic en **Confirmar avatar nuevo**. ![Cortar y confirmar logo ](/assets/images/github-apps/github_apps_crop_and_set_avatar.png)
 7. En "Color de fondo de la insignia", teclea el [código hexadecimal de color](http://www.color-hex.com/) para el color de fondo de tu insignia. {% if currentVersion == "free-pro-team@latest" %}**Nota:** El campo de ingreso para el "Color de fondo de la insignia" únicamente aparecerá después de que cargues un logo para la aplicación.{% endif %} ![Color de fondo de la insignia](/assets/images/github-apps/github_apps_badge_background_color.png)

@@ -1,6 +1,6 @@
 ---
 title: Administrar la facturación para tu cuenta de GitHub
-intro: '{{ site.data.variables.product.product_name }} ofrece productos gratuitos y pagos para cada cuenta. Puedes actualizar, bajar de categoría y visualizar los cambios pendientes de la suscripción de tu cuenta en cualquier momento.'
+intro: '{% data variables.product.product_name %} ofrece productos gratuitos y pagos para cada cuenta. Puedes actualizar, bajar de categoría y visualizar los cambios pendientes de la suscripción de tu cuenta en cualquier momento.'
 redirect_from:
   - /categories/97/articles/
   - /categories/paying-for-user-accounts/

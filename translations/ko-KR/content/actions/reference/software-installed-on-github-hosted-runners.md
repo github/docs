@@ -1,7 +1,7 @@
 ---
 title: Software installed on GitHub-hosted runners
-intro: 'This article links to references for the packages and tools available in {{ site.data.variables.product.prodname_dotcom }}-hosted virtual environments.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: 'This article links to references for the packages and tools available in {% data variables.product.prodname_dotcom %}-hosted virtual environments.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/software-in-virtual-environments-for-github-actions
   - /github/automating-your-workflow-with-github-actions/software-in-virtual-environments-for-github-actions
@@ -12,10 +12,10 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-The tools included in {{ site.data.variables.product.prodname_dotcom }}-hosted runners are updated weekly. For the latest list of included tools for each runner operating system, see the links below:
+The tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. For the latest list of included tools for each runner operating system, see the links below:
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/master/images/linux/Ubuntu1804-README.md)
@@ -24,8 +24,8 @@ The tools included in {{ site.data.variables.product.prodname_dotcom }}-hosted r
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/master/images/win/Windows2016-Readme.md)
 * [MacOS 10.15](https://github.com/actions/virtual-environments/blob/master/images/macos/macos-10.15-Readme.md)
 
-{{ site.data.reusables.github-actions.ubuntu-runner-preview }}
+{% data reusables.github-actions.ubuntu-runner-preview %}
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
+{% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
 If there is a tool that you'd like to request, please open an issue at [actions/virtual-environments](https://github.com/actions/virtual-environments).

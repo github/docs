@@ -1,6 +1,6 @@
 ---
 title: 'Erro: HEAD remote faz referência a um ref inexistente, não é possível fazer checkout'
-intro: 'O erro ocorre se o branch padrão de um repositório foi excluído em {{ site.data.variables.product.product_location }}.'
+intro: 'O erro ocorre se o branch padrão de um repositório foi excluído em {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
@@ -11,7 +11,7 @@ versions:
 É simples identificar esse erro; o Git avisará quando você tentar clonar o repositório:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clonar um repositório
 > Clonando em 'repo'...
 > remote: Contando objetos: 66179, concluído.
@@ -22,7 +22,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</e
 > aviso: HEAD remote faz referência a um ref inexistente, não é possível fazer checkout.
 ```
 
-Para corrigir o erro, você precisa ser o administrador do repositório em {{ site.data.variables.product.product_location }}. Você deverá [ alterar o branch padrão](/articles/setting-the-default-branch) do repositório.
+Para corrigir o erro, você precisa ser o administrador do repositório em {% data variables.product.product_location %}. Você deverá [ alterar o branch padrão](/articles/setting-the-default-branch) do repositório.
 
 Depois de fazer isso, você obterá uma lista de todos os branches disponíveis a partir da linha de comando:
 

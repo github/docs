@@ -1,6 +1,6 @@
 ---
 title: Unterschiede zwischen Clustering und Hochverfügbarkeit
-intro: 'Die {{ site.data.variables.product.prodname_ghe_server }}-Hochverfügbarkeitskonfiguration ist eine Konfiguration mit einer primären/sekundären Failover-Instanz, die Redundanz bereitstellt. Demgegenüber bietet Clustering Redundanz und Skalierbarkeit, indem die Last für Lese- und Schreibvorgänge auf mehrere Knoten verteilt wird.'
+intro: 'Die {% data variables.product.prodname_ghe_server %}-Hochverfügbarkeitskonfiguration ist eine Konfiguration mit einer primären/sekundären Failover-Instanz, die Redundanz bereitstellt. Demgegenüber bietet Clustering Redundanz und Skalierbarkeit, indem die Last für Lese- und Schreibvorgänge auf mehrere Knoten verteilt wird.'
 redirect_from:
   - /enterprise/admin/clustering/differences-between-clustering-and-high-availability-ha
 versions:
@@ -11,11 +11,11 @@ versions:
 
 Hochverfügbarkeit und Clustering bieten Redundanz, indem der einzelne Knoten als ein Point of Failure beseitigt wird. In den folgenden Szenarien können sie Verfügbarkeit bieten:
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 ### Skalierbarkeit
 
-{{site.data.reusables.enterprise_clustering.clustering-scalability }} in der Hochverfügbarkeitskonfiguration ist die Größe der Appliance nur vom primären Knoten abhängig, und die Last wird nicht an den Replikatserver verteilt.
+{% data reusables.enterprise_clustering.clustering-scalability %} in der Hochverfügbarkeitskonfiguration ist die Größe der Appliance nur vom primären Knoten abhängig, und die Last wird nicht an den Replikatserver verteilt.
 
 ### Unterschiede bei der Failover-Methode und -Konfiguration
 
@@ -33,5 +33,5 @@ Weder die Hochverfügbarkeit noch Clustering sollten als ein Ersatz für regelm�
 Verfügbarkeitsfeatures, insbesondere mit einem automatischen Failover, beispielsweise Clustering, können einen Fehler maskieren, da der Dienst in der Regel nicht unterbrochen wird, wenn etwas fehlschlägt. Unabhängig davon, ob Sie Hochverfügbarkeit oder Clustering verwenden, ist es wichtig, den Zustand jeder Instanz zu überwachen, damit Sie wissen, wann ein Fehler auftritt. Weitere Informationen finden Sie unter „[Empfohlene Schwellenwerte für Meldungen](/enterprise/{{ currentVersion }}/admin/guides/installation/recommended-alert-thresholds/)“ und „[Clusterknoten überwachen](/enterprise/{{ currentVersion}}/admin/guides/clustering/monitoring-cluster-nodes/)“.
 
 ### Weiterführende Informationen
-- Weitere Informationen zum {{ site.data.variables.product.prodname_ghe_server }}-Clustering, findest Du unter „[Informationen zum Clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)“.
-- Weitere Informationen zur Hochverfügbarkeit finden Sie unter „[{{ site.data.variables.product.prodname_ghe_server }} für Hochverfügbarkeit konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)“.
+- Weitere Informationen zum {% data variables.product.prodname_ghe_server %}-Clustering, findest Du unter „[Informationen zum Clustering](/enterprise/{{ currentVersion}}/admin/guides/clustering/about-clustering/)“.
+- Weitere Informationen zur Hochverfügbarkeit finden Sie unter „[{% data variables.product.prodname_ghe_server %} für Hochverfügbarkeit konfigurieren](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)“.

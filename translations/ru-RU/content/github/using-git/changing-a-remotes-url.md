@@ -21,33 +21,33 @@ The `git remote set-url` command takes two arguments:
 * A new URL for the remote. Например:
   * If you're updating to use HTTPS, your URL might look like:
 ```shell
-https://{{ site.data.variables.command_line.backticks }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+https://{% data variables.command_line.backticks %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
   * If you're updating to use SSH, your URL might look like:
 ```shell
-git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
 ```
 
 ### Switching remote URLs from SSH to HTTPS
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
 3. List your existing remotes in order to get the name of the remote you want to change.
   ```shell
   $ git remote -v
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
   ```shell
-  $ git remote set-url origin https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. Verify that the remote URL has changed.
   ```shell
   $ git remote -v
   # Verify new remote URL
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
 The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password.
@@ -57,24 +57,24 @@ The next time you `git fetch`, `git pull`, or `git push` to the remote repositor
 
 ### Switching remote URLs from HTTPS to SSH
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
 3. List your existing remotes in order to get the name of the remote you want to change.
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
   ```shell
-  $ git remote set-url origin git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
+  $ git remote set-url origin git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY</em>.git
   ```
 5. Verify that the remote URL has changed.
   ```shell
   $ git remote -v
   # Verify new remote URL
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (fetch)
-  > origin  git@{{ site.data.variables.command_line.codeblock }}:<em>USERNAME/REPOSITORY</em>.git (push)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (fetch)
+  > origin  git@{% data variables.command_line.codeblock %}:<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
 ### Устранение проблем
@@ -86,7 +86,7 @@ You may encounter these errors when trying to change a remote.
 This error means that the remote you tried to change doesn't exist:
 
 ```shell
-$ git remote set-url sofake https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife
+$ git remote set-url sofake https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: No such remote 'sofake'
 ```
 

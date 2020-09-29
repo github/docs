@@ -1,1 +1,1 @@
-1. Neben "{{ site.data.variables.large_files.product_name_short }} Daten", verwende das Dropdownmenü **Edit** (Bearbeiten) und klicke auf **Remove data packs** (Datenpakete entfernen). ![Downgrade Ihres Git LFS-Datenplans](/assets/images/help/large_files/downgrade_lfs_data_packs.png)
+1. Neben "{% data variables.large_files.product_name_short %} Daten", verwende das Dropdownmenü **Edit** (Bearbeiten) und klicke auf **Remove data packs** (Datenpakete entfernen). ![Downgrade Ihres Git LFS-Datenplans](/assets/images/help/large_files/downgrade_lfs_data_packs.png)

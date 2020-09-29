@@ -1,6 +1,6 @@
 ---
 title: Confirmar y revisar cambios en su proyecto
-intro: '{{ site.data.variables.product.prodname_desktop }} registra todos los cambios a medida que los editas. Puedes decidir cómo agrupar los cambios para crear confirmaciones significativas.'
+intro: '{% data variables.product.prodname_desktop %} registra todos los cambios a medida que los editas. Puedes decidir cómo agrupar los cambios para crear confirmaciones significativas.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 versions:
@@ -9,9 +9,9 @@ versions:
 
 ### Acerca de las confirmaciones
 
-{{ site.data.reusables.commits.about-commits }} También puedes agregar un coautor en cualquier confirmación en la que colabores.
+{% data reusables.commits.about-commits %} También puedes agregar un coautor en cualquier confirmación en la que colabores.
 
-{{ site.data.reusables.desktop.update-email-address }} Para obtener más información, consulta la sección ["Configurar Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
+{% data reusables.desktop.update-email-address %} Para obtener más información, consulta la sección ["Configurar Git para GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)".
 
 ### 1. Elegir una rama y realizar cambios
 
@@ -19,18 +19,18 @@ versions:
 
 {% octicon "git-branch" aria-label="The branch icon" %} **Rama Actual** en la barra de herramientas y seleccionando la rama de la lista.
   ![Despliega el menú para cambiar tu rama actual](/assets/images/help/desktop/click-branch-in-drop-down.png)
-{{ site.data.reusables.desktop.make-changes }}
+{% data reusables.desktop.make-changes %}
 
 ### 2. Seleccionar cambios para incluirlos en una confirmación
 
-A medida que realizas cambios en los archivos en tu editor de texto y que los guardas localmente, también verás los cambios en {{ site.data.variables.product.prodname_desktop }}.
+A medida que realizas cambios en los archivos en tu editor de texto y que los guardas localmente, también verás los cambios en {% data variables.product.prodname_desktop %}.
 
 * El icono rojo {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} hace referencia a los archivos eliminados.
 * El icono amarillo {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} hace referencia a los archivos modificados.
 * El icono verde {% octicon "diff-added" aria-label="The diff added icon color-green" %} hace referencia a los archivos agregados.
 * Para acceder a los cambios acumulados, haz clic en **Stashed Changes** (Cambios acumulados). ![Opción de cambios acumulados](/assets/images/help/desktop/stashed-changes.png)
-* {{ site.data.reusables.desktop.commit-all-desc }}![Selecciona la casilla de verificación para confirmar todos los archivos cambiados](/assets/images/help/desktop/commit-all.png)
-* {{ site.data.reusables.desktop.commit-some-desc }}![Selecciona las casillas de verificación junto a los archivos que deseas confirmar](/assets/images/help/desktop/commit-some.png)
+* {% data reusables.desktop.commit-all-desc %}![Selecciona la casilla de verificación para confirmar todos los archivos cambiados](/assets/images/help/desktop/commit-all.png)
+* {% data reusables.desktop.commit-some-desc %}![Selecciona las casillas de verificación junto a los archivos que deseas confirmar](/assets/images/help/desktop/commit-some.png)
 
 #### Crear una confirmación parcial
 
@@ -46,10 +46,10 @@ Puedes descartar todos los cambios no confirmados en un archivo, o rango de arch
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-discard-files }}
-{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}
+{% data reusables.desktop.click-discard-files %}
   ![Opción Discard Changes (Descartar cambios) en el menú contextual](/assets/images/help/desktop/discard-changes-mac.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![Botón Discard Changes (Descartar cambios) en el cuadro de diálogo de confirmación](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 {% tip %}
@@ -62,9 +62,9 @@ Puedes descartar todos los cambios no confirmados en un archivo, o rango de arch
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-discard-files }}{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
   ![Opción Discard Changes (Descartar cambios) en el menú contextual](/assets/images/help/desktop/discard-changes-win.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![Botón Discard Changes (Descartar cambios) en el cuadro de diálogo de confirmación](/assets/images/help/desktop/discard-changes-confirm-win.png)
 
 {% tip %}
@@ -81,18 +81,18 @@ Una vez que estés satisfecho con los cambios que elegiste incluir en tu confirm
 
 {% note %}
 
-**Nota**: {{ site.data.reusables.desktop.tags-push-with-commits }} Para obtener más información, consulta la sección "[Administrar las etiquetas](/desktop/contributing-to-projects/managing-tags)".
+**Nota**: {% data reusables.desktop.tags-push-with-commits %} Para obtener más información, consulta la sección "[Administrar las etiquetas](/desktop/contributing-to-projects/managing-tags)".
 
 {% endnote %}
 
-{{ site.data.reusables.desktop.commit-message }}
+{% data reusables.desktop.commit-message %}
   ![Campo para mensaje de confirmación](/assets/images/help/desktop/commit-message.png)
 2. De manera opcional, para atribuir una confirmación a otro autor, haz clic en el icono de coautores y escribe el nombre de usuario que deseas incluir. ![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/add-co-author-commit.png)
-{{ site.data.reusables.desktop.commit-button }}
+{% data reusables.desktop.commit-button %}
   ![Botón Commit (Confirmar)](/assets/images/help/desktop/commit-button.png)
 4. Si la rama a la que intentas comprometerte está protegida, Desktop te avisará.
     - Para mover tus cambios, haz clic en **switch btanches (cambiar ramas)**.
     - Para confirmar tus cambios en la rama protegida, haz clic en **Commit to _BRANCH_****(Enviar a _RAMA)_**.
 
   Para más información sobre ramas protegidas, ve "[Acerca de ramas protegidas](/github/administering-a-repository/about-protected-branches)". ![Advertencia de rama protegida](/assets/images/help/desktop/protected-branch-warning.png)
-{{ site.data.reusables.desktop.push-origin }}
+{% data reusables.desktop.push-origin %}

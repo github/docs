@@ -40,4 +40,4 @@ versions:
 | `map_or_rename` | 如果存在目标，请映射到该目标。 否则，请重命名导入的模型。 | 用户       |
 | `合并`            | 源中的数据将与目标中的现有数据合并。            | 团队       |
 
-**我们强烈建议您检查 *conflicts.csv* 文件并使用 [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data)，以便确保进行正确的操作。**如果一切正常，您可以继续“[在 {{ site.data.variables.product.prodname_ghe_server }} 上应用导入的数据](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)”。
+**我们强烈建议您检查 *conflicts.csv* 文件并使用 [`ghe-migrator audit`](/enterprise/admin/guides/migrations/reviewing-migration-data)，以便确保进行正确的操作。**如果一切正常，您可以继续“[在 {% data variables.product.prodname_ghe_server %} 上应用导入的数据](/enterprise/admin/guides/migrations/applying-the-imported-data-on-github-enterprise-server)”。

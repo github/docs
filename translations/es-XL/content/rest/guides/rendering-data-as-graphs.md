@@ -11,7 +11,7 @@ versions:
 
 
 
-En esta guía vamos a utilizar la API para obtener información acerca de los repositorios que nos pertenecen y de los lenguajes de programación que los componen. Luego, vamos a visualizar la información en un par de formas diferentes utilizando la librería [D3.js][D3.js]. Para interactuar con la API de {{ site.data.variables.product.product_name }}, estaremos utilizando la excelente biblioteca de Ruby, [Octokit][Octokit].
+En esta guía vamos a utilizar la API para obtener información acerca de los repositorios que nos pertenecen y de los lenguajes de programación que los componen. Luego, vamos a visualizar la información en un par de formas diferentes utilizando la librería [D3.js][D3.js]. Para interactuar con la API de {% data variables.product.product_name %}, estaremos utilizando la excelente biblioteca de Ruby, [Octokit][Octokit].
 
 Si aún no lo has hecho, deberías leer la guía de ["Fundamentos de la Autenticación"][basics-of-authentication] antes de comenzar con este ejemplo. Puedes encontrar el código fuente completo para este proyecto en el repositorio [platform-samples][platform samples].
 
@@ -19,7 +19,7 @@ Si aún no lo has hecho, deberías leer la guía de ["Fundamentos de la Autentic
 
 ### Configurar una aplicación de OAuth
 
-Primero, [registra una aplicación nueva][new oauth application] en {{ site.data.variables.product.product_name }}. Configura la URL principal y la de rellamado como `http://localhost:4567/`. Tal como lo hemos hecho [antes][basics-of-authentication], vamos a gestionar la autenticación para la API implementando un recurso intermedio de Rack utilizando [sinatra-auth-github][sinatra auth github]:
+Primero, [registra una aplicación nueva][new oauth application] en {% data variables.product.product_name %}. Configura la URL principal y la de rellamado como `http://localhost:4567/`. Tal como lo hemos hecho [antes][basics-of-authentication], vamos a gestionar la autenticación para la API implementando un recurso intermedio de Rack utilizando [sinatra-auth-github][sinatra auth github]:
 
 ``` ruby
 require 'sinatra/auth/github'
@@ -72,7 +72,7 @@ run Example::MyGraphApp
 
 ### Obtener la información del repositorio
 
-En esta ocasión, para poder hablar con la API de {{ site.data.variables.product.product_name }}, vamos a utilizar la [Biblioteca de Ruby, Octokit][Octokit]. Esto es mucho más fácil que hacer un montón de llamadas de REST directamente. Además, un Githubber desarrolló Octokit, y se mantiene activamente, así que sabes que funcionará.
+En esta ocasión, para poder hablar con la API de {% data variables.product.product_name %}, vamos a utilizar la [Biblioteca de Ruby, Octokit][Octokit]. Esto es mucho más fácil que hacer un montón de llamadas de REST directamente. Además, un Githubber desarrolló Octokit, y se mantiene activamente, así que sabes que funcionará.
 
 Autenticarse con la API a través de Octokit es fácil. Solo pasa tu información de inicio de sesión y tu token en el constructor `Octokit::Client`:
 
@@ -90,7 +90,7 @@ Vamos a hacer algo interesante con los datos acerca de nuestros repositorios. Va
 repos = client.repositories
 ```
 
-Después, vamos a iterar sobre cada repositorio y a contar los lenguajes con los que {{ site.data.variables.product.product_name }} los asocia:
+Después, vamos a iterar sobre cada repositorio y a contar los lenguajes con los que {% data variables.product.product_name %} los asocia:
 
 ``` ruby
 language_obj = {}

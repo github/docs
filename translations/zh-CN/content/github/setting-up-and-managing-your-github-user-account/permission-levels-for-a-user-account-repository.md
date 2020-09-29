@@ -29,12 +29,12 @@ versions:
 - 删除包。 更多信息请参阅“[删除包](/github/managing-packages-with-github-packages/deleting-a-package)”。{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - 创建和编辑仓库社交卡。 更多信息请参阅“[自定义仓库的社交媒体审查](/articles/customizing-your-repositorys-social-media-preview)”。
 - 将仓库设为模板。 更多信息请参阅“[创建模板仓库](/articles/creating-a-template-repository)”。{% endif %}
-- 接收[仓库中有漏洞的依赖项的{% if currentVersion == "free-pro-team@latest" %}{{ site.data.variables.product.prodname_dependabot_alerts }}{% else %}安全警报{% endif %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies){% if currentVersion == "free-pro-team@latest" %}
-- 忽略仓库中的 {{ site.data.variables.product.prodname_dependabot_alerts }}。 更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
+- 接收[仓库中有漏洞的依赖项的{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}安全警报{% endif %}](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies){% if currentVersion == "free-pro-team@latest" %}
+- 忽略仓库中的 {% data variables.product.prodname_dependabot_alerts %}。 更多信息请参阅“[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)”。
 - [管理私有仓库的数据使用](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [定义仓库的代码所有者](/articles/about-code-owners)
 - [存档仓库](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- 创建安全通告。 更多信息请参阅“[关于 {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+- 创建安全通告。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 - 显示赞助按钮。 更多信息请参阅“[在仓库中显示赞助按钮](/articles/displaying-a-sponsor-button-in-your-repository)”。{% endif %}
 
 用户帐户拥有的仓库只有**一个所有者**，此权限无法与其他用户帐户共享。 要将仓库的所有权转让给其他用户，请参阅“[如何转让仓库](/articles/how-to-transfer-a-repository)”。
@@ -64,7 +64,7 @@ versions:
 - 提交会影响其合并性的拉取请求审查
 - 作为仓库的指定代码所有者。 更多信息请参阅“[关于代码所有者](/articles/about-code-owners)”。
 - 锁定对话。 更多信息请参阅“[锁定对话](/articles/locking-conversations)”。{% if currentVersion == "free-pro-team@latest" %}
-- 向 {{ site.data.variables.contact.contact_support }} 报告滥用的内容。 更多信息请参阅“[报告滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”。{% endif %}
+- 向 {% data variables.contact.contact_support %} 报告滥用的内容。 更多信息请参阅“[报告滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”。{% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - 将议题转让给不同的仓库 更多信息请参阅“[将议题转让给其他仓库](/articles/transferring-an-issue-to-another-repository)”。{% endif %}
 

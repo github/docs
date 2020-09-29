@@ -1,6 +1,6 @@
 ---
 title: Límites para ver contenido y diferencias en un repositorio
-intro: 'Determinados tipos de recursos pueden ser bastante grandes y requerir mucho procesamiento en {{ site.data.variables.product.product_name }}. Por este motivo, se establecen límites para asegurar que las solicitudes se realicen en una cantidad de tiempo razonable.'
+intro: 'Determinados tipos de recursos pueden ser bastante grandes y requerir mucho procesamiento en {% data variables.product.product_name %}. Por este motivo, se establecen límites para asegurar que las solicitudes se realicen en una cantidad de tiempo razonable.'
 redirect_from:
   - /articles/what-are-the-limits-for-viewing-content-and-diffs-in-my-repository/
   - /articles/limits-for-viewing-content-and-diffs-in-a-repository
@@ -9,13 +9,13 @@ versions:
   enterprise-server: '*'
 ---
 
-La mayoría de los límites que aparecen a continuación afectan tanto {{ site.data.variables.product.product_name }} como la API.
+La mayoría de los límites que aparecen a continuación afectan tanto {% data variables.product.product_name %} como la API.
 
 ### Límites de texto
 
 Los archivos de texto de más de **1 MB** siempre se muestran como texto sin formato. El código no es de sintaxis resaltada, y los archivos de prosa no se convierten a HTML (como Markdown, AsciiDoc, *etc.*).
 
-Los archivos de texto de más de **5 MB** están disponibles solo a través de sus URL originales, que se ofrecen a través de `{{ site.data.variables.product.raw_github_com }}`; por ejemplo, `https://{{ site.data.variables.product.raw_github_com }}/octocat/Spoon-Knife/master/index.html`. Haz clic en el botón **Raw** (Original) para obtener la URL original de un archivo.
+Los archivos de texto de más de **5 MB** están disponibles solo a través de sus URL originales, que se ofrecen a través de `{% data variables.product.raw_github_com %}`; por ejemplo, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Haz clic en el botón **Raw** (Original) para obtener la URL original de un archivo.
 
 ### Límites de diferencias
 

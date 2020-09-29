@@ -1,6 +1,6 @@
 ---
 title: GitHub 应用程序所需的权限
-intro: '您可以找到每个 {{ site.data.variables.product.prodname_github_app }} 兼容端点所需的权限。'
+intro: '您可以找到每个 {% data variables.product.prodname_github_app %} 兼容端点所需的权限。'
 redirect_from:
   - /v3/apps/permissions ---
 versions:
@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### 关于 {{ site.data.variables.product.prodname_github_app }} 权限
+### 关于 {% data variables.product.prodname_github_app %} 权限
 
-{{ site.data.variables.product.prodname_github_app }} 是用一组权限创建的。 权限定义了 {{ site.data.variables.product.prodname_github_app }} 可以通过 API 访问哪些资源。 更多信息请参阅“[设置 GitHub 的权限](/apps/building-github-apps/setting-permissions-for-github-apps/)”。
+{% data variables.product.prodname_github_app %} 是用一组权限创建的。 权限定义了 {% data variables.product.prodname_github_app %} 可以通过 API 访问哪些资源。 更多信息请参阅“[设置 GitHub 的权限](/apps/building-github-apps/setting-permissions-for-github-apps/)”。
 
 ### 元数据权限
 
 GitHub 应用程序默认具有 `Read-only` 元数据权限。 元数据权限允许访问带有各种资源元数据的只读端点集合。 这些端点不会泄露敏感的私有仓库信息。
 
-{{ site.data.reusables.apps.metadata-permissions }}
+{% data reusables.apps.metadata-permissions %}
 
 
 - [`GET /`](/v3/#root-endpoint)

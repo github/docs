@@ -15,34 +15,34 @@ Puedes configurar recordatorios programados para solicitudes de revisión a nive
 
 ### Crear recordatorios programados para tu cuenta de usuario
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Da clic en **Editar** a un costado de la organización para la cual quieres programar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.add-reminder }}
-{{ site.data.reusables.reminders.authorize-slack }}
-{{ site.data.reusables.reminders.days-dropdown }}
-{{ site.data.reusables.reminders.times-dropdowns }}
+{% data reusables.reminders.add-reminder %}
+{% data reusables.reminders.authorize-slack %}
+{% data reusables.reminders.days-dropdown %}
+{% data reusables.reminders.times-dropdowns %}
 8. Opcionalmente, para recibir recordatorios programados para las revisiones a las cuales se te ha asignado, selecciona **Revisar las solicitudes que se te han asignado**. ![Casilla de revisar las solicitudes que se te han asignado](/assets/images/help/profile/scheduled-reminders-your-requests.png)
 9. Opcionalmente, para recibir los recordatorios programados para las revisiones que se han asignado a algún equipo del cual seas miembro, selecciona **Revisar solicitudes asignadas a tu equipo**. ![Casilla de revisar las solicitudes que se han asignado a tu equipo](/assets/images/help/profile/scheduled-reminders-your-team-requests.png)
-{{ site.data.reusables.reminders.real-time-alerts }}
+{% data reusables.reminders.real-time-alerts %}
 ![Casilla para habilitar las alertas en tiempo real](/assets/images/help/settings/scheduled-reminders-real-time-alerts-personal.png)
-{{ site.data.reusables.reminders.create-reminder }}
+{% data reusables.reminders.create-reminder %}
 
 ### Administrar recordatorios programados para tu cuenta de usuario
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Da clic en **Editar** a un costado de la organización para la cual quieres editar los recordatorios programados. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.edit-page }}
-{{ site.data.reusables.reminders.update-buttons }}
+{% data reusables.reminders.edit-page %}
+{% data reusables.reminders.update-buttons %}
 
 ### Borrar recordatorios programados para tu cuenta de usuario
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.reminders.scheduled-reminders }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.reminders.scheduled-reminders %}
 ![Botón de recordatorios programados](/assets/images/help/profile/scheduled-reminders-profile.png)
 3. Da clic en **Editar** a un costado de la organización para la cual quieres borrar un recordatorio. ![Botón de editar recordatorios programados](/assets/images/help/settings/scheduled-reminders-org-choice.png)
-{{ site.data.reusables.reminders.delete }}
+{% data reusables.reminders.delete %}
 
 ### Leer más
 

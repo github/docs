@@ -1,6 +1,6 @@
 ---
 title: Ein Repository klonen
-intro: 'When you create a repository on {{ site.data.variables.product.product_location }}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
+intro: 'When you create a repository on {% data variables.product.product_location %}, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations.'
 redirect_from:
   - /articles/cloning-a-repository
 versions:
@@ -10,50 +10,50 @@ versions:
 
 ### Über das Klonen eines Repositorys
 
-You can clone a repository from {{ site.data.variables.product.product_location }} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {{ site.data.variables.product.product_location }} to your local machine.
+You can clone a repository from {% data variables.product.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.product.product_location %} to your local machine.
 
-Das Klonen eines Repository ruft eine vollständige Kopie aller Repository-Daten ab, die {{ site.data.variables.product.product_location }} zu diesem Zeitpunkt hat, inklusive aller Versionen jeder Datei und jedes Ordners für das Projekt. You can push your changes to the remote repository on {{ site.data.variables.product.product_location }}, or pull other people's changes from {{ site.data.variables.product.product_location }}. Weitere Informationen findest Du unter „[Gängige Git-Befehle benutzen](/github/using-git/using-common-git-commands)".
+Das Klonen eines Repository ruft eine vollständige Kopie aller Repository-Daten ab, die {% data variables.product.product_location %} zu diesem Zeitpunkt hat, inklusive aller Versionen jeder Datei und jedes Ordners für das Projekt. You can push your changes to the remote repository on {% data variables.product.product_location %}, or pull other people's changes from {% data variables.product.product_location %}. Weitere Informationen findest Du unter „[Gängige Git-Befehle benutzen](/github/using-git/using-common-git-commands)".
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also clone a repository using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo clone`](https://cli.github.com/manual/gh_repo_clone)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also clone a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo clone`](https://cli.github.com/manual/gh_repo_clone)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### Klonen eines Repository über die Befehlszeile
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.change-current-directory-clone }}
-{{ site.data.reusables.command_line.git-clone-url }}
-{{ site.data.reusables.command_line.local-clone-created }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+{% data reusables.command_line.git-clone-url %}
+{% data reusables.command_line.local-clone-created %}
 
-### Ein Repository in {{ site.data.variables.product.prodname_desktop }} klonen
+### Ein Repository in {% data variables.product.prodname_desktop %} klonen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.open-with-github-desktop }}
-4. Befolgen Sie die Aufforderungen in {{ site.data.variables.product.prodname_desktop }}, um den Klonvorgang abzuschließen.
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.open-with-github-desktop %}
+4. Befolgen Sie die Aufforderungen in {% data variables.product.prodname_desktop %}, um den Klonvorgang abzuschließen.
 
-Weitere Informationen finden Sie unter „[Ein Repository von {{ site.data.variables.product.prodname_dotcom }} in {{ site.data.variables.product.prodname_desktop }} klonen](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)“.
+Weitere Informationen finden Sie unter „[Ein Repository von {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_desktop %} klonen](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop/)“.
 
 ### Ein leeres Repository klonen
 
 Ein leeres Repository enthält keine Dateien. Dies geschieht öfters, wenn Du das Repository bei der Erstellung nicht mit einer README-Datei initialisierst.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Um Dein Repository über die Befehlszeile mit HTTPS zu klonen, klicke unter „Quick setup" (Schnelleinrichtung) auf {% octicon "clippy" aria-label="The clipboard icon" %}. Um das Repository mittels SSH-Schlüssel zu klonen{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, einschließlich einem durch die SSH-Zertifizierungsstelle Deiner Organisation herausgegebenen Zertifikat,{% endif %} klicke auf **SSH** und dann auf {% octicon "clippy" aria-label="The clipboard icon" %}. ![Schaltfläche „Empty repository clone URL" (Leeres-Repository-Klonen-URL)](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    Um Dein Repository alternativ in Desktop zu klonen, klicke {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** (In Desktop aufsetzen) und folge den Anweisungen, um den Klon zu vervollständigen. ![Schaltfläche „Empty repository desktop" (Leeres-Repository-Klonen-Desktop)](/assets/images/help/repository/empty-desktop-clone-button.png)
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.change-current-directory-clone }}
-{{ site.data.reusables.command_line.git-clone-url }}
-{{ site.data.reusables.command_line.local-clone-created }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+{% data reusables.command_line.git-clone-url %}
+{% data reusables.command_line.local-clone-created %}
 
 
 ### Beheben von Fehlern beim Klonen

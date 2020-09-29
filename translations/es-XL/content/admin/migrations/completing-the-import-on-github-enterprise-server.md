@@ -10,14 +10,14 @@ versions:
 
 ### Desbloquear repositorios en la instancia de destino
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### Desbloquear repositorios en el origen
 
-#### Desbloquear repositorios de una organización {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Desbloquear repositorios de una organización {% data variables.product.prodname_dotcom_the_website %}
 
-Para desbloquear los repositorios en una organización{{ site.data.variables.product.prodname_dotcom_the_website }}, debes enviar una solicitud de `DELETE` <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">al punto final de desbloqueo de migración</a>. Necesitarás:
+Para desbloquear los repositorios en una organización{% data variables.product.prodname_dotcom_the_website %}, debes enviar una solicitud de `DELETE` <a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">al punto final de desbloqueo de migración</a>. Necesitarás:
   * Tu token de acceso para autenticación
   * El `id` único de la migración
   * El nombre del repositorio a desbloquear
@@ -27,15 +27,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### Eliminar repositorios de una organización {{ site.data.variables.product.prodname_dotcom_the_website }}
+#### Eliminar repositorios de una organización {% data variables.product.prodname_dotcom_the_website %}
 
-Después de desbloquear los repositorios de la organización de {{ site.data.variables.product.prodname_dotcom_the_website }}, debes borrar todos los repositorios que migraste anteriormente utilizando [la terminal de borrado de repositorios](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Necesitarás tu token de acceso para la autenticación:
+Después de desbloquear los repositorios de la organización de {% data variables.product.prodname_dotcom_the_website %}, debes borrar todos los repositorios que migraste anteriormente utilizando [la terminal de borrado de repositorios](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). Necesitarás tu token de acceso para la autenticación:
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### Desbloquear repositorios desde una instancia de {{ site.data.variables.product.prodname_ghe_server }}
+#### Desbloquear repositorios desde una instancia de {% data variables.product.prodname_ghe_server %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

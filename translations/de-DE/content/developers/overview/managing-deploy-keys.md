@@ -56,9 +56,9 @@ See [our guide on Git automation with tokens][git-automation].
 
 ### Deployment-Schlüssel
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
-{{ site.data.reusables.repositories.deploy-keys-write-access }}
+{% data reusables.repositories.deploy-keys-write-access %}
 
 ##### Pros
 
@@ -74,7 +74,7 @@ See [our guide on Git automation with tokens][git-automation].
 ##### Setup
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public/private rsa key pair.
-2. In the upper-right corner of any {{ site.data.variables.product.product_name }} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
+2. In the upper-right corner of any {% data variables.product.product_name %} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
 3. On your profile page, click **Repositories**, then click the name of your repository. ![Repositories link](/assets/images/repos.png)
 4. From your repository, click **Settings**. ![Repository settings](/assets/images/repo-settings.png)
 5. In the sidebar, click **Deploy Keys**, then click **Add deploy key**. ![Add Deploy Keys link](/assets/images/add-deploy-key.png)
@@ -84,7 +84,7 @@ See [our guide on Git automation with tokens][git-automation].
 
 ### Machine users
 
-If your server needs to access multiple repositories, you can create a new {{ site.data.variables.product.product_name }} account and attach an SSH key that will be used exclusively for automation. Since this {{ site.data.variables.product.product_name }} account won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
+If your server needs to access multiple repositories, you can create a new {% data variables.product.product_name %} account and attach an SSH key that will be used exclusively for automation. Since this {% data variables.product.product_name %} account won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
 
 {% if currentVersion == "free-pro-team@latest" %}
 

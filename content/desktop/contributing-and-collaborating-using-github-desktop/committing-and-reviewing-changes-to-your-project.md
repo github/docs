@@ -1,6 +1,6 @@
 ---
 title: Committing and reviewing changes to your project
-intro: '{{ site.data.variables.product.prodname_desktop }} tracks all changes to all files as you edit them. You can decide how to group the changes to create meaningful commits.'
+intro: '{% data variables.product.prodname_desktop %} tracks all changes to all files as you edit them. You can decide how to group the changes to create meaningful commits.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 versions:
@@ -9,28 +9,28 @@ versions:
 
 ### About commits
 
-{{ site.data.reusables.commits.about-commits }} You can also add a co-author on any commits you collaborate on.
+{% data reusables.commits.about-commits %} You can also add a co-author on any commits you collaborate on.
 
-{{ site.data.reusables.desktop.update-email-address }} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
+{% data reusables.desktop.update-email-address %} For more information, see ["Configuring Git for GitHub Desktop](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)."
 
 ### 1. Choosing a branch and making changes
 
 1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
   ![Drop down menu to switch your current branch](/assets/images/help/desktop/click-branch-in-drop-down.png)
-{{ site.data.reusables.desktop.make-changes }}
+{% data reusables.desktop.make-changes %}
 
 ### 2. Selecting changes to include in a commit
 
-As you make changes to files in your text editor and save them locally, you will also see the changes in {{ site.data.variables.product.prodname_desktop }}.
+As you make changes to files in your text editor and save them locally, you will also see the changes in {% data variables.product.prodname_desktop %}.
 
 * The red {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} icon indicates removed files.
 * The yellow {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} icon indicates modified files.
 * The green {% octicon "diff-added" aria-label="The diff added icon color-green" %} icon indicates added files.
 * To access stashed changes, click **Stashed Changes**.
 ![Stashed changes option](/assets/images/help/desktop/stashed-changes.png)
-* {{ site.data.reusables.desktop.commit-all-desc }}
+* {% data reusables.desktop.commit-all-desc %}
   ![Select checkbox to commit all changed files](/assets/images/help/desktop/commit-all.png)
-* {{ site.data.reusables.desktop.commit-some-desc }}
+* {% data reusables.desktop.commit-some-desc %}
   ![Select checkboxes next to the files you want to commit](/assets/images/help/desktop/commit-some.png)
 
 #### Creating a partial commit
@@ -47,10 +47,10 @@ You can discard all the uncommitted changes in one file, a range of files, or di
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-discard-files }}
-{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}
+{% data reusables.desktop.click-discard-files %}
   ![Discard Changes option in context menu](/assets/images/help/desktop/discard-changes-mac.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 {% tip %}
@@ -63,9 +63,9 @@ You can discard all the uncommitted changes in one file, a range of files, or di
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-discard-files }}{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
   ![Discard Changes option in context menu](/assets/images/help/desktop/discard-changes-win.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![Discard Changes button in the confirmation dialog](/assets/images/help/desktop/discard-changes-confirm-win.png)
 
 {% tip %}
@@ -82,15 +82,15 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% note %}
 
-**Note**: {{ site.data.reusables.desktop.tags-push-with-commits }} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[Managing tags](/desktop/contributing-to-projects/managing-tags)."
 
 {% endnote %}
 
-{{ site.data.reusables.desktop.commit-message }}
+{% data reusables.desktop.commit-message %}
   ![Commit message field](/assets/images/help/desktop/commit-message.png)
 2. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
   ![Add a co-author to the commit message](/assets/images/help/desktop/add-co-author-commit.png)
-{{ site.data.reusables.desktop.commit-button }}
+{% data reusables.desktop.commit-button %}
   ![Commit button](/assets/images/help/desktop/commit-button.png)
 4. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.
@@ -98,4 +98,4 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
   For more information about protected branches, see "[About protected branches](/github/administering-a-repository/about-protected-branches)".
   ![Protected branch warning](/assets/images/help/desktop/protected-branch-warning.png)
-{{ site.data.reusables.desktop.push-origin }}
+{% data reusables.desktop.push-origin %}

@@ -17,17 +17,17 @@ Mithilfe von Themen kannst Du Repositorys zu einem bestimmten Themenbereich erku
 
 Rufe https://github.com/topics/ auf, um die am häufigsten verwendeten Themen zu durchsuchen.
 
-{% if currentVersion == "free-pro-team@latest" %}Du kannst im [github/exlore](https://github.com/github/explore)-Repository zu allen vorgestellten Themen von {{ site.data.variables.product.product_name }} beitragen. {% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Du kannst im [github/exlore](https://github.com/github/explore)-Repository zu allen vorgestellten Themen von {% data variables.product.product_name %} beitragen. {% endif %}
 
-Repository-Administratoren können beliebige Themen zu einem Repository hinzufügen. Hilfreiche Themen, mit denen Du ein Repository klassifizieren kannst, sind beispielsweise der beabsichtigte Zweck, der Themenbereich, die Community oder die Sprache des Repositorys.{% if currentVersion == "free-pro-team@latest" %} Zusätzlich analysiert {{ site.data.variables.product.product_name }} Inhalte öffentlicher Repositorys und erzeugt Themenvorschläge, die Repository-Administratoren annehmen oder ablehnen können. Die Inhalte privater Repositorys werden nicht analysiert, und es gibt keine Themenvorschläge für private Repositorys.{% endif %}
+Repository-Administratoren können beliebige Themen zu einem Repository hinzufügen. Hilfreiche Themen, mit denen Du ein Repository klassifizieren kannst, sind beispielsweise der beabsichtigte Zweck, der Themenbereich, die Community oder die Sprache des Repositorys.{% if currentVersion == "free-pro-team@latest" %} Zusätzlich analysiert {% data variables.product.product_name %} Inhalte öffentlicher Repositorys und erzeugt Themenvorschläge, die Repository-Administratoren annehmen oder ablehnen können. Die Inhalte privater Repositorys werden nicht analysiert, und es gibt keine Themenvorschläge für private Repositorys.{% endif %}
 
 Öffentliche und private Repositorys können Themen haben, aber in den Resultaten der Themensuche wirst Du nur die privaten Repositorys sehen, auf die Du Zugriff hast.
 
-Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sind. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“. Sie können auch nach einer Liste von Themen auf {{ site.data.variables.product.product_name }} suchen. Weitere Informationen findest Du unter „[Themen suchen](/articles/searching-topics).“
+Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sind. Weitere Informationen finden Sie unter „[Nach Repositorys suchen](/articles/searching-for-repositories/#search-by-topic)“. Sie können auch nach einer Liste von Themen auf {% data variables.product.product_name %} suchen. Weitere Informationen findest Du unter „[Themen suchen](/articles/searching-topics).“
 
 ### Themen zum Repository hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter der Beschreibung des Repositorys auf **Add topics** (Themen hinzufügen). ![Link „Add topics“ (Themen hinzufügen) auf der Hauptseite eines Repositorys](/assets/images/help/repository/add-topics-link.png)
 3. Gib das Thema ein, das Du zum Repository hinzufügen möchtest, gefolgt von einem Leerzeichen. ![Formular zur Eingabe von Themen](/assets/images/help/repository/add-topic-form.png)
 4. Wenn Du mit dem Hinzufügen von Themen fertig bist, klicke auf **Done** (Fertig). ![Formular mit einer Liste an Themen und Schaltfläche „Done“ (Fertig)](/assets/images/help/repository/add-topics-done-button.png)

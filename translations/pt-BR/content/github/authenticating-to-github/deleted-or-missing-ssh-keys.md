@@ -1,13 +1,13 @@
 ---
 title: Chaves SSH excluídas ou ausentes
-intro: 'Como medida de segurança, o {{ site.data.variables.product.prodname_dotcom }} exclui automaticamente chaves SSH que não tenham sido usadas em um ano.'
+intro: 'Como medida de segurança, o {% data variables.product.prodname_dotcom %} exclui automaticamente chaves SSH que não tenham sido usadas em um ano.'
 redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
 ---
 
-O {{ site.data.variables.product.prodname_dotcom }} exclui automaticamente chaves SSH inativas para ajudar a manter as contas seguras, como depois que alguém deixa um emprego ou perde um computador.
+O {% data variables.product.prodname_dotcom %} exclui automaticamente chaves SSH inativas para ajudar a manter as contas seguras, como depois que alguém deixa um emprego ou perde um computador.
 
 Caso queira verificar se você ainda não usou uma chave SSH em um ano, revise o log de segurança da sua conta. Para obter mais informações, consulte "[Revisar o log de segurança](/articles/reviewing-your-security-log/)."
 

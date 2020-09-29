@@ -1,6 +1,6 @@
 ---
 title: リファレンス
-intro: 'リファレンスドキュメントを見て、{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIスキーマで利用できるデータ型について学んでください。'
+intro: 'リファレンスドキュメントを見て、{% data variables.product.prodname_dotcom %}のGraphQL APIスキーマで利用できるデータ型について学んでください。'
 redirect_from:
   - /v4/reference
 versions:

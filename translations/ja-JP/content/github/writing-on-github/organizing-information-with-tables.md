@@ -72,5 +72,5 @@ versions:
 
 ### 参考リンク
 
-- [{{ site.data.variables.product.prodname_dotcom }} Flavored Markdown の仕様](https://github.github.com/gfm/)
+- [{% data variables.product.prodname_dotcom %} Flavored Markdown の仕様](https://github.github.com/gfm/)
 - [基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)

@@ -1,6 +1,6 @@
 ---
 title: Modo sudo
-intro: '{{ site.data.variables.product.product_name }} te solicita tu contraseña antes de poder modificar tu dirección de correo electrónico, autorizar aplicaciones de terceros, o agregar nuevas llaves públicas, o iniciar otras acciones *sudo-protected* (sudo-protegidas).'
+intro: '{% data variables.product.product_name %} te solicita tu contraseña antes de poder modificar tu dirección de correo electrónico, autorizar aplicaciones de terceros, o agregar nuevas llaves públicas, o iniciar otras acciones *sudo-protected* (sudo-protegidas).'
 redirect_from:
   - /articles/sudo-mode
 versions:

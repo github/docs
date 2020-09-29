@@ -10,13 +10,13 @@ versions:
 
 ### Accessing your organization dashboard
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### Finding your recent activity
 
 In the "Recent activity" section of your news feed, you can quickly find and follow up with recently updated issues and pull requests in your organization.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Finding repositories in your organization
 

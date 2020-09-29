@@ -1,6 +1,6 @@
 ---
 title: REST API 中的资源
-intro: '了解如何导航 {{ site.data.variables.product.prodname_dotcom }} API 提供的资源。'
+intro: '了解如何导航 {% data variables.product.prodname_dotcom %} API 提供的资源。'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
@@ -9,12 +9,12 @@ versions:
 ---
 
 
-本文介绍构成官方 {{ site.data.variables.product.product_name }} REST API 的资源。 如果您有任何问题或要求，请联系 {{ site.data.variables.contact.contact_support }}。
+本文介绍构成官方 {% data variables.product.product_name %} REST API 的资源。 如果您有任何问题或要求，请联系 {% data variables.contact.contact_support %}。
 
 
 ### 当前版本
 
-默认情况下，对 `{{ site.data.variables.product.api_url_code }}` 的所有请求都会收到 REST API 的 **v3** [版本](/v3/versions)。 我们建议您[通过 `Accept` 标头明确请求此版本](/v3/media/#request-specific-version)。
+默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/v3/versions)。 我们建议您[通过 `Accept` 标头明确请求此版本](/v3/media/#request-specific-version)。
 
     Accept: application/vnd.github.v3+json
 
@@ -26,11 +26,11 @@ versions:
 
 ### 架构
 
-{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{{ site.data.variables.product.api_url_code }}` 访问。  所有数据都
+{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
 作为 JSON 发送和接收。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 > HTTP/1.1 200 OK
 > Server: nginx
@@ -77,18 +77,18 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
 
 ### 身份验证
 
-通过 {{ site.data.variables.product.product_name }} API v3 进行身份验证有两种方法。  在某些情况下，要求身份验证的请求将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
+通过 {% data variables.product.product_name %} API v3 进行身份验证有两种方法。  在某些情况下，要求身份验证的请求将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
 
 #### 基本验证
 
 ```shell
-$ curl -u "username" {{ site.data.variables.product.api_url_pre }}
+$ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
 #### OAuth2 令牌（在标头中发送）
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.product.api_url_pre }}
+$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
@@ -101,10 +101,10 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.pro
 
 #### OAuth2 键/密钥
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 ```shell
-curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pre }}/user/repos'
+curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
 使用 `client_id` 和 `client_secret`_不会_验证为用户，只会识别您的 OAuth 应用程序以提高速率限制。 权限仅授予用户，而不授予应用程序，因此只会返回未经验证用户可以看到的数据。 因此，您应该仅在服务器到服务器的场景中使用 OAuth2 键/密钥。 不要将 OAuth 应用程序的客户端密钥泄露给用户。
@@ -123,24 +123,24 @@ curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pr
 使用无效凭据进行身份验证将返回 `401 Unauthorized`：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u foo:bar
+$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 > HTTP/1.1 401 Unauthorized
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
 在短时间内检测到多个使用无效凭据的请求后，API 将暂时拒绝该用户的所有身份验证尝试（包括使用有效凭据的尝试），并返回 `403 Forbidden`：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
 
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
@@ -149,7 +149,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_
 许多 API 方法采用可选参数。 对于 `GET` 请求，任何未指定为路径段的参数都可以作为 HTTP 查询字符串参数进行传递：
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/issues?state=closed"
+$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 在此例中，'vmg' 和 'redcarpet' 是为路径中的 `:owner` 和 `:repo` 参数提供的值，而 `:state` 是查询字符串中传递的参数。
@@ -157,7 +157,7 @@ $ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/iss
 对于 `POST`、`PATCH`、`PUT` 和 `DELETE` 请求，未包含在 URL 中的参数应编码为 JSON，内容类型为 'application/json'：
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.product.api_url_pre }}/authorizations
+$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### 根端点
@@ -165,14 +165,14 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.pro
 您可以向根端点发出 `GET` 请求，以获取 REST API 支持的所有端点类别：
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{{ site.data.variables.product.api_url_pre }}
+$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 {% note %}
 
-**注：**对于 {{ site.data.variables.product.prodname_ghe_server }}，[与所有其他端点一样](/v3/enterprise-admin/#endpoint-urls)，您需要传递用户名和密码。
+**注：**对于 {% data variables.product.prodname_ghe_server %}，[与所有其他端点一样](/v3/enterprise-admin/#endpoint-urls)，您需要传递用户名和密码。
 
 {% endnote %}
 
@@ -274,7 +274,7 @@ API v3 尽可能对每个操作使用适当的 HTTP 请求方法。
 默认情况下，如果请求返回了多个项，将按每页最多 30 项进行分页。  您可以使用 `?page` 参数指定更多页面。 对于某些资源，您还可以使用 `?per_page` 参数设置自定义页面大小，每页最多 100 项。 请注意，由于技术原因，并非所有端点都遵循 `?per_page` 参数，相关示例请参阅[事件](/v3/activity/events/)。
 
 ```shell
-$ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page=100'
+$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
 请注意，页码从 1 开始，省略 `?page` 参数将返回第一页。
@@ -291,8 +291,8 @@ $ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page
 
 [链接标头](http://tools.ietf.org/html/rfc5988)包括分页信息：
 
-    Link: <{{ site.data.variables.product.api_url_code }}/user/repos?page=3&per_page=100>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/user/repos?page=50&per_page=100>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
+      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _该示例包括换行符，以提高可读性。_
 
@@ -313,20 +313,20 @@ _该示例包括换行符，以提高可读性。_
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-对于属于 {{ site.data.variables.product.prodname_ghe_cloud }} 帐户的用户，使用 OAuth 令牌对相同 {{ site.data.variables.product.prodname_ghe_cloud }} 帐户拥有的资源发出的请求上限已提升至每小时 15,000 点。
+对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的用户，使用 OAuth 令牌对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源发出的请求上限已提升至每小时 15,000 点。
 
 {% endif %}
 
 对于未经验证的请求，速率限制允许每小时最多 60 个请求。 未经验证的请求与原始 IP 地址相关联，与发出请求的用户无关。
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 请注意[搜索 API 具有自定义速率限制规则](/v3/search/#rate-limit)。
 
 任何 API 请求返回的 HTTP 标头都显示当前速率限制状态：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -360,7 +360,7 @@ new Date(1372700873 * 1000)
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
 > }
 ```
 
@@ -371,7 +371,7 @@ new Date(1372700873 * 1000)
 如果您的 OAuth 应用程序需要以更高的速率限制进行未经验证的调用， 您可以在端点路由之前传递应用程序的客户端 ID 和密钥。
 
 ```shell
-$ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_pre }}/user/repos
+$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -392,7 +392,7 @@ $ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_p
 
 #### 滥用速率限制
 
-为了在 {{ site.data.variables.product.product_name }} 上提供优质的服务，使用 API 时，某些操作可能会受到额外的速率限制。 例如，使用 API 快速创建内容、主动轮询而不是使用 web 挂钩、发出多个并发请求或重复请求计算成本高昂的数据，可能会导致滥用速率限制。
+为了在 {% data variables.product.product_name %} 上提供优质的服务，使用 API 时，某些操作可能会受到额外的速率限制。 例如，使用 API 快速创建内容、主动轮询而不是使用 web 挂钩、发出多个并发请求或重复请求计算成本高昂的数据，可能会导致滥用速率限制。
 
 滥用速率限制无意干扰 API 的合法使用。 您的正常速率限制应该是您目标的唯一限制。 为确保您成为 API 的好公民，请查看我们的[最佳实践指南](/guides/best-practices-for-integrators/)。
 
@@ -405,7 +405,7 @@ $ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_p
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
 > }
 ```
 
@@ -413,7 +413,7 @@ $ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_p
 
 ### 必需用户代理
 
-所有 API 请求都必须包含有效的 `User-Agent` 标头。 没有 `User-Agent` 标头的请求将被拒绝。 我们要求您使用 {{ site.data.variables.product.product_name }} 用户名或应用程序的名称作为 `User-Agent` 标头值。 这是为了方便我们在发现问题时与您联系 。
+所有 API 请求都必须包含有效的 `User-Agent` 标头。 没有 `User-Agent` 标头的请求将被拒绝。 我们要求您使用 {% data variables.product.product_name %} 用户名或应用程序的名称作为 `User-Agent` 标头值。 这是为了方便我们在发现问题时与您联系 。
 
 例如：
 
@@ -424,7 +424,7 @@ User-Agent: Awesome-Octocat-App
 默认情况下，cURL 会发送有效的 `User-Agent` 标头。 如果您通过 cURL（或通过备用客户端）提供了无效的 `User-Agent` 标头，将会收到 `403 Forbidden` 响应：
 
 ```shell
-$ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
+$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -451,7 +451,7 @@ $ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
 {% endif %}
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i {% data variables.product.api_url_pre %}/user
 > HTTP/1.1 200 OK
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -462,7 +462,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -473,7 +473,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: 
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
@@ -491,7 +491,7 @@ API 支持适用于任何来源 AJAX 请求的跨源资源共享 (CORS)。 您�
 以下是从浏览器点击发送的示例请求 `http://example.com`：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com"
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/1.1 302 Found
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -500,7 +500,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 以下是 CORS 预检请求的示例：
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com" -X OPTIONS
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
@@ -511,10 +511,10 @@ Access-Control-Max-Age: 86400
 
 ### JSON-P 回调
 
-您可以向任何 GET 调用发送 `?callback` 参数，以便让结果包裹在 JSON 函数中。  当浏览器希望绕开跨域问题将 {{ site.data.variables.product.product_name }} 内容嵌入网页时，通常使用此方法。  响应包括与常规 API 相同的数据输出，加上相关的 HTTP 标头信息。
+您可以向任何 GET 调用发送 `?callback` 参数，以便让结果包裹在 JSON 函数中。  当浏览器希望绕开跨域问题将 {% data variables.product.product_name %} 内容嵌入网页时，通常使用此方法。  响应包括与常规 API 相同的数据输出，加上相关的 HTTP 标头信息。
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
+$ curl {% data variables.product.api_url_pre %}?callback=foo
 
 > /**/foo({
 >   "meta": {
@@ -523,7 +523,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
 >     "X-RateLimit-Remaining": "4966",
 >     "X-RateLimit-Reset": "1372700873",
 >     "Link": [ // pagination headers and other links
->       ["{{ site.data.variables.product.api_url_pre }}?page=2", {"rel": "next"}]
+>       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
 >   },
 >   "data": {
@@ -545,7 +545,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
     }
     
     var script = document.createElement('script');
-    script.src = '{{ site.data.variables.product.api_url_code }}?callback=foo';
+    script.src = '{% data variables.product.api_url_code %}?callback=foo';
     
     document.getElementsByTagName('head')[0].appendChild(script);
     </script>
@@ -604,14 +604,14 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
 可以提供根据 [Olson 数据库中的名称列表](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)定义时区的 `Time-Zone` 标头。
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {{ site.data.variables.product.api_url_pre }}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
 这意味着当您在这个标题定义的时区做出 API 调用时，我们会生成一个时间戳。 例如，[内容 API](/v3/repos/contents/)为每个添加或更改生成 git 提交，并使用当前时间作为时间戳。 此标头将确定用于生成当前时间戳的时区。
 
 #### 使用用户的最后一个已知时区
 
-如果未指定 `Time-Zone` 标头，并且您对 API 进行验证过身份的调用，则我们对经过身份验证的用户使用最后一个已知时区。 最新一个已知的时区在您浏览 {{ site.data.variables.product.product_name }} 网站时都会更新。
+如果未指定 `Time-Zone` 标头，并且您对 API 进行验证过身份的调用，则我们对经过身份验证的用户使用最后一个已知时区。 最新一个已知的时区在您浏览 {% data variables.product.product_name %} 网站时都会更新。
 
 #### 在没有其他时区信息的情况下默认使用 UTC
 

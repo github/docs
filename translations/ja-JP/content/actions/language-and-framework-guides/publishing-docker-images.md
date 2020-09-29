@@ -1,22 +1,22 @@
 ---
 title: Dockerイメージの公開
-intro: '継続的インテグレーション（CI）の一部として、Docker Hubや{{ site.data.variables.product.prodname_registry }}といったレジストリに対しDockerイメージを公開できます。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '継続的インテグレーション（CI）の一部として、Docker Hubや{% data variables.product.prodname_registry %}といったレジストリに対しDockerイメージを公開できます。'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.variables.product.prodname_actions }} の支払いを管理する
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data variables.product.prodname_actions %} の支払いを管理する
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
 
-このガイドでは、Dockerのビルドを実行し、DockerのイメージをDocker Hubあるいは{{ site.data.variables.product.prodname_registry }}に公開するワークフローの作成方法を紹介します。 1つのワークフローで、1つのレジストリあるいは複数のレジストリにイメージを公開できます。
+このガイドでは、Dockerのビルドを実行し、DockerのイメージをDocker Hubあるいは{% data variables.product.prodname_registry %}に公開するワークフローの作成方法を紹介します。 1つのワークフローで、1つのレジストリあるいは複数のレジストリにイメージを公開できます。
 
 {% note %}
 
-**ノート:** 他のサードパーティのDockerレジストリにプッシュしたい場合は、「[{{ site.data.variables.product.prodname_registry }}へのイメージの公開](#publishing-images-to-github-packages)」セクションにある例がよいテンプレートになるでしょう。
+**ノート:** 他のサードパーティのDockerレジストリにプッシュしたい場合は、「[{% data variables.product.prodname_registry %}へのイメージの公開](#publishing-images-to-github-packages)」セクションにある例がよいテンプレートになるでしょう。
 
 {% endnote %}
 
@@ -26,22 +26,22 @@ versions:
 
 以下についての基本的な理解があると役に立つでしょう。
 
-- [{{ site.data.variables.product.prodname_actions }}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
+- [{% data variables.product.prodname_actions %}の中核的概念](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)
 - [暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
 - [GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)
-- [{{ site.data.variables.product.prodname_registry }}で利用するためのDockerの設定](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)
+- [{% data variables.product.prodname_registry %}で利用するためのDockerの設定](/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)
 
 ### イメージの設定について
 
-このガイドは、{{ site.data.variables.product.prodname_dotcom }}レジストリ内に保存されたDockerのイメージについての完全な定義を持っていることを前提としています。 たとえば、リポジトリにはイメージを作成するためのDockerビルドを行うのに必要な_Dockerfile_やその他のファイルが含まれていなければなりません。
+このガイドは、{% data variables.product.prodname_dotcom %}レジストリ内に保存されたDockerのイメージについての完全な定義を持っていることを前提としています。 たとえば、リポジトリにはイメージを作成するためのDockerビルドを行うのに必要な_Dockerfile_やその他のファイルが含まれていなければなりません。
 
 このガイドではDockerの`build-push-action`アクションを使って、Dockerイメージをビルドし、それを1つ以上のDockerレジストリにプッシュします。 詳しい情報については[`build-push-action`](https://github.com/marketplace/actions/build-and-push-docker-images)を参照してください。
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 ### Docker Hubへのイメージの公開
 
-{{ site.data.reusables.github-actions.release-trigger-workflow }}
+{% data reusables.github-actions.release-trigger-workflow %}
 
 以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージをDocker Hubにプッシュします。
 
@@ -49,7 +49,7 @@ Docker Hubにプッシュするためには、Docker Hubのアカウントを持
 
 Docker Hubに必要な`build-push-action`のオプションは以下のとおりです。
 
-* `username`及び`password`: Docker Hubのユーザ名とパスワードです。 Docker Hubのユーザ名とパスワードは、{{ site.data.variables.product.prodname_dotcom }}リポジトリに暗号化されたシークレットとして保存し、ワークフローファイルで公開しないことをおすすめします。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
+* `username`及び`password`: Docker Hubのユーザ名とパスワードです。 Docker Hubのユーザ名とパスワードは、{% data variables.product.prodname_dotcom %}リポジトリに暗号化されたシークレットとして保存し、ワークフローファイルで公開しないことをおすすめします。 詳しい情報については、「[暗号化されたシークレットの作成と利用](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)」を参照してください。
 * `repository`: `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`フォーマットでのDocker Hubのリポジトリ。
 
 {% raw %}
@@ -75,20 +75,20 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.docker-tag-with-ref }}
+{% data reusables.github-actions.docker-tag-with-ref %}
 
-### {{ site.data.variables.product.prodname_registry }}へのイメージの公開
+### {% data variables.product.prodname_registry %}へのイメージの公開
 
-{{ site.data.reusables.github-actions.release-trigger-workflow }}
+{% data reusables.github-actions.release-trigger-workflow %}
 
-以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージを{{ site.data.variables.product.prodname_registry }}にプッシュします。
+以下のワークフローの例では、Dockerの`build-push-action`アクションを使ってDockerイメージをビルドし、ビルドが成功すれば構築されたイメージを{% data variables.product.prodname_registry %}にプッシュします。
 
-{{ site.data.variables.product.prodname_registry }}に必要な`build-push-action`のオプションは以下のとおりです。
+{% data variables.product.prodname_registry %}に必要な`build-push-action`のオプションは以下のとおりです。
 
 * `username`: {% raw %}`${{ github.actor }}`{% endraw %}コンテキストを使って、ワークフローの実行を始めたユーザのユーザ名を自動的に使うことができます。 詳しい情報については、「[GitHub Actionsのコンテキストと式構文](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)」を参照してください。
 * `password`: パスワードには、自動的に生成された`GITHUB_TOKEN`シークレットを利用できます。 詳しい情報については「[GITHUB_TOKENでの認証](/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token)」を参照してください。
 * `registry`: `docker.pkg.github.com`に設定しなければなりません。
-* `repository`: `OWNER/REPOSITORY/IMAGE_NAME`というフォーマットで設定しなければなりません。 たとえば、`http://github.com/octo-org/octo-repo`にある{{ site.data.variables.product.prodname_dotcom }}上に保存される`octo-image`という名前のイメージでは、`repository`オプションは`octo-org/octo-repo/octo-image`に設定しなければなりません。
+* `repository`: `OWNER/REPOSITORY/IMAGE_NAME`というフォーマットで設定しなければなりません。 たとえば、`http://github.com/octo-org/octo-repo`にある{% data variables.product.prodname_dotcom %}上に保存される`octo-image`という名前のイメージでは、`repository`オプションは`octo-org/octo-repo/octo-image`に設定しなければなりません。
 
 {% raw %}
 ```yaml
@@ -115,13 +115,13 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.docker-tag-with-ref }}
+{% data reusables.github-actions.docker-tag-with-ref %}
 
-### Docker Hubと{{ site.data.variables.product.prodname_registry }}へのイメージの公開
+### Docker Hubと{% data variables.product.prodname_registry %}へのイメージの公開
 
 1つのワークフローで、それぞれのレジストリに対して`build-push-action`アクションを使い、複数のレジストリにDockerイメージを公開できます。
 
-以下のワークフローの例では、以前のセクション（「[Docker Hubへのイメージの公開](#publishing-images-to-docker-hub)」及び「[{{ site.data.variables.product.prodname_registry }}へのイメージの公開](#publishing-images-to-github-packages)」）での`build-push-action`ステップを使い、両方のレジストリにプッシュを行う1つのワークフローを作成します。
+以下のワークフローの例では、以前のセクション（「[Docker Hubへのイメージの公開](#publishing-images-to-docker-hub)」及び「[{% data variables.product.prodname_registry %}へのイメージの公開](#publishing-images-to-github-packages)」）での`build-push-action`ステップを使い、両方のレジストリにプッシュを行う1つのワークフローを作成します。
 
 {% raw %}
 ```yaml
@@ -154,4 +154,4 @@ jobs:
 ```
 {% endraw %}
 
-上のワークフローの例は、{{ site.data.variables.product.prodname_dotcom }}リポジトリをチェックアウトし、`build-push-action`アクションを2回使ってDockerイメージをビルドしてDocker Hubと{{ site.data.variables.product.prodname_registry }}にプッシュします。 どちらのステップでも、このワークフローは`build-push-action`のオプションの[`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref)を、構築されたDockerイメージをワークフローイベントのGit参照で自動的にタグ付けするように設定します。 このワークフローは{{ site.data.variables.product.prodname_dotcom }}リリースの公開で起動されるので、どちらのレジストリの参照も、そのリリースのGitタグになります。
+上のワークフローの例は、{% data variables.product.prodname_dotcom %}リポジトリをチェックアウトし、`build-push-action`アクションを2回使ってDockerイメージをビルドしてDocker Hubと{% data variables.product.prodname_registry %}にプッシュします。 どちらのステップでも、このワークフローは`build-push-action`のオプションの[`tag_with_ref`](https://github.com/marketplace/actions/build-and-push-docker-images#tag_with_ref)を、構築されたDockerイメージをワークフローイベントのGit参照で自動的にタグ付けするように設定します。 このワークフローは{% data variables.product.prodname_dotcom %}リリースの公開で起動されるので、どちらのレジストリの参照も、そのリリースのGitタグになります。

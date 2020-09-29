@@ -1,6 +1,6 @@
 ---
 title: 匿名化された画像URLについて
-intro: '画像を{{ site.data.variables.product.product_name }}にアップロードする場合、その画像のURLは情報が追跡できないように変更されます。'
+intro: '画像を{% data variables.product.product_name %}にアップロードする場合、その画像のURLは情報が追跡できないように変更されます。'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls
@@ -8,19 +8,19 @@ versions:
   free-pro-team: '*'
 ---
 
-画像をホストするために、{{ site.data.variables.product.product_name }}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 `https://camo.githubusercontent.com/` で始まる各画像に対して、Camo は匿名 URL プロキシを生成し、ブラウザの詳細や関連情報が他のユーザから見えないようにします。
+画像をホストするために、{% data variables.product.product_name %}は[オープンソースプロジェクトの Camo](https://github.com/atmos/camo) を使用します。 `https://camo.githubusercontent.com/` で始まる各画像に対して、Camo は匿名 URL プロキシを生成し、ブラウザの詳細や関連情報が他のユーザから見えないようにします。
 
 匿名化した画像URLを受け取った人は、直接であれ間接であれ、その画像を見ることができます。 機密の画像をプライベートにしておきたい場合は、Camoを使う代わりにそれらを認証が必要なプライベートなネットワークあるいはサーバーから提供するようにしてください。
 
 ### Camoでの問題のトラブルシューティング
 
-まれな状況下において、Camoによって処理された画像が{{ site.data.variables.product.prodname_dotcom }}に表示されないことがあります。 問題のありかを判断するために利用できる手順を以下に示します。
+まれな状況下において、Camoによって処理された画像が{% data variables.product.prodname_dotcom %}に表示されないことがあります。 問題のありかを判断するために利用できる手順を以下に示します。
 
 {% windows %}
 
 {% tip %}
 
-Windowsユーザは、Git Powershell（これは[{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/)と共にインストールされます）を使うか、[curl for Windows](http://curl.haxx.se/download.html)をダウンロードする必要があります。
+Windowsユーザは、Git Powershell（これは[{% data variables.product.prodname_desktop %}](https://desktop.github.com/)と共にインストールされます）を使うか、[curl for Windows](http://curl.haxx.se/download.html)をダウンロードする必要があります。
 
 {% endtip %}
 
@@ -28,9 +28,9 @@ Windowsユーザは、Git Powershell（これは[{{ site.data.variables.product.
 
 #### 画像が表示されない
 
-画像がブラウザでは表示されるものの{{ site.data.variables.product.prodname_dotcom }}では表示されない場合、その画像をローカルで要求してみることができます。
+画像がブラウザでは表示されるものの{% data variables.product.prodname_dotcom %}では表示されない場合、その画像をローカルで要求してみることができます。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. `curl` を使って画像ヘッダをリクエストしてください。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
@@ -51,9 +51,9 @@ Windowsユーザは、Git Powershell（これは[{{ site.data.variables.product.
 
 #### 最近変更した画像が更新されない
 
-最近変更した画像がブラウザでは表示され、{{ site.data.variables.product.prodname_dotcom }}では表示されない場合、その画像のキャッシュをリセットしてみることができます。
+最近変更した画像がブラウザでは表示され、{% data variables.product.prodname_dotcom %}では表示されない場合、その画像のキャッシュをリセットしてみることができます。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. `curl` を使って画像ヘッダをリクエストしてください。
   ```shell
   $ curl -I https://www.my-server.com/images/some-image.png
@@ -68,13 +68,13 @@ Windowsユーザは、Git Powershell（これは[{{ site.data.variables.product.
   * 画像をホストしているサーバを自分で保有しているなら、画像に対する `Cache-Control` に `no-cache` を返すように修正してください。
   * 画像を外部のサービスでホストしているなら、そのサービスのサポートに連絡してください。
 
- `Cache-Control` *が* `no-cache` に設定されている場合は、{{ site.data.variables.contact.contact_support }} にお問い合わせいただくか、{{ site.data.variables.contact.community_support_forum }} を検索してください。
+ `Cache-Control` *が* `no-cache` に設定されている場合は、{% data variables.contact.contact_support %} にお問い合わせいただくか、{% data variables.contact.community_support_forum %} を検索してください。
 
 #### Camoのキャッシュから画像を削除する
 
-キャッシュをパージすれば、すべての{{ site.data.variables.product.prodname_dotcom }}ユーザは画像をリクエストし直すようになるので、この方法はごく控えめに使うべきであり、これまでに述べたステップがうまく働かなかった場合にかぎるべきです。
+キャッシュをパージすれば、すべての{% data variables.product.prodname_dotcom %}ユーザは画像をリクエストし直すようになるので、この方法はごく控えめに使うべきであり、これまでに述べたステップがうまく働かなかった場合にかぎるべきです。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Camo の URL に対して `curl -X PURGE` を使い、画像をパージしてください。
   ```shell
   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
@@ -83,10 +83,10 @@ Windowsユーザは、Git Powershell（これは[{{ site.data.variables.product.
 
 #### プライベートネットワークでの画像の表示
 
-画像がプライベートネットワークや、認証を要求するサーバから提供されている場合、{{ site.data.variables.product.prodname_dotcom }}では表示できません。 実際のところ、その画像はユーザにサーバへのログインを求めなければ表示されません。
+画像がプライベートネットワークや、認証を要求するサーバから提供されている場合、{% data variables.product.prodname_dotcom %}では表示できません。 実際のところ、その画像はユーザにサーバへのログインを求めなければ表示されません。
 
 この問題を修正するには、その画像をパブリックにアクセスできるサービスに移してください。
 
 ### 参考リンク
 
-- {{ site.data.variables.product.prodname_blog }}の[ユーザの画像のプロキシ処理](https://github.com/blog/1766-proxying-user-images)
+- {% data variables.product.prodname_blog %}の[ユーザの画像のプロキシ処理](https://github.com/blog/1766-proxying-user-images)

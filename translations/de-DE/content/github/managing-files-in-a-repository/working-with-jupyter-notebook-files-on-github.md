@@ -1,6 +1,6 @@
 ---
 title: Mit Jupyter Notebook-Dateien auf GitHub arbeiten
-intro: 'Wenn Du Jupyter Notebook- oder iPython Notebook-Dateien mit einer *.ipynb*-Erweiterung auf {{ site.data.variables.product.product_location }} hinzufügst, werden sie in Deinem Repository als statische HTML-Dateien gerendert.'
+intro: 'Wenn Du Jupyter Notebook- oder iPython Notebook-Dateien mit einer *.ipynb*-Erweiterung auf {% data variables.product.product_location %} hinzufügst, werden sie in Deinem Repository als statische HTML-Dateien gerendert.'
 redirect_from:
   - /articles/working-with-jupyter-notebook-files-on-github
 versions:
@@ -9,7 +9,7 @@ versions:
 ---
 
 
-Die interaktiven Features des Notebooks, beispielsweise benutzerdefinierte JavaScript-Plots, funktionieren in Deinem Repository auf {{ site.data.variables.product.product_location }} nicht. Ein Beispiel findest Du unter [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+Die interaktiven Features des Notebooks, beispielsweise benutzerdefinierte JavaScript-Plots, funktionieren in Deinem Repository auf {% data variables.product.product_location %} nicht. Ein Beispiel findest Du unter [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
 Du kannst [nbviewer](https://nbviewer.jupyter.org/) verwenden, um Dein Jupyter Notebook mit dargestelltem JavaScript-Inhalt anzuzeigen oder um Deine Notebook-Dateien mit anderen zu teilen. Ein Beispiel zu auf nbviewer gerenderten Elementen findest Du unter [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/master/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 

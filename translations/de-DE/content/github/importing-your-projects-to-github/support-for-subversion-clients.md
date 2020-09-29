@@ -18,8 +18,8 @@ Dein erster Schritt in Verbindung mit Subversion ist der Checkout.  Da das Arbei
 
 Subversion-Checkouts unterscheiden sich hier: In Subversion sind die Repository-Daten in den Arbeitsverzeichnissen enthalten, weswegen es für jeden Branch und jedes Tag, das Du ausgecheckt hast, ein eigenes Arbeitsverzeichnis gibt.  Bei Repositorys mit vielen Branches und Tags kann das Auschecken zu einem Bandbreitenproblem werden. In diesem Fall empfiehlt sich zunächst ein teilweiser Checkout.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.copy-clone-url }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.copy-clone-url %}
 
 3. Erstelle einen leeren Checkout des Repositorys:
   ```shell

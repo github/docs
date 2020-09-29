@@ -2,4 +2,4 @@
   - ブラウザのキャッシュをクリアし、情報を再度サブミットしてみてください。
   - 支払いデータを正しく入力したことを確認してみてください。
 
-依然として問題が解決できない場合は、{{ site.data.variables.contact.contact_support }} に連絡してください。
+依然として問題が解決できない場合は、{% data variables.contact.contact_support %} に連絡してください。

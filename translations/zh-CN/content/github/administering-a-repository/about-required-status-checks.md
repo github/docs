@@ -1,7 +1,7 @@
 ---
 title: 关于必需状态检查
 intro: 必需状态检查确保在协作者可以对受保护分支进行更改前，所有必需的 CI 测试都已通过。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
 versions:
@@ -19,7 +19,7 @@ versions:
 
 {% tip %}
 
-**注：**对仓库具有写入权限的任何个人或集成可以在仓库中设置任何状态检查的状态。 {{ site.data.variables.product.product_name }} 无法验证检查的作者是否被授权创建具有特定名称的检查或修改现有状态。 在合并拉取请求之前，应验证合并框中列出的每个状态的作者是否符合预期。
+**注：**对仓库具有写入权限的任何个人或集成可以在仓库中设置任何状态检查的状态。 {% data variables.product.product_name %} 无法验证检查的作者是否被授权创建具有特定名称的检查或修改现有状态。 在合并拉取请求之前，应验证合并框中列出的每个状态的作者是否符合预期。
 
 {% endtip %}
 

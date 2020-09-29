@@ -13,7 +13,7 @@ versions:
 
 Du kannst Standard-Community-Unterstützungsdateien dem Stammverzeichnis eines öffentlichen Repositorys mit Namen `.github` hinzufügen, welches einer Organisation{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder einem Benutzerkonto{% endif %} gehört.
 
-{{ site.data.variables.product.product_name }} wird Standarddateien für ein öffentliches Repository benutzen und anzeigen, sofern das Konto, dem das Repository gehört, über keine eigenen Dateien dieses Typs an den folgenden Stellen verfügt:
+{% data variables.product.product_name %} wird Standarddateien für ein öffentliches Repository benutzen und anzeigen, sofern das Konto, dem das Repository gehört, über keine eigenen Dateien dieses Typs an den folgenden Stellen verfügt:
 - im Root des Repositorys
 - im Ordner `.github`
 - im Ordner `docs`
@@ -39,10 +39,10 @@ Du kannst keine Standard-Lizenzdatei erstellen. Lizenzdateien müssen zu individ
 
 ### Ein Repository für Standarddateien erstellen
 
-{{ site.data.reusables.repositories.create_new }}
+{% data reusables.repositories.create_new %}
 2. Benutze das **Owner** (Inhaber) Dropdownmenü und wähle die Organisation{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder das Benutzerkonto{% endif %}, für welche Du Standarddateien erstellen willst. ![Dropdownmenü „Owner" (Inhaber)](/assets/images/help/repository/create-repository-owner.png)
 3. Gib **.github** als Namen für Dein Repository sowie optional eine Beschreibung ein. ![Feld „Create repository" (Erstellen eines Repositorys)](/assets/images/help/repository/default-file-repository-name.png)
 4. Wähle, dass das Repository öffentlich sein soll. ![Optionsfelder zum Auswählen des privaten oder öffentlichen Status](/assets/images/help/repository/create-repository-public-private.png)
-{{ site.data.reusables.repositories.initialize-with-readme }}
-{{ site.data.reusables.repositories.create-repo }}
+{% data reusables.repositories.initialize-with-readme %}
+{% data reusables.repositories.create-repo %}
 7. Erstelle im Repository eine der möglichen Community-Unterstützungsdateien. Issuevorlagen{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} und ihre Konfigurationsdateien{% endif %} müssen sich in einem Verzeichnis namens `.github/ISSUE_TEMPLATE` befinden. Alle anderen unterstützten Dateien müssen sich im Root des Repositorys befinden. Weitere Informationen findest Du unter „[Neue Dateien erstellen](/articles/creating-new-files/).“

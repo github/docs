@@ -1,6 +1,6 @@
 ---
 title: Commits durchsuchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du Commits durchsuchen und die Suchergebnisse mit den folgenden Qualifizierern der Commit-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} kannst Du Commits durchsuchen und die Suchergebnisse mit den folgenden Qualifizierern der Commit-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Commits global auf {{ site.data.variables.product.product_name }} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github).“
+Du kannst Commits global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 Bei der Suche nach Commits wird nur der [Standardbranch](/articles/about-branches) eines Repositorys durchsucht.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Suche in Commit-Mitteilungen
 
@@ -45,7 +45,7 @@ Die Qualifizierer `author-email` und `committer-email` gleichen Commits nach der
 
 Mit den Qualifizierern `author-date` und `committer-date` kannst Du Commits suchen, die innerhalb des angegebenen Datumsbereichs verfasst oder freigegeben wurden.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer             | Beispiel                                                                                                                                                                            |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

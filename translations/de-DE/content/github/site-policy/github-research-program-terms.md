@@ -32,7 +32,7 @@ Alle vertraulichen Informationen bleiben das alleinige und ausschließliche Eige
 
 Durch die Teilnahme an diesem Programm erklären Sie sich damit einverstanden, dass wir Ihre personenbezogenen Daten zu Forschungszwecken und nicht zu anderen Zwecken verwenden. Im Rahmen des Programms können wir Ihre personenbezogenen Daten verwenden, um Sie zu kontaktieren oder Ihre Daten speichern, um Sie zu einem späteren Zeitpunkt zu kontaktieren. Personenbezogene Daten umfassen keine aggregierten, nicht-personenbezogenen Daten. Wir können aggregierte oder andere nicht personenbezogene Informationen verwenden, die über das Programm gesammelt werden, um unsere Produkte und Dienste zu betreiben, zu analysieren und zu verbessern.
 
-Sie können Ihre Einwilligung jederzeit widerrufen und den Zugriff auf oder die Löschung der von uns über Sie gespeicherten persönlichen Daten anfordern. Für weitere Informationen darüber, wie Sie die personenbezogenen Informationen, die GitHub über das Programm sammelt, abrufen, aktualisieren oder löschen können, lesen Sie bitte die [GitHub-Datenschutzerklärung](/articles/github-privacy-statement/) oder kontaktieren Sie uns über unsere {{ site.data.variables.contact.contact_privacy }}.
+Sie können Ihre Einwilligung jederzeit widerrufen und den Zugriff auf oder die Löschung der von uns über Sie gespeicherten persönlichen Daten anfordern. Für weitere Informationen darüber, wie Sie die personenbezogenen Informationen, die GitHub über das Programm sammelt, abrufen, aktualisieren oder löschen können, lesen Sie bitte die [GitHub-Datenschutzerklärung](/articles/github-privacy-statement/) oder kontaktieren Sie uns über unsere {% data variables.contact.contact_privacy %}.
 
 ### E. Bedingungen für GitHub-Dienste und Software
 

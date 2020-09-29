@@ -1,6 +1,6 @@
 ---
 title: Atualizar o GitHub Enterprise Server
-intro: 'Atualize o {{ site.data.variables.product.prodname_ghe_server }} para usar os recursos e atualizações de segurança mais recentes.'
+intro: 'Atualize o {% data variables.product.prodname_ghe_server %} para usar os recursos e atualizações de segurança mais recentes.'
 redirect_from:
   - /enterprise/admin/articles/upgrading-to-the-latest-release/
   - /enterprise/admin/articles/migrations-and-upgrades/
@@ -19,8 +19,8 @@ versions:
 ### Preparar para a atualização
 
 1. Determine uma estratégia de atualização e escolha uma versão para atualizar. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
-3. Crie um backup da instância primária usando o {{ site.data.variables.product.prodname_enterprise_backup_utilities }}. Para obter mais informações, consulte o [Arquivo LEIAME.md do {{ site.data.variables.product.prodname_enterprise_backup_utilities }}](https://github.com/github/backup-utils#readme).
-4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {{ site.data.variables.product.prodname_ghe_server }}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
+3. Crie um backup da instância primária usando o {% data variables.product.prodname_enterprise_backup_utilities %}. Para obter mais informações, consulte o [Arquivo LEIAME.md do {% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+4. Se você estiver atualizando com um pacote de atualização, programe um período de manutenção para os usuários finais do {% data variables.product.prodname_ghe_server %}. Se estiver usando um hotpatch, não será necessário recorrer ao modo de manutenção.
 
   {% note %}
 
@@ -56,22 +56,22 @@ Há dois tipos de instantâneo:
 
 ### Atualizar com hotpatch
 
-{{ site.data.reusables.enterprise_installation.hotpatching-explanation }} Ao usar o {{ site.data.variables.enterprise.management_console }}, é possível instalar um hotpatch na mesma hora ou programar a instalação para depois. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
+{% data reusables.enterprise_installation.hotpatching-explanation %} Ao usar o {% data variables.enterprise.management_console %}, é possível instalar um hotpatch na mesma hora ou programar a instalação para depois. Você pode usar o shell administrativo para instalar um hotpatch com o utilitário `ghe-upgrade`. Para obter mais informações, consulte "[Requisitos de atualização](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrade-requirements/)".
 
 {% note %}
 
-**Observação**: A instalação de hotpatch com o {{ site.data.variables.enterprise.management_console }} não está disponível para ambientes em cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
+**Observação**: A instalação de hotpatch com o {% data variables.enterprise.management_console %} não está disponível para ambientes em cluster. Para instalar um hotpatch em um ambiente em cluster, consulte "[Atualizar um cluster](/enterprise/{{ currentVersion }}/admin/clustering/upgrading-a-cluster#upgrading-with-a-hotpatch)".
 
 {% endnote %}
 
 #### Atualizar um appliance com hotpatch
 
-##### Instalar um hotpatch usando o {{ site.data.variables.enterprise.management_console }}
+##### Instalar um hotpatch usando o {% data variables.enterprise.management_console %}
 
 1. Habilite atualizações automáticas. Para obter mais informações, consulte "[Habilitar atualizações automáticas](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-automatic-update-checks/)".
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-{{ site.data.reusables.enterprise_management_console.updates-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.updates-tab %}
 4. Quando um novo hotpatch for baixado, use o menu suspenso Install package (Instalar pacote):
     - Para instalar na mesma hora, selecione **Now** (Agora):
     - Para instalar depois, selecione outra data. ![Menu suspenso com datas para instalação de hotpatch](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
@@ -79,11 +79,11 @@ Há dois tipos de instantâneo:
 
 ##### Instalar hotpatch usando o shell administrativo
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} Copie a URL do hotpackage de atualização (arquivo *.hpkg*).
-{{ site.data.reusables.enterprise_installation.download-package }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copie a URL do hotpackage de atualização (arquivo *.hpkg*).
+{% data reusables.enterprise_installation.download-package %}
 4. Execute o comando `ghe-upgrade` usando o nome de arquivo do pacote:
   ```shell
   admin@<em>HOSTNAME</em>:~$ ghe-upgrade <em>GITHUB-UPGRADE.hpkg</em>
@@ -114,8 +114,8 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 {% endnote %}
 
 1. Atualize a instância da réplica seguindo as instruções em "[Instalar hotpatch usando o shell administrativo](#installing-a-hotpatch-using-the-administrative-shell)". Se você estiver usando várias réplicas de replicação geográfica, repita esse procedimento para atualizar cada réplica, uma por vez.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
 ### Atualizar com pacote de atualização
 
@@ -123,12 +123,12 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
 
 #### Atualizar um appliance com pacote de atualização
 
-{{ site.data.reusables.enterprise_installation.download-note }}
+{% data reusables.enterprise_installation.download-note %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-2. {{ site.data.reusables.enterprise_installation.enterprise-download-upgrade-pkg }} Selecione a plataforma adequada e copie a URL do pacote de atualização (arquivo *.pkg*).
-{{ site.data.reusables.enterprise_installation.download-package }}
-4. Habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos na instância do {{ site.data.variables.product.prodname_ghe_server }}. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
+{% data reusables.enterprise_installation.ssh-into-instance %}
+2. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Selecione a plataforma adequada e copie a URL do pacote de atualização (arquivo *.pkg*).
+{% data reusables.enterprise_installation.download-package %}
+4. Habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos na instância do {% data variables.product.prodname_ghe_server %}. Para obter mais informações, consulte "[Habilitar e programar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)".
 
   {% note %}
 
@@ -149,7 +149,7 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {{ site.data.variables.product.product_location_enterprise }}.
+7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location_enterprise %}.
 
   {% note %}
 
@@ -170,7 +170,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 {% endwarning %}
 
 1. Na instância primária, habilite o modo de manutenção e aguarde a conclusão de todos os processos ativos. Para obter mais informações, consulte "[Habilitar o modo de manutenção](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)".
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
+{% data reusables.enterprise_installation.replica-ssh %}
 3. Na instância de réplica (ou em todas as instâncias de réplica), se você estiver executando várias réplicas como parte da replicação geográfica, execute `ghe-repl-stop` para parar a replicação.
 4. Atualize a instância primária seguindo as instruções em "[Atualizar um appliance com pacote de atualização](#upgrading-a-single-appliance-with-an-upgrade-package)".
 
@@ -183,12 +183,12 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
 {% endnote %}
 
 1. Atualize a instância de réplica seguindo as instruções em "[Atualizar um appliance com pacote de atualização](#upgrading-a-single-appliance-with-an-upgrade-package)". Se você estiver usando várias réplicas de replicação geográfica, repita esse procedimento para atualizar cada réplica, uma por vez.
-{{ site.data.reusables.enterprise_installation.replica-ssh }}
-{{ site.data.reusables.enterprise_installation.replica-verify }}
+{% data reusables.enterprise_installation.replica-ssh %}
+{% data reusables.enterprise_installation.replica-verify %}
 
-{{ site.data.reusables.enterprise_installation.start-replication }}
+{% data reusables.enterprise_installation.start-replication %}
 
-{{ site.data.reusables.enterprise_installation.replication-status }} Se o comando retornar `Replicação não executada`, pode ser que a replicação ainda esteja começando. Aguarde cerca de um minuto para executar `ghe-repl-status` novamente.
+{% data reusables.enterprise_installation.replication-status %} Se o comando retornar `Replicação não executada`, pode ser que a replicação ainda esteja começando. Aguarde cerca de um minuto para executar `ghe-repl-status` novamente.
 
    {% note %}
 
@@ -200,9 +200,9 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
    Se `ghe-repl-status` não retornar `OK`, siga estas etapas para iniciar a replicação manualmente.
 
    1. Na instância de réplica, execute `ghe-repl-setup <primary-instance-ip>` mais uma vez.
-   {{ site.data.reusables.enterprise_installation.start-replication }}
-   {{ site.data.reusables.enterprise_installation.replication-status }}
-6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {{ site.data.variables.product.product_location_enterprise }}.
+   {% data reusables.enterprise_installation.start-replication %}
+   {% data reusables.enterprise_installation.replication-status %}
+6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location_enterprise %}.
 
 ### Restaurar após uma atualização com falha
 
@@ -210,7 +210,7 @@ Em caso de falha ou interrupção da atualização, volte a sua instância ao es
 
 #### Voltar a uma versão de patch
 
-Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. {{ site.data.reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback }}
+Para reverter uma versão de patch, use o comando `ghe-upgrade` com o switch `--allow-patch-rollback`. {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
 
 Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-upgrade)".
 

@@ -11,12 +11,12 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}
 
-**ノート：**過去のリポジトリ単位の支払いプランを利用している場合、アーカイブされたリポジトリについても支払いが続くことになります。 アーカイブされたリポジトリに対する支払いをしたくない場合には、新しい製品にアップグレードしなければなりません。 詳細は「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/github-s-products)」を参照してください。
+**ノート：**過去のリポジトリ単位の支払いプランを利用している場合、アーカイブされたリポジトリについても支払いが続くことになります。 アーカイブされたリポジトリに対する支払いをしたくない場合には、新しい製品にアップグレードしなければなりません。 詳細は「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。
 
 {% endnote %}
 {% endif %}
 
-{{ site.data.reusables.repositories.archiving-repositories-recommendation }}
+{% data reusables.repositories.archiving-repositories-recommendation %}
 
 リポジトリがアーカイブされると、コラボレータや Team の追加や削除ができなくなります。 リポジトリへのアクセス権を持つコントリビューターは、プロジェクトをフォークするか Star を付けることだけができます。
 

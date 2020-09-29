@@ -22,12 +22,12 @@ versions:
 
 ### 将支持资源添加到项目
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. 在文件名字段中，输入 *SUPPORT.md*（全大写）。
 4. 在 **Edit new file（编辑新文件）**选项卡中，添加人们如何获取项目支持的信息。
 5. 要查阅 SUPPORT 文件，请单击 **Preview（预览）**。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}

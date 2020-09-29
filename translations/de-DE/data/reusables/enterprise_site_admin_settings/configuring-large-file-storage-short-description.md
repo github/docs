@@ -1,1 +1,1 @@
-{{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) ist eine Open-Source-Erweiterung zu Git, mit der Du große Dateien auf dieselbe Weise wie andere Textdateien verwenden kannst.
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) ist eine Open-Source-Erweiterung zu Git, mit der Du große Dateien auf dieselbe Weise wie andere Textdateien verwenden kannst.

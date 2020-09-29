@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
 4. 在标签列表中，单击标签以查看应用了该标签的议题和拉取请求。 ![仓库标签列表](/assets/images/help/issues/labels-page.png)
 
 {% tip %}

@@ -28,7 +28,7 @@ Pré-requisitos para transferências de repositório: {% if currentVersion == "f
 - O proprietário original do repositório é adicionado como colaborador no repositório transferido. Os outros colaboradores do repositório transferido permanecem intactos.
 - Bifurcações privadas não podem ser transferidas.
 
-{% if currentVersion == "free-pro-team@latest" %}Se você transferir um repositório privado para uma conta de usuário ou organização {{ site.data.variables.product.prodname_free_user }}, o repositório perderá o acesso a recursos como branches protegidos e {{ site.data.variables.product.prodname_pages }}. {{ site.data.reusables.gated-features.more-info }}{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Se você transferir um repositório privado para uma conta de usuário ou organização {% data variables.product.prodname_free_user %}, o repositório perderá o acesso a recursos como branches protegidos e {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
 
 #### O que é transferido com um repositório?
 
@@ -36,9 +36,9 @@ Quando você transfere um repositório, também são transferidos problemas, pul
 
 - Se o repositório transferido for uma bifurcação, continuará associado ao repositório upstream.
 - Se o repositório transferido tiver alguma bifurcação, ela permanecerá associada ao repositório depois que a transferência for concluída.
-- Se o repositório transferido usar {{ site.data.variables.large_files.product_name_long }}, todos os objetos {{ site.data.variables.large_files.product_name_short }} serão automaticamente movidos. Como essa transferência ocorre em segundo plano, a transferência poderá demorar algum tempo se você tiver um grande número de objetos {{ site.data.variables.large_files.product_name_short }} ou se os objetos {{ site.data.variables.large_files.product_name_short }} em si forem grandes.{% if currentVersion == "free-pro-team@latest" %} Antes de transferir um repositório que utilize {{ site.data.variables.large_files.product_name_short }}, verifique se a conta de recebimento tem pacotes de dados suficientes para armazenar os objetos {{ site.data.variables.large_files.product_name_short }} que serão movidos. Para obter mais informações sobre como adicionar armazenamento para contas de usuário, consulte "[Atualizar {{ site.data.variables.large_files.product_name_long }}](/articles/upgrading-git-large-file-storage)".{% endif %}
+- Se o repositório transferido usar {% data variables.large_files.product_name_long %}, todos os objetos {% data variables.large_files.product_name_short %} serão automaticamente movidos. Como essa transferência ocorre em segundo plano, a transferência poderá demorar algum tempo se você tiver um grande número de objetos {% data variables.large_files.product_name_short %} ou se os objetos {% data variables.large_files.product_name_short %} em si forem grandes.{% if currentVersion == "free-pro-team@latest" %} Antes de transferir um repositório que utilize {% data variables.large_files.product_name_short %}, verifique se a conta de recebimento tem pacotes de dados suficientes para armazenar os objetos {% data variables.large_files.product_name_short %} que serão movidos. Para obter mais informações sobre como adicionar armazenamento para contas de usuário, consulte "[Atualizar {% data variables.large_files.product_name_long %}](/articles/upgrading-git-large-file-storage)".{% endif %}
 - Quando um repositório é transferido entre duas contas de usuário, as atribuições de problemas são mantidas intactas. Quando você transfere um repositório de uma conta de usuário para uma organização, os problemas atribuídos a integrantes da organização permanecem intactos, e todos os outros responsáveis por problemas são destituídos. Somente proprietários da organização têm permissão para criar novas atribuições de problemas. Quando você transfere um repositório de uma organização para uma conta de usuário, são mantidos somente os problemas atribuídos ao proprietário do repositório. Todos os outros responsáveis por problemas são removidos.
-- Se o repositório transferido contiver um site do {{ site.data.variables.product.prodname_pages }}, os links para o repositório do Git na web e por meio de atividade do Git serão redirecionados. No entanto, não redirecionamos o {{ site.data.variables.product.prodname_pages }} associado ao repositório.
+- Se o repositório transferido contiver um site do {% data variables.product.prodname_pages %}, os links para o repositório do Git na web e por meio de atividade do Git serão redirecionados. No entanto, não redirecionamos o {% data variables.product.prodname_pages %} associado ao repositório.
 - Todos os links para o local do repositório anterior são automaticamente redirecionados para o novo local. Quando você usar `git clone`, `git fetch` ou `git push` em um repositório transferido, esses comandos serão redirecionados para a nova URL ou local do repositório. No entanto, para evitar confusão, recomendamos que qualquer clone local seja atualizado para apontar para a nova URL do repositório. Use `git remote` na linha de comando para fazer isso:
 
   ```shell
@@ -57,17 +57,17 @@ Depois que um repositório for transferido para uma organização, os privilégi
 
 É possível transferir seu repositório para qualquer conta de usuário que aceite transferência de repositório. Quando um repositório é transferido entre duas contas de usuário, o proprietário e os colaboradores do repositório original são automaticamente adicionados como colaboradores ao novo repositório.
 
-{% if currentVersion == "free-pro-team@latest" %}Se você publicou um site do {{ site.data.variables.product.prodname_pages }} em um repositório privado e adicionou um domínio personalizado, talvez seja conveniente remover ou atualizar seus registros DNS antes de transferir o repositório, para evitar o risco de tomada de controle do domínio. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {{ site.data.variables.product.prodname_pages }}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Se você publicou um site do {% data variables.product.prodname_pages %} em um repositório privado e adicionou um domínio personalizado, talvez seja conveniente remover ou atualizar seus registros DNS antes de transferir o repositório, para evitar o risco de tomada de controle do domínio. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".{% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}
 
 ### Transferir um repositório pertencente à organização
 
 Se você tiver permissões de proprietário em uma organização ou permissões de administrador para um dos repositórios dela, será possível transferir um repositório pertencente à organização para sua conta de usuário ou para outra organização.
 
 1. Entre na sua conta de usuário que tem permissões de proprietário ou de administrador na organização proprietária do repositório.
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.transfer-repository-steps }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.transfer-repository-steps %}

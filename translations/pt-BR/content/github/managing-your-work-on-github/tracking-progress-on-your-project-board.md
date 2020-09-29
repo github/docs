@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
 1. Navegue para o quadro de projeto no qual você deseja desabilitar o acompanhamento do andamento do projeto.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Desmarque **Track project progress** (Acompanhar andamento do projeto).

@@ -1,1 +1,1 @@
-Production workflows for your organization or enterprise on {{ site.data.variables.product.prodname_ghe_cloud }} are failing due to critical service errors or outages, and the failure directly impacts the operation of your business.
+Production workflows for your organization or enterprise on {% data variables.product.prodname_ghe_cloud %} are failing due to critical service errors or outages, and the failure directly impacts the operation of your business.

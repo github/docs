@@ -1,6 +1,6 @@
 ---
 title: 通知について
-intro: '通知は、関心のあるアクティビティや会話についての更新を知らせてくれます。 通知は、{{ site.data.variables.product.product_name }}上で、あるいはメールクライアントを通じて受け取れます。'
+intro: '通知は、関心のあるアクティビティや会話についての更新を知らせてくれます。 通知は、{% data variables.product.product_name %}上で、あるいはメールクライアントを通じて受け取れます。'
 versions:
   enterprise-server: <2.21
 ---
@@ -13,13 +13,13 @@ versions:
 - 「[メール通知について](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-email-notifications)」
 - 「[通知の配信方法を選択する](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)」
 
-{{ site.data.reusables.notifications.outbound_email_tip }}
+{% data reusables.notifications.outbound_email_tip %}
 
-{{ site.data.reusables.notifications.shared_state }}
+{% data reusables.notifications.shared_state %}
 
 #### 参加通知
 
-{{ site.data.variables.product.product_name }} は、あなたが直接リポジトリあるいはメンバーになっている Team 内のアクティビティや会話に関わった際に、*参加*通知を送信します。 通知は以下の場合に送られます:
+{% data variables.product.product_name %} は、あなたが直接リポジトリあるいはメンバーになっている Team 内のアクティビティや会話に関わった際に、*参加*通知を送信します。 通知は以下の場合に送られます:
   - あなた、あるいはあなたがメンバーになっている Team がメンションされた場合。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)」を参照してください。
   - あなたがメンバーになっている子チームの親チームがメンションされた場合。 詳しい情報については[Team について](/articles/about-teams)を参照してください。
   - あなたに Issue あるいはプルリクエストが割り当てられた場合。
@@ -33,7 +33,7 @@ versions:
 
 #### Watch 対象の通知
 
-{{ site.data.variables.product.product_name }} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。 {% if currentVersion ver_gt "enterprise-server@2.17" %} {{ site.data.reusables.notifications.auto-watch }}詳細は、「[リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)」を参照してください。
+{% data variables.product.product_name %} は、あなたが Watch しているリポジトリあるいは Team のディスカッションに更新があった場合、*Watch* 通知を送信します。 {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}詳細は、「[リポジトリの Watch と Watch 解除](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)」を参照してください。
 
 {% endif %}通知は以下の場合に送られます:
   - Issue がオープンされた場合。

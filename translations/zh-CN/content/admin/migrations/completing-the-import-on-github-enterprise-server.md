@@ -10,14 +10,14 @@ versions:
 
 ### 在目标实例上解锁仓库
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}
 
 ### 在源上解锁仓库
 
-#### 从 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织解锁仓库
+#### 从 {% data variables.product.prodname_dotcom_the_website %} 组织解锁仓库
 
-要在 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
+要在 {% data variables.product.prodname_dotcom_the_website %} 组织中解锁仓库，您需要向<a href="/rest/reference/migrations#unlock-an-organization-repository" class="dotcom-only">迁移解锁端点</a>发送 `DELETE` 请求。 您需要：
   * 身份验证的访问令牌
   * 迁移的唯一 `id`
   * 要解锁的仓库的名称
@@ -27,15 +27,15 @@ curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/orgs/<em>orgname</em>/migrations/<em>id</em>/repos/<em>repo_name</em>/lock
 ```
 
-#### 从 {{ site.data.variables.product.prodname_dotcom_the_website }} 组织删除仓库
+#### 从 {% data variables.product.prodname_dotcom_the_website %} 组织删除仓库
 
-After unlocking the {{ site.data.variables.product.prodname_dotcom_the_website }} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 您需要身份验证的访问令牌：
+After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/enterprise/{{ currentVersion }}/v3/repos/#delete-a-repository). 您需要身份验证的访问令牌：
 ```shell
 curl -H "Authorization: token <em>GITHUB_ACCESS_TOKEN</em>" -X DELETE \
   https://api.github.com/repos/<em>orgname</em>/<em>repo_name</em>
 ```
 
-#### 从 {{ site.data.variables.product.prodname_ghe_server }} 实例解锁仓库
+#### 从 {% data variables.product.prodname_ghe_server %} 实例解锁仓库
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
-{{ site.data.reusables.enterprise_migrations.unlocking-on-instances }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
+{% data reusables.enterprise_migrations.unlocking-on-instances %}

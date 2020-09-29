@@ -1,6 +1,6 @@
 ---
 title: Tastenkürzel
-intro: 'Sie können Tastenkürzel in {{ site.data.variables.product.prodname_desktop }} verwenden.'
+intro: 'Sie können Tastenkürzel in {% data variables.product.prodname_desktop %} verwenden.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts-in-github-desktop/
   - /desktop/getting-started-with-github-desktop/keyboard-shortcuts
@@ -17,9 +17,9 @@ GitHub Desktop-Tastenkürzel auf macOS
 | Tastenkürzel                         | Beschreibung                                                            |
 | ------------------------------------ | ----------------------------------------------------------------------- |
 | <kbd>⌘</kbd><kbd>,</kbd>             | Zu „Preferences“ (Voreinstellungen) navigieren                          |
-| <kbd>⌘</kbd><kbd>H</kbd>             | {{ site.data.variables.product.prodname_desktop }}-Anwendung ausblenden |
+| <kbd>⌘</kbd><kbd>H</kbd>             | {% data variables.product.prodname_desktop %}-Anwendung ausblenden |
 | <kbd>⌥</kbd><kbd>⌘</kbd><kbd>H</kbd> | Alle anderen Anwendungen ausblenden                                     |
-| <kbd>⌘</kbd><kbd>Q</kbd>             | {{ site.data.variables.product.prodname_desktop }} beenden              |
+| <kbd>⌘</kbd><kbd>Q</kbd>             | {% data variables.product.prodname_desktop %} beenden              |
 | <kbd>⌃</kbd><kbd>⌘</kbd><kbd>F</kbd> | Vollbildansicht umschalten                                              |
 | <kbd>⌘</kbd><kbd>0</kbd>             | Zoom auf Standardtextgröße zurücksetzen                                 |
 | <kbd>⌘</kbd><kbd>=</kbd>             | Für größere Texte und Grafiken vergrößern                               |
@@ -32,16 +32,16 @@ GitHub Desktop-Tastenkürzel auf macOS
 | ------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | <kbd>⌘</kbd><kbd>N</kbd>             | Neues Repository hinzufügen                                                                      |
 | <kbd>⌘</kbd><kbd>O</kbd>             | Lokales Repository hinzufügen                                                                    |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> | Repository in {{ site.data.variables.product.prodname_dotcom }} klonen                           |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>O</kbd> | Repository in {% data variables.product.prodname_dotcom %} klonen                           |
 | <kbd>⌘</kbd><kbd>T</kbd>             | Liste Ihrer Repositorys anzeigen                                                                 |
-| <kbd>⌘</kbd><kbd>P</kbd>             | Neueste Commits per Push-Vorgang an {{ site.data.variables.product.prodname_dotcom }} übertragen |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> | Neueste Änderungen von {{ site.data.variables.product.prodname_dotcom }} abrufen                 |
+| <kbd>⌘</kbd><kbd>P</kbd>             | Neueste Commits per Push-Vorgang an {% data variables.product.prodname_dotcom %} übertragen |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd> | Neueste Änderungen von {% data variables.product.prodname_dotcom %} abrufen                 |
 | <kbd>⌘</kbd><kbd>⌫</kbd>             | Vorhandenes Repository entfernen                                                                 |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd> | Repository auf {{ site.data.variables.product.prodname_dotcom }} anzeigen                        |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd> | Repository auf {% data variables.product.prodname_dotcom %} anzeigen                        |
 | <kbd>⌃</kbd><kbd>&grave;</kbd>       | Repository in Ihrem bevorzugten Terminaltool öffnen                                              |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>F</kbd> | Repository im Finder anzeigen                                                                    |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>A</kbd> | Repository in Ihrem bevorzugten Editor-Tool öffnen                                               |
-| <kbd>⌘</kbd><kbd>I</kbd>             | Ein „Issue“ (Problemticket) auf {{ site.data.variables.product.prodname_dotcom }} erstellen      |
+| <kbd>⌘</kbd><kbd>I</kbd>             | Ein „Issue“ (Problemticket) auf {% data variables.product.prodname_dotcom %} erstellen      |
 
 ### Branches
 
@@ -59,8 +59,8 @@ GitHub Desktop-Tastenkürzel auf macOS
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd> | Mit einem vorhandenen Branch vergleichen                                              |
 | <kbd>⇧</kbd><kbd>⌘</kbd><kbd>M</kbd> | In aktuellen Branch mergen                                                            |
 | <kbd>⌃</kbd><kbd>H</kbd>             | Gestashte Änderungen anzeigen oder ausblenden                                         |
-| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | Branches auf {{ site.data.variables.product.prodname_dotcom }} vergleichen            |
-| <kbd>⌘</kbd><kbd>R</kbd>             | Aktuellen Pull Request auf {{ site.data.variables.product.prodname_dotcom }} anzeigen |
+| <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> | Branches auf {% data variables.product.prodname_dotcom %} vergleichen            |
+| <kbd>⌘</kbd><kbd>R</kbd>             | Aktuellen Pull Request auf {% data variables.product.prodname_dotcom %} anzeigen |
 
 {% endmac %}
 
@@ -85,16 +85,16 @@ GitHub Desktop-Tastenkürzel auf Windows
 | ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | <kbd>STRG</kbd><kbd>N</kbd>                    | Neues Repository hinzufügen                                                                      |
 | <kbd>STRG</kbd><kbd>O</kbd>                    | Lokales Repository hinzufügen                                                                    |
-| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>O</kbd> | Repository in {{ site.data.variables.product.prodname_dotcom }} klonen                           |
+| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>O</kbd> | Repository in {% data variables.product.prodname_dotcom %} klonen                           |
 | <kbd>STRG</kbd><kbd>T</kbd>                    | Liste Ihrer Repositorys anzeigen                                                                 |
-| <kbd>STRG</kbd><kbd>P</kbd>                    | Neueste Commits per Push-Vorgang an {{ site.data.variables.product.prodname_dotcom }} übertragen |
-| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>P</kbd> | Neueste Änderungen von {{ site.data.variables.product.prodname_dotcom }} abrufen                 |
+| <kbd>STRG</kbd><kbd>P</kbd>                    | Neueste Commits per Push-Vorgang an {% data variables.product.prodname_dotcom %} übertragen |
+| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>P</kbd> | Neueste Änderungen von {% data variables.product.prodname_dotcom %} abrufen                 |
 | <kbd>STRG</kbd><kbd>ENTF</kbd>                 | Vorhandenes Repository entfernen                                                                 |
-| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>G</kbd> | Repository auf {{ site.data.variables.product.prodname_dotcom }} anzeigen                        |
+| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>G</kbd> | Repository auf {% data variables.product.prodname_dotcom %} anzeigen                        |
 | <kbd>STRG</kbd><kbd>&grave;</kbd>              | Repository in Ihrem bevorzugten Befehlszeilentool öffnen                                         |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>F</kbd> | Repository im Explorer anzeigen                                                                  |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>A</kbd> | Repository in Ihrem bevorzugten Editor-Tool öffnen                                               |
-| <kbd>Ctrl</kbd><kbd>I</kbd>                    | Ein „Issue“ (Problemticket) auf {{ site.data.variables.product.prodname_dotcom }} erstellen      |
+| <kbd>Ctrl</kbd><kbd>I</kbd>                    | Ein „Issue“ (Problemticket) auf {% data variables.product.prodname_dotcom %} erstellen      |
 
 ### Branches
 
@@ -112,7 +112,7 @@ GitHub Desktop-Tastenkürzel auf Windows
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>B</kbd> | Mit einem vorhandenen Branch vergleichen                                              |
 | <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>M</kbd> | In aktuellen Branch mergen                                                            |
 | <kbd>STRG</kbd><kbd>H</kbd>                    | Gestashte Änderungen anzeigen oder ausblenden                                         |
-| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>C</kbd> | Branches auf {{ site.data.variables.product.prodname_dotcom }} vergleichen            |
-| <kbd>STRG</kbd><kbd>R</kbd>                    | Aktuellen Pull Request auf {{ site.data.variables.product.prodname_dotcom }} anzeigen |
+| <kbd>STRG</kbd><kbd>UMSCHALT</kbd><kbd>C</kbd> | Branches auf {% data variables.product.prodname_dotcom %} vergleichen            |
+| <kbd>STRG</kbd><kbd>R</kbd>                    | Aktuellen Pull Request auf {% data variables.product.prodname_dotcom %} anzeigen |
 
 {% endwindows %}

@@ -1,6 +1,6 @@
 ---
 title: 管理 Git Large File Storage 的计费
-intro: '您可以查看使用情况、升级和降级 {{ site.data.variables.large_files.product_name_long }}。'
+intro: '您可以查看使用情况、升级和降级 {% data variables.large_files.product_name_long %}。'
 redirect_from:
   - /articles/managing-large-file-storage-and-bandwidth-for-your-personal-account/
   - /articles/managing-large-file-storage-and-bandwidth-for-your-organization/

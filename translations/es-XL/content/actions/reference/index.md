@@ -1,13 +1,13 @@
 ---
 title: Referencia
-intro: 'Documentación de referencia para la construcción de acciones, la creación de flujos de trabajo y otras herramientas e información sobre las {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Documentación de referencia para la construcción de acciones, la creación de flujos de trabajo y otras herramientas e información sobre las {% data variables.product.prodname_actions %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% link_in_list /workflow-syntax-for-github-actions %}
 {% link_in_list /events-that-trigger-workflows %}

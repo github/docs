@@ -1,13 +1,13 @@
 ---
 title: SSH キーの削除または紛失
-intro: 'セキュリティ上の理由から、過去 1 年間使用されていない SSH キーを {{ site.data.variables.product.prodname_dotcom }}は自動的に削除します。'
+intro: 'セキュリティ上の理由から、過去 1 年間使用されていない SSH キーを {% data variables.product.prodname_dotcom %}は自動的に削除します。'
 redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.variables.product.prodname_dotcom }}は使われていない SSH キーを自動的に削除し、アカウントを安全に保ちます。たとえば退職者が出たときやコンピューターを紛失したときです。
+{% data variables.product.prodname_dotcom %}は使われていない SSH キーを自動的に削除し、アカウントを安全に保ちます。たとえば退職者が出たときやコンピューターを紛失したときです。
 
 アカウントのセキュリティログを見ると、SSH キーが 1 年間使われていないか確認できます。 詳細は「[セキュリティ ログをレビューする](/articles/reviewing-your-security-log/)」を参照してください。
 

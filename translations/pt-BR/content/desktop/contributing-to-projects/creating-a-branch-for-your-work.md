@@ -15,34 +15,34 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Opção New Branch (Novo branch) no menu Branch](/assets/images/help/desktop/new-branch-button-mac.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![Campo para criar um nome para o novo branch](/assets/images/help/desktop/create-branch-name-mac.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![Opções do branch base](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Botão Create Branch (Criar branch)](/assets/images/help/desktop/create-branch-button-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.click-base-branch-in-drop-down}}
+{% data reusables.desktop.click-base-branch-in-drop-down %}
   ![Menu suspenso para alternar o branch atual](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
-{{ site.data.reusables.desktop.create-new-branch}}
+{% data reusables.desktop.create-new-branch %}
   ![Opção New Branch (Novo branch) no menu Branch](/assets/images/help/desktop/new-branch-button-win.png)
-{{ site.data.reusables.desktop.name-branch}}
+{% data reusables.desktop.name-branch %}
   ![Campo para criar um nome para o novo branch](/assets/images/help/desktop/create-branch-name-win.png)
-{{ site.data.reusables.desktop.select-base-branch}}
+{% data reusables.desktop.select-base-branch %}
   ![Opções do branch base](/assets/images/help/desktop/create-branch-choose-branch-win.png)
-{{ site.data.reusables.desktop.confirm-new-branch-button}}
+{% data reusables.desktop.confirm-new-branch-button %}
   ![Botão Create branch (Criar branch)](/assets/images/help/desktop/create-branch-button-win.png)
 
 {% endwindows %}
 
 ### Leia mais
 
-- "[Clonar um repositório no {{ site.data.variables.product.prodname_desktop }}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"
+- "[Clonar um repositório no {% data variables.product.prodname_desktop %}](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)"

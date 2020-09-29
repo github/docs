@@ -32,7 +32,7 @@ Os gerentes de cobrança **não** podem:
 - Criar ou acessar repositórios nas suas organizações
 - Ver integrantes privados da sua organização
 - Ser vistos na lista de integrantes da organização
-- Comprar, editar ou cancelar assinaturas para aplicativos do {{ site.data.variables.product.prodname_marketplace }}
+- Comprar, editar ou cancelar assinaturas para aplicativos do {% data variables.product.prodname_marketplace %}
 
 {% tip %}
 
@@ -44,9 +44,9 @@ Os gerentes de cobrança **não** podem:
 
 A pessoa convidada receberá um e-mail de convite solicitando que ela se torne um gerente de cobrança da sua organização. Assim que a pessoa convidada clicar no link de aceitação no e-mail de convite, ela será adicionada automaticamente à organização como um gerente de cobrança. Se ela ainda não tiver uma conta do GitHub, ela será direcionada para se inscrever em uma, e será adicionada automaticamente à organização como um gerente de cobrança depois que ela criar uma conta.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. Ao lado de Billing managers (Gerentes de cobrança), clique em **Add a billing manager** (Adicionar um gerente de cobrança). ![Convidar gerente de cobrança](/assets/images/help/billing/settings_billing_managers_list.png)
 6. Digite o nome de usuário ou endereço de e-mail da pessoa que deseja adicionar e clique em **Send invitation** (Enviar convite). ![Página para convidar gerente de cobrança](/assets/images/help/billing/billing_manager_invite.png)

@@ -10,7 +10,7 @@ versions:
 
 ### Comprueba que no haya errores tipográficos
 
-Los errores tipográficos suceden, y los nombres de los repositorios distinguen mayúsculas de minúsculas.  Si intentas clonar `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git`, pero el repositorio se llama en realidad `User/Repo` recibirás este error.
+Los errores tipográficos suceden, y los nombres de los repositorios distinguen mayúsculas de minúsculas.  Si intentas clonar `git@{% data variables.command_line.codeblock %}:user/repo.git`, pero el repositorio se llama en realidad `User/Repo` recibirás este error.
 
 Para evitar este error, cuando clonas, copia y pega siempre la URL del clon desde la página del repositorio. Para obtener más información, consulta "[Clonar un repositorio](/articles/cloning-a-repository)".
 
@@ -30,10 +30,10 @@ Verifica si tienes acceso al repositorio de alguna de las siguientes maneras:
 
 En muy raros casos, es posible que no tengas el acceso SSH correcto al repositorio.
 
-Debes asegurarte de que la clave SSH que estás usando se encuentre conectada con tu usuario de {{ site.data.variables.product.product_name }}. Para comprobarlo, escribe lo siguiente en la línea de comando:
+Debes asegurarte de que la clave SSH que estás usando se encuentre conectada con tu usuario de {% data variables.product.product_name %}. Para comprobarlo, escribe lo siguiente en la línea de comando:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! Has autenticado con éxito, pero GitHub no
 > proporciona acceso al shell.
 ```
@@ -52,4 +52,4 @@ Si tu administrador del sitio ha habilitado el modo privado en tu instancia de G
 
 ### Comprueba que el repositorio realmente exista
 
-Si nada de lo anterior funciona, verifica que el repositorio realmente exista en {{ site.data.variables.product.product_location }}. Si estás intentando subir a un repositorio que no existe, se producirá este error.
+Si nada de lo anterior funciona, verifica que el repositorio realmente exista en {% data variables.product.product_location %}. Si estás intentando subir a un repositorio que no existe, se producirá este error.

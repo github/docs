@@ -84,7 +84,7 @@ You can read more about the use of media types in the API [here](/v3/media/).
 
 ## Deploy keys
 
-{{ site.data.reusables.repositories.deploy-keys }}
+{% data reusables.repositories.deploy-keys %}
 
 Deploy keys can either be setup using the following API endpoints, or by using GitHub. To learn how to set deploy keys up in GitHub, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
 
@@ -139,7 +139,7 @@ Note that the `repo_deployment` [OAuth scope](/developers/apps/scopes-for-oauth-
 
 When you set the state of a deployment to `success`, then all prior non-transient, non-production environment deployments in the same repository will become `inactive`. To avoid this, you can set `auto_inactive` to `false` when creating the deployment status.
 
-You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {{ site.data.variables.product.prodname_dotcom }} and removes access to it.
+You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'deployments' %}{% include rest_operation %}{% endif %}
@@ -167,7 +167,7 @@ Use the API endpoint for adding a collaborator. For more information, see "[Add 
 
 ## Merging
 
-The Repo Merging API supports merging branches in a repository. This accomplishes essentially the same thing as merging one branch into another in a local repository and then pushing to {{ site.data.variables.product.product_name }}. The benefit is that the merge is done on the server side and a local repository is not needed. This makes it more appropriate for automation and other tools where maintaining local repositories would be cumbersome and inefficient.
+The Repo Merging API supports merging branches in a repository. This accomplishes essentially the same thing as merging one branch into another in a local repository and then pushing to {% data variables.product.product_name %}. The benefit is that the merge is done on the server side and a local repository is not needed. This makes it more appropriate for automation and other tools where maintaining local repositories would be cumbersome and inefficient.
 
 The authenticated user will be the author of any merges done through this endpoint.
 
@@ -177,16 +177,16 @@ The authenticated user will be the author of any merges done through this endpoi
 
 ## Pages
 
-The {{ site.data.variables.product.prodname_pages }} API retrieves information about your {{ site.data.variables.product.prodname_pages }} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners, even though the websites are public. For more information, see "[About {{ site.data.variables.product.prodname_pages }}](/github/working-with-github-pages/about-github-pages)."
+The {% data variables.product.prodname_pages %} API retrieves information about your {% data variables.product.prodname_pages %} configuration, and the statuses of your builds. Information about the site and the builds can only be accessed by authenticated owners, even though the websites are public. For more information, see "[About {% data variables.product.prodname_pages %}](/github/working-with-github-pages/about-github-pages)."
 
-In {{ site.data.variables.product.prodname_pages }} API endpoints with a `status` key in their response, the value can be one of:
+In {% data variables.product.prodname_pages %} API endpoints with a `status` key in their response, the value can be one of:
 * `null`: The site has yet to be built.
 * `queued`: The build has been requested but not yet begun.
 * `building`:The build is in progress.
 * `built`: The site has been built.
 * `errored`: Indicates an error occurred during the build.
 
-In {{ site.data.variables.product.prodname_pages }} API endpoints that {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}support the `mister-fantastic-preview` and{% endif %} return GitHub Pages site information, the JSON responses include these fields:
+In {% data variables.product.prodname_pages %} API endpoints that {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}support the `mister-fantastic-preview` and{% endif %} return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
    - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _master_ or _gh-pages_.
@@ -210,7 +210,7 @@ In {{ site.data.variables.product.prodname_pages }} API endpoints that {% if cur
 
 ## Statistics
 
-The Repository Statistics API allows you to fetch the data that {{ site.data.variables.product.product_name }} uses for visualizing different types of repository activity.
+The Repository Statistics API allows you to fetch the data that {% data variables.product.product_name %} uses for visualizing different types of repository activity.
 
 ### A word about caching
 
@@ -268,11 +268,11 @@ If you would like to set up a single webhook to receive events from all of your 
 
 ### Receiving Webhooks
 
-In order for {{ site.data.variables.product.product_name }} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
 
 #### Webhook headers
 
-{{ site.data.variables.product.product_name }} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
+{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/developers/webhooks-and-events/webhook-events-and-payloads#delivery-headers) for details.
 
 ### PubSubHubbub
 
@@ -293,7 +293,7 @@ The default format is what [existing post-receive hooks should expect](/post-rec
 Callback URLs can use the `http://` protocol.
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
-{{ site.data.reusables.apps.deprecating_github_services_ghe }}
+{% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
@@ -305,11 +305,11 @@ Callback URLs can use the `http://` protocol.
 
 #### Subscribing
 
-The GitHub PubSubHubbub endpoint is: `{{ site.data.variables.product.api_url_code }}/hub`. A successful request with curl looks like:
+The GitHub PubSubHubbub endpoint is: `{% data variables.product.api_url_code %}/hub`. A successful request with curl looks like:
 
 ``` shell
 curl -u "user" -i \
-  {{ site.data.variables.product.api_url_pre }}/hub \
+  {% data variables.product.api_url_pre %}/hub \
   -F "hub.mode=subscribe" \
   -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
   -F "hub.callback=http://postbin.org/123"

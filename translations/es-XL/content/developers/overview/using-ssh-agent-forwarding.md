@@ -13,7 +13,7 @@ versions:
 
 El reenvío del agente de SSH puede utilizarse para hacer despliegues a un servidor simple.  Te permite utilizar llaves SSH locales en vez de dejar las llaves (¡sin frases de acceso!) en tu servidor.
 
-Si ya configuraste una llave SSH para que interactúe con {{ site.data.variables.product.product_name }}, probablemente estás familiarizado con el `ssh-agent`. Es un programa que se ejecuta en segundo plano y que mantiene tu llave cargada en la memoria para que no tengas que ingresar tu frase deacceso cada que quieres utilizar esta llave. Lo ingenioso de esto es que puedes elegir dejar que los servidores accedan a tu `ssh-agent` local como si ya se estuvieran ejecutando en el servidor. Esto es como pedirle a un amigo que ingrese su contraseña para que puedas utilizar su computadora.
+Si ya configuraste una llave SSH para que interactúe con {% data variables.product.product_name %}, probablemente estás familiarizado con el `ssh-agent`. Es un programa que se ejecuta en segundo plano y que mantiene tu llave cargada en la memoria para que no tengas que ingresar tu frase deacceso cada que quieres utilizar esta llave. Lo ingenioso de esto es que puedes elegir dejar que los servidores accedan a tu `ssh-agent` local como si ya se estuvieran ejecutando en el servidor. Esto es como pedirle a un amigo que ingrese su contraseña para que puedas utilizar su computadora.
 
 Revisa la sección [Guía de Tips Técnicos de Steve Friedl][tech-tips] para obtener una explicación más exacta del reenvío del agente SSH.
 

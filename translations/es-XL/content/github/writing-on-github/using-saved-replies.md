@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. Haz clic en la propuesta o solicitud de extracción deseada.
 3. Para agregar una respuesta guardada, en el campo de comentarios, haz clic en {% octicon "reply" aria-label="The mail reply" %}. ![Botón Saved replies (Respuestas guardadas)](/assets/images/help/writing/saved-replies-button.png)
 4. Desde la lista, selecciona la respuesta guardada que quieres agregar en el comentario. ![Respuestas guardadas](/assets/images/help/settings/saved-replies.png)

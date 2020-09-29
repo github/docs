@@ -14,7 +14,7 @@ versions:
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. 在“Pull Requests（拉取请求）”列表中，单击要修改的拉取请求。
 3. 在拉取请求的标题旁边，单击 **Edit（编辑）**。 ![拉取请求编辑按钮](/assets/images/help/pull_requests/pull-request-edit.png)
 4. 在基础分支下拉菜单中，选择要[用于比较更改](/github/committing-changes-to-your-project/comparing-commits#comparing-branches)的基础分支。 ![基本分支下拉菜单 ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)

@@ -10,9 +10,9 @@ versions:
 
 您可以授权现有的个人访问令牌，或者[创建新的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)，然后再授权。
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.developer_settings }}
-{{ site.data.reusables.user_settings.personal_access_tokens }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.developer_settings %}
+{% data reusables.user_settings.personal_access_tokens %}
 3. 在要授权的令牌旁边，单击 **Enable SSO（启用 SSO）**或 **Disable SSO（禁用 SSO）**。 ![SSO 令牌授权按钮](/assets/images/help/settings/sso-allowlist-button.png)
 4. 找到要为其授权访问令牌的组织。
 4. Click **Authorize**. ![令牌授权按钮](/assets/images/help/settings/token-authorize-button.png)

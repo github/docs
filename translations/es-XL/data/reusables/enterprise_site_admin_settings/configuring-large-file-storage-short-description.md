@@ -1,1 +1,1 @@
-{{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) es una extensión de código abierto para Git que te permite trabajar con archivos grandes de la misma manera que con otros archivos de texto.
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) es una extensión de código abierto para Git que te permite trabajar con archivos grandes de la misma manera que con otros archivos de texto.

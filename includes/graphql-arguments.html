@@ -1,6 +1,6 @@
 {% if field.arguments %}
 <div class="border rounded-1 mt-3 mb-3 p-3 bg-gray-light f5">
-<p><b>{{ site.data.ui.products.graphql.reference.arguments }}</b></p>
+<p><b>{% data ui.products.graphql.reference.arguments %}</b></p>
 {% for arg in arguments %}
 <div class="border-top mt-2">
 <p class="mt-2"><code>{{ arg.name }}</code> (<code><a href="/{{ currentLanguage }}{{ arg.type.href }}">{{ arg.type.name }}</a></code>)</p>

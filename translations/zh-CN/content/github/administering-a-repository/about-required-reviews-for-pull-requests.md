@@ -1,7 +1,7 @@
 ---
 title: 关于拉取请求的必需审查
 intro: 必需审查确保拉取请求获得特定数量的审批审查之后，协作者才可更改受保护分支。
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-reviews-for-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
 
 如果您在仓库中实施了分支保护，便可设置必需审查。 有关实施分支保护的更多信息，请参阅“[配置受保护分支](/articles/configuring-protected-branches/)”。 有关设置必需审查的更多信息，请参阅“[对拉取请求启用必需审查](/articles/enabling-required-reviews-for-pull-requests)”。
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 如果具有*管理员*权限的人员在审查中选择 **Request changes（申请更改）**选项，则拉取请求必须经此人批准后才可合并。 如果申请更改拉取请求的审查者没有空，则具有仓库*管理员*或*写入*权限的任何人都可忽略阻止审查。 更多信息请参阅“[忽略拉取请求审查](/articles/dismissing-a-pull-request-review)”。
 
@@ -25,7 +25,7 @@ versions:
 
 除非必需审查已设置为包含仓库管理员，否则具有*管理员*权限的人员可以合并拉取请求，而不管其他管理员是否审查。
 
-{{ site.data.reusables.repositories.review-policy-overlapping-commits }}
+{% data reusables.repositories.review-policy-overlapping-commits %}
 
 有具有*写入*或*管理员*权限的人员批准之前，您无法将拉取请求合并到受保护分支。 如果存在待处理或拒绝的审查，您会收到错误消息：
 

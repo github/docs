@@ -1,6 +1,6 @@
 ---
 title: 更新过期的 GPG 密钥
-intro: '验证签名时，{{ site.data.variables.product.product_name }} 会检查密钥是否已撤销或过期。 如果您的签名密钥已撤销或过期，则 {{ site.data.variables.product.product_name }} 无法验证您的签名。 如果您的密钥已撤销，请使用主密钥或未撤销的其他密钥为提交签名。'
+intro: '验证签名时，{% data variables.product.product_name %} 会检查密钥是否已撤销或过期。 如果您的签名密钥已撤销或过期，则 {% data variables.product.product_name %} 无法验证您的签名。 如果您的密钥已撤销，请使用主密钥或未撤销的其他密钥为提交签名。'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

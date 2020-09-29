@@ -1,7 +1,7 @@
 ---
 title: About protected branches
 intro: 'Protected branches ensure that collaborators on your repository cannot make irrevocable changes to branches. Enabling protected branches also allows you to enable other optional checks and requirements, like required status checks and required reviews.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} You can choose to enforce restrictions on how a pull request is merged into your repository.
+{% data reusables.pull_requests.about-protected-branches %} You can choose to enforce restrictions on how a pull request is merged into your repository.
 
 Repository owners and people with admin permissions for a repository can enforce certain workflows or requirements, before a collaborator can merge a branch in your repository by creating protected branch rules.
 
-{{ site.data.reusables.repositories.branch-rules-example }} For more information, see "[Configuring protected branches](/articles/configuring-protected-branches/)."
+{% data reusables.repositories.branch-rules-example %} For more information, see "[Configuring protected branches](/articles/configuring-protected-branches/)."
 
 ### Prioritization of protected branch rules
 

@@ -18,8 +18,8 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 ### Transferring an open issue to another repository
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. In the list of issues, click the issue you'd like to transfer.
 4. In the right sidebar, click **Transfer issue**.
 ![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)

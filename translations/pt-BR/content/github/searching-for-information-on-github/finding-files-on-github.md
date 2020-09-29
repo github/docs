@@ -1,6 +1,6 @@
 ---
 title: Localizar arquivos no GitHub
-intro: 'É possível localizar um arquivo em um repositório usando o localizador de arquivos. Para pesquisar um arquivo em repositórios múltiplos no {{ site.data.variables.product.product_name }}, use o [código qualificador da pesquisa `filename` (nome do arquivo)](/articles/searching-code#search-by-filename).'
+intro: 'É possível localizar um arquivo em um repositório usando o localizador de arquivos. Para pesquisar um arquivo em repositórios múltiplos no {% data variables.product.product_name %}, use o [código qualificador da pesquisa `filename` (nome do arquivo)](/articles/searching-code#search-by-filename).'
 redirect_from:
   - /articles/finding-files-on-github
 versions:
@@ -17,7 +17,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
 2. No nome do repositório, clique em **Find file** (Localizar arquivo). ![Botão Find file (Localizar arquivo)](/assets/images/help/search/find-file-button.png)
 {% else %}

@@ -1,7 +1,7 @@
 ---
 title: Visualizing commits in a repository
 intro: You can see all commits made to a repository in the past year (excluding merge commits) in the Commit graph.
-product: '{{ site.data.reusables.gated-features.repository-insights }}'
+product: '{% data reusables.gated-features.repository-insights %}'
 redirect_from:
   - /articles/visualizing-commits-in-a-repository
 versions:
@@ -19,7 +19,7 @@ The bottom graph shows the average number of commits by day of the week for the 
 
 ### Accessing the commits graph
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. In the left sidebar, click **Commits**.
 ![Commits tab](/assets/images/help/graphs/commits_tab.png)

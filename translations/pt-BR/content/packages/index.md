@@ -1,7 +1,7 @@
 ---
 title: Documentação de GitHub Packages
 shortTitle: GitHub Package Registry
-intro: 'Aprenda a publicar e consumir com segurança pacotes, armazene seus pacotes junto com o seu código e compartilhe seus pacotes de forma privada com sua equipe ou publicamente com a comunidade de código aberto. Você também pode automatizar seus pacotes com {{ site.data.variables.product.prodname_actions }}.'
+intro: 'Aprenda a publicar e consumir com segurança pacotes, armazene seus pacotes junto com o seu código e compartilhe seus pacotes de forma privada com sua equipe ou publicamente com a comunidade de código aberto. Você também pode automatizar seus pacotes com {% data variables.product.prodname_actions %}.'
 gettingStartedLinks:
   - /packages/publishing-and-managing-packages/about-github-packages
   - /packages/getting-started-with-github-container-registry/about-github-container-registry
@@ -23,7 +23,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.package_registry.packages-ghes-release-stage }}
+{% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% link_with_intro /getting-started-with-github-container-registry %}
 {% link_with_intro /managing-container-images-with-github-container-registry %}

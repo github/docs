@@ -1,7 +1,7 @@
 ---
 title: 关于使用 GitHub 操作进行打包
-intro: '您可以在 {{ site.data.variables.product.prodname_actions }} 中设置工作流程生成包并将其上传到 {{ site.data.variables.product.prodname_registry }} 或其他包托管提供程序。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '您可以在 {% data variables.product.prodname_actions %} 中设置工作流程生成包并将其上传到 {% data variables.product.prodname_registry %} 或其他包托管提供程序。'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/about-packaging-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于打包步骤
 
@@ -32,10 +32,10 @@ versions:
 
 除了上传打包构件以测试持续集成工作流程之外， 您还可以创建工作流程来构建项目并发布包到软件包注册表。
 
-* **将包发布到 {{ site.data.variables.product.prodname_registry }}**  
-  {{ site.data.variables.product.prodname_registry }} 可以充当多类软件包的软件包托管服务。 您可以选择与所有 {{ site.data.variables.product.prodname_dotcom }} 共享您的软件包，或者与合作者或组织共享私有软件包。 更多信息请参阅“[关于 {{ site.data.variables.product.prodname_registry }}](/github/managing-packages-with-github-packages/about-github-packages)”。
+* **将包发布到 {% data variables.product.prodname_registry %}**  
+  {% data variables.product.prodname_registry %} 可以充当多类软件包的软件包托管服务。 您可以选择与所有 {% data variables.product.prodname_dotcom %} 共享您的软件包，或者与合作者或组织共享私有软件包。 更多信息请参阅“[关于 {% data variables.product.prodname_registry %}](/github/managing-packages-with-github-packages/about-github-packages)”。
 
-  每次推送到主分支，您可能想将软件包发布到 {{ site.data.variables.product.prodname_registry }}。 这可让项目开发者始终能够通过从 {{ site.data.variables.product.prodname_registry }} 安装，很容易地运行和测试主版本中的最新构建版本。
+  每次推送到主分支，您可能想将软件包发布到 {% data variables.product.prodname_registry %}。 这可让项目开发者始终能够通过从 {% data variables.product.prodname_registry %} 安装，很容易地运行和测试主版本中的最新构建版本。
 
 * **将软件包发布到软件包注册表** 对于许多项目，每当发布项目的新版本时，都会执行发布到软件包注册表。 例如，生成 JAR 文件的项目可能会将新版本上传到 Maven Central 仓库。 或者，.NET 项目可能会生成一个微件包并上传到 Nuget Gallery。
 

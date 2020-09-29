@@ -1,6 +1,6 @@
 ---
 title: 重命名文件
-intro: '您可以直接在 {{ site.data.variables.product.product_name }} 中重命名仓库中的任何文件。 重命名文件还提供[将文件移动到新位置](/articles/moving-a-file-to-a-new-location)的机会。'
+intro: '您可以直接在 {% data variables.product.product_name %} 中重命名仓库中的任何文件。 重命名文件还提供[将文件移动到新位置](/articles/moving-a-file-to-a-new-location)的机会。'
 redirect_from:
   - /articles/renaming-a-file
 versions:
@@ -21,6 +21,6 @@ versions:
 1. 在仓库中浏览到您要重命名的文件。
 2. 在文件视图的右上角，单击 {% octicon "pencil" aria-label="The edit icon" %} 打开文件编辑器。 ![编辑文件图标](/assets/images/help/repository/edit-file-icon.png)
 3. 在文件名字段中，将文件名称更改为所需的新文件名。 您还可以同时更新文件的内容。 ![编辑文件名](/assets/images/help/repository/changing-file-name.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}

@@ -1,6 +1,6 @@
 ---
 title: 認証方式の変更
-intro: '{{ site.data.variables.product.prodname_ghe_server }} が既存のアカウントを認証する方法は、いつでも変更できます。'
+intro: '{% data variables.product.prodname_ghe_server %} が既存のアカウントを認証する方法は、いつでも変更できます。'
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_location_enterprise }}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
+{% data variables.product.product_location_enterprise %}のユーザアカウントは、認証方式を変更しても保存され、ユーザはユーザ名が変更されない限り、同じアカウントにログインし続けることができます。
 
 新しい認証方式でユーザ名が変更される場合、新しいアカウントが作成されます。 管理者は、サイト管理者設定または[ユーザ管理 API](/enterprise/{{currentVersion}}/v3/enterprise-admin/users/#rename-an-existing-user) を使用してユーザ名を変更できます。
 
@@ -20,7 +20,7 @@ versions:
 
 * **Team メンバーシップ: **LDAP のみが、ディレクトリサーバからの[Team メンバーシップの制御](/enterprise/admin/authentication/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)が可能です。
 
-* **ユーザの一時停止:** 認証に LDAP を使う場合、{{ site.data.variables.product.prodname_ghe_server }} へのアクセスは_制限グループ_経由で制御できます。 LDAPに切り替えた後、制限グループが設定されているなら、既存のユーザでこれらのグループのいずれかに属してないユーザは一時停止されます。 一時停止は、ユーザがログインするか、次のLDAP Syncの間に生じます。
+* **ユーザの一時停止:** 認証に LDAP を使う場合、{% data variables.product.prodname_ghe_server %} へのアクセスは_制限グループ_経由で制御できます。 LDAPに切り替えた後、制限グループが設定されているなら、既存のユーザでこれらのグループのいずれかに属してないユーザは一時停止されます。 一時停止は、ユーザがログインするか、次のLDAP Syncの間に生じます。
 
 * **グループのメンバーシップ：**認証にLDAPを使う場合、ユーザは自動的に制限グループのメンバーシップとActive Directoryのアカウントのステータスに基づいて[サスペンドあるいはサスペンド解除](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)されます。
 
@@ -28,6 +28,6 @@ versions:
 
 * **API認証：**SAML及びCASは、[個人アクセストークン](/articles/creating-an-access-token-for-command-line-use)を使ったAPI認証のみをサポートしています。 Basic認証はサポートされていません。
 
-* **2 要素認証:** {{ site.data.reusables.enterprise_user_management.external_auth_disables_2fa }}
+* **2 要素認証:** {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-* **使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証：**使用中のアイデンティティプロバイダに追加することなく、ユーザを{{ site.data.variables.product.product_location_enterprise }}で認証するよう招待できます。 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。
+* **使用しているアイデンティティプロバイダ外のユーザのためのビルトイン認証：**使用中のアイデンティティプロバイダに追加することなく、ユーザを{% data variables.product.product_location_enterprise %}で認証するよう招待できます。 詳細は「[使用中のアイデンティティプロバイダ外のユーザのためにビルトイン認証を許可する](/enterprise/{{ currentVersion }}/admin/guides/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider)」を参照してください。

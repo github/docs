@@ -8,8 +8,8 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.accessing-repository-graphs }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.accessing-repository-graphs %}
 3. 左のサイドバーで **[Community]** をクリックします。 ![左のサイドバーのコミュニティ](/assets/images/help/graphs/graphs-sidebar-community-tab.png)
 
 ### 参考リンク

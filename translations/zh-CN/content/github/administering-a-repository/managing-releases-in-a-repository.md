@@ -16,24 +16,24 @@ versions:
 
 ### About release management
 
-您也可以在 {{ site.data.variables.product.prodname_marketplace }} 中从特定的发行版发布操作。 更多信息请参阅“[在 {{ site.data.variables.product.prodname_marketplace }} 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace)”。
+您也可以在 {% data variables.product.prodname_marketplace %} 中从特定的发行版发布操作。 更多信息请参阅“[在 {% data variables.product.prodname_marketplace %} 中发布操作](/actions/creating-actions/publishing-actions-in-github-marketplace)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-You can choose whether {{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) objects are included in the ZIP files and tarballs that {{ site.data.variables.product.product_name }} creates for each release. For more information, see "[Managing {{ site.data.variables.large_files.product_name_short }} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also manage releases using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also manage releases using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release`](https://cli.github.com/manual/gh_release)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
 
 ### 创建发行版
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. 单击 **Draft a new release（草拟新发行版）**。 ![发行版草稿按钮](/assets/images/help/releases/draft_release_button.png)
 4. 键入发行版的版本号。 版本基于 [Git 标记](https://git-scm.com/book/en/Git-Basics-Tagging)。 我们建议使用[语义版本号](http://semver.org/)命名标记。 ![发行版标记版本](/assets/images/help/releases/releases-tag-version.png)
 5. 使用下拉菜单，选择包含要发布的项目的分支。 ![发行版标记分支](/assets/images/help/releases/releases-tag-branch.png)
@@ -46,8 +46,8 @@ You can choose whether {{ site.data.variables.large_files.product_name_long }} (
 
 ### 编辑发行版
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. 在页面右侧要编辑的发行版旁边，单击 **Edit release（编辑发行版）**。 ![编辑发行版](/assets/images/help/releases/edit-release.png)
 4. 在表单中编辑发行版的详细信息，然后单击 **Update release（更新发行版）**。 ![更新发行版](/assets/images/help/releases/update-release.png)
 
@@ -55,8 +55,8 @@ You can choose whether {{ site.data.variables.large_files.product_name_long }} (
 
 必须先删除所有附加到发行版的二进制文件，然后才能删除发行版。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. 单击要删除的发行版的名称。 ![用于查看发行版的链接](/assets/images/help/releases/release-name-link.png)
 4. 在页面右上角，单击 **Delete（删除）**。 ![删除发行版按钮](/assets/images/help/releases/delete-release.png)
 5. 单击 **Delete this release（删除此发行版）**。 ![确认删除发行版](/assets/images/help/releases/confirm-delete-release.png)

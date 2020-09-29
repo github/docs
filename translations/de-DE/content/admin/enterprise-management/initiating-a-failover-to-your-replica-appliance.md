@@ -1,6 +1,6 @@
 ---
 title: Failover zu Ihrer Replikat-Appliance initiieren
-intro: 'Sie können an der Befehlszeile zu Wartungs- und Testzwecken oder beim Fehlschlagen der primären Appliance ein Failover zu einer {{ site.data.variables.product.prodname_ghe_server }}-Replikat-Appliance durchführen.'
+intro: 'Sie können an der Befehlszeile zu Wartungs- und Testzwecken oder beim Fehlschlagen der primären Appliance ein Failover zu einer {% data variables.product.prodname_ghe_server %}-Replikat-Appliance durchführen.'
 redirect_from:
   - /enterprise/admin/installation/initiating-a-failover-to-your-replica-appliance
   - /enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-appliance
@@ -10,7 +10,7 @@ versions:
 
 Die für das Failover erforderliche Zeit hängt davon ab, wie lange es dauert, das Replikat manuell hochzustufen und den Traffic weiterzuleiten. Die Durchschnittszeit beträgt zwischen 2 und 10 Minuten.
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 1. Versetzen Sie die primäre Appliance in den Wartungsmodus, um den Abschluss der Replikation zuzulassen, bevor Sie die Appliances wechseln.
     - Informationen zum Verwenden der Managementkonsole finden Sie unter  „[Wartungsmodus aktivieren und planen](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode/)“.

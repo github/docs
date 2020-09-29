@@ -1,6 +1,6 @@
 ---
 title: Einen Proxy-Server für selbst-gehostete Runner verwenden
-intro: 'Du kannst selbst gehostete Runner so konfigurieren, dass sie einen Proxy-Server verwenden, um mit {{ site.data.variables.product.product_name }} zu kommunizieren.'
+intro: 'Du kannst selbst gehostete Runner so konfigurieren, dass sie einen Proxy-Server verwenden, um mit {% data variables.product.product_name %} zu kommunizieren.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Einen Proxyserver mithilfe von Umgebungsvariablen konfigurieren
 

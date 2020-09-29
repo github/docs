@@ -7,11 +7,11 @@ versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.sponsors.sponsorship-details }}
+{% data reusables.sponsors.sponsorship-details %}
 
-{{ site.data.reusables.dotcom_billing.view-all-subscriptions }}
+{% data reusables.dotcom_billing.view-all-subscriptions %}
 
 ### 더 읽을거리
 
-- "[About {{ site.data.variables.product.prodname_sponsors }}](/articles/about-github-sponsors)"
+- "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)"
 - "[Sponsoring open source contributors](/github/supporting-the-open-source-community-with-github-sponsors/sponsoring-open-source-contributors)"

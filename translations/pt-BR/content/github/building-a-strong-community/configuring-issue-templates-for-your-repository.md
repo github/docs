@@ -9,14 +9,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Criando modelos de problemas
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. Na seção "Features" (Recursos), em "Issues" (Problemas), clique em **Set up templates** (Configurar modelos). ![Botão Start template setup (Iniciar configuração do modelo)](/assets/images/help/repository/set-up-templates.png)
 4. Use o menu suspenso Add template (Adicionar modelo) e clique no tipo de modelo que deseja criar. ![Menu suspenso Add template (Adicionar modelo)](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. Para visualizar ou editar o modelo antes de fazer commit dele no repositório, clique em **Preview and edit** (Visualizar e editar). ![Botão Preview and edit (Visualizar e editar)](/assets/images/help/repository/preview-and-edit-button.png)
@@ -30,7 +30,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Configurando o seletor de modelos
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 Você pode incentivar os contribuidores a usar modelos de problemas definindo `blank_issues_enabled` para `falso`. Se você configurar `blank_issues_enabled` para `verdadeiro`, as pessoas terão a opção de abrir um problema em branco.
 
@@ -40,30 +40,30 @@ Você pode incentivar os contribuidores a usar modelos de problemas definindo `b
 
 {% endnote %}
 
-Se você preferir receber determinados relatórios fora de {{ site.data.variables.product.product_name }}, você pode direcionar pessoas para sites externos com `contact_links`.
+Se você preferir receber determinados relatórios fora de {% data variables.product.product_name %}, você pode direcionar pessoas para sites externos com `contact_links`.
 
 Aqui está um exemplo de arquivo *config.yml*.
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Pergunte e responda dúvidas aqui.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Recompensa de bug de segurança
+  - name: {% data variables.product.prodname_dotcom %} Recompensa de bug de segurança
     url: https://bounty.github.com/
     about: Reporte vulnerabilidades de segurança aqui.
 ```
 
 Seu arquivo de configuração customizará o seletor de modelos quando o arquivo for mesclado ao branch padrão do repositório.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. No campo nome do arquivo, digite `.github/ISSUE_TEMPLATE/config.yml`. ![Configuração do nome do arquivo](/assets/images/help/repository/template-config-file-name.png)
 4. No corpo do novo arquivo, digite o conteúdo do seu arquivo de configuração.![Configuração do conteúdo do arquivo](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### Leia mais

@@ -1,6 +1,6 @@
 ---
 title: Alterações significativas
-intro: 'Saiba mais sobre as alterações significativas recentes e futuras na API GraphQL {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Saiba mais sobre as alterações significativas recentes e futuras na API GraphQL {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/breaking_changes
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Proceso de revisión de seguridad para las apps emitidas
-intro: 'El equipo de seguridad de GitHub revisa todas las apps emitidas a {{ site.data.variables.product.prodname_marketplace }} para garantizar que cumplen los requisitos de seguridad. Sigue estas mejores prácticas para estar preparado para el proceso de revisión.'
+intro: 'El equipo de seguridad de GitHub revisa todas las apps emitidas a {% data variables.product.prodname_marketplace %} para garantizar que cumplen los requisitos de seguridad. Sigue estas mejores prácticas para estar preparado para el proceso de revisión.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process/
   - /marketplace/getting-started/security-review-process
@@ -10,7 +10,7 @@ versions:
 
 
 
-Después de que hayas emitido tu app para su aprobación, el equipo de seguridad de GitHub te solicitará que completes un cuestionario de seguridad acerca de tu app y de un programa general de seguridad. Como parte de la revisión, tendrás la opción de prorporcionar documetnación para apoyar tus respuestas. Debes emitir dos documentos necesarios para que tu app se apruebe en {{ site.data.variables.product.prodname_marketplace }}: un [plan de respuesta a incidentes](#incident-response-plan) y un [flujo de trabajo para administración de vulnerabilidades](#vulnerability-management-workflow).
+Después de que hayas emitido tu app para su aprobación, el equipo de seguridad de GitHub te solicitará que completes un cuestionario de seguridad acerca de tu app y de un programa general de seguridad. Como parte de la revisión, tendrás la opción de prorporcionar documetnación para apoyar tus respuestas. Debes emitir dos documentos necesarios para que tu app se apruebe en {% data variables.product.prodname_marketplace %}: un [plan de respuesta a incidentes](#incident-response-plan) y un [flujo de trabajo para administración de vulnerabilidades](#vulnerability-management-workflow).
 
 
 ### Mejores prácticas de seguridad
@@ -19,7 +19,7 @@ Sigue estas mejores prácticas para tener éxito en tu revisión de seguridad y 
 
 #### Autorización, autenticación, y control de accesos
 
-Te recomendamos emitir una GitHub App en vez de una App de OAuth. {{ site.data.reusables.marketplace.github_apps_preferred }}. Consulta la sección "[Diferencias entre las GitHub Apps y las Apps de OAuth](/apps/differences-between-apps/)" para encontrar más detalles.
+Te recomendamos emitir una GitHub App en vez de una App de OAuth. {% data reusables.marketplace.github_apps_preferred %}. Consulta la sección "[Diferencias entre las GitHub Apps y las Apps de OAuth](/apps/differences-between-apps/)" para encontrar más detalles.
 - Las apps deben utilizar el "[principio del menor privilegio necesario](https://en.wikipedia.org/wiki/Principle_of_least_privilege)" y únicamente deben solicitar los alcances de OAuth y los permisos de GitHub Apps que la app necesite para llevar a cabo su funcionalidad prevista.
 - Las apps deben proporcionar a los clientes una forma de borrarla de sus cuentas sin tener que mandar un correo electrónico o llamar al personal de soporte.
 - Las apps no deben compartir tokens entre las diferentes implementaciones de la misma. Por ejemplo, una app de escritorio debe tener un token separado de aquella que es basada en web. Los tokens individuales permiten a cada app solicitar el acceso necesario a los recursos de GitHub por separado.
@@ -52,16 +52,16 @@ Te recomendamos emitir una GitHub App en vez de una App de OAuth. {{ site.data.r
 
 #### Flujo de trabajo de respuesta a incidentes
 
-- Para asociarte con GitHub se te solicita tener un [plan de respuesta a incidentes](#incident-response-plan) activo antes de emitir tu listado de app de {{ site.data.variables.product.prodname_marketplace }}.
+- Para asociarte con GitHub se te solicita tener un [plan de respuesta a incidentes](#incident-response-plan) activo antes de emitir tu listado de app de {% data variables.product.prodname_marketplace %}.
 - Te recomendamos tener un equipo de respuesta a incidentes para operaciones y de seguridad en tu compañía en vez de utilizar un proveedor tercero.
 - Debes poder notificar a Github dentro de las primeras 24 horas de que se confirme un incidente.
-- Debes familiarizarte con las secciones 3.7.5 - 3.7.5.6 del [Acuerdo de Desarrollador de {{ site.data.variables.product.prodname_marketplace }}](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), el cual incluye detalles adicionales sobre los requisitos del flujo de trabajo para respuesta a incidentes.
+- Debes familiarizarte con las secciones 3.7.5 - 3.7.5.6 del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), el cual incluye detalles adicionales sobre los requisitos del flujo de trabajo para respuesta a incidentes.
 
 #### Administración de vulnerabilidades y flujo de trabajo de parchado
 
 - Debes llevar a cabo escaneos de vulnerabilidades frecuentes para la infraestructura productiva.
 - Debes clasificar los resultados de los escaneos de vulnerabilidades y definir un tiempo en el que acuerdes remediar dichas vulnerabilidades.
-- Debes familiarizarte con la sección 3.7.3 del [Acuerdo de Desarrollador de {{ site.data.variables.product.prodname_marketplace }}](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), la cual incluye detalles adicionales sobre los requisitos de la administración de vulnerabilidades y de los flujos de trabajo del parchado.
+- Debes familiarizarte con la sección 3.7.3 del [Acuerdo de Desarrollador de {% data variables.product.prodname_marketplace %}](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), la cual incluye detalles adicionales sobre los requisitos de la administración de vulnerabilidades y de los flujos de trabajo del parchado.
 
 ### Documentación del programa de seguridad
 
@@ -81,10 +81,10 @@ Tu documentación del flujo de trabajo para la administración de vulnerabilidad
 
 #### Cuestionario del programa de seguridad de GitHub Marketplace
 
-Durante el proceso de emisión de la app, nuestro equipo de incorporación de {{ site.data.variables.product.prodname_marketplace }} también te enviará un cuestionario solicitando información acerca de tus prácticas de seguridad. Este documento servirá como un registro escrito que da fe de:
+Durante el proceso de emisión de la app, nuestro equipo de incorporación de {% data variables.product.prodname_marketplace %} también te enviará un cuestionario solicitando información acerca de tus prácticas de seguridad. Este documento servirá como un registro escrito que da fe de:
 
 - El método de autenticación y alcances que requiere tu app.
-- Que no estás solicitando más alcances o acceso a {{ site.data.variables.product.product_name }} de lo que tu app requiere para llevar a cabo su funcionalidad esperada, tomando en consideración las limitaciones de OAuth y el uso de las {{ site.data.variables.product.prodname_github_app }}.
+- Que no estás solicitando más alcances o acceso a {% data variables.product.product_name %} de lo que tu app requiere para llevar a cabo su funcionalidad esperada, tomando en consideración las limitaciones de OAuth y el uso de las {% data variables.product.prodname_github_app %}.
 - La utilización de cualquier servicio o infraestructura de terceros, tales como SaaS, PaaS, o LaaS.
 - Que existe un procedimiento de respuesta a incidentes.
 - El método de tu app para gestionar llaves/tokens.

@@ -18,8 +18,8 @@ Issue でメンションされた人や Team は、Issue が新しいリポジ�
 
 ### 他のリポジトリへオープン Issue を移譲する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
 3. Issue のリストで、移譲したい Issue をクリックします。
 4. 右のサイドバーで [**Transfer this issue**] をクリックします。 ![Issue を移譲するボタン](/assets/images/help/repository/transfer-issue.png)
 5. [**Choose a repository**] ドロップダウンメニューで、Issue の移譲先にするリポジトリを選択します。 ![リポジトリセレクションを選択](/assets/images/help/repository/choose-a-repository.png)

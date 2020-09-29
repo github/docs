@@ -1,7 +1,7 @@
 ---
 title: Informationen zu geschützten Branches
 intro: 'Mit geschützten Branches wird sichergestellt, dass Mitarbeiter auf Deinem Repository keine unwiderruflichen Änderungen an Branches vornehmen. Durch die Aktivierung geschützter Branches kannst Du außerdem weitere optionale Prüfungen und Anforderungen aktivieren, beispielsweise erforderliche Statuschecks und erforderliche Reviews.'
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
   - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
@@ -10,11 +10,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.pull_requests.about-protected-branches }} Du kannst entscheiden, Einschränkungen zu erzwingen über die Art und Weise, wie ein Pull Request in Dein Repository zusammengeführt wird.
+{% data reusables.pull_requests.about-protected-branches %} Du kannst entscheiden, Einschränkungen zu erzwingen über die Art und Weise, wie ein Pull Request in Dein Repository zusammengeführt wird.
 
 Durch das Erstellen von Regeln für geschützte Branches können Repository-Inhaber und Personen mit Administratorberechtigung für ein Repository bestimmte Workflows oder Anforderungen erzwingen, bevor ein Mitarbeiter einen Branch in Dein Repository überführen kann.
 
-{{ site.data.reusables.repositories.branch-rules-example }} Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
+{% data reusables.repositories.branch-rules-example %} Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“
 
 ### Priorisierung von Regeln für geschützte Branches
 

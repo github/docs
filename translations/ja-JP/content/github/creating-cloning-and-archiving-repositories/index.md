@@ -1,6 +1,6 @@
 ---
 title: リポジトリの作成、クローン、アーカイブ
-intro: 'リポジトリを作成またはクローンする際に、さまざまな構成オプションから選択できます。 リポジトリを使用して、{{ site.data.variables.product.prodname_dotcom }} のコンテンツとデータをアーカイブすることもできます。'
+intro: 'リポジトリを作成またはクローンする際に、さまざまな構成オプションから選択できます。 リポジトリを使用して、{% data variables.product.prodname_dotcom %} のコンテンツとデータをアーカイブすることもできます。'
 redirect_from:
   - /categories/repositories/
   - /categories/24/articles/

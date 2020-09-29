@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-Änderungen an bezahlten Abonnements Deines Benutzerkonto oder Deiner Organisation wirken sich nicht auf Abonnements und Zahlungen für andere bezahlte {{ site.data.variables.product.prodname_dotcom }}-Funktionen wie zum Beispiel {{ site.data.variables.large_files.product_name_long }} oder in {{ site.data.variables.product.prodname_marketplace }} gekaufte bezahlte Apps aus.
+Änderungen an bezahlten Abonnements Deines Benutzerkonto oder Deiner Organisation wirken sich nicht auf Abonnements und Zahlungen für andere bezahlte {% data variables.product.prodname_dotcom %}-Funktionen wie zum Beispiel {% data variables.large_files.product_name_long %} oder in {% data variables.product.prodname_marketplace %} gekaufte bezahlte Apps aus.
 
-Weitere Informationen findest Du unter „[Produkte von {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)“ und „[Informationen zur Abrechnung auf {{ site.data.variables.product.prodname_dotcom }}](/articles/about-billing-on-github).“
+Weitere Informationen findest Du unter „[Produkte von {% data variables.product.prodname_dotcom %}](/articles/github-s-products)“ und „[Informationen zur Abrechnung auf {% data variables.product.prodname_dotcom %}](/articles/about-billing-on-github).“
 
 #### Beispiel für das Kündigen eines kostenpflichtigen Abonnements für ein persönliches Konto oder eine Organisation
 
-Kumiko bezahlt am 5. jedes Monats für ein monatliches Abonnement. Wenn Kumiko am 10. Oktober von dem bezahlten Abonnement nach {{ site.data.variables.product.prodname_free_user }} herabstuft, bleibt ihr bezahltes Abonnement bis zum Ende ihres laufenden Abrechnungszeitraums am 4. November in Kraft. Am 5. November wird ihr Konto zu {{ site.data.variables.product.prodname_free_user }} wechseln.
+Kumiko bezahlt am 5. jedes Monats für ein monatliches Abonnement. Wenn Kumiko am 10. Oktober von dem bezahlten Abonnement nach {% data variables.product.prodname_free_user %} herabstuft, bleibt ihr bezahltes Abonnement bis zum Ende ihres laufenden Abrechnungszeitraums am 4. November in Kraft. Am 5. November wird ihr Konto zu {% data variables.product.prodname_free_user %} wechseln.
 
 #### Beispiel für das Ändern eines jährlichen Abonnements in ein monatliches Abonnement für ein persönliches Konto oder eine Organisation
 
@@ -29,7 +29,7 @@ Die Organisation von Stefan bezahlt jedes Jahr am 20. Mai für 50 Benutzer. Wenn
 
 ### Weiterführende Informationen
 
-- „[Abrechnung für Dein {{ site.data.variables.product.prodname_dotcom }}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
-- „[Abrechnung für Ihre {{ site.data.variables.product.prodname_marketplace }}-Apps verwalten](/articles/managing-billing-for-github-marketplace-apps)“
-- „[Abrechnung für {{ site.data.variables.large_files.product_name_long }} verwalten](/articles/managing-billing-for-git-large-file-storage)“
+- „[Abrechnung für Dein {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
+- „[Abrechnung für Ihre {% data variables.product.prodname_marketplace %}-Apps verwalten](/articles/managing-billing-for-github-marketplace-apps)“
+- „[Abrechnung für {% data variables.large_files.product_name_long %} verwalten](/articles/managing-billing-for-git-large-file-storage)“
 - „[Informationen zu benutzerbasierten Preisen](/articles/about-per-user-pricing)“

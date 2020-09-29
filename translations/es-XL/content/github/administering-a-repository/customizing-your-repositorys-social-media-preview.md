@@ -16,8 +16,8 @@ Puedes cargar una imagen a un repositorio privado, pero tu imagen solo se puede 
 Tip: Your image should be a PNG, JPG, or GIF file under 1 MB in size. Para presentar la mejor calidad, recomendamos mantener la imagen alrededor de 640 por 320 píxeles.
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En "Vista previa de las redes sociales", haz clic en **Editar**.
     - Para agregar una nueva imagen, haz clic en **Cargar imagen...**.
     - Para eliminar un imagen, haz clic en **Eliminar imagen**.

@@ -18,12 +18,12 @@ versions:
 
 {% tip %}
 
-**Sugerencia:** Solo los propietarios de la organización y los gerentes de facturación pueden ver y cambiar la información de facturación y la configuración de la cuenta para una organización. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**Sugerencia:** Solo los propietarios de la organización y los gerentes de facturación pueden ver y cambiar la información de facturación y la configuración de la cuenta para una organización. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}

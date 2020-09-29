@@ -1,6 +1,6 @@
 ---
 title: Atalhos de teclado
-intro: 'Quase todas as páginas no {{ site.data.variables.product.product_name }} tem um atalho de teclado que executa as ações mais rapidamente.'
+intro: 'Quase todas as páginas no {% data variables.product.product_name %} tem um atalho de teclado que executa as ações mais rapidamente.'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### Sobre atalhos do teclado
 
-Digitar <kbd>?</kbd> no {{ site.data.variables.product.product_name }} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para aquela página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
+Digitar <kbd>?</kbd> no {% data variables.product.product_name %} exibe uma caixa de diálogo que lista os atalhos de teclado disponíveis para aquela página. Você pode usar esses atalhos de teclado para executar ações no site sem precisar usar o mouse para navegar.
 
 Veja abaixo uma lista dos atalhos de teclado disponíveis.
 
@@ -22,7 +22,7 @@ Veja abaixo uma lista dos atalhos de teclado disponíveis.
 
 | Atalho                       | Descrição                                                                                                                                                                                                                                                                                                                                                         |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."                                                                                                                                                                                             |
+| <kbd>s</kbd> or <kbd>/</kbd> | Evidencia a barra de pesquisa. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."                                                                                                                                                                                             |
 | <kbd>g</kbd> <kbd>n</kbd>    | Vai para suas notificações. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}." |
 | <kbd>esc</kbd>               | Quando direcionado a um hovercard de usuário, problema ou pull request, fecha o hovercard e redireciona para o elemento no qual o hovercard está                                                                                                                                                                                                                  |
 
@@ -97,7 +97,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>q</kbd>                                                 | Solicita um revisor. Para obter mais informações, consulte "[Solicitar uma revisão de pull request](/articles/requesting-a-pull-request-review/)".                                                                                          |
 | <kbd>m</kbd>                                                 | Define um marco. Para obter mais informações, consulte "[Associar marcos a problemas e pull requests](/articles/associating-milestones-with-issues-and-pull-requests/)".                                                                    |
 | <kbd>l</kbd>                                                 | Aplica uma etiqueta. Para obter mais informações, consulte "[Aplicar etiquetas a problemas e pull requests](/articles/applying-labels-to-issues-and-pull-requests/)".                                                                       |
-| <kbd>a</kbd>                                                 | Define um responsável. Para obter mais informações, consulte "[Atribuir problemas e pull requests a outros usuários {{ site.data.variables.product.company_short }}](/articles/assigning-issues-and-pull-requests-to-other-github-users/)". |
+| <kbd>a</kbd>                                                 | Define um responsável. Para obter mais informações, consulte "[Atribuir problemas e pull requests a outros usuários {% data variables.product.company_short %}](/articles/assigning-issues-and-pull-requests-to-other-github-users/)". |
 | <kbd>cmd + shift + p</kbd> ou <kbd>control + shift + p</kbd> | Alterna entre as abas **Write** (Escrever) e **Preview** (Visualizar)                                                                                                                                                                       |
 
 ### Alterações em pull requests
@@ -153,7 +153,7 @@ Para mais atalhos de teclado, consulte a [Documentação CodeMirror](https://cod
 | <kbd>esc</kbd> | Fecha o painel de visualização do cartão |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | Atalho                                                | Descrição                                                                            |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------ |

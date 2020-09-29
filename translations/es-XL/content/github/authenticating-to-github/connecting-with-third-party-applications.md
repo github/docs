@@ -1,6 +1,6 @@
 ---
 title: Conectar con aplicaciones de terceros
-intro: 'Puedes conectar tu identidad {{ site.data.variables.product.product_name }} con aplicaciones de terceros mediante OAuth. Al autorizar una de estas aplicaciones, deberías asegurarte de que confías en la aplicación, revisar quién la desarrolló y revisar los tipos de información a la que desea acceder la aplicación.'
+intro: 'Puedes conectar tu identidad {% data variables.product.product_name %} con aplicaciones de terceros mediante OAuth. Al autorizar una de estas aplicaciones, deberías asegurarte de que confías en la aplicación, revisar quién la desarrolló y revisar los tipos de información a la que desea acceder la aplicación.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
 versions:
@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-Cuando una aplicación de terceros desea identificarte mediante tu inicio de sesión de {{ site.data.variables.product.product_name }}, verás una página con la información de contacto del programador y una lista de los datos específicos que se han solicitado.
+Cuando una aplicación de terceros desea identificarte mediante tu inicio de sesión de {% data variables.product.product_name %}, verás una página con la información de contacto del programador y una lista de los datos específicos que se han solicitado.
 
 ### Contactarse con el programador de la aplicación
 
-Dado que una aplicación está desarrollada por un tercero que no es {{ site.data.variables.product.product_name }}, no sabemos exactamente cómo una aplicación usa los datos a los que solicita acceso. Puedes usar la información del programador en la parte superior de la página para contactarte con el administrador de la aplicación si tienes preguntas o inquietudes sobre tu aplicación.
+Dado que una aplicación está desarrollada por un tercero que no es {% data variables.product.product_name %}, no sabemos exactamente cómo una aplicación usa los datos a los que solicita acceso. Puedes usar la información del programador en la parte superior de la página para contactarte con el administrador de la aplicación si tienes preguntas o inquietudes sobre tu aplicación.
 
-![Información del propietario de {{ site.data.variables.product.prodname_oauth_app }}](/assets/images/help/platform/oauth_owner_bar.png)
+![Información del propietario de {% data variables.product.prodname_oauth_app %}](/assets/images/help/platform/oauth_owner_bar.png)
 
 Si el programador ha elegido suministrarla, el lateral derecho de la página brinda una descripción detallada de la aplicación, así como su sitio web asociado.
 
@@ -22,7 +22,7 @@ Si el programador ha elegido suministrarla, el lateral derecho de la página bri
 
 ### Tipos de acceso a la aplicación y datos
 
-Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {{ site.data.variables.product.product_name }}.
+Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {% data variables.product.product_name %}.
 
 - El **acceso de lectura** solo permite que una aplicación *mire* tus datos.
 - El **acceso de escritura** permite que una aplicación *cambie* tus datos.
@@ -31,7 +31,7 @@ Las aplicaciones pueden tener acceso de *lectura* o *escritura* a tus datos de {
 
 *Alcances* son grupos de permisos designados que una aplicación puede solicitar para acceder a los datos públicos y no públicos.
 
-Cuando quieres usar una aplicación de terceros que se integra con {{ site.data.variables.product.product_name }}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. Para obtener más información, consulta la sección "[Acerca de los alcances para {{ site.data.variables.product.prodname_oauth_app }}](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
+Cuando quieres usar una aplicación de terceros que se integra con {% data variables.product.product_name %}, esa aplicación te permite conocer qué tipo de acceso a tus datos serán necesarios. Si otorgas acceso a la aplicación, la aplicación podrá realizar acciones en tu nombre, como leer o modificar datos. Por ejemplo, si quieres usar una app que solicita el alcance `usuario:correo electrónico`, la app solo tendrá acceso de lectura a tus direcciones de correo electrónico privado. Para obtener más información, consulta la sección "[Acerca de los alcances para {% data variables.product.prodname_oauth_app %}](//apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps)".
 
 {% tip %}
 
@@ -47,7 +47,7 @@ Existen varios tipos de datos que las aplicaciones pueden solicitar.
 
 {% tip %}
 
-**Sugerencia:** {{ site.data.reusables.user_settings.review_oauth_tokens_tip }}
+**Sugerencia:** {% data reusables.user_settings.review_oauth_tokens_tip %}
 
 {% endtip %}
 
@@ -57,7 +57,7 @@ Existen varios tipos de datos que las aplicaciones pueden solicitar.
 | Implementaciones             | El estado de implementación permite que las aplicaciones determinen si una implementación es exitosa frente a una confirmación específica para repositorios públicos y privados. Las aplicaciones no tendrán acceso a tu código.                                                                                                                                                                             |
 | Gists                        | El acceso a [Gist](https://gist.github.com) permite que las aplicaciones lean o escriban en tus Gists públicos y secretos.                                                                                                                                                                                                                                                                                   |
 | Ganchos                      | El acceso a [webhooks](/webhooks) permite que las aplicaciones lean o escriban configuraciones de gancho en los repositorios que administras.                                                                                                                                                                                                                                                                |
-| Notificaciones               | El acceso a las notificaciones permite que las aplicaciones lean tus notificaciones de {{ site.data.variables.product.product_name }}, como comentarios sobre propuestas y solicitudes de extracción. Sin embargo, las aplicaciones permanecen inhabilitadas para acceder a tus repositorios.                                                                                                                |
+| Notificaciones               | El acceso a las notificaciones permite que las aplicaciones lean tus notificaciones de {% data variables.product.product_name %}, como comentarios sobre propuestas y solicitudes de extracción. Sin embargo, las aplicaciones permanecen inhabilitadas para acceder a tus repositorios.                                                                                                                |
 | Organizaciones y equipos     | El acceso a organizaciones y equipos permite que las apps accedan y administren la membresía de la organización y del equipo.                                                                                                                                                                                                                                                                                |
 | Datos personales del usuario | Entre los datos del usuario se incluye información que se encuentra en tu perfil de usuario, como tu nombre, dirección de correo electrónico y ubicación.                                                                                                                                                                                                                                                    |
 | Repositorios                 | La información del repositorio incluye los nombres de los colaboradores, las ramas que creaste y los archivos actuales dentro de tu repositorio. Las aplicaciones pueden solicitar acceso a repositorios públicos o privados a nivel del usuario.                                                                                                                                                            |

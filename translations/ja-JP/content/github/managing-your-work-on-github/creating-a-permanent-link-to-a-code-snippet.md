@@ -18,11 +18,11 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. リンクしたいコードを特定します:
     - ファイルからコードにリンクするには、対象のファイルに移動します。
     - プルリクエストからコードにリンクするには、対象のプルリクエストに移動して {% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
-{{ site.data.reusables.repositories.choose-line-or-range }}
+{% data reusables.repositories.choose-line-or-range %}
 4. 行または行範囲の左にある {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}をクリックします。 ドロップダウンメニューで [**Copy permalink**] をクリックします。 ![選択された行のパーマリンクをコピーするオプションのあるケバブメニュー](/assets/images/help/repository/copy-permalink-specific-line.png)
 5. コードスニペットにリンクさせたい会話に移動します。
 6. コメントにパーマリンクを貼り付け、[**Comment**] をクリックします。 ![同じリポジトリ内のコメントに貼り付けられたパーマリンク](/assets/images/help/repository/code-snippet-permalink-in-comment.png)

@@ -17,9 +17,9 @@ Die zusammenfassende Liste der Methoden und Funktionen wird aus den folgenden un
   - Python
   - Ruby
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull Requests auf den Pull Request, in dem Du geänderte Funktionen und Methoden suchen möchtest.
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.changed-files %}
 4. Um eine zusammenfassende Liste der geänderten Funktionen und Methoden anzuzeigen, klicke auf **Jump to...** (Gehe zu...). ![Dropdownmenü „Jump to...“ (Gehe zu...)](/assets/images/help/pull_requests/jump-to-menu.png)
 5. Wähle die geänderte Funktion oder Methode aus dem Dropdownmenü aus. Du kannst auch den Namen der Funktion oder Methode eingeben, um die Ergebnisse zu filtern. ![Funktionen und Methoden filtern](/assets/images/help/pull_requests/filter-function-and-methods.png)
 

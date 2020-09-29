@@ -16,13 +16,13 @@ versions:
 
 Organization のリポジトリからコラボレーターを削除すると、そのコラボレータはリポジトリに対する読み取りおよび書き込みアクセスを失います。 リポジトリがプライベートで、コラボレータがリポジトリをフォークしている場合、そのそのフォークも削除されますが、リポジトリのローカルクローンは保持したままになります。
 
-{{ site.data.reusables.repositories.deleted_forks_from_private_repositories_warning }}
+{% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
 
 ### Organization のリポジトリへの個人のアクセスを管理する
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. アクセスのタイプが異なるユーザを管理するには、[**Members**] または [**Outside collaborators**] をクリックします。 ![メンバーまたは外部コラボレーターを Organization に招待するボタン](/assets/images/help/organizations/select-outside-collaborators.png)
 5. 管理する個人の名前の右側にある {% octicon "gear" aria-label="The Settings gear" %}ドロップダウン メニューで、[**Manage**] をクリックします。 ![[Manage] アクセスリンク](/assets/images/help/organizations/member-manage-access.png)
 6. [Manage access] ページで、リポジトリの隣にある [**Manage access**] をクリックします。 ![リポジトリの [Manage access] ボタン](/assets/images/help/organizations/repository-manage-access.png)

@@ -1,6 +1,6 @@
 ---
 title: 異なるGit Large File Storageサーバへの移行
-intro: '{{ site.data.variables.large_files.product_name_long }} ({{ site.data.variables.large_files.product_name_short }}) クライアントを使用して、既存のサーバーからアセットを取得し、それらを新しい場所にプッシュすることで、新しい {{ site.data.variables.large_files.product_name_short }} サーバーに移行できます。'
+intro: '{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) クライアントを使用して、既存のサーバーからアセットを取得し、それらを新しい場所にプッシュすることで、新しい {% data variables.large_files.product_name_short %} サーバーに移行できます。'
 redirect_from:
   - /enterprise/admin/guides/installation/migrating-to-different-large-file-storage-server/
   - /enterprise/admin/installation/migrating-to-a-different-git-large-file-storage-server
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-異なる{{ site.data.variables.large_files.product_name_long }}サーバに移行する前に、サードパーティサーバを使うよう{{ site.data.variables.large_files.product_name_short }}を設定しなければなりません。 詳しい情報については"[サードパーティサーバを使う{{ site.data.variables.large_files.product_name_long }}の設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)"を参照してください。
+異なる{% data variables.large_files.product_name_long %}サーバに移行する前に、サードパーティサーバを使うよう{% data variables.large_files.product_name_short %}を設定しなければなりません。 詳しい情報については"[サードパーティサーバを使う{% data variables.large_files.product_name_long %}の設定](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-git-large-file-storage-to-use-a-third-party-server)"を参照してください。
 
 1. 2 番目のリモートでリポジトリを設定します。
   ```shell

@@ -14,9 +14,9 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, click **2FA**, and select **Enabled** or **Disabled**.
  ![filter-org-members-by-2fa](/assets/images/help/2fa/filter-org-members-by-2fa.png)
 5. To view outside collaborators in your organization, under the "People" tab, click **Outside collaborators**.

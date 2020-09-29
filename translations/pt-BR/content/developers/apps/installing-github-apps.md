@@ -1,6 +1,6 @@
 ---
 title: Instalar aplicativos GitHub
-intro: 'Quando seu aplicativo é público, qualquer pessoa pode instalar seu aplicativo em um repositório por meio do {% if currentVersion == "free-pro-team@latest" %} o {{ site.data.variables.product.prodname_marketplace }} ou {% endif %}de uma URL de instalação. Quando seu app é privado, você só pode instalar o aplicativo em repositórios dos quais você é proprietário.'
+intro: 'Quando seu aplicativo é público, qualquer pessoa pode instalar seu aplicativo em um repositório por meio do {% if currentVersion == "free-pro-team@latest" %} o {% data variables.product.prodname_marketplace %} ou {% endif %}de uma URL de instalação. Quando seu app é privado, você só pode instalar o aplicativo em repositórios dos quais você é proprietário.'
 redirect_from:
   - /apps/installing-github-apps
 versions:
@@ -10,7 +10,7 @@ versions:
 
 {% note %}
 
-**Observação:** Seu {{ site.data.variables.product.prodname_github_app }} terá acesso a quaisquer repositórios que o aplicativo criar, mesmo que alguém instale apenas seu aplicativo em repositórios selecionados.
+**Observação:** Seu {% data variables.product.prodname_github_app %} terá acesso a quaisquer repositórios que o aplicativo criar, mesmo que alguém instale apenas seu aplicativo em repositórios selecionados.
 
 {% endnote %}
 
@@ -27,11 +27,11 @@ Depois de criar um aplicativo GitHub privado, é possível instalá-lo em um dos
 {% if currentVersion == "free-pro-team@latest" %}
 ### Oferecer seu aplicativo no GitHub Marketplace
 
-Você pode oferecer uma versão paga ou gratuita do seu aplicativo em [{{ site.data.variables.product.prodname_marketplace }}](https://github.com/marketplace), onde as pessoas podem pesquisar e ver informações sobre seu aplicativo. O {{ site.data.variables.product.prodname_marketplace }} instala automaticamente um aplicativo GitHub quando um pedido é concluído.
+Você pode oferecer uma versão paga ou gratuita do seu aplicativo em [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace), onde as pessoas podem pesquisar e ver informações sobre seu aplicativo. O {% data variables.product.prodname_marketplace %} instala automaticamente um aplicativo GitHub quando um pedido é concluído.
 
-Consulte "[Primeiros passos com o GitHub Marketplace](/marketplace/getting-started/)" para saber mais sobre a listagem do seu aplicativo no {{ site.data.variables.product.prodname_marketplace }}.
+Consulte "[Primeiros passos com o GitHub Marketplace](/marketplace/getting-started/)" para saber mais sobre a listagem do seu aplicativo no {% data variables.product.prodname_marketplace %}.
 
-Para saber mais sobre como os usuários podem instalar seu aplicativo a partir do {{ site.data.variables.product.prodname_marketplace }}, consulte "[Comprar e instalar aplicativos no GitHub Marketplace](/articles/purchasing-and-installing-apps-in-github-marketplace)".
+Para saber mais sobre como os usuários podem instalar seu aplicativo a partir do {% data variables.product.prodname_marketplace %}, consulte "[Comprar e instalar aplicativos no GitHub Marketplace](/articles/purchasing-and-installing-apps-in-github-marketplace)".
 
 {% endif %}
 
@@ -41,7 +41,7 @@ Você pode habilitar outros para instalar seu aplicativo público, fornecendo a 
 
  Se você estiver migrando de um aplicativo OAuth para um aplicativo GitHub, você pode usar parâmetros de consulta para pré-selecionar os repositórios e a conta ao instalar o aplicativo GitHub. Consulte "[Migrando os aplicativos OAuth para os aplicativos GitHub](/apps/migrating-oauth-apps-to-github-apps/)para obter mais informações.
 
-Essas etapas pressupõem que você [criou um {{ site.data.variables.product.prodname_github_app }}](/apps/building-github-apps/):
+Essas etapas pressupõem que você [criou um {% data variables.product.prodname_github_app %}](/apps/building-github-apps/):
 
 1. Na [página de configurações dos aplicativos GitHub](https://github.com/settings/apps), selecione o aplicativo público que você deseja configurar para que outras pessoas instalem.
 2. Em "URL da página inicial", digite a URL para a página inicial do seu aplicativo e clique em **Salvar as alterações**. ![URL da página inicial](/assets/images/github-apps/github_apps_homepageURL.png)

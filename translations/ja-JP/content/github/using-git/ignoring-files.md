@@ -4,7 +4,7 @@ redirect_from:
   - /git-ignore/
   - /ignore-files/
   - /articles/ignoring-files
-intro: '{{ site.data.variables.product.product_name }} にチェックインしたくないファイルを無視するように Git を設定することができます。'
+intro: '{% data variables.product.product_name %} にチェックインしたくないファイルを無視するように Git を設定することができます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -16,7 +16,7 @@ versions:
 
 GitHub は、一般的なオペレーティング システム、環境、言語で推奨される *.gitignore* ファイルの公式なリストを、`github/gitignore` パブリックリポジトリに保持します。 gitignore.io ファイルを使用して、お使いのオペレーティング システム、プログラミング言語、または IDE に応じた *.gitignore* ファイルを作成することもできます。 詳細は「[github/gitignore](https://github.com/github/gitignore)」および「[gitignore.io](https://www.gitignore.io/)」のサイトを参照してください。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Git リポジトリの場所まで移動します。
 3. リポジトリに *.gitignore* ファイルを作成します。
    ```shell
@@ -35,7 +35,7 @@ $ git rm --cached <em>ファイル名</em>
 
 グローバルな *.gitignore* ファイルも作成して、お使いのコンピューター上の各 Git リポジトリでファイルを無視するルールを定義することもできます。 たとえば、*~/.gitignore_global* にファイルを作成し、そこにルールを追加することができます。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. すべての Git リポジトリについて除外ファイル *~/.gitignore_global* を使用するよう Git を設定します。
   ```shell
   $ git config --global core.excludesfile ~/.gitignore_global
@@ -47,7 +47,7 @@ $ git rm --cached <em>ファイル名</em>
 
 使い慣れたテキストエディターを使って、Git リポジトリのルートにある *.git/info/exclude* というファイルを開きます。 ここで追加するルールはチェックインされないので、ローカル リポジトリにあるファイルだけが無視されます。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Git リポジトリの場所まで移動します。
 3. 使い慣れたテキストエディターを使って、*.git/info/exclude* ファイルを開きます。
 

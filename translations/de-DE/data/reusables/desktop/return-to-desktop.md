@@ -1,1 +1,1 @@
-1. Kehre zu {{ site.data.variables.product.prodname_desktop }} zurück.
+1. Kehre zu {% data variables.product.prodname_desktop %} zurück.

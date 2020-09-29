@@ -29,7 +29,7 @@ Também é possível usar a barra de pesquisa "Filter cards" (Fitrar cartões) q
 
 {% tip %}
 
-**Dica:** é possível arrastar e soltar cartões filtrados ou usar atalhos no teclado para movê-los entre colunas. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+**Dica:** é possível arrastar e soltar cartões filtrados ou usar atalhos no teclado para movê-los entre colunas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
 {% endtip %}
 

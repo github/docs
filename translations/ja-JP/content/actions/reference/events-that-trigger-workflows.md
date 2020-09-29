@@ -1,7 +1,7 @@
 ---
 title: ワークフローをトリガーするイベント
-intro: '{{ site.data.variables.product.product_name }} で特定のアクティビティが実行された時、スケジュールした時間、または {{ site.data.variables.product.product_name }} 外でイベントが発生した時にワークフローを実行できるよう設定できます。'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '{% data variables.product.product_name %} で特定のアクティビティが実行された時、スケジュールした時間、または {% data variables.product.product_name %} 外でイベントが発生した時にワークフローを実行できるよう設定できます。'
+product: '{% data reusables.gated-features.actions %}'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /articles/events-that-trigger-workflows
@@ -12,12 +12,12 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.variables.product.prodname_dotcom }}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
+{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### ワークフローイベントについて
 
-{{ site.data.variables.product.product_name }} 上のアクティビティから webhook イベントが作成された際にワークフローを実行するよう設定できます。 ワークフローは、ワークフローの実行をトリガーするための webhook イベントを複数使用できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。 `on` 構文の詳細については、「[{{ site.data.variables.product.prodname_actions }}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
+{% data variables.product.product_name %} 上のアクティビティから webhook イベントが作成された際にワークフローを実行するよう設定できます。 ワークフローは、ワークフローの実行をトリガーするための webhook イベントを複数使用できます。 詳しい情報については、「[webhook](/webhooks)」を参照してください。 `on` 構文の詳細については、「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions#on)」を参照してください。
 
 ワークフローの実行がトリガーされるには、以下のステップが生じます。
 
@@ -27,7 +27,7 @@ versions:
   たとえば、イベントが特定のリポジトリブランチで発生したなら、ワークフローファイルはそのブランチ上でリポジトリ内に存在しなければなりません。
 1. そのコミットSHA及びGit refのワークフローファイルが調べられ、トリガーを起こしたイベントにマッチする`on:`の値を持つワークフローについて新しい実行がトリガーされる。
 
-  ワークフローの実行は、イベントをトリガーしたのと同じコミットSHA及びGit refにあるリポジトリのコード上で実行されます。 ワークフローを実行すると、{{ site.data.variables.product.product_name }} はランナー環境において `GITHUB_SHA` (コミット SHA) および `GITHUB_REF` (Git ref) 環境変数を設定します。 詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
+  ワークフローの実行は、イベントをトリガーしたのと同じコミットSHA及びGit refにあるリポジトリのコード上で実行されます。 ワークフローを実行すると、{% data variables.product.product_name %} はランナー環境において `GITHUB_SHA` (コミット SHA) および `GITHUB_REF` (Git ref) 環境変数を設定します。 詳しい情報については、「[環境変数の利用](/actions/automating-your-workflow-with-github-actions/using-environment-variables)」を参照してください。
 
 {% note %}
 
@@ -35,7 +35,7 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.github-actions.actions-on-examples }}
+{% data reusables.github-actions.actions-on-examples %}
 
 ### webhook イベント
 
@@ -43,15 +43,15 @@ GitHub で webhook イベントが作成された際にワークフローを実�
 
 #### `check_run`
 
-`check_run` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[チェック実行](/v3/checks/runs/)」を参照してください。
+`check_run` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[チェック実行](/v3/checks/runs/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                 | アクティビティタイプ                                                                                   | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`check_run`](/webhooks/event-payloads/#check_run) | - `created`<br/>- `rerequested`<br/>- `completed`<br/>- `requested_action` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、チェック実行が `rerequested` または `requested_action` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -63,13 +63,13 @@ on:
 
 #### `check_suite`
 
-`check_suite` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[チェックスイート](/v3/checks/suites/)」を参照してください。
+`check_suite` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[チェックスイート](/v3/checks/suites/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 {% note %}
 
-**ノート:** 再帰的なワークフローを避けるために、このイベントは{{ site.data.variables.product.prodname_actions }}によってチェックスイートが生成されている場合にはワークフローをトリガーしません。
+**ノート:** 再帰的なワークフローを避けるために、このイベントは{% data variables.product.prodname_actions %}によってチェックスイートが生成されている場合にはワークフローをトリガーしません。
 
 {% endnote %}
 
@@ -77,7 +77,7 @@ on:
 | ------------------------------------------------------ | -------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`check_suite`](/webhooks/event-payloads/#check_suite) | - `completed`<br/>- `requested`<br/>- `rerequested`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、チェック実行が `rerequested` または `completed` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -106,7 +106,7 @@ on:
 
 誰かがブランチまたはタグを作成し、それによって `create` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リファレンスの削除](/v3/git/refs/#delete-a-reference)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                           | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------- | ---------- | ----------------- | ------------ |
@@ -153,7 +153,7 @@ on:
 
 誰かがリポジトリをフォークし、それによって `deployment_status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[フォークの作成](/v3/repos/forks/#create-a-fork)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------- | ---------- | ----------------- | ------------ |
@@ -170,7 +170,7 @@ on:
 
 誰かが Wiki ページを作成または更新し、それによって `gollum` イベントがトリガーされるときにワークフローを実行します。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                           | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------- | ---------- | ----------------- | ------------ |
@@ -185,15 +185,15 @@ on:
 
 #### `issue_comment`
 
-`issue_comment` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[Issue コメント](/v3/issues/comments/)」を参照してください。
+`issue_comment` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[Issue コメント](/v3/issues/comments/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                         | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
 | [`issue_comment`](/v3/activity/event_types/#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、Issue コメントが `created` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -205,15 +205,15 @@ on:
 
 #### `issues`
 
-`Issue` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[Issue](/v3/issues)」を参照してください。
+`Issue` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[Issue](/v3/issues)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                           | アクティビティタイプ                                                                                                                                                                                                                                                                                                                                                             | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`issues`](/webhooks/event-payloads/#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、Issue が `opened`、`edited`、または `milestoned` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -225,15 +225,15 @@ on:
 
 #### `ラベル`
 
-`label` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[ラベル](/v3/issues/labels/)」を参照してください。
+`label` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[ラベル](/v3/issues/labels/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                       | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
 | [`ラベル`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、ラベルが `created` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -245,15 +245,15 @@ on:
 
 #### `マイルストーン`
 
-`milestone` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[マイルストーン](/v3/issues/milestones/)」を参照してください。
+`milestone` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[マイルストーン](/v3/issues/milestones/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                               | アクティビティタイプ                                                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`マイルストーン`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえばマイルストーンが`opened`あるいは`deleted`になったときにワークフローを実行できます。
 
@@ -265,9 +265,9 @@ on:
 
 #### `page_build`
 
-誰かが {{ site.data.variables.product.product_name }} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/v3/repos/pages/)」を参照してください。
+誰かが {% data variables.product.product_name %} ページ対応のブランチを作成し、それによって `page_build` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ページ](/v3/repos/pages/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                   | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------------------- | ---------- | ----------------- | ------------ |
@@ -282,15 +282,15 @@ on:
 
 #### `project`
 
-`project` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[プロジェクト](/v3/projects/)」を参照してください。
+`project` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プロジェクト](/v3/projects/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                             | アクティビティタイプ                                                                                                                          | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`project`](/webhooks/event-payloads/#project) | - `created`<br/>- `updated`<br/>- `closed`<br/>- `reopened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、プロジェクトが `created` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -302,15 +302,15 @@ on:
 
 #### `project_card`
 
-`project_card` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[プロジェクトカード](/v3/projects/cards)」を参照してください。
+`project_card` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プロジェクトカード](/v3/projects/cards)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                       | アクティビティタイプ                                                                                                     | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`project_card`](/webhooks/event-payloads/#project_card) | - `created`<br/>- `moved`<br/>- `converted` to an issue<br/>- `edited`<br/>- `deleted` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、プロジェクトカードが `opened` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -322,15 +322,15 @@ on:
 
 #### `project_column`
 
-`project_column` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[プロジェクト列](/v3/projects/columns)」を参照してください。
+`project_column` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プロジェクト列](/v3/projects/columns)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                                           | アクティビティタイプ                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------------------------ | --------------------------------------------------------------------------- | ----------------- | ------------ |
 | [`project_column`](/webhooks/event-payloads/#project_column) | - `created`<br/>- `updated`<br/>- `moved`<br/>- `deleted` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、プロジェクト列が `created` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -344,7 +344,7 @@ on:
 
 誰かがプライベートリポジトリをパブリックにし、それによって `public` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[リポジトリの編集](/v3/repos/#edit)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                           | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | -------------------------------------------- | ---------- | ----------------- | ------------ |
@@ -359,7 +359,7 @@ on:
 
 #### `pull_request`
 
-`pull_request` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[プルリクエスト](/v3/pulls)」を参照してください。
+`pull_request` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プルリクエスト](/v3/pulls)」を参照してください。
 
 {% note %}
 
@@ -371,7 +371,7 @@ on:
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------------------- |
 | [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | `GITHUB_REF` ブランチ上の直近のマージコミット | PR マージブランチ `refs/pull/:prNumber/merge` |
 
-デフォルトのアクティビティタイプを拡大または制限するには、`types` キーワードを使用します。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
+デフォルトのアクティビティタイプを拡大または制限するには、`types` キーワードを使用します。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
 
 たとえば、プルリクエストが `assigned`、`opened`、`synchronize`、または `reopened` だったときにワークフローを実行できます。
 
@@ -381,17 +381,17 @@ on:
     types: [assigned, opened, synchronize, reopened]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_review`
 
-`pull_request_review` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[プルリクエストレビュー](/v3/pulls/reviews)」を参照してください。
+`pull_request_review` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[プルリクエストレビュー](/v3/pulls/reviews)」を参照してください。
 
 | webhook イベントのペイロード                                                     | アクティビティタイプ                                                 | `GITHUB_SHA`                  | `GITHUB_REF`                           |
 | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------- | -------------------------------------- |
 | [`pull_request_review`](/webhooks/event-payloads/#pull_request_review) | - `submitted`<br/>- `edited`<br/>- `dismissed` | `GITHUB_REF` ブランチ上の直近のマージコミット | PR マージブランチ `refs/pull/:prNumber/merge` |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、プルリクエストレビューが `eidted` または `dismissed` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -401,17 +401,17 @@ on:
     types: [edited, dismissed]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_review_comment`
 
-プルリクエストの統合 diff へのコメントが変更され、それによって `pull_request_review_comment` イベントがトリガーされるときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[レビューコメント](/v3/pulls/comments)」を参照してください。
+プルリクエストの統合 diff へのコメントが変更され、それによって `pull_request_review_comment` イベントがトリガーされるときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[レビューコメント](/v3/pulls/comments)」を参照してください。
 
 | webhook イベントのペイロード                                                                     | アクティビティタイプ                                             | `GITHUB_SHA`                  | `GITHUB_REF`                           |
 | -------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------------------------- | -------------------------------------- |
 | [`pull_request_review_comment`](/webhooks/event-payloads/#pull_request_review_comment) | - `created`<br/>- `edited`<br/>- `deleted` | `GITHUB_REF` ブランチ上の直近のマージコミット | PR マージブランチ `refs/pull/:prNumber/merge` |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、プルリクエストレビューコメントが `created` または `deleted` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -421,7 +421,7 @@ on:
     types: [created, deleted]
 ```
 
-{{ site.data.reusables.developer-site.pull_request_forked_repos_link }}
+{% data reusables.developer-site.pull_request_forked_repos_link %}
 
 #### `pull_request_target`
 
@@ -431,7 +431,7 @@ on:
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
 | [`pull_request`](/webhooks/event-payloads/#pull_request) | - `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `opened`<br/>- `edited`<br/>- `closed`<br/>- `reopened`<br/>- `synchronize`<br/>- `ready_for_review`<br/>- `locked`<br/>- `unlocked` <br/>- `review_requested` <br/>- `review_request_removed` | PR ベースブランチの直近のコミット | PR ベースブランチ   |
 
-デフォルトでは、ワークフローは、`pull_request_target` のアクティビティタイプが `opened`、`synchronize`、または `reopened` のときにのみ実行されます。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。 詳しい情報については、「[{{ site.data.variables.product.prodname_actions }}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
+デフォルトでは、ワークフローは、`pull_request_target` のアクティビティタイプが `opened`、`synchronize`、または `reopened` のときにのみ実行されます。 他のアクティビティタイプについてもワークフローをトリガーするには、`types` キーワードを使用してください。 詳しい情報については、「[{% data variables.product.prodname_actions %}のワークフロー構文](/articles/workflow-syntax-for-github-actions#onevent_nametypes)」を参照してください。
 
 たとえば、プルリクエストが `assigned`、`opened`、`synchronize`、または `reopened` だったときにワークフローを実行できます。
 
@@ -463,13 +463,13 @@ on:
 
 #### `registry_package`
 
-パッケージが`published`もしくは`updated`されるとワークフローを実行します。 詳しい情報については「[{{ site.data.variables.product.prodname_registry }}でのパッケージ管理](/github/managing-packages-with-github-packages)」を参照してください。
+パッケージが`published`もしくは`updated`されるとワークフローを実行します。 詳しい情報については「[{% data variables.product.prodname_registry %}でのパッケージ管理](/github/managing-packages-with-github-packages)」を参照してください。
 
 | webhook イベントのペイロード                                      | アクティビティタイプ                          | `GITHUB_SHA`    | `GITHUB_REF`          |
 | ------------------------------------------------------- | ----------------------------------- | --------------- | --------------------- |
 | [`registry_package`](/webhooks/event-payloads/#package) | - `published`<br/>- `updated` | 公開されたパッケージのコミット | 公開されたパッケージのブランチもしくはタグ |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、パッケージが`published`されたときにワークフローを実行できます。
 
@@ -487,13 +487,13 @@ on:
 
 {% endnote %}
 
-`release` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[リリース](/v3/repos/releases/)」を参照してください。
+`release` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[リリース](/v3/repos/releases/)」を参照してください。
 
 | webhook イベントのペイロード                          | アクティビティタイプ                                                                                                                                                                                                                                | `GITHUB_SHA`       | `GITHUB_REF` |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
 | [`リリース`](/webhooks/event-payloads/#release) | - `published`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released`{% endif %} | リリースのタグが付いた直近のコミット | リリースのタグ      |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、リリースが `published` だったときにワークフローを実行する例は、次のとおりです。
 
@@ -507,7 +507,7 @@ on:
 
 Git コミットのステータスが変更された、それによって `status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ステータス](/v3/repos/statuses/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                          | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------- | ---------- | ----------------- | ------------ |
@@ -522,15 +522,15 @@ on:
 
 #### `Watch`
 
-`watch` イベントが発生したときにワークフローを実行します。 {{ site.data.reusables.developer-site.multiple_activity_types }} REST API の詳細については、「[Star を付ける](/v3/activity/starring/)」を参照してください。
+`watch` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[Star を付ける](/v3/activity/starring/)」を参照してください。
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
 | webhook イベントのペイロード                         | アクティビティタイプ  | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------ | ----------- | ----------------- | ------------ |
 | [`Watch`](/webhooks/event-payloads/#watch) | - `started` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
-{{ site.data.reusables.developer-site.limit_workflow_to_activity_types }}
+{% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 たとえば、誰かがリポジトリに Star を付け、それが Watch イベントをトリガーする `started` アクティブタイプである場合にワークフローを実行する例は、次のとおりです。
 
@@ -542,7 +542,7 @@ on:
 
 #### `workflow_run`
 
-{{ site.data.reusables.webhooks.workflow_run_desc }}
+{% data reusables.webhooks.workflow_run_desc %}
 
 このイベントからブランチをフィルタする必要がある場合は、`branches` または `branches-ignore` を使用できます。
 
@@ -568,7 +568,7 @@ on:
 | ------------------ | ---------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | n/a                | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ | スケジュールしたワークフローを実行するよう設定したとき。 スケジュールしたワークフローは、[POSIX クーロン構文](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07)を使用します。 詳しい情報については、「[イベントでワークフローをトリガーする](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)」を参照してください。 |
 
-{{ site.data.reusables.repositories.actions-scheduled-workflow-example }}
+{% data reusables.repositories.actions-scheduled-workflow-example %}
 
 クーロン構文では、スペースで分けられた 5 つのフィールドがあり、各フィールドは時間の単位を表わします。
 
@@ -595,7 +595,7 @@ on:
 
 {% note %}
 
-**注釈:** {{ site.data.variables.product.prodname_actions }} は、非標準的構文　(`@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly`、`@reboot`) をサポートしていません。
+**注釈:** {% data variables.product.prodname_actions %} は、非標準的構文　(`@yearly`、`@monthly`、`@weekly`、`@daily`、`@hourly`、`@reboot`) をサポートしていません。
 
 {% endnote %}
 
@@ -611,9 +611,9 @@ on:
 | ---------------------------------------------------------------- | ---------- | -------------------------- | --------------- |
 | [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a        | `GITHUB_REF` ブランチ上の直近のコミット | ディスパッチを受信したブランチ |
 
-You can manually trigger a workflow run using the {{ site.data.variables.product.prodname_dotcom }} API and from {{ site.data.variables.product.prodname_dotcom }}. REST API を使用してカスタム `workflow_dispatch` webhook イベントをトリガーするには、`POST` リクエストを {{ site.data.variables.product.prodname_dotcom }} API エンドポイントに送信し、`ref` および必要な `inputs` を入力する必要があります。 詳細については、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」REST API エンドポイントを参照してください。
+You can manually trigger a workflow run using the {% data variables.product.prodname_dotcom %} API and from {% data variables.product.prodname_dotcom %}. REST API を使用してカスタム `workflow_dispatch` webhook イベントをトリガーするには、`POST` リクエストを {% data variables.product.prodname_dotcom %} API エンドポイントに送信し、`ref` および必要な `inputs` を入力する必要があります。 詳細については、「[ワークフローディスパッチイベントの作成](/rest/reference/actions/#create-a-workflow-dispatch-event)」REST API エンドポイントを参照してください。
 
- {{ site.data.variables.product.prodname_dotcom }} でイベントをトリガーすると、{{ site.data.variables.product.prodname_dotcom }} で `ref` と `inputs` を直接入力できます。 詳細は「[ワークフローの設定](/actions/configuring-and-managing-workflows/configuring-a-workflow#manually-running-a-workflow)」を参照してください。
+ {% data variables.product.prodname_dotcom %} でイベントをトリガーすると、{% data variables.product.prodname_dotcom %} で `ref` と `inputs` を直接入力できます。 詳細は「[ワークフローの設定](/actions/configuring-and-managing-workflows/configuring-a-workflow#manually-running-a-workflow)」を参照してください。
 
 #### `repository_dispatch`
 
@@ -621,13 +621,13 @@ You can manually trigger a workflow run using the {{ site.data.variables.product
 | -------------------------------------------------------------------- | ---------- | -------------------------- | --------------- |
 | [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a        | `GITHUB_REF` ブランチ上の直近のコミット | ディスパッチを受信したブランチ |
 
-{{ site.data.reusables.github-actions.branch-requirement }}
+{% data reusables.github-actions.branch-requirement %}
 
-{{ site.data.variables.product.product_name }} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{{ site.data.variables.product.prodname_dotcom }} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「リポジトリディスパッチ イベント</a>を作成
+{% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「リポジトリディスパッチ イベント</a>を作成
 
 」を参照してください。</p> 
 
-カスタム `repository_dispatch` webhook イベントをトリガーするには、{{ site.data.variables.product.product_name }} API エンドポイントに `POST` リクエストを送信して、アクティビティのタイプを説明する `event_type` 名を提供する必要があります。 ワークフローの実行をトリガーするには、`repository_dispatch` イベントを使用するようワークフローを設定する必要もあります。
+カスタム `repository_dispatch` webhook イベントをトリガーするには、{% data variables.product.product_name %} API エンドポイントに `POST` リクエストを送信して、アクティビティのタイプを説明する `event_type` 名を提供する必要があります。 ワークフローの実行をトリガーするには、`repository_dispatch` イベントを使用するようワークフローを設定する必要もあります。
 
 
 
@@ -648,6 +648,6 @@ on:
 
 ### 個人アクセストークンを使った新しいワークフローのトリガー
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
+{% data reusables.github-actions.actions-do-not-trigger-workflows %} 詳しい情報については「[GITHUB_TOKENでの認証](/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)」を参照してください。
 
-ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {{ site.data.variables.product.prodname_actions }}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。
+ワークフローの実行からワークフローをトリガーしたい場合意は、個人アクセストークンを使ってイベントをトリガーできます。 個人アクセストークンを作成し、それをシークレットとして保存する必要があります。 {% data variables.product.prodname_actions %}の利用コストを最小化するために、再帰的あるいは意図しないワークフローの実行が生じないようにしてください。 詳しい情報については「[暗号化されたシークレットの作成と保存](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)」を参照してください。

@@ -19,30 +19,30 @@ versions:
 正しいドメインに接続していることを確かめるには、以下のコマンドを入力します:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Reading configuration data /etc/ssh_config
 > debug1: Applying options for *
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [IP ADDRESS] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [IP ADDRESS] port 22.
 ```
 
 {% if currentVersion == "free-pro-team@latest" %}設定を[HTTPS を介した SSH](/articles/using-ssh-over-the-https-port)を使用するようオーバーライドしていない限り、{% endif %}接続はポート 22で行われるはずです。
 
 ### 常に「git」ユーザを使用する
 
-リモート URL 向けを含むすべての接続は、「git」ユーザとして行われる必要があります。 {{ site.data.variables.product.product_name }} のユーザ名で接続しようとすると、失敗します:
+リモート URL 向けを含むすべての接続は、「git」ユーザとして行われる必要があります。 {% data variables.product.product_name %} のユーザ名で接続しようとすると、失敗します:
 
 ```shell
-$ ssh -T <em>GITHUB-USERNAME</em>@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-接続が失敗し、{{ site.data.variables.product.product_name }}のユーザ名でリモート URL を使用している場合は、[「git」ユーザを使用するようリモート URL を変更](/articles/changing-a-remote-s-url/)できます。
+接続が失敗し、{% data variables.product.product_name %}のユーザ名でリモート URL を使用している場合は、[「git」ユーザを使用するようリモート URL を変更](/articles/changing-a-remote-s-url/)できます。
 
 以下を入力して接続を確認します:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
@@ -50,7 +50,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% mac %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. プライベートキーを生成し SSH に読み込ませていることを確認します。 OpenSSH 6.7 より前のバージョンを使用している場合:
   ```shell
   # バックグラウンドで ssh-agent を起動する
@@ -73,11 +73,11 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
-1. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 2. プライベートキーを生成し SSH に読み込ませていることを確認します。 OpenSSH 6.7 より前のバージョンを使用している場合:
   ```shell
   $ ssh-add -l
@@ -94,7 +94,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% linux %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. プライベートキーを生成し SSH に読み込ませていることを確認します。 OpenSSH 6.7 より前のバージョンを使用している場合:
   ```shell
   # バックグラウンドで ssh-agent を起動する
@@ -115,7 +115,7 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 {% endlinux %}
 
-`ssh-add` コマンドによって、英数字の長い文字列がプリントアウトされる*はずです*。 何もプリントされない場合は、[新しい SSH キーを生成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)して {{ site.data.variables.product.product_name }}と関連付ける必要があります。
+`ssh-add` コマンドによって、英数字の長い文字列がプリントアウトされる*はずです*。 何もプリントされない場合は、[新しい SSH キーを生成](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)して {% data variables.product.product_name %}と関連付ける必要があります。
 
 {% tip %}
 
@@ -125,10 +125,10 @@ $ ssh -T git@{{ site.data.variables.command_line.codeblock }}
 
 #### 詳細を確認する
 
-`git@{{ site.data.variables.command_line.backticks }}` への接続を試して、キーが使用されていることを確認することもできます。
+`git@{% data variables.command_line.backticks %}` への接続を試して、キーが使用されていることを確認することもできます。
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type -1
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa-cert type -1
@@ -146,7 +146,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 この例では、SSH が使用するキーはありませんでした。 「identity file」行の最後の「-1」は、SSH が使用するファイルを見つけることができなかったことを示します。 その後、「Trying private key」の行でもファイルが見つからなかったことが示されています。 ファイルが存在する場合は、これらの行はそれぞれ「1」と「Offering public key」になります。
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > debug1: identity file /Users/<em>you</em>/.ssh/id_rsa type 1
 > ...
@@ -157,7 +157,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 
 ### 公開鍵がアカウントに添付されていることを確認する
 
-公開鍵を {{ site.data.variables.product.product_name }} に提供して、安全な接続を確立する必要があります。
+公開鍵を {% data variables.product.product_name %} に提供して、安全な接続を確立する必要があります。
 
 {% mac %}
 
@@ -179,9 +179,9 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{{ site.data.variables.product.product_name }} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{% data variables.product.product_name %} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -205,9 +205,9 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{{ site.data.variables.product.product_name }} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{% data variables.product.product_name %} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -231,16 +231,16 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
-6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{{ site.data.variables.product.product_name }} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
+6. SSH キーのリストを、`ssh-add` コマンドの出力と比較します。 ![{% data variables.product.product_name %} の SSH キーのリスト](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-{{ site.data.variables.product.product_name }} で公開鍵が見つからない場合は、[{{ site.data.variables.product.product_name }} に SSH キーを追加](/articles/adding-a-new-ssh-key-to-your-github-account)してコンピュータと関連付ける必要があります。
+{% data variables.product.product_name %} で公開鍵が見つからない場合は、[{% data variables.product.product_name %} に SSH キーを追加](/articles/adding-a-new-ssh-key-to-your-github-account)してコンピュータと関連付ける必要があります。
 
 {% warning %}
 
-**警告**: 見慣れない SSH キーが {{ site.data.variables.product.product_name }} で見つかった場合は、すぐにそれを削除し、さらに支援が必要な場合は {{ site.data.variables.contact.contact_support }} に問い合わせてください。 確認できない公開鍵は、潜在的なセキュリティ上の問題を示している可能性があります。 詳細は「[SSH キーをレビューする](/articles/reviewing-your-ssh-keys)」を参照してください。
+**警告**: 見慣れない SSH キーが {% data variables.product.product_name %} で見つかった場合は、すぐにそれを削除し、さらに支援が必要な場合は {% data variables.contact.contact_support %} に問い合わせてください。 確認できない公開鍵は、潜在的なセキュリティ上の問題を示している可能性があります。 詳細は「[SSH キーをレビューする](/articles/reviewing-your-ssh-keys)」を参照してください。
 
 {% endwarning %}

@@ -14,12 +14,12 @@ versions:
 
 您可以通过配置用户帐户或组织的设置来覆盖默认的继承设置。
 
-{{ site.data.reusables.enterprise_site_admin_settings.sign-in }}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.search-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-user-or-org }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.sign-in %}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.search-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.click-user-or-org %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. 在“Force pushes”部分的“Repository default settings”下，选择
     - **Block** 来阻止对所有分支进行强制推送。
     - **Block to the default branch** 来仅阻止对默认分支进行强制推送。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)

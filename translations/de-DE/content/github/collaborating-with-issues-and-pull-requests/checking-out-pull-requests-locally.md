@@ -1,6 +1,6 @@
 ---
 title: Pull Requests lokal auschecken
-intro: 'Wenn Dir jemand einen Pull Request aus einem Fork oder Branch Deines Repositorys schickt, kannst Du ihn lokal zusammenführen, um einen Merge-Konflikt zu lösen oder um die Änderungen vor dem Zusammenführen auf {{ site.data.variables.product.product_name }} zu testen und zu überprüfen.'
+intro: 'Wenn Dir jemand einen Pull Request aus einem Fork oder Branch Deines Repositorys schickt, kannst Du ihn lokal zusammenführen, um einen Merge-Konflikt zu lösen oder um die Änderungen vor dem Zusammenführen auf {% data variables.product.product_name %} zu testen und zu überprüfen.'
 redirect_from:
   - /articles/checking-out-pull-requests-locally
 permissions: Personen mit Schreibzugriff auf eine Repository können einen Remote-Pull-Request lokal nach unten ziehen.
@@ -17,24 +17,24 @@ versions:
 
 ### Einen aktiven Pull Request lokal ändern
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. Klicke in der Liste der Pull-Requests auf die Pull-Requests, die Du ändern möchtest.{% if currentVersion == "free-pro-team@latest" %}
 3. Um auszuwählen, wo Du den Pull Request öffnen willst, wähle das Dropdownmenü „**Open with {% octicon "triangle-down" aria-label="The down triangle icon" %}**" und klicke auf eine der Registerkarten. ![Link um auf die Pull-Request-Anweisungen in der Befehlszeile zuzugreifen](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. Klicke im Merge-Feld auf **Befehlszeilenanweisungen**. Führen Sie nacheinander die Schritte durch, um den vorgeschlagenen Pull Request herunterzuladen. ![Links zum Zugriff auf Anleitungen zu Befehlszeilen-Pull-Requests](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
-4. Klicke optional zur Ansicht der vorgeschlagenen Änderungen mit {{ site.data.variables.product.prodname_desktop }} auf **öffne dies mit {{ site.data.variables.product.prodname_desktop }}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
+4. Klicke optional zur Ansicht der vorgeschlagenen Änderungen mit {% data variables.product.prodname_desktop %} auf **öffne dies mit {% data variables.product.prodname_desktop %}**. ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}
 
 ### Einen inaktiven Pull Request lokal ändern
 
 Wenn der Autor eines Pull Requests auf Anfragen nicht reagiert oder seine Fork gelöscht hat, kann der Pull-Request trotzdem noch zusammengeführt werden. Wenn Du jedoch einen Pull Request ändern willst und der Autor nicht antwortet, musst Du einige zusätzliche Schritte durchführen, um den Pull Request zu aktualisieren.
 
-Sobald ein Pull-Request geöffnet ist, werden alle Änderungen von {{ site.data.variables.product.product_name }} remote gespeichert. Anders gesagt sind Commits in einem Pull Request schon in einem Repository verfügbar, noch bevor der Pull Request zusammengeführt wird. Du kannst einen offenen Pull Request abrufen und als Deinen eigenen neu erstellen.
+Sobald ein Pull-Request geöffnet ist, werden alle Änderungen von {% data variables.product.product_name %} remote gespeichert. Anders gesagt sind Commits in einem Pull Request schon in einem Repository verfügbar, noch bevor der Pull Request zusammengeführt wird. Du kannst einen offenen Pull Request abrufen und als Deinen eigenen neu erstellen.
 
 Jeder kann einen zuvor geöffneten Pull Request weiter bearbeiten, testen oder sogar einen neuen Pull Request mit zusätzlichen Änderungen öffnen. Aber nur Mitarbeiter mit Push-Zugriff können Pull Requests zusammenführen.
 
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.sidebar-issue-pr %}
 2. Klicke in der Liste „Pull Requests“ auf den Pull Request, den Du zusammenführen möchtest.
 3. Ermittle die ID-Nummer des inaktiven Pull Requests. Die ID ist die Ziffernfolge direkt hinter dem Titel des Pull Requests. ![ID-Nummer des Pull Requests](/assets/images/help/pull_requests/pull_request_id_number.png)
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 5. Rufe den Verweis zum Pull Request basierend auf seiner ID-Nummer ab, und erstelle dabei einen neuen Branch.
   ```shell
   $ git fetch origin pull/<em>ID</em>/head:<em>BRANCHNAME</em>
@@ -53,7 +53,7 @@ Jeder kann einen zuvor geöffneten Pull Request weiter bearbeiten, testen oder s
   > Compressing objects: 100% (26/26), done.
   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
   > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>repository</em>.git
+  > To https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>repository</em>.git
   >  * [new branch]      <em>BRANCHNAME</em> -> <em>BRANCHNAME</em>
   ```
 9. [Erstelle einen neuen Pull Request](/articles/creating-a-pull-request) mit Deinem neuen Branch.

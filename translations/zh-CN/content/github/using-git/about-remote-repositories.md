@@ -14,8 +14,8 @@ versions:
 
 您只能推送到两类 URL 地址：
 
-* HTTPS URL，如 `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
-* SSH URL，如 `git@{{ site.data.variables.command_line.backticks }}:user/repo.git`
+* HTTPS URL，如 `https://{% data variables.command_line.backticks %}/user/repo.git`
+* SSH URL，如 `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git 将远程 URL 与名称相关联，您的默认远程通常名为 `origin`。
 

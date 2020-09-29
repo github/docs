@@ -10,13 +10,13 @@ versions:
 
 ### Acceder al tablero de tu organización
 
-{{ site.data.reusables.dashboard.access-org-dashboard }}
+{% data reusables.dashboard.access-org-dashboard %}
 
 ### Encontrar tu actividad reciente
 
 En la sección "Recent activity" (Actividad reciente) de tus noticias, rápidamente puedes buscar las propuestas y solicitud de extracción de tu organización recientemente actualizadas y hacerles el seguimiento.
 
-{{ site.data.reusables.dashboard.recent-activity-qualifying-events }}
+{% data reusables.dashboard.recent-activity-qualifying-events %}
 
 ### Encontrar repositorios en tu organización
 

@@ -7,9 +7,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Eine Pre-Receive-Umgebung für {{ site.data.variables.product.prodname_ghe_server }} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
+Eine Pre-Receive-Umgebung für {% data variables.product.prodname_ghe_server %} ist eine Linux-chroot</code>-Umgebung. Da Pre-Receive-Hooks bei jedem Push-Ereignis ausgeführt werden, sollten sie schnell und kompakt sein. Die für solche Überprüfungen benötigte Umgebung ist in der Regel minimal.</p> 
 
-{{ site.data.variables.product.prodname_ghe_server }} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
+{% data variables.product.prodname_ghe_server %} bietet eine Standardumgebung. Diese enthält die folgenden Pakete: `awk`,  `bash`, `coreutils`, `curl`, `find`, `gnupg`, `grep`, `jq`, `sed`.
 
 Wenn eine bestimmte Anforderung vorliegt, die von dieser Umgebung nicht erfüllt wird, beispielsweise die Unterstützung einer bestimmten Sprache, können Sie Ihre eigene 64-Bit-Linux-`chroot`-Umgebung erstellen und hochladen.
 
@@ -19,7 +19,7 @@ Wenn eine bestimmte Anforderung vorliegt, die von dieser Umgebung nicht erfüllt
 
 Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-Hook-Umgebung verwenden. In diesem Beispiel werden [Alpine Linux](http://www.alpinelinux.org/) und [Docker](https://www.docker.com/) verwendet.
 
-{{ site.data.reusables.linux.ensure-docker }}
+{% data reusables.linux.ensure-docker %}
 
 2. Erstellen Sie die Datei `Dockerfile.alpine-3.3`, welche die folgenden Informationen enthält: 
    
@@ -65,7 +65,7 @@ Sie können ein Linux-Containerverwaltungstool zum Erstellen einer Pre-Receive-H
   ```
 
 
-Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {{ site.data.variables.product.prodname_ghe_server }} hochgeladen werden.
+Diese Datei `alpine-3.3.tar.gz` kann auf die Appliance {% data variables.product.prodname_ghe_server %} hochgeladen werden.
 
 
 
@@ -94,21 +94,21 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 
 
-### Pre-Receive-Hook-Umgebung auf {{ site.data.variables.product.prodname_ghe_server }} hochladen
+### Pre-Receive-Hook-Umgebung auf {% data variables.product.prodname_ghe_server %} hochladen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-
-
-
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
 
 
 
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
+{% data reusables.enterprise_site_admin_settings.business %}
 
 
 
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise-accounts.settings-tab %}
+
+
+
+{% data reusables.enterprise-accounts.hooks-tab %}
 
 5. Klicken Sie auf **Manage environments** (Umgebungen verwalten). ![Umgebungen verwalten](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
 
@@ -124,7 +124,7 @@ Weitere Informationen zum Erstellen einer chroot-Umgebung finden Sie unter „[C
 
 ### Pre-Receive-Hook-Umgebung über die Verwaltungsshell hochladen
 
-1. Laden Sie eine lesbare `*.tar.gz`-Datei, die Ihre Umgebung enthält, auf einen Webhost hoch, und kopieren Sie die URL, oder übertragen Sie die Datei über `scp` an die {{ site.data.variables.product.prodname_ghe_server }}-Appliance. Wenn Sie `scp` verwenden, müssen Sie die `*.tar.gz`-Dateiberechtigungen ggf. anpassen, damit die Datei allgemein lesbar ist.
+1. Laden Sie eine lesbare `*.tar.gz`-Datei, die Ihre Umgebung enthält, auf einen Webhost hoch, und kopieren Sie die URL, oder übertragen Sie die Datei über `scp` an die {% data variables.product.prodname_ghe_server %}-Appliance. Wenn Sie `scp` verwenden, müssen Sie die `*.tar.gz`-Dateiberechtigungen ggf. anpassen, damit die Datei allgemein lesbar ist.
 1.  Stellen Sie eine Verbindung zur Verwaltungsshell her.
 2.  Führen Sie den Befehl `ghe-hook-env-create` aus, und geben Sie den gewünschten Namen für die Umgebung als das erste Argument und den vollständigen lokalen Pfad oder die URL einer `*.tar.gz`-Datei, die Ihre Umgebung enthält, als das zweite Argument ein. 
    

@@ -1,7 +1,7 @@
 ---
 title: Documentação do GitHub Actions
 shortTitle: GitHub Actions
-intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {{ site.data.variables.product.prodname_actions }}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
+intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
 gettingStartedLinks:
   - /actions/quickstart
   - /actions/learn-github-actions
@@ -36,7 +36,7 @@ versions:
 <div class="d-flex gutter my-6 py-6">
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.getting_started }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in gettingStartedLinks %}
@@ -47,7 +47,7 @@ versions:
 
   <div class="col-4">
     <div class="featured-links-heading pb-4">
-      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{{ site.data.ui.toc.popular_articles }}</h3>
+      <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
       {% for link in popularLinks %}

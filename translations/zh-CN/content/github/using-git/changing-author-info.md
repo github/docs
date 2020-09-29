@@ -31,10 +31,10 @@ versions:
 * 显示在要更改的作者/提交者字段中的旧电子邮件地址
 * 要将此类提交归因于的正确名称和电子邮件地址
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 为仓库创建一个全新的裸克隆：
   ```shell
-  git clone --bare https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+  git clone --bare https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
   cd <em>repo</em>.git
   ```
 3. 复制并粘贴脚本，根据您收集的信息替换以下变量：
@@ -66,7 +66,7 @@ versions:
 
 4. 按 **Enter** 键以运行脚本。
 5. 审查新的 Git 历史记录以查找错误。
-6. 将更正的历史记录推送到 {{ site.data.variables.product.product_name }}：
+6. 将更正的历史记录推送到 {% data variables.product.product_name %}：
   ```shell
   git push --force --tags origin 'refs/heads/*'
   ```

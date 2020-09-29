@@ -7,6 +7,6 @@
 | 161/UDP       | SNMP     | Se requiere para operar el protocolo de revisión de red.                                                                                                         |
 | 443           | HTTPS    | Aplicación web y Git a través de acceso HTTPS.                                                                                                                   |
 | 1194/UDP      | VPN      | Túnel de red de replicación segura en la configuración de alta disponibilidad.                                                                                   |
-| 8080          | HTTP     | {{ site.data.variables.enterprise.management_console }} basada en la web de texto simple. *No se requiere excepto que el SSL esté inhabilitado de forma manual.* |
-| 8443          | HTTPS    | {{ site.data.variables.enterprise.management_console }} seguro basada en la web. *Requerido para la instalación y la configuración básicas.*                     |
+| 8080          | HTTP     | {% data variables.enterprise.management_console %} basada en la web de texto simple. *No se requiere excepto que el SSL esté inhabilitado de forma manual.* |
+| 8443          | HTTPS    | {% data variables.enterprise.management_console %} seguro basada en la web. *Requerido para la instalación y la configuración básicas.*                     |
 | 9418          | Git      | Puerto simple de protocolo de Git. Únicamente clonar y extraer operaciones a repositorios públicos. *Comunicación de red no encriptada.*                         |

@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
 1. プロジェクトの進捗の追跡を無効にするプロジェクトボードに移動します。
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. [**Track project progress**] の選択を解除します。

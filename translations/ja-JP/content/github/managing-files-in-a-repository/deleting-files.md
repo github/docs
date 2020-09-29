@@ -1,6 +1,6 @@
 ---
 title: ファイルの削除
-intro: '{{ site.data.variables.product.product_name }} のリポジトリにあるファイルはどれも削除できます。'
+intro: '{% data variables.product.product_name %} のリポジトリにあるファイルはどれも削除できます。'
 redirect_from:
   - /articles/deleting-files
 versions:
@@ -17,10 +17,10 @@ versions:
 1. リポジトリ内で削除対象のファイルを見つけます。
 2. At the top of the file, click
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 {% danger %}
 

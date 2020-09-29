@@ -1,6 +1,6 @@
 ---
 title: Creating a custom badge for your OAuth App
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_oauth_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
 versions:
@@ -27,16 +27,16 @@ After you create an OAuth App, you can customize the app's badge by uploading a 
 
 要创建自定义徽章：
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
-{{ site.data.reusables.user-settings.modify_oauth_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+{% data reusables.user-settings.modify_oauth_app %}
 5. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer. ![上传徽标](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. 裁剪图片。 When you're done, click **Set new application logo**. ![裁剪和设置徽标](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
 7. 在“Badge background color（徽章背景颜色）”中，输入徽章背景颜色的[十六进制颜色代码](http://www.color-hex.com/)。
 {% if currentVersion == "free-pro-team@latest" %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
 ![徽章背景颜色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
-{{ site.data.reusables.user-settings.update_oauth_app }}
+{% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

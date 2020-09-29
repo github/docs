@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.apps.deprecating_token_oauth_authorizations }}
-{{ site.data.reusables.apps.deprecating_password_auth }}
+{% data reusables.apps.deprecating_token_oauth_authorizations %}
+{% data reusables.apps.deprecating_password_auth %}
 
 You can use this API to manage the access OAuth applications have to your account. You can only access this API via [Basic Authentication](/rest/overview/other-authentication-methods#basic-authentication) using your username and password, not tokens.
 

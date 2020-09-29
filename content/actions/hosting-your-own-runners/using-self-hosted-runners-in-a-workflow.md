@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 For information on creating custom and default labels, see "[Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
 
@@ -18,13 +18,13 @@ For information on creating custom and default labels, see "[Using labels with s
 
 Labels allow you to send workflow jobs to specific types of self-hosted runners, based on their shared characteristics. For example, if your job requires a particular hardware component or software package, you can assign a custom label to a runner and then configure your job to only execute on runners with that label.
 
-{{ site.data.reusables.github-actions.self-hosted-runner-labels-runs-on }}
+{% data reusables.github-actions.self-hosted-runner-labels-runs-on %}
 
-For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
 ### Using default labels to route jobs
 
-A self-hosted runner automatically receives certain labels when it is added to {{ site.data.variables.product.prodname_actions }}. These are used to indicate its operating system and hardware platform:
+A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
 * `self-hosted`: Default label applied to all self-hosted runners.
 * `linux`, `windows`, or `macOS`: Applied depending on operating system.
@@ -63,8 +63,8 @@ These labels operate cumulatively, so a self-hosted runner’s labels must match
 
 ### Routing precedence for self-hosted runners
 
-If you use both repository-level and organization-level runners, {{ site.data.variables.product.prodname_dotcom }} follows an order of precedence when routing jobs to self-hosted runners:
+If you use both repository-level and organization-level runners, {% data variables.product.prodname_dotcom %} follows an order of precedence when routing jobs to self-hosted runners:
 
-1. The job's `runs-on` labels are processed. {{ site.data.variables.product.prodname_dotcom }} then attempts to locate a runner that matches the label requirements:
+1. The job's `runs-on` labels are processed. {% data variables.product.prodname_dotcom %} then attempts to locate a runner that matches the label requirements:
 2. The job is sent to a repository-level runner that matches the job labels. If no repository-level runner is available (either busy, offline, or no matching labels):
 3. The job is sent to an organization-level runner that matches the job labels. If no organization-level runner is available, the job request fails with an error.

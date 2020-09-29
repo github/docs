@@ -17,10 +17,10 @@ Puedes establecer permisos de confirmación al crear por primera vez una solicit
 
 ### Habilitar permisos del mantenedor del repositorio en solicitudes de extracción existentes
 
-1. En {{ site.data.variables.product.product_name }}, desplázate hasta la página principal del repositorio ascendente de tu solicitud de extracción.
+1. En {% data variables.product.product_name %}, desplázate hasta la página principal del repositorio ascendente de tu solicitud de extracción.
 2. En el nombre del repositorio ascendente, haz clic en {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests** (Solicitudes de extracción). ![Selección de la pestaña de propuestas y solicitudes de extracción](/assets/images/help/repository/repo-tabs-pull-requests.png)
 3. En la lista de solicitudes de extracción, desplázate hasta la solicitud de extracción en la que deseas realizar las confirmaciones.
-{{ site.data.reusables.repositories.allow-maintainers-user-forks }}
+{% data reusables.repositories.allow-maintainers-user-forks %}
 
   ![allow-maintainers-to-make-edits-sidebar-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits-sidebar-checkbox.png)
 

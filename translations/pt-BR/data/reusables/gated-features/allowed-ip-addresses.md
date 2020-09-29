@@ -1,1 +1,1 @@
-Endereços IP permitidos estão disponíveis com {{ site.data.variables.product.prodname_ghe_cloud }}. Para obter mais informações, consulte os "[Produtos da {{ site.data.variables.product.prodname_dotcom }}](/articles/github-s-products)".
+Endereços IP permitidos estão disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte os "[Produtos da {% data variables.product.prodname_dotcom %}](/articles/github-s-products)".

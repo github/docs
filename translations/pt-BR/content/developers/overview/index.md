@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Saiba mais sobre a API do {{ site.data.variables.product.prodname_dotcom }}, proteja suas implementações e junte-se ao Programa de Desenvolvedor do {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Saiba mais sobre a API do {% data variables.product.prodname_dotcom %}, proteja suas implementações e junte-se ao Programa de Desenvolvedor do {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

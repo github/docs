@@ -13,7 +13,7 @@ Há dois tipos principais de modelo de desenvolvimento com os quais é possível
 
 {% tip %}
 
-**Dica:** {{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**Dica:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

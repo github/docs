@@ -1,7 +1,7 @@
 ---
 title: Building and testing Node.js
 intro: You can create a continuous integration (CI) workflow to build and test your Node.js project.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
   - /actions/language-and-framework-guides/using-nodejs-with-github-actions
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
@@ -21,14 +21,14 @@ This guide shows you how to create a continuous integration (CI) workflow that b
 
 We recommend that you have a basic understanding of Node.js, YAML, workflow configuration options, and how to create a workflow file. For more information, see:
 
-- "[Learn {{ site.data.variables.product.prodname_actions }}](/actions/learn-github-actions)"
+- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
 - "[Getting started with Node.js](https://nodejs.org/en/docs/guides/getting-started-guide/)"
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Starting with the Node.js workflow template
 
-{{ site.data.variables.product.prodname_dotcom }} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml).
 
 To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
@@ -61,17 +61,17 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
 ### Specifying the Node.js version
 
-The easiest way to specify a Node.js version is by using the `setup-node` action provided by {{ site.data.variables.product.prodname_dotcom }}. For more information see, [`setup-node`](https://github.com/actions/setup-node/).
+The easiest way to specify a Node.js version is by using the `setup-node` action provided by {% data variables.product.prodname_dotcom %}. For more information see, [`setup-node`](https://github.com/actions/setup-node/).
 
-The `setup-node` action takes a Node.js version as an input and configures that version on the runner. The `setup-node` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. Using the `setup-node` action is the recommended way of using Node.js with {{ site.data.variables.product.prodname_actions }} because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to `PATH`.
+The `setup-node` action takes a Node.js version as an input and configures that version on the runner. The `setup-node` action finds a specific version of Node.js from the tools cache on each runner and adds the necessary binaries to `PATH`, which persists for the rest of the job. Using the `setup-node` action is the recommended way of using Node.js with {% data variables.product.prodname_actions %} because it ensures consistent behavior across different runners and different versions of Node.js. If you are using a self-hosted runner, you must install Node.js and add it to `PATH`.
 
 The template includes a matrix strategy that builds and tests your code with three Node.js versions: 8.x, 10.x, and 12.x. The 'x' is a wildcard character that matches the latest minor and patch release available for a version. Each version of Node.js specified in the `node-version` array creates a job that runs the same steps.
 
-Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
 {% raw %}
 ```yaml
@@ -123,11 +123,11 @@ jobs:
 ```
 {% endraw %}
 
-If you don't specify a Node.js version, {{ site.data.variables.product.prodname_dotcom }} uses the environment's default Node.js version. For more information, see "[Specifications for {{ site.data.variables.product.prodname_dotcom }}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+If you don't specify a Node.js version, {% data variables.product.prodname_dotcom %} uses the environment's default Node.js version. For more information, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 
 ### Installing dependencies
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {{ site.data.variables.product.prodname_dotcom }}-hosted runners also have Grunt, Gulp, and Bower installed.
+{% data variables.product.prodname_dotcom %}-hosted runners have npm and Yarn dependency managers installed. You can use npm and Yarn to install dependencies in your workflow before building and testing your code. The Windows and Linux {% data variables.product.prodname_dotcom %}-hosted runners also have Grunt, Gulp, and Bower installed.
 
 You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
@@ -191,7 +191,7 @@ steps:
 
 #### Example using a private registry and creating the .npmrc file
 
-{{ site.data.reusables.github-actions.setup-node-intro }}
+{% data reusables.github-actions.setup-node-intro %}
 
 To authenticate to your private registry, you'll need to store your npm authentication token as a secret in your repository settings. For example, create a secret called `NPM_TOKEN`. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 
@@ -273,4 +273,4 @@ You can save artifacts from your build and test steps to view after a job comple
 
 ### Publishing to package registries
 
-You can configure your workflow to publish your Node.js package to a package registry after your CI tests pass. For more information about publishing to npm and {{ site.data.variables.product.prodname_registry }}, see "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."
+You can configure your workflow to publish your Node.js package to a package registry after your CI tests pass. For more information about publishing to npm and {% data variables.product.prodname_registry %}, see "[Publishing Node.js packages](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."

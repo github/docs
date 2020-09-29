@@ -10,7 +10,7 @@ versions:
 
 ### URLs
 
-{{ site.data.variables.product.product_name }} erstellt aus Standard-URLs automatisch Links.
+{% data variables.product.product_name %} erstellt aus Standard-URLs automatisch Links.
 
 `Besuche https://github.com`
 
@@ -20,7 +20,7 @@ Weitere Informationen zum Erstellen von Links findest Du unter „[Grundlegende 
 
 ### Issues und Pull Requests
 
-In Unterhaltungen auf {{ site.data.variables.product.product_name }} werden Verweise auf Issues und Pull Requests automatisch in verkürzte Links umgewandelt. Weitere Informationen findest Du unter „[Informationen zu Unterhaltungen auf {{ site.data.variables.product.prodname_dotcom }}](/articles/about-conversations-on-github).“
+In Unterhaltungen auf {% data variables.product.product_name %} werden Verweise auf Issues und Pull Requests automatisch in verkürzte Links umgewandelt. Weitere Informationen findest Du unter „[Informationen zu Unterhaltungen auf {% data variables.product.prodname_dotcom %}](/articles/about-conversations-on-github).“
 
 {% note %}
 
@@ -38,7 +38,7 @@ In Unterhaltungen auf {{ site.data.variables.product.product_name }} werden Verw
 
 ### Commit-SHAs
 
-Verweise auf den SHA-Hash eines Commits werden automatisch in verkürzte Links zum Commit auf {{ site.data.variables.product.product_name }} umgewandelt.
+Verweise auf den SHA-Hash eines Commits werden automatisch in verkürzte Links zum Commit auf {% data variables.product.product_name %} umgewandelt.
 
 | Verweistyp                  | Rohverweis                                                                           | Kurzlink                                                                                                          |
 | --------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ Verweise auf den SHA-Hash eines Commits werden automatisch in verkürzte Links z
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Benutzerdefinierte automatische Verknüpfungen von externen Ressourcen
 
-{{ site.data.reusables.repositories.autolink-references }}
+{% data reusables.repositories.autolink-references %}
 
 {% endif %}
 

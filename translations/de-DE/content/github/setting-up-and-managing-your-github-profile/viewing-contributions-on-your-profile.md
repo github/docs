@@ -1,6 +1,6 @@
 ---
 title: Beiträge auf Deinem Profil anzeigen
-intro: 'Dein {{ site.data.variables.product.product_name }}-Profil zeigt Deine angehefteten Repositorys und ein Diagramm mit Deinen Repository-Beiträgen des letzten Jahres an.'
+intro: 'Dein {% data variables.product.product_name %}-Profil zeigt Deine angehefteten Repositorys und ein Diagramm mit Deinen Repository-Beiträgen des letzten Jahres an.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ Dein Beteiligungsdiagramm zeigt die Aktivitäten in öffentlichen Repositorys. D
 
 {% note %}
 
-**Hinweis:** Commits werden nur dann in Deinem Beteiligungsdiagramm angezeigt, wenn Du Deinen [E-Mail-Einstellungen für {{ site.data.variables.product.product_name }} die E-Mail-Adresse hinzugefügt hast, die Du für Deine lokale Git-Konfiguration verwendet hast](/articles/adding-an-email-address-to-your-github-account). Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)“
+**Hinweis:** Commits werden nur dann in Deinem Beteiligungsdiagramm angezeigt, wenn Du Deinen [E-Mail-Einstellungen für {% data variables.product.product_name %} die E-Mail-Adresse hinzugefügt hast, die Du für Deine lokale Git-Konfiguration verwendet hast](/articles/adding-an-email-address-to-your-github-account). Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)“
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 - das Absenden eines Pull-Request-Reviews{% if currentVersion != "free-pro-team@latest" %}
 - Commits mit Co-Autor im Standardbranch eines Repositorys oder im Branch `gh-pages`{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Beliebte Repositorys
 
@@ -63,11 +63,11 @@ Dein Beitragskalender zeigt Deine Beitragsaktivität an.
 
 Zeitstempel werden für Commits und Pull Requests unterschiedlich berechnet:
 - **Commits** verwenden die Zeitzoneninformationen im Commit-Zeitstempel. Weitere Informationen findest Du unter „[Fehlerbehebung bei Commits auf Deiner Zeitleiste](/articles/troubleshooting-commits-on-your-timeline).“
-- Die auf {{ site.data.variables.product.product_name }} geöffneten **Pull Requests** und **Issues** verwenden die Zeitzone Deines Browsers. Die über die API geöffneten verwenden den Zeitstempel oder die Zeitzone, [der bzw. die im API-Aufruf angegeben wurde](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+- Die auf {% data variables.product.product_name %} geöffneten **Pull Requests** und **Issues** verwenden die Zeitzone Deines Browsers. Die über die API geöffneten verwenden den Zeitstempel oder die Zeitzone, [der bzw. die im API-Aufruf angegeben wurde](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ### Aktivitätsübersicht
 
-{{ site.data.reusables.profile.activity-overview-summary }} Weitere Informationen findest Du unter „[Übersicht über Deine Aktivitäten in Deinem Profil anzeigen](/articles/showing-an-overview-of-your-activity-on-your-profile).“
+{% data reusables.profile.activity-overview-summary %} Weitere Informationen findest Du unter „[Übersicht über Deine Aktivitäten in Deinem Profil anzeigen](/articles/showing-an-overview-of-your-activity-on-your-profile).“
 
 ![Aktivitätsübersicht im Profil](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ Der Abschnitt für die Beitragsaktivität enthält eine detaillierte Zeitleiste 
 
 ![Zeitfilter für Beitragsaktivität](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### Beiträge von {{ site.data.variables.product.product_location_enterprise }} auf {{ site.data.variables.product.prodname_dotcom_the_website }} anzeigen
+### Beiträge von {% data variables.product.product_location_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} anzeigen
 
-Wenn Dein Websiteadministrator {{ site.data.variables.product.prodname_unified_contributions }} aktiviert hat, kannst Du die {{ site.data.variables.product.prodname_enterprise }}-Beitragszähler an Dein {{ site.data.variables.product.prodname_dotcom_the_website }}-Profil senden. Weitere Informationen findest Du unter „[Deine {{ site.data.variables.product.prodname_ghe_server }}-Beiträge an Deine {{ site.data.variables.product.prodname_dotcom_the_website }} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
+Wenn Dein Websiteadministrator {% data variables.product.prodname_unified_contributions %} aktiviert hat, kannst Du die {% data variables.product.prodname_enterprise %}-Beitragszähler an Dein {% data variables.product.prodname_dotcom_the_website %}-Profil senden. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_ghe_server %}-Beiträge an Deine {% data variables.product.prodname_dotcom_the_website %} senden](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile).“
 
 ### Weiterführende Informationen
 

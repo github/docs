@@ -1,6 +1,6 @@
 ---
 title: リポジトリ内のブランチを表示する
-intro: 'ブランチは、{{ site.data.variables.product.product_name }} のコラボレーションの中心となるものです。それらを表示する最も良い方法はブランチページです。'
+intro: 'ブランチは、{% data variables.product.product_name %} のコラボレーションの中心となるものです。それらを表示する最も良い方法はブランチページです。'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 3. ページ上部のナビゲーションを使用して、特定のブランチのリストを表示します:
     - **Your branches**: プッシュアクセスできるリポジトリでは、[**Yours**] ビューに、プッシュしたすべてのブランチが、最新のブランチから順に表示されます。
     - **Active branches**: [**Active**] ビューには、過去 3 か月以内に誰かがコミットしたすべてのブランチが、最新のコミットがあるブランチから順に表示されます。

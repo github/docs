@@ -1,6 +1,6 @@
 ---
 title: Atualizar uma chave GPG expirada
-intro: 'Ao verificar uma assinatura, o {{ site.data.variables.product.product_name }} confere se a chave foi revogada ou está expirada. Caso a chave de assinatura tenha sido revogada ou esteja expirada, o {{ site.data.variables.product.product_name }} não poderá verificar as assinaturas. Se a chave foi revogada, use a chave principal ou outra chave que não tenha sido revogada para assinar os commits.'
+intro: 'Ao verificar uma assinatura, o {% data variables.product.product_name %} confere se a chave foi revogada ou está expirada. Caso a chave de assinatura tenha sido revogada ou esteja expirada, o {% data variables.product.product_name %} não poderá verificar as assinaturas. Se a chave foi revogada, use a chave principal ou outra chave que não tenha sido revogada para assinar os commits.'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.legacy-issue-template-tip }}
+{% data reusables.repositories.legacy-issue-template-tip %}
 
 You can create an *ISSUE_TEMPLATE/* subdirectory in any of the supported folders to contain multiple issue templates, and use the `template` query parameter to specify the template that will fill the issue body. For more information, see "[About automation for issues and pull requests with query parameters](/articles/about-automation-for-issues-and-pull-requests-with-query-parameters)."
 
@@ -34,16 +34,16 @@ assignees: octocat
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.repositories.valid-community-issues }}
+{% data reusables.repositories.valid-community-issues %}
 
 {% endif %}
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 ### Adding an issue template
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field:
     -  To make your issue template visible in the repository's root directory, type the name of your *issue_template*. For example, `issue_template.md`.
   ![New issue template name in root directory](/assets/images/help/repository/issue-template-file-name.png)
@@ -58,9 +58,9 @@ assignees: octocat
     - Expected behavior and actual behavior
     - Steps to reproduce the problem
     - Specifications like the version of the project, operating system, or hardware
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Templates are available to collaborators when they are merged into the repository's default branch.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Templates are available to collaborators when they are merged into the repository's default branch.
+{% data reusables.files.propose_new_file %}
 
 ### Further reading
 

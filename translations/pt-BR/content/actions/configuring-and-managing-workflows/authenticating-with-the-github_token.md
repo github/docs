@@ -1,7 +1,7 @@
 ---
 title: Autenticando com o "GITHUB_TOKEN"
-intro: '{{ site.data.variables.product.prodname_dotcom }} fornece um token que você pode usar para autenticar em nome de {{ site.data.variables.product.prodname_actions }}.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+intro: '{% data variables.product.prodname_dotcom %} fornece um token que você pode usar para autenticar em nome de {% data variables.product.prodname_actions %}.'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
   - /actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token
@@ -10,26 +10,26 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 Qualquer pessoa com acesso de `gravar` em um repositório pode criar, ler e usar secredos.
 
 ### Sobre o segredo `GITHUB_TOKEN`
 
-O {{ site.data.variables.product.prodname_dotcom }} cria automaticamente um segredo `GITHUB_TOKEN` para uso no fluxo de trabalho. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.
+O {% data variables.product.prodname_dotcom %} cria automaticamente um segredo `GITHUB_TOKEN` para uso no fluxo de trabalho. Você pode usar o `GITHUB_TOKEN` para autenticar em uma execução de fluxo de trabalho.
 
-Ao habilitar {{ site.data.variables.product.prodname_actions }}, {{ site.data.variables.product.prodname_dotcom }} instala um {{ site.data.variables.product.prodname_github_app }} no seu repositório. O segredo `GITHUB_TOKEN` é um token de acesso de instalação {{ site.data.variables.product.prodname_github_app }}. Você pode usar o token de acesso de instalação para autenticar em nome do {{ site.data.variables.product.prodname_github_app }} instalado no seu repositório. As permissões do token são restritas ao repositório do fluxo de trabalho. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
+Ao habilitar {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dotcom %} instala um {% data variables.product.prodname_github_app %} no seu repositório. O segredo `GITHUB_TOKEN` é um token de acesso de instalação {% data variables.product.prodname_github_app %}. Você pode usar o token de acesso de instalação para autenticar em nome do {% data variables.product.prodname_github_app %} instalado no seu repositório. As permissões do token são restritas ao repositório do fluxo de trabalho. Para obter mais informações, consulte "[Permissões para o `GITHUB_TOKEN`](#permissions-for-the-github_token)".
 
-Antes de iniciar cada trabalho, {{ site.data.variables.product.prodname_dotcom }} busca um token de acesso de instalação para o trabalho. O token expira quando o trabalho é concluído.
+Antes de iniciar cada trabalho, {% data variables.product.prodname_dotcom %} busca um token de acesso de instalação para o trabalho. O token expira quando o trabalho é concluído.
 
-O token também está disponível no contexto `github.token`. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+O token também está disponível no contexto `github.token`. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
 
 ### Usar o `GITHUB_TOKEN` em um fluxo de trabalho
 
-Para usar o segredo `GITHUB_TOKEN`, você deve referenciá-lo no arquivo do fluxo de trabalho. Usar um token pode compreender disponibilizar o token como uma entrada para uma ação que o exige ou fazer solicitações de API {{ site.data.variables.product.prodname_dotcom }} autenticadas.
+Para usar o segredo `GITHUB_TOKEN`, você deve referenciá-lo no arquivo do fluxo de trabalho. Usar um token pode compreender disponibilizar o token como uma entrada para uma ação que o exige ou fazer solicitações de API {% data variables.product.prodname_dotcom %} autenticadas.
 
-{{ site.data.reusables.github-actions.actions-do-not-trigger-workflows }}
+{% data reusables.github-actions.actions-do-not-trigger-workflows %}
 
 #### Exemplo de passar um `GITHUB_TOKEN` como uma entrada
 
@@ -52,7 +52,7 @@ Este exemplo de fluxo de trabalho usa a [ação etiquetadora](https://github.com
 
 #### Exemplo de acessar o API REST
 
-Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este exemplo de fluxo de trabalho cria um problema usando a API REST de {{ site.data.variables.product.prodname_dotcom }}:
+Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este exemplo de fluxo de trabalho cria um problema usando a API REST de {% data variables.product.prodname_dotcom %}:
 
   {% raw %}
   ```yaml
@@ -78,7 +78,7 @@ Você pode usar o `GITHUB_TOKEN` para fazer chamadas de API autenticada. Este ex
 
 ### Permissões para o `GITHUB_TOKEN`
 
-Para obter informações sobre os pontos de extremidade da API que {{ site.data.variables.product.prodname_github_apps }} pode acessar com cada permissão, consulte "[Permissões de {{ site.data.variables.product.prodname_github_app }}](/v3/apps/permissions/). "
+Para obter informações sobre os pontos de extremidade da API que {% data variables.product.prodname_github_apps %} pode acessar com cada permissão, consulte "[Permissões de {% data variables.product.prodname_github_app %}](/v3/apps/permissions/). "
 
 | Permissão               | Tipo de acesso   | Acesso pelos repositórios bifurcados |
 | ----------------------- | ---------------- | ------------------------------------ |

@@ -21,7 +21,7 @@ La mejor manera de explicar las fusiones de subárbol es mostrar por ejemplo. Ha
 
 ### Configurar el repositorio vacío para una fusión de subárbol
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Crear un directorio nuevo y navegar a él.
   ```shell
   $ mkdir test

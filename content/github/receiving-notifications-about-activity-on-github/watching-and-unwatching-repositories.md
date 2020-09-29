@@ -6,14 +6,14 @@ versions:
 ---
 
 {% if currentVersion ver_gt "enterprise-server@2.17" %}
-{{ site.data.reusables.notifications.auto-watch }} For more information, see "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
+{% data reusables.notifications.auto-watch %} For more information, see "[About notifications](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)."
 {% endif %}
 
 You can also watch and unwatch releases in a repository. For more information, see "[Watching and unwatching releases for a repository](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository)."
 
 ### Watching all repositories that you have push access to
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Click **Watching**.
 ![Listing of watched repositories](/assets/images/help/notifications/notifications-watching-tab.png)
 3. On the right side of the page, select **Automatically watch**.
@@ -21,13 +21,13 @@ You can also watch and unwatch releases in a repository. For more information, s
 
 ### Watching a single repository
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click **Watching** from the "Watch" drop-down menu.
    ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications/watch-repository.png)
 
 ### Unwatching all repositories that you have push access to
 
-{{ site.data.reusables.notifications.access_watching }}
+{% data reusables.notifications.access_watching %}
 2. Click **Watching**.
 ![Listing of watched repositories](/assets/images/help/notifications/notifications-watching-tab.png)
 3. On the right side of the page, unselect **Automatically watch**.
@@ -35,13 +35,13 @@ You can also watch and unwatch releases in a repository. For more information, s
 
 ### Unwatching a single repository
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. In the upper-right corner, click **Unwatch** from the "Watch" drop-down menu.
    ![Watch options in a drop-down menu for a repository](/assets/images/help/notifications/unwatch-repository.png)
 
 {% note %}
 
-**Note:** You can also choose to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {{ site.data.reusables.policies.abuse }}{% endif %}
+**Note:** You can also choose to ignore a repository. If you ignore a repository, you won't receive any notifications. We don't recommend ignoring repositories as you won't be notified if you're @mentioned. {% if currentVersion == "free-pro-team@latest" %}If you experiencing abuse and want to ignore a repository, please [contact support](/contact) so we can help. {% data reusables.policies.abuse %}{% endif %}
 
 {% endnote %}
 

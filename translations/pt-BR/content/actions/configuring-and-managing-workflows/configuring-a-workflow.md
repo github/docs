@@ -1,7 +1,7 @@
 ---
 title: Configuração de um fluxo de trabalho
 intro: Você pode criar fluxos de trabalho personalizados para automatizar os processos do ciclo de vida de desenvolvimento de software do seu projeto.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /artigos/criando-a-github-action/
   - /artigos/criando-um-fluxo de trabalho-com-github-actions/
@@ -16,18 +16,18 @@ versions:
 
 Pessoas com permissões de gravação ou administração para um repositório podem criar, editar ou visualizar fluxos de trabalho.
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre fluxos de trabalho
 
-Fluxos de trabalho são processos automatizados personalizados que você pode configurar em seu repositório para construir, testar, empacotar, liberar ou implantar qualquer projeto em {{ site.data.variables.product.prodname_dotcom }}. Com fluxos de trabalho, você pode automatizar seu ciclo de vida de desenvolvimento de software com uma ampla gama de ferramentas e serviços. Para obter mais informações, consulte "[Sobre {{ site.data.variables.product.prodname_actions }}](/articles/about-github-actions).".
+Fluxos de trabalho são processos automatizados personalizados que você pode configurar em seu repositório para construir, testar, empacotar, liberar ou implantar qualquer projeto em {% data variables.product.prodname_dotcom %}. Com fluxos de trabalho, você pode automatizar seu ciclo de vida de desenvolvimento de software com uma ampla gama de ferramentas e serviços. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_actions %}](/articles/about-github-actions).".
 
 Você pode criar mais de um fluxo de trabalho em um repositório. Você deve armazenar fluxos de trabalho no `.github/fluxos de trabalho` diretório na raiz do seu repositório.
 
-Os fluxos de trabalho devem ter pelo menos um trabalho, e os trabalhos contêm um conjunto de etapas que executam tarefas individuais. As etapas podem executar comandos ou usar uma ação. Você pode criar suas próprias ações ou usar ações compartilhadas pela comunidade {{ site.data.variables.product.prodname_dotcom }} e personalizá-las conforme necessário.
+Os fluxos de trabalho devem ter pelo menos um trabalho, e os trabalhos contêm um conjunto de etapas que executam tarefas individuais. As etapas podem executar comandos ou usar uma ação. Você pode criar suas próprias ações ou usar ações compartilhadas pela comunidade {% data variables.product.prodname_dotcom %} e personalizá-las conforme necessário.
 
-Você pode configurar um fluxo de trabalho para iniciar quando um evento {{ site.data.variables.product.prodname_dotcom }} ocorre, em um cronograma ou a partir de um evento externo.
+Você pode configurar um fluxo de trabalho para iniciar quando um evento {% data variables.product.prodname_dotcom %} ocorre, em um cronograma ou a partir de um evento externo.
 
 Você precisa configurar fluxos de trabalho usando a sintaxe YAML e salvá-los como arquivos de fluxo de trabalho em seu repositório. Depois de criar com sucesso um arquivo de fluxo de trabalho YAML e acionar o fluxo de trabalho, você verá os registros de compilação, resultados de testes, artefatos e status para cada etapa do seu fluxo de trabalho. Para obter mais informações, consulte "[Gerenciamento de um fluxo de trabalho](/articles/managing-a-workflow-run)."
 
@@ -45,7 +45,7 @@ Em um nível alto, essas são as etapas para adicionar um arquivo de fluxo de tr
 
 1. Em ``.github/fluxos de trabalho, adicione um `.yml` ou `arquivo` .yaml para o seu fluxo de trabalho. Por exemplo, `.github/fluxos de trabalho/continuous-integração-workflow.yml`.
 
-1. Use a sintaxe de referência "[Workflow para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions)" para escolher eventos para acionar uma ação, adicionar ações e personalizar seu fluxo de trabalho.
+1. Use a sintaxe de referência "[Workflow para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions)" para escolher eventos para acionar uma ação, adicionar ações e personalizar seu fluxo de trabalho.
 
 1. Comprometa suas alterações no arquivo de fluxo de trabalho para a filial onde deseja que seu fluxo de trabalho seja executado.
 
@@ -76,16 +76,16 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 ### Desencadeando um fluxo de trabalho com eventos
 
 Você pode configurar um fluxo de trabalho para iniciar uma vez:
-- Um evento sobre {{ site.data.variables.product.prodname_dotcom }} ocorre, como quando alguém empurra um compromisso com um repositório ou quando um problema ou solicitação de puxar é criado.
+- Um evento sobre {% data variables.product.prodname_dotcom %} ocorre, como quando alguém empurra um compromisso com um repositório ou quando um problema ou solicitação de puxar é criado.
 - Um evento agendado começa.
 - Ocorre um evento externo.
 
-Para acionar um fluxo de trabalho após um evento acontecer em {{ site.data.variables.product.prodname_dotcom }}, adicione `em:` e um valor de evento após o nome do fluxo de trabalho. Por exemplo, esse fluxo de trabalho é acionado quando as alterações são empurradas para qualquer ramo no repositório.
+Para acionar um fluxo de trabalho após um evento acontecer em {% data variables.product.prodname_dotcom %}, adicione `em:` e um valor de evento após o nome do fluxo de trabalho. Por exemplo, esse fluxo de trabalho é acionado quando as alterações são empurradas para qualquer ramo no repositório.
 
 ```yaml
 nome: descritivo-workflow-name
@@ -102,7 +102,7 @@ em:
 
 #### Executando manualmente um fluxo de trabalho
 
-Para executar manualmente um fluxo de trabalho, você deve primeiro configurar seu fluxo de trabalho para usar o `workflow_dispatch` evento. Você pode configurar propriedades de entrada definidas por personalizadas, valores de entrada padrão e entradas necessárias diretamente no seu fluxo de trabalho. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no `github.event.inputs` contexto. Para obter mais informações, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" e "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_dotcom }} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context).".
+Para executar manualmente um fluxo de trabalho, você deve primeiro configurar seu fluxo de trabalho para usar o `workflow_dispatch` evento. Você pode configurar propriedades de entrada definidas por personalizadas, valores de entrada padrão e entradas necessárias diretamente no seu fluxo de trabalho. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no `github.event.inputs` contexto. Para obter mais informações, consulte "[Eventos que desencadeiam fluxos de trabalho](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" e "[Contexto e sintaxe de expressão para {% data variables.product.prodname_dotcom %} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context).".
 
 Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . Se um `nome` não for fornecido, o valor padrão 'Mona, o Octocat' será impresso.
 
@@ -130,12 +130,12 @@ em:
 ```
 {% endraw %}
 
-Você pode acionar o `workflow_dispatch` evento a partir da guia Ações na {{ site.data.variables.product.prodname_dotcom }} ou usando a API REST. Para obter mais informações sobre como usar a API REST, consulte o "[Criar um evento de expedição de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)." Ao usar a API REST, você configura as entradas de `` e `ref` como parâmetros do corpo de solicitação. Se as entradas forem omitidas, os valores padrão definidos no arquivo de fluxo de trabalho ão usados.
+Você pode acionar o `workflow_dispatch` evento a partir da guia Ações na {% data variables.product.prodname_dotcom %} ou usando a API REST. Para obter mais informações sobre como usar a API REST, consulte o "[Criar um evento de expedição de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)." Ao usar a API REST, você configura as entradas de `` e `ref` como parâmetros do corpo de solicitação. Se as entradas forem omitidas, os valores padrão definidos no arquivo de fluxo de trabalho ão usados.
 
-Para acionar o `workflow_dispatch` evento em {{ site.data.variables.product.prodname_dotcom }}, seu fluxo de trabalho deve estar no ramo padrão. Siga estas etapas para acionar manualmente uma execução do fluxo de trabalho.
+Para acionar o `workflow_dispatch` evento em {% data variables.product.prodname_dotcom %}, seu fluxo de trabalho deve estar no ramo padrão. Siga estas etapas para acionar manualmente uma execução do fluxo de trabalho.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. Na barra lateral esquerda, clique no fluxo de trabalho que deseja executar. ![ações selecionam fluxo de trabalho](/assets/images/actions-select-workflow.png)
 1. Acima da lista de execuções de fluxo de trabalho, selecione **Executar**de fluxo de trabalho . ![expedição de fluxo de trabalho ações](/assets/images/actions-workflow-dispatch.png)
 1. Selecione o ramo onde o fluxo de trabalho será executado e digite os parâmetros de entrada usados pelo fluxo de trabalho. Clique em **Executar**de fluxo de trabalho . ![ações executar manualmente fluxo de trabalho](/assets/images/actions-manually-run-workflow.png)
@@ -167,17 +167,17 @@ Para obter mais informações sobre a sintaxe do filtro de ramificação, etique
 
 ### Escolhendo um corredor
 
-Você pode executar fluxos de trabalho em corredores hospedados em {{ site.data.variables.product.prodname_dotcom }}ou corredores auto-hospedados. Os trabalhos podem ser executados diretamente na máquina ou em um contêiner Docker.
+Você pode executar fluxos de trabalho em corredores hospedados em {% data variables.product.prodname_dotcom %}ou corredores auto-hospedados. Os trabalhos podem ser executados diretamente na máquina ou em um contêiner Docker.
 
-Você pode especificar o corredor para cada trabalho em um fluxo de trabalho usando ``de corridas . Para obter mais informações sobre ``de correções, consulte "[sintaxe do Workflow para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+Você pode especificar o corredor para cada trabalho em um fluxo de trabalho usando ``de corridas . Para obter mais informações sobre ``de correções, consulte "[sintaxe do Workflow para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Usando um corredor hospedado em {{ site.data.variables.product.prodname_dotcom }}
+#### Usando um corredor hospedado em {% data variables.product.prodname_dotcom %}
 
-Você pode selecionar entre diferentes tipos e versões de máquinas virtuais de host, incluindo Linux, Windows e macOS. Cada trabalho em um fluxo de trabalho é executado em uma nova instância do ambiente virtual, e as etapas dentro de um trabalho podem compartilhar informações usando o sistema de arquivos. Para obter mais informações, consulte "[ambientes virtuais para corredores hospedados {{ site.data.variables.product.prodname_actions }}](/articles/virtual-environments-for-github-actions)."
+Você pode selecionar entre diferentes tipos e versões de máquinas virtuais de host, incluindo Linux, Windows e macOS. Cada trabalho em um fluxo de trabalho é executado em uma nova instância do ambiente virtual, e as etapas dentro de um trabalho podem compartilhar informações usando o sistema de arquivos. Para obter mais informações, consulte "[ambientes virtuais para corredores hospedados {% data variables.product.prodname_actions %}](/articles/virtual-environments-for-github-actions)."
 
-Por exemplo, você pode usar  `` mais recente do ubuntu para especificar a versão mais recente de um corredor hospedado no Ubuntu {{ site.data.variables.product.prodname_dotcom }}.
+Por exemplo, você pode usar  `` mais recente do ubuntu para especificar a versão mais recente de um corredor hospedado no Ubuntu {% data variables.product.prodname_dotcom %}.
 
 ```yaml
 runs-on: ubuntu-latest
@@ -201,7 +201,7 @@ Uma matriz de compilação permite testar seu código com diferentes configuraç
 
 Você pode especificar uma matriz de compilação em seu arquivo de fluxo de trabalho com um array que lista as opções de configuração em `estratégia:`. Por exemplo, esta matriz de compilação executará um trabalho com diferentes versões do Node.js e do Ubuntu, um sistema operacional Linux.
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -213,7 +213,7 @@ estratégia:
 ```
 {% endraw %}
 
-Para obter mais informações, consulte "[sintaxe do Fluxo de Trabalho para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
+Para obter mais informações, consulte "[sintaxe do Fluxo de Trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
 
 ### Usando a ação de checkout
 
@@ -238,7 +238,7 @@ Para obter mais informações, consulte "[Sobre ações](/articles/about-actions
 
 Ao escolher o tipo de ações para usar em seu fluxo de trabalho, recomendamos explorar ações existentes em repositórios públicos ou no hub Docker e potencialmente personalizar essas ações para o seu projeto.
 
-Você pode navegar e usar ações construídas por {{ site.data.variables.product.prodname_dotcom }} na organização [github.com/actions](https://github.com/actions) . Para visitar o Docker Hub, consulte "[Docker Hub](https://www.docker.com/products/docker-hub)" no site do Docker.
+Você pode navegar e usar ações construídas por {% data variables.product.prodname_dotcom %} na organização [github.com/actions](https://github.com/actions) . Para visitar o Docker Hub, consulte "[Docker Hub](https://www.docker.com/products/docker-hub)" no site do Docker.
 
 ### Referenciando ações em seu fluxo de trabalho
 
@@ -251,13 +251,13 @@ Os fluxos de trabalho podem usar ações definidas em:
 
 Para usar uma ação definida em um repositório privado, tanto o arquivo de fluxo de trabalho quanto a ação devem estar no mesmo repositório. Seu fluxo de trabalho não pode usar ações definidas em outros repositórios privados, mesmo que o outro repositório privado esteja na mesma organização.
 
-Para manter seu fluxo de trabalho estável mesmo quando as atualizações são feitas em uma ação, você pode fazer referência à versão da ação que está usando especificando um ref Git ou número de tag Docker em seu arquivo de fluxo de trabalho. Por exemplo, consulte "[sintaxe do Fluxo de Trabalho para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+Para manter seu fluxo de trabalho estável mesmo quando as atualizações são feitas em uma ação, você pode fazer referência à versão da ação que está usando especificando um ref Git ou número de tag Docker em seu arquivo de fluxo de trabalho. Por exemplo, consulte "[sintaxe do Fluxo de Trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 {% endif %}
 
-Para obter opções de configuração mais detalhadas, consulte "[sintaxe do Fluxo de Trabalho para {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Para obter opções de configuração mais detalhadas, consulte "[sintaxe do Fluxo de Trabalho para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 #### Referenciando uma ação de um repositório público
 
@@ -318,13 +318,13 @@ empregos:
 
 Para alguns exemplos de ações do Docker, consulte o fluxo de trabalho [Docker-image.yml](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml) e "[Criando uma ação de contêiner Docker](/articles/creating-a-docker-container-action)."
 
-Para obter mais informações, consulte "[sintaxe do Fluxo de Trabalho para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+Para obter mais informações, consulte "[sintaxe do Fluxo de Trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
 
 ### Adicionando um crachá de status do fluxo de trabalho ao seu repositório
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-Se o seu fluxo de trabalho usar o nome `` palavra-chave, você deve fazer referência ao fluxo de trabalho pelo nome. Se o nome do seu fluxo de trabalho contiver espaço branco, você precisará substituir o espaço pela sequência codificada por URL `%20`. Para obter mais informações sobre o nome `` palavra-chave, consulte "[sintaxe do Fluxo de Trabalho para {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)."
+Se o seu fluxo de trabalho usar o nome `` palavra-chave, você deve fazer referência ao fluxo de trabalho pelo nome. Se o nome do seu fluxo de trabalho contiver espaço branco, você precisará substituir o espaço pela sequência codificada por URL `%20`. Para obter mais informações sobre o nome `` palavra-chave, consulte "[sintaxe do Fluxo de Trabalho para {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)."
 
 ```
 https://github.com/<OWNER>/<REPOSITORY>/fluxos de trabalho/<WORKFLOW_NAME>/badge.svg
@@ -377,5 +377,5 @@ Este exemplo de Markdown adiciona um crachá que exibe o status das corridas de 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Leia mais
 
-- "[gestão de faturamento para {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[gestão de faturamento para {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 {% endif %}

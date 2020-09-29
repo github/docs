@@ -1,1 +1,1 @@
-1. Details zu Deiner Bandbreite und Speichernutzung findest Du unter „{{ site.data.variables.large_files.product_name_short }} Daten". ![Details der Git LFS-Datennutzung](/assets/images/help/billing/lfs-data.png)
+1. Details zu Deiner Bandbreite und Speichernutzung findest Du unter „{% data variables.large_files.product_name_short %} Daten". ![Details der Git LFS-Datennutzung](/assets/images/help/billing/lfs-data.png)

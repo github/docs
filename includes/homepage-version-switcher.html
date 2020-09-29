@@ -6,7 +6,7 @@
       <summary class="py-2 text-gray-dark" role="button" aria-label="Toggle versions list">
         <div class="d-flex flex-items-center flex-justify-between">
           {% if currentVersion == 'homepage' %}
-          {{ site.data.ui.homepage.version_picker }}
+          {% data ui.homepage.version_picker %}
           {% else %}
           {{ allVersions[currentVersion].versionTitle }}
           {% endif %}

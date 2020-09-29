@@ -1,7 +1,7 @@
 ---
 title: Cluster für GitHub Enterprise Server einrichten und verwalten
 shortTitle: Clustering
-intro: 'Dieser Leitfaden beschreibt, wie Du gemeinsam mit dem für Dein Konto zuständigen Ansprechpartner herausfindest, ob sich {{ site.data.variables.product.prodname_enterprise }}-Clustering für Deine Organisation eignet, und auch wie ein Cluster dann eingerichtet wird.'
+intro: 'Dieser Leitfaden beschreibt, wie Du gemeinsam mit dem für Dein Konto zuständigen Ansprechpartner herausfindest, ob sich {% data variables.product.prodname_enterprise %}-Clustering für Deine Organisation eignet, und auch wie ein Cluster dann eingerichtet wird.'
 redirect_from:
   - /enterprise/admin/clustering
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Searching issues and pull requests
-intro: 'You can search for issues and pull requests on {{ site.data.variables.product.product_name }} and narrow the results using these search qualifiers in any combination.'
+intro: 'You can search for issues and pull requests on {% data variables.product.product_name %} and narrow the results using these search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-You can search for issues and pull requests globally across all of {{ site.data.variables.product.product_name }}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+You can search for issues and pull requests globally across all of {% data variables.product.product_name %}, or search for issues and pull requests within a particular organization. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 {% tip %}
 
 **Tips:**{% if currentVersion != "free-pro-team@latest" %}
-  - This article contains example searches on the {{ site.data.variables.product.prodname_dotcom }}.com website, but you can use the same search filters on {{ site.data.variables.product.product_location_enterprise }}.{% endif %}
+  - This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.product.product_location_enterprise %}.{% endif %}
   - For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[Understanding the search syntax](/articles/understanding-the-search-syntax)".
   - Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### Search only issues or pull requests
 
-By default, {{ site.data.variables.product.product_name }} search will return both issues and pull requests. However, you can restrict search results to just issues or pull requests using the `type` or `is` qualifier.
+By default, {% data variables.product.product_name %} search will return both issues and pull requests. However, you can restrict search results to just issues or pull requests using the `type` or `is` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -65,7 +65,7 @@ You can filter issues and pull requests based on whether they're open or closed 
 
 ### Search by public or private repository
 
-If you're [searching across all of {{ site.data.variables.product.product_name }}](https://github.com/search), it can be helpful to filter your results based on whether the repository is public or private. You can do this with `is:public` and `is:private`.
+If you're [searching across all of {% data variables.product.product_name %}](https://github.com/search), it can be helpful to filter your results based on whether the repository is public or private. You can do this with `is:public` and `is:private`.
 
 | Qualifier     | Example
 | ------------- | -------------
@@ -253,9 +253,9 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 You can filter issues based on times of creation, or when they were last updated. For issue creation, you can use the `created` qualifier; to find out when an issue was last updated, you'll want to use the `updated` qualifier.
 
-Both take a date as a parameter. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Both take a date as a parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -266,9 +266,9 @@ Both take a date as a parameter. {{ site.data.reusables.time_date.date_format }}
 
 You can filter issues and pull requests based on when they were closed, using the `closed` qualifier.
 
-This qualifier takes a date as its parameter. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+This qualifier takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -279,9 +279,9 @@ This qualifier takes a date as its parameter. {{ site.data.reusables.time_date.d
 
 You can filter pull requests based on when they were merged, using the `merged` qualifier.
 
-This qualifier takes a date as its parameter. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+This qualifier takes a date as its parameter. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier        | Example
 | ------------- | -------------

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting authorization request errors
-intro: '{{ site.data.reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps }}'
+intro: '{% data reusables.shortdesc.troubleshooting_authorization_request_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-authorization-request-errors/
   - /apps/managing-oauth-apps/troubleshooting-authorization-request-errors
@@ -18,7 +18,7 @@ If the OAuth App you set up has been suspended (due to reported abuse, spam, or 
       &error_uri=/apps/building-integrations/setting-up-and-registering-oauth-apps/troubleshooting-authorization-request-errors/%23application-suspended
       &state=xyz
 
-To solve issues with suspended applications, please contact {{ site.data.variables.contact.contact_support }}.
+To solve issues with suspended applications, please contact {% data variables.contact.contact_support %}.
 
 ### Redirect URI mismatch
 

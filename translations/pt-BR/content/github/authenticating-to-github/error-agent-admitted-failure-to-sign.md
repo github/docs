@@ -1,6 +1,6 @@
 ---
 title: 'Erro: agente com falha ao entrar'
-intro: 'Em raras circunstâncias, a conexão com o {{ site.data.variables.product.product_name }} via SSH no Linux produz o erro "Agente com falha ao entrar usando a chave". Siga estas etapas para resolver o problema.'
+intro: 'Em raras circunstâncias, a conexão com o {% data variables.product.product_name %} via SSH no Linux produz o erro "Agente com falha ao entrar usando a chave". Siga estas etapas para resolver o problema.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key/
   - /articles/error-agent-admitted-failure-to-sign
@@ -9,10 +9,10 @@ versions:
   enterprise-server: '*'
 ---
 
-Ao tentar se conectar via SSH ao {{ site.data.variables.product.product_location }} em um computador Linux, você poderá receber a seguinte mensagem:
+Ao tentar se conectar via SSH ao {% data variables.product.product_location %} em um computador Linux, você poderá receber a seguinte mensagem:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > ...
 > Agente com falha ao entrar usando a chave.
 > debug1: Não há mais métodos de autenticação para tentar.

@@ -1,6 +1,6 @@
 ---
 title: Recovering a high availability configuration
-intro: 'After failing over to a {{ site.data.variables.product.prodname_ghe_server }} appliance, you should regain redundancy as soon as possible rather than rely on a single appliance.'
+intro: 'After failing over to a {% data variables.product.prodname_ghe_server %} appliance, you should regain redundancy as soon as possible rather than rely on a single appliance.'
 redirect_from:
   - /enterprise/admin/installation/recovering-a-high-availability-configuration
   - /enterprise/admin/enterprise-management/recovering-a-high-availability-configuration
@@ -21,9 +21,9 @@ You can use the former primary appliance as the new replica appliance if the fai
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.add-ssh-key-to-primary }}
+{% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 4. To verify the connection to the new primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
   ```shell
   $ ghe-repl-setup <em>FORMER REPLICA IP</em>
   ```
-{{ site.data.reusables.enterprise_installation.replication-command }}
+{% data reusables.enterprise_installation.replication-command %}

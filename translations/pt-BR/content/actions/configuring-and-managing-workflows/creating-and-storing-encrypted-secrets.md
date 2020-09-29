@@ -1,7 +1,7 @@
 ---
 title: Criar e armazenar segredos encriptados
 intro: Os segredos encriptados permitem que você armazene informações confidenciais no seu repositório ou organização.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -10,14 +10,14 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Sobre os segredos encriptados
 
-Segredos são variáveis de ambiente encriptadas que você cria em um repositório ou organização. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {{ site.data.variables.product.prodname_actions }}. O {{ site.data.variables.product.prodname_dotcom }} usa uma [caixa selada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegar ao {{ site.data.variables.product.prodname_dotcom }} e permanecer criptografados até que você os use em um fluxo de trabalho.
+Segredos são variáveis de ambiente encriptadas que você cria em um repositório ou organização. Os segredos que você cria estão disponíveis para utilização nos fluxos de trabalho em {% data variables.product.prodname_actions %}. O {% data variables.product.prodname_dotcom %} usa uma [caixa selada de libsodium](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) para ajudar a garantir que os segredos sejam criptografados antes de chegar ao {% data variables.product.prodname_dotcom %} e permanecer criptografados até que você os use em um fluxo de trabalho.
 
-{{ site.data.reusables.github-actions.secrets-org-level-overview }}
+{% data reusables.github-actions.secrets-org-level-overview %}
 
 #### Nomear os seus segredos
 
@@ -28,17 +28,17 @@ As regras a seguir aplicam-se aos nomes dos segredos:
 * Os nomes dos segredos não devem começar com um número.
 * Os nomes dos segredos devem ser únicos no nível em que são criados. Por exemplo, um segredo criado no nível da organização deve ter um nome único nesse nível, e um segredo criado no nível do repositório deve ter um nome único nesse repositório. Se o segredo do nível de uma organização tiver o mesmo nome do segredo do nível do repositório, o segredo do nível do repositório prevalecerá.
 
-Para ajudar a garantir que {{ site.data.variables.product.prodname_dotcom }} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou Git blobs.
+Para ajudar a garantir que {% data variables.product.prodname_dotcom %} remova o seu segredo dos registros, evite usar dados estruturados como valores dos segredos. Por exemplo, evite criar segredos que contêm JSON ou Git blobs.
 
 #### Acessar os seus segredos
 
-Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo LEIAME da ação para saber quais entradas e variáveis de ambientes a ação exige. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
+Para disponibilizar um segredo para uma ação, você deve configurá-lo como uma entrada ou variável de ambiente no arquivo do fluxo de trabalho. Revise o arquivo LEIAME da ação para saber quais entradas e variáveis de ambientes a ação exige. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepsenv)".
 
-Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se tiver permissão para editar o arquivo. Para obter mais informações, consulte "[Permissões de acesso em {{ site.data.variables.product.prodname_dotcom }}](/github/getting-started-with-github/access-permissions-on-github)."
+Você pode usar e ler segredos encriptados em um arquivo de fluxo de trabalho se tiver permissão para editar o arquivo. Para obter mais informações, consulte "[Permissões de acesso em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
 {% warning %}
 
-**Aviso:** {{ site.data.variables.product.prodname_dotcom }} elimina automaticamente os segredos impressos no registro, mas você deve evitar a impressão intencional de segredos no log.
+**Aviso:** {% data variables.product.prodname_dotcom %} elimina automaticamente os segredos impressos no registro, mas você deve evitar a impressão intencional de segredos no log.
 
 {% endwarning %}
 
@@ -50,11 +50,11 @@ Ao gerar credenciais, recomendamos que você conceda as permissões mínimas pos
 
 ### Criar segredos encriptados para um repositório
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-repository }}
+{% data reusables.github-actions.permissions-statement-secrets-repository %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Clique em **Adicionar novo segredo**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 1. Insira o valor para o seu segredo.
@@ -66,11 +66,11 @@ Se o seu repositório puder acessar segredos a partir da organização-mãe, ess
 
 Ao criar um segredo em uma organização, você pode usar uma política para limitar quais repositórios podem acessar esse segredo. Por exemplo, você pode conceder acesso a todos os repositórios ou limitar o acesso a apenas repositórios privados ou a uma lista específica de repositórios.
 
-{{ site.data.reusables.github-actions.permissions-statement-secrets-organization }}
+{% data reusables.github-actions.permissions-statement-secrets-organization %}
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. Clique em **Novo segredo**.
 1. Digite um nome para o seu segredo na caixa de entrada **Nome**.
 1. Insira o **Valor** para o seu segredo.
@@ -81,9 +81,9 @@ Ao criar um segredo em uma organização, você pode usar uma política para lim
 
 Você pode verificar quais políticas de acesso são aplicadas a um segredo na sua organização.
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.github-actions.sidebar-secret }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.github-actions.sidebar-secret %}
 1. A lista de segredos inclui quaisquer permissões e políticas configuradas. Por exemplo: ![Lista de segredos](/assets/images/help/settings/actions-org-secrets-list.png)
 1. Para obter mais detalhes sobre as permissões configuradas para cada segredo, clique em **Atualizar**.
 
@@ -91,7 +91,7 @@ Você pode verificar quais políticas de acesso são aplicadas a um segredo na s
 
 Com exceção do `GITHUB_TOKEN`, os segredos não são disponibilizados para o executor quando um fluxo de trabalho é acionado a partir de um repositório bifurcado.
 
-Para fornecer uma ação com um segredo como uma entrada ou variável de ambiente, você pode usar o contexto de `segredos` para acessar os segredos que você criou no seu repositório. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)" e "[Sintaxe do fluxo de trabalho para {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+Para fornecer uma ação com um segredo como uma entrada ou variável de ambiente, você pode usar o contexto de `segredos` para acessar os segredos que você criou no seu repositório. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)" e "[Sintaxe do fluxo de trabalho para {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 {% raw %}
 ```yaml
@@ -151,11 +151,11 @@ etapas:
 
 O seu fluxo de trabalho pode ter até 100 segredos. Os nomes das variáveis do ambiente de segredo devem ser únicas em um repositório.
 
-Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {{ site.data.variables.product.prodname_dotcom }}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {{ site.data.variables.product.prodname_dotcom }}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
+Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você pode armazenar segredos criptografados no seu repositório e salvar a frase secreta de descodificação como um segredo no {% data variables.product.prodname_dotcom %}. Por exemplo, você pode usar `gpg` para criptografar suas credenciais localmente antes de colocar o arquivo no repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte a "[página do manual gpg](https://www.gnupg.org/gph/de/manual/r1023.html)".
 
 {% warning %}
 
-**Aviso**: cuide para seus segredos não serem impressos quando a ação é executada. Quando usar essa alternativa, o {{ site.data.variables.product.prodname_dotcom }} não eliminará segredos que estão impressos nos logs.
+**Aviso**: cuide para seus segredos não serem impressos quando a ação é executada. Quando usar essa alternativa, o {% data variables.product.prodname_dotcom %} não eliminará segredos que estão impressos nos logs.
 
 {% endwarning %}
 
@@ -165,7 +165,7 @@ Os segredos são limitados a 64 kB. Para usar segredos maiores que 64 kB, você 
  $ gpg --symmetric --cipher-algo AES256 my_secret.json
  ```
 
-1. Você receberá a solicitação para inserir a frase secreta. Guarde a frase secreta, pois você precisará criar um novo segredo no {{ site.data.variables.product.prodname_dotcom }} que usa a frase secreta como valor.
+1. Você receberá a solicitação para inserir a frase secreta. Guarde a frase secreta, pois você precisará criar um novo segredo no {% data variables.product.prodname_dotcom %} que usa a frase secreta como valor.
 
 1. Criar um novo segredo que contém a frase secreta. Por exemplo, crie um novo segredo com o nome `LARGE_SECRET_PASSPHRASE` e defina o valor do segredo para a frase secreta que você escolheu na etapa anterior.
 

@@ -13,7 +13,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. In the "Pull Requests" list, click the pull request you'd like to close.
 3. At the bottom of the pull request, below the comment box, click **Close pull request**.
   ![The close Pull Request button](/assets/images/help/pull_requests/pullrequest-closebutton.png)

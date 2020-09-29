@@ -29,10 +29,10 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 *Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles for an enterprise account](/articles/roles-for-an-enterprise-account)."
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Further reading
 
-- "[Types of {{ site.data.variables.product.prodname_dotcom }} accounts](/articles/types-of-github-accounts)"
+- "[Types of {% data variables.product.prodname_dotcom %} accounts](/articles/types-of-github-accounts)"

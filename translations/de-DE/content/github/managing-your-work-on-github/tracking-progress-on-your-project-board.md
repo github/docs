@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.project-management.project-progress-locations }}
+{% data reusables.project-management.project-progress-locations %}
 
 1. Navigiere zum Projektboard, in dem die Projektfortschrittsverfolgung deaktiviert werden soll.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 4. Deaktiviere **Track project progress** (Projektfortschritt verfolgen).

@@ -1,6 +1,6 @@
 ---
 title: Wartungsmodus aktivieren und planen
-intro: 'Für einige Standardwartungsprozeduren, beispielsweise für das Upgrade von {{ site.data.variables.product.product_location_enterprise }} oder für das Wiederherstellen von Backups, muss die Instanz für die normale Verwendung offline genommen werden.'
+intro: 'Für einige Standardwartungsprozeduren, beispielsweise für das Upgrade von {% data variables.product.product_location_enterprise %} oder für das Wiederherstellen von Backups, muss die Instanz für die normale Verwendung offline genommen werden.'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,11 +16,11 @@ versions:
 
 ### Informationen zum Wartungsmodus
 
-Bei einigen Vorgangstypen müssen Sie {{ site.data.variables.product.product_location_enterprise }} offline nehmen und in den Wartungsmodus versetzen.
-- Upgrade auf eine neue Version von {{ site.data.variables.product.prodname_ghe_server }}
+Bei einigen Vorgangstypen müssen Sie {% data variables.product.product_location_enterprise %} offline nehmen und in den Wartungsmodus versetzen.
+- Upgrade auf eine neue Version von {% data variables.product.prodname_ghe_server %}
 - Die der virtuellen Maschine zugeordneten CPU-, Arbeitsspeicher- oder  Speicherressourcen erhöhen
 - Daten von einer virtuelle Maschine zu einer anderen migrieren
-- Daten aus einem {{ site.data.variables.product.prodname_enterprise_backup_utilities }}-Snapshot wiederherstellen
+- Daten aus einem {% data variables.product.prodname_enterprise_backup_utilities %}-Snapshot wiederherstellen
 - Fehlerbehebung bei bestimmten Typen kritischer Anwendungsprobleme
 
 Sie sollten ein Wartungsfenster für mindestens 30 Minuten in der Zukunft planen, um Benutzern Vorbereitungszeit zu geben. Nach der Planung eines Wartungsfensters wird allen Benutzern beim Zugriff auf die Website ein Banner angezeigt.
@@ -33,18 +33,18 @@ Wenn sich die Instanz im Wartungsmodus befindet, wird der gesamte normale HTTP- 
 
 ### Wartungsmodus sofort aktiviert oder Wartungsfenster für späteren Zeitpunkt planen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-2. Klicken Sie im oberen Bereich der {{ site.data.variables.enterprise.management_console }} auf **Maintenance** (Wartung). ![Registerkarte „Maintenance“ (Wartung)](/assets/images/enterprise/management-console/maintenance-tab.png)
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+2. Klicken Sie im oberen Bereich der {% data variables.enterprise.management_console %} auf **Maintenance** (Wartung). ![Registerkarte „Maintenance“ (Wartung)](/assets/images/enterprise/management-console/maintenance-tab.png)
 3. Legen Sie unter „Enable and schedule“ (Aktivieren und planen) fest, ob der Wartungsmodus sofort aktiviert werden soll oder ein Wartungsfenster für einen künftigen Zeitpunkt geplant werden soll.
     - Verwenden Sie zum sofortigen Aktivieren des Wartungsmodus das Dropdownmenü, und klicken Sie auf **now** (Jetzt). ![Dropdownmenü mit der ausgewählten Option „now“ (Jetzt) zum Aktivieren des Wartungsmodus](/assets/images/enterprise/maintenance/enable-maintenance-mode-now.png)
     - Verwenden Sie das Dropdownmenü, und klicken Sie auf eine Startzeit, wenn Sie das Wartungsfenster für einen künftigen Zeitpunkt planen möchten.![Dropdownmenü mit der ausgewählten Option zum Planen des Wartungsfensters in zwei Stunden](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
 4. Wählen Sie **Enable maintenance mode** (Wartungsmodus aktivieren) aus. ![Kontrollkästchen zum Aktivieren oder Planen des Wartungsmodus](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
-### Wartungsmodus mit {{ site.data.variables.product.prodname_enterprise_api }} planen
+### Wartungsmodus mit {% data variables.product.prodname_enterprise_api %} planen
 
-Mit der {{ site.data.variables.product.prodname_enterprise_api }} können Sie die Wartung für unterschiedliche Zeitpunkt oder Datumsangaben planen. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+Mit der {% data variables.product.prodname_enterprise_api %} können Sie die Wartung für unterschiedliche Zeitpunkt oder Datumsangaben planen. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
 ### Wartungsmodus für alle Knoten in einem Cluster aktivieren oder deaktivieren
 

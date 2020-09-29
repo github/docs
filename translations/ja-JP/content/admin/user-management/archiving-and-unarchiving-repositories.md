@@ -9,20 +9,20 @@ versions:
 ---
 
 ### リポジトリをアーカイブへ保管
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Danger Zone（危険地域） で、**Archive（アーカイブ）** をクリックする。 ![アーカイブボタン](/assets/images/enterprise/site-admin-settings/repo-archive.png)
 6. **Archive repository（リポジトリのアーカイブ）** をクリックする。 ![リポジトリをアーカイブへ保管するボタン](/assets/images/enterprise/site-admin-settings/repo-archive-confirm.png)
 
 ### リポジトリをアーカイブから展開
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.repository-search }}
-{{ site.data.reusables.enterprise_site_admin_settings.click-repo }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-top-tab }}
-{{ site.data.reusables.enterprise_site_admin_settings.admin-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.repository-search %}
+{% data reusables.enterprise_site_admin_settings.click-repo %}
+{% data reusables.enterprise_site_admin_settings.admin-top-tab %}
+{% data reusables.enterprise_site_admin_settings.admin-tab %}
 5. Danger Zone（危険地域） で、**Unarchive（アーカイブから展開）** をクリックする。 ![アーカイブボタン](/assets/images/enterprise/site-admin-settings/repo-unarchive.png)
 6. **Unarchive repository（リポジトリの展開）** をクリックする。 ![リポジトリをアーカイブへ保管するボタン](/assets/images/enterprise/site-admin-settings/repo-unarchive-confirm.png)
 

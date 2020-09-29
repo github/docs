@@ -10,7 +10,7 @@ versions:
 
 ### Schreibweise überprüfen
 
-Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die Groß- und Kleinschreibung beachtet werden.  Wenn Du versuchst, `git@{{ site.data.variables.command_line.codeblock }}:user/repo.git` zu klonen, das Repository aber in Wirklichkeit `User/Repo` heißt, wird diese Fehlermeldung angezeigt.
+Tippfehler kommen immer wieder vor, und bei den Namen von Repositorys muss die Groß- und Kleinschreibung beachtet werden.  Wenn Du versuchst, `git@{% data variables.command_line.codeblock %}:user/repo.git` zu klonen, das Repository aber in Wirklichkeit `User/Repo` heißt, wird diese Fehlermeldung angezeigt.
 
 Um diesen Fehler beim Klonen zu verhindern, solltest Du die Klon-URL immer von der Repository-Seite kopieren und einfügen. Weitere Informationen findest Du unter „[Ein Repository clonen](/articles/cloning-a-repository)“.
 
@@ -30,10 +30,10 @@ Stelle sicher, dass Du in einer der folgenden Rollen Zugriff auf das Repository 
 
 In seltenen Fällen kann Dir der richtige SSH-Zugriff auf ein Repository fehlen.
 
-Du solltest sicherstellen, dass der von Dir verwendete SSH-Schlüssel an Dein {{ site.data.variables.product.product_name }}-Benutzerkonto angehängt ist. Um zu prüfen, ob dies bei Dir der Fall ist, gib Folgendes in die Befehlszeile ein:
+Du solltest sicherstellen, dass der von Dir verwendete SSH-Schlüssel an Dein {% data variables.product.product_name %}-Benutzerkonto angehängt ist. Um zu prüfen, ob dies bei Dir der Fall ist, gib Folgendes in die Befehlszeile ein:
 
 ```shell
-$ ssh -T git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated, but GitHub does not
 > provide shell access.
 ```
@@ -52,4 +52,4 @@ Wenn Dein Websiteadministrator den privaten Modus auf Deiner GitHub Enterprise-I
 
 ### Überprüfen ob das Repository wirklich vorhanden ist
 
-Wenn alles andere nicht hilft, stelle sicher, dass das Repository tatsächlich auf {{ site.data.variables.product.product_location }} vorhanden ist! Wenn Du versuchst, einen Push zu einem Repository zu machen, das nicht vorhanden ist, wird diese Fehlermeldung angezeigt.
+Wenn alles andere nicht hilft, stelle sicher, dass das Repository tatsächlich auf {% data variables.product.product_location %} vorhanden ist! Wenn Du versuchst, einen Push zu einem Repository zu machen, das nicht vorhanden ist, wird diese Fehlermeldung angezeigt.

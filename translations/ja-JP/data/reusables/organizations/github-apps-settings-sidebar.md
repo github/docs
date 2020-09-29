@@ -1,1 +1,1 @@
-1. 左サイドバーで [**{{ site.data.variables.product.prodname_github_app }}s**] をクリックします。 ![{{ site.data.variables.product.prodname_github_app }}の設定](/assets/images/help/organizations/github-apps-settings-sidebar.png)
+1. 左サイドバーで [**{% data variables.product.prodname_github_app %}s**] をクリックします。 ![{% data variables.product.prodname_github_app %}の設定](/assets/images/help/organizations/github-apps-settings-sidebar.png)

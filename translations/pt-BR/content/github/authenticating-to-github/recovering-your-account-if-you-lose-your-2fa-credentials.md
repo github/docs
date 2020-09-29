@@ -14,7 +14,7 @@ versions:
 
 {% warning %}
 
-**Aviso**: {{ site.data.reusables.two_fa.support-may-not-help }}
+**Aviso**: {% data reusables.two_fa.support-may-not-help %}
 
 {% endwarning %}
 
@@ -24,7 +24,7 @@ versions:
 
 Use um dos códigos de recuperação para obter acesso automaticamente à sua conta. Seus códigos de recuperação podem estar salvos em um gerenciador de senhas ou na pasta de downloads do seu computador. O nome padrão do arquivo de códigos de recuperação é `github-recovery-codes.txt`. Para obter mais informações sobre códigos de recuperação, consulte "[Configurar métodos de recuperação da autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)".
 
-{{ site.data.reusables.two_fa.username-password }}{% if currentVersion == "free-pro-team@latest" %}
+{% data reusables.two_fa.username-password %}{% if currentVersion == "free-pro-team@latest" %}
 2. Em "Encontrou algum problema?", clique em **Insira um código de recuperação de dois fatores**. ![Link to use a recovery code](/assets/images/help/2fa/2fa-recovery-code-link.png){% else %}
 2. Na página da 2FA, em "Don't have your phone?" (Não está com seu telefone?), clique em **Enter a two-factor recovery code** (Digite um código de recuperação de dois fatores). ![Link to use a recovery code](/assets/images/help/2fa/2fa_recovery_dialog_box.png){% endif %}
 3. Digite um dos seus códigos de recuperação e clique em **Verify** (Verificar). ![Campo para digitar um código de recuperação e botão Verify (Verificar)](/assets/images/help/2fa/2fa-type-verify-recovery-code.png)
@@ -51,21 +51,21 @@ Se você perder o acesso às credenciais da autenticação de dois fatores e nã
 
 Você pode usar as suas credenciais de autenticação de dois fatores ou os códigos de recuperação de dois fatores para recuperar o acesso à sua conta a qualquer momento no período de espera de 3 a 5 dias.
 
-{{ site.data.reusables.two_fa.username-password }}
+{% data reusables.two_fa.username-password %}
 2. Em "Encontrou algum problema?", clique em **Não consegue acessar seu dispositivo de dois fatores ou códigos de recuperação válidos?** ![Faça o link, se você não tiver seu dispositivo de 2FA ou códigos de recuperação](/assets/images/help/2fa/no-access-link.png)
 3. Clique em **Eu entendo, começar** para solicitar uma redefinição das suas configurações de autenticação. ![Botão de redefinição da configuração de autenticação](/assets/images/help/2fa/reset-auth-settings.png)
 4. Clique em **Enviar senha de uso único** para enviar uma senha de uso único para todos os endereços de e-mail associados à sua conta. ![Botão para enviar a senha de uso único](/assets/images/help/2fa/send-one-time-password.png)
-5. Em "Única senha", digite a senha temporária do endereço e-mail de recuperação {{ site.data.variables.product.prodname_dotcom }} enviada. ![Campo para a senha de uso único](/assets/images/help/2fa/one-time-password-field.png)
+5. Em "Única senha", digite a senha temporária do endereço e-mail de recuperação {% data variables.product.prodname_dotcom %} enviada. ![Campo para a senha de uso único](/assets/images/help/2fa/one-time-password-field.png)
 6. Clique **Verificar endereço de e-mail**.
 7. Escolha um fator de verificação alternativo.
     - Se você usou seu dispositivo atual para acessar essa conta anteriormente e gostaria de usar o dispositivo para verificação, clique em **Verificar este dispositivo**.
     - Se você já configurou uma chave SSH nesta conta e gostaria de usar a chave SSH para verificação, clique na **chave SSH**.
     - Se você já configurou um token de acesso pessoal anteriormente e gostaria de usar o token de acesso pessoal para verificação, clique em **Token de acesso pessoal**. ![Botões de verificação alternativa](/assets/images/help/2fa/alt-verifications.png)
-8. Um integrante do {{ site.data.variables.contact.github_support }} irá rever a sua solicitação e o seu endereço de e-mail de 3 a 5 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
+8. Um integrante do {% data variables.contact.github_support %} irá rever a sua solicitação e o seu endereço de e-mail de 3 a 5 dias úteis. Se a sua solicitação for aprovada, você receberá um link para concluir o processo de recuperação de conta. Se sua solicitação for negada, o e-mail incluirá uma forma de entrar em contato com o suporte para esclarecer outras dúvidas.
 
 ### Autenticar com um token de recuperação de conta
 
-Em caso de perda de acesso aos métodos de autenticação de dois fatores de sua conta {{ site.data.variables.product.product_name }}, é possível acessar seu token de recuperação de conta de um fornecedor de recuperação parceiro e solicitar ao Suporte do {{ site.data.variables.product.prodname_dotcom }} para verificá-lo.
+Em caso de perda de acesso aos métodos de autenticação de dois fatores de sua conta {% data variables.product.product_name %}, é possível acessar seu token de recuperação de conta de um fornecedor de recuperação parceiro e solicitar ao Suporte do {% data variables.product.prodname_dotcom %} para verificá-lo.
 
 Se você não tiver acesso aos seus métodos de autenticação de dois fatores ou códigos de recuperação e tiver armazenado um token de recuperação de conta no Facebook usando a recuperação de contas em outro lugar, pode ser que você consiga usar seu token para recuperar o acesso à sua conta.
 
@@ -79,9 +79,9 @@ Se você não conseguir recuperar o acesso à sua conta, gere uma de uso único 
 {% endwarning %}
 
 1. No Facebook, acesse [Security Settings](https://www.facebook.com/settings?tab=security) (Configurações de segurança) e clique em **Recover Accounts Elsewhere** (Recuperação de contas em outro lugar). ![Página de configurações de segurança do Facebook com link Recuperação de contas em outro lugar](/assets/images/help/settings/security-facebook-security-settings-page.png)
-2. Clique no token de recuperação associado à sua conta {{ site.data.variables.product.product_name }}. ![Lista de tokens de recuperação armazenados no Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
-3. Para acessar seu token de recuperação de conta, clique em **Recover This Account** (Recuperar esta conta). Uma nova janela abrirá, retornando ao {{ site.data.variables.product.product_name }}. ![Caixa modal com informações sobre seu token de recuperação e botão Recover This Account (Recuperar esta conta)](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Entre em contato com o {{ site.data.variables.contact.contact_support }} para informá-los que seu token de recuperação de conta está pronto para ser verificado.
+2. Clique no token de recuperação associado à sua conta {% data variables.product.product_name %}. ![Lista de tokens de recuperação armazenados no Facebook](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
+3. Para acessar seu token de recuperação de conta, clique em **Recover This Account** (Recuperar esta conta). Uma nova janela abrirá, retornando ao {% data variables.product.product_name %}. ![Caixa modal com informações sobre seu token de recuperação e botão Recover This Account (Recuperar esta conta)](/assets/images/help/settings/security-recover-account-facebook.png)
+4. Entre em contato com o {% data variables.contact.contact_support %} para informá-los que seu token de recuperação de conta está pronto para ser verificado.
 {% endif %}
 
 ### Leia mais
@@ -89,4 +89,4 @@ Se você não conseguir recuperar o acesso à sua conta, gere uma de uso único 
 - [Sobre a autenticação de dois fatores](/articles/about-two-factor-authentication)"
 - "[Configurar a autenticação de dois fatores](/articles/configuring-two-factor-authentication)"
 - "[Configurar métodos de recuperação de autenticação de dois fatores](/articles/configuring-two-factor-authentication-recovery-methods)"
-- "[Acessar o {{ site.data.variables.product.prodname_dotcom }} usando a autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication)"
+- "[Acessar o {% data variables.product.prodname_dotcom %} usando a autenticação de dois fatores](/articles/accessing-github-using-two-factor-authentication)"

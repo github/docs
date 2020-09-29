@@ -15,7 +15,7 @@ versions:
 
 Você pode desbloquear e acessar sua conta atualizando a forma de pagamento da sua organização e retomando o status de pago. sem precisar pagar pelo tempo decorrido no modo bloqueado.
 
-Você pode fazer o downgrade da sua organização para o {{ site.data.variables.product.prodname_free_team }} para continuar com os mesmos recursos avançados em repositórios públicos. Para obter mais informações, consulte "[Rebaixando sua assinatura {{ site.data.variables.product.product_name }}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)."
+Você pode fazer o downgrade da sua organização para o {% data variables.product.prodname_free_team %} para continuar com os mesmos recursos avançados em repositórios públicos. Para obter mais informações, consulte "[Rebaixando sua assinatura {% data variables.product.product_name %}](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)."
 
 ### Desbloqueando recursos da organização devido a pagamento recusado
 

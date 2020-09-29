@@ -1,6 +1,6 @@
 ---
 title: Modelo público
-intro: 'Descarga el modelo público para la API de GraphQL de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Descarga el modelo público para la API de GraphQL de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/public_schema
 versions:

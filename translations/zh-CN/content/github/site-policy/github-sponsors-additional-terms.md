@@ -74,7 +74,7 @@ GitHub 赞助者匹配基金旨在鼓励参与开源软件 (OSS) 生态系统的
 
 * 如果 GitHub 在支付匹配期间授予的任何匹配资金之前发现潜在的违反政策的行为，GitHub 在调查完成之前可能会禁止付款，如果调查发现确实违反了本政策，则可能撤销贡献给被赞助开发者的匹配资金。
 
-* {{ site.data.reusables.sponsors.github-contact-applicants }}
+* {% data reusables.sponsors.github-contact-applicants %}
 
 ### 3. 被赞助开发者的义务。
 

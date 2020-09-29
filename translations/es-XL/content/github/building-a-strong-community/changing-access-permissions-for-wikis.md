@@ -1,7 +1,7 @@
 ---
 title: Cambiar permisos de acceso para wikis
-intro: 'Solo los colaboradores de los repositorios pueden editar el wiki del mismo predeterminadamente, pero puedes permitir a cualquiera con una cuenta de {{ site.data.variables.product.product_name }} para que lo haga.'
-product: '{{ site.data.reusables.gated-features.wikis }}'
+intro: 'Solo los colaboradores de los repositorios pueden editar el wiki del mismo predeterminadamente, pero puedes permitir a cualquiera con una cuenta de {% data variables.product.product_name %} para que lo haga.'
+product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/changing-access-permissions-for-wikis
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. En Features (Características), quita la marca de selección de **Restrict edits to collaborators only** (Restringir ediciones a colaboradores solamente). ![Edición de restricción de wikis](/assets/images/help/wiki/wiki_restrict_editing.png)
 
 ### Leer más

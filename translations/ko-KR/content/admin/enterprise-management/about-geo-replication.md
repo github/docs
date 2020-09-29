@@ -1,6 +1,6 @@
 ---
 title: About geo-replication
-intro: 'Geo-replication on {{ site.data.variables.product.prodname_ghe_server }} uses multiple active replicas to fulfill requests from geographically distributed data centers.'
+intro: 'Geo-replication on {% data variables.product.prodname_ghe_server %} uses multiple active replicas to fulfill requests from geographically distributed data centers.'
 redirect_from:
   - /enterprise/admin/installation/about-geo-replication
   - /enterprise/admin/enterprise-management/about-geo-replication
@@ -18,11 +18,11 @@ Geo DNS, such as [Amazon's Route 53 service](http://docs.aws.amazon.com/Route53/
 
 ### 제한 사항
 
-Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica{% if currentVersion ver_gt "enterprise-server@2.17" %}, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary{% endif %}. Geo-replication will not add capacity to a {{ site.data.variables.product.prodname_ghe_server }} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests.
+Writing requests to the replica requires sending the data to the primary and all replicas. This means that the performance of all writes are limited by the slowest replica{% if currentVersion ver_gt "enterprise-server@2.17" %}, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary{% endif %}. Geo-replication will not add capacity to a {% data variables.product.prodname_ghe_server %} instance or solve performance issues related to insufficient CPU or memory resources. If the primary appliance is offline, active replicas will be unable to serve any read or write requests.
 
 ### Monitoring a geo-replication configuration
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### 더 읽을거리
 - "[Creating geo-replication replicas](/enterprise/{{ currentVersion }}/admin/guides/installation/creating-a-high-availability-replica/#creating-geo-replication-replicas)"

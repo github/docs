@@ -17,7 +17,7 @@ Os itens fixados incluem informações importantes sobre o item, como, por exemp
 
 É possível reordenar os itens na seção "Pinned" (Fixos). No canto superior direito de um item fixo, clique em {% octicon "grabber" aria-label="The grabber symbol" %} e arraste o item para um novo local.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Na seção "Popular repositories" (Repositórios populares) ou "Pinned" (Fixos), clique em **Customize your pins** (Personalizar seus itens fixos). ![Botão Customize your pins (Personalizar seus itens fixos)](/assets/images/help/profile/customize-pinned-repositories.png)
 3. Para exibir uma lista de itens pesquisáveis para fixar, selecione "Repositories" (Repositórios), "Gists" ou ambos. ![Caixas de seleção para escolher os tipos de itens para exibir](/assets/images/help/profile/pinned-repo-picker.png)
 4. Como opção para encontrar mais facilmente um item específico, digite o nome de um usuário, organização, repositório ou gist no campo de filtro. ![Filtrar itens](/assets/images/help/profile/pinned-repo-search.png)

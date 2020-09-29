@@ -1,6 +1,6 @@
 ---
 title: Usar o GitHub na sua instituição educacional
-intro: 'Maximize os benefícios de usar o {{ site.data.variables.product.prodname_dotcom }} na sua instituição para alunos, instrutores e equipe de TI com o {{ site.data.variables.product.prodname_education }} e nossos diversos programas de treinamento para alunos e instrutores.'
+intro: 'Maximize os benefícios de usar o {% data variables.product.prodname_dotcom %} na sua instituição para alunos, instrutores e equipe de TI com o {% data variables.product.prodname_education %} e nossos diversos programas de treinamento para alunos e instrutores.'
 mapTopic: true
 redirect_from:
   - /articles/using-github-at-your-educational-institution

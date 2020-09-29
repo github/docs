@@ -20,7 +20,7 @@ API プレビューにアクセスするには、リクエストの ` Accept` �
 {% if currentVersion == "free-pro-team@latest" %}
 ### 移行
 
-GitHub ユーザまたは Organization アカウントからリポジトリをダウンロードして、データの確認、バックアップ、{{ site.data.variables.product.prodname_ghe_server }} への[移行](/v3/migrations/)ができます。
+GitHub ユーザまたは Organization アカウントからリポジトリをダウンロードして、データの確認、バックアップ、{% data variables.product.prodname_ghe_server %} への[移行](/v3/migrations/)ができます。
 
 **カスタムメディアタイプ:** `wyandotte-preview` **発表日:** [2018-05-24](https://developer.github.com/changes/2018-05-24-user-migration-api/)
 {% endif %}
@@ -120,7 +120,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 ### グローバル webhook
 
-[Organization](/webhooks/event-payloads/#organization) および[ユーザ](/webhooks/event-payloads/#user)イベントタイプの[グローバル webhook](/v3/enterprise-admin/global_webhooks/) を有効にします。 この API プレビューは {{ site.data.variables.product.prodname_ghe_server }} でのみ使用できます。
+[Organization](/webhooks/event-payloads/#organization) および[ユーザ](/webhooks/event-payloads/#user)イベントタイプの[グローバル webhook](/v3/enterprise-admin/global_webhooks/) を有効にします。 この API プレビューは {% data variables.product.prodname_ghe_server %} でのみ使用できます。
 
 **カスタムメディアタイプ:** `superpro-preview` **発表日:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
 
@@ -182,7 +182,7 @@ GitHub App がリポジトリのコードに対して外部チェックを実行
 
 ### リポジトリへの匿名 Git アクセス
 
-{{ site.data.variables.product.prodname_ghe_server }} インスタンスがプライベートモードの場合、サイトおよびリポジトリの管理者は、パブリックリポジトリに対して匿名の Git アクセスを有効にすることができます。
+{% data variables.product.prodname_ghe_server %} インスタンスがプライベートモードの場合、サイトおよびリポジトリの管理者は、パブリックリポジトリに対して匿名の Git アクセスを有効にすることができます。
 
 **カスタムメディアタイプ:** `x-ray-preview` **発表日:** [2018-07-12](https://blog.github.com/2018-07-12-introducing-enterprise-2-14/)
 
@@ -218,7 +218,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 ### コンテンツの添付
 
-{{ site.data.variables.product.prodname_unfurls }} API を使用して、登録されたドメインにリンクする URL の詳細情報を GitHub で提供できるようになりました。 詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments/)」を参照してください。
+{% data variables.product.prodname_unfurls %} API を使用して、登録されたドメインにリンクする URL の詳細情報を GitHub で提供できるようになりました。 詳細については、「[添付コンテンツを使用する](/apps/using-content-attachments/)」を参照してください。
 
 **カスタムメディアタイプ:** `corsair-preview` **発表日:** [2018-12-10](https://developer.github.com/changes/2018-12-10-content-attachments-api/)
 
@@ -226,7 +226,7 @@ Organization メンバーによるリポジトリの作成可否、および作�
 
 ### リポジトリと Organization に対するインタラクションの制限
 
-{{ site.data.variables.product.product_name }} リポジトリまたは Organization に対して、コメント、Issue のオープン、プルリクエスト作成などのインタラクションを一時的に制限できます。 有効にすると、指定した {{ site.data.variables.product.product_name }} ユーザのグループのみがこれらの操作に参加できます。インタラクション 詳細については、 [リポジトリインタラクション](/v3/interactions/repos/)と [Organization インタラクション](/v3/interactions/orgs/) API を参照してください。
+{% data variables.product.product_name %} リポジトリまたは Organization に対して、コメント、Issue のオープン、プルリクエスト作成などのインタラクションを一時的に制限できます。 有効にすると、指定した {% data variables.product.product_name %} ユーザのグループのみがこれらの操作に参加できます。インタラクション 詳細については、 [リポジトリインタラクション](/v3/interactions/repos/)と [Organization インタラクション](/v3/interactions/orgs/) API を参照してください。
 
 **カスタムメディアタイプ:** `sombra-preview` **発表日:** [2018-12-18](https://developer.github.com/changes/2018-12-18-interactions-preview/)
 

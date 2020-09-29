@@ -1,1 +1,1 @@
-Activity related to people being blocked in an organization. {{ site.data.reusables.webhooks.action_type_desc }} 更多信息请参阅“[阻止组织用户](/v3/orgs/blocking/)”REST API。
+Activity related to people being blocked in an organization. {% data reusables.webhooks.action_type_desc %} 更多信息请参阅“[阻止组织用户](/v3/orgs/blocking/)”REST API。

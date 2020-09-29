@@ -18,20 +18,20 @@ versions:
 
 ![グローバル webhook のリスト](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 
-{{ site.data.reusables.enterprise_user_management.manage-global-webhooks-api }}
+{% data reusables.enterprise_user_management.manage-global-webhooks-api %}
 
 
 ### グローバルwebhookの追加
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 5. **Add webhook（webhookの追加）**をクリックしてください。 ![Admin center の webhook ページ上の webhook 追加ボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-button.png)
 6. ペイロードの受信に使用する URL を入力します。 ![ペイロード URL を入力するフィールド](/assets/images/enterprise/site-admin-settings/add-global-webhook-payload-url.png)
 7. **Content type（コンテントタイプ）**ドロップダウンメニューを使ってペイロードの形式をクリックすることもできます。 ![コンテンツタイプのオプションが並ぶドロップダウンメニュー](/assets/images/enterprise/site-admin-settings/add-global-webhook-content-type-dropdown.png)
 8. **Secret（秘密）**フィールドに、`secret`キーとして使う文字列を入力することもできます。 ![シークレットキーとして使う文字列を入力するフィールド](/assets/images/enterprise/site-admin-settings/add-global-webhook-secret.png)
-9. ペイロードのデリバリ時に {{ site.data.variables.product.prodname_ghe_server }} に SSL 証明書を検証してほしくない場合、**Disable SSL verification**] をクリックします。 SSLの検証に関する情報を読んで、 **I understand my webhooks may not be secure（webhookがセキュアではないかもしれないことを理解しました）**をクリックしてください。 ![SSLの検証を無効化するボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
+9. ペイロードのデリバリ時に {% data variables.product.prodname_ghe_server %} に SSL 証明書を検証してほしくない場合、**Disable SSL verification**] をクリックします。 SSLの検証に関する情報を読んで、 **I understand my webhooks may not be secure（webhookがセキュアではないかもしれないことを理解しました）**をクリックしてください。 ![SSLの検証を無効化するボタン](/assets/images/enterprise/site-admin-settings/add-global-webhook-disable-ssl-button.png)
 
   {% warning %}
 
@@ -47,28 +47,28 @@ versions:
 
 ### グローバルwebhookの編集
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 5. 編集したいwebhookの隣の**Edit（編集）**をクリックしてください。 ![webhook の隣の編集ボタン](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
 6. webhookの設定の更新。
 7. **Update webhook（webhookの更新）**をクリックしてください。
 
 ### グローバルwebhookの削除
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 5. 削除したいwebhookの隣の**Delete（削除）**をクリックしてください。 ![webhook の隣の削除ボタン](/assets/images/enterprise/site-admin-settings/delete-global-webhook-button.png)
 6. webhookの削除に関する情報を読んで、**Yes, delete webhook（はい、webhookを削除します）**をクリックしてください。 ![警告情報のポップアップボックスとwebhookの削除ボタン](/assets/images/enterprise/site-admin-settings/confirm-delete-global-webhook.png)
 
 ### 最近のデリバリとレスポンスの表示
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.hooks-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.hooks-tab %}
 5. webhook のリストで、デリバリを見たい webhook をクリックします。 ![各 webhook の表示リンクを持つ webhook のリスト](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
 6. [Recent deliveries（最近のデリバリ）] の下で、詳細を表示したいデリバリをクリックしてください。 ![詳細表示へのリンクを持つ最近のwebhookのデリバリリスト](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)

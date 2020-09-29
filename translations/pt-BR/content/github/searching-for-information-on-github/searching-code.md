@@ -1,6 +1,6 @@
 ---
 title: Pesquisar códigos
-intro: 'Você pode pesquisar códigos no {{ site.data.variables.product.product_name }} e limitar os resultados usando qualquer combinação dos qualificadores da pesquisa de código.'
+intro: 'Você pode pesquisar códigos no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação dos qualificadores da pesquisa de código.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -10,17 +10,17 @@ versions:
   enterprise-server: '*'
 ---
 
-Você pode pesquisar códigos globalmente no {{ site.data.variables.product.product_name }} ou pesquisar em uma organização ou um repositório específico. Para pesquisar códigos em todos os repositórios públicos, é necessário ter iniciado a sessão em uma conta do {{ site.data.variables.product.product_name }}. Para obter mais informações, consulte "[Sobre a pesquisa no GitHub](/articles/about-searching-on-github)".
+Você pode pesquisar códigos globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para pesquisar códigos em todos os repositórios públicos, é necessário ter iniciado a sessão em uma conta do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre a pesquisa no GitHub](/articles/about-searching-on-github)".
 
 Você pode pesquisar códigos usando somente estes qualificadores de pesquisa de código. Qualificadores de pesquisa específicos para repositórios, usuários ou commits não funcionarão com a pesquisa de códigos.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Considerações sobre pesquisa de códigos
 
 Devido à complexidade da pesquisa de códigos, a execução das pesquisas apresenta algumas restrições:
 
-- {{ site.data.reusables.search.required_login }}
+- {% data reusables.search.required_login %}
 - O código em [bifurcações](/articles/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/articles/searching-in-forks)".
 - Apenas o _branch-padrão_ é indexado para a busca de código.{% if currentVersion == "free-pro-team@latest" %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
@@ -102,4 +102,4 @@ O qualificador `extension` identifica os arquivos de código com uma determinada
 
 - "[Ordenar os resultados da pesquisa](/articles/sorting-search-results/)"
 - "[Pesquisar nas bifurcações](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
-- "[Navegar pelo código em {{ site.data.variables.product.prodname_dotcom }}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[Navegar pelo código em {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

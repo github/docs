@@ -1,14 +1,14 @@
 ---
 title: Setting your timezone for GitHub Insights
-intro: 'You can set the timezone for metrics you view in {{ site.data.variables.product.prodname_insights }}.'
-product: '{{ site.data.reusables.gated-features.github-insights }}'
-permissions: 'Anyone with access to {{ site.data.variables.product.prodname_insights }} can set their own timezone.'
+intro: 'You can set the timezone for metrics you view in {% data variables.product.prodname_insights %}.'
+product: '{% data reusables.gated-features.github-insights %}'
+permissions: 'Anyone with access to {% data variables.product.prodname_insights %} can set their own timezone.'
 versions:
   enterprise-server: '*'
 ---
 
-Your timezone setting only affects how you see data in {{ site.data.variables.product.prodname_insights }}. The setting does not apply to other users.
+Your timezone setting only affects how you see data in {% data variables.product.prodname_insights %}. The setting does not apply to other users.
 
-{{ site.data.reusables.github-insights.settings-tab }}
+{% data reusables.github-insights.settings-tab %}
 2. Use the "Timezone" drop-down menu, and select your timezone. ![Timezone drop-down menu](/assets/images/help/insights/timezone-drop-down.png)
 3. Click **Save Changes**.

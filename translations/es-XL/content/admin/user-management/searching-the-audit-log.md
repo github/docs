@@ -1,6 +1,6 @@
 ---
 title: Buscar el registro de auditoría
-intro: 'Los administradores del sitio pueden buscar una amplia lista de [acciones auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) en {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Los administradores del sitio pueden buscar una amplia lista de [acciones auditadas](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) en {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -38,8 +38,8 @@ Para ver una lista completa de acciones, consulta "[Acciones auditadas](/enterpr
 
 ### Buscar el registro de auditoría
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. Escribe una consulta de búsqueda. ![Consulta de búsqueda](/assets/images/enterprise/site-admin-settings/search-query.png)

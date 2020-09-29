@@ -16,8 +16,8 @@ versions:
 - 您已审查的拉取请求
 - [有人要求您或您所属团队进行审查](/articles/requesting-a-pull-request-review)的拉取请求
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. 在右上角，选择 Reviews（审查）下拉菜单。 ![拉取请求列表上方过滤器菜单中的审查下拉菜单](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
 4. 选择一个过滤器以查找具有该过滤器状态的所有拉取请求。 ![审查下拉菜单中的过滤器列表](/assets/images/help/pull_requests/pr-review-filters.png)
 

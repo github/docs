@@ -1,7 +1,7 @@
 ---
 title: Usar Node.js con Acciones de GitHub
 intro: Puedes crear un flujo de trabajo de integración continua (CI) para construir y probar tu proyecto Node.js.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-nodejs-with-github-actions
 versions:
@@ -9,8 +9,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introducción
 
@@ -22,14 +22,14 @@ Te recomendamos que tengas una comprensión básica de Node.js, YAML, las opcion
 
 También puede ser útil tener un entendimiento básico de lo siguiente:
 
-- "[Conceptos básicos para {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
+- "[Conceptos básicos para {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions)"
 - "[Usar variables de entorno](/actions/automating-your-workflow-with-github-actions/using-environment-variables)"
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Comenzar con una plantilla de flujo de trabajo de Node.js
 
-{{ site.data.variables.product.prodname_dotcom }} proporciona una plantilla de flujo de trabajo de Node.js que funcionará para la mayoría de los proyectos Node.js. Esta guía incluye ejemplos de npm y Yarn que puedes usar para personalizar la plantilla. Para obtener más información, consulta la [Plantilla de flujo de trabajo Node.js](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} proporciona una plantilla de flujo de trabajo de Node.js que funcionará para la mayoría de los proyectos Node.js. Esta guía incluye ejemplos de npm y Yarn que puedes usar para personalizar la plantilla. Para obtener más información, consulta la [Plantilla de flujo de trabajo Node.js](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml).
 
 Para comenzar rápidamente, agrega la plantilla al directorio `.github/workflows` de tu repositorio.
 
@@ -62,17 +62,17 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
 ### Especificar la versión de Node.js
 
-La forma más fácil de especificar una versión de Node.js es por medio de la acción `setup-node` proporcionada por {{ site.data.variables.product.prodname_dotcom }}. Para obtener más información, consulta [`setup-node`](https://github.com/actions/setup-node/).
+La forma más fácil de especificar una versión de Node.js es por medio de la acción `setup-node` proporcionada por {% data variables.product.prodname_dotcom %}. Para obtener más información, consulta [`setup-node`](https://github.com/actions/setup-node/).
 
-La acción `setup-node` toma una versión de Node.js como una entrada y configura esa versión en el ejecutor. La acción `setup-node` encuentra una versión específica de Node.js de la caché de herramientas en cada ejecutor y añade los binarios necesarios a `PATH`, que continúan para el resto del trabajo. Usar la acción `setup-node` es la forma recomendada de usar Node.js con {{ site.data.variables.product.prodname_actions }} porque asegura un comportamiento consistente a través de diferentes ejecutores y diferentes versiones de Node.js. Si estás usando un ejecutor autoalojado, debes instalar Node.js y añadirlo a `PATH`.
+La acción `setup-node` toma una versión de Node.js como una entrada y configura esa versión en el ejecutor. La acción `setup-node` encuentra una versión específica de Node.js de la caché de herramientas en cada ejecutor y añade los binarios necesarios a `PATH`, que continúan para el resto del trabajo. Usar la acción `setup-node` es la forma recomendada de usar Node.js con {% data variables.product.prodname_actions %} porque asegura un comportamiento consistente a través de diferentes ejecutores y diferentes versiones de Node.js. Si estás usando un ejecutor autoalojado, debes instalar Node.js y añadirlo a `PATH`.
 
 La plantilla incluye una estrategia de matriz que construye y prueba tu código con tres versiones de Node.js: 8.x, 10.x y 12.x. La 'x' es un carácter comodín que coincide con el último lanzamiento menor y de parche disponible para una versión. Cada versión de Node.js especificada en la matriz `node-version` crea un trabajo que ejecuta los mismos pasos.
 
-Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta "[Sintaxis de flujo de trabajo para {{ site.data.variables.product.prodname_actions }}"](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) y "[Sintaxis de contexto y expresión para {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Cada trabajo puede acceder al valor definido en la matriz `node-version` por medio del contexto `matrix`. La acción `setup-node` utiliza el contexto como la entrada `node-version`. La acción `setup-node` configura cada trabajo con una versión diferente de Node.js antes de construir y probar código. Para obtener más información acerca de las estrategias y los contextos de la matriz, consulta "[Sintaxis de flujo de trabajo para {% data variables.product.prodname_actions %}"](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) y "[Sintaxis de contexto y expresión para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 {% raw %}
 ```yaml
@@ -124,11 +124,11 @@ jobs:
 ```
 {% endraw %}
 
-Si no especificas una versión de Node.js, {{ site.data.variables.product.prodname_dotcom }} utiliza la versión de Node.js por defecto del entorno. Para obtener más información, consulta "[Software instalado en ejecutores alojados en {{ site.data.variables.product.prodname_dotcom }}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)."
+Si no especificas una versión de Node.js, {% data variables.product.prodname_dotcom %} utiliza la versión de Node.js por defecto del entorno. Para obtener más información, consulta "[Software instalado en ejecutores alojados en {% data variables.product.prodname_dotcom %}](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)."
 
 ### Instalar dependencias
 
-Los ejecutores alojados en {{ site.data.variables.product.prodname_dotcom }} tienen instalados administradores de dependencias de npm y Yarn. Puedes usar npm y Yarn para instalar dependencias en tu flujo de trabajo antes de construir y probar tu código. Los ejecutores Windows y Linux alojados en {{ site.data.variables.product.prodname_dotcom }} también tienen instalado Grunt, Gulp y Bower.
+Los ejecutores alojados en {% data variables.product.prodname_dotcom %} tienen instalados administradores de dependencias de npm y Yarn. Puedes usar npm y Yarn para instalar dependencias en tu flujo de trabajo antes de construir y probar tu código. Los ejecutores Windows y Linux alojados en {% data variables.product.prodname_dotcom %} también tienen instalado Grunt, Gulp y Bower.
 
 También puedes almacenar en caché las dependencias para acelerar tu flujo de trabajo. Para obtener más información, consulta "[Almacenar en caché las dependencias para acelerar tu flujo de trabajo](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
@@ -192,7 +192,7 @@ steps:
 
 #### Ejemplo de uso de un registro privado y la creación del archivo .npmrc
 
-{{ site.data.reusables.github-actions.setup-node-intro }}
+{% data reusables.github-actions.setup-node-intro %}
 
 Para autenticarte en tu registro privado, deberás almacenar tu token de autenticación npm como un secreto en los parámetros de tu repositorio. Por ejemplo, crea un secreto llamado `NPM_TOKEN`. Para obtener más información, consulta "[Crear y usar secretos cifrados](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)".
 
@@ -274,4 +274,4 @@ Puedes guardar los artefactos de tus pasos de construcción y prueba para verlos
 
 ### Publicar en registros de paquetes
 
-Puedes configurar tu flujo de trabajo para que publique tu paquete Node.js en un registro de paquete después de que se aprueben tus pruebas de CI. Para obtener más información acerca de la publicación a npm y {{ site.data.variables.product.prodname_registry }}, consulta [Publicar paquetes Node.js](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."
+Puedes configurar tu flujo de trabajo para que publique tu paquete Node.js en un registro de paquete después de que se aprueben tus pruebas de CI. Para obtener más información acerca de la publicación a npm y {% data variables.product.prodname_registry %}, consulta [Publicar paquetes Node.js](/actions/automating-your-workflow-with-github-actions/publishing-nodejs-packages)."

@@ -16,7 +16,7 @@ versions:
 
 移行 API を使用できるのは、認証済みの Organization オーナーのみです。 詳細については、「[Organization の権限レベル](/github/setting-up-and-managing-organizations-and-teams/permission-levels-for-an-organization#permission-levels-for-an-organization)」と「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
 
-{{ site.data.variables.migrations.organization_migrations_intro }}
+{% data variables.migrations.organization_migrations_intro %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -24,7 +24,7 @@ versions:
 
 ## ソースのインポート
 
-{{ site.data.variables.migrations.source_imports_intro }}
+{% data variables.migrations.source_imports_intro %}
 
 一般的なソースのインポートでは、まずインポートを開始し、次に (オプションで) 作者を更新したり、インポートに大きいファイルが存在する場合に Git LFS 使用の設定を更新したりします。 [`RepositoryImportEvent`](/developers/webhooks-and-events/webhook-events-and-payloads#repository_import) をリスニングする webhook を作成して、インポートのステータスを確認することもできます。
 
@@ -111,7 +111,7 @@ versions:
 
 ユーザ移行 API を使用できるのは、認証済みのアカウントオーナーのみです。 詳細は、「[その他の認証方式](/rest/overview/other-authentication-methods)」を参照してください。
 
-{{ site.data.variables.migrations.user_migrations_intro }}ダウンロードできる移行データのリストは、「[ユーザー移行アーカイブをダウンロードする](#download-a-user-migration-archive)」を参照してください。
+{% data variables.migrations.user_migrations_intro %}ダウンロードできる移行データのリストは、「[ユーザー移行アーカイブをダウンロードする](#download-a-user-migration-archive)」を参照してください。
 
 アーカイブをダウンロードするには、先にユーザ移行を開始する必要があります。 移行のステータスが `exported` になると、移行をダウンロードできます。
 

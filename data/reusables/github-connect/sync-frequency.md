@@ -1,1 +1,1 @@
-{{ site.data.variables.product.prodname_ghe_server }} sends updates hourly.
+{% data variables.product.prodname_ghe_server %} sends updates hourly.

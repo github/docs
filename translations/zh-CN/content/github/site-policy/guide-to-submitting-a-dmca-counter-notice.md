@@ -53,7 +53,7 @@ versions:
 
 ### 如何提交反通知
 
-得到回复的最快方式是在我们的 {{ site.data.variables.contact.contact_dmca }} 上输入您的信息并回答所有问题。
+得到回复的最快方式是在我们的 {% data variables.contact.contact_dmca %} 上输入您的信息并回答所有问题。
 
 您也可以发送电子邮件通知到 <copyright@github.com>。 您可以包含附件（如果您愿意），但在邮件正文中也应包含来函的纯文本版本。
 

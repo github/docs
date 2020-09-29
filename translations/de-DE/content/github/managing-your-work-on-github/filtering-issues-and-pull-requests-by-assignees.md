@@ -8,10 +8,10 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Wähle in der oberen rechten Ecke das Dropdownmenü „Assignee“ (Bearbeiter) aus.
 4. In diesem Dropdownmenü sind alle Benutzer aufgeführt, die Schreibzugriff auf Dein Repository haben. Klicke auf den Namen des Benutzers, dessen zugewiesene Elemente Du ansehen möchtest, oder klicke auf **Assigned to nobody** (Niemandem zugewiesen), um zu sehen, welche Issues niemandem zugewiesen wurden. ![Dropdownmenü „Assignees“ (Bearbeiter) verwenden](/assets/images/help/issues/issues_assignee_dropdown.png)
 

@@ -16,5 +16,5 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}

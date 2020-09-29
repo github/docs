@@ -1,6 +1,6 @@
 ---
 title: Handling new purchases and free trials
-intro: 'When a customer purchases a paid plan, free trial, or the free version of your {{ site.data.variables.product.prodname_marketplace }} app, you''ll receive the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `purchased` action, which kicks off the purchasing flow.'
+intro: 'When a customer purchases a paid plan, free trial, or the free version of your {% data variables.product.prodname_marketplace %} app, you''ll receive the [`marketplace_purchase` event](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events) webhook with the `purchased` action, which kicks off the purchasing flow.'
 redirect_from:
   - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-github-apps/
   - /apps/marketplace/administering-listing-plans-and-user-accounts/supporting-purchase-plans-for-oauth-apps/
@@ -14,13 +14,13 @@ versions:
 
 {% warning %}
 
-If you offer a GitHub App in {{ site.data.variables.product.prodname_marketplace }}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate OAuth App to support this flow. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
+If you offer a GitHub App in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate OAuth App to support this flow. See "[Identifying and authorizing users for GitHub Apps](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/)" for more information.
 
 {% endwarning %}
 
 ### 步骤 1. Initial purchase and webhook event
 
-Before a customer purchases your {{ site.data.variables.product.prodname_marketplace }} app, they select a [listing plan](/marketplace/selling-your-app/github-marketplace-pricing-plans/). They also choose whether to purchase the app from their personal account or an organization account.
+Before a customer purchases your {% data variables.product.prodname_marketplace %} app, they select a [listing plan](/marketplace/selling-your-app/github-marketplace-pricing-plans/). They also choose whether to purchase the app from their personal account or an organization account.
 
 The customer completes the purchase by clicking **Complete order and begin installation**.
 
@@ -30,7 +30,7 @@ Read the `effective_date` and `marketplace_purchase` object from the `marketplac
 
 If your app offers a free trial, read the `marketplace_purchase[on_free_trial]` attribute from the webhook. If the value is `true`, your app will need to track the free trial start date (`effective_date`) and the date the free trial ends (`free_trial_ends_on`). Use the `free_trial_ends_on` date to display the remaining days left in a free trial in your app's UI. You can do this in either a banner or in your [billing UI](/marketplace/selling-your-app/billing-customers-in-github-marketplace/#providing-billing-services-in-your-apps-ui). To learn how to handle cancellations before a free trial ends, see "[Cancelling plans](/marketplace/integrating-with-the-github-marketplace-api/cancelling-plans/)." See "[Upgrading and downgrading plans](/marketplace/integrating-with-the-github-marketplace-api/upgrading-and-downgrading-plans/)" to find out how to transition a free trial to a paid plan when a free trial expires.
 
-See "[{{ site.data.variables.product.prodname_marketplace }} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
+See "[{% data variables.product.prodname_marketplace %} webhook events](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/)" for an example of the `marketplace_purchase` event payload.
 
 ### 步骤 2. 安装
 
@@ -40,11 +40,11 @@ At this point, if you specified a **Setup URL** in your GitHub App settings, Git
 
 {% note %}
 
-**Note:** The **Setup URL** is described as optional in GitHub App settings, but it is a required field if you want to offer your app in {{ site.data.variables.product.prodname_marketplace }}.
+**Note:** The **Setup URL** is described as optional in GitHub App settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}.
 
 {% endnote %}
 
-If your app is an OAuth App, GitHub does not install it anywhere. Instead, GitHub redirects the customer to the **Installation URL** you specified in your [{{ site.data.variables.product.prodname_marketplace }} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
+If your app is an OAuth App, GitHub does not install it anywhere. Instead, GitHub redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#listing-urls).
 
 When a customer purchases an OAuth App, GitHub redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
 
@@ -70,7 +70,7 @@ After the customer completes the authorization, your app receives an OAuth acces
 
 Your app must provision a customer account for all new purchases. Using the access token you received for the customer in [Step 3. Authorization](#step-3-authorization), call the "[List subscriptions for the authenticated user](/v3/apps/marketplace/#list-subscriptions-for-the-authenticated-user)" endpoint. The response will include the customer's `account` information and show whether they are on a free trial (`on_free_trial`). Use this information to complete setup and provisioning.
 
-{{ site.data.reusables.marketplace.marketplace-double-purchases }}
+{% data reusables.marketplace.marketplace-double-purchases %}
 
 If the purchase is for an organization and per-user, you can prompt the customer to choose which organization members will have access to the purchased app.
 
@@ -78,4 +78,4 @@ You can customize the way that organization members receive access to your app. 
 
 **Flat-rate pricing:** If the purchase is made for an organization using flat-rate pricing, your app can [get all the organization’s members](/v3/orgs/members/#list-organization-members) via the API and prompt the organization admin to choose which members will have paid users on the integrator side.
 
-**Per-unit pricing:** One method of provisioning per-unit seats is to allow users to occupy a seat as they log in to the app. Once the customer hits the seat count threshold, your app can alert the user that they need to upgrade through {{ site.data.variables.product.prodname_marketplace }}.
+**Per-unit pricing:** One method of provisioning per-unit seats is to allow users to occupy a seat as they log in to the app. Once the customer hits the seat count threshold, your app can alert the user that they need to upgrade through {% data variables.product.prodname_marketplace %}.

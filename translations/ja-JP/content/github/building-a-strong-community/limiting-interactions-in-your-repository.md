@@ -16,8 +16,8 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. リポジトリの [Settings] サイドバーで、[**Interaction limits**] をクリックします。 ![リポジトリの設定での [Interaction limits] ](/assets/images/help/repository/repo-settings-interaction-limits.png)
 4. [Temporary interaction limits] で、次から 1 つ以上のオプションをクリックします。 ![[Temporary interaction limits] のオプション](/assets/images/help/repository/temporary-interaction-limits-options.png)
     - [**Limit to existing users**]: 作成してから 24 時間経過していないアカウントで、以前のコントリビューションがなく、コラボレーターではないユーザのアクティビティを制限します。

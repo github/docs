@@ -4,19 +4,19 @@ intro: 'You can host documentation for your repository in a wiki, so that others
 redirect_from:
   - /articles/about-github-wikis/
   - /articles/about-wikis
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Every {{ site.data.variables.product.product_name }} repository comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[About READMEs](/articles/about-readmes)."
+Every {% data variables.product.product_name %} repository comes equipped with a section for hosting documentation, called a wiki. You can use your repository's wiki to  share long-form content about your project, such as how to use it, how you designed it, or its core principles. A README file quickly tells what your project can do, while you can use a wiki to provide additional documentation. For more information, see "[About READMEs](/articles/about-readmes)."
 
-With wikis, you can write content just like everywhere else on {{ site.data.variables.product.product_name }}. For more information, see "[Getting started with writing and formatting on {{ site.data.variables.product.prodname_dotcom }}](/articles/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format.
+With wikis, you can write content just like everywhere else on {% data variables.product.product_name %}. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/articles/getting-started-with-writing-and-formatting-on-github)." We use [our open-source Markup library](https://github.com/github/markup) to convert different formats into HTML, so you can choose to write in Markdown or any other supported format.
 
 Wikis are available to the public in public repositories, and limited to people with access to the repository in private repositories. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 
-You can edit wikis directly on {{ site.data.variables.product.product_name }}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {{ site.data.variables.product.product_name }} to contribute to a wiki in a public repository. For more information, see "[Changing access permissions for wikis](/articles/changing-access-permissions-for-wikis)".
+You can edit wikis directly on {% data variables.product.product_name %}, or you can edit wiki files locally. By default, only people with write access to your repository can make changes to wikis, although you can allow everyone on {% data variables.product.product_name %} to contribute to a wiki in a public repository. For more information, see "[Changing access permissions for wikis](/articles/changing-access-permissions-for-wikis)".
 
 ### Further reading
 

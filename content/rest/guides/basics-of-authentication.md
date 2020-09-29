@@ -31,7 +31,7 @@ into your repository.
 
 You can fill out every piece of information however you like, except the
 **Authorization callback URL**. This is easily the most important piece to setting
-up your application. It's the callback URL that {{ site.data.variables.product.product_name }} returns the user to after
+up your application. It's the callback URL that {% data variables.product.product_name %} returns the user to after
 successful authentication.
 
 Since we're running a regular Sinatra server, the location of the local instance
@@ -39,7 +39,7 @@ is set to `http://localhost:4567`. Let's fill in the callback URL as `http://loc
 
 ### Accepting user authorization
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 Now, let's start filling out our simple server. Create a file called _server.rb_ and paste this into it:
 
@@ -58,7 +58,7 @@ end
 
 Your client ID and client secret keys come from [your application's configuration
 page][app settings]. You should **never, _ever_** store these values in
-{{ site.data.variables.product.product_name }}--or any other public place, for that matter. We recommend storing them as
+{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -89,14 +89,14 @@ Also, notice that the URL uses the `scope` query parameter to define the
 requesting `user:email` scope for reading private email addresses.
 
 Navigate your browser to `http://localhost:4567`. After clicking on the link, you
-should be taken to {{ site.data.variables.product.product_name }}, and presented with a dialog that looks something like this:
+should be taken to {% data variables.product.product_name %}, and presented with a dialog that looks something like this:
 ![GitHub's OAuth Prompt](/assets/images/oauth_prompt.png)
 
 If you trust yourself, click **Authorize App**. Wuh-oh! Sinatra spits out a
 `404` error. What gives?!
 
 Well, remember when we specified a Callback URL to be `callback`? We didn't provide
-a route for it, so {{ site.data.variables.product.product_name }} doesn't know where to drop the user after they authorize
+a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
 the app. Let's fix that now!
 
 #### Providing a callback
@@ -120,8 +120,8 @@ get '/callback' do
 end
 ```
 
-After a successful app authentication, {{ site.data.variables.product.product_name }} provides a temporary `code` value.
-You'll need to `POST` this code back to {{ site.data.variables.product.product_name }} in exchange for an `access_token`.
+After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
+You'll need to `POST` this code back to {% data variables.product.product_name %} in exchange for an `access_token`.
 To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
 Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use [a library written in the language of your choice][libraries].
@@ -179,13 +179,13 @@ the logged in user:
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -219,7 +219,7 @@ time they needed to access the web page. For example, try navigating directly to
 
 What if we could circumvent the entire
 "click here" process, and just _remember_ that, as long as the user's logged into
-{{ site.data.variables.product.product_name }}, they should be able to access this application? Hold on to your hat,
+{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
 because _that's exactly what we're going to do_.
 
 Our little server above is rather simple. In order to wedge in some intelligent
@@ -268,7 +268,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{{ site.data.variables.product.api_url_code }}/user',
+      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -289,7 +289,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{{ site.data.variables.product.api_url_code }}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end
@@ -314,7 +314,7 @@ end
 ```
 
 Much of the code should look familiar. For example, we're still using `RestClient.get`
-to call out to the {{ site.data.variables.product.product_name }} API, and we're still passing our results to be rendered
+to call out to the {% data variables.product.product_name %} API, and we're still passing our results to be rendered
 in an ERB template (this time, it's called `advanced.erb`).
 
 Also, we now have the `authenticated?` method which checks if the user is already
@@ -353,10 +353,10 @@ which redirects you to `/callback`. `/callback` then sends us back to `/`,
 and since we've been authenticated, renders _advanced.erb_.
 
 We could completely simplify this roundtrip routing by simply changing our callback
-URL in {{ site.data.variables.product.product_name }} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
+URL in {% data variables.product.product_name %} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
 the same callback URL, we've got to do a little bit of wonkiness to make it work.
 
-Also, if we had never authorized this application to access our {{ site.data.variables.product.product_name }} data,
+Also, if we had never authorized this application to access our {% data variables.product.product_name %} data,
 we would've seen the same confirmation dialog from earlier pop-up and warn us.
 
 [webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/

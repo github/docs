@@ -10,11 +10,11 @@ versions:
 
 You can apply the `good first issue` label to issues in your public repository so that people can find them when searching by labels. For more information about searching by labels, see "[Searching issues and pull requests](/articles/searching-issues-and-pull-requests/#search-by-label)."
 
-{{ site.data.variables.product.prodname_dotcom }} uses an algorithm to determine the most approachable issues in each repository and surface them in various places on {{ site.data.variables.product.prodname_dotcom_the_website }}. Adding the `good first issue` label can increase the likelihood that your issues are surfaced.
+{% data variables.product.prodname_dotcom %} uses an algorithm to determine the most approachable issues in each repository and surface them in various places on {% data variables.product.prodname_dotcom_the_website %}. Adding the `good first issue` label can increase the likelihood that your issues are surfaced.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issues }}
-{{ site.data.reusables.repositories.select-items-in-issue-or-pr-list }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+{% data reusables.repositories.select-items-in-issue-or-pr-list %}
 4. In the upper-right corner, click **Label**, then start typing `good first issue`. Click the label's name to associate it with the selected items.
   ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
 

@@ -1,6 +1,6 @@
 ---
 title: 建议的警报阈值
-intro: '您可以配置警报来提前通知系统资源问题，以免它们影响您的 {{ site.data.variables.product.prodname_ghe_server }} 设备的性能。'
+intro: '您可以配置警报来提前通知系统资源问题，以免它们影响您的 {% data variables.product.prodname_ghe_server %} 设备的性能。'
 redirect_from:
   - /enterprise/admin/guides/installation/about-recommended-alert-thresholds/
   - /enterprise/admin/installation/recommended-alert-thresholds
@@ -32,7 +32,7 @@ versions:
 
 ### 监视内存使用情况
 
-分配给 {{ site.data.variables.product.product_location_enterprise }} 的物理内存大小对整体性能和应用程序响应能力有着极大的影响。 系统设计为通过大量使用内核磁盘缓存来加快 Git 操作速度。 建议将正常 RSS 工作使用量设置在最高使用量时总可用 RAM 的 50% 之内。
+分配给 {% data variables.product.product_location_enterprise %} 的物理内存大小对整体性能和应用程序响应能力有着极大的影响。 系统设计为通过大量使用内核磁盘缓存来加快 Git 操作速度。 建议将正常 RSS 工作使用量设置在最高使用量时总可用 RAM 的 50% 之内。
 
 | 严重程度   | 阈值                       |
 | ------ | ------------------------ |

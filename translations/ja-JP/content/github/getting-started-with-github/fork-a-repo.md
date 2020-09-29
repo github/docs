@@ -26,18 +26,18 @@ versions:
 
 他のユーザのプロジェクトのフォークからパブリックリポジトリを作成する際は、プロジェクトの他者との共有方法を定義するライセンスファイルを必ず含めてください。 詳しい情報については、choosealicense の「[オープンソースのライセンスを選択する](http://choosealicense.com/)」を参照してください。
 
-{{ site.data.reusables.open-source.open-source-guide-repositories }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+{% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% note %}
 
-**注釈**: {{ site.data.reusables.repositories.desktop-fork }}
+**注釈**: {% data reusables.repositories.desktop-fork %}
 
 {% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also fork a repository using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+**Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -46,7 +46,7 @@ versions:
 
 リポジトリのフォークは、2 つのステップからなるシンプルなプロセスです。 練習用のリポジトリを用意しましたので、ぜひお使いください。
 
-1. {{ site.data.variables.product.product_location }} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+1. {% data variables.product.product_location %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
 2. ページの右上にある [**Fork**] をクリックします。 ![[Fork] ボタン](/assets/images/help/repository/fork_button.jpg)
 
 ### フォークを同期させる
@@ -55,24 +55,24 @@ versions:
 
 #### ステップ 1: Git をセットアップする
 
-まだ設定していない場合は、まず [Git を設定](/articles/set-up-git)します。 [Git からの {{ site.data.variables.product.product_location }} への認証を設定](/articles/set-up-git#next-steps-authenticating-with-github-from-git)することも忘れないでください。
+まだ設定していない場合は、まず [Git を設定](/articles/set-up-git)します。 [Git からの {% data variables.product.product_location %} への認証を設定](/articles/set-up-git#next-steps-authenticating-with-github-from-git)することも忘れないでください。
 
 #### ステップ 2: フォークのローカルクローンを作成する
 
 今、Spoon-Knife リポジトリのフォークがありますが、お使いのコンピュータにはそのリポジトリ内のファイルはありません。 Let's create a clone of your fork locally on your computer.
 
-1. {{ site.data.variables.product.product_name }} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.command_line.change-current-directory-clone }}
-4. `git clone` と入力し、前の手順でコピーした URL を貼り付けます。 次のようになるはずです (`YOUR-USERNAME` はあなたの {{ site.data.variables.product.product_name }} ユーザ名に置き換えてください):
+1. {% data variables.product.product_name %} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.command_line.change-current-directory-clone %}
+4. `git clone` と入力し、前の手順でコピーした URL を貼り付けます。 次のようになるはずです (`YOUR-USERNAME` はあなたの {% data variables.product.product_name %} ユーザ名に置き換えてください):
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   ```
 
 5. **Enter** を押します。 これで、ローカルにクローンが作成されます。
   ```shell
-  $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR-USERNAME</em>/Spoon-Knife
+  $ git clone https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/Spoon-Knife
   > Cloning into `Spoon-Knife`...
   > remote: Counting objects: 10, done.
   > remote: Compressing objects: 100% (8/8), done.
@@ -86,9 +86,9 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 
 オリジナルのリポジトリへの変更を提案するためにプロジェクトをフォークする場合は、オリジナルまたは上流のリポジトリから、フォークのローカルのクローンへと、変更をプルするように Git を構成できます。
 
-1. {{ site.data.variables.product.product_name }} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
-{{ site.data.reusables.repositories.copy-clone-url }}
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+1. {% data variables.product.product_name %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+{% data reusables.repositories.copy-clone-url %}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 4. ディレクトリを、「[ステップ 2: フォークのローカルクローンを作成する](#step-2-create-a-local-clone-of-your-fork)」でクローンしたフォークの場所に変更します。
     - ホームディレクトリに移動するには、`cd` とだけ入力します。
     - 現在のディレクトリのファイルとフォルダを一覧表示するには、`ls` と入力します。
@@ -97,22 +97,22 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 5. `git remote -v` と入力して **Enter** キーを押します。 フォーク用に現在構成されているリモートリポジトリが表示されます。
   ```shell
   $ git remote -v
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin  https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin  https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
   ```
 
 6. `git remote add upstream` と入力し、ステップ 2 でコピーした URL を貼り付けて **Enter** キーを押します。 次のようになります:
   ```shell
-  $ git remote add upstream https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife.git
+  $ git remote add upstream https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife.git
   ```
 
 7. フォーク用に指定した新しい上流リポジトリを確認するには、再度 `git remote -v` と入力します。 フォークの URL が `origin` として、オリジナルのリポジトリの URL が `upstream` として表示されるはずです。
   ```shell
   $ git remote -v
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
-  > origin    https://{{ site.data.variables.command_line.codeblock }}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
-  > upstream  https://{{ site.data.variables.command_line.codeblock }}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (fetch)
+  > origin    https://{% data variables.command_line.codeblock %}/<em>YOUR_USERNAME</em>/<em>YOUR_FORK</em>.git (push)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (fetch)
+  > upstream  https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>.git (push)
   ```
 
 これで、いくつかの Git コマンドでフォークと上流リポジトリの同期を維持できます。 詳細は「[フォークを同期する](/articles/syncing-a-fork)」を参照してください。
@@ -126,9 +126,9 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 
 ### フォークする他のリポジトリを見つける
 
-リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {{ site.data.reusables.repositories.you-can-fork }}
+リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{{ site.data.variables.product.prodname_dotcom }} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 {% endif %}
 
@@ -139,4 +139,4 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 - [Git をセットアップする](/articles/set-up-git)
 - 「[リポジトリを作成する](/articles/create-a-repo)」
 - [交流する](/articles/be-social)
-- {{ site.data.reusables.support.connect-in-the-forum-bootcamp }}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}

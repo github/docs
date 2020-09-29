@@ -3,7 +3,7 @@ title: Welche Remote-URL sollte ich verwenden?
 redirect_from:
   - /articles/which-url-should-i-use/
   - /articles/which-remote-url-should-i-use
-intro: 'Es gibt mehrere Möglichkeiten, Repositorys zu klonen, die auf {{ site.data.variables.product.prodname_dotcom }} vorhanden sind.'
+intro: 'Es gibt mehrere Möglichkeiten, Repositorys zu klonen, die auf {% data variables.product.prodname_dotcom %} vorhanden sind.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,17 +17,17 @@ Informationen zum Festlegen oder Ändern Deiner Remote-URL findest Du unter „[
 
 Die `https://`-Klon-URLs sind auf allen Repositorys, einschließlich der öffentlichen und privaten, verfügbar. Diese URLs funktionieren auch dann, wenn Du hinter einer Firewall oder einem Proxy stehst.
 
-Wenn Du an der Befehlszeile mittels HTTPS-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`-Befehle an ein Remote-Repository sendest, musst Du Deinen {{ site.data.variables.product.product_name }}-Benutzernamen und Dein Passwort eingeben. {{ site.data.reusables.user_settings.password-authentication-deprecation }}
+Wenn Du an der Befehlszeile mittels HTTPS-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`-Befehle an ein Remote-Repository sendest, musst Du Deinen {% data variables.product.product_name %}-Benutzernamen und Dein Passwort eingeben. {% data reusables.user_settings.password-authentication-deprecation %}
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 {% tip %}
 
 **Tips**:
 
-- You can use a credential helper so Git will remember your {{ site.data.variables.product.prodname_dotcom }} credentials every time it talks to {{ site.data.variables.product.prodname_dotcom }}. For more information, see "[Caching your {{ site.data.variables.product.prodname_dotcom }} credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
+- You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/github/using-git/caching-your-github-credentials-in-git)."
 
-- Um ein Repository zu klonen, ohne Dich an der Befehlszeile bei {{ site.data.variables.product.product_name }} authentifizieren zu müssen, kannst Du stattdessen {{ site.data.variables.product.prodname_desktop }} zum Klonen verwenden. Weitere Informationen findest Du unter „[Ein Repository von {{ site.data.variables.product.prodname_dotcom }} nach {{ site.data.variables.product.prodname_dotcom }}-Desktop klonen](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
+- Um ein Repository zu klonen, ohne Dich an der Befehlszeile bei {% data variables.product.product_name %} authentifizieren zu müssen, kannst Du stattdessen {% data variables.product.prodname_desktop %} zum Klonen verwenden. Weitere Informationen findest Du unter „[Ein Repository von {% data variables.product.prodname_dotcom %} nach {% data variables.product.prodname_dotcom %}-Desktop klonen](/desktop/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)."
 
 {% endtip %}
 
@@ -35,7 +35,7 @@ Wenn Du an der Befehlszeile mittels HTTPS-URLs `git clone`-, `git fetch`-, `git 
 
 ### Mit SSH-URLs klonen
 
-SSH-URLs stellen über das sichere Protokoll SSH den Zugriff auf ein Git-Repository bereit. Um diese URLs verwenden zu können, musst Du ein SSH-Schlüsselpaar auf Deinem Computer generieren und den **öffentlichen** Schlüssel zu Deinem {{ site.data.variables.product.product_name }}-Konto hinzufügen. Weitere Informationen findest Du unter „[Zu {{ site.data.variables.product.prodname_dotcom }} mit SSH verbinden](/github/authenticating-to-github/connecting-to-github-with-ssh)."
+SSH-URLs stellen über das sichere Protokoll SSH den Zugriff auf ein Git-Repository bereit. Um diese URLs verwenden zu können, musst Du ein SSH-Schlüsselpaar auf Deinem Computer generieren und den **öffentlichen** Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzufügen. Weitere Informationen findest Du unter „[Zu {% data variables.product.prodname_dotcom %} mit SSH verbinden](/github/authenticating-to-github/connecting-to-github-with-ssh)."
 
 Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`-Befehle an ein Remote-Repository sendest, musst Du ein Passwort eingeben und Deine SSH-Schlüssel-Passphrase bereitstellen. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/github/authenticating-to-github/working-with-ssh-key-passphrases).“
 
@@ -49,17 +49,17 @@ Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 
-### Cloning with {{ site.data.variables.product.prodname_cli }}
+### Cloning with {% data variables.product.prodname_cli %}
 
-You can also install {{ site.data.variables.product.prodname_cli }} to use {{ site.data.variables.product.product_name }} workflows in your terminal. For more information, the [{{ site.data.variables.product.prodname_cli }}](https://cli.github.com/manual/) documentation.
+You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/) documentation.
 
 {% endif %}
 
 ### Mit Subversion klonen
 
-Du kannst auch einen [Subversion](https://subversion.apache.org/)-Client benutzen, um auf beliebige Repositorys auf {{ site.data.variables.product.prodname_dotcom }} zuzugreifen. Subversion offeriert einen anderen Funktionsumfang als Git. Weitere Informationen findest Du unter „[Was sind die Unterschiede zwischen Subversion und git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
+Du kannst auch einen [Subversion](https://subversion.apache.org/)-Client benutzen, um auf beliebige Repositorys auf {% data variables.product.prodname_dotcom %} zuzugreifen. Subversion offeriert einen anderen Funktionsumfang als Git. Weitere Informationen findest Du unter „[Was sind die Unterschiede zwischen Subversion und git?](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)"
 
-Via Subversion-Clients kannst Du auch auf Repositorys auf {{ site.data.variables.product.prodname_dotcom }} zugreifen. Weitere Informationen findest Du unter „[Unterstützung für Subversion-Clients](/github/importing-your-projects-to-github/support-for-subversion-clients)."
+Via Subversion-Clients kannst Du auch auf Repositorys auf {% data variables.product.prodname_dotcom %} zugreifen. Weitere Informationen findest Du unter „[Unterstützung für Subversion-Clients](/github/importing-your-projects-to-github/support-for-subversion-clients)."
 
 ### Weiterführende Informationen
 

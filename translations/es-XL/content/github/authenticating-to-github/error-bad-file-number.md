@@ -11,12 +11,12 @@ versions:
 Cuando ejecutes comandos Git remotos o SSH, tu conexión puede quedar inactiva:
 
 ```shell
-$ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
+$ ssh -vT git@{% data variables.command_line.codeblock %}
 > OpenSSH_5.8p1, OpenSSL 1.0.0d 8 Feb 2011
-> debug1: Connecting to {{ site.data.variables.command_line.codeblock }} [207.97.227.239] port 22.
+> debug1: Connecting to {% data variables.command_line.codeblock %} [207.97.227.239] port 22.
 > debug1: connect to address 207.97.227.239 port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Connection timed out
-> ssh: connect to host {{ site.data.variables.command_line.codeblock }} port 22: Bad file number
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Connection timed out
+> ssh: connect to host {% data variables.command_line.codeblock %} port 22: Bad file number
 ```
 
 ### Resolver el problema
@@ -26,7 +26,7 @@ $ ssh -vT git@{{ site.data.variables.command_line.codeblock }}
 A menudo la solución más sencilla es simplemente evitar por completo el SSH. La mayoría de los firewalls y los proxys permiten el tráfico de HTTPS sin problemas. Para aprovechar esto, cambia [la URL remota](/articles/which-remote-url-should-i-use) que estás usando:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>username</em>/<em>reponame</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>username</em>/<em>reponame</em>.git
 > Cloning into 'reponame'...
 > remote: Counting objects: 84, done.
 > remote: Compressing objects: 100% (45/45), done.
@@ -36,7 +36,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>usernam
 
 #### Prueba desde una red diferente
 
-Si puedes conectar la computadora a otra red que no tenga un firewall, puedes tratar de probar tu conexión de SSH a {{ site.data.variables.product.product_name }}. Si todo funciona como es debido, comunícate con tu administrador de red para que te ayude a cambiar los parámetros del firewall para permitir que tu conexión de SSH a {{ site.data.variables.product.product_name }} se establezca sin problemas.
+Si puedes conectar la computadora a otra red que no tenga un firewall, puedes tratar de probar tu conexión de SSH a {% data variables.product.product_name %}. Si todo funciona como es debido, comunícate con tu administrador de red para que te ayude a cambiar los parámetros del firewall para permitir que tu conexión de SSH a {% data variables.product.product_name %} se establezca sin problemas.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

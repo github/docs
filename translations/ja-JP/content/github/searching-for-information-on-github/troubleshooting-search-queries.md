@@ -1,6 +1,6 @@
 ---
 title: クエリ検索のトラブルシューティング
-intro: '{{ site.data.variables.product.product_name }} での検索中に予期しない結果が起きた場合、よくある問題および制限を確認することでトラブルシューティングできます。'
+intro: '{% data variables.product.product_name %} での検索中に予期しない結果が起きた場合、よくある問題および制限を確認することでトラブルシューティングできます。'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
@@ -16,7 +16,7 @@ versions:
 
 ### クエリの長さの制限
 
-{{ site.data.variables.product.product_name }} での検索では、クエリの長さに一定の制限があります。
+{% data variables.product.product_name %} での検索では、クエリの長さに一定の制限があります。
 
 * 256 文字を超えるクエリはサポートされません。
 * 6 つ以上の `AND`、`OR` や `NOT` 演算子を使ったクエリを作成することはできません。

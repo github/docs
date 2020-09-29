@@ -19,24 +19,24 @@ versions:
 
 {% endtip %}
 
-プロジェクトのセキュリティの脆弱性が報告された後、{{ site.data.variables.product.prodname_security_advisories }} を使用して脆弱性に関する情報を開示、修正、公開できます。 詳しい情報については「[{{ site.data.variables.product.prodname_security_advisories }}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
+プロジェクトのセキュリティの脆弱性が報告された後、{% data variables.product.prodname_security_advisories %} を使用して脆弱性に関する情報を開示、修正、公開できます。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
 ### リポジトリにセキュリティポリシーを追加する
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
 3. 左サイドバーで [**Policy**] をクリックします。 ![[Policy] タブ](/assets/images/help/security/policy-tab.png)
 4. [**Start setup**] をクリックします。 ![[Start setup] ボタン](/assets/images/help/security/start-setup-policy-button.png)
 5. 新しい _SECURITY.md_ ファイルに、プロジェクトがサポートするバージョンと、脆弱性を報告する方法についての情報を追加します。
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 ### 参考リンク
 
 - 「[リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)」
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)
-- [{{ site.data.variables.product.prodname_security }}]({{ site.data.variables.product.prodname_security_link }})
+- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

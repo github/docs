@@ -1,19 +1,19 @@
 ---
 title: Buscar vulnerabilidades de seguridad en la Base de Datos de Asesorías de GitHub
-intro: 'La {{ site.data.variables.product.prodname_advisory_database }} te permite buscar vulnerabilidades que afecten proyectos de código abierto, ya sea manualmente o por coincidencia exacta, en {{ site.data.variables.product.company_short }}.'
+intro: 'La {% data variables.product.prodname_advisory_database %} te permite buscar vulnerabilidades que afecten proyectos de código abierto, ya sea manualmente o por coincidencia exacta, en {% data variables.product.company_short %}.'
 versions:
   free-pro-team: '*'
 ---
 
 ### Acerca de las vulnerabilidades de seguridad
 
-{{ site.data.reusables.repositories.a-vulnerability-is }}
+{% data reusables.repositories.a-vulnerability-is %}
 
-{{ site.data.variables.product.product_name }} will send you {{ site.data.variables.product.prodname_dependabot_alerts }} if we detect that any of the vulnerabilities from the {{ site.data.variables.product.prodname_advisory_database }} affect the packages that your repository depends on. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
+{% data variables.product.product_name %} will send you {% data variables.product.prodname_dependabot_alerts %} if we detect that any of the vulnerabilities from the {% data variables.product.prodname_advisory_database %} affect the packages that your repository depends on. Para obtener más información, consulta la sección "[Acerca de las alertas para las dependencias vulnerables](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)".
 
-### Acerca de {{ site.data.variables.product.prodname_advisory_database }}
+### Acerca de {% data variables.product.prodname_advisory_database %}
 
-La {{ site.data.variables.product.prodname_advisory_database }} contiene una lista selecta de vulnerabilidades de seguridad que se han mapeado para los paquetes que rastrea la gráfica de dependencias de {{ site.data.variables.product.company_short }}. {{ site.data.reusables.repositories.tracks-vulnerabilities }}
+La {% data variables.product.prodname_advisory_database %} contiene una lista selecta de vulnerabilidades de seguridad que se han mapeado para los paquetes que rastrea la gráfica de dependencias de {% data variables.product.company_short %}. {% data reusables.repositories.tracks-vulnerabilities %}
 
 Cada asesoría de seguridad contiene información acerca de la vulnerabilidad, incluyendo la descripción, severidad, paquete afectado, paquete de ecosistema, versiones afectadas y versiones parchadas, impacto, e información opcional tal como referencias, soluciones alternas, y créditos. Adicionalmente, las asesorías de la Base de Datos Nacional de Vulnerabilidades contiene un enlace al registro de CVE, en donde puedes leer más sobre los detalles de la vulnerabilidad, su puntuación de CVSS y su nivel de severidad cualitativo. Para obtener más información, consulta la "[National Vulnerability Database](https://nvd.nist.gov/)" del Instituto Nacional de Estándares y Tecnología.
 
@@ -23,11 +23,11 @@ El nivel de gravedad es uno de cuatro niveles posibles definidos en el [Sistema 
 - Alto
 - Crítico
 
-La {{ site.data.variables.product.prodname_advisory_database }} utiliza estándares de CVSS versión 3.0 y los niveles de CVSS descritos anteriormente. {{ site.data.variables.product.product_name }} no publica los puntajes de CVSS.
+La {% data variables.product.prodname_advisory_database %} utiliza estándares de CVSS versión 3.0 y los niveles de CVSS descritos anteriormente. {% data variables.product.product_name %} no publica los puntajes de CVSS.
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
-### Acceder a una asesoría en la {{ site.data.variables.product.prodname_advisory_database }}
+### Acceder a una asesoría en la {% data variables.product.prodname_advisory_database %}
 
 1. Navega hasta https://github.com/advisories.
 2. Opcionalmente, para filtrar la lista, utiliza cualquiera de los menúes desplegables. ![Filtros desplegables](/assets/images/help/security/advisory-database-dropdown-filters.png)
@@ -39,12 +39,12 @@ También se puede acceder a la base de datos utilizando la API de GraphQL. Para 
 
 {% endnote %}
 
-### Buscar en la {{ site.data.variables.product.prodname_advisory_database }} por coincidencia exacta
+### Buscar en la {% data variables.product.prodname_advisory_database %} por coincidencia exacta
 Puedes buscar coincidencias exactas en la base de datos y utilizar calificadores para reducir tu búsqueda y encontrar asesorías que se crearon en cierta fecha, en un ecosistema específico o en una biblioteca en particular.
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier             | Ejemplo                                                                                                                                                                             |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -16,28 +16,28 @@ HTTPS エラーの例を次に示します:
 
 ```shell
 > error: The requested URL returned error: 401 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs?service=git-receive-pack
 > fatal: HTTP request failed
 ```
 
 ```shell
 > Error: The requested URL returned error: 403 while accessing
-> https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs
+> https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs
 > fatal: HTTP request failed
 ```
 
 ```shell
-> Error: https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
+> Error: https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git/info/refs not found: did you run git
 > update-server-info on the server?
 ```
 
 ### 使用している Git のバージョンを確認する
 
-{{ site.data.variables.product.product_name }} を使用するために最低限必要な Git のバージョンはありませんが、安定度の高いバージョン 1.7.10 を推奨しています。バージョン 1.7.10 は多くのプラットフォームで利用可能です。 いつでも [Git の Web サイトで最新バージョンをダウンロードできます](https://git-scm.com/downloads)。
+{% data variables.product.product_name %} を使用するために最低限必要な Git のバージョンはありませんが、安定度の高いバージョン 1.7.10 を推奨しています。バージョン 1.7.10 は多くのプラットフォームで利用可能です。 いつでも [Git の Web サイトで最新バージョンをダウンロードできます](https://git-scm.com/downloads)。
 
 ### リモートが正しいことを確かめる
 
-フェッチするリポジトリが {{ site.data.variables.product.product_location }} に存在する必要があります。また、URL では大文字と小文字が区別されます。
+フェッチするリポジトリが {% data variables.product.product_location %} に存在する必要があります。また、URL では大文字と小文字が区別されます。
 
 コマンドラインを開き、`git remot -v` と入力して、ローカルリポジトリの URL を見つけることができます。
 
@@ -56,13 +56,13 @@ $ git remote -v
 > origin  https://github.com/github/ReactiveCocoa.git (push)
 ```
 
-もしくは、[{{ site.data.variables.product.prodname_desktop }}](https://desktop.github.com/) アプリケーションから URL を変更できます。
+もしくは、[{% data variables.product.prodname_desktop %}](https://desktop.github.com/) アプリケーションから URL を変更できます。
 
 ### アクセストークンを入力する
 
-{{ site.data.variables.product.prodname_dotcom }} にアクセスするには、パスワードではなく個人アクセストークンで認証する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
+{% data variables.product.prodname_dotcom %} にアクセスするには、パスワードではなく個人アクセストークンで認証する必要があります。 詳しい情報については、「[個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token)」を参照してください。
 
-{{ site.data.reusables.command_line.provide-an-access-token }}
+{% data reusables.command_line.provide-an-access-token %}
 
 ### 自分の権限を確認する
 

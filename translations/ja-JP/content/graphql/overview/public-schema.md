@@ -1,6 +1,6 @@
 ---
 title: パブリックスキーマ
-intro: '{{ site.data.variables.product.prodname_dotcom }} GraphQL APIのパブリックスキーマをダウンロードしてください。'
+intro: '{% data variables.product.prodname_dotcom %} GraphQL APIのパブリックスキーマをダウンロードしてください。'
 redirect_from:
   - /v4/public_schema
 versions:

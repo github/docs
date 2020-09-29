@@ -1,6 +1,6 @@
 ---
 title: 'Error: HEAD remoto remite a una referencia que no existe, imposible de controlar'
-intro: 'Este error ocurre si la rama por defecto de un repositorio se ha eliminado en {{ site.data.variables.product.product_location }}.'
+intro: 'Este error ocurre si la rama por defecto de un repositorio se ha eliminado en {% data variables.product.product_location %}.'
 redirect_from:
   - /articles/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout
 versions:
@@ -11,7 +11,7 @@ versions:
 Es muy fácil detectar este error; Git te dará una advertencia cuando intentes clonar el repositorio:
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Clone a repo
 > Cloning into 'repo'...
 > remote: Counting objects: 66179, done.
@@ -22,7 +22,7 @@ $ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>user</e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-Para resolver el error, es necesario que seas un administrador del repositorio en {{ site.data.variables.product.product_location }}. Desearás [cambiar la rama por defecto](/articles/setting-the-default-branch) del repositorio.
+Para resolver el error, es necesario que seas un administrador del repositorio en {% data variables.product.product_location %}. Desearás [cambiar la rama por defecto](/articles/setting-the-default-branch) del repositorio.
 
 Luego de hacerlo, puedes obtener una lista de todas las ramas disponibles en la línea de comando:
 

@@ -11,9 +11,9 @@ versions:
 
 Proprietários podem definir permissões para excluir ou transferir repositórios na organização.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.member-privileges }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.member-privileges %}
 5. Em "Repository deletion and transfer" (Exclusão e transferência de repositório), marque ou desmarque a opção **Allow members to delete or transfer repositories for this organization** (Permitir que os integrantes excluam ou transfiram repositórios na organização). ![Caixa de seleção para permitir que os integrantes excluam repositórios](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
 6. Clique em **Salvar**.

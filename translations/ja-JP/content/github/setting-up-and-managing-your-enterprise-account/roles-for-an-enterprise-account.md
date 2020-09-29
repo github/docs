@@ -1,7 +1,7 @@
 ---
 title: Enterprise アカウントのロール
 intro: Enterprise アカウントの設定およびデータへのアクセスを管理するために、Enterprise アカウントの人に異なるロールを割り当てることができます。
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ Enterprise アカウントへの人の追加に関する詳細は、「[Enterpri
 
 Enterprise アカウントには、Enterprise のユーザに割り当てることができる一連の管理者ロールが付いてきます。 各管理者ロールはビジネス機能にマップされ、Enterprise アカウント内の特定のタスクを行う権限を与えます。
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### Enterprise オーナー
 
@@ -29,7 +29,7 @@ Enterprise オーナーは、Enterprise アカウントの完全な管理権限�
 
 Enterprise オーナーは、Organization のオーナーになるか、Organization が所有するリポジトリに直接アクセスする権限を与えられない限り、Organization の設定またはコンテンツにはアクセスできません。 同様に、Enterprise アカウントの Organization のオーナーは、Enterprise のオーナーにならない限り、Enterprise アカウントにはアクセスできません。
 
-Enterprise アカウントには、必要な数の Enterprise オーナーを追加することができます。 Enterprise のオーナーは、{{ site.data.variables.product.prodname_dotcom }} 上に個人アカウントを持っていなければなりません。 ベストプラクティスとして、ビジネスへのリスクを軽減するために、会社の数名のみを Enterprise のオーナーにすることをおすすめします。
+Enterprise アカウントには、必要な数の Enterprise オーナーを追加することができます。 Enterprise のオーナーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。 ベストプラクティスとして、ビジネスへのリスクを軽減するために、会社の数名のみを Enterprise のオーナーにすることをおすすめします。
 
 ### Enterprise メンバー
 
@@ -44,11 +44,11 @@ Organization が所有するリポジトリへの外部コラボレータアク�
 ### 支払いマネージャー
 
 支払いマネージャーは、Enterprise アカウントの支払い設定にのみアクセスできます。 Enterprise アカウントの支払いマネージャーは次のことができます:
-- ユーザライセンス、{{ site.data.variables.large_files.product_name_short }} パック、およびその他の支払い設定の閲覧および管理
+- ユーザライセンス、{% data variables.large_files.product_name_short %} パック、およびその他の支払い設定の閲覧および管理
 - 支払いマネージャーのリストを閲覧
 - 他の支払いマネージャーの追加または削除
 
-支払いマネージャーは、Enterprise アカウントの Organization またはリポジトリにアクセスすることはできません。また、Enterprise のオーナーを追加または削除することもできません。 支払いマネージャーは、{{ site.data.variables.product.prodname_dotcom }} 上に個人アカウントを持っていなければなりません。
+支払いマネージャーは、Enterprise アカウントの Organization またはリポジトリにアクセスすることはできません。また、Enterprise のオーナーを追加または削除することもできません。 支払いマネージャーは、{% data variables.product.prodname_dotcom %} 上に個人アカウントを持っていなければなりません。
 
 ### 参考リンク
 

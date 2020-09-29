@@ -20,13 +20,13 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 
 {% note %}
 
-**Nota:** También puedes agregar notas a tu tablero de proyecto para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde un repositorio en {{ site.data.variables.product.product_name }}, o agregar información relacionada con tu tablero de proyecto. Para obtener más información, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
+**Nota:** También puedes agregar notas a tu tablero de proyecto para servir como recordatorios de tarea, referencias a propuestas y solicitudes de extracción desde un repositorio en {% data variables.product.product_name %}, o agregar información relacionada con tu tablero de proyecto. Para obtener más información, consulta "[Agregar notas a un tablero de proyecto](/articles/adding-notes-to-a-project-board)".
 
 {% endnote %}
 
-{{ site.data.reusables.project-management.edit-in-project }}
+{% data reusables.project-management.edit-in-project %}
 
-{{ site.data.reusables.project-management.link-repos-to-project-board }} Cuando buscas propuestas y solicitudes de extracción para agregar a tu tablero de proyecto, la búsqueda automáticamente llega a tus repositorios relacionados. Puedes eliminar estos calificadores para buscar dentro de todos los repositorios de la organización. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
+{% data reusables.project-management.link-repos-to-project-board %} Cuando buscas propuestas y solicitudes de extracción para agregar a tu tablero de proyecto, la búsqueda automáticamente llega a tus repositorios relacionados. Puedes eliminar estos calificadores para buscar dentro de todos los repositorios de la organización. Para obtener más información, consulta "[Vincular un repositorio con un tablero de proyecto](/articles/linking-a-repository-to-a-project-board)".
 
 ### Agregar propuestas y solicitudes de extracción a un tablero de proyecto
 
@@ -41,11 +41,11 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
     - Si estás trabajando en una característica específica, puedes aplicar una etiqueta a cada propuesta relacionada o solicitud de extracción para esa característica, y luego agregar tarjetas fácilmente a tu tablero de proyecto al buscar por el nombre de la etiqueta. Para obtener más información, consulta "[Aplicar etiquetas a propuestas y solicitudes de extracción](/articles/applying-labels-to-issues-and-pull-requests)".
 
   {% endtip %}
-4. En la lista filtrada de propuestas y solicitudes de extracción, arrastra la tarjeta que te gustaría agregar a tu tablero de proyecto y colócala en la columna correcta. Como alternativa, puedes mover las tarjetas usando los atajos del teclado. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+4. En la lista filtrada de propuestas y solicitudes de extracción, arrastra la tarjeta que te gustaría agregar a tu tablero de proyecto y colócala en la columna correcta. Como alternativa, puedes mover las tarjetas usando los atajos del teclado. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% tip %}
 
-    **Sugerencia:** Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas y moverlas entre las columnas. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+    **Sugerencia:** Puedes arrastrar y soltar o usar los atajos del teclado para reordenar las tarjetas y moverlas entre las columnas. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
     {% endtip %}
 
@@ -61,7 +61,7 @@ Puedes poner un máximo de 2500 tarjetas en cada columna del proyecto. Si una co
 {% else %}
 5. En el lateral derecho de una propuesta o solicitud de extracción, escribe **PROJECT-BOARD-NAME (a la espera de prioridades)**. ![Enlace al tablero de proyecto](/assets/images/help/projects/sidebar-project-board-link.png)
 6. En tu tablero de proyecto, haz clic en **{% octicon "plus" aria-label="The Plus icon" %} Add cards (1 new)** (Agregar tarjetas [1 nueva]). ![Agregar botón de tarjetas](/assets/images/help/projects/add-cards-pending-button.png)
-7. Arrastra la tarjeta para tu propuesta o solicitud de extracción desde la sección **Triage** (Jerarquía) en la columna que desees en el tablero de proyecto. Como alternativa, puedes mover las tarjetas usando los atajos del teclado. {{ site.data.reusables.project-management.for-more-info-project-keyboard-shortcuts }}
+7. Arrastra la tarjeta para tu propuesta o solicitud de extracción desde la sección **Triage** (Jerarquía) en la columna que desees en el tablero de proyecto. Como alternativa, puedes mover las tarjetas usando los atajos del teclado. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 {% endif %}
 
 ### Leer más

@@ -19,24 +19,24 @@ Du kannst eine Standard-Sicherheitsrichtlinie für Deine Organisation oder Dein 
 
 {% endtip %}
 
-Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du {{ site.data.variables.product.prodname_security_advisories }} verwenden, um die Verwundbarkeit offen zu legen, sie zu korrigieren und entsprechende Informationen darüber zu veröffentlichen. Weitere Informationen findest Du unter „[Über {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+Nachdem jemand eine Sicherheitslücke in Deinem Projekt gemeldet hat, kannst Du {% data variables.product.prodname_security_advisories %} verwenden, um die Verwundbarkeit offen zu legen, sie zu korrigieren und entsprechende Informationen darüber zu veröffentlichen. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
-{{ site.data.reusables.repositories.github-security-lab }}
+{% data reusables.repositories.github-security-lab %}
 
 ### Eine Sicherheitsrichtlinie zum Repository hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-security }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-security %}
 3. Klicke in der linken Seitenleiste auf ** Policy** (Richtlinie). ![Registerkarte „Policy“ (Richtlinie)](/assets/images/help/security/policy-tab.png)
 4. Klicke auf **Start setup** (Einrichtung starten). ![Schaltfläche „Start setup“ (Einrichtung starten)](/assets/images/help/security/start-setup-policy-button.png)
 5. Füge in der neuen _SECURITY.md_-Datei Informationen zu den unterstützten Versionen Deines Projekts und Anweisungen zum Melden einer Schwachstelle hinzu.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose-commit-email }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_file_change }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose-commit-email %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_file_change %}
 
 ### Weiterführende Informationen
 
 - "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)“
-- [{{ site.data.variables.product.prodname_security }}]({{ site.data.variables.product.prodname_security_link }})
+- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

@@ -1,6 +1,6 @@
 ---
 title: Começar a usar a API do banco de dados do Git
-intro: 'A API do banco de dados do Git dá acesso para ler e gravar objetos do Git sem processamento no seu banco de dados do Git no {{ site.data.variables.product.product_name }} e para listar e atualizar suas referências (cabeçalhos de branch e etiquetas).'
+intro: 'A API do banco de dados do Git dá acesso para ler e gravar objetos do Git sem processamento no seu banco de dados do Git no {% data variables.product.product_name %} e para listar e atualizar suas referências (cabeçalhos de branch e etiquetas).'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -10,7 +10,7 @@ versions:
 
 Isso basicamente permite que você reimplemente uma série de funcionalidades do Git sobre nossa API, criando objetos sem processamento diretamente no banco de dados e atualizando referências de ramificações que você pode fazer tecnicamente sobre qualquer coisa que o Git possa fazer sem tê-lo instalado.
 
-Funções da API do Banco de Dados do Git retornará um `409 Conflict` se o repositório do Git estiver vazio ou indisponível.  Um repositório indisponível normalmente significa que o {{ site.data.variables.product.product_name }} está no processo de criação do repositório. Para um repositório vazio, você pode usar o ponto de extremidade "[Criar ou atualizar o conteúdo do arquivo](/v3/repos/contents/#create-or-update-file-contents)" para criar conteúdo e inicializar o repositório para que você possa usar a API de banco de dados do Git. Entre em contato com {{ site.data.variables.contact.contact_support }} se esse status de resposta persistir.
+Funções da API do Banco de Dados do Git retornará um `409 Conflict` se o repositório do Git estiver vazio ou indisponível.  Um repositório indisponível normalmente significa que o {% data variables.product.product_name %} está no processo de criação do repositório. Para um repositório vazio, você pode usar o ponto de extremidade "[Criar ou atualizar o conteúdo do arquivo](/v3/repos/contents/#create-or-update-file-contents)" para criar conteúdo e inicializar o repositório para que você possa usar a API de banco de dados do Git. Entre em contato com {% data variables.contact.contact_support %} se esse status de resposta persistir.
 
 ![Visão geral do banco de dados Git](/assets/images/git-database-overview.png)
 

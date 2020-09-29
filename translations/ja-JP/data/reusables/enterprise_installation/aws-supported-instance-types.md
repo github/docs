@@ -1,4 +1,4 @@
-{{ site.data.variables.product.prodname_ghe_server }} は、次の EC2インスタンスタイプでサポートされています。 詳しい情報については[AWS EC2インスタンスタイプの概要ページ](http://aws.amazon.com/ec2/instance-types/)を参照してください。
+{% data variables.product.prodname_ghe_server %} は、次の EC2インスタンスタイプでサポートされています。 詳しい情報については[AWS EC2インスタンスタイプの概要ページ](http://aws.amazon.com/ec2/instance-types/)を参照してください。
 
 | EC2インスタンスタイプ | モデル                                |
 | ------------ | ---------------------------------- |

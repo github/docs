@@ -1,6 +1,6 @@
 ---
 title: アクションの作成
-intro: '独自のアクションを作成することも、{{ site.data.variables.product.prodname_dotcom }}コミュニティで共有されているアクションを使用し、必要に応じてカスタマイズすることも、自分でビルドするアクションを書いて共有することもできます。'
+intro: '独自のアクションを作成することも、{% data variables.product.prodname_dotcom %}コミュニティで共有されているアクションを使用し、必要に応じてカスタマイズすることも、自分でビルドするアクションを書いて共有することもできます。'
 redirect_from:
   - /articles/building-actions
   - /github/automating-your-workflow-with-github-actions/building-actions
@@ -11,8 +11,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% link_in_list /about-actions %}
 {% link_in_list /creating-a-docker-container-action %}

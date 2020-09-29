@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-如果错误地发布了安全通告，可以联系 {{ site.data.variables.contact.contact_support }} 撤销。
+如果错误地发布了安全通告，可以联系 {% data variables.contact.contact_support %} 撤销。
 
 ### 延伸阅读
 

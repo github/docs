@@ -15,7 +15,7 @@ versions:
 
 Organization の支払い方法をアップデートして支払いステータスを回復することで、アカウントのロックを解除しアクセスできるようになります。 ロックされたモードで経過した時間の分については、お支払いを請求いたしません。
 
-パブリックリポジトリで同じ高度な機能を使い続けるために、Organization を{{ site.data.variables.product.prodname_free_team }} にダウングレードすることができます。 詳細は「[{{ site.data.variables.product.product_name }} プランのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)」を参照してください。
+パブリックリポジトリで同じ高度な機能を使い続けるために、Organization を{% data variables.product.prodname_free_team %} にダウングレードすることができます。 詳細は「[{% data variables.product.product_name %} プランのダウングレード](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription)」を参照してください。
 
 ### 支払いの拒否による Organization 機能のロック解除
 

@@ -1,6 +1,6 @@
 ---
 title: Getting permanent links to files
-intro: 'When viewing a file on {{ site.data.variables.product.product_location }}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
+intro: 'When viewing a file on {% data variables.product.product_location %}, you can press the "y" key to update the URL to a permalink to the exact version of the file you see.'
 redirect_from:
   - /articles/getting-a-permanent-link-to-a-file/
   - /articles/how-do-i-get-a-permanent-link-from-file-view-to-permanent-blob-url/
@@ -12,13 +12,13 @@ versions:
 
 {% tip %}
 
-**Tip**: Press "?" on any page in {{ site.data.variables.product.product_name }} to see all available keyboard shortcuts.
+**Tip**: Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
 
 {% endtip %}
 
 ### File views show the latest version on a branch
 
-When viewing a file on {{ site.data.variables.product.product_location }}, you usually see the version at the current head of a branch.  예시:
+When viewing a file on {% data variables.product.product_location %}, you usually see the version at the current head of a branch.  예시:
 
 * [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
 

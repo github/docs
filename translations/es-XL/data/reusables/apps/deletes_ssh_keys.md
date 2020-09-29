@@ -1,5 +1,5 @@
 {% warning %}
 
-**Advertencia**: Si revocas todos los permisos de una {{ site.data.variables.product.prodname_oauth_app }} borrarás cualquier llave SSH que haya generado la aplicación en nombre del usuario, , incluyendo las [llaves de despliegue](/v3/guides/managing-deploy-keys/#deploy-keys).
+**Advertencia**: Si revocas todos los permisos de una {% data variables.product.prodname_oauth_app %} borrarás cualquier llave SSH que haya generado la aplicación en nombre del usuario, , incluyendo las [llaves de despliegue](/v3/guides/managing-deploy-keys/#deploy-keys).
 
 {% endwarning %}

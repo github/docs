@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 2. `ghe-migrator import`コマンドを使ってインポートのプロセスを開始してください。 以下が必要です:
     * 移行 GUID.
@@ -21,4 +21,4 @@ versions:
     > Import 100% complete /
     ```
 
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}

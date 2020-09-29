@@ -10,7 +10,7 @@ redirect_from:
   - /articles/adding-images-to-wikis/
   - /articles/supported-mediawiki-formats/
   - /articles/editing-wiki-content
-product: '{{ site.data.reusables.gated-features.wikis }}'
+product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -27,8 +27,8 @@ versions:
 
 Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-wiki }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-wiki %}
 3. 使用 wiki 边栏，导航至要更改的页面，然后单击 **Edit（编辑）**。
 4. 在 wiki 工具栏上，单击 **Image（图像）**。 ![Wiki 添加图像按钮](/assets/images/help/wiki/wiki_add_image.png)
 5. 在“Insert Image”（插入图像）对话框，输入 URL 和 alt 文本（由搜索引擎和屏幕阅读器使用）。
@@ -36,7 +36,7 @@ Wikis 可显示 PNG、JPEG 和 GIF 图片。
 
 #### 链接到仓库中的图片
 
-您可以通过在浏览器中复制链接并将其用作图像路径，链接到 {{ site.data.variables.product.product_name }} 上仓库中的图像。 例如，使用 Markdown 在 wiki 中嵌入图像可能如下所示：
+您可以通过在浏览器中复制链接并将其用作图像路径，链接到 {% data variables.product.product_name %} 上仓库中的图像。 例如，使用 Markdown 在 wiki 中嵌入图像可能如下所示：
 
     [[https://github.com/USERNAME/REPOSITORY/blob/main/img/octocat.png|alt=octocat]]
 

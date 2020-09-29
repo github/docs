@@ -1,6 +1,6 @@
 ---
 title: Themen durchsuchen
-intro: 'Auf {{ site.data.variables.product.product_name }} kannst Du Themen suchen, die Repositorys zugeordnet sind.'
+intro: 'Auf {% data variables.product.product_name %} kannst Du Themen suchen, die Repositorys zugeordnet sind.'
 redirect_from:
   - /articles/searching-topics
 versions:
@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-### {{ site.data.variables.product.product_name }} nach Themen durchsuchen
+### {% data variables.product.product_name %} nach Themen durchsuchen
 
-Du kannst auf {{ site.data.variables.product.product_name }} Themen suchen, zugehörige Themen untersuchen und ermitteln, wie viele Repositorys einem bestimmten Thema zugeordnet sind.
+Du kannst auf {% data variables.product.product_name %} Themen suchen, zugehörige Themen untersuchen und ermitteln, wie viele Repositorys einem bestimmten Thema zugeordnet sind.
 
 1. Navigiere zu „https://github.com/search“.
 2. Gib ein Stichwort zum Thema ein. ![Suchfeld](/assets/images/help/search/search-field.png)
@@ -21,17 +21,17 @@ Du kannst auf {{ site.data.variables.product.product_name }} Themen suchen, zuge
 
 ### Suche durch Qualifizierer eingrenzen
 
-Wenn Du in Repositorys bestimmte Themen suchst, um zu Projekten beizutragen, oder in Erfahrung bringen möchtest, welche Themen auf {{ site.data.variables.product.product_name }} besonders beliebt sind, kannst Du Themen mit den Qualifizierern `is:featured`, `is:curated`, `repositories:n` und `created:YYYY-MM-DD` durchsuchen.
+Wenn Du in Repositorys bestimmte Themen suchst, um zu Projekten beizutragen, oder in Erfahrung bringen möchtest, welche Themen auf {% data variables.product.product_name %} besonders beliebt sind, kannst Du Themen mit den Qualifizierern `is:featured`, `is:curated`, `repositories:n` und `created:YYYY-MM-DD` durchsuchen.
 
-Der Qualifizierer `is:featured` grenzt das Suchergebnis auf die Themen mit den meisten Repositorys auf {{ site.data.variables.product.product_name }} ein. Diese Themen werden auch auf „https://github.com/topics/“ vorgestellt.
+Der Qualifizierer `is:featured` grenzt das Suchergebnis auf die Themen mit den meisten Repositorys auf {% data variables.product.product_name %} ein. Diese Themen werden auch auf „https://github.com/topics/“ vorgestellt.
 
 Der Qualifizierer `is:curated` grenzt das Suchergebnis auf Themen ein, zu denen Community-Mitglieder zusätzliche Informationen hinzugefügt haben. Weitere Informationen findest Du im Explore-Repository auf „https://github.com/github/explore“.
 
 Mit dem Datumsparameter und dem Qualifizierer `created:` kannst Du Themen nach ihrem Erstellungsdatum filtern, und mit `repositories:n` kannst Du nach der Anzahl der einem Thema zugeordneten Repositorys filtern. Beide Qualifizierer arbeiten mit [„Größer als“-, „Kleiner als“- und Bereichsqualifizierern](/articles/understanding-the-search-syntax).
 
-{{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+{% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifizierer             | Beispiel                                                                                                                                                                                                                                 |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

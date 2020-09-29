@@ -1,7 +1,7 @@
 ---
 title: Configuring a workflow
 intro: You can create custom workflows to automate your project's software development life cycle processes.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-github-action/
   - /articles/creating-a-workflow-with-github-actions/
@@ -16,18 +16,18 @@ versions:
 
 People with write or admin permissions to a repository can create, edit, or view workflows.
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### About workflows
 
-Workflows are custom automated processes that you can set up in your repository to build, test, package, release, or deploy any project on {{ site.data.variables.product.prodname_dotcom }}. With workflows you can automate your software development life cycle with a wide range of tools and services. For more information, see "[About {{ site.data.variables.product.prodname_actions }}](/articles/about-github-actions)."
+Workflows are custom automated processes that you can set up in your repository to build, test, package, release, or deploy any project on {% data variables.product.prodname_dotcom %}. With workflows you can automate your software development life cycle with a wide range of tools and services. For more information, see "[About {% data variables.product.prodname_actions %}](/articles/about-github-actions)."
 
 You can create more than one workflow in a repository. You must store workflows in the `.github/workflows` directory in the root of your repository.
 
-Workflows must have at least one job, and jobs contain a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the {{ site.data.variables.product.prodname_dotcom }} community and customize them as needed.
+Workflows must have at least one job, and jobs contain a set of steps that perform individual tasks. Steps can run commands or use an action. You can create your own actions or use actions shared by the {% data variables.product.prodname_dotcom %} community and customize them as needed.
 
-You can configure a workflow to start when a {{ site.data.variables.product.prodname_dotcom }} event occurs, on a schedule, or from an external event.
+You can configure a workflow to start when a {% data variables.product.prodname_dotcom %} event occurs, on a schedule, or from an external event.
 
 You need to configure workflows using YAML syntax, and save them as workflow files in your repository. Once you've successfully created a YAML workflow file and triggered the workflow, you will see the build logs, tests results, artifacts, and statuses for each step of your workflow. For more information, see "[Managing a workflow run](/articles/managing-a-workflow-run)."
 
@@ -45,7 +45,7 @@ At a high level, these are the steps to add a workflow file. You can find specif
 
 1. In `.github/workflows`, add a `.yml` or `.yaml` file for your workflow. For example, `.github/workflows/continuous-integration-workflow.yml`.
 
-1. Use the "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions)" reference documentation to choose events to trigger an action, add actions, and customize your workflow.
+1. Use the "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions)" reference documentation to choose events to trigger an action, add actions, and customize your workflow.
 
 1. Commit your changes in the workflow file to the branch where you want your workflow to run.
 
@@ -76,16 +76,16 @@ jobs:
 ```
 {% endraw %}
 
-{{ site.data.reusables.github-actions.invalid-workflow-files }}
+{% data reusables.github-actions.invalid-workflow-files %}
 
 ### Triggering a workflow with events
 
 You can configure a workflow to start once:
-- An event on {{ site.data.variables.product.prodname_dotcom }} occurs, such as when someone pushes a commit to a repository or when an issue or pull request is created.
+- An event on {% data variables.product.prodname_dotcom %} occurs, such as when someone pushes a commit to a repository or when an issue or pull request is created.
 - A scheduled event begins.
 - An external event occurs.
 
-To trigger a workflow after an event happens on {{ site.data.variables.product.prodname_dotcom }}, add `on:` and an event value after the workflow name. For example, this workflow is triggered when changes are pushed to any branch in the repository.
+To trigger a workflow after an event happens on {% data variables.product.prodname_dotcom %}, add `on:` and an event value after the workflow name. For example, this workflow is triggered when changes are pushed to any branch in the repository.
 
 ```yaml
 name: descriptive-workflow-name
@@ -102,7 +102,7 @@ on:
 
 #### Manually running a workflow
 
-To manually run a workflow, you must first configure your workflow to use the `workflow_dispatch` event. You can configure custom-defined input properties, default input values, and required inputs directly in your workflow. When the workflow runs, you can access the input values in the `github.event.inputs` context. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" and "[Context and expression syntax for {{ site.data.variables.product.prodname_dotcom }} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
+To manually run a workflow, you must first configure your workflow to use the `workflow_dispatch` event. You can configure custom-defined input properties, default input values, and required inputs directly in your workflow. When the workflow runs, you can access the input values in the `github.event.inputs` context. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows/#workflow_dispatch)" and "[Context and expression syntax for {% data variables.product.prodname_dotcom %} Actions](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)."
 
 This example defines the `name` and `home` inputs and prints them using the `github.event.inputs.name` and `github.event.inputs.home` contexts. If a `name` isn't provided, the default value 'Mona the Octocat' is printed.
 
@@ -130,12 +130,12 @@ jobs:
 ```
 {% endraw %}
 
-You can trigger the `workflow_dispatch` event from the Actions tab on {{ site.data.variables.product.prodname_dotcom }} or using the REST API. For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)." When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
+You can trigger the `workflow_dispatch` event from the Actions tab on {% data variables.product.prodname_dotcom %} or using the REST API. For more information about using the REST API, see the "[Create a workflow dispatch event](/rest/reference/actions/#create-a-workflow-dispatch-event)." When using the REST API, you configure the `inputs` and `ref` as request body parameters. If the inputs are omitted, the default values defined in the workflow file are used.
 
-To trigger the `workflow_dispatch` event on {{ site.data.variables.product.prodname_dotcom }}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
+To trigger the `workflow_dispatch` event on {% data variables.product.prodname_dotcom %}, your workflow must be in the default branch. Follow these steps to manually trigger a workflow run.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.actions-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to run. ![actions select workflow](/assets/images/actions-select-workflow.png)
 1. Above the list of workflow runs, select **Run workflow**. ![actions workflow dispatch](/assets/images/actions-workflow-dispatch.png)
 1. Select the branch where the workflow will run and type the input parameters used by the workflow. Click **Run workflow**. ![actions manually run workflow](/assets/images/actions-manually-run-workflow.png)
@@ -168,17 +168,17 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 
 ### Choosing a runner
 
-You can run workflows on {{ site.data.variables.product.prodname_dotcom }}-hosted runners or self-hosted runners. Jobs can run directly on the machine or in a Docker container.
+You can run workflows on {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. Jobs can run directly on the machine or in a Docker container.
 
-You can specify the runner for each job in a workflow using `runs-on`. For more information about `runs-on`, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+You can specify the runner for each job in a workflow using `runs-on`. For more information about `runs-on`, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
 
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-#### Using a {{ site.data.variables.product.prodname_dotcom }}-hosted runner
+#### Using a {% data variables.product.prodname_dotcom %}-hosted runner
 
-You can select from different types and versions of virtual host machines, including Linux, Windows, and macOS. Each job in a workflow executes in a fresh instance of the virtual environment, and steps within a job can share information using the filesystem. For more information, see "[Virtual environments for {{ site.data.variables.product.prodname_actions }}-hosted runners](/articles/virtual-environments-for-github-actions)."
+You can select from different types and versions of virtual host machines, including Linux, Windows, and macOS. Each job in a workflow executes in a fresh instance of the virtual environment, and steps within a job can share information using the filesystem. For more information, see "[Virtual environments for {% data variables.product.prodname_actions %}-hosted runners](/articles/virtual-environments-for-github-actions)."
 
-For example, you can use  `ubuntu-latest` to specify the latest version of an Ubuntu {{ site.data.variables.product.prodname_dotcom }}-hosted runner.
+For example, you can use  `ubuntu-latest` to specify the latest version of an Ubuntu {% data variables.product.prodname_dotcom %}-hosted runner.
 
 ```yaml
 runs-on: ubuntu-latest
@@ -202,7 +202,7 @@ A build matrix allows you to test your code with different software and operatin
 
 You can specify a build matrix in your workflow file with an array that lists the configuration options under `strategy:`. For example, this build matrix will run a job with different versions of Node.js and Ubuntu, a Linux operating system.
 
-{{ site.data.reusables.repositories.actions-matrix-builds-os }}
+{% data reusables.repositories.actions-matrix-builds-os %}
 
 {% raw %}
 ```yaml
@@ -214,7 +214,7 @@ strategy:
 ```
 {% endraw %}
 
-For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)."
 
 ### Using the checkout action
 
@@ -239,7 +239,7 @@ For more information, see "[About actions](/articles/about-actions#types-of-acti
 
 When choosing the type of actions to use in your workflow, we recommend exploring existing actions in public repositories or on Docker hub and potentially customizing these actions for your project.
 
-You can browse and use actions built by {{ site.data.variables.product.prodname_dotcom }} in the [github.com/actions](https://github.com/actions) organization. To visit Docker Hub, see "[Docker Hub](https://www.docker.com/products/docker-hub)" on the Docker site.
+You can browse and use actions built by {% data variables.product.prodname_dotcom %} in the [github.com/actions](https://github.com/actions) organization. To visit Docker Hub, see "[Docker Hub](https://www.docker.com/products/docker-hub)" on the Docker site.
 
 ### Referencing actions in your workflow
 
@@ -252,13 +252,13 @@ Workflows can use actions defined in:
 
 To use an action defined in a private repository, both the workflow file and the action must be in the same repository. Your workflow cannot use actions defined in other private repositories, even if the other private repository is in the same organization.
 
-To keep your workflow stable even when updates are made to an action, you can reference the version of the action you're using by specifying a Git ref or Docker tag number in your workflow file. For examples, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+To keep your workflow stable even when updates are made to an action, you can reference the version of the action you're using by specifying a Git ref or Docker tag number in your workflow file. For examples, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 {% endif %}
 
-For more detailed configuration options, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
+For more detailed configuration options, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)."
 
 #### Referencing an action from a public repository
 
@@ -319,13 +319,13 @@ jobs:
 
 For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/master/ci/docker-image.yml) and "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
 
-For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
 
 ### Adding a workflow status badge to your repository
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-If your workflow uses the `name` keyword, you must reference the workflow by name. If the name of your workflow contains white space, you'll need to replace the space with the URL encoded string `%20`. For more information about the `name` keyword, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)."
+If your workflow uses the `name` keyword, you must reference the workflow by name. If the name of your workflow contains white space, you'll need to replace the space with the URL encoded string `%20`. For more information about the `name` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)."
 
 ```
 https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_NAME>/badge.svg
@@ -378,5 +378,5 @@ This Markdown example adds a badge that displays the status of workflow runs tri
 {% if currentVersion == "free-pro-team@latest" %}
 ### Дополнительная литература
 
-- "[Managing billing for {{ site.data.variables.product.prodname_actions }}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
+- "[Managing billing for {% data variables.product.prodname_actions %}](/github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions)"
 {% endif %}

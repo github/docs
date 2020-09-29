@@ -1,6 +1,6 @@
 ---
 title: REST API のリソース
-intro: '{{ site.data.variables.product.prodname_dotcom }} API で提供されるリソースをナビゲートする方法を学びます。'
+intro: '{% data variables.product.prodname_dotcom %} API で提供されるリソースをナビゲートする方法を学びます。'
 redirect_from:
   - /rest/initialize-the-repo/
 versions:
@@ -9,12 +9,12 @@ versions:
 ---
 
 
-公式の {{ site.data.variables.product.product_name }} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{{ site.data.variables.contact.contact_support }} までご連絡ください。
+公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
 
 ### 最新バージョン
 
-デフォルトでは、`{{ site.data.variables.product.api_url_code }}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
+デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
 
     Accept: application/vnd.github.v3+json
 
@@ -26,11 +26,11 @@ GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)�
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{{ site.data.variables.product.api_url_code }}` からアクセスされます。  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
 JSON として送受信されます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 > HTTP/1.1 200 OK
 > Server: nginx
@@ -77,18 +77,18 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/orgs
 
 ### 認証
 
-{{ site.data.variables.product.product_name }} API v3 を使用して認証する方法は 2 つあります。  認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
+{% data variables.product.product_name %} API v3 を使用して認証する方法は 2 つあります。  認証を必要とするリクエストは、場所によって `403 Forbidden` ではなく `404 Not Found` を返します。  これは、許可されていないユーザにプライベートリポジトリが誤って漏洩するのを防ぐためです。
 
 #### Basic 認証
 
 ```shell
-$ curl -u "username" {{ site.data.variables.product.api_url_pre }}
+$ curl -u "username" {% data variables.product.api_url_pre %}
 ```
 
 #### OAuth2 トークン（ヘッダに送信）
 
 ```shell
-$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.product.api_url_pre }}
+$ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.api_url_pre %}
 ```
 
 {% note %}
@@ -101,10 +101,10 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {{ site.data.variables.pro
 
 #### OAuth2 キー/シークレット
 
-{{ site.data.reusables.apps.deprecating_auth_with_query_parameters }}
+{% data reusables.apps.deprecating_auth_with_query_parameters %}
 
 ```shell
-curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pre }}/user/repos'
+curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/user/repos'
 ```
 
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
@@ -123,24 +123,24 @@ curl -u my_client_id:my_client_secret '{{ site.data.variables.product.api_url_pr
 無効な認証情報で認証すると、`401 Unauthorized` が返されます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u foo:bar
+$ curl -i {% data variables.product.api_url_pre %} -u foo:bar
 > HTTP/1.1 401 Unauthorized
 
 > {
 >   "message": "Bad credentials",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
 API は、無効な認証情報を含むリクエストを短期間に複数回検出すると、`403 Forbidden` で、そのユーザに対するすべての認証試行（有効な認証情報を含む）を一時的に拒否します。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_password
+$ curl -i {% data variables.product.api_url_pre %} -u valid_username:valid_password
 > HTTP/1.1 403 Forbidden
 
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3"
 > }
 ```
 
@@ -149,7 +149,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }} -u valid_username:valid_
 多くの API メソッドはオプションのパラメータを選択しています。 `GET` リクエストでは、パスのセグメントとして指定されていないパラメータは、HTTP クエリ文字列型パラメータとして渡すことができます。
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/issues?state=closed"
+$ curl -i "{% data variables.product.api_url_pre %}/repos/vmg/redcarpet/issues?state=closed"
 ```
 
 この例では、パスの `:owner` と `:repo` パラメータに「vmg」と「redcarpet」の値が指定され、クエリ文字列型で `:state` が渡されます。
@@ -157,7 +157,7 @@ $ curl -i "{{ site.data.variables.product.api_url_pre }}/repos/vmg/redcarpet/iss
 `POST`、`PATCH`、`PUT`、および `DELETE` リクエストでは、URL に含まれていないパラメータは、Content-Type が「application/json」の JSON としてエンコードする必要があります。
 
 ```shell
-$ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.product.api_url_pre }}/authorizations
+$ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ### ルートエンドポイント
@@ -165,14 +165,14 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {{ site.data.variables.pro
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{{ site.data.variables.product.api_url_pre }}
+$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
 {% if currentVersion != "free-pro-team@latest" %}
 
 {% note %}
 
-**注釈:** {{ site.data.variables.product.prodname_ghe_server }} では、[他のすべてのエンドポイントと同様に](/v3/enterprise-admin/#endpoint-urls)、ユーザ名とパスワードを渡す必要があります。
+**注釈:** {% data variables.product.prodname_ghe_server %} では、[他のすべてのエンドポイントと同様に](/v3/enterprise-admin/#endpoint-urls)、ユーザ名とパスワードを渡す必要があります。
 
 {% endnote %}
 
@@ -273,7 +273,7 @@ API v3 は、可能な限り各アクションに適切な HTTPメソッドを�
 複数のアイテムを返すリクエストは、デフォルトで 30 件ごとにページ分けされます。  `?page` パラメータを使用すると、さらにページを指定できます。 一部のリソースでは、`?per_page` パラメータを使用してカスタムページサイズを最大 100 に設定することもできます。 技術的な理由により、すべてのエンドポイントが `?per_page` パラメータを尊重するわけではないことに注意してください。例については、[イベント](/v3/activity/events/)を参照してください。
 
 ```shell
-$ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page=100'
+$ curl '{% data variables.product.api_url_pre %}/user/repos?page=2&per_page=100'
 ```
 
 ページ番号は 1 から始まり、`?page` パラメータを省略すると最初のページが返されることに注意してください。
@@ -290,8 +290,8 @@ $ curl '{{ site.data.variables.product.api_url_pre }}/user/repos?page=2&per_page
 
 [Link ヘッダ](http://tools.ietf.org/html/rfc5988)には、ページネーション情報が含まれています。
 
-    Link: <{{ site.data.variables.product.api_url_code }}/user/repos?page=3&per_page=100>; rel="next",
-      <{{ site.data.variables.product.api_url_code }}/user/repos?page=50&per_page=100>; rel="last"
+    Link: <{% data variables.product.api_url_code %}/user/repos?page=3&per_page=100>; rel="next",
+      <{% data variables.product.api_url_code %}/user/repos?page=50&per_page=100>; rel="last"
 
 _この例は、読みやすいように改行されています。_
 
@@ -312,20 +312,20 @@ Basic 認証または OAuth を使用する API リクエストの場合、1 時
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.variables.product.prodname_ghe_cloud }} アカウントに属するユーザの場合、同じ {{ site.data.variables.product.prodname_ghe_cloud }} アカウントが所有するリソースに OAuth トークンを使用して行うリクエストについては、1 時間当たりのリクエスト制限が 15,000 件まで増加します。
+{% data variables.product.prodname_ghe_cloud %} アカウントに属するユーザの場合、同じ {% data variables.product.prodname_ghe_cloud %} アカウントが所有するリソースに OAuth トークンを使用して行うリクエストについては、1 時間当たりのリクエスト制限が 15,000 件まで増加します。
 
 {% endif %}
 
 認証されていないリクエストでは、レート制限により 1 時間あたり最大 60 リクエストまで可能です。 認証されていないリクエストは、リクエストを行っているユーザではなく、発信元の IP アドレスに関連付けられます。
 
-{{ site.data.reusables.enterprise.rate_limit }}
+{% data reusables.enterprise.rate_limit %}
 
 [Search API にはカスタムのレート制限ルール](/v3/search/#rate-limit)があることに注意してください。
 
 API リクエストの返された HTTP ヘッダは、現在のレート制限ステータスを示しています。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -359,7 +359,7 @@ new Date(1372700873 * 1000)
 
 > {
 >    "message": "API rate limit exceeded for xxx.xxx.xxx.xxx. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)",
->    "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#rate-limiting"
+>    "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#rate-limiting"
 > }
 ```
 
@@ -370,7 +370,7 @@ API ヒットを発生させることなく、[レート制限ステータスを
 OAuth アプリケーションが認証されていない呼び出しをより高いレート制限で行う必要がある場合は、エンドポイントルートの前にアプリのクライアント ID とシークレットを渡すことができます。
 
 ```shell
-$ curl -u my_client_id:my_client_secret {{ site.data.variables.product.api_url_pre }}/user/repos
+$ curl -u my_client_id:my_client_secret {% data variables.product.api_url_pre %}/user/repos
 > HTTP/1.1 200 OK
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > Status: 200 OK
@@ -391,7 +391,7 @@ Basic 認証または OAuth を使用してレート制限を超えた場合、A
 
 #### 不正利用レート制限
 
-{{ site.data.variables.product.product_name }} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 たとえば、API を使用してコンテンツを急速に作成する、webhook を使用する代わりに積極的にポーリングする、複数の同時リクエストを行う、計算コストが高いデータを繰り返しリクエストするなどの行為によって、不正利用レート制限が適用される場合があります。
+{% data variables.product.product_name %} で高品質のサービスを提供するにあたって、API を使用するときに、いくつかのアクションに追加のレート制限が適用される場合があります。 たとえば、API を使用してコンテンツを急速に作成する、webhook を使用する代わりに積極的にポーリングする、複数の同時リクエストを行う、計算コストが高いデータを繰り返しリクエストするなどの行為によって、不正利用レート制限が適用される場合があります。
 
 不正利用レート制限は、API の正当な使用を妨げることを意図したものではありません。 通常のレート制限が、ユーザにとって唯一の制限であるべきです。 優良な API ユーザにふさわしい振る舞いをしているかどうかを確認するには、[ベストプラクティスのガイドライン](/guides/best-practices-for-integrators/)をご覧ください。
 
@@ -404,7 +404,7 @@ Basic 認証または OAuth を使用してレート制限を超えた場合、A
 
 > {
 >   "message": "You have triggered an abuse detection mechanism and have been temporarily blocked from content creation. Please retry your request again later.",
->   "documentation_url": "{{ site.data.variables.product.doc_url_pre }}/v3/#abuse-rate-limits"
+>   "documentation_url": "{% data variables.product.doc_url_pre %}/v3/#abuse-rate-limits"
 > }
 ```
 
@@ -412,7 +412,7 @@ Basic 認証または OAuth を使用してレート制限を超えた場合、A
 
 ### User agent の必要性
 
-すべての API リクエストには、有効な `User-Agent` ヘッダを含める必要があります。 `User-Agent` ヘッダのないリクエストは拒否されます。 `User-Agent` ヘッダの値には、{{ site.data.variables.product.product_name }} のユーザ名またはアプリケーション名を使用してください。 そうすることで、問題がある場合にご連絡することができます。
+すべての API リクエストには、有効な `User-Agent` ヘッダを含める必要があります。 `User-Agent` ヘッダのないリクエストは拒否されます。 `User-Agent` ヘッダの値には、{% data variables.product.product_name %} のユーザ名またはアプリケーション名を使用してください。 そうすることで、問題がある場合にご連絡することができます。
 
 次に例を示します。
 
@@ -423,7 +423,7 @@ User-Agent: Awesome-Octocat-App
 cURL はデフォルトで有効な `User-Agent` ヘッダを送信します。 cURL（または代替クライアント）を介して無効な `User-Agent` ヘッダを提供すると、`403 Forbidden` レスポンスが返されます。
 
 ```shell
-$ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
+$ curl -iH 'User-Agent: ' {% data variables.product.api_url_pre %}/meta
 > HTTP/1.0 403 Forbidden
 > Connection: close
 > Content-Type: text/html
@@ -450,7 +450,7 @@ $ curl -iH 'User-Agent: ' {{ site.data.variables.product.api_url_pre }}/meta
 {% endif %}
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i {% data variables.product.api_url_pre %}/user
 > HTTP/1.1 200 OK
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -461,7 +461,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
+$ curl -i {% data variables.product.api_url_pre %}/user -H 'If-None-Match: "644b5b0155e6404a9cc4bd9d8b1ae730"'
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > ETag: "644b5b0155e6404a9cc4bd9d8b1ae730"
@@ -472,7 +472,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/user -H 'If-None-Match: 
 > X-RateLimit-Remaining: 4996
 > X-RateLimit-Reset: 1372700873
 
-$ curl -i {{ site.data.variables.product.api_url_pre }}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
+$ curl -i {% data variables.product.api_url_pre %}/user -H "If-Modified-Since: Thu, 05 Jul 2012 15:31:30 GMT"
 > HTTP/1.1 304 Not Modified
 > Cache-Control: private, max-age=60
 > Last-Modified: Thu, 05 Jul 2012 15:31:30 GMT
@@ -490,7 +490,7 @@ API は、任意のオリジンからの AJAX リクエストに対して、オ�
 `http://example.com` にアクセスするブラウザから送信されたサンプルリクエストは次のとおりです。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com"
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
 HTTP/1.1 302 Found
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -499,7 +499,7 @@ Access-Control-Expose-Headers: ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-Ra
 CORS プリフライトリクエストは次のようになります。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }} -H "Origin: http://example.com" -X OPTIONS
+$ curl -i {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/1.1 204 No Content
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-GitHub-OTP, X-Requested-With
@@ -510,10 +510,10 @@ Access-Control-Max-Age: 86400
 
 ### JSON-P コールバック
 
-`?callback` パラメータを任意の GET 呼び出しに送信して、結果を JSON 関数でラップできます。  これは通常、ブラウザがクロスドメインの問題を回避することにより、{{ site.data.variables.product.product_name }} のコンテンツを Web ページに埋め込む場合に使用されます。  レスポンスには、通常の API と同じデータ出力と、関連する HTTP ヘッダ情報が含まれます。
+`?callback` パラメータを任意の GET 呼び出しに送信して、結果を JSON 関数でラップできます。  これは通常、ブラウザがクロスドメインの問題を回避することにより、{% data variables.product.product_name %} のコンテンツを Web ページに埋め込む場合に使用されます。  レスポンスには、通常の API と同じデータ出力と、関連する HTTP ヘッダ情報が含まれます。
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
+$ curl {% data variables.product.api_url_pre %}?callback=foo
 
 > /**/foo({
 >   "meta": {
@@ -522,7 +522,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}?callback=foo
 >     "X-RateLimit-Remaining": "4966",
 >     "X-RateLimit-Reset": "1372700873",
 >     "Link": [ // pagination headers and other links
->       ["{{ site.data.variables.product.api_url_pre }}?page=2", {"rel": "next"}]
+>       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
 >     ]
 >   },
 >   "data": {
@@ -544,7 +544,7 @@ JavaScript ハンドラを記述して、コールバックを処理できます
     }
     
     var script = document.createElement('script');
-    script.src = '{{ site.data.variables.product.api_url_code }}?callback=foo';
+    script.src = '{% data variables.product.api_url_code %}?callback=foo';
     
     document.getElementsByTagName('head')[0].appendChild(script);
     </script>
@@ -603,14 +603,14 @@ JavaScript ハンドラを記述して、コールバックを処理できます
 [Olson データベースの名前のリスト](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)に従ってタイムゾーンを定義する `Time-Zone` ヘッダを提供することができます。
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {{ site.data.variables.product.api_url_pre }}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
 ```
 
 つまり、このヘッダが定義するタイムゾーンで API 呼び出しが行われた時のタイムスタンプが生成されます。 たとえば、[コンテンツ API](/v3/repos/contents/) は追加または変更ごとに git コミットを生成し、タイムスタンプとして現在の時刻を使用します。 このヘッダは、現在のタイムスタンプの生成に使用されたタイムゾーンを決定します。
 
 #### ユーザが最後に認識されたタイムゾーンを使用する
 
-`Time-Zone` ヘッダが指定されておらず、API への認証された呼び出しを行う場合、認証されたユーザが最後に認識されたタイムゾーンが使用されます。 最後に認識されたタイムゾーンは、{{ site.data.variables.product.product_name }} Web サイトを閲覧するたびに更新されます。
+`Time-Zone` ヘッダが指定されておらず、API への認証された呼び出しを行う場合、認証されたユーザが最後に認識されたタイムゾーンが使用されます。 最後に認識されたタイムゾーンは、{% data variables.product.product_name %} Web サイトを閲覧するたびに更新されます。
 
 #### 他のタイムゾーン情報を含まない UTC をデフォルトにする
 

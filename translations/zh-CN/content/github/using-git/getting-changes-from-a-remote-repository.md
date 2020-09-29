@@ -16,11 +16,11 @@ versions:
 要获取其他用户仓库的完整副本，请使用 `git clone`，如下所示：
 
 ```shell
-$ git clone https://{{ site.data.variables.command_line.codeblock }}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
+$ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
 # 将仓库克隆到您的计算机
 ```
 
-克隆仓库时，有[几个不同的 URL](/articles/which-remote-url-should-i-use)可供选择。 登录到 {{ site.data.variables.product.prodname_dotcom }} 后，可在仓库详细信息下面找到这些 URL：
+克隆仓库时，有[几个不同的 URL](/articles/which-remote-url-should-i-use)可供选择。 登录到 {% data variables.product.prodname_dotcom %} 后，可在仓库详细信息下面找到这些 URL：
 
 ![远程 URL 列表](/assets/images/help/repository/remotes-url.png)
 

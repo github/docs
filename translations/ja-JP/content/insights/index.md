@@ -1,7 +1,7 @@
 ---
 title: GitHub Insightsのドキュメント
 shortTitle: GitHub Insights
-intro: '{{ site.data.variables.product.prodname_insights }}とデータを通じてソフトウェアのデリバリプロセスを理解し、改善してください。 {{ site.data.variables.product.prodname_enterprise }}空のデータに基づくカスタマイズされたレポートを見ることができます。'
+intro: '{% data variables.product.prodname_insights %}とデータを通じてソフトウェアのデリバリプロセスを理解し、改善してください。 {% data variables.product.prodname_enterprise %}空のデータに基づくカスタマイズされたレポートを見ることができます。'
 gettingStartedLinks:
   - /insights/installing-and-configuring-github-insights/about-github-insights
   - /insights/installing-and-configuring-github-insights/system-overview-for-github-insights

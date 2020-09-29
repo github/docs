@@ -18,12 +18,12 @@ versions:
 
 {% tip %}
 
-**Dica:** somente proprietários da organização e gerentes de cobrança podem ver e alterar as informações de cobrança e configurações da conta para uma organização. {{ site.data.reusables.organizations.new-org-permissions-more-info }}
+**Dica:** somente proprietários da organização e gerentes de cobrança podem ver e alterar as informações de cobrança e configurações da conta para uma organização. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 
 {% endif %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}

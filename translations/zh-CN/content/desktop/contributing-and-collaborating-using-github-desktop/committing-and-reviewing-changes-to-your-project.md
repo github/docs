@@ -1,6 +1,6 @@
 ---
 title: 提交并审查对项目的更改
-intro: '{{ site.data.variables.product.prodname_desktop }} 可在您编辑时跟踪对所有文件的所有更改。 您可以决定如何对更改分组以创建有意义的提交。'
+intro: '{% data variables.product.prodname_desktop %} 可在您编辑时跟踪对所有文件的所有更改。 您可以决定如何对更改分组以创建有意义的提交。'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 versions:
@@ -9,9 +9,9 @@ versions:
 
 ### 关于提交
 
-{{ site.data.reusables.commits.about-commits }} 您也可以在您协作的任何提交上添加一名合作作者。
+{% data reusables.commits.about-commits %} 您也可以在您协作的任何提交上添加一名合作作者。
 
-{{ site.data.reusables.desktop.update-email-address }} 更多信息请参阅“[为 GitHub Desktop 配置 Git](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)”。
+{% data reusables.desktop.update-email-address %} 更多信息请参阅“[为 GitHub Desktop 配置 Git](/desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop)”。
 
 ### 1. 选择一个分支并进行更改
 
@@ -19,19 +19,19 @@ versions:
 
 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down.png)
-{{ site.data.reusables.desktop.make-changes }}
+{% data reusables.desktop.make-changes %}
 
 ### 2. 选择要包含在提交中的更改
 
-在文本编辑器中更改文件并本地保存后，您会在 {{ site.data.variables.product.prodname_desktop }} 中看到更改。
+在文本编辑器中更改文件并本地保存后，您会在 {% data variables.product.prodname_desktop %} 中看到更改。
 
 * 红色的 {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} 图标表示删除的文件。
 * 黄色的 {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} 图标表示修改的文件。
 * 绿色的 {% octicon "diff-added" aria-label="The diff added icon color-green" %} 图标表示添加的文件。
 * 要访问隐藏的更改，请单击 **Stashed Changes（隐藏的更改）**。 ![隐藏的更改选项](/assets/images/help/desktop/stashed-changes.png)
-* {{ site.data.reusables.desktop.commit-all-desc }}
+* {% data reusables.desktop.commit-all-desc %}
 ![选中复选框以提交所有更改的文件](/assets/images/help/desktop/commit-all.png)
-* {{ site.data.reusables.desktop.commit-some-desc }}
+* {% data reusables.desktop.commit-some-desc %}
 ![选中要提交的文件旁边的复选框](/assets/images/help/desktop/commit-some.png)
 
 #### 创建部分提交
@@ -48,10 +48,10 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.select-discard-files }}
-{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}
+{% data reusables.desktop.click-discard-files %}
   ![上下文菜单中的 Discard Changes（放弃更改）选项](/assets/images/help/desktop/discard-changes-mac.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-mac.png)
 
 {% tip %}
@@ -64,9 +64,9 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.select-discard-files }}{{ site.data.reusables.desktop.click-discard-files }}
+{% data reusables.desktop.select-discard-files %}{% data reusables.desktop.click-discard-files %}
   ![上下文菜单中的 Discard Changes（放弃更改）选项](/assets/images/help/desktop/discard-changes-win.png)
-{{ site.data.reusables.desktop.confirm-discard-files }}
+{% data reusables.desktop.confirm-discard-files %}
   ![确认对话框中的放弃更改按钮](/assets/images/help/desktop/discard-changes-confirm-win.png)
 
 {% tip %}
@@ -83,18 +83,18 @@ versions:
 
 {% note %}
 
-**注**：{{ site.data.reusables.desktop.tags-push-with-commits }} 更多信息请参阅“[管理标记](/desktop/contributing-to-projects/managing-tags)。”
+**注**：{% data reusables.desktop.tags-push-with-commits %} 更多信息请参阅“[管理标记](/desktop/contributing-to-projects/managing-tags)。”
 
 {% endnote %}
 
-{{ site.data.reusables.desktop.commit-message }}
+{% data reusables.desktop.commit-message %}
   ![提交消息字段](/assets/images/help/desktop/commit-message.png)
 2. （可选）要将某个提交归于另一个作者，请单击合作作者图标并输入要包含的用户名。 ![添加合作作者到提交消息](/assets/images/help/desktop/add-co-author-commit.png)
-{{ site.data.reusables.desktop.commit-button }}
+{% data reusables.desktop.commit-button %}
   ![提交按钮](/assets/images/help/desktop/commit-button.png)
 4. 如果您尝试提交的分支受保护，Desktop 将警告您。
     - 要移动变更，请单击 **switch branches（切换分支）**。
     - 要将变更提交至受保护分支，请单击 **Commit to（提交至） _BRANCH（分支）_**。
 
   有关受保护分支的更多信息，请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。 ![受保护分支警告](/assets/images/help/desktop/protected-branch-warning.png)
-{{ site.data.reusables.desktop.push-origin }}
+{% data reusables.desktop.push-origin %}

@@ -22,8 +22,8 @@ So entfernst Du Dich selbst aus Deiner Organisation:
  - Wenn Du Mitglied oder Inhaber der Organisation bist, findest Du weitere Informationen unter „[Sich selbst aus einer Organisation entfernen](/articles/removing-yourself-from-an-organization/).“
  - Als externer Mitarbeiter bitte einen Organisationsinhaber oder Repository-Administrator, Dich aus den Repositorys der Organisation zu entfernen. Weitere Informationen findest Du unter „[Rollen von Personen in einer Organisation anzeigen](/articles/viewing-people-s-roles-in-an-organization)“ und „[Externen Mitarbeiter von einem Organisationsrepository entfernen](/articles/removing-an-outside-collaborator-from-an-organization-repository/).“
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.security %}
 3. Klicke auf **Disable** (Deaktivieren). ![Schaltfläche „Disable two-factor authentication" (Deaktivieren der Zwei-Faktor-Authentifizierung)](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### Weiterführende Informationen

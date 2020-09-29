@@ -1,7 +1,7 @@
 ---
 title: Sobre restrições de branch
 intro: 'Os branches em repositórios que pertencem às organizações podem ser configurados para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} ou apps{% endif %} possam fazer push no branch.'
-product: '{{ site.data.reusables.gated-features.branch-restrictions }}'
+product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
@@ -11,7 +11,7 @@ versions:
 
 Quando você habilita restrições de branch, somente usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. Quando você habilita restrições de branch, somente usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. É possível exibir e editar os usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} com acesso push a um branch protegido nas configurações do branch protegido.
 
-Você pode dar acesso push a um branch protegido apenas a usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou {{ site.data.variables.product.prodname_github_apps }}{% endif %} instalados com acesso `write` a um repositório.
+Você pode dar acesso push a um branch protegido apenas a usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou {% data variables.product.prodname_github_apps %}{% endif %} instalados com acesso `write` a um repositório.
 
 Pessoas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} e apps{% endif %} com permissões de administrador a um repositório sempre podem fazer push em um branch protegido.
 

@@ -16,8 +16,8 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 ### 新しい SSH キーを生成する
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-2. 以下のテキストを貼り付けます。メールアドレスは自分の {{ site.data.variables.product.product_name }} メールアドレスに置き換えてください。
+{% data reusables.command_line.open_the_multi_os_terminal %}
+2. 以下のテキストを貼り付けます。メールアドレスは自分の {% data variables.product.product_name %} メールアドレスに置き換えてください。
   ```shell
   $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
   ```
@@ -63,7 +63,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 {% mac %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
 2. macOS Sierra 10.12.2 以降を使用している場合は、`~/.ssh/config` ファイルを修正して、キーが自動で ssh-agent に読み込まれ、キーチェーンにパスフレーズが記憶されるようにする必要があります。
 
@@ -89,7 +89,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
         IdentityFile ~/.ssh/id_rsa
       ```
 
-3. SSH 秘密鍵を ssh-agent に追加して、パスフレーズをキーチェーンに保存します。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+3. SSH 秘密鍵を ssh-agent に追加して、パスフレーズをキーチェーンに保存します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_rsa
   ```
@@ -107,7 +107,7 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows_git_bash }}
+{% data reusables.desktop.windows_git_bash %}
 
 1. ssh-agent が実行されていることを確認します. 「[SSH キーパスフレーズで操作する](/articles/working-with-ssh-key-passphrases)」の「ssh-agent を自動起動する」の手順を使用するか、手動で開始できます。
   ```shell
@@ -116,8 +116,8 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
   > Agent pid 59566
   ```
 
-2. SSH プライベートキーを ssh-agent に追加します。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. SSH プライベートキーを ssh-agent に追加します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [SSH キーを GitHub アカウントに追加します](/articles/adding-a-new-ssh-key-to-your-github-account)。
 
@@ -125,10 +125,10 @@ SSH キーを使用するたびにパスフレーズを再入力したくない�
 
 {% linux %}
 
-1. {{ site.data.reusables.command_line.start_ssh_agent }}
+1. {% data reusables.command_line.start_ssh_agent %}
 
-2. SSH プライベートキーを ssh-agent に追加します。 {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
-   {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent-commandline }}
+2. SSH プライベートキーを ssh-agent に追加します。 {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 3. [SSH キーを GitHub アカウントに追加します](/articles/adding-a-new-ssh-key-to-your-github-account)。
 

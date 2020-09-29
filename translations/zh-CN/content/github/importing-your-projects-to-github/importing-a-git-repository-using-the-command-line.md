@@ -10,7 +10,7 @@ versions:
 
 在开始之前，请确保您知道：
 
-- 您的 {{ site.data.variables.product.product_name }} 用户名
+- 您的 {% data variables.product.product_name %} 用户名
 - 外部仓库的克隆 URL，如 `https://external-host.com/user/repo.git` 或 `git://external-host.com/user/repo.git`（或许 `external-host.com` 域名前面是 `user@`）
 
 {% tip %}
@@ -19,22 +19,22 @@ versions:
 
 - 外部帐户 **extuser**
 - 外部 Git 主机 `https://external-host.com`
-- {{ site.data.variables.product.product_name }} 个人用户帐户 **ghuser**
-- {{ site.data.variables.product.product_name }} 仓库 **repo.git**
+- {% data variables.product.product_name %} 个人用户帐户 **ghuser**
+- {% data variables.product.product_name %} 仓库 **repo.git**
 
 {% endtip %}
 
-1. [在 {{ site.data.variables.product.product_name }} 上创建新仓库](/articles/creating-a-new-repository)。 您将在此新仓库中导入外部 Git 仓库。
+1. [在 {% data variables.product.product_name %} 上创建新仓库](/articles/creating-a-new-repository)。 您将在此新仓库中导入外部 Git 仓库。
 2. 在命令行上，使用外部克隆 URL 创建仓库的“裸”克隆。 这会创建数据的完整副本，但没有编辑文件的工作目录，并确保干净、新鲜地导出所有旧数据。
   ```shell
   $ git clone --bare https://external-host.com/<em>extuser</em>/<em>repo.git</em>
   # Makes a bare clone of the external repository in a local directory
   ```
-3. 使用“镜像”选项将本地克隆的仓库推送到 {{ site.data.variables.product.product_name }}，以确保所有引用（如分支和标记）都复制到导入的仓库。
+3. 使用“镜像”选项将本地克隆的仓库推送到 {% data variables.product.product_name %}，以确保所有引用（如分支和标记）都复制到导入的仓库。
   ```shell
   $ cd <em>repo.git</em>
-  $ git push --mirror https://{{ site.data.variables.command_line.codeblock }}/<em>ghuser</em>/<em>repo.git</em>
-  # Pushes the mirror to the new {{ site.data.variables.product.product_name }} repository
+  $ git push --mirror https://{% data variables.command_line.codeblock %}/<em>ghuser</em>/<em>repo.git</em>
+  # Pushes the mirror to the new {% data variables.product.product_name %} repository
   ```
 4. 删除临时本地仓库。
   ```shell

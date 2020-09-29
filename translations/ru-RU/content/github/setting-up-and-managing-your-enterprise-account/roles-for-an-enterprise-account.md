@@ -1,7 +1,7 @@
 ---
 title: Roles for an enterprise account
 intro: 'To control access to your enterprise account''s settings and data, you can give different roles to people in the enterprise account.'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/
   - /articles/roles-for-an-enterprise-account
@@ -16,7 +16,7 @@ For more information about adding people to your enterprise account, see "[Invit
 
 Enterprise accounts come with a set of administrator roles that you can assign to users of your enterprise. Each administrator role maps to business functions and provides permissions to do specific tasks within the enterprise account.
 
-{{ site.data.reusables.enterprise-accounts.enterprise-administrators }}
+{% data reusables.enterprise-accounts.enterprise-administrators %}
 
 ### Enterprise owner
 
@@ -29,7 +29,7 @@ Enterprise owners have complete control over the enterprise account and can take
 
 Enterprise owners cannot access organization settings or content unless they are made an organization owner or given direct access to an organization-owned repository. Similarly, owners of organizations in your enterprise account do not have access to the enterprise account itself unless you make them enterprise owners.
 
-You can add as many enterprise owners as you'd like to your enterprise account. Enterprise owners must have a personal account on {{ site.data.variables.product.prodname_dotcom }}. As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+You can add as many enterprise owners as you'd like to your enterprise account. Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}. As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
 
 ### Enterprise members
 
@@ -44,11 +44,11 @@ People with outside collaborator access to repositories owned by your organizati
 ### Billing manager
 
 Billing managers only have access to your enterprise account's billing settings. Billing managers for your enterprise account can:
-- View and manage user licenses, {{ site.data.variables.large_files.product_name_short }} packs and other billing settings
+- View and manage user licenses, {% data variables.large_files.product_name_short %} packs and other billing settings
 - View a list of billing managers
 - Add or remove other billing managers
 
-Billing managers do not have access to organizations or repositories in your enterprise account, and cannot add or remove enterprise owners. Billing managers must have a personal account on {{ site.data.variables.product.prodname_dotcom }}.
+Billing managers do not have access to organizations or repositories in your enterprise account, and cannot add or remove enterprise owners. Billing managers must have a personal account on {% data variables.product.prodname_dotcom %}.
 
 ### Дополнительная литература
 

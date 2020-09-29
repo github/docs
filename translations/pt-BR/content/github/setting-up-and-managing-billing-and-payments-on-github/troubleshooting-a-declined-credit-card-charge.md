@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas de cobrança no cartão de crédito recusada
-intro: 'Se o cartão de crédito que você usa para pagar o {{ site.data.variables.product.product_name }} for recusado, você poderá tomar várias medidas para garantir que os pagamentos sejam efetuados e que sua conta não seja bloqueada.'
+intro: 'Se o cartão de crédito que você usa para pagar o {% data variables.product.product_name %} for recusado, você poderá tomar várias medidas para garantir que os pagamentos sejam efetuados e que sua conta não seja bloqueada.'
 redirect_from:
   - /articles/what-do-i-do-if-my-card-is-declined/
   - /articles/troubleshooting-a-declined-credit-card-charge
@@ -25,7 +25,7 @@ Também aceitamos pagamentos via PayPal. Para obter mais informações, consulte
 O banco poderá fornecer informações adicionais sobre pagamentos recusados se você perguntar especificamente sobre a tentativa de transação. Caso haja restrições no seu cartão e você precise ligar para o banco, forneça as seguintes informações:
 
 - **O valor que está sendo cobrado**. É o valor cobrado pela assinatura que aparece nos recibos da conta. Para obter mais informações, consulte "[Visualizar o histórico de pagamentos e os recibos](/articles/viewing-your-payment-history-and-receipts)".
-- **A data em que o {{ site.data.variables.product.product_name }} fez a cobrança.** A data de cobrança na sua conta aparece nos recibos.
+- **A data em que o {% data variables.product.product_name %} fez a cobrança.** A data de cobrança na sua conta aparece nos recibos.
 - **O número de ID da transação**. O número de ID da transação aparece nos recibos.
-- **O nome do lojista**. O nome do lojista é {{ site.data.variables.product.prodname_dotcom }}.
+- **O nome do lojista**. O nome do lojista é {% data variables.product.prodname_dotcom %}.
 - **A mensagem de erro que seu banco enviou com a cobrança recusada**. Você pode encontrar a mensagem de erro do seu banco no e-mail que enviamos a você quando uma cobrança é recusada.

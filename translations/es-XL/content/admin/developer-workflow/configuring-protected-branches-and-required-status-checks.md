@@ -11,10 +11,10 @@ Cualquier usuario con permisos de administración puede habilitar restricciones 
 
 ### Habilitar una rama protegida para un repositorio
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Da clic en **Create** (Crear).
 
 ### Tipos de verificaciones de estado requeridas
@@ -27,16 +27,16 @@ Cualquier usuario con permisos de administración puede habilitar restricciones 
 
 ### Habilitar verificaciones de estado requeridas
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.repository-branches }}
-{{ site.data.reusables.repositories.add-branch-protection-rules }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.repository-branches %}
+{% data reusables.repositories.add-branch-protection-rules %}
 5. Selecciona **Requerir verificaciones de estado requeridas antes de la fusión**. ![Opción Verificaciones de estado requeridas](/assets/images/help/repository/required-status-checks.png)
 6. De la lista de verificaciones de estado disponibles, selecciona las que quieras que se requieran. ![Lista de verificaciones de estado disponibles](/assets/images/help/repository/required-statuses-list.png)
-{{ site.data.reusables.repositories.include-administrators }}
+{% data reusables.repositories.include-administrators %}
 8. También puedes quitar la marca de selección de **Requerir que las ramas estén actualizadas antes de la fusión**. Al seleccionar esta opción, te aseguras de que la rama se pruebe con el código más reciente en la rama base. ![Casilla de verificación de estado estricta o poco estricta](/assets/images/help/repository/protecting-branch-loose-status-new.png)
 9. Opcionalmente, selecciona {% if currentVersion ver_gt "enterprise-server@2.18" %}**Restringir quién puede subir a las ramas correspondientes**{% else %}**Restringir quién puede subir a esta rama**{% endif %}. ![Branch restriction checkbox]{% if currentVersion ver_gt "enterprise-server@2.18" %}(/assets/images/help/repository/restrict-branch.png){% else %}(/assets/images/help/repository/restrict-branch-push.png){% endif %}
 10. Busca y selecciona las personas {% if currentVersion ver_gt "enterprise-server@2.18" %},{% else %} o{% endif %} equipos{% if currentVersion ver_gt "enterprise-server@2.18" %}, o aplicaciones{% endif %} que tendrán permiso de subir a la rama protegida. ![Búsqueda de restricciones de rama](/assets/images/help/repository/restrict-branch-search.png)
 11. Da clic en **Create** (Crear).
 
-{{ site.data.reusables.repositories.required-status-merge-tip }}
+{% data reusables.repositories.required-status-merge-tip %}

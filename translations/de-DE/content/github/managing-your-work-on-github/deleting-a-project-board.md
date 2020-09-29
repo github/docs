@@ -16,8 +16,8 @@ versions:
 {% endtip %}
 
 1. Navigiere zu dem Projektboard, das Du löschen möchtest.
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.click-edit-sidebar-menu-project-board }}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
 4. Klicke auf **Delete project** (Projekt löschen). ![Schaltfläche „Delete project“ (Projekt löschen)](/assets/images/help/projects/delete-project-button.png)
 5. Um zu bestätigen, dass Du das Projektboard löschen möchtest, klicke auf **OK**.
 

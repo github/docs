@@ -1,6 +1,6 @@
 ---
 title: 在 AWS 上安装 GitHub Enterprise Server
-intro: '要在 Amazon Web Services (AWS) 上安装 {{ site.data.variables.product.prodname_ghe_server }}，您必须启动 Amazon Elastic Compute Cloud (EC2) 实例并创建和连接单独的 Amazon Elastic Block Store (EBS) 数据卷。'
+intro: '要在 Amazon Web Services (AWS) 上安装 {% data variables.product.prodname_ghe_server %}，您必须启动 Amazon Elastic Compute Cloud (EC2) 实例并创建和连接单独的 Amazon Elastic Block Store (EBS) 数据卷。'
 redirect_from:
   - /enterprise/admin/guides/installation/installing-github-enterprise-on-aws/
   - /enterprise/admin/installation/installing-github-enterprise-server-on-aws
@@ -10,9 +10,9 @@ versions:
 
 ### 基本要求
 
-- {{ site.data.reusables.enterprise_installation.software-license }}
+- {% data reusables.enterprise_installation.software-license %}
 - 您必须具有能够启动 EC2 实例和创建 EBS 卷的 AWS 帐户。 更多信息请参阅 [Amazon Web Services 网站](https://aws.amazon.com/)。
-- 启动 {{ site.data.variables.product.product_location_enterprise }} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
+- 启动 {% data variables.product.product_location_enterprise %} 所需的大部分操作也可以使用 AWS 管理控制台执行。 不过，我们建议安装 AWS 命令行接口 (CLI) 进行初始设置。 下文介绍了使用 AWS CLI 的示例。 更多信息请参阅 Amzon 指南“[使用 AWS 管理控制台](http://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html)”和“[什么是 AWS 命令行接口](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html)”。
 
 本指南假定您已熟悉以下 AWS 概念：
 
@@ -24,46 +24,46 @@ versions:
 
 ### 硬件考量因素
 
-{{ site.data.reusables.enterprise_installation.hardware-considerations-all-platforms }}
+{% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
 ### 确定实例类型
 
-在 AWS 上启动 {{ site.data.variables.product.product_location_enterprise }} 之前，您需要确定最符合您的组织需求的虚拟机类型。
+在 AWS 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
 
 #### 支持的实例类型
 
-{{ site.data.reusables.enterprise_installation.aws-supported-instance-types }}
+{% data reusables.enterprise_installation.aws-supported-instance-types %}
 
 #### 建议的实例类型
 
-{{ site.data.reusables.enterprise_installation.aws-recommended-instance-types }}
+{% data reusables.enterprise_installation.aws-recommended-instance-types %}
 
-{{ site.data.reusables.enterprise_installation.warning-on-scaling }}
+{% data reusables.enterprise_installation.warning-on-scaling %}
 
-### 选择 {{ site.data.variables.product.prodname_ghe_server }} AMI
+### 选择 {% data variables.product.prodname_ghe_server %} AMI
 
-您可以使用 {{ site.data.variables.product.prodname_ghe_server }} 门户或 AWS CLI 为 {{ site.data.variables.product.prodname_ghe_server }} 选择 Amazon Machine Image (AMI)。
+您可以使用 {% data variables.product.prodname_ghe_server %} 门户或 AWS CLI 为 {% data variables.product.prodname_ghe_server %} 选择 Amazon Machine Image (AMI)。
 
-{{ site.data.variables.product.prodname_ghe_server }} 的 AMI 适用于 AWS GovCloud（美国东部和美国西部）区域。 因此，受特定法规要求约束的美国客户可以在符合联邦要求的云环境中运行 {{ site.data.variables.product.prodname_ghe_server }}。 更多关于 AWS 符合联邦和其他标准的合规信息，请参阅 [AWS 的 GovCloud (US) 页面](http://aws.amazon.com/govcloud-us/)以及 [AWS 的合规页面](https://aws.amazon.com/compliance/)。
+{% data variables.product.prodname_ghe_server %} 的 AMI 适用于 AWS GovCloud（美国东部和美国西部）区域。 因此，受特定法规要求约束的美国客户可以在符合联邦要求的云环境中运行 {% data variables.product.prodname_ghe_server %}。 更多关于 AWS 符合联邦和其他标准的合规信息，请参阅 [AWS 的 GovCloud (US) 页面](http://aws.amazon.com/govcloud-us/)以及 [AWS 的合规页面](https://aws.amazon.com/compliance/)。
 
-#### 使用 {{ site.data.variables.product.prodname_ghe_server }} 门户选择 AMI
+#### 使用 {% data variables.product.prodname_ghe_server %} 门户选择 AMI
 
-{{ site.data.reusables.enterprise_installation.enterprise-download-procedural }}
-{{ site.data.reusables.enterprise_installation.download-appliance }}
+{% data reusables.enterprise_installation.enterprise-download-procedural %}
+{% data reusables.enterprise_installation.download-appliance %}
 3. 在 Select your platform 下拉菜单中，单击 **Amazon Web Services**。
 4. 在 Select your AWS region 下拉菜单中，选择所需地区。
 5. 记下显示的 AMI ID。
 
 #### 使用 AWS CLI 选择 AMI
 
-1. 使用 AWS CLI 获取由 {{ site.data.variables.product.prodname_dotcom }} 的 AWS 所有者 ID（`025577942450` 代表 GovCloud，`895557238572` 代表其他地区）发布的 {{ site.data.variables.product.prodname_ghe_server }} 映像列表。 更多信息请参阅 AWS 文档中的“[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)”。
+1. 使用 AWS CLI 获取由 {% data variables.product.prodname_dotcom %} 的 AWS 所有者 ID（`025577942450` 代表 GovCloud，`895557238572` 代表其他地区）发布的 {% data variables.product.prodname_ghe_server %} 映像列表。 更多信息请参阅 AWS 文档中的“[describe-images](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)”。
   ```shell
   aws ec2 describe-images \
   --owners <em>OWNER ID</em> \
   --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
   --output=text
   ```
-2. 记下最新 {{ site.data.variables.product.prodname_ghe_server }} 映像的 AMI ID。
+2. 记下最新 {% data variables.product.prodname_ghe_server %} 映像的 AMI ID。
 
 ### 创建安全组
 
@@ -82,11 +82,11 @@ versions:
   ```
   此表列出了每个端口的用途。
 
-  {{ site.data.reusables.enterprise_installation.necessary_ports }}
+  {% data reusables.enterprise_installation.necessary_ports %}
 
-### 创建 {{ site.data.variables.product.prodname_ghe_server }} 实例
+### 创建 {% data variables.product.prodname_ghe_server %} 实例
 
-要创建实例，您需要使用 {{ site.data.variables.product.prodname_ghe_server }} AMI 启动 EC2 实例，并连接额外的存储卷来存储实例数据。 更多信息请参阅“[硬件考量因素](#hardware-considerations)”。
+要创建实例，您需要使用 {% data variables.product.prodname_ghe_server %} AMI 启动 EC2 实例，并连接额外的存储卷来存储实例数据。 更多信息请参阅“[硬件考量因素](#hardware-considerations)”。
 
 {% note %}
 
@@ -116,17 +116,17 @@ aws ec2 run-instances \
 
 #### 分配弹性 IP 并将其与实例关联
 
-如果是生产实例，我们强烈建议先分配弹性 IP (EIP) 并将其与实例关联，然后再继续进行 {{ site.data.variables.product.prodname_ghe_server }} 配置。 否则，实例重新启动后将无法保留公共 IP 地址。 更多信息请参阅 Amazon 文档中的“[分配弹性 IP 地址](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)”和“[将弹性 IP 地址与运行的实例关联](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)”。
+如果是生产实例，我们强烈建议先分配弹性 IP (EIP) 并将其与实例关联，然后再继续进行 {% data variables.product.prodname_ghe_server %} 配置。 否则，实例重新启动后将无法保留公共 IP 地址。 更多信息请参阅 Amazon 文档中的“[分配弹性 IP 地址](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating)”和“[将弹性 IP 地址与运行的实例关联](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating)”。
 
-如果采用生产高可用性配置，主实例和副本实例均应分配单独的 EIP。 更多信息请参阅“[配置 {{ site.data.variables.product.prodname_ghe_server }} 以实现高可用性](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。
+如果采用生产高可用性配置，主实例和副本实例均应分配单独的 EIP。 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 以实现高可用性](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-github-enterprise-server-for-high-availability/)”。
 
-### 配置 {{ site.data.variables.product.prodname_ghe_server }} 实例
+### 配置 {% data variables.product.prodname_ghe_server %} 实例
 
-{{ site.data.reusables.enterprise_installation.copy-the-vm-public-dns-name }}
-{{ site.data.reusables.enterprise_installation.upload-a-license-file }}
-{{ site.data.reusables.enterprise_installation.save-settings-in-web-based-mgmt-console }} 更多信息请参阅“[配置 {{ site.data.variables.product.prodname_ghe_server }} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
-{{ site.data.reusables.enterprise_installation.instance-will-restart-automatically }}
-{{ site.data.reusables.enterprise_installation.visit-your-instance }}
+{% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
+{% data reusables.enterprise_installation.upload-a-license-file %}
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} 更多信息请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)”。
+{% data reusables.enterprise_installation.instance-will-restart-automatically %}
+{% data reusables.enterprise_installation.visit-your-instance %}
 
 ### 延伸阅读
 

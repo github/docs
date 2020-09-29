@@ -1,6 +1,6 @@
 ---
 title: 资源限制
-intro: '{{ site.data.variables.product.prodname_dotcom }} GraphQL API 利用限制防止过度或胡乱调用 {{ site.data.variables.product.prodname_dotcom }} 的服务器。'
+intro: '{% data variables.product.prodname_dotcom %} GraphQL API 利用限制防止过度或胡乱调用 {% data variables.product.prodname_dotcom %} 的服务器。'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
@@ -131,7 +131,7 @@ GraphQL API v4 的速率限制为 **5,000 points per hour（每小时 5,000 点�
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-对于属于 {{ site.data.variables.product.prodname_ghe_cloud }} 帐户的 {{ site.data.variables.product.prodname_github_apps }} 或 {{ site.data.variables.product.prodname_oauth_app }}，对相同 {{ site.data.variables.product.prodname_ghe_cloud }} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
+对于属于 {% data variables.product.prodname_ghe_cloud %} 帐户的 {% data variables.product.prodname_github_apps %} 或 {% data variables.product.prodname_oauth_app %}，对相同 {% data variables.product.prodname_ghe_cloud %} 帐户拥有的资源的请求上限已提升至每小时 15,000 点。
 
 {% endif %}
 

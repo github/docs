@@ -11,18 +11,18 @@ versions:
 O comando `git remote add` usa dois argumentos:
 
 * Um nome de remote, por exemplo, `origin`
-* Uma URL remota, por exemplo `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
+* Uma URL remota, por exemplo `https://{% data variables.command_line.backticks %}/user/repo.git`
 
 Por exemplo:
 
 ```shell
-$ git remote add origin https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git
+$ git remote add origin https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git
 # Defina um novo remote
 
 $ git remote -v
 # Verifique  o novo remote
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git (fetch)
-> origin  https://{{ site.data.variables.command_line.codeblock }}/<em>user</em>/<em>repo</em>.git (push)
+> origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (fetch)
+> origin  https://{% data variables.command_line.codeblock %}/<em>user</em>/<em>repo</em>.git (push)
 ```
 
 Não tem certeza de qual URL usar?  Confira "[Qual URL remota devo usar?](/articles/which-remote-url-should-i-use)"
@@ -36,7 +36,7 @@ Você pode se deparar com estes erros ao tentar adicionar um remote.
 Esse erro significa que você tentou adicionar um remote com um nome que já existe no repositório local:
 
 ```shell
-$ git remote add origin https://{{ site.data.variables.command_line.codeblock }}/octocat/Spoon-Knife
+$ git remote add origin https://{% data variables.command_line.codeblock %}/octocat/Spoon-Knife
 > fatal: remote origin already exists.
 ```
 

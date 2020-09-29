@@ -13,7 +13,7 @@ Cuando cierras un tablero de proyecto, por defecto, se detiene cualquier automat
 Cuando reabres un tablero de proyecto, tienes la opción de *sync* (sincronizar) automatización, lo cual actualiza la posición de las tarjetas en el tablero de acuerdo con los parámetros de automatización establecidos para el tablero.
 
 1. Navega hasta el tablero de proyecto que quieres reabrir.
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 3. Elige la sincronización de la automatización para tu tablero de proyecto o reabre tu tablero de proyecto sin sincronizar.
     - Para reabrir tu tablero de proyecto y sincronizar la automatización, haz clic en **Reopen and sync project** (Reabrir y sincronizar proyecto). ![Selecciona el botón "Reopen and resync project" (Reabrir y resincronizar proyecto)](/assets/images/help/projects/reopen-and-sync-project.png)
     - Para reabrir tu tablero de proyecto sin sincronizar la automatización, utilizando el menú desplegable, haz clic en **Reopen only** (Solo reabrir). Luego, haz clic en **Reopen only** (Solo reabrir). ![Menú desplegable para reabrir tablero de proyecto cerrado](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)

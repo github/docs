@@ -1,6 +1,6 @@
 ---
 title: 关于高可用性配置
-intro: '在高性能配置中，完全冗余的次级 {{ site.data.variables.product.prodname_ghe_server }} 设备通过复制所有主要数据存储与主设备保持同步。'
+intro: '在高性能配置中，完全冗余的次级 {% data variables.product.prodname_ghe_server %} 设备通过复制所有主要数据存储与主设备保持同步。'
 redirect_from:
   - /enterprise/admin/installation/about-high-availability-configuration
   - /enterprise/admin/enterprise-management/about-high-availability-configuration
@@ -10,13 +10,13 @@ versions:
 
 配置高可用性时，会自动设置将所有数据存储（Git 仓库、MySQL、Redis 和 Elasticsearch）单向、异步地从主设备复制到副本。
 
-{{ site.data.variables.product.prodname_ghe_server }} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
+{% data variables.product.prodname_ghe_server %} 支持主动/被动配置，在这些配置下，副本作为备用设备运行，并且数据库服务在复制模式下运行，但应用程序服务将停止。
 
 ### 有针对性的故障场景
 
 使用高可用性配置防护以下问题：
 
-{{ site.data.reusables.enterprise_installation.ha-and-clustering-failure-scenarios }}
+{% data reusables.enterprise_installation.ha-and-clustering-failure-scenarios %}
 
 高可用性配置不适用于：
 
@@ -30,7 +30,7 @@ versions:
 
 #### DNS 故障转移
 
-对于 DNS 故障转移，请使用 DNS 记录中指向主 {{ site.data.variables.product.prodname_ghe_server }} 设备的短 TTL 值。 建议的 TTL 值范围为 60 秒到 5 分钟。
+对于 DNS 故障转移，请使用 DNS 记录中指向主 {% data variables.product.prodname_ghe_server %} 设备的短 TTL 值。 建议的 TTL 值范围为 60 秒到 5 分钟。
 
 在故障转移期间，必须将主设备置于维护模式，并将其 DNS 记录重定向到副本的 IP 地址。 将流量从主设备重新定向到副本所需的时间将取决于 TTL 配置以及更新 DNS 记录所需的时间。
 
@@ -38,19 +38,19 @@ versions:
 
 #### 负载均衡器
 
-{{ site.data.reusables.enterprise_clustering.load_balancer_intro }} {{ site.data.reusables.enterprise_clustering.load_balancer_dns }}
+{% data reusables.enterprise_clustering.load_balancer_intro %} {% data reusables.enterprise_clustering.load_balancer_dns %}
 
-在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {{ site.data.variables.product.prodname_ghe_server }} 和负载均衡器](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
+在故障转移期间，您必须将主设备置于维护模式。 您可以将负载均衡器配置为自动检测副本何时已升级为主设备，或者可能需要手动更改配置。 您必须先将副本手动升级为主设备，随后副本才能对用户流量作出响应。 更多信息请参阅“[结合使用 {% data variables.product.prodname_ghe_server %} 和负载均衡器](/enterprise/{{ currentVersion }}/admin/guides/installation/using-github-enterprise-server-with-a-load-balancer/)”。
 
-{{ site.data.reusables.enterprise_installation.monitoring-replicas }}
+{% data reusables.enterprise_installation.monitoring-replicas %}
 
 ### 用于复制管理的实用程序
 
-要管理 {{ site.data.variables.product.prodname_ghe_server }} 上的复制，请使用 SSH 连接到副本，以使用以下命令行实用程序。
+要管理 {% data variables.product.prodname_ghe_server %} 上的复制，请使用 SSH 连接到副本，以使用以下命令行实用程序。
 
 #### ghe-repl-setup
 
-`ghe-repl-setup` 命令可将 {{ site.data.variables.product.prodname_ghe_server }} 设备置于副本备用模式。
+`ghe-repl-setup` 命令可将 {% data variables.product.prodname_ghe_server %} 设备置于副本备用模式。
 
  - 为两个设备之间的通信配置加密的 {% if currentVersion ver_gt "enterprise-server@2.17" %}WireGuard VPN{% else %}OpenVPN{% endif %} 隧道。
  - 配置用于复制的数据库服务并启动。
@@ -153,7 +153,7 @@ Success: replication was stopped for all services.
 
 `ghe-repl-promote` 命令可以禁用复制并将副本转换为主设备。 设备会配置为使用与原主设备相同的设置，并启用所有服务。
 
-{{ site.data.reusables.enterprise_installation.promoting-a-replica }}
+{% data reusables.enterprise_installation.promoting-a-replica %}
 
 ```shell
 admin@168-254-1-2:~$ ghe-repl-promote

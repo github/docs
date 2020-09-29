@@ -1,7 +1,7 @@
 ---
 title: Enterprise アカウントについて
-intro: '{{ site.data.variables.product.prodname_ghe_cloud }} では Enterprise アカウントを作り、Organization 間のコラボレーションを可能にしながら、管理者は一カ所で可視性と管理を扱えるようにできます。'
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+intro: '{% data variables.product.prodname_ghe_cloud %} では Enterprise アカウントを作り、Organization 間のコラボレーションを可能にしながら、管理者は一カ所で可視性と管理を扱えるようにできます。'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/about-github-business-accounts/
   - /articles/about-enterprise-accounts
@@ -12,16 +12,16 @@ versions:
 
 ### Enterprise アカウントについて
 
-Enterprise アカウントでは、複数の {{ site.data.variables.product.prodname_dotcom }} Organization と {{ site.data.variables.product.prodname_ghe_server }} インスタンスを管理できます。 Enterprise アカウントは、{{ site.data.variables.product.prodname_dotcom }} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:
+Enterprise アカウントでは、複数の {% data variables.product.prodname_dotcom %} Organization と {% data variables.product.prodname_ghe_server %} インスタンスを管理できます。 Enterprise アカウントは、{% data variables.product.prodname_dotcom %} 上の Organization や個人アカウントのようにハンドルを持たなければなりません。 Enterprise 管理者は、以下のような設定やプリファレンスを管理できます:
 
 - メンバーのアクセスと管理 (Organization のメンバー、外部コラボレーター)
-- 支払いと使用状況 ({{ site.data.variables.product.prodname_ghe_server }} インスタンス、ユーザライセンス、{{ site.data.variables.large_files.product_name_short }} パック)
+- 支払いと使用状況 ({% data variables.product.prodname_ghe_server %} インスタンス、ユーザライセンス、{% data variables.large_files.product_name_short %} パック)
 - セキュリティ (シングルサインオン、2 要素認証)
-- {{ site.data.variables.contact.enterprise_support }} とのリクエストおよび Support Bundle の共有
+- {% data variables.contact.enterprise_support %} とのリクエストおよび Support Bundle の共有
 
-{{ site.data.reusables.enterprise-accounts.enterprise-accounts-billing }}
+{% data reusables.enterprise-accounts.enterprise-accounts-billing %}
 
-{{ site.data.variables.product.prodname_ghe_cloud }} と {{ site.data.variables.product.prodname_ghe_server }} の違いについては、「[{{ site.data.variables.product.prodname_dotcom }} の製品](/articles/githubs-products)」を参照してください。 {{ site.data.variables.product.prodname_enterprise }} にアップグレードする、または Enterprise アカウントを使い始める場合は、{{ site.data.variables.contact.contact_enterprise_sales }} にお問い合わせください。
+{% data variables.product.prodname_ghe_cloud %} と {% data variables.product.prodname_ghe_server %} の違いについては、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。 {% data variables.product.prodname_enterprise %} にアップグレードする、または Enterprise アカウントを使い始める場合は、{% data variables.contact.contact_enterprise_sales %} にお問い合わせください。
 
 メンバーアクセスと管理に関する詳細は「[Enterprise アカウントでユーザを管理する](/articles/managing-users-in-your-enterprise-account)」 を参照してください。
 
@@ -37,6 +37,6 @@ Enterprise のオーナーは、Organization を作成して Enterprise にリ�
 
 詳細は「[Enterprise アカウントで Organization を管理する](/articles/managing-organizations-in-your-enterprise-account)」および「[Enterprise アカウント内の Organization に対するポリシーを設定する](/articles/setting-policies-for-organizations-in-your-enterprise-account)」を参照してください。
 
-### Enterprise アカウントにリンクされている {{ site.data.variables.product.prodname_ghe_server }} ライセンスの管理
+### Enterprise アカウントにリンクされている {% data variables.product.prodname_ghe_server %} ライセンスの管理
 
-{{ site.data.reusables.enterprise-accounts.admin-managing-licenses }}
+{% data reusables.enterprise-accounts.admin-managing-licenses %}

@@ -1,6 +1,6 @@
 ---
 title: Divulgar u ocultar tus contribuciones privadas en tu perfil
-intro: 'Tu perfil {{ site.data.variables.product.product_name }} muestra un gráfico de las contribuciones a tu repositorio durante el último año. Puedes elegir mostrar actividad de forma anónima de los repositorios privados además de la actividad que se muestra de los repositorios públicos.'
+intro: 'Tu perfil {% data variables.product.product_name %} muestra un gráfico de las contribuciones a tu repositorio durante el último año. Puedes elegir mostrar actividad de forma anónima de los repositorios privados además de la actividad que se muestra de los repositorios públicos.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:
@@ -14,7 +14,7 @@ Si publicas tus contribuciones privadas, las personas sin acceso a los repositor
 
 Por defecto, los visitantes únicamente ven las contribuciones públicas en tu perfil.
 
-{{ site.data.reusables.profile.access_profile }}
+{% data reusables.profile.access_profile %}
 2. Divulga u oculta tus contribuciones privadas en tu perfil:
     - Para publicitar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y selecciona **Private contributions** (Contribuciones privadas). Los visitantes verán tus recuentos de contribuciones privadas sin más detalles. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-on.png)
     - Para ocultar tus contribuciones privadas, arriba de tu gráfico de contribuciones, utiliza el menú desplegable **Contribution settings** (Configuraciones de contribuciones) y anula la selección de **Private contributions** (Contribuciones privadas). Los visitantes únicamente verán tus contribuciones públicas. ![Habilitar que los visitantes vean las contribuciones privadas desde el menú desplegable de configuraciones de contribuciones](/assets/images/help/profile/private-contributions-off.png)

@@ -12,8 +12,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
 
@@ -23,18 +23,18 @@ The actions you use in your workflow can be defined in:
 - The same repository where your workflow file references the action
 - A published Docker container image on Docker Hub
 
-{{ site.data.variables.product.prodname_marketplace }} is a central location for you to find actions created by the {{ site.data.variables.product.prodname_dotcom }} community. [{{ site.data.variables.product.prodname_marketplace }} page](https://github.com/marketplace/actions/) enables you to filter for actions by category.
+{% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community. [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category.
 
-{{ site.data.reusables.actions.enterprise-marketplace-actions }}
+{% data reusables.actions.enterprise-marketplace-actions %}
 
 ### Browsing Marketplace actions in the workflow editor
 
-You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {{ site.data.variables.product.prodname_dotcom }} community.
+You can search and browse actions directly in your repository's workflow editor. From the sidebar, you can search for a specific action, view featured actions, and browse featured categories. You can also view the number of stars an action has received from the {% data variables.product.prodname_dotcom %} community.
 
 1. In your repository, browse to the workflow file you want to edit.
 1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
 ![Edit workflow file button](/assets/images/help/repository/actions-edit-workflow-file.png)
-1. To the right of the editor, use the {{ site.data.variables.product.prodname_marketplace }} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {{ site.data.variables.product.prodname_dotcom }} has verified the creator of the action as a partner organization.
+1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="The verified badge" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
 ![Marketplace workflow sidebar](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
 ### Adding an action to your workflow
@@ -44,12 +44,12 @@ An action's listing page includes the action's version and the workflow syntax r
 1. Navigate to the action you want to use in your workflow.
 1. Under "Installation", click {% octicon "clippy" aria-label="The edit icon" %} to copy the workflow syntax.
 ![View action listing](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
+1. Paste the syntax as a new step in your workflow. For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idsteps)."
 1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[Using inputs and outputs with an action](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.reusables.dependabot.version-updates-for-actions }}
+{% data reusables.dependabot.version-updates-for-actions %}
 
 {% endif %}
 
@@ -156,4 +156,4 @@ For some examples of Docker actions, see the [Docker-image.yml workflow](https:/
 
 ### Next steps
 
-To continue learning about {{ site.data.variables.product.prodname_actions }}, see "[Essential features of {{ site.data.variables.product.prodname_actions }}](/actions/learn-github-actions/essential-features-of-github-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Essential features of {% data variables.product.prodname_actions %}](/actions/learn-github-actions/essential-features-of-github-actions)."

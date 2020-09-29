@@ -11,7 +11,7 @@ Milhões de desenvolvedores hospedam milhões de projetos no GitHub — tanto c�
 
 Usuários do GitHub em todo o mundo trazem perspectivas, ideias e experiências extremamente diferentes, abrangendo desde pessoas que criaram seu primeiro projeto "Olá Mundo" na semana passada até os mais conhecidos desenvolvedores de software do mundo. Estamos empenhados em fazer do GitHub um ambiente acolhedor para todas as diferentes vozes e perspectivas da nossa comunidade, mantendo um espaço onde as pessoas são livres para se expressarem.
 
-Contamos com os membros de nossa comunidade para comunicar expectativas, [moderar](#what-if-something-or-someone-offends-you) seus projetos e {{ site.data.variables.contact.report_abuse }} ou {{ site.data.variables.contact.report_content }}. Não procuramos ativamente conteúdo para moderar. Explicando o que esperamos ver em nossa comunidade, esperamos ajudá-lo a compreender como colaborar no GitHub, e que tipo de ações ou conteúdo podem violar nossos [Termos de Serviço](#legal-notices). Investigaremos quaisquer denúncias de abuso e podemos moderar o conteúdo público em nosso site que definirmos como violador de nossos Termos de Serviço.
+Contamos com os membros de nossa comunidade para comunicar expectativas, [moderar](#what-if-something-or-someone-offends-you) seus projetos e {% data variables.contact.report_abuse %} ou {% data variables.contact.report_content %}. Não procuramos ativamente conteúdo para moderar. Explicando o que esperamos ver em nossa comunidade, esperamos ajudá-lo a compreender como colaborar no GitHub, e que tipo de ações ou conteúdo podem violar nossos [Termos de Serviço](#legal-notices). Investigaremos quaisquer denúncias de abuso e podemos moderar o conteúdo público em nosso site que definirmos como violador de nossos Termos de Serviço.
 
 ### Criar uma comunidade integrada
 
@@ -41,7 +41,7 @@ Contamos com a comunidade para nos informar quando um problema precisa ser resol
 
 * **Bloquear Usuários** - Se você encontrar um usuário que continua demonstrando um comportamento ruim, você pode [bloquear o usuário de sua conta pessoal](/articles/blocking-a-user-from-your-personal-account/) ou [bloquear o usuário da sua organização](/articles/blocking-a-user-from-your-organization/).
 
-Claro, você sempre pode entrar em contato conosco em {{ site.data.variables.contact.report_abuse }} se precisar de mais ajuda para lidar com uma situação.
+Claro, você sempre pode entrar em contato conosco em {% data variables.contact.report_abuse %} se precisar de mais ajuda para lidar com uma situação.
 
 ### O que não é permitido?
 

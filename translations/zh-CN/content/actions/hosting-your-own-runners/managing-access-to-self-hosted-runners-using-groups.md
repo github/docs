@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### 关于自托管运行器组
 
@@ -35,9 +35,9 @@ versions:
 
 创建组时，必须选择用于定义哪些仓库有权访问运行器组的策略。 您可以配置一个运行器组可供一组特定的仓库、所有私有仓库或组织中所有仓库访问。
 
-{{ site.data.reusables.organizations.navigate-to-org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.settings-sidebar-actions }}
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions %}
 1. 在 **Self-hosted runners（自托管运行器）**部分，单击 **Add new（新增）**，然后单击 **New group（新组）**。
 
     ![添加运行器组](/assets/images/help/settings/actions-org-add-runner-group.png)
@@ -55,13 +55,13 @@ versions:
 创建组时，必须选择一个策略以向企业中所有组织或所选特定组织授予访问权限。
 
 {% if currentVersion == "free-pro-team@latest" %}
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}
-{{ site.data.reusables.enterprise-accounts.policies-tab }}
-{{ site.data.reusables.enterprise-accounts.actions-tab }}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
 1. 单击 **Self-hosted runners（自托管运行器）**选项卡。
 1. 单击 **Add new（新增）**，然后单击 **New group（新组）**。
 
@@ -75,7 +75,7 @@ versions:
 
 您可以更新运行器组的访问策略，或重命名运行器组。
 
-{{ site.data.reusables.github-actions.self-hosted-runner-configure-runner-group-access }}
+{% data reusables.github-actions.self-hosted-runner-configure-runner-group-access %}
 
 ### 将自托管的运行器移动到组
 

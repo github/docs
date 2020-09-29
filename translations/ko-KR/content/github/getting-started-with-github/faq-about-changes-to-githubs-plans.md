@@ -45,7 +45,7 @@ If you have a GitHub account, create a new organization on our [team plan page](
 
 ### How can I compare which features are in each plan?
 
-You can see pricing and a full list of features for each product at <{{ site.data.variables.product.pricing_url }}>.
+You can see pricing and a full list of features for each product at <{% data variables.product.pricing_url %}>.
 
 ### How long will GitHub Free allow unlimited collaborators?
 
@@ -57,7 +57,7 @@ Customers who are currently paying annually for Pro and Team plans and signed up
 
 ### What is the difference between GitHub Free for individual developers and GitHub Free for organizations?
 
-For details on the differences for each GitHub Free product, see "[{{ site.data.variables.product.prodname_dotcom }}'s products](/articles/github-s-products)."
+For details on the differences for each GitHub Free product, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/github-s-products)."
 
 ### How can I get more Actions minutes if I need more than allocated in the GitHub Team plan?
 
@@ -65,7 +65,7 @@ Most small teams use fewer than 3,000 Actions minutes/month, but some teams migh
 
 ### How do the seat limit changes affect me?
 
-Now that {{ site.data.variables.product.prodname_team }} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[Downgrading your {{ site.data.variables.product.prodname_dotcom }} subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[Downgrading your {% data variables.product.prodname_dotcom %} subscription](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
 
 ### Is anything changing for teams on the GitHub Team for Open Source plan?
 

@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuições no perfil
-intro: 'Seu perfil do {{ site.data.variables.product.product_name }} mostra os repositórios fixos e um gráfico de contribuições no seu repositório no último ano.'
+intro: 'Seu perfil do {% data variables.product.product_name %} mostra os repositórios fixos e um gráfico de contribuições no seu repositório no último ano.'
 redirect_from:
   - /articles/viewing-contributions/
   - /articles/viewing-contributions-on-your-profile-page/
@@ -14,7 +14,7 @@ O gráfico de contribuição mostra a atividade em repositórios públicos. Voc�
 
 {% note %}
 
-**Observação:** os commits só serão exibidos no gráfico de contribuições se você tiver [adicionado o endereço de e-mail usado para sua configuração local do Git nas configurações de e-mail do {{ site.data.variables.product.product_name }}](/articles/adding-an-email-address-to-your-github-account). Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Observação:** os commits só serão exibidos no gráfico de contribuições se você tiver [adicionado o endereço de e-mail usado para sua configuração local do Git nas configurações de e-mail do {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account). Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
 
 {% endnote %}
 
@@ -28,7 +28,7 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 - Enviar uma revisão de pull request{% if currentVersion != "free-pro-team@latest" %}
 - Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
 
-{{ site.data.reusables.pull_requests.pull_request_merges_and_contributions }}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 ### Repositórios populares
 
@@ -63,11 +63,11 @@ O calendário de contribuições mostra sua atividade de contribuição.
 
 Os registros de data e hora são calculados de forma diferente para commits e pull requests:
 - Os **commits** usam as informações de fuso horário no registro de data e hora do commit. Para obter mais informações, consulte "[Solucionar problemas de commits na linha do tempo](/articles/troubleshooting-commits-on-your-timeline)".
-- As **pull requests** e os **problemas** abertos no {{ site.data.variables.product.product_name }} usam o fuso horário do navegador. Os abertos pela API usam o registro de data e hora ou o fuso horário [especificado na chamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+- As **pull requests** e os **problemas** abertos no {% data variables.product.product_name %} usam o fuso horário do navegador. Os abertos pela API usam o registro de data e hora ou o fuso horário [especificado na chamada de API](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ### Visão geral de atividade
 
-{{ site.data.reusables.profile.activity-overview-summary }} Para obter mais informações, consulte "[Exibir a visão geral das atividades no perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)".
+{% data reusables.profile.activity-overview-summary %} Para obter mais informações, consulte "[Exibir a visão geral das atividades no perfil](/articles/showing-an-overview-of-your-activity-on-your-profile)".
 
 ![Seção Visão geral de atividade no perfil](/assets/images/help/profile/activity-overview-section.png)
 
@@ -79,9 +79,9 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 ![Filtro de hora de atividade de contribuição](/assets/images/help/profile/contributions_activity_time_filter.png)
 
-### Exibir contribuições da {{ site.data.variables.product.product_location_enterprise }} no {{ site.data.variables.product.prodname_dotcom_the_website }}
+### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
 
-Se o administrador do site tiver ativado o {{ site.data.variables.product.prodname_unified_contributions }}, você poderá enviar contagens de contribuição do {{ site.data.variables.product.prodname_enterprise }} para o perfil do {{ site.data.variables.product.prodname_dotcom_the_website }}. Para obter mais informações, consulte "[Enviar suas contribuições do {{ site.data.variables.product.prodname_ghe_server }} para o {{ site.data.variables.product.prodname_dotcom_the_website }}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+Se o administrador do site tiver ativado o {% data variables.product.prodname_unified_contributions %}, você poderá enviar contagens de contribuição do {% data variables.product.prodname_enterprise %} para o perfil do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
 
 ### Leia mais
 

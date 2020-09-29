@@ -1,6 +1,6 @@
 ---
 title: Fehlerbehebung bei Suchabfragen
-intro: 'Wenn Deine Suche auf {{ site.data.variables.product.product_name }} zu unerwarteten Ergebnissen führt, ziehe zur Behebung dieser Fehler unsere Informationen zu häufigen Problemen und Einschränkungen bei der Suche zu Rate.'
+intro: 'Wenn Deine Suche auf {% data variables.product.product_name %} zu unerwarteten Ergebnissen führt, ziehe zur Behebung dieser Fehler unsere Informationen zu häufigen Problemen und Einschränkungen bei der Suche zu Rate.'
 redirect_from:
   - /articles/troubleshooting-search-queries
 versions:
@@ -16,7 +16,7 @@ Das Erreichen des Zeitlimits bedeutet jedoch nicht in jedem Fall, dass die Suche
 
 ### Einschränkungen der Abfragelänge
 
-Bei der Suche auf {{ site.data.variables.product.product_name }} gelten für Abfragen auch Längeneinschränkungen:
+Bei der Suche auf {% data variables.product.product_name %} gelten für Abfragen auch Längeneinschränkungen:
 
 * Abfragen mit mehr als 256 Zeichen werden nicht unterstützt.
 * Mehr als fünf `AND`-, `OR`- oder `NOT`-Operatoren werden in einer Abfrage nicht unterstützt.

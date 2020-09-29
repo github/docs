@@ -3,7 +3,7 @@ title: 更改提交消息
 redirect_from:
   - /articles/can-i-delete-a-commit-message/
   - /articles/changing-a-commit-message
-intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {{ site.data.variables.product.product_name }}。 您还可以更改提交消息以添加遗漏的信息。'
+intro: '如果提交消息中包含不明确、不正确或敏感的信息，您可以在本地修改它，然后将含有新消息的新提交推送到 {% data variables.product.product_name %}。 您还可以更改提交消息以添加遗漏的信息。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -21,7 +21,7 @@ versions:
 
 #### 提交尚未推送上线
 
-如果提交仅存在于您的本地仓库中，尚未推送到 {{ site.data.variables.product.product_location }}，您可以使用 `git commit --amend` 命令修改提交消息。
+如果提交仅存在于您的本地仓库中，尚未推送到 {% data variables.product.product_location %}，您可以使用 `git commit --amend` 命令修改提交消息。
 
 1. 在命令行上，导航到包含要修改的提交的仓库。
 2. 键入 `git commit --amend`，然后按 **Enter** 键。
@@ -31,7 +31,7 @@ versions:
     - 通过在提交中添加尾行可创建代表组织的提交。 更多信息请参阅“[创建代表组织的提交](/articles/creating-a-commit-on-behalf-of-an-organization)”
 {% endif %}
 
-在下次推送时，新的提交和消息将显示在 {{ site.data.variables.product.product_location }} 上。
+在下次推送时，新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
 {% tip %}
 
@@ -41,7 +41,7 @@ versions:
 
 #### 修改旧提交或多个提交的消息
 
-如果您已将提交推送到 {{ site.data.variables.product.product_location }}，则必须强制推送含有修正消息的提交。
+如果您已将提交推送到 {% data variables.product.product_location %}，则必须强制推送含有修正消息的提交。
 
 {% warning %}
 
@@ -117,7 +117,7 @@ versions:
 
 {% warning %}
 
-如果您的提交消息中包含敏感信息，则强制推送修改后的提交可能不会导致从 {{ site.data.variables.product.product_name }} 中删除原提交。 旧提交不会成为后续克隆的一部分；但是，它可能仍然缓存在 {{ site.data.variables.product.product_name }} 上，并且可通过提交 ID 访问。 您必须联系 {{ site.data.variables.contact.contact_support }} 并提供旧提交 ID，以便从远程仓库中清除它。
+如果您的提交消息中包含敏感信息，则强制推送修改后的提交可能不会导致从 {% data variables.product.product_name %} 中删除原提交。 旧提交不会成为后续克隆的一部分；但是，它可能仍然缓存在 {% data variables.product.product_name %} 上，并且可通过提交 ID 访问。 您必须联系 {% data variables.contact.contact_support %} 并提供旧提交 ID，以便从远程仓库中清除它。
 
 {% endwarning %}
 

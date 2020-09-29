@@ -1,1 +1,1 @@
-要对最近打开的仓库启动 {{ site.data.variables.product.prodname_desktop }}，请键入 `github`。 To launch {{ site.data.variables.product.prodname_desktop }} for a particular repository, type `github` followed by the path to the repository.
+要对最近打开的仓库启动 {% data variables.product.prodname_desktop %}，请键入 `github`。 To launch {% data variables.product.prodname_desktop %} for a particular repository, type `github` followed by the path to the repository.

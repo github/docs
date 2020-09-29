@@ -1,7 +1,7 @@
 ---
 title: Hacer cumplir el inicio de sesión único de SAML para tu organización
 intro: Los propietarios y los administradores de la organización pueden hacer cumplir el inicio de sesión único de SAML para que todos los miembros de la organización se tengan que autenticar a través de un proveedor de identidad.
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
 versions:
@@ -14,7 +14,7 @@ Si tu organización le pertenece a una cuenta de empresa, al habilitar SAML para
 
 {% tip %}
 
-**Sugerencia:**{{ site.data.reusables.saml.testing-saml-sso }}
+**Sugerencia:**{% data reusables.saml.testing-saml-sso %}
 
 {% endtip %}
 

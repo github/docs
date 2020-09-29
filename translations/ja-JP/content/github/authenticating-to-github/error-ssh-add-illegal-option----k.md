@@ -21,7 +21,7 @@ SSH プライベートキーを ssh-agent に追加するには、`ssh-add` の 
 
 {% note %}
 
-**メモ:** {{ site.data.reusables.ssh.add-ssh-key-to-ssh-agent }}
+**メモ:** {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 {% endnote %}
 

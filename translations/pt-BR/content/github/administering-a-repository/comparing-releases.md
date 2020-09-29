@@ -7,7 +7,7 @@ versions:
   enterprise-server: '>=2.21'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Ao lado da versão que você deseja usar como sua base, clique em **Comparar**. ![Comparar menu de tags de versões](/assets/images/help/releases/compare-tags-menu.png)
 4. Use o menu suspenso "comparar" e selecione as tags que você deseja comparar. ![Comparar opções de menu de tags de versões](/assets/images/help/releases/compare-tags-menu-options.png)

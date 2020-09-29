@@ -1,6 +1,6 @@
 ---
 title: Configuring a webhook to notify you of plan changes
-intro: 'After [creating a draft {{ site.data.variables.product.prodname_marketplace }} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/), you can configure a webhook that notifies you when changes to customer account plans occur. After you configure the webhook, you can [handle the `marketplace_purchase` event types](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) in your app.'
+intro: 'After [creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/), you can configure a webhook that notifies you when changes to customer account plans occur. After you configure the webhook, you can [handle the `marketplace_purchase` event types](/marketplace/integrating-with-the-github-marketplace-api/github-marketplace-webhook-events/) in your app.'
 redirect_from:
   - /apps/adding-integrations/managing-listings-on-github-marketplace/adding-webhooks-for-a-github-marketplace-listing/
   - /apps/marketplace/managing-github-marketplace-listings/adding-webhooks-for-a-github-marketplace-listing/
@@ -13,23 +13,23 @@ versions:
 
 
 
-The {{ site.data.variables.product.prodname_marketplace }} event webhook can only be set up from your application's {{ site.data.variables.product.prodname_marketplace }} listing page. You can configure all other events from your [application's developer settings page](https://github.com/settings/developers). If you haven't created a {{ site.data.variables.product.prodname_marketplace }} listing, read "[Creating a draft {{ site.data.variables.product.prodname_marketplace }} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" to learn how.
+The {% data variables.product.prodname_marketplace %} event webhook can only be set up from your application's {% data variables.product.prodname_marketplace %} listing page. You can configure all other events from your [application's developer settings page](https://github.com/settings/developers). If you haven't created a {% data variables.product.prodname_marketplace %} listing, read "[Creating a draft {% data variables.product.prodname_marketplace %} listing](/marketplace/listing-on-github-marketplace/creating-a-draft-github-marketplace-listing/)" to learn how.
 
 ### Creating a webhook
 
-To create a webhook for your {{ site.data.variables.product.prodname_marketplace }} listing, click **Webhook** in the left sidebar of your [{{ site.data.variables.product.prodname_marketplace }} listing page](https://github.com/marketplace/manage). You'll see the following webhook configuration options needed to configure your webhook:
+To create a webhook for your {% data variables.product.prodname_marketplace %} listing, click **Webhook** in the left sidebar of your [{% data variables.product.prodname_marketplace %} listing page](https://github.com/marketplace/manage). You'll see the following webhook configuration options needed to configure your webhook:
 
 #### Payload URL
 
-{{ site.data.reusables.webhooks.payload_url }}
+{% data reusables.webhooks.payload_url %}
 
 #### Content type
 
-{{ site.data.reusables.webhooks.content_type }} GitHub recommends using the `application/json` content type.
+{% data reusables.webhooks.content_type %} GitHub recommends using the `application/json` content type.
 
 #### Secret
 
-{{ site.data.reusables.webhooks.secret }}
+{% data reusables.webhooks.secret %}
 
 #### 已激活
 
@@ -37,6 +37,6 @@ By default, webhook deliveries are "Active." You can choose to disable the deliv
 
 ### Viewing webhook deliveries
 
-Once you've configured your {{ site.data.variables.product.prodname_marketplace }} webhook, you'll be able to inspect `POST` request payloads from the **Webhook** page of your application's [{{ site.data.variables.product.prodname_marketplace }} listing](https://github.com/marketplace/manage). GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。
+Once you've configured your {% data variables.product.prodname_marketplace %} webhook, you'll be able to inspect `POST` request payloads from the **Webhook** page of your application's [{% data variables.product.prodname_marketplace %} listing](https://github.com/marketplace/manage). GitHub 不会重新发送失败的递送尝试。 确保您的应用程序可以接收 GitHub 发送的所有 web 挂钩有效负载。
 
-![Inspect recent {{ site.data.variables.product.prodname_marketplace }} webhook deliveries](/assets/images/marketplace/marketplace_webhook_deliveries.png)
+![Inspect recent {% data variables.product.prodname_marketplace %} webhook deliveries](/assets/images/marketplace/marketplace_webhook_deliveries.png)

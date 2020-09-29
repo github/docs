@@ -12,7 +12,7 @@ Para obtener más información sobre las revisiones requeridas, consulta "[Acerc
 
 Puedes comentar una solicitud de extracción, aprobar los cambios o solicitar mejoras antes de aprobarlas. Para obtener más información, consulta "[Acerca de las revisiones requeridas para solicitudes de extracción](/articles/about-required-reviews-for-pull-requests)" y "[Revisar cambios propuestos en una solicitud de extracción](/articles/reviewing-proposed-changes-in-a-pull-request)".
 
-{{ site.data.reusables.search.requested_reviews_search }}
+{% data reusables.search.requested_reviews_search %}
 
 {% tip %}
 
@@ -20,16 +20,16 @@ Puedes comentar una solicitud de extracción, aprobar los cambios o solicitar me
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
-{{ site.data.reusables.repositories.choose-pr-review }}
-{{ site.data.reusables.repositories.changed-files }}
+{% data reusables.repositories.sidebar-pr %}
+{% data reusables.repositories.choose-pr-review %}
+{% data reusables.repositories.changed-files %}
 4. Revisa los cambios en la solicitud de extracción, y opcionalmente, [comenta sobre las líneas específicas](/articles/reviewing-proposed-changes-in-a-pull-request/#starting-a-review).
-{{ site.data.reusables.repositories.review-changes }}
-{{ site.data.reusables.repositories.review-summary-comment }}
+{% data reusables.repositories.review-changes %}
+{% data reusables.repositories.review-summary-comment %}
 7. Selecciona **Approve** (Aprobar) para aprobar la fusión de los cambios propuestos en la solicitud de extracción.
-{{ site.data.reusables.repositories.submit-review }}
+{% data reusables.repositories.submit-review %}
 
-{{ site.data.reusables.repositories.request-changes-tips }}
+{% data reusables.repositories.request-changes-tips %}
 
 ### Leer más
 

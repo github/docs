@@ -1,13 +1,13 @@
 ---
 title: Agregar un repositorio desde tu equipo local a GitHub Desktop
-intro: 'Puedes agregar cualquier repositorio Git a {{ site.data.variables.product.prodname_desktop }}, incluso si no es un repositorio {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'Puedes agregar cualquier repositorio Git a {% data variables.product.prodname_desktop %}, incluso si no es un repositorio {% data variables.product.prodname_dotcom %}.'
 versions:
   free-pro-team: '*'
 ---
 
 {% tip %}
 
-**Sugerencia:** Puedes agregar un repositorio Git desde tu equipo local hasta GitHub Destktop arrastrando la carpeta a la ventana {{ site.data.variables.product.prodname_desktop }}. Si arrastras múltiples carpetas Git a {{ site.data.variables.product.prodname_desktop }} al mismo tiempo, cada carpeta se agregará como un repositorio Git individual.
+**Sugerencia:** Puedes agregar un repositorio Git desde tu equipo local hasta GitHub Destktop arrastrando la carpeta a la ventana {% data variables.product.prodname_desktop %}. Si arrastras múltiples carpetas Git a {% data variables.product.prodname_desktop %} al mismo tiempo, cada carpeta se agregará como un repositorio Git individual.
 
 {% endtip %}
 

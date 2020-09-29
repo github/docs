@@ -9,17 +9,17 @@ Gesicherte Benachrichtigungen werden auf die Registerkarte „Saved for later“
 
 ### Benachrichtigung zur Nachverfolgung sichern
 
-{{ site.data.reusables.notifications.access_notifications }}
+{% data reusables.notifications.access_notifications %}
 1. Suche in der Benachrichtigungsliste die Benachrichtigung, die Du zur Nachverfolgung sichern möchtest.
 1. On the right side of the notification, click
 {% octicon "bookmark" aria-label="The bookmark button" %}.
 ![Schaltfläche zum Sichern einer Benachrichtigung](/assets/images/help/notifications/save_notification.png)
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.saved_for_late_sidebar %}
 
 ### Gesicherte Benachrichtigung entfernen
 
-{{ site.data.reusables.notifications.access_notifications }}
-{{ site.data.reusables.notifications.saved_for_late_sidebar }}
+{% data reusables.notifications.access_notifications %}
+{% data reusables.notifications.saved_for_late_sidebar %}
 1. Suche in der Liste Deiner gesicherten Benachrichtigungen diejenige gesicherte Benachrichtigung, die Du entfernen möchtest.
 1. Klicke rechts neben der gesicherten Benachrichtigung auf {% octicon "bookmark" aria-label="The bookmark button" %}. ![Schaltfläche zum Entfernen gesicherter Benachrichtigungen](/assets/images/help/notifications/remove-saved-notification.png)
 

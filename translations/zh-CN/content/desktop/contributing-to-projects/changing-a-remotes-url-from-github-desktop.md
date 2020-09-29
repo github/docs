@@ -1,6 +1,6 @@
 ---
 title: 从 GitHub Desktop 更改远程的 URL
-intro: '可在 {{ site.data.variables.product.prodname_desktop }} 中更改您操作的仓库的远程 URL。 如果仓库已经更名，或者拥有仓库的用户或组织已经改变，您便可执行此操作。'
+intro: '可在 {% data variables.product.prodname_desktop %} 中更改您操作的仓库的远程 URL。 如果仓库已经更名，或者拥有仓库的用户或组织已经改变，您便可执行此操作。'
 redirect_from:
   - /desktop/contributing-to-projects/changing-a-remote-s-url-from-github-desktop
 versions:

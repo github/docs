@@ -1,7 +1,7 @@
 ---
 title: Enterprise アカウントの設定と管理
 shortTitle: Enterprise アカウント
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /categories/setting-up-and-managing-your-enterprise-account
 versions:

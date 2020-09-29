@@ -18,12 +18,12 @@ By default, organization members have write access to their organization's proje
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.organization-wide-project }}
-{{ site.data.reusables.project-management.select-project }}
-{{ site.data.reusables.project-management.click-menu }}
-{{ site.data.reusables.project-management.access-collaboration-settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.organization-wide-project %}
+{% data reusables.project-management.select-project %}
+{% data reusables.project-management.click-menu %}
+{% data reusables.project-management.access-collaboration-settings %}
 8. Under "Organization member permission", choose a baseline permission level for all organization members: **Read**, **Write**, **Admin**, or **None**. ![Baseline project board permission options for all organization members](/assets/images/help/projects/baseline-project-permissions-for-organization-members.png)
 9. Click **Save**.
 

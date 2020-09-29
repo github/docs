@@ -14,8 +14,8 @@ Uma URL remota é outra forma de o Git dizer "o lugar onde seu código é armaze
 
 Você pode fazer push apenas de dois tipos de endereço URL:
 
-* Uma URL HTTPS como `https://{{ site.data.variables.command_line.backticks }}/user/repo.git`
-* Uma URL SSH, como `git@{{ site.data.variables.command_line.backticks }}:user/repo.git`
+* Uma URL HTTPS como `https://{% data variables.command_line.backticks %}/user/repo.git`
+* Uma URL SSH, como `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 O Git associa uma URL remota a um nome, e seu remote padrão geralmente é chamado de `origin`.
 

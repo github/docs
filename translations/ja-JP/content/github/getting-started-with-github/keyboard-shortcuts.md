@@ -1,6 +1,6 @@
 ---
 title: キーボードショートカット
-intro: '{{ site.data.variables.product.product_name }} のほぼすべてのページには、アクションを速く実行するためのキーボードショートカットがあります。'
+intro: '{% data variables.product.product_name %} のほぼすべてのページには、アクションを速く実行するためのキーボードショートカットがあります。'
 redirect_from:
   - /articles/using-keyboard-shortcuts/
   - /categories/75/articles/
@@ -14,7 +14,7 @@ versions:
 
 ### キーボードショートカットについて
 
-{{ site.data.variables.product.product_name }} に <kbd>?</kbd> と入力すると、そのページで使用可能なキーボードショートカットを一覧表示するダイアログボックスが表示されます。 マウスを使用して移動しなくても、これらのキーボードショートカットを使用して、サイト全体でアクションを実行できます。
+{% data variables.product.product_name %} に <kbd>?</kbd> と入力すると、そのページで使用可能なキーボードショートカットを一覧表示するダイアログボックスが表示されます。 マウスを使用して移動しなくても、これらのキーボードショートカットを使用して、サイト全体でアクションを実行できます。
 
 以下は利用可能なキーボードショートカットのリストです:
 
@@ -22,7 +22,7 @@ versions:
 
 | キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                                                   |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{{ site.data.variables.product.company_short }} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                        |
+| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                        |
 | <kbd>g</kbd> <kbd>n</kbd>     | 通知に移動します。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。 |
 | <kbd>esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                                             |
 
@@ -97,7 +97,7 @@ versions:
 | <kbd>q</kbd>                                                  | レビュー担当者にリクエストします。 詳細は「[Pull Request レビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。                                                                             |
 | <kbd>m</kbd>                                                  | マイルストーンを設定します。 詳細は「[Issue およびプルリクエストにマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)」を参照してください。                                                        |
 | <kbd>l</kbd>                                                  | ラベルを適用します。 詳細は「[Issue およびプルリクエストにラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。                                                                          |
-| <kbd>a</kbd>                                                  | アサインされた人を設定します。 詳細は「[{{ site.data.variables.product.company_short }} の他のユーザに Issue およびプルリクエストをアサインする](/articles/assigning-issues-and-pull-requests-to-other-github-users/)」を参照してください。 |
+| <kbd>a</kbd>                                                  | アサインされた人を設定します。 詳細は「[{% data variables.product.company_short %} の他のユーザに Issue およびプルリクエストをアサインする](/articles/assigning-issues-and-pull-requests-to-other-github-users/)」を参照してください。 |
 | <kbd>cmd + shift + p</kbd> または <kbd>control + shift + p</kbd> | [**Write**] タブと [**Preview**] タブを切り替えます。                                                                                                                                              |
 
 ### プルリクエストの変更
@@ -153,7 +153,7 @@ versions:
 | <kbd>esc</kbd> | Close the card preview pane |
 
 {% if currentVersion == "free-pro-team@latest" %}
-### {{ site.data.variables.product.prodname_actions }}
+### {% data variables.product.prodname_actions %}
 
 | キーボードショートカット                                           | 説明                                   |
 | ------------------------------------------------------ | ------------------------------------ |

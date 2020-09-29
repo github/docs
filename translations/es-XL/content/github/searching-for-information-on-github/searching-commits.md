@@ -1,6 +1,6 @@
 ---
 title: Buscar confirmaciones de cambios
-intro: 'Puedes buscar confirmaciones de cambios en {{ site.data.variables.product.product_name }} y acotar los resultados utilizando estos calificadores de búsqueda de confirmaciones con cualquier combinación.'
+intro: 'Puedes buscar confirmaciones de cambios en {% data variables.product.product_name %} y acotar los resultados utilizando estos calificadores de búsqueda de confirmaciones con cualquier combinación.'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Puedes buscar confirmaciones de cambios globalmente a través de todos los {{ site.data.variables.product.product_name }}, o buscar confirmaciones de cambios dentro de un repositorio particular u organización. Para obtener más información, consulta "[Acerca de buscar en {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)".
+Puedes buscar confirmaciones de cambios globalmente a través de todos los {% data variables.product.product_name %}, o buscar confirmaciones de cambios dentro de un repositorio particular u organización. Para obtener más información, consulta "[Acerca de buscar en {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 Cuando buscas confirmaciones de cambios, se busca únicamente la [rama predeterminada](/articles/about-branches) de un repositorio.
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### Buscar dentro de los mensajes de confirmación
 
@@ -45,7 +45,7 @@ Los calificadores `author-email` y `committer-email` encuentran confirmaciones p
 
 Utiliza los calificadores `author-date` y `committer-date` para encontrar confirmaciones que fueron creadas o confirmadas dentro de un rango de fechas especificado.
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                 | Ejemplo                                                                                                                                                                   |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

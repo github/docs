@@ -1,1 +1,1 @@
-1. 导航到 [{{ site.data.variables.product.prodname_sponsors }}](https://github.com/sponsors)。
+1. 导航到 [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors)。

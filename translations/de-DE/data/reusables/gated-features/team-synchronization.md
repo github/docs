@@ -1,1 +1,1 @@
-Die Teamsynchronisierung ist für Organisationen und Enterprise-Konten verfügbar, welche {{ site.data.variables.product.prodname_ghe_cloud }} einsetzen. {{ site.data.reusables.gated-features.more-info-org-products }}
+Die Teamsynchronisierung ist für Organisationen und Enterprise-Konten verfügbar, welche {% data variables.product.prodname_ghe_cloud %} einsetzen. {% data reusables.gated-features.more-info-org-products %}

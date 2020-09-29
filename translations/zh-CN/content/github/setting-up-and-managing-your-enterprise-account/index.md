@@ -1,7 +1,7 @@
 ---
 title: 设置和管理企业帐户
 shortTitle: 企业帐户
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /categories/setting-up-and-managing-your-enterprise-account
 versions:

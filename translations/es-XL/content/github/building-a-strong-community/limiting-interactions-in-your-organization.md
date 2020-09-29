@@ -16,9 +16,9 @@ Después de 24 horas, los usuarios pueden reanudar la actividad normal en los re
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
 4. En la barra lateral Settings (Parámetros) de tu organización, haz clic en **Límites de interacción**. ![Límites de interacción en los parámetros de la organización ](/assets/images/help/organizations/org-settings-interaction-limits.png)
 5. Da clic en una o más opciones debajo de "límites de interacción temporales". ![Opciones de límites de interacción temporal](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
    - **Límites para usuarios existentes**: Limita la actividad de usuarios de la organización con cuentas que tienen menos de 24 horas y que no han realizado contribuciones anteriores ni no son colaboradores.

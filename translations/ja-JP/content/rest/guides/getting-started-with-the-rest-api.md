@@ -24,7 +24,7 @@ versions:
 まずはセットアップをテストすることから始めましょう。 コマンドプロンプトを開き、次のコマンドを入力します。
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/zen
+$ curl {% data variables.product.api_url_pre %}/zen
 
 > Keep it logically awesome.
 ```
@@ -35,12 +35,12 @@ $ curl {{ site.data.variables.product.api_url_pre }}/zen
 
 ```shell
 # GET /users/defunkt
-$ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl {% data variables.product.api_url_pre %}/users/defunkt
 
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -49,7 +49,7 @@ $ curl {{ site.data.variables.product.api_url_pre }}/users/defunkt
 うーん、[JSON][json]っぽいですね。 `-i`フラグを追加して、ヘッダを入れてみましょう。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
@@ -71,7 +71,7 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 > {
 >   "login": "defunkt",
 >   "id": 2,
->   "url": "{{ site.data.variables.product.api_url_pre }}/users/defunkt",
+>   "url": "{% data variables.product.api_url_pre %}/users/defunkt",
 >   "html_url": "https://github.com/defunkt",
 >   ...
 > }
@@ -86,16 +86,16 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
 
 ### 認証
 
-認証されていないクライアントは、1時間に60件のリクエストを行うことができます。 1時間あたりのリクエストを増やすには、_認証_が必要です。 実のところ、{{ site.data.variables.product.product_name }} APIを使って何か面白いことがしたければ、[認証][authentication]は欠かせません。
+認証されていないクライアントは、1時間に60件のリクエストを行うことができます。 1時間あたりのリクエストを増やすには、_認証_が必要です。 実のところ、{% data variables.product.product_name %} APIを使って何か面白いことがしたければ、[認証][authentication]は欠かせません。
 
 #### 個人アクセストークンの使用
 
-{{ site.data.variables.product.product_name }} APIで認証を行う最も簡単かつ最善の方法は、[OAuthトークン](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)経由でBasic認証を使用することです。 OAuthトークンには[個人アクセストークン][personal token]が含まれています。
+{% data variables.product.product_name %} APIで認証を行う最も簡単かつ最善の方法は、[OAuthトークン](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens)経由でBasic認証を使用することです。 OAuthトークンには[個人アクセストークン][personal token]が含まれています。
 
 `-u`フラグを使って、ユーザ名を設定します。
 
 ```shell
-$ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>your_username</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -104,7 +104,7 @@ $ curl -i -u <em>your_username</em> {{ site.data.variables.product.api_url_pre }
 トークンをシェル履歴に残すことは避けるべきです。`-u "username:$token"`を使用して、`token`の変数を設定すると、トークンはシェル履歴に残りません。
 
 ```shell
-$ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre }}/users/octocat
+$ curl -i -u <em>username:$token</em> {% data variables.product.api_url_pre %}/users/octocat
 
 ```
 
@@ -116,10 +116,10 @@ $ curl -i -u <em>username:$token</em> {{ site.data.variables.product.api_url_pre
 
 #### ユーザプロフィールの取得
 
-認証が正しく行われると、{{ site.data.variables.product.product_name }}アカウントに関連づけられている権限を利用できます。 たとえば、あなたのプロフィールを取得してみましょう。
+認証が正しく行われると、{% data variables.product.product_name %}アカウントに関連づけられている権限を利用できます。 たとえば、あなたのプロフィールを取得してみましょう。
 
 ```shell
-$ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>your_username</em>:<em>your_token</em> {% data variables.product.api_url_pre %}/user
 
 > {
 >   ...
@@ -133,7 +133,7 @@ $ curl -i -u <em>your_username</em>:<em>your_token</em> {{ site.data.variables.p
 > }
 ```
 
-先に[@defunkt][defunkt github]について取得したパブリックな情報に加えて、今回はユーザプロフィールのパブリックでない情報も表示されているはずです。 たとえば、レスポンスには`plan`オブジェクトが表示されますが、これはアカウントの{{ site.data.variables.product.product_name }}プランについての詳細です。
+先に[@defunkt][defunkt github]について取得したパブリックな情報に加えて、今回はユーザプロフィールのパブリックでない情報も表示されているはずです。 たとえば、レスポンスには`plan`オブジェクトが表示されますが、これはアカウントの{% data variables.product.product_name %}プランについての詳細です。
 
 #### OAuthトークンのアプリケーションへの使用
 
@@ -144,7 +144,7 @@ OAuthは_トークン_を使用します。 トークンには、次の2つの�
 * **アクセスを取り消せる**: ユーザはサードパーティアプリケーションへの認可をいつでも取り消すことができます
 * **制限付きアクセス**: ユーザはサードパーティーアプリケーションを認可する前に、トークンが提供する特定のアクセスを確認できます
 
-トークンは[web フロー][webflow]から作成してください。 アプリケーションはユーザを{{ site.data.variables.product.product_name }}に送信してログインします。 それから{{ site.data.variables.product.product_name }}はアプリケーションの名前と、ユーザが認可した場合のアクセス権レベルを示すダイアログを表示します。 ユーザがアクセスを認可すると、{{ site.data.variables.product.product_name }}はユーザをアプリケーションにリダイレクトします。
+トークンは[web フロー][webflow]から作成してください。 アプリケーションはユーザを{% data variables.product.product_name %}に送信してログインします。 それから{% data variables.product.product_name %}はアプリケーションの名前と、ユーザが認可した場合のアクセス権レベルを示すダイアログを表示します。 ユーザがアクセスを認可すると、{% data variables.product.product_name %}はユーザをアプリケーションにリダイレクトします。
 
 ![GitHubのOAuthプロンプト](/assets/images/oauth_prompt.png)
 
@@ -154,29 +154,29 @@ OAuthは_トークン_を使用します。 トークンには、次の2つの�
 
 ### リポジトリ
 
-{{ site.data.variables.product.product_name }} APIを有意義に使用する場合、そのほとんどにおいて何らかのリポジトリ情報が関与します。 以前にユーザ情報をフェッチしたのと同じ方法で、[リポジトリ情報を`GET`][get repo] できます。
+{% data variables.product.product_name %} APIを有意義に使用する場合、そのほとんどにおいて何らかのリポジトリ情報が関与します。 以前にユーザ情報をフェッチしたのと同じ方法で、[リポジトリ情報を`GET`][get repo] できます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/twbs/bootstrap
+$ curl -i {% data variables.product.api_url_pre %}/repos/twbs/bootstrap
 ```
 
 同様に、[認証済みのユーザにリポジトリを表示][user repos api]できます。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 また、[別のユーザにリポジトリを一覧表示][other user repos api]できます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/octocat/repos
+$ curl -i {% data variables.product.api_url_pre %}/users/octocat/repos
 ```
 
 あるいは、[Organizationにリポジトリを一覧表示][org repos api]することもできます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
+$ curl -i {% data variables.product.api_url_pre %}/orgs/octo-org/repos
 ```
 
 これらの呼び出しから返される情報は、認証時にトークンが持っているスコープにより異なります。
@@ -187,14 +187,14 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/orgs/octo-org/repos
 [Docs][repos-api]に記載されている通り、これらのメソッドは`type`パラメータを取り、これによって、ユーザがリポジトリに対して持つアクセス権に基づき、返されるリポジトリをフィルタリングできます。 こうすることで、直接所有するリポジトリ、Organizationのリポジトリ、またはチームによりユーザがコラボレーションするリポジトリに限定してフェッチすることができます。
 
 ```shell
-$ curl -i "{{ site.data.variables.product.api_url_pre }}/users/octocat/repos?type=owner"
+$ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=owner"
 ```
 
 この例では、octocatが所有するリポジトリのみを取得し、コラボレーションするリポジトリは取得しません。 URLが引用符で囲まれていることに注目してください。 シェルの設定によっては、cURLはURLを引用符で囲まないとクエリ文字列型を無視することがあります。
 
 #### リポジトリの作成
 
-既存のリポジトリ情報をフェッチすることは一般的なユースケースですが、{{ site.data.variables.product.product_name }} APIは新規リポジトリの作成もサポートしています。 [リポジトリを作成する][create repo]には、詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
+既存のリポジトリ情報をフェッチすることは一般的なユースケースですが、{% data variables.product.product_name %} APIは新規リポジトリの作成もサポートしています。 [リポジトリを作成する][create repo]には、詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
@@ -204,7 +204,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
         "private": true, \
         "gitignore_template": "nanoc" \
       }' \
-    {{ site.data.variables.product.api_url_pre }}/user/repos
+    {% data variables.product.api_url_pre %}/user/repos
 ```
 
 この最小限の例では、ブログ用の新しいリポジトリを作成しています ([GitHub Pages][pages]で提供されるかもしれません)。 ブログはパブリックになりますが、リポジトリはプライベートにしました。 このステップでは、READMEと[nanoc][nanoc]フレーバーの[.gitignore template][gitignore templates]によるリポジトリの初期化も行います。
@@ -214,7 +214,7 @@ $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
 次に、新しく作成したリポジトリをフェッチしましょう。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
+$ curl -i {% data variables.product.api_url_pre %}/repos/pengwynn/blog
 
 > HTTP/1.1 404 Not Found
 
@@ -223,31 +223,31 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/blog
 > }
 ```
 
-あれれ？ どこにいったのでしょう。 リポジトリを_プライベート_にして作成したので、表示するには認証する必要があります。 古参のHTTPユーザの方なら、`403`が出ると思っていたかもしれません。 プライベートリポジトリについての情報を漏らしたくはないので、この場合{{ site.data.variables.product.product_name }} APIは`404`を返します。「このリポジトリが存在するかは肯定も否定もできない」というようなことです。
+あれれ？ どこにいったのでしょう。 リポジトリを_プライベート_にして作成したので、表示するには認証する必要があります。 古参のHTTPユーザの方なら、`403`が出ると思っていたかもしれません。 プライベートリポジトリについての情報を漏らしたくはないので、この場合{% data variables.product.product_name %} APIは`404`を返します。「このリポジトリが存在するかは肯定も否定もできない」というようなことです。
 
 ### 問題
 
-{{ site.data.variables.product.product_name }}のIssue用UIは、「必要十分」なワークフローを提供しつつ、邪魔にならないということを目指しています。 {{ site.data.variables.product.product_name }} [Issues API][issues-api]を使えば、他のツールからデータを引き出したり、Issueを作成したりして、あなたのTeamに合ったワークフローを作成できます。
+{% data variables.product.product_name %}のIssue用UIは、「必要十分」なワークフローを提供しつつ、邪魔にならないということを目指しています。 {% data variables.product.product_name %} [Issues API][issues-api]を使えば、他のツールからデータを引き出したり、Issueを作成したりして、あなたのTeamに合ったワークフローを作成できます。
 
 GitHub.comと同じように、Issues APIは認証されたユーザがIssueを表示するためのメソッドをいくつか提供します。 [すべてのIssueを表示][get issues api]するには、`GET /issues`を呼び出します。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/issues
+    {% data variables.product.api_url_pre %}/issues
 ```
 
-[あなたの{{ site.data.variables.product.product_name }} Organizationのうちの1つ][get issues api]のみを取得するには、`GET
+[あなたの{% data variables.product.product_name %} Organizationのうちの1つ][get issues api]のみを取得するには、`GET
 /orgs/<org>/issues`を呼び出します。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \
-    {{ site.data.variables.product.api_url_pre }}/orgs/rails/issues
+    {% data variables.product.api_url_pre %}/orgs/rails/issues
 ```
 
 また、[1つのリポジトリにあるすべてのIssue][repo issues api]を取得することもできます。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 ```
 
 #### ページネーション
@@ -255,12 +255,12 @@ $ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
 Railsのような規模のプロジェクトになれば、万単位のIssueがあります。 [ページネーション][pagination]を行い、API呼び出しを複数回行ってデータを取得する必要があります。 直近で行った呼び出しを繰り返してみましょう。今回はレスポンスヘッダに注目してください。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/repos/rails/rails/issues
+$ curl -i {% data variables.product.api_url_pre %}/repos/rails/rails/issues
 
 > HTTP/1.1 200 OK
 
 > ...
-> Link: &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{{ site.data.variables.product.api_url_pre }}/repositories/8514/issues?page=30&gt;; rel="last"
+> Link: &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=2&gt;; rel="next", &lt;{% data variables.product.api_url_pre %}/repositories/8514/issues?page=30&gt;; rel="last"
 > ...
 ```
 
@@ -279,10 +279,10 @@ $         "title": "New logo", \
 $         "body": "We should have one", \
 $         "labels": ["design"] \
 $       }' \
-$    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues
+$    {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues
 
 > HTTP/1.1 201 Created
-> Location: {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17
+> Location: {% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17
 > X-RateLimit-Limit: 5000
 
 > {
@@ -301,7 +301,7 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     "gravatar_id": "7e19cd5486b5d6dc1ef90e671ba52ae0",
 >     "avatar_url": "https://secure.gravatar.com/avatar/7e19cd5486b5d6dc1ef90e671ba52ae0?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png",
 >     "id": 865,
->     "url": "{{ site.data.variables.product.api_url_pre }}/users/pengwynn"
+>     "url": "{% data variables.product.api_url_pre %}/users/pengwynn"
 >   },
 >   "closed_at": null,
 >   "updated_at": "2012-11-14T15:25:33Z",
@@ -312,13 +312,13 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 >     {
 >       "color": "ededed",
 >       "name": "design",
->       "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/labels/design"
+>       "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/labels/design"
 >     }
 >   ],
 >   "id": 8356941,
 >   "assignee": null,
 >   "state": "open",
->   "url": "{{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/issues/17"
+>   "url": "{% data variables.product.api_url_pre %}/repos/pengwynn/api-sandbox/issues/17"
 > }
 ```
 
@@ -329,7 +329,7 @@ $    {{ site.data.variables.product.api_url_pre }}/repos/pengwynn/api-sandbox/is
 良きAPI利用者であるために非常に大切なのは、変更されていない情報をキャッシュして、レート制限を尊重するということです。 APIは[条件付きリクエスト][conditional-requests]をサポートしており、正しく振る舞うために役立ちます。 最初に呼び出した、Chris Wanstrathのプロフィールを取り上げてみましょう。
 
 ```shell
-$ curl -i {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
@@ -339,14 +339,14 @@ JSONの本文に加え、HTTPステータスコード `200`と`ETag`ヘッダに
 
 ```shell
 $ curl -i -H 'If-None-Match: "bfd85cbf23ac0b0c8a29bee02e7117c6"' \
-$    {{ site.data.variables.product.api_url_pre }}/users/defunkt
+$    {% data variables.product.api_url_pre %}/users/defunkt
 
 > HTTP/1.1 304 Not Modified
 ```
 
 `304`ステータスは、直近のリクエストからリソースが変更されておらず、レスポンスには本文が含まれないことを示しています。 特典として、`304`レスポンスは[レート制限][rate-limiting]にカウントされません。
 
-ヤッター！ これで{{ site.data.variables.product.product_name }} APIの基本が理解できました！
+ヤッター！ これで{% data variables.product.product_name %} APIの基本が理解できました！
 
 * Basic & OAuth認証
 * リポジトリおよびIssueのフェッチと作成

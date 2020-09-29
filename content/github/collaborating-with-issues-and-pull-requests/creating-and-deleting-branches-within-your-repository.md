@@ -1,6 +1,6 @@
 ---
 title: Creating and deleting branches within your repository
-intro: 'You can create or delete branches directly on {{ site.data.variables.product.product_name }}.'
+intro: 'You can create or delete branches directly on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/deleting-branches-in-a-pull-request/
   - /articles/creating-and-deleting-branches-within-your-repository
@@ -11,7 +11,7 @@ versions:
 
 ### Creating a branch
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 
 1. Optionally, if you want to create your new branch from a branch other than the default branch for the repository, click {% octicon "git-branch" aria-label="The branch icon" %} **<em>NUMBER</em> branches** then choose another branch:
     ![Branches link on overview page](/assets/images/help/branches/branches-link.png)
@@ -22,19 +22,19 @@ versions:
 
 ### Deleting a branch
 
-{{ site.data.reusables.pull_requests.automatically-delete-branches }}
+{% data reusables.pull_requests.automatically-delete-branches %}
 
 If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.navigate-to-branches }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.navigate-to-branches %}
 1. Scroll to the branch that you want to delete, then click {% octicon "trashcan" aria-label="The trashcan icon to delete the branch" %}.
     ![delete the branch](/assets/images/help/branches/branches-delete.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-{{ site.data.reusables.pull_requests.retargeted-on-branch-deletion }}
+{% data reusables.pull_requests.retargeted-on-branch-deletion %}
 {% endif %}
 For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 

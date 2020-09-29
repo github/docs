@@ -16,8 +16,8 @@ Du kannst Standardvorlagen für Pull Request für Deine Organisation{% if curren
 
 ### Eine Pull-Request-Vorlage hinzufügen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. Gib Folgendes im Feld für den Dateinamen ein:
     -  Um Deine Pull-Request-Vorlage im Root-Verzeichnis des Repositorys sichtbar zu machen, benenne diese Vorlage `pull_request_template.md`. ![Root-VerzeichnisName der neuen Pull-Request-Vorlage im Root-Verzeichnis](/assets/images/help/repository/pr-template-file-name.png)
     - Um Deine Pull-Request-Vorlage im `docs`-Verzeichnis des Repositorys sichtbar zu machen, benenne diese Vorlage `docs/pull_request_template.md`. ![Neue Pull-Request-Vorlage im docs-Verzeichnis](/assets/images/help/repository/pr-template-file-name-docs.png)
@@ -27,9 +27,9 @@ Du kannst Standardvorlagen für Pull Request für Deine Organisation{% if curren
     - Einen [Verweis auf einen ähnlichen Issue](/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests) in Deinem Repository.
     - Eine Beschreibung der Änderungen, die im Pull Request vorgeschlagen werden.
     - [@Erwähnung](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) der Person oder des Teams, die bzw. das für den Review der vorgeschlagenen Änderungen zuständig ist.
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %} Vorlagen sind für Mitarbeiter verfügbar, wenn sie in den Standardbranch des Repositorys zusammengeführt wurden.
+{% data reusables.files.propose_new_file %}
 
 ### Weiterführende Informationen
 

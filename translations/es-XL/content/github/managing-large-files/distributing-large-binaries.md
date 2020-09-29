@@ -8,12 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
-Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {{site.data.variables.product.product_location }}. Los lanzamientos te permiten empaquetar el software, notas de lanzamiento y enlaces a los archivos binarios para que otras personas puedan utilizarlos. Para obtener más información, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
+Si necesitas distribuir archivos grandes dentro de tu repositorio, puedes crear lanzamientos en {% data variables.product.product_location %}. Los lanzamientos te permiten empaquetar el software, notas de lanzamiento y enlaces a los archivos binarios para que otras personas puedan utilizarlos. Para obtener más información, consulta la sección "[Acerca de los lanzamientos](/github/administering-a-repository/about-releases)".
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-No limitamos el tamaño total de los archivos binarios en los lanzamientos o anchos de banda que se utilizan para entregarlos. Sin embargo, cada archivo individual debe ser menor a {{ site.data.variables.large_files.max_lfs_size }}.
+No limitamos el tamaño total de los archivos binarios en los lanzamientos o anchos de banda que se utilizan para entregarlos. Sin embargo, cada archivo individual debe ser menor a {% data variables.large_files.max_lfs_size %}.
 
 {% endif %}
 
-{{ site.data.reusables.large_files.use_lfs_tip }}
+{% data reusables.large_files.use_lfs_tip %}

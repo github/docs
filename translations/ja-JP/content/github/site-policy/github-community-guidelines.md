@@ -11,7 +11,7 @@ GitHub では、何百万人もの開発者が何百万ものプロジェクト�
 
 世界中の GitHub ユーザたちの持つ視点、アイデア、経験は十人十色。数日前に初めて「Hello World」プロジェクトを作った人から、世界で最も有名なソフトウェア開発者まで、さまざまなユーザがいます。 私たちは、GitHub をコミュニティ内のさまざまな意見や視点に対応した快適な環境にし、人々が自由に自分を表現できるスペースになるよう取り組んでいます。
 
-We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {{ site.data.variables.contact.report_abuse }} or {{ site.data.variables.contact.report_content }}. 当社がモデレートするコンテンツを積極的に探すことはありません。 GitHub でコラボレーションする最適な方法や、どんな行為やコンテンツが[利用規約](#legal-notices)に違反する恐れがあるのかを皆様に理解していただくために、ここではコミュニティ内では何が期待されるのかを説明いたします。 当社は不正行為の報告を調査し、利用規約に違反していると判断したサイトの公開コンテンツをモデレートする場合があります。
+We rely on our community members to communicate expectations, [moderate](#what-if-something-or-someone-offends-you) their projects, and {% data variables.contact.report_abuse %} or {% data variables.contact.report_content %}. 当社がモデレートするコンテンツを積極的に探すことはありません。 GitHub でコラボレーションする最適な方法や、どんな行為やコンテンツが[利用規約](#legal-notices)に違反する恐れがあるのかを皆様に理解していただくために、ここではコミュニティ内では何が期待されるのかを説明いたします。 当社は不正行為の報告を調査し、利用規約に違反していると判断したサイトの公開コンテンツをモデレートする場合があります。
 
 ### 強いコミュニティを作る
 
@@ -41,7 +41,7 @@ GitHub コミュニティの主な目的は、ソフトウェアプロジェク�
 
 * **ユーザーをブロックする**  - 繰り返し不適切な行動を取るユーザに遭遇した場合は、[ユーザを個人アカウントからブロック](/articles/blocking-a-user-from-your-personal-account/)したり、[ユーザを Organization からブロック](/articles/blocking-a-user-from-your-organization/)できます。
 
-Of course, you can always contact us to {{ site.data.variables.contact.report_abuse }} if you need more help dealing with a situation.
+Of course, you can always contact us to {% data variables.contact.report_abuse %} if you need more help dealing with a situation.
 
 ### 禁止事項
 

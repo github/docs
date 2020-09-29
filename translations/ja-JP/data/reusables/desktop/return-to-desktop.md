@@ -1,1 +1,1 @@
-1. {{ site.data.variables.product.prodname_desktop }} に戻ります。
+1. {% data variables.product.prodname_desktop %} に戻ります。

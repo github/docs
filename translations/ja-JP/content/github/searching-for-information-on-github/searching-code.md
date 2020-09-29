@@ -1,6 +1,6 @@
 ---
 title: コードの検索
-intro: '{{ site.data.variables.product.product_name }} 上のコードを検索することができます。そして、これらのコードを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
+intro: '{% data variables.product.product_name %} 上のコードを検索することができます。そして、これらのコードを検索する修飾子を組み合わせることで、検索結果を絞ることができます。'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -10,17 +10,17 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.variables.product.product_name }} 全体にわたってグローバルにコードを検索できます。あるいは、特定のリポジトリや Organization のみのコードの検索もできます。 パブリックリポジトリのすべてにわたってコードを検索するには、{{ site.data.variables.product.product_name }} にサインインしていなければなりません。 詳細は「[GitHub 上での検索について](/articles/about-searching-on-github)」を参照してください。
+{% data variables.product.product_name %} 全体にわたってグローバルにコードを検索できます。あるいは、特定のリポジトリや Organization のみのコードの検索もできます。 パブリックリポジトリのすべてにわたってコードを検索するには、{% data variables.product.product_name %} にサインインしていなければなりません。 詳細は「[GitHub 上での検索について](/articles/about-searching-on-github)」を参照してください。
 
 これらのコード検索の修飾子を使わなければ、コードを検索できません。 リポジトリ、ユーザまたはコミットの特定の修飾子での検索は、コードを検索する場合、うまくいきません。
 
-{{ site.data.reusables.search.syntax_tips }}
+{% data reusables.search.syntax_tips %}
 
 ### コード検索での留意点
 
 コードの検索は複雑なため、検索の実行には一定の制限があります。
 
-- {{ site.data.reusables.search.required_login }}
+- {% data reusables.search.required_login %}
 - [フォーク](/articles/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/articles/searching-in-forks)」を参照してください。
 - コード検索では、_デフォルトブランチ_のみインデックスされます。{% if currentVersion == "free-pro-team@latest" %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
@@ -102,4 +102,4 @@ versions:
 
 - 「[検索結果をソートする](/articles/sorting-search-results/)」
 - "[フォーク内を検索する](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
-- "[ {{ site.data.variables.product.prodname_dotcom }} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}
+- "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

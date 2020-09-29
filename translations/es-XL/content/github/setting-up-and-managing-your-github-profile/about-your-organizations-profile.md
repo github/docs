@@ -11,7 +11,7 @@ versions:
 
 Opcionalmente, puedes optar por agregar una descripción, una ubicación, un sitio web y una dirección de correo electrónico para tu organización y anclar repositorios importantes en la parte superior de la página.
 
-{% if currentVersion == "free-pro-team@latest" %}Para confirmar la identidad de tu organización y mostrar el distintivo "Verificada" en la página del perfil de tu organización, debes verificar los dominios de tu organización con {{ site.data.variables.product.product_name }}. Para obtener más información, consulta "[Verificar el dominio de tu organización](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
+{% if currentVersion == "free-pro-team@latest" %}Para confirmar la identidad de tu organización y mostrar el distintivo "Verificada" en la página del perfil de tu organización, debes verificar los dominios de tu organización con {% data variables.product.product_name %}. Para obtener más información, consulta "[Verificar el dominio de tu organización](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain)."
 
 ![Muestra de página de perfil de una organización verificada](/assets/images/help/profile/org_profile_verified.png)
 {% else %}

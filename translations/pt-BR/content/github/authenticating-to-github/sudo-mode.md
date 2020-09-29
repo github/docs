@@ -1,6 +1,6 @@
 ---
 title: Modo sudo
-intro: 'O {{ site.data.variables.product.product_name }} pede a sua senha para você poder modificar seu endereço de e-mail, autorizar aplicativos de terceiros, adicionar novas chaves públicas ou iniciar outras ações *protegidas por sudo*.'
+intro: 'O {% data variables.product.product_name %} pede a sua senha para você poder modificar seu endereço de e-mail, autorizar aplicativos de terceiros, adicionar novas chaves públicas ou iniciar outras ações *protegidas por sudo*.'
 redirect_from:
   - /articles/sudo-mode
 versions:

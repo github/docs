@@ -1,15 +1,15 @@
 ---
-title: '使用 {{ site.data.variables.product.prodname_codespaces }} 在线开发'
+title: '使用 {% data variables.product.prodname_codespaces %} 在线开发'
 shortTitle: Codespaces
-intro: '您可以使用 {{ site.data.variables.product.prodname_dotcom }} 上的集成开发环境 (IDE) {{ site.data.variables.product.prodname_codespaces }} 完全在云端开发。'
-product: '{{ site.data.reusables.gated-features.codespaces }}'
+intro: '您可以使用 {% data variables.product.prodname_dotcom %} 上的集成开发环境 (IDE) {% data variables.product.prodname_codespaces %} 完全在云端开发。'
+product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces
 versions:
   free-pro-team: '*'
 ---
 
-{{ site.data.reusables.codespaces.release-stage }}
+{% data reusables.codespaces.release-stage %}
 
 ### 目录
 

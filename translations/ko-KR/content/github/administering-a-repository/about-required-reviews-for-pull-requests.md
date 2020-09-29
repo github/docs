@@ -1,7 +1,7 @@
 ---
 title: About required reviews for pull requests
 intro: Required reviews ensure that pull requests have a specific number of approving reviews before collaborators can make changes to a protected branch.
-product: '{{ site.data.reusables.gated-features.protected-branches }}'
+product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-reviews-for-pull-requests
 versions:
@@ -11,7 +11,7 @@ versions:
 
 If you've enforced branch protections in your repository, you can set up required reviews. For more information about enforcing branch protections, see "[Configuring protected branches](/articles/configuring-protected-branches/)." For more information about setting up required reviews, see "[Enabling required reviews for pull requests](/articles/enabling-required-reviews-for-pull-requests)."
 
-{{ site.data.reusables.pull_requests.required-reviews-for-prs-summary }}
+{% data reusables.pull_requests.required-reviews-for-prs-summary %}
 
 If a person with *admin* permissions chooses the **Request changes** option in a review, then that person must approve the pull request before it can be merged. If a reviewer who requests changes on a pull request isn't available, anyone with *admin* or *write* permission for the repository can dismiss the blocking review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
@@ -25,7 +25,7 @@ If you push a code-modifying commit to the branch of an approved pull request, t
 
 Unless required reviews have been set up to include repository admins, people with *admin* permissions can merge a pull request regardless of reviews from other admins.
 
-{{ site.data.reusables.repositories.review-policy-overlapping-commits }}
+{% data reusables.repositories.review-policy-overlapping-commits %}
 
 You can't merge a pull request into a protected branch until someone with *write* or *admin* permissions approves it. If there are pending or rejected reviews, you'll receive an error message:
 

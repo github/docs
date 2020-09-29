@@ -1,6 +1,6 @@
 ---
 title: Auditprotokoll durchsuchen
-intro: 'Websiteadministratoren können eine erweiterte Liste der [überwachten Aktionen](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) auf {{ site.data.variables.product.product_location_enterprise }} durchsuchen.'
+intro: 'Websiteadministratoren können eine erweiterte Liste der [überwachten Aktionen](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) auf {% data variables.product.product_location_enterprise %} durchsuchen.'
 redirect_from:
   - /enterprise/admin/articles/searching-the-audit-log/
   - /enterprise/admin/installation/searching-the-audit-log
@@ -37,8 +37,8 @@ Eine vollständige Liste der Aktionen finden Sie unter „[Überwachte Aktionen]
 
 ### Auditprotokoll durchsuchen
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.business }}
-{{ site.data.reusables.enterprise-accounts.settings-tab }}
-{{ site.data.reusables.enterprise-accounts.audit-log-tab }}
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.audit-log-tab %}
 4. Geben Sie eine Suchabfrage ein.![Suchabfrage](/assets/images/enterprise/site-admin-settings/search-query.png)

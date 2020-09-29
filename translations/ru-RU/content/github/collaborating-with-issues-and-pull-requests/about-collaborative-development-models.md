@@ -13,7 +13,7 @@ There are two main types of development models with which you'd use pull request
 
 {% tip %}
 
-**Tip:** {{ site.data.reusables.open-source.open-source-guide-general }} {{ site.data.reusables.open-source.open-source-learning-lab }}
+**Tip:** {% data reusables.open-source.open-source-guide-general %} {% data reusables.open-source.open-source-learning-lab %}
 
 {% endtip %}
 

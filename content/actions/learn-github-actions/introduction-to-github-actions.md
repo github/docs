@@ -1,7 +1,7 @@
 ---
 title: Introduction to GitHub Actions
 shortTitle: Introduction to GitHub Actions
-intro: 'Learn about the core concepts and various components of {{ site.data.variables.product.prodname_actions }}, and see an example that shows you how to add automation to your repository.'
+intro: 'Learn about the core concepts and various components of {% data variables.product.prodname_actions %}, and see an example that shows you how to add automation to your repository.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
   - /actions/automating-your-workflow-with-github-actions/core-concepts-for-github-actions
@@ -11,30 +11,30 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
 
-{{ site.data.variables.product.prodname_actions }} help you automate tasks within your software development life cycle. {{ site.data.variables.product.prodname_actions }} are event-driven, meaning that you can run a series of commands after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command that executes a software testing script.
+{% data variables.product.prodname_actions %} help you automate tasks within your software development life cycle. {% data variables.product.prodname_actions %} are event-driven, meaning that you can run a series of commands after a specified event has occurred. For example, every time someone creates a pull request for a repository, you can automatically run a command that executes a software testing script.
 
-This diagram demonstrates how you can use {{ site.data.variables.product.prodname_actions }} to automatically run your software testing scripts. An event automatically triggers the _workflow_, which contains a _job_. The job then uses _steps_ to control the order in which _actions_ are run. These actions are the commands that automate your software testing.
+This diagram demonstrates how you can use {% data variables.product.prodname_actions %} to automatically run your software testing scripts. An event automatically triggers the _workflow_, which contains a _job_. The job then uses _steps_ to control the order in which _actions_ are run. These actions are the commands that automate your software testing.
 
 ![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
 
-### The components of {{ site.data.variables.product.prodname_actions }}
+### The components of {% data variables.product.prodname_actions %}
 
-Below is a list of the multiple {{ site.data.variables.product.prodname_actions }} components that work together to run jobs. You can see how these components interact with each other.
+Below is a list of the multiple {% data variables.product.prodname_actions %} components that work together to run jobs. You can see how these components interact with each other.
 
 ![Component and service overview](/assets/images/help/images/overview-actions-design.png)
 
 #### Workflows
 
-The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {{ site.data.variables.product.prodname_dotcom }}.
+The workflow is an automated procedure that you add to your repository. Workflows are made up of one or more jobs and can be scheduled or triggered by an event. The workflow can be used to build, test, package, release, or deploy a project on {% data variables.product.prodname_dotcom %}.
 
 #### Events
 
-An event is a specific activity that triggers a workflow. For example, activity can originate from {{ site.data.variables.product.prodname_dotcom }} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
 
 #### Jobs
 
@@ -46,19 +46,19 @@ A step is an individual task that can run commands (known as _actions_). Each st
 
 #### Actions
 
-_Actions_ are standalone commands that are combined into _steps_ to create a _job_. Actions are the smallest portable building block of a workflow. You can create your own actions, or use actions created by the {{ site.data.variables.product.prodname_dotcom }} community. To use an action in a workflow, you must include it as a step.
+_Actions_ are standalone commands that are combined into _steps_ to create a _job_. Actions are the smallest portable building block of a workflow. You can create your own actions, or use actions created by the {% data variables.product.prodname_dotcom %} community. To use an action in a workflow, you must include it as a step.
 
 #### Runners
 
-A runner is a server that has the {{ site.data.variables.product.prodname_actions }} runner application installed. You can use a runner hosted by {{ site.data.variables.product.prodname_dotcom }}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {{ site.data.variables.product.prodname_dotcom }}. For {{ site.data.variables.product.prodname_dotcom }}-hosted runners, each job in a workflow runs in a fresh virtual environment.
+A runner is a server that has the {% data variables.product.prodname_actions %} runner application installed. You can use a runner hosted by {% data variables.product.prodname_dotcom %}, or you can host your own. A runner listens for available jobs, runs one job at a time, and reports the progress, logs, and results back to {% data variables.product.prodname_dotcom %}. For {% data variables.product.prodname_dotcom %}-hosted runners, each job in a workflow runs in a fresh virtual environment.
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {{ site.data.variables.product.prodname_dotcom }}-hosted runners, see "[Virtual environments for {{ site.data.variables.product.prodname_dotcom }}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
+{% data variables.product.prodname_dotcom %}-hosted runners are based on Ubuntu Linux, Microsoft Windows, and macOS. For information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[Virtual environments for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/virtual-environments-for-github-hosted-runners)." If you need a different operating system or require a specific hardware configuration, you can host your own runners. For information on self-hosted runners, see "[Hosting your own runners](/actions/hosting-your-own-runners)."
 
 ### Create an example workflow
 
-{{ site.data.variables.product.prodname_actions }} uses YAML syntax to define the events, jobs, and steps. These YAML files are stored in your code repository, in a directory called `.github/workflows`.
+{% data variables.product.prodname_actions %} uses YAML syntax to define the events, jobs, and steps. These YAML files are stored in your code repository, in a directory called `.github/workflows`.
 
-You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {{ site.data.variables.product.prodname_actions }} checks out the pushed code, installs the software dependencies, and runs `bats -v`.
+You can create an example workflow in your repository that automatically triggers a series of commands whenever code is pushed. In this workflow, {% data variables.product.prodname_actions %} checks out the pushed code, installs the software dependencies, and runs `bats -v`.
 
 1. In your repository, create the `.github/workflows/` directory to store your workflow files.
 1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
@@ -74,9 +74,9 @@ You can create an example workflow in your repository that automatically trigger
           - run: npm install -g bats
           - run: bats -v
     ```
-1. Commit these changes and push them to your {{ site.data.variables.product.prodname_dotcom }} repository.
+1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
 
-Your new {{ site.data.variables.product.prodname_actions }} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. For details about a job's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)."
+Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. For details about a job's execution history, see "[Viewing the workflow's activity](/actions/learn-github-actions/introduction-to-github-actions#viewing-the-jobs-activity)."
 
 ### Understanding the workflow file
 
@@ -91,7 +91,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  <em>Optional</em> - The name of the workflow as it will appear in the Actions tab of the {{ site.data.variables.product.prodname_dotcom }} repository.
+  <em>Optional</em> - The name of the workflow as it will appear in the Actions tab of the {% data variables.product.prodname_dotcom %} repository.
 </td>
 </tr>
 <tr>
@@ -102,7 +102,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Specify the event that automatically triggers the workflow file. This example uses the <code>push</code> event, so that the jobs run every time someone pushes a change to the repository. You can set up the workflow to only run on certain branches, paths, or tags. For syntax examples including or excluding branches, paths, or tags, see <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Workflow syntax for {{ site.data.variables.product.prodname_actions }}."</a>
+  Specify the event that automatically triggers the workflow file. This example uses the <code>push</code> event, so that the jobs run every time someone pushes a change to the repository. You can set up the workflow to only run on certain branches, paths, or tags. For syntax examples including or excluding branches, paths, or tags, see <a href="https://docs.github.com/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpaths">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
 </td>
 </tr>
 <tr>
@@ -135,7 +135,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```
 </td>
 <td>
-  Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Workflow syntax for {{ site.data.variables.product.prodname_actions }}."</a>
+  Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see <a href="https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">"Workflow syntax for {% data variables.product.prodname_actions %}."</a>
 </td>
 </tr>
 <tr>
@@ -197,16 +197,16 @@ To help you understand how YAML syntax is used to create a workflow file, this s
 
 #### Visualizing the workflow file
 
-In this diagram, you can see the workflow file you just created and how the {{ site.data.variables.product.prodname_actions }} components are organized in a hierarchy. Each step executes a single action. Steps 1 and 2 use prebuilt community actions. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action. Steps 1 and 2 use prebuilt community actions. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
 ![Workflow overview](/assets/images/help/images/overview-actions-event.png)
 
 
 ### Viewing the job's activity
 
-Once your job has started running, you can view each step's activity on {{ site.data.variables.product.prodname_dotcom }}.
+Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 1. Under your repository name, click **Actions**.
     ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
 1. In the left sidebar, click the workflow you want to see.
@@ -218,8 +218,8 @@ Once your job has started running, you can view each step's activity on {{ site.
 
 ### Next steps
 
-To continue learning about {{ site.data.variables.product.prodname_actions }}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
 
 ### Contacting support
 
-{{ site.data.reusables.github-actions.contacting-support }}
+{% data reusables.github-actions.contacting-support %}

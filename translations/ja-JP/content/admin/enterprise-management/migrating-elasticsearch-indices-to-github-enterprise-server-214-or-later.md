@@ -1,6 +1,6 @@
 ---
 title: Elasticsearch インデックスを GitHub Enterprise 2.14 以降に移行する
-intro: '{{ site.data.variables.product.prodname_ghe_server }} 2.14 へのアップグレードを準備するには、移行スクリプトを使用してインデックスを Elasticsearch 5.6 に移行する必要があります。'
+intro: '{% data variables.product.prodname_ghe_server %} 2.14 へのアップグレードを準備するには、移行スクリプトを使用してインデックスを Elasticsearch 5.6 に移行する必要があります。'
 redirect_from:
   - /enterprise/admin/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
@@ -13,7 +13,7 @@ versions:
 <!-- This guide is here for longevity for support purposes. Please do not delete or add to index.md file-->
 
 
-{{ site.data.variables.product.prodname_ghe_server }} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {{ site.data.variables.product.prodname_ghe_server }} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
+{% data variables.product.prodname_ghe_server %} 2.14 includes an upgrade to Elasticsearch 5.6. Before upgrading to {% data variables.product.prodname_ghe_server %} 2.14 or later from 2.12 or 2.13, we recommend you download, install, and run the Elasticsearch migration tools, so your largest indices are migrated online while your appliance still has online access.
 
 ### 検索インデックス
 
@@ -62,7 +62,7 @@ green  open   commits-1                  1   0   63753587         1485     45.4g
 
 ### webhookインデックス
 
-移行スクリプトは必要な`search`インデックスをオンラインで再構築した後、再構築が必要な`webhook`インデックスがあるかを確認します。 {{ site.data.variables.product.prodname_ghe_server }} 2.12 または 2.13 でアプライアンスを 14 日以上実行している場合は、`webhook` インデックスのデフォルトの保存ポリシーは 7 日間であるため、`webhook` インデックスを再構築する必要はおそらくないでしょう。 アプライアンスを{{ site.data.variables.product.prodname_enterprise }}2.11以前からアップデートするなら、`webhook`インデックスの再構築が必要かもしれません。
+移行スクリプトは必要な`search`インデックスをオンラインで再構築した後、再構築が必要な`webhook`インデックスがあるかを確認します。 {% data variables.product.prodname_ghe_server %} 2.12 または 2.13 でアプライアンスを 14 日以上実行している場合は、`webhook` インデックスのデフォルトの保存ポリシーは 7 日間であるため、`webhook` インデックスを再構築する必要はおそらくないでしょう。 アプライアンスを{% data variables.product.prodname_enterprise %}2.11以前からアップデートするなら、`webhook`インデックスの再構築が必要かもしれません。
 
 再構築が必要な`webhook`インデックスがある場合、スクリプトが`webhook`インデックスを再構築できるようになる前にメンテナンスモードを有効化するよう求められます。 `webhook`インデックスの移行にはいくらかのダウンタイムが必要ですが、長期にわたるメンテナンスウィンドウあるいはダウンタイムは必要ありません。
 
@@ -95,15 +95,15 @@ green  open   code-search-1              1   0    6932626           44     42.9g
 green  open   commits-1                  1   0   63753587         1485     45.4gb         45.4gb
 ```
 
-### {{ site.data.variables.product.prodname_ghe_server }} 2.12 または 2.13 アプライアンスの準備
+### {% data variables.product.prodname_ghe_server %} 2.12 または 2.13 アプライアンスの準備
 
-移行ツールを実行せずに {{ site.data.variables.product.prodname_ghe_server }} 2.14 以降にアップグレードすると、既存の Elasticsearch インデックスは無効になり、正しく機能しなくなる可能性があります。 Elasticsearch の移行スクリプトを実行するには、{{ site.data.variables.product.prodname_ghe_server }} アプライアンスは {{ site.data.variables.product.prodname_enterprise }} 2.12 または 2.13 を実行している必要があります。
+移行ツールを実行せずに {% data variables.product.prodname_ghe_server %} 2.14 以降にアップグレードすると、既存の Elasticsearch インデックスは無効になり、正しく機能しなくなる可能性があります。 Elasticsearch の移行スクリプトを実行するには、{% data variables.product.prodname_ghe_server %} アプライアンスは {% data variables.product.prodname_enterprise %} 2.12 または 2.13 を実行している必要があります。
 
 {% warning %}
 
 **警告:**
-- {{ site.data.variables.product.prodname_enterprise_backup_utilities }} を使用すると、5.X と互換性のない古い Elasticsearch インデックスは復元後に破棄されます。 この場合、手動での再インデックスが必要になるかもしれません。
-- {{ site.data.variables.product.prodname_ghe_server }} が High Availability 用に設定されている場合は、レプリケーションがまだ実行中の間に移行スクリプトを実行**しなければなりません**。 この変更は、アップグレードを開始する前に他のアプライアンスに完全にレプリケーションされるようになっていなければなりません。 移行スクリプトの実行中にレプリケーションが動作していなければ、Elasticsearchのインデックスは不正になることがあります。
+- {% data variables.product.prodname_enterprise_backup_utilities %} を使用すると、5.X と互換性のない古い Elasticsearch インデックスは復元後に破棄されます。 この場合、手動での再インデックスが必要になるかもしれません。
+- {% data variables.product.prodname_ghe_server %} が High Availability 用に設定されている場合は、レプリケーションがまだ実行中の間に移行スクリプトを実行**しなければなりません**。 この変更は、アップグレードを開始する前に他のアプライアンスに完全にレプリケーションされるようになっていなければなりません。 移行スクリプトの実行中にレプリケーションが動作していなければ、Elasticsearchのインデックスは不正になることがあります。
 
 {% endwarning %}
 
@@ -113,7 +113,7 @@ green  open   commits-1                  1   0   63753587         1485     45.4g
    $ wget https://github-enterprise.s3.amazonaws.com/util/es-5x-transition-tools.tar.gz
    $ sudo tar -C / -xvf es-5x-transition-tools.tar.gz
    ```
-   {{ site.data.variables.product.prodname_ghe_server }} クラスタを管理する場合は、SSH を使用していずれかの Elasticsearch サーバーノードに認証し、移行ツールをそこにインストールします。 次を使用してそれらを配置します:
+   {% data variables.product.prodname_ghe_server %} クラスタを管理する場合は、SSH を使用していずれかの Elasticsearch サーバーノードに認証し、移行ツールをそこにインストールします。 次を使用してそれらを配置します:
     ```shell
     $ ghe-cluster-each -r elasticsearch -p
     ghe-test-data-0
@@ -129,4 +129,4 @@ green  open   commits-1                  1   0   63753587         1485     45.4g
  **ノート:** 移行する`webhook`インデックスがあるなら、オンラインでの移行処理を実行した後、メンテナンスモードを有効にするよう求められます。
 
  {% endnote %}
-3. {{ site.data.variables.product.prodname_ghe_server }} クラスタを実行している場合は、単一 VM または High Availability 環境用の公式アップグレードドキュメント、またはクラスタアップグレードガイドに従ってください。 詳細は「[{{ site.data.variables.product.prodname_ghe_server }} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」または「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)」を参照してください。
+3. {% data variables.product.prodname_ghe_server %} クラスタを実行している場合は、単一 VM または High Availability 環境用の公式アップグレードドキュメント、またはクラスタアップグレードガイドに従ってください。 詳細は「[{% data variables.product.prodname_ghe_server %} をアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)」または「[クラスタをアップグレードする](/enterprise/{{ currentVersion }}/admin/guides/clustering/upgrading-a-cluster/)」を参照してください。

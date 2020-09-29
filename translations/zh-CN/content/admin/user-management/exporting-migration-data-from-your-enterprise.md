@@ -1,6 +1,6 @@
 ---
 title: Exporting migration data from your enterprise
-intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {{ site.data.variables.product.prodname_ghe_server }} instance by preparing the instance, locking the repositories, and generating a migration archive.'
+intro: 'To change platforms or move from a trial instance to a production instance, you can export migration data from a {% data variables.product.prodname_ghe_server %} instance by preparing the instance, locking the repositories, and generating a migration archive.'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-enterprise/
   - /enterprise/admin/migrations/exporting-migration-data-from-github-enterprise-server
@@ -13,35 +13,35 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the {{ site.data.variables.product.prodname_ghe_server }} source instance
+### Preparing the {% data variables.product.prodname_ghe_server %} source instance
 
-1. 验证您在 {{ site.data.variables.product.prodname_ghe_server }} 源上是站点管理员。 最好的方式是验证您可以[通过 SSH 访问实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
+1. 验证您在 {% data variables.product.prodname_ghe_server %} 源上是站点管理员。 最好的方式是验证您可以[通过 SSH 访问实例](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/)。
 
-2. 在 {{ site.data.variables.product.prodname_ghe_server }} 源实例上{{ site.data.reusables.enterprise_migrations.token-generation }}。
+2. 在 {% data variables.product.prodname_ghe_server %} 源实例上{% data reusables.enterprise_migrations.token-generation %}。
 
-{{ site.data.reusables.enterprise_migrations.make-a-list }}
+{% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the {{ site.data.variables.product.prodname_ghe_server }} source repositories
+### Exporting the {% data variables.product.prodname_ghe_server %} source repositories
 
-{{ site.data.reusables.enterprise_migrations.locking-repositories }}
+{% data reusables.enterprise_migrations.locking-repositories %}
 
-{{ site.data.reusables.enterprise_installation.ssh-into-instance }}
+{% data reusables.enterprise_installation.ssh-into-instance %}
 2. 要准备需要导出的仓库，请使用 `ghe-migrator add` 命令和仓库的 URL：
     * 如果您要锁定仓库，请在命令后附加 `--lock`。 如果您执行的是试运行，则不需要 `--lock`。
       ```shell
       $ ghe-migrator add https://<em>hostname</em>/<em>username</em>/<em>reponame</em> --lock
       ```
-    * 您可以将 `--exclude_attachments` 附加到命令，排除文件附件。 {{ site.data.reusables.enterprise_migrations.exclude-file-attachments }}
+    * 您可以将 `--exclude_attachments` 附加到命令，排除文件附件。 {% data reusables.enterprise_migrations.exclude-file-attachments %}
     * 要一次准备多个将导出的仓库，请创建一个文本文件并在单独的行中列出每个仓库 URL，然后运行包含 `-i` 标志和您的文本文件路径的 `ghe-migrator add` 命令。
       ```shell
       $ ghe-migrator add -i <em>PATH</em>/<em>TO</em>/<em>YOUR</em>/<em>REPOSITORY_URLS</em>.txt
       ```
 
-3. 出现提示时，请输入您的 {{ site.data.variables.product.prodname_ghe_server }} 用户名：
+3. 出现提示时，请输入您的 {% data variables.product.prodname_ghe_server %} 用户名：
   ```shell
   Enter username authorized for migration:  admin
   ```
-4. 出现输入个人访问令牌的提示时，请输入您在“[准备 {{ site.data.variables.product.prodname_ghe_server }} 源实例](#preparing-the-github-enterprise-server-source-instance)”中创建的访问令牌：
+4. 出现输入个人访问令牌的提示时，请输入您在“[准备 {% data variables.product.prodname_ghe_server %} 源实例](#preparing-the-github-enterprise-server-source-instance)”中创建的访问令牌：
   ```shell
   Enter personal access token:  **************
   ```
@@ -84,9 +84,9 @@ versions:
     $ ghe-migrator export -g <em>MIGRATION_GUID</em>
     > Archive saved to: /data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz
     ```
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}
 
-8. 关闭与 {{ site.data.variables.product.product_location_enterprise }} 的连接：
+8. 关闭与 {% data variables.product.product_location_enterprise %} 的连接：
   ```shell
   $ exit
   > logout
@@ -96,4 +96,4 @@ versions:
   ```shell
   $ scp -P 122 admin@<em>hostname</em>:/data/github/current/tmp/<em>MIGRATION_GUID</em>.tar.gz ~/Desktop
   ```
-{{ site.data.reusables.enterprise_migrations.ready-to-import-migrations }}
+{% data reusables.enterprise_migrations.ready-to-import-migrations %}

@@ -11,32 +11,32 @@ Personen mit Administratorberechtigungen auf ein Repository können gemeldete In
 
 Bevor Du gemeldete Inhalte anzeigen oder verwalten kannst, musst Du „gemeldete Inhalte" für das Repository aktivieren. Weitere Informationen findest Du unter „[Verwalten, wie Mitwirkende Missbrauch im Repository Deiner Organisation melden](/github/building-a-strong-community/managing-how-contributors-report-abuse-in-your-organizations-repository)."
 
-Du kannst Berichte über störende Inhalte verfolgen, bewerten und darauf reagieren. In der Liste "Missbrauchsberichte" kannst Du alle Berichte anzeigen und direkt zu jedem gemeldeten Kommentar auf {{ site.data.variables.product.prodname_dotcom }} navigieren.
+Du kannst Berichte über störende Inhalte verfolgen, bewerten und darauf reagieren. In der Liste "Missbrauchsberichte" kannst Du alle Berichte anzeigen und direkt zu jedem gemeldeten Kommentar auf {% data variables.product.prodname_dotcom %} navigieren.
 
-{{ site.data.reusables.community.tools-for-moderating }}
+{% data reusables.community.tools-for-moderating %}
 
 Nachdem Du die Moderation des störenden Inhalts abgeschlossen hast, kannst Du den Bericht als erledigt markieren. Wenn Du entscheidest, dass Du die Moderation noch nicht beendet hast, kannst Du den Bericht auch als ungelöst markieren.
 
 ### Inhalte anzeigen, die ein Mitwirkender gemeldet hat
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
 4. Rechts neben dem gemeldeten Inhalt, die Du ansehen möchtest, klicke auf {% octicon "kebab-horizontal" aria-label="The edit icon" %} und klicke dann auf **View content** (Inhalt anschauen). !["View content" (Inhalte anzeigen) im „Edit" (Bearbeiten) Dropdownmenü für gemeldete Inhalte](/assets/images/help/repository/reported-content-report-view-content.png)
 
 ### Einen Bericht erledigen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
 4. Rechts neben dem Bericht, den Du erledigen möchtest, klicke auf {% octicon "kebab-horizontal" aria-label="The edit icon" %} und klicke dann auf **Mark as resolved** (Als erledigt markieren). !["Mark as resolved" (Als erledigt markieren) im „Edit" (Bearbeiten) Dropdownmenü für gemeldete Inhalte](/assets/images/help/repository/reported-content-mark-report-as-resolved.png)
 
 ### Einen Bericht als ungelöst markieren
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
-{{ site.data.reusables.repositories.sidebar-moderation-reported-content }}
-{{ site.data.reusables.repositories.reported-content-resolved-tab }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.sidebar-moderation-reported-content %}
+{% data reusables.repositories.reported-content-resolved-tab %}
 5. Rechts neben dem Bericht, den Du als ungelöst markieren möchtest, klicke auf {% octicon "kebab-horizontal" aria-label="The edit icon" %} und klicke dann auf **Mark as unresolved** (Als ungelöst markieren). !["Mark as unresolved" (Als ungelöst markieren) im „Edit" (Bearbeiten) Dropdownmenü für gemeldete Inhalte](/assets/images/help/repository/reported-content-mark-report-as-unresolved.png)
 
 ### Weiterführende Informationen

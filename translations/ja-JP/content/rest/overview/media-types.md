@@ -11,7 +11,7 @@ versions:
 
 API でカスタムメディアタイプを使用して、ユーザが受信するデータの形式を選択できるようにします。 これは、リクエストをするときに、`Accept` ヘッダに次のタイプから 1 つ以上を追加することによって行われます。 メディアタイプはリソースに固有であり、リソースを個別に変更し、他のリソースではサポートしていない形式をサポートすることができます。
 
-{{ site.data.variables.product.product_name }} のすべてのメディアタイプは次のとおりです。
+{% data variables.product.product_name %} のすべてのメディアタイプは次のとおりです。
 
     application/vnd.github[.version].param[+json]
 
@@ -39,16 +39,16 @@ API がサポートする最も基本的なメディアタイプは次のとお�
 すべてのレスポンスのヘッダから現在のバージョンを確認できます。  `X-GitHub-Media-Type` ヘッダを探します。
 
 ```shell
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json
 
-$ curl {{ site.data.variables.product.api_url_pre }}/users/technoweenie -I \
+$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
 $  -H "Accept: application/vnd.github.v3.full+json"
 > HTTP/1.1 200 OK
 > X-GitHub-Media-Type: github.v3; param=full; format=json

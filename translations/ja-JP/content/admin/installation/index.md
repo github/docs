@@ -1,7 +1,7 @@
 ---
-title: '{{ site.data.variables.product.prodname_enterprise }}のインストール'
+title: '{% data variables.product.prodname_enterprise %}のインストール'
 shortTitle: インストール
-intro: 'システム管理者、運用およびセキュリティスペシャリストは、{{ site.data.variables.product.prodname_ghe_server }} をインストールできます。'
+intro: 'システム管理者、運用およびセキュリティスペシャリストは、{% data variables.product.prodname_ghe_server %} をインストールできます。'
 redirect_from:
   - /enterprise/admin-guide/
   - /enterprise/admin/guides/installation/
@@ -13,11 +13,11 @@ versions:
   enterprise-server: '*'
 ---
 
-詳しい情報または {{ site.data.variables.product.prodname_enterprise }} の購入については [{{ site.data.variables.product.prodname_enterprise }}](https://github.com/enterprise) を参照してください。
+詳しい情報または {% data variables.product.prodname_enterprise %} の購入については [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) を参照してください。
 
-{{ site.data.reusables.enterprise_installation.request-a-trial }}
+{% data reusables.enterprise_installation.request-a-trial %}
 
-インストールプロセスについて質問がある場合は、「[{{ site.data.variables.product.prodname_enterprise }} Support への相談](/enterprise/admin/guides/enterprise-support/)」を参照してください。
+インストールプロセスについて質問がある場合は、「[{% data variables.product.prodname_enterprise %} Support への相談](/enterprise/admin/guides/enterprise-support/)」を参照してください。
 
 ### 目次
 

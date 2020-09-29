@@ -13,9 +13,9 @@ versions:
 
 ### Sichtbarkeit Deiner Organisationsmitgliedschaft ändern
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
 4. Suche in der Liste der Mitglieder Deinen Benutzernamen. Wenn die Liste sehr umfangreich ist, kannst Du Deinen Benutzernamen über das Suchfeld finden. ![Suchfeld für Organisationsmitglieder](/assets/images/help/organizations/member-search-box.png)
 5. Wähle im Menü rechts neben Deinem Benutzernamen eine neue Option für die Sichtbarkeit aus:
     - Um Deine Mitgliedschaft zu veröffentlichen, wähle **Public** (Öffentlich) aus.

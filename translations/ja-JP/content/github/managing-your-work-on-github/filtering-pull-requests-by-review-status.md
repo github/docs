@@ -16,8 +16,8 @@ versions:
 - 自分がレビューしたプルリクエスト
 - [自分、または自分のチームに誰かがレビューを依頼](/articles/requesting-a-pull-request-review)したプルリクエスト
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-pr %}
 3. 右上にある [Reviews] ドロップダウンメニューをクリックします。 ![プルリクエストのリストの上にあるフィルタメニュー内の [Reviews] ドロップダウンメニュー](/assets/images/help/pull_requests/reviews-filter-dropdown.png)
 4. フィルタを選択してます。そのフィルタのステータスのプルリクエストすべてが検索されます。 ![[Reviews] ドロップダウンメニュー内のフィルタのリスト](/assets/images/help/pull_requests/pr-review-filters.png)
 

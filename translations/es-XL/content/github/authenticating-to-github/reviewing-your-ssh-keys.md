@@ -1,6 +1,6 @@
 ---
 title: Revisar tus claves SSH
-intro: 'Para mantener seguras tus credenciales, debes auditar de manera regular tus claves SSH, llaves de implementación y revisar las aplicaciones autorizadas que acceden a tu {{ site.data.variables.product.product_name }} cuenta.'
+intro: 'Para mantener seguras tus credenciales, debes auditar de manera regular tus claves SSH, llaves de implementación y revisar las aplicaciones autorizadas que acceden a tu {% data variables.product.product_name %} cuenta.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe/
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe/
@@ -14,8 +14,8 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 {% mac %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay claves SSH válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de claves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -26,7 +26,7 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 4. Abre Terminal.
 
-5. {{ site.data.reusables.command_line.start_ssh_agent }}
+5. {% data reusables.command_line.start_ssh_agent %}
 
 6. Busca tu huella digital de llave pública y anótala. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
@@ -40,14 +40,14 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. Las claves SSH en {{ site.data.variables.product.product_name }} *deben* coincidir con las mismas calves en tu computadora.
+7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 
 {% endmac %}
 
 {% windows %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay claves SSH válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de claves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -56,11 +56,11 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
   {% endtip %}
 
-4. Abre Git Bash. Si estás usando Git Shell, que se incluye en {{ site.data.variables.product.prodname_desktop }}, abre Git Shell y avanza hasta el paso 6.
+4. Abre Git Bash. Si estás usando Git Shell, que se incluye en {% data variables.product.prodname_desktop %}, abre Git Shell y avanza hasta el paso 6.
 
-5. {{ site.data.reusables.desktop.windows_git_bash_turn_on_ssh_agent }}
+5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
-  {{ site.data.reusables.desktop.windows_git_for_windows_turn_on_ssh_agent }}
+  {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
 6. Busca tu huella digital de llave pública y anótala. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
@@ -74,14 +74,14 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. Las claves SSH en {{ site.data.variables.product.product_name }} *deben* coincidir con las mismas calves en tu computadora.
+7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 
 {% endwindows %}
 
 {% linux %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.ssh }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.ssh %}
 3. En la página de Parámetros SSH, anota las claves SSH asociadas a tu cuenta. Para las que no reconozcas o que estén desactualizadas, haz clic en **Delete** (Eliminar). Si hay claves SSH válidas que quieres conservar, haz clic en **Approve** (Aprobar). ![Lista de claves SSH](/assets/images/help/settings/settings-ssh-key-review.png)
 
   {% tip %}
@@ -92,7 +92,7 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
 
 4. Abre Terminal.
 
-5. {{ site.data.reusables.command_line.start_ssh_agent }}
+5. {% data reusables.command_line.start_ssh_agent %}
 
 6. Busca tu huella digital de llave pública y anótala. Si estás usando OpenSSH 6.7 o una versión anterior:
   ```shell
@@ -106,12 +106,12 @@ Puedes eliminar las claves SSH no autorizadas (o posiblemente comprometidas) par
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-7. Las claves SSH en {{ site.data.variables.product.product_name }} *deben* coincidir con las mismas calves en tu computadora.
+7. Las claves SSH en {% data variables.product.product_name %} *deben* coincidir con las mismas calves en tu computadora.
 
 {% endlinux %}
 
 {% warning %}
 
-**Advertencia**: Si ves una clave SSH que no te resulta familiar en {{ site.data.variables.product.product_name }}, elimínala de inmediato y contáctate con {{ site.data.variables.contact.contact_support }} para recibir más ayuda. Una llave pública no identificada puede indicar un posible problema de seguridad.
+**Advertencia**: Si ves una clave SSH que no te resulta familiar en {% data variables.product.product_name %}, elimínala de inmediato y contáctate con {% data variables.contact.contact_support %} para recibir más ayuda. Una llave pública no identificada puede indicar un posible problema de seguridad.
 
 {% endwarning %}

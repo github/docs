@@ -1,7 +1,7 @@
 ---
 title: Adding organizations to your enterprise account
 intro: You can create new organizations to manage within your enterprise account.
-product: '{{ site.data.reusables.gated-features.enterprise-accounts }}'
+product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/adding-organizations-to-your-enterprise-account
 versions:
@@ -14,11 +14,11 @@ To add an organization to your enterprise account, you must create the organizat
 
 ### Creating an organization in your enterprise account
 
-New organizations you create within your enterprise account settings are included in your enterprise account's {{ site.data.variables.product.prodname_ghe_cloud }} subscription. For more information on collaborating in organizations, see "[Setting up and managing organizations and teams](/categories/setting-up-and-managing-organizations-and-teams)."
+New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription. For more information on collaborating in organizations, see "[Setting up and managing organizations and teams](/categories/setting-up-and-managing-organizations-and-teams)."
 
 Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[Permission levels for an organization](/articles/permission-levels-for-an-organization)."
 
-{{ site.data.reusables.enterprise-accounts.access-enterprise }}
+{% data reusables.enterprise-accounts.access-enterprise %}
 2. On the **Organizations** tab, above the list of organizations, click **New organization**. ![New organization button](/assets/images/help/business-accounts/enterprise-account-add-org.png)
 3. Under "Organization name", type a name for your organization. ![Field to type a new organization name](/assets/images/help/business-accounts/new-organization-name-field.png)
 4. Click **Create organization**.

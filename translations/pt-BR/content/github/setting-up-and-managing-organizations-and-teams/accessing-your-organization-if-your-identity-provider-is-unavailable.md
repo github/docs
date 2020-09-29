@@ -1,7 +1,7 @@
 ---
 title: Acessar sua organização se o provedor de identidade não estiver disponível
-intro: 'Os administradores da organização podem entrar no {{ site.data.variables.product.product_name }} mesmo se o provedor de identidade deles estiver indisponível, ignorando o logon único e usando os respectivos códigos de recuperação.'
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+intro: 'Os administradores da organização podem entrar no {% data variables.product.product_name %} mesmo se o provedor de identidade deles estiver indisponível, ignorando o logon único e usando os respectivos códigos de recuperação.'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/accessing-your-organization-if-your-identity-provider-is-unavailable
 versions:

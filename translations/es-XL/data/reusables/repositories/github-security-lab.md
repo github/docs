@@ -1,1 +1,1 @@
-También puedes unirte a [{{ site.data.variables.product.prodname_security }}]({{ site.data.variables.product.prodname_security_link }}) para buscar temas relacionados con seguridad y contribuir con las herramientas y proyectos de seguridad. 
+También puedes unirte a [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}) para buscar temas relacionados con seguridad y contribuir con las herramientas y proyectos de seguridad. 

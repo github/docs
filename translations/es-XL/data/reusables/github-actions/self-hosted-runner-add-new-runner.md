@@ -15,6 +15,6 @@
 
    Las instrucciones te guían para completar estas tareas:
    - Descargar y extraer la aplicación de ejecutor autoalojado.
-   - Ejecutar el script `config` para configurar la aplicación del ejecutor auto-hospedado y registrarlo con {{ site.data.variables.product.prodname_actions }}. El script `config` requiere la URL destino y un token de tiempo limitado generado automáticamente para autenticar la solicitud.
+   - Ejecutar el script `config` para configurar la aplicación del ejecutor auto-hospedado y registrarlo con {% data variables.product.prodname_actions %}. El script `config` requiere la URL destino y un token de tiempo limitado generado automáticamente para autenticar la solicitud.
      - En Windows, el script `config` también te pregunta si deseas instalar la aplicación del ejecutor autoalojado como un servicio. Para Linux y macOS, puedes instalar un servicio después de que termines de agregar el ejecutor. Para obtener más información, consulta "[Configurar la aplicación del ejecutor autoalojado como un servicio](/actions/automating-your-workflow-with-github-actions/configuring-the-self-hosted-runner-application-as-a-service)."
-   - Ejecutar la aplicación del ejecutor autoalojado para conectar la máquina a las {{ site.data.variables.product.prodname_actions }}.
+   - Ejecutar la aplicación del ejecutor autoalojado para conectar la máquina a las {% data variables.product.prodname_actions %}.

@@ -1,6 +1,6 @@
 ---
 title: Preparar la organización de origen de GitHub.com
-intro: 'Antes de migrar los repositorios de una organización {{ site.data.variables.product.prodname_dotcom_the_website }}, asegúrate de tener la autenticación y el acceso administrativo adecuados.'
+intro: 'Antes de migrar los repositorios de una organización {% data variables.product.prodname_dotcom_the_website %}, asegúrate de tener la autenticación y el acceso administrativo adecuados.'
 redirect_from:
   - /enterprise/admin/guides/migrations/preparing-the-github-com-source-organization
   - /enterprise/admin/migrations/preparing-the-githubcom-source-organization
@@ -10,6 +10,6 @@ versions:
 
 1. Asegúrate de tener [permisos de propietario](/articles/permission-levels-for-an-organization/) en los repositorios de la organización de origen.
 
-2. {{ site.data.reusables.enterprise_migrations.token-generation }} en {{ site.data.variables.product.prodname_dotcom_the_website }}.
+2. {% data reusables.enterprise_migrations.token-generation %} en {% data variables.product.prodname_dotcom_the_website %}.
 
-{{ site.data.reusables.enterprise_migrations.make-a-list }}
+{% data reusables.enterprise_migrations.make-a-list %}

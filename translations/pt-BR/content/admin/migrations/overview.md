@@ -1,6 +1,6 @@
 ---
 title: Visão Geral
-intro: 'Saiba mais sobre a migração de dados para {{ site.data.variables.product.product_location_enterprise }}.'
+intro: 'Saiba mais sobre a migração de dados para {% data variables.product.product_location_enterprise %}.'
 mapTopic: true
 redirect_from:
   - /enterprise/admin/migrations/overview

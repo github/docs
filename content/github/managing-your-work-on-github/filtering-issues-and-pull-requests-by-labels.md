@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.cli.filter-issues-and-pull-requests-tip }}
+{% data reusables.cli.filter-issues-and-pull-requests-tip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
-{{ site.data.reusables.project-management.labels }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
+{% data reusables.project-management.labels %}
 4. In the list of labels, click a label to see the issues and pull requests that it's been applied to.
   ![List of a repository's labels](/assets/images/help/issues/labels-page.png)
 

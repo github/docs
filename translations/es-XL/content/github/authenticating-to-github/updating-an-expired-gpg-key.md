@@ -1,6 +1,6 @@
 ---
 title: Actualizar una llave GPG vencida
-intro: 'Cuando verifica una firma, {{ site.data.variables.product.product_name }} comprueba que la clave no esté revocada o vencida. Si tu clave de firma está revocada o vencida, {{ site.data.variables.product.product_name }} no puede verificar tus firmas. Si tu clave está revocada, utiliza la clave principal u otra clave que no esté revocada para firmar tus confirmaciones.'
+intro: 'Cuando verifica una firma, {% data variables.product.product_name %} comprueba que la clave no esté revocada o vencida. Si tu clave de firma está revocada o vencida, {% data variables.product.product_name %} no puede verificar tus firmas. Si tu clave está revocada, utiliza la clave principal u otra clave que no esté revocada para firmar tus confirmaciones.'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

@@ -1,34 +1,34 @@
 ---
 title: Building and testing Java with Gradle
 intro: You can create a continuous integration (CI) workflow in GitHub Actions to build and test your Java project with Gradle.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Gradle build system. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{{ site.data.variables.product.prodname_dotcom }}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Software installed on {{ site.data.variables.product.prodname_dotcom }}-hosted runners](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Gradle. For a list of software and the pre-installed versions for JDK and Gradle, see "[Software installed on {% data variables.product.prodname_dotcom %}-hosted runners](/actions/automating-your-workflow-with-github-actions/software-installed-on-github-hosted-runners)".
 
 ### 빌드전 요구 사양
 
-You should be familiar with YAML and the syntax for {{ site.data.variables.product.prodname_actions }}. For more information, see:
-- "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
+- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
 - "[Configuring a workflow](/actions/automating-your-workflow-with-github-actions/configuring-a-workflow)"
 
 We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
 
-{{ site.data.reusables.actions.enterprise-setup-prereq }}
+{% data reusables.actions.enterprise-setup-prereq %}
 
 ### Starting with a Gradle workflow template
 
-{{ site.data.variables.product.prodname_dotcom }} provides a Gradle workflow template that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/master/ci/gradle.yml).
+{% data variables.product.prodname_dotcom %} provides a Gradle workflow template that will work for most Gradle-based Java projects. For more information, see the [Gradle workflow template](https://github.com/actions/starter-workflows/blob/master/ci/gradle.yml).
 
 To get started quickly, you can choose the preconfigured Gradle template when you create a new workflow. For more information, see "[Starting with preconfigured workflow templates](/actions/automating-your-workflow-with-github-actions/starting-with-preconfigured-workflow-templates)."
 
@@ -63,9 +63,9 @@ This workflow performs the following steps:
 
 The default workflow templates are excellent starting points when creating your build and test workflow, and you can customize the template to suit your project’s needs.
 
-{{ site.data.reusables.github-actions.example-github-runner }}
+{% data reusables.github-actions.example-github-runner %}
 
-{{ site.data.reusables.github-actions.java-jvm-architecture }}
+{% data reusables.github-actions.java-jvm-architecture %}
 
 ### Building and testing your code
 

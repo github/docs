@@ -1,6 +1,6 @@
 ---
 title: 关于预接收挂钩
-intro: '*预接收挂钩*是在 {{ site.data.variables.product.prodname_ghe_server }} 设备上运行的脚本，可用于实施质量检查。'
+intro: '*预接收挂钩*是在 {% data variables.product.prodname_ghe_server %} 设备上运行的脚本，可用于实施质量检查。'
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
 versions:
@@ -22,4 +22,4 @@ versions:
 ### 对性能和工作流程的影响
 对开发者及其工作流程的影响可能很大，因此必须谨慎考虑。 基于业务需求并经过深思熟虑实施的预接收挂钩将为整个组织带来最大好处。
 
-预接收挂钩可能会对 {{ site.data.variables.product.product_location_enterprise }} 的性能产生意外影响，因此应谨慎实施和审查。
+预接收挂钩可能会对 {% data variables.product.product_location_enterprise %} 的性能产生意外影响，因此应谨慎实施和审查。

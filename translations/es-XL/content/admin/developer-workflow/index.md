@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/integrations/
   - /enterprise/admin/categories/integration/
   - /enterprise/admin/developer-workflow
-intro: 'En esta guía, se describen las herramientas que se encuentran disponibles en {{ site.data.variables.product.prodname_enterprise }} para la implementación del flujo de trabajo de un programador y la aplicación de políticas organizativas para reducir el riesgo y aumentar la calidad.'
+intro: 'En esta guía, se describen las herramientas que se encuentran disponibles en {% data variables.product.prodname_enterprise %} para la implementación del flujo de trabajo de un programador y la aplicación de políticas organizativas para reducir el riesgo y aumentar la calidad.'
 versions:
   enterprise-server: '*'
 ---

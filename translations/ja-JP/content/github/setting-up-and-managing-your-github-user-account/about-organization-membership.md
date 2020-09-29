@@ -22,7 +22,7 @@ Organization への参加の招待を受諾すると、Organization のオーナ
 - リクエストの origin の国
 - あなたの IP アドレス
 
-詳細は「<a href="/articles/github-privacy-statement/" class="dotcom-only">{{ site.data.variables.product.prodname_dotcom }} のプライバシーについての声明</a>」を参照してください。
+詳細は「<a href="/articles/github-privacy-statement/" class="dotcom-only">{% data variables.product.prodname_dotcom %} のプライバシーについての声明</a>」を参照してください。
 
   {% note %}
 

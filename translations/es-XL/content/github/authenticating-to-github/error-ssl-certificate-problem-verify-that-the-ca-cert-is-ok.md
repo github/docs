@@ -1,6 +1,6 @@
 ---
 title: 'Error: Problema en el certificado SSL, verificar que el certif. CA esté bien'
-intro: 'Este error significa que el certificado raíz de tu CA está desactualizado. Si es necesario actualizar el certificado de raíz de tu CA, no podrás subir ni extraer desde los repositorios de {{ site.data.variables.product.product_name }}.'
+intro: 'Este error significa que el certificado raíz de tu CA está desactualizado. Si es necesario actualizar el certificado de raíz de tu CA, no podrás subir ni extraer desde los repositorios de {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
 versions:

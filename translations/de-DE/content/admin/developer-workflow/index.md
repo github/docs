@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/integrations/
   - /enterprise/admin/categories/integration/
   - /enterprise/admin/developer-workflow
-intro: 'In diesem Leitfaden werden die Tools beschrieben, die auf {{ site.data.variables.product.prodname_enterprise }} zum Implementieren eines Entwickler-Workflows und zum Erzwingen von Organisationsrichtlinien verfügbar sind, um das Risiko zu reduzieren und die Qualität zu erhöhen.'
+intro: 'In diesem Leitfaden werden die Tools beschrieben, die auf {% data variables.product.prodname_enterprise %} zum Implementieren eines Entwickler-Workflows und zum Erzwingen von Organisationsrichtlinien verfügbar sind, um das Risiko zu reduzieren und die Qualität zu erhöhen.'
 versions:
   enterprise-server: '*'
 ---

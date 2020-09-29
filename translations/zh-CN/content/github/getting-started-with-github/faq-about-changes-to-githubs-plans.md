@@ -45,7 +45,7 @@ GitHub 宣布了以下计划和价格变更：
 
 ### 如何比较每个计划中的功能？
 
-您可以在 <{{ site.data.variables.product.pricing_url }}> 上查看每款产品的价格和完整功能列表。
+您可以在 <{% data variables.product.pricing_url %}> 上查看每款产品的价格和完整功能列表。
 
 ### GitHub Free 将支持无限协作者多长时间？
 
@@ -57,7 +57,7 @@ GitHub 宣布了以下计划和价格变更：
 
 ### 面向个人开发者的 GitHub Free 与面向组织的 GitHub Free 有什么区别？
 
-有关每个 GitHub Free 产品的差异的详细信息，请参阅“[{{ site.data.variables.product.prodname_dotcom }} 的产品](/articles/github-s-products)”。
+有关每个 GitHub Free 产品的差异的详细信息，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/github-s-products)”。
 
 ### 如果 GitHub Team 计划中分配的时间不够，如何获得更多 Actions 分钟数？
 
@@ -65,7 +65,7 @@ GitHub 宣布了以下计划和价格变更：
 
 ### 席位限制变更对我有何影响？
 
-现在 {{ site.data.variables.product.prodname_team }} 没有最低席位要求，如果您的组织中使用的席位少于 5 个，您可以删除付费席位以减少费用。 更多信息请参阅“[降级您的 {{ site.data.variables.product.prodname_dotcom }} 订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)”。
+现在 {% data variables.product.prodname_team %} 没有最低席位要求，如果您的组织中使用的席位少于 5 个，您可以删除付费席位以减少费用。 更多信息请参阅“[降级您的 {% data variables.product.prodname_dotcom %} 订阅](/github/setting-up-and-managing-billing-and-payments-on-github/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)”。
 
 ### GitHub Team for Open Source 计划中的团队有什么变化？
 

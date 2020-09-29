@@ -11,7 +11,7 @@ versions:
 
 Si se eliminó el acceso de un colaborador externo a los repositorios privados de tu organización porque les requeriste a [los miembros y colaboradores externos que habilitaran la autenticación de dos factores](/articles/requiring-two-factor-authentication-in-your-organization), los privilegios y parámetros de acceso del usuario se guardarán durante tres meses. Puedes restaurar los privilegios del usuario si lo vuelves a {% if currentVersion == "free-pro-team@latest" %}invitar{% else %}agregar{% endif %} a la organización en el transcurso de ese tiempo.
 
-{{ site.data.reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled }}
+{% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
 Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
  - El acceso antiguo del usuario a los repositorios de la organización
@@ -26,16 +26,16 @@ Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
 
 **Tips**:
  - Solo los propietarios de la organización pueden reinstalar el acceso de colaboradores externos a una organización. Para obtener más información, consulta "[Niveles de permiso para una organización](/articles/permission-levels-for-an-organization)".
- - Puede que el flujo de reinstalación de un miembro en {{ site.data.variables.product.product_location }} utilice el término "miembro" para describir la reinstalación de un colaborador externo, pero si reinstalas a esta persona y mantienes sus privilegios previos, solo tendrá los [permisos de colaborador externo](/articles/permission-levels-for-an-organization/#outside-collaborators) anteriores.{% if currentVersion == "free-pro-team@latest" %}
+ - Puede que el flujo de reinstalación de un miembro en {% data variables.product.product_location %} utilice el término "miembro" para describir la reinstalación de un colaborador externo, pero si reinstalas a esta persona y mantienes sus privilegios previos, solo tendrá los [permisos de colaborador externo](/articles/permission-levels-for-an-organization/#outside-collaborators) anteriores.{% if currentVersion == "free-pro-team@latest" %}
  - Si tu organización tiene una suscripción de pago por usuario, debe de existir una licencia sin utilizarse antes de que puedas invitar a un nuevo miembro para que se una a la organización o antes de reinstalar a algún mimbro previo de la misma. Para obtener más información, consulta "[Acerca del precio por usuario](/articles/about-per-user-pricing)."{% endif %}
 
 {% endtip %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.people }}
-{{ site.data.reusables.organizations.invite_member_from_people_tab }}
-{{ site.data.reusables.organizations.reinstate-user-type-username }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.people %}
+{% data reusables.organizations.invite_member_from_people_tab %}
+{% data reusables.organizations.reinstate-user-type-username %}
 {% if currentVersion == "free-pro-team@latest" %}
 6. Decide si quieres restaurar los privilegios antiguos del colaborador externo en la organización haciendo clic en **Invite and reinstate** (Invitar y reinstalar) o decide eliminar los privilegios antiguos y establecer nuevos permisos de acceso haciendo clic en **Invite and start fresh** (Invitar e iniciar de nuevo).
 
@@ -63,7 +63,7 @@ Cuando reinstalas un colaborador externo antiguo, puedes restaurar lo siguiente:
 7. Si eliminaste los privilegios anteriores de un colaborador externo antiguo, elige un rol para el usuario y, de manera opcional, agrégalo a algunos equipos, luego haz clic en **Add member** (Agregar miembro). ![Opciones de rol y equipo y botón para agregar miembros](/assets/images/help/organizations/add-role-add-member.png)
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
-8. La persona invitada recibirá un correo electrónico invitándola a la organización. Tendrá que aceptar la invitación antes de convertirse en colaborador externo de la organización. {{ site.data.reusables.organizations.cancel_org_invite }}
+8. La persona invitada recibirá un correo electrónico invitándola a la organización. Tendrá que aceptar la invitación antes de convertirse en colaborador externo de la organización. {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
 
 ### Leer más

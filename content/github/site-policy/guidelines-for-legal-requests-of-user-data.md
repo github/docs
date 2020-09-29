@@ -99,7 +99,7 @@ This may include:
   - Security access logs
   - Data about interactions with private repositories
 
-  To get a sense of the type of private account information that GitHub collects, you can visit your {{ site.data.reusables.user_settings.personal_dashboard }} and browse through the sections in the left-hand menubar.
+  To get a sense of the type of private account information that GitHub collects, you can visit your {% data reusables.user_settings.personal_dashboard %} and browse through the sections in the left-hand menubar.
 
 - <a name="organization-account-data"></a>
 **Organization account data** —
@@ -238,4 +238,4 @@ GitHub will promptly respond to requests that are issued via U.S. court by way o
 
 ### Questions
 
-Do you have other questions, comments or suggestions? Please contact {{ site.data.variables.contact.contact_support }}.
+Do you have other questions, comments or suggestions? Please contact {% data variables.contact.contact_support %}.

@@ -1,6 +1,6 @@
 ---
 title: Crear una insignia personalizada para tu App de OAuth
-intro: '{{ site.data.reusables.shortdesc.creating_custom_badges_oauth_apps }}'
+intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
 versions:
@@ -27,16 +27,16 @@ Puedes cambiar una insignia personalizada para una GitHub App que ya tenga una l
 
 Para crear una insignia personalizada:
 
-{{ site.data.reusables.user-settings.access_settings }}
-{{ site.data.reusables.user-settings.developer_settings }}
-{{ site.data.reusables.user-settings.oauth_apps }}
-{{ site.data.reusables.user-settings.modify_oauth_app }}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.oauth_apps %}
+{% data reusables.user-settings.modify_oauth_app %}
 5. En la zona de "Logo de la aplicación", arrastra y suelta una imagen de alguna carpeta local, o da clic en **Cargar logo nuevo** para seleccionar una imagen de tu ordenador. ![Cargar un logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
 6. Recorta tu imagen. Cuando hayas terminado, da clic en **Configurar nuevo logo de la aplicación**. ![Cortar y confirmar logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
 7. En "Color de fondo de la insignia", teclea el [código hexadecimal de color](http://www.color-hex.com/) para el color de fondo de tu insignia.
 {% if currentVersion == "free-pro-team@latest" %}**Nota:** El campo de entrada de "Color de fondo de la insignia" se podrá visualizar después de que se haya cargado el logo de una aplicación.{% endif %}
 ![Color de fondo de la insignia](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
-{{ site.data.reusables.user-settings.update_oauth_app }}
+{% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

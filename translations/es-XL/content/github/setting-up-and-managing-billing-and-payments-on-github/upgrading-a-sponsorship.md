@@ -7,12 +7,12 @@ versions:
   free-pro-team: '*'
 ---
 
-Cuando subes de categoría tu nivel de patrocinio, el cambio entrará en vigor de inmediato. {{ site.data.reusables.sponsors.prorated-sponsorship }}
+Cuando subes de categoría tu nivel de patrocinio, el cambio entrará en vigor de inmediato. {% data reusables.sponsors.prorated-sponsorship %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.billing }}
-{{ site.data.reusables.user_settings.subscriptions-tab }}
-{{ site.data.reusables.sponsors.change-tier }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.billing %}
+{% data reusables.user_settings.subscriptions-tab %}
+{% data reusables.sponsors.change-tier %}
 4. Del lado derecho de la página, al lado del nivel seleccionado, haz clic en **Edit** (Editar). ![Botón Edit tier (Editar nivel)](/assets/images/help/billing/edit-tier-button.png)
-{{ site.data.reusables.sponsors.select-a-tier }}
-{{ site.data.reusables.sponsors.update-sponsorship }}
+{% data reusables.sponsors.select-a-tier %}
+{% data reusables.sponsors.update-sponsorship %}

@@ -1,6 +1,6 @@
 ---
 title: Limitaciones de los recursos
-intro: 'La API de GraphQL de {{ site.data.variables.product.prodname_dotcom }} cuenta con limitaciones para la protección contra las llamadas excesivas o abusivas a los servidores de {{ site.data.variables.product.prodname_dotcom }}.'
+intro: 'La API de GraphQL de {% data variables.product.prodname_dotcom %} cuenta con limitaciones para la protección contra las llamadas excesivas o abusivas a los servidores de {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:
@@ -131,7 +131,7 @@ El límite de tasa de la API v4 de GraphQL es de **5,000 puntos por hora**.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Para las {{ site.data.variables.product.prodname_github_apps }} o las {{ site.data.variables.product.prodname_oauth_app }}s que pertenezcan a una cuenta de {{ site.data.variables.product.prodname_ghe_cloud }}, las solicitudes a los recursos que pertenecen a la misma cuenta de {{ site.data.variables.product.prodname_ghe_cloud }} tienen un límite incrementado de 15,000 puntos por hora.
+Para las {% data variables.product.prodname_github_apps %} o las {% data variables.product.prodname_oauth_app %}s que pertenezcan a una cuenta de {% data variables.product.prodname_ghe_cloud %}, las solicitudes a los recursos que pertenecen a la misma cuenta de {% data variables.product.prodname_ghe_cloud %} tienen un límite incrementado de 15,000 puntos por hora.
 
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: Security review process for submitted apps
-intro: 'GitHub''s security team reviews all apps submitted to {{ site.data.variables.product.prodname_marketplace }} to ensure that they meet security requirements. Follow these best practices to be prepared for the review process.'
+intro: 'GitHub''s security team reviews all apps submitted to {% data variables.product.prodname_marketplace %} to ensure that they meet security requirements. Follow these best practices to be prepared for the review process.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process/
   - /marketplace/getting-started/security-review-process
@@ -10,7 +10,7 @@ versions:
 
 
 
-After you've submitted your app for approval, the GitHub security team will request that you complete a security questionnaire about your app and overall security program. As part of the review, you will have the option to provide documentation to support your responses. You must submit two required documents before your app will be approved for {{ site.data.variables.product.prodname_marketplace }}: an [incident response plan](#incident-response-plan) and [vulnerability management workflow](#vulnerability-management-workflow).
+After you've submitted your app for approval, the GitHub security team will request that you complete a security questionnaire about your app and overall security program. As part of the review, you will have the option to provide documentation to support your responses. You must submit two required documents before your app will be approved for {% data variables.product.prodname_marketplace %}: an [incident response plan](#incident-response-plan) and [vulnerability management workflow](#vulnerability-management-workflow).
 
 
 ### Security best practices
@@ -19,7 +19,7 @@ Follow these best practices to have a successful security review and provide a s
 
 #### Authorization, authentication, and access control
 
-We recommend submitting a GitHub App rather than an OAuth App. {{ site.data.reusables.marketplace.github_apps_preferred }}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
+We recommend submitting a GitHub App rather than an OAuth App. {% data reusables.marketplace.github_apps_preferred %}. See "[Differences between GitHub Apps and OAuth Apps](/apps/differences-between-apps/)" for more details.
 - Apps must use the "[principle of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege)" and should only request the OAuth scopes and GitHub App permissions that the app needs to perform its intended functionality.
 - Apps must provide customers with a way to delete their account, without having to email or call a support person.
 - Apps should not share tokens between different implementations of the app. For example, a desktop app should have a separate token from a web-based app. Individual tokens allow each app to request the access needed for GitHub resources separately.
@@ -53,16 +53,16 @@ A security log should include:
 
 #### Incident response workflow
 
-- To partner with GitHub, you are required to have an [incident response plan](#incident-response-plan) in place before submitting your {{ site.data.variables.product.prodname_marketplace }} app listing.
+- To partner with GitHub, you are required to have an [incident response plan](#incident-response-plan) in place before submitting your {% data variables.product.prodname_marketplace %} app listing.
 - We recommend having a security and operations incident response team in your company rather than using a third-party vendor.
 - You should have the capability to notify GitHub within 24 hours of a confirmed incident.
-- You should familiarize yourself with sections 3.7.5 - 3.7.5.6 of the [{{ site.data.variables.product.prodname_marketplace }} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which include additional details on incident response workflow requirements.
+- You should familiarize yourself with sections 3.7.5 - 3.7.5.6 of the [{% data variables.product.prodname_marketplace %} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which include additional details on incident response workflow requirements.
 
 #### Vulnerability management and patching workflow
 
 - You should conduct regular vulnerability scans of production infrastructure.
 - You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
-- You should familiarize yourself with section 3.7.3 of the [{{ site.data.variables.product.prodname_marketplace }} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which includes additional details on vulnerability management and patching workflows requirements.
+- You should familiarize yourself with section 3.7.3 of the [{% data variables.product.prodname_marketplace %} Developer Agreement](/github/site-policy/github-marketplace-developer-agreement#3-restrictions-and-responsibilities), which includes additional details on vulnerability management and patching workflows requirements.
 
 ### Security program documentation
 
@@ -82,10 +82,10 @@ Your vulnerability management workflow documentation must include the current pr
 
 #### GitHub Marketplace security program questionnaire
 
-During the app submission process, our {{ site.data.variables.product.prodname_marketplace }} onboarding team will also send you a questionnaire requesting information about your security practices. This document will serve as a written record attesting:
+During the app submission process, our {% data variables.product.prodname_marketplace %} onboarding team will also send you a questionnaire requesting information about your security practices. This document will serve as a written record attesting:
 
 - The authentication method and scopes required by your app.
-- That you're not requesting more scopes or {{ site.data.variables.product.product_name }} access than is needed for the app to perform its intended functionality, taking OAuth limitations and use of {{ site.data.variables.product.prodname_github_app }}s into account.
+- That you're not requesting more scopes or {% data variables.product.product_name %} access than is needed for the app to perform its intended functionality, taking OAuth limitations and use of {% data variables.product.prodname_github_app %}s into account.
 - The use of any third-party services or infrastructure, such as SaaS, PaaS, or IaaS.
 - An incident response procedure exists.
 - Your app's method of key/token handling.

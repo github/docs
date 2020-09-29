@@ -9,14 +9,14 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.default-issue-templates }}
+{% data reusables.repositories.default-issue-templates %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Creating issue templates
 {% endif %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. In the "Features" section, under "Issues," click **Set up templates**. ![Start template setup button](/assets/images/help/repository/set-up-templates.png)
 4. Use the Add template drop-down menu, and click on the type of template you'd like to create. ![Add template drop-down menu](/assets/images/help/repository/add-template-drop-down-menu.png)
 5. To preview or edit the template before committing it to the repository, click **Preview and edit**. ![Preview and edit button](/assets/images/help/repository/preview-and-edit-button.png)
@@ -30,7 +30,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Configuring the template chooser
 
-{{ site.data.reusables.repositories.issue-template-config }}
+{% data reusables.repositories.issue-template-config %}
 
 You can encourage contributors to use issue templates by setting `blank_issues_enabled` to `false`. If you set `blank_issues_enabled` to `true`, people will have the option to open a blank issue.
 
@@ -40,30 +40,30 @@ You can encourage contributors to use issue templates by setting `blank_issues_e
 
 {% endnote %}
 
-If you prefer to receive certain reports outside of {{ site.data.variables.product.product_name }}, you can direct people to external sites with `contact_links`.
+If you prefer to receive certain reports outside of {% data variables.product.product_name %}, you can direct people to external sites with `contact_links`.
 
 Here is an example *config.yml* file.
 
 ```shell
 blank_issues_enabled: false
 contact_links:
-  - name: {{ site.data.variables.product.prodname_gcf }}
+  - name: {% data variables.product.prodname_gcf %}
     url: https://github.community/
     about: Please ask and answer questions here.
-  - name: {{ site.data.variables.product.prodname_dotcom }} Security Bug Bounty
+  - name: {% data variables.product.prodname_dotcom %} Security Bug Bounty
     url: https://bounty.github.com/
     about: Please report security vulnerabilities here.
 ```
 
 Your configuration file will customize the template chooser when the file is merged into the repository's default branch.
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.files.add-file }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.files.add-file %}
 3. In the file name field, type `.github/ISSUE_TEMPLATE/config.yml`. ![Configuration filename](/assets/images/help/repository/template-config-file-name.png)
 4. In the body of the new file, type the contents of your configuration file. ![Configuration file content](/assets/images/help/repository/template-config-file-content.png)
-{{ site.data.reusables.files.write_commit_message }}
-{{ site.data.reusables.files.choose_commit_branch }}
-{{ site.data.reusables.files.propose_new_file }}
+{% data reusables.files.write_commit_message %}
+{% data reusables.files.choose_commit_branch %}
+{% data reusables.files.propose_new_file %}
 {% endif %}
 
 ### Дополнительная литература

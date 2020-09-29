@@ -1,6 +1,6 @@
 ---
 title: Identifying and authorizing users for GitHub Apps
-intro: '{{ site.data.reusables.shortdesc.identifying_and_authorizing_github_apps }}'
+intro: '{% data reusables.shortdesc.identifying_and_authorizing_github_apps %}'
 redirect_from:
   - /early-access/integrations/user-identification-authorization/
   - /apps/building-integrations/setting-up-and-registering-github-apps/identifying-users-for-github-apps/
@@ -11,11 +11,11 @@ versions:
 ---
 
 
-{{ site.data.reusables.pre-release-program.expiring-user-access-tokens-beta }}
+{% data reusables.pre-release-program.expiring-user-access-tokens-beta %}
 
 When your GitHub App acts on behalf of a user, it performs user-to-server requests. These requests must be authorized with a user's access token. User-to-server requests include requesting data for a user, like determining which repositories to display to a particular user. These requests also include actions triggered by a user, like running a build.
 
-{{ site.data.reusables.apps.expiring_user_authorization_tokens }}
+{% data reusables.apps.expiring_user_authorization_tokens %}
 
 ### Identifying users on your site
 
@@ -37,7 +37,7 @@ If you select **Request user authorization (OAuth) during installation** when cr
 
 #### 1. Request a user's GitHub identity
 
-    GET {{ site.data.variables.product.oauth_host_code }}/login/oauth/authorize
+    GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
@@ -70,7 +70,7 @@ Exchange this `code` for an access token. {% if currentVersion == "free-pro-team
 
 Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
 
-    POST {{ site.data.variables.product.oauth_host_code }}/login/oauth/access_token
+    POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
 ##### Parameters
 
@@ -111,12 +111,12 @@ By default, the response takes the following form:
 The user's access token allows the GitHub App to make requests to the API on behalf of a user.
 
     Authorization: token OAUTH-TOKEN
-    GET {{ site.data.variables.product.api_url_code }}/user
+    GET {% data variables.product.api_url_code %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: token OAUTH-TOKEN" {{ site.data.variables.product.api_url_pre }}/user
+curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
@@ -137,8 +137,8 @@ For more information about authorizing users using the device flow, see "[Author
 ### Check which installation's resources a user can access
 
 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
-{{ site.data.reusables.pre-release-program.machine-man-preview }}
-{{ site.data.reusables.pre-release-program.api-preview-warning }}
+{% data reusables.pre-release-program.machine-man-preview %}
+{% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
 
 Once you have an OAuth token for a user, you can check which installations that user can access.
@@ -155,7 +155,7 @@ More details can be found in: [List app installations accessible to the user acc
 
 ### Handling a revoked GitHub App authorization
 
-If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {{ site.data.reusables.webhooks.authorization_event }}
+If a user revokes their authorization of a GitHub App, the app will receive the [`github_app_authorization`](/webhooks/event-payloads/#github_app_authorization) webhook by default. GitHub Apps cannot unsubscribe from this event. {% data reusables.webhooks.authorization_event %}
 
 ### User-level permissions
 

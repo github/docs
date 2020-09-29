@@ -11,9 +11,9 @@ versions:
 
 Excepto que configures una imagen de perfil para un equipo, la imagen de perfil del equipo coincidirá con la imagen de perfil de la organización.
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.specific_team }}
-{{ site.data.reusables.organizations.team_settings }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.specific_team %}
+{% data reusables.organizations.team_settings %}
 5. Haz clic en **Upload new picture (Cargar una imagen)** o selecciona la imagen de perfil que deseas. ![Cargar nueva imagen](/assets/images/help/teams/org-team-profile-picture-upload.png)
 6. Haz clic y arrastra el recorte de la imagen según se necesite, después haz clic en **Set new team avatar (Establecer nuevo avatar del equipo)**. ![Establecer nuevo avatar del equipo](/assets/images/help/teams/org-team-set-new-team-avatar.png)

@@ -1,1 +1,1 @@
-デフォルトでは、{{ site.data.variables.large_files.product_name_long }}クライアントは大きなアセットをGitリポジトリをホストしているのと同じサーバーに保存します。 {{ site.data.variables.product.prodname_ghe_server }}アプライアンス上で{{ site.data.variables.large_files.product_name_short}}が有効化されている場合、大きなアセットは`/data/user/storage`のデータパーティションに保存されます。
+デフォルトでは、{% data variables.large_files.product_name_long %}クライアントは大きなアセットをGitリポジトリをホストしているのと同じサーバーに保存します。 {% data variables.product.prodname_ghe_server %}アプライアンス上で{% data variables.large_files.product_name_short %}が有効化されている場合、大きなアセットは`/data/user/storage`のデータパーティションに保存されます。

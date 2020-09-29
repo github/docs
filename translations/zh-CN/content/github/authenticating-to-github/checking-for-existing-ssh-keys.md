@@ -8,9 +8,9 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.ssh.dsa-support }}
+{% data reusables.ssh.dsa-support %}
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 输入 `ls -al ~/.ssh` 以查看是否存在现有 SSH 密钥：
 
   ```shell
@@ -23,9 +23,9 @@ versions:
     - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
     - *id_dsa.pub*{% endif %}
 
-如果您没有现有的公钥和私钥对，或者不想使用任何可用于连接到 {{ site.data.variables.product.product_name }} 的密钥对，则[生成新的 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)。
+如果您没有现有的公钥和私钥对，或者不想使用任何可用于连接到 {% data variables.product.product_name %} 的密钥对，则[生成新的 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)。
 
-如果您看到列出的现有公钥和私钥对（例如 *id_rsa.pub* 和 *id_rsa*），并且您希望使用它们连接到 {{ site.data.variables.product.product_name }}，则可以[将 SSH 密钥添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)。
+如果您看到列出的现有公钥和私钥对（例如 *id_rsa.pub* 和 *id_rsa*），并且您希望使用它们连接到 {% data variables.product.product_name %}，则可以[将 SSH 密钥添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#adding-your-ssh-key-to-the-ssh-agent)。
 
 {% tip %}
 

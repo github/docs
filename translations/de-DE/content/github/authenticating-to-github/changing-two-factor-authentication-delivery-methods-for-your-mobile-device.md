@@ -14,8 +14,8 @@ versions:
 
 {% endnote %}
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.security }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.security %}
 3. Klicke neben „SMS delivery“ (SMS-Auslieferung) auf **Edit**. ![SMS-Auslieferungsoptionen bearbeiten](/assets/images/help/2fa/edit-sms-delivery-option.png)
 4. Klicke unter „Delivery options“ (Auslieferungsoptionen) auf **Reconfigure two-factor authentication** (Zwei-Faktor-Authentifizierung neu konfigurieren). ![Umstellen der 2FA-Auslieferungsoptionen](/assets/images/help/2fa/2fa-switching-methods.png)
 5. Lege fest, ob Du die Zwei-Faktor-Authentifizierung mit einer TOTP-Mobile-App oder einer Textnachricht einrichten möchtest. Weitere Informationen finden Sie unter „[Zwei-Faktor-Authentifizierung konfigurieren](/articles/configuring-two-factor-authentication)“.

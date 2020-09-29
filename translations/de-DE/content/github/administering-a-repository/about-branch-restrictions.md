@@ -1,7 +1,7 @@
 ---
 title: Informationen zu Branch-Einschränkungen
 intro: 'Branches innerhalb von Repositorys, die zu Organisationen gehören, können so konfiguriert werden, dass nur bestimmte Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} Pushes an den Branch durchführen können.'
-product: '{{ site.data.reusables.gated-features.branch-restrictions }}'
+product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
@@ -11,7 +11,7 @@ versions:
 
 Wenn Du Branch-Einschränkungen aktivierst, können nur berechtigte Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} Pushes an den geschützten Branch durchführen. Weitere Informationen findest Du unter „[Branch-Einschränkungen aktivieren](/articles/enabling-branch-restrictions)" und „[Über geschützte Branches](/articles/about-protected-branches)." Sie können die Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder Apps{% endif %} mit Push-Zugriff auf einen geschützten Branch in den Einstellungen des geschützten Branches anzeigen und bearbeiten.
 
-Den Push-Zugriff auf einen geschützten Branch kannst du nur Benutzern{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder installierten {{ site.data.variables.product.prodname_github_apps }}{% endif %} gewähren, die Schreibzugriff (`write`) auf ein Repository haben.
+Den Push-Zugriff auf einen geschützten Branch kannst du nur Benutzern{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} oder{% endif %} Teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} oder installierten {% data variables.product.prodname_github_apps %}{% endif %} gewähren, die Schreibzugriff (`write`) auf ein Repository haben.
 
 Benutzer{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} und Apps{% endif %} mit Administratorberechtigungen für ein Repository können immer Pushes an einen geschützten Branch durchführen.
 

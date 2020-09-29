@@ -34,11 +34,11 @@ Hier siehst Du ein Beispiel für einen [Vergleich zwischen zwei Tags](https://gi
 
 ### Commits vergleichen
 
-Du kannst auch zwei beliebige Commits in Deinem Repository oder seinen Forks auf {{ site.data.variables.product.prodname_dotcom }} mit einem Two-Dot-Diff vergleichen.
+Du kannst auch zwei beliebige Commits in Deinem Repository oder seinen Forks auf {% data variables.product.prodname_dotcom %} mit einem Two-Dot-Diff vergleichen.
 
-Um schnell zwei Commits oder Git Object-IDs (OIDs) direkt miteinander in einem Two-Dot-Diff auf {{ site.data.variables.product.prodname_dotcom }} zu vergleichen, bearbeite die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys.
+Um schnell zwei Commits oder Git Object-IDs (OIDs) direkt miteinander in einem Two-Dot-Diff auf {% data variables.product.prodname_dotcom %} zu vergleichen, bearbeite die URL der Seite „Comparing changes“ (Änderungen vergleichen) Deines Repositorys.
 
-{{ site.data.reusables.repositories.two-dot-diff-comparison-example-urls }}
+{% data reusables.repositories.two-dot-diff-comparison-example-urls %}
 
 Weitere Informationen zu anderen Vergleichsoptionen findest Du unter „[Three-Dot-Diff- und Two-Dot-Diff-Vergleiche](/articles/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons).“
 

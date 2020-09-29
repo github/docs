@@ -1,6 +1,6 @@
 ---
 title: Adding a repository from your local computer to GitHub Desktop
-intro: 'You can add any Git repository to {{ site.data.variables.product.prodname_desktop }}, even if it''s not a {{ site.data.variables.product.prodname_dotcom }} repository.'
+intro: 'You can add any Git repository to {% data variables.product.prodname_desktop %}, even if it''s not a {% data variables.product.prodname_dotcom %} repository.'
 redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:
@@ -9,7 +9,7 @@ versions:
 
 {% tip %}
 
-**Tip:** You can add a Git repository from your local computer to GitHub Desktop by dragging the folder onto the {{ site.data.variables.product.prodname_desktop }} window. If you drag multiple Git folders into {{ site.data.variables.product.prodname_desktop }} at the same time, each folder will be added as a separate Git repository.
+**Tip:** You can add a Git repository from your local computer to GitHub Desktop by dragging the folder onto the {% data variables.product.prodname_desktop %} window. If you drag multiple Git folders into {% data variables.product.prodname_desktop %} at the same time, each folder will be added as a separate Git repository.
 
 {% endtip %}
 

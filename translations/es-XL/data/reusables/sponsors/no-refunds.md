@@ -1,1 +1,1 @@
-No se realizan reembolsos de pagos para {{ site.data.variables.product.prodname_sponsors }}.
+No se realizan reembolsos de pagos para {% data variables.product.prodname_sponsors %}.

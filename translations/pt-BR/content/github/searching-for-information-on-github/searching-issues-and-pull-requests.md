@@ -1,6 +1,6 @@
 ---
 title: Pesquisar problemas e pull requests
-intro: 'Você pode pesquisar problemas e pull requests no {{ site.data.variables.product.product_name }} e limitar os resultados usando qualquer combinação destes qualificadores de pesquisa.'
+intro: 'Você pode pesquisar problemas e pull requests no {% data variables.product.product_name %} e limitar os resultados usando qualquer combinação destes qualificadores de pesquisa.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
@@ -9,21 +9,21 @@ versions:
   enterprise-server: '*'
 ---
 
-Você pode pesquisar problemas e pull requests globalmente no {{ site.data.variables.product.product_name }} ou pesquisar em uma organização específica. For more information, see "[About searching on {{ site.data.variables.product.company_short }}](/articles/about-searching-on-github)."
+Você pode pesquisar problemas e pull requests globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização específica. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
 {% tip %}
 
 **Dicas:**{% if currentVersion != "free-pro-team@latest" %}
-  - Este artigo tem exemplos de pesquisa no site {{ site.data.variables.product.prodname_dotcom }}.com, mas você pode usar os mesmos filtros de pesquisa na {{ site.data.variables.product.product_location_enterprise }}.{% endif %}
+  - Este artigo tem exemplos de pesquisa no site {% data variables.product.prodname_dotcom %}.com, mas você pode usar os mesmos filtros de pesquisa na {% data variables.product.product_location_enterprise %}.{% endif %}
   - Para obter uma lista de sintaxes de pesquisa que podem ser adicionadas a qualquer qualificador de pesquisa para melhorar ainda mais os resultados, consulte "[Entender a sintaxe de pesquisa](/articles/understanding-the-search-syntax)".
   - Use aspas em termos de pesquisa com várias palavras. Por exemplo, se quiser pesquisar problemas com a etiqueta "In progress," pesquise `label:"in progress"`. A pesquisa não faz distinção entre maiúsculas e minúsculas.
-  - {{ site.data.reusables.search.search_issues_and_pull_requests_shortcut }}
+  - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
 ### Pesquisar somente problemas e pull requests
 
-Por padrão, a pesquisa do {{ site.data.variables.product.product_name }} retorna problemas e pull requests. No entanto, você pode restringir os resultados da pesquisa a problemas ou pull requests usando os qualificadores `type` ou `is`.
+Por padrão, a pesquisa do {% data variables.product.product_name %} retorna problemas e pull requests. No entanto, você pode restringir os resultados da pesquisa a problemas ou pull requests usando os qualificadores `type` ou `is`.
 
 | Qualifier    | Exemplo                                                                                                                                                                                                       |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -65,7 +65,7 @@ Você pode filtrar somente problemas e pull requests abertos ou fechados usando 
 
 ### Pesquisar por repositório público ou privado
 
-Ao [pesquisar em todo o {{ site.data.variables.product.product_name }}](https://github.com/search), pode ser útil restringir os resultados aos repositórios públicos ou privados. Você pode fazer isso com os qualificadores `is:public` e `is:private`.
+Ao [pesquisar em todo o {% data variables.product.product_name %}](https://github.com/search), pode ser útil restringir os resultados aos repositórios públicos ou privados. Você pode fazer isso com os qualificadores `is:public` e `is:private`.
 
 | Qualifier    | Exemplo                                                                                                                                                                                                      |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -249,9 +249,9 @@ Você pode filtrar as pull requests com base no [status de revisão](/articles/a
 
 Você pode filtrar problemas com base na data de criação ou da última atualização. Para a criação do problema, você pode usar o qualificador `created`. Para descobrir quando um problema foi atualizado pela última vez, você precisará usar o qualificador `updated`.
 
-Os dois usam uma data como parâmetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Os dois usam uma data como parâmetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -262,9 +262,9 @@ Os dois usam uma data como parâmetro. {{ site.data.reusables.time_date.date_for
 
 Você pode filtrar somente problemas e pull requests fechados usando o qualificador `closed`.
 
-Esse qualificador usa a data como parâmetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Esse qualificador usa a data como parâmetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                  |
 | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,9 +275,9 @@ Esse qualificador usa a data como parâmetro. {{ site.data.reusables.time_date.d
 
 Você pode filtrar somente as pull requests com merge usando o qualificador `merged`.
 
-Esse qualificador usa a data como parâmetro. {{ site.data.reusables.time_date.date_format }} {{ site.data.reusables.time_date.time_format }}
+Esse qualificador usa a data como parâmetro. {% data reusables.time_date.date_format %} {% data reusables.time_date.time_format %}
 
-{{ site.data.reusables.search.date_gt_lt }}
+{% data reusables.search.date_gt_lt %}
 
 | Qualifier                  | Exemplo                                                                                                                                                                                                                                                            |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |

@@ -15,7 +15,7 @@ Jeder, der über Leseberechtigung auf eine Repository-Vorlage verfügt, kann ein
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository from a template using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {{ site.data.variables.product.product_location }} documentation.
+**Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
 
 {% endtip %}
 {% endif %}
@@ -33,11 +33,11 @@ Weitere Informationen zu Forks findest Du unter „[Informationen zu Forks](/art
 
 ### Ein Repository anhand einer Vorlage erstellen
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
+{% data reusables.repositories.navigate-to-repo %}
 2. Klicke oberhalb der Dateiliste auf **Use this template** (Diese Vorlage verwenden). ![Schaltfläche „Use this template“ (Diese Vorlage verwenden)](/assets/images/help/repository/use-this-template-button.png)
-{{ site.data.reusables.repositories.owner-drop-down }}
-{{ site.data.reusables.repositories.repo-name }}
-{{ site.data.reusables.repositories.choose-repo-visibility }}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% data reusables.repositories.owner-drop-down %}
+{% data reusables.repositories.repo-name %}
+{% data reusables.repositories.choose-repo-visibility %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 6. Um optional die Verzeichnisstruktur und die Dateien aller Branches der Vorlage und nicht nur aus dem Standard-Branch einzubinden, wähle **Include all branches** (Alle Branches einbinden). ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png){% endif %}
-{{ site.data.reusables.repositories.select-marketplace-apps }}
+{% data reusables.repositories.select-marketplace-apps %}
 8. Klicke auf **Create repository from template** (Repository anhand der Vorlage erstellen).

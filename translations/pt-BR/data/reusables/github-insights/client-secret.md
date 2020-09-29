@@ -1,1 +1,1 @@
-1. Em "Client Secret" (Segredo do Cliente), digite o segredo do cliente do seu {{ site.data.variables.product.prodname_github_app }}, que você gravou ao criar o aplicativo. ![Campo secreto do cliente](/assets/images/help/insights/client-secret.png)
+1. Em "Client Secret" (Segredo do Cliente), digite o segredo do cliente do seu {% data variables.product.prodname_github_app %}, que você gravou ao criar o aplicativo. ![Campo secreto do cliente](/assets/images/help/insights/client-secret.png)

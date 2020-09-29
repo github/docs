@@ -8,16 +8,16 @@ versions:
 
 ### デフォルトブランチ名について
 
-{{ site.data.reusables.branches.new-repo-default-branch }} This branch is currently named `master`, but you can set the default branch name to anything that makes sense for your development environment.
+{% data reusables.branches.new-repo-default-branch %} This branch is currently named `master`, but you can set the default branch name to anything that makes sense for your development environment.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### デフォルトブランチ 名を設定する
 
-{{ site.data.reusables.user_settings.access_settings }}
-{{ site.data.reusables.user_settings.repo-tab }}
+{% data reusables.user_settings.access_settings %}
+{% data reusables.user_settings.repo-tab %}
 3. [Repository default branch] で、[**Change default branch name now**] をクリックします。 ![[Override] ボタン](/assets/images/help/settings/repo-default-name-button.png)
 4. 新しいブランチに使用したいデフォルト名を入力します。 ![デフォルト名を入力するテキストフィールド](/assets/images/help/settings/repo-default-name-text.png)
 5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/settings/repo-default-name-update.png)

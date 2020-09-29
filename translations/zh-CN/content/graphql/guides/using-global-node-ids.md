@@ -31,7 +31,7 @@ versions:
 如果您[请求经过身份验证的用户](/v3/users/#get-the-authenticated-user)：
 
 ```shell
-$ curl -i -u <em>username:token</em> {{ site.data.variables.product.api_url_pre }}/user
+$ curl -i -u <em>username:token</em> {% data variables.product.api_url_pre %}/user
 ```
 
 您将得到响应，其中包含经过验证的用户的 `node_id`：

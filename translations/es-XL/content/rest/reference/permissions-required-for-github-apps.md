@@ -1,6 +1,6 @@
 ---
 title: Permisos que requieren las Github Apps
-intro: 'Puedes encontrar los permisos que requiere cada terminal compatible con {{ site.data.variables.product.prodname_github_app }}.'
+intro: 'Puedes encontrar los permisos que requiere cada terminal compatible con {% data variables.product.prodname_github_app %}.'
 redirect_from:
   - /v3/apps/permissions ---
 versions:
@@ -8,15 +8,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Acerca de los permisos de las {{ site.data.variables.product.prodname_github_app }}
+### Acerca de los permisos de las {% data variables.product.prodname_github_app %}
 
-Las {{ site.data.variables.product.prodname_github_app }}s se crean con un conjunto de permisos. Los permisos definen a qué recursos puede acceder la {{ site.data.variables.product.prodname_github_app }} a través de la API. Para obtener más información, consulta la sección "[Configurar los permisos para las GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)".
+Las {% data variables.product.prodname_github_app %}s se crean con un conjunto de permisos. Los permisos definen a qué recursos puede acceder la {% data variables.product.prodname_github_app %} a través de la API. Para obtener más información, consulta la sección "[Configurar los permisos para las GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)".
 
 ### Permisos de metadatos
 
 Las GitHub Apps tienen el permiso de metadatos de `Read-only` predeterminadamente. El permiso de metadatos proporciona acceso a una recopilación de terminales de solo lectura con los metadatos de varios recursos. Estas terminales no filtran información sensible de los repositorios privados.
 
-{{ site.data.reusables.apps.metadata-permissions }}
+{% data reusables.apps.metadata-permissions %}
 
 
 - [`GET /`](/v3/#root-endpoint)

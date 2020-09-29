@@ -1,6 +1,6 @@
 ---
 title: Colaborar com problemas e pull requests
-intro: 'Use o fluxo do {{ site.data.variables.product.prodname_dotcom }} para rastrear e discutir alterações em problemas e também para propor e revisar alterações em pull requests.'
+intro: 'Use o fluxo do {% data variables.product.prodname_dotcom %} para rastrear e discutir alterações em problemas e também para propor e revisar alterações em pull requests.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/

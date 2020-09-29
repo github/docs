@@ -19,13 +19,13 @@ README ファイルは、{% if currentVersion == "free-pro-team@latest" %}[リ�
 - このプロジェクトに関するヘルプをどこで得るか
 - このプロジェクトのメンテナンス者とコントリビューター
 
-README ファイルをリポジトリのルート、`docs`、または隠れディレクトリ `.github` に置けば、{{ site.data.variables.product.product_name }} はそれを認識して自動的に README をリポジトリへの訪問者に提示します。
+README ファイルをリポジトリのルート、`docs`、または隠れディレクトリ `.github` に置けば、{% data variables.product.product_name %} はそれを認識して自動的に README をリポジトリへの訪問者に提示します。
 
 ![github/scientistリポジトリのメインページとそのREADMEファイル](/assets/images/help/repository/repo-with-readme.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
-{{ site.data.reusables.profile.profile-readme }}
+{% data reusables.profile.profile-readme %}
 
 ![ユーザ名/ユーザ名リポジトリの README ファイル](/assets/images/help/repository/username-repo-with-readme.png)
 
@@ -33,11 +33,11 @@ README ファイルをリポジトリのルート、`docs`、または隠れデ�
 
 ### READMEファイルのセクションリンクとblobページ
 
-多くのプロジェクトは、README の先頭にある目次を使ってユーザをファイル中のさまざまなセクションへ誘導します。 {{ site.data.reusables.repositories.section-links }}
+多くのプロジェクトは、README の先頭にある目次を使ってユーザをファイル中のさまざまなセクションへ誘導します。 {% data reusables.repositories.section-links %}
 
 ### READMEファイル中の相対リンクと画像パス
 
-{{ site.data.reusables.repositories.relative-links }}
+{% data reusables.repositories.relative-links %}
 
 ### 参考リンク
 

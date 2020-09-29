@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {{ site.data.variables.product.prodname_ghe_server }} 目标：
+1. 使用 [`scp`](https://linuxacademy.com/blog/linux/ssh-and-scp-howto-tips-tricks#scp) 命令将从源实例或组织生成的迁移存档复制到 {% data variables.product.prodname_ghe_server %} 目标：
 
     ```shell
     $ scp -P 122 <em>/path/to/archive/MIGRATION_GUID.tar.gz</em> admin@<em>hostname</em>:/home/admin/
     ```
 
-{{ site.data.reusables.enterprise_installation.ssh-into-target-instance }}
+{% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 3. 使用 `ghe-migrator prepare` 命令准备要在目标实例上导入的存档，并生成新的迁移 GUID 供您在后续步骤中使用：
 
@@ -23,4 +23,4 @@ versions:
     ```
 
     * 要开始新的导入尝试，请再次运行 `ghe-migrator prepare` 并获取新的迁移 GUID。
-    * {{ site.data.reusables.enterprise_migrations.specify-staging-path }}
+    * {% data reusables.enterprise_migrations.specify-staging-path %}

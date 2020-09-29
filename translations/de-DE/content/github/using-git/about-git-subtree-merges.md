@@ -21,7 +21,7 @@ Das Zusammenführen von Unterstrukturen lässt sich am besten anhand eines Beisp
 
 ### Leeres Repository für das Zusammenführen einer Unterstruktur einrichten
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. Erstelle ein neues Verzeichnis und navigiere zu diesem.
   ```shell
   $ mkdir test

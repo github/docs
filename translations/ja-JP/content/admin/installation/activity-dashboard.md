@@ -1,6 +1,6 @@
 ---
 title: アクティビティダッシュボード
-intro: 'アクティビティダッシュボード で {{ site.data.variables.product.product_location_enterprise }}の全てのアクティビティの概要を見ることができます。'
+intro: 'アクティビティダッシュボード で {% data variables.product.product_location_enterprise %}の全てのアクティビティの概要を見ることができます。'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
@@ -21,7 +21,7 @@ versions:
 
 ![アクティビティダッシュボード](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-{{ site.data.variables.product.prodname_enterprise }}からのデータに基づく分析をさらに進めるには、{{ site.data.variables.product.prodname_insights }}を購入できます。 詳しい情報については「[{{ site.data.variables.product.prodname_insights }}について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
+{% data variables.product.prodname_enterprise %}からのデータに基づく分析をさらに進めるには、{% data variables.product.prodname_insights %}を購入できます。 詳しい情報については「[{% data variables.product.prodname_insights %}について](/insights/installing-and-configuring-github-insights/about-github-insights)」を参照してください。
 
 ### アクティビティダッシュボードへのアクセス
 

@@ -15,7 +15,7 @@ versions:
 4. [Repository] ドロップダウンメニューで、開こうとするIssueがあるリポジトリを選択します。 ![新しいIssueの [Repository] ドロップダウン](/assets/images/help/pull_requests/new-issue-repository.png)
 5. Issueのわかりやすいタイトルと本文を入力します。 ![新しいIssueのタイトルと本文](/assets/images/help/pull_requests/new-issue-title-and-body.png)
 6. [**Create issue**] をクリックします。 ![新しいIssueを作成するボタン](/assets/images/help/pull_requests/create-issue.png)
-{{ site.data.reusables.repositories.assign-an-issue-as-project-maintainer }}
+{% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 
 ### 参考リンク
 

@@ -33,7 +33,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
   - Wir informieren Sie, wenn wir Ihre personenbezogenen Daten sammeln.
   - Wir geben Ihnen in unserer [Datenschutzerklärung](/articles/github-privacy-statement/)bekannt, welche Zwecke wir für die Erhebung und Nutzung Ihrer Informationen haben, an wen und unter welchen Beschränkungen wir diese Informationen weitergeben und welchen Zugriff Sie auf Ihre Daten haben.
   - Wir teilen Ihnen mit, dass wir am Datenschutzschild teilnehmen und was das für Sie bedeutet.
-  - Wir haben eine {{ site.data.variables.contact.contact_privacy }} wo Sie uns mit Fragen zu Ihrer Privatsphäre kontaktieren können.
+  - Wir haben eine {% data variables.contact.contact_privacy %} wo Sie uns mit Fragen zu Ihrer Privatsphäre kontaktieren können.
   - Wir informieren Sie über Ihr Recht, im unwahrscheinlichen Fall einer Streitigkeit ein verbindliches Schiedsverfahren zu beauftragen, das Ihnen kostenlos zur Verfügung gestellt wird.
   - Wir lassen Sie wissen, dass wir der Gerichtsbarkeit der Federal Trade Commission unterliegen.
 - **Auswahl**
@@ -51,7 +51,7 @@ The Privacy Shield Frameworks are based on seven principles, and GitHub adheres 
 - **Zugriff**
   - Sie können jederzeit in Ihrem [Benutzerprofil](https://github.com/settings/profile) auf die von uns über Sie gespeicherten Daten zugreifen. Sie können Ihre Daten dort abrufen, aktualisieren, ändern oder löschen.
 - **Rückgriffs, Durchsetzung und der Haftung**
-  - Wenn Sie Fragen zu unseren Datenschutzpraktiken haben, können Sie uns über unser {{ site.data.variables.contact.contact_privacy }} erreichen und wir werden innerhalb von 45 Tagen antworten.
+  - Wenn Sie Fragen zu unseren Datenschutzpraktiken haben, können Sie uns über unser {% data variables.contact.contact_privacy %} erreichen und wir werden innerhalb von 45 Tagen antworten.
   - Im unwahrscheinlichen Fall eines Streitfalls, den wir nicht lösen können, haben Sie Zugang zu einem für Sie kostenlosen, verbindlichen Schiedsverfahren. Weitere Informationen finden Sie in unserer [Datenschutzerklärung](/articles/github-privacy-statement/).
   - Wir führen regelmäßige Überprüfungen unserer einschlägigen Datenschutzpraktiken durch, um die Einhaltung der von uns gemachten Zusagen zu überprüfen.
   - Wir verlangen von unseren Mitarbeitern, dass sie unsere Datenschutzversprechen einhalten, und die Verletzung unserer Datenschutzrichtlinien unterliegt Disziplinarmaßnahmen bis hin zur Kündigung des Arbeitsverhältnisses.

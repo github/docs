@@ -9,12 +9,12 @@ versions:
 
 {% warning %}
 
-**Nota:** {{ site.data.reusables.dotcom_billing.org-billing-perms }}
+**Nota:** {% data reusables.dotcom_billing.org-billing-perms %}
 
 {% endwarning %}
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.billing }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.billing %}
 5. En la lista de Gerentes de facturación, al lado del nombre de la persona que quieres eliminar, haz clic en {% octicon "x" aria-label="X symbol" %}. ![Eliminar gerente de facturación](/assets/images/help/billing/settings_billing_managers_remove_manager.png)

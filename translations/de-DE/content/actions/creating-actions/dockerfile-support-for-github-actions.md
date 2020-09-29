@@ -2,7 +2,7 @@
 title: Dockerfile Unterstützung für GitHub Aktionen
 shortTitle: Docker
 intro: 'Beim Erstellen eines ‚Dockerfiles‘ für eine Dockercontainer-Aktion sollten Sie sich darüber im Klaren sein, wie einige Docker-Anweisungen mit GitHub-Aktionen und der Metadaten-Datei einer Aktion interagieren.'
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /actions/building-actions/dockerfile-support-for-github-actions
 versions:
@@ -10,8 +10,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Informationen zu Dockerfile-Anweisungen
 
@@ -19,7 +19,7 @@ Ein `Dockerfile` enthält Anweisungen und Argumente, die den Inhalt und das Star
 
 ### Dockerfile Anweisungen und Overrides (Überschreibungen)
 
-Einige Docker-Anweisungen interagieren mit GitHub-Aktionen, und die Metadaten-Datei einer Aktion kann einige Docker-Anweisungen überschreiben. Vergewissere Dich, dass Dir klar ist, wie Dein Dockerfile mit {{ site.data.variables.product.prodname_actions }} interagiert, um unerwartetes Verhalten zu verhindern.
+Einige Docker-Anweisungen interagieren mit GitHub-Aktionen, und die Metadaten-Datei einer Aktion kann einige Docker-Anweisungen überschreiben. Vergewissere Dich, dass Dir klar ist, wie Dein Dockerfile mit {% data variables.product.prodname_actions %} interagiert, um unerwartetes Verhalten zu verhindern.
 
 #### USER
 
@@ -37,11 +37,11 @@ Dies sind einige bewährte Methoden, das Argument `FROM` zu setzen:
 
 #### WORKDIR
 
-{{ site.data.variables.product.product_name }} setzt den Pfad zum Arbeitsverzeichnis in der `GITHUB_WORKSPACE` Umgebungsvariable. Es wird empfohlen, die `WORKDIR` Anweisung in Ihrem `Dockerfile` zu vermeiden. Bevor die Aktion ausgeführt wird, mountet {{ site.data.variables.product.product_name }} das Verzeichnis `GITHUB_WORKSPACE` auf was auch immer sich an dieser Stelle im Docker-Image befindet, und setzt `GITHUB_WORKSPACE` als Arbeitsverzeichnis. Weitere Informationen findest Du unter "[Umgebungsvariablen verwenden](/actions/configuring-and-managing-workflows/using-environment-variables)" und [WORKDIR-Referenz](https://docs.docker.com/engine/reference/builder/#workdir) in der Docker-Dokumentation.
+{% data variables.product.product_name %} setzt den Pfad zum Arbeitsverzeichnis in der `GITHUB_WORKSPACE` Umgebungsvariable. Es wird empfohlen, die `WORKDIR` Anweisung in Ihrem `Dockerfile` zu vermeiden. Bevor die Aktion ausgeführt wird, mountet {% data variables.product.product_name %} das Verzeichnis `GITHUB_WORKSPACE` auf was auch immer sich an dieser Stelle im Docker-Image befindet, und setzt `GITHUB_WORKSPACE` als Arbeitsverzeichnis. Weitere Informationen findest Du unter "[Umgebungsvariablen verwenden](/actions/configuring-and-managing-workflows/using-environment-variables)" und [WORKDIR-Referenz](https://docs.docker.com/engine/reference/builder/#workdir) in der Docker-Dokumentation.
 
 #### ENTRYPOINT
 
-Wenn Du `Einstiegspunkt` in der Metadaten-Datei einer Aktion definierst, wird der `ENTRYPOINT` im `Dockerfile` überschrieben. Weitere Informationen findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)“.
+Wenn Du `Einstiegspunkt` in der Metadaten-Datei einer Aktion definierst, wird der `ENTRYPOINT` im `Dockerfile` überschrieben. Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions/#runsentrypoint)“.
 
 Für die Docker-Anweisung `ENTRYPOINT` gibt es sowohl eine _shell_-Form als auch eine _exec_-Form. Die Docker-Dokumentation für `ENTRYPOINT` empfiehlt die _exec_-Form der `ENTRYPOINT`-Anweisung. Weitere Informationen über _exec_- und _shell_-Form findest Du unter [ENTRYPOINT-Referenz](https://docs.docker.com/engine/reference/builder/#entrypoint) in der Docker-Dokumentation.
 
@@ -73,7 +73,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ##### Beispiel für die Datei *entrypoint.sh*
 
-Mit dem obigen Dockerfile-Beispiel sendet {{ site.data.variables.product.product_name }} die Metadaten-Datei der Aktion konfigurierten `args` als Argumente an `entrypoint.sh`. Füge `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) oben in die Datei `entrypoint.sh` ein, um explizit die [POSIX](https://en.wikipedia.org/wiki/POSIX)-konforme Shell des Systems zu verwenden.
+Mit dem obigen Dockerfile-Beispiel sendet {% data variables.product.product_name %} die Metadaten-Datei der Aktion konfigurierten `args` als Argumente an `entrypoint.sh`. Füge `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) oben in die Datei `entrypoint.sh` ein, um explizit die [POSIX](https://en.wikipedia.org/wiki/POSIX)-konforme Shell des Systems zu verwenden.
 
 ``` sh
 #!/bin/sh
@@ -96,12 +96,12 @@ Error response from daemon: OCI runtime create failed: container_linux.go:348: s
 
 #### CMD
 
-Wenn Du in der Metadaten-Datei der Aktion `args` definierst, dann überschreibt `args` die Anweisung `CMD`, welche im `Dockerfile` angegeben wurde. Weitere Informationen findest Du unter „[Metadaten-Syntax für {{ site.data.variables.product.prodname_actions }}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)“.
+Wenn Du in der Metadaten-Datei der Aktion `args` definierst, dann überschreibt `args` die Anweisung `CMD`, welche im `Dockerfile` angegeben wurde. Weitere Informationen findest Du unter „[Metadaten-Syntax für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#runsargs)“.
 
 Falls Du `CMD` in Deinem `Dockerfile` verwendest, solltest Du Dich an diese Richtlinien halten:
 
-{{ site.data.reusables.github-actions.dockerfile-guidelines }}
+{% data reusables.github-actions.dockerfile-guidelines %}
 
 ### Unterstützte Linux-Funktionen
 
-{{ site.data.variables.product.prodname_actions }} unterstützt die standardmäßigen Linux-Funktionen, die auch Docker unterstützt. Funktionen können weder hinzugefügt noch entfernt werden. Weitere Informationen über die standardmäßigen Linux-Funktionen, die Docker unterstützt, findest Du unter "[Laufzeit-Privilegien und Linux-Funktionen](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" in der Docker-Dokumentation. Weitere Informationen zu Linux-Funktionen findest Du unter "[Überblick über die Linux-Funktionen](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in den Linux-Man-Pages.
+{% data variables.product.prodname_actions %} unterstützt die standardmäßigen Linux-Funktionen, die auch Docker unterstützt. Funktionen können weder hinzugefügt noch entfernt werden. Weitere Informationen über die standardmäßigen Linux-Funktionen, die Docker unterstützt, findest Du unter "[Laufzeit-Privilegien und Linux-Funktionen](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)" in der Docker-Dokumentation. Weitere Informationen zu Linux-Funktionen findest Du unter "[Überblick über die Linux-Funktionen](http://man7.org/linux/man-pages/man7/capabilities.7.html)" in den Linux-Man-Pages.

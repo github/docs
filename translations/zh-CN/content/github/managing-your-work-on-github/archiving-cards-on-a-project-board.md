@@ -17,6 +17,6 @@ versions:
 
 ### 从侧栏恢复项目板中的卡
 
-{{ site.data.reusables.project-management.click-menu }}
+{% data reusables.project-management.click-menu %}
 2. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **View archive（查看存档）**。 ![从菜单中选择查看存档选项](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. 在要取消存档的项目板卡上方，单击 **Restore（恢复）**。 ![选择恢复项目板卡](/assets/images/help/projects/restore-card.png)

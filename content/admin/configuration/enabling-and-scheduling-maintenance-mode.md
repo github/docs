@@ -1,6 +1,6 @@
 ---
 title: Enabling and scheduling maintenance mode
-intro: 'Some standard maintenance procedures, such as upgrading {{ site.data.variables.product.product_location_enterprise }} or restoring backups, require the instance to be taken offline for normal use.'
+intro: 'Some standard maintenance procedures, such as upgrading {% data variables.product.product_location_enterprise %} or restoring backups, require the instance to be taken offline for normal use.'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,11 +16,11 @@ versions:
 
 ### About maintenance mode
 
-Some types of operations require that you take {{ site.data.variables.product.product_location_enterprise }} offline and put it into maintenance mode:
-- Upgrading to a new version of {{ site.data.variables.product.prodname_ghe_server }}
+Some types of operations require that you take {% data variables.product.product_location_enterprise %} offline and put it into maintenance mode:
+- Upgrading to a new version of {% data variables.product.prodname_ghe_server %}
 - Increasing CPU, memory, or storage resources allocated to the virtual machine
 - Migrating data from one virtual machine to another
-- Restoring data from a {{ site.data.variables.product.prodname_enterprise_backup_utilities }} snapshot
+- Restoring data from a {% data variables.product.prodname_enterprise_backup_utilities %} snapshot
 - Troubleshooting certain types of critical application issues
 
 We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
@@ -33,9 +33,9 @@ When the instance is in maintenance mode, all normal HTTP and Git access is refu
 
 ### Enabling maintenance mode immediately or scheduling a maintenance window for a later time
 
-{{ site.data.reusables.enterprise_site_admin_settings.access-settings }}
-{{ site.data.reusables.enterprise_site_admin_settings.management-console }}
-2. At the top of the {{ site.data.variables.enterprise.management_console }}, click **Maintenance**.
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+2. At the top of the {% data variables.enterprise.management_console %}, click **Maintenance**.
   ![Maintenance tab](/assets/images/enterprise/management-console/maintenance-tab.png)
 3. Under "Enable and schedule", decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     - To enable maintenance mode immediately, use the drop-down menu and click **now**.
@@ -44,11 +44,11 @@ When the instance is in maintenance mode, all normal HTTP and Git access is refu
     ![Drop-down menu with the option to schedule a maintenance window in two hours selected](/assets/images/enterprise/maintenance/schedule-maintenance-mode-two-hours.png)
 4. Select **Enable maintenance mode**.
   ![Checkbox for enabling or scheduling maintenance mode](/assets/images/enterprise/maintenance/enable-maintenance-mode-checkbox.png)
-{{ site.data.reusables.enterprise_management_console.save-settings }}
+{% data reusables.enterprise_management_console.save-settings %}
 
-### Scheduling maintenance mode with {{ site.data.variables.product.prodname_enterprise_api }}
+### Scheduling maintenance mode with {% data variables.product.prodname_enterprise_api %}
 
-You can schedule maintenance for different times or dates with {{ site.data.variables.product.prodname_enterprise_api }}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
+You can schedule maintenance for different times or dates with {% data variables.product.prodname_enterprise_api %}. For more information, see "[Management Console](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#enable-or-disable-maintenance-mode)."
 
 ### Enabling or disabling maintenance mode for all nodes in a cluster
 

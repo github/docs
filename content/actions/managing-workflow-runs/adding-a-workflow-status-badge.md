@@ -1,18 +1,18 @@
 ---
 title: Adding a workflow status badge
 intro: You can display a status badge in your repository to indicate the status of your workflows.
-product: '{{ site.data.reusables.gated-features.actions }}'
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
-{{ site.data.reusables.repositories.actions-workflow-status-badge-into }}
+{% data reusables.repositories.actions-workflow-status-badge-into %}
 
-If your workflow uses the `name` keyword, you must reference the workflow by name. If the name of your workflow contains white space, you'll need to replace the space with the URL encoded string `%20`. For more information about the `name` keyword, see "[Workflow syntax for {{ site.data.variables.product.prodname_actions }}](/articles/workflow-syntax-for-github-actions#name)."
+If your workflow uses the `name` keyword, you must reference the workflow by name. If the name of your workflow contains white space, you'll need to replace the space with the URL encoded string `%20`. For more information about the `name` keyword, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#name)."
 
 ```
 https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_NAME>/badge.svg

@@ -13,7 +13,7 @@ versions:
 
 ### Git へ GPG キーを伝える
 
-コミッタのアイデンティティと {{ site.data.variables.product.product_name }}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -23,10 +23,10 @@ versions:
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. GPG スイートを使っていない場合、bash プロフィールに GPG キーを追加するために下記のテキストをペーストしてください:
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile
@@ -38,7 +38,7 @@ versions:
 
   {% endnote %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endmac %}
 
@@ -46,7 +46,7 @@ versions:
 
 ### Git へ GPG キーを伝える
 
-コミッタのアイデンティティと {{ site.data.variables.product.product_name }}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -56,12 +56,12 @@ versions:
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 
-{{ site.data.reusables.gpg.x-509-key }}
+{% data reusables.gpg.x-509-key %}
 
 {% endwindows %}
 
@@ -69,13 +69,13 @@ versions:
 
 {% note %}
 
-**メモ:** Linux 上の X.509 はサポートされていません。 暗号化と署名サービスを提供するために gpgsm を設定できます。ですが、現在 {{ site.data.variables.product.product_name }} はこれをサポートしていません。 詳しい情報については、GnuPG のドキュメンテーションの [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) のトピックを参照してください。
+**メモ:** Linux 上の X.509 はサポートされていません。 暗号化と署名サービスを提供するために gpgsm を設定できます。ですが、現在 {% data variables.product.product_name %} はこれをサポートしていません。 詳しい情報については、GnuPG のドキュメンテーションの [gpgsm](https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPGSM.html) のトピックを参照してください。
 
 {% endnote %}
 
 ### Git へ GPG キーを伝える
 
-コミッタのアイデンティティと {{ site.data.variables.product.product_name }}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
+コミッタのアイデンティティと {% data variables.product.product_name %}アカウントに関連付けられた検証済みのメールアドレスに一致する GPG キーを使っている場合、コミットやタグへの署名を始めることができます。
 
 {% note %}
 
@@ -85,10 +85,10 @@ versions:
 
 複数の GPG キーを持っている場合、どれを使うかを Git に伝える必要があります。
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
-{{ site.data.reusables.gpg.list-keys-with-note }}
-{{ site.data.reusables.gpg.copy-gpg-key-id }}
-{{ site.data.reusables.gpg.paste-gpg-key-id }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
+{% data reusables.gpg.list-keys-with-note %}
+{% data reusables.gpg.copy-gpg-key-id %}
+{% data reusables.gpg.paste-gpg-key-id %}
 1. Bash プロフィールに GPG キーを追加するには、下記のテキストを貼り付けてください。
   ```shell
   $ test -r ~/.bash_profile && echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile

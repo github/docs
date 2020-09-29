@@ -1,6 +1,6 @@
 ---
 title: Usar um servidor proxy com executores auto-hospedados
-intro: 'Você pode configurar executores auto-hospedados para usar um servidor proxy para comunicar-se com {{ site.data.variables.product.product_name }}.'
+intro: 'Você pode configurar executores auto-hospedados para usar um servidor proxy para comunicar-se com {% data variables.product.product_name %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
 versions:
@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Configurar um servidor proxy usando variáveis de ambiente
 

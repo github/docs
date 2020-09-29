@@ -29,12 +29,12 @@ Der Repository-Inhaber besitzt die vollständige Kontrolle über das Repository.
 - Pakete löschen. Weitere Informationen findest Du unter „[Ein Paket löschen](/github/managing-packages-with-github-packages/deleting-a-package)."{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - soziale Tickets für Repositorys erstellen und bearbeiten (siehe „[Social-Media-Vorschau Ihres Repositorys anpassen](/articles/customizing-your-repositorys-social-media-preview)“)
 - das Repository in eine Vorlage umwandeln Weitere Informationen findest Du unter „[Eine Repository-Vorlage erstellen](/articles/creating-a-template-repository)."{% endif %}
-- Receive [{% if currentVersion == "free-pro-team@latest" %}{{ site.data.variables.product.prodname_dependabot_alerts }}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository{% if currentVersion == "free-pro-team@latest" %}
-- Dismiss {{ site.data.variables.product.prodname_dependabot_alerts }} in your repository. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
+- Receive [{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository{% if currentVersion == "free-pro-team@latest" %}
+- Dismiss {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 - [Manage data usage for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [Codeinhaber für das Repository definieren](/articles/about-code-owners)
 - [Repositorys archivieren](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
-- Sicherheitshinweise erstellen. Weitere Informationen findest Du unter „[Über {{ site.data.variables.product.prodname_security_advisories }}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+- Sicherheitshinweise erstellen. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 - eine Sponsorenschaltfläche anzeigen Weitere Informationen findest Du unter „[Sponsorenschaltfläche in Deinem Repository anzeigen](/articles/displaying-a-sponsor-button-in-your-repository)“{% endif %}
 
 Bei einem Repository, das einem Benutzerkonto gehört, gibt es nur **einen Inhaber**. Diese Berechtigung kann nicht mit einem anderem Benutzerkonto geteilt werden. Informationen zur Übertragung der Repository-Inhaberschaft auf einen anderen Benutzer findest Du unter „[Ein Repository übertragen](/articles/how-to-transfer-a-repository).“
@@ -64,7 +64,7 @@ Mitarbeiter haben folgende Möglichkeiten in persönlichen Repositorys:
 - Einen Review zu einem Pull Request absenden, der seine Merge-Fähigkeit beeinflusst
 - Als designierter Codeinhaber des Repositorys agieren. Weitere Informationen findest Du unter „[Informationen zu Codeinhabern](/articles/about-code-owners).“
 - Eine Unterhaltung sperren. Weitere Informationen findest Du unter „[Unterhaltungen sperren](/articles/locking-conversations).“{% if currentVersion == "free-pro-team@latest" %}
-- Missbräuchliche Inhalte an den {{ site.data.variables.contact.contact_support }} melden. Weitere Informationen findest Du unter „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“.{% endif %}
+- Missbräuchliche Inhalte an den {% data variables.contact.contact_support %} melden. Weitere Informationen findest Du unter „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“.{% endif %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 - Einen Issue in ein anderes Repository übertragen. Weitere Informationen findest Du unter „[Issue in ein anderes Repository übertragen](/articles/transferring-an-issue-to-another-repository),“{% endif %}
 

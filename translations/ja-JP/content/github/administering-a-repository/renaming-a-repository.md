@@ -15,7 +15,7 @@ versions:
 * Star
 * フォロワー
 
-プロジェクトサイトに関する詳しい情報については「[{{ site.data.variables.product.prodname_pages }}について](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
+プロジェクトサイトに関する詳しい情報については「[{% data variables.product.prodname_pages %}について](/github/working-with-github-pages/about-github-pages#types-of-github-pages-sites)」を参照してください。
 
 Web トラフィックのリダイレクトに加え、前の場所をターゲットにしたすべての `git clone`、`git fetch`、または `git push` 操作は、引き続き新しい場所に対して行われているように機能します。 ただし、混乱を低減するため、既存のローカルクローンが新しいリポジトリ URL を指すよう更新することを強く推奨します。 これを行うには、コマンドラインで  `git remote` を使用します。
 
@@ -27,13 +27,13 @@ $ git remote set-url origin <em>新しい URL</em>
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{{ site.data.variables.product.prodname_pages }}サイトを持つリポジトリの名前を変更する場合は、サイトにカスタムドメインを使用することをお勧めします。 これにより、リポジトリの名前を変更してもサイトの URL は影響を受けません。 詳細は「[カスタムドメインおよび{{ site.data.variables.product.prodname_pages }}サイトについて](/github/working-with-github-pages/about-custom-domains-and-github-pages)」を参照してください。
+{% data variables.product.prodname_pages %}サイトを持つリポジトリの名前を変更する場合は、サイトにカスタムドメインを使用することをお勧めします。 これにより、リポジトリの名前を変更してもサイトの URL は影響を受けません。 詳細は「[カスタムドメインおよび{% data variables.product.prodname_pages %}サイトについて](/github/working-with-github-pages/about-custom-domains-and-github-pages)」を参照してください。
 
 {% endif %}
 
 {% tip %}
 
-**ヒント:** {{ site.data.reusables.organizations.owners-and-admins-can }}リポジトリの名前を変更できます。 {{ site.data.reusables.organizations.new-repo-permissions-more-info }}
+**ヒント:** {% data reusables.organizations.owners-and-admins-can %}リポジトリの名前を変更できます。 {% data reusables.organizations.new-repo-permissions-more-info %}
 
 {% endtip %}
 
@@ -43,7 +43,7 @@ $ git remote set-url origin <em>新しい URL</em>
 
 {% endwarning %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-settings }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
 3. [**Repository Name**] の下で、リポジトリの新しい名前を入力します。 ![リポジトリの名前の変更](/assets/images/help/repository/repository-name-change.png)
 4. [**Rename**] をクリックします。 これで完了です。

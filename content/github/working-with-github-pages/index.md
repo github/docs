@@ -1,7 +1,7 @@
 ---
 title: Working with GitHub Pages
 shortTitle: GitHub Pages
-intro: 'You can create a website directly from a {{ site.data.variables.product.product_name }} repository.'
+intro: 'You can create a website directly from a {% data variables.product.product_name %} repository.'
 redirect_from:
   - /categories/20/articles/
   - /categories/95/articles/
@@ -10,7 +10,7 @@ redirect_from:
   - /categories/96/articles/
   - /categories/github-pages-troubleshooting/
   - /categories/working-with-github-pages
-product: '{{ site.data.reusables.gated-features.pages }}'
+product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

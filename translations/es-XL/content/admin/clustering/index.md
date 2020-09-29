@@ -1,7 +1,7 @@
 ---
 title: Configurar y administrar una agrupación para GitHub Enterprise Server
 shortTitle: Agrupación
-intro: 'En esta guía, se describe el trabajo con el representante de cuenta para determinar si la agrupación de {{ site.data.variables.product.prodname_enterprise }} es una buena solución para tu organización, además de la configuración de una agrupación.'
+intro: 'En esta guía, se describe el trabajo con el representante de cuenta para determinar si la agrupación de {% data variables.product.prodname_enterprise %} es una buena solución para tu organización, además de la configuración de una agrupación.'
 redirect_from:
   - /enterprise/admin/clustering
 versions:

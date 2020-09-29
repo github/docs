@@ -9,7 +9,7 @@ versions:
 
 ### Supported editors
 
-{{ site.data.variables.product.prodname_desktop }} supports the following editors.
+{% data variables.product.prodname_desktop %} supports the following editors.
 
 {% mac %}
 
@@ -28,7 +28,7 @@ versions:
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - To use Brackets with {{ site.data.variables.product.prodname_desktop }}, you must install the Command Line shortcut. To install the shortcut, open Brackets, click **File** in the menu bar, then click **Install Command Line Shortcut**.
+  - To use Brackets with {% data variables.product.prodname_desktop %}, you must install the Command Line shortcut. To install the shortcut, open Brackets, click **File** in the menu bar, then click **Install Command Line Shortcut**.
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -57,7 +57,7 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. Wähle im Einstellungsfenster **Integrations** (Integrationen). ![Der Bereich „Integrations“ im Fenster „Preferences“ (Voreinstellungen)](/assets/images/help/desktop/mac-select-integrations-pane.png)
 4. Use the "External Editor" drop-down menu, and choose the editor you want to set as your default. ![Das Menü „External editor“ auf der Menüleiste „Preferences“ (Voreinstellungen)](/assets/images/help/desktop/mac-editor-menu.png)
 5. Klicke auf **Save** (Speichern).
@@ -66,7 +66,7 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 3. Wähle im Optionen-Fenster **Integrations**. ![Der Bereich „Integrations“ im Fenster „Options“](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. Use the "External Editor" drop-down menu, and choose the editor you want to set as your default. ![Das Menü „External editor“ auf der Menüleiste „Options“](/assets/images/help/desktop/windows-editor-menu.png)
 5. Klicke auf **Save** (Speichern).

@@ -9,7 +9,7 @@ versions:
 
 ### サポートされているエディタ
 
-{{ site.data.variables.product.prodname_desktop }} は、次のエディタをサポートしています。
+{% data variables.product.prodname_desktop %} は、次のエディタをサポートしています。
 
 {% mac %}
 
@@ -28,7 +28,7 @@ versions:
 - [JetBrains GoLand](https://www.jetbrains.com/go/)
 - [TextMate](https://macromates.com/)
 - [Brackets](http://brackets.io/)
-  - {{ site.data.variables.product.prodname_desktop }} でブラケットを使用するには、コマンドラインのショートカットをインストールする必要があります。 ショートカットをインストールするには、Brackets を開き、メニューバーの [**File**] をクリックして、[**Install Command Line Shortcut**] をクリックします。
+  - {% data variables.product.prodname_desktop %} でブラケットを使用するには、コマンドラインのショートカットをインストールする必要があります。 ショートカットをインストールするには、Brackets を開き、メニューバーの [**File**] をクリックして、[**Install Command Line Shortcut**] をクリックします。
 - [Typora](https://typora.io/)
 - [CodeRunner](https://coderunnerapp.com/)
 - [SlickEdit](https://www.slickedit.com/)
@@ -57,7 +57,7 @@ versions:
 
 {% mac %}
 
-{{ site.data.reusables.desktop.mac-select-desktop-menu }}
+{% data reusables.desktop.mac-select-desktop-menu %}
 3. Preferences（環境設定）ウィンドウで** Integrations（インテグレーション）**を選択してください。 ![環境設定ウィンドウのインテグレーションペイン](/assets/images/help/desktop/mac-select-integrations-pane.png)
 4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。 ![Preferencesメニューバー内のExternal editorメニュー](/assets/images/help/desktop/mac-editor-menu.png)
 5. [**Save**] をクリックします。
@@ -66,7 +66,7 @@ versions:
 
 {% windows %}
 
-{{ site.data.reusables.desktop.windows-choose-options }}
+{% data reusables.desktop.windows-choose-options %}
 3. Options（オプション）ウィンドウで** Integrations（インテグレーション）**を選択してください。 ![オプションウィンドウのインテグレーションペイン](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. [External Editor] ドロップダウンメニューを使用して、デフォルトとして設定するエディタを選択します。 ![Optionsメニューバー内のExternal editorメニュー](/assets/images/help/desktop/windows-editor-menu.png)
 5. [**Save**] をクリックします。

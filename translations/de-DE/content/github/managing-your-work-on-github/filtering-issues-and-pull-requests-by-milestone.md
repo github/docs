@@ -14,12 +14,12 @@ versions:
 
 - Wenn Du Issues und Pull Requests lieber über die Suchleiste filtern möchtest, kannst Du die Meilenstein-Such-Syntax verwenden. Für einen Meilenstein mit dem Namen „My Milestone“ lautete die Such-Syntax: `milestone:"My Milestone"`.
 - Um Deine Filterauswahl zurückzusetzen, klicke auf **Clear current search query, filters, and sorts** (Aktuelle Suchabfrage, Filter und Sortierung löschen).
--  You can also filter issues or pull requests using the {{ site.data.variables.product.prodname_cli }}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {{ site.data.variables.product.prodname_cli }} documentation.
+-  You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.sidebar-issue-pr }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issue-pr %}
 3. Wähle **Milestones** (Meilensteine) aus, um eine Liste aller Meilensteine anzuzeigen, die für das Repository verfügbar sind. ![Schaltfläche „Milestones“ (Meilensteine)](/assets/images/help/issues/issues_milestone_button.png)
 4. Wähle den Meilenstein, für den Du dich interessierst, aus der Liste aus. Auf der Meilenstein-Seite kannst Du relevante Informationen für den Meilenstein anzeigen, einschließlich aller mit ihm verknüpften Issues und Pull Requests. Weitere Informationen findest Du unter „[Informationen zu Meilensteinen](/articles/about-milestones).“
 

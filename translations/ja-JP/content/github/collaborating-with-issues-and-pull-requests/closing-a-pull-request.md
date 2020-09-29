@@ -14,7 +14,7 @@ versions:
 
 {% endtip %}
 
-{{ site.data.reusables.repositories.sidebar-pr }}
+{% data reusables.repositories.sidebar-pr %}
 2. [Pull Requests] リストで、クローズしたいプルリクエストをクリックします。
 3. プルリクエストのコメントボックスの下にある [**Close pull request**] をクリックします。 ![[Close Pull Request] ボタン](/assets/images/help/pull_requests/pullrequest-closebutton.png)
 4. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。

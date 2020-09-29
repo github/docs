@@ -1,6 +1,6 @@
 ---
 title: GraphQL APIについて
-intro: '{{ site.data.variables.product.prodname_dotcom }}のGraphQL APIは、柔軟性と、フェッチしたいデータを正確に定義できる機能を提供します。'
+intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、柔軟性と、フェッチしたいデータを正確に定義できる機能を提供します。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -38,7 +38,7 @@ GitHubがGraphQLに移行した理由の詳細については、オリジナル�
 
 ### GraphQLのスキーマ参照について
 
-サイドバー内のドキュメントは、{{ site.data.variables.product.prodname_dotcom }}のGraphQL[スキーマ](/v4/guides/intro-to-graphql/#discovering-the-graphql-api)から生成されます。 すべての呼び出しは、このスキーマに対して検証され、実行されます。 以下のドキュメントを使って、呼び出せるデータを見つけてください。
+サイドバー内のドキュメントは、{% data variables.product.prodname_dotcom %}のGraphQL[スキーマ](/v4/guides/intro-to-graphql/#discovering-the-graphql-api)から生成されます。 すべての呼び出しは、このスキーマに対して検証され、実行されます。 以下のドキュメントを使って、呼び出せるデータを見つけてください。
 
 * 許可された操作：[クエリ](/v4/query)と[ミューテーション](/v4/mutation)。
 
@@ -50,4 +50,4 @@ GitHubがGraphQLに移行した理由の詳細については、オリジナル�
 
 ### サポートのリクエスト
 
-{{ site.data.reusables.support.help_resources }}
+{% data reusables.support.help_resources %}

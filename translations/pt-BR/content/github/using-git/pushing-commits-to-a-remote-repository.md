@@ -83,7 +83,7 @@ git fetch upstream
 > remote: Compactação de objetos: 100% (53/53), concluída.
 > remote: Total 62 (delta 27), reutilizados 44 (delta 9)
 > Descompactação de objetos: 100% (62/62), concluída.
-> From https://{{ site.data.variables.command_line.codeblock }}/<em>octocat</em>/<em>repo</em>
+> From https://{% data variables.command_line.codeblock %}/<em>octocat</em>/<em>repo</em>
 >  * [novo branch]      master     -> upstream/master
 ```
 

@@ -8,18 +8,18 @@ versions:
 
 ### About the default branch name
 
-When a member of your organization creates a new repository, {{ site.data.variables.product.prodname_dotcom }} will create a single branch and set it as the repository's default branch. {{ site.data.variables.product.prodname_dotcom }} currently names the default branch `master`, but you can set the default branch to be named anything that makes sense for your development environment.
+When a member of your organization creates a new repository, {% data variables.product.prodname_dotcom %} will create a single branch and set it as the repository's default branch. {% data variables.product.prodname_dotcom %} currently names the default branch `master`, but you can set the default branch to be named anything that makes sense for your development environment.
 
-{{ site.data.reusables.branches.set-default-branch }}
+{% data reusables.branches.set-default-branch %}
 
-{{ site.data.reusables.branches.rename-existing-branch }}
+{% data reusables.branches.rename-existing-branch %}
 
 ### Setting the default branch name
 
-{{ site.data.reusables.profile.access_profile }}
-{{ site.data.reusables.profile.access_org }}
-{{ site.data.reusables.organizations.org_settings }}
-{{ site.data.reusables.organizations.repository-defaults }}
+{% data reusables.profile.access_profile %}
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.repository-defaults %}
 3. Under "Repository default branch", click **Change default branch name now**.
     ![Override button](/assets/images/help/organizations/repo-default-name-button.png)
     {% note %}

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '*'
 ---
 
-{{ site.data.reusables.repositories.navigate-to-repo }}
-{{ site.data.reusables.repositories.releases }}
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.releases %}
 3. Finde den Release, den Du verknüpfen willst und klicke auf die Versionsnummer. ![Informationen zu Release-Tags](/assets/images/help/releases/release_tag_name.png)
 3. Klicke alternativ mit der rechten Maustaste auf **Latest Release** (Aktueller Release) und kopiere die URL, um sie zu teilen. Das Suffix dieser URL ist immer `/releases/latest`. ![Tag für neuesten Release](/assets/images/help/releases/release_latest_release_tag.png)
 

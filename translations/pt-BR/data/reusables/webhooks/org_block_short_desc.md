@@ -1,1 +1,1 @@
-Activity related to people being blocked in an organization. {{ site.data.reusables.webhooks.action_type_desc }} Para obter mais informações, consulte o[Bloqueando usuários da organização](/v3/orgs/blocking/)" da API REST.
+Activity related to people being blocked in an organization. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte o[Bloqueando usuários da organização](/v3/orgs/blocking/)" da API REST.

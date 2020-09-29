@@ -4,7 +4,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/integrations/
   - /enterprise/admin/categories/integration/
   - /enterprise/admin/developer-workflow
-intro: 'このガイドは、開発者ワークフローを実装し、リスクを引き下げ品質を高めるための組織的なポリシーを強制するために、{{ site.data.variables.product.prodname_enterprise }} で利用できるツールについて述べます。'
+intro: 'このガイドは、開発者ワークフローを実装し、リスクを引き下げ品質を高めるための組織的なポリシーを強制するために、{% data variables.product.prodname_enterprise %} で利用できるツールについて述べます。'
 versions:
   enterprise-server: '*'
 ---

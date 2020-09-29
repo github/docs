@@ -1,7 +1,7 @@
 ---
 title: Organization での SAML シングルサインオンの強制を準備する
 intro: Organization で SAML シングルサインオンを強制する前に、Organization のメンバーシップを検証し、アイデンティティプロバイダへの接続文字列を設定する必要があります。
-product: '{{ site.data.reusables.gated-features.saml-sso }}'
+product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/preparing-to-enforce-saml-single-sign-on-in-your-organization
 versions:
@@ -16,7 +16,7 @@ Organization で SAML SSO を強制する前に、次の準備が必要です:
 - まだ接続していない場合は、IdP を Organization に接続します。 詳細は「[アイデンティティプロバイダを Organization に接続する](/articles/connecting-your-identity-provider-to-your-organization)」を参照してください。
 - Organization のメンバーがサインインし、アカウントを IdP にリンクしていることを確認します。
 
-{{ site.data.reusables.saml.outside-collaborators-exemption }}
+{% data reusables.saml.outside-collaborators-exemption %}
 
 ### 参考リンク
 

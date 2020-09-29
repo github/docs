@@ -29,10 +29,10 @@ Os integrantes da organização podem ter funções de *proprietário*{% if curr
 
 Os *proprietários de empresa* têm poder absoluto sobre a conta corporativa e podem realizar todas as ações nela. Os *gerentes de cobrança* podem gerenciar as configurações de cobrança da sua conta corporativa. Os integrantes e colaboradores externos das organizações pertencentes à sua conta corporativa são automaticamente integrantes da conta corporativa, embora eles não tenham acesso à conta corporativa em si nem às configurações dela. Para obter mais informações, consulte "[Funções de uma conta corporativa](/articles/roles-for-an-enterprise-account)".
 
-{{ site.data.reusables.gated-features.enterprise-accounts }}
+{% data reusables.gated-features.enterprise-accounts %}
 
 {% endif %}
 
 ### Leia mais
 
-- "[Tipos de conta do {{ site.data.variables.product.prodname_dotcom }}](/articles/types-of-github-accounts)"
+- "[Tipos de conta do {% data variables.product.prodname_dotcom %}](/articles/types-of-github-accounts)"

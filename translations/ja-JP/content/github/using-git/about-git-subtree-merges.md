@@ -21,7 +21,7 @@ versions:
 
 ### サブツリーマージのための空のリポジトリのセットアップ
 
-{{ site.data.reusables.command_line.open_the_multi_os_terminal }}
+{% data reusables.command_line.open_the_multi_os_terminal %}
 2. 新しいディレクトリを作成し、そこに移動します。
   ```shell
   $ mkdir test
