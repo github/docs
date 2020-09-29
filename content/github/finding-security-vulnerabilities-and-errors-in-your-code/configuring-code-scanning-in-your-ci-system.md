@@ -94,7 +94,7 @@ If the `autobuild` command can't build your code, you can run the build steps yo
 
 By default, the {{ site.data.variables.product.prodname_codeql_runner }} uploads results from {{ site.data.variables.product.prodname_code_scanning }} when you run the `analyze` command. You can also upload SARIF files separately, by using the `upload` command.
 
-Once you've uploaded the data, {{ site.data.variables.product.prodname_dotcom }} displays the alerts in your repository. For more information, see "[Managing alerts from code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning#viewing-an-alert)."
+Once you've uploaded the data, {{ site.data.variables.product.prodname_dotcom }} displays the alerts in your repository. For more information, see "[Managing {{ site.data.variables.product.prodname_code_scanning }} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository#viewing-an-alert)."
 
 ### {{ site.data.variables.product.prodname_codeql_runner }} command reference
 

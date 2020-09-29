@@ -93,7 +93,7 @@ This example runs {{ site.data.variables.product.prodname_codeql }} analysis on 
     > Successfully uploaded results
     ```
 
-The server has access to download the {{ site.data.variables.product.prodname_codeql }} bundle directly from the `github/codeql-action` repository on {{ site.data.variables.product.prodname_dotcom_the_website}}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {{ site.data.variables.product.product_location }}{% endif %}, so there is no need to use the `--codeql-path` flag. When the analysis is complete, the {{ site.data.variables.product.prodname_codeql_runner }} uploads the results to the {{ site.data.variables.product.prodname_code_scanning }} view. For more information, see "[Managing alerts from {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning)."
+The server has access to download the {{ site.data.variables.product.prodname_codeql }} bundle directly from the `github/codeql-action` repository on {{ site.data.variables.product.prodname_dotcom_the_website}}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {{ site.data.variables.product.product_location }}{% endif %}, so there is no need to use the `--codeql-path` flag. When the analysis is complete, the {{ site.data.variables.product.prodname_codeql_runner }} uploads the results to the {{ site.data.variables.product.prodname_code_scanning }} view. For more information, see "[Managing {{ site.data.variables.product.prodname_code_scanning }} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
 #### Compiled language example
 

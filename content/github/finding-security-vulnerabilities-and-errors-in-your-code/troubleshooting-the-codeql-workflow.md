@@ -57,6 +57,7 @@ If your workflow fails with an error `No source code was seen during the build` 
       # ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
       language: ['go', 'javascript']
   ```
+For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 1. Your {{ site.data.variables.product.prodname_code_scanning }} workflow is analyzing a compiled language (C, C++, C#, or Java), but the code was not compiled. By default, the {{ site.data.variables.product.prodname_codeql }} analysis workflow contains an `autobuild` step, however, this step represents a best effort process, and may not succeed in building your code, depending on your specific build environment. Compilation may also fail if you have removed the `autobuild` step and did not include build steps manually.  For more information about specifying build steps, see "[Configuring the {{ site.data.variables.product.prodname_codeql }} workflow for compiled languages](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but portions of your build are cached to improve performance (most likely to occur with build systems like Gradle or Bazel). Since {{ site.data.variables.product.prodname_codeql }} observes the activity of the compiler to understand the data flows in a repository, {{ site.data.variables.product.prodname_codeql }} requires a complete build to take place in order to perform analysis. 
 1. Your workflow is analyzing a compiled language (C, C++, C#, or Java), but compilation does not occur between the `init` and `analyze` steps in the workflow. {{ site.data.variables.product.prodname_codeql }} requires that your build happens in between these two steps in order to observe the activity of the compiler and perform analysis. 
@@ -99,7 +100,7 @@ If you use self-hosted runners to run {{ site.data.variables.product.prodname_co
 
 #### Use matrix builds to parallelize the analysis
 
-The default {{ site.data.variables.product.prodname_codeql_workflow }} uses a build matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)."
+The default {{ site.data.variables.product.prodname_codeql_workflow }} uses a build matrix of languages, which causes the analysis of each language to run in parallel. If you have specified the languages you want to analyze directly in the "Initialize CodeQL" step, analysis of each language will happen sequentially. To speed up analysis of multiple languages, modify your workflow to use a matrix. For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 
 #### Reduce the amount of code being analyzed in a single workflow
 

@@ -948,7 +948,25 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a public docker registry name.
+The Docker image to use as the container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.container.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Example
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
 #### **`jobs.<job_id>.container.env`**
 
@@ -1011,19 +1029,43 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+#### **`jobs.<job_id>.services.<service_id>.image`**
 
-The Docker image to use as the service container to run the action. The value can be the Docker base image name or a public docker Hub or registry.
+The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Example
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+#### **`jobs.<job_id>.services.<service_id>.env`**
 
 Sets a `map` of environment variables in the service container.
 
-#### **`jobs.<job_id>.services.ports`**
+#### **`jobs.<job_id>.services.<service_id>.ports`**
 
 Sets an `array` of ports to expose on the service container.
 
-#### **`jobs.<job_id>.services.volumes`**
+#### **`jobs.<job_id>.services.<service_id>.volumes`**
 
 Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
 
@@ -1042,7 +1084,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+#### **`jobs.<job_id>.services.<service_id>.options`**
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 

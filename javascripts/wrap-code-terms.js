@@ -11,16 +11,21 @@ export default function () {
   if (!codeTerms) return
 
   codeTerms.forEach(node => {
-    node.innerHTML = node.innerHTML.replace(wordsLongerThan18Chars, (str) => {
+    // Do the wrapping on the inner text only, so we don't modify hrefs
+    const oldText = node.textContent
+
+    const newText = oldText.replace(wordsLongerThan18Chars, (str) => {
       return str
-        // GraphQL code terms use camelcase
+      // GraphQL code terms use camelcase
         .replace(camelCaseChars, '$1<wbr>$2')
-        // REST code terms use underscores
-        // to keep word breaks looking nice, only break on underscores after the 12th char
-        // so `has_organization_projects` will break after `has_organization` instead of after `has_`
+      // REST code terms use underscores
+      // to keep word breaks looking nice, only break on underscores after the 12th char
+      // so `has_organization_projects` will break after `has_organization` instead of after `has_`
         .replace(underscoresAfter12thChar, '$1_<wbr>')
-        // Some Actions reference pages have tables with code terms separated by slashes
+      // Some Actions reference pages have tables with code terms separated by slashes
         .replace(slashChars, '$1<wbr>')
     })
+
+    node.innerHTML = node.innerHTML.replace(oldText, newText)
   })
 }
