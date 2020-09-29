@@ -1,6 +1,6 @@
 ---
 title: Triaging code scanning alerts in pull requests
-shortTitle: Triaging alerts
+shortTitle: Triaging alerts in pull requests
 intro: 'When {{ site.data.variables.product.prodname_code_scanning }} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
 product: '{{ site.data.reusables.gated-features.code-scanning }}'
 permissions: 'People with write permission to a repository can resolve {{ site.data.variables.product.prodname_code_scanning }} alerts.'
