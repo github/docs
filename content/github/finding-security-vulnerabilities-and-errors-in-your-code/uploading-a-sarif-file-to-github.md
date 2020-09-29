@@ -16,7 +16,7 @@ versions:
 
 ### About SARIF file uploads for {{ site.data.variables.product.prodname_code_scanning }}
 
-{{ site.data.variables.product.prodname_dotcom }} creates {{ site.data.variables.product.prodname_code_scanning }} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {{ site.data.variables.product.prodname_actions }}. For more information, see "[Managing alerts from {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-alerts-from-code-scanning)."
+{{ site.data.variables.product.prodname_dotcom }} creates {{ site.data.variables.product.prodname_code_scanning }} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF files can be uploaded to a repository using the API or {{ site.data.variables.product.prodname_actions }}. For more information, see "[Managing {{ site.data.variables.product.prodname_code_scanning }} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
 You can generate SARIF files using many static analysis security testing tools, including {{ site.data.variables.product.prodname_codeql }}. The results must use SARIF version 2.1.0. For more information, see "[About SARIF support for {{ site.data.variables.product.prodname_code_scanning }}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-sarif-support-for-code-scanning)."
 
