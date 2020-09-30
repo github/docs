@@ -1,6 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { EnvironmentPlugin } = require('webpack')
 
 module.exports = {
   entry: './javascripts/index.js',
@@ -67,6 +68,7 @@ module.exports = {
       patterns: [
         { from: 'node_modules/@primer/css/fonts', to: 'fonts' }
       ]
-    })
+    }),
+    new EnvironmentPlugin(['NODE_ENV'])
   ]
 }

@@ -8,8 +8,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
+{% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ### The `init` command takes too long
 
