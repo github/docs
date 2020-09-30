@@ -1,5 +1,5 @@
 const path = require('path')
-const versionSatisifiesRange = require('../lib/version-satisfies-range')
+const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const enterpriseServerReleases = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const firstVersionDeprecatedOnNewSite = '2.13'
@@ -32,10 +32,10 @@ module.exports = async (req, res, next) => {
 
   // paths are slightly different depending on the enterprise version
   let proxyPath
-  if (versionSatisifiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)) {
+  if (versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)) {
     // routing for >=2.13
     proxyPath = path.join('/', requestedVersion, assetPath)
-  } else if (versionSatisifiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) {
+  } else if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) {
     // routing for <2.13
     proxyPath = path.join('/', requestedVersion, 'assets', assetPath)
   }
