@@ -14,6 +14,7 @@ versions:
 {% topic_link_in_list /managing-your-enterprise-account %}
     {% link_in_list /about-enterprise-accounts %}
     {% link_in_list /viewing-the-subscription-and-usage-for-your-enterprise-account %}
+    {% link_in_list /managing-licenses-for-visual-studio-subscription-with-github-enterprise %}
 {% topic_link_in_list /managing-users-in-your-enterprise-account %}
     {% link_in_list /roles-for-an-enterprise-account %}
     {% link_in_list /inviting-people-to-manage-your-enterprise-account %}
