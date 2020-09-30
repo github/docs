@@ -1,5 +1,5 @@
 const instantsearch = require('instantsearch.js').default
-const { searchBox, hits } = require('instantsearch.js/es/widgets')
+const { searchBox, hits, configure } = require('instantsearch.js/es/widgets')
 const algoliasearch = require('algoliasearch')
 const searchWithYourKeyboard = require('search-with-your-keyboard')
 const querystring = require('querystring')
@@ -131,34 +131,39 @@ export default function () {
 
   const search = instantsearch(opts)
 
-  search.addWidget(
-    hits({
-      container: '#search-results-container',
-      templates: {
-        empty: 'No results',
-        item: resultTemplate
-      },
-      // useful for debugging template context, if needed
-      transformItems: items => {
-        // console.log(`transformItems`, items)
-        return items
-      }
-    })
-  )
-
   // Find search placeholder text in a <meta> tag, falling back to a default
   const placeholderMeta = document.querySelector('meta[name="site.data.ui.search.placeholder"]')
   const placeholder = placeholderMeta ? placeholderMeta.content : 'Search topics, products...'
 
-  search.addWidget(
-    searchBox({
-      container: '#search-input-container',
-      placeholder,
-      // only autofocus on the homepage, and only if no #hash is present in the URL
-      autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
-      showReset: false,
-      showSubmit: false
-    })
+  search.addWidgets(
+    [
+      hits({
+        container: '#search-results-container',
+        templates: {
+          empty: 'No results',
+          item: resultTemplate
+        },
+        // useful for debugging template context, if needed
+        transformItems: items => {
+          // console.log(`transformItems`, items)
+          return items
+        }
+      }),
+      configure({
+        analyticsTags: [
+          'site:docs.github.com',
+          `env:${process.env.NODE_ENV}`
+        ]
+      }),
+      searchBox({
+        container: '#search-input-container',
+        placeholder,
+        // only autofocus on the homepage, and only if no #hash is present in the URL
+        autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
+        showReset: false,
+        showSubmit: false
+      })
+    ]
   )
 
   // enable for debugging
