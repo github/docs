@@ -244,7 +244,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 ##### **`runs.steps.env`**
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "::set-env name={name}::{value}"` in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
 ##### **`runs.steps.working-directory`**
 

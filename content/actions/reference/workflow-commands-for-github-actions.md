@@ -21,7 +21,11 @@ versions:
 
 Actions can communicate with the runner machine to set environment variables, output values used by other actions, add debug messages to the output logs, and other tasks.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+Most workflow commands use the `echo` command in a specific format, while others are invoked by writing to a file. For more information, see ["Environment files".](#environment-files)
+{% else %}
 Workflow commands use the `echo` command in a specific format.
+{% endif %}
 
 ``` bash
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
@@ -41,30 +45,31 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 ### Using workflow commands to access toolkit functions
 
-The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`. For example, instead of using code to set an environment variable, as below:
+The [actions/toolkit](https://github.com/actions/toolkit) includes a number of functions that can be executed as workflow commands. Use the `::` syntax to run the workflow commands within your YAML file; these commands are then sent to the runner over `stdout`. For example, instead of using code to set an output, as below:
 
 ```javascript
-core.exportVariable('SELECTED_COLOR', 'green');
+core.setOutput('SELECTED_COLOR', 'green');
 ```
 
-You can use the `set-env` command in your workflow to set the same value:
+You can use the `set-output` command in your workflow to set the same value:
 
 ``` yaml
       - name: Set selected color
-        run: echo '::set-env name=SELECTED_COLOR::green'
+        run: echo '::set-output name=SELECTED_COLOR::green'
+        id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' $SELECTED_COLOR
+        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
 ```
 
 The following table shows which toolkit functions are available within a workflow:
 
 | Toolkit function| Equivalent workflow command|
 | -------------   |  ------------- |
-| `core.addPath` |  `add-path`   |
+| `core.addPath` |  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_PATH`{% else %} `add-path` {% endif %}    |
 | `core.debug` |  `debug`   |
 | `core.error`   |   `error`   |
 | `core.endGroup`   |   `endgroup`   |
-| `core.exportVariable`   | `set-env`      |
+| `core.exportVariable`   | {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}Accessible using environment file `GITHUB_ENV`{% else %} `set-env` {% endif %}    |
 | `core.getInput`        |     Accessible using environment variable `INPUT_{NAME}`          |
 | `core.getState`   |  Accessible using environment variable `STATE_{NAME}`   |
 | `core.isDebug`   |   Accessible using environment variable `RUNNER_DEBUG`  |
@@ -75,6 +80,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.startGroup`   |  `group`    |
 | `core.warning`  |    `warning file` |
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Setting an environment variable
 
 `::set-env name={name}::{value}`
@@ -86,6 +92,7 @@ Creates or updates an environment variable for any actions running next in a job
 ``` bash
 echo "::set-env name=action_state::yellow"
 ```
+{% endif %}
 
 ### Setting an output parameter
 
@@ -101,6 +108,7 @@ Optionally, you can also declare output parameters in an action's metadata file.
 echo "::set-output name=action_fruit::strawberry"
 ```
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Adding a system path
 
 `::add-path::{path}`
@@ -112,6 +120,7 @@ Prepends a directory to the system `PATH` variable for all subsequent actions in
 ``` bash
 echo "::add-path::/path/to/dir"
 ```
+{% endif %}
 
 ### Setting a debug message
 
@@ -213,3 +222,68 @@ The `STATE_processID` variable is then exclusively available to the cleanup scri
 ``` javascript
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Environment Files
+
+During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
+
+{% warning %}
+
+**Warning:** Powershell does not use UTF-8 by default. Make sure you write files using the correct encoding. For example, you need to set UTF-8 encoding when you set the path:
+
+```
+steps:
+  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+```
+
+{% endwarning %}
+
+### Setting an environment variable
+
+`echo "{name}={value}" >> $GITHUB_ENV`
+
+Creates or updates an environment variable for any actions running next in a job. The action that creates or updates the environment variable does not have access to the new value, but all subsequent actions in a job will have access. Environment variables are case-sensitive and you can include punctuation.
+
+#### Example
+
+```bash
+echo "action_state=yellow" >> $GITHUB_ENV
+```
+
+Running `$action_state` in a future step will now return `yellow`
+
+#### Multline strings
+For multiline strings, you may use a delimeter with the following syntax. 
+
+```
+{name}<<{delimeter}
+{value}
+{delimeter}
+```
+
+#### Example
+In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
+```
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+        echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV
+        curl https://httpbin.org/json >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+```
+
+
+### Adding a system path
+
+`echo "{path}" >> $GITHUB_PATH`
+
+Prepends a directory to the system `PATH` variable for all subsequent actions in the current job. The currently running action cannot access the new path variable.
+
+#### Example
+
+``` bash
+echo "/path/to/dir" >> $GITHUB_PATH
+```
+{% endif %}
