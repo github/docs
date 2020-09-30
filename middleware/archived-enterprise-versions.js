@@ -1,7 +1,7 @@
 const path = require('path')
 const { latest, deprecated, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
-const versionSatisifiesRange = require('../lib/version-satisfies-range')
+const versionSatisfiesRange = require('../lib/version-satisfies-range')
 const got = require('got')
 const findPage = require('../lib/find-page')
 
@@ -26,14 +26,14 @@ module.exports = async (req, res, next) => {
 
   // redirect language-prefixed URLs like /en/enterprise/2.10 -> /enterprise/2.10
   // (this only applies to versions <2.13)
-  if (req.path.startsWith('/en/') && versionSatisifiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) {
+  if (req.path.startsWith('/en/') && versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) {
     return res.redirect(301, req.baseUrl + req.path.replace(/^\/en/, ''))
   }
 
   // find redirects for versions between 2.13 and 2.17
   // starting with 2.18, we updated the archival script to create stubbed HTML redirect files
-  if (versionSatisifiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
-    versionSatisifiesRange(requestedVersion, `<=${lastVersionWithoutStubbedRedirectFiles}`)) {
+  if (versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`) &&
+    versionSatisfiesRange(requestedVersion, `<=${lastVersionWithoutStubbedRedirectFiles}`)) {
     const redirect = req.context.redirects[req.path]
     if (redirect && redirect !== req.path) {
       return res.redirect(301, redirect)
@@ -68,7 +68,7 @@ module.exports = async (req, res, next) => {
 // for >=2.13: /2.13/en/enterprise/2.13/user/articles/viewing-contributions-on-your-profile
 // for <2.13: /2.12/user/articles/viewing-contributions-on-your-profile
 function getProxyPath (reqPath, requestedVersion) {
-  const proxyPath = versionSatisifiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
+  const proxyPath = versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
     ? path.join('/', requestedVersion, reqPath)
     : reqPath.replace(/^\/enterprise/, '')
 
@@ -78,8 +78,8 @@ function getProxyPath (reqPath, requestedVersion) {
 // from 2.13 to 2.17, we lost access to frontmatter redirects during the archival process
 // this workaround finds potentially relevant frontmatter redirects in currently supported pages
 function getFallbackRedirects (req, requestedVersion) {
-  if (versionSatisifiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) return
-  if (versionSatisifiesRange(requestedVersion, `>${lastVersionWithoutStubbedRedirectFiles}`)) return
+  if (versionSatisfiesRange(requestedVersion, `<${firstVersionDeprecatedOnNewSite}`)) return
+  if (versionSatisfiesRange(requestedVersion, `>${lastVersionWithoutStubbedRedirectFiles}`)) return
 
   const pathWithNewVersion = req.path.replace(requestedVersion, latest)
 
