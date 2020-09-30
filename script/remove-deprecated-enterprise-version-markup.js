@@ -4,83 +4,92 @@ const fs = require('fs')
 const path = require('path')
 const walk = require('walk-sync')
 const matter = require('gray-matter')
-const readlineSync = require('readline-sync')
+const program = require('commander')
+const { indexOf, nth } = require('lodash')
 const removeLiquidStatements = require('../lib/remove-liquid-statements')
 const removeDeprecatedFrontmatter = require('../lib/remove-deprecated-frontmatter')
-const versionToDeprecate = require('../lib/enterprise-server-releases').deprecated[0]
-const nextOldestVersion = require('../lib/enterprise-server-releases').oldestSupported
-const devCheckout = process.argv[2]
-const prompt = `This script will run in the current checkout of help.github.com.
-Is that what you want? Press Y to continue, or enter any other key to cancel: `
+const enterpriseServerReleases = require('../lib/enterprise-server-releases')
+const contentPath = path.join(__dirname, '../content')
+const dataPath = path.join(__dirname, '../data')
+const removeUnusedAssetsScript = 'script/remove-unused-assets'
+const elseifRegex = /{-?% elsif/
 
 // [start-readme]
 //
 // Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version.
 // See the Enterprise deprecation issue template for instructions.
 //
-// You can run this script on either the help docs or the developer docs. To run it on the help docs, enter:
-//
-// `script/remove-deprecated-enterprise-version-markup.js`
-//
-// To run it on the developer docs, provide a path to your developer docs checkout as an argument. You can use a tilde to represent your home directory. For example:
-//
-// `script/remove-deprecated-enterprise-version-markup.js ~/Desktop/internal-developer.github.com/`
-//
 // [end-readme]
 
-let contentDir = path.join(__dirname, '../content')
-let dataDir = path.join(__dirname, '../data')
+program
+  .description('Remove Liquid conditionals and update versions frontmatter for a given Enterprise Server release.')
+  .option('-r, --release <NUMBER>', 'Enterprise Server release number. Example: 2.19')
+  .parse(process.argv)
 
-const elseifRegex = /{-?% elsif/
-
-// determine whether to run the script on help docs or developer docs
-if (devCheckout) {
-  try {
-    process.chdir(devCheckout)
-    console.log('OK, the script will run in ' + devCheckout)
-    contentDir = path.join(devCheckout, 'content')
-    dataDir = path.join(devCheckout, 'data')
-  } catch (err) {
-    console.log('No such directory! ' + devCheckout)
-  }
-} else {
-  const answer = readlineSync.question(prompt)
-
-  if (!answer.match(/^Y$/mi)) {
-    console.log('Exiting!')
-    process.exit()
-  }
+// verify CLI options
+if (!program.release) {
+  console.log(program.description() + '\n')
+  program.options.forEach(opt => {
+    console.log(opt.flags)
+    console.log(opt.description + '\n')
+  })
+  process.exit(1)
 }
 
+if (!enterpriseServerReleases.all.includes(program.release)) {
+  console.log(`You specified ${program.release}! Please specify a supported or deprecated release number from lib/enterprise-server-releases.js`)
+  process.exit(1)
+}
+
+const versionToDeprecate = `enterprise-server@${program.release}`
+const currentIndex = indexOf(enterpriseServerReleases.all, program.release)
+const nextOldestRelease = nth(enterpriseServerReleases.all, currentIndex - 1)
+const nextOldestVersion = `enterprise-server@${nextOldestRelease}`
+
+console.log(`Deprecating ${versionToDeprecate}!\n`)
+console.log(`Next oldest version: ${nextOldestVersion}\n`)
+
 // gather content and data files
-const contentFiles = walk(contentDir, { includeBasePath: true })
-  .filter(relativePath => relativePath.endsWith('.md') && !relativePath.match(/README/i))
+const contentFiles = walk(contentPath, { includeBasePath: true, directories: false })
+  .filter(file => file.endsWith('.md'))
+  .filter(file => !(file.endsWith('README.md') || file === 'LICENSE'))
 
-const dataFiles = walk(dataDir, { includeBasePath: true })
-  .filter(relativePath => relativePath.endsWith('.yml') || relativePath.endsWith('.md'))
-  .filter(relativePath => !relativePath.includes('/graphql/'))
+const dataFiles = walk(dataPath, { includeBasePath: true, directories: false })
+  .filter(file => file.includes('data/reusables') || file.includes('data/variables'))
+  .filter(file => !file.endsWith('README.md'))
 
-const files = contentFiles.concat(dataFiles)
+const allFiles = contentFiles.concat(dataFiles)
 
 main()
-console.log(`Removed ${versionToDeprecate} markup from content and data files! Review and run script/test.`)
+console.log(`\nRunning ${removeUnusedAssetsScript}...`)
+require(`../${removeUnusedAssetsScript}`)
+
+function printElseIfFoundWarning (location) {
+  console.log(`${location} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)
+}
 
 function main () {
-  files.forEach(file => {
+  allFiles.forEach(file => {
     const oldContents = fs.readFileSync(file, 'utf8')
     const { content, data } = matter(oldContents)
 
-    // can't safely handle elseifs programmatically, too many possible outcomes
-    // (only intro and title frontmatter are likely to contain elseif tags)
-    if (content.match(elseifRegex) || (data.intro && data.intro.match(elseifRegex)) || (data.title && data.title.match(elseifRegex))) {
-      console.log(`${file} has an 'elsif' condition! Resolve all elsifs by hand, then rerun the script.`)
+    // we can't safely handle elseifs programmatically, too many possible outcomes
+    if (elseifRegex.test(content)) {
+      printElseIfFoundWarning(`content in ${file}`)
       process.exit()
     }
 
-    // update frontmatter data (i.e., productVersions field)
-    const newData = removeDeprecatedFrontmatter(data, devCheckout, versionToDeprecate, nextOldestVersion)
+    Object.keys(data).forEach(key => {
+      if (elseifRegex.test(data[key])) {
+        printElseIfFoundWarning(`frontmatter '${key}' in ${file}`)
+        process.exit()
+      }
+    })
 
-    // update liquid statements in body content
+    // update frontmatter versions prop
+    removeDeprecatedFrontmatter(file, data.versions, versionToDeprecate, nextOldestVersion)
+
+    // update liquid statements in content and data
     const newContent = removeLiquidStatements(content, versionToDeprecate, nextOldestVersion)
 
     // make sure any intro fields that exist and are empty return an empty string, not null
@@ -89,8 +98,10 @@ function main () {
     }
 
     // put it all back together
-    const newContents = matter.stringify(newContent, newData, { lineWidth: 10000 })
+    const newContents = matter.stringify(newContent, data, { lineWidth: 10000 })
 
     fs.writeFileSync(file, newContents)
   })
+
+  console.log(`Removed ${versionToDeprecate} markup from content and data files! Review and run script/test.`)
 }

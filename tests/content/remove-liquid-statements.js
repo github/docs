@@ -7,8 +7,8 @@ const removeDeprecatedFrontmatter = require('../../lib/remove-deprecated-frontma
 const removeLiquidStatementsFixtures = path.join(__dirname, '../fixtures/remove-liquid-statements')
 
 // Hardcode values so tests don't go out of date
-const versionToDeprecate = '2.13'
-const nextOldestVersion = '2.14'
+const versionToDeprecate = 'enterprise-server@2.13'
+const nextOldestVersion = 'enterprise-server@2.14'
 
 // Remove liquid only
 const greaterThan = path.join(removeLiquidStatementsFixtures, 'greater-than.md')
@@ -28,10 +28,10 @@ const frontmatter1 = path.join(removeLiquidStatementsFixtures, 'frontmatter1.md'
 const frontmatter2 = path.join(removeLiquidStatementsFixtures, 'frontmatter2.md')
 
 // process frontmatter
-function processFrontmatter (contents) {
+function processFrontmatter (contents, file) {
   const { content, data } = matter(contents)
-  const newData = removeDeprecatedFrontmatter(data, false, versionToDeprecate, nextOldestVersion)
-  return matter.stringify(content, newData, { lineWidth: 10000 })
+  removeDeprecatedFrontmatter(file, data.versions, versionToDeprecate, nextOldestVersion)
+  return matter.stringify(content, data, { lineWidth: 10000 })
 }
 
 describe('removing liquid statements only', () => {
@@ -42,17 +42,17 @@ describe('removing liquid statements only', () => {
     expect($('.example1').text().trim()).toBe('Alpha')
     expect($('.example2').text().trim()).toBe('Alpha')
     expect($('.example3').text().trim()).toBe('Alpha')
-    expect($('.example4').text().trim()).toBe(`{% if page.version ver_gt "2.16" %}\n
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion ver_gt "enterprise-server@2.16" %}\n
 Alpha\n\n{% else %}\n\nBravo\n\nCharlie\n\n{% endif %}`)
-    expect($('.example5').text().trim()).toBe(`{% if page.version ver_lt "2.16" %}\n
+    expect($('.example5').text().trim()).toBe(`{% if currentVersion ver_lt "enterprise-server@2.16" %}\n
 Alpha\n\nBravo\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
-    expect($('.example6').text().trim()).toBe(`Alpha\n\n{% if page.version ver_lt "2.16" %}\n
+    expect($('.example6').text().trim()).toBe(`Alpha\n\n{% if currentVersion ver_lt "enterprise-server@2.16" %}\n
 Bravo\n\n{% endif %}`)
-    expect($('.example7').text().trim()).toBe(`Alpha\n\n{% if page.version ver_gt "2.16" %}\n
+    expect($('.example7').text().trim()).toBe(`Alpha\n\n{% if currentVersion ver_gt "enterprise-server@2.16" %}\n
 Bravo\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example8').text().trim()).toBe('Alpha')
-    expect($('.example9').text().trim()).toBe(`{% if page.version == 'dotcom' %}\n
-Alpha\n\n{% else %}\n\nBravo\n\n{% if page.version ver_gt "2.16" %}\n\nCharlie\n
+    expect($('.example9').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
+Alpha\n\n{% else %}\n\nBravo\n\n{% if currentVersion ver_gt "enterprise-server@2.16" %}\n\nCharlie\n
 {% endif %}\n\nDelta\n\n{% endif %}`)
     expect($('.example10').text().trim()).toBe('Alpha')
   })
@@ -61,28 +61,28 @@ Alpha\n\n{% else %}\n\nBravo\n\n{% if page.version ver_gt "2.16" %}\n\nCharlie\n
     let contents = fs.readFileSync(andGreaterThan1, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
-    expect($('.example1').text().trim()).toBe('{% if page.version != \'dotcom\' %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example2').text().trim()).toBe('{% if page.version != \'dotcom\' %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example3').text().trim()).toBe(`{% if page.version ver_gt "2.16" %}\n
-Alpha\n\n{% else %}\n\nBravo\n\n{% if page.version != 'dotcom' %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
-    expect($('.example4').text().trim()).toBe(`{% if page.version ver_lt "2.16" %}\n
-Alpha\n\n{% if page.version != 'dotcom' %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
-    expect($('.example5').text().trim()).toBe(`{% if page.version != 'dotcom' %}\n
-Alpha\n\n{% if page.version ver_gt "2.16" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
+    expect($('.example1').text().trim()).toBe('{% if currentVersion != "free-pro-team@latest" %}\n\nAlpha\n\n{% endif %}')
+    expect($('.example2').text().trim()).toBe('{% if currentVersion != "free-pro-team@latest" %}\n\nAlpha\n\n{% endif %}')
+    expect($('.example3').text().trim()).toBe(`{% if currentVersion ver_gt "enterprise-server@2.16" %}\n
+Alpha\n\n{% else %}\n\nBravo\n\n{% if currentVersion != "free-pro-team@latest" %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion ver_lt "enterprise-server@2.16" %}\n
+Alpha\n\n{% if currentVersion != "free-pro-team@latest" %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+    expect($('.example5').text().trim()).toBe(`{% if currentVersion != "free-pro-team@latest" %}\n
+Alpha\n\n{% if currentVersion ver_gt "enterprise-server@2.16" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
   })
 
   test('removes liquid statements that specify "and greater than version to deprecate" (alternate format)', () => {
     let contents = fs.readFileSync(andGreaterThan2, 'utf8')
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
-    expect($('.example1').text().trim()).toBe('{% if page.version ver_lt "2.16" %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example2').text().trim()).toBe('{% if page.version ver_lt "2.16" %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example3').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
-Alpha\n\n{% else %}\n\nBravo\n\n{% if page.version ver_lt "2.16" %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
-    expect($('.example4').text().trim()).toBe(`{% if page.version != "dotcom" %}\n
-Alpha\n\n{% if page.version ver_lt "2.16" %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
-    expect($('.example5').text().trim()).toBe(`{% if page.version ver_lt "2.16" %}\n
-Alpha\n\n{% if page.version != "dotcom" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
+    expect($('.example1').text().trim()).toBe('{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nAlpha\n\n{% endif %}')
+    expect($('.example2').text().trim()).toBe('{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nAlpha\n\n{% endif %}')
+    expect($('.example3').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
+Alpha\n\n{% else %}\n\nBravo\n\n{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nCharlie\n\n{% endif %}\n{% endif %}`)
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion != "free-pro-team@latest" %}\n
+Alpha\n\n{% if currentVersion ver_lt "enterprise-server@2.16" %}\n\nBravo\n\n{% endif %}\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
+    expect($('.example5').text().trim()).toBe(`{% if currentVersion ver_lt "enterprise-server@2.16" %}\n
+Alpha\n\n{% if currentVersion != "free-pro-team@latest" %}\n\nBravo\n\n{% endif %}\n\n{% endif %}`)
   })
 
   test('removes liquid statements that specify "not equals version to deprecate"', () => {
@@ -90,14 +90,14 @@ Alpha\n\n{% if page.version != "dotcom" %}\n\nBravo\n\n{% endif %}\n\n{% endif %
     contents = removeLiquidStatements(contents, versionToDeprecate, nextOldestVersion)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
-    expect($('.example2').text().trim()).toBe('{% if page.version == \'dotcom\' %}\n\nAlpha\n\n{% endif %}')
-    expect($('.example3').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example2').text().trim()).toBe('{% if currentVersion == "free-pro-team@latest" %}\n\nAlpha\n\n{% endif %}')
+    expect($('.example3').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\n{% else %}\n\nBravo\n\nCharlie\n\n{% endif %}`)
-    expect($('.example4').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\nBravo\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
-    expect($('.example5').text().trim()).toBe(`Alpha\n\n{% if page.version == "dotcom" %}\n
+    expect($('.example5').text().trim()).toBe(`Alpha\n\n{% if currentVersion == "free-pro-team@latest" %}\n
 Bravo\n\n{% endif %}`)
-    expect($('.example6').text().trim()).toBe(`{% if page.version != 'dotcom' %}\n
+    expect($('.example6').text().trim()).toBe(`{% if currentVersion != "free-pro-team@latest" %}\n
 Alpha\n\n{% endif %}`)
   })
 })
@@ -109,9 +109,9 @@ describe('removing liquid statements and content', () => {
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('')
     expect($('.example2').text().trim()).toBe('')
-    expect($('.example3').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example3').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
-    expect($('.example4').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
     expect($('.example6').text().trim()).toBe('Charlie\n\nBravo')
@@ -123,34 +123,36 @@ Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     const $ = cheerio.load(contents)
     expect($('.example1').text().trim()).toBe('Alpha')
     expect($('.example2').text().trim()).toBe('Alpha')
-    expect($('.example3').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example3').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\n{% else %}\n\nBravo\n\n{% endif %}`)
-    expect($('.example4').text().trim()).toBe(`{% if page.version == "dotcom" %}\n
+    expect($('.example4').text().trim()).toBe(`{% if currentVersion == "free-pro-team@latest" %}\n
 Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example5').text().trim()).toBe('Charlie')
-    expect($('.example6').text().trim()).toBe(`{% if page.version ver_lt "2.16" %}\n
+    expect($('.example6').text().trim()).toBe(`{% if currentVersion ver_lt "enterprise-server@2.16" %}\n
 Alpha\n\n{% else %}\n\nCharlie\n\n{% endif %}`)
     expect($('.example7').text().trim()).toBe('')
-    expect($('.example8').text().trim()).toBe(`Bravo\n\n{% if page.version ver_gt "2.16" %}\n
+    expect($('.example8').text().trim()).toBe(`Bravo\n\n{% if currentVersion ver_gt "enterprise-server@2.16" %}\n
 Charlie\n\n{% else %}\n\nDelta\n\n{% endif %}\n\nEcho`)
   })
 })
 
 describe('updating frontmatter', () => {
-  test('updates productVersions Enterprise if set to greater-than-or-equal-to version to deprecate', () => {
+  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to version to deprecate', () => {
     let contents = fs.readFileSync(frontmatter1, 'utf8')
-    contents = processFrontmatter(contents)
+    contents = processFrontmatter(contents, frontmatter1)
     const $ = cheerio.load(contents)
-    expect($.text().includes('enterprise: \'*\'')).toBe(true)
-    expect($.text().includes('enterprise: \'>=2.13\'')).toBe(false)
+    // console.log('foo')
+    // console.log($.text())
+    expect($.text().includes('enterprise-server: \'*\'')).toBe(true)
+    expect($.text().includes('enterprise-server: \'>=2.13\'')).toBe(false)
   })
 
-  test('updates productVersions Enterprise if set to greater-than-or-equal-to next oldest version', () => {
+  test('updates frontmatter versions Enterprise if set to greater-than-or-equal-to next oldest version', () => {
     let contents = fs.readFileSync(frontmatter2, 'utf8')
-    contents = processFrontmatter(contents)
+    contents = processFrontmatter(contents, frontmatter2)
     const $ = cheerio.load(contents)
-    expect($.text().includes('enterprise: \'*\'')).toBe(true)
-    expect($.text().includes('enterprise: \'>=2.14\'')).toBe(false)
+    expect($.text().includes('enterprise-server: \'*\'')).toBe(true)
+    expect($.text().includes('enterprise-server: \'>=2.14\'')).toBe(false)
   })
 })
 

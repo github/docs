@@ -8,7 +8,7 @@ intro: Remove liquid and content
 
 Alpha
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Bravo
 
@@ -21,7 +21,7 @@ Bravo
 
 Alpha
 
-{% if page.version == 'dotcom' or page.version ver_lt "2.14" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_lt "enterprise-server@2.14" %}
 
 Bravo
 
@@ -32,7 +32,7 @@ Bravo
 ## 3
 <div class="example3">
 
-{% if page.version == "dotcom" %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Alpha
 
@@ -40,7 +40,7 @@ Alpha
 
 Bravo
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Charlie
 
@@ -53,11 +53,11 @@ Charlie
 
 <div class="example4">
 
-{% if page.version == "dotcom" %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Alpha
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Bravo
 
@@ -74,11 +74,11 @@ Charlie
 ## 5
 <div class="example5">
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Alpha
 
-{% if page.version == "dotcom" %}
+{% if currentVersion == "free-pro-team@latest" %}
 
 Bravo
 
@@ -95,7 +95,7 @@ Charlie
 ## 6
 <div class="example6">
 
-{% if page.version ver_lt "2.16" %}
+{% if currentVersion ver_lt "enterprise-server@2.16" %}
 
 Alpha
 
@@ -103,7 +103,7 @@ Alpha
 
 Charlie
 
-{% if page.version != "dotcom" and page.version ver_lt "2.14" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.14" %}
 
 Bravo
 
@@ -116,11 +116,11 @@ Bravo
 ## 7
 <div class="example7">
 
-{% if page.version != "dotcom" and page.version ver_lt "2.14" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.14" %}
 
 Alpha
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Bravo
 
@@ -137,7 +137,7 @@ Charlie
 ## 8
 <div class="example8">
 
-{% if page.version ver_lt "2.14" %}
+{% if currentVersion ver_lt "enterprise-server@2.14" %}
 
 Alpha
 
@@ -145,7 +145,7 @@ Alpha
 
 Bravo
 
-{% if page.version ver_gt "2.16" %}
+{% if currentVersion ver_gt "enterprise-server@2.16" %}
 
 Charlie
 
