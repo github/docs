@@ -11,7 +11,6 @@ versions:
 ---
 
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
 ### About SARIF support
 

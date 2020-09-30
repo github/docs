@@ -10,7 +10,6 @@ versions:
 ---
 
 {% data reusables.code-scanning.beta %}
-{% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ### About {% data variables.product.prodname_code_scanning %} results on pull requests
 
