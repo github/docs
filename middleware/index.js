@@ -23,6 +23,7 @@ module.exports = function (app) {
   app.use(require('./loaderio-verification'))
   app.use(require('./cors'))
   app.use(require('./csp'))
+  app.use(require('./referrer-policy'))
   app.use(require('helmet')())
   app.use(require('./robots'))
   app.use(require('./cookie-parser'))
