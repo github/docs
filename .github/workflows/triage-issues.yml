@@ -1,0 +1,22 @@
+name: Triage new issues
+on:
+  issues:
+    types: [reopened, opened]
+
+jobs:
+  triage_issues:
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Label new issues with 'triage'
+      uses: andymckay/labeler@v1.0.2
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        add-labels: "triage"
+    - name: Triage to project board
+      uses: konradpabjan/actions-add-new-issue-to-column@v1.1
+      with:
+        action-token: ${{ secrets.GITHUB_TOKEN }}
+        project-url: "https://github.com/github/docs/projects/1"
+        column-name: "Triage"

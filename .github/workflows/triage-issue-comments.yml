@@ -1,0 +1,46 @@
+name: Triage new issue comments
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  triage-issue-comments:
+    if: github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check if the event originated from a team member
+      uses: actions/github-script@v2.0.0
+      id: is-internal-contributor
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        result-encoding: string
+        script: |
+          const repo = context.payload.repository.name
+          const org = context.payload.repository.owner.login
+          const actor = context.actor
+          let collaboratorStatus = ''
+          try {
+            collaboratorStatus = await github.request('GET /repos/{owner}/{repo}/collaborators/{username}', {
+              owner: org,
+              repo: repo,
+              username: actor
+            })
+            console.log(`This issue was commented on by a Hubber.`)
+            return 'true'
+          } catch (error) {
+            console.log(`This issue was commented on by an external contributor.`)
+            return 'false'
+          }
+    - name: Label issues with new comments with 'triage'
+      uses: andymckay/labeler@v1.0.2
+      if: (steps.is-internal-contributor.outputs.result == 'false')
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        add-labels: "triage"
+    - name: Triage to project board
+      uses: konradpabjan/actions-add-new-issue-to-column@v1.1
+      with:
+        action-token: ${{ secrets.GITHUB_TOKEN }}
+        project-url: "https://github.com/github/docs/projects/1"
+        column-name: "Triage"
