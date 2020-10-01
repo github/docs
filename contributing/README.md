@@ -4,6 +4,7 @@ Check out our [contributing.md](../CONTRIBUTING.md) to see all the ways you can 
 
 Here, you'll find additional information that might be helpful as you work on a pull request in this repo.
 
+- [development](./development.md) - steps for getting this app running on your local machine
 - [content markup reference](./content-markup-reference.md) - how to use markup and features specific to the GitHub Docs site
 - [content style guide](./content-style-guide) - style guidance specific to GitHub Docs content and additional resources for writing clear, helpful content
 - [deployments](./deployments.md) - how our staging and production environments work
