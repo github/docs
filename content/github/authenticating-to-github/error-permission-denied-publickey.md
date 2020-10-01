@@ -119,7 +119,7 @@ The `ssh-add` command *should* print out a long string of numbers and letters. I
 
 {% tip %}
 
-**Tip**: On most systems the default private keys (`~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}, `~/.ssh/id_dsa`{% endif %} and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
+**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
 
 {% endtip %}
 

@@ -45,7 +45,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 
 ### Changing your profile name
 
-You can change the name that is displayed on your profile. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."{% endif %}
+You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[Managing the display of member names in your organization](/articles/managing-the-display-of-member-names-in-your-organization)."
 
 {% data reusables.user_settings.access_settings %}
 2. Under "Name", type the name you want to be displayed on your profile.

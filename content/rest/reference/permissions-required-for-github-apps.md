@@ -18,7 +18,6 @@ GitHub Apps have the `Read-only` metadata permission by default. The metadata pe
 
 {% data reusables.apps.metadata-permissions %}
 
-
 - [`GET /`](/v3/#root-endpoint)
 - [`GET /codes_of_conduct`](/v3/codes_of_conduct/#get-all-codes-of-conduct)
 - [`GET /codes_of_conduct/:key`](/v3/codes_of_conduct/#get-a-code-of-conduct)
@@ -344,12 +343,10 @@ _Traffic_
 _Branches_
 - [`GET /repos/:owner/:repo/branches`](/v3/repos/branches/#list-branches) (:read)
 - [`GET /repos/:owner/:repo/branches/:branch`](/v3/repos/branches/#get-a-branch) (:read)
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 - [`GET /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#list-apps-with-access-to-the-protected-branch) (:write)
 - [`POST /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#add-app-access-restrictions) (:write)
 - [`PUT /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#set-app-access-restrictions) (:write)
 - [`DELETE /repos/:owner/:repo/branches/:branch/protection/restrictions/apps`](/v3/repos/branches/#remove-user-access-restrictions) (:write)
-{% endif %}
 
 _Commit comments_
 - [`PATCH /repos/:owner/:repo/comments/:comment_id`](/v3/repos/comments/#update-a-commit-comment) (:write)
@@ -363,13 +360,8 @@ _Git_
 - [`POST /repos/:owner/:repo/git/commits`](/v3/git/commits/#create-a-commit) (:write)
 - [`GET /repos/:owner/:repo/git/commits/:commit_id`](/v3/git/commits/#get-a-commit) (:read)
 - [`POST /repos/:owner/:repo/git/refs`](/v3/git/refs/#create-a-reference) (:write)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- [`GET /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#get-a-reference) (:read)
-- [`GET /repos/:owner/:repo/git/refs`](/v3/git/refs/#list-references) (:read)
-{% else %}
 - [`GET /repos/:owner/:repo/git/ref/:ref`](/v3/git/refs/#get-a-reference) (:read)
 - [`GET /repos/:owner/:repo/git/matching-refs/:ref`](/v3/git/refs/#list-matching-references) (:read)
-{% endif %}
 - [`PATCH /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#update-a-reference) (:write)
 - [`DELETE /repos/:owner/:repo/git/refs/:ref`](/v3/git/refs/#delete-a-reference) (:write)
 - [`POST /repos/:owner/:repo/git/tags`](/v3/git/tags/#create-a-tag-object) (:write)

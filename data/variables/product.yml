@@ -74,12 +74,9 @@ prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth App'
 
 # API and developer docs
-prodname_dev_docs: 'the GitHub Developer documentation'
 prodname_enterprise_api: 'the GitHub Enterprise Server API'
-prodname_support_forum: 'GitHub API Development and Support Forum'
 prodname_support_forum_with_url: '[GitHub API Development and Support Forum](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Content Attachments'
-prodname_component_kit: 'GitHub Component Kit'
 
 # GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
@@ -152,9 +149,6 @@ prodname_dependabot_short: 'Dependabot'
 prodname_dependabot_alerts: 'GitHub Dependabot alerts'
 prodname_dependabot_security_updates: 'GitHub Dependabot security updates'
 prodname_dependabot_version_updates: 'GitHub Dependabot version updates'
-
-# GitHub Policies
-prodname_policies: 'GitHub Policies'
 
 # GitHub Archive Program
 prodname_archive: 'GitHub Archive Program'

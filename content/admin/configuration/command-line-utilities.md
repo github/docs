@@ -180,7 +180,6 @@ This utility allows you to control the state of the installation's maintenance m
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 This utility re-displays the message of the day (MOTD) that administrators see when accessing the instance via the administrative shell. The output contains an overview of the instance's state.
@@ -188,7 +187,6 @@ This utility re-displays the message of the day (MOTD) that administrators see w
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 

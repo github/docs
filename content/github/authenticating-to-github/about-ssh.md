@@ -18,9 +18,7 @@ We recommend that you regularly [review your SSH keys list](/articles/reviewing-
 If you haven't used your SSH key for a year, then {% data variables.product.prodname_dotcom %} will automatically delete your inactive SSH key as a security precaution. For more information, see "[Deleted or missing SSH keys](/articles/deleted-or-missing-ssh-keys)."
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 If you're a member of an organization that provides SSH certificates, you can use your certificate to access that organization's repositories without adding the certificate to your {% data variables.product.product_name %} account. For more information, see "[About SSH certificate authorities](/articles/about-ssh-certificate-authorities)."
-{% endif %}
 
 ### Further reading
 

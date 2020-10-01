@@ -193,7 +193,7 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 * `built`: The site has been built.
 * `errored`: Indicates an error occurred during the build.
 
-In {% data variables.product.prodname_pages %} API endpoints that {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}support the `mister-fantastic-preview` and{% endif %} return GitHub Pages site information, the JSON responses include these fields:
+In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
    - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _master_ or _gh-pages_.

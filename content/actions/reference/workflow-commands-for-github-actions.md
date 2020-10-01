@@ -274,7 +274,6 @@ steps:
         echo 'EOF' >> $GITHUB_ENV
 ```
 
-
 ### Adding a system path
 
 `echo "{path}" >> $GITHUB_PATH`

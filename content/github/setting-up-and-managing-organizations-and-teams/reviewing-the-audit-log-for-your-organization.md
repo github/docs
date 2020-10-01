@@ -400,7 +400,6 @@ Using the qualifier `country`, you can filter actions in the audit log based on 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 ### Using the Audit log API
 
 {% note %}
@@ -419,8 +418,6 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 The GraphQL response can include data for up to 90 to 120 days.
 
 For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/v4/interface/auditentry/)."
-
-{% endif %}
 
 ### Further reading
 

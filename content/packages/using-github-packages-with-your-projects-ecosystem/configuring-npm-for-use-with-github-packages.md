@@ -188,7 +188,6 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 ```
 {% endif %}
 
-
 ### Further reading
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

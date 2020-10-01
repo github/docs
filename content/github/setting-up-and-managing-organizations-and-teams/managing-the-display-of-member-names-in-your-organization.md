@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
 Organization owners can manage the display of member names in an organization.

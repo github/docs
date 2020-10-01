@@ -18,8 +18,8 @@ Anyone with read access to a repository can view and search the repository’s l
 
 Label | Description
 ---  | ---
-`bug` | Indicates an unexpected problem or unintended behavior{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-`documentation` | Indicates a need for improvements or additions to documentation{% endif %}
+`bug` | Indicates an unexpected problem or unintended behavior
+`documentation` | Indicates a need for improvements or additions to documentation
 `duplicate` | Indicates similar issues or pull requests
 `enhancement` | Indicates new feature requests
 `good first issue` | Indicates a good issue for first-time contributors

@@ -273,11 +273,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Git Refs
 
-* [Create a reference](/v3/git/refs/#create-a-reference){% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-* [List references](/v3/git/refs/#list-references)
-* [Get a reference](/v3/git/refs/#get-a-reference){% else %}
-* [Get a reference](/v3/git/refs/#get-a-reference)
-* [List matching references](/v3/git/refs/#list-matching-references){% endif %}
+* [Create a reference](/v3/git/refs/#create-a-reference)* [Get a reference](/v3/git/refs/#get-a-reference)
+* [List matching references](/v3/git/refs/#list-matching-references)
 * [Update a reference](/v3/git/refs/#update-a-reference)
 * [Delete a reference](/v3/git/refs/#delete-a-reference)
 
