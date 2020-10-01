@@ -1,8 +1,12 @@
 {
-  "name": "help.github.com",
+  "name": "docs.github.com",
   "private": true,
-  "version": "0.0.1",
   "main": "server.js",
+  "author": {
+    "email": "opensource+docs@github.com",
+    "name": "GitHub",
+    "url": "https://github.com/github/docs"
+  },
   "dependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.0",
