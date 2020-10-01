@@ -166,12 +166,24 @@ You can now [require multiple approving reviews](/v3/repos/branches) for a pull 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+### Retrieve hovercard information
+
+Retrieve information from [someone's hovercard](/v3/users/#get-contextual-information-for-a-user).
+
+**Custom media type:** `hagar-preview`
+**Announced:** [2018-03-21](https://developer.github.com/changes/2018-03-21-hovercard-api-preview)
+
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/v3/checks/runs/) and [Check suites](/v3/checks/suites/) APIs for more details.
 
 **Custom media type:** `antiope-preview`
 **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
+{% endif %}
 
 {% if currentVersion != "free-pro-team@latest" %}
 
