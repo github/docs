@@ -8,6 +8,6 @@ assignees: ''
 ---
 # Docs content issues have moved!
 
-When we open source in October :tada: all of our issue templates will be visible to the public. From now on, you can open new docs issues for docs.github.com in our [docs-content repo](https://github.com/github/docs-content) :dizzy:
+When we open source this repository in October :tada: all of our issue templates will be visible to the public. From now on, you can open new docs issues for docs.github.com in our internal [docs-content repo](https://github.com/github/docs-content) :dizzy:
 
 # :boom::point_right:[new issue templates](https://github.com/github/docs-content/issues/new/choose):point_left::boom:
