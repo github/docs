@@ -28,7 +28,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 ### Starting with the Node.js workflow template
 
-{% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/master/ci/node.js.yml).
+{% data variables.product.prodname_dotcom %} provides a Node.js workflow template that will work for most Node.js projects. This guide includes npm and Yarn examples that you can use to customize the template. For more information, see the [Node.js workflow template](https://github.com/actions/starter-workflows/blob/main/ci/node.js.yml).
 
 To get started quickly, add the template to the `.github/workflows` directory of your repository.
 

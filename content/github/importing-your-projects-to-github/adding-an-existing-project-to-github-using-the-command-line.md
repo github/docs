@@ -49,7 +49,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push -u origin master
+  $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 

@@ -70,6 +70,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Convert organization members to [outside collaborators](#outside-collaborators) | **X** | | |
 | [View people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository) | **X** | | |
 | [Export a list of people with access to an organization repository](/articles/viewing-people-with-access-to-your-repository/#exporting-a-list-of-people-with-access-to-your-repository) | **X** | | |
+| Manage the default branch name (see "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)") | **X** | | |
 | Manage default labels (see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)") | **X** | | |
 | Enable team synchronization (see "[Managing team synchronization for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)" for details) | **X** |  | |
 

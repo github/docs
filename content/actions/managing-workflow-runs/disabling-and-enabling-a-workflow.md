@@ -1,6 +1,6 @@
 ---
 title: Disabling and enabling a workflow
-intro: You can temporarily disable and re-enable an individual workflow on {% data variables.product.prodname_dotcom %}.
+intro: 'You can temporarily disable and re-enable an individual workflow on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

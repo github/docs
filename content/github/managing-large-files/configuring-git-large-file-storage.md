@@ -47,7 +47,7 @@ If there are existing files in your repository that you'd like to use {% data va
 5. Commit the file and push it to {% data variables.product.product_name %}:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   You should see some diagnostic information about your file upload:
   ```shell
