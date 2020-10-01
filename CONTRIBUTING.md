@@ -26,7 +26,7 @@ We welcome contributions from the community. Read on to learn about the ways you
 - [Windows](#windows)
 
 ## Types of contributions :memo:
-You can contribute to the GitHub Docs content and site in several ways.
+You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! 
 
 ### :mega: Discussions
 Discussions are where we have conversations. 
