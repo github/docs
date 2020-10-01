@@ -7,16 +7,12 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 In this article:
 - [Contributing](#contributing)
 - [READMEs](#readmes)
-- [Developing](#developing)
-- [Site structure](#site-structure)
-- [Error handling](#error-handling)
-- [Search](#search)
 - [License](#license)
 - [Contributors ✨](#contributors-)
 
 ## Contributing
 
-:memo: To find out how you can best contribute to GitHub's product documentation, see [CONTRIBUTING.md](/CONTRIBUTING.md).
+:memo: To find out how you can best contribute to GitHub's product documentation, see the [CONTRIBUTING](/CONTRIBUTING.md) guide.
 
 :mega: If you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
@@ -31,6 +27,7 @@ In this article:
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
 - [content/README.md](content/README.md)
+- [contributing/README.md](contributing/README.md)
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
@@ -43,61 +40,6 @@ In addition to the README you're reading right now, this repo includes other REA
 - [script/README.md](script/README.md)
 - [stylesheets/README.md](stylesheets/README.md)
 - [tests/README.md](tests/README.md)
-
-## Developing
-
-This site is powered by Node.js! :turtle: :rocket:
-
-You'll need **Node.js v12**  to run the site. If you're using nodenv (you can
-run `nodenv version` to find out which Node.js version you're on), read the
-[nodenv](#nodenv) section for instructions on switching to Node.js 12. If you're
-not using nodenv, the best way to install Node.js is to
-[download the LTS installer from nodejs.org](https://nodejs.org).
-
-Once you've installed Node.js, open up Terminal and run the following:
-
-```sh
-git clone https://github.com/github/docs-internal
-cd docs-internal
-npm install
-npm start
-```
-
-You should now have a running server! Visit [localhost:4000](http://localhost:4000) in your browser. It will automatically restart as you make changes to site content.
-
-When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in your terminal window.
-
-## Site structure
-
-This site was originally written in [Jekyll](https://jekyllrb.com/) and later
-[Nanoc](https://nanoc.ws/), both of which are Ruby static site generators.
-This site is now a dynamic Node.js webserver powered by Express, using middleware
-to add support for proper HTTP redirects, language header detection, and dynamic
-content generation to support the various flavors of GitHub's product documenation,
-like dotcom and GitHub Enterprise. For more context on why this change was made,
-see the [new help.github.com](https://github.com/github/product-documentation/tree/master/new-docs-site#static-vs-dynamic)
- proposal doc.
-
-The tech powering the site is now different, but many of the tried-and-true
-authoring conventions of the original Jekyll site have been preserved:
-
-- Content is written in Markdown files which live in the `content` directory.
-- Content can use the Liquid templating language.
-- Files in the `data` directory are available to templates via the `{% data %}` tag.
-- Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
-- The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
-
-See the [Content README](content) for more info.
-
-## Error handling
-
-Errors generated from requests will be sent to Sentry via `middlware/handle-errors.js`, and the `lib/failbot.js` client. This is a lightweight wrapper for sending exceptions to GitHub's Sentry instance.
-
-## Search
-
-This site's search functionality is powered by [Algolia](https://www.algolia.com), a third-party service.
-
-See [search.md](search.md) for details.
 
 ## License
 

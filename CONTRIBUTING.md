@@ -85,6 +85,8 @@ You can use the GitHub user interface :pencil2: for some small changes, like fix
 ## Working in the github/docs repository
 Here's some information that might be helpful while working on a Docs PR:
 
+- [Development](/contributing/development.md) - This short guide describes how to get this app running on your local machine.
+
 - [Content markup reference](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
 
 - [Content style guide for GitHub Docs](/contributing/content-style-guide.md) - This guide covers GitHub-specific information about how we style our content and images. It also links to the resources we use for general style guidelines.

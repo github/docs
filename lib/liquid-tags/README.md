@@ -1,5 +1,7 @@
 # Liquid Tags
 
+See also [contributing/liquid-helpers.md](../../contributing/liquid-helpers.md)
+
 This directory contains custom Liquid tags for outputting dynamic content. These custom tags exist for a few reasons:
 
 - Content and styling should be separated. Writers should not be concerned with writing or maintaining stylistic markup.
