@@ -184,7 +184,6 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
 $ docker pull docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
@@ -200,7 +199,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
-
 
 ### Further reading
 

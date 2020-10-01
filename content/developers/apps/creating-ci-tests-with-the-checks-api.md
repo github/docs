@@ -9,7 +9,6 @@ versions:
 ---
 
 
-
 ### Introduction
 
 This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/v3/checks/), which you'll use to build a continuous integration (CI) server that runs tests.

@@ -602,7 +602,7 @@ Runs your workflow anytime the `release` event occurs. {% data reusables.develop
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`release`](/webhooks/event-payloads/#release) | - `published`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released`{% endif %} | Last commit in the tagged release | Tag of release |
+| [`release`](/webhooks/event-payloads/#release) | - `published` <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released` | Last commit in the tagged release | Tag of release |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 

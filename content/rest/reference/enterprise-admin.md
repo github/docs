@@ -132,7 +132,6 @@ Name | Type | Description
 `displayName` | `string` | The name of the SCIM group, which must exactly match the name of the corresponding {% data variables.product.product_name %} organization. For example, if the URL of the organization is `https://github.com/octo-org`, the group name must be `octo-org`.
 `members`| `array` | List of SCIM user IDs that are members of the group.
 
-
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
 {% endfor %}

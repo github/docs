@@ -20,7 +20,6 @@ versions:
 
 You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
 
-
 ### Webhook payload object common properties
 
 Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
@@ -1294,7 +1293,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
-
 
 ### workflow_run
 

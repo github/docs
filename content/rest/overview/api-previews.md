@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.
 
 During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
@@ -47,15 +46,6 @@ Get a [list of events](/v3/issues/timeline/) for an issue or pull request.
 
 **Custom media type:** `mockingbird-preview`
 **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Pages
-
-Get more information about your [GitHub Pages](/v3/repos/pages/) site.
-
-**Custom media type:** `mister-fantastic-preview`
-**Announced:** [2016-07-06](https://developer.github.com/changes/2016-07-06-github-pages-preview-api/)
-{% endif %}
 
 {% if currentVersion != "free-pro-team@latest" %}
 ### Pre-receive environments
@@ -162,16 +152,6 @@ You can now add a reason when you [lock an issue](/v3/issues/#lock-an-issue).
 **Announced:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Team discussions
-
-You can now use the API to manage [team discussions](/v3/teams/discussions) and [team discussion comments](/v3/teams/discussion_comments).
-
-**Custom media type:** `echo-preview`
-**Announced:** [2018-02-07](https://developer.github.com/changes/2018-02-07-team-discussions-api)
-
-{% endif %}
-
 ### Require signed commits
 
 You can now use the API to manage the setting for [requiring signed commits on protected branches](/v3/repos/branches).
@@ -185,16 +165,6 @@ You can now [require multiple approving reviews](/v3/repos/branches) for a pull 
 
 **Custom media type:** `luke-cage-preview`
 **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Retrieve hovercard information
-
-Retrieve information from [someone's hovercard](/v3/users/#get-contextual-information-for-a-user).
-
-**Custom media type:** `hagar-preview`
-**Announced:** [2018-03-21](https://developer.github.com/changes/2018-03-21-hovercard-api-preview)
-
-{% endif %}
 
 ### Check runs and check suites API
 

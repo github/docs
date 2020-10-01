@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 Let's walk through core API concepts as we tackle some everyday use cases.
 
 ### Overview

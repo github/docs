@@ -94,8 +94,8 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | See all organization members and teams | **X** | **X** |
 | @mention any visible team | **X** | **X** |
 | Can be made a *team maintainer* | **X** | **X** |
-| Transfer repositories | **X** | |{% if currentVersion ver_gt "enterprise-server@2.18" %}
-| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |{% endif %}
+| Transfer repositories | **X** | |
+| Manage an organization's SSH certificate authorities (see "[Managing your organization's SSH certificate authorities](/articles/managing-your-organizations-ssh-certificate-authorities)" for details) | **X** |  |
 | Create project boards (see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization)" for details) | **X** | **X** | |
 | View and post public team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** | **X** |  |
 | View and post private team discussions to **all teams** (see "[About team discussions](/articles/about-team-discussions)" for details) | **X** |  |  |

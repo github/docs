@@ -270,14 +270,15 @@ describe('Page class', () => {
     // There are none of these in the content at this time!
     })
 
+    // Note this test will go out of date when we deprecate 2.20
     test('pages that apply to newer enterprise versions', async () => {
       const page = new Page({
-        relativePath: 'github/administering-a-repository/managing-the-automatic-deletion-of-branches.md',
+        relativePath: 'github/administering-a-repository/comparing-releases.md',
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
       expect(nonEnterpriseDefaultPlan in page.versions).toBe(true)
-      expect(page.versions['enterprise-server']).toBe('>=2.19')
+      expect(page.versions['enterprise-server']).toBe('>=2.21')
     })
 
     test('index page', async () => {

@@ -704,7 +704,6 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-
 #### **`jobs.<job_id>.steps.with.entrypoint`**
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
@@ -838,7 +837,6 @@ strategy:
 ##### Example including new combinations
 
 You can use `include` to add new jobs to a build matrix. Any unmatched include configurations are added to the matrix. For example, if you want to use `node` version 12 to build on multiple operating systems, but wanted one extra experimental job using node version 13 on Ubuntu, you can use `include` to specify that additional job.
-
 
 {% raw %}
 ```yaml

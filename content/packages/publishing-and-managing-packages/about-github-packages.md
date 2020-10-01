@@ -63,7 +63,6 @@ For more information about permissions and visibility for {% data variables.prod
 
 {% data reusables.package_registry.packages-billing %} For more information, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
 
-
 {% data reusables.package_registry.container-registry-beta-billing-note %}
 {% endif %}
 

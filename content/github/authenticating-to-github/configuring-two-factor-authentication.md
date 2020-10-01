@@ -86,29 +86,17 @@ On most devices and browsers, you can use a physical security key over USB or NF
 Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
 1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
-2. Ensure that you have a {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}WebAuthn{% else %}FIDO U2F{% endif %} compatible security key inserted into your computer.
+2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. Next to "Security keys", click **Add**.
   ![Add security keys option](/assets/images/help/2fa/add-security-keys-option.png)
 6. Under "Security keys", click **Register new security key**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
   ![Registering a new security key](/assets/images/help/2fa/security-key-register.png)
-  {% else %}
-  ![Registering a new FIDO U2F device](/assets/images/help/2fa/register_new_fido_u2f_device.png)
-  {% endif %}
 7. Type a nickname for the security key, then click **Add**.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
   ![Providing a nickname for a security key](/assets/images/help/2fa/security-key-nickname.png)
-  {% else %}
-  ![Providing a nickname for a FIDO U2F device](/assets/images/help/2fa/fido_u2f_nickname.png)
-  {% endif %}
 8. Activate your security key, following your security key's documentation.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
   ![Prompt for a security key](/assets/images/help/2fa/security-key-prompt.png)
-  {% else %}
-  ![Prompt for a FIDO U2F device](/assets/images/help/2fa/fido_u2f_prompt_key.png)
-  {% endif %}
 9.  Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. If you lose access to your account, you can use your recovery codes to get back into your account. For more information, see "[Recovering your account if you lose your 2FA credentials](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)."
 	![Download recovery codes button](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}

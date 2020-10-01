@@ -143,7 +143,6 @@ Name | Type | Description
 
 ##### Response
 
-
 {% if currentVersion == "free-pro-team@latest" %}
   ```JSON
   {

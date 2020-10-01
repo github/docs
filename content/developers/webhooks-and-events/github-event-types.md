@@ -16,7 +16,6 @@ The Events API can return different types of events triggered by activity on Git
 
 {% endif %}
 
-
 ### Event object common properties
 
 The event objects returned from the Events API endpoints have the same structure.

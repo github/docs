@@ -9,7 +9,6 @@ versions:
 ---
 
 
-
 While the API provides multiple methods for authentication, we strongly
 recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) for production applications. The other
 methods provided are intended to be used for scripts or testing (i.e., cases
