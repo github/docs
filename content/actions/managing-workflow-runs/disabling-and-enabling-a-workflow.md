@@ -1,6 +1,6 @@
 ---
 title: Disabling and enabling a workflow
-intro: 'You can temporarily disable and re-enable an individual workflow on {% data variables.product.prodname_dotcom %}.'
+intro: You can disable and re-enable a workflow using {% data variables.product.prodname_dotcom %} or the REST API.
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -10,7 +10,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}.
+Disabling a workflow allows you to stop a workflow from being triggered without having to delete the file from the repo. You can easily re-enable the workflow again on {% data variables.product.prodname_dotcom %}. You can also disable and enable a workflow using the REST API. For more information, see the "[Actions REST API](/rest/reference/actions#workflows)."
 
 Temporarily disabling a workflow can be useful in many scenarios. These are a few examples where disabling a workflow might be helpful:
 
