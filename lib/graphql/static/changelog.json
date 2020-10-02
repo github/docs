@@ -1,5 +1,18 @@
 [
   {
+    "date": "2020-09-30",
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `issuePrioritiesDebug` was removed from object type `Milestone`"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": []
+  },
+  {
     "date": "2020-09-23",
     "schemaChanges": [
       {
