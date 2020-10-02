@@ -196,7 +196,7 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _master_ or _gh-pages_.
+   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
@@ -229,8 +229,7 @@ start compiling these statistics. Give the job a few moments to complete, and
 then submit the request again. If the job has completed, that request will receive a
 `200` response with the statistics in the response body.
 
-Repository statistics are cached by the SHA of the repository's default branch,
-which is usually master; pushing to the default branch resets the statistics cache.
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
 ### Statistics exclude some types of commits
 

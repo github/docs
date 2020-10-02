@@ -43,7 +43,7 @@ the model and it opens up a ton of things you could potentially do with the API.
 
 A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/v3/pulls/#get-a-pull-request), [create](/v3/pulls/#create-a-pull-request), or [edit](/v3/pulls/#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
 
-If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the base branch (usually `master`):
+If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
 
 1. Receive the pull request webhook.
 2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to start a background job for creating the merge commit candidate.
