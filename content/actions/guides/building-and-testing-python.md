@@ -31,7 +31,7 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 ### Starting with the Python workflow template
 
-{% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/master/ci/python-package.yml).
+{% data variables.product.prodname_dotcom %} provides a Python workflow template that should work for most Python projects. This guide includes examples that you can use to customize the template. For more information, see the [Python workflow template](https://github.com/actions/starter-workflows/blob/main/ci/python-package.yml).
 
 To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
@@ -230,7 +230,7 @@ steps:
 
 You can cache pip dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
-Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/master/examples.md#python---pip).
+Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip).
 
 {% raw %}
 ```yaml
@@ -424,4 +424,4 @@ jobs:
 ```
 {% endraw %}
 
-For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/master/ci/python-publish.yml).
+For more information about the template workflow, see [`python-publish`](https://github.com/actions/starter-workflows/blob/main/ci/python-publish.yml).

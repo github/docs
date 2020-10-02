@@ -1,1 +1,0 @@
-An entity that has agreed to the Corporate Terms of Service for an organization can enter a data protection agreement with {% data variables.product.prodname_dotcom %} for General Data Protection Regulation (GDPR) compliance.

@@ -36,9 +36,9 @@ Artifacts and caching are similar because they provide the ability to store file
 
 With `v2` of the `cache` action, you can access the cache in workflows triggered by any event that has a `GITHUB_REF`. If you are using `v1` of the `cache` action, you can only access the cache in workflows triggered by `push` and `pull_request` events, except for the `pull_request` `closed` event. For more information, see "[Events that trigger workflows](/actions/reference/events-that-trigger-workflows)."
 
-A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `master`). For example, a cache created on the default branch `master` would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`master`), `feature-a`, and `feature-b`.
+A workflow can access and restore a cache created in the current branch, the base branch (including base branches of forked repositories), or the default branch (usually `main`). For example, a cache created on the default branch would be accessible from any pull request. Also, if the branch `feature-b` has the base branch `feature-a`, a workflow triggered on `feature-b` would have access to caches created in the default branch (`main`), `feature-a`, and `feature-b`.
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different workflows and branches. For example, a cache created for the branch `feature-a` (with the base `master`) would not be accessible to a pull request for the branch `feature-b` (with the base `master`).
+Access restrictions provide cache isolation and security by creating a logical boundary between different workflows and branches. For example, a cache created for the branch `feature-a` (with the base `main`) would not be accessible to a pull request for the branch `feature-b` (with the base `main`).
 
 ### Using the `cache` action
 
@@ -178,14 +178,14 @@ restore-keys: |
   npm-
 ```
 
-For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`master`), the action searches for `key` and `restore-keys` in the following order:
+For example, if a pull request contains a `feature` branch (the current scope) and targets the default branch (`main`), the action searches for `key` and `restore-keys` in the following order:
 
 1. Key `npm-feature-d5ea0750` in the `feature` branch scope
 1. Key `npm-feature-` in the `feature` branch scope
 2. Key `npm-` in the `feature` branch scope
-1. Key `npm-feature-d5ea0750` in the `master` branch scope
-3. Key `npm-d5ea0750` in the `master` branch scope
-4. Key `npm` in the `master` branch scope
+1. Key `npm-feature-d5ea0750` in the `main` branch scope
+3. Key `npm-d5ea0750` in the `main` branch scope
+4. Key `npm` in the `main` branch scope
 
 ### Usage limits and eviction policy
 

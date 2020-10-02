@@ -276,7 +276,7 @@ repos.each do |repo|
 end
 ```
 
-From there, we'll cumulatively add each language found to a "master list":
+From there, we'll cumulatively add each language found to a list of languages:
 
 ``` ruby
 repo_langs.each do |lang, count|

@@ -23,7 +23,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<e
 ```
 
 To fix the error, you'll need to be an administrator of the repository on {% data variables.product.product_location %}.
-You'll want to [change the default branch](/articles/setting-the-default-branch) of the repository.
+You'll want to [change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 After that, you can get a list of all the available branches from the command line:
 
@@ -32,14 +32,14 @@ $ git branch -a
 # Lists ALL the branches
 >   remotes/origin/awesome
 >   remotes/origin/more-work
->   remotes/origin/new-master
+>   remotes/origin/new-main
 ```
 
 Then, you can just switch to your new branch:
 
 ```shell
-$ git checkout new-master
+$ git checkout new-main
 # Create and checkout a tracking branch
-> Branch new-master set up to track remote branch new-master from origin.
-> Switched to a new branch 'new-master'
+> Branch new-main set up to track remote branch new-main from origin.
+> Switched to a new branch 'new-main'
 ```
