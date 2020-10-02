@@ -1596,7 +1596,7 @@ type ChangeUserStatusPayload {
 """
 A single check annotation.
 """
-type CheckAnnotation @preview(toggledBy: "antiope-preview") {
+type CheckAnnotation {
   """
   The annotation's severity level.
   """
@@ -1650,7 +1650,7 @@ type CheckAnnotationConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckAnnotation] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckAnnotation]
 
   """
   Information to aid in pagination.
@@ -1666,7 +1666,7 @@ type CheckAnnotationConnection {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationData @preview(toggledBy: "antiope-preview") {
+input CheckAnnotationData {
   """
   Represents an annotation's information level
   """
@@ -1710,13 +1710,13 @@ type CheckAnnotationEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckAnnotation @preview(toggledBy: "antiope-preview")
+  node: CheckAnnotation
 }
 
 """
 Represents an annotation's information level.
 """
-enum CheckAnnotationLevel @preview(toggledBy: "antiope-preview") {
+enum CheckAnnotationLevel {
   """
   An annotation indicating an inescapable error.
   """
@@ -1736,7 +1736,7 @@ enum CheckAnnotationLevel @preview(toggledBy: "antiope-preview") {
 """
 A character position in a check annotation.
 """
-type CheckAnnotationPosition @preview(toggledBy: "antiope-preview") {
+type CheckAnnotationPosition {
   """
   Column number (1 indexed).
   """
@@ -1751,7 +1751,7 @@ type CheckAnnotationPosition @preview(toggledBy: "antiope-preview") {
 """
 Information from a check run analysis to specific lines of code.
 """
-input CheckAnnotationRange @preview(toggledBy: "antiope-preview") {
+input CheckAnnotationRange {
   """
   The ending column of the range.
   """
@@ -1776,7 +1776,7 @@ input CheckAnnotationRange @preview(toggledBy: "antiope-preview") {
 """
 An inclusive pair of positions for a check annotation.
 """
-type CheckAnnotationSpan @preview(toggledBy: "antiope-preview") {
+type CheckAnnotationSpan {
   """
   End position (inclusive).
   """
@@ -1791,7 +1791,7 @@ type CheckAnnotationSpan @preview(toggledBy: "antiope-preview") {
 """
 The possible states for a check suite or run conclusion.
 """
-enum CheckConclusionState @preview(toggledBy: "antiope-preview") {
+enum CheckConclusionState {
   """
   The check suite or run requires action.
   """
@@ -1836,7 +1836,7 @@ enum CheckConclusionState @preview(toggledBy: "antiope-preview") {
 """
 A check run.
 """
-type CheckRun implements Node & UniformResourceLocatable @preview(toggledBy: "antiope-preview") {
+type CheckRun implements Node & UniformResourceLocatable {
   """
   The check run's annotations
   """
@@ -1947,7 +1947,7 @@ type CheckRun implements Node & UniformResourceLocatable @preview(toggledBy: "an
 """
 Possible further actions the integrator can perform.
 """
-input CheckRunAction @preview(toggledBy: "antiope-preview") {
+input CheckRunAction {
   """
   A short explanation of what this action would do.
   """
@@ -1976,7 +1976,7 @@ type CheckRunConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckRun] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckRun]
 
   """
   Information to aid in pagination.
@@ -2001,13 +2001,13 @@ type CheckRunEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckRun @preview(toggledBy: "antiope-preview")
+  node: CheckRun
 }
 
 """
 The filters that are available when fetching check runs.
 """
-input CheckRunFilter @preview(toggledBy: "antiope-preview") {
+input CheckRunFilter {
   """
   Filters the check runs created by this application ID.
   """
@@ -2032,7 +2032,7 @@ input CheckRunFilter @preview(toggledBy: "antiope-preview") {
 """
 Descriptive details about the check run.
 """
-input CheckRunOutput @preview(toggledBy: "antiope-preview") {
+input CheckRunOutput {
   """
   The annotations that are made as part of the check run.
   """
@@ -2062,7 +2062,7 @@ input CheckRunOutput @preview(toggledBy: "antiope-preview") {
 """
 Images attached to the check run output displayed in the GitHub pull request UI.
 """
-input CheckRunOutputImage @preview(toggledBy: "antiope-preview") {
+input CheckRunOutputImage {
   """
   The alternative text for the image.
   """
@@ -2082,7 +2082,7 @@ input CheckRunOutputImage @preview(toggledBy: "antiope-preview") {
 """
 The possible types of check runs.
 """
-enum CheckRunType @preview(toggledBy: "antiope-preview") {
+enum CheckRunType {
   """
   Every check run available.
   """
@@ -2097,7 +2097,7 @@ enum CheckRunType @preview(toggledBy: "antiope-preview") {
 """
 The possible states for a check suite or run status.
 """
-enum CheckStatusState @preview(toggledBy: "antiope-preview") {
+enum CheckStatusState {
   """
   The check suite or run has been completed.
   """
@@ -2122,7 +2122,7 @@ enum CheckStatusState @preview(toggledBy: "antiope-preview") {
 """
 A check suite.
 """
-type CheckSuite implements Node @preview(toggledBy: "antiope-preview") {
+type CheckSuite implements Node {
   """
   The GitHub App which created this check suite.
   """
@@ -2268,7 +2268,7 @@ type CheckSuite implements Node @preview(toggledBy: "antiope-preview") {
 """
 The auto-trigger preferences that are available for check suites.
 """
-input CheckSuiteAutoTriggerPreference @preview(toggledBy: "antiope-preview") {
+input CheckSuiteAutoTriggerPreference {
   """
   The node ID of the application that owns the check suite.
   """
@@ -2292,7 +2292,7 @@ type CheckSuiteConnection {
   """
   A list of nodes.
   """
-  nodes: [CheckSuite] @preview(toggledBy: "antiope-preview")
+  nodes: [CheckSuite]
 
   """
   Information to aid in pagination.
@@ -2317,13 +2317,13 @@ type CheckSuiteEdge {
   """
   The item at the end of the edge.
   """
-  node: CheckSuite @preview(toggledBy: "antiope-preview")
+  node: CheckSuite
 }
 
 """
 The filters that are available when fetching check suites.
 """
-input CheckSuiteFilter @preview(toggledBy: "antiope-preview") {
+input CheckSuiteFilter {
   """
   Filters the check suites created by this application ID.
   """
@@ -2983,7 +2983,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): CheckSuiteConnection @preview(toggledBy: "antiope-preview")
+  ): CheckSuiteConnection
 
   """
   Comments made on the commit.
@@ -4596,7 +4596,7 @@ type CreateBranchProtectionRulePayload {
 """
 Autogenerated input type of CreateCheckRun
 """
-input CreateCheckRunInput @preview(toggledBy: "antiope-preview") {
+input CreateCheckRunInput {
   """
   Possible further actions the integrator can perform, which a user may trigger.
   """
@@ -4661,7 +4661,7 @@ input CreateCheckRunInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of CreateCheckRun
 """
-type CreateCheckRunPayload @preview(toggledBy: "antiope-preview") {
+type CreateCheckRunPayload {
   """
   The newly created check run.
   """
@@ -4676,7 +4676,7 @@ type CreateCheckRunPayload @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated input type of CreateCheckSuite
 """
-input CreateCheckSuiteInput @preview(toggledBy: "antiope-preview") {
+input CreateCheckSuiteInput {
   """
   A unique identifier for the client performing the mutation.
   """
@@ -4696,7 +4696,7 @@ input CreateCheckSuiteInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of CreateCheckSuite
 """
-type CreateCheckSuitePayload @preview(toggledBy: "antiope-preview") {
+type CreateCheckSuitePayload {
   """
   The newly created check suite.
   """
@@ -14303,11 +14303,6 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   id: ID!
 
   """
-  Just for debugging on review-lab
-  """
-  issuePrioritiesDebug: String!
-
-  """
   A list of issues associated with the milestone.
   """
   issues(
@@ -14857,12 +14852,12 @@ type Mutation {
   """
   Create a check run.
   """
-  createCheckRun(input: CreateCheckRunInput!): CreateCheckRunPayload @preview(toggledBy: "antiope-preview")
+  createCheckRun(input: CreateCheckRunInput!): CreateCheckRunPayload
 
   """
   Create a check suite
   """
-  createCheckSuite(input: CreateCheckSuiteInput!): CreateCheckSuitePayload @preview(toggledBy: "antiope-preview")
+  createCheckSuite(input: CreateCheckSuiteInput!): CreateCheckSuitePayload
 
   """
   Create a content attachment.
@@ -15142,7 +15137,7 @@ type Mutation {
   """
   Rerequests an existing check suite.
   """
-  rerequestCheckSuite(input: RerequestCheckSuiteInput!): RerequestCheckSuitePayload @preview(toggledBy: "antiope-preview")
+  rerequestCheckSuite(input: RerequestCheckSuiteInput!): RerequestCheckSuitePayload
 
   """
   Marks a review thread as resolved.
@@ -15217,12 +15212,12 @@ type Mutation {
   """
   Update a check run
   """
-  updateCheckRun(input: UpdateCheckRunInput!): UpdateCheckRunPayload @preview(toggledBy: "antiope-preview")
+  updateCheckRun(input: UpdateCheckRunInput!): UpdateCheckRunPayload
 
   """
   Modifies the settings of an existing check suite
   """
-  updateCheckSuitePreferences(input: UpdateCheckSuitePreferencesInput!): UpdateCheckSuitePreferencesPayload @preview(toggledBy: "antiope-preview")
+  updateCheckSuitePreferences(input: UpdateCheckSuitePreferencesInput!): UpdateCheckSuitePreferencesPayload
 
   """
   Sets the action execution capability setting for an enterprise.
@@ -18734,7 +18729,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
   ): IpAllowListEntryConnection!
 
   """
-  Whether the organization has verified its profile email and website.
+  Whether the organization has verified its profile email and website, always false on Enterprise.
   """
   isVerified: Boolean!
 
@@ -24196,7 +24191,7 @@ enum PullRequestUpdateState {
 """
 A Git push.
 """
-type Push implements Node @preview(toggledBy: "antiope-preview") {
+type Push implements Node {
   id: ID!
 
   """
@@ -30840,7 +30835,7 @@ type RequestReviewsPayload {
 """
 The possible states that can be requested when creating a check run.
 """
-enum RequestableCheckStatusState @preview(toggledBy: "antiope-preview") {
+enum RequestableCheckStatusState {
   """
   The check suite or run has been completed.
   """
@@ -30865,7 +30860,7 @@ union RequestedReviewer = Mannequin | Team | User
 """
 Autogenerated input type of RerequestCheckSuite
 """
-input RerequestCheckSuiteInput @preview(toggledBy: "antiope-preview") {
+input RerequestCheckSuiteInput {
   """
   The Node ID of the check suite.
   """
@@ -30885,7 +30880,7 @@ input RerequestCheckSuiteInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of RerequestCheckSuite
 """
-type RerequestCheckSuitePayload @preview(toggledBy: "antiope-preview") {
+type RerequestCheckSuitePayload {
   """
   The requested check suite.
   """
@@ -35960,7 +35955,7 @@ type UpdateBranchProtectionRulePayload {
 """
 Autogenerated input type of UpdateCheckRun
 """
-input UpdateCheckRunInput @preview(toggledBy: "antiope-preview") {
+input UpdateCheckRunInput {
   """
   Possible further actions the integrator can perform, which a user may trigger.
   """
@@ -36025,7 +36020,7 @@ input UpdateCheckRunInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of UpdateCheckRun
 """
-type UpdateCheckRunPayload @preview(toggledBy: "antiope-preview") {
+type UpdateCheckRunPayload {
   """
   The updated check run.
   """
@@ -36040,7 +36035,7 @@ type UpdateCheckRunPayload @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated input type of UpdateCheckSuitePreferences
 """
-input UpdateCheckSuitePreferencesInput @preview(toggledBy: "antiope-preview") {
+input UpdateCheckSuitePreferencesInput {
   """
   The check suite preferences to modify.
   """
@@ -36060,7 +36055,7 @@ input UpdateCheckSuitePreferencesInput @preview(toggledBy: "antiope-preview") {
 """
 Autogenerated return type of UpdateCheckSuitePreferences
 """
-type UpdateCheckSuitePreferencesPayload @preview(toggledBy: "antiope-preview") {
+type UpdateCheckSuitePreferencesPayload {
   """
   A unique identifier for the client performing the mutation.
   """
