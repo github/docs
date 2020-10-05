@@ -1,11 +1,11 @@
 # Contributing to this repository <!-- omit in toc -->
 
-## Getting started
+## Getting started <!-- omit in toc -->
 
 Before you begin:
-- We use node.js -- Are you on the latest version of node?
-- Have you read the code of conduct?
-- Check out the existing issues & see if we [accept contributions](#LINK TO CONTRIBUTION TYPES) for your type of issue.
+- We use node.js. Check to see if you're on the [latest version of node](https://www.npmjs.com/package/check-node-version).
+- Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
+- Check out the existing issues & see if we [accept contributions](#Contributing types) for your type of issue.
 
 ### Your issue doesn't exist? Make your first contribution
 File an issue or check out the issues to see if one exists already
