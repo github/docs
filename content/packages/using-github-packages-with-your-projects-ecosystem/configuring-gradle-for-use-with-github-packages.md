@@ -176,13 +176,13 @@ You can install a package by adding the package as a dependency to your project.
   Example using Grady Groovy:
   ```shell
   dependencies {
-  implementation 'com.example:package'
+      implementation 'com.example:package'
   }
   ```
   Example using Kotlin DSL:
   ```shell
   dependencies {
-  implementation("com.example:package")
+      implementation("com.example:package")
   }
   ```
 
@@ -191,13 +191,13 @@ You can install a package by adding the package as a dependency to your project.
   Example using Grady Groovy:
   ```shell
   plugins {
-  id 'maven'
+      id 'maven'
   }
   ```
   Example using Kotlin DSL:
   ```shell
   plugins {
-  `maven`
+      `maven`
   }
   ```
   
