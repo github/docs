@@ -168,7 +168,6 @@ _Search_
 {% if currentVersion == "free-pro-team@latest" %}
 - [`DELETE /repos/:owner/:repo/vulnerability-alerts`](/v3/repos/#disable-vulnerability-alerts) (:write)
 {% endif %}
-- [`POST /user/repos`](/v3/repos/#create-a-repository-for-the-authenticated-user) (:write)
 - [`PATCH /user/repository_invitations/:invitation_id`](/v3/repos/invitations/#accept-a-repository-invitation) (:write)
 - [`DELETE /user/repository_invitations/:invitation_id`](/v3/repos/invitations/#decline-a-repository-invitation) (:write)
 
