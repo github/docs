@@ -50,16 +50,14 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-### Keep contributing easily as you use the docs
+Once your PR is merged, you can be added to the [all contributors table](readme.md#CONTRIBUTORS) in our readme. 
 
-Now that you're a part of the GitHub Docs community, you can keep participating in many ways:
-1. Continue to make more contributions using the 'make a contribution' button right from docs.github.com.
-2. Join in on the [discussion](https://github.com/github/docs/discussions).
-3. Open an issue to share an idea about what you'd like to see updated on docs.github.com.
+### Keep contributing as you use GitHub Docs
 
-![](./assets/images/octocat-books.png)
+Now that you're a part of the GitHub Docs community, you can keep participating in many ways.
 
-Learn more about contributing:
+**Learn more about contributing:**
+
 - [Types of contributions :memo:](#types-of-contributions-memo)
   - [:mega: Discussions](#mega-discussions)
   - [:beetle: Issues](#beetle-issues)
