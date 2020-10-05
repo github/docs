@@ -16,7 +16,7 @@ Navigating a new codebase can be challenging, so we're making that a little easi
 Before you make your changes, check to see if an issue exists already for the change you want to make.
 
 ### Your issue doesn't exist?
-[File an issue](link to blank issue tempalte) or [check out the issues](link to issues) to see if one exists already.
+[File an issue](https://github.com/github/docs/issues/new/choose) or [check out the issues](https://github.com/github/docs/issues/) to see if one exists already.
 
 ### Ready to make a change? Fork the repo
 
