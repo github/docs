@@ -1,17 +1,17 @@
 ---
 title: Migrating from GitLab to GitHub Actions
-intro: '{{ site.data.variables.product.prodname_actions }} and GitLab share several configuration similarities, which makes migrating to {{ site.data.variables.product.prodname_actions }} relatively straightforward.'
+intro: '{% data variables.product.prodname_actions %} and GitLab share several configuration similarities, which makes migrating to {% data variables.product.prodname_actions %} relatively straightforward.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
-{{ site.data.reusables.actions.enterprise-beta }}
-{{ site.data.reusables.actions.enterprise-github-hosted-runners }}
+{% data reusables.actions.enterprise-beta %}
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Introduction
 
-GitLab and {{ site.data.variables.product.prodname_actions }} both allow you to create workflows that automatically build, test, publish, release, and deploy code. GitLab and {{ site.data.variables.product.prodname_actions }} share some similarities in workflow configuration:
+GitLab and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. GitLab and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
 - Workflow configuration files are written in YAML and are stored in the code's repository.
 - Workflows include one or more jobs.
@@ -22,13 +22,13 @@ There are a few differences, and this article will guide you to important differ
 
 ### Jobs
 
-Jobs in GitLab are very similar to jobs in {{ site.data.variables.product.prodname_actions }}. In both systems, jobs have the following characteristics:
+Jobs in GitLab are very similar to jobs in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
 * Jobs contain a series of steps or scripts that run sequentially.
 * Jobs run on separate virtual machines or in separate containers. [ need to check]
 * Jobs run in parallel by default, but can be configured to run sequentially.
 
-You can run a script or a shell command in a job. In GitLab, script steps are specified using the `script` key. In {{ site.data.variables.product.prodname_actions }}, all scripts are specified using the `run` key. 
+You can run a script or a shell command in a job. In GitLab, script steps are specified using the `script` key. In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. 
 
 Below is an example of the syntax for each system:
 
@@ -38,7 +38,7 @@ Below is an example of the syntax for each system:
 GitLab
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}
+{% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -69,7 +69,7 @@ jobs:
 
 ### Runners
 
-Runners are machines on which the jobs run. Both GitLab and {{ site.data.variables.product.prodname_actions }} offers managed and self-hosted variants of runners. In GitLab, `tags` are used to run jobs on different platforms while the same is done in {{ site.data.variables.product.prodname_actions }} with a `runs-on` key.
+Runners are machines on which the jobs run. Both GitLab and {% data variables.product.prodname_actions %} offers managed and self-hosted variants of runners. In GitLab, `tags` are used to run jobs on different platforms while the same is done in {% data variables.product.prodname_actions %} with a `runs-on` key.
 
 Below is an example of the syntax for each system.
 
@@ -120,7 +120,7 @@ linux_job:
 
 ### Docker Images
 
-Both GitLab and {{ site.data.variables.product.prodname_actions }} support running steps inside of a Docker image. In GitLab, docker images are defined with a `image` key while in GitHub Actions, the same can be done with a `container` key. 
+Both GitLab and {% data variables.product.prodname_actions %} support running steps inside of a Docker image. In GitLab, docker images are defined with a `image` key while in GitHub Actions, the same can be done with a `container` key. 
 
 Below is an example of the syntax for each system:
 
@@ -130,7 +130,7 @@ Below is an example of the syntax for each system:
 GitLab
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}
+{% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -168,7 +168,7 @@ Below is an example of the syntax for each system:
 GitLab
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}
+{% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -198,11 +198,11 @@ jobs:
 </tr>
 </table>
 
-For more information, see "[Context and expression syntax for {{ site.data.variables.product.prodname_actions }}](/actions/reference/context-and-expression-syntax-for-github-actions)."
+For more information, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)."
 
 ### Dependencies between Jobs
 
-Both GitLab and {{ site.data.variables.product.prodname_actions }} allow you to set dependencies for a job. In both systems, jobs run in parallel by default, but job dependencies can be specified explicitly with the `needs` key. GitLab also has a concept of `stages`, where jobs in a stage run concurrently, but the next stage will kick in once all the jobs in the previous stage has completed. You can easily recreate this scenario in GitHub Actions with the `needs` keys. 
+Both GitLab and {% data variables.product.prodname_actions %} allow you to set dependencies for a job. In both systems, jobs run in parallel by default, but job dependencies can be specified explicitly with the `needs` key. GitLab also has a concept of `stages`, where jobs in a stage run concurrently, but the next stage will kick in once all the jobs in the previous stage has completed. You can easily recreate this scenario in GitHub Actions with the `needs` keys. 
 
 Below is an example of the syntax for each system. The workflows start with two jobs named `build_a` and `build_b`, and when these jobs complete, another job called `test_ab` will run. Finally, when this job complete, the job `deploy` will run.
 
@@ -212,7 +212,7 @@ Below is an example of the syntax for each system. The workflows start with two 
 GitLab
 </th>
 <th>
-{{ site.data.variables.product.prodname_actions }}
+{% data variables.product.prodname_actions %}
 </th>
 </tr>
 <tr>
@@ -279,19 +279,19 @@ jobs:
 
 ### Scheduled Jobs
 
-Both GitLab and {{ site.data.variables.product.prodname_actions }} allow you to run workflows at a specific interval. In GitLab, pipeline schedules are configured with a UI, while in GitHub Actions, you can trigger a workflow on the scheduled interval with the "on" key. 
+Both GitLab and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab, pipeline schedules are configured with a UI, while in GitHub Actions, you can trigger a workflow on the scheduled interval with the "on" key. 
 
 For more information, see "[Scheduled events](/actions/reference/events-that-trigger-workflows#scheduled-events)."
 
 ### Variables and Secrets
 
-GitLab and {{ site.data.variables.product.prodname_actions }} support setting environment variables in the configuration file and creating secrets using the GitLab or {{ site.data.variables.product.product_name }} UI.
+GitLab and {% data variables.product.prodname_actions %} support setting environment variables in the configuration file and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
 
 For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)" and "[Creating and using encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
 ### Caching
 
-GitLab and {{ site.data.variables.product.prodname_actions }} provide a method to manually cache files in the configuration file.
+GitLab and {% data variables.product.prodname_actions %} provide a method to manually cache files in the configuration file.
 
 Below is an example of the syntax for each system.
 
@@ -345,7 +345,7 @@ For more information, see "[Caching dependencies to speed up workflows](/actions
 
 ### Artifacts
 
-Both GitLab and {{ site.data.variables.product.prodname_actions }} provide `artifacts` to upload files and directories created by the job. In {{ site.data.variables.product.prodname_actions }}, artifacts can be used to persist data across multiple jobs. 
+Both GitLab and {% data variables.product.prodname_actions %} provide `artifacts` to upload files and directories created by the job. In {% data variables.product.prodname_actions %}, artifacts can be used to persist data across multiple jobs. 
 
 Below is an example of the syntax for each system.
 
@@ -389,9 +389,9 @@ For more information, see "[Persisting workflow data using artifacts](/actions/c
 
 Both systems enable you to include additional containers for databases, caching, or other dependencies.
 
-In GitLab, primary containers are specified with a `image` key while {{ site.data.variables.product.prodname_actions }} use `container` key for primary containers. In both system additional containers can be specificed with `services` key. 
+In GitLab, primary containers are specified with a `image` key while {% data variables.product.prodname_actions %} use `container` key for primary containers. In both system additional containers can be specificed with `services` key. 
 
-Below is an example in GitLab and {{ site.data.variables.product.prodname_actions }} configuration syntax.
+Below is an example in GitLab and {% data variables.product.prodname_actions %} configuration syntax.
 
 <table class="d-block">
 <tr>
