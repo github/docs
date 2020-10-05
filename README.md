@@ -16,13 +16,21 @@ In this article:
 
 We accept a lot of [different contributions](link to types of contributions), and some that don't require you to write a single line of code.
 
+**Click 'Make a contribution' from docs**
+As you're using GitHub Documentation, you may find something in an article that you'd like to add to, update or change. Clicking on the 'make a contribution' button will navigate you directly to that article in the codebase so that you can begin making your contribution. 
+
 **Open an issue**
+
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
 
 **Join us in discussions**
+
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
-And that's it! :sparkles: That's all you need to know to get started easily as a member of the GitHub Documentation community. If you want to know a bit more, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md)
+**And that's it!**
+That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
+
+If you want to know more, or you're making a more complex contribution, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md).
 
 There are a few more things to know when your'e getting started with this repo:
 
