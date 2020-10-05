@@ -22,8 +22,9 @@ Before you begin:
    ```
 ### Make your update:
 - Tips and tricks for [navigating the codebase](#LINK TO WORKING IN GITHUB/DOCS REPOSITORY)
-  - Are you contributing to node.js? (Make sure you're using the latest version of node)
+  - Are you contributing to node.js? (Make sure you're using the version of node.js that we support)
   - Are you contributing to markdown? (We use [GitHub Markdown])
+  - Resolving merge conflicts: when you try to merge two branches that change the same part of the same file, you will get a merge conflict.
 
 ### Open a pull request
 - Use the pull request template
@@ -63,7 +64,6 @@ Learn more about contributing:
   - [Pull request template](#pull-request-template)
   - [Suggested changes](#suggested-changes)
 - [Windows](#windows)
-
 
 ## Types of contributions :memo:
 You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: docs team is maintaining this repo, to preserve our bandwidth, off topic conversations will be closed.
