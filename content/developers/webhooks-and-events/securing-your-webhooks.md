@@ -36,7 +36,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 When your secret token is set, GitHub uses it to create a hash signature with each payload.
 
-This hash signature is passed along with each request in the headers as `X-Hub-Signature-2`. Suppose you have a basic server listening to webhooks that looks like this:
+This hash signature is passed along with each request in the headers as `X-Hub-Signature-256`. Suppose you have a basic server listening to webhooks that looks like this:
 
 ``` ruby
 require 'sinatra'
@@ -71,6 +71,6 @@ Obviously, your language and server implementations may differ than this code. T
 
 * Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which renders it safe from certain timing attacks against regular equality operators.
 
-We also include a signature based on SHA-1 for backward-compatibility in a header called `X-Hub-Signature`. If possible, prefer `X-Hub-Signature-2` for improved security. We do not currently plan to deprecate the old header, so it should be safe to rely on it if updating to SHA-256 isn't feasible.
+We also include a signature based on SHA-1 for backward-compatibility in a header called `X-Hub-Signature`. If possible, prefer `X-Hub-Signature-256` for improved security. We do not currently plan to deprecate the old header, so it should be safe to rely on it if updating to SHA-256 isn't feasible.
 
 [secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
