@@ -3,41 +3,61 @@
 ## Getting started <!-- omit in toc -->
 
 Before you begin:
-- We use node.js. Check to see if you're on the [latest version of node](https://www.npmjs.com/package/check-node-version).
+- This site is powered by node.js. Check to see if you're on the [version of node we support](https://www.npmjs.com/package/check-node-version).
 - Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
-- Check out the existing issues & see if we [accept contributions](#Contributing types) for your type of issue.
+- Check out the existing issues & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
 
-### Your issue doesn't exist? Make your first contribution
-[File an issue](link to blank issue tempalte) or [check out the issues](link to issues) to see if one exists already
+### Use the 'make a contribution' button
 
-### Ready to work on your issue (or another one?) Clone the repo
-- Fork using GitHub Desktop
-[Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop. Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
-- Fork using the command line
+![](./assets/images/make-contribution.gif)
+
+Navigating a new codebase can be challenging, so we're making that a little easier. As you're using docs.github.com, you may come across an article that you want to make an update to. You can click on the 'make a contribution' button right on that article, which will take you to the file in this repo where you'll make your changes.
+
+Before you make your changes, check to see if an issue exists already for the change you want to make.
+
+### Your issue doesn't exist?
+[File an issue](link to blank issue tempalte) or [check out the issues](link to issues) to see if one exists already.
+
+### Ready to make a change? Fork the repo
+
+Fork using GitHub Desktop:
+
+- [Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop.
+- Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
+
+Fork using the command line:
 1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) the repo.
-2. Open the terminal.
+2. Open your terminal.
 3. Enter the following command. Use your GitHub username instead of `YOUR-USERNAME`.
+
    ```
    git clone git@github.com:YOUR-USERNAME/docs
    ```
+
 ### Make your update:
-- Tips and tricks for [navigating the codebase](#LINK TO WORKING IN GITHUB/DOCS REPOSITORY)
-  - Are you contributing to node.js? (Make sure you're using the version of node.js that we support)
-  - Are you contributing to markdown? (We use [GitHub Markdown])
-  - Resolving merge conflicts: when you try to merge two branches that change the same part of the same file, you will get a merge conflict.
+Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
+  - Are you contributing to node.js? You'll need **Node.js v12** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
+  - Are you contributing to markdown? We use [GitHub Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Open a pull request
-- Use the pull request template
+When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request).
 
 ### Submit your PR & get it reviewed
-- Once you submit your PR, others from the Docs community will review it with you. The first thing you're going to want to do is a [self review](link to self reivew)
-- After that, we may have questions, check back on your PR to keep the conversation going
-- Did you have an issue, like a merge conflict? Check out our git tutorial on how to resolve merge conflicts and other issues.
+- Once you submit your PR, others from the Docs community will review it with you. The first thing you're going to want to do is a [self review](#self-review).
+- After that, we may have questions, check back on your PR to keep up with the conversation.
+- Did you have an issue, like a merge conflict? Check out our [git tutorial](https://lab.github.com/githubtraining/managing-merge-conflicts) on how to resolve merge conflicts and other issues.
 
 ### Your PR is merged!
-Congratulations! The whole GitHub community thanks you
+Congratulations! The whole GitHub community thanks you. :sparkles:
 
-[octocat ascii]
+### Keep contributing easily as you use the docs
+
+Now that you're a part of the GitHub Docs community, you can keep participating in many ways:
+1. Continue to make more contributions using the 'make a contribution' button right from docs.github.com.
+2. Join in on the [discussion](https://github.com/github/docs/discussions).
+3. Open an issue to share an idea about what you'd like to see updated on docs.github.com.
+
+![](./assets/images/octocat-books.png)
 
 Learn more about contributing:
 - [Types of contributions :memo:](#types-of-contributions-memo)
