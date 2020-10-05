@@ -8,8 +8,7 @@ Before you begin:
 - Check out the existing issues & see if we [accept contributions](#Contributing types) for your type of issue.
 
 ### Your issue doesn't exist? Make your first contribution
-File an issue or check out the issues to see if one exists already
-- use the issue template
+[File an issue](link to blank issue tempalte) or [check out the issues](link to issues) to see if one exists already
 
 ### Ready to work on your issue (or another one?) Clone the repo
 - Fork using GitHub Desktop
@@ -67,7 +66,7 @@ Learn more about contributing:
 
 
 ## Types of contributions :memo:
-You can contribute to the GitHub Docs content and site in several ways.
+You can contribute to the GitHub Docs content and site in several ways. This repo is a place to discuss and collaborate on docs.github.com! Our small, but mighty :muscle: docs team is maintaining this repo, to preserve our bandwidth, off topic conversations will be closed.
 
 ### :mega: Discussions
 Discussions are where we have conversations.
