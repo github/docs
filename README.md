@@ -2,7 +2,7 @@
 
 This repository contains the documentation website code and Markdown source files for docs.github.com.
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo. 
+GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
 - [Contributing](#contributing)
@@ -12,15 +12,22 @@ In this article:
 
 ## Contributing
 
-:memo: To find out how you can best contribute to GitHub's product documentation, see the [CONTRIBUTING](/CONTRIBUTING.md) guide.
+### Start contributing today:
 
-:mega: If you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
+We accept a lot of [different contributions](link to types of contributions), and some that don't require you to write a single line of code.
 
-:beetle: If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+**Open an issue**
+If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
 
-:question: If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+**Join us in discussions**
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
-:yellow_heart: We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
+And that's it! :sparkles: That's all you need to know to get started easily as a member of the GitHub Documentation community. If you want to know a bit more, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md)
+
+There are a few more things to know when your'e getting started with this repo:
+
+1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
 
 ## READMEs
 
