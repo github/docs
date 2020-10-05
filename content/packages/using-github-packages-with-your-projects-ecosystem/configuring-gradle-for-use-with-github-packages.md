@@ -120,32 +120,32 @@ publishing {
 
 ##### Example using Kotlin DSL for multiple packages in the same repository
 
-  ```shell
-  plugins {
-  `maven-publish` apply false
-  }
-  
-  subprojects {
-  apply(plugin = "maven-publish")
-  configure<PublishingExtension> {
-  repositories {
-  maven {
-  name = "GitHubPackages"
-  url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
-  credentials {
-  username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-  password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
-  }
-  }
-  }
-  publications {
-  register<MavenPublication>("gpr") {
-  from(components["java"])
-  }
-  }
-  }
-  }
-  ```
+```shell
+plugins {
+    `maven-publish` apply false
+}
+
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                }
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+            }
+        }
+    }
+}
+```
   
   #### Authenticating with the `GITHUB_TOKEN`
   
