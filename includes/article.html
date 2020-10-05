@@ -58,10 +58,7 @@
         <div class="d-none d-xl-block{% if miniTocItems.size > 1 %} border-top border-gray-light mt-4{% endif %}">
           {% assign helpId = 'xl' %}
           {% include helpfulness %}
-          {% comment %}
-            <!-- TODO: comment this out after the repo becomes public -->
-            {% include contribution %}
-          {% endcomment %}
+          {% include contribution %}
         </div>
       </div>
     </div>
@@ -76,9 +73,6 @@
   <div class="d-block d-xl-none border-top border-gray-light mt-4 markdown-body">
     {% assign helpId = 'sm' %}
     {% include helpfulness %}
-    {% comment %}
-      <!-- TODO: comment this out after the repo becomes public -->
-      {% include contribution %}
-    {% endcomment %}
+    {% include contribution %}
   </div>
 </main>
