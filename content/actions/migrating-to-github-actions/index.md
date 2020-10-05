@@ -1,9 +1,9 @@
 ---
 title: Migrating to GitHub Actions
 intro: 'Migrate from other continuous integration (CI) providers to {{ site.data.variables.product.prodname_actions }}.'
-productVersions:
-  actions: '*'
-  enterprise: '>=2.22'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
 ---
 
 {{ site.data.reusables.actions.enterprise-beta }}

@@ -1,9 +1,9 @@
 ---
 title: Migrating from GitLab to GitHub Actions
 intro: '{{ site.data.variables.product.prodname_actions }} and GitLab share several configuration similarities, which makes migrating to {{ site.data.variables.product.prodname_actions }} relatively straightforward.'
-productVersions:
-  dotcom: '*'
-  enterprise: '>=2.22'
+versions:
+  free-pro-team: '*'
+  enterprise-server: '>=2.22'
 ---
 
 {{ site.data.reusables.actions.enterprise-beta }}
