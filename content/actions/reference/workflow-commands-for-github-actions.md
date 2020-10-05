@@ -150,7 +150,7 @@ echo "::warning file=app.js,line=1,col=5::Missing semicolon"
 
 `::error file={name},line={line},col={col}::{message}`
 
-Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the warning occurred.
+Creates an error message and prints the message to the log. You can optionally provide a filename (`file`), line number (`line`), and column (`col`) number where the error occurred.
 
 #### Example
 
