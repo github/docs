@@ -14,9 +14,9 @@ In this article:
 
 ### Start contributing today:
 
-We accept a lot of [different contributions](CONTRIBUTING.md/#Contributing types), and some that don't require you to write a single line of code.
+We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), and some that don't require you to write a single line of code.
 
-**Click 'Make a contribution' from docs**
+**Click 'make a contribution' from docs**
 
 As you're using GitHub Documentation, you may find something in an article that you'd like to add to, update or change. Clicking on the 'make a contribution' button will navigate you directly to that article in the codebase so that you can begin making your contribution.
 
