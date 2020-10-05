@@ -1,5 +1,45 @@
 # Contributing to this repository <!-- omit in toc -->
-We welcome contributions from the community. Read on to learn about the ways you can contribute to GitHub Docs.
+
+## Getting started
+
+Before you begin:
+- We use node.js -- Are you on the latest version of node?
+- Have you read the code of conduct?
+- Check out the existing issues & see if we [accept contributions](#LINK TO CONTRIBUTION TYPES) for your type of issue.
+
+### Your issue doesn't exist? Make your first contribution
+File an issue or check out the issues to see if one exists already
+- use the issue template
+
+### Ready to work on your issue (or another one?) Clone the repo
+- Fork using GitHub Desktop
+[Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop. Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
+- Fork using the command line
+1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) the repo.
+2. Open the terminal.
+3. Enter the following command. Use your GitHub username instead of `YOUR-USERNAME`.
+   ```
+   git clone git@github.com:YOUR-USERNAME/docs
+   ```
+### Make your update:
+- Tips and tricks for [navigating the codebase](#LINK TO WORKING IN GITHUB/DOCS REPOSITORY)
+  - Are you contributing to node.js? (Make sure you're using the latest version of node)
+  - Are you contributing to markdown? (We use [GitHub Markdown])
+
+### Open a pull request
+- Use the pull request template
+
+### Submit your PR & get it reviewed
+- Once you submit your PR, others from the Docs community will review it with you. The first thing you're going to want to do is a [self review](link to self reivew)
+- After that, we may have questions, check back on your PR to keep the conversation going
+- Did you have an issue, like a merge conflict? Check out our git tutorial on how to resolve merge conflicts and other issues.
+
+### Your PR is merged!
+Congratulations! The whole GitHub community thanks you
+
+[octocat ascii]
+
+Learn more about contributing:
 - [Types of contributions :memo:](#types-of-contributions-memo)
   - [:mega: Discussions](#mega-discussions)
   - [:beetle: Issues](#beetle-issues)
@@ -25,11 +65,12 @@ We welcome contributions from the community. Read on to learn about the ways you
   - [Suggested changes](#suggested-changes)
 - [Windows](#windows)
 
+
 ## Types of contributions :memo:
 You can contribute to the GitHub Docs content and site in several ways.
 
 ### :mega: Discussions
-Discussions are where we have conversations. 
+Discussions are where we have conversations.
 
 If you'd like help troubleshooting a docs PR you're working on, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
@@ -39,7 +80,7 @@ If you'd like help troubleshooting a docs PR you're working on, have a great new
 If you've found something in the content or the website that should be updated, search open issues to see if someone else has reported the same thing. If it's something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
 ### :hammer_and_wrench: Pull requests
-A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) is a way to suggest changes in our repository. 
+A [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) is a way to suggest changes in our repository.
 
 When we merge those changes, they should be deployed to the live site within 24 hours. :earth_africa: To learn more about opening a pull request in this repo, see [Opening a pull request](#opening-a-pull-request) below.
 
@@ -66,21 +107,10 @@ You can browse existing issues to find something that needs help!
 Labels can help you find an issue you'd like to help with.
 - The [`good-first-issue` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Agood-first-issue) is for problems or updates we think are ideal for beginners.
 - The [`content` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Acontent) is for problems or updates in the content on docs.github.com. These will usually require some knowledge of Markdown.
-- The [`engineering` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) is for problems or updates in the docs.github.com website. These will usually require some knowledge of JavaScript/Node.js or YAML to fix. 
+- The [`engineering` label](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3Aengineering) is for problems or updates in the docs.github.com website. These will usually require some knowledge of JavaScript/Node.js or YAML to fix.
 
 ## Opening a pull request
 You can use the GitHub user interface :pencil2: for some small changes, like fixing a typo or updating a readme. You can also fork the repo and then clone it locally, to view changes and run your tests on your machine.
-
-### Fork using GitHub Desktop
-[Getting started with GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop) will guide you through setting up Desktop. Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
-
-### Fork using the command line
-1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) the repo.
-2. Open the terminal.
-3. Enter the following command. Use your GitHub username instead of `YOUR-USERNAME`.
-   ```
-   git clone git@github.com:YOUR-USERNAME/docs
-   ```
 
 ## Working in the github/docs repository
 Here's some information that might be helpful while working on a Docs PR:
@@ -97,68 +127,9 @@ Here's some information that might be helpful while working on a Docs PR:
 
 - [Liquid](/contribution/liquid-helpers.md) - We use liquid helpers to create different versions of our content.
 
-- [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally. 
+- [Scripts](/script/README.md) - The scripts directory is the home for all of the scripts you can run locally.
 
 - [Tests](/tests/README.md) - We use tests to ensure content will render correctly on the site. Tests run automatically in your PR, and sometimes it's also helpful to run them locally.
-
-## Resolving merge conflicts
-When you try to merge two branches that change the same part of the same file, you will get a merge conflict.
-
-### In the GitHub user interface
-You can resolve the merge conflicts in the [GitHub UI](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github). This is useful for small conflicts, but if the conflict is more involved, you'll want to use your editor.
-
-#### Editing the file and committing the changes
-
-1. On the command line or GitHub Desktop, note the file that contains merge conflicts.
-2. Open the file in your editor.
-3. In the file, look for the merge conflict markers. (this is what it looks like in Atom)
-
- ```command-line
-  <<<<<<< HEAD
-
-  Here are your changes.
-  =====================
-  Here are the changes you are pulling in.
-  >>>>>>> main
-```
-4. Decide which changes to keep and delete the unwanted changes and the merge conflict markers. If there are multiple files with merge conflicts, repeat this step until you resolve all conflicts.
-
- ```command-line
-  Here are your changes.
-```
-
-**Note**: Resolving merge conflicts requires thought; it isn't purely mechanical and rote. Sometimes you outright accept your own changes, sometimes you take the upstream changes, and sometimes you combine the two to make a glorious hybrid update.
-
-5. To commit your new changes:
-- Using Desktop:
-  - Check out this [GitHub Desktop](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project) article.
-
-- Using the terminal: 
-  - Stage the file (or files) you just modified for commit.
-
- ```command-line
-  $ git add <EXAMPLE-CHANGED-FILE.md>
-```
-  - Commit the file to your local branch.
-
- ```command-line
-  $ git commit -m "resolves merge conflicts"
-```
-  - Push the committed changes to the remote branch of the repository on GitHub.
- ```command-line
-  $ git push origin
-```
-
-## Troubleshooting
-If you get stuck while you're trying to contribute, see if someone else has had a similar problem in [discussions](https://github.com/github/docs/discussions). If not, open a new discussion!
-
-While you're there, we'd appreciate any help answering questions you feel knowledgeable about.
-
-### Failed status checks
-If your pull request has failing status checks, [Troubleshooting](/contributing/troubleshooting.md) will walk you through some of the possible reasons.
-
-## Draft pull requests
-Do not review any [draft PRs](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests#draft-pull-requests), they're not ready! The docs team uses draft PRs to work on projects over time. When the PR is ready for feedback, we'll change the state from draft to ready for review.
 
 ## Reviewing
 We (usually the docs team, but sometimes GitHub product managers, engineers, or supportocats too!) review every single PR. The purpose of reviews is to create the best content we can for people who use GitHub.
