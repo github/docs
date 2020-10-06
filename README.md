@@ -26,7 +26,7 @@ As you're using the GitHub Docs, you may find something in an article that you'd
 
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
 
-**Join us in discussions**
+#### Join us in discussions
 
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
