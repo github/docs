@@ -45,13 +45,13 @@ Note: The below examples are only intended to show Liquid syntax and operators. 
 In statements where **all** operands must be true for the condition to be true, use the operator `and`:
 
 ```
-{% if page.version != "dotcom" and page.version ver_gt "2.6" %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
 ```
 
 In statements where **at least one** operand must be true for the condition to be true, use the operator `or`:
 
 ```
-{% if page.version == "dotcom" or page.version ver_gt "2.6" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 ```
 
 Do **not** use the operators `&&` or `||`. If you do, the content will not render in the intended versions. Only use `and` or `or`.
@@ -74,11 +74,11 @@ If your content is included in all versions of Enterprise, you need not include 
 If your content only applies to GitHub.com, such as billing information, use this logic:
 
 ```
-{% if page.version == "dotcom" %}This is how you pay for your personal account, which is something you wouldn't do in Enterprise.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}This is how you pay for your personal account, which is something you wouldn't do in Enterprise.{% endif %}
 ```
 
 In this example:
-- `if page.version == "dotcom"` will include the content for Dotcom output and *only* Dotcom.
+- `if currentVersion == "free-pro-team@latest"` will include the content for Dotcom output and *only* Dotcom.
 - `{% endif %}` ends the statement.
 
 #### Including content for *new Dotcom features* that will be included in Enterprise
@@ -86,13 +86,13 @@ In this example:
 If your content is describing a new feature that was added to GitHub.com and will be automatically included in the next release of GitHub Enterprise, use this logic:
 
 ```
-{% if page.version == "dotcom" or page.version ver_gt "2.6" %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}This is a brand new feature, the likes of which have never been seen at this company before!{% endif %}
 ```
 
 In this example:
 
-- `if page.version == "dotcom"` will include the content for GitHub.com output.
-- `or page.version ver_gt "2.6"` will include the content for releases *after* Enterprise 2.6, which means the content will be included for 2.7+.
+- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
+- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.7+.
 - `{% endif %}` ends the statement.
 
 #### Including content for *changed* Dotcom features that will also change in Enterprise
@@ -100,13 +100,13 @@ In this example:
 If your content is describing a change to existing functionality in Dotcom, such as changed UI text or a more simple means of completing a task, use this logic:
 
 ```
-{% if page.version == "dotcom" or page.version ver_gt "2.10" %}This is the new way of doing things {% else %}This is the old way of doing things {% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "2.20" %}This is the new way of doing things {% else %}This is the old way of doing things {% endif %}
 ```
 
 In this example:
 
-- `if page.version == "dotcom"` will include the content for GitHub.com output.
-- `or page.version ver_gt "2.6"` will include the content for releases *after* Enterprise 2.6, which means the content will be included for 2.7+.
+- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
+- `or currentVersion ver_gt "enterprise-server@2.21"` will include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
 - `{% else %}` means if the above is NOT true, then display the content that follows, `This is the old way of doing things`.
 - `{% endif %}` ends the statement.
 
@@ -115,22 +115,23 @@ In this example:
 If your content is describing a change to existing functionality in Dotcom, and that functionality doesn't exist in all older Enterprise versions, use logic like this:
 
 ```
-{% if page.version == 'dotcom' or page.version ver_gt "2.10" %}
+{% if currentVersion == 'dotcom' or currentVersion ver_gt "2.20" %}
 
 This is the new way of doing things.
 
-{% elsif page.version ver_gt "2.8" and page.version ver_lt "2.11" %}
+{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "2.21" %}
 
-This is the old way of doing things (which did not exist before 2.9).
+This is the old way of doing things (which did not exist before 2.20).
 
 {% endif %}
 ```
 
 In this example:
 
-- `if page.version == "dotcom"` will include the content for GitHub.com output.
-- `or page.version ver_gt "2.10"` will include the content for releases *after* Enterprise 2.10, which means the content will be included for 2.11+.
-- `elsif page.version ver_gt "2.8" and page.version ver_lt "2.11"` means if the above is NOT true, and the version is either 2.9 or 2.10, then display the content that follows, `This is the old way of doing things`. No content will be displayed for versions older than 2.9.
+- `if currentVersion == "free-pro-team@latest"` will include the content for GitHub.com output.
+- `or currentVersion ver_gt "2.20"` will include the content for releases *after* Enterprise 2.20, which means the content will be included for 2.21+.
+- `elsif currentVersion ver_gt "enterprise-server@2.19" and currentVersion ver_lt "2.21"` means if the above is NOT true, and the version is 2.20, then display the content that follows, `This is the old way of doing things`. No content will be displayed for versions older than 2.20.
 - `{% endif %}` ends the statement.
 
 #### Including content for *new Enterprise features* that don't exist on Dotcom
@@ -138,13 +139,13 @@ In this example:
 If your content is describing a new feature that was added to GitHub Enterprise but not GitHub, such as LDAP support, use this logic:
 
 ```
-{% if page.version != "dotcom" and page.version ver_gt "2.6" %}This is a brand new feature, admin-type people!{% endif %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}This is a brand new feature, admin-type people!{% endif %}
 ```
 
 In this example:
 
-- `if page.version != "dotcom"` will exclude the content for GitHub.com output.
-- `and page.version ver_gt "2.6"` will *additionally* include the content for releases *after* Enterprise 2.6, which means the content will be included for 2.7+.
+- `if currentVersion != "free-pro-team@latest"` will exclude the content for GitHub.com output.
+- `and currentVersion ver_gt "enterprise-server@2.21"` will *additionally* include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
 - `{% endif %}` ends the statement.
 
 #### Including content for *changed Enterprise features* that don't exist on Dotcom
@@ -152,12 +153,12 @@ In this example:
 If your content is describing a change to existing functionality in GitHub Enterprise, such as changed UI text or a more simple means of completing a task in the Management Console, use this logic:
 
 ```
-{% if page.version != "dotcom" and page.version ver_gt "2.6" %}This is the new way of doing things, admins! {% else %}This is the old way of doing things, admins! {% endif %}
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}This is the new way of doing things, admins! {% else %}This is the old way of doing things, admins! {% endif %}
 ```
 
 In this example:
 
-- `if page.version != "dotcom"` will exclude the content for GitHub.com output.
-- `and page.version ver_gt "2.6"` will *additionally* include the content for releases *after* Enterprise 2.6, which means the content will be included for 2.7+.
+- `if currentVersion != "free-pro-team@latest"` will exclude the content for GitHub.com output.
+- `and currentVersion ver_gt "enterprise-server@2.21"` will *additionally* include the content for releases *after* Enterprise 2.21, which means the content will be included for 2.22+.
 - `{% else %}` means if the above is NOT true, then display the content that follows, `This is the old way of doing things, admins!`.
 - `{% endif %}` ends the statement.
