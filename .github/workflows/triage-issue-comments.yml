@@ -33,7 +33,7 @@ jobs:
             return 'false'
           }
     - name: Label issues with new comments with 'triage'
-      uses: andymckay/labeler@v1.0.2
+      uses: andymckay/labeler@1.0.2
       if: (steps.is-internal-contributor.outputs.result == 'false')
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
