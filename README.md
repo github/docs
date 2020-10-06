@@ -30,7 +30,7 @@ If you've found a problem, you can open an issue using a [template](https://gith
 
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
 
-**And that's it!**
+#### And that's it!
 That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
 
 If you want to know more, or you're making a more complex contribution, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md).
