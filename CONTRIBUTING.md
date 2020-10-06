@@ -37,7 +37,7 @@ Fork using the command line:
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
-  - Are you contributing to node.js? You'll need **Node.js v14** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
+  - Are you making changes to the application code? You'll need **Node.js v14** to run the site locally. See [contributing/development.md](contributing/development.md).
   - Are you contributing to markdown? We use [GitHub Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Open a pull request
