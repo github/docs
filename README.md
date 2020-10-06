@@ -14,7 +14,7 @@ In this article:
 
 ### Start contributing right now:
 
-We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), and some that don't require you to write a single line of code.
+We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
 #### Click **make a contribution** from docs
 
