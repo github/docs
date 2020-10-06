@@ -13,10 +13,11 @@ Before you begin:
 
 Navigating a new codebase can be challenging, so we're making that a little easier. As you're using docs.github.com, you may come across an article that you want to make an update to. You can click on the 'make a contribution' button right on that article, which will take you to the file in this repo where you'll make your changes.
 
-Before you make your changes, check to see if an issue exists already for the change you want to make.
+Before you make your changes, check to see if an [issue exists](https://github.com/github/docs/issues/) already for the change you want to make.
 
-### Your issue doesn't exist?
-[File an issue](https://github.com/github/docs/issues/new/choose) or [check out the issues](https://github.com/github/docs/issues/) to see if one exists already.
+### Don't see your issue? Open one
+
+If you spot something new, open an issue using a [template](https://github.com/github/docs/issues/new/choose). We'll use the issue to have a conversation about the problem you want to fix.
 
 ### Ready to make a change? Fork the repo
 
@@ -36,7 +37,7 @@ Fork using the command line:
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
-  - Are you contributing to node.js? You'll need **Node.js v12** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
+  - Are you contributing to node.js? You'll need **Node.js v14** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
   - Are you contributing to markdown? We use [GitHub Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Open a pull request
@@ -50,7 +51,7 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-Once your PR is merged, you can be added as a contributor in the [readme](README.md#contributors-). 
+Once your PR is merged, you can be added as a contributor in the [readme](README.md#contributors-).
 
 ### Keep contributing as you use GitHub Docs
 
