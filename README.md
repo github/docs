@@ -35,7 +35,7 @@ That's how you can get started easily as a member of the GitHub Documentation co
 
 If you want to know more, or you're making a more complex contribution, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md).
 
-There are a few more things to know when your'e getting started with this repo:
+There are a few more things to know when you're getting started with this repo:
 
 1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
 2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
