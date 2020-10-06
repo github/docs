@@ -1,0 +1,11 @@
+# Configuration for welcome - https://github.com/behaviorbot/welcome
+
+# Configuration for new-issue-welcome - https://github.com/behaviorbot/new-issue-welcome
+# Comment to be posted to on first time issues
+newIssueWelcomeComment: >
+  Thanks for opening this issue. A GitHub docs team member should be by to give feedback soon. In the meantime, please check out the [contributing guidelines](https://github.com/github/docs/blob/main/CONTRIBUTING.md).
+
+# Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
+# Comment to be posted to on PRs from first time contributors in your repository
+newPRWelcomeComment: >
+  Thanks for opening this pull request! A GitHub docs team member should be by to give feedback soon. In the meantime, please check out the [contributing guidelines](https://github.com/github/docs/blob/main/CONTRIBUTING.md).

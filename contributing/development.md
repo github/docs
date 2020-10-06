@@ -8,7 +8,7 @@ This site is powered by Node.js! :sparkles: :turtle: :rocket: :sparkles:
 
 It runs on macOS, Windows, and Linux environments.
 
-You'll need **Node.js v12** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
+You'll need **Node.js v14** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) for instructions on switching Node.js versions. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
@@ -53,25 +53,3 @@ For more info about working with this site, check out these READMEs:
 - [script/README.md](../script/README.md)
 - [stylesheets/README.md](../stylesheets/README.md)
 - [tests/README.md](../tests/README.md)
-
-## `nodenv`
-
-[nodenv](https://github.com/nodenv/nodenv) is a tool for managing multiple Node.js versions on your local machine. It is **not required** to run this app, but you may already have it installed if you've worked on other projects that use Node.js.
-
-To install Node.js 12 and make it your default version, run this command:
-
-```sh
-nodenv install 12.8.0 && nodenv global 12.8.0
-```
-
-You may sometimes see a warning when running npm scripts with nodenv:
-
-```sh
-npm WARN lifecycle The node binary used for scripts is [...] but npm is using [...]
-```
-
-This is due to nodenv's overriding behavior. To silence this harmless warning, the [nodenv docs](https://github.com/nodenv/nodenv/wiki/FAQ#npm-warning-about-mismatched-binaries) recommend running the following command from any directory:
-
-```sh
-npm config set scripts-prepend-node-path auto
-```
