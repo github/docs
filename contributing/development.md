@@ -8,7 +8,7 @@ This site is powered by Node.js! :sparkles: :turtle: :rocket: :sparkles:
 
 It runs on macOS, Windows, and Linux environments.
 
-You'll need **Node.js v12** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 12. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
+You'll need **Node.js v14** to run the site. If you're using [`nodenv`](https://github.com/nodenv/nodenv), read the [`nodenv` docs](#nodenv) below for instructions on switching to Node.js 14. If you're not using `nodenv`, the best way to install Node.js is to [download the LTS installer from nodejs.org](https://nodejs.org).
 
 Once you've installed Node.js (which includes the popular `npm` package manager), open Terminal and run the following:
 
