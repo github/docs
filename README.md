@@ -33,7 +33,7 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 #### And that's it!
 That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
 
-If you want to know more, or you're making a more complex contribution, check out the Getting Started with Contributing guide in [CONTRIBUTING](/CONTRIBUTING.md).
+If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
 
 There are a few more things to know when you're getting started with this repo:
 
