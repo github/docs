@@ -67,7 +67,7 @@ Commits are only counted if they are made in the default branch or the `gh-pages
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
 - [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
-- [Change the default branch](/articles/setting-the-default-branch) of the repository.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 

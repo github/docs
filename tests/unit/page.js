@@ -287,8 +287,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en'
       })
-      expect(page.versions[nonEnterpriseDefaultPlan]).toBe('*')
-      expect(page.versions['enterprise-server']).toBe('*')
+      expect(page.versions).toBe('*')
     })
 
     test('enterprise admin index page', async () => {

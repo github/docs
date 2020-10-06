@@ -60,8 +60,8 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:    
-      # Push events on master branch
-      - master
+      # Push events on main branch
+      - main
       # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
       # Push events to branches matching refs/heads/releases/10
@@ -306,7 +306,7 @@ runs-on: [self-hosted, linux]
 
 For more information, see "[About self-hosted runners](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" and "[Using self-hosted runners in a workflow](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### **`jobs.<jobs_id>.outputs`**
+### **`jobs.<job_id>.outputs`**
 
 A `map` of outputs for a job. Job outputs are available to all downstream jobs that depend on this job. For more information on defining job dependencies, see [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
@@ -443,7 +443,7 @@ The `my backup step` only runs when the previous step of a job fails. For more i
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@master
@@ -460,7 +460,7 @@ Selects an action to run as part of a step in your job. An action is a reusable 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
 - Using the commit SHA of a released action version is the safest for stability and security.
 - Using the specific major action version allows you to receive critical fixes and security patches while still maintaining compatibility. It also assures that your workflow should still work.
-- Using the `master` branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Some actions require inputs that you must set using the [`with`](#jobsjob_idstepswith) keyword. Review the action's README file to determine the inputs required.
 
@@ -477,7 +477,7 @@ steps:
   # Reference a minor version of a release
   - uses: actions/setup-node@v1.2
   # Reference a branch
-  - uses: actions/setup-node@master
+  - uses: actions/setup-node@main
 ```
 
 ##### Example using a public action
@@ -491,7 +491,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Uses the master branch of a public repository
+        # Uses the default branch of a public repository
         uses: actions/heroku@master
       - name: My second step
         # Uses a specific version tag of a public repository
@@ -509,7 +509,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/aws/ec2@master
+        uses: actions/aws/ec2@main
 ```
 
 ##### Example using action in the same repository as the workflow
@@ -674,7 +674,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@master
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
@@ -691,7 +691,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -713,7 +713,7 @@ Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't 
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -1116,8 +1116,8 @@ For more information about branch, tag, and path filter syntax, see "[`on.<push|
 |---------|------------------------|---------|
 | `feature/*` | The `*` wildcard matches any character, but does not match slash (`/`). |  -`feature/my-branch`<br/>-`feature/your-branch` |
 | `feature/**` | The `**` wildcard matches any character including slash (`/`) in branch and tag names. | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`master`<br/>-`releases/mona-the-octocat` |
-| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`master`<br/>-`releases` |
+| -`main`<br/>-`releases/mona-the-octcat` | Matches the exact name of a branch or tag name. | -`main`<br/>-`releases/mona-the-octocat` |
+| `'*'` | Matches all branch and tag names that don't contain a slash (`/`). The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`main`<br/>-`releases` |
 | `'**'` | Matches all branch and tag names. This is the default behavior when you don't use a `branches` or `tags` filter. | -`all/the/branches`<br/>-`every/tag` |
 | `'*feature'` | The `*` character is a special character in YAML. When you start a pattern with `*`, you must use quotes. | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature` |
 | `v2*` | Matches branch and tag names that start with `v2`. | -`v2`<br/>-`v2.0`<br/>-`v2.9` |

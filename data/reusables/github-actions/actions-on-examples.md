@@ -19,13 +19,13 @@ If you need to specify activity types or configuration for an event, you must co
 ```yaml
 on:
   # Trigger the workflow on push or pull request,
-  # but only for the master branch
+  # but only for the main branch
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   # Also trigger on page_build, as well as release created events
   page_build:
   release:

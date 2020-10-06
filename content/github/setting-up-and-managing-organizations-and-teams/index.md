@@ -131,7 +131,6 @@ versions:
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /upgrading-to-the-corporate-terms-of-service %}
-    {% link_in_list /entering-a-data-protection-agreement-with-github-for-gdpr-compliance %}
 <!-- endif -->
 {% topic_link_in_list /migrating-to-improved-organization-permissions %}
     {% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}

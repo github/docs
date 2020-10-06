@@ -6,7 +6,7 @@
 # INSTALLATION IMAGE
 # A temporary image that installs production-only dependencies
 
-FROM node:12-alpine as installation
+FROM node:14-alpine as installation
 ENV NODE_ENV production
 WORKDIR /usr/src/docs
 COPY package*.json ./
@@ -18,7 +18,7 @@ RUN npm ci
 # BUNDLE IMAGE
 # A temporary image that installs dependencies and builds the production-ready front-end bundles.
 
-FROM node:12-alpine as bundles
+FROM node:14-alpine as bundles
 WORKDIR /usr/src/docs
 # Install the files used to create the bundles
 COPY package*.json ./
@@ -32,7 +32,7 @@ RUN npm ci && npm run build
 # --------------------------------------------------------------------------------
 # MAIN IMAGE
 
-FROM node:12-alpine
+FROM node:14-alpine
 
 # Let's make our home
 WORKDIR /usr/src/docs
