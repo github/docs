@@ -20,7 +20,7 @@ We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contribut
 
 As you're using GitHub Documentation, you may find something in an article that you'd like to add to, update or change. Clicking on the 'make a contribution' button will navigate you directly to that article in the codebase so that you can begin making your contribution.
 
-![](./assets/images/contribution_cta.png)
+<img src="./assets/images/contribution_cta.png" width="400">
 
 **Open an issue**
 
