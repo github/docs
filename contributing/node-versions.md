@@ -1,26 +1,32 @@
-## Node Versions
+# Node Versions
 
-The site currently runs on Node.js v12, the [Active LTS version](https://nodejs.org/en/about/releases/) that will be supported until 2020-10-20.
+The site currently runs on Node.js v14, the [Active LTS version](https://nodejs.org/en/about/releases/) from 2020-10-27 to 2021-10-26.
 
 When updating to a new Node.js version, consider the following files:
 
-- The `engines.node` entry in `package.json`
-- The `.node-version` file used by [nodenv](https://github.com/nodenv/nodenv), a tool for managing multiple Node.js versions on your machine.
-- The `.github/*.workflow` Actions files
-- The `Dockerfile` that can be used for deployments
-- This README!
+- [ ] The `engines.node` entry in `package.json`
+- [ ] The `.node-version` file used by [nodenv](https://github.com/nodenv/nodenv), a tool for managing multiple Node.js versions on your machine.
+- [ ] The `.github/*.workflow` Actions files
+- [ ] The `Dockerfile` that can be used for deployments
+- [ ] The `contributing/development.md` guide
+- [ ] The `contributing/node-versions.md` file
 
-### `nodenv`
+## `nodenv`
 
-[nodenv](https://github.com/nodenv/nodenv) is a tool for managing multiple
-Node.js versions on your local machine. It is **not required** to run the
-docs-internal app, but you may already have it installed if you've worked on other
-internal GitHub projects that use Node.js.
+[nodenv](https://github.com/nodenv/nodenv) is a tool for managing multiple Node.js versions on your local machine. It is **not required** to run this app, but you may already have it installed if you've worked on other projects that use Node.js.
 
-To install Node.js 12 and make it your default version, run this command:
+If you're using macOS, run this command to get the latest:
+
+```
+brew upgrade nodenv node-build
+```
+
+If you're using another operating system, or did not use Homebrew to install nodenv, see these [upgrade instructions](https://github.com/nodenv/nodenv#installation).
+
+To install Node.js 14 and make it your default version, run this command:
 
 ```sh
-nodenv install 12.8.0 && nodenv global 12.8.0
+nodenv install 14.13.0 && nodenv global 14.13.0
 ```
 
 You may sometimes see a warning when running npm scripts with nodenv:
@@ -29,9 +35,7 @@ You may sometimes see a warning when running npm scripts with nodenv:
 npm WARN lifecycle The node binary used for scripts is [...] but npm is using [...]
 ```
 
-This is due to nodenv's overriding behavior. To silence this harmless warning,
-the [nodenv docs](https://github.com/nodenv/nodenv/wiki/FAQ#npm-warning-about-mismatched-binaries)
-recommend running the following command from any directory:
+This is due to nodenv's overriding behavior. To silence this harmless warning, the [nodenv docs](https://github.com/nodenv/nodenv/wiki/FAQ#npm-warning-about-mismatched-binaries) recommend running the following command from any directory:
 
 ```sh
 npm config set scripts-prepend-node-path auto
