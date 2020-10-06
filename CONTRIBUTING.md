@@ -27,13 +27,7 @@ Fork using GitHub Desktop:
 - Once Desktop is set up, you can use it to [fork the repo](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop)!
 
 Fork using the command line:
-1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) the repo.
-2. Open your terminal.
-3. Enter the following command. Use your GitHub username instead of `YOUR-USERNAME`.
-
-   ```
-   git clone git@github.com:YOUR-USERNAME/docs
-   ```
+- [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
 
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
