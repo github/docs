@@ -5,7 +5,7 @@
 Before you begin:
 - This site is powered by node.js. Check to see if you're on the [version of node we support](https://www.npmjs.com/package/check-node-version).
 - Have you read the [code of conduct](CODE_OF_CONDUCT.md)?
-- Check out the existing issues & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
+- Check out the [existing issues](https://github.com/github/docs/issues) & see if we [accept contributions](#types-of-contributions-memo) for your type of issue.
 
 ### Use the 'make a contribution' button
 
