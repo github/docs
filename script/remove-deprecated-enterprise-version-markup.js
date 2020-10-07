@@ -52,7 +52,7 @@ console.log(`Next oldest version: ${nextOldestVersion}\n`)
 // gather content and data files
 const contentFiles = walk(contentPath, { includeBasePath: true, directories: false })
   .filter(file => file.endsWith('.md'))
-  .filter(file => !(file.endsWith('README.md') || file === 'LICENSE'))
+  .filter(file => !(file.endsWith('README.md') || file === 'LICENSE' || file === 'LICENSE-CODE'))
 
 const dataFiles = walk(dataPath, { includeBasePath: true, directories: false })
   .filter(file => file.includes('data/reusables') || file.includes('data/variables'))
