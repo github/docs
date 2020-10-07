@@ -1,8 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Start a discussion
-    url: https://github.com/github/docs/discussions/new
-    about: Use a discussion to suggest a new idea or share what you've learned in our docs.
   - name: GitHub Support
     url: https://support.github.com/contact
     about: Contact Support if you're having trouble with your GitHub account.
