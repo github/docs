@@ -7,6 +7,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+**Before you start:** Please note that you cannot change your *primary* email address to an email that is already set to be your *backup* email address.
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.emails %}
