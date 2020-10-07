@@ -28,5 +28,8 @@ module.exports = [
   'repo-sync/github-sync@v2',
   'repo-sync/pull-request@v2',
   'rtCamp/action-slack-notify@master',
-  'rtCamp/action-slack-notify@v2.1.0'
+  'rtCamp/action-slack-notify@v2.1.0',
+  "actions/github-script@v2.0.0",
+  "andymckay/labeler@1.0.2",
+  "konradpabjan/actions-add-new-issue-to-column@v1.1"
 ]
