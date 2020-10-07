@@ -14,3 +14,10 @@ versions:
 4. Configure options for the protocol you chose.
   ![Menu with IP protocol options](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
+
+---
+**NOTE**
+
+We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+
+---
