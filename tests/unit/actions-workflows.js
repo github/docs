@@ -30,6 +30,6 @@ describe('GitHub Actions workflows', () => {
 
     expect(allowedActions.length).toBeGreaterThan(0)
     expect(allUsedActions.length).toBeGreaterThan(0)
-    expect(difference(allowedActions, allUsedActions)).toEqual([])
+    expect(difference(allUsedActions, allowedActions)).toEqual([])
   })
 })
