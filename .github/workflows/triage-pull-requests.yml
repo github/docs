@@ -4,13 +4,13 @@ on:
     types: [reopened, opened]
 
 jobs:
-  triage_issues:
+  triage_pulls:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
 
     steps:
     - name: Label new pull requests with 'triage'
-      uses: andymckay/labeler@1.0.2
+      uses: rachmari/labeler@v1.0.4
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         add-labels: "triage"
