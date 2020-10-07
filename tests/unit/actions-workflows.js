@@ -27,7 +27,7 @@ const allUsedActions = chain(workflows)
   .value()
 
 describe('GitHub Actions workflows', () => {
-  test('all used actions are allowed in .github/allowed-actions.j', () => {
+  test('all used actions are allowed in .github/allowed-actions.js', () => {
     expect(allUsedActions.length).toBeGreaterThan(0)
     const unusedActions = difference(allowedActions, allUsedActions)
     expect(unusedActions).toEqual([])
