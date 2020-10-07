@@ -63,7 +63,7 @@ In addition to the README you're reading right now, this repo includes other REA
 
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](content/LICENSE).
 
-All other code in this repository is licensed under a [MIT](LICENSE.md).
+All other code in this repository is licensed under a [MIT license](LICENSE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
