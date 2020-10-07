@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Label new issues with 'triage'
-      uses: andymckay/labeler@v1.0.2
+      uses: andymckay/labeler@1.0.2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         add-labels: "triage"
