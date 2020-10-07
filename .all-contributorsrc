@@ -285,6 +285,15 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "BenJam",
+      "name": "Benjamin Nickolls",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/158833?v=4",
+      "profile": "https://github.com/BenJam",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
