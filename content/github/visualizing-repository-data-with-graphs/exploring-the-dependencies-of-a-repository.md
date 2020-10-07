@@ -95,7 +95,7 @@ You can also enable or disable the dependency graph for all repositories owned b
 You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the Security & analysis tab.
 {% endif %}
 
-### Troubleshooting the dependency graph
+### Troubleshooting the dependency graph.
 
 If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
 
