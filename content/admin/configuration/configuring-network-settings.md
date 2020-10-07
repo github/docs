@@ -13,3 +13,9 @@ versions:
   enterprise-server: '*'
 ---
 
+---
+**NOTE**
+
+We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+
+---
