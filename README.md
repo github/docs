@@ -2,7 +2,7 @@
 
 This repository contains the documentation website code and Markdown source files for docs.github.com.
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo. 
+GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
 In this article:
 - [Contributing](#contributing)
@@ -12,15 +12,33 @@ In this article:
 
 ## Contributing
 
-:memo: To find out how you can best contribute to GitHub's product documentation, see the [CONTRIBUTING](/CONTRIBUTING.md) guide.
+### Start contributing right now:
 
-:mega: If you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
+We accept a lot of [different contributions](CONTRIBUTING.md/#types-of-contributions-memo), including some that don't require you to write a single line of code.
 
-:beetle: If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+#### Click **make a contribution** from docs
 
-:question: If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+As you're using the GitHub Docs, you may find something in an article that you'd like to add to, update, or change. Click on **make a contribution** to navigate directly to that article in the codebase, so that you can begin making your contribution.
 
-:yellow_heart: We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
+<img src="./assets/images/contribution_cta.png" width="400">
+
+#### Open an issue
+
+If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+
+#### Join us in discussions
+
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
+
+#### And that's it!
+That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
+
+If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
+
+There are a few more things to know when you're getting started with this repo:
+
+1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
 
 ## READMEs
 
