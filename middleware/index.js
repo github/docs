@@ -24,6 +24,7 @@ module.exports = function (app) {
   app.use(require('./cors'))
   app.use(require('./csp'))
   app.use(require('helmet')())
+  app.use(require('./req-utils'))
   app.use(require('./robots'))
   app.use(require('./cookie-parser'))
   app.use(require('./csrf'))
