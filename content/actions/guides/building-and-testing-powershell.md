@@ -53,7 +53,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Perform a Pester test from the command-line to ensure expected results
       shell: pwsh
-      run: Get-ChildItem | Select-Object -ExpandProperty Name -First 1 | Should -Be '.github'
+      run: Get-ChildItem | Select-Object -ExpandProperty Name -First 1 | Should -Be 'bin'
     - name: Perform advanced tests
       shell: pwsh
       run: |
