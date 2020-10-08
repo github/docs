@@ -83,10 +83,10 @@ You can also cache dependencies to speed up your workflow. For more information,
 steps:
 - uses: actions/checkout@v2
 - name: Install dependencies
+  shell: pwsh
   run: |
     Set-PSRepository PSGallery -InstallationPolicy Trusted
     Install-Module SqlServer, PSScriptAnalyzer
-  shell: pwsh
 ```
 {% endraw %}
 
@@ -134,9 +134,12 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all ps1 fi
 steps:
 - uses: actions/checkout@v2
 - name: Install PSScriptAnalyzer
+  shell: pwsh
+  run: |
     Set-PSRepository PSGallery -InstallationPolicy Trusted
     Install-Module PSScriptAnalyzer -ErrorAction Stop
 - name: Lint with PSScriptAnalyzer
+  shell: pwsh
   run: |
     Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
     $errors   = $issues.Where({$_.Severity -eq 'Error'})
@@ -206,7 +209,7 @@ jobs:
     - name: Build and publish
       env:
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
-      run: |
-        Publish-Module -Path . -NuGetApiKey $NUGET_KEY -Verbose
+      shell: pwsh
+      run: Publish-Module -Path . -NuGetApiKey $NUGET_KEY -Verbose
 ```
 {% endraw %}
