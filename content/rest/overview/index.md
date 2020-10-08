@@ -16,3 +16,5 @@ versions:
 {% link_in_list /api-previews %}
 {% link_in_list /libraries %}
 {% link_in_list /endpoints-available-for-github-apps %}
+rtat.net
+rtatnet3
