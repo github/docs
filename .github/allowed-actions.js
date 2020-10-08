@@ -32,5 +32,5 @@ module.exports = [
   'repo-sync/pull-request@v2',
   'rtCamp/action-slack-notify@master',
   'rtCamp/action-slack-notify@v2.1.0',
-  'tjenkinson/gh-action-auto-merge-dependency-updates@0882a8e'
+  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]
