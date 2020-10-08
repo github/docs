@@ -230,7 +230,8 @@ If you're adding a new article, make sure the filename is a [kebab-cased](https:
     - I'm a new article
     
 
-Then just run the site locally and see what the link is. In this example, the filename would be: `im-a-new-article`
+Then just run the site locally and see what the link is. In this example, the filename would be: 
+`im-a-new-article`
 
 ## Whitespace Control
 
