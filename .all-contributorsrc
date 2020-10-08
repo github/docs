@@ -294,6 +294,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "tjenkinson",
+      "name": "Tom Jenkinson",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3259993?v=4",
+      "profile": "https://tjenkinson.me",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
