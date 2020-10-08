@@ -179,9 +179,9 @@ For example:
 When you create a {% data variables.product.prodname_actions %} workflow, you can use the `GITHUB_TOKEN` to publish and install packages in {% data variables.product.prodname_registry %} without needing to store and manage a personal access token.
 
 For more information, see:
-- "[Using {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}](/packages/using-github-packages-with-your-projects-ecosystem/)"
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token/)"
-- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)"
+- "[Using {% data variables.product.prodname_registry %} with {% data variables.product.prodname_actions %}](/packages/using-github-packages-with-your-projects-ecosystem/)".
+- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token/)".
+- "[Available scopes](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)".
 
 ### Managing packages
 
@@ -196,9 +196,9 @@ If you have feedback or feature requests for {% data variables.product.prodname_
 
 Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
 
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+* You experience anything that contradicts the documentation.
+* You encounter vague or unclear errors.
+* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information.
 
 {% else %}
 If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.
