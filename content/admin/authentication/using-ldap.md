@@ -98,12 +98,11 @@ When this option is selected, the certificate is validated to make sure:
 
 #### Enabling LDAP Sync
 
----
-**NOTE**
+{% note %}
 
-LDAP synchronized teams are limited to a maximum 1499 members.
+**Note:** LDAP synchronized teams are limited to a maximum 1499 members.
 
----
+{% endnote %}
 
 LDAP Sync lets you synchronize {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.prodname_ghe_server %}. For more information, see "[Creating teams](/enterprise/{{ currentVersion }}/admin/guides/user-management/creating-teams#creating-teams-with-ldap-sync-enabled)."
 
