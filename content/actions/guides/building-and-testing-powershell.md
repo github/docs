@@ -156,34 +156,31 @@ The following example demonstrates how you can use the `upload-artifact` action 
 
 {% raw %}
 ```yaml
-name: Test PowerShell on Ubuntu, macOS and Windows
+name: Upload artifact from on Ubuntu, macOS and Windows
 
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+on: [push]
 
 jobs:
   build:
-    name: Pester tests work on all platforms
+    name: Upload Pester tests work from all platforms
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
 
     steps:
     - uses: actions/checkout@v1
-      - name: Test with Pester
-        shell: pwsh
-        run: Invoke-Pester All.Tests.ps1 -Passthru | Export-CliXml -Path All.Tests.xml
-      - name: Upload Pester test results
-        uses: actions/upload-artifact@v2
-        with:
-          name: All-Tests
-          path: All.Tests.xml
+    - name: Test with Pester
+      shell: pwsh
+      run: Invoke-Pester All.Tests.ps1 -Passthru | Export-CliXml -Path All.Tests.xml
+    - name: Upload test results
+      uses: actions/upload-artifact@v2
+      with:
+        # upload distinct zip files per OS
+        name: ${{ runner.os }}-All-Tests
+        path: All.Tests.xml
         # Use always() to always run this step to publish test results when there are test failures
-        if: ${{ always() }}
+    if: ${{ always() }}
 ```
 {% endraw %}
 
@@ -210,6 +207,6 @@ jobs:
       env:
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
       shell: pwsh
-      run: Publish-Module -Path . -NuGetApiKey $NUGET_KEY -Verbose
+      run: Publish-Module -Path . -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
 {% endraw %}
