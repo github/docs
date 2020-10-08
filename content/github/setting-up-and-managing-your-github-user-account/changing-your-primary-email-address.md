@@ -9,7 +9,7 @@ versions:
 ---
 {% note %}
 
-**Note:** Please note that you cannot change your *primary* email address to an email that is already set to be your *backup* email address.
+**Note:** You cannot change your primary email address to an email that is already set to be your backup email address.
 
 {% endnote %}
 
