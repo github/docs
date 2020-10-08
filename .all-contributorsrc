@@ -294,6 +294,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "jeffmcaffer",
+      "name": "Jeff McAffer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10070956?v=4",
+      "profile": "https://mcaffer.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
