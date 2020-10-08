@@ -113,6 +113,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/BenJam"><img src="https://avatars2.githubusercontent.com/u/158833?v=4" width="64px;" alt=""/><br /><sub><b>Benjamin Nickolls</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=BenJam" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://mcaffer.com"><img src="https://avatars2.githubusercontent.com/u/10070956?v=4" width="64px;" alt=""/><br /><sub><b>Jeff McAffer</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=jeffmcaffer" title="Documentation">📖</a></td>
   </tr>
 </table>
 
