@@ -29,3 +29,54 @@ versions:
 {% link_with_intro /managing-container-images-with-github-container-registry %}
 {% link_with_intro /publishing-and-managing-packages %}
 {% link_with_intro /using-github-packages-with-your-projects-ecosystem %}
+
+
+
+	التشفير :
+	الشفرات :
+	متماثل :
+	إيس :
+	blockMode : CFB
+	غير متماثل :
+	rsa :
+	الحشو : OAEPWithSHA1AndMGF1Padding
+	
+	التوقيع : CBJCHBCAABAAW0Zra5YYRoehWnxOVG1oYfelmwc851ma
+	غير متماثل :
+	rsa :
+	الخوارزمية : SHA1withRSA
+	dsa :
+	الخوارزمية : SHA1withDSA
+	ecdsa :
+	الخوارزمية : SHA1 معECDSA
+	
+	وظيفة keyDerivation :
+	pbkdF2WithHmacSHA :
+	الخوارزمية : SHA512
+	التكرارات : 65535
+	سكربت :
+	التكلفة : 32768
+	الحجم : 8
+	الموازاة : 1
+	الأرجون 2 :
+	اكتب : ARGON2_ID
+	الإصدار : ARGON2_VERSION_13.0
+	التكرارات : 2
+	MemoryPowOfTwo : 18
+	التوازي : 2
+	
+	هضم :
+	الخوارزمية : SHA-1
+	
+	ماك :
+	الخوارزمية : HmacSHA1
+	
+	مفتاح :
+	غير متماثل :
+	ECC :
+	ecdsa :
+	منحنى : secpXXXk1
+	ecdh :
+	منحنى : secpXXXk1
+	
+
