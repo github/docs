@@ -8,6 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
 {% data reusables.enterprise_installation.open-vm-console-start %}
 3. Choose to configure the `IPv4` or `IPv6` protocol.
   ![Options to choose the IPv4 or the IPv6 protocol](/assets/images/enterprise/network-configuration/IPv4-or-IPv6-protocol.png)
@@ -15,8 +21,4 @@ versions:
   ![Menu with IP protocol options](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
 
-{% note %}
 
-**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
-
-{% endnote %}
