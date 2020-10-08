@@ -85,6 +85,7 @@ The `github` context contains information about the workflow run and the event t
 |---------------|------|-------------|
 | `github` | `object` | The top-level context available during any job or step in a workflow. |
 | `github.event` | `object` | The full event webhook payload. For more information, see "[Events that trigger workflows](/articles/events-that-trigger-workflows/)." You can access individual properties of the event using this context. |
+| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
 | `github.event_path` | `string` | The path to the full event webhook payload on the runner. |
 | `github.workflow` | `string` | The name of the workflow. If the workflow file doesn't specify a `name`, the value of this property is the full path of the workflow file in the repository. |
 | `github.job` | `string` | The [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id) of the current job. |
@@ -93,7 +94,6 @@ The `github` context contains information about the workflow run and the event t
 | `github.actor` | `string` | The login of the user that initiated the workflow run. |
 | `github.repository` | `string` | The owner and repository name. For example, `Codertocat/Hello-World`. |
 | `github.repository_owner` | `string` | The repository owner's name. For example, `Codertocat`. |
-| `github.event_name` | `string` | The name of the event that triggered the workflow run. |
 | `github.sha` | `string` | The commit SHA that triggered the workflow run. |
 | `github.ref` | `string` | The branch or tag ref that triggered the workflow run. |
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is a `pull_request`. |
@@ -115,7 +115,6 @@ You can only use the `env` context in the value of the `with` and `name` keys, o
 |---------------|------|-------------|
 | `env` | `object` | This context changes for each step in a job. You can access this context from any step in a job. |
 | `env.<env name>` | `string` | The value of a specific environment variable. |
-
 
 #### **`job` context**
 
