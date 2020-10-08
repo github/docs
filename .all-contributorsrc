@@ -303,6 +303,16 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "casals",
+      "name": "Arthur Casals",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/785860?v=4",
+      "profile": "https://github.com/casals",
+      "contributions": [
+        "content",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
