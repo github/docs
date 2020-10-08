@@ -82,9 +82,9 @@ Since the number and names of cookies may change,the table below may be updated 
 | Google Analytics** | `_gat` | This cookie is used by Google Analytics. | one minute |
 | Google Analytics** | `_gid` | This cookie is used by Google Analytics. | one day |
 
-*The **expiration** dates for the cookies listed below generally apply on a rolling basis.
+_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
 
-**We use <b>Google Analytics</b> as a third party analytics service to collect information about how our website performs and how our users, in general, navigate through and use GitHub. This helps us evaluate our users' use of GitHub, compile statistical reports on activity, and improve our content and website performance. 
+_**_ We use **Google Analytics** as a third party analytics service to collect information about how our website performs and how our users, in general, navigate through and use GitHub. This helps us evaluate our users' use of GitHub, compile statistical reports on activity, and improve our content and website performance. 
 
 You can control your Google Analytics cookie preferences through our cookie preference link located at the footer of our website. In addition, Google provides further information about its own privacy practices and [offers a browser add-on to opt out of Google Analytics tracking](https://tools.google.com/dlpage/gaoptout). 
 
