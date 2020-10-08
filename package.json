@@ -7,6 +7,7 @@
     "name": "GitHub",
     "url": "https://github.com/github/docs"
   },
+  "license": "(MIT AND CC-BY-4.0)",
   "dependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.0",
@@ -140,7 +141,7 @@
     "pa11y-test": "start-server-and-test browser-test-server 4001 pa11y-ci"
   },
   "engines": {
-    "node": "8 - 12"
+    "node": "12 - 14"
   },
   "repository": "https://github.com/github/docs",
   "standard": {
