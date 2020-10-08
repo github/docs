@@ -173,8 +173,7 @@ jobs:
     - uses: actions/checkout@v1
       - name: Test with Pester
         shell: pwsh
-        run: |
-          Invoke-Pester All.Tests.ps1 -Passthru | Export-CliXml -Path All.Tests.xml
+        run: Invoke-Pester All.Tests.ps1 -Passthru | Export-CliXml -Path All.Tests.xml
       - name: Upload Pester test results
         uses: actions/upload-artifact@v2
         with:
