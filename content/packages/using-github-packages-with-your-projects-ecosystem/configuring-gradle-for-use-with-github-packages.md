@@ -120,50 +120,50 @@ publishing {
 
 ##### Example using Kotlin DSL for multiple packages in the same repository
 
+```shell
+plugins {
+    `maven-publish` apply false
+}
+
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                }
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+            }
+        }
+    }
+}
+```
+
+#### Authenticating with the `GITHUB_TOKEN`
+
+{% data reusables.package_registry.package-registry-with-github-tokens %}
+
+For more information about using `GITHUB_TOKEN` with Maven, see "[Publishing Java packages with Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)."
+
+### Publishing a package
+
+{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
+
+{% data reusables.package_registry.viewing-packages %}
+
+{% data reusables.package_registry.authenticate-step %}
+2. After creating your package, you can publish the package.
+
   ```shell
-  plugins {
-  `maven-publish` apply false
-  }
-  
-  subprojects {
-  apply(plugin = "maven-publish")
-  configure<PublishingExtension> {
-  repositories {
-  maven {
-  name = "GitHubPackages"
-  url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
-  credentials {
-  username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-  password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
-  }
-  }
-  }
-  publications {
-  register<MavenPublication>("gpr") {
-  from(components["java"])
-  }
-  }
-  }
-  }
-  ```
-  
-  #### Authenticating with the `GITHUB_TOKEN`
-  
-  {% data reusables.package_registry.package-registry-with-github-tokens %}
-  
-  For more information about using `GITHUB_TOKEN` with Maven, see "[Publishing Java packages with Maven](/actions/language-and-framework-guides/publishing-java-packages-with-maven#publishing-packages-to-github-packages)."
-  
-  ### Publishing a package
-  
-  {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example.test` in the `OWNER/test` {% data variables.product.prodname_registry %} repository.
-  
-  {% data reusables.package_registry.viewing-packages %}
-  
-  {% data reusables.package_registry.authenticate-step %}
-  2. After creating your package, you can publish the package.
-  
-   ```shell
-   $ gradle publish
+  $ gradle publish
   ```
 
 ### Installing a package
