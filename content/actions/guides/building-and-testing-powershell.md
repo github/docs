@@ -142,7 +142,6 @@ steps:
     $errors   = $issues.Where({$_.Severity -eq 'Error'})
     $warnings = $issues.Where({$_.Severity -eq 'Warning'})
     Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
-    }
 ```
 {% endraw %}
 
