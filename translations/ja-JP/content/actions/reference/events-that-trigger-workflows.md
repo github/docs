@@ -149,7 +149,7 @@ on:
   deployment_status
 ```
 
-#### `フォーク`
+#### `fork`
 
 誰かがリポジトリをフォークし、それによって `deployment_status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[フォークの作成](/v3/repos/forks/#create-a-fork)」を参照してください。
 
@@ -157,7 +157,7 @@ on:
 
 | webhook イベントのペイロード                       | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------- | ---------- | ----------------- | ------------ |
-| [`フォーク`](/webhooks/event-payloads/#fork) | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| [`fork`](/webhooks/event-payloads/#fork) | n/a        | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 たとえば、`fork` イベントが発生したときにワークフローを実行する例は、次のとおりです。
 
@@ -223,7 +223,7 @@ on:
     types: [opened, edited, milestoned]
 ```
 
-#### `ラベル`
+#### `label`
 
 `label` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[ラベル](/v3/issues/labels/)」を参照してください。
 
@@ -231,7 +231,7 @@ on:
 
 | webhook イベントのペイロード                       | アクティビティタイプ                                                        | `GITHUB_SHA`      | `GITHUB_REF` |
 | ---------------------------------------- | ----------------------------------------------------------------- | ----------------- | ------------ |
-| [`ラベル`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| [`label`](/webhooks/event-payloads/#label) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -243,7 +243,7 @@ on:
     types: [created, deleted]
 ```
 
-#### `マイルストーン`
+#### `milestone`
 
 `milestone` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[マイルストーン](/v3/issues/milestones/)」を参照してください。
 
@@ -251,7 +251,7 @@ on:
 
 | webhook イベントのペイロード                               | アクティビティタイプ                                                                                                  | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- | ----------------- | ------------ |
-| [`マイルストーン`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| [`milestone`](/webhooks/event-payloads/#milestone) | - `created`<br/>- `closed`<br/>- `opened`<br/>- `edited`<br/>- `deleted`<br/> | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -440,7 +440,7 @@ on: pull_request_target
     types: [assigned, opened, synchronize, reopened]
 ```
 
-#### `プッシュ`
+#### `push`
 
 {% note %}
 
@@ -452,7 +452,7 @@ on: pull_request_target
 
 | webhook イベントのペイロード                       | アクティビティタイプ | `GITHUB_SHA`                                  | `GITHUB_REF` |
 | ---------------------------------------- | ---------- | --------------------------------------------- | ------------ |
-| [`プッシュ`](/webhooks/event-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
+| [`push`](/webhooks/event-payloads/#push) | n/a        | プッシュされたコミット、ただし (デフォルトブランチの際に) ブランチを削除する場合を除く | 更新された ref    |
 
 たとえば、`push` イベントが発生したときにワークフローを実行する例は、次のとおりです。
 
@@ -479,7 +479,7 @@ on:
     types: [published]
 ```
 
-#### `リリース`
+#### `release`
 
 {% note %}
 
@@ -491,7 +491,7 @@ on:
 
 | webhook イベントのペイロード                          | アクティビティタイプ                                                                                                                                                                                                                                | `GITHUB_SHA`       | `GITHUB_REF` |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------ |
-| [`リリース`](/webhooks/event-payloads/#release) | - `published`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released`{% endif %} | リリースのタグが付いた直近のコミット | リリースのタグ      |
+| [`release`](/webhooks/event-payloads/#release) | - `published`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `unpublished` <br/>- `created` <br/>- `edited` <br/>- `deleted` <br/>- `prereleased`<br/> - `released`{% endif %} | リリースのタグが付いた直近のコミット | リリースのタグ      |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -503,7 +503,7 @@ on:
     types: [published]
 ```
 
-#### `ステータス`
+#### `status`
 
 Git コミットのステータスが変更された、それによって `status` イベントがトリガーされるときにワークフローを実行します。 REST API の詳細については、「[ステータス](/v3/repos/statuses/)」を参照してください。
 
@@ -511,7 +511,7 @@ Git コミットのステータスが変更された、それによって `statu
 
 | webhook イベントのペイロード                          | アクティビティタイプ | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------- | ---------- | ----------------- | ------------ |
-| [`ステータス`](/webhooks/event-payloads/#status) | n/a        | デフォルトブランチの直近のコミット | n/a          |
+| [`status`](/webhooks/event-payloads/#status) | n/a        | デフォルトブランチの直近のコミット | n/a          |
 
 たとえば、`status` イベントが発生したときにワークフローを実行する例は、次のとおりです。
 
@@ -520,7 +520,7 @@ on:
   status
 ```
 
-#### `Watch`
+#### `watch`
 
 `watch` イベントが発生したときにワークフローを実行します。 {% data reusables.developer-site.multiple_activity_types %} REST API の詳細については、「[Star を付ける](/v3/activity/starring/)」を参照してください。
 
@@ -528,7 +528,7 @@ on:
 
 | webhook イベントのペイロード                         | アクティビティタイプ  | `GITHUB_SHA`      | `GITHUB_REF` |
 | ------------------------------------------ | ----------- | ----------------- | ------------ |
-| [`Watch`](/webhooks/event-payloads/#watch) | - `started` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
+| [`watch`](/webhooks/event-payloads/#watch) | - `started` | デフォルトブランチの直近のコミット | デフォルトブランチ    |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -553,7 +553,7 @@ on:
   workflow_run:
     workflows: ["Run Tests"]
     branches: [main]
-    types: 
+    types:
       - completed
       - requested
 ```
@@ -625,7 +625,7 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
 {% data variables.product.product_name %} の外部で生じるアクティビティのためにワークフローをトリガーしたい場合、{% data variables.product.prodname_dotcom %} API を使って、[`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) と呼ばれる webhook イベントをトリガーできます。 詳細については、「リポジトリディスパッチ イベント</a>を作成
 
-」を参照してください。</p> 
+」を参照してください。</p>
 
 カスタム `repository_dispatch` webhook イベントをトリガーするには、{% data variables.product.product_name %} API エンドポイントに `POST` リクエストを送信して、アクティビティのタイプを説明する `event_type` 名を提供する必要があります。 ワークフローの実行をトリガーするには、`repository_dispatch` イベントを使用するようワークフローを設定する必要もあります。
 
