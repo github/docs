@@ -1,6 +1,6 @@
 ---
 title: About searching on GitHub
-intro: 'Our integrated search covers all of the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar/
   - /articles/github-search-basics/
