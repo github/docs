@@ -39,6 +39,8 @@ chmod +x codeql-runner-macos
 sudo xattr -d com.apple.quarantine codeql-runner-macos
 ```
 
+On Windows, the `codeql-runner-win.exe` file usually requires no change to permissions.
+
 ### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
 
 Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. In addition to this, each CI server also needs:
