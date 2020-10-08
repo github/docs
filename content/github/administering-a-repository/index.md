@@ -27,6 +27,7 @@ versions:
 <!-- endif -->
     {% link_in_list /managing-the-forking-policy-for-your-repository %}
 <!-- if currentVersion != "free-pro-team@latest" -->
+    {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository %}
     {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}
     {% link_in_list /enabling-anonymous-git-read-access-for-a-repository %}
