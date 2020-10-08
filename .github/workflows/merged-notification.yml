@@ -13,11 +13,7 @@ jobs:
             github.issues.createComment({
               ...context.repo,
               issue_number: context.payload.pull_request.number,
-              body: `Thanks very much for contributing! Your pull request has been merged 🎉 You should see your changes appear on the site in approximately 24 hours. To add your ✨ contribution to the README.md, create a new comment in this PR with:
-            
-            ```
-            @all-contributors please add @${context.payload.pull_request.user.login} for docs
-            ```
-            
-            If you want to, you can use the [emoji key](https://allcontributors.org/docs/en/emoji-key) to replace docs with a different contribution type.`
+              body: `Thanks very much for contributing! Your pull request has been merged 🎉 You should see your changes appear on the site in approximately 24 hours.
+              
+              If you haven't already, you can add yourself to [the list of contributors](https://github.com/github/docs#contributors-) by creating a new comment in this PR using [these instructions](https://allcontributors.org/docs/en/bot/usage#commands). Thanks again! :sparkles:`
             })
