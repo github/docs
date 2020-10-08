@@ -141,6 +141,7 @@ steps:
 - name: Lint with PSScriptAnalyzer
   shell: pwsh
   run: |
+    # Consider using github-action-psscriptanalyzer in the Marketplace instead.
     Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
     $errors   = $issues.Where({$_.Severity -eq 'Error'})
     $warnings = $issues.Where({$_.Severity -eq 'Warning'})
