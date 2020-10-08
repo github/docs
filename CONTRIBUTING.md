@@ -63,7 +63,6 @@ Now that you're a part of the GitHub Docs community, you can keep participating 
 - [Starting with an issue](#starting-with-an-issue)
   - [Labels](#labels)
 - [Opening a pull request](#opening-a-pull-request)
-  - [Fork using GitHub Desktop or the command line](#ready-to-make-a-change-fork-the-repo)
 - [Working in the github/docs repository](#working-in-the-githubdocs-repository)
 - [Resolving merge conflicts](#resolving-merge-conflicts)
   - [In the GitHub user interface](#in-the-github-user-interface)
