@@ -19,17 +19,23 @@ function actionsUsedInWorkflow (workflow) {
     .map(key => get(workflow, key))
 }
 
-describe('GitHub Actions workflows', () => {
-  test('only use allowed actions from ./github/allow-actions.json', async () => {
-    const allUsedActions = chain(workflows)
-      .map(actionsUsedInWorkflow)
-      .flatten()
-      .uniq()
-      .sort()
-      .value()
+const allUsedActions = chain(workflows)
+  .map(actionsUsedInWorkflow)
+  .flatten()
+  .uniq()
+  .sort()
+  .value()
 
-    expect(allowedActions.length).toBeGreaterThan(0)
+describe('GitHub Actions workflows', () => {
+  test('all used actions are allowed in .github/allowed-actions.js', () => {
     expect(allUsedActions.length).toBeGreaterThan(0)
-    expect(difference(allowedActions, allUsedActions)).toEqual([])
+    const unusedActions = difference(allowedActions, allUsedActions)
+    expect(unusedActions).toEqual([])
+  })
+
+  test('all allowed actions by .github/allowed-actions.js are used by at least one workflow', () => {
+    expect(allowedActions.length).toBeGreaterThan(0)
+    const disallowedActions = difference(allUsedActions, allowedActions)
+    expect(disallowedActions).toEqual([])
   })
 })
