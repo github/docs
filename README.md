@@ -1,6 +1,6 @@
 ## GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for docs.github.com.
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -65,9 +65,9 @@ In addition to the README you're reading right now, this repo includes other REA
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](content/LICENSE).
+The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
-All other code in this repository is licensed under a [MIT license](LICENSE).
+All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
@@ -117,6 +117,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/BenJam"><img src="https://avatars2.githubusercontent.com/u/158833?v=4" width="64px;" alt=""/><br /><sub><b>Benjamin Nickolls</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=BenJam" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://tjenkinson.me"><img src="https://avatars0.githubusercontent.com/u/3259993?v=4" width="64px;" alt=""/><br /><sub><b>Tom Jenkinson</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=tjenkinson" title="Code">💻</a></td>
   </tr>
 </table>
 
