@@ -15,9 +15,8 @@ versions:
   ![Menu with IP protocol options](/assets/images/enterprise/network-configuration/network-settings-selection.png)
 {% data reusables.enterprise_installation.vm-console-done %}
 
----
-**NOTE**
+{% note %}
 
-We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
+**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
 
----
+{% endnote %}
