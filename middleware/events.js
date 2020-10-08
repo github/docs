@@ -3,6 +3,7 @@ const Airtable = require('airtable')
 const { omit } = require('lodash')
 const Ajv = require('ajv')
 const schema = require('../lib/schema-event')
+const schemaHydro = require('../lib/schema-event-2')
 
 const TABLE_NAMES = {
   HELPFULNESS: 'Helpfulness Survey',
@@ -15,7 +16,7 @@ const ajv = new Ajv()
 
 const router = express.Router()
 
-router.post('/', async (req, res, next) => {
+async function airtablePost (req, res, next) {
   const { AIRTABLE_API_KEY, AIRTABLE_BASE_KEY } = process.env
   if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_KEY) {
     return res.status(501).send({})
@@ -35,6 +36,27 @@ router.post('/', async (req, res, next) => {
   } catch (err) {
     console.error('unable to POST event', err)
     return res.status(err.statusCode).send(err)
+  }
+}
+
+router.post('/', async (req, res, next) => {
+  // All-caps type is an "Airtable" event
+  if (req.body.type === 'HELPFULNESS' || req.body.type === 'EXPERIMENT') {
+    return airtablePost(req, res, next)
+  }
+  // Remove the condition above when we are no longer sending to Airtable
+  if (!ajv.validate(schemaHydro, req.body)) {
+    if (process.env.NODE_ENV === 'development') console.log(ajv.errorsText())
+    return res.status(400).json({})
+  }
+  const fields = omit(req.body, OMIT_FIELDS)
+  try {
+    const hydroRes = await req.hydro.publish(req.hydro.schemas[req.body.type], fields)
+    if (!hydroRes.ok) return res.status(500).json({})
+    return res.status(201).json(fields)
+  } catch (err) {
+    if (process.env.NODE_ENV === 'development') console.log(err)
+    return res.status(500).json({})
   }
 })
 
