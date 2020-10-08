@@ -43,7 +43,14 @@ On Windows, the `codeql-runner-win.exe` file usually requires no change to permi
 
 ### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
 
-Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. In addition to this, each CI server also needs:
+Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example: 
+
+```shell
+wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20200826/codeql-runner-linux 
+chmod +x codeql-runner-linux
+```
+
+In addition to this, each CI server also needs:
 
 - A {% data variables.product.prodname_github_apps %} or personal access token for the {% data variables.product.prodname_codeql_runner %} to use. For private repositories  the token must have the `repo` scope. For public the token needs only the `public_repo` and `repo:security_events` scopes. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 - Access to the {% data variables.product.prodname_codeql %} bundle associated with this release of the {% data variables.product.prodname_codeql_runner %}. This package contains the {% data variables.product.prodname_codeql %} CLI, queries, and libraries needed for {% data variables.product.prodname_codeql %} analysis. For information, see "[{% data variables.product.prodname_codeql %} CLI](https://help.semmle.com/codeql/codeql-cli.html)."
