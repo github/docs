@@ -7,8 +7,11 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
+{% note %}
 
-**Before you start:** In order to link a repository to your organization or user owned project board the repository needs to have Issues enabled. Please check out [this link](/en/free-pro-team@latest/github/managing-your-work-on-github/disabling-issues) to learn how to verify if Issues are enabled.
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have Issues enabled. Please check out [this link](/en/free-pro-team@latest/github/managing-your-work-on-github/disabling-issues) to learn how to verify if Issues are enabled.
+
+{% endnote %}
 
 Anyone with write permissions to a project board can link repositories owned by that organization or user account to the project board. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization/)" or "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards/)."
 
