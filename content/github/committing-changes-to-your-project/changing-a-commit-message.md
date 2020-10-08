@@ -89,7 +89,6 @@ If you need to amend the message for multiple commits or an older commit, you ca
     #
     # Note that empty commits are commented out
     ```
-
 3. Replace `pick` with `reword` before each commit message you want to change.
   ```shell
   pick e499d89 Delete CNAME
@@ -98,15 +97,10 @@ If you need to amend the message for multiple commits or an older commit, you ca
   ```
 4. Save and close the commit list file.
 5. In each resulting commit file, type the new commit message, save the file, and close it.
-
-{% warning %}
-
-When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
 ```shell
 $ git push --force <em>example-branch</em>
 ``` 
-
- {% endwarning %} 
 
 For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 
