@@ -120,8 +120,8 @@ Email notifications from {% data variables.product.product_name %} contain the f
 3. On the notifications settings page, choose how you receive notifications when:
     - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
     - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} options](#github-dependabot-alerts-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
-    - There are new security alerts in your repository. For more information, see "[Security alert options](#security-alert-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
+    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#github-dependabot-alerts-notification-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - There are new security alerts in your repository. For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
 
 ### Automatic watching
@@ -158,9 +158,9 @@ If you are a member of more than one organization, you can configure each one to
 ![Switching your per-org email address](/assets/images/help/notifications/notifications_switching_org_email.gif)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### {% data variables.product.prodname_dependabot_alerts %} options 
+### {% data variables.product.prodname_dependabot_alerts %} notification options 
 {% else %}
-### Security alert options 
+### Security alert notification options 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. You can receive {% data variables.product.prodname_dependabot_alerts %} in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
@@ -176,6 +176,12 @@ If you want to receive security alerts by email, choose whether you want a weekl
 {% else %}
   ![Security alerts options](/assets/images/help/notifications-v2/security-alerts-options.png)
 {% endif %}
+
+{% note %}
+
+**Note:** You can filter your {% data variables.product.company_short %} inbox notifications by {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts. For more information, see "[Managing notifications from your inbox](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)."
+
+{% endnote %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 

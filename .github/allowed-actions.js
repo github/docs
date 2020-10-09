@@ -8,6 +8,7 @@ module.exports = [
   'actions/cache@v2',
   'actions/checkout@v2',
   'actions/github-script@0.9.0',
+  'actions/github-script@v2.0.0',
   'actions/github-script@v2',
   'actions/github-script@v3',
   'actions/labeler@v2',
@@ -25,8 +26,11 @@ module.exports = [
   'pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a',
   'peter-evans/create-issue-from-file@v2',
   'peter-evans/create-pull-request@v2',
+  'rachmari/actions-add-new-issue-to-column@v1.1.1',
+  'rachmari/labeler@v1.0.4',
   'repo-sync/github-sync@v2',
   'repo-sync/pull-request@v2',
   'rtCamp/action-slack-notify@master',
-  'rtCamp/action-slack-notify@v2.1.0'
+  'rtCamp/action-slack-notify@v2.1.0',
+  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]
