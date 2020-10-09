@@ -35,7 +35,7 @@ async function airtablePost (req, res, next) {
     return res.status(201).send({ id: records[0].getId() })
   } catch (err) {
     console.error('unable to POST event', err)
-    return res.status(err.statusCode).send(err)
+    return res.status(502).send({})
   }
 }
 
@@ -52,11 +52,11 @@ router.post('/', async (req, res, next) => {
   const fields = omit(req.body, OMIT_FIELDS)
   try {
     const hydroRes = await req.hydro.publish(req.hydro.schemas[req.body.type], fields)
-    if (!hydroRes.ok) return res.status(500).json({})
+    if (!hydroRes.ok) return res.status(502).json({})
     return res.status(201).json(fields)
   } catch (err) {
     if (process.env.NODE_ENV === 'development') console.log(err)
-    return res.status(500).json({})
+    return res.status(502).json({})
   }
 })
 
@@ -82,7 +82,7 @@ router.put('/:id', async (req, res, next) => {
     return res.status(200).send({})
   } catch (err) {
     console.error('unable to PUT event', err)
-    return res.status(err.statusCode).send(err)
+    return res.status(502).send({})
   }
 })
 
