@@ -81,6 +81,19 @@ jobs:
       - name: Run build script
         run: npm run build
 
+      - name: Detect changed files
+        id: files
+        uses: futuratrepadeira/changed-files@v3.3.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # pattern: '^.*\.ts$'
+
+      - name: List changed files
+        run: |
+          echo 'Files modified: ${{steps.files.outputs.files_updated}}'
+          echo 'Files added: ${{steps.files.outputs.files_created}}'
+          echo 'Files removed: ${{steps.files.outputs.files_deleted}}'
+
       - name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
 
