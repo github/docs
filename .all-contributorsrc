@@ -347,6 +347,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "chiedo",
+      "name": "Chiedo John",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2156688?v=4",
+      "profile": "https://chiedojohn.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
