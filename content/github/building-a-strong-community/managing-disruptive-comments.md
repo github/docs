@@ -1,6 +1,6 @@
 ---
 title: Managing disruptive comments
-intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
+intro: 'You can , edit, or delete comments on issues, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
