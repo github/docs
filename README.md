@@ -26,6 +26,10 @@ As you're using the GitHub Docs, you may find something in an article that you'd
 
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
 
+#### Solve an issue
+
+If you have a solution to one of the open issues, you will need to fork the repository and submit a PR using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md). 
+
 #### Join us in discussions
 
 We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in [discussions](https://github.com/github/docs/discussions).
