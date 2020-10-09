@@ -322,6 +322,33 @@
         "content",
         "doc"
       ]
+    },
+    {
+      "login": "shogo82148",
+      "name": "Ichinose Shogo",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1157344?v=4",
+      "profile": "https://shogo82148.github.io/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "toshimaru",
+      "name": "Toshimaru",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/803398?v=4",
+      "profile": "https://toshimaru.net/",
+      "contributions": [
+        "translation"
+      ]
+    },
+    {
+      "login": "quaresmateo",
+      "name": "Teo Quaresma",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/26655732?v=4",
+      "profile": "https://teoian.com/",
+      "contributions": [
+        "translation"
+      ]
     }
   ],
   "contributorsPerLine": 7,
