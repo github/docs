@@ -45,7 +45,6 @@ jobs:
         run: npm run check-deps
 
   test:
-    if: github.repository == 'github/docs-internal'
     runs-on: windows-latest
     strategy:
       fail-fast: false
