@@ -20,6 +20,7 @@ If your workflows use sensitive data, such as passwords or certificates, you can
 
 This example action demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
+{% raw %}
 ```yaml
 jobs:
   example-job:
@@ -30,6 +31,7 @@ jobs:
         run: |
           example-command "$SUPER_SECRET"
 ```
+{% endraw %}
 
 For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
@@ -62,6 +64,7 @@ For more information, see [`jobs.<job_id>.needs`](/actions/reference/workflow-sy
 
 You can use a build matrix if you want your workflow to run tests across multiple combinations of operating systems, platforms, and languages. The build matrix is created using the `strategy` keyword, which receives the build options as an array. For example, this build matrix will run the job multiple times, using different versions of Node.js:
 
+{% raw %}
 ```yaml
 jobs:
   build:
@@ -74,6 +77,7 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 ```
+{% endraw %}
 
 For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix).
 
@@ -83,6 +87,7 @@ For more information, see [`jobs.<job_id>.strategy.matrix`](/actions/reference/w
 
 This example demonstrates how to cache the ` ~/.npm` directory:
 
+{% raw %}
 ```yaml
 jobs:
   example-job:
@@ -97,6 +102,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
 ```
+{% endraw %}
 
 For more information, see "[Caching dependencies to speed up workflows](/actions/configuring-and-managing-workflows/caching-dependencies-to-speed-up-workflows)."
 
