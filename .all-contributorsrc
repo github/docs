@@ -285,6 +285,43 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "BenJam",
+      "name": "Benjamin Nickolls",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/158833?v=4",
+      "profile": "https://github.com/BenJam",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jeffmcaffer",
+      "name": "Jeff McAffer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10070956?v=4",
+      "profile": "https://mcaffer.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "tjenkinson",
+      "name": "Tom Jenkinson",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3259993?v=4",
+      "profile": "https://tjenkinson.me",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "casals",
+      "name": "Arthur Casals",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/785860?v=4",
+      "profile": "https://github.com/casals",
+      "contributions": [
+        "content",
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
