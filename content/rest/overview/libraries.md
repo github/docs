@@ -14,9 +14,9 @@ versions:
   <h1>Octokit comes in many flavors</h1>
   <p class="lead">Use the official Octokit library, or choose between any of the available third party libraries.</p>
   <div class="octokit-links"><br/>
-     <div class="octokit-language"> <span><code style="color: red">Ruby</code> → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
-     <div class="octokit-language"><span><code style="color: blue">.NET</code> → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span><code style="color: gold">JavaScript</code> → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
+     <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
+     <div class="octokit-language"><span>Javascript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
   </div>
 </div>
 
