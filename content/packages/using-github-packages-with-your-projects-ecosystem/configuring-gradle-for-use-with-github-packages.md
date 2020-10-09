@@ -173,7 +173,7 @@ You can install a package by adding the package as a dependency to your project.
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Grady Groovy:
+  Example using Gradle Groovy:
   ```shell
   dependencies {
       implementation 'com.example:package'
@@ -188,7 +188,7 @@ You can install a package by adding the package as a dependency to your project.
 
 3. Add the maven plugin to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Grady Groovy:
+  Example using Gradle Groovy:
   ```shell
   plugins {
       id 'maven'

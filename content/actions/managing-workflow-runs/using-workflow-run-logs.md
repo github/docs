@@ -1,6 +1,6 @@
 ---
 title: Using workflow run logs
-intro: 'You can view, search, and download the logs for each job in a workflow run. {% data variables.product.product_name %} stores full build logs and artifacts for 90 days.'
+intro: 'You can view, search, and download the logs for each job in a workflow run.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
