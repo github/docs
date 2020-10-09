@@ -19,7 +19,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
   This creates a new ssh key, using the provided email as a label.
   ```shell
