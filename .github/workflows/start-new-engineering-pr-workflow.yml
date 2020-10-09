@@ -6,7 +6,6 @@ on:
     
 jobs:
   triage:
-    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     continue-on-error: true
     env:
