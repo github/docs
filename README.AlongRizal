@@ -33,31 +33,31 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 #### And that's it!
 That's how you can get started easily as a member of the GitHub Documentation community. :sparkles:
 
-If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.md).
+If you want to know more, or you're making a more complex contribution, check out [Getting Started with Contributing](/CONTRIBUTING.AlongRizal).
 
 There are a few more things to know when you're getting started with this repo:
 
 1. If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
-2. We do not accept pull requests for translated content - see [CONTRIBUTING.md](/CONTRIBUTING.md) for more information.
+2. We do not accept pull requests for translated content - see [CONTRIBUTING.AlongRizal](/CONTRIBUTING.AlongRizal) for more information.
 
 ## READMEs
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
 
-- [content/README.md](content/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [includes/liquid-tags/README.md](includes/liquid-tags/README.md)
-- [includes/README.md](includes/README.md)
-- [javascripts/README.md](javascripts/README.md)
-- [layouts/README.md](layouts/README.md)
-- [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
-- [script/README.md](script/README.md)
-- [stylesheets/README.md](stylesheets/README.md)
-- [tests/README.md](tests/README.md)
+- [content/README.AlongRizal](content/README.md)
+- [contributing/README.AlongRizal](contributing/README.AlongRizal)
+- [data/README.AlongRizal](data/README.AlongRizal)
+- [data/reusables/README.AlongRizal](data/reusables/README.AlongRizal)
+- [data/variables/README.AlongRizal](data/variables/README.AlongRizal)
+- [includes/liquid-tags/README.AlongRizal](includes/liquid-tags/README.AlongRizal)
+- [includes/README.AlongRizal](includes/README.AlongRizal)
+- [javascripts/README.AlongRizal](javascripts/README.AlongRizal)
+- [layouts/README.AlongRizal](layouts/README.AlongRizal)
+- [lib/liquid-tags/README.AlongRizal](lib/liquid-tags/README.AlongRizal)
+- [middleware/README.AlongRizal](middleware/README.AlongRizal)
+- [script/README.AlongRizal](script/README.AlongRizal)
+- [stylesheets/README.AlongRizal](stylesheets/README.AlongRizal)
+- [tests/README.AlongRizal](tests/README.AlongRizal)
 
 ## License
 
