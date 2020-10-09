@@ -3,6 +3,7 @@
 name: Node.js Tests - Windows
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "50 19 * * *" # once a day at 19:50 UTC / 11:50 PST
 
@@ -44,7 +45,6 @@ jobs:
         run: npm run check-deps
 
   test:
-    if: github.repository == 'github/docs-internal'
     runs-on: windows-latest
     strategy:
       fail-fast: false
