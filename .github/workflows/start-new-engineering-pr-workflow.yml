@@ -14,9 +14,9 @@ jobs:
     steps:
     - name: 
       uses: actions/github-script@v2
-      if: (secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES)
+      continue-on-error: true
       with:
-          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
+          github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPESO }}
           script: |
               // Only assign the engineering folks
               try { 
