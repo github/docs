@@ -1,6 +1,6 @@
 ## GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for docs.github.com.
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -25,6 +25,10 @@ As you're using the GitHub Docs, you may find something in an article that you'd
 #### Open an issue
 
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+
+#### Solve an issue
+
+If you have a solution to one of the open issues, you will need to fork the repository and submit a PR using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md). 
 
 #### Join us in discussions
 
@@ -113,6 +117,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/BenJam"><img src="https://avatars2.githubusercontent.com/u/158833?v=4" width="64px;" alt=""/><br /><sub><b>Benjamin Nickolls</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=BenJam" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://mcaffer.com"><img src="https://avatars2.githubusercontent.com/u/10070956?v=4" width="64px;" alt=""/><br /><sub><b>Jeff McAffer</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=jeffmcaffer" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://tjenkinson.me"><img src="https://avatars0.githubusercontent.com/u/3259993?v=4" width="64px;" alt=""/><br /><sub><b>Tom Jenkinson</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=tjenkinson" title="Code">💻</a></td>
   </tr>
 </table>
 
