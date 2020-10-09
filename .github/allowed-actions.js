@@ -23,7 +23,7 @@ module.exports = [
   'juliangruber/approve-pull-request-action@v1',
   'juliangruber/find-pull-request-action@v1',
   'juliangruber/read-file-action@v1',
-  'pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a',
+  'pascalgn/automerge-action@c9bd182',
   'peter-evans/create-issue-from-file@v2',
   'peter-evans/create-pull-request@v2',
   'rachmari/actions-add-new-issue-to-column@v1.1.1',

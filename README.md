@@ -119,6 +119,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/BenJam"><img src="https://avatars2.githubusercontent.com/u/158833?v=4" width="64px;" alt=""/><br /><sub><b>Benjamin Nickolls</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=BenJam" title="Documentation">📖</a></td>
     <td align="center"><a href="https://mcaffer.com"><img src="https://avatars2.githubusercontent.com/u/10070956?v=4" width="64px;" alt=""/><br /><sub><b>Jeff McAffer</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=jeffmcaffer" title="Documentation">📖</a></td>
     <td align="center"><a href="https://tjenkinson.me"><img src="https://avatars0.githubusercontent.com/u/3259993?v=4" width="64px;" alt=""/><br /><sub><b>Tom Jenkinson</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=tjenkinson" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/casals"><img src="https://avatars0.githubusercontent.com/u/785860?v=4" width="64px;" alt=""/><br /><sub><b>Arthur Casals</b></sub></a><br /><a href="#content-casals" title="Content">🖋</a> <a href="https://github.com/github/docs/commits?author=casals" title="Documentation">📖</a></td>
   </tr>
 </table>
 
