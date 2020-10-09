@@ -100,7 +100,7 @@ When this option is selected, the certificate is validated to make sure:
 
 {% note %}
 
-**Note:** LDAP synchronized teams are limited to a maximum 1499 members.
+**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
 
 {% endnote %}
 
