@@ -1,4 +1,5 @@
 ---
+AlongRizal
 title: Renaming an organization
 intro: 'If your project or company has changed names, you can update the name of your organization to match.'
 redirect_from:
