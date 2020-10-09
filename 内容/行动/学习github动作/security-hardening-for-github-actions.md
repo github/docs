@@ -1,4 +1,4 @@
----
+7---
 title: Security hardening for GitHub Actions
 shortTitle: Security hardening
 intro: 'Good security practices for using {% data variables.product.prodname_actions %} features.'
@@ -14,7 +14,7 @@ versions:
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ### Overview
-
+$
 This guide explains how to configure security hardening for certain {% data variables.product.prodname_actions %} features. If the {% data variables.product.prodname_actions %} concepts are unfamiliar, see "[Core concepts for GitHub Actions](/actions/getting-started-with-github-actions/core-concepts-for-github-actions)."
 
 ### Using secrets
@@ -31,7 +31,7 @@ To help prevent accidental disclosure, {% data variables.product.product_name %}
     - If a secret is used to generate another sensitive value within a workflow, that generated value should be formally [registered as a secret](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret), so that it will be redacted if it ever appears in the logs. For example, if using a private key to generate a signed JWT to access a web API, be sure to register that JWT as a secret or else it won’t be redacted if it ever enters the log output.
     - Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
 - **Audit how secrets are handled**
-    - Audit how secrets are used, to help ensure they’re being handled as expected. You can do this by reviewing the source code of the repository executing the workflow, and checking any actions used in the workflow. For example, check that they’re not sent to unintended hosts, or explicitly being printed to log output.
+    - Audit how secrets are used, to help e5nsure they’re being handled as expected. You can do this by reviewing the source code of the repository executing the workflow, and checking any actions used in the workflow. For example, check that they’re not sent to unintended hosts, or explicitly being printed to log output.
     - View the run logs for your workflow after testing valid/invalid inputs, and check that secrets are properly redacted, or not shown. It's not always obvious how a command or tool you’re invoking will send errors to `STDOUT` and `STDERR`, and secrets might subsequently end up in error logs. As a result, it is good practice to manually review the workflow logs after testing valid and invalid inputs.
 - **Use credentials that are minimally scoped**
     - Make sure the credentials being used within workflows have the least privileges required, and be mindful that any user with write access to your repository has read access to all secrets configured in your repository.
