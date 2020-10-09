@@ -35,9 +35,7 @@ You can filter email notifications you receive for pushes to a repository. For m
 ![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
 6. If you operate your own server, you can verify the integrity of emails via the **Secret** token. This token is sent with the email as the `Approved` header. If the `Approved` header matches the token you sent, you can trust that the email is from {% data variables.product.product_name %}.
 ![Email secret textbox](/assets/images/help/settings/email_services_token.png)
-7. Optionally, select **Send from author** to have emails delivered using the committer's email address. Otherwise, emails are sent from {% data variables.notifications.no_reply_address %}.
-![Email author checkbox](/assets/images/help/settings/email_services_author.png)
-8. Click **Save settings**.
+7. Click **Save settings**.
 ![Save settings button](/assets/images/help/settings/save_notification_settings.png)
 
 ### Further reading
