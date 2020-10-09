@@ -3,6 +3,7 @@
 name: Node.js Tests - Windows
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "50 19 * * *" # once a day at 19:50 UTC / 11:50 PST
 
@@ -11,7 +12,6 @@ env:
 
 jobs:
   lint:
-    if: github.repository == 'github/docs-internal'
     runs-on: windows-latest
     steps:
       - name: Check out repo

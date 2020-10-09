@@ -10,7 +10,7 @@ const dirsToProcess = ['content', 'translations']
 const allFiles = flatten(dirsToProcess.map(dir => {
   return walk(path.join(process.cwd(), dir), { includeBasePath: true, directories: false })
     .filter(file => !file.endsWith('README.md'))
-    .filter(file => !file.endsWith('LICENSE'))
+    .filter(file => !(file.endsWith('LICENSE') || file.endsWith('LICENSE-CODE')))
     // we only want to process frontmatter in content files in translations, so skip data files
     // this is very brittle but works well enough for this script
     // (note data files are updated in script/new-versioning/update-content.js)
