@@ -33,3 +33,4 @@ versions:
     {% link_in_list /configuring-saml-single-sign-on-and-scim-for-your-enterprise-account-using-okta %}
     {% link_in_list /enforcing-a-policy-on-dependency-insights-in-your-enterprise-account %}
     {% link_in_list /enforcing-github-actions-policies-in-your-enterprise-account %}
+    {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account %}
