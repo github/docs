@@ -331,6 +331,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "wi5nia",
+      "name": "Tomasz Wisniewski",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12593852?v=4",
+      "profile": "http://tomaszwisniewski.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
