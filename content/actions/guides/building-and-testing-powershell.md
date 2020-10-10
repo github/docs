@@ -50,7 +50,8 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v1
+    - name: Check out repository code
+        uses: actions/checkout@v2
     - name: Perform a Pester test from the command-line to ensure expected results
       shell: pwsh
       run: Get-ChildItem | Select-Object -ExpandProperty Name -First 1 | Should -Be 'bin'
