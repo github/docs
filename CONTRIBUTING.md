@@ -32,7 +32,7 @@ Fork using the command line:
 ### Make your update:
 Make your changes to the file(s) you'd like to update. Here are some tips and tricks for [using the docs codebase](#working-in-the-githubdocs-repository).
   - Are you making changes to the application code? You'll need **Node.js v14** to run the site locally. See [contributing/development.md](contributing/development.md).
-  - Are you contributing to markdown? We use [GitHub Markdown](contributing/content-markup-reference).
+  - Are you contributing to markdown? We use [GitHub Markdown](contributing/content-markup-reference.md).
 
 ### Open a pull request
 When you're done making changes and you'd like to propose them for review, use the [pull request template](#pull-request-template) to open your PR (pull request).
@@ -63,8 +63,6 @@ Now that you're a part of the GitHub Docs community, you can keep participating 
 - [Starting with an issue](#starting-with-an-issue)
   - [Labels](#labels)
 - [Opening a pull request](#opening-a-pull-request)
-  - [Fork using GitHub Desktop](#fork-using-github-desktop)
-  - [Fork using the command line](#fork-using-the-command-line)
 - [Working in the github/docs repository](#working-in-the-githubdocs-repository)
 - [Resolving merge conflicts](#resolving-merge-conflicts)
   - [In the GitHub user interface](#in-the-github-user-interface)
@@ -156,7 +154,7 @@ You should always review your own PR first.
 For content changes, make sure that you:
 - [ ] Confirm that the changes address every part of the content strategy plan from your issue (if there are differences, explain them).
 - [ ] Review the content for technical accuracy.
-- [ ] Review the entire pull request using the [localization checklist](contribution/localization-checklist.md).
+- [ ] Review the entire pull request using the [localization checklist](contributing/localization-checklist.md).
 - [ ] Copy-edit the changes for grammar, spelling, and adherence to the style guide.
 - [ ] Check new or updated Liquid statements to confirm that versioning is correct.
 - [ ] Check that all of your changes render correctly in staging. Remember, that lists and tables can be tricky.
