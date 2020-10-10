@@ -234,7 +234,7 @@ During the execution of a workflow, the runner generates temporary files that ca
 
 ```
 steps:
-  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8
+  - run: echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 ```
 
 {% endwarning %}
