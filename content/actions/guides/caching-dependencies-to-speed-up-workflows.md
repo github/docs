@@ -184,8 +184,8 @@ For example, if a pull request contains a `feature` branch (the current scope) a
 1. Key `npm-feature-` in the `feature` branch scope
 2. Key `npm-` in the `feature` branch scope
 1. Key `npm-feature-d5ea0750` in the `main` branch scope
-3. Key `npm-d5ea0750` in the `main` branch scope
-4. Key `npm` in the `main` branch scope
+3. Key `npm-feature-` in the `main` branch scope
+4. Key `npm-` in the `main` branch scope
 
 ### Usage limits and eviction policy
 
