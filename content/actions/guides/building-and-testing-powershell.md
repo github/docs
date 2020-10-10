@@ -1,6 +1,7 @@
 ---
 title: Building and testing PowerShell
 intro: You can create a continuous integration (CI) workflow to build and test your PowerShell project.
+product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
