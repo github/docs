@@ -1,4 +1,5 @@
 const path = require('path')
+const slash = require('slash')
 const fs = require('fs')
 const walk = require('walk-sync')
 const matter = require('@github-docs/frontmatter')
@@ -109,11 +110,11 @@ describe('lint-files', () => {
   }
 
   const contentMarkdownAbsPaths = walk(contentDir, mdWalkOptions).sort()
-  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => path.relative(rootDir, p))
+  const contentMarkdownRelPaths = contentMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const contentMarkdownTuples = zip(contentMarkdownRelPaths, contentMarkdownAbsPaths)
 
   const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
-  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => path.relative(rootDir, p))
+  const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map(p => slash(path.relative(rootDir, p)))
   const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
   describe.each([...contentMarkdownTuples, ...reusableMarkdownTuples])(

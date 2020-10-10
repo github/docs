@@ -1,6 +1,8 @@
 # Node Versions
 
-The site currently runs on Node.js v14, the [Active LTS version](https://nodejs.org/en/about/releases/) from 2020-10-27 to 2021-10-26.
+In [development](contributing/development.md) enviroments this site will run on Node.js versions `12 - 14`.
+
+In [staging and production](contributing/deployments.md) environments this site runs on Node.js 14, the [Active LTS version](https://nodejs.org/en/about/releases/) from 2020-10-27 to 2021-10-26).
 
 When updating to a new Node.js version, consider the following files:
 
