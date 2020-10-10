@@ -51,6 +51,8 @@ References to a commit's SHA hash are automatically converted into shortened lin
 
 {% data reusables.repositories.autolink-references %}
 
+
+
 ### Further reading
 
 - "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax)"
