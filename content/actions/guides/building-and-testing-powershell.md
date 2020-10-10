@@ -210,6 +210,8 @@ jobs:
       env:
         NUGET_KEY: ${{ secrets.NUGET_KEY }}
       shell: pwsh
-      run: Publish-Module -Path . -NuGetApiKey $env:NUGET_KEY -Verbose
+      run: |
+        ./build.ps1 -Path /tmp/samplemodule
+        Publish-Module -Path /tmp/samplemodule -NuGetApiKey $env:NUGET_KEY -Verbose
 ```
 {% endraw %}
