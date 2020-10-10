@@ -37,7 +37,11 @@ versions:
   >  2 files changed, 7 insertions(+), 9 deletions(-)
   >  delete mode 100644 README
   >  create mode 100644 README.md
-  ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
+  
+  ```
+  
+  如果您的本地分支没有任何提交，Git 将执行“fast-forward”：
+  
   ```shell
   $ git merge upstream/master
   > Updating 34e91da..16c56ad
