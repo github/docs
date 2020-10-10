@@ -12,3 +12,8 @@ versions:
   enterprise-server: '*'
 ---
 
+
+
+
+
+content/github/getting-started-with-github/keyboard-shortcuts.md
