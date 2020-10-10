@@ -54,3 +54,5 @@ Congratulations, you now have Git and {% data variables.product.product_name %} 
 - "[Fork a repository](/articles/fork-a-repo)"
 - "[Be social](/articles/be-social)"
 - {% data reusables.support.connect-in-the-forum-bootcamp %}
+
+Conecte-se com pessoas ao redor do mundo no [Suporte à Comunidade Github](https://github.community/)
