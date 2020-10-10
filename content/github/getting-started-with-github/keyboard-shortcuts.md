@@ -191,3 +191,11 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>shift →</kbd> or <kbd>shift l</kbd> | Scroll all the way right
 |<kbd>shift ↑</kbd> or <kbd>shift k</kbd> | Scroll all the way up
 |<kbd>shift ↓</kbd> or <kbd>shift j</kbd> | Scroll all the way down
+
+
+
+
+
+![Code scanning - action](https://github.com/microsoft/BotFramework-Composer/workflows/Code%20scanning%20-%20action/badge.svg?branch=zxyanliu%2Ftooltip%2F20200831)
+
+
