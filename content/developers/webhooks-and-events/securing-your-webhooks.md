@@ -36,7 +36,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 When your secret token is set, GitHub uses it to create a hash signature with each payload.
 
-This hash signature is passed along with each request in the headers as `X-Hub-Signature`. Suppose you have a basic server listening to webhooks that looks like this:
+This hash signature is passed along with each request in the headers as `X-Hub-Signature-256`. Suppose you have a basic server listening to webhooks that looks like this:
 
 ``` ruby
 require 'sinatra'
@@ -60,15 +60,17 @@ post '/payload' do
 end
 
 def verify_signature(payload_body)
-  signature = 'sha1=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha1'), ENV['SECRET_TOKEN'], payload_body)
-  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE'])
+  signature = 'sha256=' + OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), ENV['SECRET_TOKEN'], payload_body)
+  return halt 500, "Signatures didn't match!" unless Rack::Utils.secure_compare(signature, request.env['HTTP_X_HUB_SIGNATURE_2'])
 end
 ```
 
 Obviously, your language and server implementations may differ than this code. There are a couple of very important things to point out, however:
 
-* No matter which implementation you use, the hash signature starts with `sha1=`, using the key of your secret token and your payload body.
+* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
 * Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which renders it safe from certain timing attacks against regular equality operators.
+
+We also include a signature based on SHA-1 for backward-compatibility in a header called `X-Hub-Signature`. If possible, prefer `X-Hub-Signature-256` for improved security. We do not currently plan to deprecate the old header, so it should be safe to rely on it if updating to SHA-256 isn't feasible.
 
 [secure_compare]: http://rubydoc.info/github/rack/rack/master/Rack/Utils.secure_compare
