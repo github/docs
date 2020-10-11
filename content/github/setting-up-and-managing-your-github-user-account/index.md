@@ -1,3 +1,6 @@
+Doc/content/github/
+Setting-up-andmanaging-your-guthub-us
+Er-account
 ---
 title: Setting up and managing your GitHub user account
 shortTitle: User accounts
