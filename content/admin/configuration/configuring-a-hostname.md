@@ -1,4 +1,4 @@
----
+tranbaobien5@gmail.com
 title: Configuring a hostname
 intro: We recommend setting a hostname for your appliance instead of using a hard-coded IP address.
 redirect_from:
