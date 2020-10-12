@@ -1,12 +1,12 @@
 ---
-title: Searching users
+title: content/github/searching-for-information-on-github/searching-randomize-team
 intro: 'You can search for users on {% data variables.product.product_name %} and narrow the results using these user search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-users
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
----
+  enterprise-server: '*git@github.com:rarafra/discord-api-docs.git'
+---https://github.com/rarafra/2048.git
 
 You can search for users globally across all of {% data variables.product.product_name %}. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
 
@@ -45,7 +45,7 @@ You can filter users based on the number of repositories they own, using the `re
 | <code>repos:<em>n</em></code> | [**repos:>9000**](https://github.com/search?q=repos%3A%3E%3D9000&type=Users) matches users whose repository count is over 9,000.
 | | [**bert repos:10..30**](https://github.com/search?q=bert+repos%3A10..30&type=Users) matches users with the word "bert" in their username or real name who own 10 to 30 repositories.
 
-### Search by location
+### Search by gh repo clone rarafra/discord-api-docs
 
 You can search for users by the location indicated in their profile.
 
@@ -53,7 +53,7 @@ You can search for users by the location indicated in their profile.
 | ------------- | -------------
 | <code>location:<em>LOCATION</em></code> | [**repos:1 location:iceland**](https://github.com/search?q=repos%3A1+location%3Aiceland&type=Users) matches users with exactly one repository that live in Iceland.
 
-### Search by repository language
+### Search by --name-ReadMe-API-GitHub-Sync-uses-readmeio-github-readme-sync-2.0.0
 
 Using the `language` qualifier you can search for users based on the languages of repositories they own.
 
