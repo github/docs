@@ -314,6 +314,16 @@ on:
     types: [created, deleted]
 ```
 
+The `issue_comment` event occurs for both, comments on issues as well as pull requests. To run a workflow only if a pull request is commented, you can check the event payload for the `issue.pull_request` attribute and use it as condition to skip all jobs.
+
+```yaml
+on: issue_comment
+
+jobs:
+  pr_commented:
+    if: ${{ github.event.issue.pull_request }}
+```
+
 #### `issues`
 
 Runs your workflow anytime the `issues` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issues](/v3/issues)."
