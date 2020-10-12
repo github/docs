@@ -314,7 +314,7 @@ on:
     types: [created, deleted]
 ```
 
-The `issue_comment` event occurs for both, comments on issues as well as pull requests. To run a workflow only if a pull request is commented, you can check the event payload for the `issue.pull_request` attribute and use it as condition to skip all jobs.
+The `issue_comment` event occurs for both, comments on issues as well as pull requests. To run jobs only in one of the cases, you can check the event payload for the `issue.pull_request` attribute and use it as condition to skip jobs.
 
 ```yaml
 on: issue_comment
