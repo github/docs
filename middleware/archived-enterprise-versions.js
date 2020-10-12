@@ -1,4 +1,5 @@
 const path = require('path')
+const slash = require('slash')
 const { latest, deprecated, firstVersionDeprecatedOnNewSite, lastVersionWithoutStubbedRedirectFiles } = require('../lib/enterprise-server-releases')
 const patterns = require('../lib/patterns')
 const versionSatisfiesRange = require('../lib/version-satisfies-range')
@@ -69,7 +70,7 @@ module.exports = async (req, res, next) => {
 // for <2.13: /2.12/user/articles/viewing-contributions-on-your-profile
 function getProxyPath (reqPath, requestedVersion) {
   const proxyPath = versionSatisfiesRange(requestedVersion, `>=${firstVersionDeprecatedOnNewSite}`)
-    ? path.join('/', requestedVersion, reqPath)
+    ? slash(path.join('/', requestedVersion, reqPath))
     : reqPath.replace(/^\/enterprise/, '')
 
   return `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
@@ -97,7 +98,7 @@ function getFallbackRedirects (req, requestedVersion) {
     // ]
     .filter(oldPath => oldPath.startsWith('/enterprise') && patterns.enterpriseNoVersion.test(oldPath))
     // add in the current language and version
-    .map(oldPath => path.join('/', req.context.currentLanguage, oldPath.replace('/enterprise/', `/enterprise/${requestedVersion}/`)))
+    .map(oldPath => slash(path.join('/', req.context.currentLanguage, oldPath.replace('/enterprise/', `/enterprise/${requestedVersion}/`))))
     // ignore paths that match the requested path
     .filter(oldPath => oldPath !== req.path)
 }
