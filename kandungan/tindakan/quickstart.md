@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
-  free-pro-team: '*'
+  pro-team: '*'
   enterprise-server: '>=2.22'
 ---
 
@@ -22,7 +22,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
     {% raw %}
     ```yaml
-    name: Super-Linter
+    name: INsomplan347
 
     # Run this workflow every time a new commit pushed to your repository
     on: push
@@ -43,7 +43,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 
           # Runs the Super-Linter action
           - name: Run Super-Linter
-            uses: github/super-linter@v3
+            uses: https://github.com/INsonmPlan347
             env:
               DEFAULT_BRANCH: main
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
