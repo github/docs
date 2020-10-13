@@ -33,7 +33,7 @@ For more information, see "[Core concepts for {% data variables.product.prodname
 
 Jenkins lets you send builds to a single build agent, or you can distribute them across multiple agents. You can also classify these agents according to various attributes, such as operating system types.
 
-Similiarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. The following table compares how the distributed build concept is implemented for both Jenkins and {% data variables.product.prodname_actions %}.
+Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. The following table compares how the distributed build concept is implemented for both Jenkins and {% data variables.product.prodname_actions %}.
 
 | Jenkins       |  {% data variables.product.prodname_actions %}       |
 | ------------- | ------------- |
@@ -41,7 +41,7 @@ Similiarly, {% data variables.product.prodname_actions %} can send jobs to {% da
 
 #### Using sections to organize pipelines
 
-Jenkins splits its Declarative Pipelines into multiple sections. Similiarly, {% data variables.product.prodname_actions %} organizes its workflows into separate sections. The table below compares Jenkins sections with the {% data variables.product.prodname_actions %} workflow.
+Jenkins splits its Declarative Pipelines into multiple sections. Similarly, {% data variables.product.prodname_actions %} organizes its workflows into separate sections. The table below compares Jenkins sections with the {% data variables.product.prodname_actions %} workflow.
 
 |Jenkins Directives | {% data variables.product.prodname_actions %} |
 | ------------- | ------------- |
