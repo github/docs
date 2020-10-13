@@ -47,7 +47,7 @@ If you [clone with SSH](/articles/which-remote-url-should-i-use#cloning-with-ssh
 
 ### Celebrate
 
-Congratulations, you now have Git and {% data variables.product.product_name %} all set up! What do you want to do next?
+Congratulations, you now have Git and {% data variables.product.product_name %} all set up! What do you want to do the next?
 
 - **Set up Git**
 - "[Create a repository](/articles/create-a-repo)"
