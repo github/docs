@@ -358,6 +358,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "ArnoutDevos",
+      "name": "Arnout Devos",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3979568?v=4",
+      "profile": "http://www.arnoutdevos.net",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
