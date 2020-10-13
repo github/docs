@@ -263,7 +263,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 {delimiter}
 ```
 
-#### Example
+##### Example
 
 In this example, we use `EOF` as a delimiter and set the `JSON_RESPONSE` environment variable to the value of the curl response.
 ```
