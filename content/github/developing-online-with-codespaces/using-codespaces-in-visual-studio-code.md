@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.codespaces.release-stage %}
 
-### Connecting the {% data variables.product.prodname_vs_codespaces %} extension to your {% data variables.product.prodname_dotcom %} account
+### Prerequisites
 
 Before you can develop in a codespace directly in {% data variables.product.prodname_vscode %}, you must configure the {% data variables.product.prodname_vs_codespaces %} extension to connect to your {% data variables.product.product_name %} account.
 
@@ -29,11 +29,27 @@ Before you can develop in a codespace directly in {% data variables.product.prod
 8. To authorize {% data variables.product.prodname_vscode %} to access your account on {% data variables.product.product_name %}, click **Allow**.
 9. Sign in to {% data variables.product.product_name %} to approve the extension.
 
-### Opening a codespace in {% data variables.product.prodname_vscode %}
+### Creating a codespace in {% data variables.product.prodname_vscode %}
 
-After you've connected your {% data variables.product.product_name %} account to the {% data variables.product.prodname_vs_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} directly in {% data variables.product.prodname_vscode %}.
+After you connect your {% data variables.product.product_name %} account to the {% data variables.product.prodname_vs_codespaces %} extension, you can develop in a codespace that you created on {% data variables.product.product_name %} or in {% data variables.product.prodname_vscode %}.
+
+{% data reusables.codespaces.click-remote-explorer-icon-vscode %}
+2. Click the Add icon, then click **Create New Codespace**.
+![The Create new Codespace option in {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/create-codespace-vscode.png)
+3. Type, then click the repository's name you want to develop in.
+![Searching for repository to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-repository-vscode.png)
+4. Click the branch you want to develop in.
+![Searching for a branch to create a new {% data variables.product.prodname_codespaces %}](/assets/images/help/codespaces/choose-branch-vscode.png)
+
+### Opening a codespace in {% data variables.product.prodname_vscode %}
 
 {% data reusables.codespaces.click-remote-explorer-icon-vscode %}
 2. Under Codespaces, click the codespace you want to develop in.
 3. Click the Connect to Codespace icon.
  ![The Connect to Codespace icon in {% data variables.product.prodname_vscode %}](/assets/images/help/codespaces/click-connect-to-codespace-icon-vscode.png)
+
+### Deleting a codespace in {% data variables.product.prodname_vscode %}
+
+1. Under Codespaces, right-click the codespace you want to delete.
+2. In the drop-down menu, click **Delete Codespace**.
+![Deleting a codespace in {% data variables.product.prodname_dotcom %}](/assets/images/help/codespaces/delete-codespace-vscode.png)
