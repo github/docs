@@ -175,6 +175,8 @@ echo "Inside group"
 echo "::endgroup::"
 ```
 
+![Log group](/assets/images/actions-log-group.png)
+
 ### Masking a value in log
 
 `::add-mask::{value}`
