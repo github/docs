@@ -972,12 +972,16 @@ Key | Type | Description
 `after`|`string` | The SHA of the most recent commit on `ref` after the push.
 `commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
 `commits[][id]`|`string` | The SHA of the commit.
+`commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
 `commits[][author]`|`object` | The git author of the commit.
 `commits[][author][name]`|`string` | The git author's name.
 `commits[][author][email]`|`string` | The git author's email address.
 `commits[][url]`|`url` | URL that points to the commit API resource.
 `commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
+`commits[][added]`|`array` | An array of files added in the commit.
+`commits[][modified]`|`array` | An array of files modified by the commit.
+`commits[][removed]`|`array` | An array of files removed in the commit.
 `pusher` | `object` | The user who pushed the commits.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
