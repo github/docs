@@ -358,6 +358,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "paulyhedral",
+      "name": "Paul Schifferer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/419457?v=4",
+      "profile": "https://wanderingmonster.org",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
