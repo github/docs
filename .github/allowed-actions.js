@@ -15,6 +15,7 @@ module.exports = [
   'actions/setup-node@v1',
   'actions/setup-ruby@v1',
   'actions/stale@v3',
+  'crowdin/github-action@1.0.10',
   'dawidd6/action-delete-branch@v3',
   'docker://chinthakagodawita/autoupdate-action:v1',
   'github/codeql-action/analyze@v1',
