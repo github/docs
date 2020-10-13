@@ -82,6 +82,36 @@ See [our guide on Git automation with tokens][git-automation].
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
 
+##### Multiple Repositories on once server
+
+GitHub does not allow users to reuse deploy keys across multiple repositories, so when a personal key pair is undesirable (such as a deployment server) users have to generate a dedicated key pair for each repository they require.  Additionally, Git (currently) does not provide a way of configuring a preferred private key when using ssh remotes. 
+
+###### Setup
+
+1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
+2. Assign a unique private key to each repo as done in the following example:
+```
+Host example.com-repo-0
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host github.com-repo-1
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+
+Host github.com-repo-2
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-2_deploy_key
+```
+
+###### Example Usage
+
+To clone a repository with a unique Deploy Key, use the appropriate host defined in the `~/.ssh/config` file as in the following example:
+
+```
+git clone git@github.com-repo-1:github-user/repo-1.git
+```
+
 ### Machine users
 
 If your server needs to access multiple repositories, you can create a new {% data variables.product.product_name %} account and attach an SSH key that will be used exclusively for automation. Since this {% data variables.product.product_name %} account won't be used by a human, it's called a _machine user_. You can add the machine user as a [collaborator][collaborator] on a personal repository (granting read and write access), as an [outside collaborator][outside-collaborator] on an organization repository (granting read, write, or admin access), or to a [team][team] with access to the repositories it needs to automate (granting the permissions of the team).
