@@ -11,6 +11,7 @@ on:
 jobs:
   sync_with_crowdin:
     name: Sync with Crowdin
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +20,7 @@ jobs:
       - name: Sync
         uses: crowdin/github-action@1.0.10
         with:
-          upload_translations: true
+          upload_translations: false
           download_translations: true
           create_pull_request: true
           
