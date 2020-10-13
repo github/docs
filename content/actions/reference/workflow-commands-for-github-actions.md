@@ -158,6 +158,23 @@ Creates an error message and prints the message to the log. You can optionally p
 echo "::error file=app.js,line=10,col=15::Something went wrong"
 ```
 
+### Grouping log lines
+
+```
+::group::{title}
+::endgroup::
+```
+
+Emitting a `group` with a title will instruct the logs to create a collapsible region up to the next `endgroup` command.
+
+#### Example
+
+```bash
+echo "::group::My title"
+echo "Inside group"
+echo "::endgroup::"
+```
+
 ### Masking a value in log
 
 `::add-mask::{value}`
