@@ -89,9 +89,9 @@ GitHub does not allow users to reuse deploy keys across multiple repositories, s
 ###### Setup
 
 1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
-2. Assign a unique private key to each repo as done in the following example:
+2. Create an alias for each repository that points to the git server and assignes the private key:
 ```
-Host example.com-repo-0
+Host github.com-repo-0
         Hostname github.com
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
 
@@ -106,7 +106,7 @@ Host github.com-repo-2
 
 ###### Example Usage
 
-To clone a repository with a unique Deploy Key, use the appropriate host defined in the `~/.ssh/config` file as in the following example:
+To clone a repository with a unique Deploy Key, use the the alias as defined in the `~/.ssh/config`:
 
 ```
 git clone git@github.com-repo-1:github-user/repo-1.git
