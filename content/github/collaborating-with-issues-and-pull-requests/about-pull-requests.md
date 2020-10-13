@@ -53,6 +53,10 @@ When you create a pull request, you can choose to create a pull request that is 
 
 {% data reusables.pull_requests.mark-ready-review %} You can convert a pull request to a draft at any time. For more information, see "[Changing the stage of a pull request](/articles/changing-the-stage-of-a-pull-request)."
 
+### Difference between commits on Compare page and Pull Request page
+
+Compare pages show a compare between the tip of the head ref and the current common ancestor (i.e. merge base) of the head and base ref. On the other hand, pull request pages show a compare between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. In other words, the merge base used for the comparison might be different.
+
 ### Further reading
 
 - "[Pull request](/articles/github-glossary/#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
