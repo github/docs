@@ -120,32 +120,32 @@ publishing {
 
 ##### Example using Kotlin DSL for multiple packages in the same repository
 
-  ```shell
-  plugins {
-  `maven-publish` apply false
-  }
-  
-  subprojects {
-  apply(plugin = "maven-publish")
-  configure<PublishingExtension> {
-  repositories {
-  maven {
-  name = "GitHubPackages"
-  url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
-  credentials {
-  username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
-  password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
-  }
-  }
-  }
-  publications {
-  register<MavenPublication>("gpr") {
-  from(components["java"])
-  }
-  }
-  }
-  }
-  ```
+```shell
+plugins {
+    `maven-publish` apply false
+}
+
+subprojects {
+    apply(plugin = "maven-publish")
+    configure<PublishingExtension> {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://{% if currentVersion == "free-pro-team@latest" %}maven.pkg.github.com{% else %}<em>REGISTRY-URL</em>{% endif %}/<em>OWNER</em>/<em>REPOSITORY</em>")
+                credentials {
+                    username = project.findProperty("gpr.user") as String? ?: System.getenv("<em>USERNAME</em>")
+                    password = project.findProperty("gpr.key") as String? ?: System.getenv("<em>TOKEN</em>")
+                }
+            }
+        }
+        publications {
+            register<MavenPublication>("gpr") {
+                from(components["java"])
+            }
+        }
+    }
+}
+```
   
   #### Authenticating with the `GITHUB_TOKEN`
   
@@ -173,31 +173,31 @@ You can install a package by adding the package as a dependency to your project.
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Grady Groovy:
+  Example using Gradle Groovy:
   ```shell
   dependencies {
-  implementation 'com.example:package'
+      implementation 'com.example:package'
   }
   ```
   Example using Kotlin DSL:
   ```shell
   dependencies {
-  implementation("com.example:package")
+      implementation("com.example:package")
   }
   ```
 
 3. Add the maven plugin to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Grady Groovy:
+  Example using Gradle Groovy:
   ```shell
   plugins {
-  id 'maven'
+      id 'maven'
   }
   ```
   Example using Kotlin DSL:
   ```shell
   plugins {
-  `maven`
+      `maven`
   }
   ```
   
