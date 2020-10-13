@@ -140,7 +140,7 @@ To add one or more queries, add a `with: queries:` entry within the `uses: githu
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
-    queries: COMMA-SEPARATED LIST OF PATHS
+    - queries: COMMA-SEPARATED LIST OF PATHS
 ```
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
@@ -154,8 +154,8 @@ In the following example, the `+` symbol ensures that the specified additional q
 ``` yaml
 - uses: github/codeql-action/init@v1
   with:
-    config-file: ./.github/codeql/codeql-config.yml
-    queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
+    - config-file: ./.github/codeql/codeql-config.yml
+    - queries: +security-and-quality,octo-org/python-qlpack/show_ifs.ql@main
 ```
 
 ### Using a custom configuration file

@@ -9,3 +9,7 @@ coverage
 blc_output.log
 blc_output_internal.log
 dist
+.github/workflows/ci-images/
+.github/workflows/----1---1--2---/
+.github/ISSUE_TEMPLATE/live-share/
+Obsah/Github/práce s github-stránky/index.md
