@@ -129,3 +129,5 @@ With this commit SHA, you can, for example, look up the corresponding Git commit
 ### Further reading
 
 * "[Subversion properties supported by GitHub](/articles/subversion-properties-supported-by-github)"
+--
+2
