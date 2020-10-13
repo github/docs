@@ -358,6 +358,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "tspascoal",
+      "name": "Tiago Pascoal",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/7847935?v=4",
+      "profile": "http://pascoal.net",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
