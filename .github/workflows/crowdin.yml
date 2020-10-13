@@ -3,6 +3,7 @@
 name: Crowdin Sync
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
