@@ -1,5 +1,8 @@
 name: "Pa11y"
-on: [push]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "25 17 * * *" # once a day at 17:25 UTC / 11:50 PST
 jobs:
   test:
     runs-on: ubuntu-latest
