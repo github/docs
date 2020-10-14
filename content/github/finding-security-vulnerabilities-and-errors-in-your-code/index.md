@@ -20,8 +20,9 @@ versions:
     {% link_in_list /troubleshooting-the-codeql-workflow %}
 {% topic_link_in_list /integrating-with-code-scanning %}
     {% link_in_list /about-integration-with-code-scanning %}
-    {% link_in_list /running-code-scanning-in-your-ci-system %}
-    {% link_in_list /configuring-code-scanning-in-your-ci-system %}
-    {% link_in_list /troubleshooting-code-scanning-in-your-ci-system %}
     {% link_in_list /uploading-a-sarif-file-to-github %}
     {% link_in_list /sarif-support-for-code-scanning %}
+{% topic_link_in_list /using-codeql-code-scanning-with-your-existing-ci-system %}
+    {% link_in_list /running-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /configuring-codeql-code-scanning-in-your-ci-system %}
+    {% link_in_list /troubleshooting-codeql-code-scanning-in-your-ci-system %}

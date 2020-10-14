@@ -37,14 +37,14 @@ versions:
 {% endnote %}
 
 ### 验证私钥
-{% data variables.product.product_name %} 使用 SHA-1 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
+{% data variables.product.product_name %} 使用 {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} 哈希函数为每对私钥和公钥生成指纹。 您可以生成私钥指纹，然后与 {% data variables.product.product_name %} 显示的指纹相比较，以验证私钥是否与 {% data variables.product.product_name %} 上存储的公钥匹配。
 
 要验证私钥：
 
 1. 在 {% data variables.product.prodname_github_app %} 开发者设置页面的“私钥”部分，查找要验证的私钥和公钥对的指纹。 更多信息请参阅[生成私钥](#generating-a-private-key)。 ![私钥指纹](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
-    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% if currentVersion ver_lt "enterprise-server@2.23" %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
     ```
 3. 比较本地生成的指纹结果与 {% data variables.product.product_name %} 中显示的指纹。
 
