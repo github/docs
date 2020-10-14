@@ -18,6 +18,7 @@ module.exports = [
   'crowdin/github-action@1.0.10',
   'dawidd6/action-delete-branch@v3',
   'docker://chinthakagodawita/autoupdate-action:v1',
+  'fkirc/skip-duplicate-actions@a12175f6209d4805b5a163d723270be2a0dc7b36',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@3.0.0',
