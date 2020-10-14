@@ -164,7 +164,7 @@ The `needs` context contains outputs from all jobs that are defined as a depende
 | `needs.<job id>` | `object` | A single job that the current job depends on. |
 | `needs.<job id>.outputs` | `object` | The set of outputs of a job that the current job depends on. |
 | `needs.<job id>.outputs.<output name>` | `string` | The value of a specific output for a job that the current job depends on. |
-| `needs.<job id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, or `cancelled`. |
+| `needs.<job id>.result` | `string` | The result of a job that the current job depends on. Possible values are `success`, `failure`, `cancelled`, or `skipped`. |
 
 #### Example printing context information to the log file
 
