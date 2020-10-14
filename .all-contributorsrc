@@ -367,6 +367,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "tnir",
+      "name": "Takuya N",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/10229505?v=4",
+      "profile": "https://tnir.gitlab.io/",
+      "contributions": [
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,
