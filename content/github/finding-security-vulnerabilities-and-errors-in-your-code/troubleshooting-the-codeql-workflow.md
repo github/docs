@@ -114,3 +114,12 @@ If you split your analysis into multiple workflows as described above, we still 
 #### Run only during a `schedule` event
 
 If your analysis is still too slow to be run during `push` or `pull_request` events, then you may want to only trigger analysis on the `schedule` event. For more information, see "[Events](/actions/learn-github-actions/introduction-to-github-actions#events)."
+
+{% if currentVersion == "free-pro-team@latest" %}
+### Results differ between analysis platforms
+
+If you are analyzing code written in Python, you may see different results depending on whether you run the {% data variables.product.prodname_codeql_workflow %} on Linux, macOS, or Windows.
+
+On GitHub-hosted runners that use Linux, the {% data variables.product.prodname_codeql_workflow %} tries to install and analyze Python dependencies, which could lead to more results. To disable the auto-install, add `setup-python-dependencies: false` to the "Initialize CodeQL" step of the workflow. For more information about configuring the analysis of Python dependencies, see "[Analyzing Python dependencies](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#analyzing-python-dependencies)."
+
+{% endif %}
