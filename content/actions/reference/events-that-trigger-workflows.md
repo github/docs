@@ -655,9 +655,9 @@ on:
 
 {% data reusables.webhooks.workflow_run_desc %}
 
-If you need to filter branches from this event, you can use `branches` or `branches-ignore`.
+If you need to filter branches from this event, you can use `branches` or `branches-ignore`. Workflow has to exist on the default repository branch and will only run on it, regardless of whether it is triggered by a workflow run on other branches or not.
 
-In this example, a workflow is configured to run after the separate “Run Tests” workflow completes. Workflow has to exists on default repository branch and will only run on it, regardless of whether it is triggered by a workflow run on other branches or not. 
+In this example, a workflow is configured to run after the separate “Run Tests” workflow completes.
 
 ```yaml
 on:
