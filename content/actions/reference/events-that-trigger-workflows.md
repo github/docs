@@ -232,7 +232,7 @@ on:
 
 #### `deployment`
 
-Runs your workflow anytime someone creates a deployment, which triggers the `deployment` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Deployments](/v3/repos/deployments/)."
+Runs your workflow anytime someone creates a deployment, which triggers the `deployment` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Deployments](/rest/reference/repos#deployments)."
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
@@ -247,7 +247,7 @@ on:
 
 #### `deployment_status`
 
-Runs your workflow anytime a third party provides a deployment status, which triggers the `deployment_status` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Create a deployment status](/v3/repos/deployments/#create-a-deployment-status)."
+Runs your workflow anytime a third party provides a deployment status, which triggers the `deployment_status` event. Deployments created with a commit SHA may not have a Git ref. For information about the REST API, see "[Create a deployment status](/rest/reference/repos#create-a-deployment-status)."
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
@@ -296,13 +296,13 @@ on:
 
 #### `issue_comment`
 
-Runs your workflow anytime the `issue_comment` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issue comments](/v3/issues/comments/)."
+Runs your workflow anytime the `issue_comment` event occurs. {% data reusables.developer-site.multiple_activity_types %} For information about the REST API, see "[Issue comments](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)."
 
 {% data reusables.github-actions.branch-requirement %}
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issue_comment`](/v3/activity/event_types/#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
+| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Last commit on default branch | Default branch |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -376,7 +376,7 @@ on:
 
 #### `page_build`
 
-Runs your workflow anytime someone pushes to a {% data variables.product.product_name %} Pages-enabled branch, which triggers the `page_build` event. For information about the REST API, see "[Pages](/v3/repos/pages/)."
+Runs your workflow anytime someone pushes to a {% data variables.product.product_name %} Pages-enabled branch, which triggers the `page_build` event. For information about the REST API, see "[Pages](/rest/reference/repos#pages)."
 
 {% data reusables.github-actions.branch-requirement %}
 

@@ -54,7 +54,7 @@ A two-dot diff compares two Git committish references, such as SHAs or OIDs (Obj
 
 If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
 
-For more information about Git commands to compare changes, see "[Git diff options ](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
+For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ### Reasons diffs will not display
 - You've exceeded the total limit of files or certain file types. For more information, see "[Limits for viewing content and diffs in a repository](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)."

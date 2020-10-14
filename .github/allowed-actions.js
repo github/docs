@@ -15,15 +15,17 @@ module.exports = [
   'actions/setup-node@v1',
   'actions/setup-ruby@v1',
   'actions/stale@v3',
+  'crowdin/github-action@1.0.10',
   'dawidd6/action-delete-branch@v3',
   'docker://chinthakagodawita/autoupdate-action:v1',
+  'fkirc/skip-duplicate-actions@a12175f6209d4805b5a163d723270be2a0dc7b36',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@3.0.0',
   'juliangruber/approve-pull-request-action@v1',
   'juliangruber/find-pull-request-action@v1',
   'juliangruber/read-file-action@v1',
-  'pascalgn/automerge-action@135f0bdb927d9807b5446f7ca9ecc2c51de03c4a',
+  'pascalgn/automerge-action@c9bd182',
   'peter-evans/create-issue-from-file@v2',
   'peter-evans/create-pull-request@v2',
   'rachmari/actions-add-new-issue-to-column@v1.1.1',
@@ -31,5 +33,6 @@ module.exports = [
   'repo-sync/github-sync@v2',
   'repo-sync/pull-request@v2',
   'rtCamp/action-slack-notify@master',
-  'rtCamp/action-slack-notify@v2.1.0'
+  'rtCamp/action-slack-notify@v2.1.0',
+  'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]

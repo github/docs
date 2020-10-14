@@ -49,8 +49,9 @@ Header | Description
 `X-GitHub-Event`| Name of the event that triggered the delivery.
 `X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if currentVersion != "free-pro-team@latest" %}
 `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
-`X-Hub-Signature`| The HMAC hex digest of the response body. This header will be sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). The HMAC hex digest is generated using the `sha1` hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "private-instances@latest" %}
+`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
@@ -62,8 +63,9 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if currentVersion != "free-pro-team@latest" %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "private-instances@latest" %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -291,7 +293,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 Key | Type | Description
 ----|------|-------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment` |`object` | The [deployment](/v3/repos/deployments/#list-deployments).
+`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments).
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -316,11 +318,11 @@ Key | Type | Description
 Key | Type | Description
 ----|------|-------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 `action` |`string` | The action performed. Can be `created`.{% endif %}
-`deployment_status` |`object` | The [deployment status](/v3/repos/deployments/#list-deployment-statuses).
+`deployment_status` |`object` | The [deployment status](/rest/reference/repos#list-deployment-statuses).
 `deployment_status["state"]` |`string` | The new state. Can be `pending`, `success`, `failure`, or `error`.
 `deployment_status["target_url"]` |`string` | The optional link added to the status.
 `deployment_status["description"]`|`string` | The optional human-readable description added to the status.
-`deployment` |`object` | The [deployment](/v3/repos/deployments/#list-deployments) that this status is associated with.
+`deployment` |`object` | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -338,7 +340,7 @@ Key | Type | Description
 
 #### Availability
 
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 #### Webhook payload object
 
@@ -666,7 +668,7 @@ Key | Type | Description
 #### Availability
 
 {% if currentVersion != "free-pro-team@latest" %}
-- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/).{% endif %}
+- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
@@ -746,7 +748,7 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 Key | Type | Description
 ----|------|------------
 `id` | `integer` | The unique identifier of the page build.
-`build` | `object` | The [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds) itself.
+`build` | `object` | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1039,7 +1041,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 Key | Type | Description
 ----|------|-------------
-`action` |`string` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/v3/orgs/hooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul>
+`action` |`string` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul>
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1248,7 +1250,7 @@ Key | Type | Description
 When a user is `created` or `deleted`.
 
 #### Availability
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 #### Webhook payload example
 
