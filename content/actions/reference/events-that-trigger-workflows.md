@@ -657,7 +657,7 @@ on:
 
 If you need to filter branches from this event, you can use `branches` or `branches-ignore`.
 
-In this example, a workflow is configured to run after the separate “Run Tests” workflow completes.
+In this example, a workflow is configured to run after the separate “Run Tests” workflow completes. Workflow has to exists on default repository branch and will only run on it, regardless of whether it is triggered by a workflow run on other branches or not. 
 
 ```yaml
 on:
