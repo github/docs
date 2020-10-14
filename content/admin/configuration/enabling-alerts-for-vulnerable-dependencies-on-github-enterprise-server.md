@@ -41,7 +41,7 @@ Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data v
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. In the administrative shell, enable the {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}:
+1. In the [administrative SSH shell](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh), enable the {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}:
  ``` shell
 $ ghe-dep-graph-enable
 ```
