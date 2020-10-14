@@ -63,7 +63,6 @@ You can use the `set-output` command in your workflow to set the same value:
 ```
 {% endraw %}
 
-
 The following table shows which toolkit functions are available within a workflow:
 
 | Toolkit function| Equivalent workflow command|
