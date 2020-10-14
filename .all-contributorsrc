@@ -360,6 +360,15 @@
       ]
     },
     {
+      "login": "paulyhedral",
+      "name": "Paul Schifferer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/419457?v=4",
+      "profile": "https://wanderingmonster.org",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
       "login": "Protectator",
       "name": "Kewin Dousse",
       "avatar_url": "https://avatars3.githubusercontent.com/u/1529017?v=4",
@@ -367,8 +376,8 @@
       "contributions": [
         "content"
       ]
-    }
-  ],
+    },
+    {
   "contributorsPerLine": 7,
   "projectName": "docs",
   "projectOwner": "github",
