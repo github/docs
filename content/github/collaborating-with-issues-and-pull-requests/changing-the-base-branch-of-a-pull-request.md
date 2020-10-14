@@ -22,8 +22,7 @@ versions:
 
 {% tip %}
 
-**Tip:**
-When you open a Pull Request, GitHub will set the base to the commit that branch references. If the branch is updated in the future, GitHub will not update the base branch's commit.
+**Tip:** When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
 
 {% endtip %}
 
