@@ -28,7 +28,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Note:** You must put YAML-reserved characters such as `:` in quotes. For example, `":bug: Bug"`.
+**Note:** You must put YAML-reserved characters such as `:` in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug`". Note that labels are not escaped individually.
 
 {% endnote %}
 
