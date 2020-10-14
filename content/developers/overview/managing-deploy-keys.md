@@ -82,7 +82,7 @@ See [our guide on Git automation with tokens][git-automation].
 7. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
 8. Click **Add key**.
 
-##### Multiple Repositories on once server
+##### Multiple Repositories on One Server
 
 GitHub does not allow users to reuse deploy keys across multiple repositories, so when a personal key pair is undesirable (such as a deployment server) users have to generate a dedicated key pair for each repository they require.  Additionally, Git (currently) does not provide a way of configuring a preferred private key when using ssh remotes. 
 
