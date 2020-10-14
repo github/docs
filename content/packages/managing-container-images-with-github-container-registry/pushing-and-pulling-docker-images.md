@@ -20,7 +20,7 @@ To push and pull container images owned by an organization, an organization admi
 
 This example pushes the latest version of `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.
@@ -42,7 +42,7 @@ To ensure you're always using the same image, you can specify the exact containe
   ```
 2. Remove image locally as needed.
   ```shell
-  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
