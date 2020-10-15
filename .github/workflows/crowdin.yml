@@ -11,6 +11,7 @@ on:
 jobs:
   sync_with_crowdin:
     name: Sync with Crowdin
+    if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,7 +20,7 @@ jobs:
       - name: Sync
         uses: crowdin/github-action@1.0.10
         with:
-          upload_translations: true
+          upload_translations: false
           download_translations: true
           create_pull_request: true
           
@@ -37,7 +38,7 @@ jobs:
           crowdin_branch_name: crowdin-main
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.OCTOGLOT_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
