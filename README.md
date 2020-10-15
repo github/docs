@@ -124,6 +124,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/ruth"><img src="https://avatars0.githubusercontent.com/u/85029?v=4" width="64px;" alt=""/><br /><sub><b>Ruth</b></sub></a><br /><a href="#content-Ruth" title="Content">🖋</a></td>
     <td align="center"><a href="http://tomaszwisniewski.com"><img src="https://avatars2.githubusercontent.com/u/12593852?v=4" width="64px;" alt=""/><br /><sub><b>Tomasz Wisniewski</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=wi5nia" title="Documentation">📖</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://chiedojohn.com/"><img src="https://avatars2.githubusercontent.com/u/2156688?v=4" width="64px;" alt=""/><br /><sub><b>Chiedo John</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=chiedo" title="Code">💻</a></td>
+    <td align="center"><a href="https://wanderingmonster.org"><img src="https://avatars1.githubusercontent.com/u/419457?v=4" width="64px;" alt=""/><br /><sub><b>Paul Schifferer</b></sub></a><br /><a href="#content-paulyhedral" title="Content">🖋</a></td>
+    <td align="center"><a href="https://www.kewindousse.ch"><img src="https://avatars3.githubusercontent.com/u/1529017?v=4" width="64px;" alt=""/><br /><sub><b>Kewin Dousse</b></sub></a><br /><a href="#content-Protectator" title="Content">🖋</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

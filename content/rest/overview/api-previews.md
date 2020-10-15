@@ -27,7 +27,7 @@ Allows you to download repositories from your GitHub user or organization accoun
 
 ### Enhanced deployments
 
-Exercise greater control over [deployments](/v3/repos/deployments/) with more information and finer granularity.
+Exercise greater control over [deployments](/rest/reference/repos#deployments) with more information and finer granularity.
 
 **Custom media type:** `ant-man-preview`
 **Announced:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
@@ -127,10 +127,10 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 ### Global webhooks
 
-Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
+Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
 
 **Custom media type:** `superpro-preview`
-**Announced:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
+**Announced:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
@@ -215,7 +215,7 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 ### Deployment statuses
 
-You can now update the `environment` of a [deployment status](/v3/repos/deployments/#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview`
 **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
@@ -257,7 +257,7 @@ You can use the Draft Pull Requests API and its [pull request](/v3/pulls/) endpo
 
 ### Enable and disable Pages
 
-You can use the new endpoints in the [Pages API](/v3/repos/pages/) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
+You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview`
 **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
