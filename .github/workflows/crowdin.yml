@@ -38,7 +38,7 @@ jobs:
           crowdin_branch_name: crowdin-main
 
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.OCTOGLOT_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
           # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
