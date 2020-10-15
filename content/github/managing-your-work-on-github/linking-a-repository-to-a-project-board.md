@@ -9,7 +9,7 @@ versions:
 ---
 {% note %}
 
-**Note:** In order to link a repository to your organization or user owned project board the repository needs to have Issues enabled. Please check out [this link](/github/managing-your-work-on-github/disabling-issues) to learn how to verify if Issues are enabled.
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. For information on how to see if issues are disabled for a repository, see "[Disabling issues](/github/managing-your-work-on-github/disabling-issues) ."
 
 {% endnote %}
 
