@@ -125,8 +125,8 @@ on:
 - **Avoid:**
 
 ```
-  schedule:
-    - cron:  "40 19 * * *"
+schedule:
+  - cron:  "40 19 * * *"
 ```
 
 ## Headers
