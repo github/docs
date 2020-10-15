@@ -22,9 +22,9 @@ jobs:
         echo 'The repo is currently frozen! Exiting this workflow.'
         exit 1 # prevents further steps from running
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     - name: Set up Ruby
-      uses: actions/setup-ruby@v1
+      uses: actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526
       with:
         ruby-version: '2.4'
     - name: Install Ruby dependencies
@@ -46,7 +46,7 @@ jobs:
         script/graphql/build-changelog-from-markdown.js
     - name: Create pull request
       id: create-pull-request
-      uses: peter-evans/create-pull-request@v2
+      uses: peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8
       with:
         # need to use a token with repo and workflow scopes for this step
         token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
@@ -60,13 +60,13 @@ jobs:
         branch: graphql-schema-update
     - if: ${{ failure() }}
       name: Delete remote branch (if previous steps failed)
-      uses: dawidd6/action-delete-branch@v3
+      uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branches: graphql-schema-update
     - if: ${{ steps.create-pull-request.outputs.pr_number }}
       name: Approve
-      uses: juliangruber/approve-pull-request-action@v1
+      uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.create-pull-request.outputs.pr_number }}
