@@ -26,7 +26,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "Procfile", "webpack.config.js"]'
+          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
   lint:
     needs: see_if_should_skip
     runs-on: ubuntu-latest
