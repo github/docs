@@ -40,6 +40,12 @@ describe('REST references docs', () => {
     expect(operation.description).toContain('GitHub Enterprise')
   })
 
+  test('loads operations enabled for GitHub Apps', async () => {
+    const operations = await getJSON('/en/free-pro-team@latest/rest/overview/endpoints-available-for-github-apps?json=rest.operationsEnabledForGitHubApps')
+    expect(operations['free-pro-team@latest'].actions.length).toBeGreaterThan(0)
+    expect(operations['enterprise-server@2.22'].actions.length).toBeGreaterThan(0)
+  })
+
   test('no wrongly detected AppleScript syntax highlighting in schema data', async () => {
     const { operations } = require('../../lib/rest')
     expect(JSON.stringify(operations).includes('hljs language-applescript')).toBe(false)

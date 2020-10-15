@@ -213,8 +213,13 @@ Once your job has started running, you can view each step's activity on {% data 
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. Click on the job name to see the results of each step.
+    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
+{% else %}
 1. Click on the job name to see the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
+{% endif %}
 
 ### Next steps
 
