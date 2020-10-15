@@ -8,7 +8,7 @@ jobs:
     name: autoupdate
     runs-on: ubuntu-18.04
     steps:
-      - uses: docker://chinthakagodawita/autoupdate-action:v1
+      - uses: docker://chinthakagodawita/autoupdate-action:4d72a15b5989091e07d6f4ce4cd3afb7b835ad1e68190937df778b702a547cdc
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           PR_FILTER: labelled
