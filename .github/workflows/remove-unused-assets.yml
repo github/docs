@@ -28,7 +28,7 @@ jobs:
         script/remove-extraneous-translation-files.js
     - name: Get script results to use in PR body
       id: results
-      uses: juliangruber/read-file-action@v1
+      uses: juliangruber/read-file-action@e0a316da496006ffd19142f0fd594a1783f3b512
       with:
         path: ./results.md
     - name: Remove script results file
@@ -49,7 +49,7 @@ jobs:
         branch: remove-unused-assets
     - if: ${{ failure() }}
       name: Delete remote branch (if previous steps failed)
-      uses: dawidd6/action-delete-branch@v3
+      uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         branches: remove-unused-assets

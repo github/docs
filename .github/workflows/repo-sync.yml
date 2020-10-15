@@ -52,7 +52,7 @@ jobs:
         github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
     - name: Find pull request
-      uses: juliangruber/find-pull-request-action@v1
+      uses: juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b
       id: find-pull-request
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -60,7 +60,7 @@ jobs:
 
     - name: Approve pull request
       if: ${{ steps.find-pull-request.outputs.number }}
-      uses: juliangruber/approve-pull-request-action@v1
+      uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         number: ${{ steps.find-pull-request.outputs.number }}
