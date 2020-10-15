@@ -24,17 +24,17 @@ jobs:
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Checkout
         uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install
         uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
           args: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Test
         uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
