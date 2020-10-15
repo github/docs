@@ -22,9 +22,9 @@ jobs:
         echo 'The repo is currently frozen! Exiting this workflow.'
         exit 1 # prevents further steps from running
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     - name: Set up Ruby
-      uses: actions/setup-ruby@v1
+      uses: actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526
       with:
         ruby-version: '2.4'
     - name: Install Ruby dependencies

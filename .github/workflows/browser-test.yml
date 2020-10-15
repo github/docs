@@ -25,7 +25,7 @@ jobs:
       # Even if if doesn't do anything
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Install
