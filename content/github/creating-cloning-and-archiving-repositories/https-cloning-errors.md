@@ -72,7 +72,7 @@ When prompted for a username and password, make sure you use an account that has
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git).
+**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer does not have any incorrect or out of date credentials cached that are causing authentication to fail. 
 
 {% endtip %}
 
