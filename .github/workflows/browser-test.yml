@@ -17,7 +17,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '["assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
+          paths: '[".github/workflows/browser-test.yml","assets/**", "content/**", "data/**", "includes/**", "javascripts/**", "jest-puppeteer.config.js", "jest.config.js", "layouts/**", "lib/**", "middleware/**", "package-lock.json", "package.json", "server.js", "translations/**", "webpack.config.js"]'
   build:
     needs: see_if_should_skip
     runs-on: ubuntu-latest
