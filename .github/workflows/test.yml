@@ -1,6 +1,6 @@
 # NOTE: Changes to this file should also be applied to './test-windows.yml' and './test-translations.yml'
 
-name: Node.js Tests
+name: Node.js Tests 
 
 on:
   workflow_dispatch:
