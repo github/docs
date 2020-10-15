@@ -34,7 +34,7 @@ jobs:
     - name: Remove script results file
       run: rm -rf ./results.md
     - name: Create pull request
-      uses: peter-evans/create-pull-request@v2
+      uses: peter-evans/create-pull-request@938e6aea6f8dbdaced2064e948cb806c77fe87b8
       with:
         # need to use a token with repo and workflow scopes for this step
         token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}

@@ -117,7 +117,7 @@ jobs:
         run: npx jest tests/${{ matrix.test-group }}/
 
       - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@master
+        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
