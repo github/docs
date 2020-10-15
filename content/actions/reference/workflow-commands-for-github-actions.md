@@ -254,12 +254,12 @@ echo "action_state=yellow" >> $GITHUB_ENV
 Running `$action_state` in a future step will now return `yellow`
 
 #### Multline strings
-For multiline strings, you may use a delimeter with the following syntax. 
+For multiline strings, you may use a delimiter with the following syntax. 
 
 ```
-{name}<<{delimeter}
+{name}<<{delimiter}
 {value}
-{delimeter}
+{delimiter}
 ```
 
 #### Example
