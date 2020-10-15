@@ -16,6 +16,7 @@ env:
 
 jobs:
   see_if_should_skip:
+    continue-on-error: true
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
@@ -35,11 +36,11 @@ jobs:
       # Even if if doesn't do anything
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -51,7 +52,7 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -81,11 +82,11 @@ jobs:
       # Even if if doesn't do anything
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -97,7 +98,7 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -117,7 +118,7 @@ jobs:
         run: npx jest tests/${{ matrix.test-group }}/
 
       - name: Send Slack notification if workflow fails
-        uses: rtCamp/action-slack-notify@master
+        uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
         if: failure() && github.ref == 'early-access'
         env:
           SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}

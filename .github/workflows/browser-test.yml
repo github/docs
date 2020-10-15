@@ -6,6 +6,7 @@ on:
 
 jobs:
   see_if_should_skip:
+    continue-on-error: true
     runs-on: ubuntu-latest
     # Map a step output to a job output
     outputs:
@@ -25,16 +26,16 @@ jobs:
       # Even if if doesn't do anything
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Install
-        uses: ianwalter/puppeteer@3.0.0
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
           args: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip == 'false' }}
         name: Test
-        uses: ianwalter/puppeteer@3.0.0
+        uses: ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb
         with:
           args: npm run browser-test
