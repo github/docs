@@ -1,8 +1,10 @@
 ---
-title: Troubleshooting code scanning in your CI system
+title: Troubleshooting CodeQL code scanning in your CI system
 shortTitle: Troubleshooting in your CI
 intro: 'If you''re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
+redirect_from:
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
@@ -24,7 +26,7 @@ To avoid this automatic download, you can manually download the {% data variable
 
 If the `analyze` command for the {% data variables.product.prodname_codeql_runner %} fails with an error `No source code was seen during the build`, this indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code. Several reasons can explain such a failure.
 
-1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by using the `--languages` flag of the `init` command. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning-in-your-ci-system)."
+1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by using the `--languages` flag of the `init` command. For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)."
 
 1. You're analyzing a compiled language without using the `autobuild` command and you run the build steps yourself after the `init` step. For the build to work, you must set up the environment such that the {% data variables.product.prodname_codeql_runner %} can monitor the code. The `init` command generates instructions for how to export the required environment variables, so you can copy and run the script after you've run the `init` command.
    - On macOS and Linux:

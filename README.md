@@ -1,6 +1,6 @@
 ## GitHub Docs <!-- omit in toc -->
 
-This repository contains the documentation website code and Markdown source files for docs.github.com.
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -25,6 +25,10 @@ As you're using the GitHub Docs, you may find something in an article that you'd
 #### Open an issue
 
 If you've found a problem, you can open an issue using a [template](https://github.com/github/docs/issues/new/choose).
+
+#### Solve an issue
+
+If you have a solution to one of the open issues, you will need to fork the repository and submit a PR using the [template](https://github.com/github/docs/blob/main/CONTRIBUTING.md#pull-request-template) that is visible automatically in the pull request body. For more details about this process, please check out [Getting Started with Contributing](/CONTRIBUTING.md). 
 
 #### Join us in discussions
 
@@ -61,9 +65,9 @@ In addition to the README you're reading right now, this repo includes other REA
 
 ## License
 
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](content/LICENSE).
+The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
-All other code in this repository is licensed under a [MIT license](LICENSE).
+All other code in this repository is licensed under a [MIT license](LICENSE-CODE).
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
@@ -113,6 +117,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/BenJam"><img src="https://avatars2.githubusercontent.com/u/158833?v=4" width="64px;" alt=""/><br /><sub><b>Benjamin Nickolls</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=BenJam" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://mcaffer.com"><img src="https://avatars2.githubusercontent.com/u/10070956?v=4" width="64px;" alt=""/><br /><sub><b>Jeff McAffer</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=jeffmcaffer" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://tjenkinson.me"><img src="https://avatars0.githubusercontent.com/u/3259993?v=4" width="64px;" alt=""/><br /><sub><b>Tom Jenkinson</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=tjenkinson" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/casals"><img src="https://avatars0.githubusercontent.com/u/785860?v=4" width="64px;" alt=""/><br /><sub><b>Arthur Casals</b></sub></a><br /><a href="#content-casals" title="Content">🖋</a> <a href="https://github.com/github/docs/commits?author=casals" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://www.arangodb.com/"><img src="https://avatars3.githubusercontent.com/u/7819991?v=4" width="64px;" alt=""/><br /><sub><b>Simran</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=Simran-B" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/ruth"><img src="https://avatars0.githubusercontent.com/u/85029?v=4" width="64px;" alt=""/><br /><sub><b>Ruth</b></sub></a><br /><a href="#content-Ruth" title="Content">🖋</a></td>
+    <td align="center"><a href="http://tomaszwisniewski.com"><img src="https://avatars2.githubusercontent.com/u/12593852?v=4" width="64px;" alt=""/><br /><sub><b>Tomasz Wisniewski</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=wi5nia" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://chiedojohn.com/"><img src="https://avatars2.githubusercontent.com/u/2156688?v=4" width="64px;" alt=""/><br /><sub><b>Chiedo John</b></sub></a><br /><a href="https://github.com/github/docs/commits?author=chiedo" title="Code">💻</a></td>
+    <td align="center"><a href="https://wanderingmonster.org"><img src="https://avatars1.githubusercontent.com/u/419457?v=4" width="64px;" alt=""/><br /><sub><b>Paul Schifferer</b></sub></a><br /><a href="#content-paulyhedral" title="Content">🖋</a></td>
+    <td align="center"><a href="https://www.kewindousse.ch"><img src="https://avatars3.githubusercontent.com/u/1529017?v=4" width="64px;" alt=""/><br /><sub><b>Kewin Dousse</b></sub></a><br /><a href="#content-Protectator" title="Content">🖋</a></td>
   </tr>
 </table>
 
