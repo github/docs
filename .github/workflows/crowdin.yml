@@ -4,9 +4,8 @@ name: Crowdin Sync
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: "33 2 * * *" # every day at 2:33 UTC at least until automerge is working 
 
 jobs:
   sync_with_crowdin:
