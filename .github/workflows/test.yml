@@ -27,7 +27,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths_ignore: '[".all-contributorsrc", ".env.example", ".gitattributes", ".vscode/**", "app.json", "assets/**", "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "contributing/**", "crowdin-actions-config.yml", "crowdin.yml", "docs", "javascripts/**", "jest-puppeteer.config.js", "LICENSE-CODE", "LICENSE", "nodemon.json", "ownership.yaml", "README.md", "script/**", "stylesheets/**", "translations/**"]'
+          paths_ignore: '[".all-contributorsrc", ".env.example", ".gitattributes", ".vscode/**", "app.json", "assets/**", "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "contributing/**", "crowdin-actions-config.yml", "crowdin.yml", "docs", "javascripts/**", "jest-puppeteer.config.js", "LICENSE-CODE", "LICENSE", "nodemon.json", "ownership.yaml", "README.md", "script/**", "stylesheets/**"]'
   lint:
     needs: see_if_should_skip
     runs-on: ubuntu-latest
