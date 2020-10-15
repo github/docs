@@ -17,7 +17,7 @@ module.exports = [
   'actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8',
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
-  'docker://chinthakagodawita/autoupdate-action:4d72a15b5989091e07d6f4ce4cd3afb7b835ad1e68190937df778b702a547cdc',
+  'docker://chinthakagodawita/autoupdate-action:v1',
   'fkirc/skip-duplicate-actions@a12175f6209d4805b5a163d723270be2a0dc7b36',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
