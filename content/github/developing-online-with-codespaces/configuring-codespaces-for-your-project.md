@@ -61,7 +61,6 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 - `settings`
 - `extensions`
 - `forwardPorts`
-- `devPort`
 - `postCreateCommand`
 
 #### Docker, Dockerfile, or image settings
@@ -73,13 +72,17 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 - `remoteEnv`
 - `containerUser`
 - `remoteUser`
-- `updateRemoteUserUID`
 - `mounts`
-- `workspaceMount`
-- `workspaceFolder`
+- `workspaceMount` (Not yet supported)
+- `workspaceFolder` (Not yet supported)
 - `runArgs`
 - `overrideCommand`
-- `shutdownAction`
 - `dockerComposeFile`
+
+#### Not applicable for Codespaces (no plan to support)
+
+- `devPort`
+- `updateRemoteUserUID`
+- `shutdownAction`
 
 For more information about the available settings for `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
