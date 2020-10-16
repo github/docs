@@ -183,8 +183,8 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
-@<em>OWNER</em>:registry=<em>HOSTNAME</em>/_registry/npm/
-@<em>OWNER</em>:registry=<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
+@<em>OWNER</em>:registry=https://<em>HOSTNAME</em>/_registry/npm/
 ```
 {% endif %}
 
