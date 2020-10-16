@@ -12,7 +12,7 @@ versions:
 
 ### Introduction
 
-This guide shows you how to install, test and publish a PowerShell module.
+This guide shows you how to install dependencies, test your module, and publish to the PowerShell Gallery.
 
 {% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 
