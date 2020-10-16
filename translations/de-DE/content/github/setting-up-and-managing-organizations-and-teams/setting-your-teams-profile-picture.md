@@ -1,6 +1,6 @@
 ---
 title: Profilbild Deines Teams festlegen
-intro: Team-Betreuer und Organisationsinhaber können für Teams Profilbilder festlegen. Das Profilbild wird auf der Seite des Teams angezeigt.
+intro: 'Team-Betreuer und Organisationsinhaber können für Teams Profilbilder festlegen. Das Profilbild wird auf der Seite des Teams angezeigt.'
 redirect_from:
   - /articles/setting-your-team-s-profile-picture
   - /articles/setting-your-teams-profile-picture

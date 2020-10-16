@@ -44,7 +44,7 @@ Jeder Entwickler kann ein oder mehrere Codespaces für jedes öffentliche Reposi
 
 ### Informationen zur Abrechnung für {% data variables.product.prodname_codespaces %}
 
-During the limited public beta, {% data variables.product.prodname_codespaces %} is free to use and users are limited to 2 codespaces. Die Pläne und Preise werden vor der allgemeinen Verfügbarkeit bekannt gegeben.
+{% data reusables.codespaces.about-billing-for-codespaces %} Weitere Informationen findest Du unter „[Informationen zur Abrechnung für {% data variables.product.prodname_codespaces %}](/github/developing-online-with-codespaces/about-billing-for-codespaces)“.
 
 ### Der Beta-Phase beitreten
 

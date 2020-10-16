@@ -1,9 +1,9 @@
 ---
 title: Einen Pull Request von einem Fork erstellen
-intro: 'Du kannst einen Pull Request erstellen, um Änderungen vorzuschlagen, die Du an einer Fork eines vorgelagerten Repositorys vorgenommen hast.'
+intro: Du kannst einen Pull Request erstellen, um Änderungen vorzuschlagen, die Du an einer Fork eines vorgelagerten Repositorys vorgenommen hast.
 redirect_from:
   - /articles/creating-a-pull-request-from-a-fork
-permissions: 'Jeder, der Schreibzugriff auf ein Repository hat, kann einen Pull-Request von einer benutzereigenen Fork erstellen.'
+permissions: Jeder, der Schreibzugriff auf ein Repository hat, kann einen Pull-Request von einer benutzereigenen Fork erstellen.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

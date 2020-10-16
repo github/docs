@@ -12,7 +12,7 @@ versions:
 
 ### Sobre contas corporativas
 
-Uma conta corporativa permite que você gerencie múltiplas organizações de {% data variables.product.prodname_dotcom %} e instâncias de {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
+Uma conta corporativa permite que você gerencie múltiplas organizações {% data variables.product.prodname_dotcom %} e instâncias {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
 
 - Acesso e gerenciamento de integrantes (integrantes da organização, colaboradores externos)
 - Faturamento e uso de instâncias de ({% data variables.product.prodname_ghe_server %}, licenças de usuário, pacotes de {% data variables.large_files.product_name_short %})
@@ -25,9 +25,7 @@ Para obter mais informações sobre o {% data variables.product.prodname_ghe_clo
 
 Para obter mais informações sobre acesso e gerenciamento de integrantes, consulte "[Gerenciar usuários na sua conta corporativa](/articles/managing-users-in-your-enterprise-account)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 Para obter mais informações sobre o gerenciamento de contas corporativas usando a API GraphQL, consulte "[Contas corporativas](/v4/guides/managing-enterprise-accounts)".
-{% endif %}
 
 ### Gerenciar organizações vinculadas à sua conta corporativa
 

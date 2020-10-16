@@ -1,6 +1,6 @@
 ---
 title: About searching on GitHub
-intro: 'Use our powerful search tools to find what you''re looking for among the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
+intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar/
   - /articles/github-search-basics/
@@ -24,6 +24,8 @@ You can search globally across all of {% data variables.product.product_name %},
 
 - {% data reusables.search.required_login %}
 - {% data variables.product.prodname_pages %} sites are not searchable on {% data variables.product.product_name %}. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see "[Searching code](/articles/searching-code)." For more information about {% data variables.product.prodname_pages %}, see "[What is GitHub Pages?](/articles/what-is-github-pages/)"
+- Currently our search doesn't support exact matching.
+- Whenever you are searching in code files, only the first two results in each file will be returned.
 
 {% endnote %}
 

@@ -18,7 +18,7 @@ Geo-replicationがスムーズに動作するためには、[Amazon's Route 53 �
 
 ### 制限事項
 
-レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 これはすなわち、すべての書き込みのパフォーマンスは最も低速なレプリカによって制約されるということです。{% if currentVersion ver_gt "enterprise-server@2.17" %}ただし、Geoレプリカは、大部分のデータをプライマリからではなく、既存の共在するGeoレプリカからシードできます。{% endif %} Geo-replication は、{% data variables.product.prodname_ghe_server %} インスタンスに容量を追加したり、不十分な CPU やメモリリソースに関連するパフォーマンスの問題を解決したりしません。 プライマリのアプライアンスがオフラインである場合、アクティブなレプリカはいかなる読み込みや書き込みのリクエストも処理できません。
+レプリカへの書き込みリクエストには、データをプライマリとすべてのレプリカへ送信することが必要です。 This means that the performance of all writes are limited by the slowest replica, although new geo-replicas can seed the majority of their data from existing co-located geo-replicas, rather than from the primary. Geo-replication は、{% data variables.product.prodname_ghe_server %} インスタンスに容量を追加したり、不十分な CPU やメモリリソースに関連するパフォーマンスの問題を解決したりしません。 プライマリのアプライアンスがオフラインである場合、アクティブなレプリカはいかなる読み込みや書き込みのリクエストも処理できません。
 
 ### Geo-replication設定のモニタリング
 

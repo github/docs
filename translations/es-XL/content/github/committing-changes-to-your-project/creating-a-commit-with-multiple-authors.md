@@ -1,6 +1,6 @@
 ---
-title: Crear una confirmación con distintos autores
-intro: 'Puedes atribuir una confirmación a más de un autor agregando una o más introducciones `Co-authored-by` al mensaje de la confirmación. Las confirmaciones conjuntas se pueden ver en {% data variables.product.product_name %} y se pueden incluir en el gráfico de contribuciones del perfil y en las estadísticas del repositorio.'
+title: Creating a commit with multiple authors
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -8,41 +8,41 @@ versions:
   enterprise-server: '*'
 ---
 
-### Información del coautor requerida
+### Required co-author information
 
-Antes de agregar un coautor a una confirmación, debes saber el correo electrónico correcto para usar con cada coautor. Para que la confirmación del coautor se considere como una contribución, debes usar el correo electrónico asociado con su cuenta {% data variables.product.product_name %}.
+Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their {% data variables.product.product_name %} account.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Si una persona elige mantener la privacidad de su dirección de correo electrónico, debes usar su correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para proteger su privacidad. Si no lo haces, el correo electrónico del coautor estará disponible para el público en el mensaje de confirmación. Si deseas mantener la privacidad de tu correo electrónico, puedes optar por usar un correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} para las operaciones Git y solicitar a los otros coautores que incluyan tu correo electrónico `no-reply` en las introducciones de cada confirmación.
+If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
 
-Para obtener más información, consulta "[Establecer tu dirección de correo electrónico de confirmación](/articles/setting-your-commit-email-address)".
+For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
 
   {% tip %}
 
-  **Sugerencia:** Puedes ayudar a un coautor a encontrar una dirección de correo electrónico de su preferencia compartiendo esta información:
-  - Para encontrar tu correo electrónico `no-reply` proporcionado por {% data variables.product.product_name %} dirígete a la página de configuración de tu correo electrónico en "Mantener la privacidad de mi dirección de correo electrónico".
-  - Para encontrar el correo electrónico que usaste para configurar Git en tu computadora, ejecuta `git config user.email` en la línea de comando.
+  **Tip:** You can help a co-author find their preferred email address by sharing this information:
+  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
+  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
   {% endtip %}
 
 {% endif %}
 
-### Crear confirmaciones conjuntas usando {% data variables.product.prodname_desktop %}
+### Creating co-authored commits using {% data variables.product.prodname_desktop %}
 
-Puedes usar {% data variables.product.prodname_desktop %} para crear una confirmación con un coautor. Para obtener más información, consulta "[Escribe un mensaje de confirmación y sube tus cambios](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" y [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
 
-![Agregar un coautor al mensaje de confirmación](/assets/images/help/desktop/co-authors-demo-hq.gif)
+![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-### Crear confirmaciones conjuntas en la línea de comando
+### Creating co-authored commits on the command line
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
 {% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
-3. En la línea siguiente del mensaje de confirmación, escribe `Co-authored-by:name <name@example.com>` con información específica para cada coautor. Luego de la información del coautor, agrega comillas de cierre.
+3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
-  Si estás agregando distintos coautores, asigna una línea y una introducción de la confirmación `Co-authored-by` a cada coautor.
+  If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -51,26 +51,27 @@ Puedes usar {% data variables.product.prodname_desktop %} para crear una confirm
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-El nuevo mensaje y la confirmación aparecerán en {% data variables.product.product_location %} la próxima vez que subas un cambio. Para obtener más información, consulta "[Subir cambios a un repositorio remoto](/articles/pushing-commits-to-a-remote-repository/)."
+The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/articles/pushing-commits-to-a-remote-repository/)."
 
-### Crear confirmaciones conjuntas en {% data variables.product.product_name %}
+### Creating co-authored commits on {% data variables.product.product_name %}
 
-Una vez que hayas realizado los cambios en un archivo usando el editor web en {% data variables.product.product_name %}, puedes crear una confirmación conjunta agregando una introducción `Co-authored-by:` al mensaje de confirmación.
+After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. Luego de hacer tus cambios de forma conjunta, en la parte inferior de la página, escribe un mensaje de confirmación breve y significativo que describa los cambios que realizaste. ![Mensaje de confirmación de tu cambio](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. En el cuadro de texto que aparece debajo de tu mensaje de confirmación, agrega `Co-authored-by:name <name@example.com>` con información específica para cada coautor. Si estás agregando distintos coautores, asigna una línea y una introducción de la confirmación `Co-authored-by` a cada coautor.
+2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
+  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
+3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
 
-  ![Ejemplo de introducción de coautor del mensaje de confirmación en el cuadro de texto para el mensaje de confirmación](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. Haz clic en **Confirmar cambios** o **Proponer cambios**.
+  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
+4. Click **Commit changes** or **Propose changes**.
 
-La confirmación y el mensaje nuevos aparecerán en {% data variables.product.product_location %}.
+The new commit and message will appear on {% data variables.product.product_location %}.
 
-### Leer más
+### Further reading
 {% if currentVersion != "free-pro-team@latest" %}
-- "[Ver las contribuciones en tu perfil](/articles/viewing-contributions-on-your-profile)"
-- "[¿Por qué mis contribuciones no se ven en mi perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Ver un resumen de la actividad del repositorio](/articles/viewing-a-summary-of-repository-activity)"
-- "[Ver los colaboradores de un proyecto](/articles/viewing-a-projects-contributors)"
-- "[Cambiar un mensaje de confirmación](/articles/changing-a-commit-message)"
-- "[Confirmar y revisar los cambios en tu proyecto](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" en la documentación de {% data variables.product.prodname_desktop %}
+- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
+- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
+- "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
+- "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
+- "[Changing a commit message](/articles/changing-a-commit-message)"
+- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation

@@ -1,6 +1,6 @@
 ---
 title: 管理全局 web 挂钩
-intro: 站点管理员可以查看、添加、编辑和删除全局 web 挂钩，在实例级别跟踪事件。
+intro: '站点管理员可以查看、添加、编辑和删除全局 web 挂钩，在实例级别跟踪事件。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
@@ -12,9 +12,9 @@ versions:
 
 您可以使用全局 web 挂钩自动监视、响应或者为实例上的用户和组织管理强制执行规则。 例如，您可以将 web 挂钩配置为在以下情况下执行：
 - 创建或删除用户帐户
-- An organization is created or deleted
+- 创建或删除组织
 - 向仓库添加协作者或从仓库中移除协作者
-- A repository is forked
+- 复刻仓库
 
 ![全局 web 挂钩列表](/assets/images/enterprise/site-admin-settings/list-of-global-webhooks.png)
 

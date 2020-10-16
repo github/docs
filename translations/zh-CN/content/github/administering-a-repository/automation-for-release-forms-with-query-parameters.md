@@ -1,6 +1,6 @@
 ---
 title: 使用查询参数自动化发行版表单
-intro: 要通过使用自定义信息自动填充新发行版表单来快速创建发行版，可以添加查询参数到发行版表单页面的 URL。
+intro: '要通过使用自定义信息自动填充新发行版表单来快速创建发行版，可以添加查询参数到发行版表单页面的 URL。'
 redirect_from:
   - /articles/automation-for-release-forms-with-query-parameters
 versions:

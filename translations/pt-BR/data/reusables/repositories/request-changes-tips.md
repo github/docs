@@ -1,9 +1,9 @@
 {% tip %}
 
 **Dicas**:
-- If required reviews are enabled and a collaborator with _write_, _admin_, or _owner_ access to the repository submits a review requesting changes, the pull request cannot be merged until the same collaborator submits another review approving the changes in the pull request.
-- Repository owners and administrators can merge a pull request even if it hasn't received an approving review, or if a reviewer who requested changes has left the organization or is unavailable.
-- If both required reviews and stale review dismissal are enabled and a code-modifying commit is pushed to the branch of an approved pull request, the approval is dismissed. The pull request must be reviewed and approved again before it can be merged.
-- When several open pull requests each have a head branch pointing to the same commit, you won’t be able to merge them if one or both have a pending or rejected review.
+- Se as revisões necessárias estiverem habilitadas e um colaborador com acesso de _gravação_, _admin_ ou _proprietário_ ao repositório enviar uma revisão solicitando alterações, o pull request não poderá ser mesclado até que o mesmo colaborador envie outra revisão aprovando as alterações no pull request.
+- Proprietários e administradores do repositório podem fazer merge de um pull request mesmo que não tenham recebido uma revisão de aprovação; ou se um revisor que solicitou alterações saiu da organização ou estiver indisponível.
+- Se as revisões necessárias e o descarte de uma revisão obsoleta estiverem habilitados e um commit de modificação de código for enviado para o branch de um pull request aprovado, a aprovação será ignorada. O pull request deve ser revisado e aprovado novamente antes de poder ser mesclado.
+- Quando vários pull requests abertos têm um branch principal que aponta para o mesmo commit, você não conseguirá mesclá-los se um ou ambos tiverem uma revisão pendente ou rejeitada.
 
 {% endtip %}

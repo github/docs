@@ -3,7 +3,7 @@ title: Richtlinien für Repository-Mitarbeiter festlegen
 redirect_from:
   - /articles/how-do-i-set-up-guidelines-for-contributors/
   - /articles/setting-guidelines-for-repository-contributors
-intro: 'Du kannst Richtlinien erstellen, wie Personen zu Deinem Projekt beitragen sollten.'
+intro: Du kannst Richtlinien erstellen, wie Personen zu Deinem Projekt beitragen sollten.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -19,7 +19,7 @@ Mitarbeitern helfen die Richtlinien, korrekt formulierte Pull Requests einzureic
 
 Sowohl Inhaber als auch Mitarbeiter sparen dank Beitragsrichtlinien Zeit und Mühen, die durch fehlerhaft formulierte Pull Requests oder Issues entstehen, die abgelehnt und erneut eingereicht werden müssen.
 
-Du kannst Standard-Beitragsrichtlinien für Deine Organisation{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder Dein Benutzerkonto{% endif %} erstellen. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 {% tip %}
 
@@ -51,6 +51,6 @@ Wenn Du nun nicht sicher bist, was Du hier festlegen sollst, findest Du nachfolg
 - [Beitragsrichtlinien](https://github.com/opengovernment/opengovernment/blob/master/CONTRIBUTING.md) des Open Government.
 
 ### Weiterführende Informationen
-- Abschnitt „[Starting an Open Source Project](https://opensource.guide/starting-a-project/)“ (Open-Source-Projekt starten) der Open-Source-Leitfäden{% if currentVersion == "free-pro-team@latest" %}
+- The Open Source Guides' section "[Starting an Open Source Project](https://opensource.guide/starting-a-project/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
 - „[Eine Lizenz zu einem Repository hinzufügen](/articles/adding-a-license-to-a-repository)“

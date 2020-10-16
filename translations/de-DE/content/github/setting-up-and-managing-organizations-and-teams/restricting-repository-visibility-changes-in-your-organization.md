@@ -1,6 +1,6 @@
 ---
 title: Sichtbarkeitsänderungen von Repositorys in Deiner Organisation einschränken
-intro: Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Änderung der Sichtbarkeit von Repositorys in Deiner Organisation konfigurieren.
+intro: 'Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Änderung der Sichtbarkeit von Repositorys in Deiner Organisation konfigurieren.'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:

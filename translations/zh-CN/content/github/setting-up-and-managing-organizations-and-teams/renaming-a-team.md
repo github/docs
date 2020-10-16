@@ -13,4 +13,4 @@ versions:
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 5. 输入团队的新名称或说明。 ![团队名称和说明的字段](/assets/images/help/teams/team-name-description.png)
-6. Click **Update**.
+6. 单击 **Update（更新）**。

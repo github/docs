@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 Organisationsinhaber können die SSH-Zertifizierungsstellen (CA) einer Organisation verwalten.

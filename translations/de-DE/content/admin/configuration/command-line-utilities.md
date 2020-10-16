@@ -20,7 +20,8 @@ Sie können diese Befehle überall in der VM ausführen, nachdem Sie sich als ei
 Dieses Dienstprogramm liegt im oberen Bereich jeder {% data variables.product.prodname_enterprise %}-Seite einen Banner fest. Diesen können Sie verwenden, um Ihren Benutzer eine Mitteilung zu übermitteln.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
+You can also set an announcement banner using the enterprise settings on
+{% data variables.product.product_name %}. Weitere Informationen finden Sie unter „[Benutzermeldungen auf Ihrer Instanz anpassen](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)“.
 {% endif %}
 
 ```shell
@@ -80,7 +81,7 @@ Dadurch können Sie den UUID Ihres Knotens in `cluster.conf` ermitteln.
 ```
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Rate Limiting](/enterprise/{{ currentVersion }}/v3/#rate-limiting)."
+Allows you to exempt a list of users from API rate limits. For more information, see "[Rate Limiting](/enterprise/{{ page.version }}/v3/#rate-limiting)."
 
 ``` shell
 $ ghe-config app.github.rate_limiting_exempt_users "<em>hubot</em> <em>github-actions</em>"
@@ -181,7 +182,6 @@ Mit diesem Dienstprogramm können Sie den Wartungsmoduszustand der Installation 
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 Dieses Dienstprogramm zeigt die Meldung des Tages (MOTD) an, die Administratoren sehen, wenn sie über die administrative Shell auf die Instanz zugreifen. Die Ausgabe enthält einen Überblick über den Status der Instanz.
@@ -189,7 +189,6 @@ Dieses Dienstprogramm zeigt die Meldung des Tages (MOTD) an, die Administratoren
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 

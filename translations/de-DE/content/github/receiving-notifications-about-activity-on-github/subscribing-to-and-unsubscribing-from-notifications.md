@@ -7,21 +7,12 @@ versions:
 
 ### Benachrichtigungseinstellungen für ein Issue oder einen Pull Request verwalten
 
-{% if currentVersion ver_lt "enterprise-server@2.18" %}Wenn Du eine Unterhaltung zu einem Issue oder Pull Request abonnierst, erhältst Du bei jeder Aktualisierung der Unterhaltung eine Benachrichtigung, selbst wenn Du nicht an der Unterhaltung teilnimmst.
-
-Sobald Du das Abonnement einer Unterhaltung zu einem Issue oder Pull Request kündigst, werden diese Benachrichtigungen eingestellt. Sollten jedoch Du oder ein Team, dessen Mitglied Du bist, in der Unterhaltung @erwähnt werden, erhältst Du diese Benachrichtigungen wieder. Weitere Informationen zu @Erwähnungen findest Du unter „[Grundlegende Schreib- und Formatierungssyntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)“.{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Wähle einen Issue oder Pull Request, den Du abonnieren möchtest.
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
+3. Wählen Sie einen Issue oder Pull Request, den Sie abonnieren möchten.
 4. Klicke in der rechten Seitenleiste auf **Subscribe** (Abonnieren) oder **Unsubscribe** (Kündigen). ![Schaltfläche „Conversation Subscribe" (Abonnieren einer Unterhaltung)](/assets/images/help/notifications/subscribe_button_with_gear.png)
 5. Klicken Sie zum Anpassen Ihrer Benachrichtigungen auf {% octicon "gear" aria-label="The gear icon" %}. ![Einstellungsschaltfläche neben „Subscribe“ (Abonnieren einer Unterhaltung)](/assets/images/help/notifications/subscribe_button_with_gear_chosen.png)
-6. Wähle die Art von Benachrichtigungen aus, die Du zu dieser Unterhaltung erhalten möchtest, und klicke auf **Save** (Speichern). ![Liste der Optionen für das Abonnieren einer Unterhaltung](/assets/images/help/notifications/subscribe_options.png)
-{% else %}
-4. Klicke zum Abonnieren respektive zum Kündigen einer Unterhaltung in der rechten Seitenleiste auf **Subscribe** (Abonnieren) respektive **Unsubscribe** (Kündigen). ![Schaltfläche „Conversation Subscribe" (Abonnieren einer Unterhaltung)](/assets/images/help/notifications/subscribe_button.png)
-{% endif %}
-Du kannst eine Liste aller abonnierten Issues und Pull Requests abrufen. Weitere Informationen findest Du unter „[Liste Deiner abonnierten Issues und Pull Requests abrufen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)."
+6. Wähle die Art von Benachrichtigungen aus, die Du zu dieser Unterhaltung erhalten möchtest, und klicke auf **Save** (Speichern). ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) You can see a list of all the issues and pull requests you're subscribed to. Weitere Informationen findest Du unter „[Liste Deiner abonnierten Issues und Pull Requests abrufen](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)."
 
 ### Teamdiskussionen abonnieren
 

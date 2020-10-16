@@ -10,11 +10,11 @@ versions:
 
 ### 关于依赖项的版本更新
 
-You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a *dependabot.yml* configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot_short %} then raises pull requests to keep the dependencies you configure up-to-date. 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)。”
+通过将 *dependabot.yml* 配置文件检入仓库的 `.github` 目录，可启用 {% data variables.product.prodname_dependabot_version_updates %}。 {% data variables.product.prodname_dependabot_short %} 然后提出拉取请求，使您配置的依赖项保持最新。 对于您想更新的每个包管理器的依赖项，必须指定包清单文件的位置及为文件所列的依赖项检查更新的频率。 有关启用安全更新的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)。”
 
 {% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-### 启用 {% data variables.product.prodname_dependabot_version_updates %}
+### Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
 {% note %}
 
@@ -72,11 +72,11 @@ updates:
 
 ### 检查版本更新的状态
 
-启用版本更新后，将在仓库的依赖关系图中发现新的 **Dependabot** 选项卡。 This tab shows which package managers {% data variables.product.prodname_dependabot %} is configured to monitor and when {% data variables.product.prodname_dependabot_short %} last checked for new versions.
+启用版本更新后，将在仓库的依赖关系图中发现新的 **Dependabot** 选项卡。 此选项卡显示配置了哪些要监视的包管理器 {% data variables.product.prodname_dependabot %} 以及 {% data variables.product.prodname_dependabot_short %} 上次检查新版本的时间。
 
 ![仓库洞察选项卡，依赖关系图，Dependabot 选项卡](/assets/images/help/dependabot/dependabot-tab-view-beta.png)
 
-For information, see "[Listing dependencies configured for version updates](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)."
+更多信息请参阅“[列出为版本更新配置的依赖项](/github/administering-a-repository/listing-dependencies-configured-for-version-updates)。”
 
 ### 禁用 {% data variables.product.prodname_dependabot_version_updates %}
 

@@ -1,6 +1,6 @@
-1. Wenn Du den MySQL-Masterknoten oder den Redis-Masterknoten ersetzt, ersetze in der Datei `cluster.conf` den Wert `mysql-master` oder `redis-master` durch den Namen des Ersatzknotens.
+1. If you're replacing the primary MySQL or Redis node, in `cluster.conf`, modify the `mysql-master` or `redis-master` value with the replacement node name.
 
-  So gibt beispielsweise diese geänderte Datei `cluster.conf` den neu verteilten Clusterknoten `ghe-replacement-data-node-1` als MySQL- und Redis-Masterknoten an: <pre>
+  For example, this modified `cluster.conf` file specifies a newly provisioned cluster node, `ghe-replacement-data-node-1` as the primary MySQL and Redis node: <pre>
   mysql-master = <em>ghe-replacement-data-node-1</em>
   redis-master = <em>ghe-replacement-data-node-1</em>
   </pre>

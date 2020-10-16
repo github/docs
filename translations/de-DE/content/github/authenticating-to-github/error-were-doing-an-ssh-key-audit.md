@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „We''re doing an SSH key audit“ (Es wird ein SSH-Schlüsselaudit durchgeführt)'
-intro: 'Diese Fehlermeldung bedeutet, dass der SSH-Schlüssel, den Du für die Ausführung eines Git-Vorgangs verwendest, nicht verifiziert ist.'
+intro: Diese Fehlermeldung bedeutet, dass der SSH-Schlüssel, den Du für die Ausführung eines Git-Vorgangs verwendest, nicht verifiziert ist.
 redirect_from:
   - /articles/error-we-re-doing-an-ssh-key-audit
   - /articles/error-were-doing-an-ssh-key-audit

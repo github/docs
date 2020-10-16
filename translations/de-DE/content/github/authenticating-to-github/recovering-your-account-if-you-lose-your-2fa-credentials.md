@@ -81,7 +81,8 @@ Wenn Du nicht in der Lage bist, den Zugang zu Deinem Konto wieder herzustellen, 
 1. Rufe auf Facebook die Seite [Security Settings](https://www.facebook.com/settings?tab=security) (Sicherheitseinstellungen) auf, und klicke dann auf **Recover Accounts Elsewhere**. ![Facebook-Seite mit Sicherheitseinstellungen und Link zu „Recover Accounts Elsewhere"](/assets/images/help/settings/security-facebook-security-settings-page.png)
 2. Klicke auf das Wiederherstellungstoken, das mit Deinem {% data variables.product.product_name %}-Konto verknüpft ist. ![Liste der auf Facebook gespeicherten Wiederherstellungstoken](/assets/images/help/settings/security-github-rae-token-on-facebook.png)
 3. Um Dein Kontowiederherstellungstoken einzulösen, klicke auf **Recover This Account** (Dieses Konto wiederherstellen). Ein neues Fenster wird geöffnet, das Dich auf {% data variables.product.product_name %} zurückführt. ![Modales Feld mit Informationen zu Deinem Wiederherstellungstoken und Schaltfläche „Recover This Account“ (Dieses Konto wiederherstellen)](/assets/images/help/settings/security-recover-account-facebook.png)
-4. Benachrichtige den {% data variables.contact.contact_support %}, dass Dein Kontowiederherstellungstoken bereit für den Review ist.
+4. Kontakt
+{% data variables.contact.contact_support %} to let them know that your account recovery token is ready for review.
 {% endif %}
 
 ### Weiterführende Informationen

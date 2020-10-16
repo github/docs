@@ -78,7 +78,7 @@ GitHub.com 会不时检查远程服务器（由 GitHub 或第三方托管）上�
 
 ### I. 免责声明；责任限制；免赔与保障赔偿
 
-**免责声明。** 您使用 Marketplace 和通过 Marketplace 获取的任何开发者产品均应自担风险。 Other than as expressly stated, GitHub provides Marketplace and Developer Products “AS IS” and “AS AVAILABLE.” 对于 Marketplace 和开发者产品，GitHub 不作任何明示或暗示的保证或承诺，包括但不限于通过 Marketplace 和开发者产品获取的特定功能、其可靠性、可用性或满足您需求的能力。
+**免责声明。** 您使用 Marketplace 和通过 Marketplace 获取的任何开发者产品均应自担风险。 除明确声明外，GitHub 将“按原样”和“视情况”提供 Marketplace 和开发者产品。 对于 Marketplace 和开发者产品，GitHub 不作任何明示或暗示的保证或承诺，包括但不限于通过 Marketplace 和开发者产品获取的特定功能、其可靠性、可用性或满足您需求的能力。
 
 我们保留随时和不时修改或停用（临时或永久）Marketplace 或其任何部分的权利，可能通知，也可能不通知。
 

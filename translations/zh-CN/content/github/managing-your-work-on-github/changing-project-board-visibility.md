@@ -1,6 +1,6 @@
 ---
 title: 更改项目板可见性
-intro: 作为组织所有者或项目板管理员，您可以将项目板设为公共或私有。
+intro: '作为组织所有者或项目板管理员，您可以将项目板设为公共或私有。'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:
