@@ -1,6 +1,6 @@
 ---
-title: Reporting abuse or spam
-intro: You can report behavior and content that violates community guidelines and terms.
+# title: Reporting abuse or spam:
+introduction: You can report behavior and content that violates community guidelines and terms.
 redirect_from:
   - /articles/reporting-abuse-or-spam
 versions:
@@ -32,7 +32,7 @@ If reported content is enabled for a public repository, you can also report cont
   ![Button to report a comment](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
-### Reporting a comment
+### Reporting a comments
 
 1. Navigate to the comment you'd like to report.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
@@ -47,7 +47,9 @@ If reported content is enabled for a public repository, you can also report cont
   ![Button to report an app in {% data variables.product.prodname_marketplace %}](/assets/images/help/marketplace/marketplace-report-app.png)
 4. Complete the contact form to tell {% data variables.contact.contact_support %} about the app's behavior, then click **Send request**.
 
-### Reporting contact link abuse in the template chooser
+### Reporting contact link abuse in the template chooser:
+
+## Issues,Report abuse and Send request are here :
 
 1. Navigate to the repository that contains the contact link you'd like to report.
 2. Under the repository name, click {% octicon "issue-opened" aria-label="The issues icon" %} **Issues**.
@@ -55,7 +57,7 @@ If reported content is enabled for a public repository, you can also report cont
   ![Link to report an abuse](/assets/images/help/repository/template-chooser-report-abuse.png)
 4. Complete the contact form to tell {% data variables.contact.contact_support %} about the contact link's behavior, then click **Send request**.
 
-### Further reading
+### Further Reading:
 
 - "[Setting up your project for healthy contributions](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Using templates to encourage useful issues and pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
