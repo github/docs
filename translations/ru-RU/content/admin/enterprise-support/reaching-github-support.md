@@ -31,7 +31,7 @@ You can use the {% data variables.contact.enterprise_portal %} to view past supp
 
 For pricing, licensing, renewals, quotes, payments, and other related questions, contact {% data variables.contact.contact_enterprise_sales %} or call [+1 (877) 448-4820](tel:+1-877-448-4820).
 
-### Обращение к тренингу
+### Связаться с отделом обучения
 
 To learn more about training options, including customized trainings, see [{% data variables.product.company_short %}'s training site](https://services.github.com/).
 

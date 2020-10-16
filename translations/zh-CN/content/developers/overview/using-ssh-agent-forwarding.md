@@ -93,7 +93,7 @@ Sometimes, system configurations disallow SSH agent forwarding. You can check if
 ```shell
 $ ssh -v <em>example.com</em>
 # Connect to example.com with verbose debug output
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011</span>
+> OpenSSH_8.1p1, LibreSSL 2.7.3</span>
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
 > debug1: Applying options for example.com
 > debug1: Reading configuration data /etc/ssh_config

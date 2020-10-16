@@ -15,7 +15,7 @@ versions:
 企业帐户可用于管理多个 {% data variables.product.prodname_dotcom %} 组织和 {% data variables.product.prodname_ghe_server %} 实例。 您的企业帐户必须有操作点，如 {% data variables.product.prodname_dotcom %} 上的组织或个人帐户。 企业管理员可以管理设置和首选项，如：
 
 - 成员访问和管理（组织成员、外部协作者）
-- 帐单和使用（{% data variables.product.prodname_ghe_server %} 实例、用户许可、{% data variables.large_files.product_name_short %} 包）
+- 计费和使用（{% data variables.product.prodname_ghe_server %} 实例、用户许可、{% data variables.large_files.product_name_short %} 包）
 - 安全性（单点登录、双重身份验证）
 - 与 {% data variables.contact.enterprise_support %} 共享请求和支持包
 
@@ -25,9 +25,7 @@ versions:
 
 有关成员访问和管理的更多信息，请参阅“[管理企业帐户的用户](/articles/managing-users-in-your-enterprise-account)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
-{% endif %}
 
 ### 管理链接到企业帐户的组织
 

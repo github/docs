@@ -54,6 +54,6 @@ versions:
 
 [Code School](http://codeschool.com) によるインタラクティブな[オンラインの Git コース](http://www.codeschool.com/courses/git-real)では、数十の楽しいゲーム形式のエクササイズを含む 7 段階のサービスを提供しています。 [.gitignore テンプレート](https://github.com/github/gitignore)では、お客様のニーズに合わせることができます。
 
-{% data variables.product.prodname_dotcom %} のリーチを、{% if currentVersion == "free-pro-team@latest" %}[インテグレーション](/articles/about-integrations){% else %}インテグレーション{% endif %}、または[{% data variables.product.prodname_desktop %}](https://desktop.github.com) と堅牢な [Atom](https://atom.io) テキストエディタで拡張しましょう。
+Extend your {% data variables.product.prodname_dotcom %} reach through {% if currentVersion == "free-pro-team@latest" %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 
 [オープンソースのガイド](https://opensource.guide/)で、オープンソースのプロジェクトを立ち上げ成長させる方法をご確認ください。

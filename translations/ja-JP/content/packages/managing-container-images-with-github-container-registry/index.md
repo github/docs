@@ -1,6 +1,6 @@
 ---
-title: Managing container images with GitHub Container Registry
-intro: 'Learn how to manage container images using a supported CLI or on {% data variables.product.prodname_dotcom %}.'
+title: GitHub Container Registry でコンテナイメージを管理する
+intro: 'サポートされている CLI または {% data variables.product.prodname_dotcom %} を使用してコンテナイメージを管理する方法を学びます。'
 versions:
   free-pro-team: '*'
 ---

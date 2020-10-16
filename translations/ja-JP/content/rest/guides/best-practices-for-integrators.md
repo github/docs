@@ -12,24 +12,23 @@ versions:
 
 GitHubプラットフォームとの統合に興味はありますか。 [同じことを思っている仲間がいますよ](https://github.com/integrations)。 このガイドは、ユーザに最高のエクスペリエンスを提供し、かつAPIと確実にやり取りするアプリを構築するために役立ちます。
 
-
 ### GitHubから配信されるペイロードの機密を確保する
 
 [GitHubから送信されたペイロード][event-types]の機密を確保することは非常に重要です。 ペイロードでパスワードなどの個人情報が送信されることはないものの、いかなる情報であれ漏洩することは好ましくありません。 コミッターのメールアドレスやプライベートリポジトリの名前などは、機密性が求められる場合があります。
 
 いくつかのステップを踏むことで、GitHubから配信されるペイロードを安全に受信できます。
 
-1. 受信サーバーは必ずHTTPS接続にしてください。 デフォルトでは、GitHubはペイロードを配信する際にSSL証明書を検証します。{% if currentVersion == "free-pro-team@latest" %}
+1. 受信サーバーは必ずHTTPS接続にしてください。 By default, GitHub will verify SSL certificates when delivering payloads.{% if currentVersion == "free-pro-team@latest" %}
 1. [フック配信時に使用するIPアドレス](/github/authenticating-to-github/about-githubs-ip-addresses)をサーバーの許可リストに追加できます。 正しいIPアドレスを常に確認していることを確かめるため、[`/meta`エンドポイントを使用して](/v3/meta/#meta)GitHubが使用するアドレスを見つけることができます。{% endif %}
 1. ペイロードがGitHubから配信されていることを確実に保証するため、[シークレットトークン](/webhooks/securing/)を提供します。 シークレットトークンを強制することにより、サーバーが受信するあらゆるデータが確実にGitHubから来ていることを保証できます。 サービスの*ユーザごと*に異なるシークレットトークンを提供するのが理想的です。 そうすれば、1つのトークンが侵害されても、他のユーザは影響を受けません。
 
 ### 同期作業より非同期作業を優先する
 
-GitHubは、webhookペイロードを受信後{% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %}秒以内にインテグレーションが応答することを求めています。 サービスの応答時間がそれ以上になると、GitHubは接続を中止し、ペイロードは失われます。
+GitHub expects that integrations respond within {% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %} seconds of receiving the webhook payload. サービスの応答時間がそれ以上になると、GitHubは接続を中止し、ペイロードは失われます。
 
 サービスの完了時間を予測することは不可能なので、「実際の作業」のすべてはバックグラウンドジョブで実行すべきです。 バックグラウンドジョブのキューや処理を扱えるライブラリには、[Resque](https://github.com/resque/resque/) (Ruby用)、[RQ](http://python-rq.org/) (Python用)、[RabbitMQ](http://www.rabbitmq.com/)などがあります。
 
-バックグラウンドジョブが実行中でも、GitHubはサーバが{% if currentVersion == "free-pro-team@latest" %}10{% else %}30{% endif %}秒以内で応答することを求めていることに注意してください。 サーバは何らかの応答を送信することにより、ペイロードの受信を確認する必要があります。 サービスがペイロードについての確認を可能な限り速やかに行うことは非常に重要です。そうすることにより、サーバがリクエストを継続するかどうか正確に報告できます。
+Note that even with a background job running, GitHub still expects your server to respond within {% if currentVersion == "free-pro-team@latest" %}ten{% else %}thirty{% endif %} seconds. サーバは何らかの応答を送信することにより、ペイロードの受信を確認する必要があります。 サービスがペイロードについての確認を可能な限り速やかに行うことは非常に重要です。そうすることにより、サーバがリクエストを継続するかどうか正確に報告できます。
 
 ### GitHubへの応答時に適切なHTTPステータスコードを使用する
 

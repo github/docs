@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Teams
-intro: 'Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.'
+intro: Teams sind Gruppen von Organisationsmitgliedern, welche die Struktur Deines Unternehmens oder Deiner Gruppe mit kaskadierenden Zugriffsberechtigungen und Erwähnungen widerspiegeln.
 redirect_from:
   - /articles/about-teams
 versions:
@@ -21,7 +21,7 @@ Weitere Informationen findest Du unter:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-Du kannst außerdem mit LDAP Sync {% data variables.product.product_location_enterprise %}-Teammitglieder und -Teamrollen mit Deinen bestehenden LDAP-Gruppen synchronisieren. Dadurch kannst Du eine rollenbasierte Zugriffskontrolle für Benutzer von Deinem LDAP-Server aus einrichten statt manuell innerhalb von {% data variables.product.product_location_enterprise %}. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
+Sie können außerdem mit LDAP Sync {% data variables.product.product_location_enterprise %}-Teammitglieder und -Teamrollen mit Ihren bestehenden LDAP-Gruppen synchronisieren. Dadurch können Sie eine rollenbasierte Zugriffskontrolle für Benutzer von Ihrem LDAP-Server aus statt manuell innerhalb von {% data variables.product.product_location_enterprise %} einrichten. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
 {% endif %}
 

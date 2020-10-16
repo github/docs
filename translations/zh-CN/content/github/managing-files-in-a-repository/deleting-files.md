@@ -15,7 +15,7 @@ versions:
 {% endtip %}
 
 1. 浏览到要删除仓库中的文件。
-2. At the top of the file, click
+2. 在文件顶部，单击
 {% octicon "trashcan" aria-label="The trashcan icon" %}.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

@@ -57,7 +57,7 @@ Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias 
 
 #### Feriados nos Estados Unidos
 
-O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {% data variables.contact.enterprise_support %} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
+O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
 
 | EUA Feriado             | Data observada em {{ "now"    | date: "%Y" }} |
 | ----------------------- | ----------------------------- | ------------- |

@@ -19,7 +19,9 @@ versions:
 
 {% data reusables.repositories.create_new %}
 2. リポジトリに、短くて覚えやすい名前を入力します。 たとえば、"hello-world" といった名前です。 ![リポジトリ名を入力するフィールド](/assets/images/help/repository/create-repository-name.png)
-3. 必要な場合、リポジトリの説明を追加します。 たとえば、「{% data variables.product.product_name %} の最初のリポジトリ」などです。 ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
+3. 必要な場合、リポジトリの説明を追加します。 For example, "My first repository on
+{% data variables.product.product_name %}."
+  ![リポジトリの説明を入力するフィールド](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}

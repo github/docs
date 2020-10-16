@@ -1,1 +1,1 @@
-您可以在公共仓库中发布包（公共包）以与所有 {% data variables.product.prodname_dotcom %} 共享，或者在私有仓库中发布包（私有包）以与协作者或组织分享。
+You can publish packages in a public repository (public packages) to share with {% if currentVersion == "free-pro-team@latest" %}all of {% data variables.product.prodname_dotcom %}{% else %}everyone on your instance{% endif %}, or in a private repository (private packages) to share with collaborators or an organization.

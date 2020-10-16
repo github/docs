@@ -1,5 +1,5 @@
 ---
-title: 'Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde'
+title: Änderungen an einem Pull-Request-Branch zulassen, der von einem Fork erstellt wurde
 intro: 'Für eine bessere Zusammenarbeit kannst Du Commits für Branches erlauben, die Du aus Forks in Deinem Benutzerkonto erstellt hast.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
@@ -17,7 +17,7 @@ Du kannst Commit-Berechtigungen festlegen, wenn Du erstmalig einen Pull Request 
 
 ### Repository-Betreuer-Berechtigungen auf vorhandene Pull Requests aktivieren
 
-1. Navigiere auf {% data variables.product.product_name %} zur Hauptseite des vorgelagerten Repositorys Deines Pull Requests.
+1. Navigieren Sie auf {% data variables.product.product_name %} zur Hauptseite des vorgelagerten Repositorys Ihres Pull Requests.
 2. Klicke unter dem Namen des vorgelagerten Repositorys auf {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull requests** (Pull Requests). ![Auswahl der Issue- und Pull-Request-Registerkarten](/assets/images/help/repository/repo-tabs-pull-requests.png)
 3. Navigiere in der Liste der Pull Requests zu dem Pull Request, für den Du Commits zulassen möchtest.
 {% data reusables.repositories.allow-maintainers-user-forks %}

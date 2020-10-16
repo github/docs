@@ -10,9 +10,9 @@ versions:
 
 ### 网络考虑因素
 
-对于集群而言，最简单的网络设计是将节点置于单个 LAN 上。 If a cluster must span subnets, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.
+对于集群而言，最简单的网络设计是将节点置于单个 LAN 上。 如果群集必须跨子网，我们不建议在网络之间配置任何防火墙规则。 节点之间的延迟应小于 1 毫秒。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}For high availability, the latency between the network with the active nodes and the network with the passive nodes must be less than 70 milliseconds. We don't recommend configuring a firewall between the two networks.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}为获取高可用性，具有主动节点的网络与具有被动节点的网络之间的延迟必须小于 70 毫秒。 我们不建议在两个网络之间配置防火墙。{% endif %}
 
 #### 最终用户的应用程序端口
 
@@ -70,7 +70,6 @@ versions:
 | 8301/UDP  | Consul         |
 | 8302/UDP  | Consul         |
 | 25827/UDP | Collectd       |
-
 
 ### 配置负载均衡器
 

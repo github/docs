@@ -22,7 +22,9 @@ Only the user who created the pull request can give you permission to push commi
 
 {% endnote %}
 
-1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+1. On
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

@@ -14,8 +14,8 @@ versions:
 
 A transferência de dados é reiniciada todos os meses, mas o uso do armazenamento não.
 
-| Produto                                                                  | Armazenamento | Transferência de dados (por mês) |
-| ------------------------------------------------------------------------ | ------------- | -------------------------------- |
+| Produto                                                             | Armazenamento | Transferência de dados (por mês) |
+| ------------------------------------------------------------------- | ------------- | -------------------------------- |
 | {% data variables.product.prodname_free_user %}                   | 500MB         | 1GB                              |
 | {% data variables.product.prodname_pro %}                           | 2GB           | 10GB                             |
 | {% data variables.product.prodname_free_team %} para organizações | 500MB         | 1GB                              |

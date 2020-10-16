@@ -10,7 +10,7 @@ versions:
 
 ### Sobre as contas corporativas do {% data variables.product.prodname_ghe_server %}
 
-Uma conta corporativa permite que você gerencie múltiplas organizações de {% data variables.product.prodname_dotcom %} e instâncias de {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
+Uma conta corporativa permite que você gerencie múltiplas organizações {% data variables.product.prodname_dotcom %} e instâncias {% data variables.product.prodname_ghe_server %}. Sua conta corporativa deve ter um manipulador, como uma conta pessoal ou organizacional no {% data variables.product.prodname_dotcom %}. Os administradores corporativos podem gerenciar configurações e preferências, como:
 
 - Acesso e gerenciamento de integrantes (integrantes da organização, colaboradores externos)
 - Faturamento e uso de instâncias de ({% data variables.product.prodname_ghe_server %}, licenças de usuário, pacotes de {% data variables.large_files.product_name_short %})
