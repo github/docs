@@ -5,7 +5,7 @@ redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository
 versions:
-  free-pro-team: '*'
+  free-pro-team:'*'
   enterprise-server: '*'
 ---
 
