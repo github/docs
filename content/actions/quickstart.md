@@ -12,7 +12,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Introduction
+# Introduction
 
 You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
 
@@ -22,7 +22,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
     {% raw %}
     ```yaml
-    name: Super-Linter
+    name: Super-sanket
 
     # Run this workflow every time a new commit pushed to your repository
     on: push
