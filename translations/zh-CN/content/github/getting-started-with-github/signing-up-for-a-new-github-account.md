@@ -19,4 +19,4 @@ versions:
 - “[配置双重身份验证](/articles/configuring-two-factor-authentication)”
 - “[将个人简历添加到个人资料](/articles/adding-a-bio-to-your-profile)”
 - “[创建组织](/articles/creating-a-new-organization-from-scratch)”
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
+- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})

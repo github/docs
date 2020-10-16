@@ -125,7 +125,7 @@ versions:
 请注意，可用的信息因个案而异。 用户可选择提供一些信息。 在另一些情况下，我们可能没有收集或保留信息。
 
 - <a name="with-a-court-order-or-a-search-warrant"></a>
-**有法院命令*或*搜查令** — 我们不会披露帐户访问日志，除非收到以下指令的要求： (i) 根据 18 U.S.C. 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 Section 2703(d), upon a showing of specific and articulable facts showing that there are reasonable grounds to believe that the information sought is relevant and material to an ongoing criminal investigation; or (ii) a search warrant issued under the procedures described in the Federal Rules of Criminal Procedure or equivalent state warrant procedures, upon a showing of probable cause. 除了上述非公开用户帐户信息之外，我们根据法院命令或搜查令提供的帐户访问日志信息可能包括：
+**有法院命令*或*搜查令** — 我们不会披露帐户访问日志，除非收到以下指令的要求： (i) 根据 18 U.S.C. 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 第 2703(d) 条签发的法院命令，有具体而明确的事实表明，有合理的理由相信所要求的信息与正在进行的刑事调查有关； 或 (ii) 根据《联邦刑事诉讼规定》(Federal Rules of Criminal Procedure) 或同等国家搜查程序签发的搜查令，上面显示可能的原因。 除了上述非公开用户帐户信息之外，我们根据法院命令或搜查令提供的帐户访问日志信息可能包括：
 
   - 显示用户在一段时间内移动的任何日志
   - 帐户或私有版本库设置(例如，哪些用户拥有特定权限等）
@@ -149,7 +149,7 @@ versions:
 
 ### 数据保存
 
-We will take steps to preserve account records for up to 90 days upon formal request from U.S. law enforcement in connection with official criminal investigations, and pending the issuance of a court order or other process.
+在美国执法部门发出与官方刑事调查相关的正式要求后， 以及签发法院命令或其他程序之前，我们将采取步骤保存长达 90 天的帐户记录。
 
 ### 提交请求
 
@@ -177,7 +177,7 @@ Sacramento, CA 95833-3505
 
 ### 外国执法部门的请求
 
-作为一家设在加利福尼亚的美国公司，GitHub 不必根据外国当局签发的法律程序向外国政府提供数据。 希望向 GitHub 索取信息的外国执法官员应与美国司法部刑事司国际事务办公室联系。 GitHub 将迅速答复美国法院通过司法互助条约（“MLAT）或委托调查书发出的请求。 court by way of a mutual legal assistance treaty (“MLAT”) or letter rogatory.
+作为一家设在加利福尼亚的美国公司，GitHub 不必根据外国当局签发的法律程序向外国政府提供数据。 希望向 GitHub 索取信息的外国执法官员应与美国司法部刑事司国际事务办公室联系。 GitHub 将迅速答复美国法院通过司法互助条约（“MLAT）或委托调查书发出的请求。 法院通过司法互助条约（“MLAT）或委托调查书发出的请求。
 
 ### 问题
 

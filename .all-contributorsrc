@@ -294,8 +294,90 @@
       "contributions": [
         "doc"
       ]
-    }
-  ],
+    },
+    {
+      "login": "jeffmcaffer",
+      "name": "Jeff McAffer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10070956?v=4",
+      "profile": "https://mcaffer.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "tjenkinson",
+      "name": "Tom Jenkinson",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/3259993?v=4",
+      "profile": "https://tjenkinson.me",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "casals",
+      "name": "Arthur Casals",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/785860?v=4",
+      "profile": "https://github.com/casals",
+      "contributions": [
+        "content",
+        "doc"
+      ]
+    },
+    {
+      "login": "Simran-B",
+      "name": "Simran",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7819991?v=4",
+      "profile": "https://www.arangodb.com/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Ruth",
+      "name": "Ruth",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/85029?v=4",
+      "profile": "https://github.com/ruth",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "wi5nia",
+      "name": "Tomasz Wisniewski",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/12593852?v=4",
+      "profile": "http://tomaszwisniewski.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "chiedo",
+      "name": "Chiedo John",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/2156688?v=4",
+      "profile": "https://chiedojohn.com/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "paulyhedral",
+      "name": "Paul Schifferer",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/419457?v=4",
+      "profile": "https://wanderingmonster.org",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "Protectator",
+      "name": "Kewin Dousse",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1529017?v=4",
+      "profile": "https://www.kewindousse.ch",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
   "contributorsPerLine": 7,
   "projectName": "docs",
   "projectOwner": "github",

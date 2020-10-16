@@ -1,4 +1,4 @@
-For more information about the tax forms you need to complete, see the following instructions on the United States Internal Revenue Service website.
+Para mais informações sobre os formulários de impostos que você precisa preencher, consulte as seguintes instruções no site do Serviço de Receita Interna dos Estados Unidos.
 
-- [Instructions for Form W-9](https://www.irs.gov/pub/irs-pdf/iw9.pdf), for US residents
-- [Instructions for Form W-8BEN](https://www.irs.gov/pub/irs-pdf/iw8ben.pdf), for non-US residents
+- [Instruções para o formulário W-9](https://www.irs.gov/pub/irs-pdf/iw9.pdf), para residentes dos EUA
+- [Instruções para o Formulário W-8BEN](https://www.irs.gov/pub/irs-pdf/iw8ben.pdf) para residentes fora dos EUA

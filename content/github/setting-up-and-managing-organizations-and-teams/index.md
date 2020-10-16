@@ -100,6 +100,7 @@ versions:
     {% link_in_list /managing-the-forking-policy-for-your-organization %}
 <!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /disabling-or-limiting-github-actions-for-your-organization %}
+    {% link_in_list /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization %}
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.15" -->
     {% link_in_list /setting-permissions-for-adding-outside-collaborators %}

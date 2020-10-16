@@ -1,6 +1,6 @@
 ---
 title: 変更履歴
-intro: GraphQLスキーマの変更履歴は、GraphQL APIスキーマに対する最近及び今後の変更のリストです。 これは後方互換性のある変更、スキーマプレビュー、今後の破壊的変更が含まれます。
+intro: 'GraphQLスキーマの変更履歴は、GraphQL APIスキーマに対する最近及び今後の変更のリストです。 これは後方互換性のある変更、スキーマプレビュー、今後の破壊的変更が含まれます。'
 redirect_from:
   - /v4/changelog
 versions:

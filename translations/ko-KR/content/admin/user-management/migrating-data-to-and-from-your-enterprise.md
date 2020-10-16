@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/categories/migrations-and-upgrades/
   - /enterprise/admin/migrations/overview
   - /enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise
-  - /enterprise/admin/user-management/migrating-data-to-and-from-your-enterprise
 versions:
   enterprise-server: '*'
 ---

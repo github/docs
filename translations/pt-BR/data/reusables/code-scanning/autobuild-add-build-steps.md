@@ -1,1 +1,1 @@
-If the C/C++, C#, or Java code in your repository has a non-standard build process or if it's written in more than one compiled language, `autobuild` may fail. You will need to remove the `autobuild` step from the workflow, and manually add build steps. 
+Se o código de C/C++, C#, ou Java no seu repositório tiver um processo de criação não padrão, poderá ocorrer uma falha no `autobuild`. Você deverá remover a etapa `autobuild` do fluxo de trabalho e adicionar manualmente etapas de criação. 

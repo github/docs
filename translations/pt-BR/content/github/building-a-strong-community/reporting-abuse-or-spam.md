@@ -58,7 +58,7 @@ Se o conteúdo denunciado estiver ativado para um repositório público, você t
 
 - "[Configurar seu projeto para contribuições úteis](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[Usando modelos para encorajar problemas úteis e pull requests](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[Gerenciando comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Gerenciar comentários disruptivos](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Mantendo sua segurança no {% data variables.product.prodname_dotcom %}](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[Limitando interações em seu repositório](/github/building-a-strong-community/limiting-interactions-in-your-repository)"{% endif %}
 - "[Controlar as alterações em um comentário](/articles/tracking-changes-in-a-comment)"

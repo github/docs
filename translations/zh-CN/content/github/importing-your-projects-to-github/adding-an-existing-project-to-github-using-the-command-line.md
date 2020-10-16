@@ -21,7 +21,10 @@ versions:
 
 {% mac %}
 
-1. 在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
+    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
@@ -56,7 +59,10 @@ versions:
 
 {% windows %}
 
-1. 在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
+    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。
@@ -91,7 +97,10 @@ versions:
 
 {% linux %}
 
-1. 在 {% data variables.product.product_location %} 上[创建新仓库](/articles/creating-a-new-repository) 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。 ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. 为避免错误，请勿使用*自述文件*、许可或 `gitignore` 文件初始化新仓库。 您可以在项目推送到 {% data variables.product.product_name %} 之后添加这些文件。
+    ![创建新仓库下拉列表](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. 将当前工作目录更改为您的本地仓库。
 4. 将本地目录初始化为 Git 仓库。

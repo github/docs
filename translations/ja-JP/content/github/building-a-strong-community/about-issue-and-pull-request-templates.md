@@ -1,6 +1,6 @@
 ---
 title: Issueとプルリクエストのテンプレートについて
-intro: Issue及びプルリクエストのテンプレートを使えば、コントリビューターがリポジトリでIssuleやプルリクエストをオープンする際に含めてほしい情報をカスタマイズし、標準化できます。
+intro: 'Issue及びプルリクエストのテンプレートを使えば、コントリビューターがリポジトリでIssuleやプルリクエストをオープンする際に含めてほしい情報をカスタマイズし、標準化できます。'
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
 versions:
@@ -10,7 +10,7 @@ versions:
 
 リポジトリでIssueやプルリクエストのテンプレートを作成すると、コントリビューターはそのテンプレートを使い、リポジトリのコントリビューションのガイドラインに沿ってIssuelをオープンしたり、プルリクエスト中の変更を提案したりできるようになります。 リポジトリへのコントリビューションのガイドラインの追加に関する詳しい情報については[リポジトリコントリビューターのためのガイドラインを定める](/articles/setting-guidelines-for-repository-contributors)を参照してください。
 
-Organization {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}またはユーザアカウント{% endif %}のデフォルトの Issue とプルリクエストテンプレートを作成できます。 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
+You can create default issue and pull request templates for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. 詳しい情報については「[デフォルトのコミュニティ健全性ファイルを作成する](/github/building-a-strong-community/creating-a-default-community-health-file)」を参照してください。
 
 ### Issueのテンプレート
 

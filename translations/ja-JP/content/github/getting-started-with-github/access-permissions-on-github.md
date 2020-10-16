@@ -5,7 +5,7 @@ redirect_from:
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
   - /articles/access-permissions-on-github
-intro: 個人のリポジトリにはコラボレータに読み取り/書き込みアクセスを許可できる一方、Organization のメンバーは、Organization のリポジトリに対してより精細なアクセス権限を持つことができます。
+intro: '個人のリポジトリにはコラボレータに読み取り/書き込みアクセスを許可できる一方、Organization のメンバーは、Organization のリポジトリに対してより精細なアクセス権限を持つことができます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,7 +17,7 @@ versions:
 
 ### Organization アカウント
 
-Organization のメンバーは、*owner (オーナー)*{% if currentVersion == "free-pro-team@latest" %}、*billing manager (支払いマネージャー)*、{% endif %}あるいは*member (メンバー)* ロールを持つことができます。 オーナーは、Organization に対する完全な管理者アクセスを持ち{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャーは支払いの設定を管理でき{% endif %}ます。 メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
+Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. メンバーは、その他の人のデフォルトのロールです。 Team を使って、複数のメンバーのアクセス権限を一度に管理できます。 詳しい情報については、以下を参照してください。
 - 「[Organization の権限レベル](/articles/permission-levels-for-an-organization)」
 - [Organization のプロジェクトボード権限](/articles/project-board-permissions-for-an-organization)
 - [Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization)

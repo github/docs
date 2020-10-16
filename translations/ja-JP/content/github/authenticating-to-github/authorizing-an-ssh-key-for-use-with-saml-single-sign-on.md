@@ -1,6 +1,6 @@
 ---
 title: SAMシングルサインオンで利用するためにSSHキーを認可する
-intro: SAML シングルサインオン (SSO) を使う Organization で SSH キーを使うためには、まずそのキーを認可しなければなりません。
+intro: 'SAML シングルサインオン (SSO) を使う Organization で SSH キーを使うためには、まずそのキーを認可しなければなりません。'
 redirect_from:
   - /articles/authorizing-an-ssh-key-for-use-with-a-saml-single-sign-on-organization/
   - /articles/authorizing-an-ssh-key-for-use-with-saml-single-sign-on

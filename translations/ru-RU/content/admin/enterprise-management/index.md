@@ -3,11 +3,6 @@ title: 'Monitoring, managing, and updating your enterprise'
 intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
 redirect_from:
   - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
-  - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
 ---
@@ -21,8 +16,7 @@ versions:
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
     {% link_in_list /log-forwarding %}
-    {% link_in_list /monitoring-using-snmp %}{% if currentVersion ver_gt "enterprise-server@2.21" %}
-    {% link_in_list /monitoring-using-analytics %}{% endif %}
+    {% link_in_list /monitoring-using-snmp %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}
     {% link_in_list /upgrading-github-enterprise-server %}

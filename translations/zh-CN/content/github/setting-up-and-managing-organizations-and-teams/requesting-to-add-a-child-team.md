@@ -1,6 +1,6 @@
 ---
 title: 申请添加子团队
-intro: 如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。
+intro: '如果您在团队中具有维护员权限，可以申请在组织的层次结构中将现有团队嵌套在您的团队下面。'
 redirect_from:
   - /articles/requesting-to-add-a-child-team
 versions:

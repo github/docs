@@ -57,7 +57,8 @@ versions:
 
   {% endtip %}
 2. コンピュータで、ダウンロードしたファイルを見つけます。
-3. *git-lfs-windows-1.X.X.exe* というファイルをダブルクリックします。1.X.X は、ダウンロードした Git LFS のバージョンに置き換えてください。 このファイルを開くと、Windows は {% data variables.large_files.product_name_short %} をインストールするセットアップ ウィザードを実行します。
+3. *git-lfs-windows-1.X.X.exe* というファイルをダブルクリックします。1.X.X は、ダウンロードした Git LFS のバージョンに置き換えてください。 When you open this file Windows will run a setup wizard to install
+{% data variables.large_files.product_name_short %}.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. インストールが成功したか検証します。
   ```shell

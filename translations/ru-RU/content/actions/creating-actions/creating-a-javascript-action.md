@@ -77,9 +77,9 @@ This file defines the `who-to-greet` input and `time` output. It also tells the 
 
 The actions toolkit is a collection of Node.js packages that allow you to quickly build JavaScript actions with more consistency.
 
-The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
+The toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package provides an interface to the workflow commands, input and output variables, exit statuses, and debug messages.
 
-The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/master/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
+The toolkit also offers a [`@actions/github`](https://github.com/actions/toolkit/tree/main/packages/github) package that returns an authenticated Octokit REST client and access to GitHub Actions contexts.
 
 The toolkit offers more than the `core` and `github` packages. For more information, see the [actions/toolkit](https://github.com/actions/toolkit) repository.
 
@@ -119,7 +119,7 @@ try {
 }
 ```
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
+If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[Setting exit codes for actions](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
 ### Creating a README
@@ -258,4 +258,8 @@ jobs:
 
 From your repository, click the **Actions** tab, and select the latest workflow run. You should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input and the timestamp printed in the log.
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run-updated.png)
+{% else %}
 ![A screenshot of using your action in a workflow](/assets/images/help/repository/javascript-action-workflow-run.png)
+{% endif %}
