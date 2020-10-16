@@ -21,7 +21,7 @@ versions:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location_enterprise %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location_enterprise %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
+您也可以使用 LDAP 同步根据建立的 LDAP 组同步 {% data variables.product.product_location_enterprise %} 团队成员和团队角色。 这可让您从 LDAP 服务器为用户建立基于角色的访问控制，而无需在 {% data variables.product.product_location_enterprise %} 中手动创建。 更多信息请参阅“[启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)”。
 
 {% endif %}
 

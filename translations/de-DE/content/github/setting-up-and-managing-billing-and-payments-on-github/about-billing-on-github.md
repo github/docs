@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Abrechnung auf GitHub
-intro: 'Bei allem, was Du auf {% data variables.product.prodname_dotcom %} kaufst, gelten Abrechnungsdatum, Zahlungsmethode und Quittung Deines Kontos.'
+intro: 'Bei allem, was Sie auf {% data variables.product.prodname_dotcom %} kaufen, gelten Abrechnungsdatum, Zahlungsmethode und Quittung Ihres Kontos.'
 redirect_from:
   - /articles/about-billing-on-github
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Kostenpflichtige Funktionen und Produkte
 
-Du kannst Dein persönliches Konto oder Deine Organisation jederzeit auf ein kostenpflichtiges Abonnement heraufstufen. Du kannst auch Apps von {% data variables.product.prodname_marketplace %} kaufen oder Speicher und Bandbreite für {% data variables.large_files.product_name_long %} heraufstufen. Weitere Informationen findest Du unter:
+Du kannst Dein persönliches Konto oder Deine Organisation jederzeit auf ein kostenpflichtiges Abonnement heraufstufen. Sie können auch Apps von {% data variables.product.prodname_marketplace %} kaufen oder Speicher und Bandbreite für {% data variables.large_files.product_name_long %} upgraden. Weitere Informationen findest Du unter:
 - „[Informationen zur Abrechnung für {% data variables.product.product_name %}-Konten](/articles/about-billing-for-github-accounts)“
 - „[Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}](/articles/about-billing-for-github-marketplace)“
 - „[Informationen zur Abrechnung für {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)“
@@ -25,7 +25,7 @@ Weitere Informationen findest Du unter „[Deine {% data variables.product.prodn
 
 ### Weiterführende Informationen
 
-- „[Abrechnung für Dein {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
+- „[Abrechnung für Ihr {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
 - „[Abrechnung für Ihre {% data variables.product.prodname_marketplace %}-Apps verwalten](/articles/managing-billing-for-github-marketplace-apps)“
 - „[Abrechnung für {% data variables.large_files.product_name_long %} verwalten](/articles/managing-billing-for-git-large-file-storage)“
 - „[Abrechnung für {% data variables.product.prodname_sponsors %} verwalten](/articles/managing-billing-for-github-sponsors)“

@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „Permission to user/repo denied to other-user“ (Berechtigung für „user/repo" für „other-user" verweigert)'
-intro: 'Diese Fehlermeldung bedeutet, dass der Schlüssel, den Du beim Push verwendest, an ein Konto angehängt ist, das keinen Zugriff auf das Repository hat.'
+intro: Diese Fehlermeldung bedeutet, dass der Schlüssel, den Du beim Push verwendest, an ein Konto angehängt ist, das keinen Zugriff auf das Repository hat.
 redirect_from:
   - /articles/error-permission-to-user-repo-denied-to-other-user
   - /articles/error-permission-to-userrepo-denied-to-other-user

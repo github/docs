@@ -12,8 +12,8 @@ versions:
 
 利用時間 (分) は毎月リセットされますが、ストレージはリセットされません。
 
-| 製品                                                                    | ストレージ  | 分 (月あたり) |
-| --------------------------------------------------------------------- | ------ | -------- |
+| 製品                                                               | ストレージ  | 分 (月あたり) |
+| ---------------------------------------------------------------- | ------ | -------- |
 | {% data variables.product.prodname_free_user %}                | 500 MB | 2,000    |
 | {% data variables.product.prodname_pro %}                        | 1 GB   | 3,000    |
 | Organization の {% data variables.product.prodname_free_team %} | 500 MB | 2,000    |
@@ -44,7 +44,7 @@ versions:
 | macOS        | $0.08   |
 | Windows      | $0.016  |
 
-アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 詳細については、「[{% data variables.product.prodname_actions %}について](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)」を参照してください。
+アカウントもしくはOrganization内のすべてのリポジトリにわたって同時に実行できるジョブ数は、あなたのGitHubのプランによります。 For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 ### 利用時間 (分) とストレージ消費量の計算
 

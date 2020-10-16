@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.prodname_ghe_server %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions).

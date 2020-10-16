@@ -29,7 +29,7 @@ Zusätzlich zu den Vorteilen des {% data variables.contact.enterprise_support %}
   - Geplante Zustandsprüfungen
   - Verwaltete Dienste
 
-Weitere Informationen finden Sie unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
+Weitere Informationen finden Sie unter „[Informationen zum {{ site.data.variables.contact.premium_support }} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
 
 {% data reusables.support.scope-of-support %}
 

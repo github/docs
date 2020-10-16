@@ -1,12 +1,8 @@
 ---
-title: Managing GitHub Packages for your enterprise
+title: 管理企业的 GitHub Packages
 shortTitle: GitHub Packages
-intro: 'You can enable {% data variables.product.prodname_registry %} for your enterprise and manage {% data variables.product.prodname_registry %} settings and allowed packaged types.'
+intro: '您可以为企业启用 {% data variables.product.prodname_registry %}，并管理 {% data variables.product.prodname_registry %} 设置和允许的包类型。'
 redirect_from:
-  - /enterprise/admin/packages
-  - /enterprise/admin/packages
-  - /enterprise/admin/packages
-  - /enterprise/admin/packages
   - /enterprise/admin/packages
 versions:
   enterprise-server: '>=2.22'

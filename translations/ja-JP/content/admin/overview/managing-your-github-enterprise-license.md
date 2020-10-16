@@ -34,7 +34,8 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}
 4. [Enterprise Server Instances] で、{% octicon "download" aria-label="The download icon" %} をクリックしてライセンスファイルをダウンロードします。 ![GitHub Enterprise Server ライセンスをダウンロードする](/assets/images/help/business-accounts/download-ghes-license.png)
-5. {% data variables.product.prodname_ghe_server %} インスタンスにサイト管理者としてログインします。
+5. Log into your
+{% data variables.product.prodname_ghe_server %} instance as a site administrator.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -63,7 +64,8 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. [Quick links] で、{% data variables.product.prodname_ghe_server %}上の現在のライセンスを含むファイルをダウンロードするには、[**Export license usage**] をクリックします。 ![ライセンス使用状況リンクをエクスポートする](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. {% data variables.product.prodname_ghe_cloud %}に移動します。
+6. Navigate to
+{% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}

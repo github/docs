@@ -9,8 +9,9 @@ versions:
 ---
 
 
-
-虽然 API 提供多种身份验证方法，但我们强烈建议对生产应用程序使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)。 提供的其他方法旨在用于脚本或测试（即没有必要使用完整 OAuth 方法的情况）。 依赖 {% data variables.product.product_name %} 进行身份验证的第三方应用程序不应要求或收集 {% data variables.product.product_name %} 凭据。 它们应该使用 [OAuth web 工作流程](/apps/building-oauth-apps/authorizing-oauth-apps/)。
+虽然 API 提供多种身份验证方法，但我们强烈建议对生产应用程序使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)。 提供的其他方法旨在用于脚本或测试（即没有必要使用完整 OAuth 方法的情况）。 依赖
+{% data variables.product.product_name %} 进行身份验证的第三方应用程序不应要求或收集 {% data variables.product.product_name %} 凭据。
+它们应该使用 [OAuth web 工作流程](/apps/building-oauth-apps/authorizing-oauth-apps/)。
 
 ### 基本身份验证
 
@@ -77,7 +78,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 
 启用双重身份验证后，REST API 中_大多数_端点的[基本身份验证](#basic-authentication)均要求您使用个人访问令牌或 OAuth 令牌，而不是用户名和密码。
 
-您可以{% if currentVersion == "free-pro-team@latest" %}使用[{% data variables.product.product_name %} 开发者设置](https://github.com/settings/tokens/new){% endif %}来生成新的个人访问令牌，或者使用 OAuth 授权 API 中的“[创建新授权][create-access]”端点来生成新的 OAuth 令牌。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，您将使用这些令牌向 GitHub API 验证，更多信息请参阅“[使用 OAuth 令牌进行身份验证][oauth-auth]”。 唯一需要使用用户名和密码进行身份验证的时候是创建 OAuth 令牌或使用 OAuth 授权 API 时。
+您可以 {% if currentVersion == "free-pro-team@latest" %}使用 [{% data variables.product.product_name %}开发者设置](https://github.com/settings/tokens/new){% endif %}来生成新的个人访问令牌，或者使用 OAuth 授权 API 中的“[创建新授权][create-access]”端点来生成新的 OAuth 令牌。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，您将使用这些令牌向 GitHub API 验证，更多信息请参阅“[使用 OAuth 令牌进行身份验证][oauth-auth]”。 唯一需要使用用户名和密码进行身份验证的时候是创建 OAuth 令牌或使用 OAuth 授权 API 时。
 
 #### 结合使用 OAuth 授权 API 与双重身份验证
 

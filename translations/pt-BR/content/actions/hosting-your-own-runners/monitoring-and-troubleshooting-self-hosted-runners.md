@@ -13,7 +13,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Verificar o status de um executor auto-hospedado usando {% data variables.product.prodname_dotcom %}
+### Verificar o status de um executor auto-hospedado usando {{ site.data.variables.product.prodname_dotcom }}
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 

@@ -14,18 +14,18 @@ versions:
 
 外部の資金獲得プラットフォームごとに 1 つのユーザ名、パッケージ名、またはプロジェクト名と、最大 4 つのカスタム URL を追加できます。 {% data variables.product.prodname_sponsors %} には、スポンサード開発者または Organization を最大 4 人追加できます。 追加する場合は、プラットフォームごとに改行し、以下の構文に従ってください:
 
-| プラットフォーム                                                                           | 構文                                                         |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: プロジェクト名`                                |
+| プラットフォーム                                                                      | 構文                                                         |
+| ----------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: プロジェクト名`                                |
 | [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: ユーザ名` または `github: [ユーザ名, ユーザ名, ユーザ名, ユーザ名]`      |
-| [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: ユーザ名`                                          |
-| [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: ユーザ名`                                              |
-| [Liberapay](https://en.liberapay.com/)                                             | `liberapay: ユーザ名`                                          |
-| [Open Collective](https://opencollective.com/)                                     | `open_collective: ユーザ名`                                    |
-| [Otechie](https://otechie.com/)                                                    | `otechie: ユーザ名`                                            |
-| [Patreon](https://www.patreon.com/)                                                | `patreon: ユーザ名`                                            |
-| [Tidelift](https://tidelift.com/)                                                  | `tidelift: プラットフォーム名/パッケージ名`                               |
-| カスタム URL                                                                           | `custom: リンク 1` または `custom: [リンク 1, リンク 2, リンク 3, リンク 4]` |
+| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: ユーザ名`                                          |
+| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: ユーザ名`                                              |
+| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: ユーザ名`                                          |
+| [Open Collective](https://opencollective.com/)                                | `open_collective: ユーザ名`                                    |
+| [Otechie](https://otechie.com/)                                               | `otechie: ユーザ名`                                            |
+| [Patreon](https://www.patreon.com/)                                           | `patreon: ユーザ名`                                            |
+| [Tidelift](https://tidelift.com/)                                             | `tidelift: プラットフォーム名/パッケージ名`                               |
+| カスタム URL                                                                      | `custom: リンク 1` または `custom: [リンク 1, リンク 2, リンク 3, リンク 4]` |
 
 Tidelift では、`platform-name/package-name` の構文で、以下のプラットフォーム名を用います:
 

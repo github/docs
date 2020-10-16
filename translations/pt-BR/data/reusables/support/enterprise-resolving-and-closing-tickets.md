@@ -1,4 +1,4 @@
-{% data variables.contact.enterprise_support %} may consider a ticket solved after providing an explanation, recommendation, usage instructions, workaround instructions, or by advising you of an available release that addresses the issue.
+{% data variables.contact.enterprise_support %} pode considerar um tíquete resolvido após fornecer uma explicação, recomendação, instruções de uso, instruções de resolução ou orientando você sobre uma versão disponível que aborda o problema.
 
 Se você usar um plugin, módulo ou código personalizado incompatível, o {% data variables.contact.enterprise_support %} solicitará a remoção desse item incompatível durante a tentativa de solução do problema. Se o problema for corrigido quando o plugin, módulo ou código personalizado incompatível for removido, o {% data variables.contact.enterprise_support %} poderá considerar o tíquete resolvido.
 

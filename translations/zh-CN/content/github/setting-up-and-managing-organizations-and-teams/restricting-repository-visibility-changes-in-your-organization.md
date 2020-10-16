@@ -1,6 +1,6 @@
 ---
 title: 限制在组织中更改仓库可见性
-intro: 为保护组织的数据，您可以配置在组织中更改仓库可见性的权限。
+intro: '为保护组织的数据，您可以配置在组织中更改仓库可见性的权限。'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:
@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**Warning**: If enabled, this setting allows people with admin permissions to change an existing repository to any visibility, even if you do not allow that type of repository to be created. For more information about restricting the visibility of repositories during creation, see "[Restricting repository creation in your organization](/articles/restricting-repository-creation-in-your-organization)."
+**警告**：如果启用，此设置允许具有管理员权限的用户将现有仓库更改为任何可见性，即使您不允许创建该类型的仓库。 有关在创建过程中限制仓库可见性的更多信息，请参阅“[限制组织中的仓库创建](/articles/restricting-repository-creation-in-your-organization)”。
 
 {% endwarning %}
 

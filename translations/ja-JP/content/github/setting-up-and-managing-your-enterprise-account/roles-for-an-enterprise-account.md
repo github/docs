@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントのロール
-intro: Enterprise アカウントの設定およびデータへのアクセスを管理するために、Enterprise アカウントの人に異なるロールを割り当てることができます。
+intro: 'Enterprise アカウントの設定およびデータへのアクセスを管理するために、Enterprise アカウントの人に異なるロールを割り当てることができます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/

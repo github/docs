@@ -1,6 +1,6 @@
 ---
 title: Deine E-Mail-Adresse verifizieren
-intro: 'Das Verifizieren Deiner primären E-Mail-Adresse gewährleistet eine bessere Sicherheit, ermöglicht dem {% data variables.product.prodname_dotcom %}-Personal, Dich besser zu unterstützen, falls Du Dein Passwort vergessen hast, und ermöglicht Dir den Zugriff auf weitere Funktionen auf {% data variables.product.prodname_dotcom %}.'
+intro: 'Das Verifizieren Ihrer primären E-Mail-Adresse gewährleistet eine bessere Sicherheit, ermöglicht dem {% data variables.product.prodname_dotcom %}-Personal, Sie besser zu unterstützen, falls Sie Ihr Passwort vergessen haben, und ermöglicht Ihnen den Zugriff auf weitere Features auf {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/troubleshooting-email-verification/
   - /articles/setting-up-email-verification/
@@ -54,9 +54,9 @@ Der Verifizierungslink läuft nach 24 Stunden ab. Wenn Du Deine E-Mail-Adresse n
 
 Wenn Du innerhalb von 24 Stunden auf den Link in der Bestätigungs-E-Mail klickst und Du auf eine Fehlerseite umgeleitet wirst, solltest Du sicherstellen, dass Du Dich beim richtigen {% data variables.product.prodname_dotcom %}-Konto angemeldet hast.
 
-1. {% data variables.product.signout_link %} aus Deinem persönlichen {% data variables.product.prodname_dotcom %}-Konto.
+1. {% data variables.product.signout_link %} von Ihrem persönliche {% data variables.product.prodname_dotcom %}-Konto.
 2. Beende Deinen Browser, und starte ihn neu.
-3. {% data variables.product.signin_link %} bei Deinem persönlichen {% data variables.product.prodname_dotcom %}-Konto.
+3. {% data variables.product.signin_link %} bei Ihrem persönlichen {% data variables.product.prodname_dotcom %}-Konto.
 4. Klicke auf den Verifizierungslink in der E-Mail, die wir Dir gesendet haben.
 
 ### Weiterführende Informationen

@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Note**: To open a pull request in a public repository, you must have write access to the head or the source branch or, for organization-owned repositories, you must be a member of the organization that owns the repository to open a pull request.
+**Observação**: Para abrir um pull request em um repositório público, você deve ter acesso de gravação no cabeçalho do branch de origem ou, para para repositórios pertencentes à organização, você deve ser integrante da organização proprietária do repositório para abrir um pull request.
 
 {% endnote %}
 

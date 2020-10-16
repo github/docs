@@ -1,6 +1,6 @@
 ---
 title: 'Fehler: „Bad file number“ (Ungültige Dateinummer)'
-intro: 'Diese Fehlermeldung bedeutet normalerweise, dass Du keine Verbindung zum Server herstellen konntest. Häufig wird der Fehler durch Firewalls und Proxy-Server verursacht.'
+intro: Diese Fehlermeldung bedeutet normalerweise, dass Du keine Verbindung zum Server herstellen konntest. Häufig wird der Fehler durch Firewalls und Proxy-Server verursacht.
 redirect_from:
   - /articles/error-bad-file-number
 versions:
@@ -36,7 +36,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>username</em
 
 #### Versuch aus einem anderen Netzwerk
 
-Wenn Du von Deinem Computer eine Verbindung zu einem anderen Netzwerk ohne Firewall herstellen kannst, kannst Du versuchen, eine SSH-Verbindung mit {% data variables.product.product_name %} herzustellen. Wenn alles problemlos funktioniert, bitte Deinen Netzwerkadministrator darum, die Firewall-Einstellungen zu ändern, damit Du eine SSH-Verbindung mit {% data variables.product.product_name %} herstellen kannst.
+Wenn Sie von Ihrem Computer eine Verbindung zu einem anderen Netzwerk ohne Firewall herstellen können, können Sie versuchen, eine SSH-Verbindung mit {% data variables.product.product_name %} herzustellen. Wenn alles problemlos funktioniert, bitten Sie Ihren Netzwerkadministrator darum, die Firewall-Einstellungen zu ändern, damit Sie eine SSH-Verbindung mit {% data variables.product.product_name %} herstellen können.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

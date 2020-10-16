@@ -12,13 +12,15 @@ To push and pull container images owned by an organization, an organization admi
 
 ### Bei {% data variables.product.prodname_github_container_registry %} authentifizieren
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Pushing container images
 
 This example pushes the latest version of `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 This example pushes the `2.5` version of the image.

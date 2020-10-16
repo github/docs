@@ -13,7 +13,7 @@ versions:
 
 ### スポンサーダッシュボードを表示する
 
-1. 任意のページの右上隅で、プロフィール画像をクリックし、続いて [**{% data variables.product.prodname_sponsors %}**] をクリックしてください。 ![{% data variables.product.prodname_sponsors %}ボタン](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+1. 任意のページの右上隅で、プロフィール画像をクリックし、続いて [**{% data variables.product.prodname_sponsors %}**] をクリックします。 ![{% data variables.product.prodname_sponsors %}ボタン](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
 2. 表示されたリストで、スポンサーダッシュボードを表示したいアカウントまたは Organization の右にある [**Dashboard**] をクリックします。 ![開発者スポンサーダッシュボードボタン](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)
 
 ### スポンサーとスポンサーシップを表示する
