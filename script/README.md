@@ -307,7 +307,15 @@ This script is run as a git precommit hook (installed by husky after npm install
 
 ### [`preview-openapi-changes`](preview-openapi-changes)
 
+This script stitches and unstitches the `github/github` OpenAPI description via `rest-api-operations` to produce a local preview in docs-internal.  
 
+`github`, `rest-api-operations`, and `docs-internal` must share a parent directory locally.  
+
+You must bootstrap `github` for this script to work. To check if you need to bootstrap, check if the `bin` directory in `github` exists locally. If it does not exist, run `./script/bootstrap` from the `github` directory.  
+
+To stitch the repos together and do an npm build, pass the `stitch` argument.  
+
+To unstitch the repos and revert them to their pre-stitched state, pass the `unstitch` argument.  
 
 ---
 
