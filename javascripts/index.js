@@ -16,6 +16,9 @@ import experiment from './experiment'
 import copyCode from './copy-code'
 import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
+import CodeBlock from '../react/CodeBlock'
+import RedContent from '../react/RedContent'
+import Timer from '../react/Timer'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -35,3 +38,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   copyCode()
   initializeEvents()
 })
+
+module.export = {
+  CodeBlock,
+  RedContent,
+  Timer
+}

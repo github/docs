@@ -13,8 +13,26 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js?$/,
+        include: [
+          path.resolve(__dirname, 'react')
+        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react'
+            ],
+            plugins: [
+              '@babel/plugin-proposal-class-properties'
+            ]
+          }
+        }
+      },
+      {
         test: /\.m?js$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: /(node_modules|bower_components|react)/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -27,6 +45,10 @@ module.exports = {
             ]
           }
         }
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.s[ac]ss$/i,
