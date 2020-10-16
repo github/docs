@@ -5,8 +5,7 @@ env:
 
 on:
   schedule:
-    # - cron:  "20 15 * * 0" # run every Sunday at 20:15 UTC / 12:15 PST
-    - cron: 0 0 1 1 * # run next January 1st, aka temporarily disabled
+    - cron:  "20 15 * * 0" # run every Sunday at 20:15 UTC / 12:15 PST
 
 jobs:
   remove_unused_assets:
