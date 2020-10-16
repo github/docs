@@ -28,7 +28,8 @@ You can integrate {% data variables.product.prodname_registry %} with {% data va
 
 {% endif %}
 
-#### Viewing packages
+#### Viewing packagesnpm login --registry=https://npm.pkg.github.com/
+
 
 You can review the package's README, some metadata like licensing, download statistics, version history, and more on {% data variables.product.product_name %}. For more information, see "[Viewing packages](/packages/publishing-and-managing-packages/viewing-packages)."
 
