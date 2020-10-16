@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Verifizierung einer Commit-Signatur
-intro: 'Mit GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} oder S/MIME{% endif %} kannst Du Tags und Commits lokal signieren. Diese Tags oder Commits werden auf {% data variables.product.product_name %} als verifiziert gekennzeichnet, sodass andere Personen darauf vertrauen können, dass die Änderungen aus einer vertrauenswürdigen Quelle stammen.'
+intro: 'Using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}, you can sign tags and commits locally. Diese Tags oder Commits werden auf {% data variables.product.product_name %} als verifiziert gekennzeichnet, sodass andere Personen darauf vertrauen können, dass die Änderungen aus einer vertrauenswürdigen Quelle stammen.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -22,7 +22,7 @@ Repository-Administratoren können die obligatorische Commit-Signatur auf einem 
 
 Du kannst den Verifizierungsstatus Deines signierten Commits oder Tags auf {% data variables.product.product_name %} überprüfen und sehen, warum Deine Commit-Signaturen möglicherweise nicht verifiziert sind. Weitere Informationen findest Du unter „[Verifizierungsstatus Deiner Commit- und Tag-Signaturen überprüfen](/articles/checking-your-commit-and-tag-signature-verification-status).“
 
-{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} wird automatisch GPG verwenden, um Commits zu signieren, die Du über das {% data variables.product.product_name %} Web-Interface machst, ausgenommen wenn Du einen Pull Request squashen und zusammenführen willst, für den Du nicht der Autor bist. Commits, die von {% data variables.product.product_name %} signiert sind, werden auf {% data variables.product.product_name %} einen verifizierten Status haben. Du kannst die Signatur lokal mit dem unter https://github.com/web-flow.gpg verfügbaren öffentlichen Schlüssel verifizieren.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} will automatically use GPG to sign commits you make using the {% data variables.product.product_name %} web interface, except for when you squash and merge a pull request that you are not the author of. Commits, die von {% data variables.product.product_name %} signiert sind, werden auf {% data variables.product.product_name %} einen verifizierten Status haben. Du kannst die Signatur lokal mit dem unter https://github.com/web-flow.gpg verfügbaren öffentlichen Schlüssel verifizieren.{% endif %}
 
 ### GPG-Verifizierung einer Commit-Signatur
 
@@ -59,8 +59,9 @@ Du musst Deinen öffentlichen Schlüssel nicht auf {% data variables.product.pro
 ### Signaturverifizierung für Bots
 
 Organisationen und {% data variables.product.prodname_github_app %}s, bei denen Commit-Signaturen vorgeschrieben sind, können Bots für das Signieren von Commits verwenden. Wenn ein Commit oder Tag eine Bot-Signatur hat, die kryptografisch verifiziert werden kann, wird der Commit oder das Tag von {% data variables.product.product_name %} als verifiziert gekennzeichnet.
+Signature verification for bots will only work if the request is verified and authenticated as the
 
-Die Signaturverifizierung für Bots funktioniert nur, wenn die Anforderung als {% data variables.product.prodname_github_app %} oder Bot verifiziert und authentifiziert ist und keine benutzerdefinierten Informationen zum Autor, zum Beitragenden oder zur Signatur aufweist, wie zum Beispiel Commits-API.
+{% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
 ### Weiterführende Informationen

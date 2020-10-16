@@ -34,7 +34,7 @@ versions:
 
 ### 管理被赞助组织的电子邮件更新
 
-You can choose whether a sponsored organization can send you email updates about their work. The sponsored organization will not have access to your email address.
+您可以选择被赞助组织能否以电子邮件向您发送其工作的更新。 被赞助组织无法访问您的电子邮件地址。
 
 {% data reusables.sponsors.navigate-to-sponsored-org %}
 {% data reusables.sponsors.manage-org-sponsorship %}

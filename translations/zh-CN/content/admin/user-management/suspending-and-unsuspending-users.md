@@ -27,7 +27,7 @@ fatal: The remote end hung up unexpectedly
 
 {% tip %}
 
-**注**：如果已为 {% data variables.product.product_location_enterprise %} [启用 LDAP 同步](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)，那么当用户从 LDAP 目录服务器中移除时，他们也将被自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
+**注**：如果已为 {% data variables.product.product_location_enterprise %} [启用 LDAP 同步](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)，那么当用户从 LDAP 目录服务器中移除时，他们也将被自动挂起。 为您的实例启用 LDAP 同步后，将禁用普通用户挂起方法。
 
 {% endtip %}
 

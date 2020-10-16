@@ -1,6 +1,6 @@
 ---
 title: Excluir uma conta de organização
-intro: 'Quando você exclui uma organização, todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas de projeto ou de organização são excluídos também. {% if currentVersion == "free-pro-team@latest" %}O nome da organização fica disponível para uso em uma nova conta de usuário ou de organização, e a cobrança cessa.{% endif %}'
+intro: 'Quando você exclui uma organização, todos os repositórios, bifurcações de repositórios privados, wikis, problemas, pull requests e páginas de projeto ou de organização são excluídos também. {% if currentVersion == "free-pro-team@latest" %}O nome da organização fica disponível para uso em uma nova conta de usuário ou organização, e a cobrança será encerrada{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
 versions:

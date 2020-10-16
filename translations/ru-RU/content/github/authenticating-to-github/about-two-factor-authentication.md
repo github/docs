@@ -1,6 +1,6 @@
 ---
 title: About two-factor authentication
-intro: 'Two-factor authentication, or 2FA, is an extra layer of security used when logging into websites or apps. With 2FA, you have to log in with your username and password and provide another form of authentication that only you know or have access to.'
+intro: '{% data reusables.two_fa.about-2fa %} With 2FA, you have to log in with your username and password and provide another form of authentication that only you know or have access to.'
 redirect_from:
   - /articles/about-two-factor-authentication
 versions:

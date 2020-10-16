@@ -37,14 +37,14 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ### Verificar chaves privadas
-O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando uma função hash SHA-1. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+{% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função de hash {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 
 1. Encontre a impressão digital para o par de chaves privada e pública que deseja verificar na seção "Chaves privadas" da página de configurações de desenvolvedor do seu {% data variables.product.prodname_github_app %}. Para obter mais informações, consulte [Gerar uma chave privada](#generating-a-private-key). ![Impressão digital de chave privada](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Gere a impressão digital da sua chave privada (PEM) localmente usando o comando a seguir:
     ```shell
-    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% if currentVersion ver_lt "enterprise-server@2.23" %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
     ```
 3. Compare os resultados da impressão digital gerada localmente com a impressão digital que você vê no {% data variables.product.product_name %}.
 

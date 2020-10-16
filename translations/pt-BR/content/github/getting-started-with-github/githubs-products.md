@@ -96,7 +96,7 @@ O {% data variables.product.prodname_ghe_one %} inclui [{% data variables.produc
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}
+- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" e "[Sobre {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta).{% endif %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
 - [{% data variables.product.prodname_learning %} para organizações](https://lab.github.com/organizations)
 
 Para obter mais informações sobre a inscrição em {% data variables.product.prodname_ghe_one %}, entre em contato com a equipe de vendas do [{% data variables.product.product_name %}](https://enterprise.github.com/contact).

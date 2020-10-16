@@ -17,5 +17,5 @@ versions:
 1. {% data variables.product.signin_link %} 到 {% data variables.product.product_name %} 帐户。
 2. 打开 {% data reusables.user_settings.personal_dashboard %}。
 3. 单击页面左上角的帐户上下文切换器。 ![Enterprise 中的上下文切换器按钮](/assets/images/help/organizations/account_context_switcher.png)
-4. 从下拉菜单中选择组织。{% if currentVersion == "free-pro-team@latest" %} ![dotcom 中的上下文切换器菜单](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
-![Enterprise 中的上下文切换器菜单](/assets/images/help/organizations/account_context_switcher.png){% endif %}
+4. Select an organization from the drop-down menu.{% if currentVersion == "free-pro-team@latest" %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

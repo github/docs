@@ -1,6 +1,6 @@
 ---
 title: 关于 wikis
-intro: 您可以将仓库文档托管在 wiki 中，以便其他人使用和参与您的项目。
+intro: '您可以将仓库文档托管在 wiki 中，以便其他人使用和参与您的项目。'
 redirect_from:
   - /articles/about-github-wikis/
   - /articles/about-wikis

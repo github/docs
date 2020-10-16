@@ -3,7 +3,6 @@ title: Configuring visibility for organization membership
 intro: You can set visibility for new organization members across your instance to public or private. You can also prevent members from changing their visibility from the default.
 redirect_from:
   - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
-  - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
 versions:
   enterprise-server: '*'
 ---

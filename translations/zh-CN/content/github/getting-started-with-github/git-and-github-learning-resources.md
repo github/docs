@@ -54,6 +54,6 @@ versions:
 
 [Code School](http://codeschool.com) 的互动式[在线 Git 课程](http://www.codeschool.com/courses/git-real)有七个等级，以有趣的游戏形式提供数十个练习。 您可以自由调整 [.gitignore 模板](https://github.com/github/gitignore)以满足您的需求。
 
-通过{% if currentVersion == "free-pro-team@latest" %}[集成](/articles/about-integrations){% else %}集成{% endif %}或通过安装 [{% data variables.product.prodname_desktop %}](https://desktop.github.com) 和强大的 [Atom](https://atom.io) 文本编辑器来扩展您的 {% data variables.product.prodname_dotcom %} 的作用范围。
+Extend your {% data variables.product.prodname_dotcom %} reach through {% if currentVersion == "free-pro-team@latest" %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 
 通过[开源指南](https://opensource.guide/)了解如何启动和发展您的开源项目。

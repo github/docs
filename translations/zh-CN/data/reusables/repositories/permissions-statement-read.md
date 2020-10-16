@@ -1,1 +1,1 @@
-对仓库具有读取权限的用户可以执行这些步骤。
+Read access to the repository is required to perform these steps.

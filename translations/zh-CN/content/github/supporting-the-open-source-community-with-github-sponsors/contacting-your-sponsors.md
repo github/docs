@@ -9,7 +9,7 @@ versions:
 
 您的赞助者可选择是否接收有关您工作更新的电子邮件。 更多信息请参阅“[管理您的赞助](/articles/managing-your-sponsorship)”。
 
-The update will come from your user account's primary email address or organization account's `noreply@github.com` email address. If you've enabled email address privacy on your user account, the update will come from `noreply@github.com` instead. 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
+更新邮件将从用户帐户的主电子邮件地址或组织帐户的 `noreply@github.com` 电子邮件地址发出。 如果您对用户帐户启用了电子邮件地址保密，则更新邮件将从 `noreply@github.com` 发出。 更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
 ### 联系您的用户帐户的赞助者
 

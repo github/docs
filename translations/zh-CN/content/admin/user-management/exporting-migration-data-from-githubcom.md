@@ -1,6 +1,6 @@
 ---
 title: 从 GitHub.com 导出迁移数据
-intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
+intro: '您可以使用 API 选择要迁移的创建，然后生成可导入到 {% data variables.product.prodname_ghe_server %} 实例的迁移存档，从而从 {% data variables.product.prodname_dotcom_the_website %} 上的组织导出迁移数据。'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the source organization on {% data variables.product.prodname_dotcom %}
+### 在 {% data variables.product.prodname_dotcom %} 上准备源组织
 
 1. 确保您在源组织的仓库上具有[所有者权限](/articles/permission-levels-for-an-organization/)。
 
@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
-### Exporting the organization's repositories
+### 导出组织的仓库
 
 {% data reusables.enterprise_migrations.fork-persistence %}
 

@@ -26,5 +26,5 @@ Organization owners can always create any type of repository.
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository creation", select {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}one or more options{% else %}a setting{% endif %}. ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. Under "Repository creation", select one or more options. ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. Click **Save**.

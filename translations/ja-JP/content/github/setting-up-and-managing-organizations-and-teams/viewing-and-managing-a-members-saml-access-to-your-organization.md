@@ -1,6 +1,6 @@
 ---
 title: 組織へのメンバーの SAML アクセスの表示と管理
-intro: Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。
+intro: 'Organization のメンバーのリンクされたアイデンティティ、アクティブなセッション、認可されたクレデンシャルの表示と取り消しが可能です。'
 permissions: Organization のオーナーは、組織へのメンバーの SAML アクセスを表示したり管理したりすることもできます。
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:

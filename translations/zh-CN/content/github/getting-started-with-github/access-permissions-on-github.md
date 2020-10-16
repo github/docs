@@ -5,7 +5,7 @@ redirect_from:
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
   - /articles/access-permissions-on-github
-intro: 您可以授权协作者对个人仓库的读取/写入权限，但组织成员对组织的仓库可有更细致的访问权限。
+intro: '您可以授权协作者对个人仓库的读取/写入权限，但组织成员对组织的仓库可有更细致的访问权限。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,7 +17,7 @@ versions:
 
 ### 组织帐户
 
-组织成员可以是*所有者*{% if currentVersion == "free-pro-team@latest" %}、*帐单管理员*{% endif %}或*成员*角色。 所有者对组织具有完全管理权限{% if currentVersion == "free-pro-team@latest" %}，而帐单管理员负责管理帐单设置{% endif %}。 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 更多信息请参阅：
+Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. 成员是其他每个人的默认角色。 您可以通过团队一次管理多个成员的访问权限。 更多信息请参阅：
 - "[组织的权限级别](/articles/permission-levels-for-an-organization)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"
 - "[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization)"

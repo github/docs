@@ -1,6 +1,6 @@
 ---
 title: Git-Benutzername festlegen
-intro: 'Git verknüpft Commits über den Benutzernamen mit einer Identität. Der Git-Benutzername ist nicht identisch mit Deinem {% data variables.product.product_name %}-Benutzernamen.'
+intro: 'Git verknüpft Commits über den Benutzernamen mit einer Identität. Der Git-Benutzername ist nicht identisch mit Ihrem {% data variables.product.product_name %}-Benutzernamen.'
 redirect_from:
   - /articles/setting-your-username-in-git
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Den Namen, der mit Deinen Git-Commits verbunden ist, kannst Du mit dem Befehl `git config` ändern. Der neue Name wird bei allen zukünftigen Commits angezeigt, die Du über die Befehlszeile per Push an {% data variables.product.product_name %} überträgst. Als Git-Benutzernamen kannst Du einen beliebigen Text verwenden, um Deinen echten Namen privat zu halten.
+Den Namen, der mit Deinen Git-Commits verbunden ist, kannst Du mit dem Befehl `git config` ändern. Der neue Name wird bei allen zukünftigen Commits angezeigt, die Sie über die Befehlszeile per Push an {% data variables.product.product_name %} übertragen. Als Git-Benutzernamen kannst Du einen beliebigen Text verwenden, um Deinen echten Namen privat zu halten.
 
 Eine Änderung Deines Namens für Git-Commits mit dem Befehl `git config` wirkt sich nur auf zukünftige Commits aus. Der für frühere Commits verwendete Name wird hierdurch nicht geändert.
 

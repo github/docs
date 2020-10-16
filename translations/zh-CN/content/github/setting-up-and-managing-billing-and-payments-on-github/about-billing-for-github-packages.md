@@ -14,8 +14,8 @@ versions:
 
 数据传输每月都会重置，而存储使用量不重置。
 
-| 产品                                                         | 存储器   | 数据传输（每月） |
-| ---------------------------------------------------------- | ----- | -------- |
+| 产品                                                    | 存储器   | 数据传输（每月） |
+| ----------------------------------------------------- | ----- | -------- |
 | {% data variables.product.prodname_free_user %}     | 500MB | 1GB      |
 | {% data variables.product.prodname_pro %}             | 2GB   | 10GB     |
 | 组织的 {% data variables.product.prodname_free_team %} | 500MB | 1GB      |
@@ -27,7 +27,7 @@ versions:
 |                      | 托管 | 自托管 |
 | -------------------- | -- | --- |
 | 使用 `GITHUB_TOKEN` 访问 | 免费 | 免费  |
-| 使用个人访问令牌访问           | 免费 | $   |
+| 使用个人访问令牌访问           | 免费 | 美元  |
 
 存储使用情况与 {% data variables.product.prodname_actions %} 为您的帐户所拥有的仓库产生的构件共享。 更多信息请参阅“[关于 {% data variables.product.prodname_actions %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)”。
 

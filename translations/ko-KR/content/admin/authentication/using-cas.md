@@ -25,8 +25,8 @@ versions:
 
 The following attributes are available.
 
-| Attribute name | 유형    | 설명                                                                    |
-| -------------- | ----- | --------------------------------------------------------------------- |
+| Attribute name | 유형    | 설명                                                               |
+| -------------- | ----- | ---------------------------------------------------------------- |
 | `사용자 이름`       | 필수 사항 | The {% data variables.product.prodname_ghe_server %} username. |
 
 ### Configuring CAS

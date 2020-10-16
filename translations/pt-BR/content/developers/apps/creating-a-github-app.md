@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion == "free-pro-team@latest" %}Para aprender como usar manifestos do aplicativo GitHub que permitem que pessoas criem aplicativos GitHub pré-configurados, consulte "[Criando aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Para aprender como usar Manifestos do aplicativo GitHub, que permite às pessoas criar aplicativos GitHub pré-configurados, consulte "[Criar aplicativos GitHub a partir de um manifesto](/apps/building-github-apps/creating-github-apps-from-a-manifest/).{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% note %}

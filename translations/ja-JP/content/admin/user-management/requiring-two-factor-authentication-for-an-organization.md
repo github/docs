@@ -1,6 +1,6 @@
 ---
 title: Organizationに2要素認証を要求する
-intro: Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。
+intro: 'Organizationのメンバーと外部のコラボレータに対し、Organizatin内の個人アカウントで2要素認証を有効化することを求め、悪意ある者がOrganizationのリポジトリや設定にアクセスするのを困難にできます。'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:

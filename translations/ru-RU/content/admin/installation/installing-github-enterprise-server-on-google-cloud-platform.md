@@ -24,7 +24,8 @@ Before launching {% data variables.product.product_location_enterprise %} on Goo
 
 #### Supported machine types
 
-{% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types). |
+{% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types).
+|
 {% if currentVersion != "free-pro-team@latest" %}
 |  | High-memory   |
 |  | ------------- |
