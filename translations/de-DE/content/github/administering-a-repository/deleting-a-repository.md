@@ -1,6 +1,6 @@
 ---
 title: Repository löschen
-intro: 'Du kannst ein Repository oder einen Fork löschen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository oder den Fork verfügst. Durch das Löschen eines geforkten Repositorys wird das vorgelagerte Repository nicht gelöscht.'
+intro: Du kannst ein Repository oder einen Fork löschen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository oder den Fork verfügst. Durch das Löschen eines geforkten Repositorys wird das vorgelagerte Repository nicht gelöscht.
 redirect_from:
   - /delete-a-repo/
   - /deleting-a-repo/

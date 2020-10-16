@@ -1,6 +1,6 @@
 ---
 title: Organization のプロジェクトボードに JIRA を統合する
-intro: Jira Cloud を Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
+intro: 'Jira Cloud を Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。'
 redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
 versions:

@@ -31,7 +31,7 @@ Wenn Du an der Befehlszeile mittels HTTPS-URLs `git clone`-, `git fetch`-, `git 
 
 {% endtip %}
 
- {% if currentVersion == "free-pro-team@latest" %}Wenn Du lieber SSH verwenden möchtest, aber keine Verbindung über Port 22 herstellen kannst, kannst du SSH allenfalls über den HTTPS-Port verwenden. Weitere Informationen findest Du unter „[SSH über den HTTPS-Port verwenden](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. Weitere Informationen findest Du unter „[SSH über den HTTPS-Port verwenden](/github/authenticating-to-github/using-ssh-over-the-https-port)."{% endif %}
 
 ### Mit SSH-URLs klonen
 
@@ -39,7 +39,7 @@ SSH-URLs stellen über das sichere Protokoll SSH den Zugriff auf ein Git-Reposit
 
 Wenn Du mittels SSH-URLs `git clone`-, `git fetch`-, `git pull`- oder `git push`-Befehle an ein Remote-Repository sendest, musst Du ein Passwort eingeben und Deine SSH-Schlüssel-Passphrase bereitstellen. Weitere Informationen findest Du unter „[SSH-Schlüssel-Passphrasen verwenden](/github/authenticating-to-github/working-with-ssh-key-passphrases).“
 
-{% if currentVersion == "free-pro-team@latest" %}Wenn Du auf eine Organisation zugreifst, die SAML Single Sign-On (SSO) einsetzt, musst Du vor dem Authentifizieren Deinen SSH-Schlüssel für den Zugriff auf die Organisation autorisieren. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines SSH-Schlüssels für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}If you are accessing an organization that uses SAML single sign-on (SSO), you must authorize your SSH key to access the organization before you authenticate. Weitere Informationen findest Du unter[„Authentifizierung mit SAML Single Sign-On](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)" und[„Autorisieren eines SSH-Schlüssels für die Verwendung mit SAML Single Sign-On](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."{% endif %}
 
 {% tip %}
 

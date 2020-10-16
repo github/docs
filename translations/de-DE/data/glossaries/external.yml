@@ -180,7 +180,7 @@
 - 
   term: Standardbranch
   description: >-
-    Der Basis-Branch in Ihrem Repository, für den alle Pull Requests und Code-Commits automatisch gesendet werden, sofern Sie keinen anderen Branch angeben. Dieser Branch wird in der Regel als „Master“ bezeichnet.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - 
   term: Abhängigkeitsdiagramm
   description: >-

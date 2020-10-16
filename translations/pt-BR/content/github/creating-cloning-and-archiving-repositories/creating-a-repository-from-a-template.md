@@ -5,7 +5,7 @@ redirect_from:
   - /articles/creating-a-repository-from-a-template
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
 ### Sobre modelos de repositório

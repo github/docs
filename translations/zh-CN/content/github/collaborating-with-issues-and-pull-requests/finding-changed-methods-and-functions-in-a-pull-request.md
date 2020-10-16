@@ -1,6 +1,6 @@
 ---
 title: 在拉取请求中查找已更改的方法和函数
-intro: 您可以快速查找拉取请求中提议的对 *.go*、*.js*、*.ts*、*.py*、*.php* 和 *.rb* 文件中的方法或函数的更改。
+intro: '您可以快速查找拉取请求中提议的对 *.go*、*.js*、*.ts*、*.py*、*.php* 和 *.rb* 文件中的方法或函数的更改。'
 redirect_from:
   - /articles/finding-changed-methods-and-functions-in-a-pull-request
 versions:

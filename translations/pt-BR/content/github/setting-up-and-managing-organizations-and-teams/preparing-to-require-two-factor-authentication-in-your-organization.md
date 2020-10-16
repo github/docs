@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Recomendamos que você notifique os {% if currentVersion == "free-pro-team@latest" %}integrantes, colaboradores externos e gerentes de cobrança da organização{% else %}integrantes e colaboradores externos da organização{% endif %} no mínimo uma semana antes de você exigir a 2FA na organização.
+Recomendamos que você notifique {% if currentVersion == "free-pro-team@latest" %}os integrantes da organização, colaboradores externos e os gerentes de cobrança{% else %}integrantes da organização e colaboradores externos{% endif %} a pelo menos uma semana antes de exigir 2FA na sua organização.
 
 Se você exigir o uso da autenticação de dois fatores na organização, os integrantes, colaboradores externos e gerentes de cobrança (inclusive contas bots) que não usam 2FA serão removidos da organização e perderão acesso aos repositórios dela. Eles também perderão acesso às bifurcações dos repositórios privados da organização.
 

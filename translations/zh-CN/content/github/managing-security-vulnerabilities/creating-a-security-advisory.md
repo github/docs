@@ -21,7 +21,7 @@ versions:
 5. 键入安全通告的标题。 ![标题字段](/assets/images/help/security/security-advisory-title.png)
 {% data reusables.repositories.security-advisory-edit-details %}
 {% data reusables.repositories.security-advisory-edit-description %}
-8. Click **Create security advisory**. ![Create security advisory button](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
+8. 单击 **Create security advisory（创建安全通告）**。 ![创建安全通告按钮。](/assets/images/help/security/security-advisory-create-security-advisory-button.png)
 
 ### 后续步骤
 

@@ -24,7 +24,9 @@ Para obter mais informações sobre as permissões de gerente do {% data variabl
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Em "{% data variables.product.prodname_github_app %}s", clique no avatar do app no qual deseja remover um gerente do {% data variables.product.prodname_github_app %}. ![Selecione {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
+1. Em "
+{% data variables.product.prodname_github_app %}s", clique no avatar do aplicativo do qual deseja remover um gerente de {% data variables.product.prodname_github_app %}.
+![Selecione {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Em "App managers" (Gerentes do app), encontre o nome de usuário da pessoa da qual deseja remover as permissões de gerente do {% data variables.product.prodname_github_app %} e clique em **Revoke** (Revogar). ![Revogue as permissões de gerente do {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 

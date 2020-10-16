@@ -34,7 +34,8 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}
 4. 在“Enterprise Server Instances（企业服务器实例）”下，单击 {% octicon "download" aria-label="The download icon" %} 下载您的许可文件。 ![下载 GitHub Enterprise Server 许可](/assets/images/help/business-accounts/download-ghes-license.png)
-5. 作为站点管理员登录到您的 {% data variables.product.prodname_ghe_server %} 实例。
+5. 作为站点管理员登录到
+您的 {% data variables.product.prodname_ghe_server %} 实例。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -63,7 +64,8 @@ versions:
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. 在“Quick links”下，要下载包含 {% data variables.product.prodname_ghe_server %} 上当前许可使用情况的文件，请单击 **Export license usage**。 ![Export license usage 链接](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. 导航至 {% data variables.product.prodname_ghe_cloud %}。
+6. 导航到
+{% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}

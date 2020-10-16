@@ -1,6 +1,6 @@
 ---
 title: Dateien löschen
-intro: 'Du kannst jede beliebige Datei in Deinen Repositorys auf {% data variables.product.product_name %} löschen.'
+intro: 'Sie können jede beliebige Datei in Ihren Repositorys auf {% data variables.product.product_name %} löschen.'
 redirect_from:
   - /articles/deleting-files
 versions:

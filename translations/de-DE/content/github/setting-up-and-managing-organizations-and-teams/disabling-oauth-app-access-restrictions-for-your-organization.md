@@ -1,6 +1,6 @@
 ---
 title: OAuth-App-Zugriffsbeschränkungen für Deine Organisation deaktivieren
-intro: 'Organisationsinhaber können Beschränkungen für {% data variables.product.prodname_oauth_app %}s aufheben, die Zugriff auf die Ressourcen der Organisation haben.'
+intro: 'Organisationsinhaber können Einschränkungen für {% data variables.product.prodname_oauth_app %}s aufheben, die Zugriff auf die Ressourcen der Organisation haben.'
 redirect_from:
   - /articles/disabling-third-party-application-restrictions-for-your-organization/
   - /articles/disabling-oauth-app-access-restrictions-for-your-organization

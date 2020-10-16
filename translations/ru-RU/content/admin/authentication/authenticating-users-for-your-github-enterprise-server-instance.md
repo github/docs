@@ -8,8 +8,6 @@ redirect_from:
   - /enterprise/admin/guides/migrations/authenticating-users-for-your-github-enterprise-instance/
   - /enterprise/admin/user-management/authenticating-users-for-your-github-enterprise-server-instance
   - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
-  - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
-  - /enterprise/admin/authentication/authenticating-users-for-your-github-enterprise-server-instance
 mapTopic: true
 versions:
   enterprise-server: '*'

@@ -1,6 +1,6 @@
 ---
 title: 概览
-intro: 'With {% data variables.product.prodname_enterprise %} you can manage accounts and access, licenses, and billing.'
+intro: '通过 {% data variables.product.prodname_enterprise %} 可以管理帐户和访问权限、许可及计费。'
 redirect_from:
   - /enterprise/admin/overview
 versions:

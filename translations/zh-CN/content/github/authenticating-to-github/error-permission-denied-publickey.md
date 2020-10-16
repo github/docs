@@ -1,6 +1,6 @@
 ---
-title: 错误：权限被拒绝（公钥）
-intro: “权限被拒绝”错误表示服务器拒绝了您的连接。 可能有多个原因，最常见的如下所述。
+title: 'Error: Permission denied (publickey)'
+intro: 'A "Permission denied" error means that the server rejected your connection. There could be several reasons why, and the most common examples are explained below.'
 redirect_from:
   - /articles/error-permission-denied-publickey
 versions:
@@ -8,50 +8,50 @@ versions:
   enterprise-server: '*'
 ---
 
-### 对 Git 是否应该使用 `sudo` 命令？
+### Should the `sudo` command be used with Git?
 
-不应对 Git 使用 `sudo` 命令。 如果有*很好的原因*必须使用 `sudo`，请确保对每个命令使用它（可能使用 `su` 获取 shell 作为该点的根更好）。 如果[生成 SSH 密钥](/articles/generating-an-ssh-key)而不使用 `sudo`，则尝试使用 `sudo git push` 而不使用生成的相同密钥。
+You should not be using the `sudo` command with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/articles/generating-an-ssh-key) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
-### 检查是否连接到正确的服务器
+### Check that you are connecting to the correct server
 
-我们知道，键入 Url 很麻烦。 请注意您键入的内容；您无法连接到 "githib.com" 或 "guthub.com"。 有某些情况下，公司网络可能导致解析 DNS 记录有问题。
+Typing is hard, we all know it. Pay attention to what you type; you won't be able to connect to "githib.com" or "guthub.com". In some cases, a corporate network may cause issues resolving the DNS record as well.
 
-为确保连接到正确的域，可以输入以下命令：
+To make sure you are connecting to the right domain, you can enter the following command:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
-> OpenSSH_5.6p1, OpenSSL 0.9.8r 8 Feb 2011
+> OpenSSH_8.1p1, LibreSSL 2.7.3
 > debug1: Reading configuration data /Users/<em>you</em>/.ssh/config
-> debug1: Reading configuration data /etc/ssh_config
-> debug1: Applying options for *
-> debug1: Connecting to {% data variables.command_line.codeblock %} [IP ADDRESS] port 22.
+> debug1: Reading configuration data /etc/ssh/ssh_config
+> debug1: /etc/ssh/ssh_config line 47: Applying options for *
+> debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-应连接端口 22{% if currentVersion == "free-pro-team@latest" %}，除非覆盖设置以使用[通过 HTTPS 的 SSH](/articles/using-ssh-over-the-https-port){% endif %}。
+The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
 
-### 始终使用 "git" 用户
+### Always use the "git" user
 
-所有连接（包括远程 URL 的连接）必须以 "git" 用户进行。 如果尝试以 {% data variables.product.product_name %} 用户名连接，将会失败：
+All connections, including those for remote URLs, must be made as the "git" user. If you try to connect with your {% data variables.product.product_name %} username, it will fail:
 
 ```shell
 $ ssh -T <em>GITHUB-USERNAME</em>@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
-如果连接失败且您通过 {% data variables.product.product_name %} 用户名使用远程 URL，可以[更改远程 URL 以使用 "git" 用户](/articles/changing-a-remote-s-url/)。
+If your connection failed and you're using a remote URL with your {% data variables.product.product_name %} username, you can [change the remote URL to use the "git" user](/articles/changing-a-remote-s-url/).
 
-应键入以下命令来验证连接：
+You should verify your connection by typing:
 
 ```shell
 $ ssh -T git@{% data variables.command_line.codeblock %}
 > Hi <em>username</em>! You've successfully authenticated...
 ```
 
-### 确保您有使用的密钥
+### Make sure you have a key that is being used
 
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
+2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -60,7 +60,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -68,6 +68,14 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  # start the ssh-agent in the background
+  $ eval "$(ssh-agent -s)"
+  > Agent pid 59566
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% endmac %}
 
@@ -78,24 +86,29 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
+2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 如果使用的是 OpenSSH 6.7 或更早版本：
+2. Verify that you have a private key generated and loaded into SSH. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -104,7 +117,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -112,20 +125,26 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
+  
 
 {% endlinux %}
 
-`ssh-add` 命令*应*印出一个长的数字和字母字符串。 如果未印出任何内容，则需要[生成新 SSH 密钥](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)并将其与 {% data variables.product.product_name %} 关联。
+The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
 
 {% tip %}
 
-**提示**：在大多数系统中，默认私钥 (`~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}、`~/.ssh/id_dsa`{% endif %} 和 `~/.ssh/identity`) 会自动添加到 SSH 身体验证代理中。 应无需运行 `ssh-add path/to/key`，除非在生成密钥时覆盖文件名。
+**Tip**: On most systems the default private keys (`~/.ssh/id_rsa` and `~/.ssh/identity`) are automatically added to the SSH authentication agent. You shouldn't need to run `ssh-add path/to/key` unless you override the file name when you generate a key.
 
 {% endtip %}
 
-#### 获取更多详细信息
+#### Getting more details
 
-也可尝试连接 `git@{% data variables.command_line.backticks %}` 来检查使用的密钥：
+You can also check that the key is being used by trying to connect to `git@{% data variables.command_line.backticks %}`:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -143,7 +162,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > Permission denied (publickey).
 ```
 
-在该示例中，我们没有任何密钥供 SSH 使用。 "identity file" 行末的 "-1" 表示 SSH 找不到可使用的文件。 后面的 "Trying private key" 行也表示未找到文件。 如果文件存在，这些行将分别是 "1" 和 "Offering public key"：
+In that example, we did not have any keys for SSH to use. The "-1" at the end of the "identity file" lines means SSH couldn't find a file to use. Later on, the "Trying private key" lines also indicate that no file was found. If a file existed, those lines would be "1" and "Offering public key", respectively:
 
 ```shell
 $ ssh -vT git@{% data variables.command_line.codeblock %}
@@ -155,77 +174,89 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Offering RSA public key: /Users/<em>you</em>/.ssh/id_rsa
 ```
 
-### 确认公钥已附加到您的帐户
+### Verify the public key is attached to your account
 
-必须向 {% data variables.product.product_name %} 提供公钥才可建立安全连接。
+You must provide your public key to {% data variables.product.product_name %} to establish a secure connection.
 
 {% mac %}
 
-1. 打开终端。
-2. 在后台启动 SSH 代理程序。
+1. Open Terminal.
+2. Start SSH agent in the background.
   ```shell
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 如果使用的是 OpenSSH 6.7 或更早版本：
+3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+6. Compare the list of SSH keys with the output from the `ssh-add` command.
+![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
 {% windows %}
 
-1. 打开命令行。
-2. 在后台启动 SSH 代理程序。
+1. Open the command line.
+2. Start SSH agent in the background.
   ```shell
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 如果使用的是 OpenSSH 6.7 或更早版本：
+3. Find and take a note of your public key fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
+  {% else %}
+  ```shell
+  $ ssh-add -l -E sha256
+  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+  ```{% endif %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+6. Compare the list of SSH keys with the output from the `ssh-add` command.
+![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
 {% linux %}
 
-1. 打开终端。
-2. 在后台启动 SSH 代理程序。
+1. Open Terminal.
+2. Start SSH agent in the background.
   ```shell
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 如果使用的是 OpenSSH 6.7 或更早版本：
+3. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
   ```
 
-  如果使用的是 OpenSSH 6.8 或更新版本：
+  If you're using OpenSSH 6.8 or newer:
   ```shell
   $ ssh-add -l -E md5
   > 2048 <em>MD5:a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -233,14 +264,15 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.ssh %}
-6. 比较 SSH 公钥列表与 `ssh-add` 命令的输出。 ![{% data variables.product.product_name %} 中的 SSH 密钥列表](/assets/images/help/settings/ssh_key_listing.png)
+6. Compare the list of SSH keys with the output from the `ssh-add` command.
+![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
-如果在 {% data variables.product.product_name %} 中未看到公钥，则需要[添加 SSH 密钥到 {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) 并将其与您的计算机关联。
+If you don't see your public key in {% data variables.product.product_name %}, you'll need to [add your SSH key to {% data variables.product.product_name %}](/articles/adding-a-new-ssh-key-to-your-github-account) to associate it with your computer.
 
 {% warning %}
 
-**警告**：如果在 {% data variables.product.product_name %} 上看到您不熟悉的 SSH 密钥，请立即删除并联系 {% data variables.contact.contact_support %} 寻求进一步的帮助。 无法识别的公钥可能表示安全问题。 更多信息请参阅“[审查 SSH 密钥](/articles/reviewing-your-ssh-keys)”。
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/articles/reviewing-your-ssh-keys)."
 
 {% endwarning %}

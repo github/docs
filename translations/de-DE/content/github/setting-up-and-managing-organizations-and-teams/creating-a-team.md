@@ -1,6 +1,6 @@
 ---
 title: Ein Team erstellen
-intro: 'Du kannst unabhängige oder untergeordnete Teams erstellen, um Repository-Berechtigungen und Erwähnungen für Personengruppen zu verwalten.'
+intro: Du kannst unabhängige oder untergeordnete Teams erstellen, um Repository-Berechtigungen und Erwähnungen für Personengruppen zu verwalten.
 redirect_from:
   - /articles/creating-a-team-early-access-program/
   - /articles/creating-a-team

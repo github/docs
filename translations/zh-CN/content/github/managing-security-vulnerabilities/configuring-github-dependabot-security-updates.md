@@ -23,12 +23,12 @@ versions:
 
 {% note %}
 
-**注** 
-{% data variables.product.prodname_dependabot_security_updates %} 只解决依赖关系图跟踪的依赖项中的安全漏洞。 安全更新创建的目标不是解决托管在私有仓库中的私有注册表或包中的漏洞。 但是，如果间接或过渡的依赖项已在锁定文件或类似文件中明确定义，则会包含在内。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。 此外，对于被检测出漏洞的依赖项，必须强调 {% data variables.product.prodname_dependabot_security_updates %} 自动使用建议用于锁定文件的修复程序创建拉取请求。
+**注**
+{% data variables.product.prodname_dependabot_security_updates %} only resolve security vulnerabilities in the dependencies tracked by your dependency graph. 安全更新创建的目标不是解决托管在私有仓库中的私有注册表或包中的漏洞。 但是，如果间接或过渡的依赖项已在锁定文件或类似文件中明确定义，则会包含在内。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。 此外，对于被检测出漏洞的依赖项，必须强调 {% data variables.product.prodname_dependabot_security_updates %} 自动使用建议用于锁定文件的修复程序创建拉取请求。
 
 {% endnote %}
 
-您可以为任何使用 {% data variables.product.prodname_dependabot_short %} 警报和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 您可以对个别仓库或所有由您的用户帐户或组织拥有的仓库禁用 {% data variables.product.prodname_dependabot_security_updates %}。 For more information, see "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-github-dependabot-security-updates-for-your-repositories)" below.
+您可以为任何使用 {% data variables.product.prodname_dependabot_short %} 警报和依赖关系图的仓库启用 {% data variables.product.prodname_dependabot_security_updates %}。 您可以对个别仓库或所有由您的用户帐户或组织拥有的仓库禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅下面的“[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-github-dependabot-security-updates-for-your-repositories)”。
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -38,18 +38,18 @@ versions:
 
 {% note %}
 
-**Note**: You can manually enable {% data variables.product.prodname_dependabot_security_updates %}, even if the repository doesn't meet some of the prerequisites below. For example, you can enable {% data variables.product.prodname_dependabot_security_updates %} on a fork, or for a package manager that isn't directly supported by following the instructions in "[Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories](#managing-github-dependabot-security-updates-for-your-repositories)."
+**注**：您可以手动启用 {% data variables.product.prodname_dependabot_security_updates %}，即使仓库不符合以下某些先决条件。 例如，您可以按照“[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-github-dependabot-security-updates-for-your-repositories)”中的说明，在复刻上或对于不直接支持的包管理器启用 {% data variables.product.prodname_dependabot_security_updates %}。
 
 {% endnote %}
 
-| 自动启用前提条件                                                                                       | 更多信息                                                                                                                                                   |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 存储库不是复刻                                                                                        | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)"                                                                              |
-| 仓库未存档                                                                                          | "[存档仓库](/github/creating-cloning-and-archiving-repositories/archiving-repositories)"                                                                   |
-| 仓库是公共的，或者仓库是私有的但您在仓库的设置中启用了 {% data variables.product.prodname_dotcom %} 只读分析、依赖关系图和漏洞警报。 | “[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”。                |
-| 仓库包含软件包生态系统中 {% data variables.product.prodname_dotcom %} 支持的依赖项清单文件                      | "[支持的软件包生态系统](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"                                |
+| 自动启用前提条件                                                                                  | 更多信息                                                                                                                                              |
+| ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 存储库不是复刻                                                                                   | "[关于复刻](/github/collaborating-with-issues-and-pull-requests/about-forks)"                                                                         |
+| 仓库未存档                                                                                     | "[存档仓库](/github/creating-cloning-and-archiving-repositories/archiving-repositories)"                                                              |
+| 仓库是公共的，或者仓库是私有的但您在仓库的设置中启用了 {% data variables.product.prodname_dotcom %} 只读分析、依赖关系图和漏洞警报。 | “[管理私有仓库的数据使用设置](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)”。           |
+| 仓库包含软件包生态系统中 {% data variables.product.prodname_dotcom %} 支持的依赖项清单文件                      | "[支持的软件包生态系统](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)"                           |
 | {% data variables.product.prodname_dependabot_security_updates %} 未对仓库禁用                | "[管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}](#managing-github-dependabot-security-updates-for-your-repositories)" |
-| 仓库尚未使用集成进行依赖项管理                                                                                | “[关于集成](/github/customizing-your-github-workflow/about-integrations)”                                                                                  |
+| 仓库尚未使用集成进行依赖项管理                                                                           | “[关于集成](/github/customizing-your-github-workflow/about-integrations)”                                                                             |
 
 如果未为存储库启用安全更新，并且您不知道原因么，请先尝试使用以下程序部分的说明启用它们。 如果安全更新还是不工作，您可以[联系支持](https://support.github.com/contact)。
 
@@ -57,11 +57,11 @@ versions:
 
 {% data variables.product.prodname_dependabot_security_updates %} 还包括兼容性分数，以便您了解更新漏洞是否可能导致对项目的重大更改。 我们从已生成特定安全更新的公共仓库中查看此前通过的 CI 测试，以了解更新是否会导致测试失败。 更新的兼容性分数是在依赖项的相关版本之间进行更新时，CI 运行被视为通过的百分比。
 
-### Managing {% data variables.product.prodname_dependabot_security_updates %} for your repositories
+### 管理仓库的 {% data variables.product.prodname_dependabot_security_updates %}
 
 您可以对单个仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}。
 
-You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+您也可以为用户帐户或组织拥有的所有仓库启用或禁用 {% data variables.product.prodname_dependabot_security_updates %}。 更多信息请参阅“[管理用户帐户的安全和分析设置](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)”或“[管理组织的安全和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”。
 
 {% data variables.product.prodname_dependabot_security_updates %} 需要特定的仓库设置。 更多信息请参阅“[支持的仓库](#supported-repositories)”。
 
