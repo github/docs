@@ -48,7 +48,7 @@ if [[ $OPTION == "stitch" ]]; then
   
   # Generate the deferenced OpenAPI files from github/github
   cd github
-  bin/dump-openapi-description /tmp/dump
+  bin/openapi bundle /tmp/dump
 
   # Copy the derefrenced json files into rest-api-operations and build them
   cd ../rest-api-operations
