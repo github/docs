@@ -34,9 +34,9 @@ module.exports = async function contextualize (req, res, next) {
   req.context.query = req.query
   req.context.languages = languages
   req.context.earlyAccessPaths = earlyAccessPaths
-  req.context.enterpriseVersions = enterpriseServerReleases
   req.context.productNames = productNames
   req.context.enterpriseServerReleases = enterpriseServerReleases
+  req.context.enterpriseServerVersions = Object.keys(allVersions).filter(version => version.startsWith('enterprise-server@'))
   req.context.redirects = redirects
   req.context.site = site[req.language].site
   req.context.siteTree = siteTree

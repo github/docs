@@ -1,6 +1,6 @@
 ---
 title: Zwei-Faktor-Authentifizierung konfigurieren
-intro: 'Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.'
+intro: Du kannst zwischen mehreren Optionen wählen, um eine zweite Authentifizierungsquelle Deinem Konto hinzuzufügen.
 redirect_from:
   - /articles/configuring-two-factor-authentication-via-a-totp-mobile-app/
   - /articles/configuring-two-factor-authentication-via-text-message/
@@ -11,14 +11,14 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst die Zwei-Faktor-Authentifizierung per Mobilanwendung{% if currentVersion == "free-pro-team@latest" %} oder per SMS konfigurieren{% endif %}. Du kannst auch einen Sicherheitsschlüssel hinzufügen.
+You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. Du kannst auch einen Sicherheitsschlüssel hinzufügen.
 
-Wir empfehlen dringend, eine TOTP-Anwendung (Time-based One-Time Password) zu verwenden, um die Zwei-Faktor-Authentifizierung (2FA) zu konfigurieren.{% if currentVersion == "free-pro-team@latest" %} TOTP-Anwendungen sind zuverlässiger als SMS, besonders bei Standorten außerhalb der USA.{% endif %} TOTP-Anwendungen unterstützen das sichere Backup Deiner Authentifizierungscodes in der Cloud und sie können wiederhergestellt werden, wenn Du den Zugriff auf Dein Gerät verlierst.
+We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% if currentVersion == "free-pro-team@latest" %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
 {% warning %}
 
 **Warnung:**
-- Wenn Du ein Mitglied{% if currentVersion == "free-pro-team@latest" %}, Abrechnungsmanager,{% endif %} oder externer Mitarbeiter eines privaten Repositorys einer Organisation bist, die die Zwei-Faktor-Authentifizierung voraussetzt, musst Du die Organisation verlassen, bevor Du die 2FA auf {% data variables.product.product_location %} deaktivieren kannst.
+- If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
 - Wenn Du die 2FA deaktivierst, verlierst Du automatisch den Zugriff auf die Organisation und alle privaten Forks, die Du in den privaten Repositorys der Organisation hast. Um wieder auf die Organisation und Deine Forks zuzugreifen, aktiviere die Zwei-Faktor-Authentifizierung erneut und wende Dich an einen Organisationsinhaber.
 
 {% endwarning %}
@@ -45,7 +45,9 @@ Eine TOTP-Anwendung (Time-based One-Time Password) erzeugt automatisch einen Aut
 8. Führe auf der Seite zur Zwei-Faktor-Authentifizierung eine der folgenden Aktionen durch:
     - Scanne den QR-Code mit der App Deines Mobilgeräts. Nach dem Scannen zeigt die App einen sechsstelligen Code an, den Du auf {% data variables.product.product_name %} eingeben kannst.
     - Wenn Du den QR-Code nicht scannen kannst, klicke auf **enter this text code** (Diesen Textcode eingeben), um einen Code anzuzeigen, den Du kopieren und manuell auf{% data variables.product.product_name %} eingeben kannst. ![Klicke auf „enter this text code“ (Diesen Code eingeben)](/assets/images/help/2fa/totp-click-enter-code.png)
-9. Die TOTP-Mobilanwendung speichert Dein {% data variables.product.product_name %}-Konto und erzeugt alle paar Sekunden einen neuen Authentifizierungscode. Gib auf der 2FA-Seite auf {% data variables.product.product_name %} den Code ein, und klicke auf **Enable** (Aktivieren). ![Feld zum Aktivieren von TOTP](/assets/images/help/2fa/totp-enter-code.png)
+9. The TOTP mobile application saves your
+{% data variables.product.product_name %} account and generates a new authentication code every few seconds. Gib auf der 2FA-Seite auf {% data variables.product.product_name %} den Code ein, und klicke auf **Enable** (Aktivieren).
+    ![Feld zum Aktivieren von TOTP](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -79,32 +81,16 @@ Bevor Du diese Methode verwendest, stelle sicher, dass Du SMS empfangen kannst. 
 
 Auf den meisten Geräten und Browsern kannst Du einen physikalischen Sicherheitsschlüssel über USB oder NFC verwenden. Einige Browser können Fingerabdruckleser, Gesichtserkennung oder Passwort / PIN als Sicherheitsschlüssel auf Deinem Gerät verwenden.
 
-Die Authentifizierung mit einem Sicherheitsschlüssel ist *zweitrangig* gegenüber der Authentifizierung mit einer TOTP-Anwendung{% if currentVersion == "free-pro-team@latest" %} oder SMS{% endif %}. Wenn Du Deinen Sicherheitsschlüssel verlierst, kannst Du immer noch den Code Deines Telefons für die Anmeldung verwenden.
+Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. Wenn Du Deinen Sicherheitsschlüssel verlierst, kannst Du immer noch den Code Deines Telefons für die Anmeldung verwenden.
 
-1. Du musst die 2FA bereits mit einer TOTP-Mobilanwendung{% if currentVersion == "free-pro-team@latest" %} oder SMS{% endif %} konfiguriert haben.
-2. Stelle sicher, dass Du einen
-mit {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}WebAuthn{% else %}FIDO U2F{% endif %} kompatiblen Sicherheitsschlüssel in Deinen Computer eingesteckt hast.
+1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
+2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. Klicke neben „Security keys“ (Sicherheitsschlüssel) auf **Add** (Hinzufügen). ![Option „Add security keys" (Hinzufügen von Sicherheitsschlüsseln)](/assets/images/help/2fa/add-security-keys-option.png)
-6. Klicke unter „Security keys“ (Sicherheitsschlüssel) auf **Register new security key** (Neuen Sicherheitsschlüssel registrieren).
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Einen neuen Sicherheitsschlüssel registrieren](/assets/images/help/2fa/security-key-register.png)
-  {% else %}
-  ![Ein neues FIDO U2F-Gerät registrieren](/assets/images/help/2fa/register_new_fido_u2f_device.png)
-  {% endif %}
-7. Gib einen Nicknamen für den Sicherheitsschlüssel ein, und klicke dann auf **Add** (Hinzufügen).
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Einen Nickname für einen Sicherheitsschlüssel angeben](/assets/images/help/2fa/security-key-nickname.png)
-  {% else %}
-  ![Einen Nickname für ein FIDO U2F-Gerät angeben](/assets/images/help/2fa/fido_u2f_nickname.png)
-  {% endif %}
-8. Aktiviere Deinen Sicherheitsschlüssel gemäß den Anweisungen in der Dokumentation des Schlüssels.
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![Eingabeaufforderung für einen Sicherheitsschlüssel](/assets/images/help/2fa/security-key-prompt.png)
-  {% else %}
-  ![Aufforderung für ein FIDO U2F-Gerät](/assets/images/help/2fa/fido_u2f_prompt_key.png)
-  {% endif %}
+6. Klicke unter „Security keys“ (Sicherheitsschlüssel) auf **Register new security key** (Neuen Sicherheitsschlüssel registrieren). ![Einen neuen Sicherheitsschlüssel registrieren](/assets/images/help/2fa/security-key-register.png)
+7. Gib einen Nicknamen für den Sicherheitsschlüssel ein, und klicke dann auf **Add** (Hinzufügen). ![Einen Nickname für einen Sicherheitsschlüssel angeben](/assets/images/help/2fa/security-key-nickname.png)
+8. Aktivieren Sie Ihren Sicherheitsschlüssel gemäß den Anweisungen in der Dokumentation des Schlüssels. ![Eingabeaufforderung für einen Sicherheitsschlüssel](/assets/images/help/2fa/security-key-prompt.png)
 9.  Bestätige, dass Du Deine Wiederherstellungscodes heruntergeladen hast und auf sie zugreifen kannst. Wenn Du das noch nicht getan hast oder einen anderen Satz an Codes verwenden möchtest, lade Deine Codes herunter und speichere sie an einem sicheren Ort. Wenn Du nicht mehr auf Dein Konto zugreifen kannst, kannst Du mit den Wiederherstellungscodes erneut Zugriff auf Dein Konto erlangen. Weitere Informationen findest Du unter „[Dein Konto beim Verlust der 2FA-Anmeldeinformationen wiederherstellen](/articles/recovering-your-account-if-you-lose-your-2fa-credentials).“ ![Schaltfläche „Download recovery codes" (Herunterladen der Wiederherstellungscodes)](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 

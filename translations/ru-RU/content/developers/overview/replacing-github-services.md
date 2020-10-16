@@ -19,7 +19,6 @@ As an alternative to the email service, you can now start using email notificati
 
 {% endnote %}
 
-
 ### Deprecation timeline
 
 - **October 1, 2018**: GitHub discontinued allowing users to install services. We removed GitHub Services from the GitHub.com user interface.

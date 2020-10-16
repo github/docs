@@ -1,6 +1,6 @@
 ---
 title: ガイド
-intro: REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。
+intro: 'REST APIおよび認証の初歩や、さまざまなタスクでREST APIを使用する方法について学びましょう。'
 redirect_from:
   - /guides/
   - /v3/guides

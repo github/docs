@@ -1,1 +1,1 @@
-要使用 REST API 创建密码，必须对仓库具有写入权限。 For more information, see "[{% data variables.product.prodname_actions %} secrets API](/v3/actions/secrets/)."
+To create secrets using the REST API, you must have write access to the repository or admin access to the organization. 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/v3/actions/secrets/)”。

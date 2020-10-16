@@ -14,7 +14,7 @@ Der Befehl `git remote rm` hat ein Argument:
 
 ### Beispiel
 
-These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
+Bei diesen Beispielen wird davon ausgegangen, dass Du wie empfohlen [Klone mit HTTPS erstellst](/articles/which-remote-url-should-i-use/#cloning-with-https-urls).
 
 ```shell
 $ git remote -v

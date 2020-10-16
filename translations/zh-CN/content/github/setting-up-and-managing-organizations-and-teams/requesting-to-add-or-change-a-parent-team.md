@@ -1,6 +1,6 @@
 ---
 title: 申请添加或更改父团队
-intro: 如果您在团队中具有维护员权限，可以申请在组织的层次结构中将团队嵌套在父团队下面。
+intro: '如果您在团队中具有维护员权限，可以申请在组织的层次结构中将团队嵌套在父团队下面。'
 redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
 versions:

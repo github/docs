@@ -1,6 +1,6 @@
 ---
 title: Abgelaufenen GPG-Schlüssel aktualisieren
-intro: 'Bei der Verifizierung einer Signatur überprüft {% data variables.product.product_name %}, ob der Schlüssel widerrufen wurde oder abgelaufen ist. Bei Widerruf oder Ablauf Deines Signaturschlüssel kann {% data variables.product.product_name %} Deine Signaturen nicht verifizieren. Wenn Dein Schlüssel widerrufen wurde, verwende den primären Schlüssel oder einen anderen, nicht widerrufenen Schlüssel zum signieren Deiner Commits.'
+intro: 'Bei der Verifizierung einer Signatur überprüft {% data variables.product.product_name %}, ob der Schlüssel widerrufen wurde oder abgelaufen ist. Bei Widerruf oder Ablauf des Signaturschlüssels kann {% data variables.product.product_name %} Ihre Signaturen nicht verifizieren. Wenn Dein Schlüssel widerrufen wurde, verwende den primären Schlüssel oder einen anderen, nicht widerrufenen Schlüssel zum signieren Deiner Commits.'
 redirect_from:
   - /articles/updating-an-expired-gpg-key
 versions:

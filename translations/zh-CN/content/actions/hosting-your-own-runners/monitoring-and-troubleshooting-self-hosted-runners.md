@@ -13,7 +13,7 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### 使用 {% data variables.product.prodname_dotcom %} 检查自托管运行器的状态
+### 使用 {{ site.data.variables.product.prodname_dotcom }} 检查自托管运行器的状态
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 

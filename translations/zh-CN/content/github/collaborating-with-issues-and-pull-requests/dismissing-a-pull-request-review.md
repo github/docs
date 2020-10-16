@@ -14,14 +14,10 @@ versions:
 {% data reusables.search.requested_reviews_search %}
 
 {% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+{% data reusables.repositories.choose-pr-review %}
 3. 在 "Conversation"（转换）选项卡中，滚动到要忽略的审查，然后单击 {% octicon "chevron-down" aria-label="The down button" %}。 ![合并框中的 V 形图标](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
 4. 单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}，然后单击 **Dismiss review（忽略审查）**。 ![合并框中的烤肉串图标](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. 输入忽略审查的原因，然后单击 **Dismiss review（忽略审查）**。 ![忽略审查按钮](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
-{% else %}
-3. 在“Conversation（对话）”选项卡上，滚动到想要查看的评论，然后单击 **Dismiss review（忽略审查）**。 ![忽略审查选项](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
-4. 输入忽略审查的原因，然后单击 **Dismiss review（忽略审查）**。 ![忽略审查按钮](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
-{% endif %}
 
 ### 延伸阅读
 

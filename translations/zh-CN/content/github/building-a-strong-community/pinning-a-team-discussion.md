@@ -1,6 +1,6 @@
 ---
 title: 固定团队讨论
-intro: 您可以将重要的讨论固定到组织的团队页面，以便于参考，也可取消固定不再相关的讨论。
+intro: '您可以将重要的讨论固定到组织的团队页面，以便于参考，也可取消固定不再相关的讨论。'
 redirect_from:
   - /articles/pinning-a-team-discussion
 versions:

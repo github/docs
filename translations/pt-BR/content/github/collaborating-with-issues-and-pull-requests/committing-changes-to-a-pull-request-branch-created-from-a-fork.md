@@ -22,7 +22,9 @@ Somente o usuário que criou a pull request pode dar a você permissão para faz
 
 {% endnote %}
 
-1. No {% data variables.product.product_name %}, navegue até a página principal da bifurcação (ou cópia do repositório) onde o branch da pull request foi criado.
+1. Em
+
+{% data variables.product.product_name %}, acesse a página principal da bifurcação (ou cópia do seu repositório) onde o branch do pull request foi criado.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

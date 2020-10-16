@@ -14,18 +14,18 @@ You can configure your sponsor button by editing a _FUNDING.yml_ file in your re
 
 You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add up to four sponsored developers or organizations in {% data variables.product.prodname_sponsors %}. Add each platform on a new line, using the following syntax:
 
-| 플랫폼                                                                                | Syntax                                                                   |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: PROJECT-NAME`                                         |
+| 플랫폼                                                                           | Syntax                                                                   |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                         |
 | [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` or `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: USERNAME`                                                    |
-| [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: USERNAME`                                                        |
-| [Liberapay](https://en.liberapay.com/)                                             | `liberapay: USERNAME`                                                    |
-| [Open Collective](https://opencollective.com/)                                     | `open_collective: USERNAME`                                              |
-| [Otechie](https://otechie.com/)                                                    | `otechie: USERNAME`                                                      |
-| [Patreon](https://www.patreon.com/)                                                | `patreon: USERNAME`                                                      |
-| [Tidelift](https://tidelift.com/)                                                  | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
-| Custom URL                                                                         | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`                |
+| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                    |
+| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                        |
+| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                    |
+| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                              |
+| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                      |
+| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                      |
+| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                   |
+| Custom URL                                                                    | `custom: LINK1` or `custom: [LINK1, LINK2, LINK3, LINK4]`                |
 
 For Tidelift, use the `platform-name/package-name` syntax with the following platform names:
 

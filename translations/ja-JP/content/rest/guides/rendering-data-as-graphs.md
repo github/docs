@@ -240,7 +240,7 @@ repos.each do |repo|
 end
 ```
 
-そこから、見つかった各言語を"master list"に次々に追加していきます。
+From there, we'll cumulatively add each language found to a list of languages:
 
 ``` ruby
 repo_langs.each do |lang, count|

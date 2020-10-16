@@ -1,6 +1,6 @@
 ---
 title: Commits durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du Commits durchsuchen und die Suchergebnisse mit den folgenden Qualifizierern der Commit-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie Commits durchsuchen und die Suchergebnisse mit den folgenden Kennzeichnern der Commit-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-commits
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Commits global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können Commits global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 Bei der Suche nach Commits wird nur der [Standardbranch](/articles/about-branches) eines Repositorys durchsucht.
 

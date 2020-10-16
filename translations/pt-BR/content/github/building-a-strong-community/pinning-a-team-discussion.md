@@ -1,6 +1,6 @@
 ---
 title: Fixar uma discussão de equipe
-intro: Você pode fixar discussões importantes nas páginas da equipe da organização para facilitar a consulta e desafixar discussões que não são mais relevantes.
+intro: 'Você pode fixar discussões importantes nas páginas da equipe da organização para facilitar a consulta e desafixar discussões que não são mais relevantes.'
 redirect_from:
   - /articles/pinning-a-team-discussion
 versions:
