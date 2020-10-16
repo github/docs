@@ -40,7 +40,7 @@ Our {% data variables.product.prodname_dotcom %} [YouTube Training and Guides ch
 
 #### Free classes
 
-{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://services.github.com/on-demand/) including {% data variables.product.prodname_dotcom %} 101: [Introduction](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %} 102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop), and {% data variables.product.prodname_dotcom %} 103: [Command Line](https://services.github.com/on-demand/github-cli).
+{% data variables.product.product_name %} offers a series of interactive, [on-demand training courses](https://services.github.com/on-demand/) on Github learning Lab including {% data variables.product.prodname_dotcom %} 101: [Introduction](https://services.github.com/on-demand/intro-to-github/), {% data variables.product.prodname_dotcom %} 102: [GitHub Desktop](https://services.github.com/on-demand/github-desktop), and {% data variables.product.prodname_dotcom %} 103: [Command Line](https://services.github.com/on-demand/github-cli),One course on Github learning lab that covers entire Github ecosystem [Ramp up on Git and GitHub ](https://lab.github.com/githubtraining/ramp-up-on-git-and-github?overlay=register-box-overlay).
 
 #### {% data variables.product.prodname_dotcom %}'s web-based educational programs
 
