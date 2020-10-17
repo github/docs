@@ -28,9 +28,9 @@ OrganizationのインタラクションAPIを使用すると、Organizationの�
 
 リポジトリのインタラクションAPIを使用すると、オーナーまたは管理者アクセス権のあるユーザはパブリックリポジトリでコメント、Issueのオープン、プルリクエストの作成ができるユーザを一時的に制限することができます。 {% data reusables.interactions.interactions-detail %} {% data variables.product.product_name %} ユーザのグループについては以下を参照してください。
 
-* リポジトリの{% data reusables.interactions.existing-user-limit-definition %}
-* リポジトリの{% data reusables.interactions.contributor-user-limit-definition %}
-* リポジトリの{% data reusables.interactions.collaborator-user-limit-definition %}
+* {% data reusables.interactions.existing-user-limit-definition %} in the repository.
+* {% data reusables.interactions.contributor-user-limit-definition %} in the repository.
+* {% data reusables.interactions.collaborator-user-limit-definition %} in the repository.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'repos' %}{% include rest_operation %}{% endif %}

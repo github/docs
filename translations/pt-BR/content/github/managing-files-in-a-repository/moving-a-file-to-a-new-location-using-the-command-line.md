@@ -1,6 +1,6 @@
 ---
 title: Mover um arquivo para um novo local usando a linha de comando
-intro: 'Você pode usar a linha de comando para mover arquivos dentro de um repositório, removendo o arquivo do local antigo e adicionando-o ao novo local.'
+intro: Você pode usar a linha de comando para mover arquivos dentro de um repositório, removendo o arquivo do local antigo e adicionando-o ao novo local.
 redirect_from:
   - /articles/moving-a-file-to-a-new-location-using-the-command-line
 versions:

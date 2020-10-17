@@ -1,6 +1,6 @@
 ---
 title: Ein Ticket einreichen
-intro: 'Zum Einreichen eines Supporttickets an {% data variables.contact.github_support %} verwende das Supportportal.'
+intro: 'Zum Einreichen eines Supporttickets an {% data variables.contact.github_support %} verwenden Sie das Supportportal.'
 redirect_from:
   - /articles/submitting-a-ticket
 versions:
@@ -13,7 +13,7 @@ Wenn Du {% data variables.product.prodname_ghe_server %}, {% data variables.prod
 
 ### Ticket über das {% data variables.contact.support_portal %} einreichen
 
-1. Navigiere zu {% data variables.contact.contact_support_portal %}.
+1. Rufen Sie das {% data variables.contact.contact_support_portal %} auf.
 2. Gib unter „Name" Deinen Namen ein. ![Feld „Name“](/assets/images/help/support/name-field.png)
 3. Wähle im Dropdownmenü „Email“ (E-Mail) die E-Mail-Adresse aus, unter der Dich {% data variables.contact.github_support %} kontaktieren soll. ![Feld „Email“ (E-Mail)](/assets/images/help/support/email-field.png)
 4. Geben Sie unter „Subject“ (Betreff) einen beschreibenden Titel zu Ihrem Issue ein. ![Feld „Subject“ (Betreff)](/assets/images/help/support/subject-field.png)

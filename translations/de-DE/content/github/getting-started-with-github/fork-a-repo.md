@@ -4,7 +4,7 @@ redirect_from:
   - /fork-a-repo/
   - /forking/
   - /articles/fork-a-repo
-intro: 'Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Repositorys kannst Du Änderungen uneingeschränkt testen, ohne Auswirkungen auf das Originalprojekt.'
+intro: Ein Fork ist eine Kopie eines Repositorys. Durch das Forken eines Repositorys kannst Du Änderungen uneingeschränkt testen, ohne Auswirkungen auf das Originalprojekt.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -46,7 +46,7 @@ Wenn Du ein öffentliches Repository von einem Fork eines Projekts eines anderen
 
 Das Forken eines Repositorys ist ein einfacher Vorgang, bestehend aus zwei Schritten. Wir haben ein Repository erstellt, mit dem Du das Forken üben kannst.
 
-1. Navigiere auf {% data variables.product.product_location %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. Navigieren Sie auf {% data variables.product.product_location %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 2. Klicke in der oberen rechte Ecke der Seite auf **Fork**. ![Schaltfläche „Fork“ (Fork)](/assets/images/help/repository/fork_button.jpg)
 
 ### Deinen Fork regelmäßig synchronisieren
@@ -55,13 +55,15 @@ Du forkst vielleicht ein Projekt, um Änderungen an das vorgelagerte - oder orig
 
 #### Schritt 1: Git einrichten
 
-Wenn Sie es noch nicht getan haben, müssen Sie zunächst [Git einrichten](/articles/set-up-git). Denken Sie auch daran, die [Authentifizierung bei {% data variables.product.product_location %} über Git einzurichten](/articles/set-up-git#next-steps-authenticating-with-github-from-git).
+Wenn Sie es noch nicht getan haben, müssen Sie zunächst [Git einrichten](/articles/set-up-git). Denke auch daran, [Authentifizierungen zu {% data variables.product.product_location %} über Git einzurichten](/articles/set-up-git#next-steps-authenticating-with-github-from-git).
 
 #### Schritt 2: einen lokalen Klon Deines Forks erstellen
 
 Momentan besitzen Sie einen Fork des Repositorys „Spoon-Knife“, aber Sie haben nicht die Dateien dieses Repositorys auf Ihrem Computer. Deswegen erstellen wir nun einen Klon Deines Forks lokal auf Deinem Computer.
 
-1. Navigiere auf {% data variables.product.product_name %} zu **Deinem Fork** des Repositorys „Spoon-Knife“.
+1. On
+
+{% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -86,7 +88,9 @@ Jetzt hast Du eine lokale Kopie Deiner Fork des Spoon-Knife-Repositorys.
 
 Wenn Du ein Projekt forkst, um Änderungen für das Original-Repository vorzuschlagen, kannst Du Git so konfigurieren, dass Änderungen am vorgelagerten (originalen) Repository in den lokalen Klon Deiner Fork abgerufen werden.
 
-1. Navigiere auf {% data variables.product.product_name %} zum Repository [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. On
+
+{% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Wechsle das Verzeichnis zum Speicherort des Forks, den Du bei [Schritt 2: einen lokalen Klon Deines Forks erstellen](#step-2-create-a-local-clone-of-your-fork) geklont hast.
@@ -128,7 +132,7 @@ Du kannst nun jede Änderung am Fork vornehmen, einschließlich:
 
 Forken Sie ein Repository, um an einem Projekt mitzuarbeiten. {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}Sie können [Explore](https://github.com/explore) durchsuchen, um Projekte zu finden und an Open-Source-Repositorys mitzuarbeiten. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
+{% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 

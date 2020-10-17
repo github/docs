@@ -1,6 +1,6 @@
 ---
 title: 変更したファイルの GitHub での表示方法をカスタマイズする
-intro: 特定のファイルをデフォルトで diff に表示しない、またはリポジトリの言語として考えないようにするために、 *.gitattributes* ファイルで `linguist-generated` 属性を使ってマークできます。
+intro: '特定のファイルをデフォルトで diff に表示しない、またはリポジトリの言語として考えないようにするために、 *.gitattributes* ファイルで `linguist-generated` 属性を使ってマークできます。'
 redirect_from:
   - /articles/customizing-how-changed-files-appear-on-github
 versions:

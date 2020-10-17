@@ -170,7 +170,7 @@ git commit
 
 ### 提及人员和团队
 
-您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 This will trigger a notification and bring their attention to the conversation. 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 有关通知的更多信息，请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。
+您可以在 {% data variables.product.product_name %} 上提及人员或[团队](/articles/setting-up-teams/)，方法是键入 `@` 加上其用户名或团队名称。 这将触发通知并提请他们注意对话。 如果您在编辑的评论中提及某人的用户名或团队名称，该用户也会收到通知。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support 您如何看待这些更新？`
 
@@ -188,12 +188,9 @@ git commit
 
 更多信息请参阅“[自动链接的引用和 URL](/articles/autolinked-references-and-urls)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 引用外部资源
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### 内容附件
 
@@ -201,7 +198,7 @@ git commit
 
 ![内容附件](/assets/images/help/writing/content-attachment.png)
 
-要查看内容附件，您必须拥有使用仓库中安装的内容附件 API 的 {% data variables.product.prodname_github_app %}。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[在个人帐户中安装应用程序](/articles/installing-an-app-in-your-personal-account)”和“[在组织中安装应用程序](/articles/installing-an-app-in-your-organization)”。{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 内容附件不会显示在属于 markdown 链接的 URL 中。
 

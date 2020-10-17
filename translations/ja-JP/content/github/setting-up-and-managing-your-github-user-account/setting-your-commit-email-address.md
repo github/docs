@@ -21,7 +21,7 @@ versions:
 
 Web ベースの Git 操作については、{% data variables.product.product_name %} でのコミットメールアドレスを設定できます。 コマンドラインからプッシュするコミットについては、Git のコミットメールアドレスを設定できます。
 
-{% if currentVersion == "free-pro-team@latest" %}コミットメールアドレスの変更前に行ったコミットは、変更前のメールアドレスに関連づけられたままとなります。{% else %}{% data variables.product.product_name %} 上のコミットメールアドレスを変更した後、新規メールアドレスは、今後のウェブベースの Git オペレーションのすべてで表示されます。 コミットメールアドレスを変更する前のコミットは、変更前のメールアドレスに関連付けられたままとなります。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. コミットメールアドレスを変更する前のコミットは、変更前のメールアドレスに関連付けられたままとなります。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -33,11 +33,11 @@ Web ベースの Git 操作については、{% data variables.product.product_n
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %} メールアドレスをプライベートにしておきたいなら、{% data variables.product.product_name %}が提供する `no-reply` メールアドレスをコミットメールアドレスとして使うことができます。 コマンドラインからプッシュするコミットに対して`noreply`メールアドレスを使いたい場合には、そのメールアドレスを Git のコミットメールアドレスの設定で使用してください。 Web ベースの Git 操作に `noreply` アドレスを使いたい場合には、GitHub でコミットメールアドレスの設定を行い、[**Keep my email address private**] を選択してください。
+{% if currentVersion == "free-pro-team@latest" %}If you'd like to keep your personal email address private, you can use a {% data variables.product.product_name %}-provided `no-reply` email address as your commit email address. コマンドラインからプッシュするコミットに対して`noreply`メールアドレスを使いたい場合には、そのメールアドレスを Git のコミットメールアドレスの設定で使用してください。 Web ベースの Git 操作に `noreply` アドレスを使いたい場合には、GitHub でコミットメールアドレスの設定を行い、[**Keep my email address private**] を選択してください。
 
 また、個人のメールアドレスを公開するコマンドラインからプッシュされたコミットをブロックするよう選択することもできます。 詳細は「[個人のメールを公開するコマンドラインプッシュのブロック](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)」を参照してください。{% endif %}
 
-コミットが自分に関連付けられ、コントリビューショングラフに表示されるようにするには、[自分の GitHub アカウントに追加した](/articles/adding-an-email-address-to-your-github-account/)メールアドレス{% if currentVersion == "free-pro-team@latest" %}か、メール設定で {% data variables.product.product_name %}から提供された `noreply` メールアドレス{% endif %}を使ってください。
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

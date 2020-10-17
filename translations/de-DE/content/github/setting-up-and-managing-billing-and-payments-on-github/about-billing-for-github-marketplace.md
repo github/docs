@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Abrechnung für GitHub Marketplace
-intro: 'Wenn Du eine kostenpflichtige App in {% data variables.product.prodname_marketplace %} installierst, gilt für Dein Abonnement das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Deines Kontos.'
+intro: 'Wenn Sie eine kostenpflichtige App in {% data variables.product.prodname_marketplace %} installieren, gilt für Ihr Abonnement das bestehende Abrechnungsdatum, die Zahlungsmethode und die Quittung Ihres Kontos.'
 redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:
@@ -15,7 +15,7 @@ versions:
 
 ### Zahlungsmethoden und Abrechnungszeitraum für {% data variables.product.prodname_marketplace %}-Käufe
 
-Du verwendest die gleiche Zahlungsmethode für alle kostenpflichtigen Pläne und Abonnements über {% data variables.product.prodname_dotcom %} hinweg.
+Sie verwenden die gleiche Zahlungsmethode für alle kostenpflichtigen Pläne und Abonnements über {% data variables.product.prodname_dotcom %} hinweg.
 
 Wenn für Dein persönliches Konto oder Deine Organisation keine Zahlungsmethode hinterlegt ist und Du einen kostenpflichtigen Plan für eine App auswählst, gilt Folgendes:
 - Dein Abrechnungsdatum ist heute.
@@ -26,13 +26,13 @@ Wenn für Dein persönliches Konto oder Deine Organisation keine Zahlungsmethode
 Wenn für Dein persönliches Konto oder Deine Organisation eine vorhandene Zahlungsmethode hinterlegt ist und Du einen kostenpflichtigen Plan für eine App auswählst, gilt Folgendes:
 - Basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum wird sofort ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet.
 - Das monatliche oder jährliche Abrechnungsdatum für Dein App-Abonnement ist das gleiche wie das reguläre Abrechnungsdatum des Kontos oder der Organisation.
-- An Deinem nächsten Abrechnungsdatum werden auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Dein App-Abonnement aufgeführt.
+- An Ihrem nächsten Abrechnungsdatum werden auf Ihrer Quittung die Gebühren für Ihren kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Ihr App-Abonnement aufgeführt.
 
 Wenn Du einen kostenpflichtigen Plan mit einer kostenlosen Testperiode auswählst, gilt Folgendes:
 - Du musst eine bestehende Zahlungsmethode haben oder eine neue Zahlungsmethode für Dein persönliches Konto oder die Organisation hinzufügen, in dem Du die App installieren möchtest.
 - Wenn du keine weiteren kostenpflichtigen Pläne oder Abonnements hast, wird Dir am Ende der 14-tägigen kostenlosen Testperiode der volle Betrag Deines Abonnements berechnet.
 - Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, wird am Ende der 14-tägigen kostenlosen Testperiode basierend auf der verbleibenden Zeit bis zu Deinem nächsten Abrechnungsdatum sofort ein anteiliger Betrag über Deine hinterlegte Zahlungsmethode abgerechnet.
-- Wenn Du weitere kostenpflichtige Pläne oder Abonnements hast, werden an Deinem nächsten Abrechnungsdatum auf Deiner Quittung die Gebühren für Deinen kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Deine App-Abonnements aufgeführt.
+- Wenn Sie weitere kostenpflichtige Pläne oder Abonnements haben, werden an Ihrem nächsten Abrechnungsdatum auf Ihrer Quittung die Gebühren für Ihren kostenpflichtigen {% data variables.product.prodname_dotcom %}-Plan und Ihr App-Abonnement aufgeführt.
 
 ### Begrenzungen für einheitenbasierte Pläne
 

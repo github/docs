@@ -1,1 +1,1 @@
-After registering a GitHub App, you can modify your app's permissions.
+Após registrar um aplicativo GitHub, você pode modificar as permissões do seu aplicativo.

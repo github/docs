@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Effective date: July 22, 2020
+Effective date: October 2, 2020
 
 お客様のソースコードやプロジェクト、個人情報について、GitHub Inc （以下、「GitHub」「当社」と称します）をご信頼いただき、ありがとうございます。 お客様の個人情報を保持することは重大な責務であり、当社がどのように取り扱っているのかを知っていただければと思います。
 
@@ -219,15 +219,15 @@ GitHubは、一般的に、ユーザ個人情報をアカウントがアクテ�
 
 #### クッキー
 
-GitHubは、当社のサービスとのインターアクションを容易かつ有意義なものとするためにクッキーを利用します。 Cookie は、ウェブサイトが訪問者のコンピュータまたはモバイルデバイスに度々格納する小さなテキストファイルです。 当社は、お客様のログインの保持、お客様の設定の記憶およびGitHubの今後の開発のための情報提供を目的として、クッキー（およびHTML5 localStorageのような類似技術）を利用します。 セキュリティ目的のため、当社では、デバイスを識別するためにクッキーを利用しています。 当社のウェブサイトを利用することで、お客様は、お客様のコンピュータまたはデバイスにこれらの種類のクッキーを当社が保管することに同意したものとされます。 お客様がこれらのクッキーを許可するブラウザまたはデバイスの能力を無効にした場合、GitHubのサービスにログインまたは利用することはできなくなります。
+GitHub uses cookies and similar technologies (collectively, “cookies”) to make interactions with our service easy and meaningful. Cookie は、ウェブサイトが訪問者のコンピュータまたはモバイルデバイスに度々格納する小さなテキストファイルです。 We use cookies to provide you our services, for example, to keep you logged in, remember your preferences, identify your device for security purposes, and provide information for future development of GitHub. 当社のウェブサイトを利用することで、お客様は、お客様のコンピュータまたはデバイスにこれらの種類のクッキーを当社が保管することに同意したものとされます。 お客様がこれらのクッキーを許可するブラウザまたはデバイスの能力を無効にした場合、GitHubのサービスにログインまたは利用することはできなくなります。
 
-当社は、当社が設定するクッキー、これらのクッキーの必要性およびそれらのクッキーの種類（テンポラリーもしくはパーマネント）について記載した、[クッキーおよびトラッキング](/github/site-policy/github-subprocessors-and-cookies)についてのウェブページを提供します。 当社はサードパーティアナリティクスプロバイダおよびその他のサービスプロバイダの一覧を掲載し、かつ、当社のウェブサイトのどの部分についてトラッキングを許可しているのか詳細を掲載します。
+We provide more information about [cookies on GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) on our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page that describes the cookies we set, the needs we have for those cookies, and the expiration of such cookies. It also lists our third-party analytics providers and how you can control your cookie preference settings for such cookies.
 
 #### トラッキングおよびアナリティクス
 
 当社は、当社のユーザによるGitHubの利用の評価、アクティビティの統計レポートのコンパイルならびに当社のコンテンツおよびウェブサイトのパフォーマンスの向上に役立つ、一定数のサードパーティアナリティクスおよびサービスプロバイダを利用しています。 当社は、当社のウェブサイトの一定のエリアでのみこれらのサードパーティアナリティクスプロバイダを利用します。これらのプロバイダはすべて、収集できるユーザ個人情報の種類および情報を処理する目的を制限するデータ保護規約を当社と締結しています。 さらに、当社は、機能を提供ならびにコンテンツおよびパフォーマンスを向上するために内部でアナリティクスソフトウェアを利用します。
 
-一定のブラウザは、「追跡拒否（DNT)」機能が組み込まれており、訪問するウェブサイトに対してトラッキングを望まないシグナルを発信できます。 GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 DNTをサポートするブラウザでDNTを有効にしていない場合、当社のウェブサイトの一定箇所は、お客様の他のサービスにおけるオンラインブラウジングアクティビティを繰り返しトラッキングします。ただし、当社は、当社のアナリティクスおよびサービスプロバイダ以外の第三者に対して、GitHub上のユーザのアクティビティを繰り返しトラッキングすることを許可しません。
+一定のブラウザは、「追跡拒否（DNT)」機能が組み込まれており、訪問するウェブサイトに対してトラッキングを望まないシグナルを発信できます。 GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 DNTをサポートするブラウザでDNTを有効にしていない場合、当社のウェブサイトの一定箇所は、お客様の他のサービスにおけるオンラインブラウジングアクティビティを繰り返しトラッキングします。ただし、当社は、当社のアナリティクスおよびサービスプロバイダ以外の第三者に対して、GitHub上のユーザのアクティビティを繰り返しトラッキングすることを許可しません。 You can read more about DNT in our [Tracking on GitHub](/github/site-policy/github-subprocessors-and-cookies#tracking-on-github) section of our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page.
 
 ### お客様情報についての当社の保護方法
 

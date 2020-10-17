@@ -38,7 +38,7 @@ To generate a private key:
 {% endnote %}
 
 ### Verifying private keys
-{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using a SHA-1 hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
+{% data variables.product.product_name %} generates a fingerprint for each private and public key pair using the {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} hash function. You can verify that your private key matches the public key stored on {% data variables.product.product_name %} by generating the fingerprint of your private key and comparing it to the fingerprint shown on {% data variables.product.product_name %}.
 
 To verify a private key:
 
@@ -46,7 +46,7 @@ To verify a private key:
 ![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 2. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
-    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha1 -c
+    $ openssl rsa -in <em>PATH_TO_PEM_FILE</em> -pubout -outform DER | openssl {% if currentVersion ver_lt "enterprise-server@2.23" %}sha1 -c{% else %}sha256 -binary | openssl base64{% endif %}
     ```
 3. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
 

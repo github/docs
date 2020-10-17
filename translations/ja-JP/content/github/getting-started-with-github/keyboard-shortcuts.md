@@ -20,22 +20,22 @@ versions:
 
 ### サイト全体のショートカット
 
-| キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                                                   |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                        |
-| <kbd>g</kbd> <kbd>n</kbd>     | 通知に移動します。 詳しい情報については、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。 |
-| <kbd>esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                                             |
+| キーボードショートカット                  | 説明                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>s</kbd> または <kbd>/</kbd> | 検索バーにフォーカスします。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。                                                                                                                                                                                                                                                 |
+| <kbd>g</kbd> <kbd>n</kbd>     | 通知に移動します。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
+| <kbd>esc</kbd>                | ユーザ、Issue、またはプルリクエストのホバーカードにフォーカスすると、ホバーカードが閉じ、ホバーカードが含まれている要素に再フォーカスします                                                                                                                                                                                                                                                                                                 |
 
 ### リポジトリ
 
-| キーボードショートカット              | 説明                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                        |
-| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                 |
-| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。                                             |
-| <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)." |
-| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                    |
-| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                       |
+| キーボードショートカット              | 説明                                                                                                                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>g</kbd> <kbd>c</kbd> | [**Code**] タブに移動します                                                                                                                                                                                                |
+| <kbd>g</kbd> <kbd>i</kbd> | [**Issues**] タブに移動します。 詳細は「[Issue について](/articles/about-issues)」を参照してください。                                                                                                                                         |
+| <kbd>g</kbd> <kbd>p</kbd> | [**Pull requests**] タブに移動します。 For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
+| <kbd>g</kbd> <kbd>b</kbd> | [**Projects**] タブに移動します。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。                                                                                                                            |
+| <kbd>g</kbd> <kbd>w</kbd> | [**Wiki**] タブに移動します。 詳細は「[ウィキについて](/articles/about-wikis)」を参照してください。                                                                                                                                               |
 
 ### ソースコード編集
 
@@ -67,16 +67,16 @@ versions:
 
 ### コメント
 
-| キーボードショートカット                                              | 説明                                                                                                                                        |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> または <kbd>command b</kbd>             | 太字テキストの Markdown 書式を挿入します                                                                                                                 |
-| <kbd>control i</kbd> または <kbd>command i</kbd>             | イタリック体のテキストの Markdown 書式を挿入します                                                                                                            |
-| <kbd>control k</kbd> または <kbd>command k</kbd>             | リンクを作成するための Markdown 書式を挿入します                                                                                                             |
-| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | **Write** と **Preview** のコメントタブを切り替えます。                                                                                                   |
-| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                             |
-| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 詳細は「[返信テンプレートについて](/articles/about-saved-replies)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+| キーボードショートカット                                              | 説明                                                                                                                                                                             |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <kbd>control b</kbd> または <kbd>command b</kbd>             | 太字テキストの Markdown 書式を挿入します                                                                                                                                                      |
+| <kbd>control i</kbd> または <kbd>command i</kbd>             | イタリック体のテキストの Markdown 書式を挿入します                                                                                                                                                 |
+| <kbd>control k</kbd> または <kbd>command k</kbd>             | リンクを作成するための Markdown 書式を挿入します                                                                                                                                                  |
+| <kbd>control shift p</kbd> または <kbd>command shift p</kbd> | **Write** と **Preview** のコメントタブを切り替えます。                                                                                                                                        |
+| <kbd>control enter</kbd>                                  | コメントをサブミットします                                                                                                                                                                  |
+| <kbd>control .</kbd>、次に <kbd>control [返信テンプレート番号]</kbd>   | 返信テンプレートメニューを開き、コメントフィールドに返信テンプレートを自動入力します。 For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
 | <kbd>control g</kbd> または <kbd>command g</kbd>             | 提案を挿入します。 詳細は「[プルリクエストで提案された変更をレビューする](/articles/reviewing-proposed-changes-in-a-pull-request)」を参照してください。 |{% endif %}
-| <kbd>r</kbd>                                              | 返信で選択したテキストを引用します。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。                                      |
+| <kbd>r</kbd>                                              | 返信で選択したテキストを引用します。 詳細は「[基本的な書き方とフォーマットの構文](/articles/basic-writing-and-formatting-syntax)」を参照してください。                                                                           |
 
 ### Issue およびプルリクエストのリスト
 
@@ -92,24 +92,24 @@ versions:
 | <kbd>o</kbd> または <kbd>enter</kbd>             | Issue を開きます                                                                                                                                            |
 
 ### Issue およびプルリクエスト
-| キーボードショートカット                                                  | 説明                                                                                                                                                                                    |
-| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>q</kbd>                                                  | レビュー担当者にリクエストします。 詳細は「[Pull Request レビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。                                                                             |
-| <kbd>m</kbd>                                                  | マイルストーンを設定します。 詳細は「[Issue およびプルリクエストにマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)」を参照してください。                                                        |
-| <kbd>l</kbd>                                                  | ラベルを適用します。 詳細は「[Issue およびプルリクエストにラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。                                                                          |
+| キーボードショートカット                                                  | 説明                                                                                                                                                                               |
+| ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>q</kbd>                                                  | レビュー担当者にリクエストします。 詳細は「[Pull Request レビューをリクエストする](/articles/requesting-a-pull-request-review/)」を参照してください。                                                                        |
+| <kbd>m</kbd>                                                  | マイルストーンを設定します。 詳細は「[Issue およびプルリクエストにマイルストーンを関連付ける](/articles/associating-milestones-with-issues-and-pull-requests)」を参照してください。                                                   |
+| <kbd>l</kbd>                                                  | ラベルを適用します。 詳細は「[Issue およびプルリクエストにラベルを適用する](/articles/applying-labels-to-issues-and-pull-requests)」を参照してください。                                                                     |
 | <kbd>a</kbd>                                                  | アサインされた人を設定します。 詳細は「[{% data variables.product.company_short %} の他のユーザに Issue およびプルリクエストをアサインする](/articles/assigning-issues-and-pull-requests-to-other-github-users/)」を参照してください。 |
-| <kbd>cmd + shift + p</kbd> または <kbd>control + shift + p</kbd> | [**Write**] タブと [**Preview**] タブを切り替えます。                                                                                                                                              |
+| <kbd>cmd + shift + p</kbd> または <kbd>control + shift + p</kbd> | [**Write**] タブと [**Preview**] タブを切り替えます。                                                                                                                                         |
 
 ### プルリクエストの変更
 
-| キーボードショートカット                    | 説明                                                                                                                                                                                                                                                 |
-| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>c</kbd>                    | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                             |
-| <kbd>t</kbd>                    | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                         |
-| <kbd>j</kbd>                    | リストで選択を下に移動します                                                                                                                                                                                                                                     |
-| <kbd>k</kbd>                    | リストで選択を上に移動します                                                                                                                                                                                                                                     |
-| <kbd>cmd + shift + enter </kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                          |
-| <kbd>alt</kbd> およびクリック          | `alt` を押しながら、[**Show outdated**] または [**Hide outdated**] をクリックして、期限切れのレビューコメントをすべて折りたたむか展開するかを切り替えます。|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| キーボードショートカット                    | 説明                                                                                                                                                                                                                                                                    |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>c</kbd>                    | プルリクエスト内のコミットのリストを開きます                                                                                                                                                                                                                                                |
+| <kbd>t</kbd>                    | プルリクエストで変更されたファイルのリストを開きます                                                                                                                                                                                                                                            |
+| <kbd>j</kbd>                    | リストで選択を下に移動します                                                                                                                                                                                                                                                        |
+| <kbd>k</kbd>                    | リストで選択を上に移動します                                                                                                                                                                                                                                                        |
+| <kbd>cmd + shift + enter </kbd> | プルリクエストの差分にコメントを 1 つ追加します                                                                                                                                                                                                                                             |
+| <kbd>alt</kbd> およびクリック          | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 | クリック後、<kbd>shift</kbd> およびクリック  | プルリクエストの複数行にコメントするには、行番号をクリックし、<kbd>shift</kbd> を押したまま、別の行番号をクリックします。 詳しい情報については、「[プルリクエストへコメントする](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)」を参照してください。|{% endif %}
 
 ### プロジェクトボード

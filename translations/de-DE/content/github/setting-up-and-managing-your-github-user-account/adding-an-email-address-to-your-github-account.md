@@ -1,6 +1,6 @@
 ---
 title: Eine E-Mail-Adresse zu Deinem GitHub-Konto hinzufügen
-intro: 'Bei {% data variables.product.product_name %} kannst Du so viele E-Mail-Adressen zu Deinem Konto hinzufügen, wie Du möchtest. Wenn Du eine E-Mail-Adresse in der lokalen Git-Konfiguration festlegst, musst Du diese Adresse zu Deinen Kontoeinstellungen hinzufügen, um Deine Commits mit Deinem Konto zu verbinden. Weitere Informationen zu E-Mail-Adressen und Commits findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address/).“'
+intro: 'Bei {% data variables.product.product_name %} können Sie so viele E-Mail-Adressen zu Ihrem Konto hinzufügen, wie Sie möchten. Wenn Du eine E-Mail-Adresse in der lokalen Git-Konfiguration festlegst, musst Du diese Adresse zu Deinen Kontoeinstellungen hinzufügen, um Deine Commits mit Deinem Konto zu verbinden. Weitere Informationen zu E-Mail-Adressen und Commits findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address/).“'
 redirect_from:
   - /articles/adding-an-email-address-to-your-github-account
 versions:

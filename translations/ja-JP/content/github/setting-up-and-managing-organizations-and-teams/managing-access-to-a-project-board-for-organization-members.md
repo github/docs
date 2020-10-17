@@ -1,6 +1,6 @@
 ---
 title: Organization メンバーのプロジェクトボードへのアクセスを管理する
-intro: Organization のオーナーまたはプロジェクトボード管理者は、Organization のすべてのメンバーについて、プロジェクトボードのデフォルトの権限レベルを設定できます。
+intro: 'Organization のオーナーまたはプロジェクトボード管理者は、Organization のすべてのメンバーについて、プロジェクトボードのデフォルトの権限レベルを設定できます。'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
 versions:

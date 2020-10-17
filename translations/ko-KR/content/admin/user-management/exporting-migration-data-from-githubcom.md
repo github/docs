@@ -9,7 +9,6 @@ redirect_from:
   - /enterprise/admin/guides/migrations/preparing-the-github-com-source-organization
   - /enterprise/admin/guides/migrations/exporting-the-github-com-organization-s-repositories
   - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
-  - /enterprise/admin/user-management/exporting-migration-data-from-githubcom
 versions:
   enterprise-server: '*'
 ---

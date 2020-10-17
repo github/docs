@@ -15,8 +15,8 @@ SAML SSO controls and secures access to organization resources like repositories
 
 After you enable SCIM, the following provisioning features are available for any users that you assign your {% data variables.product.prodname_ghe_cloud %} application to in Okta.
 
-| Feature                | 설명                                                                                                                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Feature                | 설명                                                                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Push New Users         | When you create a new user in Okta, the user will receive an email to join your {% data variables.product.prodname_dotcom %} organization.                           |
 | Push User Deactivation | When you deactivate a user in Okta, Okta will remove the user from your {% data variables.product.prodname_dotcom %} organization.                                   |
 | Push Profile Updates   | When you update a user's profile in Okta, Okta will update the metadata for the user's membership in your {% data variables.product.prodname_dotcom %} organization. |

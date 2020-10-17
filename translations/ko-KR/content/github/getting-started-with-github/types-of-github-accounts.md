@@ -13,7 +13,8 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-For a full list of features for each {% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
+For a full list of features for each
+{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### Personal user accounts

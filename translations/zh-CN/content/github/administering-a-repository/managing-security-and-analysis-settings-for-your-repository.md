@@ -28,7 +28,7 @@ versions:
 
 {% note %}
 
-Organization owners and repository administrators can only grant access to view {% data variables.product.prodname_dependabot_alerts %} to people or teams who have write access to the repo.
+组织所有者和仓库管理员只能将查看 {% data variables.product.prodname_dependabot_alerts %} 的权限授予对仓库有写入权限的人员或团队。
 
 {% endnote %}
 
@@ -47,5 +47,5 @@ Organization owners and repository administrators can only grant access to view 
 
 ### 延伸阅读
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
 - “[管理组织的安全性和分析设置](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)”

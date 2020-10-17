@@ -34,7 +34,8 @@ Wenn Du Benutzerlizenzen erneuern oder zu {% data variables.product.prodname_ent
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file. ![GitHub Enterprise Server-Lizenz herunterladen](/assets/images/help/business-accounts/download-ghes-license.png)
-5. Log into your {% data variables.product.prodname_ghe_server %} instance as a site administrator.
+5. Log into your
+{% data variables.product.prodname_ghe_server %} instance as a site administrator.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -63,7 +64,8 @@ Auf {% data variables.product.prodname_ghe_server %} können Sie eine JSON-Datei
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Klicken Sie unter „Quick links“ (Schnellzugriff) auf **Export license usage** (Lizenznutzung exportieren), um eine Datei herunterzuladen, in der Ihre aktuelle Lizenznutzung auf {% data variables.product.prodname_ghe_server %} enthalten ist. ![Link zum Exportieren der Lizenznutzung](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. Navigieren Sie zu {% data variables.product.prodname_ghe_cloud %}
+6. Navigate to
+{% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}

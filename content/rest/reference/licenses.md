@@ -18,8 +18,8 @@ If a license is matched, the license key and name returned conforms to the [SPDX
 - [Get a repository](/v3/repos/#get-a-repository)
 - [List repositories for a user](/v3/repos/#list-repositories-for-a-user)
 - [List organization repositories](/v3/repos/#list-organization-repositories)
-- [List forks](/v3/repos/forks/#list-forks)
-- [List repositories watched by a user](/v3/activity/watching/#list-repositories-watched-by-a-user)
+- [List forks](/rest/reference/repos#list-forks)
+- [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
 - [List team repositories](/v3/teams/#list-team-repositories)
 
 {% warning %}

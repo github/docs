@@ -24,7 +24,8 @@ Bevor Sie {% data variables.product.product_location_enterprise %} auf Google Cl
 
 #### Unterstützte Maschinentypen
 
-{% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“. |
+{% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“.
+|
 {% if currentVersion != "free-pro-team@latest" %}
 |  | Oberer Speicher |
 |  | --------------- |

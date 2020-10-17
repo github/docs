@@ -21,7 +21,10 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
@@ -48,7 +51,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push -u origin master
+  $ git push -u origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -56,7 +59,10 @@ versions:
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
@@ -83,7 +89,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -91,7 +97,10 @@ versions:
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on {% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}. ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
+1. [Create a new repository](/articles/creating-a-new-repository) on
+
+{% data variables.product.product_location %}. To avoid errors, do not initialize the new repository with *README*, license, or `gitignore` files. You can add these files after your project has been pushed to {% data variables.product.product_name %}.
+    ![Create New Repository drop-down](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
@@ -118,7 +127,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 

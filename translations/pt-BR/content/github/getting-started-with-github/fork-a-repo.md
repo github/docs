@@ -61,7 +61,9 @@ Se ainda não o fez, primeiro [configure o Git](/articles/set-up-git). Lembre-se
 
 Agora você tem uma bifurcação do repositório Spoon-Knife, mas não os arquivos daquele repositório em seu computador. Vamos criar um clone da sua bifurcação localmente em seu computador.
 
-1. Em {% data variables.product.product_name %}, vá até **your fork** (sua bifurcação) no repositório Spoon-Knife.
+1. Em
+
+{% data variables.product.product_name %}, acesse a **sua bifurcação** do repositório Spoon-Knife.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -86,7 +88,9 @@ Agora você já tem uma cópia local de sua bifurcação do repositório Spoon-K
 
 Ao bifurcar um projeto para propor mudanças no repositório original, é possível configurar o Git para fazer pull de mudanças do repositório original ou upstream no clone local de sua bifurcação.
 
-1. Em {% data variables.product.product_name %}, vá até o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
+1. Em
+
+{% data variables.product.product_name %}, acesse o repositório [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife).
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. Mude os diretórios do local que você clonou a bifurcação na [Etapa 2: Crie um clone local de sua bifurcação](#step-2-create-a-local-clone-of-your-fork).
@@ -128,7 +132,7 @@ Você pode fazer alterações em uma bifurcação, incluindo:
 
 Bifurque um repositório para começar a contribuir com um projeto. {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}Você pode navegar em [Explore](https://github.com/explore) (Explorar) para encontrar projetos e começar a contribuir com repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% if currentVersion == "free-pro-team@latest" %}Você pode procurar [Explorar](https://github.com/explore) para encontrar projetos e começar a contribuir para repositórios de código aberto. Para obter mais informações, consulte "[Encontrar maneiras de contribuir para o código aberto em {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 {% endif %}
 
