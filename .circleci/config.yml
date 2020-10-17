@@ -1,0 +1,23 @@
+# For a detailed guide to building and testing on iOS, read the docs:
+# https://circleci.com/docs/2.0/testing-ios/
+
+version: 2.1
+
+jobs:
+  build:
+
+    macos:
+      xcode: 11.0.0 # Specify the Xcode version to use
+
+    steps:
+      - checkout
+      - run: pod install # Install CocoaPods dependencies
+      - run: fastlane scan # Run tests using Fastlane
+
+      # Collect XML test results data to show in the UI, and save the same XML
+      # files under test-results folder in the Artifacts tab
+      - store_test_results:
+          path: test_output
+      - store_artifacts:
+          path: test_output
+          destination: scan-output
