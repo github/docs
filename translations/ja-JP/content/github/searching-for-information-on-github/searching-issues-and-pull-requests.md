@@ -13,7 +13,7 @@ versions:
 
 {% tip %}
 
-**参考:**{% if currentVersion != "free-pro-team@latest" %}
+**Tips:**{% if currentVersion != "free-pro-team@latest" %}
   - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location_enterprise %} で使えます。{% endif %}
   - 検索結果を改良する検索修飾子を追加できる検索構文のリストについては、「[検索構文を理解する](/articles/understanding-the-search-syntax)」を参照してください。
   - 複数単語の検索用語は引用符で囲みます。 たとえば "In progress" というラベルを持つ Issue を検索したい場合は、`label:"in progress"` とします。 検索では、大文字と小文字は区別されません。
@@ -229,7 +229,7 @@ versions:
 ### ドラフトプルリクエストを検索
 ドラフトプルリクエストをフィルタリングすることができます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)を参照してください。
 
-| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
 
 ### プルリクエストレビューのステータスおよびレビュー担当者で検索
 

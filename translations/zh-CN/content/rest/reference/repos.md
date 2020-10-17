@@ -186,10 +186,10 @@ versions:
 * `built`：站点已构建。
 * `errored`：表示构建过程中发生错误。
 
-在{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}支持 `mister-fantastic-preview` 并{% endif %}返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
+在返回 GitHub Pages 站点信息的 {% data variables.product.prodname_pages %} API 端点中，JSON 响应包括以下字段：
 * `html_url`：所渲染的 Pages 站点的绝对 URL（包括模式）。 例如，`https://username.github.io`。
 * `source`：包含所渲染 Pages 站点的源分支和目录的对象。 这包括：
-   - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 例如，_master_ 或 _gh-pages_。
+   - `branch`：用于发布[站点源文件](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)的仓库分支。 For example, _main_ or _gh-pages_.
    - `path`：提供站点发布内容的仓库目录。 可能是 `/` 或 `/docs`。
 
 {% for operation in currentRestOperations %}
@@ -216,7 +216,7 @@ versions:
 
 计算仓库统计信息是一项昂贵的操作，所以我们尽可能返回缓存的数据。  如果您查询仓库的统计信息时，数据尚未缓存，您将会收到 `202` 响应；同时触发后台作业以开始编译这些统计信息。 稍等片刻，待作业完成，然后再次提交请求。 如果作业已完成，该请求将返回 `200` 响应，响应正文中包含统计信息。
 
-仓库统计信息由仓库默认分支（一般是 master）的 SHA 缓存；推送到默认分支将重置统计信息缓存。
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
 ### 统计排除某些类型的提交
 
@@ -292,7 +292,7 @@ GitHub 还可以作为所有仓库的 [PubSubHubbabub](https://github.com/pubsub
 #### 回调 URL
 回调 URL 可以使用 `http://` 协议。
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回调以指定 GitHub 服务。
+{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}您还可以 `github://` 回叫以指定 GitHub 服务。
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 

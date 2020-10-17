@@ -9,7 +9,7 @@ versions:
 
 ### Informationen zu {% data variables.product.prodname_sponsors %}
 
-{% data reusables.sponsors.sponsorship-details %} {% data reusables.sponsors.no-fees %} Weitere Informationen findest Du auf „[Über die Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.sponsorship-details %}{% data reusables.sponsors.no-fees %} Weitere Informationen findest Du unter „[ Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_sponsors %} für Open-Source-Mitwirkende](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors-for-open-source-contributors)" und „[{% data variables.product.prodname_sponsors %} für Dein Benutzerkonto einrichten](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-user-account)."
 

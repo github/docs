@@ -1,6 +1,6 @@
 ---
 title: Solucionar problemas do seu codespace
-intro: 'É possível solucionar problemas com um codespace, buscando problemas conhecidos no repositório `microsoft/vscode`.'
+intro: É possível solucionar problemas com um codespace, buscando problemas conhecidos no repositório `microsoft/vscode`.
 product: '{% data reusables.gated-features.codespaces %}'
 redirect_from:
   - /github/developing-online-with-github-codespaces/troubleshooting-your-codespace

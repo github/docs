@@ -21,7 +21,9 @@ versions:
 3. If the `gh-pages` branch was your publishing source,
 {% if currentVersion == "free-pro-team@latest" %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
-5. Under "{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.** ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
+5. Under "
+{% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select **None.**
+  ![Drop down menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
 ### Unpublishing a user or organization site

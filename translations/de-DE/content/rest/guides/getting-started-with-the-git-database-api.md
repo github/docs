@@ -32,7 +32,7 @@ It might seem complex, but it's actually pretty simple when you understand the m
 
 {% warning %}
 
-**Warning!** Please do not depend on using Git directly or {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}  for updates to `merge` Git refs, because this content becomes outdated without warning.
+**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
 
 {% endwarning %}
 
@@ -42,4 +42,4 @@ If you are currently using polling methods that produce outdated `merge` Git ref
 
 1. Receive the pull request webhook.
 2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to start a background job for creating the merge commit candidate.
-3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} for updates to `merge` Git refs only after performing the previous steps.
+3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.

@@ -11,7 +11,6 @@ versions:
 
 This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
-
 ### Current version
 
 By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/v3/versions) of the REST API. We encourage you to [explicitly request this version via the `Accept` header](/v3/media/#request-specific-version).
@@ -36,7 +35,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3

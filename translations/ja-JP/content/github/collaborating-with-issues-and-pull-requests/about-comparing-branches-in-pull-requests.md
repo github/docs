@@ -38,7 +38,7 @@ diff の見方には複数の選択肢があります。
 
 ![Diff の表示のオプションメニュー](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-大きなプルリクエスト中の変更のレビューをシンプルにするために、選択されたファイルタイプだけを表示、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}コードオーナーであるファイルを表示、表示したことのあるファイルを非表示、{% endif %}または削除されたファイルを非表示にするように diff をフィルタリングできます。 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. 詳しい情報については、「[プルリクエスト内のファイルをファイルタイプでフィルタリングする](/articles/filtering-files-in-a-pull-request)」を参照してください。
 
   ![ファイルフィルタのドロップダウンメニュー](/assets/images/help/pull_requests/file-filter-menu.png)
 
@@ -54,7 +54,7 @@ diff の見方には複数の選択肢があります。
 
 プルリクエスト中でツードット diff をシミュレートし、各ブランチの最新バージョン同士の比較を見たい場合には、ベースブランチをトピックブランチにマージできます。そうすれば、ブランチ間の最後の共通の祖先が更新されます。
 
-変更を比較するための Git コマンドに関する詳しい情報については、_Pro Git_ ブックサイトの「[Git diff のオプション](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)」を参照してください。
+For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ### diffが表示されない理由
 - ファイルあるいは特定のファイルタイプの合計での制限を超えた。 詳しい情報については[リポジトリ中のコンテンツとdiffの表示の制限](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)を参照してください。

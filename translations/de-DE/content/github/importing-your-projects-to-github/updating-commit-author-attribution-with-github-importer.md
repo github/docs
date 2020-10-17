@@ -1,6 +1,6 @@
 ---
 title: Zuordnung von Commit-Autoren mit GitHub Importer aktualisieren
-intro: Während eines Imports kannst Du die Commits in Deinem Repository mit den GitHub-Konten der Commit-Autoren abgleichen.
+intro: 'Während eines Imports kannst Du die Commits in Deinem Repository mit den GitHub-Konten der Commit-Autoren abgleichen.'
 redirect_from:
   - /articles/updating-commit-author-attribution-with-github-importer
 versions:

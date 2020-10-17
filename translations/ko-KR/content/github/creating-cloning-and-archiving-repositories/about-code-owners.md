@@ -79,7 +79,8 @@ docs/*  docs@example.com
 apps/ @octocat
 
 # In this example, @doctocat owns any file in the `/docs`
-# directory in the root of your repository.
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
 

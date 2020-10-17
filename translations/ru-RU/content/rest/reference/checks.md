@@ -19,7 +19,7 @@ The Checks API enables you to build GitHub Apps that run powerful checks against
   {% if operation.subcategory == 'runs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Проверить модули
+## Проверить пакеты
 
 {% note %}
 

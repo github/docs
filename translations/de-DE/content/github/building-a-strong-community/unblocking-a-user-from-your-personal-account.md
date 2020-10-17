@@ -1,6 +1,6 @@
 ---
 title: Sperre eines Benutzers für Dein persönliches Konto aufheben
-intro: 'Wenn Du den Konflikt mit einem von Dir gesperrten {% data variables.product.prodname_dotcom %}-Benutzer gelöst hast, kannst Du sein Konto entsperren.'
+intro: 'Wenn Sie einen {% data variables.product.prodname_dotcom %}-Benutzer blockiert haben, um dessen Benachrichtigungen, Einladungen und Beiträge abzuwehren, können Sie die Blockierung dieses Benutzers wieder aufheben.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-personal-account
 versions:

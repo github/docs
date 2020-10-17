@@ -1,6 +1,6 @@
 ---
 title: Eine GitHub Marketplace-App kündigen
-intro: 'Du kannst {% data variables.product.prodname_marketplace %}-Apps jederzeit kündigen und aus Deinem Konto entfernen.'
+intro: 'Sie können {% data variables.product.prodname_marketplace %}-Apps jederzeit kündigen und aus Ihrem Konto entfernen.'
 redirect_from:
   - /articles/canceling-an-app-for-your-personal-account/
   - /articles/canceling-an-app-for-your-organization/

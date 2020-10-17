@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
 组织所有者可管理组织中成员名称的显示。

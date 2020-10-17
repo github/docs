@@ -11,9 +11,9 @@ versions:
   enterprise-server: '*'
 ---
 
-For the complete documentation for {% data variables.product.prodname_enterprise_api %}, see [{% data variables.product.prodname_enterprise_api %} REST API reference docs](/enterprise/{{ currentVersion }}/v3/). 利用 API，您可以自动处理多种管理任务。 包含以下例子：
+有关 {% data variables.product.prodname_enterprise_api %} 的完整文档，请参阅 [{% data variables.product.prodname_enterprise_api %} REST API 参考文档](/enterprise/{{ currentVersion }}/v3/)。 利用 API，您可以自动处理多种管理任务。 包含以下例子：
 
 - 对 {% data variables.enterprise.management_console %} 进行更改。 更多信息请参阅“[{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console)”。
 - 收集关于实例的统计信息。 更多信息请参阅“[管理员统计信息](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#admin-stats)”。
-- 配置 LDAP 同步。 更多信息请参阅“[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)”。{% if currentVersion ver_gt "enterprise-server@2.18" %}
-- 管理企业帐户。 更多信息请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。{% endif %}
+- 配置 LDAP 同步。 更多信息请参阅“[LDAP](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#ldap)”。
+- 管理企业帐户。 更多信息请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。

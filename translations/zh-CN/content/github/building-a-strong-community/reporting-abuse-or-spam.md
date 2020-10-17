@@ -27,16 +27,16 @@ versions:
 ### 举报议题或拉取请求
 
 1. 导航到您想要举报的议题或拉取请求。
-2. In the upper-right corner of the issue or pull request, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. 在议题或拉取请求的右上角，单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}，然后单击 **Report content（报告内容）**。
   ![用于报告评论的按钮](/assets/images/help/repository/menu-report-issue-or-pr.png)
 {% data reusables.community.report-content %}
 
 ### 举报评论
 
 1. 导航到您要举报的评论。
-2. In the upper-right corner of the comment, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+2. 在注释的右上角，单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}，然后单击 **Report content（报告内容）**。
 ![包含报告评论选项的烤肉串式菜单](/assets/images/help/repository/menu-report-comment.png)
 {% data reusables.community.report-content %}
 
@@ -58,7 +58,7 @@ versions:
 
 - "[设置健康参与的项目](/articles/setting-up-your-project-for-healthy-contributions)"
 - "[使用模板鼓励有用的议题和拉取请求](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- "[管理破坏性评论](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在  {% data variables.product.prodname_dotcom %} 上维护您的安全](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - "[限制仓库中的交互](/github/building-a-strong-community/limiting-interactions-in-your-repository)"{% endif %}
 - “[跟踪评论中的更改](/articles/tracking-changes-in-a-comment)”

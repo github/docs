@@ -1,5 +1,5 @@
 ---
-title: 'Editando os detalhes do seu perfil para o GitHub Sponsors [Patrocinadores do GitHub]'
+title: Editando os detalhes do seu perfil para o GitHub Sponsors [Patrocinadores do GitHub]
 intro: Você pode atualizar as informações que são visualizadas pelos possíveis patrocinadores sobre o seu trabalho.
 redirect_from:
   - /articles/editing-your-sponsored-developer-profile

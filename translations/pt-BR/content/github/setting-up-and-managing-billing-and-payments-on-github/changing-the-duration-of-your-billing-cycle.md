@@ -1,6 +1,6 @@
 ---
 title: Alterar a duração do ciclo de cobrança
-intro: 'Você pode pagar pela assinatura da sua conta, bem como de outros recursos e produtos pagos em um ciclo de cobrança mensal ou anual.'
+intro: Você pode pagar pela assinatura da sua conta, bem como de outros recursos e produtos pagos em um ciclo de cobrança mensal ou anual.
 redirect_from:
   - /articles/monthly-and-yearly-billing/
   - /articles/switching-between-monthly-and-yearly-billing-for-your-personal-account/

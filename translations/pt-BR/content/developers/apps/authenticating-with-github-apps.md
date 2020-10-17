@@ -37,7 +37,7 @@ Para gerar uma chave privada:
 {% endnote %}
 
 ### Verificar chaves privadas
-O {% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando uma função hash {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %}. Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
+{% data variables.product.product_name %} gera uma impressão digital para cada par de chave privada e pública usando a função de hash {% if currentVersion ver_lt "enterprise-server@2.23" %}SHA-1{% else %}SHA-256{% endif %} Você pode verificar se a sua chave privada corresponde à chave pública armazenada no {% data variables.product.product_name %}, gerando a impressão digital da sua chave privada e comparando-a com a impressão digital exibida no {% data variables.product.product_name %}.
 
 Para verificar uma chave privada:
 

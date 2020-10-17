@@ -52,7 +52,7 @@ Die UWF-Firewall öffnet zudem verschiedene Ports, die für die ordnungsgemäße
 
 {% warning %}
 
-**Warning:** Before you add custom firewall rules, back up your current rules in case you need to reset to a known working state. Falls Ihr Server für Sie gesperrt ist, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um die ursprünglichen Firewallregeln neu zu konfigurieren. Die Wiederherstellung der ursprünglichen Firewallregeln führt zu Ausfallzeiten für Ihren Server.
+**Warnung:** Bevor Sie benutzerdefinierte Firewallregeln hinzufügen, sollten Sie Ihre aktuellen Regeln sichern, falls Sie in einen bekannten Betriebszustand zurückkehren müssen. Falls Ihr Server für Sie gesperrt ist, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um die ursprünglichen Firewallregeln neu zu konfigurieren. Die Wiederherstellung der ursprünglichen Firewallregeln führt zu Ausfallzeiten für Ihren Server.
 
 {% endwarning %}
 
@@ -74,7 +74,7 @@ Wenn nach dem Ändern der Firewallregeln ein Fehler auftritt, können Sie die Re
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**Warnung:** Falls Sie die ursprünglichen Regeln nicht gesichert haben, bevor Sie Änderungen an der Firewall vorgenommen haben, kontaktieren Sie {% data variables.contact.contact_ent_support %}, um weitere Unterstützung zu erhalten.
 
 {% endwarning %}
 

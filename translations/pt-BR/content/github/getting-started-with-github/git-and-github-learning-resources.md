@@ -54,6 +54,6 @@ O {% data variables.product.prodname_dotcom %} oferece [aulas presenciais](https
 
 Um [curso online e interativo sobre o Git](http://www.codeschool.com/courses/git-real) da [Code School](http://codeschool.com) tem sete níveis com dezenas de exercícios em formato de jogos divertidos. Fique à vontade para adaptar nossos [modelos .gitignore](https://github.com/github/gitignore) de acordo com as suas necessidades.
 
-Amplie seu alcance {% data variables.product.prodname_dotcom %} com {% if currentVersion == "free-pro-team@latest" %}[integrações](/articles/about-integrations){% else %}integrações{% endif %} ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) o robusto editor de texto [Atom](https://atom.io).
+Estenda o seu alcance de {% data variables.product.prodname_dotcom %} por meio de {% if currentVersion == "free-pro-team@latest" %}[integrações](/articles/about-integrations){% else %}integrações{% endif %}, ou instalando [{% data variables.product.prodname_desktop %}](https://desktop.github.com) e o robusto editor de texto [Atom](https://atom.io).
 
 Saiba como iniciar e desenvolver seu projeto de código aberto em [Open Source Guides](https://opensource.guide/) (Guias de Código aberto).

@@ -24,7 +24,7 @@ As regras de branch protegido que mencionam um caractere especial, como `*`, `?`
 
 ### Configurações de proteção de branch
 
-Quando você cria uma regra de proteção de branch em um repositório, colaboradores não podem forçar push para o branch protegido ou excluir o branch{% if currentVersion == "free-pro-team@latest" %} por padrão{% endif %}. Você pode habilitar outras configurações de proteção de branch. Para obter informações, consulte "[Definir a possibilidade de mesclagem de pull requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)".
+Ao criar uma regra de proteção de branch em um repositório, os colaboradores não podem fazer push forçado no branch protegido ou excluir o branch{% if currentVersion == "free-pro-team@latest" %} por padrão{% endif %}. Você pode habilitar outras configurações de proteção de branch. Para obter informações, consulte "[Definir a possibilidade de mesclagem de pull requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)".
 
 ### Leia mais
 

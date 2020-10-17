@@ -22,15 +22,15 @@ versions:
 
 ### 支持的查询参数
 
-| 查询参数        | 示例                                                                                                                                                                                               |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `正文`        | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&body=Fixes+the+problem.` 创建拉取请求，比较分支 `master` 与 `pull-request-test`，在拉取请求正文中包含注释 "Fixes the problem"。 |
-| `title`     | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` 使用标签 "bug" 和标题 "New bug report" 创建议题。                                                                     |
-| `labels`    | `https://github.com/octo-org/octo-repo/compare/master...pull-request-test?quick_pull=1&labels=bug` 创建拉取请求，比较分支 `master` 与 `pull-request-test`，加标签 "bug"。                                     |
-| `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。                                                                                                    |
-| `里程碑`       | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` 创建包含里程碑 "testing milestones" 的议题。                                                                                |
-| `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` 创建议题并分配到 @octocat。                                                                                                          |
-| `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                      |
+| 查询参数        | 示例                                                                                                                                                                                                                                                              |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `正文`        | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&body=Fixes+the+problem.` creates a pull request, comparing the branches `main` and `pull-request-test`, with the comment "Fixes the problem" in the pull request body. |
+| `title`     | `https://github.com/octo-org/octo-repo/issues/new?labels=bug&title=New+bug+report` 使用标签 "bug" 和标题 "New bug report" 创建议题。                                                                                                                                    |
+| `labels`    | `https://github.com/octo-org/octo-repo/compare/main...pull-request-test?quick_pull=1&labels=bug` creates a pull request, comparing the branches `main` and `pull-request-test`, with the label "bug."                                                       |
+| `模板`        | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` 使用模板在议题正文中创建议题。                                                                                                                                                                   |
+| `里程碑`       | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` 创建包含里程碑 "testing milestones" 的议题。                                                                                                                                               |
+| `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` 创建议题并分配到 @octocat。                                                                                                                                                                         |
+| `projects`  | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` 创建标题为 "Bug fix" 的议题并将其添加到组织的项目板 1。                                                                                                                                     |
 
 ### 使用自定义模板填写议题和拉取请求
 

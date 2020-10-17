@@ -1,6 +1,6 @@
 ---
 title: Team のプロフィール画像を設定する
-intro: チームメンテナおよび Organization のオーナーは、Team で表示される Team のプロフィール画像を設定できます。
+intro: 'チームメンテナおよび Organization のオーナーは、Team で表示される Team のプロフィール画像を設定できます。'
 redirect_from:
   - /articles/setting-your-team-s-profile-picture
   - /articles/setting-your-teams-profile-picture

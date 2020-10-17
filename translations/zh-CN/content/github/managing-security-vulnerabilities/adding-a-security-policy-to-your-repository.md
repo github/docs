@@ -37,6 +37,6 @@ versions:
 
 ### 延伸阅读
 
-- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+- “[关于保护仓库](/github/administering-a-repository/about-securing-your-repository)”
 - "[设置健康参与的项目](/github/building-a-strong-community/setting-up-your-project-for-healthy-contributions)"
 - [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %})

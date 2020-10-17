@@ -12,8 +12,8 @@ versions:
 
 Minuten werden jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 
-| Produkt                                                                   | Speicher | Minuten (pro Monat) |
-| ------------------------------------------------------------------------- | -------- | ------------------- |
+| Produkt                                                              | Speicher | Minuten (pro Monat) |
+| -------------------------------------------------------------------- | -------- | ------------------- |
 | {% data variables.product.prodname_free_user %}                    | 500 MB   | 2.000               |
 | {% data variables.product.prodname_pro %}                            | 1 GB     | 3.000               |
 | {% data variables.product.prodname_free_team %} für Organisationen | 500 MB   | 2.000               |
@@ -44,7 +44,7 @@ Der Speicher, der von einem Repository verbraucht wird, ist der gesamte Speicher
 | macOS          | 0.08 $       |
 | Windows        | 0.016 $      |
 
-Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem Benutzer- oder Organisationskonto ausführen kannst, hängt von Deinem GitHub-Plan ab. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)."
+Die Anzahl der Aufträge, die Du gleichzeitig über alle Repositories in Deinem Benutzer- oder Organisationskonto ausführen kannst, hängt von Deinem GitHub-Plan ab. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 ### Minuten- und Speicherausgaben berechnen
 

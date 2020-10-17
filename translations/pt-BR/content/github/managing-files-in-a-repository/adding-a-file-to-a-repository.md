@@ -1,8 +1,6 @@
 ---
 title: Adicionar um arquivo a um repositório
-intro: |-
-  Você pode fazer upload e commit de um arquivo existente em um repositório
-   do {% data variables.product.product_name %}. Arraste e solte um arquivo em qualquer diretório na árvore de arquivos ou faça upload de arquivos da página principal do repositório.
+intro: "Você pode fazer upload e commit de um arquivo existente em um repositório\n do {% data variables.product.product_name %}. Arraste e solte um arquivo em qualquer diretório na árvore de arquivos ou faça upload de arquivos da página principal do repositório."
 redirect_from:
   - /articles/adding-a-file-to-a-repository
 versions:

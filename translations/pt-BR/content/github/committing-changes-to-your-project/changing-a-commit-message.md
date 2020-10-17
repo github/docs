@@ -13,13 +13,9 @@ versions:
 
 Você pode alterar a mensagem do commit mais recente usando o comando `git commit --amend`.
 
-{% warning %}
-
 No Git, o texto da mensagem do commit faz parte do commit. Alterar a mensagem do commit mudará a ID do commit, isto é, a soma de verificação SHA1 que nomeia o commit. Efetivamente, você está criando um commit que substitui o antigo.
 
-{% endwarning %}
-
-#### Não foi feito push online do commit
+### Não foi feito push online do commit
 
 Se o commit existir em seu repositório local e não tiver sido publicado no {% data variables.product.product_location %}, você poderá corrigir a mensagem do commit com o comando `git commit --amend`.
 
@@ -39,7 +35,7 @@ Você pode alterar o editor de texto padrão do Git mudando a configuração `co
 
 {% endtip %}
 
-#### Corrigir mensagens do commit antigas ou em grandes quantidades
+### Corrigir mensagens do commit antigas ou em grandes quantidades
 
 Se você já tiver feito push do commit no {% data variables.product.product_location %}, será necessário forçar o push de um commit com uma mensagem corrigida.
 
@@ -49,7 +45,7 @@ O recomendável é evitar tanto quanto possível o push forçado, uma vez que is
 
 {% endwarning %}
 
-**Corrigir a mensagem do commit com push mais recente**
+**Alterar a mensagem do commit enviado mais recentemente**
 
 1. Siga as [etapas acima](/articles/changing-a-commit-message#commit-has-not-been-pushed-online) para corrigir a mensagem do commit.
 2. Use o comando `push --force` para forçar o push sobre o commit antigo.
@@ -57,7 +53,7 @@ O recomendável é evitar tanto quanto possível o push forçado, uma vez que is
   $ git push --force <em>example-branch</em>
   ```
 
-**Corrigir mensagens do commit antigas ou em grandes quantidades**
+**Alterar a mensagem das mensagens mais antigas ou múltiplas do commit**
 
 Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você pode usar o rebase interativo e, em seguida, forçar o push para alterar o histórico do commit.
 
@@ -93,7 +89,6 @@ Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você
     #
     # Observe que commits vazios são comentados
     ```
-
 3. Substitua `pick` por `reword` antes de cada mensagem do commit que deseja alterar.
   ```shell
   pick e499d89 Delete CNAME
@@ -102,10 +97,10 @@ Se precisar corrigir a mensagem de vários commits ou de um commit antigo, você
   ```
 4. Salve e feche o arquivo da lista de commits.
 5. Em cada arquivo de commit resultante, digite a nova mensagem do commit, salve o arquivo e feche-o.
-6. Force o push dos commits corrigidos.
-  ```shell
-  $ git push --force
-  ```
+6. Quando estiver pronto para fazer push das suas alterações para o GitHub, use o comando push --force para fazer push forçado sobre o commit antigo.
+```shell
+$ git push --force <em>example-branch</em>
+```
 
 Para obter mais informações sobre rebase interativo, consulte a seção sobre o "[modo interativo](https://git-scm.com/docs/git-rebase#_interactive_mode)" no manual do Git.
 
