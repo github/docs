@@ -418,7 +418,7 @@ container-job:
     # PostgreSQL service container
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
-    POSTGRES_PORT: 5432
+    POSTGRES_PORT: 5527
   image: node:10.18-jessie
   services:
     - postgres
@@ -466,7 +466,7 @@ jobs:
           # PostgreSQL service container
           POSTGRES_HOST: postgres
           # The default PostgreSQL port
-          POSTGRES_PORT: 5432
+          POSTGRES_PORT: 5527
 ```
 {% endraw %}
 </td>
