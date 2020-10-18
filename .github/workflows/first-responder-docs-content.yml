@@ -1,11 +1,11 @@
 name: First responder docs-content
 on:
   pull_request:
-    types: [reopened, opened, ready_for_review, unlabeled]
+    types: [reopened, opened, ready_for_review, closed, unlabeled]
 
 jobs:
   first-responder-triage:
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed'
     runs-on: ubuntu-latest
 
     steps:
@@ -51,14 +51,10 @@ jobs:
         column-name: "Docs-internal external contributor PRs"
 
   first-responder-label-removed:
-    if: github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled'
+    if: github.event.label.name == 'docs-content-fr' && (github.event.action == 'unlabeled' || github.event.action == 'closed')
     runs-on: ubuntu-latest
 
     steps:
-    - name: Dump GitHub context
-      env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "$GITHUB_CONTEXT"
     - name: Remove card from project
       uses: actions/github-script@44b873bc975058192f5279ebe7579496381f575d
       with:
