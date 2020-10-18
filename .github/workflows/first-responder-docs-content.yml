@@ -5,7 +5,7 @@ on:
 
 jobs:
   first-responder-triage:
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && !contains(github.event.issue.labels.*.name, 'autoupdate')
     runs-on: ubuntu-latest
 
     steps:
