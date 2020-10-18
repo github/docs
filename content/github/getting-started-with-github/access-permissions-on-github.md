@@ -34,7 +34,10 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"
 
-#### Code Editor Component
+#### Cool Table Component
+<!--react-->
+<CoolTable />
+<!--end-react-->
 
 <!--react--><RedContent>Red content!</RedContent><!--end-react-->
 

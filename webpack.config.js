@@ -25,6 +25,9 @@ module.exports = {
               '@babel/preset-react'
             ],
             plugins: [
+              '@babel/plugin-transform-react-jsx',
+              '@babel/plugin-proposal-object-rest-spread',
+              '@babel/plugin-transform-modules-commonjs',
               '@babel/plugin-proposal-class-properties'
             ]
           }

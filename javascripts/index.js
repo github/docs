@@ -19,6 +19,7 @@ import initializeEvents from './events'
 import CodeBlock from '../react/CodeBlock'
 import RedContent from '../react/RedContent'
 import Timer from '../react/Timer'
+import CoolTable from '../react/CoolTable'
 
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
@@ -42,5 +43,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 module.export = {
   CodeBlock,
   RedContent,
-  Timer
+  Timer,
+  CoolTable
 }
