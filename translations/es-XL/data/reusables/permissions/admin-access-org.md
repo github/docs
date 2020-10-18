@@ -1,1 +1,0 @@
-Debes autenticarte utilizando un token de acceso con el alcance `admin:org` para utilizar esta terminal.

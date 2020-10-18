@@ -1,5 +1,5 @@
 组织包括：
-{% if currentVersion == "free-pro-team@latest" %}- 免费选项，{% data variables.product.prodname_free_team %}，在具有完整功能的无限公共仓库和具有有限功能的无限私有仓库上支持无限协作者。
+{% if currentVersion == "free-pro-team@latest" %}- A free option, {% data variables.product.prodname_free_team %}, with unlimited collaborators on unlimited public repositories with full features and unlimited private repositories with limited features.
 - 用于升级到 {% data variables.product.prodname_team %} 或 {% data variables.product.prodname_ghe_cloud %} 以获取额外功能的选项，包括复杂的用户身份验证和管理，以及升级的支持选项。 {% data reusables.gated-features.more-info %}{% endif %}
 - 无限的成员资格，以各种不同的角色授予[对组织及其数据的不同访问权限](/articles/permission-levels-for-an-organization)
 - 能够向成员授予[对组织仓库的一系列访问权限](/articles/repository-permission-levels-for-an-organization)

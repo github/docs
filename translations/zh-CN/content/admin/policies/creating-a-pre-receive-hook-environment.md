@@ -1,6 +1,6 @@
 ---
 title: 创建预接收挂钩环境
-intro: 要执行预接收挂钩，请使用默认的预接收环境，或者创建自定义环境。
+intro: '要执行预接收挂钩，请使用默认的预接收环境，或者创建自定义环境。'
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-environment
   - /enterprise/admin/policies/creating-a-pre-receive-hook-environment

@@ -32,6 +32,6 @@ versions:
 プロジェクトボードの自動化によって、デフォルトで進捗を追跡できるようになります。 "To do"、"In progress"、"Done" がプリセットされた列内のカードは、プロジェクト全体の進捗に対してカウントされます。 {% data reusables.project-management.project-progress-locations %}
 
 ### 参考リンク
-- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% if currentVersion == "free-pro-team@latest" %}
+- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}

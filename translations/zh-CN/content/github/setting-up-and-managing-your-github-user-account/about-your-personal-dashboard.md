@@ -4,7 +4,7 @@ redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
   - /articles/opting-into-the-public-beta-for-a-new-dashboard/
   - /articles/about-your-personal-dashboard
-intro: 您可以访问个人仪表板，以跟踪您参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解您订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。
+intro: '您可以访问个人仪表板，以跟踪您参与或关注的议题和拉取请求，浏览常用仓库和团队页面，了解您订阅的组织和仓库中近期活动的最新信息，以及探索推荐的仓库。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -46,7 +46,7 @@ versions:
 
 ### 探索推荐的仓库
 
-在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 建议基于您已经标星或访问过的仓库、您关注的人以及您可以访问的仓库中的活动。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[寻找在 {% data variables.product.prodname_dotcom %} 上参与开源项目的方法](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)”。{% endif %}
+在仪表板右侧的“Explore repositories（浏览仓库）”部分，您可以浏览社区中推荐的仓库。 Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ### 延伸阅读
 

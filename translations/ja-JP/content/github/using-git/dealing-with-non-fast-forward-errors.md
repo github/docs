@@ -1,6 +1,6 @@
 ---
 title: non-fast-forward エラーの扱い
-intro: 時として、Git はリモートリポジトリへの変更の際、コミットに失敗することがあります。 その場合、プッシュが拒否されます。
+intro: '時として、Git はリモートリポジトリへの変更の際、コミットに失敗することがあります。 その場合、プッシュが拒否されます。'
 redirect_from:
   - /articles/dealing-with-non-fast-forward-errors
 versions:
@@ -11,9 +11,9 @@ versions:
 別の人が同じブランチにすでにプッシュしてしまった場合、Git はあなたの変更をプッシュできません:
 
 ```shell
-$ git push origin master
+$ git push origin main
 > To https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git
->  ! [rejected]        master -> master (non-fast-forward)
+>  ! [rejected]        main -> main (non-fast-forward)
 > error: failed to push some refs to 'https://{% data variables.command_line.codeblock %}/<em>USERNAME</em>/<em>REPOSITORY</em>.git'
 > To prevent you from losing history, non-fast-forward updates were rejected
 > Merge the remote changes (e.g. 'git pull') before pushing again.  See the

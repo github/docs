@@ -44,7 +44,7 @@ You cannot create a default license file. License files must be added to individ
   ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
 3. Type **.github** as the name for your repository, and an optional description.
   ![Create repository field](/assets/images/help/repository/default-file-repository-name.png)
-4. Choose to make the repository public.
+4. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
   ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}

@@ -17,7 +17,7 @@ versions:
  - Você **não poderá** mais entrar na conta do usuário convertido.
  - Você **não poderá** mais criar nem modificar gists pertencentes à conta do usuário convertido.
  - Uma organização **não pode** ser convertida de volta em um usuário.
- - As chaves SSH, os tokens OAuth, o perfil de trabalho, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} as reações {% endif %}e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta de usuário que está sendo convertida, e não para colaboradores da conta de usuário.
+ - As chaves SSH, os tokens do OAuth, o perfil de trabalho, as reações e as informações do usuário associadas, **não** serão transferidos para a organização. Isso é válido apenas para a conta de usuário que está sendo convertida, e não para colaboradores da conta de usuário.
  - Qualquer commit feito com a conta do usuário convertido **não será mais vinculado** a essa conta. Os commits em si **permanecerão** intactos.
 
 {% endwarning %}
@@ -35,7 +35,7 @@ Se quiser que sua organização tenha o mesmo nome que atualmente você está us
 Você também pode converter sua conta de usuário pessoal diretamente em uma organização. A conversão da conta:
  - Preserva os repositórios como estão sem a necessidade de transferi-los para outra conta manualmente
  - Convida automaticamente colaboradores para equipes com permissões equivalentes às que tinham antes
- {% if currentVersion == "free-pro-team@latest" %}- Para contas de usuário no {% data variables.product.prodname_pro %}, faz a transição da cobrança automaticamente para o [{% data variables.product.prodname_team %} pago](/articles/about-billing-for-github-accounts) sem a necessidade de inserir novamente as informações de pagamento, ajustar o ciclo de cobrança ou pagar em dobro{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- Para contas de usuário em {% data variables.product.prodname_pro %}, transforma automaticamente a cobrança para [os {% data variables.product.prodname_team %}pagos](/articles/about-billing-for-github-accounts) sem a necessidade de inserir novamente as informações de pagamento, ajustar seu ciclo de cobrança ou de pagamento duplo a qualquer momento{% endif %}
 
 1. Crie uma conta pessoal, que você usará para entrar no GitHub e acessar a organização e seus repositórios após conversão.
 2.  [Saia das organizações](/articles/removing-yourself-from-an-organization) nas quais a conta de usuário que você está convertendo ingressou.
@@ -56,5 +56,5 @@ Você também pode converter sua conta de usuário pessoal diretamente em uma or
 
 ### Leia mais
 - "[Configurar equipes](/articles/setting-up-teams)"
-{% if currentVersion == "free-pro-team@latest" %}- "[Convidar usuários para ingressar na organização](/articles/inviting-users-to-join-your-organization)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Convidar usuários para participar da sua organização](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - "[Acessar uma organização](/articles/accessing-an-organization)"

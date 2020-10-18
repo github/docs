@@ -1,6 +1,6 @@
 ---
 title: Standardkennzeichnungen für Repositorys in Deiner Organisation verwalten
-intro: 'Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.'
+intro: Du kannst die Kennzeichnungen anpassen, die in jedem neuen Repository Deiner Organisation enthalten sind.
 redirect_from:
   - /articles/managing-default-labels-for-repositories-in-your-organization
 versions:

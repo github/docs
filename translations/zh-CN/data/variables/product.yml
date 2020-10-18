@@ -19,7 +19,7 @@ prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}您的 GitHub Enterprise Server 实例{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}your GitHub Enterprise Server instance{% endif %}
 product_location_enterprise: '您的 GitHub Enterprise Server 实例'
 prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
@@ -56,12 +56,9 @@ prodname_github_app: 'GitHub 应用程序'
 prodname_github_apps: 'GitHub 应用程序'
 prodname_oauth_app: 'OAuth 应用程序'
 #API and developer docs
-prodname_dev_docs: 'GitHub 开发者文档'
 prodname_enterprise_api: 'GitHub Enterprise Server API'
-prodname_support_forum: 'GitHub API 开发和支持论坛'
 prodname_support_forum_with_url: '[GitHub API 开发和支持论坛](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: '内容附件'
-prodname_component_kit: 'GitHub Component Kit'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
@@ -80,16 +77,15 @@ prodname_matching_fund: 'GitHub 赞助者匹配基金'
 prodname_advanced_security: 'Advanced Security'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vscode: 'Visual Studio Code'
 prodname_vs_codespaces: 'Visual Studio 代码空间'
-prodname_vs: 'Visual Studio'
+prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'GitHub 博客'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Learning Lab'
 prodname_learning_link: 'https://lab.github.com/'
-prodname_roadmap: 'GitHub public roadmap'
+prodname_roadmap: 'GitHub 公共路线图'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support
 premium_support_plan: 'Premium 计划'
@@ -110,26 +106,29 @@ prodname_code_scanning: '代码扫描'
 prodname_code_scanning_capc: '代码扫描'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
-prodname_codeql_workflow: 'CodeQL Analysis workflow'
+prodname_codeql_workflow: 'CodeQL 分析工作流程'
+#Visual Studio
+prodname_vs: 'Visual Studio'
+prodname_vscode: 'Visual Studio Code'
+prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
+prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
 prodname_dependabot: 'GitHub Dependabot'
 prodname_dependabot_short: 'Dependabot'
 prodname_dependabot_alerts: 'GitHub Dependabot 警报'
 prodname_dependabot_security_updates: 'GitHub Dependabot 安全更新'
 prodname_dependabot_version_updates: 'GitHub Dependabot 版本更新'
-#GitHub Policies
-prodname_policies: 'GitHub Policies'
 #GitHub Archive Program
 prodname_archive: 'GitHub 存档计划'
-prodname_arctic_vault: 'Arctic Code Vault'
+prodname_arctic_vault: 'Arctic 代码库'
 #Links
 product_url: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[登录](https://github.com/login){% else %}登录 (`https://[hostname]/login`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[注销](https://github.com/logout){% else %}注销 (`https://[hostname]/logout`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 #GitHub Enterprise Server past versions

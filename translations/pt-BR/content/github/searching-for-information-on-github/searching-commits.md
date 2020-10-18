@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Você pode pesquisar commits globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
+Você pode pesquisar commits globalmente no {% data variables.product.product_name %} ou pesquisar em uma organização ou um repositório específico. Para obter mais informações, consulte "[Sobre pesquisar no {% data variables.product.company_short %}](/articles/about-searching-on-github)".
 
 Quando você pesquisa commits, somente o [branch padrão](/articles/about-branches) de um repositório é pesquisado.
 

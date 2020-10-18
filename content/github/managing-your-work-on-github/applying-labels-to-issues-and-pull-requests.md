@@ -11,15 +11,16 @@ versions:
 
 {% tip %}
 
-**Tip:** You can also apply a label in the Labels drop-down menu within an issue or pull request.  
+**Tip:** You can apply up to a maximum of 100 labels to issues and pull requests.
 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.repositories.select-items-in-issue-or-pr-list %}
-4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items.
+4. In the upper-right corner, click **Label**, then start typing the name of an existing label. Click the label's name to associate it with the selected items. You can also apply a label in the Labels drop-down menu within an issue or pull request.
   ![Issues Milestone assignment drop-down](/assets/images/help/issues/issues_applying_labels_dropdown.png)
+  
 
 ### Further reading
 

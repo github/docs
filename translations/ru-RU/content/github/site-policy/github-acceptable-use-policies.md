@@ -58,7 +58,7 @@ You may not scrape the Service for spamming purposes, including for the purposes
 
 All use of data gathered through scraping must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement).
 
-### 6. Приватность
+### 6. Конфиденциальность
 Misuse of User Personal Information is prohibited.
 
 Any person, entity, or service collecting data from the Service must comply with the [GitHub Privacy Statement](/articles/github-privacy-statement), particularly in regards to the collection of User Personal Information. If you collect any User Personal Information from the Service, you agree that you will only use that User Personal Information for the purpose for which that User has authorized it. You agree that you will reasonably secure any User Personal Information you have gathered from the Service, and you will respond promptly to complaints, removal requests, and "do not contact" requests from us or other users.

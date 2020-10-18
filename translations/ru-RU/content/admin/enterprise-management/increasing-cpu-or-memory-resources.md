@@ -4,7 +4,6 @@ intro: 'You can increase the CPU or memory resources for a {% data variables.pro
 redirect_from:
   - /enterprise/admin/installation/increasing-cpu-or-memory-resources
   - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
-  - /enterprise/admin/enterprise-management/increasing-cpu-or-memory-resources
 versions:
   enterprise-server: '*'
 ---

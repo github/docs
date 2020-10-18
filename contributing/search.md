@@ -18,9 +18,9 @@ The Actions workflow usually takes about five minutes, and the progress can be v
 
 ## Development
 
-In cases where a publicity event like GitHub Satellite or GitHub Universe demands a very tight shipping window, it is also possible to manually sync the indices with Algolia's servers from your local checkout of the repo, before your feature branch is merged to main. Manually syncing the indices can also be useful to test an unreleased GitHub Enterprise version or a translated language (Portugese, Chinese, etc) that is not yet in production.
+In cases where a publicity event like GitHub Satellite or GitHub Universe demands a very tight shipping window, it is also possible to manually sync the indices with Algolia's servers from your local checkout of the repo, before your feature branch is merged to main. Manually syncing the indices can also be useful to test an unreleased GitHub Enterprise version or a translated language (Portuguese, Chinese, etc) that is not yet in production.
 
-To sync the indices from your development enviroment:
+To sync the indices from your development environment:
 
 1. Make sure the two required environment variables `ALGOLIA_APPLICATION_ID` and `ALGOLIA_API_KEY` are set in your `.env` file. These can be retrieved from the [Algolia site](https://www.algolia.com/apps/ZI5KPY1HBE/api-keys/all).
 2. Run `npm run sync-search-dry-run`. This takes a while to complete. It will prepare, test, and validate all the indices without actually uploading anything to Algolia's servers.

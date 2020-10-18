@@ -9,7 +9,7 @@ versions:
 
 ### Permanente Identifizierung für Dein Repository mit Zenodo ausgeben
 
-Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. Du kannst das Datenarchivierungstool [Zenodo](https://zenodo.org/about) zur Archivierung eines {% data variables.product.product_name %}-Repositorys und zur Ausgabe einer DOI für das Archiv verwenden.
+Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; deutsch digitale Objektkennungen) bezeichnet, lassen sich Deine Repositorys in akademischer Literatur leichter referenzieren. Sie können das Datenarchivierungstool [Zenodo](https://zenodo.org/about) zur Archivierung eines {% data variables.product.product_name %}-Repositorys und zur Ausgabe einer DOI für das Archiv verwenden.
 
 {% tip %}
 
@@ -27,7 +27,7 @@ Mit permanenten Identifizierungen, auch als Digital Object Identifiers (DOIs; de
 5. Navigiere zur [GitHub-Seite von Zenodo](https://zenodo.org/account/settings/github/). ![GitHub-Seite von Zenodo](/assets/images/help/repository/zenodo_github_page.png)
 6. Bewege die Schaltfläche rechts neben dem Namen des zu archivierenden Repositorys von **Off** (Aus) auf **On** (Ein), um die Archivierung des Repositorys zu aktivieren. ![Für ein Repository Archivierung durch Zenodo aktivieren](/assets/images/help/repository/zenodo_toggle_on.png)
 
-Zenodo archiviert Dein Repository und gibt bei jeder Erstellung eines neuen {% data variables.product.product_name %}-[Releases](/articles/about-releases/) eine DOI aus. Folge zur Erstellung eines neuen Releases den Schritten unter „[Releases erstellen](/articles/creating-releases/)".
+Zenodo archiviert Ihr Repository und gibt bei jeder Erstellung eines neuen {% data variables.product.product_name %}-[Releases](/articles/about-releases/) eine DOI aus. Folge zur Erstellung eines neuen Releases den Schritten unter „[Releases erstellen](/articles/creating-releases/)".
 
 ### Forschungsarbeiten mit Figshare veröffentlichen und zitieren
 

@@ -1,6 +1,6 @@
 ---
 title: Warnungen von „secret scanning" (Durchsuchen nach Geheimnissen) verwalten
-intro: 'Du kannst Warnungen für Geheimnisse, welche in Deinem Repository geprüft wurden, anschauen und schließen.'
+intro: Du kannst Warnungen für Geheimnisse, welche in Deinem Repository geprüft wurden, anschauen und schließen.
 versions:
   free-pro-team: '*'
 ---

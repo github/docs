@@ -69,7 +69,7 @@ versions:
 - 一个人或一个法律实体最多可以拥有一个免费帐户（如果您选择还控制一个机器帐户，没问题，但是它只能用于运行机器）。
 - 用户必须年满 13 岁。 虽然我们很高兴看到优秀的年轻编码者热衷于学习编程，但我们必须遵守美国法律。 GitHub 并未针对 13 岁以下的儿童定制服务，因此我们不允许任何 13 岁以下的用户使用我们的服务。 如果我们发现任何用户未满 13 岁，我们将[立即终止该用户的帐户](#l-cancellation-and-termination)。 如果您是美国以外的国家/地区的居民，您所在国家/地区规定的最低年龄可能会更大；在这种情况下，您有责任遵守您所在国家/地区的法律。
 - 您的登录名只能由一个人使用，即不允许多人共享一个登录名。 付费组织只能在订阅允许的范围内向多个用户帐户提供访问权限。
-- 不得违反美国或任何其他适用司法管辖区的出口管制或制裁法律使用 GitHub。 如果您是[特别指定国民 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx)或被美国政府机构实施的类似封锁或被拒方禁令所限制的个人，或者代表他们工作，则您不得使用 GitHub。 government agency.  GitHub 可能会根据美国政府的授权，允许某些受制裁国家或地区的人访问某些 GitHub 服务。 government authorizations.  更多信息请参阅我们的[出口管制政策](/articles/github-and-export-controls)。
+- 不得违反美国或任何其他适用司法管辖区的出口管制或制裁法律使用 GitHub。 如果您是[特别指定国民 (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx)或被美国政府机构实施的类似封锁或被拒方禁令所限制的个人，或者代表他们工作，则您不得使用 GitHub。 政府机构。  GitHub 可能会根据美国政府的授权，允许某些受制裁国家或地区的人访问某些 GitHub 服务。 政府授权。  更多信息请参阅我们的[出口管制政策](/articles/github-and-export-controls)。
 
 #### 4. 用户帐户安全
 在使用我们的服务时，您负责维护您的帐户安全。 我们提供双重身份验证等工具，帮助您维护帐户的安全性，但您的帐户内容及其安全性取决于您。
@@ -98,7 +98,7 @@ versions:
 您在使用服务时可能创建或上传用户生成的内容。 对于您发布、上传、链接或通过服务提供的任何用户生成内容，无论内容的形式如何，您对其内容以及由此造成的任何伤害负有全部责任。 我们对用户生成内容的任何公开显示或滥用概不负责。
 
 #### 2. GitHub 可删除内容
-We do not pre-screen User-Generated Content, but we have the right (though not the obligation) to refuse or remove any User-Generated Content that, in our sole discretion, violates any [GitHub terms or policies](/github/site-policy).
+我们不预先筛选用户生成的内容，但我们有权利（但没有义务）拒绝或删除单方面认为违反了任何 [GitHub 条款或政策](/github/site-policy)的任何用户生成内容。
 
 #### 3. 内容所有权、发布权利和许可授予
 您对您的内容保有所有权和责任。 如果您发布不是您自己创建或者您没有所有权的内容，则您同意对您发布的任何内容负责；您只会提交您有权发布的内容；并且您将完全遵守与您发布的内容有关的任何第三方许可。

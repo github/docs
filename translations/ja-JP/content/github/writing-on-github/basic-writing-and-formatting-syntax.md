@@ -170,7 +170,7 @@ git commit
 
 ### 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 通知の詳細は、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}「[通知について](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}」を参照してください。
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support これらのアップデートについてどう思いますか？`
 
@@ -188,12 +188,9 @@ git commit
 
 詳しい情報については[自動リンクされた参照と URL](/articles/autolinked-references-and-urls) を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 外部リソースの参照
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### コンテンツの添付
 
@@ -201,7 +198,7 @@ git commit
 
 ![コンテンツの添付](/assets/images/help/writing/content-attachment.png)
 
-コンテンツの添付を見るには、リポジトリにインストールされた Content Attachments API を使う {% data variables.product.prodname_github_app %} が必要です。{% if currentVersion == "free-pro-team@latest" %}詳細は「[個人アカウントでアプリケーションをインストールする](/articles/installing-an-app-in-your-personal-account)」および「[Organization でアプリケーションをインストールする](/articles/installing-an-app-in-your-organization)」を参照してください。{% endif %}
+To see content attachments, you must have a {% data variables.product.prodname_github_app %} that uses the Content Attachments API installed on the repository.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Installing an app in your personal account](/articles/installing-an-app-in-your-personal-account)" and "[Installing an app in your organization](/articles/installing-an-app-in-your-organization)."{% endif %}
 
 コンテンツの添付は、Markdown のリンクの一部になっている URL には表示されません。
 

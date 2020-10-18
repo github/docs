@@ -17,11 +17,7 @@ versions:
 
 ### About Docker and {% data variables.product.prodname_registry %}
 
-{% warning %}
-
-**Note:** The {% data variables.product.prodname_registry %} Docker registry will be superseded by {% data variables.product.prodname_github_container_registry %}{% if currentVersion != "free-pro-team@latest" %} in a future {% data variables.product.product_name %} release{% endif %}.{% if currentVersion == "free-pro-team@latest" %} To learn how to migrate your existing Docker images and any workflows using them, see "[Migrating to {% data variables.product.prodname_github_container_registry %} for Docker images](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images)" and "[Getting started with {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry)."{% endif %}
-
-{% endwarning %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
@@ -32,6 +28,8 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% endif %}
 
 ### Authenticating to {% data variables.product.prodname_registry %}
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -69,6 +67,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
 ### Publishing a package
 
+{% data reusables.package_registry.docker_registry_deprecation_status %}
+
 {% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.lowercase-name-field %}
@@ -104,7 +104,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
-4. Publish the image to {% data variables.product.prodname_registry %}.
+4. Publish the image to
+{% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -121,6 +122,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   {% endnote %}
 
 #### Example publishing a Docker image
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
@@ -180,8 +183,9 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 ### Installing a package
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -198,7 +202,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 **Note:** You must pull the image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
 {% endnote %}
-
 
 ### Дополнительная литература
 
