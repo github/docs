@@ -4,7 +4,8 @@ on:
     types: [reopened, opened, ready_for_review, closed, unlabeled]
 
 jobs:
-  first-responder-triage:
+  first-responder-triage-pr:
+    name: Triage PR to FR project board
     if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed'
     runs-on: ubuntu-latest
 
@@ -50,8 +51,9 @@ jobs:
         project-url: "https://github.com/orgs/github/projects/1367"
         column-name: "Docs-internal external contributor PRs"
 
-  first-responder-label-removed:
-    if: github.event.label.name == 'docs-content-fr' && (github.event.action == 'unlabeled' || github.event.action == 'closed')
+  first-responder-remove-pr:
+    name: Remove PR from FR project board
+    if: (github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed'
     runs-on: ubuntu-latest
 
     steps:
@@ -75,3 +77,9 @@ jobs:
               }
             }
           })
+    - name: Remove docs-content-fr label if not already removed
+      if: github.event.action == 'closed'
+      uses: rachmari/labeler@v1.0.4
+      with:
+        repo-token: "${{ secrets.MY_PAT }}"
+        remove-labels: "docs-content-fr"
