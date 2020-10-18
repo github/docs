@@ -1,5 +1,5 @@
 ---
-title: Заявление о конфиденциальности GitHub
+title: Политика конфиденциальности GitHub
 redirect_from:
   - /privacy/
   - /privacy-policy/
@@ -45,7 +45,7 @@ Of course, the short version and the Summary below don't tell you everything, so
 | [Contacting GitHub](#contacting-github)                                                                                 | Please feel free to contact us if you have questions about our Privacy Statement.                                                                                                                                                                                                                                                                                                                                                                                         |
 | [Translations](#translations)                                                                                           | We provide links to some translations of the Privacy Statement.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
-## Заявление о конфиденциальности GitHub
+## Политика конфиденциальности GitHub
 
 ### What information GitHub collects
 
@@ -227,7 +227,7 @@ We provide a web page on [cookies and tracking](/github/site-policy/github-subpr
 
 We use a number of third-party analytics and service providers to help us evaluate our Users' use of GitHub, compile statistical reports on activity, and improve our content and Website performance. We only use these third-party analytics providers on certain areas of our Website, and all of them have signed data protection agreements with us that limit the type of User Personal Information they can collect and the purpose for which they can process the information. In addition, we use our own internal analytics software to provide features and improve our content and performance.
 
-Some browsers have incorporated "Do Not Track" (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you have not enabled DNT on a browser that supports it, cookies on some parts of our Website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub Users' activity over time on GitHub.
+Some browsers have incorporated "Do Not Track" (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked. GitHub responds to browser DNT signals and follows the [W3C standard for responding to DNT signals](https://www.w3.org/TR/tracking-dnt/). If you have not enabled DNT on a browser that supports it, cookies on some parts of our Website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub Users' activity over time on GitHub. You can read more about DNT in our [Tracking on GitHub](/github/site-policy/github-subprocessors-and-cookies#tracking-on-github) section of our [GitHub Subprocessors and Cookies](/github/site-policy/github-subprocessors-and-cookies) page.
 
 ### How GitHub secures your information
 

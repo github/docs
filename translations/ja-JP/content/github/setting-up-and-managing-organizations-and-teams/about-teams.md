@@ -21,7 +21,7 @@ Organization のオーナーとチームメンテナは、Team に対して、Or
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-また、LDAP Sync を使って {% data variables.product.product_location_enterprise %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location_enterprise %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
+また、LDAP Sync を使って {% data variables.product.product_location_enterprise %}の Team メンバーと Team ロールを、既成の LDAP グループと同期させることができます。 そうすることで、{% data variables.product.product_location_enterprise %}内で手動で行う代わりに、LDAP サーバーのユーザのロールベースアクセス制御を確立できます。 詳しい情報については[LDAP Syncの有効化](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)を参照してください。
 
 {% endif %}
 

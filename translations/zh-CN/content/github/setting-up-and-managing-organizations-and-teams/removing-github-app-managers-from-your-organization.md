@@ -24,7 +24,9 @@ versions:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. 在 "{% data variables.product.prodname_github_app %}" 下，单击要从其删除 {% data variables.product.prodname_github_app %}管理员的应用程序的头像。 ![选择 {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
+1. 在“
+{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
+![选择 {% data variables.product.prodname_github_app %}](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. 在“App managers（应用程序管理员）”下，找到您要从其删除 {% data variables.product.prodname_github_app %}管理员权限的人员的用户名，然后单击 **Revoke（撤销）**。 ![撤销 {% data variables.product.prodname_github_app %}管理员权限](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 

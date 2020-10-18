@@ -18,7 +18,7 @@ versions:
 4. 在左侧边栏中，单击 **Linked repositories（链接的仓库）**。 ![左侧边栏中链接的仓库菜单选项](/assets/images/help/projects/project-board-linked-repositories-setting.png)
 5. 单击 **Link a repository（链接仓库）**。 ![链接的仓库选项卡中的链接仓库按钮](/assets/images/help/projects/link-repository-button.png)
 6. 搜索要链接的仓库。 ![链接仓库窗口中的搜索字段](/assets/images/help/projects/search-to-link-repository.png)
-7. Click **Link**. 要取消链接，请单击 **Unlink（取消链接）**。 ![链接按钮](/assets/images/help/projects/link-button.png)
+7. 单击 **Link（链接）**。 要取消链接，请单击 **Unlink（取消链接）**。 ![链接按钮](/assets/images/help/projects/link-button.png)
 
 ### 延伸阅读
 

@@ -20,7 +20,8 @@ Depois de entrar como usuário administrador com SSH, você pode executar esses 
 Este utilitário insere um banner no topo de cada página do {% data variables.product.prodname_enterprise %}. Você pode usá-lo para enviar uma comunicação a todos os usuários.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Você também pode definir um banner de anúncio usando as configurações empresariais no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
+Você também pode definir um banner de anúncio usando as configurações corporativas em
+{% data variables.product.product_name %}. Para obter mais informações, consulte "[Personalizar mensagens de usuário na instância](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)".
 {% endif %}
 
 ```shell
@@ -181,7 +182,6 @@ Este utilitário permite controlar o estado do modo de manutenção da instalaç
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores veem quando acessam a instância através do shell administrativo. A saída contém uma visão geral do estado da instância.
@@ -189,7 +189,6 @@ Este utilitário exibe novamente a mensagem do dia (MOTD) que os administradores
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 

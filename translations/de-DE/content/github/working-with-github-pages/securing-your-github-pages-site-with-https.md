@@ -24,11 +24,11 @@ Die HTTPS-Erzwingung ist für {% data variables.product.prodname_pages %}-Websit
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Wähle unter „{% data variables.product.prodname_pages %}“ die Option **Enforce HTTPS** (HTTPS erzwingen). ![Kontrollkästchen „Enforce HTTPS“ (HTTPS erzwingen)](/assets/images/help/pages/enforce-https-checkbox.png)
+3. Wählen Sie unter „{% data variables.product.prodname_pages %}“ die Option **Enforce HTTPS** (HTTPS erzwingen). ![Kontrollkästchen „Enforce HTTPS“ (HTTPS erzwingen)](/assets/images/help/pages/enforce-https-checkbox.png)
 
 ### Probleme bei gemischten Inhalten beheben
 
-Wenn Du für Deine {% data variables.product.prodname_pages %}-Website HTTPS aktivierst, die HTML Deiner Website aber noch Bilder, CSS oder JavaScript über HTTP referenziert, stellt Deine Website *gemischte Inhalte* bereit. In diesem Fall ist Deine Website möglicherweise weniger sicher und das Laden dieser Objekte bereitet eventuell Probleme.
+Wenn Sie für Ihre {% data variables.product.prodname_pages %}-Website HTTPS aktivieren, die HTML Ihrer Website aber noch Bilder, CSS oder JavaScript über HTTP referenziert, stellt Ihre Website *gemischte Inhalte* bereit. In diesem Fall ist Deine Website möglicherweise weniger sicher und das Laden dieser Objekte bereitet eventuell Probleme.
 
 Sollen die gemischten Inhalte Deiner Website entfernt werden, stelle zunächst alle Objekte über HTTPS bereit. Ersetze hierzu `http://` in der HTML Deiner Website durch `https://`.
 
@@ -40,7 +40,7 @@ Objekte befinden sich meist in den folgenden Speicherorten:
 
 {% tip %}
 
-**Tipp:** Wenn Du die Objekte nicht in den Quelldateien Deiner Website findest, suche mit dem Texteditor oder mit {% data variables.product.product_name %} in den Quelldateien nach `http`.
+**Tipp:** Wenn Sie die Assets nicht in den Quelldateien Ihrer Website finden, suchen Sie mit dem Texteditor oder mit {% data variables.product.product_name %} in den Quelldateien nach `http`.
 
 {% endtip %}
 

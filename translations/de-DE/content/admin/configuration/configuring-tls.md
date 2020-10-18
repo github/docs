@@ -26,7 +26,7 @@ Um TLS in der Produktion zu verwenden, müssen Sie über ein Zertifikat verfüge
 
 Darüber hinaus schreibt Ihr Zertifikat Subject Alternative Names vor, die für die in „[Subdomain-Isolation aktivieren](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)“ aufgelisteten Subdomains konfiguriert sind, und es muss die gesamte Zertifikatskette enthalten, wenn es von einer zwischengeschalteten Zertifizierungsstelle signiert wurde. Weitere Informationen finden Sie unter „[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)“ auf Wikipedia.
 
-Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des Zertifikats (CSR) für Deine Instanz erzeugen. Weitere Informationen findest Du unter „[Befehlszeilen-Hilfsprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)“.
+Du kannst mit dem Befehl `ghe-ssl-generate-csr` eine Anfrage zur Signierung des Zertifikats (CSR) für Deine Instanz erzeugen. Weitere Informationen finden Sie unter „[Befehlszeilenprogramme](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)“.
 
 ### Benutzerdefiniertes TLS-Zertifikat hochladen
 

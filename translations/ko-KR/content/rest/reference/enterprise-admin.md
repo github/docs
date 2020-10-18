@@ -124,11 +124,10 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ### Supported SCIM Group attributes
 
-| 이름            | 유형      | 설명                                                                                                                                                                                                                                                               |
-| ------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 이름            | 유형      | 설명                                                                                                                                                                                                                                                          |
+| ------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `displayName` | `문자열`   | The name of the SCIM group, which must exactly match the name of the corresponding {% data variables.product.product_name %} organization. For example, if the URL of the organization is `https://github.com/octo-org`, the group name must be `octo-org`. |
-| `members`     | `array` | List of SCIM user IDs that are members of the group.                                                                                                                                                                                                             |
-
+| `members`     | `array` | List of SCIM user IDs that are members of the group.                                                                                                                                                                                                        |
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
@@ -245,13 +244,13 @@ The Pre-receive Environments API allows you to create, list, update and delete e
 
 #### Pre-receive Environment
 
-| 이름                    | 유형        | 설명                                                                                                               |
-| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| `name`                | `문자열`     | The name of the environment as displayed in the UI.                                                              |
-| `image_url`           | `문자열`     | URL to the tarball that will be downloaded and extracted.                                                        |
+| 이름                    | 유형        | 설명                                                                                                          |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| `name`                | `문자열`     | The name of the environment as displayed in the UI.                                                         |
+| `image_url`           | `문자열`     | URL to the tarball that will be downloaded and extracted.                                                   |
 | `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.prodname_ghe_server %}. |
-| `download`            | `개체`      | This environment's download status.                                                                              |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                                       |
+| `download`            | `개체`      | This environment's download status.                                                                         |
+| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                                  |
 
 #### Pre-receive Environment Download
 

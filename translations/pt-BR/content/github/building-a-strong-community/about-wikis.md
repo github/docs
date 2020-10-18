@@ -1,6 +1,6 @@
 ---
 title: Sobre wikis
-intro: Você pode hospedar a documentação para seu repositório em um wiki para que outras pessoas possam usar e contribuir com seu projeto.
+intro: 'Você pode hospedar a documentação para seu repositório em um wiki para que outras pessoas possam usar e contribuir com seu projeto.'
 redirect_from:
   - /articles/about-github-wikis/
   - /articles/about-wikis

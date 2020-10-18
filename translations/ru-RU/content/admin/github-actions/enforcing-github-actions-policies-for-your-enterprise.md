@@ -3,9 +3,6 @@ title: Enforcing GitHub Actions policies for your enterprise
 intro: 'Enterprise administrators can manage access to {% data variables.product.prodname_actions %} in an enterprise.'
 redirect_from:
   - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
-  - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
-  - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
-  - /enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise
 versions:
   enterprise-server: '>=2.22'
 ---

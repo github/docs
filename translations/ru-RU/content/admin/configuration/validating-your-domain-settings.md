@@ -4,7 +4,6 @@ intro: 'Ensure that your domain settings are properly configured before booting 
 redirect_from:
   - /enterprise/admin/installation/validating-your-domain-settings
   - /enterprise/admin/configuration/validating-your-domain-settings
-  - /enterprise/admin/configuration/validating-your-domain-settings
 versions:
   enterprise-server: '*'
 ---

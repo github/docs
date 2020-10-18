@@ -18,7 +18,7 @@ module.exports = [
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
-  'fkirc/skip-duplicate-actions@a12175f6209d4805b5a163d723270be2a0dc7b36',
+  'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb',

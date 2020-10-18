@@ -1,6 +1,6 @@
 ---
 title: 'Error: ssh-add: illegal option -- K'
-intro: このエラーは、「ssh-add」のバージョンが、パスフレーズをキーチェーンに保管できる機能である、macOS のキーチェーンインテグレーションをサポートしていないことを意味しています。
+intro: 'このエラーは、「ssh-add」のバージョンが、パスフレーズをキーチェーンに保管できる機能である、macOS のキーチェーンインテグレーションをサポートしていないことを意味しています。'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k

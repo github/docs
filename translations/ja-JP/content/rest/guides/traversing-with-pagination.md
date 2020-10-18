@@ -11,9 +11,9 @@ versions:
 
 
 
-{% data variables.product.product_name %} API は、開発者が利用できる膨大な量の情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
+{% data variables.product.product_name %} APIは、開発者が消費するための膨大な情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
 
-このガイドでは、{% data variables.product.product_name %} Search API を呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
+このガイドでは、{% data variables.product.product_name %} Search APIを呼び出し、ページネーションを使って結果を反復処理します。 このプロジェクトの完全なソースコードは、[platform-samples][platform samples]リポジトリにあります。
 
 ### ページネーションの基本
 

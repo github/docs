@@ -19,7 +19,7 @@ The first step to securing a repository is to set up who can see and modify your
 
 - **Security advisories**
 
-  Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage them to upgrade. Weitere Informationen findest Du unter „[Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
+  Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage them to upgrade. Weitere Informationen findest Du unter „[ Über {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)."
 
 - **{% data variables.product.prodname_dependabot_short %} alerts**
 

@@ -11,7 +11,6 @@ versions:
 
 本文介绍构成官方 {% data variables.product.product_name %} REST API 的资源。 如果您有任何问题或要求，请联系 {% data variables.contact.contact_support %}。
 
-
 ### 当前版本
 
 默认情况下，对 `{% data variables.product.api_url_code %}` 的所有请求都会收到 REST API 的 **v3** [版本](/v3/versions)。 我们建议您[通过 `Accept` 标头明确请求此版本](/v3/media/#request-specific-version)。
@@ -26,7 +25,7 @@ versions:
 
 ### 架构
 
-{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API {% endif %}可以从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
+{% if currentVersion == "free-pro-team@latest" %}所有 API 访问都通过 HTTPS 进行，{% else %}API{% endif %} 从 `{% data variables.product.api_url_code %}` 访问。  所有数据都
 作为 JSON 发送和接收。
 
 ```shell
@@ -36,7 +35,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3

@@ -1,6 +1,6 @@
 ---
 title: Enterprise アカウントの人を表示する
-intro: Enterprise が所有するリソースやユーザライセンスの利用を監査するため、Enterprise のオーナーは、Enterprise アカウントの管理者およびメンバーすべてを表示できます。
+intro: 'Enterprise が所有するリソースやユーザライセンスの利用を監査するため、Enterprise のオーナーは、Enterprise アカウントの管理者およびメンバーすべてを表示できます。'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/viewing-people-in-your-enterprise-account
@@ -16,6 +16,7 @@ Enterprise のコードオーナー、支払いマネージャー、さらにオ
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
+1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**. !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/administrators-pending.png)
 
 ### メンバーと外部コラボレーターを表示する
 
@@ -25,7 +26,8 @@ Enterprise のコードオーナー、支払いマネージャー、さらにオ
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-3. メンバーのリストではなく、外部コラボレーターのリストを表示したい場合は、[**Outside collaborators**] をクリックします。 ![Organization メンバーのページにある、[Outside collaborators] タブ](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. メンバーのリストではなく、外部コラボレーターのリストを表示したい場合は、[**Outside collaborators**] をクリックします。 ![Organization メンバーのページにある、[Outside collaborators] タブ](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**. !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/members-pending.png)
 
 ### 参考リンク
 

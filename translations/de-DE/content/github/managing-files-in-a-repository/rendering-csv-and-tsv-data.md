@@ -11,7 +11,7 @@ GitHub unterstützt das Rendering von Tabellendaten in den Formaten *.csv* (komm
 
 ![Beispiel für eine gerenderte CSV-Datei](/assets/images/help/repository/rendered_csv.png)
 
-In der Anzeige wird jede _.csv_- oder _.tsv_-Datei, die in einem {% data variables.product.product_name %}-Repository freigegeben ist, automatisch als interaktive Tabelle mit Kopfzeile und Zeilennummerierung wiedergegeben. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
+In der Anzeige wird jede _CSV_- oder _TSV_-Datei, die in einem {% data variables.product.product_name %}-Repository festgeschrieben ist, automatisch als interaktive Tabelle mit Kopfzeile und Zeilennummerierung wiedergegeben. Standardmäßig wird davon ausgegangen, dass die erste Zeile die Kopfzeile mit den Spaltenüberschriften ist.
 
 Durch Klicken auf die Zeilennummer kannst Du eine bestimmte Zeile verknüpfen, oder durch drücken der Umschalttaste mehrere Zeilen auswählen. Kopiere einfach die URL, und sende sie einem anderen Benutzer.
 
