@@ -5,7 +5,7 @@ on:
 
 jobs:
   first-responder-triage:
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && !contains(github.event.issue.labels.*.name, 'autoupdate') && !contains(github.event.issue.labels.*.name, 'automerge')
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled'
     runs-on: ubuntu-latest
 
     steps:
@@ -28,6 +28,8 @@ jobs:
             `/orgs/github/teams/docs/members`
           )
           const logins = teamMembers.data.map(member => member.login)
+          // Include some of our docs bots as team members
+          logins.push('Octomerger', 'octoglot')
           if (logins.some(login => login === updatedIssueInformation.data.user.login)) {
             console.log(`This issue or pull request was authored by a member of the github/docs team.`)
             return 'true'
