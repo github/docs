@@ -85,7 +85,7 @@ For more information about the container support offered by {% data variables.pr
 #### Support for package registries
 
 {% if currentVersion == "free-pro-team@latest" %}
-Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
