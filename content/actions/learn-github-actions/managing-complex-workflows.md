@@ -49,6 +49,7 @@ jobs:
       - run: ./setup_server.sh
   build:
     needs: setup
+    runs-on: ubuntu-latest
     steps:
       - run: ./build_server.sh
   test:
@@ -141,7 +142,7 @@ This example shows how a workflow can use labels to specify the required runner:
 ```yaml
 jobs:
   example-job:
-      runs-on: [self-hosted, linux, x64, gpu]
+    runs-on: [self-hosted, linux, x64, gpu]
 ```
 
 For more information, see  ["Using labels with self-hosted runners](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
