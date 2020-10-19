@@ -76,6 +76,7 @@
     "react-data-grid": "^7.0.0-canary.24",
     "react-dom": "^16.14.0",
     "react-syntax-highlighter": "^15.2.1",
+    "react-tabs": "^3.1.1",
     "readline-sync": "^1.4.10",
     "resolve-url-loader": "^3.1.1",
     "rimraf": "^3.0.0",

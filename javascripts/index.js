@@ -17,8 +17,6 @@ import copyCode from './copy-code'
 import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
 import CodeBlock from '../react/CodeBlock'
-import RedContent from '../react/RedContent'
-import Timer from '../react/Timer'
 import CoolTable from '../react/CoolTable'
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -42,7 +40,5 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 module.export = {
   CodeBlock,
-  RedContent,
-  Timer,
   CoolTable
 }

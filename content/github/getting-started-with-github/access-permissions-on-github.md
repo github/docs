@@ -20,12 +20,20 @@ A repository owned by a user account has two permission levels: the *repository 
 
 #### Code Block Component
 <!--react-->
-<CodeBlock language="javascript">
-{`var i;
+<CodeBlock language="javascript"
+js={`var i;
 for (i = 0; i < cars.length; i++) {
   text += cars[i] + "<br>";
 }`}
-</CodeBlock>
+
+php={`for ($x = 0; $x <= 10; $x++) {
+  echo "The number is: $x <br>";
+}`}
+
+python={`for x in "banana":
+  print(x)
+`}
+/>
 <!--end-react-->
 
 Organization members can have *owner*{% if currentVersion == "free-pro-team@latest" %}, *billing manager*,{% endif %} or *member* roles. Owners have complete administrative access to your organization{% if currentVersion == "free-pro-team@latest" %}, while billing managers can manage billing settings{% endif %}. Member is the default role for everyone else. You can manage access permissions for multiple members at a time with teams. For more information, see:
@@ -38,10 +46,6 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 <!--react-->
 <CoolTable />
 <!--end-react-->
-
-<!--react--><RedContent>Red content!</RedContent><!--end-react-->
-
-<!--react--><Timer /><!--end-react-->
 
 {% if currentVersion == "free-pro-team@latest" %}
 
