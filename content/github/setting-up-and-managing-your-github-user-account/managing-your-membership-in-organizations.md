@@ -1,4 +1,4 @@
----
+Hii, I am Charu991
 title: Managing your membership in organizations
 intro: 'If you''re a member of an organization, you can publicize or hide your membership, view other people''s roles, and remove yourself from the organization.'
 mapTopic: true
