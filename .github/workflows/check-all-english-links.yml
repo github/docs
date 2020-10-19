@@ -10,7 +10,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     - name: npm ci
       run: npm ci
     - name: npm run build
@@ -28,7 +28,7 @@ jobs:
         fi
     - if: ${{ steps.check.outputs.continue == 'yes' }}
       name: Create issue from file
-      uses: peter-evans/create-issue-from-file@v2
+      uses: peter-evans/create-issue-from-file@35e304e2a12caac08c568247a2cb46ecd0c3ecc5
       with:
         token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}
         title: ${{ steps.check.outputs.title }}

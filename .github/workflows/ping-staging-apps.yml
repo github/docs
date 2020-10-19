@@ -12,7 +12,7 @@ jobs:
     env:
       HEROKU_API_TOKEN: ${{ secrets.HEROKU_API_TOKEN }}
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     - name: npm ci
       run: npm ci
     - name: npm run build

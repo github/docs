@@ -21,4 +21,4 @@ versions:
 
 - [{% data variables.product.prodname_marketplace %}について](/articles/about-github-marketplace)
 - [{% data variables.product.prodname_marketplace %}でのアプリケーションの購入とインストール](/articles/purchasing-and-installing-apps-in-github-marketplace)
-- 「[{% data variables.product.prodname_marketplace %} アプリケーションの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)」
+- [{% data variables.product.prodname_marketplace %} アプリの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)

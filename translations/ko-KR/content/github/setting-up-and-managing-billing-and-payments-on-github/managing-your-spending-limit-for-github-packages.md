@@ -49,6 +49,8 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "{% data variables.product.prodname_actions %} and Packages monthly usage", click **Cost management**. ![Cost management tab](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Under "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Cost management**.
+  ![Cost management tab](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

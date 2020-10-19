@@ -32,7 +32,7 @@ GitHub 可能会允许您访问在世界上其他地方无法获取的特殊信�
 
 参与本计划，即表示您同意我们将您的个人信息用于研究目的，但不得用于任何其他用途。 作为计划的一部分，我们可能会使用您的个人信息与您联系，或者保留您的信息以便今后联系您。 个人信息不包括汇总的非个人识别信息。 我们可能会使用通过计划收集的汇总信息或其他非个人识别信息来运营、分析和改善我们的产品和服务。
 
-您可以随时撤回您的同意，并请求访问或删除我们持有的有关您的个人信息。 For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
+您可以随时撤回您的同意，并请求访问或删除我们持有的有关您的个人信息。 要详细了解如何访问、更新、更改或删除 GitHub 通过计划收集的个人信息，请参阅 [GitHub 隐私声明](/articles/github-privacy-statement/)或通过 {% data variables.contact.contact_privacy %} 联系我们。
 
 ### E. GitHub 服务和软件条款
 
@@ -54,7 +54,7 @@ GitHub 可能会允许您访问在世界上其他地方无法获取的特殊信�
 除非适用法律另有规定，否则，您与 GitHub 之间的本协议以及对网站或服务的任何访问或使用，均受美国联邦法律和加利福尼亚州法律的管辖，不考虑冲突法原则。 您和 GitHub 均同意，位于加利福尼亚州旧金山县的法院具有专属管辖权和审判权。
 
 #### 2. 不可转让
-GitHub may assign or delegate this Agreement, in whole or in part, to any person or entity at any time with or without your consent, including the license grant in Section A. You may not assign or delegate any rights or obligations under this Agreement without our prior written consent, and any unauthorized assignment and delegation by you is void.
+GitHub 可随时将本协议的全部或部分转让或委托给任何个人或实体，可以征求或不征求您的同意，包括 A 部分的许可授予。未经我们事先书面同意，您不得转让或委托本协议下的任何权利或义务，任何未经授权的转让和授权都是无效的。
 
 #### 3. 可分割性、非弃权和继续有效
 如果本协议的任何部分被认为无效或不可执行，则该部分将被解释为反映缔约方的初衷。 其余部分仍具有完全效力。 GitHub 方面未执行本协议的任何规定，并不构成我们放弃执行该规定的权利。 我们在本协议下的权利在本协议终止后仍然有效。

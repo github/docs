@@ -1,6 +1,6 @@
 ---
 title: Die Forking-Richtlinie für Deine Organisation verwalten
-intro: 'Du kannst das Forken von privaten{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder internen{% endif %} Repositorys Deiner Organisation erlauben oder verhindern.'
+intro: 'You can can allow or prevent the forking of any private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and internal{% endif %} repositories owned by your organization.'
 redirect_from:
   - /articles/allowing-people-to-fork-private-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/allowing-people-to-fork-private-repositories-in-your-organization
@@ -10,9 +10,9 @@ versions:
   enterprise-server: '*'
 ---
 
-Standardmäßig sind neue Organisationen so konfiguriert, dass sie das Forken von privaten{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} und internen{% endif %} Repositorys verbieten.
+By default, new organizations are configured to disallow the forking of private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and internal{% endif %} repositories.
 
-Wenn Du das Forken von privaten{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} und internen{% endif %} Repositorys auf Organisationsebene zulässt, kannst Du auch die Möglichkeit konfigurieren, ein bestimmtes privates{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} oder internes{% endif %} Repository zu forken. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
+If you allow forking of private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} and internal{% endif %} repositories at the organization level, you can also configure the ability to fork a specific private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or internal{% endif %} repository. Weitere Informationen findest Du unter „[Die Forking-Richtlinie für Dein Repository verwalten](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)."
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

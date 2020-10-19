@@ -54,11 +54,11 @@ versions:
 | $GITHUB_REPO_PUBLIC                 | 一个布尔值，为 `true` 时表示公共仓库，为 `false` 时表示私有仓库。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | $GITHUB_PUBLIC_KEY_FINGERPRINT      | 用户的公钥指纹。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | $GITHUB_PULL_REQUEST_HEAD           | 格式中的字符串：`user:branch`，适用于 PR 的 HEAD。<br>示例：`octocat:fix-bug`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| $GITHUB_PULL_REQUEST_BASE           | A string in the format: `user:branch` for the BASE of the PR.<br> Example: `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| $GITHUB_PULL_REQUEST_BASE           | 格式中的字符串：`user:branch`，适用于 PR 的 BASE。<br>示例： `octocat:main`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | $GITHUB_VIA                           | 用于创建 ref 的方法。<br> **可选值：**<br> - `auto-merge deployment api` <br> - `blob edit` <br> - `branch merge api` <br> - `branches page delete button` <br> - `git refs create api` <br> - `git refs delete api` <br> - `git refs update api` <br> - `merge api` <br> - `pull request branch delete button` <br> - `pull request branch undo button` <br> - `pull request merge api` <br> - `pull request merge button` <br> - `pull request revert button` <br> - `releases delete button` <br> - `stafftools branch restore` <br> - `slumlord (#{sha})` |
 | $GIT_PUSH_OPTION_COUNT              | 客户端发送的推送选项数。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | $GIT_PUSH_OPTION_N                  | 其中 <em>N</em> 是一个从 0 开始的整数，此变量包含客户端发送的推送选项字符串。 发送的第一个选项存储在 GIT_PUSH_OPTION_0 中，发送的第二个选项存储在 GIT_PUSH_OPTION_1 中，依此类推。 关于推送选项的更多信息，请参阅 Git 文档中的“[git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt)”。 |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| $GIT_USER_AGENT                     | The user-agent string sent by the client that pushed the changes. |{% endif %}
+| $GIT_USER_AGENT                     | 推送更改的客户端发送的 user-agent 字符串。 |{% endif %}
 
 ### 设置权限并将预接收挂钩推送到 {% data variables.product.prodname_ghe_server %}
 
@@ -182,7 +182,7 @@ versions:
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test master
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -191,7 +191,7 @@ versions:
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
    > To git@192.168.99.100:test.git
-   >  ! [remote rejected] master -> master (pre-receive hook declined)
+   >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
   ```
 

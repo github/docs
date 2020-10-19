@@ -17,7 +17,7 @@ Du bist nicht dazu verpflichtet, eine Lizenz auszuwählen. Bedenke jedoch, dass 
 
 {% note %}
 
-**Hinweis:** Wenn Du Deinen Quellcode in einem öffentlichen Repository auf GitHub veröffentlichst, haben {% if currentVersion == "free-pro-team@latest" %}gemäß den [Nutzungsbedingungen](/articles/github-terms-of-service) {% endif %}andere GitHub-Benutzer das Recht, Dein Repository innerhalb der GitHub-Website anzuzeigen und zu forken. Wenn Du bereits ein öffentliches Repository erstellt hast und nicht mehr möchtest, dass andere Benutzer darauf zugreifen, kannst Du festlegen, dass Dein Repository privat ist. Wenn Du ein öffentliches Repository in ein privates umwandelst, bleiben vorhandene Forks oder lokale Kopien bestehen, die andere Benutzer erstellt haben. Weitere Informationen findest Du unter „[Ein öffentliches Repository in ein privates umwandeln](/articles/making-a-public-repository-private).“
+**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. Wenn Du bereits ein öffentliches Repository erstellt hast und nicht mehr möchtest, dass andere Benutzer darauf zugreifen, kannst Du festlegen, dass Dein Repository privat ist. Wenn Du ein öffentliches Repository in ein privates umwandelst, bleiben vorhandene Forks oder lokale Kopien bestehen, die andere Benutzer erstellt haben. Weitere Informationen findest Du unter „[Ein öffentliches Repository in ein privates umwandeln](/articles/making-a-public-repository-private).“
 
 {% endnote %}
 
@@ -49,6 +49,7 @@ Du kannst Repositorys basierend auf ihrer Lizenz oder Lizenzfamilie filtern. Ver
 |        | WTFPL-Lizenz (Do What The F*ck You Want To Public License) | `wtfpl`                          |
 |        | Educational Community License v2.0 | `ecl-2.0`                                                |
 |        | Eclipse Public License 1.0 | `epl-1.0`                                                        |
+|        | Eclipse Public License 2.0 | `epl-2.0`                                                        |
 |        | European Union Public License 1.1 | `eupl-1.1`                                                |
 |        | GNU Affero General Public License v3.0 | `agpl-3.0`                                           |
 |        | GNU General Public License (GPL)-Lizenzfamilie | `gpl`                                        |
@@ -89,5 +90,5 @@ Das Ziel der Bemühungen von GitHub zur Open-Source-Lizenzierung ist es, Dir ein
 
 ### Weiterführende Informationen
 
-- Der Abschnitt „[The Legal Side of Open Source](https://opensource.guide/legal/)“ (Die rechtlichen Aspekte von Open Source) in den Open-Source-Leitfäden{% if currentVersion == "free-pro-team@latest" %}
+- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

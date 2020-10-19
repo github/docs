@@ -11,7 +11,7 @@ versions:
 
 您可以在访问组织的任何仓库时设置适用于组织所有成员的基本权限。 基本权限不适用于外部协作者。
 
-{% if currentVersion == "free-pro-team@latest" %}默认情况下，组织成员具有对组织仓库的**读取**权限。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
 
 如果拥有组织仓库管理员权限的人向组织成员授予更高级别的仓库权限，则更高级别的权限将覆盖基本权限。
 

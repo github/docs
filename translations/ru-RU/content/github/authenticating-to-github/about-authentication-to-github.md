@@ -16,7 +16,6 @@ You can access your resources in {% data variables.product.product_name %} in a 
 - Personal access token
 - Ключ SSH
 
-
 ### Authenticating in your browser
 
 You can authenticate to {% data variables.product.product_name %} in your browser in different ways.

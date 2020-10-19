@@ -1,1 +1,1 @@
-1. On the bottom of the page, click **Add a tier**. ![Add a tier button](/assets/images/help/sponsors/add-a-tier-button.png)
+1. Na parte inferior da página, clique em **Adicionar uma camada**. ![Botão adicionar camada](/assets/images/help/sponsors/add-a-tier-button.png)

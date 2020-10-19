@@ -7,7 +7,7 @@ queries:
   - uses: security-and-quality
 ```
 
-The following configuration file disables the default queries and specifies a set of custom queries to run instead. It also configures {% data variables.product.prodname_codeql %} to scan files in the  _src_ directory (relative to the root), and to exclude the _node_modules_ directory (also relative to the root), as well as any file whose name ends in _.test.js_.
+O seguinte arquivo de configuração desabilita as consultas-padrão e especifica um conjunto de consultas personalizadas para serem executadas. Ele também configura o {% data variables.product.prodname_codeql %} para fazer a varredura de arquivos no diretório  _src_ (relativas à raiz) e para excluir o diretório _node_modules_ (também relativo à raiz), bem como qualquer arquivo cujo nome termina em _.test.js_.
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"

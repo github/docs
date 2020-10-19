@@ -20,19 +20,19 @@ versions:
 
 {% data variables.product.product_location %} でファイルを表示する際、通常はブランチの現在の head でのバージョンが表示されます。  例:
 
-* [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
+* [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-GitHub の `hubot` リポジトリを参照し、`master` ブランチの `README.md` ファイルの最新バージョンが表示されます。
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
 ブランチのヘッドにあるファイルのバージョンは、新たなコミットが行われるたびに変更される場合があるため、通常の URL をコピーすると、後で他のユーザが見るときはファイルのコンテンツが同一ではない場合があります。
 
 ### <kbd>y</kbd> を押して特定のコミット内のファイルへのパーマリンクを取得
 
-表示しているファイルの特定のバージョンへのパーマリンクについては、URL 内のブランチ名 (前述の例の `master` 部など) を使用する代わりに、コミット ID を配置します。  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  これにより、そのコミットの完全に同じバージョンに永続的にリンクされます。  例:
 
-* [https://github.com/github/hubot/blob/**ed25584f5ac2520a6c28547ffd0961c7abd7ea49**/README.md](https://github.com/github/hubot/blob/ed25584f5ac2520a6c28547ffd0961c7abd7ea49/README.md)
+* [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-`master` を特定のコミット ID で置き換えると、ファイルのコンテンツは変更されません。
+replaces `main` with a specific commit id and the file content will not change.
 
 コミット SHA を手作業で探すのは不便ですが、ショートカットとして <kbd>y</kbd> を押すと、URL がパーマリンクのバージョンに自動で更新されます。  その後、URL をコピーし、共有すると、自分が表示したのとまったく同じものが表示されます。
 

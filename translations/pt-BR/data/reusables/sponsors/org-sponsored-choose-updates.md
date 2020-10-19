@@ -1,1 +1,1 @@
-4. Decide whether you want to receive email updates from the sponsored organization, then select or unselect "Receive updates from _ORGANIZATION_." ![Checkbox to receive updates from sponsored organization](/assets/images/help/sponsors/org-updates-checkbox-manage.png)
+4. Decida se deseja receber atualizações por e-mail da organização patrocinada e, em seguida, selecione ou desmarque "Receber atualizações da _ORGANIZAÇÃO_". ![Caixa de seleção para receber atualizações da organização patrocinada](/assets/images/help/sponsors/org-updates-checkbox-manage.png)

@@ -28,7 +28,8 @@ versions:
 To connect {% data variables.product.prodname_insights %} to {% data variables.product.prodname_enterprise %}, you must create a {% data variables.product.prodname_github_app %} in an organization on {% data variables.product.prodname_enterprise %}. A slugged version of your app's name will be shown on {% data variables.product.prodname_enterprise %} when your integration takes an action.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. Navigate to the organization you'd like to connect to {% data variables.product.prodname_insights %}.
+2. Navigate to the organization you'd like to connect to
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. Click **New {% data variables.product.prodname_github_app %}**. ![New GitHub App button](/assets/images/help/apps/github_apps_new.png)

@@ -53,7 +53,8 @@ Um Deine Abonnements übersichtlich zu halten, überprüfe Deine Abonnements und
 Um anzupassen, wie Du Aktualisierungen für bestimmte Pull Requests oder Issues erhalten möchtest, kannst Du Deine Einstellungen innerhalb des Issues oder Pull Requests konfigurieren. Weitere Informationen findest Du unter „[Eine einzelne Benachrichtigung selektieren](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification#customizing-when-to-receive-future-updates-for-an-issue-or-pull-request).”
 
 {% if currentVersion == "free-pro-team@latest" %}
-Du kannst Push-Benachrichtigungen in der {% data variables.product.prodname_mobile %}-App aktivieren. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+You can enable push notifications in the
+{% data variables.product.prodname_mobile %} app. Weitere Informationen findest Du unter „[Benachrichtigungen konfigurieren](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
 {% endif %}
 
 ### Gründe für den Erhalt von Benachrichtigungen

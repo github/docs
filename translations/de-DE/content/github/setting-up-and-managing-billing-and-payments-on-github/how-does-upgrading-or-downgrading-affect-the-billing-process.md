@@ -29,7 +29,7 @@ Die Organisation von Stefan bezahlt jedes Jahr am 20. Mai für 50 Benutzer. Wenn
 
 ### Weiterführende Informationen
 
-- „[Abrechnung für Dein {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
+- „[Abrechnung für Ihr {% data variables.product.prodname_dotcom %}-Konto verwalten](/articles/managing-billing-for-your-github-account)“
 - „[Abrechnung für Ihre {% data variables.product.prodname_marketplace %}-Apps verwalten](/articles/managing-billing-for-github-marketplace-apps)“
 - „[Abrechnung für {% data variables.large_files.product_name_long %} verwalten](/articles/managing-billing-for-git-large-file-storage)“
 - „[Informationen zu benutzerbasierten Preisen](/articles/about-per-user-pricing)“

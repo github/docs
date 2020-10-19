@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Quittungen hinzufügen
-intro: 'Du kannst zusätzliche Informationen zu Deinen {% data variables.product.product_name %}-Quittungen hinzufügen, beispielsweise Steuer- oder Buchhaltungsinformationen, die in Deinem Unternehmen oder Land vorgeschrieben sind.'
+intro: 'Sie können zusätzliche Informationen zu Ihren {% data variables.product.product_name %}-Quittungen hinzufügen, z. B. Steuer- oder Buchhaltungsinformationen, die in Ihrem Unternehmen oder Land vorgeschrieben sind.'
 redirect_from:
   - /articles/can-i-add-my-credit-card-number-to-my-receipts/
   - /articles/can-i-add-extra-information-to-my-receipts--2/
@@ -15,7 +15,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Deine Quittungen enthalten Dein {% data variables.product.prodname_dotcom %}-Abonnement sowie alle Abonnements für [sonstige bezahlte Funktionen und Produkte](/articles/about-billing-on-github).
+Ihre Quittungen enthalten Ihr {% data variables.product.prodname_dotcom %}-Abonnement sowie alle Abonnements für [sonstige bezahlte Funktionen und Produkte](/articles/about-billing-on-github).
 
 {% warning %}
 

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu erforderlichen Statuschecks
-intro: 'Mithilfe von erforderlichen Statuschecks wird sichergestellt, dass alle erforderlichen CI-Tests bestanden werden, bevor Mitarbeiter Änderungen an einem geschützten Branch vornehmen können.'
+intro: Mithilfe von erforderlichen Statuschecks wird sichergestellt, dass alle erforderlichen CI-Tests bestanden werden, bevor Mitarbeiter Änderungen an einem geschützten Branch vornehmen können.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-status-checks
@@ -19,7 +19,7 @@ Nach der Aktivierung der erforderlichen Statuschecks müssen alle erforderlichen
 
 {% tip %}
 
-**Hinweis:** Jede Person oder Integration mit Schreibberechtigungen auf ein Repository kann den Zustand von Statuschecks im Repository festlegen. {% data variables.product.product_name %} verifiziert nicht, dass der Autor einer Prüfung autorisiert ist, eine Prüfung mit einem bestimmten Namen zu erstellen oder einen vorhandenen Status zu ändern. Vor dem Zusammenführen eines Pull Request solltest Du überprüfen, dass der Autor jedes im Merge-Feld aufgeführten Status erwartet wird.
+**Hinweis:** Jede Person oder Integration mit Schreibberechtigungen auf ein Repository kann den Zustand von Statuschecks im Repository festlegen. {% data variables.product.product_name %} verifiziert nicht, dass der Autor eines Checks autorisiert ist, einen Check mit einem bestimmten Namen zu erstellen oder einen vorhandenen Status zu ändern. Vor dem Zusammenführen eines Pull Request solltest Du überprüfen, dass der Autor jedes im Merge-Feld aufgeführten Status erwartet wird.
 
 {% endtip %}
 

@@ -12,13 +12,15 @@ Para fazer push e pull das imagens de contêiner pertencentes a uma organizaçã
 
 ### Autenticar-se no {% data variables.product.prodname_github_container_registry %}
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Fazer push das imagens do contêiner
 
 Este exemplo faz push da versão mais recente de `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 Este exemplo faz push da versão `2.5` da imagem.
@@ -40,7 +42,7 @@ Para garantir que você esteja sempre usando a mesma imagem, você pode especifi
   ```
 2. Remova a imagem localmente, conforme necessário.
   ```shell
-  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME.latest
+  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME:latest
   ```
 
 3. Faça pull da imagem do contêiner com `@YOUR_SHA_VALUE` após o nome da imagem.

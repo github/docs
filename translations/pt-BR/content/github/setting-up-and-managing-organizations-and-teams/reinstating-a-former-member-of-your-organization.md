@@ -1,6 +1,6 @@
 ---
 title: Restabelecer ex-integrantes da organização
-intro: 'Os proprietários da organização podem {% if currentVersion == "free-pro-team@latest" %}convidar ex-integrantes da organização a voltar a juntar-se{% else %}e adicinar ex-integrantes {% endif%} à sua organização e escolher se deseja restaurar a função anterior, as permissões de acesso, as bifurcações e as configurações dessa pessoa.'
+intro: 'Os proprietários da organização podem {% if currentVersion == "free-pro-team@latest" %}convidar os antigos integrantes da organização para juntar-se novamente a{% else %}adicionar ex-integrantes à{% endif%} sua organização e escolher se desejam restaurar as funções anteriores da pessoa, acessar as permissões, bifurcações e configurações.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Se você [remover um usuário da organização](/articles/removing-a-member-from-your-organization), [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator), ou se um usuário for removido da organização porque você [exigiu que os integrantes e colaboradores externos habilitassem a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization), as configurações e os privilégios de acesso do usuário serão mantidos por três meses. Você poderá restaurar os privilégios do usuário se {% if currentVersion =="free-pro-team@latest" %}convidá-lo{% else %}adicioná-lo{% endif %} novamente na organização durante esse período.
+Se você [remover um usuário da organização](/articles/removing-a-member-from-your-organization), [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator), ou se um usuário for removido da organização porque você [exigiu que os integrantes e colaboradores externos habilitassem a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization), as configurações e os privilégios de acesso do usuário serão mantidos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion =="free-pro-team@latest" %}convidá-los{% else %}adicioná-los{% endif %} à organização nesse período de tempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

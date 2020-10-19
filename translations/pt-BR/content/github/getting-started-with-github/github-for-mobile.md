@@ -23,6 +23,16 @@ Para mais informações sobre notificações para {% data variables.product.prod
 
 Para instalar {% data variables.product.prodname_mobile %} para Android ou iOS, consulte [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
 
+### Idiomas compatíveis com {% data variables.product.prodname_mobile %}
+
+{% data variables.product.prodname_mobile %} está disponível nos seguintes idiomas.
+
+- Japanese
+- Português do Brasil
+- Spanish
+
+Se você configurar o idioma do seu dispositivo para um idioma compatível, {% data variables.product.prodname_mobile %} será o idioma-padrão. Você pode alterar o idioma para {% data variables.product.prodname_mobile %} no no menu **Configurações** de {% data variables.product.prodname_mobile %}.
+
 ### Gerenciando links universais para {% data variables.product.prodname_mobile %} no iOS
 
 {% data variables.product.prodname_mobile %} ativa automaticamente o Universal Links para iOS. Quando você clica em qualquer link {% data variables.product.product_name %}, a URL de destino vai abrir em {% data variables.product.prodname_mobile %} em vez do Safari. Para obter mais informações, consulte [Universal Links](https://developer.apple.com/ios/universal-links/)  no site de desenvolvedor da Apple
