@@ -12,9 +12,9 @@ versions:
 
 ### Introduction
 
-This guide shows you how to install dependencies, test your module, and publish to the PowerShell Gallery.
+This guide shows you how to use PowerShell for CI. It describes how to use Pester, install dependencies, test your module, and publish to the PowerShell Gallery.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes PowerShell and Pester. For a full list of up-to-date software and the pre-installed versions of PowerShell and Pester, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
 
 ### Prerequisites
 
@@ -26,43 +26,48 @@ We recommend that you have a basic understanding of PowerShell and Pester. For m
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
-### Starting with the PowerShell workflow template
+### Adding a workflow for Pester
 
-{% data variables.product.prodname_dotcom %} provides a PowerShell workflow template that should work for most PowerShell projects. This guide includes examples that you can use to customize the template. For more information, see the [PowerShell workflow template](https://github.com/actions/starter-workflows/blob/main/ci/powershell.yml).
+To automate your testing with PowerShell and Pester, you can add a workflow that runs every time a change is pushed to your repository. In the following example, `Test-Path` is used to check that a file called `resultsfile.log` is present. 
 
-To get started quickly, add the template to the `.github/workflows` directory of your repository.
+This example workflow file must be added to your repository's `.github/workflows/` directory:
 
 {% raw %}
 ```yaml
-name: Test PowerShell on Ubuntu, macOS and Windows
-
-on:
-  push:
-    branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+name: Test PowerShell on Ubuntu
+on: push
 
 jobs:
   build:
-    name: Pester tests work on all platforms
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
-
+    name: Pester test
+    runs-on: ubuntu-latest
     steps:
     - name: Check out repository code
-        uses: actions/checkout@v2
-    - name: Perform a Pester test from the command-line to ensure expected results
+      uses: actions/checkout@v2
+    - name: Perform a Pester test from the command-line
       shell: pwsh
-      run: Get-ChildItem | Select-Object -ExpandProperty Name -First 1 | Should -Be 'bin'
-    - name: Perform advanced tests
+      run: Test-Path resultsfile.log | Should -Be $true
+    - name: Perform a Pester test from the Tests.ps1 file
       shell: pwsh
       run: |
         Invoke-Pester Unit.Tests.ps1 -Passthru
-        Invoke-Pester Integration.Tests.ps1 -Passthru
 ```
 {% endraw %}
+
+* `shell: pwsh` - Configures the job to use PowerShell when running the `run` commands.
+* `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory. 
+* `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
+
+  ![Failed Pester test](/assets/images/help/repository/actions-failed-pester-test.png)
+
+* `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
+  ```
+  Describe "Check results file is present" {
+      It "Check results file is present" {
+          Test-Path resultsfile.log | Should -Be $true
+      }
+  }
+  ```
 
 ### PowerShell module locations
 
