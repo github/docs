@@ -11,7 +11,7 @@ const dirTree = require('directory-tree')
 const port = Number(process.env.PORT) || 4000
 const app = express()
 
-const transform = require('./lib/react/transform')
+const { transform } = require('./lib/react/babel')
 
 const tree = dirTree('./react/')
 for (const index in tree.children) {

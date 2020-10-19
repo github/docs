@@ -18,6 +18,7 @@ import { fillCsrf } from './get-csrf'
 import initializeEvents from './events'
 import CodeBlock from '../react/CodeBlock'
 import CoolTable from '../react/CoolTable'
+import CodeEditor from '../react/CodeEditor'
 
 import 'react-tabs/style/react-tabs.css'
 
@@ -42,5 +43,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 module.export = {
   CodeBlock,
-  CoolTable
+  CoolTable,
+  CodeEditor
 }

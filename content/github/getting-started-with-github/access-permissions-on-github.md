@@ -42,6 +42,10 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 - "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization)"
 - "[About teams](/articles/about-teams)"
 
+## Code Editor Component
+
+
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### Enterprise accounts

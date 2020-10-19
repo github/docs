@@ -2,6 +2,7 @@ const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { EnvironmentPlugin } = require('webpack')
+const { reactBabelOptions } = require('./lib/react/babel')
 
 module.exports = {
   entry: './javascripts/index.js',
@@ -19,18 +20,7 @@ module.exports = {
         ],
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react'
-            ],
-            plugins: [
-              '@babel/plugin-transform-react-jsx',
-              '@babel/plugin-proposal-object-rest-spread',
-              '@babel/plugin-transform-modules-commonjs',
-              '@babel/plugin-proposal-class-properties'
-            ]
-          }
+          options: reactBabelOptions
         }
       },
       {
