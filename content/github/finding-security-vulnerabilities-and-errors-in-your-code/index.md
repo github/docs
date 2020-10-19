@@ -18,6 +18,7 @@ versions:
     {% link_in_list /configuring-code-scanning %}
     {% link_in_list /configuring-the-codeql-workflow-for-compiled-languages %}
     {% link_in_list /troubleshooting-the-codeql-workflow %}
+    {% link_in_list /running-codeql-code-scanning-in-a-container %}
 {% topic_link_in_list /integrating-with-code-scanning %}
     {% link_in_list /about-integration-with-code-scanning %}
     {% link_in_list /uploading-a-sarif-file-to-github %}
