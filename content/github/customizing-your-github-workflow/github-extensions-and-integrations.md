@@ -30,7 +30,7 @@ With the {% data variables.product.prodname_dotcom %} for Visual Studio Code ext
 
 ### Project management tools
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira, slack.
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
 
 #### Jira Cloud and {% data variables.product.product_name %}.com integration
 
@@ -38,4 +38,4 @@ You can integrate Jira Cloud with your personal or organization account to scan 
 
 #### Slack and {% data variables.product.product_name %} integration
 
-You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, refer issues and pull requests without leaving Slack.
+You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack.
