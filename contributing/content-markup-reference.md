@@ -40,13 +40,21 @@ To render syntax highlighting in command line instructions, we use triple backti
 
 ### Usage  
   
-\`\`\`shell  
-git init <em>YOUR_REPO</em>  
-\`\`\`
+    ```shell  
+    git init <em>YOUR_REPO</em>  
+    ```
 
 This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
 
 Within the command-line syntax, you can also use the `<em>` helper tag to indicate content that varies for each user, such as a user or repository name.
+
+**Copy-able code blocks**
+
+You can also add a header that includes the name of the language and a button to copy the contents of the code block:
+
+    ```js{:copy}
+    const copyMe = true
+    ```
 
 ## Octicons
 

@@ -1,6 +1,6 @@
 ---
 title: 管理组织成员对项目板的访问
-intro: 作为组织所有者或项目板管理员，您可以为所有组织成员设置项目板的默认权限级别。
+intro: '作为组织所有者或项目板管理员，您可以为所有组织成员设置项目板的默认权限级别。'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
 versions:

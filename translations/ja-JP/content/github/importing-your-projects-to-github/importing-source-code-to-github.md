@@ -1,6 +1,6 @@
 ---
 title: GitHub にソースコードをインポートする
-intro: 'リポジトリは、{% if currentVersion == "free-pro-team@latest" %}GitHub Importer、コマンドライン、{% else %}コマンドライン{% endif %}、または外部移行ツールを使用して GitHub にインポートできます。'
+intro: 'You can import repositories to GitHub using {% if currentVersion == "free-pro-team@latest" %}GitHub Importer, the command line,{% else %}the command line{% endif %} or external migration tools.'
 redirect_from:
   - /articles/importing-an-external-git-repository/
   - /articles/importing-from-bitbucket/

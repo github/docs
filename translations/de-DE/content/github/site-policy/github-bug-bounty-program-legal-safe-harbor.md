@@ -1,5 +1,5 @@
 ---
-title: 'Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm'
+title: Legales, Safe Harbor-konformes GitHub-Bug-Bonusprogramm
 redirect_from:
   - /articles/github-bug-bounty-program-legal-safe-harbor
 versions:

@@ -1,3 +1,3 @@
 {% if currentVersion == "free-pro-team@latest" %}
-You can send an invitation to reinstate a user's privileges and access to the organization before they have enabled two-factor authentication and they must enable 2FA before they can accept your invitation to rejoin the organization.
+Você pode enviar um convite para restabelecer os privilégios e acesso de um usuário à organização antes de habilitarem a autenticação de dois fatores e eles devem habilitar a 2FA antes que possam aceitar o seu convite para reingressar na organização.
 {% endif %}

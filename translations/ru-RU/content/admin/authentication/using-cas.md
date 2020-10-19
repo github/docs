@@ -25,8 +25,8 @@ versions:
 
 The following attributes are available.
 
-| Attribute name     | Тип      | Description                                                           |
-| ------------------ | -------- | --------------------------------------------------------------------- |
+| Attribute name     | Тип      | Description                                                      |
+| ------------------ | -------- | ---------------------------------------------------------------- |
 | `имя пользователя` | Required | The {% data variables.product.prodname_ghe_server %} username. |
 
 ### Configuring CAS

@@ -1,6 +1,6 @@
 ---
 title: Einen Issue löschen
-intro: 'Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Issue dauerhaft aus einem Repository löschen.'
+intro: Jeder, der über Administratorberechtigungen für ein Repository verfügt, kann einen Issue dauerhaft aus einem Repository löschen.
 redirect_from:
   - /articles/deleting-an-issue
 versions:

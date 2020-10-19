@@ -37,12 +37,12 @@ versions:
 
 启用 {% data variables.product.prodname_github_connect %} 将不允许 {% data variables.product.prodname_dotcom_the_website %} 用户对 {% data variables.product.prodname_ghe_server %} 进行更改。
 
-{% if currentVersion ver_gt "enterprise-server@2.18" %}
 有关使用 GraphQL API 管理企业帐户的信息，请参阅“[企业帐户](/v4/guides/managing-enterprise-accounts)”。
-{% endif %}
 ### 启用 {% data variables.product.prodname_github_connect %}
 
-1. 登录到 {% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
+1. 登录到
+
+{% data variables.product.product_location_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

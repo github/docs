@@ -1,6 +1,6 @@
 ---
 title: Git Large File Storage upgraden
-intro: 'Du kannst zusätzliche Datenpakete kaufen, um Dein monatliches Bandbreitenkontingent und die Gesamtspeicherkapazität für {% data variables.large_files.product_name_short %} zu erhöhen.'
+intro: 'Sie können zusätzliche Datenpakete kaufen, um Ihr monatliches Bandbreitenkontingent und um die Gesamtspeicherkapazität für {% data variables.large_files.product_name_short %} zu erhöhen.'
 redirect_from:
   - /articles/purchasing-additional-storage-and-bandwidth-for-a-personal-account/
   - /articles/purchasing-additional-storage-and-bandwidth-for-an-organization/

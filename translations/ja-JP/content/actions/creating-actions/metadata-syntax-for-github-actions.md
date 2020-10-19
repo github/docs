@@ -13,7 +13,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### {% data variables.product.prodname_actions %}のYAML構文について
@@ -42,7 +42,6 @@ Docker及びJavaScriptアクションにはメタデータファイルが必要�
 
 この例では、numOctocatsとoctocatEyeColorという 2つの入力を設定しています。 入力のnumOctocatsは必須ではなく、デフォルトの値は'1'になっています。 入力のoctocatEyeColorは必須であり、デフォルト値を持ちません。 このアクションを使うワークフローのファイルは、`with`キーワードを使ってoctocatEyeColorの入力値を設定しなければなりません。 `with`構文に関する詳しい情報については「[{% data variables.product.prodname_actions %}のためのワークフローの構文](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)」を参照してください。
 
-
 ```yaml
 inputs:
   numOctocats:
@@ -53,7 +52,6 @@ inputs:
     description: 'Eye color of the Octocats'
     required: true
 ```
-
 
 ワークフローファイル内で、あるいはデフォルトの入力値を使ってアクションに入力を指定すると、{% data variables.product.prodname_dotcom %}はその入力に対応して`INPUT_<VARIABLE_NAME>`という名前の環境変数を生成します。 生成される環境変数では、入力の名前を大文字にして、空白を`_`に変換します。
 
@@ -243,7 +241,7 @@ runs:
 
 ##### **`runs.steps.env`**
 
-**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで `echo "::set-env name={name}::{value}"` を使用します。
+**オプション**  そのステップのみの環境変数の `map` を設定します。 ワークフローに保存されている環境変数を変更する場合は、複合実行ステップで {% if currentVersion == "free-pro-team@latest" または currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} を使用します。
 
 ##### **`runs.steps.working-directory`**
 
@@ -321,7 +319,7 @@ runs:
 
 #### **`runs.args`**
 
-**オプション** Dockerコンテナへの入力を定義する文字列の配列。 入力には、ハードコードされた文字列を含めることができます。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時にコンテナの`ENTRYPOINT`に`args`を渡します。
+**オプション** Dockerコンテナへの入力を定義する文字列の配列。 入力には、ハードコードされた文字列を含めることができます。 {% data variables.product.prodname_dotcom %}は、コンテナの起動時に`args`をコンテナの`ENTRYPOINT`に渡します。
 
 `args`は、`Dockerfile`中の`CMD`命令の場所で使われます。 `Dockerfile`中で`CMD`を使うなら、以下の優先順位順のガイドラインを利用してください。
 

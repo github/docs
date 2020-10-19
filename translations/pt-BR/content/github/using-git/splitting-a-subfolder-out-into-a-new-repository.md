@@ -33,7 +33,7 @@ Se você criar um clone do repositório, não perderá nenhuma alteração ou hi
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`: o branch padrão do projeto atual, como `master` ou `gh-pages`.
+    - `BRANCH-NAME`: O branch-padrão para seu projeto atual, por exemplo, `main` ou `gh-pages`.
     ```shell
     $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
     # Filtra o branch especificado no diretório e remove os commits vazios

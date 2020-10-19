@@ -1,6 +1,6 @@
 ---
 title: REST API 入门指南
-intro: 从身份验证和一些端点示例开始，了解使用 REST API 的基础。
+intro: '从身份验证和一些端点示例开始，了解使用 REST API 的基础。'
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -10,14 +10,13 @@ versions:
 ---
 
 
-
 让我们逐步了解在处理一些日常用例时涉及的核心 API 概念。
 
 ### 概览
 
 大多数应用程序将使用您选择的语言 中现有的 [wrapper 库][wrappers]，但您必须先熟悉基础 API HTTP 方法。
 
-没有比使用 [cURL][curl] 更容易的入手方式了。{% if currentVersion == "free-pro-team@latest" %} 如果您使用其他客户的，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
+没有比使用 [cURL][curl] 更容易的入手方式了。{% if currentVersion == "free-pro-team@latest" %} 如果您使用其他客户端，请注意，您需要在请求中发送有效的 [用户代理标头](/rest/overview/resources-in-the-rest-api#user-agent-required)。{% endif %}
 
 #### Hello World
 
@@ -55,7 +54,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -195,7 +193,8 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 #### 创建仓库
 
 获取现有仓库的信息是一种常见的用例，但
-{% data variables.product.product_name %} API 也支持创建新的仓库。 要[创建仓库][create repo]，我们需要 `POST` 一些包含详细信息和配置选项的 JSON。
+{% data variables.product.product_name %} API 也支持创建新仓库。 要[创建仓库][create repo]，
+我们需要 `POST` 一些包含详细信息和配置选项的JSON。
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

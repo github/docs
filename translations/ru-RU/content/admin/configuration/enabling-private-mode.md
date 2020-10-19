@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/securing-your-instance/
   - /enterprise/admin/installation/enabling-private-mode
   - /enterprise/admin/configuration/enabling-private-mode
-  - /enterprise/admin/configuration/enabling-private-mode
 versions:
   enterprise-server: '*'
 ---

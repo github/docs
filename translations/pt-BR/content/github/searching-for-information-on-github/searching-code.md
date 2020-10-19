@@ -22,7 +22,7 @@ Devido à complexidade da pesquisa de códigos, a execução das pesquisas apres
 
 - {% data reusables.search.required_login %}
 - O código em [bifurcações](/articles/about-forks) só poderá ser pesquisado se a bifurcação tiver mais estrelas do que o repositório principal. Bifurcações com menos estrelas do que o repositório principal **não** são indexadas para pesquisa de códigos. Para incluir bifurcações com mais estrelas que o repositório principal delas nos resultados da pesquisa, você precisará adicionar `fork:true` ou `fork:only` à sua consulta. Para obter mais informações, consulte "[Pesquisar em bifurcações](/articles/searching-in-forks)".
-- Apenas o _branch-padrão_ é indexado para a busca de código.{% if currentVersion == "free-pro-team@latest" %}
+- Apenas o _branch-padrão_ é indexado para pesquisa de código.{% if currentVersion == "free-pro-team@latest" %}
 - Somente arquivos com menos de 384 KB são pesquisados.{% else %}* Somente arquivos com menos de 5 MB são pesquisados.
 - Somente os primeiros 500 KB de cada arquivo são pesquisados.{% endif %}
 - Somente repositórios com menos de 500.000 arquivos são pesquisados.
@@ -101,5 +101,5 @@ O qualificador `extension` identifica os arquivos de código com uma determinada
 ### Leia mais
 
 - "[Ordenar os resultados da pesquisa](/articles/sorting-search-results/)"
-- "[Pesquisar nas bifurcações](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Pesquisar e, bifurcações](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Navegar pelo código em {% data variables.product.prodname_dotcom %}](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

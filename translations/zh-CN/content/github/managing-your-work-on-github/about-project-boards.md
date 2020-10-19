@@ -59,7 +59,7 @@ versions:
 ### 延伸阅读
 
 - "[创建项目板](/articles/creating-a-project-board)"
-- "[编辑项目板](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Editing a project board](/articles/editing-a-project-board)"{% if currentVersion == "free-pro-team@latest" %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}
 - "[添加议题和拉取请求到项目板](/articles/adding-issues-and-pull-requests-to-a-project-board)"
 - "[组织的项目板权限](/articles/project-board-permissions-for-an-organization)"

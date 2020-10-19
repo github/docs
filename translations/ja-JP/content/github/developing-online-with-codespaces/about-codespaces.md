@@ -10,11 +10,11 @@ versions:
 
 {% note %}
 
-**注釈:** {% data variables.product.prodname_codespaces %} は現在限定パブリックベータであり、変更されることがあります。 ベータ期間中、 {% data variables.product.prodname_dotcom %} は {% data variables.product.prodname_codespaces %} の可用性について一切の保証を行いません。 ベータへの参加についての詳細は、「[ベータへの参加](/github/developing-online-with-codespaces/about-codespaces#joining-the-beta)」を参照してください。
+**注釈:** {% data variables.product.prodname_codespaces %} は現在限定パブリックベータであり、変更されることがあります。 ベータ期間中、{% data variables.product.prodname_dotcom %}は{% data variables.product.prodname_codespaces %}の可用性について保証しません。 ベータへの参加についての詳細は、「[ベータへの参加](/github/developing-online-with-codespaces/about-codespaces#joining-the-beta)」を参照してください。
 
 {% endnote %}
 
-### {% data variables.product.prodname_codespaces %}について
+### {% data variables.product.prodname_codespaces %} について
 
 {% data variables.product.prodname_codespaces %} is a cloud development environment available in your browser. codespace には、構文の強調表示とオートコンプリートを備えたテキストエディタ、ターミナル、デバッグツール、Git コマンドなど、特定のリポジトリ向けに開発する必要があるすべてのものが {% data variables.product.prodname_dotcom %} 内に含まれています。 codespace に {% data variables.product.prodname_vscode %} 拡張機能をインストールして、機能を追加することもできます。
 
@@ -44,7 +44,7 @@ versions:
 
 ### {% data variables.product.prodname_codespaces %}の支払いについて
 
-During the limited public beta, {% data variables.product.prodname_codespaces %} is free to use and users are limited to 2 codespaces. プランと価格は、一般提供の前に発表されます。
+{% data reusables.codespaces.about-billing-for-codespaces %} 詳細は「[{% data variables.product.prodname_codespaces %} の支払いについて](/github/developing-online-with-codespaces/about-billing-for-codespaces)」を参照してください。
 
 ### ベータに参加する
 

@@ -160,8 +160,8 @@ e.  客户根据第 6.5 条反对再处理方，并且 GitHub 在九十天内无
 #### 7.6 修改。
 GitHub 可在提前三十天通知客户后，根据适用数据保护法律的要求不时修改本附录。
 
-#### 7.7 Termination Requirements.
-Upon Termination, GitHub must:
+#### 7.7 终止要求。
+终止后，GitHub 必须：
 
 a.  采取合理、适当的措施停止处理客户个人数据；
 
@@ -171,188 +171,188 @@ c.  向客户提供合理的保证，确保 GitHub 已履行其在第 7.7 条中
 
 ### 8. 数据处理责任。
 
-#### 8.1 Limitations.
-Except as limited by the Applicable Data Protection Laws, any claims brought under this Addendum will be subject to the terms of the Agreement regarding Limitations of Liability.
+#### 8.1 限制。
+适用数据保护法律限制的除外，在本附录下提出的任何要求需遵守关于责任限制的协议条款。
 
-## Attachment 1 – The Standard Contractual Clauses (Processors)
-Execution of the applicable agreement by Customer includes execution of this Attachment 1 to the GitHub Data Protection Addendum, which is countersigned by GitHub, Inc.
+## 附件 1 - 标准合同条款 (处理方)
+客户执行的适用协议包括由 GitHub, Inc 签署的《数据保护附录》的本附件 1。
 
-In countries where regulatory approval is required for use of the Standard Contractual Clauses, the Standard Contractual Clauses cannot be relied upon under European Commission 2010/87/EU (of February 2010) to legitimize export of data from the country, unless Customer has the required regulatory approval.
+在使用标准合同条款需要监管机构批准的国家/地区，除非客户获得了所需的监管机构批准，否则根据欧洲委员会 2010/87/EU（2010 年 2 月）的规定，客户不得根据标准合同条款确定从此类国家/地区出口数据的合法性。
 
-For the purposes of Article 46(2) of the General Data Protection Regulation (EU 2016/679) for the transfer of personal data to processors established in third countries which do not ensure an adequate level of data protection, Customer (as data exporter) and GitHub (as data importer, whose signature appears below), each a “party,” together “the parties,” have agreed on the following Contractual Clauses (the “Clauses” or “Standard Contractual Clauses”) in order to adduce adequate safeguards with respect to the protection of privacy and fundamental rights and freedoms of individuals for the transfer by the data exporter to the data importer of the personal data specified in Appendix 1.
+根据《通用数据保护条例》(EU 2016/679) 第 46(2) 条针对将个人数据转移给在无法确保充分数据保护级别的第三国设立的处理方之规定，客户（作为数据出口方）和 GitHub（作为数据进口方，其签名见下文）每一方（合称为“双方”）都同意以下合同条款（以下简称“条款”或“标准合同条款”），以便在数据出口方将附录 1 中规定的个人数据转移给数据进口方时，为个人的隐私、基本权利和自由提供充分保障。
 
-#### Clause 1: Definitions
-(a) 'personal data', 'special categories of data', 'process/processing', 'controller', 'processor', 'data subject' and 'supervisory authority' shall have the same meaning as in the General Data Protection Regulation (EU 2016/679) on the protection of individuals with regard to the processing of personal data and on the free movement of such data;
+#### 第 1 条：定义
+(a) “个人数据”、“特殊数据类别”、“处理”、“控制方”、“处理方”、“数据主体”和“监督机构”应采用《通用数据保护条例》(EU 2016/679) 在个人数据处理和此类数据自由流通的个人保护方面规定的含义；
 
-(b) 'the data exporter' means the controller who transfers the personal data;
+(b) “数据出口方”是指负责转移个人数据的控制方；
 
-(c) 'the data importer' means the processor who agrees to receive from the data exporter personal data intended for processing on his behalf after the transfer in accordance with his instructions and the terms of the Clauses and who is not subject to a third country's system ensuring adequate protection within the meaning of Article 45(2) of the General Data Protection Regulation (EU 2016/679);
+(c) “数据进口方”是指从数据出口方接收个人数据，并在数据转移后，根据数据出口方的指示和条款规定代表其处理此类数据的处理方，并且不受第三国系统的约束，确保数据根据《通用数据保护条例》(EU 2016/679) 第 45(2) 条的规定得到充分保护。
 
-(d) 'the subprocessor' means any processor engaged by the data importer or by any other subprocessor of the data importer who agrees to receive from the data importer or from any other subprocessor of the data importer personal data exclusively intended for processing activities to be carried out on behalf of the data exporter after the transfer in accordance with his instructions, the terms of the Clauses and the terms of the written subcontract;
+(d) “再处理方”是指数据进口方或数据进口方的任何其他再处理方雇佣的任何处理方，他们从数据进口方或数据进口方的任何其他再处理方接收个人数据，并在数据转移后，根据其指示、条款规定以及书面分包合同的条款代表其执行数据处理活动；
 
-(e) 'the applicable data protection law' means the legislation protecting the fundamental rights and freedoms of individuals and, in particular, their right to privacy with respect to the processing of personal data applicable to a data controller in the Member State in which the data exporter is established;
+(e) “适用的数据保护法”是指保护个人基本权利和自由的立法，尤其是保护个人在处理个人数据方面的隐私权，适用于数据出口方所在成员国的数据控制方；
 
-(f) 'technical and organisational security measures' means those measures aimed at protecting personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing.
+(f) “技术和组织安全措施”是指旨在保护个人数据不受意外或非法破坏或意外丢失、更改、未经授权披露或访问的措施，尤其是涉及网络数据传输的处理以及针对所有其他非法处理方式。
 
-#### Clause 2: Details of the transfer
-The details of the transfer and in particular the special categories of personal data where applicable are specified in Appendix 1 below which forms an integral part of the Clauses.
+#### 第 2 条：转移细节
+转移细节，尤其是特殊类别个人数据的转移，应遵守下文附录 1 中的规定，该附录构成了本条款的组成部分。
 
-#### Clause 3: Third-party beneficiary clause
-1. The data subject can enforce against the data exporter this Clause, Clause 4(b) to (i), Clause 5(a) to (e), and (g) to (j), Clause 6(1) and (2), Clause 7, Clause 8(2), and Clauses 9 to 12 as third-party beneficiary.
+#### 第 3 条：第三方受益人条款
+1. 数据主体可以作为第三方受益人对数据出口方执行本条、第 4(b) 至 (i)、第 5(a) 至 (e) 和 (g) 至 (j)、第 6(1) 和 (2)、第 7、第 8(2) 和第 9 至 12 条。
 
-2. The data subject can enforce against the data importer this Clause, Clause 5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where the data exporter has factually disappeared or has ceased to exist in law unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law, as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity.
+2. 在数据出口方事实上已经消失或在法律上不复存在的情况下，数据主体可对数据进口方执行本条、第 5(a) 至 (e) 和 (g)、第 6、第 7、第 8(2) 和第 9 至 12 条，除非任何继承实体通过合同或法律的实施承担了数据出口方的全部法律义务，并因此承担了数据出口方的权利和义务，在这种情况下，数据主体可以针对此类实体执行这些条款。
 
-3. The data subject can enforce against the subprocessor this Clause, Clause 5(a) to (e) and (g), Clause 6, Clause 7, Clause 8(2), and Clauses 9 to 12, in cases where both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, unless any successor entity has assumed the entire legal obligations of the data exporter by contract or by operation of law as a result of which it takes on the rights and obligations of the data exporter, in which case the data subject can enforce them against such entity. Such third-party liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+3. 在数据出口方和数据进口方事实上已经消失或在法律上不复存在或已经破产的情况下，数据主体可对再处理方执行本条、第 5(a) 至 (e) 和 (g)、第 6、第 7、第 8(2) 和第 9 至 12 条，除非任何继承实体通过合同或法律的实施承担了数据出口方的全部法律义务，并因此承担了数据出口方的权利和义务，在这种情况下，数据主体可以针对此类实体执行这些条款。 再处理方的此类第三方责任应限于其在本条款下的处理业务。
 
-4. The parties do not object to a data subject being represented by an association or other body if the data subject so expressly wishes and if permitted by national law.
+4. 如果数据主体有明确的意愿并且国家法律允许，当事方不反对由协会或其他机构代表数据主体。
 
-#### Clause 4: Obligations of the data exporter
-The data exporter agrees and warrants:
+#### 第 4 条：数据出口方的义务
+数据出口方同意并保证：
 
-(a) that the processing, including the transfer itself, of the personal data has been and will continue to be carried out in accordance with the relevant provisions of the applicable data protection law (and, where applicable, has been notified to the relevant authorities of the Member State where the data exporter is established) and does not violate the relevant provisions of that State;
+(a) 个人数据的处理，包括数据转移过程，已经并将继续按照适用的数据保护法的相关规定进行（并且在适用的情况下通知数据出口方所在成员国的相关当局），并且不违反该国有关规定；
 
-(b) that it has instructed and throughout the duration of the personal data processing services will instruct the data importer to process the personal data transferred only on the data exporter's behalf and in accordance with the applicable data protection law and the Clauses;
+(b) 已指示并将在个人数据处理服务期间指示数据进口方，仅代表数据出口方并根据适用的数据保护法和本条款来处理所转移的个人数据；
 
-(c) that the data importer will provide sufficient guarantees in respect of the technical and organisational security measures specified in Appendix 2 below;
+(c) 数据进口方将为下文附录 2 中规定的技术和组织安全措施提供充分保证；
 
-(d) that after assessment of the requirements of the applicable data protection law, the security measures are appropriate to protect personal data against accidental or unlawful destruction or accidental loss, alteration, unauthorised disclosure or access, in particular where the processing involves the transmission of data over a network, and against all other unlawful forms of processing, and that these measures ensure a level of security appropriate to the risks presented by the processing and the nature of the data to be protected having regard to the state of the art and the cost of their implementation;
+(d) 在评估了适用数据保护法的要求后，安全措施适用于保护个人数据，使其免受意外或非法破坏或意外丢失、更改、未经授权的披露或访问，尤其是涉及网络数据传输的处理以及针对所有其他非法处理方式，并在考虑到最新技术和实施成本的情况下，确保这些措施能够提供与处理所带来的风险和要保护数据的性质相适应的安全水平；
 
-(e) that it will ensure compliance with the security measures;
+(e) 确保遵循安全措施；
 
-(f) that, if the transfer involves special categories of data, the data subject has been informed or will be informed before, or as soon as possible after, the transfer that its data could be transmitted to a third country not providing adequate protection within the meaning of the General Data Protection Regulation (EU 2016/679);
+(f) 如果数据转移涉及特殊类别的数据，则已经或将在转移之前或之后尽快告知数据主体，其数据可能被传输到《一般数据保护条例》 (EU 2016/679) 所指的无法提供充分保护的第三国；
 
-(g) to forward any notification received from the data importer or any subprocessor pursuant to Clause 5(b) and Clause 8(3) to the data protection supervisory authority if the data exporter decides to continue the transfer or to lift the suspension;
+(g) 如果数据出口方决定继续转移或取消中止，则根据第 5(b) 和第 8(3) 条，将从数据进口方或任何再处理方收到的任何通知转发给数据保护监管机构；
 
-(h) to make available to the data subjects upon request a copy of the Clauses, with the exception of Appendix 2, and a summary description of the security measures, as well as a copy of any contract for subprocessing services which has to be made in accordance with the Clauses, unless the Clauses or the contract contain commercial information, in which case it may remove such commercial information;
+(h) 应要求向数据主体提供条款副本（附录 2 除外）、安全措施概要说明，以及必须根据条款制定的任何再处理服务合同副本，除非条款或合同包含商业信息，在这种情况下，它可以删除这些商业信息；
 
-(i) that, in the event of subprocessing, the processing activity is carried out in accordance with Clause 11 by a subprocessor providing at least the same level of protection for the personal data and the rights of data subject as the data importer under the Clauses; and
+(i) 在再处理的情况下，处理活动由再处理方根据第 11 条执行，对个人数据和数据主体的权利提供至少与本条款下数据进口方相同的保护级别；以及
 
-(j) that it will ensure compliance with Clause 4(a) to (i).
+(j) 确保遵守第 4(a) 至 (i) 条。
 
-#### Clause 5: Obligations of the data importer
-The data importer agrees and warrants:
+#### 第 5 条：数据进口方的义务
+数据进口方同意并保证：
 
-(a) to process the personal data only on behalf of the data exporter and in compliance with its instructions and the Clauses; if it cannot provide such compliance for whatever reasons, it agrees to inform promptly the data exporter of its inability to comply, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+(a) 只代表数据出口方并按照其指示和条款处理个人数据；如果出于任何原因无法提供此类遵循，则迅速将无法遵循的情况通知数据出口方， 在这种情况下，数据出口方有权中止数据转移和/或终止合同；
 
-(b) that it has no reason to believe that the legislation applicable to it prevents it from fulfilling the instructions received from the data exporter and its obligations under the contract and that in the event of a change in this legislation which is likely to have a substantial adverse effect on the warranties and obligations provided by the Clauses, it will promptly notify the change to the data exporter as soon as it is aware, in which case the data exporter is entitled to suspend the transfer of data and/or terminate the contract;
+(b) 没有理由认为适用于它的法律会阻止它履行从数据出口方那里收到的指示和它在合同下的义务，如果该立法发生变化，可能对条款规定的保证和义务产生重大不利影响，则在知情后立即通知数据出口方，在这种情况下，数据出口方有权中止数据转移和/或终止合同；
 
-(c) that it has implemented the technical and organisational security measures specified in Appendix 2 before processing the personal data transferred;
+(c) 在处理所转移的个人数据之前，已实施附录 2 中规定的技术和组织安全措施；
 
-(d) that it will promptly notify the data exporter about:
+(d) 将以下情况迅速通知数据出口方：
 
-(i) any legally binding request for disclosure of the personal data by a law enforcement authority unless otherwise prohibited, such as a prohibition under criminal law to preserve the confidentiality of a law enforcement investigation,
+(i) 执法机关提出披露个人数据等任何具有法律约束力的要求，除非另有禁止，例如刑法禁止通知以保护执法调查的机密性，
 
-(ii) any accidental or unauthorised access, and
+(ii) 任何意外或未经授权的访问，以及
 
-(iii) any request received directly from the data subjects without responding to that request, unless it has been otherwise authorised to do so;
+(iii) 直接从数据主体收到的任何请求，但不会对该请求作出回应，除非另有授权；
 
-(e) to deal promptly and properly with all inquiries from the data exporter relating to its processing of the personal data subject to the transfer and to abide by the advice of the supervisory authority with regard to the processing of the data transferred;
+(e) 迅速妥善处理数据出口方就其处理所转移个人数据而提出的所有询问，并遵守监管机构关于处理所转移数据的建议；
 
-(f) at the request of the data exporter to submit its data processing facilities for audit of the processing activities covered by the Clauses which shall be carried out by the data exporter or an inspection body composed of independent members and in possession of the required professional qualifications bound by a duty of confidentiality, selected by the data exporter, where applicable, in agreement with the supervisory authority;
+(f) 应数据出口方的要求，提交其数据处理设施，以供审核本条款所涵盖的处理活动，此类审核应由数据出口方或由独立成员组成并拥有受保密义务约束的所需专业资格的检查机构进行，在适用的情况下，经监管机构同意，由数据出口方选择；
 
-(g) to make available to the data subject upon request a copy of the Clauses, or any existing contract for subprocessing, unless the Clauses or contract contain commercial information, in which case it may remove such commercial information, with the exception of Appendix 2 which shall be replaced by a summary description of the security measures in those cases where the data subject is unable to obtain a copy from the data exporter;
+(g) 应要求向数据主体提供条款副本或任何现有的再处理合同，除非条款或合同包含商业信息，在这种情况下，可以删除此类商业信息，但附录 2 除外，在数据主体无法从数据出口方获得副本的情况下应替换为安全措施概要说明；
 
-(h) that, in the event of subprocessing, it has previously informed the data exporter and obtained its prior written consent;
+(h) 在再处理的情况下，事先通知数据出口方并获得其事先书面同意；
 
-(i) that the processing services by the subprocessor will be carried out in accordance with Clause 11; and
+(i) 再处理方的处理服务将按照第 11 条的规定执行；以及
 
-(j) to send promptly a copy of any subprocessor agreement it concludes under the Clauses to the data exporter.
+(j) 迅速将其根据本条款缔结的任何再处理方协议的副本发送给数据出口方。
 
-#### Clause 6: Liability
-1. The parties agree that any data subject who has suffered damage as a result of any breach of the obligations referred to in Clause 3 or in Clause 11 by any party or subprocessor is entitled to receive compensation from the data exporter for the damage suffered.
+#### 第 6 条：赔偿责任
+1. 双方同意，因任何一方或再处理方违反第 3 条或第 11 条所述义务而遭受损害的任何数据主体，有权就所遭受的损害向数据出口方索取赔偿。
 
-2. If a data subject is not able to bring a claim for compensation in accordance with paragraph 1 against the data exporter, arising out of a breach by the data importer or his subprocessor of any of their obligations referred to in Clause 3 or in Clause 11, because the data exporter has factually disappeared or ceased to exist in law or has become insolvent, the data importer agrees that the data subject may issue a claim against the data importer as if it were the data exporter, unless any successor entity has assumed the entire legal obligations of the data exporter by contract of by operation of law, in which case the data subject can enforce its rights against such entity. The data importer may not rely on a breach by a subprocessor of its obligations in order to avoid its own liabilities.
+2. 如果由于数据进口方或其再处理方违反第 3 条或第 11 条所述的任何义务，数据主体无法根据第 1 款向数据出口方提出索赔，其原因是数据出口方事实上已消失或在法律上不复存在或已破产，数据进口方同意，数据主体可以像向数据出口方索赔一样向数据进口方提出索赔，除非任何继承实体通过合同或法律实施承担了数据出口方的全部法律义务，在这种情况下，数据主体可以针对此类实体履行其权利。 数据进口方不得以再处理方违反其义务为由而推卸自己的责任。
 
-3. If a data subject is not able to bring a claim against the data exporter or the data importer referred to in paragraphs 1 and 2, arising out of a breach by the subprocessor of any of their obligations referred to in Clause 3 or in Clause 11 because both the data exporter and the data importer have factually disappeared or ceased to exist in law or have become insolvent, the subprocessor agrees that the data subject may issue a claim against the data subprocessor with regard to its own processing operations under the Clauses as if it were the data exporter or the data importer, unless any successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law, in which case the data subject can enforce its rights against such entity. The liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+3. 如果由于再处理方违反第 3 条或第 11 条所述的任何义务，数据主体无法根据第 1 和第 2 款向数据出口方或数据进口方提出索赔，其原因是数据出口方和数据进口方均事实上已消失或在法律上不复存在或已破产，再处理方同意，数据主体可以像向数据出口方或数据进口方索赔一样，就再处理方在本条款下的处理业务向其提出索赔，除非任何继承实体通过合同或法律实施承担了数据出口方或数据进口方的全部法律义务，在这种情况下，数据主体可以针对此类实体履行其权利。 再处理方的赔偿责任应限于其在本条款下的处理业务。
 
-#### Clause 7: Mediation and jurisdiction
-1. The data importer agrees that if the data subject invokes against it third-party beneficiary rights and/or claims compensation for damages under the Clauses, the data importer will accept the decision of the data subject:
+#### 第 7 条：调解和管辖权
+1. 数据进口方同意，如果数据主体援引第三方受益权和/或根据条款要求赔偿损失，数据进口方将接受数据主体的以下决定：
 
-(a) to refer the dispute to mediation, by an independent person or, where applicable, by the supervisory authority;
+(a) 将争议交由独立人士调解，或在适用的情况下，由监管机构进行调解；
 
-(b) to refer the dispute to the courts in the Member State in which the data exporter is established.
+(b) 将争议提交给数据出口方所在成员国的法院处理。
 
-2. The parties agree that the choice made by the data subject will not prejudice its substantive or procedural rights to seek remedies in accordance with other provisions of national or international law.
+2. 双方同意，数据主体的选择不影响其根据国内法或国际法的其他规定寻求补救的实质性或程序性权利。
 
-#### Clause 8: Cooperation with supervisory authorities
-1. The data exporter agrees to deposit a copy of this contract with the supervisory authority if it so requests or if such deposit is required under the applicable data protection law.
+#### 第 8 条：与监管机构的合作
+1. 数据出口方同意向监督机构交存本合同副本，如果监督机构或适用的数据保护法要求交存此类副本。
 
-2. The parties agree that the supervisory authority has the right to conduct an audit of the data importer, and of any subprocessor, which has the same scope and is subject to the same conditions as would apply to an audit of the data exporter under the applicable data protection law.
+2. 双方同意，监管机构有权对数据进口方和任何再处理方进行审核，审计范围和条件与适用数据保护法对数据出口方规定的审核相同。
 
-3. The data importer shall promptly inform the data exporter about the existence of legislation applicable to it or any subprocessor preventing the conduct of an audit of the data importer, or any subprocessor, pursuant to paragraph 2. In such a case the data exporter shall be entitled to take the measures foreseen in Clause 5(b).
+3. 如果存在阻止根据第 2 款对数据进口方或任何再处理方进行审核的适用立法，数据进口方应立即通知数据出口方。 在这种情况下，数据出口方应有权采取第 5(b) 条规定的措施。
 
-#### Clause 9: Governing Law.
-The Clauses shall be governed by the law of the Member State in which the data exporter is established.
+#### 第 9 条：管辖法律。
+本条款应受数据出口方所在成员国的法律管辖。
 
-#### Clause 10: Variation of the contract
-The parties undertake not to vary or modify the Clauses. This does not preclude the parties from adding clauses on business related issues where required as long as they do not contradict the Clause.
+#### 第 10 条：合同变更
+双方承诺不改变或修改条款。 但这并不妨碍双方在必要时添加有关业务问题的条款，前提是它们不与本条款相冲突。
 
-#### Clause 11: Subprocessing
-1. The data importer shall not subcontract any of its processing operations performed on behalf of the data exporter under the Clauses without the prior written consent of the data exporter. Where the data importer subcontracts its obligations under the Clauses, with the consent of the data exporter, it shall do so only by way of a written agreement with the subprocessor which imposes the same obligations on the subprocessor as are imposed on the data importer under the Clauses. Where the subprocessor fails to fulfil its data protection obligations under such written agreement the data importer shall remain fully liable to the data exporter for the performance of the subprocessor's obligations under such agreement.
+#### 第 11 条：再处理
+1. 未经数据出口方事先书面同意，数据进口方不得将其代表数据出口方执行的任何处理业务分包出去。 如果数据进口方在征得数据出口方同意的情况下，将其在本条款下的义务分包出去，则必须与再处理方签订书面协议，该协议对再处理方施加的义务应与本条款对数据进口方施加的义务相同。 如果再处理方未能履行该书面协议规定的数据保护义务，则数据进口方仍应对数据出口方负全部责任，以履行该协议下的再处理方义务。
 
-2. The prior written contract between the data importer and the subprocessor shall also provide for a third-party beneficiary clause as laid down in Clause 3 for cases where the data subject is not able to bring the claim for compensation referred to in paragraph 1 of Clause 6 against the data exporter or the data importer because they have factually disappeared or have ceased to exist in law or have become insolvent and no successor entity has assumed the entire legal obligations of the data exporter or data importer by contract or by operation of law. Such third-party liability of the subprocessor shall be limited to its own processing operations under the Clauses.
+2. 数据进口方与再处理方之间的事先书面合同还应规定第 3 条中所述的第三方受益人条款，以防数据出口方或数据进口方事实上已消失或在法律上不复存在或已破产，而且没有任何继承实体通过合同或法律实施承担数据出口方或数据进口方的全部法律义务，导致数据主体无法向他们提出第 6 条第 1 款所述的索赔。 再处理方的此类第三方责任应限于其在本条款下的处理业务。
 
-3. The provisions relating to data protection aspects for subprocessing of the contract referred to in paragraph 1 shall be governed by the law of the Member State in which the data exporter is established.
+3. 第 1 款所述再处理合同的数据保护方面的规定应受数据出口方所在成员国的法律管辖。
 
-4. The data exporter shall keep a list of subprocessing agreements concluded under the Clauses and notified by the data importer pursuant to Clause 5 (j), which shall be updated at least once a year. The list shall be available to the data exporter's data protection supervisory authority.
+4. 数据出口方应保留根据本条款缔结并由数据进口方根据第 5(j) 条通知的再处理协议的清单，该清单应每年至少更新一次。 该清单应提供给数据出口方的数据保护监管机构。
 
-#### Clause 12: Obligation after the termination of personal data processing services
-1. The parties agree that on the termination of the provision of data processing services, the data importer and the subprocessor shall, at the choice of the data exporter, return all the personal data transferred and the copies thereof to the data exporter or shall destroy all the personal data and certify to the data exporter that it has done so, unless legislation imposed upon the data importer prevents it from returning or destroying all or part of the personal data transferred. In that case, the data importer warrants that it will guarantee the confidentiality of the personal data transferred and will not actively process the personal data transferred anymore.
+#### 第 12 条：个人数据处理服务终止后的义务
+1. 双方同意，在终止提供数据处理服务时，数据进口方和再处理方应根据数据出口方的选择，将传输的所有个人数据及其副本返还给数据出口方，或者销毁所有个人数据并向数据出口方提供相关证明，除非适用于数据进口方的法律阻止其返还或销毁所传输的全部或部分个人数据。 在这种情况下，数据进口方应保证将确保所传输个人数据的机密性，并且不再主动处理所传输的个人数据。
 
-2. The data importer and the subprocessor warrant that upon request of the data exporter and/or of the supervisory authority, it will submit its data processing facilities for an audit of the measures referred to in paragraph 1.
+2. 数据进口方和再处理方保证，将应数据出口方和/或监管机构的要求，提交其数据处理设施以接受第 1 款所述的审核。
 
-### Appendix 1 to the Standard Contractual Clauses
-Data exporter: Customer is the data exporter.
+### 标准合同条款附录 1
+数据出口方：客户是数据出口方。
 
-**Data importer:** The data importer is GitHub, Inc., a global producer of software and services.
+**数据进口方：**数据进口方是全球软件和服务生产商 GitHub, Inc.。
 
-**Data subjects:** Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal information to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Service, Customer may elect to include personal data from any of the following types of data subjects in the Customer Personal Data:
+**数据主体：**数据主体是数据出口方的代表和最终用户，包括数据出口方的员工、承包商、协作者和客户。 数据主体还可能包括试图向数据进口方提供的服务的用户传达或传输个人信息的个人。 GitHub 承认，根据客户对服务的使用情况，客户可以选择在客户个人数据中包含来自以下任何类型数据主体的个人数据：
 
--   Employees, contractors and temporary workers (current, former, prospective) of data exporter;
--   Dependents of the above;
--   Data exporter's collaborators/contact persons (natural persons) or employees, contractors or temporary workers of legal entity collaborators/contact persons (current, prospective, former);
--   Users (e.g., customers, clients, patients, visitors, etc.) and other data subjects that are users of data exporter's services;
--   Partners, stakeholders or individuals who actively collaborate, communicate or otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter;
--   Stakeholders or individuals who passively interact with data exporter (e.g., because they are the subject of an investigation, research or mentioned in documents or correspondence from or to the data exporter); or
--   Professionals with professional privilege (e.g., doctors, lawyers, notaries, religious workers, etc.).
+-   数据出口方的员工、承包商和临时工（现任、前任、未来）；
+-   上述人员的家属；
+-   数据出口方的协作者/联系人（自然人）或法律实体协作者/联系人的员工、承包商或临时工（现任、未来、前任）；
+-   用户（例如，顾客、客户、患者、访客等）以及作为数据出口方服务用户的其他数据主体；
+-   合作伙伴、利益相关者或与数据出口方的员工积极协作、交流或以其他方式互动的个人和/或使用数据出口方提供的应用程序和网站等沟通工具的个人；
+-   被动地与数据出口方交互的利益相关者或个人（例如，因为他们是调查、研究的对象，或者是数据出口方的文件或通信中提到的对象）；或
+-   具有职业特权的专业人士（如医生、律师、公证人、宗教工作者等）。
 
-**Categories of data:** The personal data transferred that is included in e-mail, documents and other data in an electronic form in the context of the Service.  GitHub acknowledges that, depending on Customer’s use of the Service, Customer may elect to include personal data from any of the following categories in the Customer Personal Data:
--   Authentication data (for example, username, email, password);
--   Contact information (for example, email);
--   Unique identification numbers and signatures (IP addresses, unique identifier in tracking cookies or similar technology).
--   Other unique identifying information. Data subjects may include more data such as real names, avatar images, and other personal information;
+**数据类别：**在服务范围内，以电子形式包含在电子邮件、文档和其他数据中的所传输个人数据。  GitHub 承认，根据客户对服务的使用情况，客户可以选择在客户个人数据中包含来自以下任何类别的个人数据：
+-   身份验证数据（例如，用户名、电子邮件、密码）；
+-   联系信息（例如，电子邮件）;
+-   唯一标识号和签名（IP 地址、跟踪 Cookie 或类似技术中的唯一标识符）。
+-   其他的唯一识别信息。 数据主体可能包含更多数据，例如真实姓名、头像图片和其他个人信息；
 
-**Special categories of data (if appropriate):** The data importer does not intentionally collect or process any special categories of data in carrying out its services to the data exporter.
+**特殊类别的数据（如适用）：**数据进口方在向数据出口方提供服务时不会有意收集或处理任何特殊类别的数据。
 
-However, because the data importer provides storage services and does not control the categories of data it stores, the data exporter may choose to transfer special categories of data. Consequently, the data exporter is solely responsible for ensuring that it complies with all obligations imposed by applicable laws and regulations relating to the collection and processing of any special categories of data, including obtaining the explicit consent of the data subject prior to processing sensitive personal data.
+但是，由于数据进口方提供存储服务，并且不控制其存储的数据类别，因此数据出口方可以选择传输特殊类别的数据。 所以，数据出口方应全权负责确保其遵守适用法律和法规规定的与收集和处理任何特殊类别数据有关的所有义务，包括在处理敏感个人数据之前获得数据主体的明确同意。
 
-**Processing operations:** The personal data transferred will be subject to the following basic processing activities: GitHub uses personal data for the limited purposes set forth in the GitHub Privacy Statement, available at [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement), and the “Data Processing” section of the DPA. Subcontractors: In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain Customer Personal Data only to deliver the services the data importer has retained them to provide, and they are prohibited from using Customer Personal Data for any other purpose.
+**处理业务：**所传输的个人数据将受以下基本处理活动的约束：GitHub 将个人数据用于《GitHub 隐私声明》（见 [https://docs.github.com/articles/github-privacy-statement](/articles/github-privacy-statement)）和 DPA 的“数据处理”部分规定的有限目的。 分包商：根据 DPA，数据进口方可以雇佣其他公司代表他们提供有限的服务，例如提供客户支持。 任何此类分包商只能以提供数据进口商委托的服务为目的而获取客户个人数据，并且不得将客户个人数据用于任何其他目的。
 
-### Appendix 2 to the Standard Contractual Clauses
-Description of the technical and organizational security measures implemented by the data importer in accordance with Clauses 4(d) and 5(c):
+### 标准合同条款附录 2
+数据进口方根据第 4(d) 和 5(c) 条实施的技术和组织安全措施的说明：
 
-**1. Personnel.** Data importer’s personnel will not process Customer Personal Data without authorization. Personnel are obligated to maintain the confidentiality of any Customer Personal Data and this obligation continues even after their engagement ends.
+**1. 人员。**数据进口方的人员未经授权不得处理客户个人数据。 人员有义务对任何客户个人数据保密，即使在他们的工作结束后，这一义务仍将继续。
 
-**2. Data Privacy Contact.** The data privacy officer of the data importer can be reached at the following address: GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
+**2. 数据隐私联系人。**数据进口方的数据隐私专员的联系地址如下： GitHub, Inc. Attn: Privacy 88 Colin P. Kelly Jr. Street San Francisco, CA 94107 USA
 
-**3. Technical and Organization Measures.** The data importer has implemented and will maintain appropriate technical and organizational measures, internal controls, and information security routines intended to protect Customer Personal Data, as defined in the GitHub Security Exhibit, against accidental loss, destruction, or alteration; unauthorized disclosure or access; or unlawful destruction as follows: The technical and organizational measures, internal controls, and information security routines set forth in the GitHub Security Exhibit are hereby incorporated into this Appendix 2 by this reference and are binding on the data importer as if they were set forth in this Appendix 2 in their entirety. Signature of GitHub, Inc. appears below.
+**3. 技术和组织措施。**数据进口方已实施并将保持适当的技术和组织措施、内部控制和信息安全程序，以保护客户个人数据（如 GitHub 安全附件中所定义）免遭意外丢失、破坏或更改；未经授权的披露或访问；或非法破坏。GitHub 安全附件中规定的技术和组织措施、内部控制和信息安全程序在此通过此引用并入本附录 2 中，并且对数据进口方具有约束力，如同它们在本附录 2 中全部列出一样。 GitHub Inc. 的签名如下。
 
-Signing the Standard Contractual Clauses, Appendix 1 and Appendix 2 on behalf of the data importer
+代表数据进口方签署标准合同条款、附录 1 和附录 2
 
-![Screen Shot 2020-07-20 at 2 20 29 PM](/assets/images/help/site-policy/docusign-signature.png)
+![屏幕截图，2020-07-20，下午 2 20 29](/assets/images/help/site-policy/docusign-signature.png)
 
-Lynn Hashimoto, Head of Product & Regulatory Legal
+Lynn Hashimoto，产品与监管法律部主管
 
 GitHub, Inc.
 
 
-## SECURITY EXHIBIT
+## 安全附件
 
 ### 1. 信息安全计划。
 
 #### 1.1 安全管理。
 
-Throughout the duration of the Agreement, GitHub will maintain and enforce a written information security program (**"Security Program"**) that aligns with industry recognized frameworks; includes security safeguards reasonably designed to protect the confidentiality, integrity, availability, and resilience of Customer Protected Data; is appropriate to the nature, size, and complexity of GitHub's business operations; and complies with the Applicable Data Protection Laws and other specific information security related laws and regulations that are applicable to the geographic regions in which GitHub does business.
+在协议的整个期限内，GitHub 将维护并执行与行业公认框架一致的书面信息安全计划（“**安全计划**”）；包含采用合理设计的安全保护措施，保护客户受保护数据的机密性、完整性、可用性及弹性；适合 GitHub 业务运营的性质、规模和复杂性；遵守适用数据保护法律以及 GitHub 业务所在地适用的其他特定信息安全相关法律和法规。
 
 a. 安全官。 GitHub 指定了资深员工负责监管和执行其安全计划，以及负责关于信息安全事务的治理和内部沟通。
 
@@ -368,22 +368,22 @@ c. GitHub 将保持标准的安全行业做法，包括但不限于：
 - 安全和隐私意识培训
 
 
-#### 1.2 Security Incident Management.
-Throughout the duration of the Agreement, and where applicable, GitHub will provide a Security incident management program as follows:
+#### 1.2 安全事件管理。
+在协议的整个期限内以及适用时，GitHub 将提供如下安全事件管理计划：
 
 a. 安全可用性和上报。 GitHub 将维护适当的全天候安全联系和上报流程，以确保客户和员工可以向 GitHub 安全团队提交问题。
 
-b. 事件响应。 If GitHub becomes aware of a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to Customer Personal Data (each a **"Security Incident"**), GitHub will promptly and without undue delay (1) notify Customer of the Security Incident; (2) investigate the Security Incident and provide Customer with detailed information about the Security Incident; (3) take reasonable steps to mitigate the effects and to minimize any damage resulting from the Security Incident.
+b. 事件响应。 如果 GitHub 知悉会导致客户个人数据意外或非法销毁、丢失、篡改、未授权披露或访问的安全违规（每个都是“**安全事件**”），GitHub 将及时 (1) 向客户通知安全事件；(2) 调查安全事件并向客户提供安全事件的详细信息；(3) 采取合理的措施减小影响，并尽可能减小安全事件造成的损害。
 
 c. 通知。 安全事件通知将通过 GitHub 选择的方式提交给客户的一个或多个管理员。 客户独自负责确保客户的管理员监控并回应任何通知。 客户独自负责履行事件通知法律下适用于客户的义务，并且履行与任何安全事件相关的任何第三方通知义务。
 
 d. 合理协助。 GitHub 将采取商业合理的努力协助客户履行其在适用法律或法规下的义务，以向相关的监管机构和数据主体通知该等安全事件。
 
-#### 1.3 Due Diligence over Subcontractors and Vendors.
-GitHub will maintain appropriate due diligence when utilizing subcontractors and vendors. GitHub 将维护至少三年的供应商评估报告和任何评估工作。
+#### 1.3 对分包商和供应商的尽职调查。
+GitHub 在使用分包商和供应商时将保持适当的尽职调查。 GitHub 将维护至少三年的供应商评估报告和任何评估工作。
 
-#### 1.4 Data Center Physical Safeguards.
-To the extent GitHub utilizes third party vendors to host production environments, GitHub will select vendors that comply with physical security controls outlined in industry standards and that issue an annual external audit report such as SOC 2 or ISO 27001 certification. 对电信区域、机箱或机架或者网络设备及其他“数据传输线路”或设备的访问的控制如下：
+#### 1.4 数据中心物理保护。
+在 GitHub 使用第三方供应商托管生产环境的范围内，GitHub 将选择符合行业标准所述物理安全控制、并且发出年度外部审核报告（如 SOC 2 或 ISO 27001 认证）的供应商。 对电信区域、机箱或机架或者网络设备及其他“数据传输线路”或设备的访问的控制如下：
 
 a. 访问将由一个或多个入口的胸卡读取器控制；
 
@@ -397,17 +397,17 @@ e. 所有读卡和视频系统都会连接到发电机或 UPS 备份系统。
 
 ### 2. 信息申请和合规报告。
 
-#### 2.1 Requests for Information.
-Upon Customer's written request and no more than once annually, GitHub will respond to one request for information to assess security and compliance risk-related information. 回应将在收到申请后三十天内以书面形式提供，任何申请需要澄清时待定。
+#### 2.1 信息申请。
+对客户每年不超过一次的书面申请，GitHub 将回应一次评估安全和合规风险相关信息的信息申请。 回应将在收到申请后三十天内以书面形式提供，任何申请需要澄清时待定。
 
-#### 2.2 Response Contents.
-GitHub will include in its annual response relevant audit reports for production datacenter, IaaS, PaaS or private hosting providers, as deemed relevant by GitHub, in its sole discretion and based on data and services rendered.
+#### 2.2 回应内容。
+GitHub 将根据提供的数据和服务自由裁量包含，在其年度回应中包含 GitHub 认为相关的生产数据中心、IaaS、PaaS 或私人托管提供商的相关审计报告。
 
-#### 2.3 GitHub Security Audit Report.
-GitHub will execute external audits to produce a SOC1, type 2, audit report and a SOC2, type 2, audit report. GitHub 将在协议期限内继续每年至少执行一次审核并发布相应的报告。
+#### 2.3 GitHub 安全审计报告。
+GitHub 将执行外部审计以产生 SOC1、2 类审核报告和 SOC2、2 类审计报告。 GitHub 将在协议期限内继续每年至少执行一次审核并发布相应的报告。
 
 ### 3. 配合监管审计。
-Should Customer realize a regulatory audit or an audit in response to a Supervisory Authority that requires participation from GitHub, GitHub will fully cooperate with related requests by providing access to relevant knowledgeable personnel, documentation, and application software. 客户对任何此类监管或主管机关审计具有以下责任：
+如果客户意识到监管审计或因应主管机关的审计需要 GitHub 的参与，GitHub 将全力配合相关申请，提供对相关知情人员、文档和应用软件的访问权限。 客户对任何此类监管或主管机关审计具有以下责任：
 
 a. 客户必须确保使用独立第三方（意指监管者或监管者的代表），并且客户不能访问与其不相关的发现和数据。
 

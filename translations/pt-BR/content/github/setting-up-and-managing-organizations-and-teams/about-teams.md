@@ -21,7 +21,7 @@ Para obter mais informações, consulte:
 
 {% if currentVersion != "free-pro-team@latest" %}
 
-Você também pode usar a sincronização LDAP para sincronizar os integrantes da equipe da {% data variables.product.product_location_enterprise %} e funções de equipe com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location_enterprise %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+Você também pode usar a sincronização LDAP para sincronizar os integrantes e funções da equipe da {% data variables.product.product_location_enterprise %} com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location_enterprise %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 

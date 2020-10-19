@@ -1,6 +1,6 @@
 ---
 title: Enforcing repository management policies in your enterprise
-intro: 'Enterprise owners can enforce certain repository management policies for all organizations owned by an enterprise account, or allow policies to be set in each organization.'
+intro: 'Enterprise-Inhaber können bestimmte Richtlinien zur Repository-Verwaltung für alle Organisationen erzwingen, die einem Enterprise-Konto gehören, oder zulassen, dass Richtlinien in jeder Organisation festgelegt werden.'
 redirect_from:
   - /enterprise/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance
   - /enterprise/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility
@@ -29,15 +29,15 @@ versions:
   enterprise-server: '*'
 ---
 
-### Configuring the default visibility of new repositories on your appliance
+### Standardmäßige Sichtbarkeit neuer Repositorys auf Ihrer Appliance konfigurieren
 
-Each time someone creates a new repository on {% data variables.product.product_location_enterprise %}, that person must choose a visibility for the repository. When you configure a default visibility setting for the instance, you choose which visibility is selected by default. For more information on repository visibility, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+Jedes Mal, wenn jemand ein neues Repository auf {% data variables.product.product_location_enterprise %} anlegt, muss diese Person eine Sichtbarkeit für das Repository auswählen. Wenn Du eine Standard-Sichtbarkeitseinstellung für die Instanz einstellst, wählst Du aus, welche Sichtbarkeit standardmäßig gilt. Weitere Informationen zu Repository-Sichtbarkeiten findest Du unter „[Informationen zur Sichtbarkeit eines Repositorys](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)“.
 
-If a site administrator disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see "[Restricting repository creation in your instance](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)."
+Wenn ein Site-Administrator Mitgliedern das Erstellen bestimmter Arten Repositorys verwehrt, werden Mitglieder nicht in der Lage sein, ein Repository dieser Art zu erstellen, selbst wenn die Einstellung zur Sichtbarkeit diesen Typ als Standard vorgibt. Weitere Informationen finden Sie unter „[Repository-Erstellung auf Ihrer Instanz einschränken](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)“.
 
 {% tip %}
 
-**Tip:** You can restrict the ability to change repository visibility to site administrators only. For more information, see "[Preventing users from changing a repository's visibility](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility)."
+**Tipp:** Sie können festlegen, dass nur die Websiteadministratoren die Sichtbarkeit des Repositorys ändern können. Weitere Informationen finden Sie unter „[Benutzerbedingte Änderung der Sichtbarkeit eines Repositorys verhindern](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility)“.
 
 {% endtip %}
 
@@ -49,22 +49,21 @@ If a site administrator disallows members from creating certain types of reposit
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
-  ![Drop-down menu to choose the default repository visibility for your instance](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
+1. Verwende unter „Default repository visibility“ (Standardmäßige Sichtbarkeit für Repositorys) das Dropdown-Menü und wähle eine Standardsichtbarkeit. ![Dropdownmenü zum Auswählen der standardmäßigen Repository-Sichtbarkeit für Ihre Instanz](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
 ### Setting a policy for changing a repository's visibility
 
-When you prevent members from changing repository visibility, only site administrators have the ability to make public repositories private or make private repositories public.
+Wenn Sie Mitglieder daran hindern, die Sichtbarkeit des Repositorys zu ändern, können nur Websiteadministratoren öffentliche Repositorys als privat oder private Repositorys als öffentlich festlegen.
 
-If a site administrator has restricted repository creation to organization owners only, then members will not be able to change repository visibility. If a site administrator has restricted member repository creation to private repositories only, then members will only be able to change repositories from public to private. For more information, see "[Setting a policy for repository creation](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)."
+Falls ein Websiteadministrator die Möglichkeit der Repository-Erstellung auf Organisationsinhaber beschränkt hat, können Mitglieder die Sichtbarkeit eines Repositorys nicht ändern. Hat ein Websiteadministrator dagegen die Möglichkeit von Mitgliedern auf die Erstellung privater Repositorys beschränkt, können Mitglieder die Sichtbarkeit eines Repositorys von öffentlich auf privat festlegen. For more information, see "[Setting a policy for repository creation](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. Under "Repository visibility change", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Überprüfen Sie unter „Repository visibility change“ (Änderung der Repository-Sichtbarkeit) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 
 {% data reusables.enterprise-accounts.repository-visibility-policy %}
 
@@ -76,13 +75,12 @@ If a site administrator has restricted repository creation to organization owner
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Überprüfen Sie unter „Repository creation“ (Repository-Erstellung) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% if currentVersion ver_gt "enterprise-server@2.19" %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
-6. Under "Repository creation", use the drop-down menu and choose a policy.
-  ![Drop-down menu with repository creation policies](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
+6. Wählen Sie im Dropdownmenü unter „Repository creation“ (Repository-Erstellung) eine Richtlinie aus. ![Dropdownmenü mit Richtlinien zur Repository-Erstellung](/assets/images/enterprise/site-admin-settings/repository-creation-drop-down.png)
 {% endif %}
 
 ### Setting a policy for repository deletion and transfer
@@ -91,20 +89,20 @@ If a site administrator has restricted repository creation to organization owner
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
-5. Under "Repository deletion and transfer", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+5. Überprüfen Sie unter „Repository deletion and transfer“ (Repository-Löschung und -Übertragung) die Informationen zum Ändern der Einstellung. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 
 {% data reusables.enterprise-accounts.repository-deletion-policy %}
 
 ### Setting a policy for Git push limits
 
-To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories on your instance.
+Um die Größe Deines Repositorys handhabbar zu halten und Performance-Probleme zu vermeiden, konfiguriere ein Dateigrößenlimit für Repositorys auf Deiner Instanz.
 
-By default, when you enforce repository upload limits, people cannot add or update files larger than 100 MB.
+Wenn Du Repository-Uploadlimits erzwingst, können Benutzer standardmäßig keine Dateien hinzufügen oder aktualisieren, die größer als 100 MB sind.
 
 {% if currentVersion ver_lt "enterprise-server@2.20" %}
 {% tip %}
 
-**Note:** Only files larger than {% data variables.large_files.warning_size %} will be checked against the Git push limit. If you need to set a lower push limit, contact {% data variables.contact.contact_ent_support %} for assistance.
+**Hinweis:** Nur Dateien, die größer sind als {% data variables.large_files.warning_size %}, werden mit der Git-Push-Begrenzung abgeglichen. Kontaktieren Sie {% data variables.contact.contact_ent_support %}, wenn Sie eine niedrigere Push-Begrenzung festlegen müssen.
 
 {% endtip %}
 {% endif %}
@@ -117,14 +115,12 @@ By default, when you enforce repository upload limits, people cannot add or upda
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Repository upload limit", use the drop-down menu and click a maximum object size.
-![Drop-down menu with maximum object size options](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. Optionally, to enforce a maximum upload limit for all repositories on {% data variables.product.product_location_enterprise %}, select **Enforce on all repositories**
-![Enforce maximum object size on all repositories option](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+4. Verwenden Sie unter „Repository upload limit“ (Upload-Begrenzung für Repository) das Dropdownmenü, und klicken Sie auf eine maximale Objektgröße.![Dropdownmenü mit Optionen für die maximale Objektgröße](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
+5. Optional kannst Du **Für alle Repositorys erzwingen** auswählen, um ein maximales Upload-Limit für alle Repositorys auf {% data variables.product.product_location_enterprise %} zu erzwingen. ![Option zur zwangsweisen Begrenzung der Objektgröße für alle Repositorys](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
 ### Configuring the merge conflict editor for pull requests between repositories
 
-Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
+Indem Sie festlegen, dass Benutzer Mergekonflikte lokal auf ihren Computern auflösen müssen, können Sie verhindern, dass sie über ein Fork versehentlich in ein vorgelagertes Repository schreiben.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
@@ -134,12 +130,11 @@ Requiring users to resolve merge conflicts locally on their computer can prevent
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
- ![Drop-down menu with option to disable the merge conflict editor](/assets/images/enterprise/settings/conflict-editor-settings.png)
+1. Verwenden Sie unter „Merge Conflict editor for pull requests between repositories“ (Editor für Mergekonflikte für Pull Requests zwischen Repositorys) das Dropdownmenü, und klicken Sie auf **Disabled** (Deaktiviert). ![Dropdownmenü mit der Option zum Deaktivieren des Editors für Mergekonflikte](/assets/images/enterprise/settings/conflict-editor-settings.png)
 
 ### Configuring force pushes
 
-Each repository inherits a default force push setting from the settings of the user account or organization to which it belongs. Likewise, each organization and user account inherits a default force push setting from the force push setting for the entire appliance. If you change the force push setting for the appliance, it will change for all repositories owned by any user or organization.
+Jedes Repository übernimmt eine standardmäßige Einstellung für erzwungene Push-Vorgänge des Benutzerkontos oder der Organisation, zu dem bzw. zu der es gehört. Entsprechend übernimmt jede Organisation und jedes Benutzerkonto eine standardmäßige Einstellung für erzwungene Push-Vorgänge aus der Einstellung für erzwungene Push-Vorgänge für die gesamte Appliance. Wenn Sie die Einstellung für erzwungene Push-Vorgänge für die Appliance ändern, wird sie für alle Repositorys für jeden Benutzer in der Organisation geändert.
 
 #### Blocking all force pushes on your appliance
 
@@ -151,9 +146,8 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Force pushes", use the drop-down menu, and click **Allow**, **Block** or **Block to the default branch**.
-![Force pushes dropdown](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
-5. Optionally, select **Enforce on all repositories**, which will override organization and repository level settings for force pushes.
+4. Verwenden Sie unter „Force pushes“ (Erzwungene Push-Vorgänge) das Dropdownmenü, und klicken Sie auf **Allow** (Zulassen), **Block** (Blockieren) oder **Block to the default branch** (Übertragungen an Standardbranch blockieren). ![Dropdownmenü „Force pushes“ (Erzwungene Push-Vorgänge)](/assets/images/enterprise/site-admin-settings/force-pushes-dropdown.png)
+5. Wählen Sie optional **Enforce on all repositories** (Auf allen Repositorys erzwungen) aus, wodurch die Einstellungen für erzwungene Push-Vorgänge auf Organisations- und Repository-Ebene überschrieben werden.
 
 #### Blocking force pushes to a specific repository
 
@@ -165,14 +159,13 @@ Each repository inherits a default force push setting from the settings of the u
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-4. Select **Block** or **Block to the default branch** under **Push and Pull**.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
+4. Wählen Sie **Block** (Blockieren) oder **Block to the default branch** (Übertragung an Standardbranch blockieren) unter **Push and Pull** (Übertragen und abrufen) aus. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/repo/repo-block-force-pushes.png)
 
-#### Blocking force pushes to repositories owned by a user account or organization
+#### Erzwungene Push-Vorgänge an Repositorys blockieren, die einem Benutzerkonto oder einer Organisation gehören
 
-Repositories inherit force push settings from the user account or organization to which they belong. User accounts and organizations in turn inherit their force push settings from the force push settings for the entire appliance.
+Repositorys übernehmen die Einstellungen für erzwungene Push-Vorgänge vom Benutzerkonto oder von der Organisation, zu dem bzw. zu der sie gehören. Benutzerkonten und Organisationen übernehmen wiederum die Einstellungen für erzwungene Push-Vorgänge von den Einstellungen für erzwungene Push-Vorgänge der gesamten Appliance.
 
-You can override the default inherited settings by configuring the settings for a user account or organization.
+Sie können die standardmäßig übernommenen Einstellungen überschreiben, indem Sie die Einstellungen für ein Benutzerkonto oder für eine Organisation konfigurieren.
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -180,12 +173,10 @@ You can override the default inherited settings by configuring the settings for 
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-5. Under "Repository default settings" in the "Force pushes" section, select
-    - **Block** to block force pushes to all branches.
-    - **Block to the default branch** to only block force pushes to the default branch.
-  ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. Optionally, select **Enforce on all repositories** to override repository-specific settings. Note that this will **not** override an appliance-wide policy.
-   ![Block force pushes](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+5. Wählen Sie unter „Repository default settings“ (Repository-Standardeinstellungen) im Abschnitt in the „Force pushes“ (Erzwungene Push-Vorgänge) Folgendes aus:
+    - **Block** (Blockieren), um alle erzwungenen Push-Vorgänge an alle Branches zu blockieren.
+    - **Block to the default branch** (Übertragung an den Standardbranch blockieren), damit die an den Standardbranch übertragenen erzwungenen Push-Vorgänge blockiert werden. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
+6. Wählen Sie optional **Enforce on all repositories** (Auf allen Repositorys erzwingen) aus, um Repository-spezifische Einstellungen zu überschreiben. Appliance-weite Richtlinien werden dadurch **nicht** überschrieben. ![Erzwungene Push-Vorgänge blockieren](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 ### Configuring anonymous Git read access
 
@@ -193,9 +184,9 @@ You can override the default inherited settings by configuring the settings for 
 
 If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) on your instance, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
-Enabling anonymous Git read access allows users to bypass authentication for custom tools on your instance. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.prodname_ghe_server %}) will have read access to the repository without authentication.
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your instance. Wenn Sie oder ein Repository-Administrator diese Zugriffseinstellung für ein Repository aktiviert, verfügen nicht authentifizierte Git-Vorgänge (und jeder mit Netzwerkzugriff auf {% data variables.product.prodname_ghe_server %}) über Lesezugriff auf das Repository, ohne dass eine Authentifizierung erforderlich ist.
 
-If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on {% data variables.product.product_location_enterprise %} by locking the repository's access settings. After you lock a repository's Git read access setting, only a site administrator can change the setting.
+If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on {% data variables.product.product_location_enterprise %} by locking the repository's access settings. Nachdem Sie die Einstellung für den Git-Lesezugriff eines Repositorys gesperrt haben, kann nur ein Websiteadministrator die Einstellung ändern.
 
 {% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
@@ -211,10 +202,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
-![Anonymous Git read access drop-down menu showing menu options "Enabled" and "Disabled"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your instance, select **Prevent repository admins from changing anonymous Git read access**.
-![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your instance](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+4. Klicken Sie unter „Anonymous Git read access“ (Anonymer Git-Lesezugriff) auf das Dropdownmenü, und klicken Sie auf **Enabled** (Aktiviert). ![Dropdownmenü „Anonymous Git read access“ (Anonymer Git-Lesezugriff) mit den angezeigten Menüoptionen „Enabled“ (Aktiviert) und „Disabled“ (Deaktiviert)](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
+3. Aktivieren Sie optional **Prevent repository admins from changing anonymous Git read access** (Repository-Administratoren daran hindern, den anonymen Git-Lesezugriff zu ändern), um Repository-Administratoren daran zu hindern, die Einstellungen für den anonymen Git-Lesezugriff in allen Repositorys auf Ihrer Instanz zu ändern. ![Durch die Aktivierung des Kontrollkästchens werden Repository-Administratoren daran gehindert, die Einstellungen für den anonymen Git-Lesezugriff für alle Repositorys auf Ihrer Instanz zu ändern](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
 #### Setting anonymous Git read access for a specific repository
 
@@ -223,11 +212,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% data reusables.enterprise_site_admin_settings.click-repo %}
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
-6. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
-!["Enabled" button under "Enable anonymous Git read access" in danger zone of a repository's site admin settings ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
-7. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
-![Confirm anonymous Git read access setting in pop-up window](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
-8. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from changing anonymous Git read access**.
-![Select checkbox to prevent repository admins from changing anonymous Git read access for this repository](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
-
+6. Klicken Sie unter „Danger Zone“ (Gefahrenzone) neben „Enable Anonymous Git read access“ (Anonymen Git-Lesezugriff aktivieren) auf **Enable** (Aktivieren). ![Schaltfläche „Enabled“ (Aktiviert) unter „Enable anonymous Git read access“ (Anonymen Git-Lesezugriff aktivieren) in der „Danger Zone“ (Gefahrenzone) der Websiteadministratoreinstellungen eines Repositorys ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
+7. Überprüfen Sie die Änderungen. Klicken Sie zur Bestätigung auf **Yes, enable anonymous Git read access** (Ja, anonymen Git-Lesezugriff aktivieren). ![Bestätigung der Einstellung für anonymen Git-Lesezugriff in einem Popup-Fenster](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
+8. Aktivieren Sie optional **Prevent repository admins from changing anonymous Git read access** (Repository-Administratoren daran hindern, den anonymen Git-Lesezugriff zu ändern), um Repository-Administratoren daran zu hindern, diese Einstellung für dieses Repository zu ändern. ![Durch die Aktivierung des Kontrollkästchens werden Repository-Administratoren daran gehindert, den anonymen Git-Lesezugriff für dieses Repository zu ändern](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
 

@@ -1,6 +1,6 @@
 ---
 title: オープンソースコントリビューターに対するスポンサー
-intro: あなたが頼りにしているオープンソースプロジェクトを設計、作成、維持する開発者または Organization に対して、毎月定期的に支払いをすることができます。
+intro: 'あなたが頼りにしているオープンソースプロジェクトを設計、作成、維持する開発者または Organization に対して、毎月定期的に支払いをすることができます。'
 redirect_from:
   - /articles/sponsoring-a-developer
   - /articles/sponsoring-an-open-source-contributor
