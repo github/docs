@@ -44,6 +44,9 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ## Code Editor Component
 
+<!--react-->
+<CodeEditor language='javascript' code={`console.log('hello world')`} />
+<!--end-react-->
 
 
 {% if currentVersion == "free-pro-team@latest" %}
