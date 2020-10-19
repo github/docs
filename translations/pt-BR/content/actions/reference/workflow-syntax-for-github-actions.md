@@ -21,10 +21,6 @@ Arquivos de fluxo de trabalho usam sintaxe YAML e devem ter uma extensão de arq
 
 Você deve armazenar os arquivos de fluxo de trabalho no diretório `.github/workflows` do seu repositório.
 
-### Limites de uso
-
-{% data reusables.github-actions.github-actions-usage-limits %}
-
 ### **`name`**
 
 Nome do fluxo de trabalho. O {% data variables.product.prodname_dotcom %} exibe os nomes dos fluxos de trabalho na página de ações do repositório. Se você omitir o `nome`, o {% data variables.product.prodname_dotcom %} irá defini-lo como o caminho do arquivo do fluxo de trabalho relativo à raiz do repositório.
@@ -60,17 +56,17 @@ As palavras-chave `branches`, `branches-ignore`, `tags` e `tags-ignore` aceitam 
 Os padrões definidos nos `branches` e `tags` são avaliados relativamente ao nome do Git ref. Por exemplo, definir o padrão `mona/octocat` nos `branches` corresponde ao Git ref `refs/heads/mona/octocat`. O padrão `releases/**` corresponderá ao Git ref `refs/heads/releases/10`.
 
 ```yaml
-em:
+on:
   push:
-    # Sequência de padrões que correspondem a refs/heads
+    # Sequence of patterns matched against refs/heads
     branches:    
-      # Push de eventos no branch-mestre
-      - mestre
-      # Push de eventos para branches que correspondem a refs/heads/mona/octocat
+      # Push events on main branch
+      - main
+      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push de eventos para branches que correspondem a refs/heads/releases/10
+      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
-    # Sequência de padrões que correspondem a refs/tags
+    # Sequence of patterns matched against refs/tags
     tags:        
       - v1             # Push events to v1 tag
       - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
@@ -229,7 +225,7 @@ A execução de um fluxo de trabalho consiste em um ou mais trabalhos. Por padr�
 
 Cada trabalho é executado em um ambiente especificado por `runs-on`.
 
-Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
+Você pode executar quantos trabalhos desejar, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
 Se você precisar encontrar o identificador exclusivo de um trabalho e execução em um fluxo de trabalho, você poderá usar a API {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Trabalhos do fluxo de trabalho](/v3/actions/workflow-jobs)".
 
@@ -310,7 +306,7 @@ runs-on: [self-hosted, linux]
 
 Para obter mais informações, consulte "[Sobre executores auto-hospedados](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)" e "[Usar executores auto-hospedados em um fluxo de trabalho](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)."
 
-### **`jobs.<jobs_id>.outputs`**
+### **`jobs.<job_id>.outputs`**
 
 Um `mapa` de saídas para um trabalho. As saídas de trabalho estão disponíveis para todos os trabalhos downstream que dependem deste trabalho. Para obter mais informações sobre a definição de dependências de trabalhos, consulte [`jobs.<job_id>.needs`](#jobsjob_idneeds).
 
@@ -393,7 +389,7 @@ Você pode usar a condicional `if` (se) para evitar que um trabalho seja executa
 
 Trabalhos contêm sequências de tarefas chamadas `steps`. As etapas podem executar comandos, executar trabalhos de configuração ou executar ações no seu repositório, em repositórios públicos, ou ações publicadas em registros do Docker. Nem todas as etapas executam ações, mas todas as ações são executadas como etapas. Cada etapa é executada em seu próprio processo no ambiente do executor, tendo acesso ao espaço de trabalho e ao sistema de arquivos. Como as etapas são executadas em seus próprios processos, as alterações nas variáveis de ambiente não são preservadas entre as etapas. O {% data variables.product.prodname_dotcom %} fornece etapas integradas para configurar e concluir trabalhos.
 
-Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso](#usage-limits)".
+Você pode executar quantas etapas quiser, desde que esteja dentro dos limites de uso do fluxo de trabalho. Para obter mais informações, consulte "[Limites de uso e cobrança](/actions/reference/usage-limits-billing-and-administration)" para executores hospedados em {% data variables.product.prodname_dotcom %} e "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" para limites de uso de executores auto-hospedados.
 
 #### Exemplo
 
@@ -445,12 +441,12 @@ etapas:
 A função `my backup step` (minha etapa de backup) somente é executada quando houver falha em uma etapa anterior do trabalho. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions)".
 
 ```yaml
-etapas:
-  - nome: Minha primeira etapa
-    usa: monacorp/action-name@master
-  - nome: Minha etapa de backup
-    se: {% raw %}${{ failure() }}{% endraw %}
-    usa: actions/heroku@master
+steps:
+  - name: My first step
+    uses: monacorp/action-name@main
+  - name: My backup step
+    if: {% raw %}${{ failure() }}{% endraw %}
+    uses: actions/heroku@master
 ```
 
 #### **`jobs.<job_id>.steps.name`**
@@ -464,7 +460,7 @@ Seleciona uma ação para executar como parte de uma etapa no trabalho. A ação
 É altamente recomendável incluir a versão da ação que você está usando ao especificar um número de tag Docker, SHA ou ref do Git. Se você não especificar uma versão, ela poderá interromper seus fluxos de trabalho ou causar um comportamento inesperado quando o proprietário da ação publicar uma atualização.
 - Usar o commit SHA de uma versão de ação lançada é a maneira mais garantida de obter estabilidade e segurança.
 - Usar a versão principal da ação permite receber correções importantes e patches de segurança sem perder a compatibilidade. Fazer isso também garante o funcionamento contínuo do fluxo de trabalho.
-- Usar o branch `master` de uma ação pode ser conveniente, mas pode gerar problemas no fluxo de trabalho caso uma nova versão principal seja lançada.
+- Usar o branch-padrão de uma ação pode ser conveniente, mas se alguém lançar uma nova versão principal com uma mudança significativa, seu fluxo de trabalho poderá ter problemas.
 
 Algumas ações requerem entradas que devem ser definidas com a palavra-chave [`with`](#jobsjob_idstepswith) (com). Revise o arquivo README da ação para determinar as entradas obrigatórias.
 
@@ -473,15 +469,15 @@ Ações são arquivos JavaScript ou contêineres Docker. Se a ação em uso for 
 ##### Exemplo usando ações com versão
 
 ```yaml
-etapas:    
-  # Referência a um commit específico
-  - usa: actions/setup-node@74bc508
-  # Referência a uma versão principal da versão
-  - usa: actions/setup-node@v1
-  # Referência a uma versão menor da versão
-  - usa: actions/setup-node@v1.2
-  # Referência a um branch
-  - usa: actions/setup-node@master
+steps:    
+  # Reference a specific commit
+  - uses: actions/setup-node@74bc508
+  # Reference the major version of a release
+  - uses: actions/setup-node@v1
+  # Reference a minor version of a release
+  - uses: actions/setup-node@v1.2
+  # Reference a branch
+  - uses: actions/setup-node@main
 ```
 
 ##### Exemplo usando uma ação pública
@@ -491,15 +487,15 @@ etapas:
 Você pode especificar um branch, ref ou SHA em um repositório público {% data variables.product.prodname_dotcom %}.
 
 ```yaml
-trabalhos:
+jobs:
   my_first_job:
-    etapas:
-      - nome: Minha primeira etapa
-        # Usa o branch-mestre de um repositório público
-        usa: actions/heroku@master
-      - nome: Minha segunda etapa
-        # Usa a tag de uma versão específica de um repositório público
-        usa: actions/aws@v2.0.1
+    steps:
+      - name: My first step
+        # Uses the default branch of a public repository
+        uses: actions/heroku@master
+      - name: My second step
+        # Uses a specific version tag of a public repository
+        uses: actions/aws@v2.0.1
 ```
 
 ##### Exemplo usando uma ação pública em um subdiretório
@@ -510,10 +506,10 @@ Subdiretório em um repositório público do {% data variables.product.prodname_
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: minha primeira etapa 
-        uses: actions/aws/ec2@master
+      - name: My first step
+        uses: actions/aws/ec2@main
 ```
 
 ##### Exemplo usando a ação no mesmo repositório que o fluxo de trabalho
@@ -599,11 +595,11 @@ Você pode anular as configurações padrão de shell no sistema operacional do 
 | Plataforma compatível | Parâmetro `shell` | Descrição                                                                                                                                                                           | Comando executado internamente                  |
 | --------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | Todas                 | `bash`            | O shell padrão em plataformas que não sejam Windows como uma alternativa para `sh`. Ao especificar um shell bash no Windows, é utilizado o shell bash incluído no Git para Windows. | `bash --noprofile --norc -eo pipefail {0}`      |
-| Todas                 | `pwsh`            | Powershell Core. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                                                                     | `pwsh -command "& '{0}'"`                   |
+| Todas                 | `pwsh`            | Powershell Core. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                                                                          | `pwsh -command ". '{0}'"`                       |
 | Todas                 | `python`          | Executa o comando python.                                                                                                                                                           | `python {0}`                                    |
 | Linux / macOS         | `sh`              | Comportamento alternativo para plataformas que não sejam Windows se nenhum shell for fornecido e o `bash` não for encontrado no caminho.                                            | `sh -e {0}`                                     |
-| Windows               | `cmd`             | O {% data variables.product.prodname_dotcom %} anexa a extensão `.cmd` ao nome do script e a substitui por `{0}`.                                                              | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows               | `powershell`      | Essa é a shell padrão usada no Windows. PowerShell Desktop. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                          | `powershell -command "& '{0}'"`.            |
+| Windows               | `cmd`             | O {% data variables.product.prodname_dotcom %} anexa a extensão `.cmd` ao nome do script e a substitui por `{0}`.                                                                   | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows               | `powershell`      | Essa é a shell padrão usada no Windows. PowerShell Desktop. O {% data variables.product.prodname_dotcom %} anexa a extensão `.ps1` ao nome do script.                               | `powershell -command ". '{0}'"`.                |
 
 ##### Exemplo de execução de um script usando bash:
 
@@ -675,10 +671,10 @@ Define os três parâmetros de entrada (`first_name`, `middle_name` e `last_name
 
 ```yaml
 jobs:
-  meu_primeiro_trabalho:
+  my_first_job:
     steps:
-      - name: Minha primeira etapa
-        uses: actions/hello_world@master
+      - name: My first step
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
@@ -694,11 +690,11 @@ Uma `string` que define as entradas para um contêiner Docker. O {% data variabl
 {% raw %}
 ```yaml
 steps:
-  - name: Explica por que o trabalho foi executado
-    uses: monacorp/action-name@master
+  - name: Explain why this job ran
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
-      args: O evento ${{ github.event_name }} acionou esta etapa.
+      args: The ${{ github.event_name }} event triggered this step.
 ```
 {% endraw %}
 
@@ -707,7 +703,6 @@ steps:
 1. Documente os argumentos necessários no LEIAME das ações e omita-os da instrução `CMD`.
 1. Use padrões que permitam o uso da ação sem especificação de `args`.
 1. Se a ação expõe um sinalizador `--help` ou similar, use isso como padrão para que a ação se documente automaticamente.
-
 
 #### **`jobs.<job_id>.steps.with.entrypoint`**
 
@@ -718,7 +713,7 @@ Anula o `ENTRYPOINT` Docker no `Dockerfile` ou define-o caso ainda não tenha si
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -766,7 +761,7 @@ Estratégias criam matrizes de compilação para os trabalhos. Você pode defini
 
 Você pode definir uma matriz de diferentes configurações de trabalho. Uma matriz permite que você crie vários trabalhos que realizam a substituição de variável em uma definição de trabalho único. Por exemplo, você pode usar uma matriz para criar trabalhos para mais de uma versão compatível de uma linguagem de programação, sistema operacional ou ferramenta. Uma matriz reutiliza a configuração do trabalho e cria trabalho para cada matriz que você configurar.
 
-{% data reusables.github-actions.matrix-limits %}
+{% data reusables.github-actions.usage-matrix-limits %}
 
 Cada opção que você define na `matriz` tem uma chave e um valor. As chaves que você define tornam-se propriedades no contexto da `matriz` e você pode fazer referência à propriedade em outras áreas do seu arquivo de fluxo de trabalho. Por exemplo, se você definir a chave `os` que contém um array de sistemas operacionais, você poderá usar a propriedade `matrix.os` como o valor da palavra-chave `runs-on` para criar um trabalho para cada sistema operacional. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
@@ -842,7 +837,6 @@ estratégia:
 ##### Exemplo de inclusão novas combinações
 
 Você pode usar `incluir` para adicionar novos trabalhos a uma matriz de criação. Qualquer configuração sem correspondência de incluir será adicionadas à matriz. Por exemplo, se você quiser usar a versão 12 do `nó` para compilar em vários sistemas operacionais, mas quiser uma tarefa experimental extra usando o node 13 no Ubuntu, você poderá usar `incluir` para especificar essa tarefa adicional.
-
 
 {% raw %}
 ```yaml
@@ -952,7 +946,25 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um nome de registro do Docker público.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.container.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Exemplo
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
 #### **`jobs.<job_id>.container.env`**
 
@@ -1015,19 +1027,43 @@ serviços:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+#### **`jobs.<job_id>.services.<service_id>.image`**
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem de base do Docker Hub ou um hub ou registro do Docker público.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Exemplo
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+#### **`jobs.<job_id>.services.<service_id>.env`**
 
 Define um `maá` das variáveis de ambiente no contêiner do serviço.
 
-#### **`jobs.<job_id>.services.ports`**
+#### **`jobs.<job_id>.services.<service_id>.ports`**
 
 Define um `array` de portas para expor no contêiner de serviço.
 
-#### **`jobs.<job_id>.services.volumes`**
+#### **`jobs.<job_id>.services.<service_id>.volumes`**
 
 Define um `array` de volumes para uso do contêiner de serviço. É possível usar volumes para compartilhar dados entre serviços ou outras etapas em um trabalho. Você pode especificar volumes de nome Docker, volumes Docker anônimos ou vincular montagens no host.
 
@@ -1046,7 +1082,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+#### **`jobs.<job_id>.services.<service_id>.options`**
 
 Opções adicionais de recursos do contêiner Docker. Para obter uma lista de opções, consulte "[opções `docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)".
 
@@ -1076,16 +1112,16 @@ Para obter mais informações sobre a sintaxe de filtros de branches, tags e cam
 
 #### Padrões para corresponder branches e tags
 
-| Padrão                                          | Descrição                                                                                                                                                                           | Exemplos de correspondências                                                                       |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                     | O caractere curinga `*` corresponde a qualquer caractere, mas não à barra (`/`).                                                                                                    | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                    | `**` correspondem a qualquer caractere, incluindo a barra (`/`) em nomes de branches e tags.                                                                                        | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Corresponde ao nome exato de um branch ou tag.                                                                                                                                      | -`master`<br/>-`releases/mona-the-octocat`                                                   |
-| `'*'`                                           | Corresponde a todos os nomes de branches e tags que não contêm uma barra (`/`). O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas. | -`master`<br/>-`releases`                                                                    |
-| `'**'`                                          | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                    | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                           | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                           | Corresponde a todas as tags de versão semântica com a versão principal 1 ou 2                                                                                                       | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| Padrão                                        | Descrição                                                                                                                                                                           | Exemplos de correspondências                                                                       |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `feature/*`                                   | O caractere curinga `*` corresponde a qualquer caractere, mas não à barra (`/`).                                                                                                    | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
+| `feature/**`                                  | `**` correspondem a qualquer caractere, incluindo a barra (`/`) em nomes de branches e tags.                                                                                        | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
+| -`main`<br/>-`releases/mona-the-octcat` | Corresponde ao nome exato de um branch ou tag.                                                                                                                                      | -`main`<br/>-`releases/mona-the-octocat`                                                     |
+| `'*'`                                         | Corresponde a todos os nomes de branches e tags que não contêm uma barra (`/`). O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas. | -`main`<br/>-`releases`                                                                      |
+| `'**'`                                        | Corresponde a todos os nomes de branches e tags. Esse é o comportamento padrão quando você não usa um filtro de `branches` ou `tags`.                                               | -`all/the/branches`<br/>-`every/tag`                                                         |
+| `'*feature'`                                  | O caractere `*` é um caractere especial em YAML. Ao inciar um padrão com `*`, você deve usar aspas.                                                                                 | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
+| `v2*`                                         | Corresponde aos nomes de branches e tags que iniciam com `v2`.                                                                                                                      | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                         | Corresponde a todas as tags de versão semântica com a versão principal 1 ou 2                                                                                                       | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
 
 #### Padrões para corresponder a caminhos de arquivos
 

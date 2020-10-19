@@ -22,8 +22,8 @@ versions:
 
 在为 {% data variables.product.product_location_enterprise %} 增加 CPU 或内存资源之前：
 
-- **Scale your memory with CPUs**. {% data reusables.enterprise_installation.increasing-cpus-req %}
-- **Assign an Elastic IP address to the instance**. 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
+- **使用 CPU 扩展内存**。 {% data reusables.enterprise_installation.increasing-cpus-req %}
+- **将 Elastic IP 地址分配给实例**。 如果未分配弹性 IP，则在重启后您必须调整 {% data variables.product.prodname_ghe_server %} 主机的 DNS A 记录，以反映公共 IP 地址的变更。 在实例重新启动后，如果它启动到 VPC 中，会自动保留弹性 IP (EIP)。 如果实例启动到 EC2-Classic 中，则必须手动重新关联弹性 IP。
 
 #### 支持的 AWS 实例类型
 
@@ -59,7 +59,7 @@ versions:
 2. 停止实例。
 3. 选择包含所需 CPU 和/或内存资源的新实例。
 
-### Adding CPU or memory resources for VMware
+### 为 VMWare 增加 CPU 或内存资源
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 

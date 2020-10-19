@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**Observação:** antes de gerar uma nova chave GPG, confirme se verificou seu endereço de e-mail. Caso seu endereço de e-mail não tenha sido verificado, você não conseguirá assinar commits e tags com GPG.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address)".{% endif %}
+**Observação:** antes de gerar uma nova chave GPG, confirme se verificou seu endereço de e-mail. Se você não verificou seu endereço de e-mail, você não conseguirá assinar commits e tags com GPG.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address)".{% endif %}
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ versions:
 
   {% note %}
 
-  **Obervação:** quando solicitado a digitar seu endereço de e-mail, confirme que inseriu o endereço de e-mail verificado da sua conta GitHub. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  Para obter mais informações, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address)" e "[Configurar o commit de seu endereço de e-mail](/articles/setting-your-commit-email-address)".{% endif %}
+  **Obervação:** quando solicitado a digitar seu endereço de e-mail, confirme que inseriu o endereço de e-mail verificado da sua conta GitHub. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Para mais informações, consulte "[Verificar seu endereço de e-mail](/articles/verifying-your-email-address)" e "[Definir seu endereço de e-mail do commit](/articles/setting-your-commit-email-address).{% endif %}
 
   {% endnote %}
 

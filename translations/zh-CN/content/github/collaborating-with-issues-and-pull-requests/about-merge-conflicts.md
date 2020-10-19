@@ -1,6 +1,6 @@
 ---
 title: 关于合并冲突
-intro: 在合并竞争提交的分支时会发生合并冲突，Git 需要您帮助确定最终合并中要加入哪些更改。
+intro: '在合并竞争提交的分支时会发生合并冲突，Git 需要您帮助确定最终合并中要加入哪些更改。'
 redirect_from:
   - /articles/about-merge-conflicts
 versions:

@@ -1,6 +1,6 @@
 ---
 title: 限制组织中的交互
-intro: 组织所有者可临时限制某些用户在组织的公共仓库中评论、打开议题或创建拉取请求，在一定的期限内限制活动。
+intro: '组织所有者可临时限制某些用户在组织的公共仓库中评论、打开议题或创建拉取请求，在一定的期限内限制活动。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization

@@ -26,9 +26,9 @@ The repository owner has full control of the repository. In addition to all the 
 - [Manage a repository's topics](/articles/classifying-your-repository-with-topics){% if currentVersion == "free-pro-team@latest" %}
 - Manage security and analysis settings. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- Delete packages. For more information, see "[Deleting a package](/github/managing-packages-with-github-packages/deleting-a-package)."{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+- Delete packages. For more information, see "[Deleting a package](/github/managing-packages-with-github-packages/deleting-a-package)."{% endif %}
 - Create and edit repository social cards. For more information, see "[Customizing your repository's social media preview](/articles/customizing-your-repositorys-social-media-preview)."
-- Make the repository a template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."{% endif %}
+- Make the repository a template. For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."
 - Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% if currentVersion == "free-pro-team@latest" %}
 - Dismiss {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)."
 - [Manage data usage for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
@@ -65,8 +65,7 @@ Collaborators on a personal repository can:
 - Act as a designated code owner for the repository. For more information, see "[About code owners](/articles/about-code-owners)."
 - Lock a conversation. For more information, see "[Locking conversations](/articles/locking-conversations)."{% if currentVersion == "free-pro-team@latest" %}
 - Report abusive content to {% data variables.contact.contact_support %}. For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- Transfer an issue to a different repository. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."{% endif %}
+- Transfer an issue to a different repository. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."
 
 ### Дополнительная литература
 

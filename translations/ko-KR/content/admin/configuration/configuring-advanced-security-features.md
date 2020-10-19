@@ -5,8 +5,6 @@ intro: 'You can enable or disable {% data variables.product.prodname_advanced_se
 mapTopic: true
 redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
-  - /enterprise/admin/configuration/configuring-advanced-security-features
-  - /enterprise/admin/configuration/configuring-advanced-security-features
 versions:
   enterprise-server: '>=2.22'
 ---

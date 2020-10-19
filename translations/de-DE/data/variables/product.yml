@@ -19,7 +19,7 @@ prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}Ihre GitHub Enterprise Server-Instanz{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}your GitHub Enterprise Server instance{% endif %}
 product_location_enterprise: 'Ihre GitHub Enterprise Server-Instanz'
 prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
@@ -56,12 +56,9 @@ prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth App'
 #API and developer docs
-prodname_dev_docs: 'die GitHub-Entwicklerdokumentation'
 prodname_enterprise_api: 'die GitHub Enterprise Server-API'
-prodname_support_forum: 'GitHub API Entwicklungs- und Support-Forum'
 prodname_support_forum_with_url: '[GitHub API Entwicklungs- und Support-Forum](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Inhaltsanhänge'
-prodname_component_kit: 'GitHub Component Kit'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
@@ -80,9 +77,8 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 prodname_advanced_security: 'Advanced Security'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vscode: 'Visual Studio Code'
 prodname_vs_codespaces: 'Visual Studio Codespaces'
-prodname_vs: 'Visual Studio'
+prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'GitHub Community Support'
 prodname_blog: 'der GitHub-Blog'
@@ -110,15 +106,18 @@ prodname_code_scanning: 'code scanning'
 prodname_code_scanning_capc: 'Code scanning'
 prodname_codeql_runner: 'CodeQL runner'
 prodname_advisory_database: 'GitHub Advisory Database'
-prodname_codeql_workflow: 'CodeQL Analysis workflow'
+prodname_codeql_workflow: 'CodeQL analysis workflow'
+#Visual Studio
+prodname_vs: 'Visual Studio'
+prodname_vscode: 'Visual Studio Code'
+prodname_vss_ghe: 'Visual Studio subscription with GitHub Enterprise'
+prodname_vss_admin_portal_with_url: 'the [administrator portal for Visual Studio subscriptions](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
 prodname_dependabot: 'GitHub Dependabot'
 prodname_dependabot_short: 'Dependabot'
 prodname_dependabot_alerts: 'GitHub Dependabot alerts'
 prodname_dependabot_security_updates: 'GitHub Dependabot security updates'
 prodname_dependabot_version_updates: 'GitHub Dependabot version updates'
-#GitHub Policies
-prodname_policies: 'GitHub Policies'
 #GitHub Archive Program
 prodname_archive: 'GitHub Archive-Programm'
 prodname_arctic_vault: 'Arctic Code Vault'
@@ -127,9 +126,9 @@ product_url: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Anmelden („https://[hostname]/login“){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Sign in (`https://[hostname]/login`){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Abmelden („https://[hostname]/logout“){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sign out (`https://[hostname]/logout`){% endif %}
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 #GitHub Enterprise Server past versions

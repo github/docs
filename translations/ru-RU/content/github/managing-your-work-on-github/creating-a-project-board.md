@@ -63,7 +63,7 @@ You can also configure workflow automations to keep your project board in sync w
 ### Creating a repository project board
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Под именем вашего репозитория нажмите
+2. Под именем вашего репозитория щелкните
 {% octicon "project" aria-label="The project board icon" %} **Projects**.
 ![Project tab](/assets/images/help/projects/repo-tabs-projects.png)
 {% data reusables.project-management.click-new-project %}

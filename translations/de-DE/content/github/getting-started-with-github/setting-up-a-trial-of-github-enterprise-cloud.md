@@ -1,6 +1,6 @@
 ---
 title: Eine Testversion von GitHub Enterprise einrichten
-intro: 'Du kannst {% data variables.product.prodname_ghe_cloud %} kostenlos testen.'
+intro: 'Sie können {% data variables.product.prodname_ghe_cloud %} kostenlos testen.'
 redirect_from:
   - /articles/setting-up-a-trial-of-github-enterprise-cloud
 versions:
@@ -10,7 +10,7 @@ versions:
 
 ### Informationen zu {% data variables.product.prodname_ghe_cloud %}-Testversionen
 
-Du kannst eine 14-tägige Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} in einem neuen Organisationskonto zu testen. Während des Testzeitraums muss Du keine Zahlungsmethode angeben, sofern Du Deiner Organisation keine {% data variables.product.prodname_marketplace %}-Apps hinzufügst, welche eine Zahlungsmethode verlangen. Weitere Informationen findest Du unter „<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}</a>.“
+Sie können eine 14-tägige Testversion einrichten, um {% data variables.product.prodname_ghe_cloud %} in einem neuen Organisationskonto zu testen. Während des Testzeitraums müssen Sie keine Zahlungsmethode angeben, sofern Sie Ihrer Organisation keine {% data variables.product.prodname_marketplace %}-Apps hinzufügen, die eine Zahlungsmethode vorschreiben. Weitere Informationen findest Du unter „<a href="/articles/about-billing-for-github-marketplace/" class="dotcom-only">Informationen zur Abrechnung für {% data variables.product.prodname_marketplace %}</a>.“
 
 Deine Testversion umfasst 50 Benutzer. Wenn Du mehr Sitze (Benutzer) benötigst, um {% data variables.product.prodname_ghe_cloud %} zu evaluieren, kontaktiere bitte {% data variables.contact.contact_enterprise_sales %}. Am Ende des Testzeitraums kannst Du eine andere Anzahl an Benutzern auswählen.
 
@@ -20,7 +20,7 @@ Testversionen sind auch für {% data variables.product.prodname_ghe_server %} ve
 
 ### Deine {% data variables.product.prodname_ghe_cloud %}-Testversion einrichten
 
-Du musst über ein Benutzerkonto verfügen oder ein neues Benutzerkonto erstellen, bevor Du mit Deiner {% data variables.product.prodname_ghe_cloud %}-Testversion loslegen kannst. Weitere Informationen findest Du unter „<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Neues {% data variables.product.prodname_dotcom %}-Konto registrieren</a>.“
+Sie müssen über ein Benutzerkonto verfügen oder ein neues Benutzerkonto erstellen, bevor Sie mit Ihrer {% data variables.product.prodname_ghe_cloud %}-Testversion loslegen können. Weitere Informationen findest Du unter „<a href="/articles/signing-up-for-a-new-github-account" class="dotcom-only">Neues {% data variables.product.prodname_dotcom %}-Konto registrieren</a>.“
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}

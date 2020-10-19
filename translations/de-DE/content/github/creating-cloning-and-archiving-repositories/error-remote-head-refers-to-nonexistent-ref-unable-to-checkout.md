@@ -22,7 +22,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>user</em>/<e
 > warning: remote HEAD refers to nonexistent ref, unable to checkout.
 ```
 
-Um das Problem zu beheben, musst Du ein Administrator des Repositorys auf {% data variables.product.product_location %} sein. [Ändere den Standardbranch](/articles/setting-the-default-branch) des Repositorys.
+Um das Problem zu beheben, musst Du ein Administrator des Repositorys auf {% data variables.product.product_location %} sein. [Ändere den Standardbranch](/github/administering-a-repository/changing-the-default-branch) des Repositorys.
 
 Anschließend kannst Du über die Befehlszeile eine Liste aller verfügbaren Branches abrufen:
 

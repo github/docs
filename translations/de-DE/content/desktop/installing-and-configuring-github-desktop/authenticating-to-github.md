@@ -13,7 +13,7 @@ versions:
 
 To keep your account secure, you must authenticate before you can use {% data variables.product.prodname_desktop %} to access resources on {% data variables.product.prodname_dotcom %}.
 
-Vor Deiner Authentifizierung: {% data reusables.desktop.get-an-account %}
+Vor Ihrer Authentifizierung {% data reusables.desktop.get-an-account %}
 
 {% mac %}
 
@@ -37,7 +37,9 @@ Vor Deiner Authentifizierung: {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.mac-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**. ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
+4. To add a
+{% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+  ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub Enterprise](/assets/images/help/desktop/mac-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endmac %}
@@ -65,7 +67,9 @@ Vor Deiner Authentifizierung: {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.windows-choose-options %}
 {% data reusables.desktop.windows-select-accounts %}
 {% data reusables.desktop.choose-product-authenticate %}
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**. ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
+4. To add a
+{% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise server address," then click **Continue**.
+  ![Die Schaltfläche „Sign In“ (Anmelden) für GitHub Enterprise](/assets/images/help/desktop/windows-sign-in-button-enterprise.png)
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}

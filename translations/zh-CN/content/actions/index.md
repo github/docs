@@ -33,8 +33,8 @@ versions:
 <!-- {% link_with_intro /reference %} -->
 
 <!-- Article links -->
-<div class="d-flex gutter my-6 py-6">
-  <div class="col-4">
+<div class="d-lg-flex gutter my-6 py-6">
+  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
@@ -45,7 +45,7 @@ versions:
     </ul>
   </div>
 
-  <div class="col-4">
+  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
@@ -56,7 +56,7 @@ versions:
     </ul>
   </div>
 
-  <div class="col-4">
+  <div class="col-12 col-lg-4 mb-4 mb-lg-0">
     <div class="featured-links-heading pb-4">
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">管理工作流程</h3>
     </div>
@@ -68,22 +68,28 @@ versions:
   </div>
 </div>
 <!-- Featured resources -->
-<div class="d-flex gutter my-6 py-6 text-center flex-items-stretch">
-  <a href="/actions/creating-actions" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-blue text-white">{% octicon "bookmark" width="24" %}</div></div>
-    <h4>创建操作</h4>
-    <p class="mb-0">创建并与社区分享操作的完整指南。</p>
-  </a>
-  <a href="https://github.com/actions/starter-workflows" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-purple text-white">{% octicon "rocket" width="24" %}</div></div>
-    <h4>入门工作流程</h4>
-    <p class="mb-0">帮助您开始使用 GitHub Actions 的工作流程文件集合。</p>
-  </a>
-  <a href="https://github.com/marketplace?type=actions" class="col-4 mx-3 d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
-    <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-orange text-white">{% octicon "light-bulb" width="24" %}</div></div>
-    <h4>GitHub Actions Marketplace</h4>
-    <p class="mb-0">探索社区操作并支持您的工作流程。</p>
-  </a>
+<div class="d-lg-flex gutter-lg my-6 py-6 text-center flex-items-stretch">
+  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+    <a href="/actions/creating-actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
+      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-blue text-white">{% octicon "bookmark" width="24" %}</div></div>
+      <h4>创建操作</h4>
+      <p class="mb-0">创建操作并与社区分享的完整指南</p>
+    </a>
+  </div>
+  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+    <a href="https://github.com/actions/starter-workflows" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
+      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-purple text-white">{% octicon "rocket" width="24" %}</div></div>
+      <h4>初学者工作流程</h4>
+      <p class="mb-0">工作流程文件的集合，以帮助您开始使用 GitHub Actions。</p>
+    </a>
+  </div>
+  <div class="col-12 col-lg-4 mb-2 mb-lg-0">
+    <a href="https://github.com/marketplace?type=actions" class="d-block text-gray-dark no-underline hover-grow Box p-5 bg-gray-light">
+      <div class="mb-4 d-flex flex-justify-center"><div class="circle p-3 bg-orange text-white">{% octicon "light-bulb" width="24" %}</div></div>
+      <h4>GitHub Actions Marketplace</h4>
+      <p class="mb-0">探索社区操作并增强您的工作流程。</p>
+    </a>
+  </div>
 </div>
 
 <!-- Code examples -->
@@ -91,7 +97,7 @@ versions:
   <h2 class="mb-2">指南</h2>
 
   <div class="d-flex flex-wrap gutter">
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-nodejs">
         <div class="p-4">
           <h4>构建和测试 Node.js</h4>
@@ -107,7 +113,7 @@ versions:
         </footer>
       </a>
     </div>
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-python">
         <div class="p-4">
           <h4>构建和测试 Python</h4>
@@ -123,7 +129,7 @@ versions:
         </footer>
       </a>
     </div>
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-maven">
         <div class="p-4">
           <h4>使用 Maven 构建和测试 Java</h4>
@@ -139,7 +145,7 @@ versions:
         </footer>
       </a>
     </div>
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-gradle">
         <div class="p-4">
           <h4>使用 Gradle 构建和测试 Java</h4>
@@ -155,7 +161,7 @@ versions:
         </footer>
       </a>
     </div>
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/building-and-testing-java-with-ant">
         <div class="p-4">
           <h4>使用 Ant 构建和测试 Java</h4>
@@ -171,7 +177,7 @@ versions:
         </footer>
       </a>
     </div>
-    <div class="col-4 mb-4">
+    <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/publishing-nodejs-packages">
         <div class="p-4">
           <h4>发布 Node.js 包</h4>

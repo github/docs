@@ -14,8 +14,8 @@ versions:
 
 Data transfer resets every month, while storage usage does not.
 
-| Product                                                                  | Storage | Data transfer (per month) |
-| ------------------------------------------------------------------------ | ------- | ------------------------- |
+| Product                                                             | Storage | Data transfer (per month) |
+| ------------------------------------------------------------------- | ------- | ------------------------- |
 | {% data variables.product.prodname_free_user %}                   | 500MB   | 1GB                       |
 | {% data variables.product.prodname_pro %}                           | 2GB     | 10GB                      |
 | {% data variables.product.prodname_free_team %} for organizations | 500MB   | 1GB                       |

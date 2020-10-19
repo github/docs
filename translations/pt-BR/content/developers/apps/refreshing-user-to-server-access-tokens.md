@@ -28,10 +28,10 @@ Esta solicitação de retorno de chamada enviará um novo token de acesso e um n
 
 #### Parâmetros
 
-| Nome            | Tipo     | Descrição                                                                                                                                                                              |
-| --------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome            | Tipo     | Descrição                                                                                                                                                                         |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `string` | **Obrigatório.** O token gerado quando o proprietário do {% data variables.product.prodname_github_app %} habilita tokens expirados e emite um novo token de acesso do usuário. |
-| `grant_type`    | `string` | **Obrigatório.** O valor deve ser `refresh_token` (exigido pela especificação do OAuth).                                                                                               |
+| `grant_type`    | `string` | **Obrigatório.** O valor deve ser `refresh_token` (exigido pela especificação do OAuth).                                                                                          |
 | `client_id`     | `string` | **Obrigatório.** O ID do cliente para o seu {% data variables.product.prodname_github_app %}.                                                                                   |
 | `client_secret` | `string` | **Obrigatório.** O segredo do cliente para o seu {% data variables.product.prodname_github_app %}.                                                                              |
 

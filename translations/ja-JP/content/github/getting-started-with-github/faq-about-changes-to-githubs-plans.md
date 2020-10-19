@@ -1,6 +1,6 @@
 ---
 title: GitHub のプランの変更に関する FAQ
-intro: 2020 年 4 月 14 日時点で、GitHub は GitHub の主要機能がすべて無料で利用可能になったことを発表しました。
+intro: '2020 年 4 月 14 日時点で、GitHub は GitHub の主要機能がすべて無料で利用可能になったことを発表しました。'
 versions:
   free-pro-team: '*'
 ---
@@ -57,7 +57,7 @@ GitHub アカウントをお持ちの場合は、[Team プランページ](https
 
 ### 個人の開発者向けの GitHub Free と Organization 向けの GitHub Free の違い
 
-GitHub Free の各製品の違いに関する詳細は、「[{% data variables.product.prodname_dotcom %} の製品](/articles/github-s-products)」を参照してください。
+GitHub Freeの各製品の差異の詳細については、「[{% data variables.product.prodname_dotcom %}の製品](/articles/github-s-products)」を参照してください。
 
 ### GitHub Team プランで割り当てられた以上の分数が必要な場合、どうすればアクションの分数を増やすことができますか？
 

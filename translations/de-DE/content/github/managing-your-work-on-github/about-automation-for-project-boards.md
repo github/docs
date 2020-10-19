@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Automatisierung für Projektboards
-intro: 'Du kannst automatische Workflows konfigurieren, um zu gewährleisten, dass der Status der Projektboard-Tickets mit den zugehörigen Issues und Pull Requests synchronisiert wird.'
+intro: Du kannst automatische Workflows konfigurieren, um zu gewährleisten, dass der Status der Projektboard-Tickets mit den zugehörigen Issues und Pull Requests synchronisiert wird.
 redirect_from:
   - /articles/about-automation-for-project-boards
 versions:
@@ -32,5 +32,5 @@ Durch die Automatisierung von Projektboards können Teams auch ein gemeinsames V
 Die Automatisierung des Projektboards ermöglicht standardmäßig die Verfolgung des Fortschritts. Tickets in Spalten mit den Voreinstellungen „Zu Bearbeiten“, „In Bearbeitung“ oder „Abgeschlossen“ zählen zum Gesamtprojektfortschritt. {% data reusables.project-management.project-progress-locations %}
 
 ### Weiterführende Informationen
-- „[Automatisierung für Projektboards konfigurieren](/articles/configuring-automation-for-project-boards)“{% if currentVersion == "free-pro-team@latest" %}
+- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Ein Projektboard kopieren](/articles/copying-a-project-board)“{% endif %}

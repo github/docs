@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 ### Introdução
 
 Este guia irá ajudá-lo a criar um aplicativo GitHub e executá-lo em um servidor. O aplicativo que você criar adicionará uma etiqueta a todos os novos problemas abertos no repositório onde o aplicativo está instalado.
@@ -22,7 +21,7 @@ Este projeto orientará você no seguinte:
 
 {% data reusables.apps.app-ruby-guides %}
 
-Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem-sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Trabalhos com GitHub](https://github.com/works-with).{% endif %}
+Uma concluídas as etapas, você estará pronto para desenvolver outros tipos de integrações usando o conjunto completo das APIS do GitHub. {% if currentVersion == "free-pro-team@latest" %}Você pode conferir exemplos bem sucedidos de aplicativos no [GitHub Marketplace](https://github.com/marketplace) e em [Funciona com o GitHub](https://github.com/works-with).{% endif %}
 
 ### Pré-requisitos
 
@@ -231,5 +230,5 @@ Aqui estão algumas ideias do que você pode fazer a seguir:
 * Quando o bot adiciona a etiqueta com sucesso, é exibida uma mensagem no Terminal. (Dica: compare o ID da etiqueta `needs-response` com o ID da etiqueta na carga como uma condição para sua mensagem para que a mensagem seja exibida somente quando a etiqueta relevante for adicionada e não qualquer outra etiqueta.)
 * Adicione uma página inicial ao seu aplicativo e conecte um [encaminhamento do Sinatra](https://github.com/sinatra/sinatra#routes) para isso.
 * Mova o seu código para um servidor hospedado (como o Heroku). Não se esqueça de atualizar as configurações do seu aplicativo com o novo domínio.
-* Compartilhe seu projeto ou receba orientações no {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
+* Compartilhe o seu projeto ou receba orientação em {% data variables.product.prodname_support_forum_with_url %}{% if currentVersion == "free-pro-team@latest" %}
 * Você construiu um aplicativo novo brilhante que você considera que outras pessoas podem achar útil? [Adicione-o ao GitHub Marketplace](/apps/marketplace/creating-and-submitting-your-app-for-approval/)!{% endif %}

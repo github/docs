@@ -1,6 +1,6 @@
 ---
 title: 启用分支限制
-intro: '您可以强制实施分支限制以便只有特定用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}能够推送到组织所拥有的仓库中的受保护分支。'
+intro: 'You can enforce branch restrictions so that only certain users{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} or{% endif %} teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, or apps{% endif %} can push to a protected branch in repositories owned by your organization.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions
@@ -19,7 +19,7 @@ versions:
 {% data reusables.repositories.add-branch-protection-rules %}
 {% data reusables.repositories.include-administrators %}
 6. 在“Protect matching branches（保护匹配分支）”下，选择 **Restrict who can push to matching branches（限制可推送到匹配分支的人员）**。 ![分支限制复选框](/assets/images/help/repository/restrict-branch.png)
-8. 搜索并选择将有权推送到受保护分支的人员{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}。 ![分支限制搜索](/assets/images/help/repository/restrict-branch-search.png)
+8. Search for and select the people, teams, or apps who will have permission to push to the protected branch. ![分支限制搜索](/assets/images/help/repository/restrict-branch-search.png)
 9. 单击 **Create（创建）**。
 
 ### 延伸阅读
