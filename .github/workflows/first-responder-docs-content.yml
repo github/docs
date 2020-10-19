@@ -81,5 +81,5 @@ jobs:
       if: github.event.action == 'closed'
       uses: rachmari/labeler@v1.0.4
       with:
-        repo-token: "${{ secrets.MY_PAT }}"
+        repo-token: "${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }}"
         remove-labels: "docs-content-fr"
