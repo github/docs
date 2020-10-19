@@ -1,4 +1,4 @@
----
+watcharaapinya@gmail.com---
 title: Setting your commit email address
 intro: 'You can set a primary email address on {% data variables.product.product_name %} that''s associated with web-based Git operations you perform such as edits and merges.'
 redirect_from:
@@ -13,7 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
----
+---watcharaapinya@gmail.com
 
 ### About commit email addresses
 
