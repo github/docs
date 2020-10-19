@@ -110,11 +110,11 @@ on:
     inputs:
       name:
         description: 'Person to greet'
-        required: true
+        required: false
         default: 'Mona the Octocat'
       home:
         description: 'location'
-        required: false
+        required: true
 
 jobs:
   say_hello:
