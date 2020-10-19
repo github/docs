@@ -28,5 +28,5 @@ Quando você exclui informações confidenciais do histórico de edição do com
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Denunciar abuso ou spam](/articles/reporting-abuse-or-spam)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Relatar abuso ou spam](/articles/reporting-abuse-or-spam)"{% endif %}
 - "[Editar um comentário](/articles/editing-a-comment)"

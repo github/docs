@@ -15,7 +15,7 @@ versions:
 
 ### 搜索
 
-您可以在此处启动 {% data variables.enterprise.management_console %}，以管理域、身份验证和 SSL 等虚拟设备设置。
+您可以在此处启动 {{ site.data.variables.enterprise.management_console }}，以管理域、身份验证和 SSL 等虚拟设备设置。
 
 {% else %}
 
@@ -39,7 +39,7 @@ GitHub [趋势页面][]中的数据按每天、每周和每月的时间跨度为
 
 默认情况下，审核日志会按时间倒序显示所有已审核操作的列表。 要对此列表进行筛选，您可以在 **Query** 文本框中输入键值对，然后单击 **Search**，如“[搜索审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)”所述。
 
-For more information on audit logging in general, see "[Audit logging](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)." For a full list of audited actions, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)."
+有关一般审核日志的更多信息，请参阅“[审核日志](/enterprise/{{ currentVersion }}/admin/guides/installation/audit-logging)”。 有关审核的操作的完整列表，请参阅“[审核的操作](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)”。
 
 ### 报告
 
@@ -162,7 +162,7 @@ GitHub 的[代码搜索][]功能由 [ElasticSearch][] 提供支持。 站点管�
 
 ### 所有用户
 
-您可以在此查看 {% data variables.product.product_location_enterprise %} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)。
+您可以在此查看 {{ site.data.variables.product.product_location_enterprise }} 上所有已被挂起的用户，并[发起 SSH 密钥审核](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)。
 
 {% endif %}
 

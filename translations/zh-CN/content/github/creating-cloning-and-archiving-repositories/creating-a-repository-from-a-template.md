@@ -5,17 +5,17 @@ redirect_from:
   - /articles/creating-a-repository-from-a-template
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
-### About repository templates
+### 关于仓库模板
 
 任何对模板仓库具有读取权限的人都可以从该模板创建仓库。 更多信息请参阅“[创建模板仓库](/articles/creating-a-template-repository)”。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create a repository from a template using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.product_location %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 从模板创建仓库。 更多信息请参阅 {% data variables.product.product_location %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。
 
 {% endtip %}
 {% endif %}

@@ -59,7 +59,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
 
-| U.S. holiday                | Date observed in {{ "now" | date: "%Y" }} |
+| U.S. holiday                | Date observed |
 | ---                         | ---                         |
 | New Year's Day              | January 1                   |
 | Martin Luther King, Jr. Day | Third Monday in January     |

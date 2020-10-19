@@ -31,7 +31,7 @@ protocol=https
 > <em>[Press Return]</em>
 ```
 
-Bei erfolgreicher Ausführung des Befehls erhältst Du keine Rückmeldung. Wenn Du testen möchtest, ob der Befehl funktioniert hat, klone ein Repository aus {% data variables.product.product_location %}. Wenn Du nach einem Passwort gefragt wirst, wurde der Keychain-Eintrag gelöscht.
+Bei erfolgreicher Ausführung des Befehls erhältst Du keine Rückmeldung. Wenn Sie testen möchten, ob der Befehl funktioniert hat, klonen Sie ein Repository aus {% data variables.product.product_location %}. Wenn Du nach einem Passwort gefragt wirst, wurde der Keychain-Eintrag gelöscht.
 
 ### Weiterführende Informationen
 

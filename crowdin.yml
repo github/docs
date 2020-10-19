@@ -16,3 +16,10 @@ files:
       "data/graphql",
       "data/products.yml"
       ]
+
+# These end up as env vars used by the GitHub Actions workflow
+project_id_env: CROWDIN_PROJECT_ID
+api_token_env: CROWDIN_PERSONAL_TOKEN
+
+# https://support.crowdin.com/configuration-file-v3/#saving-directory-structure-on-server
+preserve_hierarchy: true

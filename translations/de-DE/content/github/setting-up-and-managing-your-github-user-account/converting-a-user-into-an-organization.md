@@ -4,7 +4,7 @@ redirect_from:
   - /articles/what-is-the-difference-between-create-new-organization-and-turn-account-into-an-organization/
   - /articles/explaining-the-account-transformation-warning/
   - /articles/converting-a-user-into-an-organization
-intro: 'Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind feiner abgestufte Berechtigungen für Repositorys möglich, die zu der Organisation gehören.'
+intro: Du kannst Dein Benutzerkonto in eine Organisation umwandeln. Dadurch sind feiner abgestufte Berechtigungen für Repositorys möglich, die zu der Organisation gehören.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -17,7 +17,7 @@ versions:
  - Du kannst Dich **nicht mehr** beim umgewandelten Benutzerkonto anmelden.
  - Du kannst **keine** Gists mehr erstellen oder ändern, die zum umgewandelten Benutzerkonto gehören.
  - Eine Organisation **kann nicht** zurück in einen Benutzer umgewandelt werden.
- - Die SSH-Schlüssel, OAuth-Token, das Auftragsprofil{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, die Reaktionen{% endif %} und die zugehörigen Benutzerinformationen **werden nicht** an die Organisation übertragen. Dies gilt nur für das Benutzerkonto, das umgewandelt wird, nicht für die Mitarbeiter des Benutzerkontos.
+ - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. Dies gilt nur für das Benutzerkonto, das umgewandelt wird, nicht für die Mitarbeiter des Benutzerkontos.
  - Alle Commits, die mit dem umgewandelten Benutzerkonto vorgenommen wurden, **sind nicht mehr** mit diesem Konto verknüpft. Die Commits selbst **bleiben** intakt.
 
 {% endwarning %}
@@ -35,7 +35,7 @@ Wenn Du möchtest, dass Deine Organisation denselben Namen aufweist, den Du aktu
 Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwandeln. Beim Umwandeln Deines Kontos geschieht Folgendes:
  - Die Repositorys werden so beibehalten, wie sie sind, ohne dass Du sie manuell an ein anderes Konto übertragen musst
  - Es werden automatisch Mitarbeiter zu Teams eingeladen, wobei die Berechtigungen den bisherigen Berechtigungen entsprechen.
- {% if currentVersion == "free-pro-team@latest" %}– Bei Benutzerkonten auf {% data variables.product.prodname_pro %} wird die Abrechnung automatisch auf [das bezahlte {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) umgestellt, ohne dass Du die Zahlungsinformationen erneut eingeben, Deinen Abrechnungszeitraum anpassen oder doppelt bezahlen musst.{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
 1. Erstelle ein neues persönliches Konto, mit dem Du Dich nach der Umwandlung bei GitHub anmelden und auf die Organisation und Deine Repositorys zugreifst.
 2.  [Verlasse alle Organisationen](/articles/removing-yourself-from-an-organization), denen das Benutzerkonto angehört, das Du gerade umwandelst.
@@ -56,5 +56,5 @@ Du kannst Dein persönliches Benutzerkonto auch direkt in eine Organisation umwa
 
 ### Weiterführende Informationen
 - „[Teams einrichten](/articles/setting-up-teams)“
-{% if currentVersion == "free-pro-team@latest" %}- „[Benutzer zum Beitritt zu Deiner Organisation einladen](/articles/inviting-users-to-join-your-organization)“{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - „[Auf eine Organisation zugreifen](/articles/accessing-an-organization)“

@@ -1,6 +1,6 @@
 ---
 title: Codespace für Dein Projekt konfigurieren
-intro: 'Du kannst für jeden neuen Codespace in Deinem Repository eine Standardkonfiguration einrichten, um sicherzustellen, dass die Mitwirkenden alle Werkzeuge und Einstellung haben, die sie für ihre Online-Entwicklungsumgebung benötigen.'
+intro: Du kannst für jeden neuen Codespace in Deinem Repository eine Standardkonfiguration einrichten, um sicherzustellen, dass die Mitwirkenden alle Werkzeuge und Einstellung haben, die sie für ihre Online-Entwicklungsumgebung benötigen.
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: Personen mit Schreibberechtigung in einem Repository können die Standard-Codespace-Konfiguration erstellen oder bearbeiten.
 redirect_from:
@@ -21,7 +21,9 @@ If you don't define a configuration in your repository, {% data variables.produc
 
 Du kannst mittels einer vordefinierten Container-Konfiguration für Deinen Projekttyp eine Standard-Codespace-Konfiguration erstellen, oder Du kannst eine benutzerdefinierte Konfiguration erstellen, die auf die Bedürfnisse Deines Projektes zugeschnitten ist.
 
-{% data variables.product.prodname_codespaces %} verwendet Einstellungen in einer Datei namens `devcontainer.json` im Stammverzeichnis des Repositorys oder in einem `.devcontainer`-Ordner. Du kannst `devcontainer.json` verwenden, um Standardeinstellungen für die gesamte Codespace-Umgebung zu setzen, einschließlich dem {% data variables.product.prodname_vscode %}-Editor, oder Du setzt spezifische Editor-Einstellungen in einer Datei namens `.vscode/settings.json`.
+{% data variables.product.prodname_codespaces %}  uses settings contained in a configuration file named `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+
+You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the {% data variables.product.prodname_vscode %} editor, but you can also set editor-specific settings in a file named `.vscode/settings.json`.
 
 Änderungen an der Codespace-Konfiguration eines Repository gelten nur für für alle neuen Codespaces und beeinflussen die bereits vorhandenen Codespaces nicht.
 
@@ -38,7 +40,9 @@ Jeder neue Codespace, der aus einem Branch mit einem `.devcontainer`-Verzeichnis
 
 ### Erstellen einer benutzerdefinierten Codespace-Konfiguration
 
-Wenn keine der vorgefertigten Konfigurationen Deine Bedürfnisse abdeckt, kannst Du eine benutzerdefinierte Konfiguration erstellen, indem Du die `devcontainer.json`-Datei ins Stammverzeichnis Deines Repositorys oder in ein `.devcontainer`-Verzeichnis hinzufügst. In der Datei kannst Du unterstützte Konfigurationsschlüssel verwenden, um Aspekte der Codespace-Umgebung festzulegen, beispielsweise welche {% data variables.product.prodname_vscode %}-Erweiterungen installiert werden sollen.
+If none of the pre-built configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
+
+In der Datei kannst Du unterstützte Konfigurationsschlüssel verwenden, um Aspekte der Codespace-Umgebung festzulegen, beispielsweise welche {% data variables.product.prodname_vscode %}-Erweiterungen installiert werden sollen.
 
 {% data reusables.codespaces.vscode-settings-order %}
 

@@ -1,1 +1,1 @@
-GitHub Apps are the officially recommended way to integrate with GitHub because they offer much more granular permissions to access data
+GitHub 应用程序是官方推荐的与 GitHub 集成的方式，因为它们提供更精细的数据访问权限

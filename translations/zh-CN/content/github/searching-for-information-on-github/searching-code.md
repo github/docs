@@ -101,5 +101,5 @@ versions:
 ### 延伸阅读
 
 - “[排序搜索结果](/articles/sorting-search-results/)”
-- "[在复刻中搜索](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
 - "[在 {% data variables.product.prodname_dotcom %} 上导航代码](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

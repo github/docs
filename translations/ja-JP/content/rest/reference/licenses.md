@@ -18,8 +18,8 @@ versions:
 - [リポジトリの Get](/v3/repos/#get-a-repository)
 - [ユーザのリポジトリの一覧表示](/v3/repos/#list-repositories-for-a-user)
 - [Organization リポジトリの一覧表示](/v3/repos/#list-organization-repositories)
-- [一覧表示のフォーク](/v3/repos/forks/#list-forks)
-- [ユーザが Watch しているリポジトリの一覧表示](/v3/activity/watching/#list-repositories-watched-by-a-user)
+- [一覧表示のフォーク](/rest/reference/repos#list-forks)
+- [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
 - [Team リポジトリの一覧表示](/v3/teams/#list-team-repositories)
 
 {% warning %}

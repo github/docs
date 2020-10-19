@@ -17,8 +17,9 @@ If you decide to enable issues again in the future, any issues that were previou
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
+Please contact
 
-Please contact {% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
+{% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
 {% data reusables.policies.abuse %}
 
 {% endtip %}

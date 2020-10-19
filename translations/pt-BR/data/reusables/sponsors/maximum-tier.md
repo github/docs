@@ -1,1 +1,1 @@
-The maximum price is US$6000 per month.
+O preço máximo é US$ 6.000 por mês.

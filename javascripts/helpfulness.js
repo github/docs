@@ -1,14 +1,10 @@
-import getCsrf from './get-csrf'
+import { sendEvent } from './events'
 
 export default function helpfulness () {
-  const EVENT_TYPE = 'HELPFULNESS'
-
   const forms = Array.from(document.querySelectorAll('.js-helpfulness'))
   const texts = Array.from(document.querySelectorAll('.js-helpfulness input, .js-helpfulness textarea'))
   const votes = Array.from(document.querySelectorAll('.js-helpfulness [type=radio]'))
   if (!forms.length || !texts.length || !votes.length) return
-
-  let id = '' // So that we only create one event per pageview
 
   forms.forEach(form => {
     form.addEventListener('submit', async evt => {
@@ -82,25 +78,13 @@ export default function helpfulness () {
     return trackEvent(data)
   }
 
-  async function trackEvent ({ token, vote, email, comment, category }) {
-    const response = await fetch(id ? '/events/' + id : '/events', {
-      method: id ? 'PUT' : 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'CSRF-Token': getCsrf()
-      },
-      body: JSON.stringify({
-        type: EVENT_TYPE,
-        token, // Honeypot
-        url: window.location.origin + window.location.pathname,
-        vote,
-        email,
-        comment,
-        category
-      })
+  async function trackEvent ({ token, vote, email, comment }) {
+    return sendEvent({
+      type: 'survey',
+      token, // Honeypot
+      survey_vote: vote === 'Yes',
+      survey_comment: comment,
+      survey_email: email
     })
-    const data = response.ok ? await response.json() : {}
-    if (data.id) id = data.id
-    return id
   }
 }

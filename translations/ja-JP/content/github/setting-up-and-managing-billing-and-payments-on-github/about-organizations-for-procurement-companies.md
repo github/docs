@@ -1,6 +1,6 @@
 ---
 title: 購入代行業者のためのOrganizationについて
-intro: 企業は、Organizationを使って複数のオーナーと管理者を持つ共有プロジェクト上でコラボレートします。 クライアントのためにOrganizationを作成し、クライアントの代理で支払いを行い、そしてOrganizationの所有権をクライアントに渡すことができます。
+intro: '企業は、Organizationを使って複数のオーナーと管理者を持つ共有プロジェクト上でコラボレートします。 クライアントのためにOrganizationを作成し、クライアントの代理で支払いを行い、そしてOrganizationの所有権をクライアントに渡すことができます。'
 redirect_from:
   - /articles/about-organizations-for-resellers/
   - /articles/about-organizations-for-procurement-companies

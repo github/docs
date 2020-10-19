@@ -1,6 +1,6 @@
 ---
 title: Configuring Docker for use with GitHub Packages
-intro: 'Sie können den Docker-Client für die Nutzung von {% data variables.product.prodname_registry %} zum Veröffentlichen und Abrufen von Docker-Images konfigurieren.'
+intro: 'You can configure the Docker client to use {% data variables.product.prodname_registry %} to publish and retrieve docker images.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-docker-for-use-with-github-package-registry
@@ -13,15 +13,11 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-**Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Bei {% data variables.product.prodname_registry %} authentifizieren
+### About Docker and {% data variables.product.prodname_registry %}
 
-{% warning %}
-
-# Build the image with docker.pkg.github.com/&lt;em&gt;OWNER/REPOSITORY/IMAGE_NAME:VERSION&lt;/em&gt; # Assumes Dockerfile resides in the current working directory (.) $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 . # Pusht das Image zu {% data variables.product.prodname_registry %} $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
-
-{% endwarning %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
 
@@ -31,7 +27,9 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 
 {% endif %}
 
-### Bei {% data variables.product.prodname_registry %} authentifizieren
+### Authenticating to {% data variables.product.prodname_registry %}
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -59,17 +57,19 @@ To keep your credentials secure, we recommend you save your personal access toke
 {% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.prodname_dotcom %} username and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.prodname_dotcom %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if currentVersion != "free-pro-team@latest" %}, `HOSTNAME` with the URL for {% data variables.product.product_location_enterprise %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 For more information, see "[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)."
 
-#### #### Authenticating with the `GITHUB_TOKEN`
+#### Authenticating with the `GITHUB_TOKEN`
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Ein Paket veröffentlichen
+### Publishing a package
 
-{% data variables.product.prodname_registry %} unterstützt mehrere Top-Level-Docker-Images pro Repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
+{% data reusables.package_registry.docker_registry_deprecation_status %}
+
+{% data variables.product.prodname_registry %} supports multiple top-level Docker images per repository. A repository can have any number of image tags. You may experience degraded service publishing or installing Docker images larger than 10GB, layers are capped at 5GB each. For more information, see "[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)" in the Docker documentation.
 
 {% data reusables.package_registry.lowercase-name-field %}
 
@@ -82,19 +82,17 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, and *VERSION* with package version at build time.
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
+2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% else %}
   ```shell
-  If you haven't already built a docker image for the package, build the image, replacing <em x-id="3">OWNER</em> with the name of the user or organization account that owns the repository, <em x-id="3">REPOSITORY</em> with the name of the repository containing your project, <em x-id="3">IMAGE_NAME</em> with name of the package or image, <em x-id="3">VERSION</em> with package version at build time, and <em x-id="3">PATH</em> to the image if it isn't in the current working directory.
+  $ docker tag <em>IMAGE_ID</em> docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
   ```
   {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -121,6 +119,8 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
   {% endnote %}
 
 #### Example publishing a Docker image
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
@@ -163,7 +163,7 @@ You can publish a new Docker image for the first time and name it `monalisa`.
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
-# Pusht das Image zu {% data variables.product.prodname_registry %}
+# Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
@@ -178,10 +178,11 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 ```
 {% endif %}
 
-### Ein Paket installieren
+### Installing a package
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -199,7 +200,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 
 {% endnote %}
 
-
-### Weiterführende Informationen
+### Further reading
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

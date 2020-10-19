@@ -4,14 +4,14 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.
+intro: 'Os administradores do site podem promover qualquer conta de usuário como administrador do site e rebaixar administradores do site para usuários regulares.'
 versions:
   enterprise-server: '*'
 ---
 
 {% tip %}
 
-**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) e o atributo `Administrators group` estiver definido ao [configurar o acesso LDAP para os usuários](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), esses usuários terão automaticamente acesso de administrador do site em suas respectivas instâncias. Nesse caso, você não pode promover manualmente os usuários pelas etapas abaixo.Será preciso adicioná-los ao grupo de administradores LDAP.
+**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) e o atributo `Administrators group` estiver definido ao [configurar o acesso LDAP para os usuários](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), esses usuários terão automaticamente acesso de administrador do site em suas respectivas instâncias. Nesse caso, você não pode promover manualmente os usuários pelas etapas abaixo.Será preciso adicioná-los ao grupo de administradores LDAP.
 
 {% endtip %}
 

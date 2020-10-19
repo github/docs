@@ -1,6 +1,6 @@
 ---
 title: Datei über die Befehlszeile an einen neuen Speicherort verschieben
-intro: 'Du kannst über die Befehlszeile Dateien innerhalb eines Repositorys verschieben, indem Du die Datei vom alten Speicherort entfernst und am neuen Speicherort hinzufügst.'
+intro: Du kannst über die Befehlszeile Dateien innerhalb eines Repositorys verschieben, indem Du die Datei vom alten Speicherort entfernst und am neuen Speicherort hinzufügst.
 redirect_from:
   - /articles/moving-a-file-to-a-new-location-using-the-command-line
 versions:

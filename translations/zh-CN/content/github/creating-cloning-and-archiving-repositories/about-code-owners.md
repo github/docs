@@ -20,10 +20,10 @@ versions:
 
 当具有管理员或所有者权限的人员启用必需审查时，他们也可选择性要求代码所有者批准后，作者才可合并仓库中的拉取请求。 更多信息请参阅“[启用拉取请求的必需审查](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}如果团队启用了代码审查分配，则个别审批无法满足受保护分支中代码所有者审批的要求。 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If a team has enabled code review assignments, the individual approvals won't satisfy the requirement for code owner approval in a protected branch. 更多信息请参阅“[管理团队的代码审查分配](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)”。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 In the repository, you can browse to the file and hover over
+如果文件具有代码所有者，则在打开拉取请求之前可以看到代码所有者是谁。 在仓库中，您可以浏览文件并将鼠标悬停在上方
 {% octicon "shield-lock" aria-label="The edit icon" %}.
 
 ![仓库中文件的代码所有者](/assets/images/help/repository/code-owner-for-a-file.png)
@@ -33,7 +33,7 @@ versions:
 
 要使用 CODEOWNERS 文件，请在仓库中您要添加代码所有者的分支的根目录 `docs/` 或 `.github/` 中，创建一个名为 `CODEOWNERS` 的新文件。
 
-每个 CODEOWNERS 文件将为仓库中的一个分支分配代码所有者。 Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
+每个 CODEOWNERS 文件将为仓库中的一个分支分配代码所有者。 因此，您可以为不同的分支分配不同的代码所有者，例如为默认分支的代码基础分配 `@octo-org/codeowners-team`，为 `gh-pages` 分支的 {% data variables.product.prodname_pages %} 站点分配 `@octocat`。
 
 为使代码所有者接收审查请求，CODEOWNERS 文件必须在拉取请求的基本分支上。 例如，如果您将 `@octocat` 分配为仓库 `gh-pages` 分支上 *.js* 文件的代码所有者，则在头部分支与 `gh-pages` 之间打开更改 *.js* 文件的拉取请求时，`@octocat` 将会收到审查请求。
 
@@ -41,7 +41,7 @@ versions:
 
 CODEOWNERS 文件使用遵循 [gitignore](https://git-scm.com/docs/gitignore#_pattern_format) 文件中所用规则的模式。 模式后接一个或多个使用标准 `@username` 或 `@org/team-name` 格式的 {% data variables.product.prodname_dotcom %} 用户名或团队名称。 您也可以通过已经添加到其 {% data variables.product.product_name %} 帐户的电子邮件地址来指代用户，如 `user@example.com`。
 
-If any line in your CODEOWNERS file contains invalid syntax, the file will not be detected and will not be used to request reviews. Invalid syntax includes inline comments and user or team names that do not exist on {% data variables.product.product_name %}.
+如果 CODEOWNERS 文件中的任何行包含无效语法，则该文件将不会被检测并且不会用于请求审查。 无效语法包括 {% data variables.product.product_name %} 上不存在的内联注释和用户或团队名称。
 #### CODEOWNERS 文件示例
 ```
 # This is a comment.
@@ -79,7 +79,8 @@ docs/*  docs@example.com
 apps/ @octocat
 
 # In this example, @doctocat owns any file in the `/docs`
-# directory in the root of your repository.
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
 

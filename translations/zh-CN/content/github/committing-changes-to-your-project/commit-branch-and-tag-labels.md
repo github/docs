@@ -14,7 +14,7 @@ versions:
 
 如果提交在默认分支上，将显示包含提交的任何标记，并且默认分支将是列出的唯一分支。
 
-![Commit-master-label](/assets/images/help/commits/Commit-master-label.png)
+![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
 ### 延伸阅读
 

@@ -73,7 +73,7 @@ fi
 unset env
 ```
 
-如果您的私钥没有存储在默认位置之一（如 `~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} 或 `~/.ssh/id_dsa`{% endif %}），您需要告知 SSH 身份验证代理其所在位置。 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. 要将密钥添加到 ssh-agent，请输入 `ssh-add ~/path/to/my_key`。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)”
 
 {% tip %}
 
@@ -104,8 +104,7 @@ unset env
 
 在 OS X Leopard 上通过 OS X El Capitan，这些默认私钥文件将自动处理：
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 初次使用密钥时，系统将提示您输入密码。 如果选择使用密钥链保存密码，则无需再次输入密码。

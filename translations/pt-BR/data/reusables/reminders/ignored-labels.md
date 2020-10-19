@@ -1,1 +1,1 @@
-1. Under "Ignored labels", type a comma-separated list of labels. Scheduled reminders won't include any pull requests that have one or more of these labels. ![Ignored labels field](/assets/images/help/settings/scheduled-reminders-ignored-labels-field.png)
+1. Em "etiquetas ignoradas", digite uma lista de etiquetas separadas por vírgulas. Os lembretes agendados não incluirão quaisquer pull requests que possuam uma ou mais dessas etiquetas. ![Campos de etiquetas ignoradas](/assets/images/help/settings/scheduled-reminders-ignored-labels-field.png)

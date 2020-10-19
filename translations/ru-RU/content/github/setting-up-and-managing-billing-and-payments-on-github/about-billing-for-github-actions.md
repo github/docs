@@ -12,8 +12,8 @@ versions:
 
 Minutes reset every month, while storage usage does not.
 
-| Product                                                                  | Storage | Minutes (per month) |
-| ------------------------------------------------------------------------ | ------- | ------------------- |
+| Product                                                             | Storage | Minutes (per month) |
+| ------------------------------------------------------------------- | ------- | ------------------- |
 | {% data variables.product.prodname_free_user %}                   | 500 MB  | 2,000               |
 | {% data variables.product.prodname_pro %}                           | 1 GB    | 3,000               |
 | {% data variables.product.prodname_free_team %} for organizations | 500 MB  | 2,000               |
@@ -44,7 +44,7 @@ The storage used by a repository is the total storage used by {% data variables.
 | macOS            | $0.08           |
 | Windows          | $0.016          |
 
-The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[About {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/about-github-actions/#usage-limits)."
+The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 ### Calculating minute and storage spending
 

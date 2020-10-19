@@ -50,7 +50,7 @@ Nachdem {% data variables.product.prodname_dotcom %} Deine Bewerbung überprüft
 
 ### Deine Bankinformationen einreichen
 
-Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen, um Deine Bankinformationen durch das Erstellen eines Stripe Connect-Kontos einzureichen. {% data reusables.sponsors.stripe-supported-regions %}
+Wenn Du in einer unterstützen Region lebst, kannst Du diesen Anweisungen folgen, um Deine Bankinformationen durch das Erstellen eines Stripe Connect-Kontos einzureichen. Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

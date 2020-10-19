@@ -41,7 +41,7 @@ Beim nächsten Push wird der neue Commit samt Mitteilung und Badge auf {% data v
 
 ### Commits mit einem `on-behalf-of`-Badge auf {% data variables.product.product_name %} erstellen
 
-Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen hast, kannst Du einen Commit im Namen Deiner Organisation erstellen, indem Du den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügst.
+Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen haben, können Sie einen Commit im Namen Ihrer Organisation erstellen, indem Sie den Trailer `on-behalf-of:` zur Commit-Mitteilung hinzufügen.
 
 1. Nachdem Du Deine Änderungen gemacht hast, gib unten auf der Seite eine kurze, aussagekräftige Commit-Mitteilung ein, die die von Dir gemachten Änderungen beschreibt. ![Commit-Mitteilung für Deine Änderung](/assets/images/help/repository/write-commit-message-quick-pull.png)
 

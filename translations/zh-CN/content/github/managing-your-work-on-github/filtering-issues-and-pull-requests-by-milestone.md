@@ -14,7 +14,7 @@ versions:
 
 - 如果要使用搜索栏过滤议题和拉取请求，您可以使用里程碑搜索语法。 对于名为 My Milestone 的里程碑，搜索语法为：`milestone:"My Milestone"`。
 - 要清除过滤器选择，请单击 **Clear current search query, filters, and sorts（清除当前搜索查询、过滤和排序）**。
--  You can also filter issues or pull requests using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
+-  还可以使用 {% data variables.product.prodname_cli %} 过滤议题或拉取请求。 For more information, see "[`gh issue list`](https://cli.github.com/manual/gh_issue_list)" or "[`gh pr list`](https://cli.github.com/manual/gh_pr_list)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
 

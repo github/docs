@@ -1,6 +1,6 @@
 ---
 title: 查看所有议题和拉取请求
-intro: 议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。
+intro: '议题和拉取请求仪表板列出您已创建的开放议题和拉取请求。 您可以使用它们更新已过时的项目、关闭它们或跟踪所有仓库（包括您没有订阅的仓库）内提到的位置。'
 redirect_from:
   - /articles/viewing-all-of-your-issues-and-pull-requests
 versions:
@@ -15,4 +15,4 @@ versions:
 
 ### 延伸阅读
 
-- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}”[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[列出您关注的仓库](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
+- {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}”[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions#reviewing-repositories-that-youre-watching){% else %}”[Listing the repositories you're watching](/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching){% endif %}"
