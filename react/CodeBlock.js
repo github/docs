@@ -4,6 +4,7 @@ const { Prism } = require('react-syntax-highlighter')
 const { dark } = require('react-syntax-highlighter/dist/cjs/styles/prism')
 const { Tab, Tabs, TabList, TabPanel } = require('react-tabs')
 
+
 const CodeBlock = (props) => {
   let jsPanel
   let jsTab

@@ -19,6 +19,8 @@ import initializeEvents from './events'
 import CodeBlock from '../react/CodeBlock'
 import CoolTable from '../react/CoolTable'
 
+import 'react-tabs/style/react-tabs.css'
+
 document.addEventListener('DOMContentLoaded', async () => {
   displayPlatformSpecificContent()
   explorer()
