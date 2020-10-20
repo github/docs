@@ -1,6 +1,6 @@
 ---
 title: Erforderliche Reviews für Pull-Requests aktivieren
-intro: 'Repository-Administratoren können erforderliche Reviews vorschreiben, sodass Pull Requests eine bestimmte Anzahl an genehmigenden Reviews aufweisen müssen, bevor sie zusammengeführt werden.'
+intro: Repository-Administratoren können erforderliche Reviews vorschreiben, sodass Pull Requests eine bestimmte Anzahl an genehmigenden Reviews aufweisen müssen, bevor sie zusammengeführt werden.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/enabling-required-reviews-for-pull-requests

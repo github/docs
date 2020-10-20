@@ -63,7 +63,8 @@ To remove a self-hosted runner from an organization, you must be an organization
 {% if currentVersion == "free-pro-team@latest" %}
 To remove a self-hosted runner from an enterprise account, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine.
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-To remove a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
+To remove a self-hosted runner at the enterprise level of
+{% data variables.product.product_location %}, you must be a site administrator. We recommend that you also have access to the self-hosted runner machine.
 {% endif %}
 
 {% data reusables.github-actions.self-hosted-runner-reusing %}

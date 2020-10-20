@@ -20,7 +20,7 @@ $ git clone https://{% data variables.command_line.codeblock %}/<em>USERNAME</em
 # Clona um repositório em seu computador
 ```
 
-Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, essas URLs estarão disponíveis abaixo dos detalhes do repositório:
+Você pode escolher entre [várias URLs diferentes](/articles/which-remote-url-should-i-use) ao clonar um repositório. Quando estiver conectado em {% data variables.product.prodname_dotcom %}, esses URLs estarão disponíveis abaixo dos detalhes do repositório:
 
 ![Lista de URLs remotas](/assets/images/help/repository/remotes-url.png)
 
@@ -70,5 +70,5 @@ Você deve garantir que fez commit de seu trabalho local antes de executar o com
 
 ### Leia mais
 
-- ["Trabalhar com remotes" no livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
+- ["Trabalhar com remotos" do livro _Pro Git_](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Solucionar problemas de conectividade](/articles/troubleshooting-connectivity-problems)"{% endif %}

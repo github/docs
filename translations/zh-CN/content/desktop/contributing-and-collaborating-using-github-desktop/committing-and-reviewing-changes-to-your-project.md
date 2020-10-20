@@ -15,9 +15,9 @@ versions:
 
 ### 1. 选择一个分支并进行更改
 
-1. [Create a new branch](/desktop/guides/contributing-to-projects/managing-branches), or select an existing branch by clicking
+1. [创建一个新分支](/desktop/guides/contributing-to-projects/managing-branches)，或选择一个现有分支，方法是单击
 
-{% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
+工具栏上的 {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch（当前分支）**并从列表中选择分支。
   ![用于切换当前分支的下拉菜单](/assets/images/help/desktop/click-branch-in-drop-down.png)
 {% data reusables.desktop.make-changes %}
 

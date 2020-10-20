@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### {% data variables.product.prodname_mobile %}について
+### {% data variables.product.prodname_mobile %} について
 
 現在、{% data variables.product.prodname_mobile %} は {% data variables.product.prodname_dotcom_the_website %} ユーザが Android および iOS アプリとして利用できます。
 
@@ -22,6 +22,16 @@ versions:
 ### {% data variables.product.prodname_mobile %}のインストール
 
 Android または iOS に {% data variables.product.prodname_mobile %} をインストールするには、「[{% data variables.product.prodname_mobile %}](https://github.com/mobile)」を参照してください。
+
+### Supported languages for {% data variables.product.prodname_mobile %}
+
+{% data variables.product.prodname_mobile %} is available in the following languages.
+
+- 日本語
+- Brazilian Portuguese
+- スペイン語
+
+If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 
 ### iOS で {% data variables.product.prodname_mobile %} のユニバーサルリンクを管理する
 

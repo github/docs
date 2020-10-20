@@ -69,7 +69,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```
    {% endraw %}
-1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Persistindo dados de fluxo de trabalho usando artefatos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#downloading-and-deleting-artifacts-after-a-workflow-run-is-complete)".
+1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Fazer download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfira o artefato de cache das ferramentas para o seu executor hospedado e extraia-o para o diretório de cache das ferramentas locais. O diretório de cache da ferramenta padrão é `RUNNER_DIR/_work/_tool`. Se o executor ainda não processou nenhum trabalho, você pode precisar criar os diretórios `_work/_tool`.
 
     Após extrair o artefato de cache da ferramenta carregado no exemplo acima, você deve ter uma estrutura de diretório no seu executor auto-hospedado semelhante ao exemplo a seguir:

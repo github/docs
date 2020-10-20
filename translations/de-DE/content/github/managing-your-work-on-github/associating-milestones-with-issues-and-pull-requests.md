@@ -1,6 +1,6 @@
 ---
 title: Meilensteine mit Issues und Pull Requests verknüpfen
-intro: 'Du kannst ähnliche Issues und Pull Requests mit einem Meilenstein verknüpfen, um ihre Fortschritte besser nachverfolgen zu können.'
+intro: Du kannst ähnliche Issues und Pull Requests mit einem Meilenstein verknüpfen, um ihre Fortschritte besser nachverfolgen zu können.
 redirect_from:
   - /articles/associating-milestones-with-issues-and-pull-requests
 versions:

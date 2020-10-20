@@ -34,7 +34,8 @@ Caso queira renovar ou adicionar licenças de usuário com o {% data variables.p
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}
 4. Em "Enterprise Server Instances", clique em {% octicon "download" aria-label="The download icon" %} para fazer o download do seu arquivo de licença. ![Baixar licença do GitHub Enterprise Server](/assets/images/help/business-accounts/download-ghes-license.png)
-5. Faça login na sua instância do {% data variables.product.prodname_ghe_server %} como administrador do site.
+5. Faça login no seu
+Instância de {% data variables.product.prodname_ghe_server %} como administrador do site.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -63,7 +64,8 @@ Para sincronizar manualmente o uso das licenças de usuário entre as duas impla
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Em "Quick links" (Links rápidos), para baixar um arquivo com o uso da sua licença atual no {% data variables.product.prodname_ghe_server %}, clique em **Export license usage** (Exportar uso de licença). ![Exportar link de uso de licença](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. Navegue até o {% data variables.product.prodname_ghe_cloud %}.
+6. Navegar para
+{% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.enterprise-licensing-tab %}

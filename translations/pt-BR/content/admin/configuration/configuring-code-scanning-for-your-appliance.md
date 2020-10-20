@@ -37,7 +37,9 @@ Se você não puder ver **{% data variables.product.prodname_advanced_security %
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Em "{% data variables.product.prodname_advanced_security %}," clique em **{% data variables.product.prodname_code_scanning_capc %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
+1. Em "
+{% data variables.product.prodname_advanced_security %}," clique em **{% data variables.product.prodname_code_scanning_capc %}**.
+![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 
@@ -46,6 +48,8 @@ Se você não puder ver **{% data variables.product.prodname_advanced_security %
 #### Configurar um executor auto-hospedado
 
 Se você estiver inscrito no beta de {% data variables.product.prodname_actions %}, {% data variables.product.prodname_ghe_server %} poderá executar {% data variables.product.prodname_code_scanning %} usando um fluxo de trabalho de {% data variables.product.prodname_actions %}. Primeiro, você precisa fornecer um ou mais executores auto-hospedados de {% data variables.product.prodname_actions %} em seu ambiente. É possível fornecer executores auto-hospedados no nível da conta do repositório, organização ou empresa. Para obter mais informações, consulte "[Sobre executores auto-hospedados](/actions/hosting-your-own-runners/about-self-hosted-runners)" e "[Adicionar executores auto-hospedados](/actions/hosting-your-own-runners/adding-self-hosted-runners)".
+
+Você deve garantir que o Git esteja na variável do PATH em qualquer executor auto-hospedados que você usar para executar ações de {% data variables.product.prodname_codeql %}.
 
 #### Provisionar a ação
 Para executar {% data variables.product.prodname_code_scanning %} em {% data variables.product.prodname_ghe_server %} com {% data variables.product.prodname_actions %}, a ação apropriada deve estar disponível localmente. Você pode disponibilizar a ação de três maneiras.
@@ -67,7 +71,7 @@ Depois de configurar um executor auto-hospedado, os usuários podem habilitar o 
 ### Executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}
 Se sua organização não está participando da versão beta do {% data variables.product.prodname_actions %} ou se você não desejar usar {% data variables.product.prodname_actions %}, você poderá executar {% data variables.product.prodname_code_scanning %} usando o {% data variables.product.prodname_codeql_runner %}.
 
-O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha de comando que você pode adicionar ao seu sistema CI/CD de terceiros. A ferramenta executa a análise do {% data variables.product.prodname_codeql %} em um checkout de um repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Executar o {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)".
+O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha de comando que você pode adicionar ao seu sistema CI/CD de terceiros. A ferramenta executa a análise do {% data variables.product.prodname_codeql %} em um checkout de um repositório do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Executar o {% data variables.product.prodname_code_scanning %} no seu sistema de CI](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)".
 
 ### Desabilitar {% data variables.product.prodname_code_scanning %}
 
@@ -76,5 +80,7 @@ O {% data variables.product.prodname_codeql_runner %} é uma ferramenta de linha
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Em "{% data variables.product.prodname_advanced_security %}", desmarque **{% data variables.product.prodname_code_scanning_capc %}**. ![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
+1. Em "
+{% data variables.product.prodname_advanced_security %}", desmarque **{% data variables.product.prodname_code_scanning_capc %}**.
+![Caixa de seleção para habilitar ou desabilitar {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

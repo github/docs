@@ -1,24 +1,24 @@
 ---
-title: Jekyll を使用して GitHub Pages サイトを作成する
-intro: '新規または既存のリポジトリ内に、{% data variables.product.prodname_pages %} Jekyll を使用してサイトを作成できます。'
+title: Creating a GitHub Pages site with Jekyll
+intro: 'You can use Jekyll to create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
-permissions: 'リポジトリの管理者権限があるユーザは、Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを作成できます。'
+permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-### 必要な環境
+### Prerequisites
 
-Jekyll を使用して {% data variables.product.prodname_pages %} サイトを作成する前に、Jekyll と Git をインストールする必要があります。 詳しい情報については、Jekyll ドキュメンテーションの [Installation](https://jekyllrb.com/docs/installation/) および「[Git のセットアップ](/articles/set-up-git)」を参照してください。
+Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### サイト用にリポジトリを作成する
+### Creating a repository for your site
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -29,22 +29,22 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
-### サイトを作成する
+### Creating your site
 
 {% data reusables.pages.must-have-repo-first %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. リポジトリのローカルコピーがまだない場合、サイトのソースファイルを保存したい場所に移動します。_PARENT-FOLDER_ は、リポジトリを保存したいフォルダの名前に置き換えてください。
+2. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing _PARENT-FOLDER_ with the folder you want to contain the folder for your repository.
   ```shell
   $ cd <em>PARENT-FOLDER</em>
   ```
-3. ローカルの Git リポジトリをまだ初期化していない場合は、初期化します。 _REPOSITORY-NAME_ は、リポジトリの名前に置き換えてください。
+3. If you haven't already, initialize a local Git repository, replacing _REPOSITORY-NAME_ with the name of your repository.
   ```shell
   $ git init <em>REPOSITORY-NAME</em>
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
   # Creates a new folder on your computer, initialized as a Git repository
-  ```
-  4. ディレクトリをリポジトリに変更します。
+  ```  
+  4. Change directories to the repository.
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
   # Changes the working directory
@@ -57,30 +57,31 @@ Jekyll を使用して {% data variables.product.prodname_pages %} サイトを�
  # Creates a new folder called docs
  $ cd docs
  ```
- サイトを `gh-pages` ブランチから公開する場合には、`gh-pages` ブランチを作成してチェックアウトします。
+ If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
  ```shell
  $ git checkout --orphan gh-pages
  # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
  ```
- 7. 新しい Jekyll サイトを作成するには、`jekyll new` コマンドを使用します。_VERSION_ は、Jekyll の現在の依存関係バージョンに置き換えてください。 詳しい情報については、{% data variables.product.prodname_pages %} サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
-    - Bundler をインストールしている場合、以下のコマンドを入力します。
+ 7. To create a new Jekyll site, use the `jekyll new` command, replacing _VERSION_ with the current dependency version for Jekyll. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+    - If you installed Bundler:
       ```shell
       $ bundle exec jekyll <em>VERSION</em> new .
       # Creates a Jekyll site in the current directory
       ```
-    - Bundler をインストールしていない場合、以下のコマンドを入力します。
+    - If you don't have Bundler installed:
      ```shell
      $ jekyll <em>VERSION</em> new .
      # Creates a Jekyll site in the current directory
      ```
-8. 作成された Gemfile を開き、Gemfile のコメントに従って {% data variables.product.prodname_pages %} を使用します。 ![Gemfile の更新手順](/assets/images/help/pages/gemfile-instructions.png)
-9. `gem "github-pages"` の行を以下のように更新します。_VERSION_ は、`github-pages` の現在の依存関係バージョンに置き換えてください。 詳しい情報については、{% data variables.product.prodname_pages %} サイトで「[依存関係のバージョン](https://pages.github.com/versions/)」を参照してください。
+8. Open the Gemfile that was created and follow the instructions in the Gemfile's comments to use {% data variables.product.prodname_pages %}.
+  ![Instructions for updating Gemfile](/assets/images/help/pages/gemfile-instructions.png)
+9. Update the `gem "github-pages"` line so that the line looks like this, replacing _VERSION_ with the current dependency version for `github-pages`. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
 ```shell
 gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
-10. Gemfile を保存して閉じます。
-11. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
-12. {% data variables.product.product_name %} リポジトリをリモートとして追加します。{% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ はアプライアンスのホスト名に、{% endif %}_USER_ はリポジトリ所有者のアカウントに{% if currentVersion != "free-pro-team@latest" %}、{% endif %}そして _REPOSITORY_ はリポジトリの名前に置き換えてください。
+10. Save and close the Gemfile.
+11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
+12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ with your appliance's hostname,{% endif %} _USER_ with the account that owns the repository{% if currentVersion != "free-pro-team@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -88,7 +89,7 @@ $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
 {% endif %}
 ```
-13. リポジトリを {% data variables.product.product_name %} にプッシュします。 _BRANCH_ は、作業を行なっているブランチの名前に置き換えてください。
+13. Push the repository to {% data variables.product.product_name %}, replacing _BRANCH_ with the name of the branch you're working on.
    ```shell
    $ git push -u origin <em>BRANCH</em>
    ```
@@ -99,8 +100,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 
 {% data reusables.pages.admin-must-push %}
 
-### 次のステップ
+### Next steps
 
-サイトに新しいページを追加したり、投稿したりするには、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにコンテンツを追加する](/articles/adding-content-to-your-github-pages-site-using-jekyll)」を参照してください。
+To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
 
-{% data reusables.pages.add-jekyll-theme %}詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトにテーマを追加する](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)」を参照してください。
+{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."

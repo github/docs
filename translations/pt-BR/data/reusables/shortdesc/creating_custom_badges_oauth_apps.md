@@ -1,1 +1,1 @@
-You can replace the default badge on your OAuth App by uploading your own logo image and customizing the background.
+Você pode substituir o selo-padrão no seu aplicativo OAuth fazendo o upload da sua própria imagem de logotipo e personalizando o plano de fundo.

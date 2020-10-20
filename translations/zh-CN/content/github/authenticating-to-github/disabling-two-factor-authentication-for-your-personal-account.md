@@ -1,6 +1,6 @@
 ---
 title: 禁用个人帐户的双重身份验证
-intro: 如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。
+intro: '如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。'
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:
@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**警告：** 如果您是需要双重身份验证的某组织的公共仓库的成员{% if currentVersion == "free-pro-team@latest" %}、帐单管理员{% endif %} 或外部协作者，并且已禁用 2FA，您将被从该组织中自动删除，并会失去对其仓库的访问权限。 要重新获得对组织的访问权限，请重新启用双重身份验证并联系组织所有者。
+**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. 要重新获得对组织的访问权限，请重新启用双重身份验证并联系组织所有者。
 
 {% endwarning %}
 
@@ -24,7 +24,7 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Click **Disable**. ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
+3. 单击 **Disable（禁用）**。 ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 延伸阅读
 

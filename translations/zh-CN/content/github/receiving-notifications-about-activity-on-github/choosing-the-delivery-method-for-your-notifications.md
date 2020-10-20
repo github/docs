@@ -15,7 +15,7 @@ versions:
 {% data reusables.user_settings.notifications %}
 3. 通过选中复选框，配置您希望如何接收有关您参与或关注的通知：
     - 选中 **Email（电子邮件）**将通过您的默认通知电子邮件地址接收通知。
-    - 选中 **Web**将允许您在 {% data variables.product.product_location %} 上访问通知。 ![Configuring notification settings](/assets/images/help/settings/ent-notifications-settings.png)
+    - 选中 **Web**将允许您在 {% data variables.product.product_location %} 上访问通知。 ![配置通知设置](/assets/images/help/settings/ent-notifications-settings.png)
 4. 如果为参与或关注的对话选择了 **Email（电子邮件）**， 请在“Notification email（通知电子邮件）”部分选中复选框以选择要接收哪些更新：
     - 选中 **Comments on Issues and Pull Requests（议题和拉取请求评论）**，则有人在议题或拉取请求的“Conversation（对话）”选项卡中发表评论时，您将会收到电子邮件。
     - 选中 **Pull request reviews（拉取请求审查）**，则有人在拉取请求的“Files changed（已更改文件）”选项卡中发表审查评论时，您将会收到电子邮件。

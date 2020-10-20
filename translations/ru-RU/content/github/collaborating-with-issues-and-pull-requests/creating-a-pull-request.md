@@ -18,7 +18,7 @@ You can specify which branch you'd like to merge your changes into when you crea
 
 ### Changing the branch range and destination repository
 
-By default, pull requests are based on the parent repository's [default branch](/articles/setting-the-default-branch).
+By default, pull requests are based on the parent repository's [default branch](/articles/setting-the-default-branch). For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
 If the default parent repository isn't correct, you can change both the parent repository and the branch with the drop-down lists. You can also swap your head and base branches with the drop-down lists to establish diffs between reference points. References here must be branch names in your GitHub repository.
 

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Campus Advisors
-intro: 'Lerne mit Campus Advisors-Schulung und -Unterstützung, wie Du als Kursleiter oder Mentor {% data variables.product.prodname_dotcom %} in Deiner Bildungseinrichtung einsetzen kannst.'
+intro: 'Lernen Sie als Instrukteur oder Mentor, {% data variables.product.prodname_dotcom %} an Ihrer Einrichtung mit Campus Advisors-Schulungen und -Support zu verwenden.'
 redirect_from:
   - /articles/about-campus-advisors
 versions:

@@ -20,19 +20,19 @@ versions:
 
 在 {% data variables.product.product_location %} 上查看文件时，通常会在分支头部看到当前版本。  例如：
 
-* [https://github.com/github/hubot/blob/**master**/README.md](https://github.com/github/hubot/blob/master/README.md)
+* [https://github.com/github/codeql/blob/**main**/README.md](https://github.com/github/codeql/blob/main/README.md)
 
-引用 GitHub 的 `hubot` 仓库，并显示 `master` 分支中 `README.md` 文件的当前版本。
+refers to GitHub's `codeql` repository, and shows the `main` branch's current version of the `README.md` file.
 
 分支头部的文件版本可能会随着新的提交而改变，因此如果您复制常规的 URL，当以后有人查看时，文件内容可能会不同。
 
 ### 按 <kbd>y</kbd> 键可永久链接到特定提交中的文件
 
-要创建所查看文件特定版本的永久链接，不要在 URL 中使用分支名称（例如上例中的 `master` 部分），而是输入提交 id。  这将永久链接到该提交中文件的精确版本。  例如：
+For a permanent link to the specific version of a file that you see, instead of using a branch name in the URL (i.e. the `main` part in the example above), put a commit id.  这将永久链接到该提交中文件的精确版本。  例如：
 
-* [https://github.com/github/hubot/blob/**ed25584f5ac2520a6c28547ffd0961c7abd7ea49**/README.md](https://github.com/github/hubot/blob/ed25584f5ac2520a6c28547ffd0961c7abd7ea49/README.md)
+* [https://github.com/github/codeql/blob/**b212af08a6cffbb434f3c8a2795a579e092792fd**/README.md](https://github.com/github/codeql/blob/b212af08a6cffbb434f3c8a2795a579e092792fd/README.md)
 
-将 `master` 替换为特定提交 id，文件内容将不会改变。
+replaces `main` with a specific commit id and the file content will not change.
 
 但是，手动查找提交 SHA 比较麻烦，因此您可以采用便捷方式，通过键入 <kbd>y</kbd> 将 URL 自动更新为永久链接版本。  然后，您可以复制该 URL，以后访问它的任何人都将看到与您所见完全一致的内容。
 

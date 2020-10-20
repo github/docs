@@ -9,7 +9,7 @@ versions:
 
 Weitere Informationen zu den verschiedenen Konto- und Produkttypen findest Du unter „[Arten von {% data variables.product.prodname_dotcom %}-Konten](/articles/types-of-github-accounts)“ und „[Produkte von {% data variables.product.product_name %}](/articles/github-s-products).“
 
-1. Rufe die [Preisübersicht]({% data variables.product.pricing_url %}) von {% data variables.product.product_name %} auf.
+1. Rufen Sie die [Preisübersicht]({% data variables.product.pricing_url %}) von {% data variables.product.product_name %} auf.
 2. Lies die Informationen zu den von {% data variables.product.product_name %} angebotenen Produkten und Abonnements, und klicke dann unter dem Abonnement, das Dich interessiert, auf die Schaltfläche „Upgrade“.
 3. Folge den Eingabeaufforderungen, um Dein persönliches Konto oder Deine Organisation zu erstellen.
 

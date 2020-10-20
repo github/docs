@@ -1,6 +1,6 @@
 ---
 title: Team ディスカッションの編集または削除
-intro: Organization のメンバーは、Team のページでディスカッションを編集または削除できます。 Organization のメンバーであれば、ディスカッションを編集または削除できます。
+intro: 'Organization のメンバーは、Team のページでディスカッションを編集または削除できます。 Organization のメンバーであれば、ディスカッションを編集または削除できます。'
 redirect_from:
   - /articles/editing-or-deleting-a-team-discussion
 versions:

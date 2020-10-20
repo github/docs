@@ -5,7 +5,7 @@ versions:
   free-pro-team: '*'
 ---
 
-To monitor changes to your sponsorships, such as cancellations at the end of a pay period, you can create webhooks for your sponsored user or organization account. When you set up a webhook for your sponsored user or organization account, you'll receive updates when sponsorships are created, edited, or deleted. 更多信息请参阅 [`sponsorship` web 挂钩事件](/webhooks/event-payloads/#sponsorship)。
+要监视赞助变更，例如在付款期结束时取消，您可以为被赞助的用户或组织帐户创建 web 挂钩。 为被赞助的用户或组织帐户创建 web 挂钩后，在创建、编辑或删除赞助时您将会收到更新消息。 更多信息请参阅 [`sponsorship` web 挂钩事件](/webhooks/event-payloads/#sponsorship)。
 
 ### 管理被赞助用户帐户的 web 挂钩
 
@@ -21,7 +21,7 @@ To monitor changes to your sponsorships, such as cancellations at the end of a p
 
 ### 管理被赞助组织的 web 挂钩
 
-Organization owners can configure webhooks for a sponsored organization.
+组织所有者可以为被赞助组织配置 web 挂钩。
 
 {% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-webhooks-tab %}

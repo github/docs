@@ -11,7 +11,6 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ### Sobre a exclusão de imagem de contêiner
 

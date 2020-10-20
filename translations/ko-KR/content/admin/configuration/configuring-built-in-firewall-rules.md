@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-firewall-settings/
   - /enterprise/admin/installation/configuring-built-in-firewall-rules
   - /enterprise/admin/configuration/configuring-built-in-firewall-rules
-  - /enterprise/admin/configuration/configuring-built-in-firewall-rules
 versions:
   enterprise-server: '*'
 ---

@@ -1,6 +1,6 @@
 ---
 title: 将组织成员转换为外部协作者
-intro: 如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。
+intro: '如果组织的某些当前成员只需要访问特定仓库，例如顾问或临时员工，您可以将他们转换为*外部协作者*。'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
 versions:
@@ -23,7 +23,7 @@ versions:
 
 建议查看组织成员对仓库的访问权限，以确保其访问权限符合您的预期。 更多信息请参阅“[管理个人对组织仓库的访问](/articles/managing-an-individual-s-access-to-an-organization-repository)”。
 
-将组织成员转换为外部协作者时，他们作为组织成员的权限将保存三个月，因此，如果您在该时间范围内{% if currentVersion == "free-pro-team@latest" %} 邀请他们重新加入{% else %} 将他们重新添加到{% endif %} 您的组织，您可以恢复其成员权限。 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. 更多信息请参阅“[恢复组织的前成员](/articles/reinstating-a-former-member-of-your-organization)”。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

@@ -5,7 +5,7 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 ### 关于使用 GraphQL 管理企业帐户
@@ -23,7 +23,7 @@ GraphQL 可用于仅请求和返回您指定的数据。 例如，您可以创�
 - 将用户提升为管理员。
 - 更改 GitHub 应用程序的权限。
 
-审核日志 API 可帮助您保存审核日志数据的副本。 对于使用审核日志 API 执行的查询，GraphQL 响应最多可包含 90 至 120 天的数据。 有关通过审核日志 API 获得的字段列表，请参阅“[AuditEntry 接口](/v4/interface/auditentry/)。”
+审核日志 API 可帮助您保存审核日志数据的副本。 对于使用审核日志 API 执行的查询，GraphQL 响应最多可包含 90 至 120 天的数据。 有关通过审核日志 API 获得的字段列表，请参阅“[AuditEntry 接口](/graphql/reference/interfaces#auditentry/)。”
 
 通过企业帐户 API，可以：
 - 列出并审查属于企业帐户的所有组织和仓库。

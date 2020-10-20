@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
     - uses: github/codeql-action/init@v1
       with:
         languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)

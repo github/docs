@@ -7,13 +7,13 @@ versions:
   free-pro-team: '*'
 ---
 
-You can view analytics on your current and past sponsorships, the payments you've received from sponsors, and events, such as cancellations and sponsor tier changes for your sponsorships. You can also view activity such as new sponsorships, changes to sponsorships, and canceled sponsorships. You can filter the list of activities by date. 您还可以导出帐户的赞助数据以 CSV 或 JSON 格式查看。
+您可以查看有关您当前和过去的赞助、从赞助者收到的付款以及事件（例如赞助取消和赞助等级变更）的分析。 您还可以查看新的赞助、赞助变更和赞助取消等活动。 您可以按日期过滤活动列表。 您还可以导出帐户的赞助数据以 CSV 或 JSON 格式查看。
 
 您可以从赞助者仪表板获取所有这些信息。
 
 ### 查看赞助者仪表板
 
-1. 在任何页面的右上角，单击您的个人资料照片，然后再单击 **{% data variables.product.prodname_sponsors %}**。 ![{% data variables.product.prodname_sponsors %} 按钮](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
+1. 在任何页面的右上角，单击您的个人资料照片，然后单击 **{% data variables.product.prodname_sponsors %}**。 ![{% data variables.product.prodname_sponsors %} 按钮](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
 2. 在显示的列表中，在要查看其赞助者的帐户或组织的右侧，单击 **Dashboard（仪表板）**。 ![开发者赞助者仪表板按钮](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)
 
 ### 查看您的赞助者和赞助

@@ -1,0 +1,51 @@
+name: Crowdin Sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "33 2 * * *" # every day at 2:33 UTC at least until automerge is working 
+
+jobs:
+  sync_with_crowdin:
+    name: Sync with Crowdin
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+
+      - name: Sync
+        uses: crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688
+        with:
+          upload_translations: false
+          download_translations: true
+          create_pull_request: true
+          
+          # Using a custom config temporarily to avoid clobbering the existing crowdin.yml
+          # that is used by the github-help-docs OAuth integration.
+          config: 'crowdin.yml'
+
+          # This is the name of the git branch that Crowdin will create when opening a pull request.
+          # This branch does NOT need to be manually created. It will be created automatically by the action.
+          localization_branch_name: translations
+
+          # This is the name of the top-level directory that Crowdin will use for files.
+          # Note that this is not a "branch" in the git sense, but more like a top-level directory in your Crowdin project.
+          # This branch does NOT need to be manually created. It will be created automatically by the action.
+          crowdin_branch_name: main
+
+        env:
+          # Using an @octoglot token instead of the default Actions-provided GITHUB_TOKEN here 
+          # so that subsequent workflows will be able to run on the pull request created by this workflow.
+          GITHUB_TOKEN: ${{ secrets.OCTOGLOT_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+
+          # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
+          # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          
+          # A personal access token, not to be confused with Crowdin API v1 "API key"
+          # See https://crowdin.com/settings#api-key to generate a token
+          # This token was created by logging into Crowdin with the octoglot user
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+
+          

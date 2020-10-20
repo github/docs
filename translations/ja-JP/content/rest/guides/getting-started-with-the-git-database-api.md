@@ -32,14 +32,14 @@ Gitオブジェクトデータベースについての詳細は、Pro Gitブッ�
 
 {% warning %}
 
-**警告:** Git refを`merge`するためにGitディレクトリや{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}に依存しないでください。こうしたコンテンツが古くて使えなくなっても警告されません。
+**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
 
 {% endwarning %}
 
 _test_マージコミットを作成するには、使用するAPIは、明示的にプルリクエストを要求する必要があります。 _test_マージコミットは、UIでプルリクエストを表示して [Merge] ボタンが表示されるか、REST APIを使ってプルリクエストを[取得](/v3/pulls/#get-a-pull-request)、[作成](/v3/pulls/#create-a-pull-request)、または[編集](/v3/pulls/#update-a-pull-request)した際に作成されます。 このリクエストがなければ、`merge` Git refは次に誰かがプルリクエストを表示するまで期限切れになります。
 
-期限切れの`merge` Git refを生成するポーリングメソッドを現在使用している場合、GitHubでは以下のステップに従い、ベースブランチ (通常は`master`) から最新の変更を取得することをお勧めします。
+If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
 
 1. プルリクエストwebhookを受け取ります。
 2. [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request)を呼び出し、マージコミット候補を作成するためのバックグラウンドジョブを開始します。
-3. `mergeable`属性が`true`か`false`かを判断するため、[`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request)を使用してリポジトリをポーリングします。 上記のステップを実行後にのみ、Git refsを更新して`merge`するため、Gitディレクトリや{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}を使用することができます。
+3. `mergeable`属性が`true`か`false`かを判断するため、[`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request)を使用してリポジトリをポーリングします。 You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.

@@ -1,5 +1,5 @@
 As organizações incluem:
-{% if currentVersion == "free-pro-team@latest" %}- Uma opção gratuita, {% data variables.product.prodname_free_team %}, com colaboradores ilimitados em repositórios públicos ilimitados, com recursos completos e repositórios privados ilimitados, com recursos limitados.
+{% if currentVersion == "free-pro-team@latest" %}- Uma opção grátis, {% data variables.product.prodname_free_team %}, com colaboradores ilimitados em repositórios públicos ilimitados, com recursos completos e repositórios privados ilimitados, com recursos limitados.
 - A opção de atualizar para {% data variables.product.prodname_team %} ou {% data variables.product.prodname_ghe_cloud %} para recursos adicionais, incluindo autenticação e gerenciamento sofisticados do usuário e opções de suporte escaladas. {% data reusables.gated-features.more-info %}{% endif %}
 - Associação ilimitada com uma variedade de funções que concedem [different levels of access to the organization and its data](/articles/permission-levels-for-an-organization) (diferentes níveis de acesso à organização e aos seus dados)
 - A capacidade de dar aos membros [a range of access permissions to your organization's repositories](/articles/repository-permission-levels-for-an-organization) (uma série de permissões de acesso aos repositórios da sua organização)

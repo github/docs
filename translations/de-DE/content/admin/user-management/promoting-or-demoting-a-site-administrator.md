@@ -4,14 +4,14 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-intro: Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.
+intro: 'Websiteadministratoren können normale Benutzerkonten auf einen Websiteadministrator hochstufen und andere Websiteadministratoren auf normale Benutzer zurückstufen.'
 versions:
   enterprise-server: '*'
 ---
 
 {% tip %}
 
-**Hinweis:** Wenn die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) und das Attribut `Administrators group` festgelegt ist, wenn [der LDAP-Zugriff für Benutzer konfiguriert wird](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), besitzen diese Benutzer automatisch Websiteadministratorzugriff auf Ihre Instanz. In diesem Fall ist es nicht möglich, Benutzer mit den folgenden Schritten manuell hochzustufen. Sie müssen sie zur Gruppe mit den LDAP-Administratoren hinzufügen.
+**Hinweis:** Wenn die [LDAP-Synchronisierung aktiviert ist](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) und das Attribut `Administrators group` festgelegt ist, wenn [der LDAP-Zugriff für Benutzer konfiguriert wird](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance), besitzen diese Benutzer automatisch Websiteadministratorzugriff auf Ihre Instanz. In diesem Fall ist es nicht möglich, Benutzer mit den folgenden Schritten manuell hochzustufen. Sie müssen sie zur Gruppe mit den LDAP-Administratoren hinzufügen.
 
 {% endtip %}
 

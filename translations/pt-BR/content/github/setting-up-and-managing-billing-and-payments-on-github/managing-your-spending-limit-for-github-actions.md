@@ -49,6 +49,8 @@ Proprietários de organizações e gestores de faturamento podem gerenciar o lim
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Em "{% data variables.product.prodname_actions %} e Pacotes de uso mensal", clique em **Gestão de custos**. ![Aba de gestão de custos](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Em "
+{% data variables.product.prodname_actions %} e pacotes de uso mensal", clique em **Gestão de custo**.
+  ![Aba de gestão de custos](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
