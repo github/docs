@@ -15,6 +15,10 @@
   {% elsif currentLanguage == 'en' and site.data.ui.header.notices.flags.product_in_progress == true %}
     {% assign header_notification_type = "product_in_progress" %}
     {% assign header_notification = site.data.ui.header.notices.product_in_progress %}
+
+  {% elsif page.hidden %}
+    {% assign header_notification_type = "early_access" %}
+    {% assign header_notification = site.data.ui.header.notices.early_access %}
   {% endif %}
 
   {% if header_notification %}

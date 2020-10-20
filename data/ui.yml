@@ -18,6 +18,8 @@ header:
     product_in_progress:
       👋 Hello, explorer! This page is under active development. For the
       most up-to-date and accurate information, please visit our <a href="https://developer.github.com">developer documentation</a>.
+    early_access:
+      👋 This page contains content about an early access feature. Please do not share this URL publicly.
 search:
   need_help: Need help?
   placeholder: Search topics, products...

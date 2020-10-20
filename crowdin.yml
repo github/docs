@@ -2,7 +2,8 @@ files:
   - source: /content/**/*.md
     translation: /translations/%locale%/%original_path%/%original_file_name%
     ignore: [
-      "/content/README.md"
+      "/content/README.md",
+      "/content/early-access"
     ]
   - source: /data/**/*.yml
     translation: /translations/%locale%/%original_path%/%original_file_name%

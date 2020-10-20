@@ -4,6 +4,8 @@
 node_modules
 npm-debug.log
 coverage
+content/early-access
+content/early-access-test
 
 # blc: broken link checker
 blc_output.log
