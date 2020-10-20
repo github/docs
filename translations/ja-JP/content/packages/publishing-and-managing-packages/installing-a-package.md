@@ -20,7 +20,7 @@ versions:
 
 ### パッケージをインストールする
 
-以下の同じ一般的なガイドラインに従って、サポートされているいずれかのパッケージのクライアントを使い、{% data variables.product.prodname_registry %}からパッケージをインストールできます。
+以下の同じ一般的なガイドラインに従って、{% if currentVersion == "free-pro-team@latest" %}サポートされているいずれかのパッケージのクライアント{% else %}インスタンスで有効化しているパッケージのタイプ{% endif %}を使い、{% data variables.product.prodname_registry %} からパッケージをインストールできます。
 
 1. 使用するパッケージクライアントについての指示に従って、{% data variables.product.prodname_registry %}の認証をしてください。 詳しい情報については「[トークンについて](/packages/publishing-and-managing-packages/about-github-packages#authenticating-to-github-packages)」を参照してください。
 2. 使用するパッケージクライアントに関する指示に従って、パッケージをインストールしてください。

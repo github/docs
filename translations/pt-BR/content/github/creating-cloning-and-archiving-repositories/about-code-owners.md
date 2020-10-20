@@ -20,7 +20,7 @@ Solicita-se automaticamente que os proprietários do código revisem quando algu
 
 Quando alguém com permissões de administrador ou proprietário tiver habilitado revisões obrigatórias, se desejar, ele também poderá exigir aprovação de um proprietário do código para que o autor possa fazer merge de uma pull request no repositório. Para obter mais informações, consulte "[Habilitar revisões obrigatórias para pull requests](/github/administering-a-repository/enabling-required-reviews-for-pull-requests)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}Se uma equipe tiver habilitado as tarefas de revisão de código, as aprovações individuais não satisfarão o requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se uma equipe habilitou as atribuições de revisão de código, as aprovações individuais não irão satisfazer o requisito para a aprovação do proprietário do código em um branch protegido. Para obter mais informações, consulte "[Gerenciando a responsabilidade pela revisão de código para sua equipe](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 Se um arquivo tiver um proprietário do código, você poderá ver quem é o proprietário do código antes de abrir um pull request. No repositório, é possível pesquisar o arquivo e passar o mouse sobre
@@ -78,8 +78,9 @@ docs/*  docs@example.com
 # em qualquer lugar do seu repositório.
 apps/ @octocat
 
-# Neste exemplo, @doctocat tem qualquer arquivo no diretório
-# `/docs` na raiz do seu repositório.
+# In this example, @doctocat owns any file in the `/docs`
+# directory in the root of your repository and any of its
+# subdirectories.
 /docs/ @doctocat
 ```
 

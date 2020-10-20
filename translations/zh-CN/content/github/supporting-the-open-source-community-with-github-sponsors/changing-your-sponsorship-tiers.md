@@ -1,6 +1,6 @@
 ---
 title: 更改赞助等级
-intro: 您可以添加新的赞助等级，也可以编辑或撤销现有等级。
+intro: '您可以添加新的赞助等级，也可以编辑或撤销现有等级。'
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
 versions:

@@ -35,28 +35,28 @@ versions:
 
 #### インスタンス設定
 
-|                                                      名前 | 説明                                                                                                                                                                                                                                                                        |
-| -------------------------------------------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `business.update_member_repository_creation_permission` | サイトアドミンは、インスタンス上の Organization でリポジトリの作成を制限しています。 詳しい情報については、「[インスタンスでリポジトリ作成を制限する](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)」を参照してください。                                                              |
-|               `business.clear_members_can_create_repos` | サイトアドミンは、インスタンス上の Organization でリポジトリ作成の制限を解除しています。 詳しい情報については、「[インスタンスでリポジトリ作成を制限する](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)」を参照してください。                                                            |
+|                                                      名前 | 説明                                                                                                                                                                                                                                                                          |
+| -------------------------------------------------------:| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `business.update_member_repository_creation_permission` | サイトアドミンは、インスタンス上の Organization でリポジトリの作成を制限しています。 詳細は「[インスタンスでリポジトリ作成を制限する](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)」を参照してください。                                                                      |
+|               `business.clear_members_can_create_repos` | サイトアドミンは、インスタンス上の Organization でリポジトリ作成の制限を解除しています。 詳細は「[インスタンスでリポジトリ作成を制限する](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)」を参照してください。                                                                    |
 |           `enterprise.config.lock_anonymous_git_access` | リポジトリ管理者が、インスタンス上のリポジトリに対する既存の匿名 Git 読み取りアクセス設定を変更できないようにするため、サイトアドミンは、匿名 Git 読み取りアクセス設定をロックしています。 詳細は「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。   |
 |         `enterprise.config.unlock_anonymous_git_access` | リポジトリ管理者が、インスタンス上のリポジトリに対する既存の匿名 Git 読み取りアクセス設定を変更できるようにするため、サイトアドミンは、匿名 Git 読み取りアクセス設定のロックを解除しています。 詳細は「[ユーザによる匿名 Git 読み取りアクセスの変更を禁止する](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)」を参照してください。 |
 
 #### Issue およびプルリクエスト
 
-|                                   名前 | 説明                                                                                                                  |
-| ------------------------------------:| ------------------------------------------------------------------------------------------------------------------- |
-|                       `issue.update` | Issue のテキスト本体（最初のコメント）が変更されました。                                                                                     |
-|               `issue_comment.update` | Issue （最初以外）のコメントが変更されました。                                                                                          |
-| `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                                            |
+|                                   名前 | 説明                                                                                                                    |
+| ------------------------------------:| --------------------------------------------------------------------------------------------------------------------- |
+|                       `issue.update` | Issue のテキスト本体（最初のコメント）が変更されました。                                                                                       |
+|               `issue_comment.update` | Issue （最初以外）のコメントが変更されました。                                                                                            |
+| `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                                              |
 |                      `issue.destroy` | Issue がリポジトリから削除されました。 詳細は「[Issue を削除する](/enterprise/{{ currentVersion }}/user/articles/deleting-an-issue)」を参照してください。 |
 
 #### Organization
 
-|                 名前 | 説明                                                                                                                                                                |
-| ------------------:| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `org.async_delete` | ユーザが Organization を削除するための背景ジョブを開始しました。                                                                                                                           |
-|       `org.delete` | ユーザが行った背景ジョブによって Organization が削除されました。                                                                                                                           |
+|                 名前 | 説明                                                                                                                                                                  |
+| ------------------:| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `org.async_delete` | ユーザが Organization を削除するための背景ジョブを開始しました。                                                                                                                             |
+|       `org.delete` | ユーザが行った背景ジョブによって Organization が削除されました。                                                                                                                             |
 |    `org.transform` | ユーザアカウントが Organization へと変換されました。 詳しくは [ユーザをOrganization に変換する方法](/enterprise/{{ currentVersion}}/user/articles/converting-a-user-into-an-organization/) を参照してください。 |
 
 #### 保護されたブランチ
@@ -76,18 +76,18 @@ versions:
 
 #### リポジトリ
 
-|                                         名前 | 説明                                                                                                                                                                                                                                           |
-| ------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                              `repo.access` | プライベートリポジトリが公開されたか、パブリックリポジトリが非公開にされました。                                                                                                                                                                                                     |
+|                                         名前 | 説明                                                                                                                                                                                                                                             |
+| ------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              `repo.access` | プライベートリポジトリが公開されたか、パブリックリポジトリが非公開にされました。                                                                                                                                                                                                       |
 |                             `repo.archive` | リポジトリがアーカイブされました。 詳細は「[リポジトリのアーカイブとアーカイブ削除](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)」を参照してください。                                                                                  |
-|                          `repo.add_member` | リポジトリにコラボレーターが追加されました。                                                                                                                                                                                                                       |
+|                          `repo.add_member` | リポジトリにコラボレーターが追加されました。                                                                                                                                                                                                                         |
 |                              `repo.config` | サイト管理者がフォースプッシュをブロックしました。 詳しくは、 [リポジトリへのフォースプッシュのブロック](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)を参照してください。                                                                      |
-|                              `repo.create` | リポジトリが作成されました。                                                                                                                                                                                                                               |
-|                             `repo.destroy` | リポジトリが削除されました。                                                                                                                                                                                                                               |
-|                       `repo.remove_member` | コラボレーターがリポジトリから削除されました。                                                                                                                                                                                                                      |
-|                              `repo.rename` | リポジトリの名前が変更されました。                                                                                                                                                                                                                            |
-|                            `repo.transfer` | ユーザーが転送されたリポジトリを受け取る要求を受け入れました。                                                                                                                                                                                                              |
-|                      `repo.transfer_start` | ユーザーがリポジトリを別のユーザーまたは Organization に転送する要求を送信しました。                                                                                                                                                                                            |
+|                              `repo.create` | リポジトリが作成されました。                                                                                                                                                                                                                                 |
+|                             `repo.destroy` | リポジトリが削除されました。                                                                                                                                                                                                                                 |
+|                       `repo.remove_member` | コラボレーターがリポジトリから削除されました。                                                                                                                                                                                                                        |
+|                              `repo.rename` | リポジトリの名前が変更されました。                                                                                                                                                                                                                              |
+|                            `repo.transfer` | ユーザーが転送されたリポジトリを受け取る要求を受け入れました。                                                                                                                                                                                                                |
+|                      `repo.transfer_start` | ユーザーがリポジトリを別のユーザーまたは Organization に転送する要求を送信しました。                                                                                                                                                                                              |
 |                           `repo.unarchive` | リポジトリがアーカイブ解除されました。 詳細は「[リポジトリのアーカイブとアーカイブ削除](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)」を参照してください。                                                                                |
 | `repo.config.disable_anonymous_git_access` | 匿名 Git 読み取りアクセスがパブリックリポジトリに対して無効になります。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                     |
 |  `repo.config.enable_anonymous_git_access` | 匿名 Git 読み取りアクセスがパブリックリポジトリに対して有効になっています。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。                                                   |
@@ -96,13 +96,13 @@ versions:
 
 #### サイトアドミンのツール
 
-|                   名前 | 説明                                                                                |
-| --------------------:| --------------------------------------------------------------------------------- |
-| `staff.disable_repo` | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                            |
-|  `staff.enable_repo` | サイトアドミンがリポジトリとその全てのフォークへのアクセスを再度有効化しました。                                          |
+|                   名前 | 説明                                                                           |
+| --------------------:| ---------------------------------------------------------------------------- |
+| `staff.disable_repo` | サイトアドミンがリポジトリとその全てのフォークへのアクセスを無効にしました。                                       |
+|  `staff.enable_repo` | サイトアドミンがリポジトリとその全てのフォークへのアクセスを再度有効化しました。                                     |
 |   `staff.fake_login` | サイトアドミンが {% data variables.product.prodname_enterprise %}に別のユーザとしてサインインしました。 |
-|  `staff.repo_unlock` | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                    |
-|       `staff.unlock` | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                                 |
+|  `staff.repo_unlock` | サイトアドミンがユーザのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                               |
+|       `staff.unlock` | サイトアドミンがユーザの全てのプライベートリポジトリを解除（一時的にフルアクセスが可能）しました。                            |
 
 #### Team
 

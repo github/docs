@@ -1,6 +1,6 @@
 ---
 title: リポジトリのアーカイブ処理について
-intro: リポジトリをアーカイブするということは、そのプロジェクトがアクティブにメンテナンスされなくなるということを人々に伝えることになります。
+intro: 'リポジトリをアーカイブするということは、そのプロジェクトがアクティブにメンテナンスされなくなるということを人々に伝えることになります。'
 redirect_from:
   - /articles/about-archiving-repositories
 versions:
@@ -20,7 +20,7 @@ versions:
 
 リポジトリがアーカイブされると、コラボレータや Team の追加や削除ができなくなります。 リポジトリへのアクセス権を持つコントリビューターは、プロジェクトをフォークするか Star を付けることだけができます。
 
-リポジトリがアーカイブされると、そのIssue、プルリクエスト、コード、ラベル、マイルストーン、プロジェクト、Wiki、リリース、コミット、タグ、ブランチ、リアクション、コメントはリードオンリーになります。 アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
+When a repository is archived, its issues, pull requests, code, labels, milestones, projects, wiki, releases, commits, tags, branches, reactions, code scanning alerts, and comments become read-only. アーカイブされたリポジトリに変更を加えるには、まずそのリポジトリのアーカイブ解除をしなければなりません。
 
 アーカイブされたリポジトリに対して検索ができます。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[リポジトリの検索](/articles/searching-for-repositories/#search-based-on-whether-a-repository-is-archived)を参照してください。 詳しい情報については[Issueやプルリクエストの検索](/articles/searching-issues-and-pull-requests/#search-based-on-whether-a-repository-is-archived)を参照してください。
 

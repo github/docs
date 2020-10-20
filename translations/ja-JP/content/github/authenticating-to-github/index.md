@@ -1,7 +1,7 @@
 ---
 title: GitHubへの認証方法
 shortTitle: 認証
-intro: 2要素認証、SSH、コミット署名の検証などの機能を使用して、アカウントとデータを保護します。
+intro: '2要素認証、SSH、コミット署名の検証などの機能を使用して、アカウントとデータを保護します。'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/

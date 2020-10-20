@@ -11,14 +11,14 @@ versions:
   enterprise-server: '*'
 ---
 
-モバイルアプリまたは{% if currentVersion == "free-pro-team@latest" %}テキストメッセージ{% endif %}を使って、2 要素認証を設定できます。 また、セキュリティキーを追加することも可能です。
+You can configure two-factor authentication using a mobile app{% if currentVersion == "free-pro-team@latest" %} or via text message{% endif %}. また、セキュリティキーを追加することも可能です。
 
-2 要素認証の設定には、時間ベースのワンタイムパスワード (TOTP) アプリケーションを使うことを強くおすすめします。{% if currentVersion == "free-pro-team@latest" %}TOTP アプリケーションは、特に米国外において、SMS より信頼性があります。{% endif %}TOTP アプリは、クラウド内にある認証コードのセキュアなバックアップをサポートしており、デバイスにアクセスできなくなった場合に回復できます。
+We strongly recommend using a time-based one-time password (TOTP) application to configure 2FA.{% if currentVersion == "free-pro-team@latest" %} TOTP applications are more reliable than SMS, especially for locations outside the United States.{% endif %} TOTP apps support the secure backup of your authentication codes in the cloud and can be restored if you lose access to your device.
 
 {% warning %}
 
 **警告:**
-- 2 要素認証が必要なメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー、{% endif %}または Organization のプライベートリポジトリへの外部コラボレーターは、2 要素認証を無効化する前に {% data variables.product.product_location %} で Organization から離脱する必要があります。
+- If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.product.product_location %}.
 - 2 要素認証を無効化すると、Organization や Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization およびフォークへのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
@@ -45,7 +45,9 @@ versions:
 8. [Two-factor authentication] ページで、次のいずれかを実行します:
     - QR コードを、モバイルデバイスのアプリでスキャンする。 スキャン後、アプリは {% data variables.product.product_name %} で入力する 6 桁の数字を表示します。
     - QR コードをスキャンできない場合は、[**enter this text code**] をクリックしてコードを表示し、それをコピーして {% data variables.product.product_name %} に手入力してください。 ![[enter this code] をクリック](/assets/images/help/2fa/totp-click-enter-code.png)
-9. TOTP モバイルアプリは、あなたの {% data variables.product.product_name %} アカウントを保存し、数秒ごとに認証コードを新しく生成します。 {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。 ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
+9. The TOTP mobile application saves your
+{% data variables.product.product_name %} account and generates a new authentication code every few seconds. {% data variables.product.product_name %} の 2 要素認証ページでコードを入力し、[**Enable**] をクリックします。
+    ![[TOTP Enable] フィールド](/assets/images/help/2fa/totp-enter-code.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -79,32 +81,16 @@ TOTP モバイルアプリを使って認証できない場合は、SMS メッ�
 
 ほとんどのデバイスとブラウザでは、USB または NFC を介して物理セキュリティキーを使用できます。 一部のブラウザでは、デバイス上の指紋リーダー、顔認識、またはパスワード/ PIN をセキュリティキーとして使用できます。
 
-セキュリティキーによる認証は、TOTP アプリケーション{% if currentVersion == "free-pro-team@latest" %}またはテキストメッセージ{% endif %}による認証の*二次的な*方法です。 セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
+Authentication with a security key is *secondary* to authentication with a TOTP application{% if currentVersion == "free-pro-team@latest" %} or a text message{% endif %}. セキュリティキーをなくした場合でも、モバイルデバイスのコードを使ってサインインできます。
 
-1. TOTP モバイルアプリ{% if currentVersion == "free-pro-team@latest" %}または SMS{% endif %} 経由で、あらかじめ 2 要素認証を設定しておく必要があります。
-2. お手元のコンピュータに
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}WebAuthn{% else %}FIDO U2F{% endif %} に対応したセキュリティキーが挿入されていることを確認してください。
+1. You must have already configured 2FA via a TOTP mobile app{% if currentVersion == "free-pro-team@latest" %} or via SMS{% endif %}.
+2. Ensure that you have a WebAuthn compatible security key inserted into your computer.
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 5. [Security keys] の隣にある [**Add**] をクリックします。 ![セキュリティキーの追加オプション](/assets/images/help/2fa/add-security-keys-option.png)
-6. [Security keys] で、[**Register new security key**] をクリックします。
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![新しいセキュリティキーを登録する](/assets/images/help/2fa/security-key-register.png)
-  {% else %}
-  ![新しい FIDO U2F デバイスを登録する](/assets/images/help/2fa/register_new_fido_u2f_device.png)
-  {% endif %}
-7. セキュリティキーのニックネームを入力して、[**Add**] をクリックします。
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![セキュリティキーにニックネームを付ける](/assets/images/help/2fa/security-key-nickname.png)
-  {% else %}
-  ![FIDO U2F デバイスにニックネームを付ける](/assets/images/help/2fa/fido_u2f_nickname.png)
-  {% endif %}
-8. お手持ちのセキュリティキーのドキュメンテーションに従い、セキュリティキーをアクティベートします。
-  {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-  ![セキュリティキーのプロンプト](/assets/images/help/2fa/security-key-prompt.png)
-  {% else %}
-  ![FIDO U2F デバイスのプロンプト](/assets/images/help/2fa/fido_u2f_prompt_key.png)
-  {% endif %}
+6. [Security keys] で、[**Register new security key**] をクリックします。 ![新しいセキュリティキーを登録する](/assets/images/help/2fa/security-key-register.png)
+7. セキュリティキーのニックネームを入力して、[**Add**] をクリックします。 ![セキュリティキーにニックネームを付ける](/assets/images/help/2fa/security-key-nickname.png)
+8. お手持ちのセキュリティキーのドキュメンテーションに従い、セキュリティキーをアクティベートします。 ![セキュリティキーのプロンプト](/assets/images/help/2fa/security-key-prompt.png)
 9.  リカバリコードをダウンロードしていて、アクセスできることを確認してください。 まだコードをダウンロードしていないか、コードのセットをもう 1 つ生成したい場合は、コードをダウンロードして、安全な場所に保存します。 アカウントにアクセスできなくなった場合、リカバリコードを使ってアカウントへのアクセスを回復できます。 詳しい情報については[2FA クレデンシャルをなくした際のアカウントの回復](/articles/recovering-your-account-if-you-lose-your-2fa-credentials)を参照してください。 ![[Download recovery codes] ボタン](/assets/images/help/2fa/2fa-recover-during-setup.png)
 {% data reusables.two_fa.test_2fa_immediately %}
 

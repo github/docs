@@ -118,8 +118,8 @@ When code examples refer to a larger file, show the relevant section of the file
 
 ```
 on:
-schedule:
-  - cron:  "40 19 * * *"
+  schedule:
+    - cron:  "40 19 * * *"
 ```
 
 - **Avoid:**
@@ -346,7 +346,7 @@ Use clear, simple language that’s approachable and accessible for a wide range
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology) in and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

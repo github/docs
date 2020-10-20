@@ -1,6 +1,6 @@
 ---
 title: Inhalte zur GitHub Pages-Website mit Jekyll hinzufügen
-intro: 'Du kannst Du Deiner Jekyll-Website auf {% data variables.product.prodname_pages %} eine neue Seite oder einen neuen Beitrag hinzufügen.'
+intro: 'Sie können zu Ihrer Jekyll-Website auf {% data variables.product.prodname_pages %} eine neue Seite oder einen neuen Beitrag hinzufügen.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/adding-content-to-your-github-pages-site-using-jekyll
@@ -13,7 +13,7 @@ Personen mit Schreibberechtigungen für ein Repository können mit Jekyll Inhalt
 
 ### Informationen zu Inhalten von Jekyll-Websites
 
-Bevor Du Inhalte zu einer Jekyll-Website auf {% data variables.product.prodname_pages %} hinzufügen kannst, musst Du eine Jekyll-Website erstellen. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
+Bevor Sie Inhalte zu einer Jekyll-Website auf {% data variables.product.prodname_pages %} hinzufügen können, müssen Sie eine Jekyll-Website erstellen. Weitere Informationen findest Du unter „[Eine {% data variables.product.prodname_pages %}-Website mit Jekyll erstellen](/articles/creating-a-github-pages-site-with-jekyll).“
 
 Die hauptsächlichen Arten von Inhalten für Jekyll-Websites sind Seiten und Beiträge. Eine Seite wird für eigenständige Inhalte genutzt, die nicht mit einem bestimmten Datum verknüpft sind, z. B. eine Seite mit Informationen zu Deiner Person oder Organisation. Die standardmäßige Jekyll-Website enthält eine Datei mit dem Namen `about.md`, die als Seite Deiner Website unter `YOUR-SITE-URL/about` angezeigt wird. Du kannst den Inhalt dieser Datei bearbeiten, um Deine Informationsseite zu personalisieren. Die Informationsseite kannst Du außerdem als Vorlage für neue Seiten verwenden. Weitere Informationen findest Du unter „[Pages](https://jekyllrb.com/docs/pages/)“ (Seiten) in der Jekyll-Dokumentation.
 

@@ -1,6 +1,6 @@
 ---
 title: Organization リポジトリへの Team のアクセスを管理する
-intro: リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。
+intro: 'リポジトリへのチームアクセスを付与、リポジトリへのチームアクセスを削除、またはリポジトリへのチームの権限レベルを変更することができます。'
 redirect_from:
   - /articles/managing-team-access-to-an-organization-repository-early-access-program/
   - /articles/managing-team-access-to-an-organization-repository

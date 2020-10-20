@@ -1,6 +1,6 @@
 ---
 title: Deine autorisierten Integrationen überprüfen
-intro: 'Du kannst Deine autorisierten Integrationen überprüfen, um den Zugriff der einzelnen Integrationen auf Dein Konto und Deine Daten zu prüfen.'
+intro: Du kannst Deine autorisierten Integrationen überprüfen, um den Zugriff der einzelnen Integrationen auf Dein Konto und Deine Daten zu prüfen.
 redirect_from:
   - /articles/reviewing-your-authorized-integrations
 versions:

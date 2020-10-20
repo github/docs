@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Data de entrada em vigor: 22 de Julho de 2020
+Data de vigência: 2 de outubro de 2020
 
 Agradecemos por confiar seu código-fonte, seus projetos e suas informações pessoais à GitHub Inc. (“GitHub” ou “nós”). Manter suas informações pessoais em segurança é uma responsabilidade que levamos a sério, e queremos mostrar como fazemos esse trabalho.
 
@@ -219,15 +219,15 @@ Com isso, o endereço de e-mail que você informou [nas suas configurações de 
 
 #### Cookies
 
-O GitHub usa cookies para tornar as interações com nosso serviço fáceis e significativas. Cookies são pequenos arquivos de texto que os sites costumam armazenar nos discos rígidos de computadores ou dispositivos móveis de visitantes. Usamos cookies (e tecnologias afins, como HTML5 localStorage) para manter a sua conexão ativa, lembrar de suas preferências e dar informações para o desenvolvimento futuro do GitHub. Por motivos de segurança, usamos cookies para identificar um dispositivo. Ao usar o nosso Site, você concorda que podemos inserir esses tipos de cookies no seu computador ou dispositivo. Se você desativar o navegador ou a capacidade de o seu dispositivo aceitar cookies, não será possível fazer login nem usar os serviços do GitHub.
+O GitHub usa cookies e tecnologias similares (coletivamente, denominados “cookies”) para tornar as interações com nosso serviço fáceis e significativas. Cookies são pequenos arquivos de texto que os sites costumam armazenar nos discos rígidos de computadores ou dispositivos móveis de visitantes. Usamos cookies para fornecer nossos serviços como, por exemplo, para manter você conectado, para lembrar as suas preferências, identificar o seu dispositivo para fins de segurança e fornecer informações para o desenvolvimento futuro do GitHub. Ao usar o nosso Site, você concorda que podemos inserir esses tipos de cookies no seu computador ou dispositivo. Se você desativar o navegador ou a capacidade de o seu dispositivo aceitar cookies, não será possível fazer login nem usar os serviços do GitHub.
 
-Mantemos uma página na internet sobre [cookies e rastreamento](/github/site-policy/github-subprocessors-and-cookies) que descreve nossos cookies, as necessidades que temos para criar esses cookies e quais são os tipos de cookies mantemos (temporários ou permanentes). A página também lista nossos provedores de análise de terceiros e provedores de outros serviços, detalhando exatamente em quais partes do nosso Site eles têm permissão de monitoramento.
+Fornecemos mais informações sobre [cookies no GitHub](/github/site-policy/github-subprocessors-and-cookies#cookies-on-github) na nossa página [Subprocessadores e Cookies do GitHub](/github/site-policy/github-subprocessors-and-cookies) que descreve os cookies que definimos, a necessidade que temos para esses cookies e a expiração desses cookies. Ele também lista nossos provedores terceiros de análise e como você pode controlar suas configurações de preferência de cookies para esses cookies.
 
 #### Rastreamento e análise
 
 Usamos vários provedores de análise e de serviços de terceiros para ajudar a avaliar o uso dos nossos Usuários do GitHub, compilar relatórios estatísticos sobre a atividade e melhorar nosso conteúdo e o desempenho do nosso Site. Usamos esses provedores de análise de terceiros somente em determinadas áreas do nosso Site, e todos eles celebraram acordos de proteção de dados conosco que definem o tipo de Informações Pessoais de Usuário que podem coletar e os fins do processamento de informações. Ademais, usamos nosso próprio software interno de análise para oferecer recursos e melhorar nosso conteúdo e desempenho.
 
-Alguns navegadores integraram recursos de "Não Rastrear" (DNT) que podem enviar um sinal aos sites que você acessa indicando que você não concorda com o rastreamento. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Caso você não tenha habilitado o DNT em um navegador compatível com esse recurso, os cookies de algumas partes do nosso Site rastrearão sua atividade de navegação online em outros serviços online ao longo do tempo, embora não permitamos que terceiros além de nossos provedores de análise e serviços monitorem a atividade dos Usuários do GitHub ao longo do tempo no GitHub.
+Alguns navegadores integraram recursos de "Não Rastrear" (DNT) que podem enviar um sinal aos sites que você acessa indicando que você não concorda com o rastreamento. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Caso você não tenha habilitado o DNT em um navegador compatível com esse recurso, os cookies de algumas partes do nosso Site rastrearão sua atividade de navegação online em outros serviços online ao longo do tempo, embora não permitamos que terceiros além de nossos provedores de análise e serviços monitorem a atividade dos Usuários do GitHub ao longo do tempo no GitHub. Você pode ler mais sobre DNT na nossa seção [Acompanhamento do GitHub](/github/site-policy/github-subprocessors-and-cookies#tracking-on-github) da nossa página de [Subprocessadores e Cookies do GitHub](/github/site-policy/github-subprocessors-and-cookies).
 
 ### Como o GitHub protege suas informações
 
@@ -248,7 +248,7 @@ Nenhum método de transmissão ou método de armazenamento eletrônico é 100% s
 
 ### Práticas globais de privacidade do GitHub
 
-GitHub, Inc. and, for those in the European Economic Area, the United Kingdom, and Switzerland, GitHub B.V. are the controllers responsible for the processing of your personal information in connection with the Service, except (a) with respect to personal information that was added to a repository by its contributors, in which case the owner of that repository is the controller and GitHub is the processor (or, if the owner acts as a processor, GitHub will be the subprocessor); or (b) when you and GitHub have entered into a separate agreement that covers data privacy (such as a Data Processing Agreement).
+GitHub, Inc. e, para aqueles do Espaço Econômico Europeu, Reino Unido e Suíça, os B.V. do GitHub são os controladores responsáveis pelo processamento das suas informações pessoais com relação ao Serviço, exceto (a) no que diz respeito a informações pessoais adicionadas a um repositório pelos seus contribuidores, em cujo caso, o proprietário desse repositório é o controlador e o GitHub é o processador (ou, se o proprietário atuar como processador, o GitHub será o subprocessador); ou (b) quando você e o GitHub tiverem celebrado um acordo separado que cubra a privacidade de dados (como um Contrato de Processamento de Dados).
 
 Nossos endereços são:
 

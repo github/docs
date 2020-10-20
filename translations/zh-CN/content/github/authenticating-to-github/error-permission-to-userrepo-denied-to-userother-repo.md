@@ -1,6 +1,6 @@
 ---
-title: 错误：用户/仓库拒绝用户/其他仓库的权限
-intro: 此错误意味着您正在推送的密钥作为 deploy key 附加到另一个仓库，并且对您尝试推送到的仓库的没有访问权限。
+title: '错误：用户/仓库拒绝用户/其他仓库的权限'
+intro: '此错误意味着您正在推送的密钥作为 deploy key 附加到另一个仓库，并且对您尝试推送到的仓库的没有访问权限。'
 redirect_from:
   - /articles/error-permission-to-user-repo-denied-to-user-other-repo
   - /articles/error-permission-to-userrepo-denied-to-userother-repo

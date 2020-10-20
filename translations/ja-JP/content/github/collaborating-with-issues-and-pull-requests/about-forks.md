@@ -17,17 +17,17 @@ versions:
 
 {% data reusables.repositories.desktop-fork %}
 
-フォークを削除しても、オリジナルの上流のリポジトリは削除されません。 オリジナルに影響を与えることなく、コラボレータの追加、ファイル名の変更、{% data variables.product.prodname_pages %} の生成など、自分のフォークに必要な変更を加えることができます。{% if currentVersion == "free-pro-team@latest" %}削除されたフォークリポジトリを復元することはできません。 詳しい情報については、「[削除されたリポジトリを復元する](/articles/restoring-a-deleted-repository)」を参照してください。{% endif %}
+フォークを削除しても、オリジナルの上流のリポジトリは削除されません。 You can make any changes you want to your fork—add collaborators, rename files, generate {% data variables.product.prodname_pages %}—with no effect on the original.{% if currentVersion == "free-pro-team@latest" %} You cannot restore a deleted forked repository. 詳しい情報については、「[削除されたリポジトリを復元する](/articles/restoring-a-deleted-repository)」を参照してください。{% endif %}
 
 オープンソースプロジェクトでは、フォークを使用して、上流のリポジトリに提供される前にアイデアや変更をイテレーションすることがよくあります。 ユーザ所有のフォークに変更を加え、作業を上流リポジトリと比較するプルリクエストをオープンすると、上流リポジトリへのプッシュアクセスできる人に対して、変更をプルリクエストブランチにプッシュする権限を付与することができます。 これにより、リポジトリメンテナがマージする前に、ユーザが所有するフォークからプルリクエストブランチに対してローカルでコミットを実行したり、テストを実行したりすることができるようになり、コラボレーションがスピードアップします。 Organization が所有するフォークにプッシュ権限を与えることはできません。
 
 {% data reusables.repositories.private_forks_inherit_permissions %}
 
-既存のリポジトリのコンテンツから新しいリポジトリを作成したいけれども、将来にわたって変更を上流にマージしたくない場合、リポジトリを複製する{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}か、リポジトリがテンプレートである場合は、リポジトリをテンプレートとして使う{% endif %}ことができます。 詳細は「[リポジトリを複製する](/articles/duplicating-a-repository)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}および「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」{% endif %}を参照してください。
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes upstream in the future, you can duplicate the repository or, if the repository is a template, use the repository as a template. 詳細は「[リポジトリを複製する](/articles/duplicating-a-repository)」および「[テンプレートからリポジトリを作成する](/articles/creating-a-repository-from-a-template)」を参照してください。
 
 ### 参考リンク
 
 - [コラボレーティブ開発モデルについて](/articles/about-collaborative-development-models)
 - [フォークからプルリクエストを作成する](/articles/creating-a-pull-request-from-a-fork)
-- [オープンソースガイド](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
+- [Open Source Guides](https://opensource.guide/){% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

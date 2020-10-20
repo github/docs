@@ -11,9 +11,15 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+
+{% endnote %}
+
 ### About linked issues and pull requests
 
-You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}manually or {% endif %}using a supported keyword in the pull request description.
+You can link an issue to a pull request {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}manually or {% endif %}using a supported keyword in the pull request description. 
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue. {% if currentVersion ver_lt "enterprise-server@2.21" %}If the pull request and the issue are in different repositories, {% data variables.product.product_name %} will display the link after the pull request is merged, if the person who merges the pull request also has permission to close the issue.{% endif %}
 
@@ -37,7 +43,7 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 
 ### Linking a pull request to an issue using a keyword
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description.
+You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch). 
 
 * close
 * closes

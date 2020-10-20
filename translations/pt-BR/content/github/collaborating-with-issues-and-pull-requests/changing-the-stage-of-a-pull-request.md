@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: 'Você pode marcar uma pull request de rascunho como pronta para revisão{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} ou converter uma pull request para rascunho{% endif %}.'
+intro: 'Você pode marcar um rascunho de pull request como pronto para a revisão{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} ou converter um pull request em um rascunho{% endif %}.'
 permissions: Pessoas com permissões de gravação em um repositório e autores de pull request podem alterar o stage de uma pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
