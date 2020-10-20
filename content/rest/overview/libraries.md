@@ -16,7 +16,7 @@ versions:
   <div class="octokit-links"><br/>
      <div class="octokit-language"> <span>Ruby → </span><a href="https://github.com/octokit/octokit.rb">octokit.rb</a></div><br/>
      <div class="octokit-language"><span>.NET → </span> <a href="https://github.com/octokit/octokit.net">octokit.net</a></div><br/>
-     <div class="octokit-language"><span>Javascript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
+     <div class="octokit-language"><span>JavaScript → </span> <a href="https://github.com/octokit/rest.js">octokit/rest.js</a></div><br/>
   </div>
 </div>
 
@@ -60,11 +60,11 @@ Library name | Repository
 
 ### Java
 
-Library name | Repository | more informations
+Library name | Repository | More information
 |---|---|---|
 **GitHub Java API**| [org.eclipse.egit.github.core](https://github.com/eclipse/egit-github/tree/master/org.eclipse.egit.github.core) | Is part of the [GitHub Mylyn Connector](https://github.com/eclipse/egit-github) and aims to support the entire GitHub v3 API.  Builds are available in [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22org.eclipse.egit.github.core%22).
 **GitHub API for Java**| [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)|defines an object oriented representation of the GitHub API.
-**JCabi GitHub API**|[github.jcabi.com (Personal Website)](http://github.jcabi.com)|is based on Java7 JSON API (JSR-353),simplifies tests with a runtime GitHub stub, and covers the entire API.
+**JCabi GitHub API**|[github.jcabi.com (Personal Website)](http://github.jcabi.com)|is based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API.
 
 ### JavaScript
 
@@ -105,7 +105,7 @@ Library name | Repository
 **GitHub Nette Extension**|[kdyby/github](https://github.com/kdyby/github)
 **GitHub API Easy Access**|[milo/github-api](https://github.com/milo/github-api)
 **GitHub bridge for Laravel**|[GrahamCampbell/Laravel-Github](https://github.com/GrahamCampbell/Laravel-GitHub)
-**PHP5.6 && PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
+**PHP7 Client & WebHook wrapper**|[FlexyProject/GithubAPI](https://github.com/FlexyProject/GitHubAPI)
 
 ### Python
 
