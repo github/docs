@@ -21,9 +21,9 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+如果要删除的分支是仓库的默认分支，则在删除该分支之前必须选择新的默认分支。 For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
-If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
+如果要删除的分支与打开的拉取请求关联，则在删除该分支之前必须合并或关闭拉取请求。 更多信息请参阅“[合并拉取请求](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)”和“[关闭拉取请求](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)”。
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}

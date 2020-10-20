@@ -1,6 +1,6 @@
 ---
 title: Übersicht über Deine Aktivitäten in Deinem Profil anzeigen
-intro: 'In Deinem Profil kannst Du die Aktivitätsübersicht aktivieren, in der Betrachter eine Übersicht über die Art Deiner Beiträge erhalten.'
+intro: In Deinem Profil kannst Du die Aktivitätsübersicht aktivieren, in der Betrachter eine Übersicht über die Art Deiner Beiträge erhalten.
 redirect_from:
   - /articles/showing-an-overview-of-your-activity-on-your-profile
 versions:

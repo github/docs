@@ -15,7 +15,8 @@ versions:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Select the {% data variables.product.prodname_github_app %} you want to enable a beta feature for.
+3. Select the
+{% data variables.product.prodname_github_app %} you want to enable a beta feature for.
 {% data reusables.apps.beta_feature_activation %}
 
 ### Activating beta features for {% data variables.product.prodname_oauth_app %}s

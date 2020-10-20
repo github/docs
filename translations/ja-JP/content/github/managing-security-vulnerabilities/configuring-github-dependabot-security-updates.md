@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### {% data variables.product.prodname_dependabot_security_updates %}について
+### {% data variables.product.prodname_dependabot_security_updates %} について
 
 {% data variables.product.prodname_dependabot_short %} は {% data variables.product.prodname_advisory_database %} や [WhiteSource](https://www.whitesourcesoftware.com/vulnerability-database) などのセキュリティアドバイザリを監視し、リポジトリの依存関係グラフで新たに脆弱性のある依存関係を検出すると、プルリクエストを自動的にトリガーします。 {% data variables.product.prodname_advisory_database %} の詳細については、「[{% data variables.product.prodname_advisory_database %} について](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database#about-the-github-advisory-database)」を参照してください。
 
@@ -23,7 +23,8 @@ versions:
 
 {% note %}
 
-**注釈:** {% data variables.product.prodname_dependabot_security_updates %} は、依存関係グラフによって追跡される依存関係のセキュリティの脆弱性のみを解決します。 セキュリティアップデートは、プライベートリポジトリでホストされているプライベートレジストリまたはパッケージの脆弱性を解決するために作成されていません。 ただし、間接的または推移的な依存関係は、ロックファイルなどで明示的に定義されている場合に含まれます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。 さらに、依存関係が脆弱であると検出された場合、{% data variables.product.prodname_dependabot_security_updates %} がロックファイルへの修正案を含むプルリクエストを自動的に作成することを強調することが重要です。
+**注釈**
+{% data variables.product.prodname_dependabot_security_updates %} only resolve security vulnerabilities in the dependencies tracked by your dependency graph. セキュリティアップデートは、プライベートリポジトリでホストされているプライベートレジストリまたはパッケージの脆弱性を解決するために作成されていません。 ただし、間接的または推移的な依存関係は、ロックファイルなどで明示的に定義されている場合に含まれます。 詳しい情報については、「[依存関係グラフについて](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)」を参照してください。 さらに、依存関係が脆弱であると検出された場合、{% data variables.product.prodname_dependabot_security_updates %} がロックファイルへの修正案を含むプルリクエストを自動的に作成することを強調することが重要です。
 
 {% endnote %}
 
@@ -41,14 +42,14 @@ versions:
 
 {% endnote %}
 
-| 自動有効化の前提条件                                                                                                                           | 詳細情報                                                                                                                                                          |
-| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| リポジトリがフォークではない                                                                                                                       | 「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」                                                                                 |
-| リポジトリがアーカイブされていない                                                                                                                    | 「[リポジトリをアーカイブする](/github/creating-cloning-and-archiving-repositories/archiving-repositories)」                                                                 |
-| リポジトリがパブリックである、またはリポジトリがプライベートであり、リポジトリの設定で {% data variables.product.prodname_dotcom %}、依存関係グラフ、および脆弱性アラートによる読み取り専用分析が有効化されている | 「[プライベートリポジトリのデータ使用設定を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」             |
-| リポジトリに {% data variables.product.prodname_dotcom %} がサポートするパッケージエコシステムの依存関係マニフェストファイルが含まれている                                    | 「[サポートされているパッケージエコシステム](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」                             |
+| 自動有効化の前提条件                                                                                                                      | 詳細情報                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| リポジトリがフォークではない                                                                                                                  | 「[フォークについて](/github/collaborating-with-issues-and-pull-requests/about-forks)」                                                                            |
+| リポジトリがアーカイブされていない                                                                                                               | 「[リポジトリをアーカイブする](/github/creating-cloning-and-archiving-repositories/archiving-repositories)」                                                            |
+| リポジトリがパブリックである、またはリポジトリがプライベートであり、リポジトリの設定で {% data variables.product.prodname_dotcom %}、依存関係グラフ、および脆弱性アラートによる読み取り専用分析が有効化されている | 「[プライベートリポジトリのデータ使用設定を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)」        |
+| リポジトリに {% data variables.product.prodname_dotcom %} がサポートするパッケージエコシステムの依存関係マニフェストファイルが含まれている                                    | 「[サポートされているパッケージエコシステム](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph#supported-package-ecosystems)」                        |
 | {% data variables.product.prodname_dependabot_security_updates %} がリポジトリに対して無効になっていない                                         | 「[リポジトリの {% data variables.product.prodname_dependabot_security_updates %} を管理する](#managing-github-dependabot-security-updates-for-your-repositories)」 |
-| リポジトリが依存関係管理の統合をまだ使用していない                                                                                                            | "[インテグレーションについて](/github/customizing-your-github-workflow/about-integrations)"                                                                                |
+| リポジトリが依存関係管理の統合をまだ使用していない                                                                                                       | "[インテグレーションについて](/github/customizing-your-github-workflow/about-integrations)"                                                                           |
 
 リポジトリでセキュリティアップデートが有効になっておらず、理由が不明の場合は、まず以下の手順のセクションに記載されている指示に従って有効にしてみてください。 それでもセキュリティアップデートが機能しない場合は、[サポートにお問い合わせください](https://support.github.com/contact)。
 

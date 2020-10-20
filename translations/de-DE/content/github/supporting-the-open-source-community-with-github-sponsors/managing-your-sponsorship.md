@@ -1,6 +1,6 @@
 ---
 title: Sponsoring verwalten
-intro: 'Du kannst verwalten, wer Dein Sponsoring sehen kann, und festlegen, ob Du per E-Mail Aktualisierungen von unterstützten Open-Source-Mitwirkenden erhalten möchtest.'
+intro: Du kannst verwalten, wer Dein Sponsoring sehen kann, und festlegen, ob Du per E-Mail Aktualisierungen von unterstützten Open-Source-Mitwirkenden erhalten möchtest.
 redirect_from:
   - /articles/managing-your-sponsorship
 versions:

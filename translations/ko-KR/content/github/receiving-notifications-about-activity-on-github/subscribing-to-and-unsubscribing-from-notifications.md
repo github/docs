@@ -7,21 +7,12 @@ versions:
 
 ### Managing your notification settings for an issue or pull request
 
-{% if currentVersion ver_lt "enterprise-server@2.18" %}When you subscribe to a conversation in an issue or pull request, you'll receive notifications for each update to the conversation even if you're not participating in the conversation.
-
-When you unsubscribe from a conversation in an issue or pull request, you'll no longer receive notifications about the conversation. If you or a team you're a member of are @mentioned in the conversation, you'll begin receiving notifications again. For more information about @mentions, see "[Basic writing and formatting syntax](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)."{% endif %}
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 3. Choose an issue or pull request to subscribe to.
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 4. In the right sidebar, click **Subscribe** or **Unsubscribe**. ![Conversation Subscribe button](/assets/images/help/notifications/subscribe_button_with_gear.png)
 5. To customize your notifications, click {% octicon "gear" aria-label="The gear icon" %}. ![Gear button next to Conversation Subscribe](/assets/images/help/notifications/subscribe_button_with_gear_chosen.png)
-6. Select the type of notifications you want to receive for this conversation, then click **Save**. ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png)
-{% else %}
-4. To subscribe or unsubscribe from a conversation, in the right sidebar, click **Subscribe** or **Unsubscribe**. ![Conversation Subscribe button](/assets/images/help/notifications/subscribe_button.png)
-{% endif %}
-You can see a list of all the issues and pull requests you're subscribed to. For more information, see "[Listing the issues and pull requests you're subscribed to](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)."
+6. Select the type of notifications you want to receive for this conversation, then click **Save**. ![Conversation Subscribe options list](/assets/images/help/notifications/subscribe_options.png) You can see a list of all the issues and pull requests you're subscribed to. For more information, see "[Listing the issues and pull requests you're subscribed to](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-issues-and-pull-requests-youre-subscribed-to)."
 
 ### Subscribing to team discussions
 

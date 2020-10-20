@@ -1,6 +1,6 @@
 ---
 title: Team ディスカッションの作成
-intro: Organization のメンバーであれば誰でも _public_ Team ディスカッションのポストを作成できます。 _private_ Team ディスカッションのポストを作成するには、Team のメンバーか Organization のオーナーでなければなりません。
+intro: 'Organization のメンバーであれば誰でも _public_ Team ディスカッションのポストを作成できます。 _private_ Team ディスカッションのポストを作成するには、Team のメンバーか Organization のオーナーでなければなりません。'
 redirect_from:
   - /articles/creating-a-team-discussion
 versions:

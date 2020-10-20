@@ -51,7 +51,7 @@ Eine Apex-Domäne wird mit einem `A`-, `ALIAS`- oder `ANAME`-Eintrag über Deine
 
 ### Benutzerdefinierte Domänen aktualisieren, wenn Deine {% data variables.product.prodname_pages %}-Website deaktiviert ist
 
-Wenn Deine {% data variables.product.prodname_pages %}-Website deaktiviert ist, aber eine benutzerdefinierte Domäne für sie eingerichtet wurde, solltest Du den DNS-Eintrag bei Deinem DNS-Provider umgehend aktualisieren oder entfernen, um eine Domänen-Übernahme zu verhindern. Wenn Du eine benutzerdefinierte Domäne bei Deinem DNS-Provider konfigurierst, während Deine Website deaktiviert ist, könnte ein Dritter eine Website auf einer Deiner Subdomänen hosten. Weitere Informationen findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site).“
+Wenn Ihre {% data variables.product.prodname_pages %}-Website deaktiviert ist, aber eine benutzerdefinierte Domain für sie eingerichtet wurde, sollten sie den DNS-Eintrag bei Ihrem DNS-Provider umgehend aktualisieren oder entfernen, um eine Domain-Übernahme zu verhindern. Wenn Du eine benutzerdefinierte Domäne bei Deinem DNS-Provider konfigurierst, während Deine Website deaktiviert ist, könnte ein Dritter eine Website auf einer Deiner Subdomänen hosten. Weitere Informationen findest Du unter „[Eine benutzerdefinierte Domäne für Deine {% data variables.product.prodname_pages %}-Website verwalten](/articles/managing-a-custom-domain-for-your-github-pages-site).“
 
 Es gibt mehrere Gründe, weshalb Deine Website automatisch deaktiviert sein könnte.
 

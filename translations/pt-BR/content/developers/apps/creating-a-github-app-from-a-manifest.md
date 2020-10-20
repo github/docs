@@ -71,9 +71,9 @@ O objeto `hook_attributes` tem a chave a seguir:
 
 ##### Parâmetros
 
- | Nome     | Tipo     | Descrição                                        |
- | -------- | -------- | ------------------------------------------------ |
- | `estado` | `string` | {% data reusables.apps.state_description %} |
+ | Nome     | Tipo     | Descrição                                   |
+ | -------- | -------- | ------------------------------------------- |
+ | `estado` | `string` | {% data reusables.apps.state_description %}
 
 ##### Exemplos
 

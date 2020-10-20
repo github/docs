@@ -38,7 +38,7 @@ versions:
 
 ![差异查看选项菜单](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、显示您是其代码所有者的文件、隐藏您查看过的文件{% endif %}或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 
@@ -54,7 +54,7 @@ versions:
 
 如果要模拟拉取请求中的两点差异并查看每个分支最新版本之间的比较结果，可以将基本分支合并到主题分支，以更新分支之间最新的共同原型。
 
-有关用于比较更改的 Git 命令的更多信息，请参阅 _Pro Git_ 书籍网站中的“[Git 差异选项](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)”。
+For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
 
 ### 差异不显示的原因
 - 您超过了文件或特定文件类型的总限制。 更多信息请参阅“[在仓库中查看内容和差异的限制](/articles/limits-for-viewing-content-and-diffs-in-a-repository/#diff-limits)”。

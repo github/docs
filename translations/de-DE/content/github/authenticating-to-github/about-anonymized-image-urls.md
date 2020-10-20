@@ -1,6 +1,6 @@
 ---
 title: Informationen zu anonymisierten Bild-URLs
-intro: 'Wenn Du ein Bild auf {% data variables.product.product_name %} hochlädst, wird die URL des Bildes geändert, sodass Deine Informationen nicht rückverfolgbar sind.'
+intro: 'Wenn Sie ein Bild auf {% data variables.product.product_name %} hochladen, wird die URL des Bildes geändert, sodass Ihre Informationen nicht rückverfolgbar sind.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls/
   - /articles/about-anonymized-image-urls

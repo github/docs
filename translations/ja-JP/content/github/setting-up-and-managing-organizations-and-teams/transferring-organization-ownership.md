@@ -3,7 +3,7 @@ title: Organization の所有権を移譲する
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
   - /articles/transferring-organization-ownership
-intro: '他の誰かを Organization アカウントのオーナーにするには、新しいオーナーを追加し、{% if currentVersion == "free-pro-team@latest" %}請求情報が更新されることを確認し、{% endif %}アカウントから自分を削除します。'
+intro: 'To make someone else the owner of an organization account, you must add a new owner{% if currentVersion == "free-pro-team@latest" %}, ensure that the billing information is updated,{% endif %} and then remove yourself from the account.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

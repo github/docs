@@ -1,6 +1,6 @@
 ---
 title: 关于受保护分支
-intro: 受保护分支确保仓库的协作者无法对分支进行不可撤销的更改。 启用受保护分支也可让您启用其他可选检查和要求，例如必要的状态检查和必要的审查。
+intro: '受保护分支确保仓库的协作者无法对分支进行不可撤销的更改。 启用受保护分支也可让您启用其他可选检查和要求，例如必要的状态检查和必要的审查。'
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-protected-branches
@@ -24,7 +24,7 @@ versions:
 
 ### 分支保护设置
 
-在仓库中创建分支保护规则时，{% if currentVersion == "free-pro-team@latest" %} 默认情况下{% endif %}协作者无法强制推送到受保护的分支或删除分支。 您可以启用其他分支保护设置。 有关信息，请参阅“[定义拉取请求的可合并性](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)”。
+When you create a branch protection rule in a repository, collaborators cannot force push to the protected branch or delete the branch{% if currentVersion == "free-pro-team@latest" %} by default{% endif %}. 您可以启用其他分支保护设置。 有关信息，请参阅“[定义拉取请求的可合并性](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)”。
 
 ### 延伸阅读
 

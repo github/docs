@@ -34,7 +34,7 @@ Application ports provide web application and Git access for end users.
 | 443 | HTTPS | Access to the web application and Git over HTTPS. |
 | 80 | HTTP | Access to the web application. All requests are redirected to the HTTPS port when SSL is enabled. |
 | 22 | SSH | Access to Git over SSH. Supports clone, fetch, and push operations to public and private repositories. |
-| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. |
+| 9418 | Git | Git protocol port supports clone and fetch operations to public repositories with unencrypted network communication. {% data reusables.enterprise_installation.when-9418-necessary %} |
 
 {% data reusables.enterprise_installation.terminating-tls %}
 

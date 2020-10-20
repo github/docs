@@ -1,0 +1,1 @@
+{% data variables.product.prodname_code_scanning_capc %} está disponível em repositórios públicos e em repositórios públicos e privados pertencentes a organizações com uma licença para {% data variables.product.prodname_advanced_security %}. {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

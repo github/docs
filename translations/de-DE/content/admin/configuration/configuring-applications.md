@@ -15,5 +15,7 @@ Sie können auswählen, wie lange {% data variables.product.product_location_ent
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 3. Klicke in der linken Seitenleiste auf **Applications** (Anwendungen). ![Registerkarte „Applications“ (Anwendungen) auf der Seitenleiste mit den Einstellungen](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. Geben Sie unter „Avatar image cache time (seconds)“ (Avatarbild-Cache-Zeit (Sekunden)) ein, wie viele Sekunden {% data variables.product.product_location_enterprise %} Avatarbilder zwischenspeichern soll. ![Formularfeld für die Zwischenspeicherung von Avatarbildern](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
+4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like
+{% data variables.product.product_location_enterprise %} to cache avatar images.
+![Formularfeld für die Zwischenspeicherung von Avatarbildern](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
 {% data reusables.enterprise_management_console.save-settings %}

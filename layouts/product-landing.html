@@ -12,15 +12,15 @@
         <header class="d-flex gutter mb-6">
           <div class="col-12 col-lg-7">
             <span class="text-mono text-gray">Product</span>
-            <h1 class="mb-3">{{ page.shortTitle }}</h1>
+            <h1 class="mb-3 font-mktg">{{ page.shortTitle }}</h1>
             <div class="lead-mktg text-gray">{{ page.intro }}</div>
 
-            <a href="{{ gettingStartedLinks[0].href }}" class="btn btn-large f4 btn-blue mt-3">
+            <a href="{{ page.introLinks.quickstart }}" class="btn btn-large f4 btn-blue mt-3">
               Quickstart
             </a>
 
-            <a href="{{ gettingStartedLinks[1].href }}" class="ml-3 btn btn-large f4 btn-outline mt-3">
-              Learn more
+            <a href="{{ page.introLinks.learn }}" class="ml-3 btn btn-large f4 btn-outline mt-3">
+              Learn {% data variables.product.prodname_actions %}
             </a>
           </div>
         </header>

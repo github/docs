@@ -14,7 +14,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 
 {% data reusables.dependabot.initial-updates %} For more information, see "[Customizing dependency updates](/github/administering-a-repository/customizing-dependency-updates)."
 
-### {% data variables.product.prodname_dependabot_version_updates %} aktivieren
+### Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
 {% note %}
 
