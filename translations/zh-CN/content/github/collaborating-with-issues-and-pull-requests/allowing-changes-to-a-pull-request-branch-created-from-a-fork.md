@@ -1,6 +1,6 @@
 ---
 title: 允许更改从复刻创建的拉取请求分支
-intro: 为增强协作，您可以允许在您从自己用户帐户拥有的复刻所创建的分支上提交。
+intro: '为增强协作，您可以允许在您从自己用户帐户拥有的复刻所创建的分支上提交。'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
 permissions: 如对用户帐户拥有的复刻的上游仓库具有推送权限，则可提交到复刻的分支。

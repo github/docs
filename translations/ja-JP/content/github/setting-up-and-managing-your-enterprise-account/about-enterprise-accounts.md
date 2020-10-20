@@ -25,9 +25,7 @@ Enterprise アカウントでは、複数の {% data variables.product.prodname_
 
 メンバーアクセスと管理に関する詳細は「[Enterprise アカウントでユーザを管理する](/articles/managing-users-in-your-enterprise-account)」 を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/v4/guides/managing-enterprise-accounts)」を参照してください。
-{% endif %}
 
 ### Enterprise アカウントにリンクされた Organization を管理する
 

@@ -1,6 +1,6 @@
 ---
 title: 取消阻止用户对组织的访问
-intro: 组织所有者可以取消阻止以前阻止的用户，恢复其对组织仓库的访问权限。
+intro: '组织所有者可以取消阻止以前阻止的用户，恢复其对组织仓库的访问权限。'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:

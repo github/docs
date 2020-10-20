@@ -1,6 +1,6 @@
 ---
 title: Gutschein einlösen
-intro: 'Falls Du einen Gutschein hast, kannst Du ihn für ein bezahltes {% data variables.product.prodname_dotcom %}-Abonnement einlösen.'
+intro: 'Falls Sie einen Gutschein haben, können Sie ihn für ein {% data variables.product.prodname_dotcom %}-Abonnement einlösen.'
 redirect_from:
   - /articles/where-do-i-add-a-coupon-code/
   - /articles/redeeming-a-coupon-for-your-personal-account/

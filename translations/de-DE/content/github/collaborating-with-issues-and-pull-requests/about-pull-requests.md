@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Pull Requests
-intro: 'Mit Pull Requests kannst Du andere Benutzer über Änderungen informieren, die Du an einen Branch in einem Repository auf {% data variables.product.product_name %} übertragen hast. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
+intro: 'Mit Pull Requests können Sie andere Benutzer über Änderungen informieren, die Sie an einen Branch in einem Repository auf {% data variables.product.product_name %} gepusht haben. Sobald ein Pull Request geöffnet ist, kannst Du die potenziellen Änderungen mit Mitarbeitern diskutieren und überprüfen und Follow-up-Commits hinzufügen, bevor Deine Änderungen in den Basis-Branch übertragen werden.'
 redirect_from:
   - /articles/using-pull-requests/
   - /articles/about-pull-requests

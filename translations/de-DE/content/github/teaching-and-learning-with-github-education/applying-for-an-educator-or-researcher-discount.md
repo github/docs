@@ -1,6 +1,6 @@
 ---
 title: Einen Lehrer- oder Forscherrabatt beantragen
-intro: 'Wenn Du ein Lehrer oder Forscher bist, kannst Du beantragen, {% data variables.product.prodname_team %} kostenlos für das Konto Deiner Organisation zu erhalten.'
+intro: 'Wenn Sie ein Lehrer oder Forscher sind, können Sie beantragen, {% data variables.product.prodname_team %} kostenlos für das Konto Ihrer Organisation zu erhalten.'
 redirect_from:
   - /articles/applying-for-a-classroom-discount/
   - /articles/applying-for-a-discount-for-your-school-club/

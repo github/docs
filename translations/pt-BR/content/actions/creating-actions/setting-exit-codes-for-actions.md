@@ -24,7 +24,7 @@ O {% data variables.product.prodname_dotcom %} usa o código de saída para defi
 
 ### Definir um código de saída de falha em uma ação JavaScript
 
-Se estiver criando uma ação JavaScript, você poderá usar o pacote [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) do conjunto de ferramentas de ações para registrar em log uma mensagem e definir um código de saída de falha. Por exemplo:
+Se estiver criando uma ação JavaScript, você poderá usar o pacote [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) do conjunto de ferramentas de ações para registrar em log uma mensagem e definir um código de saída de falha. Por exemplo:
 
 ```javascript
 try {

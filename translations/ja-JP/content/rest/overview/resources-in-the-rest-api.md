@@ -11,7 +11,6 @@ versions:
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-
 ### 最新バージョン
 
 デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
@@ -26,7 +25,7 @@ GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)�
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -36,7 +35,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3

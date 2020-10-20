@@ -1,5 +1,5 @@
 ---
-title: 错误：用户/仓库拒绝其他用户的权限
+title: '错误：用户/仓库拒绝其他用户的权限'
 intro: 此错误意味着您正在推送的密钥附加到无仓库访问权限的帐户。
 redirect_from:
   - /articles/error-permission-to-user-repo-denied-to-other-user

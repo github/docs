@@ -20,7 +20,8 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
+You can also set an announcement banner using the enterprise settings on
+{% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
 {% endif %}
 
 ```shell
@@ -181,7 +182,6 @@ This utility allows you to control the state of the installation's maintenance m
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 This utility re-displays the message of the day (MOTD) that administrators see when accessing the instance via the administrative shell. The output contains an overview of the instance's state.
@@ -189,7 +189,6 @@ This utility re-displays the message of the day (MOTD) that administrators see w
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 

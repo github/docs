@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 Let's walk through core API concepts as we tackle some everyday use cases.
 
 ### 개요
@@ -55,7 +54,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -195,7 +193,8 @@ In this example, we grab only those repositories that octocat owns, not the ones
 #### Create a repository
 
 Fetching information for existing repositories is a common use case, but the
-{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo], we need to `POST` some JSON containing the details and configuration options.
+{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo],
+we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

@@ -28,7 +28,8 @@ versions:
 {% data variables.product.prodname_insights %}を{% data variables.product.prodname_enterprise %}に接続するには、{% data variables.product.prodname_enterprise %}上のOrganization内に{% data variables.product.prodname_github_app %}を作成しなければなりません。 インテグレーションが動作すると、{% data variables.product.prodname_enterprise %}上にアプリケーションのスラッグバージョンの名前が表示されます。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. {% data variables.product.prodname_insights %}に接続したいOrganizationにアクセスしてください。
+2. Navigate to the organization you'd like to connect to
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. **New {% data variables.product.prodname_github_app %}（新規{% data variables.product.prodname_github_app %}）**をクリックしてください。 ![新規GitHub Appボタン](/assets/images/help/apps/github_apps_new.png)

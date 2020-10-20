@@ -1,5 +1,22 @@
 [
   {
+    "date": "2020-10-12",
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "Field `updateEnterpriseActionExecutionCapabilitySetting` was removed from object type `Mutation`",
+          "Field `actionExecutionCapabilitySettingOrganizations` was removed from object type `EnterpriseOwnerInfo`",
+          "Type `UpdateEnterpriseActionExecutionCapabilitySettingInput` was removed",
+          "Type `UpdateEnterpriseActionExecutionCapabilitySettingPayload` was removed",
+          "Type `ActionExecutionCapabilitySetting` was removed"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": []
+  },
+  {
     "date": "2020-09-30",
     "schemaChanges": [
       {

@@ -20,7 +20,8 @@ versions:
 - LFS で追跡されている 500 MB のファイルをダウンロードした場合、リポジトリのオーナーに割り当てられている帯域を 500 MB 消費します。 コラボレータがそのファイルに変更をプッシュし、あなたが新しいバージョンをローカルのリポジトリにプルしたなら、あなたは 500 MB の帯域を新たに消費するため、この 2 つのダウンロードでの合計の使用帯域は 1 GB になります。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-{% data variables.large_files.product_name_long %}（{% data variables.large_files.product_name_short %}）オブジェクトがリポジトリのソースコードアーカイブに含まれている場合、それらのアーカイブをダウンロードすると、リポジトリの帯域幅の使用量にカウントされます。 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
+If
+{% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in source code archives for your repository, downloads of those archives will count towards bandwidth usage for the repository. 詳しい情報については、「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」を参照してください。
 {% endif %}
 
 {% tip %}

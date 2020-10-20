@@ -45,7 +45,8 @@ Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data v
  ``` shell
 $ ghe-dep-graph-enable
 ```
-3. Return to {% data variables.product.prodname_ghe_server %}.
+3. Return to
+{% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

@@ -1,6 +1,6 @@
 ---
-title: Supported operating systems
-intro: 'You can use {% data variables.product.prodname_desktop %} on any supported operating system.'
+title: 支持的操作系统
+intro: '您可以在任何支持的操作系统上使用 {% data variables.product.prodname_desktop %}。'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /desktop/getting-started-with-github-desktop/supported-operating-systems
@@ -8,54 +8,54 @@ versions:
   free-pro-team: '*'
 ---
 
-### About supported operating systems
+### 关于支持的操作系统
 
-The following operating systems are supported for {% data variables.product.prodname_desktop %}.
+{% data variables.product.prodname_desktop %} 支持以下操作系统。
 - {% data variables.desktop.mac-osx-versions %}
-- {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
+- {% data variables.desktop.windows-versions %}. 必须有 64 位操作系统才可运行 {% data variables.product.prodname_desktop %}。
 
-### Troubleshooting problems on macOS
-If you're encountering problems using {% data variables.product.prodname_desktop %} on macOS, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
+### macOS 问题疑难排解
+如果您在 macOS 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。 更多信息请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
 
-#### `The username or passphrase you entered is not correct` error after signing into your account
+#### 登录帐户后发生 `The username or passphrase you entered is not correct` 错误
 
-This error can occur when {% data variables.product.prodname_desktop %} can't access your stored credentials on Keychain.
+当 {% data variables.product.prodname_desktop %} 无法访问您存储在 Keychain 上的凭据时就可能发生这个错误。
 
-To troubleshoot this error, follow these steps.
+要解决此错误，请按照以下步骤操作。
 
-1. Open the "Keychain Access" app.
-2. Right-click on **login** and then click **Lock Keychain "login"**. ![The "Lock Keychain "login" option](/assets/images/help/desktop/mac-lock-keychain.png)
-3. Right-click on **login** and then click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login." ![The "Unlock Keychain "login" option](/assets/images/help/desktop/mac-unlock-keychain.png)
-4. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
+1. 打开“Keychain Access”应用程序。
+2. 右键单击 **login（登录）**，然后单击 **Lock Keychain "login"（锁定密钥链 [登录]）**。 !["锁定密钥链 "登录" 选项](/assets/images/help/desktop/mac-lock-keychain.png)
+3. 右键单击 **login（登录）**，然后单击 **Unlock Keychain "login"（解锁密钥链 [登录]）**。 按照屏幕上的提示完成解锁密钥链“登录”。 !["解锁密钥链 "登录" 选项](/assets/images/help/desktop/mac-unlock-keychain.png)
+4. 重新验证您在 {% data variables.product.prodname_dotcom %} 或 {% data variables.product.prodname_enterprise %} 上的帐户。
 
-#### `Could not create temporary directory: Permission denied` error after checking for updates
+#### 检查更新后发生 `Could not create temporary directory: Permission denied` 错误
 
-This error can be caused by missing permissions for the `~/Library/Caches/com.github.GitHubClient.ShipIt` directory. {% data variables.product.prodname_desktop %} uses this directory to create and unpack temporary files as part of updating the application.
+此错误可能是缺少对目录 `~/Library/Caches/com.github.GitHubClient.ShipIt` 的权限引起的。 {% data variables.product.prodname_desktop %} 使用此目录创建和解压临时文件，作为更新应用程序的一部分。
 
-To troubleshoot this error, follow these steps.
+要解决此错误，请按照以下步骤操作。
 
-1. Close {% data variables.product.prodname_desktop %}.
-2. Open "Finder" and navigate to `~/Library/Caches/`.
-3. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
-4. Click the arrow to the left of "Sharing & Permissions."
-5. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**. ![The "Sharing & Permissions" options](/assets/images/help/desktop/mac-adjust-permissions.png)
-6. Open {% data variables.product.prodname_desktop %} and check for updates.
+1. 关闭 {% data variables.product.prodname_desktop %}。
+2. 打开 "Finder" 并导航到 `~/Library/Caches/`。
+3. 右键单击 `.github.githubClient.shipIt` ，然后单击 **Get Info（获取信息）**。
+4. 单击“Sharing & Permissions（共享和权限）”左边的箭头。
+5. 如果用户帐户右侧的权限没有显示“Read & Write（读取和写入）”，请单击文本，然后单击 **Read & Write（读取和写入）**。 !["共享和权限"选项](/assets/images/help/desktop/mac-adjust-permissions.png)
+6. 打开 {% data variables.product.prodname_desktop %} 并检查更新。
 
-### Troubleshooting problems on Windows
-If you're encountering problems using {% data variables.product.prodname_desktop %} on Windows, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
+### Windows 问题疑难排解
+如果您在 Windows 上使用 {% data variables.product.prodname_desktop %} 时遇到问题，请尝试以下解决方法。 更多信息请参阅 [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md)。
 
-#### `The revocation function was unable to check revocation for the certificate.` error
+#### `The revocation function was unable to check revocation for the certificate.` 错误
 
-This error can occur if you are using {% data variables.product.prodname_desktop %} on a corporate network that blocks Windows from checking the revocation status of a certificate.
+如果您在公司网络上使用 {% data variables.product.prodname_desktop %} 阻止Windows 检查证书的撤销状态，就可能发生这个错误。
 
-To troubleshoot, contact your system administrator.
+要解决问题，请联系您的系统管理员。
 
-#### `git clone failed` error while cloning a repository configured with Folder Redirection
+#### 克隆使用文件夹重定向配置的仓库时发生 `git clone failed` 错误
 
-{% data variables.product.prodname_desktop %} does not support repositories configured with Folder Redirection.
+{% data variables.product.prodname_desktop %} 不支持使用文件夹重定向配置的仓库。
 
-#### `cygheap base mismatch detected` error
+#### `cygheap base mismatch detected` 错误
 
-This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
+启用强制 ASLR 时可能会发生此错误。 启用强制 ASLR 会影响 MSYS2 核心库，{% data variables.product.prodname_desktop %} 使用该库来模拟进程复刻。
 
-To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
+要排除此错误，请禁用强制 ASLR 或明确允许 `<Git>[usr] bin` 依赖 MSYS2 的所有可执行文件。

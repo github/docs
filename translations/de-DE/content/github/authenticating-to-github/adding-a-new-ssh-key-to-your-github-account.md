@@ -1,6 +1,6 @@
 ---
 title: Einen neuen SSH-Schlüssel zum GitHub-Konto hinzufügen
-intro: 'Um Dein {% data variables.product.product_name %}-Konto für die Verwendung Deines neuen (oder vorhandenen) SSH-Schlüssels zu konfigurieren, musst Du diesen Schlüssel auch zu Deinem {% data variables.product.product_name %}-Konto hinzufügen.'
+intro: 'Um Ihr {% data variables.product.product_name %}-Konto für die Verwendung eines neuen (oder vorhandenen) SSH-Schlüssels zu konfigurieren, müssen Sie diesen Schlüssel auch zu Ihrem {% data variables.product.product_name %}-Konto hinzufügen.'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-your-github-account
 versions:
@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Bevor Du einen neuen SSH-Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzufügst, solltest Du:
+Bevor Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzufügen, sollten Sie
 * [nach vorhandenen SSH-Schlüsseln gesucht haben](/articles/checking-for-existing-ssh-keys)
 * [einen neuen SSH-Schlüssel erzeugt und ihn zum SSH-Agenten hinzugefügt haben](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 
-Nachdem Du einen neuen SSH-Schlüssel zu Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du alle lokalen Repositorys für die Verwendung von SSH konfigurieren. Weitere Informationen findest Du unter „[Remote-URLs von HTTPS auf SSH umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh).“
+Nachdem Sie einen neuen SSH-Schlüssel zu Ihrem {% data variables.product.product_name %}-Konto hinzugefügt haben, können Sie alle lokalen Repositorys für die Verwendung von SSH konfigurieren. Weitere Informationen findest Du unter „[Remote-URLs von HTTPS auf SSH umstellen](/articles/changing-a-remote-s-url/#switching-remote-urls-from-https-to-ssh).“
 
 {% data reusables.ssh.dsa-support %}
 
@@ -78,10 +78,10 @@ Nachdem Du einen neuen SSH-Schlüssel zu Deinem {% data variables.product.produc
 
   ```shell
   $ sudo apt-get install xclip
-  # Herunterladen und installieren von xclip. Wenn Du  'apt-get' nicht hast, musst Du eventuell ein anderes Installationsprogramm (wie 'yum') verwenden
+  # Herunterladen und installieren von xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Kopiert den Inhalt der Datei id_rsa.pub in die Zwischenablage
+  $ xclip -selection clipboard &lt; ~/.ssh/id_rsa.pub
+  # Copies the contents of the id_rsa.pub file to your clipboard
   ```
   {% tip %}
 

@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Statuschecks
-intro: 'Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.'
+intro: Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.
 redirect_from:
   - /articles/about-statuses/
   - /articles/about-status-checks

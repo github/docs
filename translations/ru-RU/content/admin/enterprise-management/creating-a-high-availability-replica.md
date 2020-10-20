@@ -49,7 +49,7 @@ This example configuration uses a primary and two replicas, which are located in
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. By default, replicas are configured to the same datacenter{% if currentVersion ver_gt "enterprise-server@2.17" %}, and will now attempt to seed from an existing node in the same datacenter{% endif %}. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
+3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
   On the primary:
   ```shell
