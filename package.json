@@ -20,7 +20,6 @@
     "@octokit/rest": "^16.38.1",
     "@primer/css": "^15.1.0",
     "@primer/octicons": "^11.0.0",
-    "airtable": "^0.9.0",
     "algoliasearch": "^3.35.1",
     "babel-loader": "^8.1.0",
     "browser-date-formatter": "^3.0.3",
