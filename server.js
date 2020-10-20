@@ -11,6 +11,9 @@ const dirTree = require('directory-tree')
 const port = Number(process.env.PORT) || 4000
 const app = express()
 
+// Build React components
+// This loops through the react components and transpiles them to /dist
+// so they can be used by Node.js when we do server side rendering
 const { transform } = require('./lib/react/babel')
 
 const tree = dirTree('./react/')
