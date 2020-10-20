@@ -27,8 +27,7 @@ const CoolTable = function () {
   )
 }
 
-if (typeof window === 'undefined') {
-} else {
+if (typeof window !== 'undefined') {
   const componentContainers = document.querySelectorAll('.react-component-CoolTable')
 
   for (const componentContainer of componentContainers) {

@@ -26,8 +26,7 @@ const CodeEditor = (props) => {
   )
 }
 
-if (typeof window === 'undefined') {
-} else {
+if (typeof window !== 'undefined') {
   const componentContainers = document.querySelectorAll('.react-component-CodeEditor')
 
   for (const componentContainer of componentContainers) {

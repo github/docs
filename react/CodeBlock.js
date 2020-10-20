@@ -66,9 +66,7 @@ const CodeBlock = (props) => {
 }
 
 module.exports = CodeBlock
-
-if (typeof window === 'undefined') {
-} else {
+if (typeof window !== 'undefined') {
   const componentContainers = document.querySelectorAll('.react-component-CodeBlock')
 
   for (const componentContainer of componentContainers) {
