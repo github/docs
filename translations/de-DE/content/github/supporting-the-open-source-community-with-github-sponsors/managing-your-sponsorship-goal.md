@@ -1,6 +1,6 @@
 ---
 title: Deine Sponsoring-Ziele verwalten
-intro: 'Du kannst Ziele für das Profil als unterstützter Entwickler oder als unterstützte Organisationen setzen, um der Community zu helfen, die Auswirkungen zu verstehen, die das Sponsorings auf Dich hat.'
+intro: Du kannst Ziele für das Profil als unterstützter Entwickler oder als unterstützte Organisationen setzen, um der Community zu helfen, die Auswirkungen zu verstehen, die das Sponsorings auf Dich hat.
 versions:
   free-pro-team: '*'
 ---

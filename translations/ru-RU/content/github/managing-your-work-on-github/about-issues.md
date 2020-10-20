@@ -22,8 +22,8 @@ To quickly find links to recently updated issues you're subscribed to, visit you
 With issues, you can:
 - Track and prioritize your work using project boards. For more information, see "[Using project boards](/articles/about-project-boards)."
 - Create new issues to track out-of-scope feedback from a comment in an issue or a pull request review. For more information, see "[Opening an issue from a comment](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)."
-- Create issue templates to help contributors open meaningful issues. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- Transfer open issues to other repositories. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."{% endif %}
+- Create issue templates to help contributors open meaningful issues. For more information, see "[About issue and pull request templates](/articles/about-issue-and-pull-request-templates)."
+- Transfer open issues to other repositories. For more information, see "[Transferring an issue to another repository](/articles/transferring-an-issue-to-another-repository)."
 - Pin important issues to make them easier to find, preventing duplicate issues and reducing noise. For more information, see "[Pinning an issue to your repository](/articles/pinning-an-issue-to-your-repository)."
 - Track duplicate issues using saved replies. For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
 - Report comments that violate {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/articles/github-community-guidelines). For more information, see "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)."{% endif %}

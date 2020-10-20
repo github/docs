@@ -71,9 +71,9 @@ The `hook_attributes` object has the following key:
 
 ##### Parameters
 
- | Name    | Тип      | Description                                      |
- | ------- | -------- | ------------------------------------------------ |
- | `state` | `строка` | {% data reusables.apps.state_description %} |
+ | Name    | Тип      | Description                                 |
+ | ------- | -------- | ------------------------------------------- |
+ | `state` | `строка` | {% data reusables.apps.state_description %}
 
 ##### Примеры
 

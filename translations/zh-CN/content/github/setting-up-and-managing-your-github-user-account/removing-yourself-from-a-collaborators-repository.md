@@ -1,6 +1,6 @@
 ---
 title: 从协作者的仓库中删除您自己
-intro: 如果您不再想要成为其他人仓库中的协作者，您可以删除自己。
+intro: '如果您不再想要成为其他人仓库中的协作者，您可以删除自己。'
 redirect_from:
   - /leave-a-collaborative-repo/
   - /leave-a-repo/

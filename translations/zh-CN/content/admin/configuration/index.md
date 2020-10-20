@@ -1,7 +1,7 @@
 ---
-title: Configuring GitHub Enterprise
-shortTitle: Configuring GitHub Enterprise
-intro: 'Once {% data variables.product.prodname_ghe_server %} is installed and set up, you can configure the appliance to suit your organization''s needs.'
+title: 配置 GitHub Enterprise
+shortTitle: 配置 GitHub Enterprise
+intro: '在 {% data variables.product.prodname_ghe_server %} 安装并设置后，您可以根据组织的需求对设备进行配置。'
 redirect_from:
   - /enterprise/admin/configuration
 versions:
@@ -40,7 +40,7 @@ versions:
 {% topic_link_in_list /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud %}
     {% link_in_list /connecting-github-enterprise-server-to-github-enterprise-cloud %}
     {% link_in_list /enabling-unified-search-between-github-enterprise-server-and-githubcom %}
-    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %} 
+    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
 <!-- if currentVersion ver_gt "enterprise-server@2.16" -->
     {% link_in_list /enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
@@ -49,3 +49,11 @@ versions:
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
 <!-- endif -->
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% note %}
+
+**注：**要为您的企业配置 {% data variables.product.prodname_actions %} 或 {% data variables.product.prodname_registry %}，请参阅“[管理企业的 GitHub Actions](/admin/github-actions)”或“[管理企业的 GitHub Packages](/admin/packages)”。
+
+{% endnote %}
+{% endif %}

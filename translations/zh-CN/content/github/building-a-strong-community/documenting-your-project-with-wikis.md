@@ -1,6 +1,6 @@
 ---
 title: 使用 wiki 为项目写文档
-intro: 可使用 wiki 分享有关项目的详细、长式信息。
+intro: '可使用 wiki 分享有关项目的详细、长式信息。'
 redirect_from:
   - /categories/49/articles/
   - /categories/wiki/
