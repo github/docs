@@ -103,6 +103,7 @@ If you select the "Busy" option, when people @mention your username, assign you 
   ![Field to type a status message](/assets/images/help/profile/type-a-status-message.png)
 3. Optionally, to set an emoji status, click the smiley icon and select an emoji from the list.
   ![Button to select an emoji status](/assets/images/help/profile/select-emoji-status.png)
+  ![Optional Emoji adding examples](https://dev-to-uploads.s3.amazonaws.com/i/igkcsjp98y9n2i5k8gfb.png)
 4. Optionally, if you'd like to share that you have limited availability, select "Busy."
   ![Busy option selected in Edit status options](/assets/images/help/profile/limited-availability-status.png)
 5. Use the **Clear status** drop-down menu, and select when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
