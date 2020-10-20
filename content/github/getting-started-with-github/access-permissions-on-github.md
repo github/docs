@@ -20,7 +20,7 @@ A repository owned by a user account has two permission levels: the *repository 
 
 #### Code Block Component
 <!--react-->
-<CodeBlock language="javascript"
+<CodeBlock
 js={`var i;
 for (i = 0; i < cars.length; i++) {
   text += cars[i] + "<br>";
