@@ -1,6 +1,6 @@
 ---
 title: Fehler beim Hochladen mit Git Large File Storage beheben
-intro: 'Wenn Deine {% data variables.large_files.product_name_short %}-Dateien nicht richtig hochgeladen werden, kannst Du den Fehler beim Hochladen in mehreren Schritten beheben.'
+intro: 'Wenn Ihre {% data variables.large_files.product_name_short %}-Dateien nicht richtig hochgeladen werden, können Sie den Uploadfehler in mehreren Schritten beheben.'
 redirect_from:
   - /articles/resolving-git-large-file-storage-upload-failures
 versions:

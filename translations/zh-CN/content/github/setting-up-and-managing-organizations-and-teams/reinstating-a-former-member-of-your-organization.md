@@ -1,6 +1,6 @@
 ---
 title: 恢复组织的前成员
-intro: '组织所有者可以{% if currentVersion == "free-pro-team@latest" %}邀请前组织成员重新加入{% else %}将前成员添加到{% endif%}您的组织，并可选择是否恢复该人员以前的角色、访问权限、复刻和设置。'
+intro: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-如果您[从组织中删除用户](/articles/removing-a-member-from-your-organization)、[将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)或者由于您[要求成员和外部协作者启用双因素身份验证 (2FA)](/articles/requiring-two-factor-authentication-in-your-organization) 而从组织中删除用户，则用户的访问权限和设置将保存三个月。 如果您在该时间范围内将用户{% if currentVersion =="free-pro-team@latest" %}邀请{% else %}添加{% endif %}回组织，则可以恢复该用户的权限。
+如果您[从组织中删除用户](/articles/removing-a-member-from-your-organization)、[将组织成员转换为外部协作者](/articles/converting-an-organization-member-to-an-outside-collaborator)或者由于您[要求成员和外部协作者启用双因素身份验证 (2FA)](/articles/requiring-two-factor-authentication-in-your-organization) 而从组织中删除用户，则用户的访问权限和设置将保存三个月。 You can restore the user's privileges if you {% if currentVersion =="free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -24,13 +24,13 @@ versions:
     {% tip %}
 
     {% if currentVersion == "free-pro-team@latest" %}
-    **Tips**:
+    **提示**：
     - 如果组织成员由于未使用双因素身份验证已从组织中删除，并且您的组织仍要求成员使用 2FA，则前成员必须启用双因素身份验证，然后才能恢复其成员身份。
     - 仅组织所有者才可邀请用户加入组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
     - 如果您的组织采用付费的每用户订阅，则必须有未使用的许可才可恢复前组织成员。 更多信息请参阅“[关于每用户定价](/articles/about-per-user-pricing)”。 {% data reusables.organizations.org-invite-expiration %}
 
    {% else %}
-    **Tips**:
+    **提示**：
     - 如果组织成员由于未使用双因素身份验证已从组织中删除，并且您的组织仍要求成员使用 2FA，则前成员必须启用双因素身份验证，然后才能恢复其成员身份。
     - 仅组织所有者才可将用户添加到组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
    {% endif %}

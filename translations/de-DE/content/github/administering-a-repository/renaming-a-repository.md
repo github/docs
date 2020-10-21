@@ -1,6 +1,6 @@
 ---
 title: Repository umbenennen
-intro: 'Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.'
+intro: Du kannst ein Repository umbenennen, wenn Du Organisationsinhaber bist oder über Administratorberechtigungen für das Repository verfügst.
 redirect_from:
   - /articles/renaming-a-repository
 versions:

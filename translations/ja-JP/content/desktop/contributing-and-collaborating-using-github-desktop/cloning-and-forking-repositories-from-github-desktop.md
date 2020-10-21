@@ -19,8 +19,8 @@ versions:
   ![Mac アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-mac.png)
 4. [**Choose...**]をクリックし、Finderウインドウを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-mac.png)
 5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-mac.png)
 
@@ -32,8 +32,8 @@ versions:
   ![Windows アプリケーション内の [Clone] メニューオプション](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![[Clone a repository] メニュー内の [Location] タブ](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-win.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![リポジトリリストのクローン](/assets/images/help/desktop/clone-a-repository-list-win.png)
 4. **Choose...**をクリックし、Windows Explorerを使用してリポジトリをクローンするローカルパスに移動します。 ![Chooseボタン](/assets/images/help/desktop/clone-choose-button-win.png)
 5. **Clone**をクリックします。 ![Cloneボタン](/assets/images/help/desktop/clone-button-win.png)
 

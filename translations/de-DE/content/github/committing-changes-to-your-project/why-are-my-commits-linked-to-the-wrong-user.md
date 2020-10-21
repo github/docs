@@ -18,7 +18,7 @@ versions:
 
 ### Mit einem anderen Benutzer verknüpfte Commits
 
-Wenn Deine Commits mit einem anderen Benutzer verknüpft sind, bedeutet dies, dass der Benutzer seinem {% data variables.product.product_name %}-Konto die in Deinen Einstellungen für die lokale Git-Konfiguration hinterlegte E-Mail-Adresse hinzugefügt hat. In diesem Fall kannst Du die E-Mail-Adresse in den Einstellungen für Deine lokale Git-Konfiguration ändern und Deinem {% data variables.product.product_name %}-Konto die neue E-Mail-Adresse hinzufügen, damit künftige Commits mit Deinem Konto verknüpft werden.
+Wenn Ihre Commits mit einem anderen Benutzer verknüpft sind, bedeutet dies, dass der Benutzer seinem {% data variables.product.product_name %}-Konto die in Ihren Einstellungen für die lokale Git-Konfiguration hinterlegte E-Mail-Adresse hinzugefügt hat. In diesem Fall können Sie die E-Mail-Adresse in den Einstellungen für Ihre lokale Git-Konfiguration ändern und Ihrem {% data variables.product.product_name %}-Konto die neue E-Mail-Adresse hinzufügen, damit künftige Commits mit Ihrem Konto verknüpft werden.
 
 1. Führe die unter „[E-Mail-Adresse für Commits in Git festlegen](/articles/setting-your-commit-email-address)“ beschrieben Schritte aus, um die E-Mail-Adresse in Deiner lokalen Git-Konfiguration zu ändern. Falls Du mehrere Maschinen verwendest, musst Du diese Einstellung auf jeder ändern.
 2. Füge Deinen Kontoeinstellungen die E-Mail-Adresse aus Schritt 2 hinzu. Führe dazu die unter „[Eine E-Mail-Adresse zum GitHub-Konto hinzufügen](/articles/adding-an-email-address-to-your-github-account)“ beschriebenen Schritte durch.

@@ -1,1 +1,1 @@
-`label` | `object` | The label removed from the issue `label[name]` | `string` | The name of the label. `label[color]` | `string` | The hex color code. 
+`label` | `object` | 从议题删除的标签 `label[name]` | `string` | 标签的名称。 `label[color]` | `string` | 十六进制颜色代码。 

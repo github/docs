@@ -1,6 +1,6 @@
 ---
 title: Eine Lizenz zu einem Repository hinzufügen
-intro: 'Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.'
+intro: Du kannst eine Open-Source-Lizenz zu Deinem Repository hinzufügen, um anderen die Mitarbeit zu vereinfachen.
 redirect_from:
   - /articles/adding-a-license-to-a-repository
 versions:

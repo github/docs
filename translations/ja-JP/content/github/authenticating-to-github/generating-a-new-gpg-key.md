@@ -1,6 +1,6 @@
 ---
 title: 新しい GPG キーを生成する
-intro: 既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。
+intro: '既存の GPG キーがない場合は、新しい GPG キーを生成してコミットおよびタグの署名に使用できます。'
 redirect_from:
   - /articles/generating-a-new-gpg-key
 versions:
@@ -14,7 +14,7 @@ versions:
 
 {% note %}
 
-**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 メールアドレスを検証していないと、GPG を使用してコミットやタグに署名できません。{% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」を参照してください。{% endif %}
+**メモ:** 新しい GPG キーを生成する前にメールアドレスを検証しておいてください。 If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ versions:
 
   {% note %}
 
-  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}詳細は「[メールアドレスを検証する](/articles/verifying-your-email-address)」および「[コミットメールアドレスを設定する](/articles/setting-your-commit-email-address)」を参照してください。{% endif %}
+  **メモ:** メールアドレスの入力を求められた場合は、GitHub アカウント用の検証済みメールアドレスを入力してください。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
 
   {% endnote %}
 

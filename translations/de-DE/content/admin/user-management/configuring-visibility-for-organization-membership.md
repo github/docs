@@ -1,6 +1,6 @@
 ---
 title: Sichtbarkeit für die Organisationsmitgliedschaft konfigurieren
-intro: 'Sie können die Sichtbarkeit für neue Organisationsmitglieder auf Ihrer gesamten Instanz auf öffentlich oder auf privat festlegen. Darüber hinaus können Sie Mitglieder daran hindern, die für sie standardmäßig festgelegte Sichtbarkeit zu ändern.'
+intro: Sie können die Sichtbarkeit für neue Organisationsmitglieder auf Ihrer gesamten Instanz auf öffentlich oder auf privat festlegen. Darüber hinaus können Sie Mitglieder daran hindern, die für sie standardmäßig festgelegte Sichtbarkeit zu ändern.
 redirect_from:
   - /enterprise/admin/user-management/configuring-visibility-for-organization-membership
 versions:

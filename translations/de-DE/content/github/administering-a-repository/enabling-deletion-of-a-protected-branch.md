@@ -1,6 +1,6 @@
 ---
 title: Löschen eines geschützten Branch aktivieren
-intro: 'Du kannst jedem Benutzer mit Schreibzugriff auf ein Repository erlauben, einen geschützten Branch zu löschen.'
+intro: Du kannst jedem Benutzer mit Schreibzugriff auf ein Repository erlauben, einen geschützten Branch zu löschen.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'

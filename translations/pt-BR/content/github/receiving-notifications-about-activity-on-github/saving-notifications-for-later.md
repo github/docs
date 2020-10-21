@@ -26,5 +26,5 @@ Quando você salva uma notificação, ela é movida para a guia Saved for later 
 ### Leia mais
 
 - "[Sobre notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"
-- "[Acessando suas notificações](/enterprise/{}/user/github/receiving-notifications-about-activity-on-github/accessing-your-notifications)"
+- "[Acessar as suas notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/accessing-your-notifications)"
 - "[Marcando notificações como lidas](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/marking-notifications-as-read)"

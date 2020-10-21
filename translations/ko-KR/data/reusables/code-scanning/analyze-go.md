@@ -1,0 +1,1 @@
+{% data variables.product.prodname_codeql %} also runs a build for Go projects to set up the project. However, in contrast to the other compiled languages, all Go files in the repository are extracted, not just those that are built. Custom build commands are not supported for Go.

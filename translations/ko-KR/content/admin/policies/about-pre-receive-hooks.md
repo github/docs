@@ -4,7 +4,6 @@ intro: '*Pre-receive hooks* are scripts that run on the {% data variables.produc
 redirect_from:
   - /enterprise/admin/developer-workflow/about-pre-receive-hooks
   - /enterprise/admin/policies/about-pre-receive-hooks
-  - /enterprise/admin/policies/about-pre-receive-hooks
 versions:
   enterprise-server: '*'
 ---

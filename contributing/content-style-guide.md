@@ -118,8 +118,8 @@ When code examples refer to a larger file, show the relevant section of the file
 
 ```
 on:
-schedule:
-  - cron:  "40 19 * * *"
+  schedule:
+    - cron:  "40 19 * * *"
 ```
 
 - **Avoid:**

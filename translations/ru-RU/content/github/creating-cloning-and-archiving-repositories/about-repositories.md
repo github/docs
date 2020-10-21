@@ -15,7 +15,8 @@ You can restrict who has access to a repository by choosing the repository's vis
 For user-owned repositories, you can give other people collaborator access so that they can collaborate on your project. If a repository is owned by an organization, you can give organization members access permissions to collaborate on your repository. For more information, see "[Permission levels for a user account repository](/articles/permission-levels-for-a-user-account-repository/)" and "[Repository permission levels for an organization](/articles/repository-permission-levels-for-an-organization/)."
 
 {% if currentVersion == "free-pro-team@latest" %}
-With {% data variables.product.prodname_free_team %} for user accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
+With
+{% data variables.product.prodname_free_team %} for user accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
 {% else %}
 Each person and organization can own unlimited repositories and invite an unlimited number of collaborators to all repositories.
 {% endif %}

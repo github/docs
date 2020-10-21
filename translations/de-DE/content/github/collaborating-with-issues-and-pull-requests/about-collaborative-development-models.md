@@ -1,6 +1,6 @@
 ---
 title: Informationen zu gemeinschaftlichen Entwicklungsmodellen
-intro: 'Die Art und Weise, wie Du Pull Requests verwendest, hängt von der Art des Entwicklungsmodells in Deinem Projekt ab.'
+intro: Die Art und Weise, wie Du Pull Requests verwendest, hängt von der Art des Entwicklungsmodells in Deinem Projekt ab.
 redirect_from:
   - /articles/types-of-collaborative-development-models/
   - /articles/about-collaborative-development-models

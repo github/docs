@@ -24,7 +24,7 @@ versions:
 
 ### Fehler-Exit-Code in einer JavaScript-Aktion festlegen
 
-Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
+Wenn Sie eine JavaScript-Aktion erstellen, können Sie mit dem Aktions-Toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) eine Meldung protokollieren und einen Fehler-Exit-Code festlegen. Ein Beispiel:
 
 ```javascript
 try {
