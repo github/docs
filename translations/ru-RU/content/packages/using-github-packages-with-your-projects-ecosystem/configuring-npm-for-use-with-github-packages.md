@@ -88,7 +88,8 @@ You can use an *.npmrc* file to configure the scope mapping for your project. In
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-4. Verify the name of your package in your project's *package.json*. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your *package.json* should be `@my-org/test`.
+4. Verify the name of your package in your project's *package.json*. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org"
+{% data variables.product.prodname_dotcom %} organization, the `name` field in your *package.json* should be `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
@@ -187,7 +188,6 @@ registry=https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
 @<em>OWNER</em>:registry=<em>HOSTNAME</em>/_registry/npm/
 ```
 {% endif %}
-
 
 ### Дополнительная литература
 

@@ -1,6 +1,6 @@
 ---
 title: コミット署名の検証を管理する
-intro: 'GPG {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %}または S/MIME {% endif %}を使用して、作業にローカルで署名できます。 信頼できるソースによるコミットであることを他のユーザに知らせるために、{% data variables.product.product_name %} はこの署名を検証します。{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} は、{% data variables.product.product_name %} Web インターフェイスを使用して自動的にコミットに署名します。{% endif %}'
+intro: 'You can sign your work locally using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}. {% data variables.product.product_name %} will verify these signatures so other people will know that your commits come from a trusted source.{% if currentVersion == "free-pro-team@latest" %} {% data variables.product.product_name %} will automatically sign commits you make using the {% data variables.product.product_name %} web interface.{% endif %}'
 redirect_from:
   - /articles/generating-a-gpg-key/
   - /articles/signing-commits-with-gpg/

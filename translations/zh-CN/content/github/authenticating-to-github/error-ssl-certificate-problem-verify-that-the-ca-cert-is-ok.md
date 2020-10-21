@@ -1,5 +1,5 @@
 ---
-title: 错误：SSL 证书有问题，请验证 CA 证书是否正常
+title: '错误：SSL 证书有问题，请验证 CA 证书是否正常'
 intro: '此错误意味着您的 CA 根证书已过期。 如果您的 CA 根证书需要更新，您将无法从 {% data variables.product.product_name %} 仓库推送或拉取。'
 redirect_from:
   - /articles/error-ssl-certificate-problem-verify-that-the-ca-cert-is-ok
@@ -10,8 +10,8 @@ versions:
 您可能收到像以下这样的错误：
 
 ```shell
-$ git push -u github.master
-> fatal: 'github.master' does not appear to be a git repository
+$ git push -u github.main
+> fatal: 'github.main' does not appear to be a git repository
 > fatal: The remote end hung up unexpectedly
 
 $ git pull -u github

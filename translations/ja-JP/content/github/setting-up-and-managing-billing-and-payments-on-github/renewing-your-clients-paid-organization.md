@@ -1,6 +1,6 @@
 ---
 title: クライアントの有料 Organization を更新する
-intro: クライアントの Organization でファイルに対する支払い方法が有効である場合、その年間プランは自動更新されます。 支払いマネージャーは Organization の支払い方法とプランを表示して更新することができます。
+intro: 'クライアントの Organization でファイルに対する支払い方法が有効である場合、その年間プランは自動更新されます。 支払いマネージャーは Organization の支払い方法とプランを表示して更新することができます。'
 redirect_from:
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization

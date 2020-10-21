@@ -35,8 +35,8 @@ versions:
 
 #### 实例配置设置
 
-|                                                      名称 | 描述                                                                                                                                                                                                       |
-| -------------------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                      名称 | 描述                                                                                                                                                                                                         |
+| -------------------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `business.update_member_repository_creation_permission` | 站点管理员限制在实例上的组织中创建仓库。 更多信息请参阅“[限制在实例中创建仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)”。                                                |
 |               `business.clear_members_can_create_repos` | 站点管理员取消了对在实例上的组织中创建仓库的限制。 更多信息请参阅“[限制在实例中创建仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)”。                                           |
 |           `enterprise.config.lock_anonymous_git_access` | 站点管理员锁定匿名 Git 读取权限，以防止仓库管理员更改该实例上仓库的现有匿名 Git 读取权限设置。 更多信息请参阅“[阻止用户更改匿名 Git 读取权限](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)”。 |
@@ -44,19 +44,19 @@ versions:
 
 #### 议题和拉取请求
 
-|                                   名称 | 描述                                                                                           |
-| ------------------------------------:| -------------------------------------------------------------------------------------------- |
-|                       `issue.update` | 问题的正文文本（初始注释）已更改。                                                                            |
-|               `issue_comment.update` | 已更改问题的正文文本（初始注释）。                                                                            |
-| `pull_request_review_comment.delete` | A comment on a pull request was deleted.                                                     |
+|                                   名称 | 描述                                                                                             |
+| ------------------------------------:| ---------------------------------------------------------------------------------------------- |
+|                       `issue.update` | 问题的正文文本（初始注释）已更改。                                                                              |
+|               `issue_comment.update` | 已更改问题的正文文本（初始注释）。                                                                              |
+| `pull_request_review_comment.delete` | 已删除对拉取请求的评论。                                                                                   |
 |                      `issue.destroy` | 已从仓库中删除问题。 更多信息请参阅“[删除问题](/enterprise/{{ currentVersion }}/user/articles/deleting-an-issue)"。” |
 
 #### 组织
 
-|                 名称 | 描述                                                                                                                     |
-| ------------------:| ---------------------------------------------------------------------------------------------------------------------- |
-| `org.async_delete` | 用户发起了删除组织的后台作业。                                                                                                        |
-|       `org.delete` | 组织已由用户发起的后台作业删除。                                                                                                       |
+|                 名称 | 描述                                                                                                                       |
+| ------------------:| ------------------------------------------------------------------------------------------------------------------------ |
+| `org.async_delete` | 用户发起了删除组织的后台作业。                                                                                                          |
+|       `org.delete` | 组织已由用户发起的后台作业删除。                                                                                                         |
 |    `org.transform` | 已将用户帐户转换为组织。 更多信息请参阅“[将用户转换为组织](/enterprise/{{ currentVersion}}/user/articles/converting-a-user-into-an-organization/)”。 |
 
 #### 受保护分支
@@ -76,18 +76,18 @@ versions:
 
 #### 仓库
 
-|                                         名称 | 描述                                                                                                                                                                                           |
-| ------------------------------------------:| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                              `repo.access` | 已将私有仓库设为公共，或者已将公共仓库设为私有。                                                                                                                                                                     |
+|                                         名称 | 描述                                                                                                                                                                                             |
+| ------------------------------------------:| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                              `repo.access` | 已将私有仓库设为公共，或者已将公共仓库设为私有。                                                                                                                                                                       |
 |                             `repo.archive` | 已存档仓库。 更多信息请参阅“[存档和取消存档仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)”。                                                            |
-|                          `repo.add_member` | 已向仓库添加协作者。                                                                                                                                                                                   |
+|                          `repo.add_member` | 已向仓库添加协作者。                                                                                                                                                                                     |
 |                              `repo.config` | 站点管理员已阻止强制推送。 更多信息请参阅“[阻止对仓库进行强制推送](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/blocking-force-pushes-to-a-repository/)”。                                                 |
-|                              `repo.create` | 已创建仓库。                                                                                                                                                                                       |
-|                             `repo.destroy` | 已删除仓库。                                                                                                                                                                                       |
-|                       `repo.remove_member` | 已从仓库中移除协作者。                                                                                                                                                                                  |
-|                              `repo.rename` | 已重命名仓库。                                                                                                                                                                                      |
-|                            `repo.transfer` | 用户已接受接收传输仓库的请求。                                                                                                                                                                              |
-|                      `repo.transfer_start` | 用户已发送向另一用户或组织传输仓库的请求。                                                                                                                                                                        |
+|                              `repo.create` | 已创建仓库。                                                                                                                                                                                         |
+|                             `repo.destroy` | 已删除仓库。                                                                                                                                                                                         |
+|                       `repo.remove_member` | 已从仓库中移除协作者。                                                                                                                                                                                    |
+|                              `repo.rename` | 已重命名仓库。                                                                                                                                                                                        |
+|                            `repo.transfer` | 用户已接受接收传输仓库的请求。                                                                                                                                                                                |
+|                      `repo.transfer_start` | 用户已发送向另一用户或组织传输仓库的请求。                                                                                                                                                                          |
 |                           `repo.unarchive` | 已取消存档仓库。 更多信息请参阅“[存档和取消存档仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/archiving-and-unarchiving-repositories/)”。                                                          |
 | `repo.config.disable_anonymous_git_access` | 已为公共仓库禁用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                          |
 |  `repo.config.enable_anonymous_git_access` | 已为公共仓库启用匿名 Git 读取权限。 更多信息请参阅“[为仓库启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)。”                                          |
@@ -96,13 +96,13 @@ versions:
 
 #### 站点管理员工具
 
-|                   名称 | 描述                                                                     |
-| --------------------:| ---------------------------------------------------------------------- |
-| `staff.disable_repo` | 站点管理员已禁用对仓库及其所有复刻的访问。                                                  |
-|  `staff.enable_repo` | 站点管理员已重新启用对仓库及其所有复刻的访问。                                                |
+|                   名称 | 描述                                                                |
+| --------------------:| ----------------------------------------------------------------- |
+| `staff.disable_repo` | 站点管理员已禁用对仓库及其所有复刻的访问。                                             |
+|  `staff.enable_repo` | 站点管理员已重新启用对仓库及其所有复刻的访问。                                           |
 |   `staff.fake_login` | 站点管理员以另一用户的身份登录 {% data variables.product.prodname_enterprise %}。 |
-|  `staff.repo_unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                         |
-|       `staff.unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                         |
+|  `staff.repo_unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的一个私有仓库。                                    |
+|       `staff.unlock` | 站点管理员已解锁（临时获得完全访问权限）用户的所有私有仓库。                                    |
 
 #### 团队
 

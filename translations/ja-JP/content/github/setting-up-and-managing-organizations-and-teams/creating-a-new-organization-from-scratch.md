@@ -13,7 +13,7 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. プロンプトに従って Organization を作成します。 {% if currentVersion == "free-pro-team@latest" %}Team で利用できるプランに関する詳しい情報については、「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」を参照してください。{% endif %}
+4. プロンプトに従って Organization を作成します。 {% if currentVersion == "free-pro-team@latest" %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
 
 ### 参考リンク
 

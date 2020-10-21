@@ -10,7 +10,7 @@ versions:
 
 ### Sobre revisões de pull requests
 
-Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em uma pull request, você pode deixar comentários individuais sobre alterações específicas.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Quando terminar de revisar o arquivo, pode marcá-lo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no header da pull request mostra o número de arquivos visualizados.{% endif %} Depois de revisar os arquivos desejados, você pode aprovar a pull request ou solicitar alterações adicionais enviando sua revisão com um comentário resumido.
+Você pode revisar as alterações em um arquivo de pull request por vez. Ao revisar os arquivos em um pull request, você pode deixar comentários individuais em alterações específicas. Após terminar de revisar cada arquivo, você pode marcar o arquivo como visualizado. Isso aninha o arquivo e ajuda a identificar os arquivos que ainda precisam ser revisadas. Uma barra de progresso no cabeçalho do pull request mostra o número de arquivos que você visualizou. Depois de revisar todos os arquivos você desejar, você pode aprovar a solicitação de pull ou solicitar alterações adicionais enviando a sua revisão com um comentário resumido.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +28,12 @@ Antes de enviar a revisão, os comentários em linha ficam com status _pendente_
 
 ![Botão Cancel review (Cancelar revisão)](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Marcar um arquivo como visualizado
 
 Quando terminar de revisar um arquivo, você pode marcar o arquivo como visualizado, e o arquivo será aninhado. Se o arquivo for alterado após ser visualizado, será desmarcado como visualizado.
 
 {% data reusables.repositories.changed-files %}
 2. À direta do cabeçalho do arquivo revisado, selecione **Viewed** (Visualizado). ![Caixa de seleção visualizado](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### Enviar a revisão
 

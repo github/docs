@@ -10,7 +10,7 @@ redirect_from:
   - /win-git-installation/
   - /win-set-up-git/
   - /articles/set-up-git
-intro: 'Im Zentrum von {% data variables.product.product_name %} ist das Open-Source-Versionskontrollsystem (VCS) namens Git. Git ist für alle {% data variables.product.product_name %}-Ereignisse zuständig, die lokal auf Deinem Computer stattfinden.'
+intro: 'Im Zentrum von {% data variables.product.product_name %} ist das Open-Source-Versionskontrollsystem (VCS) namens Git. Git ist für alle {% data variables.product.product_name %}-Ereignisse zuständig, die lokal auf Ihrem Computer stattfinden.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -20,7 +20,7 @@ Um Git in der Befehlszeile verwenden zu können, musst Du es auf Deinem Computer
 
 Möchtest Du Git lokal, aber ohne Befehlszeile verwenden, kannst Du stattdessen den [{% data variables.product.prodname_desktop %}-Client]({% data variables.product.desktop_link %}) herunterladen und installieren.  For more information, see "[Installing and configuring {% data variables.product.prodname_desktop %}](/desktop/installing-and-configuring-github-desktop/)."
 
-Wenn Du keine Dateien lokal bearbeiten musst, kannst Du mit {% data variables.product.product_name %} auch viele Git-Aktionen direkt im Browser ausführen, so auch:
+Wenn Sie keine Dateien lokal bearbeiten müssen, können Sie mit {% data variables.product.product_name %} auch viele Git-Aktionen direkt im Browser ausführen. Zum Beispiel:
 
 - [Repository erstellen](/articles/create-a-repo)
 - [Repository forken](/articles/fork-a-repo)
@@ -35,7 +35,7 @@ Wenn Du keine Dateien lokal bearbeiten musst, kannst Du mit {% data variables.pr
 
 ### Nächste Schritte: Authentifizierung bei {% data variables.product.prodname_dotcom %} aus Git
 
-Wenn Du aus Git eine Verbindung mit einem {% data variables.product.product_name %}-Repository herstellen willst, musst Du Dich über HTTPS oder SSH bei {% data variables.product.product_name %} authentifizieren.
+Wenn Sie aus Git eine Verbindung mit einem {% data variables.product.product_name %}-Repository herstellen wollen, müssen Sie sich über HTTPS oder SSH bei {% data variables.product.product_name %} authentifizieren.
 
 #### Verbindung über HTTPS (empfohlen)
 
@@ -43,11 +43,11 @@ If you [clone with HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-
 
 #### Verbindung über SSH
 
-Wenn Du [mit SSH klonst](/articles/which-remote-url-should-i-use#cloning-with-ssh-urls), musst Du auf allen Computern, die Du für Push- oder Pull-Aktionen mit {% data variables.product.product_name %} verwendest, [SSH-Schlüssel generieren](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+Wenn Sie [mit SSH klonen](/articles/which-remote-url-should-i-use#cloning-with-ssh-urls), müssen Sie auf allen Computern, die Sie für Push- oder Pull-Aktionen mit {% data variables.product.product_name %} verwenden, [SSH-Schlüssel generieren](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ### Geschafft!
 
-Glückwunsch! Du hast Git und {% data variables.product.product_name %} vollständig eingerichtet! Was möchtest Du als Nächstes tun?
+Glückwunsch! Sie haben Git und {% data variables.product.product_name %} vollständig eingerichtet. Was möchtest Du als Nächstes tun?
 
 - **Git einrichten**
 - „[Repository erstellen](/articles/create-a-repo)“

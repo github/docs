@@ -49,8 +49,9 @@ Header | Description
 `X-GitHub-Event`| Name of the event that triggered the delivery.
 `X-GitHub-Delivery`| A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if currentVersion != "free-pro-team@latest" %}
 `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
-`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
-`X-Hub-Signature`| The HMAC hex digest of the response body. This header will be sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). The HMAC hex digest is generated using the `sha1` hash function and the `secret` as the HMAC `key`.
+`X-GitHub-Enterprise-Host` | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "private-instances@latest" %}
+`X-Hub-Signature`| This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+`X-Hub-Signature-256`| This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
@@ -62,8 +63,9 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > Host: localhost:4567
 > X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if currentVersion != "free-pro-team@latest" %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "private-instances@latest" %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -971,13 +973,17 @@ Key | Type | Description
 `before`|`string` | The SHA of the most recent commit on `ref` before the push.
 `after`|`string` | The SHA of the most recent commit on `ref` after the push.
 `commits`|`array` | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.)
-`commits[][sha]`|`string` | The SHA of the commit.
+`commits[][id]`|`string` | The SHA of the commit.
+`commits[][timestamp]`|`string` | The ISO 8601 timestamp of the commit.
 `commits[][message]`|`string` | The commit message.
 `commits[][author]`|`object` | The git author of the commit.
 `commits[][author][name]`|`string` | The git author's name.
 `commits[][author][email]`|`string` | The git author's email address.
 `commits[][url]`|`url` | URL that points to the commit API resource.
 `commits[][distinct]`|`boolean` | Whether this commit is distinct from any that have been pushed before.
+`commits[][added]`|`array` | An array of files added in the commit.
+`commits[][modified]`|`array` | An array of files modified by the commit.
+`commits[][removed]`|`array` | An array of files removed in the commit.
 `pusher` | `object` | The user who pushed the commits.
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}

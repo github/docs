@@ -32,5 +32,5 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 A automação do quadro de projeto permite o acompanhamento do andamento por padrão. Os cartões em colunas com as predefinições "Tarefas pendentes", "Em andamento" ou "Concluído" contam no andamento geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
 ### Leia mais
-- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Configurar automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}

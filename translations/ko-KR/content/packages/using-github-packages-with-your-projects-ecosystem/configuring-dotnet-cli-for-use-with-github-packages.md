@@ -157,7 +157,6 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 </Project>
 ```
 
-
 ### Installing a package
 
 Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.

@@ -49,7 +49,7 @@ versions:
 未获明确的书面同意，不得重制、重复、复制、销售、转售或利用服务的任何部分、使用服务或访问服务。
 
 ### 5. 擦除和 API 使用限制
-擦除是指通过自动化过程（如自动程序或网络爬虫 ）从我们的服务中提取数据。 它不是指通过我们的 API 收集信息。 Please see Section H of our [Terms of Service](/articles/github-terms-of-service#h-api-terms) for our API Terms. 您可能因以下原因而擦除网站：
+擦除是指通过自动化过程（如自动程序或网络爬虫 ）从我们的服务中提取数据。 它不是指通过我们的 API 收集信息。 有关我们的 API 条款，请参阅我们[服务条款](/articles/github-terms-of-service#h-api-terms)的 H 部分。 您可能因以下原因而擦除网站：
 
 - 研究人员可能出于研究目的而从服务中擦除公共的非个人信息，但仅当来自该研究的出版物开放访问时才可擦除。
 - 档案管理人员可能出于存档目的而擦除服务中的公共数据。
@@ -73,7 +73,7 @@ versions:
 
 不得推广或分发非法或我们的[服务条款](/github/site-policy/github-terms-of-service/)、[社区准则](/github/site-policy/github-community-guidelines/)或[可接受的使用政策](/github/site-policy/github-acceptable-use-policies/)禁止的内容或活动，包括过多的自动化批量活动（例如群发垃圾邮件、暴富方案以及与您的促销相关的虚假描述或欺骗。
 
-如果您决定在帐户中发布任何宣传材料，您将自行负责遵守所有适用的法律和法规，包括但不限于美国联邦贸易委员会的背书和推荐准则。 Federal Trade Commission's Guidelines on Endorsements and Testimonials. 我们保留删除我们单方面认为违反了任何 GitHub 条款或政策的任何宣传材料或广告的权利。
+如果您决定在帐户中发布任何宣传材料，您将自行负责遵守所有适用的法律和法规，包括但不限于美国联邦贸易委员会的背书和推荐准则。 联邦贸易委员会的背书和推荐准则。 我们保留删除我们单方面认为违反了任何 GitHub 条款或政策的任何宣传材料或广告的权利。
 
 ### 9. GitHub 上的垃圾信息和假活动
 GitHub 禁止自动化大量群发的活动和协调假活动，如垃圾邮件。 禁止的活动包括：

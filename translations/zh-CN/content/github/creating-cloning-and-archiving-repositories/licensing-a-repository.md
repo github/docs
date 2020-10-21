@@ -1,6 +1,6 @@
 ---
 title: 许可仓库
-intro: GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。
+intro: 'GitHub 上的公共仓库常用于共享开源软件。 要使仓库真正开源，您需要许可它供其他人免费使用、更改和分发软件。'
 redirect_from:
   - /articles/open-source-licensing/
   - /articles/licensing-a-repository
@@ -17,7 +17,7 @@ versions:
 
 {% note %}
 
-**注：**如果您在 GitHub 的公共仓库中发布源代码，{% if currentVersion == "free-pro-team@latest" %}根据[服务条款](/articles/github-terms-of-service)，{% endif %}其他 GitHub 用户有权利在 GitHub 站点中查看您的仓库并对其复刻。 如果您已创建公共仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将公共仓库转换为私有仓库时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[将公共仓库设为私有](/articles/making-a-public-repository-private)”。
+**Note:** If you publish your source code in a public repository on GitHub, {% if currentVersion == "free-pro-team@latest" %}according to the [Terms of Service](/articles/github-terms-of-service), {% endif %}other GitHub users have the right to view and fork your repository within the GitHub site. 如果您已创建公共仓库，并且不再希望用户访问它，便可将仓库设为私有。 在将公共仓库转换为私有仓库时，其他用户创建的现有复刻或本地副本仍将存在。 更多信息请参阅“[将公共仓库设为私有](/articles/making-a-public-repository-private)”。
 
 {% endnote %}
 
@@ -49,6 +49,7 @@ versions:
 |    | Do What The F*ck You Want To Public License | `wtfpl`         |
 |    | Educational Community License v2.0 | `ecl-2.0`                |
 |    | Eclipse Public License 1.0 | `epl-1.0`                        |
+|    | Eclipse Public License 2.0 | `epl-2.0`                        |
 |    | European Union Public License 1.1 | `eupl-1.1`                |
 |    | GNU Affero General Public License v3.0 | `agpl-3.0`           |
 |    | GNU General Public License 系列 | `gpl`                         |
@@ -89,5 +90,5 @@ GitHub 开源许可的目标是提供一个起点，帮助您做出明智的决�
 
 ### 延伸阅读
 
-- 开源指南的“[开源的法律方面](https://opensource.guide/legal/)”部分{% if currentVersion == "free-pro-team@latest" %}
+- The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% if currentVersion == "free-pro-team@latest" %}
 - [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

@@ -12,7 +12,7 @@ versions:
 
 ### Solicitar uma nova senha
 
-1. Para solicitar uma nova senha, visite {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
+1. Para solicitar uma nova senha, acesse {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. Digite o endereço de e-mail associado à sua conta pessoal do {% data variables.product.product_name %} e clique em **Send password reset email** (Enviar e-mail de redefinição de senha). O e-mail será enviado para o endereço de e-mail de backup, se você tiver um configurado. ![Caixa de diálogo para solicitar e-mail de redefinição de senha](/assets/images/help/settings/password-recovery-email-request.png)
 3. Nós enviaremos por e-mail um link para você redefinir sua senha. Clique nele em até 3 horas após o recebimento do e-mail. Se você não receber o e-mail com o link, verifique sua pasta de spam.
 4. Depois de clicar no link contido no e-mail, você precisará digitar uma nova senha.![Caixa para recuperar senha](/assets/images/help/settings/password_recovery_page.png)
@@ -29,11 +29,7 @@ Para evitar que você perca a senha, sugerimos que você use um gerenciador de s
 
 1. {% data variables.product.signin_link %} para o {% data variables.product.product_name %}.
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
 4. Em "Change password" (Alterar senha), insira a senha antiga, digite uma nova senha forte e confirme a nova senha. Consulte "[Criar uma senha forte](/articles/creating-a-strong-password)" para obter ajuda sobre esse assunto.
 5. Clique em **Update password** (Atualizar senha).
 

@@ -13,22 +13,22 @@ versions:
 
 Compose a search query from one or more key:value pairs separated by AND/OR logical operators.
 
-|        Клавиша | Value                                                                                                  |
-| --------------:| ------------------------------------------------------------------------------------------------------ |
-|     `actor_id` | ID of the user account that initiated the action                                                       |
-|        `actor` | Name of the user account that initiated the action                                                     |
-| `oauth_app_id` | ID of the OAuth application associated with the action                                                 |
+|        Клавиша | Value                                                                                                    |
+| --------------:| -------------------------------------------------------------------------------------------------------- |
+|     `actor_id` | ID of the user account that initiated the action                                                         |
+|        `actor` | Name of the user account that initiated the action                                                       |
+| `oauth_app_id` | ID of the OAuth application associated with the action                                                   |
 |     `действие` | Name of the [audited action](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions) |
-|      `user_id` | ID of the user affected by the action                                                                  |
-| `пользователь` | Name of the user affected by the action                                                                |
-|      `repo_id` | ID of the repository affected by the action (if applicable)                                            |
-|         `repo` | Name of the repository affected by the action (if applicable)                                          |
-|     `actor_ip` | IP address from which the action was initiated                                                         |
-|   `created_at` | Time at which the action occurred                                                                      |
-|         `from` | View from which the action was initiated                                                               |
-|   `примечание` | Miscellaneous event-specific information (in either plain text or JSON format)                         |
-|          `org` | Name of the organization affected by the action (if applicable)                                        |
-|       `org_id` | ID of the organization affected by the action (if applicable)                                          |
+|      `user_id` | ID of the user affected by the action                                                                    |
+| `пользователь` | Name of the user affected by the action                                                                  |
+|      `repo_id` | ID of the repository affected by the action (if applicable)                                              |
+|         `repo` | Name of the repository affected by the action (if applicable)                                            |
+|     `actor_ip` | IP address from which the action was initiated                                                           |
+|   `created_at` | Time at which the action occurred                                                                        |
+|         `from` | View from which the action was initiated                                                                 |
+|   `примечание` | Miscellaneous event-specific information (in either plain text or JSON format)                           |
+|          `org` | Name of the organization affected by the action (if applicable)                                          |
+|       `org_id` | ID of the organization affected by the action (if applicable)                                            |
 
 For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
 

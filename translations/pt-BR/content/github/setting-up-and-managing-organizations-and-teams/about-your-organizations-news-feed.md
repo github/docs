@@ -17,4 +17,5 @@ O feed de notícias de uma organização mostra a atividade de outras pessoas no
 1. {% data variables.product.signin_link %} na sua conta do {% data variables.product.product_name %}.
 2. Abra o seu {% data reusables.user_settings.personal_dashboard %}.
 3. Clique no alternador de contexto da conta no canto superior esquerdo da página. ![Botão do alternador de contexto no Enterprise](/assets/images/help/organizations/account_context_switcher.png)
-4. Selecione uma organização no menu suspenso.{% if currentVersion == "free-pro-team@latest" %}![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}
+4. Selecione uma organização no menu suspenso.{% if currentVersion == "free-pro-team@latest" %} ![Context switcher menu in dotcom](/assets/images/help/organizations/account-context-switcher-selected-dotcom.png){% else %}
+![Context switcher menu in Enterprise](/assets/images/help/organizations/account_context_switcher.png){% endif %}

@@ -61,7 +61,9 @@ versions:
 
 今、Spoon-Knife リポジトリのフォークがありますが、お使いのコンピュータにはそのリポジトリ内のファイルはありません。 Let's create a clone of your fork locally on your computer.
 
-1. {% data variables.product.product_name %} で、Spoon-Knife リポジトリの**自分のフォーク**に移動します。
+1. On
+
+{% data variables.product.product_name %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
@@ -86,7 +88,9 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 
 オリジナルのリポジトリへの変更を提案するためにプロジェクトをフォークする場合は、オリジナルまたは上流のリポジトリから、フォークのローカルのクローンへと、変更をプルするように Git を構成できます。
 
-1. {% data variables.product.product_name %} で、[octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) リポジトリに移動します。
+1. On
+
+{% data variables.product.product_name %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 4. ディレクトリを、「[ステップ 2: フォークのローカルクローンを作成する](#step-2-create-a-local-clone-of-your-fork)」でクローンしたフォークの場所に変更します。
@@ -128,7 +132,7 @@ Spoon-Knife リポジトリのフォークのローカルのコピーができ�
 
 リポジトリをフォークしてプロジェクトへのコントリビューションを開始しましょう。 {% data reusables.repositories.you-can-fork %}
 
-{% if currentVersion == "free-pro-team@latest" %}[Explore](https://github.com/explore) を閲覧して、プロジェクトを探してオープンソースのリポジトリへのコントリビューションを開始できます。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+{% if currentVersion == "free-pro-team@latest" %}You can browse [Explore](https://github.com/explore) to find projects and start contributing to open source repositories. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 
 {% endif %}
 

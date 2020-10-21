@@ -10,7 +10,7 @@ versions:
 
 ### 1. 公司服务条款
 
-客户必须在 GitHub.com 上拥有公司帐户才能获得评估权限。 Customer's evaluation of Enterprise Cloud will be governed by these terms and the Corporate Terms of Service (found at [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)) (together, the "**Evaluation Agreement**"). 但是，在客户升级为付费订阅 Enterprise Cloud 之前，与 [Enterprise Cloud 附录](https://help.github.com/articles/github-enterprise-cloud-addendum)相关的任何补充条款**均不**适用。  Any capitalized terms not defined in this Evaluation Agreement are defined in the Corporate Terms of Service.
+客户必须在 GitHub.com 上拥有公司帐户才能获得评估权限。 客户对 Enterprise Cloud 的评估受这些条款和公司服务条款（见 [https://docs.github.com/articles/github-corporate-terms-of-service](/articles/github-corporate-terms-of-service)）（统称为“**评估协议**”）的约束。 但是，在客户升级为付费订阅 Enterprise Cloud 之前，与 [Enterprise Cloud 附录](https://help.github.com/articles/github-enterprise-cloud-addendum)相关的任何补充条款**均不**适用。本评估协议中未定义的任何大写术语采用公司服务条款中的定义。
 
 ### 2. 期限与终止
 

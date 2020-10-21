@@ -1,1 +1,1 @@
-3. In the left sidebar, click **Webhooks**. ![Webhooks tab](/assets/images/help/sponsors/webhooks-tab.png)
+3. Na barra lateral esquerda, clique em **Webhooks**. ![Aba Webhooks](/assets/images/help/sponsors/webhooks-tab.png)

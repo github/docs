@@ -8,8 +8,8 @@ versions:
 ---
 
 {% data reusables.github-insights.settings-tab %}
-2. Under
-{% octicon "gear" aria-label="The gear icon" %} Settings, click **Enterprise**.
+2. 在
+{% octicon "gear" aria-label="The gear icon" %} Settings（设置）下，单击 **Enterprise（企业）**。
   ![Enterprise（企业）选项卡](/assets/images/help/insights/enterprise-tab.png)
 {% data reusables.github-insights.enterprise-api-url %}
 {% data reusables.github-insights.app-id %}

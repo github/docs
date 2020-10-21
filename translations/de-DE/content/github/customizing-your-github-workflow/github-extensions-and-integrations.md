@@ -1,6 +1,6 @@
 ---
 title: GitHub-Erweiterungen und -Integrationen
-intro: 'Mit {% data variables.product.product_name %}-Erweiterungen kannst Du problemlos in {% data variables.product.product_name %}-Repositorys mit Anwendungen von Drittanbietern zusammenarbeiten.'
+intro: 'Mit {% data variables.product.product_name %}-Erweiterungen können Sie problemlos in {% data variables.product.product_name %}-Repositorys mit Anwendungen von Drittanbietern zusammenarbeiten.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications/
   - /articles/github-extensions-and-integrations
