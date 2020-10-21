@@ -12,7 +12,7 @@ versions:
 
 A composição de rede mais simples para o clustering é deixar os nós em uma única LAN. Se um cluster abranger sub-redes, não recomendamos configurar quaisquer regras de firewall entre as redes. A latência entre os nós deve ser inferior a 1 milissegundo.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}Para alta disponibilidade, a latência entre a rede com os nós ativos e a rede com os nós passivos deve ser inferior a 70 milissegundos. Não recomendamos configurar um firewall entre as duas redes.{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2. 1" %}Para alta disponibilidade, a latência entre a rede com os nós ativos e a rede com os nós passivos deve ser inferior a 70 milissegundos. Não recomendamos configurar um firewall entre as duas redes.{% endif %}
 
 #### Portas de aplicativo para usuários finais
 
@@ -70,7 +70,6 @@ Se houver um firewall no nível da rede entre os nós, essas portas terão que e
 | 8301/UDP  | Consul                                |
 | 8302/UDP  | Consul                                |
 | 25827/UDP | Collectd                              |
-
 
 ### Configurar um balanceador de carga
 

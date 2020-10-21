@@ -1,6 +1,6 @@
 ---
 title: Informationen zu erforderlichen Reviews für Pull-Requests
-intro: 'Erforderlichen Reviews stellen sicher, dass Pull Requests eine bestimmte Anzahl von genehmigenden Reviews erhalten, bevor Mitarbeiter Änderungen an einem geschützten Branch vornehmen können.'
+intro: Erforderlichen Reviews stellen sicher, dass Pull Requests eine bestimmte Anzahl von genehmigenden Reviews erhalten, bevor Mitarbeiter Änderungen an einem geschützten Branch vornehmen können.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/about-required-reviews-for-pull-requests

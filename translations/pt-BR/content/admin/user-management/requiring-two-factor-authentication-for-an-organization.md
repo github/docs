@@ -1,6 +1,6 @@
 ---
 title: Exigir autenticação de dois fatores na organização
-intro: Você pode exigir que integrantes da organização e colaboradores externos habilitem a autenticação de dois fatores em suas contas pessoais para dificultar o acesso de elementos mal-intencionados a repositórios e configurações da organização.
+intro: 'Você pode exigir que integrantes da organização e colaboradores externos habilitem a autenticação de dois fatores em suas contas pessoais para dificultar o acesso de elementos mal-intencionados a repositórios e configurações da organização.'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:

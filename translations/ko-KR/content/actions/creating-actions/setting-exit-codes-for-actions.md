@@ -24,7 +24,7 @@ versions:
 
 ### Setting a failure exit code in a JavaScript action
 
-If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/master/packages/core) package to log a message and set a failure exit code. 예시:
+If you are creating a JavaScript action, you can use the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failure exit code. 예시:
 
 ```javascript
 try {

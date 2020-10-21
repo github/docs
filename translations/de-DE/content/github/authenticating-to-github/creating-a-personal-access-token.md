@@ -27,8 +27,8 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 5. Gib dem Token einen beschreibenden Namen. ![Feld „Token description“ (Token-Beschreibung)](/assets/images/help/settings/token_description.png)
 6. Wähle die Scopes oder Berechtigungen aus, die Du diesem Token zuweisen möchtest. Um das Token für den Zugriff auf Repositorys über die Befehlszeile zu verwenden, wähle **repo** aus. ![Token-Scopes auswählen](/assets/images/help/settings/token_scopes.gif)
 7. Klicke auf **Generate token** (Token erzeugen). ![Schaltfläche „Generate token“ (Token erzeugen)](/assets/images/help/settings/generate_token.png)
-8. Klicke auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um das Token in die Zwischenablage zu kopieren. Nachdem Du die Seite verlassen haben, kannst Du das Token aus Sicherheitsgründen nicht mehr sehen.{% if currentVersion == "free-pro-team@latest" %} ![Neu erstellten Token](/assets/images/help/settings/personal_access_tokens.png){% else %}
-![Neu erstellten Token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
+8. Klicke auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um das Token in die Zwischenablage zu kopieren. For security reasons, after you navigate off the page, you will not be able to see the token again.{% if currentVersion == "free-pro-team@latest" %} ![Newly created token](/assets/images/help/settings/personal_access_tokens.png){% else %}
+![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png){% endif %}
 
    {% warning %}
 

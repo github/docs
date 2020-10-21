@@ -1,6 +1,6 @@
 ---
 title: Organization のインサイトを表示する
-intro: Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。
+intro: 'Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization

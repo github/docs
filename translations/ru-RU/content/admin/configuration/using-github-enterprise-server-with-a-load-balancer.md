@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
-  - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
   enterprise-server: '*'
 ---

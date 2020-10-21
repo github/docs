@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### はじめに
@@ -55,11 +55,12 @@ Committing the workflow file in your repository triggers the `push` event and ru
 
 ### Viewing your workflow results
 
+{% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-1. 左のサイドバーで、表示させたいワークフローをクリックしてください。 ![左サイドバーのワークフローのリスト](/assets/images/help/repository/superlinter-workflow-sidebar.png)
-1. From the list of workflow runs, click the name of the run you want to see. ![ワークフローの実行の名前](/assets/images/help/repository/superlinter-run-name.png)
+{% data reusables.repositories.navigate-to-workflow-superlinter %}
+{% data reusables.repositories.view-run-superlinter %}
 1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-2. Expand the **Run Super-Linter** step to view the results. ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results.png)
+{% data reusables.repositories.view-failed-job-results-superlinter %}
 
 ### More starter workflows
 

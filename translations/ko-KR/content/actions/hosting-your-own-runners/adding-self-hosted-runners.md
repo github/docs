@@ -51,7 +51,8 @@ You can add self-hosted runners to an enterprise, where they can be assigned to 
 {% if currentVersion == "free-pro-team@latest" %}
 To add a self-hosted runner to an enterprise account, you must be an enterprise owner.
 {% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-To add a self-hosted runner at the enterprise level of {% data variables.product.product_location %}, you must be a site administrator.
+To add a self-hosted runner at the enterprise level of
+{% data variables.product.product_location %}, you must be a site administrator.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}

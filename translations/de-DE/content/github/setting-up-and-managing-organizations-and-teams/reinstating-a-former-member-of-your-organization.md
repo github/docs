@@ -1,6 +1,6 @@
 ---
 title: Ehemaliges Mitglied Deiner Organisation wieder einsetzen
-intro: 'Organisationsinhaber können ehemalige Organisationsmitglieder {% if currentVersion == "free-pro-team@latest" %}zum Wiedereintritt in Deine Organisation einladen{% else %}wieder zu Deiner Organisation hinzufügen{% endif%} und auswählen, ob auch die ehemalige Rolle, Zugriffsberechtigungen, Forks und Einstellungen der Person wiederhergestellt werden sollen.'
+intro: 'Organization owners can {% if currentVersion == "free-pro-team@latest" %}invite former organization members to rejoin{% else %}add former members to{% endif%} your organization, and choose whether to restore the person''s former role, access permissions, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Wenn Du [einen Benutzer aus Deiner Organisation entfernst](/articles/removing-a-member-from-your-organization), [ein Organisationsmitglied in einen externen Mitarbeiter umwandelst](/articles/converting-an-organization-member-to-an-outside-collaborator), oder wenn ein Benutzer aus Deiner Organisation entfernt wird, weil Du [von Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung (2FA) verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. Du kannst die Berechtigungen dieses Benutzers wiederherstellen, wenn Du ihn innerhalb dieses Zeitrahmens wieder zur Organisation {% if currentVersion =="free-pro-team@latest" %}einlädst{% else %}hinzufügst{% endif %}.
+Wenn Du [einen Benutzer aus Deiner Organisation entfernst](/articles/removing-a-member-from-your-organization), [ein Organisationsmitglied in einen externen Mitarbeiter umwandelst](/articles/converting-an-organization-member-to-an-outside-collaborator), oder wenn ein Benutzer aus Deiner Organisation entfernt wird, weil Du [von Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung (2FA) verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. You can restore the user's privileges if you {% if currentVersion =="free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 

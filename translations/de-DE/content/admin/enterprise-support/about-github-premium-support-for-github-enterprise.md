@@ -49,7 +49,7 @@ Sie müssen die mindestens unterstützte Version von {% data variables.product.p
 
 ### Einem Support-Ticket eine Priorität zuweisen
 
-Wenn Du den {% data variables.contact.premium_support %} kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: „{% data variables.product.support_ticket_priority_urgent %}“ (dringend), „{% data variables.product.support_ticket_priority_high %}“ (hoch), „{% data variables.product.support_ticket_priority_normal %}“ (normal) oder „{% data variables.product.support_ticket_priority_low %}“ (niedrig).
+Wenn Du {% data variables.contact.premium_support %}kontaktierst, kannst Du eine von vier Prioritäten für das Ticket auswählen: {% data variables.product.support_ticket_priority_urgent %}, {% data variables.product.support_ticket_priority_high %}, {% data variables.product.support_ticket_priority_normal %} oder {% data variables.product.support_ticket_priority_low %}.
 
 - [Ticket-Prioritäten für {% data variables.product.prodname_ghe_cloud %}](#ticket-priorities-for-github-enterprise-cloud)
 - [Ticket-Prioritäten für {% data variables.product.prodname_ghe_server %}](#ticket-priorities-for-github-enterprise-server)

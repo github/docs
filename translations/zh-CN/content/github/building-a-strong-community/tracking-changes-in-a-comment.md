@@ -28,5 +28,5 @@ versions:
 
 ### 延伸阅读
 
-{% if currentVersion == "free-pro-team@latest" %}-“[举报滥用或垃圾邮件](/articles/reporting-abuse-or-spam)”{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"{% endif %}
 - “[编辑评论](/articles/editing-a-comment)”

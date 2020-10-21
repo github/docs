@@ -12,9 +12,9 @@ versions:
 
 ### Auf Dein persönliches Dashboard zugreifen
 
-Dein persönliches Dashboard ist die erste Seite, die Sie Du siehst, wenn Du Dich bei {% data variables.product.product_name %} anmeldest.
+Ihr persönliches Dashboard ist die erste Seite, die Sie sehen, wenn Sie sich bei {% data variables.product.product_name %} anmelden.
 
-Um nach der Anmeldung auf Dein persönliches Dashboard zuzugreifen, klicke auf das {% octicon "mark-github" aria-label="The github octocat logo" %} in der oberen linken Ecke einer beliebigen Seite auf {% data variables.product.product_url %}.
+Um nach der Anmeldung auf Ihr persönliches Dashboard zuzugreifen, klicken Sie auf das {% octicon "mark-github" aria-label="The github octocat logo" %} in der oberen linken Ecke einer beliebigen Seite auf {% data variables.product.product_url %}.
 
 ### Neueste Aktivitäten finden
 
@@ -46,7 +46,7 @@ Weitere Informationen zu Sternen für Repositorys und zum Folgen von Personen fi
 
 ### Empfohlene Repositorys erkunden
 
-Im Abschnitt "Explore repositories" (Repositories erkunden) auf der rechten Seite Deines Dashboards kannst Du empfohlene Repositorys in Deinen Communities erkunden. Empfehlungen basieren auf den von Dir markierten oder besuchten Repositorys, auf den Personen, denen Du folgst und auf den Aktivitäten innerhalb der Repositorys, auf die Du Zugriff hast.{% if currentVersion == "free-pro-team@latest" %} Weitere Informationen findest Du unter „[Möglichkeiten zum Beitragen an Open Source auf {% data variables.product.prodname_dotcom %} finden](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
+Im Abschnitt "Explore repositories" (Repositories erkunden) auf der rechten Seite Deines Dashboards kannst Du empfohlene Repositorys in Deinen Communities erkunden. Recommendations are based on repositories you've starred or visited, the people you follow, and activity within repositories that you have access to.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Finding ways to contribute to open source on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."{% endif %}
 
 ### Weiterführende Informationen
 

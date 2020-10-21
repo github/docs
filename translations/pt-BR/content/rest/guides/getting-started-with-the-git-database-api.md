@@ -32,14 +32,14 @@ Pode parecer complexo, mas, na verdade, é bem simples. Ao entender o modelo e e
 
 {% warning %}
 
-**Aviso!** Não dependa do uso do Git diretamente ou {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}  para atualizações das referências de `merge` do Git, pois este conteúdo fica desatualizado sem aviso.
+**Aviso!**Não dependa do uso do Git diretamente ou de [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference)  para atualizações para fazer `merge` de refs do Git, pois este conteúdo fica desatualizado sem aviso prévio.
 
 {% endwarning %}
 
 Uma API consumível precisa solicitar explicitamente que um pull request crie um commit de merge de _teste_. Um commit de merge de _teste_ é criado quando você visualiza o pull request na interface do usuário e o botão "Merge" é exibido, ou quando [obtém](/v3/pulls/#get-a-pull-request), [cria](/v3/pulls/#create-a-pull-request), ou [edita](/v3/pulls/#update-a-pull-request) um pull request usando a API REST. Sem esta solicitação, as referências de `merge` do Git ficarão desatualizadas até a próxima vez que alguém visualizar o pull request.
 
-Se você estiver usando métodos de sondagem que produzem referências obsoletas de `merge` do Git, o GitHub recomenda seguir as etapas a seguir para obter as últimas alterações do branch-base (geralmente `mestre`):
+Se você está usando métodos de sondagem que produzem refs do Git de `merge` obsoletos, o GitHub recomenda usar as etapas a seguir para obter as últimas alterações do branch-padrão:
 
 1. Receber o webhook do pull request.
 2. Chame [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) para iniciar um trabalho em segundo plano para criar o candidato de do commit do merge.
-3. Faça a sondam do seu repositório usando [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) para ver se o atributo `mesclável` é `verdadeiro` ou `falso`. Você pode usar o Git diretamente ou {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} para atualizações para as referências de `merge` do Git depois de realizar as etapas anteriores.
+3. Faça a sondam do seu repositório usando [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) para ver se o atributo `mesclável` é `verdadeiro` ou `falso`. Você pode usar o Git diretamente ou [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference) para atualizações para fazer `merge` das refs do Git apenas após executar as etapas anteriores.

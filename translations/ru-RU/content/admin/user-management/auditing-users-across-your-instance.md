@@ -75,7 +75,7 @@ The `action` qualifier searches for specific events, grouped within categories. 
 
 | Category name | Description                                                                     |
 | ------------- | ------------------------------------------------------------------------------- |
-| `хук`         | Contains all activities related to webhooks.                                    |
+| `перехватчик` | Contains all activities related to webhooks.                                    |
 | `org`         | Contains all activities related organization membership                         |
 | `repo`        | Contains all activities related to the repositories owned by your organization. |
 | `команда`     | Contains all activities related to teams in your organization.                  |

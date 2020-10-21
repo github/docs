@@ -1,6 +1,6 @@
 ---
 title: Gesperrtes Konto entsperren
-intro: 'Die kostenpflichtigen Funktionen Deiner Organisation sind gesperrt, wenn Deine Zahlung aufgrund von Zahlungsproblemen verspätet ist.'
+intro: Die kostenpflichtigen Funktionen Deiner Organisation sind gesperrt, wenn Deine Zahlung aufgrund von Zahlungsproblemen verspätet ist.
 redirect_from:
   - /articles/what-happens-if-my-account-is-locked/
   - /articles/if-my-account-is-locked-and-i-upgrade-it-do-i-owe-anything-for-previous-time/

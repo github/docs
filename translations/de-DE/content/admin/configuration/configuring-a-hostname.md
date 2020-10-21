@@ -1,6 +1,6 @@
 ---
 title: Hostname konfigurieren
-intro: 'Es wird empfohlen, dass Sie einen Hostnamen für Ihre Appliance festlegen, anstatt eine hartcodierte IP-Adresse zu verwenden.'
+intro: Es wird empfohlen, dass Sie einen Hostnamen für Ihre Appliance festlegen, anstatt eine hartcodierte IP-Adresse zu verwenden.
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames/
   - /enterprise/admin/installation/configuring-a-hostname

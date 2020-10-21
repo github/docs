@@ -1,6 +1,6 @@
 ---
 title: SSH-Verbindung testen
-intro: 'Wenn Du Deinen SSH-Schlüssel eingerichtet und Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du die Verbindung testen.'
+intro: 'Wenn Sie Ihren SSH-Schlüssel eingerichtet und Ihrem {% data variables.product.product_name %}-Konto hinzugefügt haben, können Sie die Verbindung testen.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Änderungen an einer Datei verfolgen
-intro: 'Du kannst die Änderungen an den einzelnen Zeilen einer Datei verfolgen und so feststellen, wie sich die Datei im Lauf der Zeit entwickelt hat.'
+intro: Du kannst die Änderungen an den einzelnen Zeilen einer Datei verfolgen und so feststellen, wie sich die Datei im Lauf der Zeit entwickelt hat.
 redirect_from:
   - /articles/using-git-blame-to-trace-changes-in-a-file/
   - /articles/tracing-changes-in-a-file/
