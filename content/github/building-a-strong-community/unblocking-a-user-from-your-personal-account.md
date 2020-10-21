@@ -23,7 +23,7 @@ You can unblock a user in your account settings or from the user's profile page.
 ### Unblocking a user from their profile page
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. In the left sidebar, under the user's profile picture, click **Unblock or report user**.
+2. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click  **Unblock or report user**.
 ![Unblock or report user link](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. Click **Unblock user**.
   ![Modal box with option to unblock user or report abuse](/assets/images/help/profile/profile-unblockuser.png)
