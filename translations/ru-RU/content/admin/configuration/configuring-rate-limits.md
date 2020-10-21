@@ -4,7 +4,6 @@ intro: 'You can set rate limits for {% data variables.product.prodname_ghe_serve
 redirect_from:
   - /enterprise/admin/installation/configuring-rate-limits
   - /enterprise/admin/configuration/configuring-rate-limits
-  - /enterprise/admin/configuration/configuring-rate-limits
 versions:
   enterprise-server: '*'
 ---

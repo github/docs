@@ -18,7 +18,7 @@ versions:
 
 主题选择器如何工作取决于您的资源库是公共的还是私有的。
   - 如果已为仓库启用 {% data variables.product.prodname_pages %}，主题选择器会将主题添加到当前发布源。
-  - If your repository is public and {% data variables.product.prodname_pages %} is disabled for your repository, using the theme chooser will enable {% data variables.product.prodname_pages %} and configure the default branch as your publishing source.
+  - 如果您的仓库是公共的，并且已对仓库禁用 {% data variables.product.prodname_pages %}，则使用主题选择器将启用 {% data variables.product.prodname_pages %} 并将默认分支配置为发布源。
   - 如果您的仓库是公共的，并且已对仓库禁用 {% data variables.product.prodname_pages %}，则必须先通过配置发布源来启用 {% data variables.product.prodname_pages %}，然后才可使用主题选择器。
 
 有关发布源的更多信息，请参阅“[关于 {% data variables.product.prodname_pages %}](/articles/about-github-pages#publishing-sources-for-github-pages-sites)”。

@@ -1,6 +1,6 @@
 ---
 title: Nach Repositorys suchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du nach Repositorys suchen und die Suchergebnisse mit den folgenden Qualifizierern der Repository-Suche in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie nach Repositorys suchen und die Suchergebnisse mit den folgenden Kennzeichnern der Repository-Suche in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-repositories/
   - /articles/searching-for-repositories
@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Du kannst Repositorys global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
+Sie können Repositorys global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
 
 Um Forks in die Suchergebnisse einzuschließen, musst du Deiner Abfrage den Qualifizierer `fork:true` oder `fork:only` hinzufügen. Weitere Informationen finden Sie unter „[Forks durchsuchen](/articles/searching-in-forks)“.
 
@@ -146,7 +146,7 @@ Du kannst Deine Suche danach filtern, ob ein Repository öffentlich oder privat 
 
 ### Suche auf Basis der Spiegelung eines Repositorys
 
-Du kannst Repositorys danach durchsuchen, ob sie ein Spiegel sind und an anderer Stelle gehostet werden. Weitere Informationen findest Du unter „[Möglichkeiten finden, um Beiträge zu Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github) ."
+Du kannst Repositorys danach durchsuchen, ob sie ein Spiegel sind und an anderer Stelle gehostet werden. Weitere Informationen findest du unter „[Möglichkeiten finden, Beiträge an Open-Source auf {% data variables.product.prodname_dotcom %} zu leisten](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)."
 
 | Qualifizierer  | Beispiel                                                                                                                                                             |
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

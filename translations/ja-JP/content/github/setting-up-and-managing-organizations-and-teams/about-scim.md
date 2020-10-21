@@ -1,6 +1,6 @@
 ---
 title: SCIM について
-intro: System for Cross-domain Identity Management (SCIM) を使うと、管理者はユーザの識別情報のシステム間での交換を自動化できます。
+intro: 'System for Cross-domain Identity Management (SCIM) を使うと、管理者はユーザの識別情報のシステム間での交換を自動化できます。'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-scim

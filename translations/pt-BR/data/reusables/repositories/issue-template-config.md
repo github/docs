@@ -1,1 +1,1 @@
-You can customize the issue template chooser that people see when creating a new issue in your repository by adding a *config.yml* file to the `.github/ISSUE_TEMPLATE` folder.
+Você pode personalizar o seletor do modelo de problema que as pessoas veem ao criar um novo problema no repositório, adicionando um arquivo *config.yml* à pasta `.github/ISSUE_TEMPLATE`.

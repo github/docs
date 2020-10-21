@@ -28,7 +28,8 @@ versions:
 要将 {% data variables.product.prodname_insights %} 连接到 {% data variables.product.prodname_enterprise %}，您必须在 {% data variables.product.prodname_enterprise %} 上的组织中创建 {% data variables.product.prodname_github_app %}。 当您的集成执行操作时，应用程序名称的缓存版本将显示在 {% data variables.product.prodname_enterprise %} 上。
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-2. 导航至要连接到 {% data variables.product.prodname_insights %} 的组织。
+2. 导航到要连接到的组织
+{% data variables.product.prodname_insights %}.
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
 5. 单击**新建 {% data variables.product.prodname_github_app %}**。 ![新建 GitHub 应用程序按钮](/assets/images/help/apps/github_apps_new.png)

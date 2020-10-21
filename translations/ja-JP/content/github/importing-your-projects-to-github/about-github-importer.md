@@ -1,6 +1,6 @@
 ---
 title: GitHub Importerについて
-intro: ソースコードがSubversion、Mercurial、Team Foundation Server、あるいは他のGitリポジトリにあるなら、GitHub Importerを使ってそれをGitHubに移せます。
+intro: 'ソースコードがSubversion、Mercurial、Team Foundation Server、あるいは他のGitリポジトリにあるなら、GitHub Importerを使ってそれをGitHubに移せます。'
 redirect_from:
   - /articles/about-github-importer
 versions:

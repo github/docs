@@ -30,5 +30,5 @@ Ao remover um colaborador de um repositório de sua organização, o colaborador
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" %}- "[Restringir interações no repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Limitar interações com o seu repositório](/articles/limiting-interactions-with-your-repository)"{% endif %}
 - "[Níveis de permissão do repositório para uma organização](/articles/repository-permission-levels-for-an-organization)"

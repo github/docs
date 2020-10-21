@@ -71,9 +71,9 @@ The `hook_attributes` object has the following key:
 
 ##### パラメータ
 
- | 名前   | 種類       | 説明                                               |
- | ---- | -------- | ------------------------------------------------ |
- | `状態` | `string` | {% data reusables.apps.state_description %} |
+ | 名前   | 種類       | 説明                                          |
+ | ---- | -------- | ------------------------------------------- |
+ | `状態` | `string` | {% data reusables.apps.state_description %}
 
 ##### サンプル
 

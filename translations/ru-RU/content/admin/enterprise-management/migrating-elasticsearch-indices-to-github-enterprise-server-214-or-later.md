@@ -6,8 +6,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-server-2-14-or-later
   - /enterprise/admin/enterprise-management/migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later
-  - /enterprise/admin/enterprise-management/migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later
-  - /enterprise/admin/enterprise-management/migrating-elasticsearch-indices-to-github-enterprise-server-214-or-later
 versions:
   enterprise-server: '*'
 ---

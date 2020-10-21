@@ -1,6 +1,6 @@
 ---
 title: Die Details Deines GitHub Sponsors-Profil bearbeiten
-intro: 'Du kannst die Informationen aktualisieren, die potenziellen Sponsoren zu Deiner Arbeit angezeigt werden.'
+intro: Du kannst die Informationen aktualisieren, die potenziellen Sponsoren zu Deiner Arbeit angezeigt werden.
 redirect_from:
   - /articles/editing-your-sponsored-developer-profile
   - /github/supporting-the-open-source-community-with-github-sponsors/editing-your-sponsored-developer-profile

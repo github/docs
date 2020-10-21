@@ -1,6 +1,6 @@
 ---
 title: 限制仓库中的交互
-intro: 组织所有者或管理员可临时限制某些用户在公共仓库中评论、打开议题或创建拉取请求，在一定的期限内限制活动。
+intro: '组织所有者或管理员可临时限制某些用户在公共仓库中评论、打开议题或创建拉取请求，在一定的期限内限制活动。'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository

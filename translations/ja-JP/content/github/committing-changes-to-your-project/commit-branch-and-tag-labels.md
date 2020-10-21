@@ -14,7 +14,7 @@ versions:
 
 コミットがデフォルトブランチにある場合は、そのコミットを含むタグがすべて表示され、ブランチのリストにはデフォルトブランチのみが表示されます。
 
-![Commit-master-label](/assets/images/help/commits/Commit-master-label.png)
+![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
 ### 参考リンク
 

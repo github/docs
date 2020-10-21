@@ -1,6 +1,6 @@
 ---
 title: Grundlagen der Suchsyntax
-intro: 'Für Suchen auf {% data variables.product.product_name %} kannst Du Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
+intro: 'Für Suchen auf {% data variables.product.product_name %} können Sie Abfragen erstellen, die nach bestimmten alphanumerischen Zeichenfolgen suchen.'
 redirect_from:
   - /articles/search-syntax/
   - /articles/understanding-the-search-syntax

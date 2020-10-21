@@ -1,1 +1,1 @@
-{% data variables.product.product_name %} does not support SAML Single Logout. To terminate an active SAML session, users should log out directly on your SAML IdP.
+{% data variables.product.product_name %} não é compatível com o logout único SAML. Para finalizar uma sessão do SAML ativa, os usuários devem efetuar o logout diretamente no seu IdP do SAML.

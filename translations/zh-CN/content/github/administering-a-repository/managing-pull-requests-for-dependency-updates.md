@@ -9,7 +9,7 @@ versions:
 
 ### 关于 {% data variables.product.prodname_dependabot %} 拉取请求
 
-{% data variables.product.prodname_dependabot %} 提出拉取请求，以更新依赖项。 Depending on how your repository is configured, {% data variables.product.prodname_dependabot_short %} may raise pull requests for version updates and/or for security updates. 您可以按与任何其他拉取请求相同的方式管理这些拉取请求，但也有一些额外的可用命令。 有关启用 {% data variables.product.prodname_dependabot %} 依赖项更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”和“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
+{% data variables.product.prodname_dependabot %} 提出拉取请求，以更新依赖项。 {% data variables.product.prodname_dependabot_short %} 可能会针对版本更新和/或安全更新提出拉取请求，具体取决于仓库的配置方式。 您可以按与任何其他拉取请求相同的方式管理这些拉取请求，但也有一些额外的可用命令。 有关启用 {% data variables.product.prodname_dependabot %} 依赖项更新的更多信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”和“[启用和禁用版本更新](/github/administering-a-repository/enabling-and-disabling-version-updates)”。
 
 当 {% data variables.product.prodname_dependabot %} 提出拉取请求时，将以您为仓库选择的方式通知您。 每个拉取请求都包含关于来自包管理系统的拟议变更的详细信息。 这些拉取请求将遵循仓库中定义的正常检查和测试。 此外，如果有足够的信息，您将看到兼容性分数。 这也有助于您决定是否合并变更。 有关此分数的信息，请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)”。
 
@@ -20,7 +20,7 @@ versions:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 1. 安全和版本更新的任何拉取请求都很容易识别。
-    - The author is [dependabot](https://github.com/dependabot), the bot account used by {% data variables.product.prodname_dependabot %}.
+    - 作者为 [dependabot](https://github.com/dependabot)，即 {% data variables.product.prodname_dependabot %} 使用的自动程序帐户。
     - 默认情况下，它们拥有 `dependencies` 标签。
 
 ### 更改 {% data variables.product.prodname_dependabot %} 拉取请求的变基策略

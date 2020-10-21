@@ -15,7 +15,7 @@ Klicken Sie in der oberen rechten Ecke einer beliebigen Seite auf {% octicon "ro
 
 ### Suche
 
-Hier können Sie die {% data variables.enterprise.management_console %} starten, um die Einstellungen der virtuellen Appliance zu verwalten, also beispielsweise die Domain, die Authentifizierung und SSL.
+Hier können Sie die {{ site.data.variables.enterprise.management_console }} starten, um die Einstellungen der virtuellen Appliance zu verwalten, also beispielsweise die Domain, die Authentifizierung und SSL.
 
 {% else %}
 
@@ -162,7 +162,7 @@ Dadurch wird gesteuert, wie der [Issues][]-Index repariert wird. Sie können
 
 ### Alle Benutzer
 
-Hier können Sie alle Benutzer anzeigen, die auf {% data variables.product.product_location_enterprise %} gesperrt wurden, und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Hier können Sie alle Benutzer anzeigen, die auf {{ site.data.variables.product.product_location_enterprise }} gesperrt wurden, und [eine SSH-Schlüsselüberwachung initiieren](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys).
 
 {% endif %}
 

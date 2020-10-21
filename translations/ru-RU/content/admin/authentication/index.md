@@ -3,8 +3,6 @@ title: Authentication
 intro: 'You can use {% data variables.product.prodname_ghe_server %}''s built-in authentication, or choose between CAS, LDAP, or SAML to integrate your existing accounts and centrally manage user access to {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/authentication
-  - /enterprise/admin/authentication
-  - /enterprise/admin/authentication
 versions:
   enterprise-server: '*'
 ---

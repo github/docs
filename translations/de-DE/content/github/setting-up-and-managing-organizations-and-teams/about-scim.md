@@ -8,7 +8,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Wenn Du in Deiner Organisation [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) verwendest, kannst Du SCIM implementieren, um den Zugriff von Organisationsmitgliedern auf {% data variables.product.product_name %} hinzuzufügen, zu verwalten und zu entfernen. Ein Administrator kann beispielsweise die Bereitstellung des Zugriffs eines Organisationsmitglieds mithilfe von SCIM aufheben und das Mitglied automatisch aus der Organisation entfernen.
+Wenn Sie in Ihrer Organisation [SAML SSO](/articles/about-identity-and-access-management-with-saml-single-sign-on) verwenden, können Sie SCIM implementieren, um den Zugriff von Organisationsmitgliedern auf {% data variables.product.product_name %} hinzuzufügen, zu verwalten und zu entfernen. Ein Administrator kann beispielsweise die Bereitstellung des Zugriffs eines Organisationsmitglieds mithilfe von SCIM aufheben und das Mitglied automatisch aus der Organisation entfernen.
 
 Wenn Du SAML SSO verwendest, ohne SCIM zu implementieren, ist die Aufhebung der Bereitstellung nicht automatisiert. Wenn die Sitzungen der Organisationsmitglieder ablaufen, nachdem ihr Zugriff vom IdP entfernt wurde, werden sie nicht automatisch aus der Organisation entfernt. Autorisierte Token gewähren auch nach Ablauf ihrer Sitzungen Zugriff auf die Organisation. Um den Zugriff zu entfernen, können Administratoren entweder manuell das autorisierte Token aus der Organisation entfernen oder seine Entfernung mit SCIM automatisieren.
 

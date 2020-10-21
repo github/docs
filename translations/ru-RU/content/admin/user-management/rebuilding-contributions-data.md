@@ -4,7 +4,6 @@ intro: You may need to rebuild contributions data to link existing commits to a 
 redirect_from:
   - /enterprise/admin/articles/rebuilding-contributions-data/
   - /enterprise/admin/user-management/rebuilding-contributions-data
-  - /enterprise/admin/user-management/rebuilding-contributions-data
 versions:
   enterprise-server: '*'
 ---
@@ -16,4 +15,5 @@ Whenever a commit is pushed to {% data variables.product.prodname_enterprise %},
 3. On the left side of the page, click **Admin**. ![Admin tab](/assets/images/enterprise/site-admin-settings/admin-tab.png)
 4. Under **Contributions data**, click **Rebuild**. ![Rebuild button](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account. ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} will now start background jobs to re-link commits with that user's account.
+  ![Queued rebuild jobs](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

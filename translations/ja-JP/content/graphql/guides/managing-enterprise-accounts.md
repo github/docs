@@ -5,7 +5,7 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 ### GraphQLでのEnterpriseアカウントの管理について
@@ -23,7 +23,7 @@ Audit Log APIでは、誰かが以下のようなことをするのをモニタ�
 - ユーザを管理者に昇格。
 - GitHub Appの権限の変更。
 
-Audit Log APIを使えば、Audit logのデータのコピーを保持できます。 Audit Log APIで発行するクエリについては、GraphQLのレスポンスには最大で90から120日分のデータが含まれることがあります。 Audit Log APIで利用できるフィールドのリストについては、「[ AuditEntryインターフェース](/v4/interface/auditentry/)」を参照してください。
+Audit Log APIを使えば、Audit logのデータのコピーを保持できます。 Audit Log APIで発行するクエリについては、GraphQLのレスポンスには最大で90から120日分のデータが含まれることがあります。 Audit Log APIで利用できるフィールドのリストについては、「[ AuditEntryインターフェース](/graphql/reference/interfaces#auditentry/)」を参照してください。
 
 Enterprise APIを利用すると、以下のことができます。
 - Enterpriseアカウントに属するすべてのOrganizationとリポジトリの取得と確認。

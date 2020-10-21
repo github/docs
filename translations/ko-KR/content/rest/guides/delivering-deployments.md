@@ -12,7 +12,7 @@ versions:
 
 
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on `master`.
+The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
 
 This guide will use that API to demonstrate a setup that you can use. In our scenario, we will:
 

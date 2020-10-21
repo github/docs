@@ -9,12 +9,17 @@ As listas de assinatura não incluem todos os problemas e pull requests dos repo
 
 ### Visualizar uma lista de suas assinaturas
 
-1. No canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}. Se você desabilitou as notificações da web e não vê o ícone de sino, é possível navegar para <https://github.com/notifications/subscriptions>. Para obter mais informações, consulte "[Escolher o método de entrega das suas notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)". ![Notificação indicando qualquer mensagem não lida](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-2. Clique em **Assinaturas** ![Aba Subscriptions (Assinaturas)](/assets/images/help/notifications/subscriptions-tab.png)
+1. No canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}. Se você desabilitou as notificações da web e não vê o ícone de sino, é possível navegar para <https://github.com/notifications/subscriptions>. Para obter mais informações, consulte "
+[Escolher o método de entrega das suas notificações](/enterprise/{{ page.version }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)". ![Notificação indicando qualquer mensagem não lida](/assets/images/help/notifications/notifications_general_existence_indicator.png)</p></li> 
+   
+   2 Clique em **Assinaturas** ![Aba Subscriptions (Assinaturas)](/assets/images/help/notifications/subscriptions-tab.png)</ol> 
+
+
 
 ### Cancelar assinatura de problemas e pull requests
 
 Você pode cancelar a assinatura de problemas e pull requests diretamente em sua lista de assinaturas.
 
 1. À esquerda de cada problema ou pull request que você quer cancelar a assinatura, marque a caixa de seleção. ![Caixa de seleção para cancelar assinatura](/assets/images/help/notifications/unsubscribe-checkbox.png)
+
 2. No campo superior direito da página, clique em **Unsubscribe** (Cancelar assinatura). ![Botão Unsubscribe (Cancelar assinatura)](/assets/images/help/notifications/unsubscribe-button.png)
