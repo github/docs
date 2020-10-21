@@ -45,6 +45,7 @@ Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data v
  ``` shell
 $ ghe-dep-graph-enable
 ```
+
 {% note %}
 
 **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
