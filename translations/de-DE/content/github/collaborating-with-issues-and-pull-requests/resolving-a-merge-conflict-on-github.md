@@ -1,6 +1,6 @@
 ---
-title: Mergekonflikt auf GitHub beheben
-intro: 'Einfache Mergekonflikte auf GitHub, bei denen Zeilenänderungen in Konflikt stehen, kannst Du mit dem Konflikteditor beheben.'
+title: Resolving a merge conflict on GitHub
+intro: 'You can resolve simple merge conflicts that involve competing line changes on GitHub, using the conflict editor.'
 redirect_from:
   - /articles/resolving-a-merge-conflict-on-github
 versions:
@@ -8,50 +8,56 @@ versions:
   enterprise-server: '*'
 ---
 
-Auf {% data variables.product.product_name %} kannst Du nur Mergekonflikte beheben, die durch konkurrierende Zeilenänderungen verursacht werden, beispielsweise, wenn mehrere Personen unterschiedliche Änderungen an der gleichen Zeile in der gleichen Datei in verschiedenen Branches Deines Git-Repositorys vornehmen. Alle anderen Mergekonflikte musst Du lokal in der Befehlszeile beheben. Weitere Informationen findest Du unter „[Einen Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line/).“
+You can only resolve merge conflicts on {% data variables.product.product_name %} that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line/)."
 
 {% if currentVersion != "free-pro-team@latest" %}
-Wenn ein Websiteadministrator den Editor für Mergekonflikte für Pull Requests zwischen Repositorys deaktiviert, kannst Du den Konflikteditor auf {% data variables.product.product_name %} nicht verwenden und musst Mergekonflikte auf der Befehlszeile beheben. Beispielsweise kannst du den Mergekonflikt-Editor, wenn er deaktiviert ist, nicht für Pull Requests zwischen einem Fork und einem vorgelagerten Repository verwenden.
+If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on {% data variables.product.product_name %} and must resolve merge conflicts on the command line. For example, if the merge conflict editor is disabled, you cannot use it on a pull request between a fork and upstream repository.
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten.
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Make sure you really want to commit to this branch.
 {% else %}
-**Warnung:** Wenn Du einen Mergekonflikt auf {% data variables.product.product_name %} auflöst, wird der gesamte [Basis-Branch](/github/getting-started-with-github/github-glossary#base-branch) Deines Pull Requests in den [Head-Branch](/github/getting-started-with-github/github-glossary#head-branch) zusammengeführt. Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. Wenn der Head-Branch geschützt ist, kannst Du Deine Konflikt-Auflösung nicht zusammenführen, deshalb wirst Du aufgefordert werden, einen neuen Head-Branch zu erstellen. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 {% endif %}
 
 {% endwarning %}
 
 {% data reusables.repositories.sidebar-pr %}
-1. Klicke in der Liste der Pull Requests auf den Pull Request mit dem Mergekonflikt, den Du beheben möchtest.
-1. Klicke im unteren Teil Deines Pull Requests auf **Resolve conflicts** (Konflikte beheben). ![Schaltfläche „Resolve merge conflicts" (Mergekonflikte beheben)](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+1. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
+1. Near the bottom of your pull request, click **Resolve conflicts**.
+![Resolve merge conflicts button](/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
 
  {% tip %}
 
- **Tipp:** Wenn die Schaltfläche **Resolve conflicts** (Konflikte beheben) deaktiviert ist, ist der Mergekonflikt Deines Pull Requests für eine Behebung auf {% data variables.product.product_name %} zu komplex{% if currentVersion != "free-pro-team@latest" %} oder der Konflikteditor wurde vom Websiteadministrator für Pull Requests zwischen Repositorys deaktiviert{% endif %}. Du musst den Mergekonflikt mit einem alternativen Git-Client auflösen, oder durch Verwendung von Git auf der Befehlszeile. Weitere Informationen findest Du unter „[Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line).“
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. You must resolve the merge conflict using an alternative Git client, or by using Git on the command line. For more information see "[Resolving a merge conflict using the command line](/articles/resolving-a-merge-conflict-using-the-command-line)."
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}
- ![Beispiel für die Anzeige eines Mergekonflikts mit Konflikthinweisen](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
-1. Wenn Deine Datei mehrere Mergekonflikte enthält, scrolle nach unten zum nächsten Konflikthinweis, und wiederhole dort die Schritte 4 und 5, um auch diesen Mergekonflikt zu beheben.
-1. Wenn Du alle Konflikte in der Datei behoben hast, klicke auf **Mark as resolved** (Als behoben markieren). ![Klicke die Schaltfläche „Mark as resolved“ (Als behoben markieren)](/assets/images/help/pull_requests/mark-as-resolved-button.png)
-1. Wenn mehrere Dateien Konflikte enthalten, wähle auf der linken Seite unter „Conflicting files“ (Dateien mit Konflikten) die nächste Datei aus, und wiederhole die Schritte 4 bis 7, bis Du alle Mergekonflikte Deines Pull Request behoben hast. ![Wähle die nächste Datei mit Konflikten aus, sofern zutreffend](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
-1. Wenn alle Mergekonflikte behoben sind, klicke auf **Commit merge** (Merge freigeben). Dadurch wird der gesamte Basis-Branch in Deinen Head-Branch zusammengeführt. ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
-1. Sofern Du eine entsprechende Aufforderung erhältst, überprüfe den Branch, in den der Commit erfolgt. Wenn Du den Commit in diesen Branch durchführen möchtest, klicke auf **I understand, update _BRANCH_** (Ich habe verstanden und möchte *BRANCH* aktualisieren). ![Bestätigungsfenster zum Beheben von Mergekonflikten](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
-1. Sofern Du eine entsprechende Aufforderung erhältst, überprüfe den Branch, in den der Commit erfolgt.
+ ![View merge conflict example with conflict markers](/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+1. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
+1. Once you've resolved all the conflicts in the file, click **Mark as resolved**.
+ ![Click mark as resolved button](/assets/images/help/pull_requests/mark-as-resolved-button.png)
+1. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
+ ![Select next conflicting file if applicable](/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+1. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
+ ![Resolve merge conflicts button](/assets/images/help/pull_requests/merge-conflict-commit-changes.png){% if currentVersion ver_lt "enterprise-server@2.22" %}
+1. If prompted, review the branch that you are committing to. If you want to commit to this branch, click **I understand, update _BRANCH_**.
+![Merge conflict confirmation window](/assets/images/help/pull_requests/merge-conflict-confirmation.png){% else %}
+1. If prompted, review the branch that you are committing to. 
 
-   Wenn der Head-Branch der Standardbranch Deines Repositorys ist, kannst Du wählen, entweder diesen Branch mit den Änderungen zu aktualisieren, die Du zur Auflösung des Konfliktes gemacht hast, oder einen neuen Branch zu erstellen und diesen als Head-Branch des Pull Requests zu verwenden. ![Aufforderung zum Überprüfen des Branch, der aktualisiert wird](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
-
-   Wenn Du Dich für einen neuen Branch entscheidest, gib den Namen für den Branch ein.
-
-   Wenn der Head-Branch Deines Pull-Requests geschützt ist, musst Du einen neuen Branch erstellen. Du hast keine Möglichkeit, den geschützten Branch zu aktualisieren.
-
-   Klicke auf **Create branch and update my pull request** (Erstelle den Branch und aktualisiere meinen Pull Request) oder **I understand, continue updating _BRANCH_** (Ich verstehe, bitte mit der Aktualisierung des BRANCH fortfahren). Der Text der Schaltfläche entspricht der Aktion, die Du durchführst.
+   If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
+ ![Prompt to review the branch that will be updated](/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
+   
+   If you choose to create a new branch, enter a name for the branch.
+   
+   If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
+   
+   Click **Create branch and update my pull request** or **I understand, continue updating _BRANCH_**. The button text corresponds to the action you are performing.
 {% endif %}
-1. Zum Zusammenführen Deines Pull Requests klicke auf **Merge pull request** (Pull Request zusammenführen). Weitere Informationen finden Sie unter „[Pull Request mergen](/articles/merging-a-pull-request/)“.
+1. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "[Merging a pull request](/articles/merging-a-pull-request/)."
 
-### Weiterführende Informationen
+### Further reading
 
-- „[Informationen zum Mergen von Pull Requests](/articles/about-pull-request-merges)“
+- "[About pull request merges](/articles/about-pull-request-merges)"

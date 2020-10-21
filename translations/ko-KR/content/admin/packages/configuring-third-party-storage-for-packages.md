@@ -3,8 +3,6 @@ title: Configuring third-party storage for packages
 intro: 'You can configure the third-party service that {% data variables.product.prodname_registry %} uses to store your enterprise''s packages.'
 redirect_from:
   - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
-  - /enterprise/admin/packages/configuring-third-party-storage-for-packages
 versions:
   enterprise-server: '>=2.22'
 ---

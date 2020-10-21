@@ -21,7 +21,9 @@ If you don't define a configuration in your repository, {% data variables.produc
 
 プロジェクトタイプ用にビルド済みコンテナ設定を使用してデフォルトの codespace 設定を作成するか、プロジェクトのニーズに固有のカスタム設定を作成できます。
 
-{% data variables.product.prodname_codespaces %} は、リポジトリのルートまたは `.devcontainer` フォルダの `devcontainer.json` という名前のファイルに含まれる設定を使用します。 `devcontainer.json` を使用して、{% data variables.product.prodname_vscode %} エディタを含む codespace 環境全体のデフォルト設定をすることができますが、`.vscode/settings.json` という名前のファイルでエディタ固有の設定をすることもできます。
+{% data variables.product.prodname_codespaces %}  uses settings contained in a configuration file named `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+
+You can use your `devcontainer.json` to set default settings for the entire codespace environment, including the {% data variables.product.prodname_vscode %} editor, but you can also set editor-specific settings in a file named `.vscode/settings.json`.
 
 リポジトリの codespace 設定への変更は、すべての新しい codespace にのみ適用され、既存の codespace には影響しません。
 
@@ -38,7 +40,9 @@ If you don't define a configuration in your repository, {% data variables.produc
 
 ### カスタム codespace 設定を作成する
 
-ビルド済みの設定がニーズを満たしていない場合は、`devcontainer.json` ファイルをリポジトリのルートまたは `.devcontainer` フォルダに追加して、カスタム設定を作成できます。 このファイルでは、サポートされている設定キーを使用して、codespace の環境の要素を指定できます。たとえば、{% data variables.product.prodname_vscode %} 拡張機能がインストールできます。
+If none of the pre-built configurations meet your needs, you can create a custom configuration by adding a `devcontainer.json` file. {% data reusables.codespaces.devcontainer-location %}
+
+このファイルでは、サポートされている設定キーを使用して、codespace の環境の要素を指定できます。たとえば、{% data variables.product.prodname_vscode %} 拡張機能がインストールできます。
 
 {% data reusables.codespaces.vscode-settings-order %}
 

@@ -1,1 +1,1 @@
-  1. In the labels list, to the right of the label you want to edit, click **Edit**.
+  1. Na lista de etiquetas, à direita da etiqueta que deseja editar, clique em **Editar**.

@@ -1,7 +1,7 @@
 ---
 title: 向 GitHub 验证
 shortTitle: 身份验证
-intro: 使用双重身份验证、SSH 和提交签名验证等功能保护帐户和数据安全。
+intro: '使用双重身份验证、SSH 和提交签名验证等功能保护帐户和数据安全。'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/

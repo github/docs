@@ -1,6 +1,6 @@
 ---
 title: SSH-Schlüssel-Passphrasen verwenden
-intro: 'Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.'
+intro: Du kannst Deine SSH-Schlüssel schützen und einen Authentifizierungsagenten konfigurieren, damit Du beim Verwenden Deiner SSH-Schlüssel nicht jedes Mal Deine Passphrase neu eingeben musst.
 redirect_from:
   - /ssh-key-passphrases/
   - /working-with-key-passphrases/
@@ -73,7 +73,7 @@ fi
 unset env
 ```
 
-Wenn Dein privater Schlüssel nicht in einem der Standardorte gespeichert wird (z.B. `~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %} oder `~/. sh/id_dsa`{% endif %}), musst Du Deinem SSH-Authentifizierungsagenten mitteilen, wo er gefunden werden kann. Gib `ssh-add ~/path/to/my_key` ein, um dem SSH-Agenten Deinen Schlüssel hinzuzufügen. Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).“
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. Gib `ssh-add ~/path/to/my_key` ein, um dem SSH-Agenten Deinen Schlüssel hinzuzufügen. Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel generieren und zum SSH-Agenten hinzufügen](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).“
 
 {% tip %}
 
@@ -104,8 +104,7 @@ Die Ausführung des `ssh-agent`-Prozesses wird fortgesetzt, bis Du Dich abmeldes
 
 In OS X Leopard bis OS X El Capitan werden folgende standardmäßigen Privatschlüssel-Dateien automatisch verarbeitet:
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 Bei der ersten Nutzung Deines Schlüssels wirst Du zur Eingabe Deiner Passphrase aufgefordert. Falls Du die Passphrase mit Deiner Schlüsselkette speicherst, musst Du sie nicht erneut eingeben.

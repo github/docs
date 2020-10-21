@@ -4,7 +4,6 @@ intro: 'You can manage the settings available to repository administrators on yo
 redirect_from:
   - /enterprise/admin/user-management/repositories
   - /enterprise/admin/user-management/managing-repositories-in-your-enterprise
-  - /enterprise/admin/user-management/managing-repositories-in-your-enterprise
 mapTopic: true
 versions:
   enterprise-server: '*'

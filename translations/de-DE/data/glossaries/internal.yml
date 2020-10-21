@@ -737,7 +737,7 @@
   description: >-
     Die Struktur der tatsächlich ausgecheckten Dateien. Die Arbeitsstruktur enthält normalerweise die Inhalte der Struktur des HEAD-Commits sowie die von Ihnen vorgenommenen lokalen Änderungen, die noch nicht committed wurden.
 - 
-  term: WYSIWIG
+  term: WYSIWYG
   description: >-
     What You See Is What You Get (WYSIWYG, Vorschau). Ein Akronym, das bedeutet, dass der Bildschirmtext genauso aussieht, wenn er dargestellt wird.
 - 

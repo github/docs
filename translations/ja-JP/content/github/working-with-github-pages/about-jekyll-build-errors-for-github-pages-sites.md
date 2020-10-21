@@ -13,7 +13,7 @@ versions:
 
 ### Jekyllのビルドエラーについて
 
-サイトの公開元に変更をプッシュした後で、{% data variables.product.prodname_pages %}がサイトのビルドを試行しない場合があります。{% if currentVersion == "free-pro-team@latest" %}
+Sometimes, {% data variables.product.prodname_pages %} will not attempt to build your site after you push changes to your site's publishing source.{% if currentVersion == "free-pro-team@latest" %}
 - 変更をプッシュしたユーザーがメールアドレスを検証していない。 詳しい情報については、「[メールアドレスの検証](/articles/verifying-your-email-address)」を参照してください。{% endif %}
 - デプロイキーでプッシュしている。 サイトのリポジトリへのプッシュを自動化する場合は、かわりにマシンユーザーを設定できます。 詳しい情報については、「[デプロイキーを管理する](/v3/guides/managing-deploy-keys/#machine-users)」を参照してください。
 - 公開元をビルドするようにCIサービスを設定していない。 たとえば、Travis CIは`gh-pages`ブランチを、セーフリストに追加しない限りビルドしません。 詳細は、Travis CIまたはCIサービスのドキュメンテーションで、「[ビルドのカスタマイズ](https://docs.travis-ci.com/user/customizing-the-build/#safelisting-or-blocklisting-branches)」を参照してください。
@@ -34,9 +34,7 @@ Jekyllがサイトのビルドを試行せず、エラーが発生した場合�
 
 サイトのテストをローカルで行なうことをお勧めします。それにより、ビルドエラーメッセージをコマンドラインで表示でき、変更を {% data variables.product.product_name %} にプッシュする前に、あらゆるビルドエラーに対処できます。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 {% data variables.product.product_name %} サイトの公開元を更新するためプルリクエストを作成すると、そのプルリクエストの [**Checks**] タブでビルドエラーメッセージが表示されます。 詳しい情報については[ステータスチェックについて](/articles/about-status-checks)を参照してください。
-{% endif %}
 
 {% data variables.product.product_name %} の公開元に変更をプッシュする際、{% data variables.product.prodname_pages %} はサイトのビルドを試みます。 ビルドが失敗すると、プライマリメールアドレスにメールが送信されます。 また、ビルドの警告についてのメールも送信されます。 {% data reusables.pages.build-failure-email-server %}
 

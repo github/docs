@@ -10,7 +10,7 @@ versions:
 
 ### About reviewing pull requests
 
-You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed.{% endif %} After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
+You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +28,12 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 ![Cancel review button](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Marking a file as viewed
 
 After you finish reviewing a file, you can mark the file as viewed, and the file will collapse. If the file changes after you view the file, it will be unmarked as viewed.
 
 {% data reusables.repositories.changed-files %}
 2. On the right of the header of the file you've finished reviewing, select **Viewed**. ![Viewed checkbox](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### Submitting your review
 

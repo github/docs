@@ -1,6 +1,6 @@
 ---
 title: Fork synchronisieren
-intro: 'Synchronisiere den Fork eines Repositorys, um ihn auf dem aktuellen Stand mit dem vorgelagerten Repository zu halten.'
+intro: Synchronisiere den Fork eines Repositorys, um ihn auf dem aktuellen Stand mit dem vorgelagerten Repository zu halten.
 redirect_from:
   - /articles/syncing-a-fork
 versions:
@@ -48,6 +48,6 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
 
 {% tip %}
 
-**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. Für eine Aktualisierung Deiner Fork auf {% data variables.product.product_location %} musst Du [Deine Änderungen per Push übertragen](/articles/pushing-commits-to-a-remote-repository/).
+**Tipp**: Das Synchronisieren Deiner Fork wird nur die lokale Kopie Deines Repositorys aktualisiert. Für eine Aktualisierung Ihres Forks auf {% data variables.product.product_location %} müssen Sie [Ihre Änderungen per Push übertragen](/articles/pushing-commits-to-a-remote-repository/).
 
 {% endtip %}

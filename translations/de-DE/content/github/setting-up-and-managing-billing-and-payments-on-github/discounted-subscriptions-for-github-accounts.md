@@ -22,7 +22,7 @@ Neben den unbegrenzten öffentlichen und privaten Repositorys für Studenten und
 
 ### Rabatte für Schulen und Universitäten
 
-Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Weitere Informationen findest Du unter „[{% data variables.product.prodname_dotcom %} für Lehre und Forschung nutzen](/articles/using-github-in-your-classroom-and-research)“. Weitere Informationen findest Du unter [{% data variables.product.prodname_education %}](https://education.github.com/).
+Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Verifizierte akademische Fakultäten können {% data variables.product.prodname_team %} für den Unterricht oder die akademische Forschung beantragen. Weitere Informationen findest Du unter „[{{ site.data.variables.product.prodname_dotcom }} für Lehre und Forschung nutzen](/articles/using-github-in-your-classroom-and-research)“. Weitere Informationen findest Du unter [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 ### Rabatte für gemeinnützige Organisationen und Bibliotheken
 

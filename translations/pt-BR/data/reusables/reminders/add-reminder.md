@@ -1,1 +1,1 @@
-1. Under "Scheduled reminders", click **Add your first reminder**. ![Add reminder button](/assets/images/help/settings/scheduled-reminders-add-button.png)
+1. Em "Lembretes agendados" clique em **Adicionar seu primeiro lembrete**. ![Botão de Adicionar lembrete](/assets/images/help/settings/scheduled-reminders-add-button.png)

@@ -188,12 +188,9 @@ You can bring up a list of suggested issues and pull requests within the reposit
 
 For more information, see "[Autolinked references and URLs](/articles/autolinked-references-and-urls)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Referencing external resources
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### Content attachments
 

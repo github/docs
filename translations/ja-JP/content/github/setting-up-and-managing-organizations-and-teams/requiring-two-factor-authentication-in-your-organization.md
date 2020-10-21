@@ -1,6 +1,6 @@
 ---
 title: Organization で 2 要素認証を要求する
-intro: 'Organization のオーナーは、 {% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部のコラボレーター{% endif %}に、それぞれの個人アカウントに対する 2 要素認証を有効にするように義務付けることで、悪意のある行為者が Organization のリポジトリや設定にアクセスしにくくすることができます。'
+intro: 'Organization owners can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to enable two-factor authentication for their personal accounts, making it harder for malicious actors to access an organization''s repositories and settings.'
 redirect_from:
   - /articles/requiring-two-factor-authentication-in-your-organization
 versions:
@@ -8,23 +8,35 @@ versions:
   enterprise-server: '*'
 ---
 
-{% data reusables.two_fa.auth_methods_2fa %}
+### About two-factor authentication for organizations
 
-### 2 要素認証実施にあたっての要件
+{% data reusables.two_fa.about-2fa %} You can require all {% if currentVersion == "free-pro-team@latest" %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} in your organization to enable two-factor authentication on {% data variables.product.product_name %}. For more information about two-factor authentication, see "[Securing your account with two-factor authentication (2FA)](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)."
 
-{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部コラボレーター{% endif %}に、 2 要素認証を使用することを義務付けるには、まず自分自身の個人アカウントで [2 要素認証を有効にする](/articles/securing-your-account-with-two-factor-authentication-2fa/)必要があります。
+{% if currentVersion == "free-pro-team@latest" %}
+
+You can also require two-factor authentication for organizations in an enterprise. 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#requiring-two-factor-authentication-for-organizations-in-your-enterprise-account)」を参照してください。
+
+{% endif %}
 
 {% warning %}
 
 **警告:**
 
-- Organization に対して 2 要素認証の使用を義務付ける場合、2FA を使用しない{% if currentVersion == "free-pro-team@latest" %}メンバー、外部コラボレーター、支払いマネージャー {% else %}メンバー、外部コラボレーター{% endif %} (ボット アカウントを含む) は Organization から削除され、そのリポジトリへのアクセス権が失われます。 Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization から削除されてから 3 か月以内に、個人アカウントに対して 2 要素認証を有効にすれば、[それらのアカウントが持っていたアクセス特権と設定を復元](/articles/reinstating-a-former-member-of-your-organization)できます。
-- 義務付けられた 2 要素認証を有効にした後に、Organization のオーナー、メンバー、{% if currentVersion == "free-pro-team@latest" %}支払いマネージャー、{% endif %} または外部コラボレーターがそれぞれの個人アカウントで 2 要素認証を無効にすると、それらは Organization から自動的に削除されます。
+- When you require use of two-factor authentication for your organization, {% if currentVersion == "free-pro-team@latest" %}members, outside collaborators, and billing managers{% else %}members and outside collaborators{% endif %} (including bot accounts) who do not use 2FA will be removed from the organization and lose access to its repositories. Organization のプライベートリポジトリのフォークへのアクセスも失います。 Organization から削除されてから 3 か月以内に、個人アカウントに対して 2 要素認証を有効にすれば、[それらのアカウントが持っていたアクセス特権と設定を復元](/articles/reinstating-a-former-member-of-your-organization)できます。
+- If an organization owner, member,{% if currentVersion == "free-pro-team@latest" %} billing manager,{% endif %} or outside collaborator disables 2FA for their personal account after you've enabled required two-factor authentication, they will automatically be removed from the organization.
 - あなたが、2 要素認証を義務付けている Organization の唯一のオーナーである場合、その Organization での 2 要素認証義務を無効にしなければ、あなたの個人アカウントの 2 要素認証を無効にすることはできません。
 
 {% endwarning %}
 
-2 要素認証の使用を義務付ける前に、{% if currentVersion == "free-pro-team@latest" %}Organization のメンバー、外部コラボレーター、支払いマネージャー {% else %}Organization のメンバー、外部コラボレーター{% endif %}に通知して、それぞれのアカウントで 2 要素認証をセットアップするように依頼することをおすすめします。 Organization の [People] ページで、[メンバーと外部コラボレーターがすでに 2 要素認証を使用しているかどうかを確認する](/articles/viewing-whether-users-in-your-organization-have-2fa-enabled)ことができます。
+{% data reusables.two_fa.auth_methods_2fa %}
+
+### 必要な環境
+
+Before you can require {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} to use two-factor authentication, you must enable two-factor authentication for your account on {% data variables.product.product_name %}. 詳細は「[2 要素認証 (2FA) でアカウントを保護する](/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa)」を参照してください。
+
+Before you require use of two-factor authentication, we recommend notifying {% if currentVersion == "free-pro-team@latest" %}organization members, outside collaborators, and billing managers{% else %}organization members and outside collaborators{% endif %} and asking them to set up 2FA for their accounts. You can see if members and outside collaborators already use 2FA. 詳細は「[Organization 内のユーザが 2 要素認証を有効にしているか確認する](/github/setting-up-and-managing-organizations-and-teams/viewing-whether-users-in-your-organization-have-2fa-enabled)」を参照してください。
+
+### Organization で 2 要素認証を要求する
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -47,7 +59,7 @@ versions:
 {% data reusables.audit_log.audit_log_sidebar_for_org_admins %}
 4. 検索クエリを入力します。 以下のように検索します:
     - 削除された Organization のメンバーを検索するには、検索クエリで `action:org.remove_member` を使用します
-    - 削除された外部コラボレーターを検索するには、検索クエリで `action:org.remove_outside_collaborator` を使用します{% if currentVersion == "free-pro-team@latest" %}
+    - Outside collaborators removed, use `action:org.remove_outside_collaborator` in your search query{% if currentVersion == "free-pro-team@latest" %}
     - 削除された支払いマネージャーを検索するには、検索クエリで `action:org.remove_billing_manager` を使用します{% endif %}
 
  また、検索で[時間枠](/articles/reviewing-the-audit-log-for-your-organization/#search-based-on-time-of-action)を使用すれば、Organization から削除された人々を表示できます。

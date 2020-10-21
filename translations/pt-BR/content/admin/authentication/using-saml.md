@@ -33,7 +33,7 @@ O elemento `NameID` é obrigatório, mesmo que os outros atributos estejam prese
 
 {% note %}
 
-**Observação**: Se o `NameID` para um usuário for alterado no IdP, o usuário verá uma mensagem de erro ao tentar entrar na sua instância do {% data variables.product.prodname_ghe_server %}. {% if currentVersion ver_gt "enterprise-server@2.21" %}Para restaurar o acesso do usuário, você precisa atualizar o mapeamento do `NameID` da conta do usuário. Para obter mais informações, consulte "[Atualizar o `NameIDo`](#updating-a-users-saml-nameid) do SAML.{% else %} Para obter mais informações, consulte "[Erro: 'Outro usuário já possui a conta'](#error-another-user-already-owns-the-account)."{% endif %}
+**Observação**: Se o `NameID` para um usuário for alterado no IdP, o usuário verá uma mensagem de erro ao tentar entrar na sua instância do {% data variables.product.prodname_ghe_server %}. {% if currentVersion ver_gt "enterprise-server@2.21" %}Para restaurar o acesso do usuário, você deverá atualizar o mapeamento de `NameID` da conta do usuário. Para obter mais informações, consulte "[Atualizar o `NameIDo`](#updating-a-users-saml-nameid) do SAML.{% else %} Para obter mais informações, consulte "[Erro: 'Outro usuário já possui a conta'](#error-another-user-already-owns-the-account)."{% endif %}
 
 {% endnote %}
 
@@ -54,15 +54,15 @@ Para configurar seu provedor de identidade manualmente, a URL do serviço de con
 
 Os atributos a seguir estão disponíveis. Você pode alterar seus nomes no [console de gerenciamento](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/), exceto o atributo `administrator`.
 
-| Nome padrão do atributo | Tipo        | Descrição                                                                                                                                                                                                                                                                                   |
-| ----------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Nome padrão do atributo | Tipo        | Descrição                                                                                                                                                                                                                                                                              |
+| ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NameID`                | Obrigatório | Identificador de usuário persistente. Qualquer formato de identificador de nome persistente pode ser usado. O elemento `NameID` será usado para um nome de usuário do {% data variables.product.prodname_ghe_server %}, a menos que uma das declarações alternativas seja fornecida. |
-| `administrador`         | Opcional    | Quando o valor for 'true', o usuário será promovido automaticamente como administrador. Qualquer outro valor ou um valor não existente rebaixará o usuário para uma conta regular.                                                                                                          |
+| `administrador`         | Opcional    | Quando o valor for 'true', o usuário será promovido automaticamente como administrador. Qualquer outro valor ou um valor não existente rebaixará o usuário para uma conta regular.                                                                                                     |
 | `nome de usuário`       | Opcional    | Nome do usuário no {% data variables.product.prodname_ghe_server %}.                                                                                                                                                                                                                 |
-| `full_name`             | Opcional    | Nome do usuário exibido na página de perfil. Após o provisionamento, os usuários podem alterar seus nomes.                                                                                                                                                                                  |
-| `emails`                | Opcional    | Endereços de e-mail para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                      |
-| `public_keys`           | Opcional    | Chaves SSH públicas para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                      |
-| `gpg_keys`              | Opcional    | Chaves chaves GPG para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                        |
+| `full_name`             | Opcional    | Nome do usuário exibido na página de perfil. Após o provisionamento, os usuários podem alterar seus nomes.                                                                                                                                                                             |
+| `emails`                | Opcional    | Endereços de e-mail para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                 |
+| `public_keys`           | Opcional    | Chaves SSH públicas para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                 |
+| `gpg_keys`              | Opcional    | Chaves chaves GPG para o usuário. É possível especificar mais de um.                                                                                                                                                                                                                   |
 
 ### Definir configurações SAML
 
@@ -88,7 +88,7 @@ Os atributos a seguir estão disponíveis. Você pode alterar seus nomes no [con
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-### Revogar o acesso à {% data variables.product.product_location_enterprise %}
+### Revogar o acesso à {{ site.data.variables.product.product_location_enterprise }}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Selecione **SAML**. ![Barra lateral "Todos os usuários" nas configurações de administrador do site](/assets/images/enterprise/site-admin-settings/all-users.png)
@@ -144,7 +144,7 @@ Quando o usuário inicia a sessão novamente, {% data variables.product.prodname
 
 > Outro usuário já possui a conta. Solicite ao administrador que verifique o registro de autenticação.
 
-De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. {% if currentVersion ver_gt "enterprise-server@2.21" %}Certifique-se de que o mapeamento do `NameID` para a conta do usuário no {% data variables.product.prodname_ghe_server %} corresponde ao `NameID` do usuário no seu IdP. Para obter mais informações, consulte "[Atualizar o `NameID`](#updating-a-users-saml-nameid) do SAML.{% else %}Para obter ajuda para atualizar o mapeamento do `NameID`, entre em contato com {% data variables.contact.contact_ent_support %}.{% endif %}
+De modo geral, a mensagem indica que o nome de usuário ou endereço de email da pessoa foi alterado no IdP. {% if currentVersion ver_gt "enterprise-server@2. 1" %}Certifique-se de que o mapeamento de `NomeID` para a conta do usuário em {% data variables.product.prodname_ghe_server %} corresponde ao `NomeID` do usuário no seu IdP. Para obter mais informações, consulte "[Atualizar o `NameID`](#updating-a-users-saml-nameid) do SAML.{% else %}Para obter ajuda para atualizar o mapeamento do `NameID`, entre em contato com {% data variables.contact.contact_ent_support %}.{% endif %}
 
 #### Se a resposta SAML não estiver assinada ou se a assinatura não corresponder ao conteúdo, o log de autenticação mostrará a seguinte mensagem de erro:
 

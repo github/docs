@@ -15,7 +15,7 @@ versions:
 
 ### Web サイトへのサインインの際に 2FA コードを提供
 
-パスワードを使用して {% data variables.product.product_name %}にサインインした後、{% if currentVersion == "free-pro-team@latest" %}テキストメッセージまたは {% endif %}TOTP アプリケーションから、認証コードを入力するよう求められます。
+After you sign in to {% data variables.product.product_name %} using your password, you'll be prompted to provide an authentication code from {% if currentVersion == "free-pro-team@latest" %}a text message or{% endif %} your TOTP app.
 
 {% data variables.product.product_name %}が 2FA 認証コードを再度求めるのは、ログアウトした場合、新しいデバイスを使う場合、またはセッションが期限切れになった場合のみです。
 

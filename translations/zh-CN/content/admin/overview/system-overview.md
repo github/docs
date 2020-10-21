@@ -139,4 +139,4 @@ versions:
 
 - “[设置 {% data variables.product.prodname_ghe_server %} 的试用版](/articles/setting-up-a-trial-of-github-enterprise-server)”
 - “[设置 {% data variables.product.prodname_ghe_server %} 实例](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-github-enterprise-server-instance)”
-- [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %}) in the  `github/roadmap` repository
+- `github/roadmap` 仓库中的 [ {% data variables.product.prodname_roadmap %} ]({% data variables.product.prodname_roadmap_link %})

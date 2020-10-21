@@ -5,7 +5,7 @@ redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
 Anyone with admin permissions to a repository can make the repository a template.
