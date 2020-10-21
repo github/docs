@@ -6,7 +6,7 @@ redirect_from:
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  enterprise-server: '>=2.23'
 ---
 
 {% data reusables.actions.enterprise-beta %}
