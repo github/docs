@@ -1,6 +1,6 @@
 ---
 title: Einen Pull Request zusammenführen
-intro: 'Führe einen Pull Request in den vorgelagerten Branch zusammen, wenn die Arbeit abgeschlossen ist. Jede Person mit Push-Zugriff auf das Repository kann den Merge abschließen.'
+intro: Führe einen Pull Request in den vorgelagerten Branch zusammen, wenn die Arbeit abgeschlossen ist. Jede Person mit Push-Zugriff auf das Repository kann den Merge abschließen.
 redirect_from:
   - /articles/merging-a-pull-request
 versions:
@@ -45,12 +45,13 @@ Wenn Du die Änderungen in einem Themen-Branch nicht in den vorgelagerten Branch
 6. Klicke auf **Confirm merge** (Merge bestätigen), **Confirm squash and merge** (Squash und Merge bestätigen) oder **Confirm rebase and merge** (Rebase und Merge bestätigen).
 6. Optional kannst Du auch [den Branch löschen](/articles/deleting-unused-branches). So bleibt die Liste der Branches in Ihrem Repository ordentlich.
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}Dein Repository könnte so konfiguriert sein, dass der Head-Branch eines Pull Requests automatisch gelöscht wird, wenn Du den Pull Request zusammenführst. Weitere Informationen findest Du unter „[Verwalten des automatischen Löschens von Branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."{% endif %}
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. Weitere Informationen findest Du unter „[Verwalten des automatischen Löschens von Branches](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."
 
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **Hinweis:** {% data reusables.pull_requests.retargeted-on-branch-deletion %} Weitere Informationen findest Du unter „[Über Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
+   **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+   For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
    {% endif %}

@@ -1,6 +1,6 @@
 ---
 title: コラボレーターを個人リポジトリに招待する
-intro: '個人リポジトリにコラボレーターとして{% if currentVersion == "free-pro-team@latest" %}ユーザを招待{% else %}ユーザを追加{% endif %}することができます。'
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -29,7 +29,7 @@ Organization が所有するリポジトリは、細やかなアクセスを許�
 
 1. コラボレーターとして招待する人のユーザ名を確認してください。
 
-{% if currentVersion == "free-pro-team@latest" %}まだユーザ名がない場合は、{% data variables.product.prodname_dotcom %}にサインアップできます。詳細は「[新しい {% data variables.product.prodname_dotcom %}アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

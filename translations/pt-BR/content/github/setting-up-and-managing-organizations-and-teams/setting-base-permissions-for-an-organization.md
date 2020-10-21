@@ -11,7 +11,7 @@ versions:
 
 É possível definir as permissões básicas que se aplicam a todos os integrantes da organização ao acessar qualquer um dos repositórios da organização. As permissões básicas não se aplicam a colaboradores externos.
 
-{% if currentVersion == "free-pro-team@latest" %}Por padrão, os integrantes de uma organização terão permissão de **leitura** nos repositórios da organização.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Por padrão, os integrantes de uma organização terão permissões de **Leitura** nos repositórios da organização.{% endif %}
 
 Se alguém com permissão de administrador no repositório de uma organização conceder a um membro um nível de permissão mais alto para o repositório, o nível mais alto de permissão irá substituir a permissão básica.
 

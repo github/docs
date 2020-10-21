@@ -4,7 +4,6 @@ redirect_from:
   - /enterprise/admin/articles/promoting-a-site-administrator/
   - /enterprise/admin/articles/demoting-a-site-administrator/
   - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
-  - /enterprise/admin/user-management/promoting-or-demoting-a-site-administrator
 intro: 'Site administrators can promote any normal user account to a site administrator, as well as demote other site administrators to regular users.'
 versions:
   enterprise-server: '*'

@@ -22,12 +22,12 @@ When you clone a repository or wiki, only Git data, such as project files and co
 
 - [문제](/v3/issues/#list-issues-for-a-repository)
 - [Pull requests](/v3/pulls/#list-pull-requests)
-- [Forks](/v3/repos/forks/#list-forks)
-- [Comments](/v3/issues/comments/#list-comments-in-a-repository)
-- [Milestones](/v3/issues/milestones/#list-milestones-for-a-repository)
-- [Labels](/v3/issues/labels/#list-all-labels-for-this-repository)
-- [Watchers](/v3/activity/watching/#list-watchers)
-- [별을 준 사람들](/v3/activity/starring/#list-stargazers)
+- [Forks](/rest/reference/repos#list-forks)
+- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Milestones](/rest/reference/issues#list-milestones)
+- [Labels](/rest/reference/issues#list-labels-for-a-repository)
+- [Watchers](/rest/reference/activity#list-watchers)
+- [별을 준 사람들](/rest/reference/activity#list-stargazers)
 - [Projects](/v3/projects/#list-repository-projects)
 {% endif %}
 
@@ -37,6 +37,7 @@ Once you have {% if currentVersion != "free-pro-team@latest" %}a local version o
 ### Third-party backup tools
 
 A number of self-service tools exist that automate backups of repositories. Unlike archival projects, which archive _all_ public repositories on {% data variables.product.product_name %} that have not opted out and make the data accessible to anyone, backup tools will download data from _specific_ repositories and organize it within a new branch or directory. For more information about archival projects, see "[About archiving content and data on {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+You can back up all of a repository's Git data (such as project files and commit history), as well as much data from
 
-You can back up all of a repository's Git data (such as project files and commit history), as well as much data from {% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub is available in {% data variables.product.prodname_marketplace %}.
+{% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub is available in {% data variables.product.prodname_marketplace %}.
 {% endif %}

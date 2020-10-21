@@ -1,6 +1,6 @@
 ---
 title: 了解仓库之间的连接
-intro: '通过查看仓库的网络{% if currentVersion == "free-pro-team@latest" %}、依赖该仓库的项目{% endif %} 及其复刻，您可以更好地了解仓库之间存在的连接。'
+intro: 'You can better understand the connections that exist between repositories by viewing a repository''s network{% if currentVersion == "free-pro-team@latest" %}, projects that depend on the repository,{% endif %} and its forks.'
 mapTopic: true
 redirect_from:
   - /articles/understanding-connections-between-repositories

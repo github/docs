@@ -27,7 +27,7 @@ Vor dem Sperren von Websiteadministratoren müssen Sie diese auf gewöhnliche Be
 
 {% tip %}
 
-**Hinweis:** Bei [aktivierter LDAP-Synchronisierung](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) für {% data variables.product.product_location_enterprise %} werden Benutzer automatisch gesperrt, wenn sie aus dem LDAP-Verzeichnisserver entfernt werden. Wenn die LDAP-Synchronisierung für Ihre Instanz aktiviert wird, werden die normalen Methoden zur Benutzersperrung deaktiviert.
+**Hinweis:** Bei [aktivierter LDAP-Synchronisierung](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) für {% data variables.product.product_location_enterprise %} werden Benutzer automatisch gesperrt, wenn sie aus dem LDAP-Verzeichnisserver entfernt werden. Wenn die LDAP-Synchronisierung für Ihre Instanz aktiviert wird, werden die normalen Methoden zur Benutzersperrung deaktiviert.
 
 {% endtip %}
 

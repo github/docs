@@ -48,7 +48,7 @@ versions:
 
 ### 7. 出口管制
 
-  您不得出口或再出口我们的任何机密信息，除非美国法律和获取机密信息所在司法管辖区的法律明确授权。 In particular, you aren’t allowed to export or re-export our Confidential Information into any U.S. embargoed countries, to anyone on the U.S. Treasury Department's list of Specially Designated Nationals, or to anyone on the U.S. Department of Commerce Denied Person's List or Entity List. 参与预发布计划或接收我们的任何机密信息，即表示您声明并保证您不在任何此类国家/地区或任何此类名单中。
+  您不得出口或再出口我们的任何机密信息，除非美国法律和获取机密信息所在司法管辖区的法律明确授权。 特别要注意，您不得将我们的机密信息出口或再出口到任何美国 禁运国家/地区、美国 财政部特别指定国民名单上的任何人或美国 商务部拒绝人员名单或实体名单上的任何人。 参与预发布计划或接收我们的任何机密信息，即表示您声明并保证您不在任何此类国家/地区或任何此类名单中。
 
 ### 8. 专有权利
 
@@ -56,7 +56,7 @@ versions:
 
 ### 9. 政府用户
 
-  如果您是政府实体，本节将适用于您。  我们的某些机密信息可能被视为“商业项目”，该术语的定义见 48 C.F.R. §2.101，由“商用计算机软件”和“商用计算机软件文档”组成，这些术语的定义见 48 C.F.R. §12.212 或 48 C.F.R. §227.7202（如适用）。 §2.101, consisting of “Commercial Computer Software” and “Commercial Computer Software Documentation”, as such terms are used in 48 C.F.R. §12.212 or 48 C.F.R. §227.7202, as applicable. Consistent with 48 C.F.R. §12.212 or 48 C.F.R. 根据 48 C.F.R. §12.212 或 48 C.F.R. §227.7202-1 至 227.7202-4（如适用），商用计算机软件和商用计算机软件文档许可给美国政府最终用户 (a) 仅作为商业项目，以及 (b) 仅具有根据本文的条款和条件授予所有其他最终用户的那些权利。 Government end users (a) only as Commercial Items and (b) with only those rights as are granted to all other end users pursuant to the terms and conditions herein.  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107。
+  如果您是政府实体，本节将适用于您。  我们的某些机密信息可能被视为“商业项目”，该术语的定义见 48 C.F.R. §2.101，由“商用计算机软件”和“商用计算机软件文档”组成，这些术语的定义见 48 C.F.R. §12.212 或 48 C.F.R. §227.7202（如适用）。 §2.101，由“商用计算机软件”和“商用计算机软件文档”组成，这些术语的定义见 48 C.F.R. §12.212 或 48 C.F.R. §227.7202（如适用）。 根据 48 C.F.R. §12.212 或 48 C.F.R. 根据 48 C.F.R. §12.212 或 48 C.F.R. §227.7202-1 至 227.7202-4（如适用），商用计算机软件和商用计算机软件文档许可给美国政府最终用户 (a) 仅作为商业项目，以及 (b) 仅具有根据本文的条款和条件授予所有其他最终用户的那些权利。 政府最终用户 (a) 仅作为商业项目，以及 (b) 仅具有根据本文的条款和条件授予所有其他最终用户的那些权利。  GitHub, Inc. 88 Colin P. Kelly Street, San Francisco, CA 94107。
 
 ### 10. 自主发展
 

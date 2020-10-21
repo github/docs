@@ -1,6 +1,6 @@
 ---
 title: SSLのエラーのトラブルシューティング
-intro: アプライアンスでSSLの問題が生じたなら、解決のためのアクションを取ってください。
+intro: 'アプライアンスでSSLの問題が生じたなら、解決のためのアクションを取ってください。'
 redirect_from:
   - /enterprise/admin/articles/troubleshooting-ssl-errors/
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/

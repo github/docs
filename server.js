@@ -17,7 +17,7 @@ if (!module.parent) {
   portUsed.check(port).then(async status => {
     if (status === false) {
       // If in production, warm the server at the start
-      if (process.env.NODE_ENV === 'production') await warmServer()
+      if (process.env.NODE_ENV === 'production') warmServer()
 
       // workaround for https://github.com/expressjs/express/issues/1101
       const server = require('http').createServer(app)

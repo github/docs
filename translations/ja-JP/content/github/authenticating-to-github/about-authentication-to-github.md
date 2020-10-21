@@ -16,7 +16,6 @@ versions:
 - 個人アクセストークン
 - SSH キー
 
-
 ### ブラウザで認証する
 
 {% data variables.product.product_name %} への認証は、ブラウザ内でさまざまな方法を使用して行うことができます。
@@ -50,4 +49,4 @@ versions:
 
 * SSH 接続はファイアウォールとプロキシから許可されない場合がありますが、SSH 経由で {% data variables.product.product_name %} 上のすべてのリポジトリを操作できます。 SSH を使用するには、ローカルマシンで SSH 公開鍵/秘密鍵ペアを生成し、公開鍵を {% data variables.product.product_name %} アカウントに追加する必要があります。 Git を使用して {% data variables.product.product_name %} で認証するたびに、[キーを保存](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)していない限り、SSH キーのパスフレーズの入力を求められます。 詳しい情報については、「[新しい SSH キーを生成して ssh-agent に追加する](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}個人アクセストークンまたは SSH キーを使用して、SAML シングルサインオンを使用する Organization が所有するリソースにアクセスするには、個人トークンまたは SSH キーも認証する必要があります。 詳しい情報については、[SAML シングルサインオンで利用するために個人アクセストークンを認証する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングルサインオンで使用するために SSH キーを認証する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. 詳しい情報については、[SAML シングルサインオンで利用するために個人アクセストークンを認証する](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)」または「[SAML シングルサインオンで使用するために SSH キーを認証する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}

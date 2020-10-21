@@ -42,7 +42,6 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 This example configures two inputs: numOctocats and octocatEyeColor. The numOctocats input is not required and will default to a value of '1'. The octocatEyeColor input is required and has no default value. Workflow files that use this action must use the `with` keyword to set an input value for octocatEyeColor. For more information about the `with` syntax, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)."
 
-
 ```yaml
 inputs:
   numOctocats:
@@ -53,7 +52,6 @@ inputs:
     description: 'Eye color of the Octocats'
     required: true
 ```
-
 
 When you specify an input to an action in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
@@ -243,7 +241,7 @@ For more information, see "[`github context`](/actions/reference/context-and-exp
 
 ##### **`runs.steps.env`**
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "::set-env name={name}::{value}"` in a composite run step.
+**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
 ##### **`runs.steps.working-directory`**
 

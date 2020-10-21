@@ -25,7 +25,7 @@ Se você estiver usando uma chave GPG que corresponda à identidade do committer
   ```shell
   $ gpg> adduid
   ```
-6. Siga as solicitações para fornecer seu nome verdadeiro, endereço de e-mail e quaisquer comentários. Você pode modificar as entradas escolhendo `N`, `C` ou `E`. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Configurar o endereço de e-mail do commit](/articles/setting-your-commit-email-address)."{% endif %}
+6. Siga as solicitações para fornecer seu nome verdadeiro, endereço de e-mail e quaisquer comentários. Você pode modificar as entradas escolhendo `N`, `C` ou `E`. {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Definir o seu endereço de e-mail de commit](/articles/setting-your-commit-email-address){% endif %}
   ```shell
   Real Name: <em>Octocat</em>
   Email address: <em>octocat@github.com</em>

@@ -1,6 +1,6 @@
 ---
 title: Organization での操作を制限する
-intro: Organization オーナーは、パブリックリポジトリで特定のユーザがコメントする、Issue をオープンする、あるいはプルリクエストを作成するのを一時的に制限することができます。
+intro: 'Organization オーナーは、パブリックリポジトリで特定のユーザがコメントする、Issue をオープンする、あるいはプルリクエストを作成するのを一時的に制限することができます。'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization

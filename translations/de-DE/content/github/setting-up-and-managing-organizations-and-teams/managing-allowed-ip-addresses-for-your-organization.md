@@ -1,6 +1,6 @@
 ---
 title: Verwaltung erlaubter IP-Adressen für Deine Organisation
-intro: 'Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.'
+intro: Du kannst den Zugriff auf die Objekte Deiner Organisation einschränken, indem Du eine Liste von IP-Adressen konfigurierst, die zu einer Verbindung berechtigt sind.
 product: '{% data reusables.gated-features.allowed-ip-addresses %}'
 versions:
   free-pro-team: '*'

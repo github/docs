@@ -73,7 +73,7 @@ versions:
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+8. 单击 **Update（更新）**。
 
 #### 删除允许的 IP 地址
 
@@ -101,7 +101,7 @@ versions:
 
 {% note %}
 
-**Note:** Enabling authentication with SAML single sign-on for your enterprise account will override any existing organization-level SAML configurations.
+**注：**对企业帐户启用 SAML 单点登录身份验证将覆盖任何现有的组织级 SAML 配置。
 
 {% endnote %}
 
@@ -156,7 +156,7 @@ versions:
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”。
+您也可以配置和管理单个组织的团队同步。 更多信息请参阅“[管理组织的团队同步](/github/setting-up-and-managing-organizations-and-teams/managing-team-synchronization-for-your-organization)”。
 
 #### 基本要求
 

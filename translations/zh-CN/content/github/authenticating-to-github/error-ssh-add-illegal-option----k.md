@@ -1,6 +1,6 @@
 ---
-title: 错误：ssh-add：非法选项 -- K
-intro: 此错误意味着您的‘ssh-add’版本不支持 macOS 密钥链集成，此集成允许您将密码存储在密钥链中。
+title: '错误：ssh-add：非法选项 -- K'
+intro: '此错误意味着您的‘ssh-add’版本不支持 macOS 密钥链集成，此集成允许您将密码存储在密钥链中。'
 redirect_from:
   - /articles/error-ssh-add-illegal-option-k
   - /articles/error-ssh-add-illegal-option----k

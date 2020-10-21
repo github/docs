@@ -134,7 +134,7 @@ To illustrate how `git filter-branch` works, we'll show you how to remove your f
 
   {% endnote %}
 
-## Avoiding accidental commits in the future
+### Avoiding accidental commits in the future
 
 There are a few simple tricks to avoid committing things you don't want committed:
 
@@ -145,5 +145,5 @@ There are a few simple tricks to avoid committing things you don't want committe
 
 ### Further reading
 
-- [`git filter-branch` main page](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

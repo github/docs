@@ -40,7 +40,7 @@ versions:
 {% topic_link_in_list /managing-connections-between-github-enterprise-server-and-github-enterprise-cloud %}
     {% link_in_list /connecting-github-enterprise-server-to-github-enterprise-cloud %}
     {% link_in_list /enabling-unified-search-between-github-enterprise-server-and-githubcom %}
-    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %} 
+    {% link_in_list /enabling-unified-contributions-between-github-enterprise-server-and-githubcom %}
 <!-- if currentVersion ver_gt "enterprise-server@2.16" -->
     {% link_in_list /enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server %}
     {% link_in_list /enabling-automatic-user-license-sync-between-github-enterprise-server-and-github-enterprise-cloud %}
@@ -49,3 +49,11 @@ versions:
 {% topic_link_in_list /configuring-advanced-security-features %}
     {% link_in_list /configuring-code-scanning-for-your-appliance %}
 <!-- endif -->
+
+{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% note %}
+
+**Observação:** Para configurar {% data variables.product.prodname_actions %} ou {% data variables.product.prodname_registry %} para sua empresa, veja "[Gerenciar o GitHub Actions para a sua empresa](/admin/github-actions)" ou "[Gerenciar pacotes do GitHub para a sua empresa](/admin/packages)".
+
+{% endnote %}
+{% endif %}

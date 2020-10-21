@@ -46,7 +46,9 @@ Instances using LDAP for user authentication can use LDAP Sync to manage a team'
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
-6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name. {% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches. ![Mapping to the LDAP group DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
+6. Search for an LDAP group's DN to map the team to. If you don't know the DN, type the LDAP group's name.
+{% data variables.product.prodname_ghe_server %} will search for and autocomplete any matches.
+![Mapping to the LDAP group DN](/assets/images/enterprise/orgs-and-teams/ldap-group-mapping.png)
 {% data reusables.organizations.team_description %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create-team-choose-parent %}
