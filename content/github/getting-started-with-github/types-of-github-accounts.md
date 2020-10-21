@@ -1,4 +1,4 @@
----
+---types-of-github-accounts.md
 title: Types of GitHub accounts
 intro: 'Your user account is your identity on {% data variables.product.product_location %}. Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
