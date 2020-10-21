@@ -23,6 +23,16 @@ You should now have a running server! Visit [localhost:4000](http://localhost:40
 
 When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in your terminal window.
 
+### Using GitHub Codespaces
+
+As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces):
+
+![](../assets/images/codespaces.gif)
+
+In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
+
+![](../assets/images/codespaces-with-preview.jpg)
+
 ## Site structure
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.ws/), another Ruby static site generator.
