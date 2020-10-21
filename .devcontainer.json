@@ -3,29 +3,14 @@
 {
     "name": "docs.github.com",
     "service": "container-doc",
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
-    "dockerFile": "Dockerfile",
->>>>>>> f1a1374d... Use project's Dockerfile for codespaces
-    // Use 'settings' to set *default* container specific settings.json values on container create.
-    // You can edit these settings after create using File > Preferences > Settings > Remote.
->>>>>>> 4954e202... Add codespaces environment
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.language": ",en"
     },
-<<<<<<< HEAD
     // Install pre-requisites, and start to serve docs.github.com locally
     "postCreateCommand": "npm install && npm start",
     "forwardPorts": [4000],
     // Visual Studio Code extensions which help authoring for docs.github.com.
-=======
-    "postCreateCommand": "npm install && npm start",
-    "appPort": 4000,
-    // Add the IDs of extensions you want installed when the container is created in the array below.
->>>>>>> 4954e202... Add codespaces environment
     "extensions": [
         "yzhang.markdown-all-in-one",
         "streetsidesoftware.code-spell-checker"
