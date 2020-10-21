@@ -28,6 +28,7 @@ module.exports = function (app) {
   app.use(require('./robots'))
   app.use(require('./cookie-parser'))
   app.use(require('./csrf'))
+  app.use(require('./handle-csrf-errors'))
   app.use(require('compression')())
   app.use(require('connect-slashes')(false))
   app.use('/dist', express.static('dist'))
