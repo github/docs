@@ -140,7 +140,7 @@
     "prevent-pushes-to-main": "node script/prevent-pushes-to-main.js",
     "pa11y-ci": "pa11y-ci",
     "pa11y-test": "start-server-and-test browser-test-server 4001 pa11y-ci",
-    "heroku-prebuild": "rm -rf content/early-access && git clone https://${TEMP_KEY_ACCESS_KEY}@github.com/docs/early-access-test content/early-access && rm -rf content/early-access/.git"
+    "heroku-prebuild": "rm -rf content/early-access-test && git clone https://${TEMP_KEY_ACCESS_KEY}@github.com/docs/early-access-test content/early-access-test && rm -rf content/early-access-test/.git"
   },
   "engines": {
     "node": "12 - 14"
