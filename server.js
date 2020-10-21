@@ -5,29 +5,8 @@ require('./lib/feature-flags')
 const express = require('express')
 const portUsed = require('port-used')
 const warmServer = require('./lib/warm-server')
-const fs = require('fs')
-const path = require('path')
-const dirTree = require('directory-tree')
 const port = Number(process.env.PORT) || 4000
 const app = express()
-
-// Build React components
-// This loops through the react components and transpiles them to /dist
-// so they can be used by Node.js when we do server side rendering
-const { transform } = require('./lib/react/babel')
-
-const tree = dirTree('./react/')
-for (const index in tree.children) {
-  const file = tree.children[index]
-  if (file.type === 'file') {
-    if (!fs.existsSync(path.join('dist', 'react'))) {
-      fs.mkdirSync(path.join('dist', 'react'), { recursive: true })
-    }
-    const content = transform(fs.readFileSync(file.path, 'utf8'))
-    fs.writeFileSync(path.join('dist', file.path), content)
-  }
-}
-// End Build React Components
 
 require('./middleware')(app)
 
