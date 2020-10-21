@@ -2,6 +2,7 @@
 import { v4 as uuidv4 } from 'uuid'
 import Cookies from 'js-cookie'
 import getCsrf from './get-csrf'
+import parseUserAgent from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -65,10 +66,8 @@ export async function sendEvent ({
         site_language: location.pathname.split('/')[1],
 
         // Device information
-        // os:
-        // os_version:
-        // browser:
-        // browser_version:
+        // os, os_version, browser, browser_version:
+        ...parseUserAgent(),
         viewport_width: document.documentElement.clientWidth,
         viewport_height: document.documentElement.clientHeight,
 
