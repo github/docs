@@ -38,7 +38,7 @@ name: Test PowerShell on Ubuntu
 on: push
 
 jobs:
-  build:
+  pester-test:
     name: Pester test
     runs-on: ubuntu-latest
     steps:
@@ -81,19 +81,23 @@ The table below describes the locations for various PowerShell modules in each {
 
 ### Installing dependencies
 
-{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code. For example, the YAML below installs the `SqlServer` and `PSScriptAnalyzer` modules.
+{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code. You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
-You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
 {% raw %}
 ```yaml
-steps:
-- uses: actions/checkout@v2
-- name: Install dependencies
-  shell: pwsh
-  run: |
-    Set-PSRepository PSGallery -InstallationPolicy Trusted
-    Install-Module SqlServer, PSScriptAnalyzer
+jobs:
+  install-dependencies:
+    name: Install dependencies
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install from PSGallery
+      shell: pwsh
+      run: |
+        Set-PSRepository PSGallery -InstallationPolicy Trusted
+        Install-Module SqlServer, PSScriptAnalyzer
 ```
 {% endraw %}
 
@@ -103,11 +107,11 @@ steps:
 
 {% endnote %}
 
-#### Caching Dependencies
+#### Caching dependencies
 
-You can cache PowerShell module dependencies using a unique key, and restore the dependencies when you run future workflows using the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+You can cache PowerShell dependencies using a unique key, which allows you to restore the dependencies for future workflows with the [`cache`](https://github.com/marketplace/actions/cache) action. For more information, see "[Caching dependencies to speed up workflows](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
-PowerShell caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example below depending on the operating system you use. For more information, see [PowerShell caching examples](https://github.com/actions/cache/blob/main/examples.md#PowerShell).
+PowerShell caches its dependencies in different locations, depending on the runner's operating system. For example, the `path` location used in the following Ubuntu example will be different for a Windows operating system.
 
 {% raw %}
 ```yaml
