@@ -35,6 +35,5 @@ Sie können den Head-Branch eines geschlossenen Pull Requests wiederherstellen.
 
 ### Weiterführende Informationen
 
-- „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+- „[Erstellen und Löschen von Branches innerhalb Deines Repositorys](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)"
 - „[Automatisches Löschen von Branches verwalten](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)"
-{% endif %}

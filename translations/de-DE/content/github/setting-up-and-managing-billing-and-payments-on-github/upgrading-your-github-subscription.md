@@ -1,6 +1,6 @@
 ---
 title: Dein GitHub-Abonnement hochstufen
-intro: 'Du kannst das Abonnement jederzeit für jeden beliebigen {% data variables.product.product_name %}-Kontotyp heraufstufen.'
+intro: 'Sie können das Abonnement jederzeit für jeden beliebigen {% data variables.product.product_name %}-Kontotyp heraufstufen.'
 redirect_from:
   - /articles/upgrading-your-personal-account-s-billing-plan/
   - /articles/upgrading-your-personal-account/
@@ -28,7 +28,9 @@ Du kannst Dein persönliches Konto von {% data variables.product.prodname_free_u
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.billing %}
 {% data reusables.user_settings.subscriptions-tab %}
-4. Klicke neben „{% data variables.product.prodname_free_user %}" auf **Upgrade** (Heraufstufen). ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
+4. Next to "
+{% data variables.product.prodname_free_user %}", click **Upgrade**.
+  ![Schaltfläche „Upgrade“](/assets/images/help/billing/settings_billing_user_upgrade.png)
 {% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
 {% data reusables.dotcom_billing.show-plan-details %}
 {% data reusables.dotcom_billing.enter-payment-info %}

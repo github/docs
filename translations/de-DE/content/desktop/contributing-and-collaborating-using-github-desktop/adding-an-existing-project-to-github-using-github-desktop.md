@@ -1,6 +1,6 @@
 ---
 title: GitHub mithilfe von GitHub Desktop ein vorhandenes Projekt hinzufügen
-intro: 'Mithilfe von {% data variables.product.prodname_desktop %} kannst Du {% data variables.product.prodname_dotcom %} ein vorhandenes Git-Repository hinzufügen.'
+intro: 'Mithilfe von {% data variables.product.prodname_desktop %} können Sie {% data variables.product.prodname_dotcom %} ein vorhandenes Git-Repository hinzufügen.'
 redirect_from:
   - /desktop/contributing-to-projects/adding-an-existing-project-to-github-using-github-desktop
 versions:

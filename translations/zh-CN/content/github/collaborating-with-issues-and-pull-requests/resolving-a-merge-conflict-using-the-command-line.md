@@ -83,8 +83,8 @@ ask your question in IRC.
 2. 生成受合并冲突影响的文件列表。 在此例中，文件 *README.md* 存在合并冲突。
   ```shell
   $ git status
-  > # On branch master
-  > # Your branch and 'origin/master' have diverged,
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
   > # and have 1 and 2 different commits each, respectively.
   > #  (use "git pull" to merge the remote branch into yours)
   > # You have unmerged paths.

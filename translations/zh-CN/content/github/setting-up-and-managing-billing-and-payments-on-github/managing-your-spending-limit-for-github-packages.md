@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
-您可以设置更高的支出限额，或者对某些帐户允许无限制的支出。 如果您按发票为组织或企业帐户付款，可以预付超额费用以设置更高的支出限额。 The spending limit applies to your combined overages for {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}. For more information about pricing for {% data variables.product.prodname_registry %} usage, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+您可以设置更高的支出限额，或者对某些帐户允许无限制的支出。 如果您按发票为组织或企业帐户付款，可以预付超额费用以设置更高的支出限额。 支出限额适用于 {% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_actions %} 的总超支额。 有关 {% data variables.product.prodname_registry %} 使用价格的更多信息，请参阅“[关于 {% data variables.product.prodname_registry %} 的计费](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)”。
 
 只要您将支出限额设定在 0 美元以上，您就要对过去发生的任何超额情况负责。 例如，如果您的组织使用 {% data variables.product.prodname_team %}，不允许超额，并且发布新版私有包，将当月存储使用量从 1.9GB 增加到 2.1GB，那么发布该版本使用的存储空间将比产品包含的 2GB 稍高。
 
@@ -42,13 +42,15 @@ versions:
 
 ### 管理企业帐户的 {% data variables.product.prodname_registry %} 支出限额
 
-Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_registry %} for an enterprise account.
+企业所有者和帐单管理员可管理企业帐户的 {% data variables.product.prodname_registry %} 支出限额。
 
 {% data reusables.package_registry.spending-limit-enterprise-account %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. 在“{% data variables.product.prodname_actions %} and Packages monthly usage（GitHub 操作和包每月使用）”下，单击 **Cost management（成本管理）**。 ![成本管理选项卡](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. 在“
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Cost management**.
+  ![成本管理选项卡](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

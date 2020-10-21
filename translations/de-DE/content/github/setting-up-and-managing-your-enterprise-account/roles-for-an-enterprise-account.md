@@ -1,6 +1,6 @@
 ---
 title: Rollen für ein Enterprise-Kontos
-intro: Zur Steuerung des Zugriffs auf die Einstellungen und Daten Deines Enterprise-Kontos kannst Du den Benutzern Deines Enterprise-Kontos verschiedene Rollen zuweisen.
+intro: 'Zur Steuerung des Zugriffs auf die Einstellungen und Daten Deines Enterprise-Kontos kannst Du den Benutzern Deines Enterprise-Kontos verschiedene Rollen zuweisen.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/

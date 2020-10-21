@@ -1,5 +1,5 @@
 ---
-title: Accessing the management console
+title: 访问管理控制台
 intro: '使用 {% data variables.enterprise.management_console %} 可以设置和配置 {% data variables.product.product_location %}、排定维护窗口、排查问题以及管理许可。'
 redirect_from:
   - /enterprise/admin/articles/about-the-management-console/
@@ -29,7 +29,7 @@ versions:
 
 ### 以站点管理员身份访问 {% data variables.enterprise.management_console %}
 
-The first time that you access the {% data variables.enterprise.management_console %} as a site administrator, you must upload your {% data variables.product.prodname_enterprise %} license file to authenticate into the app. For more information, see "[Managing your {% data variables.product.prodname_enterprise %} license](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)."
+第一次以网站管理员身份访问 {% data variables.enterprise.management_console %} 时，必须上传您的 {% data variables.product.prodname_enterprise %} 许可文件以向应用程序验证。 更多信息请参阅“[管理您的 {% data variables.product.prodname_enterprise %} 许可](/enterprise/{{ currentVersion }}/admin/guides/installation/managing-your-github-enterprise-license)”。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

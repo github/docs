@@ -1,6 +1,6 @@
 ---
 title: Organization メンバーを外部コラボレーターに変換する
-intro: Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。
+intro: 'Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
 versions:
@@ -23,7 +23,7 @@ Organization のメンバーが外部コラボレーターに変換された後�
 
 アクセスが期待通りであることを確実にするために、Organization メンバーの、リポジトリへのアクセスを確認することをおすすめします。 詳細は、「[Organization のリポジトリへの個人のアクセスを管理する](/articles/managing-an-individual-s-access-to-an-organization-repository)」を参照してください。
 
-Organization のメンバーを外部コラボレーターに変換する際、Organization メンバーとしての権限は 3 か月保存されるので、この期間内に、そのユーザを Organization に{% if currentVersion == "free-pro-team@latest" %}再参加するよう招待{% else %}再追加{% endif %}すれば、メンバーとしての権限を回復できます。 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
+When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% if currentVersion == "free-pro-team@latest" %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. 詳しい情報については、「[Organization の以前のメンバーを回復する](/articles/reinstating-a-former-member-of-your-organization)」を参照してください。
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

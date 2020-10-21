@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.
 
 During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
@@ -27,7 +26,7 @@ Allows you to download repositories from your GitHub user or organization accoun
 
 ### Enhanced deployments
 
-Exercise greater control over [deployments](/v3/repos/deployments/) with more information and finer granularity.
+Exercise greater control over [deployments](/rest/reference/repos#deployments) with more information and finer granularity.
 
 **Custom media type:** `ant-man-preview` **Announced:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
@@ -42,14 +41,6 @@ Manage [reactions](/v3/reactions/) for commits, issues, and comments.
 Get a [list of events](/v3/issues/timeline/) for an issue or pull request.
 
 **Custom media type:** `mockingbird-preview` **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Pages
-
-Get more information about your [GitHub Pages](/v3/repos/pages/) site.
-
-**Custom media type:** `mister-fantastic-preview` **Announced:** [2016-07-06](https://developer.github.com/changes/2016-07-06-github-pages-preview-api/)
-{% endif %}
 
 {% if currentVersion != "free-pro-team@latest" %}
 ### Pre-receive environments
@@ -120,9 +111,9 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 ### Global webhooks
 
-Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
+Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
 
-**Custom media type:** `superpro-preview` **Announced:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
+**Custom media type:** `superpro-preview` **Announced:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
@@ -140,15 +131,6 @@ Transfer a [repository](/v3/repos/) to an organization or user.
 You can now add a reason when you [lock an issue](/v3/issues/#lock-an-issue).
 
 **Custom media type:** `sailor-v-preview` **Announced:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Team discussions
-
-You can now use the API to manage [team discussions](/v3/teams/discussions) and [team discussion comments](/v3/teams/discussion_comments).
-
-**Custom media type:** `echo-preview` **Announced:** [2018-02-07](https://developer.github.com/changes/2018-02-07-team-discussions-api)
-
 {% endif %}
 
 ### Require signed commits
@@ -172,11 +154,13 @@ Retrieve information from [someone's hovercard](/v3/users/#get-contextual-inform
 
 {% endif %}
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/v3/checks/runs/) and [Check suites](/v3/checks/suites/) APIs for more details.
 
 **Custom media type:** `antiope-preview` **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
+{% endif %}
 
 {% if currentVersion != "free-pro-team@latest" %}
 
@@ -206,7 +190,7 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 ### Deployment statuses
 
-You can now update the `environment` of a [deployment status](/v3/repos/deployments/#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview` **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -243,7 +227,7 @@ You can use the Draft Pull Requests API and its [pull request](/v3/pulls/) endpo
 
 ### Enable and disable Pages
 
-You can use the new endpoints in the [Pages API](/v3/repos/pages/) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
+You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview` **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 

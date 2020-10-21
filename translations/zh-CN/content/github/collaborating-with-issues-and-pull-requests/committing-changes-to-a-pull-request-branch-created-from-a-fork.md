@@ -22,7 +22,9 @@ versions:
 
 {% endnote %}
 
-1. 在 {% data variables.product.product_name %} 上，导航到创建拉取请求分支的复刻（或仓库副本）的主页面。
+1. 在
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}
@@ -66,7 +68,7 @@ versions:
  **提示：**有关拉取请求分支的更多信息，包括示例，请参阅“[创建拉取请求](/articles/creating-a-pull-request/#changing-the-branch-range-and-destination-repository)”。
 
  {% endtip %}
-8. 现在，您可以使用此分支执行任何操作。 You can push new commits to it, run some local tests, or merge other branches into the branch. 根据需要进行修改。
+8. 现在，您可以使用此分支执行任何操作。 您可以向该分支推送新提交、运行一些本地测试或将其他分支合并到其中。 根据需要进行修改。
 9. 在更改提交到拉取请求的头部分支后，您可以将更改直接推送到原始拉取请求。 在此例中，头部分支为 `test-branch`：
   ```shell
   $ git push origin <em>test-branch</em>

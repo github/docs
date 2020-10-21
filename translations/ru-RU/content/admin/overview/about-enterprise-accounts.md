@@ -4,8 +4,6 @@ intro: 'With {% data variables.product.prodname_ghe_server %}, you can create an
 redirect_from:
   - /enterprise/admin/installation/about-enterprise-accounts
   - /enterprise/admin/overview/about-enterprise-accounts
-  - /enterprise/admin/overview/about-enterprise-accounts
-  - /enterprise/admin/overview/about-enterprise-accounts
 versions:
   enterprise-server: '*'
 ---

@@ -1,6 +1,6 @@
 ---
 title: 升级或降级对结算过程有何影响？
-intro: 升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。
+intro: '升级个人帐户或组织的订阅时，更改会立即应用。 降级订阅时，更改会在当前结算周期结束时应用。'
 redirect_from:
   - /articles/how-does-upgrading-or-downgrading-affect-the-billing-process
 versions:

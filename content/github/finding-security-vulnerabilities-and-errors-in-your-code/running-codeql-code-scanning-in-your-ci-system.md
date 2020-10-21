@@ -9,6 +9,7 @@ versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
 ---
+<!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
 
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}

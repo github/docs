@@ -1,1 +1,1 @@
-企业帐户可用于 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %}。 {% if currentVersion == "free-pro-team@latest" %}更多信息请参阅“[关于企业帐户](/articles/about-enterprise-accounts)”。{% endif %}
+企业帐户可用于 {% data variables.product.prodname_ghe_cloud %} 和 {% data variables.product.prodname_ghe_server %}。 {% if currentVersion == "free-pro-team@latest" %}For more information, see "[About enterprise accounts](/articles/about-enterprise-accounts)."{% endif %}

@@ -46,7 +46,7 @@ You can clone your existing repository or clone another person's existing reposi
 空のリポジトリにはファイルが含まれていません。 リポジトリを作成するときに README でリポジトリを初期化しない場合に多くあります。
 
 {% data reusables.repositories.navigate-to-repo %}
-2. HTTPS でコマンドラインを使用してリポジトリをクローンするには、[Quick setup] で {% octicon "clippy" aria-label="The clipboard icon" %} をクリックします。 Organization の SSH 認証局から発行された証明書を含む SSH キーを使用して{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}リポジトリのクローンを作成するには{% endif %}、[**SSH**] をクリックしてから、{% octicon "clippy" aria-label="The clipboard icon" %} をクリックします。 ![[Empty repository clone URL] ボタン](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. HTTPS でコマンドラインを使用してリポジトリをクローンするには、[Quick setup] で {% octicon "clippy" aria-label="The clipboard icon" %} をクリックします。 To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}. ![[Empty repository clone URL] ボタン](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    または、リポジトリをデスクトップにクローンするには、{% octicon "desktop-download" aria-label="The desktop download button" %} [**Set up in Desktop**] をクリックし、プロンプトに従ってクローンを完了します。 ![[Empty repository clone desktop] ボタン](/assets/images/help/repository/empty-desktop-clone-button.png)
 
@@ -54,7 +54,6 @@ You can clone your existing repository or clone another person's existing reposi
 {% data reusables.command_line.change-current-directory-clone %}
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
-
 
 ### クローンエラーのトラブルシューティング
 
@@ -65,7 +64,6 @@ You can clone your existing repository or clone another person's existing reposi
 - HTTPS を使用して接続できる。 詳しい情報については、「[HTTPS クローンエラー](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)」を参照してください。
 - クローンするリポジトリへのアクセス権を持っている。 詳しい情報については、「[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)」を参照してください。
 - クローンするデフォルトブランチが存在する。 詳しい情報については、「クローンするリポジトリへのアクセス権を持っている」を参照してください。 詳細については、「[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout) 」を参照してください。
-
 
 {% if currentVersion == "free-pro-team@latest" %}
 

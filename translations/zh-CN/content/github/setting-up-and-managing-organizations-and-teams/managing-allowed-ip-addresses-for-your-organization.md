@@ -46,7 +46,7 @@ versions:
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+8. 单击 **Update（更新）**。
 
 ### 删除允许的 IP 地址
 

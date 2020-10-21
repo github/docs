@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントからのユーザのブロック
-intro: ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。
+intro: 'ユーザをブロックして、あなたのアクティビリティやリポジトリへのアクセスを拒否し、あなたに通知を送れないようにすることができます。'
 redirect_from:
   - /articles/blocking-a-user-from-your-personal-account
 versions:

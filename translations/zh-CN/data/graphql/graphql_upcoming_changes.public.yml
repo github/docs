@@ -51,8 +51,8 @@ upcoming_changes:
     owner: antn
   - 
     location: EnterprisePendingMemberInvitationEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending members consume a license
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有挂起的成员都会使用许可证
     date: '2020-07-01T00:00:00+00:00'
     criticality: 重大
     owner: BrentWheeldon
@@ -114,29 +114,29 @@ upcoming_changes:
     owner: oneill38
   - 
     location: EnterpriseMemberEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All members consume a license
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有成员都会使用许可证
     date: '2021-01-01T00:00:00+00:00'
     criticality: 重大
     owner: BrentWheeldon
   - 
     location: EnterpriseOutsideCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All outside collaborators consume a license
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有外部协作者使用许可证
     date: '2021-01-01T00:00:00+00:00'
     criticality: 重大
     owner: BrentWheeldon
   - 
     location: EnterprisePendingCollaboratorEdge.isUnlicensed
-    description: "`isUnlicensed` will be removed."
-    reason: All pending collaborators consume a license
+    description: "`isUnlicensed` 将被删除。"
+    reason: 所有挂起的协作者使用许可证
     date: '2021-01-01T00:00:00+00:00'
     criticality: 重大
     owner: BrentWheeldon
   - 
     location: MergeStateStatus.DRAFT
-    description: "`DRAFT` will be removed. Use PullRequest.isDraft instead."
-    reason: DRAFT state will be removed from this enum and `isDraft` should be used instead
+    description: "`DRAFT` 将被删除。改为使用 PullRequest.isDraft。"
+    reason: DRAFT 状态将从这个枚举中删除，应改用 `isDraft`
     date: '2021-01-01T00:00:00+00:00'
     criticality: 重大
     owner: nplasterer

@@ -3,7 +3,6 @@ title: Preparing to submit a ticket
 intro: 'Help {% data variables.contact.github_support %} help you faster by following these suggestions before you open a support ticket.'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
-  - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
   enterprise-server: '*'
 ---

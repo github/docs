@@ -46,7 +46,7 @@ Você pode navegar entre os resumos das verificações de vários commits em uma
 
 #### Ignorar e solicitar verificações para commits individuais
 
-Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)".
+Quando um repositório é definido para solicitar verificações por pushes automaticamente, você pode optar por ignorar as verificações para um commit individual do qual fez push. Quando um repositório _não_ é definido para solicitar verificações por pushes automaticamente, você pode solicitar verificações para um commit individual do qual fez push. Para obter mais informações sobre essas configurações, consulte "[Conjuntos de verificações](/rest/reference/checks#update-repository-preferences-for-check-suites)".
 
 Para ignorar ou solicitar verificações para seu commit, adicione uma das seguintes linhas de trailer ao fim da mensagem do commit:
 

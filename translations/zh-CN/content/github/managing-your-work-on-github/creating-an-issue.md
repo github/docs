@@ -1,6 +1,6 @@
 ---
 title: 创建议题
-intro: 议题可用于跟踪漏洞、增强功能或其他请求。
+intro: '议题可用于跟踪漏洞、增强功能或其他请求。'
 redirect_from:
   - /articles/creating-an-issue
 versions:
@@ -17,7 +17,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create an issue using the {% data variables.product.prodname_cli %}. For more information, see "[`gh issue create`](https://cli.github.com/manual/gh_issue_create)" in the {% data variables.product.prodname_cli %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建议题。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 议题创建`](https://cli.github.com/manual/gh_issue_create)”。
 
 {% endtip %}
 {% endif %}
