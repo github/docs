@@ -27,12 +27,12 @@ module.exports = function (app) {
   app.use(require('./req-utils'))
   app.use(require('./robots'))
   app.use(require('./cookie-parser'))
+  app.use(express.json()) // Must come before ./csrf
   app.use(require('./csrf'))
   app.use(require('./handle-csrf-errors'))
   app.use(require('compression')())
   app.use(require('connect-slashes')(false))
   app.use('/dist', express.static('dist'))
-  app.use(express.json())
   app.use('/events', require('./events'))
   app.use(require('./categories-for-support-team'))
   app.use(require('./enterprise-data-endpoint'))
