@@ -189,7 +189,7 @@ jobs:
 ```
 {% endraw %}
 
-- `if: ${{ always() }}` - Configures the workflow to always run this step, even when there are test failures.
+The `always()` function configures the job to continue processing even if there are test failures. For more information, see "[always](/actions/reference/context-and-expression-syntax-for-github-actions#always)."
 
 ### Publishing to PowerShell Gallery
 
