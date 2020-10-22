@@ -152,7 +152,6 @@ steps:
 - name: Lint with PSScriptAnalyzer
   shell: pwsh
   run: |
-    # Consider using github-action-psscriptanalyzer in the Marketplace instead.
     Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
     $errors   = $issues.Where({$_.Severity -eq 'Error'})
     $warnings = $issues.Where({$_.Severity -eq 'Warning'})
@@ -164,43 +163,39 @@ steps:
 
 You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[Persisting workflow data using artifacts](/github/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
 
-The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
+The following example demonstrates how you can use the `upload-artifact` action to archive the test results received from `Invoke-Pester`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
 {% raw %}
 ```yaml
-name: Upload artifact from on Ubuntu, macOS and Windows
+name: Upload artifact from Ubuntu
 
 on: [push]
 
 jobs:
-  build:
-    name: Upload Pester tests work from all platforms
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
+  upload-pester-results:
+    name: Run Pester and upload results
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Test with Pester
       shell: pwsh
-      run: Invoke-Pester All.Tests.ps1 -Passthru | Export-CliXml -Path All.Tests.xml
+      run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
     - name: Upload test results
       uses: actions/upload-artifact@v2
       with:
-        # upload distinct zip files per OS
-        name: ${{ runner.os }}-All-Tests
-        path: All.Tests.xml
-        # Use always() to always run this step to publish test results when there are test failures
+        name: ubuntu-Unit-Tests
+        path: Unit.Tests.xml
     if: ${{ always() }}
 ```
 {% endraw %}
 
-### Publishing to package registries
+- `if: ${{ always() }}` - Configures the workflow to always run this step, even when there are test failures.
 
-You can configure your workflow to publish your PowerShell package to any package registry you'd like when your CI tests pass.
+### Publishing to PowerShell Gallery
 
-You can store any access tokens or credentials needed to publish your module using repository secrets. The following example creates and publishes a module to the PowerShell Gallery using `Publish-Module`. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+You can configure your workflow to publish your PowerShell module to the PowerShell Gallery when your CI tests pass. You can use repository secrets to store any tokens or credentials needed to publish your package. For more information, see "[Creating and using encrypted secrets](/github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+
+The following example creates a package and uses `Publish-Module` to publish it to the PowerShell Gallery:
 
 {% raw %}
 ```yaml
@@ -211,7 +206,7 @@ on:
     types: [created]
 
 jobs:
-  deploy:
+  publish-to-gallery:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
