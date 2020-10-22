@@ -1,6 +1,6 @@
 ---
 title: 关于使用 SAML 单点登录进行身份验证
-intro: 您可以通过身份提供程序 (IdP) 验证来访问使用 SAML 单点登录 (SSO) 的组织。 要在组织实施 SAML SSO 时使用命令行上的 API 或 Git 进行身份验证，您必须授权个人访问令牌或 SSH 密钥。
+intro: '您可以通过身份提供程序 (IdP) 验证来访问使用 SAML 单点登录 (SSO) 的组织。 要在组织实施 SAML SSO 时使用命令行上的 API 或 Git 进行身份验证，您必须授权个人访问令牌或 SSH 密钥。'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on

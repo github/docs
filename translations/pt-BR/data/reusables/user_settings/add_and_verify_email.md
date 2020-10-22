@@ -1,2 +1,2 @@
-1. In "Add email address", type your email address and click **Add**. ![Email addition button](/assets/images/help/settings/add-email-address.png){% if currentVersion == "free-pro-team@latest" %}
-2. [Verify your email address](/articles/verifying-your-email-address).{% endif %}
+1. Em "Adicionar endereço de e-mail", digite seu endereço de e-mail e clique em **Adicionar**. ![Email addition button](/assets/images/help/settings/add-email-address.png){% if currentVersion == "free-pro-team@latest" %}
+2. [Verifique seu endereço de e-mail](/articles/verifying-your-email-address).{% endif %}

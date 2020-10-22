@@ -2,7 +2,7 @@
 title: Criar um codespace
 intro: Você pode criar um codespace para uma branch em um repositório para fazer o desenvolvimento on-line.
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: Qualquer pessoa pode criar um codespace para qualquer repositório público ou para qualquer repositório que pertence à sua conta de usuário.
+permissions: 'Qualquer pessoa pode criar um codespace para qualquer repositório público ou para qualquer repositório que pertence à sua conta de usuário.'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
 versions:

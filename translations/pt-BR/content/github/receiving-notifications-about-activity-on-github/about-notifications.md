@@ -33,9 +33,8 @@ O {% data variables.product.product_name %} envia notificações *de participaç
 
 #### Notificações de inspeção
 
-O {% data variables.product.product_name %} envia notificações *de inspeção* para atualizações em repositórios ou discussões de equipe que você está inspecionando. {% if currentVersion ver_gt "enterprise-server@2.17" %} {% data reusables.notifications.auto-watch %}Para obter mais informações, consulte "[Fazer a inspeção e cancelar a inspeção de repositórios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)".
-
-{% endif %}Você receberá uma notificação quando:
+O {% data variables.product.product_name %} envia notificações *de inspeção* para atualizações em repositórios ou discussões de equipe que você está inspecionando.  {% data reusables.notifications.auto-watch %}Para obter mais informações, consulte "[Inspecionar e deixar de inspecionar repositórios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)".
+Você receberá uma notificação quando:
   - Um problema for aberto.
   - Um comentário for adicionado a um problema aberto.
   - Uma pull request for aberta.
@@ -50,7 +49,7 @@ Também é possível procurar em seu painel atividades de pessoas que você segu
 
 ### Leia mais
 
-- "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching">Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
+- "[Listar os repositórios que você está inspecionando](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/listing-the-repositories-youre-watching)"
 - "<a href="/enterprise/[/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories">Fazer a inspeção e cancelar a inspeção de repositórios](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories)"
 - "<a href="/enterprise/[Fazer a inspeção e cancelar a inspeção de discussões de equipe](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-team-discussions)"
-- "[Fazer a assinatura e cancelar a assinatura de notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"
+- "[Assinando e cancelando notificações](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications)"

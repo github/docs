@@ -25,7 +25,7 @@ To authorize users for standard apps that run in the browser, use the [web appli
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 {% endif %}
 
-### Web アプリケーションフロー
+### Web application flow
 
 Using the web application flow, the process to identify users on your site is:
 
@@ -41,14 +41,14 @@ If you select **Request user authorization (OAuth) during installation** when cr
 
 When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
 
-##### パラメータ
+##### Parameters
 
-| 名前             | 種類       | 説明                                                                                                                                                                                                                                                           |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `client_id`    | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.                                                                                                 |
-| `redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters. |
-| `状態`           | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.                                                                                                                                           |
-| `login`        | `string` | Suggests a specific account to use for signing in and authorizing the app.                                                                                                                                                                                   |
+Name | Type | Description
+-----|------|------------
+`client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters.
+`state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
+`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 
 {% note %}
 
@@ -72,17 +72,17 @@ Expiring user tokens are currently part of the user-to-server token expiration b
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-##### パラメータ
+##### Parameters
 
-| 名前              | 種類       | 説明                                                                    |
-| --------------- | -------- | --------------------------------------------------------------------- |
-| `client_id`     | `string` | **Required.** The  client ID for your GitHub App.                     |
-| `client_secret` | `string` | **Required.** The  client secret for your GitHub App.                 |
-| `コード`           | `string` | **Required.** The code you received as a response to Step 1.          |
-| `redirect_uri`  | `string` | The URL in your application where users are sent after authorization. |
-| `状態`            | `string` | The unguessable random string you provided in Step 1.                 |
+Name | Type | Description
+-----|------|------------
+`client_id` | `string` | **Required.** The  client ID for your GitHub App.
+`client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
+`code` | `string`   | **Required.** The code you received as a response to Step 1.
+`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`state` | `string` | The unguessable random string you provided in Step 1.
 
-##### レスポンス
+##### Response
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
@@ -208,7 +208,7 @@ While most of your API interaction should occur using your server-to-server inst
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### 成果物
+##### Artifacts
 
 * [List artifacts for a repository](/v3/actions/artifacts/#list-artifacts-for-a-repository)
 * [List workflow run artifacts](/v3/actions/artifacts/#list-workflow-run-artifacts)
@@ -217,7 +217,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Download an artifact](/v3/actions/artifacts/#download-an-artifact)
 {% endif %}
 
-##### チェックラン
+##### Check Runs
 
 * [Create a check run](/v3/checks/runs/#create-a-check-run)
 * [Get a check run](/v3/checks/runs/#get-a-check-run)
@@ -226,7 +226,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List check runs in a check suite](/v3/checks/runs/#list-check-runs-in-a-check-suite)
 * [List check runs for a Git reference](/v3/checks/runs/#list-check-runs-for-a-git-reference)
 
-##### チェックスイート
+##### Check Suites
 
 * [Create a check suite](/v3/checks/suites/#create-a-check-suite)
 * [Get a check suite](/v3/checks/suites/#get-a-check-suite)
@@ -241,25 +241,25 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Deployment Statuses
 
-* [List deployment statuses](/v3/repos/deployments/#list-deployment-statuses)
-* [Create a deployment status](/v3/repos/deployments/#create-a-deployment-status)
-* [Get a deployment status](/v3/repos/deployments/#get-a-deployment-status)
+* [List deployment statuses](/rest/reference/repos#list-deployment-statuses)
+* [Create a deployment status](/rest/reference/repos#create-a-deployment-status)
+* [Get a deployment status](/rest/reference/repos#get-a-deployment-status)
 
-##### デプロイメント
+##### Deployments
 
-* [List deployments](/v3/repos/deployments/#list-deployments)
-* [Create a deployment](/v3/repos/deployments/#create-a-deployment)
-* [Get a deployment](/v3/repos/deployments/#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-* [Delete a deployment](/v3/repos/deployments/#delete-a-deployment){% endif %}
+* [List deployments](/rest/reference/repos#list-deployments)
+* [Create a deployment](/rest/reference/repos#create-a-deployment)
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
-##### イベント
+##### Events
 
-* [List public events for a network of repositories](/v3/activity/events/#list-public-events-for-a-network-of-repositories)
-* [List public organization events](/v3/activity/events/#list-public-organization-events)
+* [List public events for a network of repositories](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
+* [List public organization events](/rest/reference/activity#list-public-organization-events)
 
-##### フィード
+##### Feeds
 
-* [Get feeds](/v3/activity/feeds/#get-feeds)
+* [Get feeds](/rest/reference/activity#get-feeds)
 
 ##### Git Blobs
 
@@ -273,11 +273,8 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Git Refs
 
-* [Create a reference](/v3/git/refs/#create-a-reference){% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-* [List references](/v3/git/refs/#list-references)
-* [Get a reference](/v3/git/refs/#get-a-reference){% else %}
-* [Get a reference](/v3/git/refs/#get-a-reference)
-* [List matching references](/v3/git/refs/#list-matching-references){% endif %}
+* [Create a reference](/v3/git/refs/#create-a-reference)* [Get a reference](/v3/git/refs/#get-a-reference)
+* [List matching references](/v3/git/refs/#list-matching-references)
 * [Update a reference](/v3/git/refs/#update-a-reference)
 * [Delete a reference](/v3/git/refs/#delete-a-reference)
 
@@ -333,13 +330,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List timeline events for an issue](/v3/issues/timeline/#list-timeline-events-for-an-issue)
 
-##### 問題
+##### Issues
 
 * [List issues assigned to the authenticated user](/v3/issues/#list-issues-assigned-to-the-authenticated-user)
 * [List assignees](/v3/issues/assignees/#list-assignees)
 * [Check if a user can be assigned](/v3/issues/assignees/#check-if-a-user-can-be-assigned)
 * [List repository issues](/v3/issues/#list-repository-issues)
-* [Issue を作成します](/v3/issues/#create-an-issue)
+* [Create an issue](/v3/issues/#create-an-issue)
 * [Get an issue](/v3/issues/#get-an-issue)
 * [Update an issue](/v3/issues/#update-an-issue)
 * [Lock an issue](/v3/issues/#lock-an-issue)
@@ -353,7 +350,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List jobs for a workflow run](/v3/actions/workflow-jobs/#list-jobs-for-a-workflow-run)
 {% endif %}
 
-##### ラベル
+##### Labels
 
 * [List labels for an issue](/v3/issues/labels/#list-labels-for-an-issue)
 * [Add labels to an issue](/v3/issues/labels/#add-labels-to-an-issue)
@@ -367,7 +364,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a label](/v3/issues/labels/#delete-a-label)
 * [Get labels for every issue in a milestone](/v3/issues/labels/#list-labels-for-issues-in-a-milestone)
 
-##### ライセンス
+##### Licenses
 
 * [Get all commonly used licenses](/v3/licenses/#get-all-commonly-used-licenses)
 * [Get a license](/v3/licenses/#get-a-license)
@@ -377,11 +374,11 @@ While most of your API interaction should occur using your server-to-server inst
 * [Render a Markdown document](/v3/markdown/#render-a-markdown-document)
 * [Render a markdown document in raw mode](/v3/markdown/#render-a-markdown-document-in-raw-mode)
 
-##### メタ情報
+##### Meta
 
-* [メタ情報](/v3/meta/#meta)
+* [Meta](/v3/meta/#meta)
 
-##### マイルストーン
+##### Milestones
 
 * [List milestones](/v3/issues/milestones/#list-milestones)
 * [Create a milestone](/v3/issues/milestones/#create-a-milestone)
@@ -391,12 +388,12 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Organization Hooks
 
-* [List organization webhooks](/v3/orgs/hooks/#list-organization-webhooks)
-* [Create an organization webhook](/v3/orgs/hooks/#create-an-organization-webhook)
-* [Get an organization webhook](/v3/orgs/hooks/#get-an-organization-webhook)
-* [Update an organization webhook](/v3/orgs/hooks/#update-an-organization-webhook)
-* [Delete an organization webhook](/v3/orgs/hooks/#delete-an-organization-webhook)
-* [Ping an organization webhook](/v3/orgs/hooks/#ping-an-organization-webhook)
+* [List organization webhooks](/rest/reference/orgs#webhooks/#list-organization-webhooks)
+* [Create an organization webhook](/rest/reference/orgs#webhooks/#create-an-organization-webhook)
+* [Get an organization webhook](/rest/reference/orgs#webhooks/#get-an-organization-webhook)
+* [Update an organization webhook](/rest/reference/orgs#webhooks/#update-an-organization-webhook)
+* [Delete an organization webhook](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
+* [Ping an organization webhook](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organization Invitations
@@ -445,7 +442,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Organization Team Repositories
 
-* [Team リポジトリの一覧表示](/v3/teams/#list-team-repositories)
+* [List team repositories](/v3/teams/#list-team-repositories)
 * [Check team permissions for a repository](/v3/teams/#check-team-permissions-for-a-repository)
 * [Add or update team repository permissions](/v3/teams/#add-or-update-team-repository-permissions)
 * [Remove a repository from a team](/v3/teams/#remove-a-repository-from-a-team)
@@ -478,7 +475,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List child teams](/v3/teams/#list-child-teams)
 * [List teams for the authenticated user](/v3/teams/#list-teams-for-the-authenticated-user)
 
-##### Organization
+##### Organizations
 
 * [List organizations](/v3/orgs/#list-organizations)
 * [Get an organization](/v3/orgs/#get-an-organization)
@@ -527,7 +524,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove project collaborator](/v3/projects/collaborators/#remove-project-collaborator)
 * [Get project permission for a user](/v3/projects/collaborators/#get-project-permission-for-a-user)
 
-##### プロジェクト
+##### Projects
 
 * [List organization projects](/v3/projects/#list-organization-projects)
 * [Create an organization project](/v3/projects/#create-an-organization-project)
@@ -588,7 +585,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Check if a pull request has been merged](/v3/pulls/#check-if-a-pull-request-has-been-merged)
 * [Merge a pull request (Merge Button)](/v3/pulls/#merge-a-pull-request)
 
-##### リアクション
+##### Reactions
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
 * [List reactions for a commit comment](/v3/reactions/#list-reactions-for-a-commit-comment)
@@ -610,16 +607,16 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete team discussion reaction](/v3/reactions/#delete-team-discussion-reaction)
 * [Delete team discussion comment reaction](/v3/reactions/#delete-team-discussion-comment-reaction){% endif %}
 
-##### リポジトリ
+##### Repositories
 
-* [Organization リポジトリの一覧表示](/v3/repos/#list-organization-repositories)
+* [List organization repositories](/v3/repos/#list-organization-repositories)
 * [Create a repository for the authenticated user](/v3/repos/#create-a-repository-for-the-authenticated-user)
-* [リポジトリの Get](/v3/repos/#get-a-repository)
+* [Get a repository](/v3/repos/#get-a-repository)
 * [Update a repository](/v3/repos/#update-a-repository)
 * [Delete a repository](/v3/repos/#delete-a-repository)
 * [Compare two commits](/v3/repos/commits/#compare-two-commits)
 * [List repository contributors](/v3/repos/#list-repository-contributors)
-* [一覧表示のフォーク](/v3/repos/forks/#list-forks)
+* [List forks](/rest/reference/repos#list-forks)
 * [Create a fork](/v3/repos/forks/#create-a-fork)
 * [List repository languages](/v3/repos/#list-repository-languages)
 * [List repository tags](/v3/repos/#list-repository-tags)
@@ -627,18 +624,18 @@ While most of your API interaction should occur using your server-to-server inst
 * [Transfer a repository](/v3/repos/#transfer-a-repository)
 * [List public repositories](/v3/repos/#list-public-repositories)
 * [List repositories for the authenticated user](/v3/repos/#list-repositories-for-the-authenticated-user)
-* [ユーザのリポジトリの一覧表示](/v3/repos/#list-repositories-for-a-user)
+* [List repositories for a user](/v3/repos/#list-repositories-for-a-user)
 * [Create repository using a repository template](/v3/repos/#create-repository-using-a-repository-template)
 
 ##### Repository Activity
 
-* [List stargazers](/v3/activity/starring/#list-stargazers)
-* [List watchers](/v3/activity/watching/#list-watchers)
-* [List repositories starred by a user](/v3/activity/starring/#list-repositories-starred-by-a-user)
-* [Check if a repository is starred by the authenticated user](/v3/activity/starring/#check-if-a-repository-is-starred-by-the-authenticated-user)
-* [Star a repository for the authenticated user](/v3/activity/starring/#star-a-repository-for-the-authenticated-user)
-* [Unstar a repository for the authenticated user](/v3/activity/starring/#unstar-a-repository-for-the-authenticated-user)
-* [ユーザが Watch しているリポジトリの一覧表示](/v3/activity/watching/#list-repositories-watched-by-a-user)
+* [List stargazers](/rest/reference/activity#list-stargazers)
+* [List watchers](/rest/reference/activity#list-watchers)
+* [List repositories starred by a user](/rest/reference/activity#list-repositories-starred-by-a-user)
+* [Check if a repository is starred by the authenticated user](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
+* [Star a repository for the authenticated user](/rest/reference/activity#star-a-repository-for-the-authenticated-user)
+* [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
+* [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Repository Automated Security Fixes
@@ -756,14 +753,14 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Pages
 
-* [Get a GitHub Pages site](/v3/repos/pages/#get-a-github-pages-site)
-* [Create a GitHub Pages site](/v3/repos/pages/#create-a-github-pages-site)
-* [Update information about a GitHub Pages site](/v3/repos/pages/#update-information-about-a-github-pages-site)
-* [Delete a GitHub Pages site](/v3/repos/pages/#delete-a-github-pages-site)
-* [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds)
-* [Request a GitHub Pages build](/v3/repos/pages/#request-a-github-pages-build)
-* [Get GitHub Pages build](/v3/repos/pages/#get-github-pages-build)
-* [Get latest pages build](/v3/repos/pages/#get-latest-pages-build)
+* [Get a GitHub Pages site](/rest/reference/repos#get-a-github-pages-site)
+* [Create a GitHub Pages site](/rest/reference/repos#create-a-github-pages-site)
+* [Update information about a GitHub Pages site](/rest/reference/repos#update-information-about-a-github-pages-site)
+* [Delete a GitHub Pages site](/rest/reference/repos#delete-a-github-pages-site)
+* [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds)
+* [Request a GitHub Pages build](/rest/reference/repos#request-a-github-pages-build)
+* [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
+* [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
 {% if currentVersion != "free-pro-team@latest" %}
 ##### Repository Pre Receive Hooks
@@ -776,17 +773,17 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Releases
 
-* [リリースの一覧表示](/v3/repos/releases/#list-releases)
-* [Create a release](/v3/repos/releases/#create-a-release)
-* [Get a release](/v3/repos/releases/#get-a-release)
-* [リリースの更新](/v3/repos/releases/#update-a-release)
-* [Delete a release](/v3/repos/releases/#delete-a-release)
-* [List release assets](/v3/repos/releases/#list-release-assets)
-* [Get a release asset](/v3/repos/releases/#get-a-release-asset)
-* [Update a release asset](/v3/repos/releases/#update-a-release-asset)
-* [Delete a release asset](/v3/repos/releases/#delete-a-release-asset)
-* [Get the latest release](/v3/repos/releases/#get-the-latest-release)
-* [Get a release by tag name](/v3/repos/releases/#get-a-release-by-tag-name)
+* [List releases](/rest/reference/repos/#list-releases)
+* [Create a release](/rest/reference/repos/#create-a-release)
+* [Get a release](/rest/reference/repos/#get-a-release)
+* [Update a release](/rest/reference/repos/#update-a-release)
+* [Delete a release](/rest/reference/repos/#delete-a-release)
+* [List release assets](/rest/reference/repos/#list-release-assets)
+* [Get a release asset](/rest/reference/repos/#get-a-release-asset)
+* [Update a release asset](/rest/reference/repos/#update-a-release-asset)
+* [Delete a release asset](/rest/reference/repos/#delete-a-release-asset)
+* [Get the latest release](/rest/reference/repos/#get-the-latest-release)
+* [Get a release by tag name](/rest/reference/repos/#get-a-release-by-tag-name)
 
 ##### Repository Stats
 
@@ -797,28 +794,28 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get the hourly commit count for each day](/v3/repos/statistics/#get-the-hourly-commit-count-for-each-day)
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### リポジトリ脆弱性アラート
+##### Repository Vulnerability Alerts
 
 * [Enable vulnerability alerts](/v3/repos/#enable-vulnerability-alerts)
 * [Disable vulnerability alerts](/v3/repos/#disable-vulnerability-alerts)
 {% endif %}
 
-##### ルート
+##### Root
 
-* [ルートエンドポイント](/v3/#root-endpoint)
-* [絵文字](/v3/emojis/#emojis)
+* [Root endpoint](/v3/#root-endpoint)
+* [Emojis](/v3/emojis/#emojis)
 * [Get rate limit status for the authenticated user](/v3/rate_limit/#get-rate-limit-status-for-the-authenticated-user)
 
-##### 検索
+##### Search
 
 * [Search code](/v3/search/#search-code)
 * [Search commits](/v3/search/#search-commits)
 * [Search labels](/v3/search/#search-labels)
-* [リポジトリを検索](/v3/search/#search-repositories)
+* [Search repositories](/v3/search/#search-repositories)
 * [Search topics](/v3/search/#search-topics)
 * [Search users](/v3/search/#search-users)
 
-##### ステータス
+##### Statuses
 
 * [Get the combined status for a specific reference](/v3/repos/statuses/#get-the-combined-status-for-a-specific-reference)
 * [List commit statuses for a reference](/v3/repos/statuses/#list-commit-statuses-for-a-reference)
@@ -843,7 +840,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Replace all repository topics](/v3/repos/#replace-all-repository-topics)
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### トラフィック
+##### Traffic
 
 * [Get repository clones](/v3/repos/traffic/#get-repository-clones)
 * [Get top referral paths](/v3/repos/traffic/#get-top-referral-paths)
@@ -899,7 +896,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a public SSH key for the authenticated user](/v3/users/keys/#delete-a-public-ssh-key-for-the-authenticated-user)
 * [List public keys for a user](/v3/users/keys/#list-public-keys-for-a-user)
 
-##### ユーザ
+##### Users
 
 * [Get the authenticated user](/v3/users/#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token)
@@ -923,7 +920,7 @@ While most of your API interaction should occur using your server-to-server inst
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### ワークフロー
+##### Workflows
 
 * [List repository workflows](/v3/actions/workflows/#list-repository-workflows)
 * [Get a workflow](/v3/actions/workflows/#get-a-workflow)

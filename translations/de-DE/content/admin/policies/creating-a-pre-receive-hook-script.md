@@ -1,6 +1,6 @@
 ---
 title: Pre-Receive-Hook-Skript erstellen
-intro: 'Verwenden Sie Pre-Receive-Hook-Skripts, um Anforderungen zum Akzeptieren oder Ablehnen eines Push-Vorgangs anhand der Inhalte zu erstellen.'
+intro: Verwenden Sie Pre-Receive-Hook-Skripts, um Anforderungen zum Akzeptieren oder Ablehnen eines Push-Vorgangs anhand der Inhalte zu erstellen.
 redirect_from:
   - /enterprise/admin/developer-workflow/creating-a-pre-receive-hook-script
   - /enterprise/admin/policies/creating-a-pre-receive-hook-script
@@ -182,7 +182,7 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test master
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_rsa" git push -u test main
    > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
@@ -191,7 +191,7 @@ Sie können ein Pre-Receive-Hook-Skript lokal testen, bevor Sie es auf Ihrer {% 
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
    > To git@192.168.99.100:test.git
-   >  ! [remote rejected] master -> master (pre-receive hook declined)
+   >  ! [remote rejected] main -> main (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
   ```
 

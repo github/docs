@@ -1,6 +1,6 @@
 ---
 title: Einen Benutzer für Deine Organisation blockieren
-intro: 'Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.'
+intro: Organisationsinhaber können einen Benutzer blockieren, damit dieser nicht mehr an den Repositorys der Organisation mitarbeiten kann.
 redirect_from:
   - /articles/blocking-a-user-from-your-organization
 versions:

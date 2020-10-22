@@ -10,7 +10,7 @@ versions:
 
 ### Informationen zum Review von Pull Requests
 
-Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. Während des Reviews der Dateien eines Pull Requests kannst Du einzelne Änderungen kommentieren.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} Wenn Du den Review einer Datei abgeschlossen hast, kannst Du die Datei als „gesehen“ markieren. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. In einer Fortschrittsanzeige im Header des Pull Requests wird die Anzahl der gesehenen Dateien angezeigt.{% endif %} Nachdem Du alle oder einzelne Dateien überprüft hast, kannst Du den Pull Request genehmigen oder durch Absenden Deines Reviews mit einem zusammenfassenden Kommentar weitere Änderungen anfordern.
+Du kannst die Änderungen in einem Pull Request eine Datei nach der anderen überprüfen. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. Dadurch wird die Datei ausgeblendet, so dass Du die noch nicht geprüften Dateien leichter findest. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,18 +28,16 @@ Vor dem Absenden Deines Reviews haben Deine Zeilenkommentare den Status _Aussteh
 
 ![Schaltfläche „Cancel review“ (Review abbrechen)](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Datei als „gesehen“ markieren
 
-Wenn Du den Review einer Datei abgeschlossen hast, kannst Du sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Deiner Überprüfung geändert wird, wird die Markierung aufgehoben.
+Wenn Sie den Review einer Datei abgeschlossen haben, können Sie sie als „gesehen“ markieren, um sie auszublenden. Falls die Datei nach Ihrer Überprüfung geändert wird, wird die Markierung aufgehoben und die Datei wird wieder eingeblendet.
 
 {% data reusables.repositories.changed-files %}
 2. Aktiviere rechts neben dem Header der überprüften Datei das Kontrollkästchen **Viewed** (Gesehen). ![Kontrollkästchen „Viewed“ (Gesehen)](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### Review absenden
 
-Wenn Du den Review aller von Dir im Pull Request einzuschließenden Dateien abgeschlossen hast, sende den Review ab.
+Wenn Sie den Review der Dateien des Pull Requesta abgeschlossen haben, senden Sie den Review ab.
 
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.review-changes %}

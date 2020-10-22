@@ -24,6 +24,8 @@ Você pode pesquisar globalmente em todo o {% data variables.product.product_nam
 
 - {% data reusables.search.required_login %}
 - Os sites do {% data variables.product.prodname_pages %} não são pesquisáveis no {% data variables.product.product_name %}. No entanto, você pode pesquisar o conteúdo da fonte, se ele existir no branch padrão de um repositório, usando a pesquisa de código. Para obter mais informações, consulte "[Pesquisar código](/articles/searching-code)". Para obter mais informações sobre o {% data variables.product.prodname_pages %}, consulte "[O que é o GitHub Pages?](/articles/what-is-github-pages/)"
+- Atualmente, a nossa pesquisa não é compatível com correspondência exata.
+- Sempre que você estiver pesquisando em arquivos de código, serão retornados apenas os dois primeiros resultados de cada arquivo.
 
 {% endnote %}
 

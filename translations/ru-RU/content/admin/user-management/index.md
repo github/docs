@@ -7,8 +7,6 @@ redirect_from:
   - /enterprise/admin/migrations
   - /enterprise/admin/clustering
   - /enterprise/admin/user-management
-  - /enterprise/admin/user-management
-  - /enterprise/admin/user-management
 intro: 'This guide describes authentication methods for users signing in to your {% data variables.product.prodname_enterprise %} instance, how to create organizations and teams for repository access and collaboration, and suggested best practices for user security.'
 versions:
   enterprise-server: '*'

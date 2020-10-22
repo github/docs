@@ -39,11 +39,13 @@ size 84977953
 
 It tracks the `version` of {% data variables.large_files.product_name_short %} you're using, followed by a unique identifier for the file (`oid`). It also stores the `size` of the final file.
 
-{% tip %}
+{% note %}
 
-**Tip**: {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-
-{% endtip %}
+**Notes**:
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
+  
+{% endnote %}
 
 ### Further reading
 

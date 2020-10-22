@@ -11,7 +11,6 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-
 {% if currentVersion == "free-pro-team@latest" %}
 ### 关于私有包删除
 
@@ -82,4 +81,4 @@ HOSTNAME/graphql
 
 有关 `deletePackageVersion` 突变的更多信息，请参阅“[`deletePackageVersion`](/graphql/reference/mutations#deletepackageversion)”。
 
-You cannot delete an entire package, but if you delete every version of a package, the package will no longer show on {% data variables.product.product_name %}
+您不能删除整个包，但如果您删除包的每个版本，该包将不再显示在 {% data variables.product.product_name %} 上。

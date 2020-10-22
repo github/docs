@@ -1,6 +1,6 @@
 ---
 title: Einen Sicherheitshinweis zurückziehen
-intro: 'Du kannst einen Sicherheitshinweis, den Du veröffentlicht hast, auch wieder zurückziehen.'
+intro: Du kannst einen Sicherheitshinweis, den Du veröffentlicht hast, auch wieder zurückziehen.
 versions:
   free-pro-team: '*'
 ---

@@ -1,6 +1,6 @@
 ---
 title: グローバルwebhookの管理
-intro: サイト管理者は、インスタンスレベルのイベントを追跡するためのグローバルwebhookの表示、追加、編集、削除が行えます。
+intro: 'サイト管理者は、インスタンスレベルのイベントを追跡するためのグローバルwebhookの表示、追加、編集、削除が行えます。'
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks

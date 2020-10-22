@@ -1,6 +1,6 @@
 ---
 title: 阻止会暴露个人电子邮件地址的命令行推送
-intro: 如果选择了在执行基于 web 的 Git 操作中保密您的电子邮件地址，您还可以选择阻止可能暴露您个人电子邮件地址的命令行推送。
+intro: '如果选择了在执行基于 web 的 Git 操作中保密您的电子邮件地址，您还可以选择阻止可能暴露您个人电子邮件地址的命令行推送。'
 redirect_from:
   - /articles/blocking-command-line-pushes-that-expose-your-personal-email-address
 versions:

@@ -1,14 +1,14 @@
 ##### **使用单一事件的示例**
 
 ```yaml
-# Trigger on push
+# Triggered when code is pushed to any branch in a repository
 on: push
 ```
 
 ##### **使用事件列表的示例**
 
 ```yaml
-# Trigger the workflow on push or pull request
+# Triggers the workflow on push or pull request events
 on: [push, pull_request]
 ```
 
@@ -18,13 +18,13 @@ on: [push, pull_request]
 
 <pre><code class="yaml">on:
   # Trigger the workflow on push or pull request,
-  # but only for the master branch
+  # but only for the main branch
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   # Also trigger on page_build, as well as release created events
   page_build:
   release:

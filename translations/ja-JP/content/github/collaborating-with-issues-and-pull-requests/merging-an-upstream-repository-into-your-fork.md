@@ -1,6 +1,6 @@
 ---
 title: 上流リポジトリをフォークにマージする
-intro: 上流リポジトリに対するプッシュ (書き込み) アクセスがない場合でも、そのリポジトリから自分のフォークにコミットをプルできます。
+intro: '上流リポジトリに対するプッシュ (書き込み) アクセスがない場合でも、そのリポジトリから自分のフォークにコミットをプルできます。'
 redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
 versions:
