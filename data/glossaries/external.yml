@@ -60,9 +60,9 @@
 - term: branch
   description: >-
     A branch is a parallel version of a repository. It is contained within the
-    repository, but does not affect the primary or master branch allowing you to
+    repository, but does not affect the primary or main branch allowing you to
     work freely without disrupting the "live" version. When you've made the
-    changes you want to make, you can merge your branch back into the master
+    changes you want to make, you can merge your branch back into the main
     branch to publish your changes.
 - term: branch restriction
   description: >-
@@ -395,10 +395,10 @@
     Markdown and uses a particular form of Markdown called GitHub Flavored Markdown. See [GitHub Flavored Markdown Spec](https://github.github.com/gfm/) or [Getting started with writing and formatting on GitHub](/articles/getting-started-with-writing-and-formatting-on-github).
 - term: Markup
   description: A system for annotating and formatting a document.
-- term: master
+- term: main
   description: >-
     The default development branch. Whenever you create a Git repository, a
-    branch named "master" is created, and becomes the active branch. In most
+    branch named "main" is created, and becomes the active branch. In most
     cases, this contains the local development, though that is purely by
     convention and is not required.
 - term: Members graph
