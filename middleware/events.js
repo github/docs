@@ -10,13 +10,16 @@ const ajv = new Ajv()
 const router = express.Router()
 
 router.post('/', async (req, res, next) => {
-  if (!ajv.validate(schema, req.body)) {
+  const fields = omit(req.body, '_csrf')
+  if (!ajv.validate(schema, fields)) {
     if (process.env.NODE_ENV === 'development') console.log(ajv.errorsText())
     return res.status(400).json({})
   }
-  const fields = omit(req.body, OMIT_FIELDS)
   try {
-    const hydroRes = await req.hydro.publish(req.hydro.schemas[req.body.type], fields)
+    const hydroRes = await req.hydro.publish(
+      req.hydro.schemas[fields.type],
+      omit(fields, OMIT_FIELDS)
+    )
     if (!hydroRes.ok) return res.status(502).json({})
     return res.status(201).json(fields)
   } catch (err) {
