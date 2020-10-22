@@ -1,6 +1,6 @@
 ---
 title: Änderungen an Deinem Projekt sowohl per Commit übertragen als auch überprüfen
-intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien, während Du sie bearbeitest. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
+intro: '{% data variables.product.prodname_desktop %} verfolgt alle Änderungen an allen Dateien, während Sie sie bearbeiten. Du kannst festlegen, wie die Änderungen gruppiert werden sollen, um aussagekräftige Commits zu erstellen.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
 versions:
@@ -23,7 +23,7 @@ versions:
 
 ### 2. Die in einen Commit einzubeziehenden Änderungen auswählen
 
-Wenn Du in Deinem Texteditor Änderungen an Dateien vornimmst und Du diese lokal speicherst, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
+Wenn Sie in Ihrem Texteditor Änderungen an Dateien vornehmen und Sie diese lokal speichern, werden die Änderungen auch in {% data variables.product.prodname_desktop %} angezeigt.
 
 * Das rote {% octicon "diff-removed" aria-label="The diff removed icon color-red" %}-Symbol weist auf entfernte Dateien hin.
 * Das gelbe {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %}-Symbol weist auf geänderte Dateien hin.

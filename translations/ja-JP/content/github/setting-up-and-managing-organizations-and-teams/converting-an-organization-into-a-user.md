@@ -1,6 +1,6 @@
 ---
 title: Organization をユーザに変換する
-intro: Organization は個人ユーザアカウントに変換できませんが、新しいユーザアカウントを作成して、そこへ Organization のリポジトリを移譲することは可能です。
+intro: 'Organization は個人ユーザアカウントに変換できませんが、新しいユーザアカウントを作成して、そこへ Organization のリポジトリを移譲することは可能です。'
 redirect_from:
   - /articles/converting-an-organization-into-a-user
 versions:

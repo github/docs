@@ -18,19 +18,19 @@ Mache Dich mit Git vertraut: Besuche die [offizielle Git-Projekt-Website](https:
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-{% data variables.product.prodname_learning %} bietet kostenlose interaktive Kurse, die in {% data variables.product.prodname_dotcom %} integriert sind und automatisch sofort Feedback und Hilfestellungen geben. Lerne, wie Du Deinen ersten Pull Request erstellst, Deinen ersten Open-Source-Beitrag leistest, eine {% data variables.product.prodname_pages %}-Website erstellst und vieles mehr. Weitere Informationen zu den angebotenen Kursen findest Du unter [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
+{% data variables.product.prodname_learning %} bietet kostenlose interaktive Kurse, die in {% data variables.product.prodname_dotcom %} integriert sind und automatisch sofort Feedback und Hilfestellungen geben. Lernen Sie, wie Sie Ihren ersten Pull Request erstellen, Ihren ersten Open-Source-Beitrag leisten, eine {% data variables.product.prodname_pages %}-Website erstellen und vieles mehr. Weitere Informationen zu den angebotenen Kursen findest Du unter [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}).
 
 {% endif %}
 
-Lerne {% data variables.product.product_name %} mithilfe unserer [Bootcamp](/categories/bootcamp/)-Artikel besser kennen. Eine Prozesseinführung findest Du unter [{% data variables.product.prodname_dotcom %}-Ablauf](https://guides.github.com/introduction/flow). In unseren [Übersichtsleitfäden](https://guides.github.com) stellen wir Dir Schritt für Schritt die grundlegenden Konzepte vor.
+Lernen Sie {% data variables.product.product_name %} mithilfe unserer [Bootcamp](/categories/bootcamp/)-Artikel besser kennen. Eine Prozesseinführung findest Du unter [{% data variables.product.prodname_dotcom %}-Ablauf](https://guides.github.com/introduction/flow). In unseren [Übersichtsleitfäden](https://guides.github.com) stellen wir Dir Schritt für Schritt die grundlegenden Konzepte vor.
 
 {% data reusables.support.ask-and-answer-forum %}
 
 #### Branches, Forks und Pull Requests
 
-Lerne mit einem interaktiven Tool alles über [Branches bei Git](http://learngitbranching.js.org/). Informiere Dich über [Forks](/articles/about-forks), [Pull Requests](/articles/using-pull-requests) und [die Verwendung von Pull Requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) auf {% data variables.product.prodname_dotcom %}.
+Lerne mit einem interaktiven Tool alles über [Branches bei Git](http://learngitbranching.js.org/). Informieren Sie sich über [Forks](/articles/about-forks), [Pull Requests](/articles/using-pull-requests) und [die Verwendung von Pull Requests](https://github.com/blog/1124-how-we-use-pull-requests-to-build-github) auf {% data variables.product.prodname_dotcom %}.
 
-Außerdem stehen Dir Kurzanleitungen zur [Befehlszeile](https://hub.github.com) sowie [Checklisten, Merkzettel etc.](https://services.github.com/on-demand/resources) zu {% data variables.product.prodname_dotcom %} zur Verfügung.
+Außerdem stehen Ihnen Kurzanleitungen zur [Befehlszeile](https://hub.github.com) sowie [Checklisten, Merkzettel etc.](https://services.github.com/on-demand/resources) zu {% data variables.product.prodname_dotcom %} zur Verfügung.
 
 #### Reinschauen
 
@@ -54,6 +54,6 @@ Auf unserem {% data variables.product.prodname_dotcom %} [YouTube-Kanal „GitHu
 
 Ein interaktiver [Online-Git-Kurs](http://www.codeschool.com/courses/git-real) von [Code School](http://codeschool.com) bietet Dutzende von Übungen in mehreren Leveln in einem unterhaltsamen Spieleformat. Gerne kannst Du unsere [.gitignore-Vorlagen](https://github.com/github/gitignore) an Deine Anforderungen anpassen.
 
-Erweitere Deine {% data variables.product.prodname_dotcom %}-Reichweite durch {% if currentVersion == "free-pro-team@latest" %}[Integrationen](/articles/about-integrations){% else %}Integrationen{% endif %} oder die Installation von [{% data variables.product.prodname_desktop %}](https://desktop.github.com) und dem robusten Texteditor [Atom](https://atom.io).
+Extend your {% data variables.product.prodname_dotcom %} reach through {% if currentVersion == "free-pro-team@latest" %}[integrations](/articles/about-integrations){% else %}integrations{% endif %}, or by installing [{% data variables.product.prodname_desktop %}](https://desktop.github.com) and the robust [Atom](https://atom.io) text editor.
 
 Erfahre in den [Open-Source-Leitfäden](https://opensource.guide/), wie Du Open-Source-Projekte starten und weiterentwickeln kannst.

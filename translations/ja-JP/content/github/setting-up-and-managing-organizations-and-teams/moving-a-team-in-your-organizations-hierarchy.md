@@ -1,6 +1,6 @@
 ---
 title: Organization 階層内で Team を移動する
-intro: チームメンテナと Organization のオーナーは、親チームの下に Team を入れ子にしたり、ネストした入れ子チームの親を変更または削除したりすることができます。
+intro: 'チームメンテナと Organization のオーナーは、親チームの下に Team を入れ子にしたり、ネストした入れ子チームの親を変更または削除したりすることができます。'
 redirect_from:
   - /articles/changing-a-team-s-parent/
   - /articles/moving-a-team-in-your-organization-s-hierarchy

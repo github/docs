@@ -1,6 +1,6 @@
 ---
 title: プルリクエスト内のファイルをフィルタリングする
-intro: 巨大なプルリクエスト内の変更を素早く確認できるように、変更されたファイルをフィルタリングできます。
+intro: '巨大なプルリクエスト内の変更を素早く確認できるように、変更されたファイルをフィルタリングできます。'
 redirect_from:
   - /articles/filtering-files-in-a-pull-request-by-file-type/
   - /articles/filtering-files-in-a-pull-request
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-プルリクエスト内のファイルは、`.html` や `.js` などの拡張子、拡張子なし、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}コード所有権、{% endif %}またはドットファイルかどうかなどでフィルタリングできます。
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 
 {% tip %}
 
-**ヒント:** ファイルのフィルタドロップダウンメニューから、プルリクエストの diff 内の削除されたファイル{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}か、既に表示したファイル{% endif %}を一時的に非表示にして、プルリクエストの diff 表示を簡素化できます。
+**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% endtip %}
 

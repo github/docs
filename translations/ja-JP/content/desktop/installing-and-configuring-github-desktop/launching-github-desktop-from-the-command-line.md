@@ -1,6 +1,6 @@
 ---
 title: コマンドラインからのGitHub Desktopの起動方法
-shortTitle: Launching from the command line
+shortTitle: コマンドラインから起動する
 intro: GitHub Desktopはコマンドラインで起動できます。
 redirect_from:
   - /desktop/getting-started-with-github-desktop/launching-github-desktop-from-the-command-line
@@ -10,7 +10,7 @@ versions:
 
 {% mac %}
 
-1. In the menu bar, select the **{% data variables.product.prodname_desktop %}** menu, then click **Install Command Line Tool**. ![Install Command Line Tool option in the {% data variables.product.prodname_desktop %} drop-down menu](/assets/images/help/desktop/mac-install-command-line-tool.png)
+1. メニューバーで、[**{% data variables.product.prodname_desktop %}**] メニューを選択し、[**Install Command Line Tool**] をクリックします。 ![[{% data variables.product.prodname_desktop %}]ドロップダウンメニューの [Install Command Line Tool] オプション](/assets/images/help/desktop/mac-install-command-line-tool.png)
 2. ターミナルを開きます。
 3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
@@ -18,7 +18,7 @@ versions:
   $ github <em>/path/to/repo</em>
   ```
 
-  You can also change to your repository path and then type `github .` to open that repository.
+  リポジトリパスに変更してから、`github .`と入力してそのリポジトリを開くこともできます。
 
   ```shell
   $ cd <em>/path/to/repo</em>
@@ -36,7 +36,7 @@ versions:
   C:\Users\octocat> github <em>path\to\repo</em>
   ```
 
- You can also change to your repository path and then type `github .` to open that repository.
+ リポジトリパスに変更してから、`github .`と入力してそのリポジトリを開くこともできます。
 
   ```shell
   C:\Users\octocat> cd <em>repo\myrepo</em>

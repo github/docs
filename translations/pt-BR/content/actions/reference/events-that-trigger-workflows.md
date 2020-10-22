@@ -15,19 +15,11 @@ versions:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-### Sobre eventos de fluxo de trabalho
+### Configurar eventos de fluxo de trabalho
 
-Você pode configurar a execução de seu fluxo de trabalho quando eventos webhook são criados a partir da atividade no {% data variables.product.product_name %}. Os fluxos de trabalho podem usar mais de um evento webhook para acionar a execução de um fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks). Para obter mais informações sobre a sintaxe `on`, consulte "[Sintaxe de fluxo de trabalho do {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
+É possível configurar fluxos de trabalho para serem executados por um ou mais eventos usando a a sintaxe do fluxo de trabalho `on`. Para obter mais informações, consulte "[Sintaxe de fluxo de trabalho para o {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions#on)".
 
-As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
-
-1. Um evento ocorre no seu repositório e o webhook do evento resultante tem um commit SHA e um Git ref associado.
-1. É feita uma pesquisa no diretório `.github/workflows` com relação aos arquivos do fluxo de trabalho no SHA ou Git ref associado. Os arquivos do fluxo de trabalho devem estar presentes nesse commit SHA ou no Git ref para serem considerados.
-
-  Por exemplo, se o evento ocorreu em um determinado branch do repositório, os arquivos do fluxo de trabalho devem estar presentes no repositório desse branch.
-1. Os arquivos do fluxo de trabalho para o commit SHA e Git ref são inspecionados, e aciona-se uma nova execução de fluxo de trabalho para quaisquer fluxos de trabalho com valores `on:` que correspondem ao evento de acionado.
-
-  O fluxo de trabalho é executado no código do seu repositório no mesmo commit SHA e Git ref que acionou o evento. Quando um fluxo de trabalho é executado, o {% data variables.product.product_name %} configura as variáveis de ambiente `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) no ambiente do executor. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
+{% data reusables.github-actions.actions-on-examples %}
 
 {% note %}
 
@@ -35,11 +27,130 @@ As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
 
 {% endnote %}
 
-{% data reusables.github-actions.actions-on-examples %}
+As etapas a seguir ocorrem para acionar a execução de um fluxo de trabalho:
+
+1. Um evento ocorre no seu repositório e o evento resultante tem um commit de SHA e ref de Git associados.
+2. É feita uma pesquisa no diretório `.github/workflows` com relação aos arquivos do fluxo de trabalho no SHA ou Git ref associado. Os arquivos do fluxo de trabalho devem estar presentes nesse commit SHA ou no Git ref para serem considerados.
+
+  Por exemplo, se o evento ocorreu em um determinado branch do repositório, os arquivos do fluxo de trabalho devem estar presentes no repositório desse branch.
+1. Os arquivos do fluxo de trabalho para o commit SHA e Git ref são inspecionados, e aciona-se uma nova execução de fluxo de trabalho para quaisquer fluxos de trabalho com valores `on:` que correspondem ao evento de acionado.
+
+  O fluxo de trabalho é executado no código do seu repositório no mesmo commit SHA e Git ref que acionou o evento. Quando um fluxo de trabalho é executado, o {% data variables.product.product_name %} configura as variáveis de ambiente `GITHUB_SHA` (commit SHA) e `GITHUB_REF` (Git ref) no ambiente do executor. Para obter mais informações, consulte "[Usando variáveis de ambiente](/actions/automating-your-workflow-with-github-actions/using-environment-variables)".
+
+### Eventos programados
+
+O evento `agenda` permite que você acione um fluxo de trabalho em um horário agendado.
+
+#### `schedule`
+
+| Carga de evento webhook | Tipos de atividade | `GITHUB_SHA`                   | `GITHUB_REF`                                                                                                                                                                                                                                                                                                                                                                             |
+| ----------------------- | ------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| n/a                     | n/a                | Último commit no branch padrão | Branch padrão | Quando a execução do fluxo de trabalho programado é definida. Um fluxo de trabalho programado usa a [sintaxe cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Para obter mais informações, consulte "[Acionar um fluxo de trabalho com eventos](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)". |
+
+{% data reusables.repositories.actions-scheduled-workflow-example %}
+
+A sintaxe cron tem cinco campos separados por um espaço, e cada campo representa uma unidade de tempo.
+
+```
+┌───────────── minuto (0 - 59)
+│ ┌───────────── hora (0 - 23)
+│ │ ┌───────────── dia do mês (1 - 31)
+│ │ │ ┌───────────── mês (1 - 12 ou JAN-DEZ)
+│ │ │ │ ┌───────────── dia da semana (0 - 6 ou DOM-SAB)
+│ │ │ │ │                                   
+│ │ │ │ │
+│ │ │ │ │
+* * * * *
+```
+
+Você pode usar estes operadores em qualquer um dos cinco campos:
+
+| Operador | Descrição                   | Exemplo                                                                                         |
+| -------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
+| *        | Qualquer valor              | `* * * * *` executa cada minuto de todos os dias.                                               |
+| ,        | Separador de lista de valor | `2,10 4,5 * * *` executa no minuto 2 e 10 da quarta e quinta hora de todos os dias.             |
+| -        | Intervalo de valores        | `0 4-6 * * *` executa no minuto 0 da quarta, quinta e sexta hora.                               |
+| /        | Valores de etapa            | `20/15 * * * *` executa a cada 15 minutos começando do miuto 20 até o 59 (minutos 20, 35 e 50). |
+
+{% note %}
+
+**Observação:** o {% data variables.product.prodname_actions %} não é compatível com a sintaxe não padrão `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` e `@reboot`.
+
+{% endnote %}
+
+Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
+
+### Eventos manuais
+
+Você pode acionar as execuções de fluxo de trabalho manualmente. Para acionar fluxos de trabalho específicos em um repositório, use o evento `workflow_dispatch`. Para acionar mais de um fluxo de trabalho em um repositório e criar eventos personalizados e tipos de eventos, use o evento `repository_dispatch`.
+
+#### `workflow_dispatch`
+
+| Carga de evento webhook                                          | Tipos de atividade | `GITHUB_SHA`                                  | `GITHUB_REF`             |
+| ---------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------------ |
+| [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a                | Último commit de merge no branch `GITHUB_REF` | Branch que recebeu envio |
+
+É possível configurar as propriedades de entrada definidas por personalização, os valores-padrão de entrada e as entradas obrigatórias para o evento diretamente no seu fluxo de trabalho. Quando o fluxo de trabalho é executado, você pode acessar os valores de entrada no `github.event.inputs` contexto. Para obter mais informações, consulte "[Contexto e sintaxe de expressão para {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions#github-context)".
+
+Você pode acionar manualmente uma execução de fluxo de trabalho usando a API do {% data variables.product.product_name %} e do {% data variables.product.product_name %}. Para obter mais informações, consulte "[Executando um fluxo de trabalho manualmente](/actions/managing-workflow-runs/manually-running-a-workflow)."
+
+ Ao ativar o evento em {% data variables.product.prodname_dotcom %}, você poderá fornecer a `ref` e quaisquer `entradas` diretamente no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Usar entradas e saídas com uma ação](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)".
+
+ Para acionar o evento do webhook `workflow_dispatch` usando a API REST, você deve enviar uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.prodname_dotcom %} e fornecer o `ref` e qualquer `entrada` necessária. Para obter mais informações, consulte o ponto de extremidade da API REST "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".
+
+##### Exemplo de configuração de fluxo de trabalho
+
+Este exemplo define o nome `` e `entradas de` domésticas e as imprime usando os contextos `github.event.inputs.name` e `github.event.inputs.home` . Se um `nome` não for fornecido, o valor padrão 'Mona, o Octocat' será impresso.
+
+{% raw %}
+```yaml
+nome: Fluxo de trabalho acionado manualmente
+em:
+  workflow_dispatch: entradas
+    :
+      nome:
+        descrição: 'Pessoa para cumprimentar'
+        necessário: verdadeiro
+        padrão: 'Mona, o Octocat '
+      casa:
+        descrição: 'localização'
+        necessário: falsos trabalhos de
+
+:
+  say_hello:
+    run-on: ubuntu-mais recente
+    passos:
+    - executar: |
+        eco "Olá ${{ github.event.inputs.name }}!"
+        eco "- em ${{ github.event.inputs.home }}!"
+```
+{% endraw %}
+
+#### `repository_dispatch`
+
+| Carga de evento webhook                                              | Tipos de atividade | `GITHUB_SHA`                                  | `GITHUB_REF`             |
+| -------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------------ |
+| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a                | Último commit de merge no branch `GITHUB_REF` | Branch que recebeu envio |
+
+{% data reusables.github-actions.branch-requirement %}
+
+Você pode usar a API do {% data variables.product.product_name %} para acionar um evento do webhook denominado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) quando quiser acionar um fluxo de trabalho para uma atividade que ocorre fora do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um evento de despacho de repositório](/v3/repos/#create-a-repository-dispatch-event)."
+
+Para acionar o evento webhook `repository_dispatch` personalizado, envie uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.product_name %} e forneça um nome de `event_type` para descrever o tipo de atividade. Para acionar a execução de um fluxo de trabalho, configure também o fluxo de trabalho para usar o evento `repository_dispatch`.
+
+##### Exemplo
+
+Por padrão, todos os `event_types` acionam a execução de um fluxo de trabalho. É possível limitar a execução do fluxo de trabalho quando um valor `event_type` específico for enviado na carga do webhook `repository_dispatch`. Você define os tipos de eventos enviados na carga `repository_dispatch` ao criar o evento de despacho de repositório.
+
+```yaml
+em:
+  repository_dispatch:
+    tipos: [opened, deleted]
+```
 
 ### Eventos webhook
 
-É possível configurar o fluxo de trabalho para ser executado quando eventos webhook forem criados no GitHub. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho.
+É possível configurar o fluxo de trabalho para ser executado quando eventos webhook forem criados no GitHub. Alguns eventos são acionados por mais de um tipo de atividade. Se mais de um tipo de atividade acionar o evento, especifique quais tipos de atividade ativarão a execução do fluxo de trabalho. Para obter mais informações, consulte "[Webhooks](/webhooks).
 
 #### `check_run`
 
@@ -121,7 +232,7 @@ on:
 
 #### `implantação`
 
-Executa o fluxo de trabalho sempre que alguém cria uma implantação, o que aciona o evento `deployment`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Implantações](/v3/repos/deployments/)".
+Executa o fluxo de trabalho sempre que alguém cria uma implantação, o que aciona o evento `deployment`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Implantações](/rest/reference/repos#deployments)".
 
 | Carga de evento webhook                               | Tipos de atividade | `GITHUB_SHA`            | `GITHUB_REF`                                     |
 | ----------------------------------------------------- | ------------------ | ----------------------- | ------------------------------------------------ |
@@ -136,7 +247,7 @@ on:
 
 #### `implantação_status`
 
-Executa o fluxo de trabalho sempre que um terceiro fornece um status de implantação, o que aciona o evento `deployment_status`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Criar um status de implantação](/v3/repos/deployments/#create-a-deployment-status)".
+Executa o fluxo de trabalho sempre que um terceiro fornece um status de implantação, o que aciona o evento `deployment_status`. Implantações criadas com um commit SHA podem não ter um Git ref. Para obter informações sobre a API REST, consulte "[Criar um status de implantação](/rest/reference/repos#create-a-deployment-status)".
 
 | Carga de evento webhook                                             | Tipos de atividade | `GITHUB_SHA`            | `GITHUB_REF`                                     |
 | ------------------------------------------------------------------- | ------------------ | ----------------------- | ------------------------------------------------ |
@@ -185,13 +296,13 @@ on:
 
 #### `issue_comment`
 
-Executa o fluxo de trabalho sempre que o evento `issue_comment` ocorre. {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre a API REST, consulte "[Comentários do problema](/v3/issues/comments/)".
+Executa o fluxo de trabalho sempre que o evento `issue_comment` ocorre. {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre a API REST, consulte "[Comentários do problema](/developers/webhooks-and-events/webhook-events-and-payloads#issue_comment)".
 
 {% data reusables.github-actions.branch-requirement %}
 
-| Carga de evento webhook                                    | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
-| ---------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
-| [`issue_comment`](/v3/activity/event_types/#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
+| Carga de evento webhook                                   | Tipos de atividade                                                | `GITHUB_SHA`                   | `GITHUB_REF`  |
+| --------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------ | ------------- |
+| [`issue_comment`](/rest/reference/activity#issue_comment) | - `created`<br/>- `edited`<br/>- `deleted`<br/> | Último commit no branch padrão | Branch padrão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -265,7 +376,7 @@ on:
 
 #### `page_build`
 
-Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. Para obter informações sobre a API REST, consulte "[Páginas](/v3/repos/pages/)".
+Executa o fluxo de trabalho sempre que alguém faz push em um branch habilitado para o {% data variables.product.product_name %} Pages, o que aciona o evento `page_build`. Para obter informações sobre a API REST, consulte "[Páginas](/rest/reference/repos#pages)".
 
 {% data reusables.github-actions.branch-requirement %}
 
@@ -489,9 +600,9 @@ em:
 
 Executa o fluxo de trabalho sempre que o evento `release` ocorre. {% data reusables.developer-site.multiple_activity_types %} Para obter informações sobre a API REST, consulte "[Versões](/v3/repos/releases/)".
 
-| Carga de evento webhook                       | Tipos de atividade                                                                                                                                                                                                                          | `GITHUB_SHA`                    | `GITHUB_REF`  |
-| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------- |
-| [`versão`](/webhooks/event-payloads/#release) | - `publicado`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} <br/>- `não publicado` <br/>- `criado` <br/>- `editado` <br/>- `excluído` <br/>- `pré-lançado`<br/> - `lançado`{% endif %} | Último commit na versão com tag | Tag da versão |
+| Carga de evento webhook                       | Tipos de atividade                                                                                                                                                | `GITHUB_SHA`                    | `GITHUB_REF`  |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------- |
+| [`versão`](/webhooks/event-payloads/#release) | - `publicado` <br/>- `não publicado` <br/>- `criado` <br/>- `editado` <br/>- `excluído` <br/>- `pré-lançado`<br/> - `lançado` | Último commit na versão com tag | Tag da versão |
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
@@ -556,85 +667,6 @@ on:
     types: 
       - completed
       - requested
-```
-
-### Eventos programados
-
-O evento `agenda` permite que você acione um fluxo de trabalho em um horário agendado.
-
-#### `schedule`
-
-| Carga de evento webhook | Tipos de atividade | `GITHUB_SHA`                   | `GITHUB_REF`                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------- | ------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| n/a                     | n/a                | Último commit no branch padrão | Branch padrão | Quando a execução do fluxo de trabalho programado é definida. Um fluxo de trabalho programado usa a [sintaxe cron POSIX](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). Para obter mais informações, consulte "[Acionar um fluxo de trabalho com eventos](/articles/configuring-a-workflow/#triggering-a-workflow-with-events)". |
-
-{% data reusables.repositories.actions-scheduled-workflow-example %}
-
-A sintaxe cron tem cinco campos separados por um espaço, e cada campo representa uma unidade de tempo.
-
-```
-┌───────────── minuto (0 - 59)
-│ ┌───────────── hora (0 - 23)
-│ │ ┌───────────── dia do mês (1 - 31)
-│ │ │ ┌───────────── mês (1 - 12 ou JAN-DEZ)
-│ │ │ │ ┌───────────── dia da semana (0 - 6 ou DOM-SAB)
-│ │ │ │ │                                   
-│ │ │ │ │
-│ │ │ │ │
-* * * * *
-```
-
-Você pode usar estes operadores em qualquer um dos cinco campos:
-
-| Operador | Descrição                   | Exemplo                                                                                         |
-| -------- | --------------------------- | ----------------------------------------------------------------------------------------------- |
-| *        | Qualquer valor              | `* * * * *` executa cada minuto de todos os dias.                                               |
-| ,        | Separador de lista de valor | `2,10 4,5 * * *` executa no minuto 2 e 10 da quarta e quinta hora de todos os dias.             |
-| -        | Intervalo de valores        | `0 4-6 * * *` executa no minuto 0 da quarta, quinta e sexta hora.                               |
-| /        | Valores de etapa            | `20/15 * * * *` executa a cada 15 minutos começando do miuto 20 até o 59 (minutos 20, 35 e 50). |
-
-{% note %}
-
-**Observação:** o {% data variables.product.prodname_actions %} não é compatível com a sintaxe não padrão `@yearly`, `@monthly`, `@weekly`, `@daily`, `@hourly` e `@reboot`.
-
-{% endnote %}
-
-Você pode usar [crontab guru](https://crontab.guru/) para ajudar a gerar a sintaxe cron e confirmar a hora em que ela será executada. Para ajudar você a começar, há também uma lista de [exemplos de crontab guru](https://crontab.guru/examples.html).
-
-### Eventos manuais
-
-Você pode acionar as execuções de fluxo de trabalho manualmente. Para acionar fluxos de trabalho específicos em um repositório, use o evento `workflow_dispatch`. Para acionar mais de um fluxo de trabalho em um repositório e criar eventos personalizados e tipos de eventos, use o evento `repository_dispatch`.
-
-#### `workflow_dispatch`
-
-| Carga de evento webhook                                          | Tipos de atividade | `GITHUB_SHA`                                  | `GITHUB_REF`             |
-| ---------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------------ |
-| [workflow_dispatch](/webhooks/event-payloads/#workflow_dispatch) | n/a                | Último commit de merge no branch `GITHUB_REF` | Branch que recebeu envio |
-
-Você pode acionar manualmente uma execução de fluxo de trabalho usando a API do {% data variables.product.product_name %} e do {% data variables.product.product_name %}. Para acionar o evento do webhook `workflow_dispatch` usando a API REST, você deve enviar uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.prodname_dotcom %} e fornecer o `ref` e qualquer `entrada` necessária. Para obter mais informações, consulte o ponto de extremidade da API REST "[Criar um evento de envio de fluxo de trabalho](/rest/reference/actions/#create-a-workflow-dispatch-event)".
-
- Ao ativar o evento em {% data variables.product.prodname_dotcom %}, você poderá fornecer a `ref` e quaisquer `entradas` diretamente no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Configurar fluxo de trabalho](/actions/configuring-and-managing-workflows/configuring-a-workflow#manually-running-a-workflow)."
-
-#### `repository_dispatch`
-
-| Carga de evento webhook                                              | Tipos de atividade | `GITHUB_SHA`                                  | `GITHUB_REF`             |
-| -------------------------------------------------------------------- | ------------------ | --------------------------------------------- | ------------------------ |
-| [repository_dispatch](/webhooks/event-payloads/#repository_dispatch) | n/a                | Último commit de merge no branch `GITHUB_REF` | Branch que recebeu envio |
-
-{% data reusables.github-actions.branch-requirement %}
-
-Você pode usar a API do {% data variables.product.product_name %} para acionar um evento do webhook denominado [`repository_dispatch`](/webhooks/event-payloads/#repository_dispatch) quando quiser acionar um fluxo de trabalho para uma atividade que ocorre fora do {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Criar um evento de despacho de repositório](/v3/repos/#create-a-repository-dispatch-event)."
-
-Para acionar o evento webhook `repository_dispatch` personalizado, envie uma solicitação `POST` para um ponto de extremidade da API do {% data variables.product.product_name %} e forneça um nome de `event_type` para descrever o tipo de atividade. Para acionar a execução de um fluxo de trabalho, configure também o fluxo de trabalho para usar o evento `repository_dispatch`.
-
-##### Exemplo
-
-Por padrão, todos os `event_types` acionam a execução de um fluxo de trabalho. É possível limitar a execução do fluxo de trabalho quando um valor `event_type` específico for enviado na carga do webhook `repository_dispatch`. Você define os tipos de eventos enviados na carga `repository_dispatch` ao criar o evento de despacho de repositório.
-
-```yaml
-em:
-  repository_dispatch:
-    tipos: [opened, deleted]
 ```
 
 ### Acionar novos fluxos de trabalho usando um token de acesso pessoal

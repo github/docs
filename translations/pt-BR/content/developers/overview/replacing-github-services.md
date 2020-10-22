@@ -19,7 +19,6 @@ Como uma alternativa ao serviço de e-mail, agora você pode começar a usar not
 
 {% endnote %}
 
-
 ### Linha do tempo da depreciação
 
 - **1 de outubro de 2018**: o GitHub foi suspenso, permitindo que os usuários instalassem serviços. Removemos o GitHub Services da interface de usuário do GitHub.com.

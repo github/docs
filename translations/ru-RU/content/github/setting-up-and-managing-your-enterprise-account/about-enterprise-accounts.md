@@ -25,9 +25,7 @@ For more information about the differences between {% data variables.product.pro
 
 For more information about member access and management, see "[Managing users in your enterprise account](/articles/managing-users-in-your-enterprise-account)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
-{% endif %}
 
 ### Managing organizations linked to your enterprise account
 

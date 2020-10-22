@@ -1,6 +1,6 @@
 ---
 title: Criar uma ação de contêiner Docker
-intro: Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.
+intro: 'Este guia apresenta as etapas mínimas exigidas para criar uma ação de contêiner Docker.'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/creating-a-docker-container-action
@@ -92,7 +92,7 @@ O {% data variables.product.prodname_dotcom %} criará uma imagem a partir do se
 
 Você pode escolher qualquer imagem Docker de base e, portanto, qualquer linguagem para sua ação. O exemplo de script de shell a seguir usa a variável de entrada `who-to-greet` para imprimir "Hello [who-to-greet]" no arquivo de log.
 
-Na sequência, o script obtém a hora atual e a configura como uma variável de saída que pode ser usada pelas ações executadas posteriormente em um trabalho. Para que {% data variables.product.prodname_dotcom %} reconheça as variáveis de saída, você deve usar um comando do fluxo de trabalho em uma sintaxe específica: `echo "::set-output name=<output name>::<value>"`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)".
+Na sequência, o script obtém a hora atual e a configura como uma variável de saída que pode ser usada pelas ações executadas posteriormente em um trabalho. Para que {% data variables.product.prodname_dotcom %} reconheça as variáveis de saída, você deverá usar um comando do fluxo de trabalho em uma sintaxe específica: `echo "::set-output name=<output name>::<value>"`. Para obter mais informações, consulte "[Comandos do fluxo de trabalho para {% data variables.product.prodname_actions %}](/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)".
 
 1. Crie um novo arquivo `entrypoint.sh` no diretório `hello-world-docker-action`.
 

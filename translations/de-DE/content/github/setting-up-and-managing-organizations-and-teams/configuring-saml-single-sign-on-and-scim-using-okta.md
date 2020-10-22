@@ -15,8 +15,8 @@ SAML SSO steuert und sichert den Zugriff auf Organisationsressourcen wie Reposit
 
 Nachdem Du SCIM aktiviert hast, stehen Dir folgende Bereitstellungsfunktionen für alle Benutzer zur Verfügung, denen Du Deine {% data variables.product.prodname_ghe_cloud %}-Anwendung in Okta zuweist.
 
-| Funktion                     | Beschreibung                                                                                                                                                                                           |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Funktion                     | Beschreibung                                                                                                                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Push neuer Benutzer          | Wenn Du in Okta einen neuen Benutzer erstellst, wird der Benutzer eine E-Mail-Einladung zu Deiner {% data variables.product.prodname_dotcom %}-Organisation erhalten.                             |
 | Push Benutzer-Deaktivierung  | Wenn Du einen Benutzer in Okta deaktivierst, wird ihn Okta auch von Deiner {% data variables.product.prodname_dotcom %}-Organisation entfernen.                                                   |
 | Push Profil-Aktualisierungen | Wenn Du ein Benutzerprofil in Okta aktualisierst, wird Okta die Metadaten für die Mitgliedschaft des Benutzers in Deiner {% data variables.product.prodname_dotcom %}-Organisation aktualisieren. |

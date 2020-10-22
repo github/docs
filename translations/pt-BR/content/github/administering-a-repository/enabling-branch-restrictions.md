@@ -1,6 +1,6 @@
 ---
 title: Habilitar restrições de branch
-intro: 'Você pode impor restrições de branch para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, ou apps{% endif %} possam fazer push em um branch protegido em repositórios de propriedade de sua organização.'
+intro: 'Você pode aplicar restrições de branch para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %} ou aplicativos{% endif %} possam fazer push em um branch protegido em repositórios pertencentes à sua organização.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions
@@ -19,7 +19,7 @@ Qualquer pessoa com permissões de administrador em um repositório organization
 {% data reusables.repositories.add-branch-protection-rules %}
 {% data reusables.repositories.include-administrators %}
 6. Em "Proteger os branches correspondentes", selecione **Restringir quem pode fazer push em branches correspondentes**. ![Caixa de seleção Branch restriction (Restrição de branch)](/assets/images/help/repository/restrict-branch.png)
-8. Pesquise e selecione as pessoas{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} ou apps{% endif %} que terão permissão para fazer push no branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
+8. Procurar e selecionar pessoas, equipes ou aplicativos que tenham permissão para fazer push para o branch protegido. ![Pesquisa de restrição de branch](/assets/images/help/repository/restrict-branch-search.png)
 9. Clique em **Criar**.
 
 ### Leia mais

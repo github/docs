@@ -1,6 +1,6 @@
 ---
 title: Organization からブロックされているユーザの表示
-intro: あなたまたは他のコードオーナーがあなたの Organization からブロックしているすべてのユーザの一覧を表示することができます。 ユーザが一定期間ブロックされた場合は、ユーザがブロックされた時間を確認できます。
+intro: 'あなたまたは他のコードオーナーがあなたの Organization からブロックしているすべてのユーザの一覧を表示することができます。 ユーザが一定期間ブロックされた場合は、ユーザがブロックされた時間を確認できます。'
 redirect_from:
   - /articles/viewing-users-who-are-blocked-from-your-organization
 versions:

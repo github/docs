@@ -1,6 +1,6 @@
 ---
 title: Nicht autorisierten Zugriff verhindern
-intro: 'Du wirst allenfalls durch die Medien auf einen Sicherheitsvorfall aufmerksam gemacht, beispielsweise auf die Entdeckung des [Heartbleed bug](http://heartbleed.com/), oder Dein Computer könnte gestohlen werden, während Du bei {% data variables.product.product_location %} angemeldet bist. In solchen Fällen kannst Du durch das Ändern Deines Passworts den unerwünschten zukünftigen Zugriff auf Dein Konto und Deine Projekte verhindern.'
+intro: 'Sie könnten durch die Medien auf einen Sicherheitsvorfall aufmerksam gemacht werden, z. B. auf die Entdeckung des [Heartbleed-Bugs](http://heartbleed.com/), oder Ihr Computer könnte gestohlen werden, während Sie bei {% data variables.product.product_location %} angemeldet sind. In solchen Fällen kannst Du durch das Ändern Deines Passworts den unerwünschten zukünftigen Zugriff auf Dein Konto und Deine Projekte verhindern.'
 redirect_from:
   - /articles/preventing-unauthorized-access
 versions:

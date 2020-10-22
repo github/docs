@@ -1,1 +1,1 @@
-1. Klicke unter „Workflow runs" (Workflow-Ausführungen) auf den Namens des Ausführung, die Du sehen willst. ![Name der Workflow-Ausführung](/assets/images/help/repository/run-name.png)
+1. From the list of workflow runs, click the name of the run you want to see. ![Name der Workflow-Ausführung](/assets/images/help/repository/run-name.png)

@@ -53,6 +53,6 @@ ssh -p 122 admin@[hostname] -- 'ghe-export-graphs' && scp -P 122 admin@[hostname
 
 #### 中央 collectd 服务器未收到数据
 
-{% data variables.product.prodname_enterprise %} ships with `collectd` version 5.x. `collectd` 5.x is not backwards compatible with the 4.x release series. 中央 `collectd` 服务器的版本至少需要是 5.x 才能接受从 {% data variables.product.product_location_enterprise %} 发送的数据。
+{% data variables.product.prodname_enterprise %} 随附 `collectd` 版本 5.x。 `collectd` 5.x 不能后向兼容 4.x 发行版系列。 中央 `collectd` 服务器的版本至少需要是 5.x 才能接受从 {% data variables.product.product_location_enterprise %} 发送的数据。
 
 要获取其他问题的帮助，请联系 {% data variables.contact.contact_ent_support %}。

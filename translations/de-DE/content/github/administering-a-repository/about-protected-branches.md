@@ -24,7 +24,7 @@ Branch-Schutzregeln mit einem Sonderzeichen, wie `*`, `?` oder `]` werden in der
 
 ### Einstellungen für geschützte Branches
 
-Wenn Du eine Branch-Schutzregel in einem Repository erstellst, können Mitarbeiter weder einen Push auf den geschützten Branch erzwingen noch den Branch{% if currentVersion == "free-pro-team@latest" %} standardmäßig{% endif %} löschen. Du kannst andere Branch-Schutzeinstellungen aktivieren. Weitere Informationen findest Du unter „[Definieren der Zusammenführbarkeit von Pull Requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)."
+When you create a branch protection rule in a repository, collaborators cannot force push to the protected branch or delete the branch{% if currentVersion == "free-pro-team@latest" %} by default{% endif %}. Du kannst andere Branch-Schutzeinstellungen aktivieren. Weitere Informationen findest Du unter „[Definieren der Zusammenführbarkeit von Pull Requests](/github/administering-a-repository/defining-the-mergeability-of-pull-requests)."
 
 ### Weiterführende Informationen
 

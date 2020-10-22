@@ -11,7 +11,9 @@ versions:
 
 ### コミットの署名検証のステータスの確認
 
-1. {% data variables.product.product_name %}上で、プルリクエストに移動します。
+1. On
+
+{% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 3. コミットの短縮版コミットハッシュの隣に、コミットの署名が検証されているかどうかを示すボックスがあります。 ![署名されたコミット](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. コミットの署名について詳しい情報を表示するには、[**Verified**] または [**Unverified**] をクリックします。 ![検証された署名済みコミット](/assets/images/help/commits/gpg-signed-commit_verified_details.png)

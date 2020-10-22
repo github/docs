@@ -1,6 +1,6 @@
 ---
 title: 关于自述文件
-intro: 您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。
+intro: '您可以将自述文件添加到仓库，告知其他人您的项目为什么有用，他们可以对您的项目做什么，以及他们可以如何使用。'
 redirect_from:
   - /articles/section-links-on-readmes-and-blob-pages/
   - /articles/relative-links-in-readmes/
@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-自述文件连同{% if currentVersion == "free-pro-team@latest" %}a [仓库许可证](/articles/licensing-a-repository)、[参与指南](/articles/setting-guidelines-for-repository-contributors)和[行为准则](/articles/adding-a-code-of-conduct-to-your-project){% else %}、[仓库许可证](/articles/licensing-a-repository)和[参与指南](/articles/setting-guidelines-for-repository-contributors){% endif %}一起，帮助您,沟通项目要求以及管理对项目的参与。
+A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么
@@ -27,7 +27,7 @@ versions:
 
 {% data reusables.profile.profile-readme %}
 
-![README file on your username/username repository](/assets/images/help/repository/username-repo-with-readme.png)
+![用户名/用户名仓库上的自述文件](/assets/images/help/repository/username-repo-with-readme.png)
 
 {% endif %}
 

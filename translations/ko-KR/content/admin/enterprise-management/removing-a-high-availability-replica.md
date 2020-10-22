@@ -4,7 +4,6 @@ intro: 'You can stop replication to a {% data variables.product.prodname_ghe_ser
 redirect_from:
   - /enterprise/admin/installation/removing-a-high-availability-replica
   - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
-  - /enterprise/admin/enterprise-management/removing-a-high-availability-replica
 versions:
   enterprise-server: '*'
 ---

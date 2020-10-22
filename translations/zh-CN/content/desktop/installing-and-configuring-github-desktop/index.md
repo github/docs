@@ -1,7 +1,7 @@
 ---
-title: Installing and configuring GitHub Desktop
+title: 安装和配置 GitHub Desktop
 shortTitle: 安装和配置
-intro: 'Get {% data variables.product.prodname_desktop %} set up to manage your project work. Authenticate to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.product.prodname_enterprise %}, keep the app up-to-date, and review your preferred settings.'
+intro: '获取 {% data variables.product.prodname_desktop %} 设置以管理项目工作。 向 {% data variables.product.prodname_dotcom_the_website %} 或 {% data variables.product.prodname_enterprise %} 验证，保持应用程序的更新，并检查您的首选设置。'
 redirect_from:
   - /desktop/getting-started-with-github-desktop
 versions:
