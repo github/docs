@@ -38,7 +38,7 @@ X-Accepted-OAuth-Scopes: user
 
 Name | Description
 -----|-----------|
-**`(no scope)`** | Grants read-only access to public information (includes public user profile info, public repository info, and gists){% if currentVersion != "free-pro-team@latest" %}
+**`(no scope)`** | Grants read-only access to public information (includes public user profile info, public repository info, and gists){% if enterpriseServerVersions contains currentVersion %}
 **`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/v3/enterprise-admin).{% endif %}
 **`repo`** | Grants full access to private and public repositories. That includes read/write access to code, commit statuses, repository and organization projects, invitations, collaborators, adding team memberships, deployment statuses, and repository webhooks for public and private repositories and organizations. Also grants ability to manage user projects.
 &emsp;`repo:status`| Grants read/write access to public and private repository commit statuses. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.

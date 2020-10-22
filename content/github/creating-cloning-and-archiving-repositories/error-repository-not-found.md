@@ -43,7 +43,7 @@ If the repository belongs to an organization and you're using an SSH key generat
 
 For more information, see [Adding a new SSH key to your GitHub account](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Check if your instance is in private mode
 
