@@ -27,11 +27,13 @@ module.exports = function (req, res, next) {
       defaultResponse = defaultResponse.concat(`\nDisallow: /${language.code}\nDisallow: /${language.code}/*\n`)
     })
 
-  // Disallow crawling of WIP products
+  // Disallow crawling of WIP or early access products
   Object.values(products)
-    .filter(product => product.wip)
+    .filter(product => product.wip || product.hidden)
     .forEach(product => {
-      defaultResponse = defaultResponse.concat(`\nDisallow: /*${product.href}\nDisallow: /*/enterprise/*/user${product.href}`)
+      product.versions.forEach(version => {
+        defaultResponse = defaultResponse.concat(`\nDisallow: /*/${version}/${product.id}\nDisallow: /*/${version}/${product.id}/*\n`)
+      })
     })
 
   return res.send(defaultResponse)
