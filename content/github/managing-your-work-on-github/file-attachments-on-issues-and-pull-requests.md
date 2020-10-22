@@ -20,7 +20,7 @@ To attach a file to an issue or pull request conversation, drag and drop it into
 
 {% tip %}
 
-**Tip:** If you're using Chrome, you can also copy-and-paste images directly into the box.
+**Tip:** If you're using Chrome or MicrosoftEdge, you can also copy-and-paste images directly into the box.
 
 {% endtip %}
 
