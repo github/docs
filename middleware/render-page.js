@@ -15,9 +15,11 @@ module.exports = async function renderPage (req, res, next) {
   const originalUrl = req.originalUrl
 
   // Serve from the cache if possible
-  if (req.method === 'GET' && pageCache[originalUrl]) {
-    console.log(`Serving from cached version of ${originalUrl}`)
-    return res.send(pageCache[originalUrl])
+  if (!process.env.CI) {
+    if (req.method === 'GET' && pageCache[originalUrl]) {
+      console.log(`Serving from cached version of ${originalUrl}`)
+      return res.send(pageCache[originalUrl])
+    }
   }
 
   // render a 404 page
@@ -86,8 +88,10 @@ module.exports = async function renderPage (req, res, next) {
   const output = await liquid.parseAndRender(layout, context)
 
   // Save output to cache for the next time around
-  if (req.method === 'GET') {
-    pageCache[originalUrl] = output
+  if (!process.env.CI) {
+    if (req.method === 'GET') {
+      pageCache[originalUrl] = output
+    }
   }
 
   // send response
