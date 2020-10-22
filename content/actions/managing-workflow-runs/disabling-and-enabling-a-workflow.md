@@ -1,6 +1,6 @@
 ---
 title: Disabling and enabling a workflow
-intro: You can disable and re-enable a workflow using {% data variables.product.prodname_dotcom %} or the REST API.
+intro: 'You can disable and re-enable a workflow using {% data variables.product.prodname_dotcom %} or the REST API.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
