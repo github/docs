@@ -21,6 +21,6 @@ In the *shared repository model*, collaborators are granted push access to a sin
 
 ### Further reading
 
-- "[About pull requests](/articles/about-pull-requests)"
+- "[About pull requestrequestss](/articles/about-pull-requests)"
 - "[Creating a pull request from a fork](/articles/creating-a-pull-request-from-a-fork)"
 - "[Allowing changes to a pull request branch created from a fork](/articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork)"
