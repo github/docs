@@ -348,7 +348,7 @@ The issue or pull request was locked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -668,7 +668,7 @@ The issue was unlocked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
