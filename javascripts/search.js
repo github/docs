@@ -1,6 +1,5 @@
-import { sendEvent } from './events'
 const instantsearch = require('instantsearch.js').default
-const { searchBox, hits, configure, analytics } = require('instantsearch.js/es/widgets')
+const { searchBox, hits, configure } = require('instantsearch.js/es/widgets')
 const algoliasearch = require('algoliasearch')
 const searchWithYourKeyboard = require('search-with-your-keyboard')
 const querystring = require('querystring')
@@ -163,15 +162,6 @@ export default function () {
         autofocus: (hasStandaloneSearch()) && !window.location.hash.length,
         showReset: false,
         showSubmit: false
-      }),
-      analytics({
-        pushFunction (params, state, results) {
-          sendEvent({
-            type: 'search',
-            search_query: results.query
-            // search_context
-          })
-        }
       })
     ]
   )
