@@ -170,6 +170,26 @@ export default async function initializeEvents () {
     page_render_duration: render
   })
 
+  // Navigate event
+  Array.from(
+    document.querySelectorAll('.sidebar-products details')
+  ).forEach(details => details.addEventListener(
+    'toggle',
+    evt => sendEvent({
+      type: 'navigate',
+      navigate_label: `details ${evt.target.open ? 'open' : 'close'}: ${evt.target.querySelector('summary').innerText}`
+    })
+  ))
+
+  document.querySelector('.sidebar-products').addEventListener('click', evt => {
+    const link = evt.target.closest('a')
+    if (!link) return
+    sendEvent({
+      type: 'navigate',
+      navigate_label: `link: ${link.href}`
+    })
+  })
+
   // Exit event
   pageEventId = pageEvent?.context?.event_id
   window.addEventListener('scroll', trackScroll)
