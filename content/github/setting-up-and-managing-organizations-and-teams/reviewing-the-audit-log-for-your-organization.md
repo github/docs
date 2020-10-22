@@ -47,7 +47,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `repository_content_analysis` | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).
 | `repository_dependency_graph` | Contains all activities related to [enabling or disabling the dependency graph for a private repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository).{% endif %}
 | `repository_vulnerability_alert` | Contains all activities related to [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors` | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+| `sponsors` | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion %}
 | `team` | Contains all activities related to teams in your organization.{% endif %}
 | `team_discussions` | Contains activities related to managing team discussions for an organization.
 
@@ -85,7 +85,7 @@ This list describes the available categories and associated events:
 - [The `repository_content_analysis` category](#the-repository_content_analysis-category)
 - [The `repository_dependency_graph` category](#the-repository_dependency_graph-category){% endif %}
 - [The `repository_vulnerability_alert` category](#the-repository_vulnerability_alert-category){% if currentVersion == "free-pro-team@latest" %}
-- [The `sponsors` category](#the-sponsors-category){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+- [The `sponsors` category](#the-sponsors-category){% endif %}{% if enterpriseServerVersions contains currentVersion %}
 - [The `team` category](#the-team-category){% endif %}
 - [The `team_discussions` category](#the-team_discussions-category)
 
@@ -300,7 +300,7 @@ For more information, see "[Restricting publication of {% data variables.product
 | `access` | Triggered when a repository owned by an organization is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
 | `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if currentVersion != "free-pro-team@latest" %}
+| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
@@ -351,7 +351,7 @@ For more information, see "[Restricting publication of {% data variables.product
 | repo_funding_links_file_action | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### The `team` category
 
 | Action | Description
