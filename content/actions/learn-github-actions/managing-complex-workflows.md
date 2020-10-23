@@ -29,7 +29,7 @@ jobs:
         env:
           super_secret: ${{ secrets.SUPERSECRET }}
         run: |
-          example-command "$SUPER_SECRET"
+          example-command "$super_secret"
 ```
 {% endraw %}
 
