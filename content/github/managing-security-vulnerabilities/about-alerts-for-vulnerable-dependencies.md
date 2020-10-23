@@ -74,34 +74,7 @@ We send {% data variables.product.prodname_dependabot_short %} alerts to people 
 We send security alerts to people with admin permissions in the affected repositories by default. {% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository.
 {% endif %}
 
-### Configuring notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" %}
-By default, you will receive {% data variables.product.prodname_dependabot_alerts %} by email, grouped by the specific vulnerability. You can also choose to receive {% data variables.product.prodname_dependabot_alerts %} in a weekly email summarizing alerts for up to 10 of your repositories, in your web notifications, or in the {% data variables.product.product_name %} user interface. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-dependabot-alerts-notification-options)."
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive {% data variables.product.prodname_dependabot_alerts %} by email. You can also choose to receive {% data variables.product.prodname_dependabot_alerts %} in a weekly email summarizing alerts for up to 10 of your repositories, in your web notifications, or in the {% data variables.product.product_name %} user interface. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#github-dependabot-alerts-notification-options)."
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion == "enterprise-server@2.21" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive security alerts by email. You can also choose to receive security alerts in a weekly email summarizing alerts for up to 10 of your repositories, in your web notifications, or in the {% data variables.product.product_name %} user interface. For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#security-alert-notification-options)."
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
-By default, if your site administrator has configured email for notifications on your instance, you will receive security alerts by email. You can also choose to receive security alerts in a weekly email summarizing alerts for up to 10 of your repositories, in your web notifications, or in the {% data variables.product.product_name %} user interface. For more information, see "[Choosing the delivery method for your notifications
-](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."
-{% endif %}
-
-{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.20" % %}
-
-{% if currentVersion ver_gt "enterprise-server@2.21" %}Site administrators can also enable {% data variables.product.prodname_dependabot_alerts %} without notifications. For more information, see "[Enabling {% data variables.product.prodname_dependabot_short %} alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
-
-{% if currentVersion ver_lt "enterprise-server@2.22" %}Site administrators can also enable security alerts without notifications. For more information, see "[Enabling security alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server)."{% endif %}
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" % %}{% data reusables.repositories.security-alerts-x-github-severity %} For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About email notifications](/github/receiving-notifications-about-activity-on-github/about-email-notifications){% endif %}."{% endif %}
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %} For more information, see "[Choosing the delivery method for your notifications](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications)."{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Further reading

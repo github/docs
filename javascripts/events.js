@@ -27,7 +27,7 @@ export function getUserEventsId () {
   return cookieValue
 }
 
-export async function sendEvent ({
+export function sendEvent ({
   type,
   version = '1.0.0',
   page_render_duration,
@@ -141,7 +141,7 @@ function trackScroll () {
   if (scrollPosition > maxScrollY) maxScrollY = scrollPosition
 }
 
-async function sendExit () {
+function sendExit () {
   if (sentExit) return
   if (document.visibilityState !== 'hidden') return
   if (!pageEventId) return
@@ -162,12 +162,42 @@ async function sendExit () {
   })
 }
 
-export default async function initializeEvents () {
+export default function initializeEvents () {
   // Page event
   const { render } = getPerformance()
-  const pageEvent = await sendEvent({
+  const pageEvent = sendEvent({
     type: 'page',
     page_render_duration: render
+  })
+
+  // Link event
+  document.documentElement.addEventListener('click', evt => {
+    const link = evt.target.closest('a[href^="http"]')
+    if (!link) return
+    sendEvent({
+      type: 'link',
+      link_url: link.href
+    })
+  })
+
+  // Navigate event
+  Array.from(
+    document.querySelectorAll('.sidebar-products details')
+  ).forEach(details => details.addEventListener(
+    'toggle',
+    evt => sendEvent({
+      type: 'navigate',
+      navigate_label: `details ${evt.target.open ? 'open' : 'close'}: ${evt.target.querySelector('summary').innerText}`
+    })
+  ))
+
+  document.querySelector('.sidebar-products').addEventListener('click', evt => {
+    const link = evt.target.closest('a')
+    if (!link) return
+    sendEvent({
+      type: 'navigate',
+      navigate_label: `link: ${link.href}`
+    })
   })
 
   // Exit event
