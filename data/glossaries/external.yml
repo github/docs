@@ -140,7 +140,7 @@
   description: Also known as SHA. A 40-character checksum hash that identifies the commit.
 - term: commit message
   description: >-
-    Short, descriptive text that accompanys a commit and communicates the change
+    Short, descriptive text that accompanies a commit and communicates the change
     the commit is introducing.
 - term: compare branch
   description: >-
