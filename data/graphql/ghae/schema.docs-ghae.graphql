@@ -10339,7 +10339,7 @@ enum GitSignatureState {
   NO_USER
 
   """
-  Valid siganture, though certificate revocation check failed
+  Valid signature, though certificate revocation check failed
   """
   OCSP_ERROR
 

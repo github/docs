@@ -54646,7 +54646,7 @@
         },
         {
           "name": "OCSP_ERROR",
-          "description": "<p>Valid siganture, though certificate revocation check failed.</p>"
+          "description": "<p>Valid signature, though certificate revocation check failed.</p>"
         },
         {
           "name": "OCSP_PENDING",
