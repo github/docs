@@ -34915,7 +34915,7 @@ input UpdateTeamReviewAssignmentInput @preview(toggledBy: "stone-crop-preview") 
   excludedTeamMemberIds: [ID!] @possibleTypes(concreteTypes: ["User"])
 
   """
-  The Node ID of the team to update review assginments of
+  The Node ID of the team to update review assignments of
   """
   id: ID! @possibleTypes(concreteTypes: ["Team"])
 
