@@ -18700,7 +18700,7 @@ type PinnedIssueEdge @preview(toggledBy: "elektra-preview") {
 }
 
 """
-An ISO-8601 encoded UTC date string with millisecond precison.
+An ISO-8601 encoded UTC date string with millisecond precision.
 """
 scalar PreciseDateTime
 

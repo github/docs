@@ -69586,7 +69586,7 @@
       "kind": "scalars",
       "id": "precisedatetime",
       "href": "/graphql/reference/scalars#precisedatetime",
-      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precison.</p>"
+      "description": "<p>An ISO-8601 encoded UTC date string with millisecond precision.</p>"
     },
     {
       "name": "String",
