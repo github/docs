@@ -158,7 +158,11 @@ The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` 
             Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
             $errors   = $issues.Where({$_.Severity -eq 'Error'})
             $warnings = $issues.Where({$_.Severity -eq 'Warning'})
-            Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+            if ($errors) {
+                Write-Error "There were $($errors.Count) errors and $($warnings.Count) warnings total." -ErrorAction Stop
+            } else {
+                Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+            }
 ```
 {% endraw %}
 
