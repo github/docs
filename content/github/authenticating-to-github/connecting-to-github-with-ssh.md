@@ -13,6 +13,6 @@ redirect_from:
 mapTopic: true
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  TaroEnterprisesEnterprise-server: '*'
 ---
 
