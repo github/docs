@@ -138,24 +138,27 @@ You can use the same commands that you use locally to build and test your code.
 
 #### Using PSScriptAnalyzer to lint code
 
-The following example installs `PSScriptAnalyzer` and uses it to lint all ps1 files. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
+The following example installs `PSScriptAnalyzer` and uses it to lint all `ps1` files in the repository. For more information, see [PSScriptAnalyzer on GitHub](https://github.com/PowerShell/PSScriptAnalyzer).
 
 {% raw %}
 ```yaml
-steps:
-- uses: actions/checkout@v2
-- name: Install PSScriptAnalyzer
-  shell: pwsh
-  run: |
-    Set-PSRepository PSGallery -InstallationPolicy Trusted
-    Install-Module PSScriptAnalyzer -ErrorAction Stop
-- name: Lint with PSScriptAnalyzer
-  shell: pwsh
-  run: |
-    Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
-    $errors   = $issues.Where({$_.Severity -eq 'Error'})
-    $warnings = $issues.Where({$_.Severity -eq 'Warning'})
-    Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
+  lint-with-PSScriptAnalyzer:
+    name: Install and run PSScriptAnalyzer
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install PSScriptAnalyzer module
+      shell: pwsh
+      run: |
+            Set-PSRepository PSGallery -InstallationPolicy Trusted
+            Install-Module PSScriptAnalyzer -ErrorAction Stop
+    - name: Lint with PSScriptAnalyzer
+      shell: pwsh
+      run: |
+            Invoke-ScriptAnalyzer -Path *.ps1 -Recurse -Outvariable issues
+            $errors   = $issues.Where({$_.Severity -eq 'Error'})
+            $warnings = $issues.Where({$_.Severity -eq 'Warning'})
+            Write-Output "There were $($errors.Count) errors and $($warnings.Count) warnings total."
 ```
 {% endraw %}
 
