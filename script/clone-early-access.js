@@ -10,18 +10,10 @@
 // [end-readme]
 
 require('dotenv').config()
-// const { GITHUB_DOCUBOT_REPO_PAT, EARLY_ACCESS_ENABLED, HEROKU_PRODUCTION_APP } = process.env
-const { GITHUB_DOCUBOT_REPO_PAT, HEROKU_PRODUCTION_APP } = process.env
-
-// TODO...
-// // Exit if early access is not enabled
-// if (!EARLY_ACCESS_ENABLED) {
-//   console.log('Skipping early access, not enabled')
-//   process.exit(0)
-// }
+const { DOCUBOT_REPO_PAT, HEROKU_PRODUCTION_APP } = process.env
 
 // Exit if PAT is not found
-if (!process.env.GITHUB_DOCUBOT_REPO_PAT) {
+if (!DOCUBOT_REPO_PAT) {
   console.log('Skipping early access, not authorized')
   process.exit(0)
 }
@@ -36,7 +28,7 @@ const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.y
 // Early Access details
 const earlyAccessOwner = 'docs'
 const earlyAccessDir = 'early-access-test'
-const earlyAccessRepo = `https://${GITHUB_DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
+const earlyAccessRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
 // production vs. staging environment
@@ -44,8 +36,8 @@ const environment = HEROKU_PRODUCTION_APP ? 'production' : 'staging'
 const earlyAccessBranch = HEROKU_PRODUCTION_APP ? eaConfig.EA_PRODUCTION_BRANCH : eaConfig.EA_STAGING_BRANCH
 
 // confirm that the branch exists in the remote
-const doesBranchExist = execSync(`git ls-remote --heads ${earlyAccessRepo} ${earlyAccessBranch}`).toString()
-if (!doesBranchExist) {
+const branchExists = execSync(`git ls-remote --heads ${earlyAccessRepo} ${earlyAccessBranch}`).toString()
+if (!branchExists) {
   console.log(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessDir}. Exiting!`)
   process.exit(0)
 }
