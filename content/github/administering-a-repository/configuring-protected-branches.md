@@ -1,4 +1,4 @@
----
+--
 title: Configuring protected branches
 intro: 'If you''re a repository owner or have admin permissions in a repository, you can customize branch protections in the repository and enforce certain workflows, such as requiring more than one pull request review or requiring certain status checks to pass before allowing a pull request to merge.'
 product: '{% data reusables.gated-features.protected-branches %}'
