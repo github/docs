@@ -43013,7 +43013,7 @@
         },
         {
           "name": "dismissedAt",
-          "description": "<p>When was the alert dimissed?.</p>",
+          "description": "<p>When was the alert dismissed?.</p>",
           "type": "DateTime",
           "id": "datetime",
           "kind": "scalars",

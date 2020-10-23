@@ -28388,7 +28388,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode @preview(togg
   dismissReason: String
 
   """
-  When was the alert dimissed?
+  When was the alert dismissed?
   """
   dismissedAt: DateTime
 

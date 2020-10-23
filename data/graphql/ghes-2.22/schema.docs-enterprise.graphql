@@ -28735,7 +28735,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   dismissReason: String
 
   """
-  When was the alert dimissed?
+  When was the alert dismissed?
   """
   dismissedAt: DateTime
 
