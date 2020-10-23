@@ -5268,7 +5268,7 @@ input CreateTeamDiscussionInput {
   clientMutationId: String
 
   """
-  If true, restricts the visiblity of this discussion to team members and
+  If true, restricts the visibility of this discussion to team members and
   organization admins. If false or not specified, allows any organization member
   to view this discussion.
   """

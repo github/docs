@@ -64672,7 +64672,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visiblity of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
