@@ -14368,7 +14368,7 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   number: Int!
 
   """
-  Indentifies the percentage complete for the milestone
+  Identifies the percentage complete for the milestone
   """
   progressPercentage: Float!
 
