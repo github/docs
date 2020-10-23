@@ -25,3 +25,14 @@ If you use Zendesk to track user-reported tickets, for example, you can referenc
 ![Field to type URL to external system](/assets/images/help/repository/add-target-url-field.png)
 7. Click **Add autolink reference**.
 ![Button to add autolink reference](/assets/images/help/repository/add-autolink-reference.png)
+$ git tag -l "v1.8.5*"
+v1.8.5
+v1.8.5-rc0
+v1.8.5-rc1
+v1.8.5-rc2
+v1.8.5-rc3
+v1.8.5.1
+v1.8.5.2
+v1.8.5.3
+v1.8.5.4
+v1.8.5.5
