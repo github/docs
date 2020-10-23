@@ -69,7 +69,7 @@ export default function () {
   const opts = {
 
     // https://www.algolia.com/apps/ZI5KPY1HBE/dashboard
-    // This API key is public. There's also a private API key for writing to the Aloglia API
+    // This API key is public. There's also a private API key for writing to the Algolia API
     searchClient: algoliasearch('ZI5KPY1HBE', '685df617246c3a10abba589b4599288f'),
 
     // There's an index for every version/language combination
