@@ -25,7 +25,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
 4. Check out your fork's local `main` branch.
   ```shell
   $ git checkout main
-  > Switched to branch 'https://github.com/todbot/qtpy-tricks.git'
+  > Switched to branch 'main'
   ```
 5. Merge the changes from `upstream/main` into your local `main` branch. This brings your fork's `main` branch into sync with the upstream repository, without losing your local changes.
   ```shell
