@@ -282,7 +282,7 @@ This script finds all Heroku staging apps and pings them to make sure they're al
 
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
-This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccesfully and prevent the push.
+This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
 
 ---
 
