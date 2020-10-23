@@ -2827,7 +2827,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   committedDate: DateTime!
 
   """
-  Check if commited via GitHub web UI.
+  Check if committed via GitHub web UI.
   """
   committedViaWeb: Boolean!
 

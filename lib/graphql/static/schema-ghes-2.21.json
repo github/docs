@@ -8347,7 +8347,7 @@
         },
         {
           "name": "committedViaWeb",
-          "description": "<p>Check if commited via GitHub web UI.</p>",
+          "description": "<p>Check if committed via GitHub web UI.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

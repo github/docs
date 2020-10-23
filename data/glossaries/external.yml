@@ -128,7 +128,7 @@
 - term: commit
   description: >-
     A commit, or "revision", is an individual change to a file (or set of
-    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes commited along with who made them and when. Commits usually contain a
+    files). When you make a commit to save your work, Git creates a unique ID (a.k.a. the "SHA" or "hash") that allows you to keep record of the specific changes committed along with who made them and when. Commits usually contain a
     commit message which is a brief description of what changes were made.
 - term: commit author
   description: The user who makes the commit.
