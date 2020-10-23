@@ -10,12 +10,12 @@
 // [end-readme]
 
 require('dotenv').config()
-const { GITHUB_DOCUBOT_REPO_PAT } = process.env
+const { GITHUB_DOCUBOT_REPO_PAT, EARLY_ACCESS_ENABLED } = process.env
 
 // TODO...
 // // Exit if early access is not enabled
-// if (!process.env.EARLY_ACCESS_ENABLED) {
-//   console.log('Skipping early access, not enable')
+// if (!EARLY_ACCESS_ENABLED) {
+//   console.log('Skipping early access, not enabled')
 //   process.exit(0)
 // }
 
@@ -35,13 +35,15 @@ const earlyAccessDir = 'early-access-test'
 const earlyAccessRepo = `https://${GITHUB_DOCUBOT_REPO_PAT}@github.com/docs/${earlyAccessDir}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
-// Look for a branch in early-access that matches the current docs branch;
-// otherwise fall back to `main`
-const docsBranch = execSync('git branch --show-current').toString().trim()
-
-const earlyAccessBranch = execSync(`git ls-remote --heads ${earlyAccessRepo} ${docsBranch}`).toString()
-  ? docsBranch
-  : 'main'
+// TODO...
+// // Look for a branch in early-access that matches the current docs branch;
+// // otherwise fall back to `main`
+// const docsBranch = execSync('git branch --show-current').toString().trim()
+//
+// const earlyAccessBranch = execSync(`git ls-remote --heads ${earlyAccessRepo} ${docsBranch}`).toString()
+//   ? docsBranch
+//   : 'main'
+const earlyAccessBranch = 'main'
 
 // Remove any dir that may pre-exist
 rimraf(earlyAccessContentDir)
