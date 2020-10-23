@@ -10,7 +10,6 @@ redirect_from:
   - /enterprise/admin/2.15/articles/troubleshooting-ssh-permission-denied-publickey/
   - /enterprise/admin/installation/accessing-the-administrative-shell-ssh
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
-  - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
 intro: 'SSH access allows you to run the {% data variables.product.prodname_ghe_server %} command line utilities and is useful for troubleshooting, running backups, and configuring replication.'
 versions:
   enterprise-server: '*'

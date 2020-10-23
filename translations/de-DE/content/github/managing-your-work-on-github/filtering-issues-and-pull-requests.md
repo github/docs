@@ -1,6 +1,6 @@
 ---
 title: Issues und Pull Requests filtern
-intro: 'Issues und Pull Requests umfassen standardmäßige Filter, mit denen Du Deine Listen organisieren kannst.'
+intro: Issues und Pull Requests umfassen standardmäßige Filter, mit denen Du Deine Listen organisieren kannst.
 redirect_from:
   - /articles/filtering-issues-and-pull-requests
 versions:

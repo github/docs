@@ -21,7 +21,9 @@ Se você não definir uma configuração no repositório, o {% data variables.pr
 
 É possível criar uma configuração-padrão do codespace usando uma configuração de contêiner pré-criada para seu tipo de projeto, ou você pode criar uma configuração personalizada específica para as necessidades do seu projeto.
 
-O {% data variables.product.prodname_codespaces %} usa as configurações contidas em um arquivo denominado `devcontainer.json` na raiz do repositório ou na pasta `.devcontainer`. Você pode usar `devcontainer.json` para definir as configurações-padrão para todo o ambiente de código, incluindo o editor de {% data variables.product.prodname_vscode %}, mas você também pode definir configurações específicas do editor em um arquivo denominado `.vscode/settings.json`.
+{% data variables.product.prodname_codespaces %}  usa configurações contidas em um arquivo de configuração denominado `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+
+Você pode usar o seu `devcontainer.json` para definir as configurações-padrão para todo o ambiente de código, incluindo o editor de {% data variables.product.prodname_vscode %}, mas você também pode definir configurações específicas do editor em um arquivo denominado `.vscode/settings.json`.
 
 As alterações na configuração do codespace de um repositório aplicam-se apenas a cada novo codespace e não afetam nenhum codespace existente.
 
@@ -38,7 +40,9 @@ Cada novo codespace criado a partir de um branch que contém a pasta `.devcontai
 
 ### Criar uma configuração personalizada de codespace
 
-Se nenhuma das configurações pré-criadas atenderem às suas necessidades, você poderá criar uma configuração personalizada adicionando um arquivo `devcontainer.json` à raiz do seu repositório ou a uma pasta `.devcontainer`. No arquivo, você pode usar chaves de configuração compatíveis para especificar os aspectos do ambiente do código, como quais extensões do {% data variables.product.prodname_vscode %} serão instaladas.
+Se nenhuma das configurações pré-criadas atender às suas necessidades, você poderá criar uma configuração personalizada adicionando um arquivo `devcontainer.json`. {% data reusables.codespaces.devcontainer-location %}
+
+No arquivo, você pode usar chaves de configuração compatíveis para especificar os aspectos do ambiente do código, como quais extensões do {% data variables.product.prodname_vscode %} serão instaladas.
 
 {% data reusables.codespaces.vscode-settings-order %}
 

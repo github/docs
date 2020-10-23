@@ -37,7 +37,7 @@ Das Zusammenführen von Unterstrukturen lässt sich am besten anhand eines Beisp
   $ touch .gitignore
   $ git add .gitignore
   $ git commit -m "initial commit"
-  > [master (root-commit) 3146c2a] initial commit
+  > [main (root-commit) 3146c2a] initial commit
   >  0 files changed, 0 insertions(+), 0 deletions(-)
   >  create mode 100644 .gitignore
   ```
@@ -55,29 +55,29 @@ Das Zusammenführen von Unterstrukturen lässt sich am besten anhand eines Beisp
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
   > From git://github.com/octocat/Spoon-Knife
-  >  * [new branch]      master     -> Spoon-Knife/master
+  >  * [new branch]      main     -> Spoon-Knife/main
   ```
 2. Führe das Projekt `Spoon-Knife` in das lokale Git-Projekt zusammen. Dadurch wird keine Deiner Dateien lokal geändert, aber Git wird auf den nächsten Schritt vorbereitet.
 
   Bei Verwendung von Git 2.9 oder höher:
   ```shell
-  $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/master
+  $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
 
   Bei Verwendung von Git 2.8 oder älter:
   ```shell
-  $ git merge -s ours --no-commit spoon-knife/master
+  $ git merge -s ours --no-commit spoon-knife/main
   > Automatic merge went well; stopped before committing as requested
   ```
 3. Erstelle ein neues Verzeichnis mit dem Namen **spoon-knife**, und kopiere den Git-Verlauf des Projekts `Spoon-Knife` in dieses Verzeichnis.
   ```shell
-  $ git read-tree --prefix=spoon-knife/ -u spoon-knife/master
+  $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
   ```
 4. Erstelle einen Commit der Änderungen, um sie zu sichern.
   ```shell
   $ git commit -m "Subtree merged in spoon-knife"
-  > [master fe0ca25] Subtree merged in spoon-knife
+  > [main fe0ca25] Subtree merged in spoon-knife
   ```
 
 Wir haben hier nur ein Subprojekt hinzugefügt. Du kannst jedoch eine beliebige Anzahl an Subprojekten in ein Git-Repository integrieren.
@@ -99,7 +99,7 @@ $ git pull -s subtree <em>remotename</em> <em>branchname</em>
 Im Beispiel oben würde dies so aussehen:
 
 ```shell
-$ git pull -s subtree spoon-knife master
+$ git pull -s subtree spoon-knife main
 ```
 
 ### Weiterführende Informationen

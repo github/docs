@@ -14,14 +14,10 @@ Dies ändert den Status des Reviews zu einem Review-Kommentar. Wenn Du einen Rev
 {% data reusables.search.requested_reviews_search %}
 
 {% data reusables.repositories.sidebar-pr %}
-{% data reusables.repositories.choose-pr-review %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+{% data reusables.repositories.choose-pr-review %}
 3. Scrolle auf der Registerkarte „Conversation“ (Unterhaltung) zu dem Review, den Du verwerfen möchtest, und klicke dann auf {% octicon "chevron-down" aria-label="The down button" %}. ![Chevron-Symbol (spitze Klammer) im Merge-Feld](/assets/images/help/pull_requests/merge_box/pull-request-open-menu.png)
 4. Klicke auf {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} und anschließend auf **Dismiss review** (Review verwerfen). ![3-Punkte-Symbol im Merge-Feld](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 5. Gib den Grund für das Verwerfen des Reviews ein, und klicke dann auf **Dismiss review** (Review verwerfen). ![Schaltfläche „Dismiss review" (Verwerfen eines Reviews)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
-{% else %}
-3. Scrolle auf der Registerkarte „Conversation“ (Unterhaltung) zum Review, den Du sehen möchtest, dann klicke auf **Dismiss review** (Review verwerfen). ![Option zum Verwerfen eines Reviews](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
-4. Gib den Grund für das Verwerfen des Reviews ein, und klicke dann auf **Dismiss review** (Review verwerfen). ![Schaltfläche „Dismiss review" (Verwerfen eines Reviews)](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review-button.png)
-{% endif %}
 
 ### Weiterführende Informationen
 

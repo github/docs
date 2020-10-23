@@ -1,6 +1,6 @@
 ---
-title: 错误：未找到仓库
-intro: '{% if currentVersion == "free-pro-team@latest" %}如果在克隆仓库时看到此错误，则意味着仓库不存在或您无权访问仓库。 有一些针对此错误的解决方案，具体根据原因而定。{% else %}如果在克隆仓库时看到此错误，则意味着仓库不存在，您无权访问仓库，或者您的 GitHub Enterprise 实例处于私有模式。 有一些针对此错误的解决方案，具体根据原因而定。{% endif %}'
+title: '错误：未找到仓库'
+intro: '{% if currentVersion == "free-pro-team@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it. 有一些针对此错误的解决方案，具体根据原因而定。{% else %}如果在克隆仓库时看到此错误，则意味着仓库不存在，您无权访问仓库，或者您的 GitHub Enterprise 实例处于私有模式。 有一些针对此错误的解决方案，具体根据原因而定。{% endif %}'
 redirect_from:
   - /articles/error-repository-not-found
 versions:

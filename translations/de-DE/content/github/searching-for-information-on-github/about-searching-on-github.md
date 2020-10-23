@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Suche auf GitHub
-intro: 'Nutze unsere leistungsstarken Suchfunktionen, um unter den vielen Repositorys, Benutzern und Codezeilen auf {% data variables.product.product_name %} das zu finden, wonach Du suchst.'
+intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar/
   - /articles/github-search-basics/
@@ -24,6 +24,8 @@ Du kannst global über {% data variables.product.product_name %} hinweg suchen o
 
 - {% data reusables.search.required_login %}
 - {% data variables.product.prodname_pages %}-Websites können auf {% data variables.product.product_name %} nicht durchsucht werden. Du kannst aber den Quellinhalt mithilfe der Codesuche durchsuchen, wenn er im Standardbranch eines Repositorys vorhanden ist. Weitere Informationen findest Du unter „[Code durchsuchen](/articles/searching-code)“. Weitere Informationen über {% data variables.product.prodname_pages %} findest Du unter „[Was ist GitHub Pages?](/articles/what-is-github-pages/)“
+- Currently our search doesn't support exact matching.
+- Whenever you are searching in code files, only the first two results in each file will be returned.
 
 {% endnote %}
 
@@ -40,7 +42,7 @@ Du kannst die folgenden Arten von Informationen in allen öffentlichen {% data v
 - [Issues und Pull Requests](/articles/searching-issues-and-pull-requests)
 - [Code](/articles/searching-code)
 - [Commits](/articles/searching-commits)
-- [Benutzer](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [Users](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
 - [Pakete](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wikis](/articles/searching-wikis)
 

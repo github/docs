@@ -1,6 +1,6 @@
 ---
 title: Missbrauch oder Spam melden
-intro: 'Du kannst Verhalten und Inhalte melden, die die Community-Richtlinien und -Bedingungen verletzen.'
+intro: Du kannst Verhalten und Inhalte melden, die die Community-Richtlinien und -Bedingungen verletzen.
 redirect_from:
   - /articles/reporting-abuse-or-spam
 versions:
@@ -58,7 +58,7 @@ Wenn „gemeldeter Inhalt" für ein öffentliches Repository aktiviert ist, kann
 
 - „[Dein Projekt für sinnvolle Beiträge einrichten](/articles/setting-up-your-project-for-healthy-contributions)“
 - „[Vorlagen benutzen, um hilfreiche Issues und Pull Requests zu ermutigen](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)"
-- „[Störende Kommentare verwalten](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - „[Deine Sicherheit auf {% data variables.product.prodname_dotcom %} aufrechterhalten](/github/building-a-strong-community/maintaining-your-safety-on-github)"
 - „[Interaktionen in Deinem Repository einschränken](/github/building-a-strong-community/limiting-interactions-in-your-repository)“{% endif %}
 - „[Änderungen an einem Kommentar verfolgen](/articles/tracking-changes-in-a-comment)“

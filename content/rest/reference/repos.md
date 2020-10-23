@@ -317,14 +317,14 @@ The default format is what [existing post-receive hooks should expect](/post-rec
 
 #### Callback URLs
 
-Callback URLs can use the `http://` protocol. {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+Callback URLs can use the `http://` protocol. {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire
     github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}

@@ -12,7 +12,7 @@ versions:
 
 ### 请求新密码
 
-1. 要请求新密码，请访问 {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}。
+1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. 输入与您的个人 {% data variables.product.product_name %} 帐户关联的电子邮件地址，然后单击 **Send password reset email（发送密码重置电子邮件）**。如果您已配置，该电子邮件将发送到备用电子邮件地址。 ![密码重置电子邮件请求对话框](/assets/images/help/settings/password-recovery-email-request.png)
 3. 我们将向您发送一封电子邮件，其中含有可让您重置密码的链接。 您必须在收到电子邮件后的 3 小时内单击此链接。 如果您没有收到来自我们的电子邮件，请确保检查垃圾邮件文件夹。
 4. 单击电子邮件中的该链接后，系统将要求您输入新密码。 ![密码恢复框](/assets/images/help/settings/password_recovery_page.png)
@@ -29,11 +29,7 @@ versions:
 
 1. {% data variables.product.signin_link %}到 {% data variables.product.product_name %}。
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
 4. 在“Change password（更改密码）”下，输入旧密码、强新密码并确认新密码。 有关创建强密码的帮助，请参阅“[创建强密码](/articles/creating-a-strong-password)”
 5. 单击 **Update password（更新密码）**。
 

@@ -7,7 +7,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/enabling-a-link-between-github-insights-and-github-enterprise
 versions:
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 Após habilitar o link, cada usuário poderá navegar diretamente de {% data variables.product.prodname_ghe_server %} para {% data variables.product.prodname_insights %}. Para obter mais informações, consulte "[Navegando entre {% data variables.product.prodname_enterprise %} e {% data variables.product.prodname_insights %}](/insights/exploring-your-usage-of-github-enterprise/navigating-between-github-enterprise-and-github-insights)".
@@ -17,7 +17,8 @@ Após habilitar o link, cada usuário poderá navegar diretamente de {% data var
   ```
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. Volte para o {% data variables.product.prodname_ghe_server %}.
+3. Retornar para
+{% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

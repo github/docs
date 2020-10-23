@@ -92,28 +92,6 @@ describe('algolia browser search', () => {
   })
 })
 
-describe('google analytics', () => {
-  it('is set on page load with expected properties', async () => {
-    await page.goto('http://localhost:4001/en/actions')
-
-    // check that GA global object exists and is a function
-    const gaObjectType = await page.evaluate(() => typeof window.ga)
-    expect(gaObjectType).toBe('function')
-
-    // check that default tracker is set
-    // https://developers.google.com/analytics/devguides/collection/analyticsjs/ga-object-methods-reference#getByName
-    const gaDefaultTracker = await page.evaluate(() => window.ga.getByName('t0'))
-    expect('filters' in gaDefaultTracker).toBe(true)
-    expect(Object.keys(gaDefaultTracker)).toHaveLength(3)
-
-    // check that default cookies are set
-    // https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage#analyticsjs
-    const cookies = await page.cookies()
-    expect(cookies.some(cookie => cookie.name === '_gat')).toBe(true)
-    expect(cookies.some(cookie => cookie.name === '_gid')).toBe(true)
-  })
-})
-
 describe('helpfulness', () => {
   it('sends an event to /events when submitting form', async () => {
     // Visit a page that displays the prompt
@@ -122,8 +100,8 @@ describe('helpfulness', () => {
     // Track network requests
     await page.setRequestInterception(true)
     page.on('request', request => {
-      // Ignore GET to google analytics
-      if (!/\/events/.test(request.method())) return request.continue()
+      // Ignore GET requests
+      if (!/\/events$/.test(request.url())) return request.continue()
       expect(request.method()).toMatch(/POST|PUT/)
       request.respond({
         contentType: 'application/json',

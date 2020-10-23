@@ -71,9 +71,9 @@ The `hook_attributes` object has the following key:
 
 ##### 参数
 
- | 名称      | 类型    | 描述                                               |
- | ------- | ----- | ------------------------------------------------ |
- | `state` | `字符串` | {% data reusables.apps.state_description %} |
+ | 名称      | 类型    | 描述                                          |
+ | ------- | ----- | ------------------------------------------- |
+ | `state` | `字符串` | {% data reusables.apps.state_description %}
 
 ##### 示例
 

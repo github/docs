@@ -3,7 +3,7 @@ title: リモートの URL の変更
 redirect_from:
   - /articles/changing-a-remote-s-url
   - /articles/changing-a-remotes-url
-intro: 「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。
+intro: '「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

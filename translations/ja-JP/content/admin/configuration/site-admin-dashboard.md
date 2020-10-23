@@ -15,7 +15,7 @@ versions:
 
 ### 検索
 
-ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {% data variables.enterprise.management_console %}を起動することができます。
+ここで、ドメインや認証、SSL などの仮想アプライアンスの設定を管理するための {{ site.data.variables.enterprise.management_console }}を起動することができます。
 
 {% else %}
 
@@ -162,7 +162,7 @@ GitHub の[コード検索][]フィーチャは、[Elasticsearch][] に駆動さ
 
 ### 全ユーザ
 
-ここでは、{% data variables.product.product_location_enterprise %} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
+ここでは、{{ site.data.variables.product.product_location_enterprise }} で一時停止されているすべてのユーザーを確認することができ、そして [SSH キー監査を開始する](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys)ことができます。
 
 {% endif %}
 

@@ -2,7 +2,7 @@
 title: 创建代码空间
 intro: 您可以为仓库中的分支创建代码空间以便在线开发。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: 任何人都可以为任何公共仓库或其用户帐户拥有的任何私有仓库创建代码空间。
+permissions: '任何人都可以为任何公共仓库或其用户帐户拥有的任何私有仓库创建代码空间。'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
 versions:

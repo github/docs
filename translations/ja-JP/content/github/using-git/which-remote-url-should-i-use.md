@@ -31,7 +31,7 @@ versions:
 
 {% endtip %}
 
- {% if currentVersion == "free-pro-team@latest" %}SSH を使用したくてもポート 22 で接続できない場合は、HTTPS ポートを介する SSH を使用できる場合があります。 詳細は、「[HTTPS ポートを介して SSH を使用する](/github/authenticating-to-github/using-ssh-over-the-https-port)」を参照してください。{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. 詳細は、「[HTTPS ポートを介して SSH を使用する](/github/authenticating-to-github/using-ssh-over-the-https-port)」を参照してください。{% endif %}
 
 ### SSH URL を使ってクローンする
 
@@ -39,7 +39,7 @@ SSH URL は、SSH (安全なプロトコル) を介した Git リポジトリへ
 
 SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git push` をリモートリポジトリに実行すると、パスワードの入力を求められ、SSH キーパスフレーズを入力する必要があります。 詳しい情報については[SSH キーのパスフレーズを使う](/github/authenticating-to-github/working-with-ssh-key-passphrases)を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" %}SAML シングルサインオン (SSO) を使っている Organization にアクセスしている場合は、認証を受ける前に、Organization にアクセスする SSHキーを認可する必要があります。 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」および「[SAML シングルサインオンで使うためにSSHキーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}If you are accessing an organization that uses SAML single sign-on (SSO), you must authorize your SSH key to access the organization before you authenticate. 詳しい情報については「[SAMLシングルサインオンでの認証について](/github/authenticating-to-github/about-authentication-with-saml-single-sign-on)」および「[SAML シングルサインオンで使うためにSSHキーを認可する](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)」を参照してください。{% endif %}
 
 {% tip %}
 

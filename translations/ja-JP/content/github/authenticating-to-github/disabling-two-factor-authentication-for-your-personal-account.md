@@ -1,6 +1,6 @@
 ---
 title: 個人アカウントの 2 要素認証を無効化する
-intro: 自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。
+intro: '自分の個人アカウントの 2 要素認証を無効化すると、所属する Organization へのアクセスも失う可能性があります。'
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:
@@ -12,7 +12,7 @@ versions:
 
 {% warning %}
 
-**警告:** 2 要素認証を必要とする Organization のメンバー{% if currentVersion == "free-pro-team@latest" %}、支払いマネージャー{% endif %}、または Organization のパブリックリポジトリへの外部コラボレーターが 2 要素認証を無効化すると、Organization から自動的に削除され、リポジトリへのアクセスを失います。 Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
+**Warning:** If you're a member{% if currentVersion == "free-pro-team@latest" %}, billing manager,{% endif %} or outside collaborator to a public repository of an organization that requires two-factor authentication and you disable 2FA, you'll be automatically removed from the organization, and you'll lose your access to their repositories. Organization へのアクセスを再取得するには、2 要素認証を再有効化し、Organization オーナーに連絡します。
 
 {% endwarning %}
 

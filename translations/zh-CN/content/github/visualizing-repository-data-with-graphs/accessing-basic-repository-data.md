@@ -1,6 +1,6 @@
 ---
 title: 访问基本仓库数据
-intro: '您可以查看仓库的基本信息，如仓库的活动{% if currentVersion == "free-pro-team@latest" %}、流量{% endif %}和贡献活动。'
+intro: 'You can view basic information about a repository, such as the repository''s activity{% if currentVersion == "free-pro-team@latest" %}, traffic,{% endif %} and contribution activity.'
 mapTopic: true
 redirect_from:
   - /articles/accessing-basic-repository-data

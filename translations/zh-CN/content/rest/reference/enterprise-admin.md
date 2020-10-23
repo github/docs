@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-You can use these {% data variables.product.prodname_ghe_cloud %} endpoints to administer your enterprise account.
+You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -124,11 +124,10 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ### 支持的 SCIM 组属性
 
-| 名称            | 类型    | 描述                                                                                                                                       |
-| ------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| 名称            | 类型    | 描述                                                                                                                                  |
+| ------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `displayName` | `字符串` | SCIM 组的名称，必须与相应 {% data variables.product.product_name %} 组织的名称完全匹配。 例如，如果组织的 URL 为`https://github.com/octo-org`，则组名必须为 `octo-org`。 |
-| `members`     | `数组`  | 属于组成员的 SCIM 用户 ID 列表。                                                                                                                    |
-
+| `members`     | `数组`  | 属于组成员的 SCIM 用户 ID 列表。                                                                                                               |
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
@@ -245,13 +244,13 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
 
 #### 预接收环境
 
-| 名称                    | 类型    | 描述                                                                    |
-| --------------------- | ----- | --------------------------------------------------------------------- |
-| `name`                | `字符串` | UI 中显示的环境名称。                                                          |
-| `image_url`           | `字符串` | 将要下载并解压缩的 tarball 的 URL。                                              |
+| 名称                    | 类型    | 描述                                                               |
+| --------------------- | ----- | ---------------------------------------------------------------- |
+| `name`                | `字符串` | UI 中显示的环境名称。                                                     |
+| `image_url`           | `字符串` | 将要下载并解压缩的 tarball 的 URL。                                         |
 | `default_environment` | `布尔值` | 这是否是 {% data variables.product.prodname_ghe_server %} 附带的默认环境。 |
-| `download`            | `对象`  | 此环境的下载状态。                                                             |
-| `hooks_count`         | `整数`  | 使用此环境的预接收挂钩数量。                                                        |
+| `download`            | `对象`  | 此环境的下载状态。                                                        |
+| `hooks_count`         | `整数`  | 使用此环境的预接收挂钩数量。                                                   |
 
 #### 预接收环境下载
 

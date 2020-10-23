@@ -11,11 +11,11 @@ versions:
 
 ### 关于拉取请求合并
 
-在拉取请求中，您提议将您对头部分支所做的更改合并到基础分支。 {% data reusables.pull_requests.about-protected-branches %} 但是，对于何时可以将拉取请求合并到特定分支可能会有限制。 For example, you may only be able to merge a pull request into the default branch if required status checks are passing. 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
+在拉取请求中，您提议将您对头部分支所做的更改合并到基础分支。 {% data reusables.pull_requests.about-protected-branches %} 但是，对于何时可以将拉取请求合并到特定分支可能会有限制。 例如，如果必需状态检查通过，您可能只能将拉取请求合并到默认分支。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches)”。
 
 如果拉取请求具有合并冲突，或者您在测试前想测试更改，可以[本地检出拉取请求](/articles/checking-out-pull-requests-locally)，然后使用命令行合并。
 
-You can't merge a draft pull request. 有关拉取请求草稿的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
+无法合并草稿拉取请求。 有关拉取请求草稿的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
@@ -45,13 +45,13 @@ You can't merge a draft pull request. 有关拉取请求草稿的更多信息，
 6. 单击 **Confirm merge（确认合并）**、**Confirm squash and merge（确认压缩并合并）**或 **Confirm rebase and merge（确认变基并合并）**。
 6. （可选）[删除分支](/articles/deleting-unused-branches)。 这有助于仓库的分支列表保持整洁。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}仓库可配置为在您合并拉请求时自动删除拉取请求的头部分支。 更多信息请参阅“[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)”。{% endif %}
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. 更多信息请参阅“[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)”。
 
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **注：** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-更多信息请参阅“[关于分支](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)”。
+   **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+   For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
    {% endif %}
