@@ -1,6 +1,6 @@
 ---
 title: Organization 内でリポジトリの可視性の変更を制限する
-intro: Organization のデータを保護するために、Organization 内でリポジトリの可視性を変更するための権限を設定できます。
+intro: 'Organization のデータを保護するために、Organization 内でリポジトリの可視性を変更するための権限を設定できます。'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:

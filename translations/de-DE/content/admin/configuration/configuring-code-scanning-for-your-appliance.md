@@ -37,7 +37,9 @@ If you can't see **{% data variables.product.prodname_advanced_security %}** in 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**. ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
+1. Under "
+{% data variables.product.prodname_advanced_security %}," click **{% data variables.product.prodname_code_scanning_capc %}**.
+![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 
@@ -46,6 +48,8 @@ If you can't see **{% data variables.product.prodname_advanced_security %}** in 
 #### Setting up a self-hosted runner
 
 If you are enrolled in the {% data variables.product.prodname_actions %} beta, then {% data variables.product.prodname_ghe_server %} can run {% data variables.product.prodname_code_scanning %} using a {% data variables.product.prodname_actions %} workflow. First, you need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. You can provision self-hosted runners at the repository, organization, or enterprise account level. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Adding self-hosted runners](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+
+You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
 
 #### Provisioning the action
 To run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_actions %}, the appropriate action must be available locally. You can make the action available in three ways.
@@ -67,7 +71,7 @@ After you configure a self-hosted runner, users can enable {% data variables.pro
 ### Running {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_runner %}
 If your organization isn't taking part in the beta for {% data variables.product.prodname_actions %}, or if you don't want to use {% data variables.product.prodname_actions %}, you can run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql_runner %}.
 
-The {% data variables.product.prodname_codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)."
+The {% data variables.product.prodname_codeql_runner %} is a command-line tool that you can add to your third-party CI/CD system. The tool runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. For more information, see "[Running {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)."
 
 ### Disabling {% data variables.product.prodname_code_scanning %}
 
@@ -76,5 +80,7 @@ The {% data variables.product.prodname_codeql_runner %} is a command-line tool t
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "{% data variables.product.prodname_advanced_security %}", unselect **{% data variables.product.prodname_code_scanning_capc %}**. ![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
+1. Under "
+{% data variables.product.prodname_advanced_security %}", unselect **{% data variables.product.prodname_code_scanning_capc %}**.
+![Checkbox to enable or disable {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

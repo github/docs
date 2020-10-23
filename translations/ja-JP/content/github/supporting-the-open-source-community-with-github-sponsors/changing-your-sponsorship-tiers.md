@@ -1,6 +1,6 @@
 ---
 title: スポンサーシップ層を変更する
-intro: 新しいスポンサーシップ層の追加や、既存スポンサーシップ層の編集、破棄が可能です。
+intro: '新しいスポンサーシップ層の追加や、既存スポンサーシップ層の編集、破棄が可能です。'
 redirect_from:
   - /articles/changing-your-sponsorship-tiers
 versions:

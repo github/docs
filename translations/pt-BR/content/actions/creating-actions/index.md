@@ -6,6 +6,7 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
   - /actions/building-actions
+  - /artigos/criando-a-github-action/
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

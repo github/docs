@@ -11,7 +11,7 @@ versions:
 
 ### Über die Unterstützung von Entwicklern und Organisationen
 
-{% data reusables.sponsors.sponsorship-details %} {% data reusables.sponsors.no-fees %} Weitere Informationen findest Du auf „[Über die Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.sponsorship-details %}{% data reusables.sponsors.no-fees %} Weitere Informationen findest Du unter „[ Informationen zur Abrechnung für {% data variables.product.prodname_sponsors %}](/articles/about-billing-for-github-sponsors)."
 
 Wenn Du einen Open-Source-Mitwirkenden unterstützt, wird diese Änderung sofort wirksam. {% data reusables.sponsors.prorated-sponsorship %}
 
@@ -31,7 +31,7 @@ Wenn der Open-Source-Mitwirkende, den du unterstützen möchtest, kein Profil al
 
 Bevor Du einen Entwickler unterstützten kannst, musst Du einen verifizierte E-Mail-Adresse haben. Weitere Informationen findest Du unter „[Eigene E-Mail-Adresse verifizieren](/github/getting-started-with-github/verifying-your-email-address).“
 
-1. Navigiere auf {% data variables.product.product_name %} zu dem Profil des Entwicklers, den Du unterstützen möchtest.
+1. Navigieren Sie auf {% data variables.product.product_name %} zu dem Profil des Entwicklers, den Sie sponsern möchten.
 2. Klicke unter dem Namen des Entwicklers auf **Sponsor** (Unterstützen). ![Schaltfläche „Sponsor“ (Sponsern)](/assets/images/help/profile/sponsor-button.png)
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.select-sponsorship-billing %}

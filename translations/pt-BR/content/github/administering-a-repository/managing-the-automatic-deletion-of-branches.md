@@ -5,7 +5,7 @@ redirect_from:
   - /articles/managing-the-automatic-deletion-of-branches
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório pode habilitar ou desabilitar a exclusão automática de branches.

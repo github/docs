@@ -118,8 +118,8 @@ When code examples refer to a larger file, show the relevant section of the file
 
 ```
 on:
-schedule:
-  - cron:  "40 19 * * *"
+  schedule:
+    - cron:  "40 19 * * *"
 ```
 
 - **Avoid:**
@@ -336,7 +336,7 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 ### More resources
 GitHub Brand Guide:
 - [Referring to GitHub features and product elements](https://brand.github.com/content/terminology/#referring-to-github-features-and-product-elements)
-- [Page names and UI references](https://brand.github.com/content/grammar-usage/#page-names-and-ui-references)
+- [Page names and UI references](https://brand.github.com/content/grammar#page-names-and-ui-references)
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/en-us/style-guide/procedures-instructions/formatting-text-in-instructions)
 
@@ -346,7 +346,7 @@ Use clear, simple language that’s approachable and accessible for a wide range
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology) in and “[Words that can be tricky](https://brand.github.com/content/grammar-usage/#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/en-us/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 

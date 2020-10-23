@@ -1,6 +1,6 @@
 ---
 title: 'Erro: permissão de usuário/repo negada a outro usuário/repo'
-intro: O erro indica que a chave inserida está associada a outro repositório como uma chave de implantação e não tem acesso ao repositório que você está tentando entrar.
+intro: 'O erro indica que a chave inserida está associada a outro repositório como uma chave de implantação e não tem acesso ao repositório que você está tentando entrar.'
 redirect_from:
   - /articles/error-permission-to-user-repo-denied-to-user-other-repo
   - /articles/error-permission-to-userrepo-denied-to-userother-repo

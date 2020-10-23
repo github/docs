@@ -1,6 +1,6 @@
 ---
 title: 新しい SSH キーを生成して ssh-agent に追加する
-intro: 既存の SSH キーをチェックした後、新しい SSH キーを生成して認証に使用し、ssh-agent に追加できます。
+intro: '既存の SSH キーをチェックした後、新しい SSH キーを生成して認証に使用し、ssh-agent に追加できます。'
 redirect_from:
   - /articles/adding-a-new-ssh-key-to-the-ssh-agent/
   - /articles/generating-a-new-ssh-key/

@@ -49,7 +49,7 @@ Este exemplo de configuração usa um primário e duas réplicas, localizados em
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. Por padrão, as réplicas são configuradas no mesmo datacenter{% if currentVersion ver_gt "enterprise-server@2.17" %} e agora vão tentar propagar a partir de um nó existente no mesmo datacenter{% endif %}. Configure as réplicas para datacenters diferentes definindo outros valores na opção do datacenter. Você pode especificar os valores que preferir, desde que sejam diferentes uns dos outros. Execute o comando `ghe-repl-node` em cada nó e especifique o datacenter.
+3. Por padrão, as réplicas são configuradas no mesmo centro de dados e agora tentarão propagar a partir de um nó existente no mesmo centro de dados. Configure as réplicas para datacenters diferentes definindo outros valores na opção do datacenter. Você pode especificar os valores que preferir, desde que sejam diferentes uns dos outros. Execute o comando `ghe-repl-node` em cada nó e especifique o datacenter.
 
   No primário:
   ```shell

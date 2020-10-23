@@ -70,5 +70,5 @@ $ git pull <em>remotename</em> <em>branchname</em>
 
 ### 参考リンク
 
-- [書籍 _Pro Git_ のリモートでの作業](https://git-scm.com/book/ja/v2/Git-の基本-リモートでの作業){% if currentVersion == "free-pro-team@latest" %}
+- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% if currentVersion == "free-pro-team@latest" %}
 - 「[接続の問題のトラブルシューティング](/articles/troubleshooting-connectivity-problems)」{% endif %}

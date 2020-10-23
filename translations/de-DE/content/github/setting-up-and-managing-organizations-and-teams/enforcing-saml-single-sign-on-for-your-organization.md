@@ -1,6 +1,6 @@
 ---
 title: SAML Single Sign-On für Deine Organisation erzwingen
-intro: 'Inhaber und Administratoren von Organisationen können SAML SSO erzwingen, sodass sich alle Organisationsmitglieder über einen Identitätsanbieter (IdP) authentifizieren müssen.'
+intro: Inhaber und Administratoren von Organisationen können SAML SSO erzwingen, sodass sich alle Organisationsmitglieder über einen Identitätsanbieter (IdP) authentifizieren müssen.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization

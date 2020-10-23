@@ -1,6 +1,6 @@
 ---
 title: リモートの追加
-intro: 新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。
+intro: '新しいリモートを追加するには、リポジトリが保存されているディレクトリでターミナルから `git remote add` コマンドを使ってください。'
 redirect_from:
   - /articles/adding-a-remote
 versions:

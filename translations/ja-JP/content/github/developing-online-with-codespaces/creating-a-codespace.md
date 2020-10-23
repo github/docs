@@ -2,7 +2,7 @@
 title: codespace を作成する
 intro: リポジトリのブランチの codespace を作成して、オンラインで開発できます。
 product: '{% data reusables.gated-features.codespaces %}'
-permissions: すべてのユーザは、任意のパブリックリポジトリ、またはユーザアカウントが所有する任意のリポジトリの codespace を作成できます。
+permissions: 'すべてのユーザは、任意のパブリックリポジトリ、またはユーザアカウントが所有する任意のリポジトリの codespace を作成できます。'
 redirect_from:
   - /github/developing-online-with-github-codespaces/creating-a-codespace
 versions:
