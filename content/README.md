@@ -237,4 +237,4 @@ Sometimes you want to link to a Dotcom-only article in Enterprise content and yo
 <a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
 ```
 
-Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-redirects.json`](lib/redirects/external-redirects.json) get rewritten. See  [`contributing/redirects.md`](contributing/redirects.md) for more info about this type of redirect.
+Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
