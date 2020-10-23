@@ -458,7 +458,7 @@
 - term: notification
   description: >-
     Updates, delivered by either the web or email depending on your settings,
-    that give you information about the activites you're interested in.
+    that give you information about the activities you're interested in.
 - term: OAuth App
   description: >-
     A third-party application that uses access tokens rather than passwords to
