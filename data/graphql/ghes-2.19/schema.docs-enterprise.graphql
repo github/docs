@@ -28409,7 +28409,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode @preview(togg
   securityAdvisory: SecurityAdvisory
 
   """
-  The associated security vulnerablity
+  The associated security vulnerability
   """
   securityVulnerability: SecurityVulnerability
 

@@ -42462,7 +42462,7 @@
         },
         {
           "name": "securityVulnerability",
-          "description": "<p>The associated security vulnerablity.</p>",
+          "description": "<p>The associated security vulnerability.</p>",
           "type": "SecurityVulnerability",
           "id": "securityvulnerability",
           "kind": "objects",

@@ -29145,7 +29145,7 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   securityAdvisory: SecurityAdvisory
 
   """
-  The associated security vulnerablity
+  The associated security vulnerability
   """
   securityVulnerability: SecurityVulnerability
 
