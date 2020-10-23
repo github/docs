@@ -32077,7 +32077,7 @@ type SmimeSignature implements GitSignature {
 }
 
 """
-Entites that can sponsor others via GitHub Sponsors
+Entities that can sponsor others via GitHub Sponsors
 """
 union Sponsor = Organization | User
 
