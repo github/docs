@@ -25800,7 +25800,7 @@ type RepoCreateAuditEntry implements AuditEntry & Node & OrganizationAuditEntryD
   forkParentName: String
 
   """
-  The name of the root repository for this netork.
+  The name of the root repository for this network.
   """
   forkSourceName: String
   id: ID!
