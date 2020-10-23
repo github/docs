@@ -5,7 +5,6 @@ import explorer from './explorer'
 import search from './search'
 import nav from './nav'
 import browserDateFormatter from 'browser-date-formatter'
-import googleAnalytics from './google-analytics'
 import deprecationBanner from './deprecation-banner'
 import sidebar from './sidebar'
 import wrapCodeTerms from './wrap-code-terms'
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   search()
   nav()
   browserDateFormatter()
-  googleAnalytics()
   deprecationBanner()
   sidebar()
   wrapCodeTerms()
