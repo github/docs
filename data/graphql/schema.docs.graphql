@@ -17893,7 +17893,7 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
   restoredCustomEmailRoutingsCount: Int
 
   """
-  The number of issue assignemnts for the restored member.
+  The number of issue assignments for the restored member.
   """
   restoredIssueAssignmentsCount: Int
 

@@ -25616,7 +25616,7 @@
         },
         {
           "name": "restoredIssueAssignmentsCount",
-          "description": "<p>The number of issue assignemnts for the restored member.</p>",
+          "description": "<p>The number of issue assignments for the restored member.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
