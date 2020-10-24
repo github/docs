@@ -19,7 +19,7 @@ versions:
 
 The migration script checks for any `search` indices first while the appliance is online. Migrating `search` indices can take a few minutes to a few days, depending on their size. For an example of large indices, these indices took a couple of days to migrate in our test environment.
 
-```
+```shell
 admin@ip-172-31-2-141:~$ curl -s http://localhost:9200/_cat/indices?v | sort -n -k 6
 green  open   blog-1                     1   0          0            0       144b           144b
 green  open   projects-1                 1   0          0            0       144b           144b
@@ -72,7 +72,7 @@ The `webhook` indices start with `hookshot-logs-`.
 
 You can see available indices on your appliance using curl.
 
-```
+```shell
 admin@ip-172-31-2-141:~$ curl -s http://localhost:9200/_cat/indices?v | sort -n -k 6
 green  open   blog-1                     1   0          0            0       144b           144b
 green  open   projects-1                 1   0          0            0       144b           144b

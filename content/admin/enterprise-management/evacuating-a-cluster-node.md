@@ -14,40 +14,40 @@ If you're taking a node offline that has any data services (like git, pages, or 
 
 1. Find the `uuid` of the node in with the `ghe-config`command.
 
-    ```
+    ```shell
     $ ghe-config cluster._hostname_.uuid
     ```
 
 2. You'll need to monitor the status of your node while the data is being copied. Ideally, the node shouldn't be taken offline until the copying is complete. To monitor the status of your node, run any of the following commands:  
 
     For Git
-    ```
+    ```shell
     ghe-spokes evac-status
     ```
     For {% data variables.product.prodname_pages %}
-    ```
+    ```shell
     echo "select count(*) from pages_replicas where host = 'pages-server-<uuid>'" | ghe-dbconsole -y
     ```
     For storage
-    ```
+    ```shell
     ghe-storage evacuation-status
     ```
 
 3. After the copying is complete, you can evacuate the storage service. Run any of the following commands:  
 
     For Git
-    ```
+    ```shell
     ghe-spokes server evacuate git-server-<uuid>
     ```
     For {% data variables.product.prodname_pages %}
-    ```
+    ```shell
     ghe-dpages evacuate pages-server-<uuid>
     ```
     For storage, take the node offline
-    ```
+    ```shell
     ghe-storage offline storage-server-<uuid>
     ```
       then evacuate
-    ```
+    ```shell
     ghe-storage evacuate storage-server-<uuid>
     ```

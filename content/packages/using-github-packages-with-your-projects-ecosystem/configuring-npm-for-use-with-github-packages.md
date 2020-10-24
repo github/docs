@@ -151,7 +151,7 @@ You also need to add the *.npmrc* file to your project so all requests to instal
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 4. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. For example, this following *package.json* uses the `@octo-org/octo-app` package as a dependency.
 
-  ```
+  ```json
   {
     "name": "@my-org/server",
     "version": "1.0.0",

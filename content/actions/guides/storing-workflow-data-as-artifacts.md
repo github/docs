@@ -115,7 +115,7 @@ jobs:
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
 
-```
+```yaml
   - name: 'Upload Artifact'
     uses: actions/upload-artifact@v2
     with:

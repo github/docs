@@ -37,7 +37,7 @@ If you want to interact with multiple repositories, you can add each repository 
 If your instance has subdomain isolation enabled:
 {% endif %}
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -79,7 +79,7 @@ If your instance has subdomain isolation enabled:
 {% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
-```
+```xml
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
@@ -135,7 +135,7 @@ For more information on creating a package, see the [maven.apache.org documentat
   {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation enabled:
   {% endif %}
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -146,7 +146,7 @@ For more information on creating a package, see the [maven.apache.org documentat
   ```
   {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
-  ```
+  ```xml
   <distributionManagement>
      <repository>
        <id>github</id>
@@ -171,7 +171,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
-  ```
+  ```xml
   <dependencies>
     <dependency>
       <groupId>com.example</groupId>

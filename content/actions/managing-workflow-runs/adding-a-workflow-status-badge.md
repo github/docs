@@ -34,7 +34,7 @@ https://github.com/<OWNER>/<REPOSITORY>/workflows/<WORKFLOW_FILE_PATH>/badge.svg
 
 This Markdown example adds a status badge for a workflow with the name "Greet Everyone." The `OWNER` of the repository is the `actions` organization and the `REPOSITORY` name is `hello-world`.
 
-```
+```markdown
 ![example workflow name](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg)
 ```
 
@@ -42,7 +42,7 @@ This Markdown example adds a status badge for a workflow with the name "Greet Ev
 
 This Markdown example adds a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `actions` organization and the `REPOSITORY` name is `hello-world`.
 
-```
+```markdown
 ![example workflow file path](https://github.com/actions/hello-world/workflows/.github/workflows/main.yml/badge.svg)
 ```
 
@@ -50,7 +50,7 @@ This Markdown example adds a status badge for a workflow with the file path `.gi
 
 This Markdown example adds a status badge for a branch with the name `feature-1`.
 
-```
+```markdown
 ![example branch parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?branch=feature-1)
 ```
 
@@ -58,6 +58,6 @@ This Markdown example adds a status badge for a branch with the name `feature-1`
 
 This Markdown example adds a badge that displays the status of workflow runs triggered by the `pull_request` event.
 
-```
+```markdown
 ![example event parameter](https://github.com/actions/hello-world/workflows/Greet%20Everyone/badge.svg?event=pull_request)
 ```

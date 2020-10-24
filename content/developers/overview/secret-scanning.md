@@ -61,7 +61,7 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 ##### Example POST sent to your endpoint
 
-```
+```http
 POST / HTTP/1.1
 Host: HOST
 Accept: */*
@@ -95,7 +95,7 @@ Assuming you receive the following message, the code snippets below demonstrate 
 The code also assumes you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated PAT (https://github.com/settings/tokens). The token does not need any permissions set.
 
 **Sample message sent to verify endpoint**
-```
+```http
 POST / HTTP/1.1
 Host: HOST
 Accept: */*

@@ -219,7 +219,7 @@ steps:
 
 The example above creates an *.npmrc* file with the following contents:
 
-```
+```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
 @octocat:registry=https://registry.npmjs.org/
 always-auth=true

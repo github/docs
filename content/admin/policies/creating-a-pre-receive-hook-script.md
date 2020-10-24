@@ -94,7 +94,7 @@ You can test a pre-receive hook script locally before you create or update it on
 
 2. Create a file called `Dockerfile.dev` containing:
 
-    ```
+    ```dockerfile
     FROM gliderlabs/alpine:3.3
     RUN \
       apk add --no-cache git openssh bash && \
@@ -116,7 +116,7 @@ You can test a pre-receive hook script locally before you create or update it on
 
 3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
-    ```
+    ```shell
     #!/usr/bin/env bash
 
     echo "error: rejecting all pushes"

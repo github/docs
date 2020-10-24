@@ -249,7 +249,7 @@ https://github-images.s3.amazonaws.com/enterprise/2.20/assets/images/help/profil
 
 Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, write the link using HTML and add a class of `dotcom-only`. For example:
 
-```
+```html
 <a href="/github/site-policy/github-terms-of-service" class="dotcom-only">GitHub's Terms of Service</a>
 ```
 
