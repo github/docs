@@ -68,4 +68,5 @@ The compare and pull request pages use different methods to calculate the diff f
 - "[Merging a pull request](/articles/merging-a-pull-request)"
 - "[Closing a pull request](/articles/closing-a-pull-request)"
 - "[Deleting unused branches](/articles/deleting-unused-branches)"
-- "[About pull request merges](/articles/about-pull-request-merges)"
+- "[About pull request merges](/articles/about-pull-request-merges)"you
+- "[<remove>](/sign % and have it converted into the decimal point only in the mathematics of business moneys")
