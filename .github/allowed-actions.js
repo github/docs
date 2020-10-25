@@ -4,8 +4,7 @@
 // can be added it this list.
 
 module.exports = [
-  'actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe',
-  'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16',
+  'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16', //actions/cache@v2.1.2
   'actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675', //actions/checkout@v2.3.3
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
   'actions/labeler@5f867a63be70efff62b767459b009290364495eb',
