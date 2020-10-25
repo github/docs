@@ -14,7 +14,7 @@ If your commit is not on the default branch, an indicator will show the branches
 
 Once the commit is on the default branch, any tags that contain the commit will be shown and the default branch will be the only branch listed.
 
-![Commit-master-label](/assets/images/help/commits/Commit-master-label.png)
+![Commit-main-label](/assets/images/help/commits/Commit-master-label.png)
 
 ### Дополнительная литература
 

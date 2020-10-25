@@ -1,6 +1,6 @@
 ---
 title: 'Error: Repository not found'
-intro: '{% if currentVersion == "free-pro-team@latest" %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないかリポジトリへのアクセス権がないことを意味します。 このエラーの解決策は、原因によっていくつかあります。{% else %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないか、リポジトリへのアクセス権がないか、 GitHub Enterprise のインスタンスがプライベートモードであることを意味します。 このエラーには、原因別にいくつかの解決策があります。{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %}If you see this error when cloning a repository, it means that the repository does not exist or you do not have permission to access it. このエラーの解決策は、原因によっていくつかあります。{% else %}リポジトリのクローン時にこのエラーが表示された場合は、リポジトリが存在しないか、リポジトリへのアクセス権がないか、 GitHub Enterprise のインスタンスがプライベートモードであることを意味します。 このエラーには、原因別にいくつかの解決策があります。{% endif %}'
 redirect_from:
   - /articles/error-repository-not-found
 versions:

@@ -71,9 +71,9 @@ The `hook_attributes` object has the following key:
 
 ##### 매개변수
 
- | 이름      | 유형    | 설명                                               |
- | ------- | ----- | ------------------------------------------------ |
- | `state` | `문자열` | {% data reusables.apps.state_description %} |
+ | 이름      | 유형    | 설명                                          |
+ | ------- | ----- | ------------------------------------------- |
+ | `state` | `문자열` | {% data reusables.apps.state_description %}
 
 ##### 예시
 

@@ -1,6 +1,6 @@
 ---
 title: Berechtigungen für die Teamerstellung in Deiner Organisation festlegen
-intro: 'Du kannst allen Organisationsmitgliedern erlauben, Teams zu erstellen, oder Du kannst die Möglichkeit der Teamerstellung auf Organisationsinhaber beschränken.'
+intro: Du kannst allen Organisationsmitgliedern erlauben, Teams zu erstellen, oder Du kannst die Möglichkeit der Teamerstellung auf Organisationsinhaber beschränken.
 redirect_from:
   - /articles/setting-team-creation-permissions-in-your-organization
 versions:

@@ -1,6 +1,6 @@
 ---
 title: 审查拉取请求中的建议更改
-intro: 在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。
+intro: '在拉取请求中，您可以审查和讨论提交、更改的文件以及基本和比较分支中文件之间的区别（或“差异”）。'
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
@@ -10,7 +10,7 @@ versions:
 
 ### 关于审查拉取请求
 
-您可以在拉取请求中每次审查一个文件的更改。 在审查拉取请求中的文件时，可对特定更改进行个别评论。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %} 在完成审查每个文件后，您可以将该文件标记为已查看。 这会折叠文件，帮助您识别还需要审查的文件。 拉取请求标头中的进度条显示您查看过的文件数。{% endif %} 在按需要审查多个文件后，您可以在摘要评论中提交审查，以批准拉取请求或申请其他更改。
+您可以在拉取请求中每次审查一个文件的更改。 While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. 这会折叠文件，帮助您识别还需要审查的文件。 A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +28,12 @@ versions:
 
 ![取消审查按钮](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 将文件标记为已查看
 
 在完成审查文件后，您可以将文件标记为已查看，该文件将会收起。 如果查看过的文件有更改，将会取消已查看的标记。
 
 {% data reusables.repositories.changed-files %}
 2. 在完成审查的文件的标头右侧，选择**已查看**。 ![已查看复选框](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### 提交审查
 

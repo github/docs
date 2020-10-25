@@ -6,8 +6,6 @@ redirect_from:
   - /enterprise/admin/categories/dns-ssl-and-subdomain-configuration/
   - /enterprise/admin/installation/troubleshooting-ssl-errors
   - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
-  - /enterprise/admin/configuration/troubleshooting-ssl-errors
 versions:
   enterprise-server: '*'
 ---

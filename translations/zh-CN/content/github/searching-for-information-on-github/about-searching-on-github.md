@@ -1,6 +1,6 @@
 ---
 title: 关于在 GitHub 上搜索
-intro: '使用我们强大的搜索工具在 {% data variables.product.product_name %} 上的多个仓库、用户和代码行中查找所需的内容。'
+intro: 'Our integrated search covers the many repositories, users, and lines of code on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/using-the-command-bar/
   - /articles/github-search-basics/
@@ -24,6 +24,8 @@ versions:
 
 - {% data reusables.search.required_login %}
 - {% data variables.product.prodname_pages %} 网站在 {% data variables.product.product_name %} 上不可搜索。 但如果源代码内容存在于仓库的默认分支中，您可以使用代码搜索来搜索。 更多信息请参阅“[搜索代码](/articles/searching-code)”。 有关 {% data variables.product.prodname_pages %} 的更多信息，请参阅“[什么是 GitHub Pages？ ](/articles/what-is-github-pages/)”
+- Currently our search doesn't support exact matching.
+- Whenever you are searching in code files, only the first two results in each file will be returned.
 
 {% endnote %}
 
@@ -40,7 +42,7 @@ versions:
 - [议题和拉取请求](/articles/searching-issues-and-pull-requests)
 - [代码](/articles/searching-code)
 - [提交](/articles/searching-commits)
-- [用户](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
+- [Users](/articles/searching-users){% if currentVersion == "free-pro-team@latest" %}
 - [包](/github/searching-for-information-on-github/searching-for-packages){% endif %}
 - [Wikis](/articles/searching-wikis)
 

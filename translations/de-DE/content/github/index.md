@@ -4,7 +4,7 @@ redirect_from:
   - /articles/
   - /common-issues-and-questions/
   - /troubleshooting-common-issues/
-intro: 'Dokumentationen, Leitfäden und Hilfethemen für Softwareentwickler, Designer und Projektleiter. Beschreibt die Verwendung von Git, Pull Requests, Issues, Wikis, Gists und alles weitere, das Du benötigst, um GitHub für die Entwicklung bestmöglich zu nutzen.'
+intro: 'Dokumentationen, Leitfäden und Hilfethemen für Softwareentwickler, Designer und Projektleiter. Darin wird die Verwendung von Git, Pull Requests, Issues, Wikis und Gists beschrieben und enthält zudem alles, was Sie benötigen, um von GitHub für die Entwicklung bestmöglich zu profitieren.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

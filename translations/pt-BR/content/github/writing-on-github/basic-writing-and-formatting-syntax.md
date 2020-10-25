@@ -170,7 +170,7 @@ Para obter mais informações, consulte "[Sobre listas de tarefas](/articles/abo
 
 ### Mencionar pessoas e equipes
 
-Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações, sobre notificações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre notificações](/github/receiving-notifications-about-activity-on-github/about-notifications)"{% endif %}."
+Você pode mencionar uma pessoa ou [equipe](/articles/setting-up-teams/) no {% data variables.product.product_name %} digitando `@` mais o nome de usuário ou nome da equipe. Isto desencadeará uma notificação e chamará a sua atenção para a conversa. As pessoas também receberão uma notificação se você editar um comentário para mencionar o respectivo nome de usuário ou da equipe. Para obter mais informações sobre notificações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Sobre as notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Sobre as notificações](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}".
 
 `@github/suporte O que você acha dessas atualizações?`
 
@@ -188,12 +188,9 @@ Você pode trazer à tona uma lista de problemas e pull requests sugeridos no re
 
 Para obter mais informações, consulte "[Referências e URLs vinculados automaticamente](/articles/autolinked-references-and-urls)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### Fazer referência a recursos externos
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### Anexos de conteúdo
 
@@ -201,7 +198,7 @@ Alguns {% data variables.product.prodname_github_app %}s fornecem informações 
 
 ![Anexo de conteúdo](/assets/images/help/writing/content-attachment.png)
 
-Para ver anexos de conteúdo, você deve ter um {% data variables.product.prodname_github_app %} que use a API Content Attachments (anexos de conteúdo) instalada no repositório.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações, consulte "[Instalar um app em sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um app em sua organização](/articles/installing-an-app-in-your-organization)".{% endif %}
+Para ver os anexos de conteúdo, é necessário ter um {% data variables.product.prodname_github_app %} que use a API de anexos de conteúdo instalada no repositório.{% if currentVersion == "free-pro-team@latest" %} Para mais informações, consulte "[Instalar um aplicativo na sua conta pessoal](/articles/installing-an-app-in-your-personal-account)" e "[Instalar um aplicativo na sua organização](/articles/installing-an-app-in-your-organization).{% endif %}
 
 Os anexos de conteúdo não serão exibidos para URLs que fazem parte de um link markdown.
 

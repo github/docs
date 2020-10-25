@@ -1,23 +1,23 @@
 
 ### Planos do {% data variables.contact.premium_support %}
 
-There are two {% data variables.contact.premium_support %} plans: Premium and Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
+Há dois {% data variables.contact.premium_support %} planos: Premium e Premium Plus / {% data variables.product.microsoft_premium_plus_support_plan %}.
 
-|                       | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
-| --------------------- | -------------------------------------------------------- | ------------------------------------------------------------- |
-| Horas de operação     | 24 x 7                                                   | 24 x 7                                                        |
-| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul>                                | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul>                                     |
-| Support channels      | <ul><li>Online ticket submission</li><li>Phone support</li></ul>                                | <ul><li>Online ticket submission</li><li>Phone support</li><li>Screen share for critical issues</li></ul>                                     |
-| Treinamentos          | Acesso a conteúdo premium                                | <ul><li>Acesso a conteúdo premium</li><li>1 virtual training class per year</li></ul>                                     |
-| Authorized contacts   | 10                                                       | 25                                                            |
-| Recursos              | Priority ticket handling                                 | <ul><li>Priority ticket handling</li><li>Named Technical Support Account Manager</li></ul>                                     |
-| Scheduled checks      | Bi-annual health check and reporting                     | <ul><li>Quarterly health check and reporting</li><li>Quarterly account reviews</li></ul>                                     |
-| Administration        |                                                          | 4 hours of Managed Services per month                         |
+|                           | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %}
+| ------------------------- | --------------------------------------------------- | -------------------------------------------------------- |
+| Horas de operação         | 24 x 7                                              | 24 x 7                                                   |
+| Tempo inicial de resposta | <ul><li>30 minutos para {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours para {% data variables.product.support_ticket_priority_high %}</li></ul>                           | <ul><li>30 minutos para {% data variables.product.support_ticket_priority_urgent %}</li><li>4 hours para {% data variables.product.support_ticket_priority_high %}</li></ul>                                |
+| Canais de suporte         | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone</li></ul>                           | <ul><li>Envio do tíquete on-line</li><li>Suporte por telefone</li><li>Compartilhamento de tela para problemas críticos</li></ul>                                |
+| Treinamentos              | Acesso a conteúdo premium                           | <ul><li>Acesso a conteúdo premium</li><li>1 aula de treinamento virtual por ano</li></ul>                                |
+| Contatos autorizados      | 10                                                  | 25                                                       |
+| Recursos                  | Processamento de tíquete com prioridade             | <ul><li>Processamento de tíquete com prioridade</li><li>Gerente de conta de suporte técnico designado</li></ul>                                |
+| Verificações agendadas    | Verificação de integridade e relatórios semestrais  | <ul><li>Verificação de integridade e relatórios trimestrais</li><li>Revisões trimestrais de conta</li></ul>                                |
+| Administração             |                                                     | 4 horas de serviços gerenciados por mês                  |
 
   {% note %}
 
   **Notas:**
-  - Scheduled checks are limited to one organization per term. You can add scheduled checks for additional organizations at any time for an additional fee by [contacting our account management team](https://enterprise.github.com/contact) or calling [+1 (877) 448-4820](tel:+1-877-448-4820).
-  - For the {% data variables.product.premium_plus_support_plan %}, 50% of unused Managed Services hours roll over to the next month and expire at the end of the quarter.
+  - As verificações agendadas são limitadas a uma organização por trimestre. Você pode adicionar verificações programadas para organizações adicionais a qualquer momento por uma taxa adicional [entrando em contato com nossa equipe de gerenciamento de conta](https://enterprise.github.com/contact) ou ligando para [+1 (877) 448-4820](tel:+1-877-448-4820).
+  - Para o {% data variables.product.premium_plus_support_plan %}, 50% dos serviços gerenciados não utilizados vão para o próximo mês e expiram no final do trimestre.
 
   {% endnote %}

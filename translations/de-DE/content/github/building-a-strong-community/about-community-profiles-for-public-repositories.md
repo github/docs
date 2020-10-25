@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Community-Profilen für öffentliche Repositorys
-intro: 'Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.'
+intro: Repository-Betreuer können einen Review des Community-Profils ihres öffentlichen Repositorys durchführen, um zu erfahren, wie sie dazu beitragen können, ihre Community zu vergrößern und Mitarbeiter zu unterstützen. Mitarbeiter können das Community-Profil eines öffentlichen Repositorys einsehen, um zu überprüfen, ob sie an dem Projekt mitwirken möchten.
 redirect_from:
   - /articles/viewing-your-community-profile/
   - /articles/about-community-profiles-for-public-repositories

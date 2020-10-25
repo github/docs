@@ -74,7 +74,7 @@ UFW 防火墙还会打开 {% data variables.product.prodname_ghe_server %} 所�
 
 {% warning %}
 
-**Warning:** If you didn't back up the original rules before making changes to the firewall, contact {% data variables.contact.contact_ent_support %} for further assistance.
+**警告**：如果您对防火墙进行更改之前未备份原始规则，请联系 {% data variables.contact.contact_ent_support %} 获取更多帮助。
 
 {% endwarning %}
 

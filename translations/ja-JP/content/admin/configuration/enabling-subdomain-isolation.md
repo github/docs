@@ -16,28 +16,29 @@ Subdomain Isolationは、クロスサイトスクリプティングや関連す�
 Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-Docker を {% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効化する必要があります。 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
+To use Docker with
+{% data variables.product.prodname_registry %}, you must also enable subdomain isolation. 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
-| Subdomain Isolationなしのパス                                                                                  | Subdomain Isolationされたパス                                               |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `http(s)://HOSTNAME/assets/`                                                                              | `http(s)://assets.HOSTNAME/`                                           |
-| `http(s)://HOSTNAME/avatars/`                                                                             | `http(s)://avatars.HOSTNAME/`                                          |
-| `http(s)://HOSTNAME/codeload/`                                                                            | `http(s)://codeload.HOSTNAME/`                                         |
-| `http(s)://HOSTNAME/gist/`                                                                                | `http(s)://gist.HOSTNAME/`                                             |
-| `http(s)://HOSTNAME/media/`                                                                               | `http(s)://media.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/pages/`                                                                               | `http(s)://pages.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/raw/`                                                                                 | `http(s)://raw.HOSTNAME/`                                              |
-| `http(s)://HOSTNAME/render/`                                                                              | `http(s)://render.HOSTNAME/`                                           |
-| `http(s)://HOSTNAME/reply/`                                                                               | `http(s)://reply.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/uploads/`                                                                             | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| N/A、{% data variables.product.prodname_registry %} を使用した Docker は、Subdomain Isolation を無効化すると機能しません。 | `http(s)://uploads.HOSTNAME/`                                          |
-| `https://HOSTNAME/_registry/npm/`                                                                         | `https://npm.HOSTNAME/`                                                |
-| `https://HOSTNAME/_registry/rubygems/`                                                                    | `https://rubygems.HOSTNAME/`                                           |
-| `https://HOSTNAME/_registry/maven/`                                                                       | `https://maven.HOSTNAME/`                                              |
-| `https://HOSTNAME/_registry/nuget/`                                                                       | `https://nuget.HOSTNAME/`{% endif %}
+| Subdomain Isolationなしのパス                                                                             | Subdomain Isolationされたパス                                                                   |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `http(s)://HOSTNAME/assets/`                                                                         | `http(s)://assets.HOSTNAME/`                                                               |
+| `http(s)://HOSTNAME/avatars/`                                                                        | `http(s)://avatars.HOSTNAME/`                                                              |
+| `http(s)://HOSTNAME/codeload/`                                                                       | `http(s)://codeload.HOSTNAME/`                                                             |
+| `http(s)://HOSTNAME/gist/`                                                                           | `http(s)://gist.HOSTNAME/`                                                                 |
+| `http(s)://HOSTNAME/media/`                                                                          | `http(s)://media.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/pages/`                                                                          | `http(s)://pages.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/raw/`                                                                            | `http(s)://raw.HOSTNAME/`                                                                  |
+| `http(s)://HOSTNAME/render/`                                                                         | `http(s)://render.HOSTNAME/`                                                               |
+| `http(s)://HOSTNAME/reply/`                                                                          | `http(s)://reply.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/uploads/`                                                                        | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
+| N/A、{% data variables.product.prodname_registry %} を使用した Docker は、Subdomain Isolation を無効化すると機能しません。 | `http(s)://uploads.HOSTNAME/`                                                              |
+| `https://HOSTNAME/_registry/npm/`                                                                    | `https://npm.HOSTNAME/`                                                                    |
+| `https://HOSTNAME/_registry/rubygems/`                                                               | `https://rubygems.HOSTNAME/`                                                               |
+| `https://HOSTNAME/_registry/maven/`                                                                  | `https://maven.HOSTNAME/`                                                                  |
+| `https://HOSTNAME/_registry/nuget/`                                                                  | `https://nuget.HOSTNAME/`{% endif %}
 
 ### 必要な環境
 

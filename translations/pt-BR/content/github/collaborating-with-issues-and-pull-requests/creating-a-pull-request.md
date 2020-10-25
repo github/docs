@@ -18,7 +18,7 @@ Qualquer pessoa com permissões de leitura em um repositório pode criar uma pul
 
 ### Alterar o intervalo de branches e o repositório de destino
 
-Por padrão, as pull requests são baseadas no [branch padrão](/articles/setting-the-default-branch) do repositório principal.
+Por padrão, as pull requests são baseadas no [branch padrão](/articles/setting-the-default-branch) do repositório principal. Para obter mais informações, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
 
 Se o repositório principal padrão não estiver correto, você poderá alterar o repositório principal e o branch com as listas suspensas. Também é possível trocar o head e os branches base com as listas suspensas para estabelecer diffs entre pontos de referência. As referências aqui devem ser nomes de branch no seu repositório do GitHub.
 

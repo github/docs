@@ -15,7 +15,8 @@ versions:
 ユーザが所有するリポジトリでは、他の人々にコラボレーターアクセスを与えて、プロジェクトでコラボレーションするようにできます。 リポジトリが Organization によって所有されている場合は、Organization のメンバーにアクセス権限を与え、リポジトリ上でコラボレーションするようにできます。 詳細は「[ユーザアカウントのリポジトリ権限レベル](/articles/permission-levels-for-a-user-account-repository/)」および「[Organization のリポジトリ権限レベル](/articles/repository-permission-levels-for-an-organization/)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" %}
-ユーザアカウントと Organization の {% data variables.product.prodname_free_team %} を使用すると、完全な機能セットを備えた無制限のパブリックリポジトリ、または機能セットを制限した無制限のプライベートリポジトリで無制限のコラボレータと連携できます。 プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
+With
+{% data variables.product.prodname_free_team %} for user accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. プライベートリポジトリの高度なツールを入手するには、 {% data variables.product.prodname_pro %}、{% data variables.product.prodname_team %}、または {% data variables.product.prodname_ghe_cloud %} にアップグレードします。 {% data reusables.gated-features.more-info %}
 {% else %}
 各個人および Organization は、無制限のリポジトリを所有でき、すべてのリポジトリにコラボレータを何人でも招待できます。
 {% endif %}

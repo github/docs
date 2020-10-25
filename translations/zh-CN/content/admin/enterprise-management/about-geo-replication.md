@@ -18,7 +18,7 @@ Git 请求和特定的文件服务器请求（例如 LFS 和文件上传）可�
 
 ### 限制
 
-将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本{% if currentVersion ver_gt "enterprise-server@2.17" %}，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据{% endif %}。 Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。
+将请求写入副本需要将数据发送到主设备和所有副本。 这意味着所有写入操作的性能都受限于最慢的副本，虽然新的地理副本可以从现有共同位置地理副本（而不是从主设备）播种大部分数据。 Geo-replication 不会增大 {% data variables.product.prodname_ghe_server %} 实例的容量，也不会解决与 CPU 或内存资源不足相关的性能问题。 如果主设备处于脱机状态，则活动副本将无法满足任何读取或写入请求。
 
 ### 监视 Geo-replication 配置
 

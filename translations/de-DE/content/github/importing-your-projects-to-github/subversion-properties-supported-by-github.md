@@ -18,7 +18,7 @@ versions:
 
 ### Ignorieren nicht versionierter Elemente (svn:ignore)
 
-Dateien und Verzeichnisse, die Du in Subversion auf „Ignorieren“ gesetzt hast, verfolgt {% data variables.product.product_name %} intern. Von Subversion-Clients ignorierte Dateien sind völlig unterschiedlich zu den Einträgen in einer *.gitignore*-Datei.
+Dateien und Verzeichnisse, die Sie in Subversion auf „Ignorieren“ gesetzt haben, zeichnet {% data variables.product.product_name %} intern auf. Von Subversion-Clients ignorierte Dateien sind völlig unterschiedlich zu den Einträgen in einer *.gitignore*-Datei.
 
 ### Derzeit nicht unterstützte Eigenschaften
 
