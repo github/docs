@@ -7,10 +7,10 @@ module.exports = [
   'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16', //actions/cache@v2.1.2
   'actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675', //actions/checkout@v2.3.3
   'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
-  'actions/labeler@5f867a63be70efff62b767459b009290364495eb',
-  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d',
-  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526',
-  'actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8',
+  'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
+  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d', //actions/setup-node@v1.4.4
+  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
+  'actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8', //actions/stale@v3.0.12
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
