@@ -1,6 +1,6 @@
 ---
 title: Team innerhalb der Hierarchie Deiner Organisation verschieben
-intro: Team-Betreuer und Organisationsinhaber können ein Team einem übergeordneten Team unterordnen oder das übergeordnete Team eines untergeordneten Teams ändern oder entfernen.
+intro: 'Team-Betreuer und Organisationsinhaber können ein Team einem übergeordneten Team unterordnen oder das übergeordnete Team eines untergeordneten Teams ändern oder entfernen.'
 redirect_from:
   - /articles/changing-a-team-s-parent/
   - /articles/moving-a-team-in-your-organization-s-hierarchy

@@ -1,1 +1,0 @@
-本文的条款不适用于 {% data variables.product.prodname_advanced_security %} 的支持服务。 更多信息请参阅“[关于 {% data variables.product.prodname_advanced_security %} 的支持](/enterprise/admin/enterprise-support/about-support-for-advanced-security)”。

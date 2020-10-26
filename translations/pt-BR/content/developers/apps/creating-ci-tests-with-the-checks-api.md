@@ -9,7 +9,6 @@ versions:
 ---
 
 
-
 ### Introdução
 
 Este guia irá apresentá-lo aos [aplicativos Github](/apps/) e à [API de verificação](/v3/checks/), que você usará para criar um servidor de integração contínua (CI) que executa testes.
@@ -134,6 +133,26 @@ A ação `solicitada` solicita uma execução de verificação cada vez que o c�
 
 Você irá adicionar este novo método como um [Auxiliar do Sinatra](https://github.com/sinatra/sinatra#helpers), caso deseje que outros encaminhamentos o usem também. Em `auxiliares do`, adicione este método `create_check_run`:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Create a new check run with the status queued
+def create_check_run
+  # # At the time of writing, Octokit does not support the Checks API yet, but
+  # it does provide generic HTTP methods you can use:
+  # /v3/checks/runs/#create-a-check-run
+  check_run = @installation_client.post(
+    "repos/#{@payload['repository']['full_name']}/check-runs",
+    {
+      accept: 'application/vnd.github.v3+json',
+      # The name of your check run.
+      nome: 'Octo RuboCop',
+      # A estrutura da carga difere dependendo da ocorrência de um evento de execução de verificação ou de conjunto de verificações.
+      head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
+    }
+  )
+end
+```
+{% else %}
 ``` ruby
 # Criar uma nova execução de verificação com o status em fila
 def create_check_run
@@ -153,6 +172,7 @@ def create_check_run
   )
 end
 ```
+{% endif %}
 
 Este código chama o ponto final "[Criar uma execução de verificação](/v3/checks/runs/#create-a-check-run)" que usa o método genérico [HTTP `POST`](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). Este método tem dois parâmetros: a URL do ponto final e os parâmetros de entrada do método.
 
@@ -209,6 +229,43 @@ Nesta seção, você não vai iniciar o teste de CI ainda, mas você verá como 
 
 Vamos criar o método `initiate_check_run` e atualizar o status da execução de verificação. Adicione o seguinte código à seção auxiliar:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Iniciar o processo de CI
+def initiate_check_run
+  # Uma vez criada a execução de verificação, você irá atualizar o status da verificação de execução
+  # para 'in_progress' e executar o processo de CI. Após a conclusão da CI, você
+  # irá atualizar o status da execução de verificação para "concluído" e irá adicionar os resultados de CI.
+
+  # Octokit doesn't yet support the Checks API, but it does provide generic
+  # HTTP methods you can use:
+  # /v3/checks/runs/#update-a-check-run
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'in_progress',
+      started_at: Time.now.utc.iso8601
+    }
+  )
+
+  # ***** RUN A CI TEST *****
+
+  # Mark the check run as complete!
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'completed',
+      conclusion: 'success',
+      completed_at: Time.now.utc.iso8601
+    }
+  )
+end
+```
+{% else %}
 ``` ruby
 # Iniciar o processo de CI
 def initiate_check_run
@@ -245,6 +302,7 @@ def initiate_check_run
   )
 end
 ```
+{% endif %}
 
 O código acima chama o ponto final da API "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" usando o método genérico [`patch` HTTP](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) para atualizar a verificação que você já criou.
 
@@ -549,6 +607,21 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Agora você tem todas as informações de que precisa para atualizar sua execução de verificação. Na [primeira metade deste início rápido](#step-14-updating-a-check-run), você adicionou este código para definir o status da execução de verificação de `sucesso`:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Marque a verificação como concluída!
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: 'success',
+    completed_at: Time.now.utc.iso8601
+  }
+)
+```
+{% else %}
 ``` ruby
 # Marque a verificação como concluída!
 updated_check_run = @installation_client.patch(
@@ -562,9 +635,36 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 Você deverá atualizar esse código para usar a variável de `Conclusão` definida com base nos resultados do RuboCop (para `sucesso` Ou `neutro`). Você pode atualizar o código com o seguinte:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Marque a verificação como concluída! E, se houver avisos, compartilhe-os.
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: conclusion,
+    completed_at: Time.now.utc.iso8601,
+    output: {
+      title: 'Octo RuboCop',
+      summary: summary,
+      text: text,
+      annotations: annotations
+    },
+    actions: [{
+      label: 'Fix this',
+      description: 'Automatically fix all linter notices.',
+      identifier: 'fix_rubocop_notices'
+    }]
+  }
+)
+```
+{% else %}
 ``` ruby
 # Marque a verificação como concluída! E, se houver avisos, compartilhe-os.
 updated_check_run = @installation_client.patch(
@@ -589,10 +689,11 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 Agora que você está definindo uma conclusão com base no status do teste CI e que você adicionou a saída dos resultados do RuboCop, você criou um teste de CI! Parabéns. 🙌
 
-O código acima também adiciona um recurso ao seu servidor de CI denominado [ações solicitadas](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) por meio do objeto `ações`. {% if currentVersion == "free-pro-team@latest" %}(Observe que isto não está relacionado ao [GitHub Actions](/actions).) {% endif %}As ações solicitadas adicionam um botão à aba **Verificações** no GitHub que permite que alguém solicite execução de verificação para tomar medidas adicionais. A ação adicional é completamente configurável pelo seu aplicativo. Por exemplo, uma vez que o RuboCop tem um recurso para corrigir automaticamente os erros que encontra no código Ruby, seu servidor de CI pode usar um botão de ações solicitadas para permitir que as pessoas solicitem correções automáticas de erros. Quando alguém clica no botão, o aplicativo recebe o evento de `check_run` com uma ação `requested_action`. Cada ação solicitada tem um `identificador` que o aplicativo usa para determinar em qual botão foi clicado.
+O código acima também adiciona um recurso ao seu servidor de CI denominado [ações solicitadas](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) por meio do objeto `ações`. {% if currentVersion == "free-pro-team@latest" %}(Observe que isso não se relaciona ao [GitHub Actions](/actions).) {% endif %}As ações solicitadas adicionam um botão à aba **Verificações** no GitHub que permite que alguém solicite execução de verificação para tomar medidas adicionais. A ação adicional é completamente configurável pelo seu aplicativo. Por exemplo, uma vez que o RuboCop tem um recurso para corrigir automaticamente os erros que encontra no código Ruby, seu servidor de CI pode usar um botão de ações solicitadas para permitir que as pessoas solicitem correções automáticas de erros. Quando alguém clica no botão, o aplicativo recebe o evento de `check_run` com uma ação `requested_action`. Cada ação solicitada tem um `identificador` que o aplicativo usa para determinar em qual botão foi clicado.
 
 O código acima ainda não exige que o RuboCop corrija erros automaticamente. Você irá adicionar isso na próxima seção. Mas, primeiro, dê uma olhada no teste de CI que você acabou de criar ao iniciar o servidor `template_server.rb` novamente e ao criar um novo pull request:
 

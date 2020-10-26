@@ -21,7 +21,7 @@ versions:
 
 对于基于 web 的 Git 操作，您可以在 {% data variables.product.product_name %} 上设置提交电子邮件地址。 对于从命令行推送的提交，您可以在 Git 中设置提交电子邮件地址。
 
-{% if currentVersion == "free-pro-team@latest" %}在更改提交电子邮件地址之前进行的提交仍与之前的电子邮件地址关联。{% else %}在 {% data variables.product.product_name %} 上更改提交电子邮件地址之后，新电子邮件地址默认在所有未来基于 web 的 Git 操作中可见。 在更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Any commits you made prior to changing your commit email address are still associated with your previous email address.{% else %}After changing your commit email address on {% data variables.product.product_name %}, the new email address will be visible in all of your future web-based Git operations by default. 在更改提交电子邮件地址之前进行的任何提交仍与之前的电子邮件地址关联。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -33,11 +33,11 @@ versions:
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" %}如果要对个人电子邮件地址保密，可以使用 {% data variables.product.product_name %}-provided `no-reply` 电子邮件地址作为提交电子邮件地址。 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
+{% if currentVersion == "free-pro-team@latest" %}If you'd like to keep your personal email address private, you can use a {% data variables.product.product_name %}-provided `no-reply` email address as your commit email address. 要将 `noreply` 电子邮件地址用于从命令行推送的提交，请在 Git 中设置提交电子邮件地址时使用该电子邮件地址。 要将 `noreply` 地址用于基于 web 的 Git 操作，请在 GitHub 上设置提交电子邮件地址并选择**对我的电子邮件地址保密**。
 
 您也可以选择阻止从命令行推送的提交显示您的个人电子邮件地址。 更多信息请参阅“[阻止推送的命令行显示您的个人电子邮件地址](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)”。{% endif %}
 
-为确保提交归因于您并且出现在您的贡献图表中，请使用您已[添加到 GitHub 帐户](/articles/adding-an-email-address-to-your-github-account/)的电子邮件地址{% if currentVersion == "free-pro-team@latest" %}，或者在电子邮件设置中提供给您的 {% data variables.product.product_name %}-provided `noreply` 电子邮件地址{% endif %}。
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -1,6 +1,6 @@
 ---
 title: Berechtigungen zum Löschen oder Übertragen von Repositorys festlegen
-intro: Du kannst Organisationsmitgliedern mit Administratorberechtigungen für ein Repository das Löschen oder Übertragen des Repositorys erlauben oder Du kannst diese Berechtigung allein auf Organisationsinhaber beschränken.
+intro: 'Du kannst Organisationsmitgliedern mit Administratorberechtigungen für ein Repository das Löschen oder Übertragen des Repositorys erlauben oder Du kannst diese Berechtigung allein auf Organisationsinhaber beschränken.'
 redirect_from:
   - /articles/setting-permissions-for-deleting-or-transferring-repositories-in-your-organization/
   - /articles/setting-permissions-for-deleting-or-transferring-repositories

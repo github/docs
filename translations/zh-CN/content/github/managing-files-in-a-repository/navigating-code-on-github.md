@@ -27,13 +27,13 @@ versions:
 
 ### 跳至功能或方法的定义
 
-You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
+您可以在文件中单击函数或方法调用，跳至同一仓库中该函数或方法的定义。
 
 ![跳至定义选项卡](/assets/images/help/repository/jump-to-definition-tab.png)
 
 ### 查找函数或方法的所有引用
 
-You can find all references for a function or method within the same repository by clicking the function or method call in a file, then clicking the **References** tab.
+您可以在文件中单击函数或方法调用，然后单击 **References（引用）**选项卡，查找同一仓库中该函数或方法的所有引用。
 
 ![查找所有引用选项卡](/assets/images/help/repository/find-all-references-tab.png)
 

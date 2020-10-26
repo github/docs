@@ -1,5 +1,5 @@
 ---
-title: 'Documentação de Ajuda do {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %}'
+title: '{% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %}.com{% endif %} Documentação de ajuda'
 gettingStartedLinks:
   - /github/getting-started-with-github/set-up-git
   - /github/authenticating-to-github/connecting-to-github-with-ssh
@@ -11,8 +11,6 @@ popularLinks:
   - /github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line
   - /github/using-git/managing-remote-repositories
   - /github/working-with-github-pages
-versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
+versions: '*'
 ---
 

@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-発効日：**2020年12月8日**
+Effective date: **October 2, 2020**
 
 GitHubは、お客様のデータを当社が利用する方法、お客様のデータを当社が収集する方法、およびお客様のデータを共有する対象について、高い透明性を提供します。 この目的のため、当社は[当社のサブプロセッサ](#github-subprocessors)、[クッキー](#cookies-on-github)の使用方法、および[GitHubにおけるトラッキング](#tracking-on-github)を実施する場所とその方法について説明するページをご用意しました。
 
@@ -19,7 +19,7 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 当社がお客様の情報を、ベンダーやサービスプロバイダなどのサードパーティーのサブプロセッサと共有する場合、それについては当社が責任を負います。 新たなベンダーとのやり取りを行う際に、当社はお客様の信頼を維持するため努力し、全てのベンダーに対して、 ユーザの個人情報 ([プライバシーについての声明](/articles/github-privacy-statement/)の定義による) に関する取り扱いを制限する、データ保護契約を締結するよう要求しています。
 
 | サブプロセッサ名           | 処理の内容                           | 処理の場所 | Corporate Location |
-| ------------------ | ------------------------------- | ----- | ------------------ |
+|:------------------ |:------------------------------- |:----- |:------------------ |
 | Automattic         | ブログサービス                         | 米国    | 米国                 |
 | AWS Amazon         | データのホスティング                      | 米国    | 米国                 |
 | Braintree (PayPal) | プランのクレジットカード決済処理業者              | 米国    | 米国                 |
@@ -28,7 +28,7 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 | DiscoverOrg        | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
 | Eloqua             | マーケティングキャンペーンの自動化               | 米国    | 米国                 |
 | Google Apps        | 社内インフラストラクチャ                    | 米国    | 米国                 |
-| Google Analytics   | ウェブサイトの分析およびパフォーマンス             | 米国    | 米国                 |
+| Google Analytics   | Analytics and performance       | 米国    | 米国                 |
 | LinkedIn Navigator | マーケティングデータのエンリッチメントサービス         | 米国    | 米国                 |
 | Magic Robot        | キャンペーンレポート (Salesforceのアドオン)    | 米国    | 米国                 |
 | MailChimp          | 顧客チケットメールサービスプロバイダ              | 米国    | 米国                 |
@@ -49,63 +49,49 @@ GitHubは、お客様のデータを当社が利用する方法、お客様の�
 
 ### GitHub上のクッキー
 
-GitHubは、当社のサービスとのインターアクションを容易かつ有意義なものとするためにクッキーを利用します。 当社は、お客様のログインの保持、お客様の設定の記憶、GitHubの今後の開発のための情報提供、ならびにGitHubの製品およびサービスをサードパーティー上のサイトでお客様に宣伝することを目的として、クッキー (およびHTML5 localStorageのような類似技術) を利用します。
+GitHub uses cookies and similar technologies (collectively, “cookies”) to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
 
-クッキーとは、当社のウェブサーバーがお客様のコンピュータまたはモバイルデバイスに保存する小さなテキストで、お客様が当社のサイトに再訪したときにブラウザから送信されます。 単にGitHubにアクセスしただけで、クッキーがお客様を特定できるとは限りません。ただしクッキーは、ログインしている各ユーザーに対して一意の識別子を保存する場合があります。 当社は、お客様のログインの保持、お客様の設定の記憶およびGitHubの今後の開発のための情報提供を目的として、クッキーを使用します。 セキュリティ上の理由から、当社では、デバイスを識別するためにクッキーを利用しています。 当社のウェブサイトを利用することで、お客様は、お客様のコンピュータまたはデバイスにこれらの種類のクッキーを当社が保管することに同意したものとされます。 お客様がこれらのクッキーを許可するブラウザまたはデバイスの能力を無効にした場合、GitHubのサービスにログインまたは利用することはできなくなります。 当社ウェブサイトの一部の領域においては、お客様やお客様のデバイスを特定し、第三者のサイトでGitHubの製品およびサービスを宣伝するためクッキーを使用することがあります。
+Since the number and names of cookies may change,the table below may be updated from time to time.
 
-GitHubは、以下の理由により、以下のクッキーを当社のユーザーに設定します。
+| Service Provider   | Cookie Name                          | 説明                                                                                                                                         | Expiration*                                                   |
+|:------------------ |:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------- |
+| GitHub             | `app_manifest_token`                 | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session.            | five minutes                                                  |
+| GitHub             | `cookie-preferences`                 | This cookie is used to track user cookie preferences.                                                                                      | one year                                                      |
+| GitHub             | `_device_id`                         | This cookie is used to track recognized devices.                                                                                           | one year                                                      |
+| GitHub             | `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                                                                                | one year                                                      |
+| GitHub             | `_gh_ent`                            | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks                                                     |
+| GitHub             | `_gh_sess`                           | このクッキーは、ユーザが複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。                                                        | セッション                                                         |
+| GitHub             | `gist_oauth_csrf`                    | このクッキーは、OAuthフローを開始したユーザが、それを完了したユーザと同一であることを保証するために、Gistによって設定されます。                                                                       | deleted when oauth state is validated                         |
+| GitHub             | `gist_user_session`                  | このクッキーは、別のホストで実行されている場合にGistによって使用されます。                                                                                                    | two weeks                                                     |
+| GitHub             | `has_recent_activity`                | This cookie is used to prevent showing the security interstitial to users that have visited the app recently.                              | one hour                                                      |
+| GitHub             | `__Host-gist_user_session_same_site` | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。                                                                 | two weeks                                                     |
+| GitHub             | `__Host-user_session_same_site`      | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。                                                                 | two weeks                                                     |
+| GitHub             | `logged_in`                          | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                                                                                | one year                                                      |
+| GitHub             | `marketplace_repository_ids`         | This cookie is used for the marketplace installation flow.                                                                                 | one hour                                                      |
+| GitHub             | `marketplace_suggested_target_id`    | This cookie is used for the marketplace installation flow.                                                                                 | one hour                                                      |
+| GitHub             | `_octo`                              | This cookie is used by our internal analytics service to distinguish unique users and clients.                                             | one year                                                      |
+| GitHub             | `org_transform_notice`               | This cookie is used to provide notice during organization transforms.                                                                      | one hour                                                      |
+| GitHub             | `private_mode_user_session`          | This cookie is used for Enterprise authentication requests.                                                                                | two weeks                                                     |
+| GitHub             | `saml_csrf_token`                    | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                                                                       | until user closes browser or completes authentication request |
+| GitHub             | `saml_csrf_token_legacy`             | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                                                                       | until user closes browser or completes authentication request |
+| GitHub             | `saml_return_to`                     | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                                                                       | until user closes browser or completes authentication request |
+| GitHub             | `saml_return_to_legacy`              | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                                                                       | until user closes browser or completes authentication request |
+| GitHub             | `tz`                                 | このクッキーにより、ブラウザがどのお客様がどのタイムゾーンにいるか、ブラウザから当社に通知されます。                                                                                         | セッション                                                         |
+| GitHub             | `user_session`                       | このクッキーはログインに使用されます。                                                                                                                        | two weeks                                                     |
+| Google Analytics** | `_ga`                                | このクッキーは、Googleアナリティクスにより使用されます。                                                                                                            | two years                                                     |
+| Google Analytics** | `_gat`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                                                                            | one minute                                                    |
+| Google Analytics** | `_gid`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                                                                            | one day                                                       |
 
-| クッキーの名前                              | 理由                                                                                  |
-| ------------------------------------ | ----------------------------------------------------------------------------------- |
-| `user_session`                       | このクッキーはログインに使用されます。                                                                 |
-| `logged_in`                          | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         |
-| `dotcom_user`                        | このクッキーは、ユーザがすでにログインしていることを当社に通知するために使用されます。                                         |
-| `_gh_sess`                           | このクッキーは、ユーザが複数のステップのうちどのステップにあるのかなど、一時アプリケーションおよびフレームワークにおけるページ間での状態を記録するために使用されます。 |
-| `tz`                                 | このクッキーにより、ブラウザがどのお客様がどのタイムゾーンにいるか、ブラウザから当社に通知されます。                                  |
-| `gist_user_session`                  | このクッキーは、別のホストで実行されている場合にGistによって使用されます。                                             |
-| `saml_csrf_token`                    | このクッキーは、トークンをクライアントに関連付けるために、SAML認証パスメソッドによって設定されます。                                |
-| `saml_return_to`                     | このクッキーは、SAML認証ループ時に、状態を維持するためSAML認証パスメソッドによって設定されます。                                |
-| `gist_oauth_csrf`                    | このクッキーは、OAuthフローを開始したユーザが、それを完了したユーザと同一であることを保証するために、Gistによって設定されます。                |
-| `__Host-user_session_same_site`      | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          |
-| `__Host-gist_user_session_same_site` | このクッキーは、SameSiteクッキーをサポートするブラウザが、リクエストがGitHubから発信されているかどうかを確認できるように設定されます。          |
-| `_ga`                                | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_gat`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_gid`                               | このクッキーは、Googleアナリティクスにより使用されます。                                                     |
-| `_octo`                              | このクッキーは、当社の内部分析サービスであるOctolyticsが、一意のユーザーとクライアントを区別するために使用されます。                     |
-| `tracker`                            | このクッキーは、サインアップ分析の参照元を追跡します。                                                         |
+_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
 
-当社サイトの一部のページでは、第三者のクッキーを設定する場合があります。 たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。
+_**_ We use **Google Analytics** as a third party analytics service to collect information about how our website performs and how our users, in general, navigate through and use GitHub. This helps us evaluate our users' use of GitHub, compile statistical reports on activity, and improve our content and website performance.
+
+You can control your Google Analytics cookie preferences through our cookie preference link located at the footer of our website. In addition, Google provides further information about its own privacy practices and [offers a browser add-on to opt out of Google Analytics tracking](https://tools.google.com/dlpage/gaoptout).
+
+(!) Please note certain pages on our website may set other third party cookies. たとえば、クッキーを設定するサイトから、動画などのコンテンツを埋め込むことがあります。 第三者のクッキーは最小限に保つよう努めていますが、当社は第三者のコンテンツが設定するクッキーを常に管理できるわけではありません。
 
 ### GitHub上のトラッキング
 
-「[Do Not Track](https://www.eff.org/issues/do-not-track)」(DNT) とは、オンラインサービス (特に広告ネットワーク) に対して、第三者のトラッキングサービスからお客様のオンライン活動にする特定の種類の情報を収集して共有することを望まない場合に、ブラウザで設定できるプライバシー設定です。 GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 トラッキングを望まないことを通知するようブラウザに対して設定したい場合、この通知を有効化する方法について、ブラウザのドキュメントをご確認ください。 [Privacy Badger](https://www.eff.org/privacybadger)など、トラッキングをブロックする良いアプリケーションもあります。
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. GitHubは、ブラウザのDNTシグナルに応答し、[DNTシグナルへの応答についてのW3C基準](https://www.w3.org/TR/tracking-dnt/)に従います。 トラッキングを望まないことを通知するようブラウザに対して設定したい場合、この通知を有効化する方法について、ブラウザのドキュメントをご確認ください。 [Privacy Badger](https://www.eff.org/privacybadger)など、トラッキングをブロックする良いアプリケーションもあります。
 
-DNTをサポートするブラウザでDNTを有効にしていない場合、当社のウェブサイ」のうち一部は、お客様の他のサービスにおけるオンラインブラウジングアクティビティを繰り返しトラッキングします。ただし、当社は、当社のアナリティクスおよびサービスプロバイダ以外の第三者に対して、GitHub上のユーザのアクティビティを繰り返しトラッキングすることを許可しません。 当社は、GitHubの製品やサービスを第三者のウェブサイトやサービス上でお客様に宣伝するために、これらのクッキーを使用します。 また当社は、当社の特定のページにおける、訪問者の動きを追跡するために用いている分析プロバイダーなどの特定のベンダーと契約を締結しています。 当社を代行して個人情報を収集しているベンダーのみが、当社のページ上のデータを収集することができます。当社は、当社を代行してこのデータを収集する各ベンダーとデータ保護契約を締結しています。 当社は、これらのベンダーから受け取ったデータを使用して、訪問者の関心をより深く理解し、当社のウェブサイトのパフォーマンスを把握し、コンテンツを改善します。 分析ベンダーは全て、上記サブプロセッサのリストに掲載されます。また、この種のデータを収集する全ページを以下に掲載しています。
-
-#### Google Analytics
-
-当社は、第三者の分析サービスとしてGoogleアナリティクスを用いて、第三者のウェブサイト上やサービス上の当社による広告キャンペーンを追跡しています。 当社がGoogleアナリティクスを使用するのは、当社ウェブサイトのパフォーマンスや、一般的にユーザがGitHubを移動し使用する方法についての情報を収集するためです。 これは、当社のユーザによるGitHubの使用について評価し、アクティビティの統計的なレポートをまとめ、当社コンテンツおよびウェブサイトのパフォーマンスを改善するために役立ちます。 Googleは自らのプライバシープラクティスについて詳細に説明し、[Googleアナリティクスのトラッキングをオプトアウトするためのブラウザアドオンを提供しています](https://tools.google.com/dlpage/gaoptout)。
-
-#### 分析が有効になっている場合があるGitHub上のページ
-
-当社サイトで、URLに以下のドメインおよびパス (サブドメインおよびサブパス) のいずれかを含むページでは、分析やその他のトラッキングコードが有効になっている場合があります。 GitHub上で当社がお客様の閲覧行動についての情報を収集させたくない場合は、[Privacy Badger](https://www.eff.org/privacybadger)などのトラッキングブロッカーを使用するか、Googleアナリティクスのトラッキングをオプトアウトします。
-
-- github.com/home (ログアウトしている場合、またはアカウントを持っていない場合は、github.comに移動したときに表示されるページです)
-- github.com/about
-- github.blog
-- github.com/enterprise
-- github.com/collections
-- github.com/developer-stories
-- github.com/events
-- github.com/explore
-- github.com/features
-- github.com/logos
-- github.com/nonprofit
-- github.com/open-source
-- github.com/personal
-- github.com/pricing
-- github.com/ten
-- github.com/trending
-- resources.github.com
-- de.github.com
-- fr.github.com
+DNTをサポートするブラウザでDNTを有効にしていない場合、当社のウェブサイ」のうち一部は、お客様の他のサービスにおけるオンラインブラウジングアクティビティを繰り返しトラッキングします。ただし、当社は、当社のアナリティクスおよびサービスプロバイダ以外の第三者に対して、GitHub上のユーザのアクティビティを繰り返しトラッキングすることを許可しません。 We have agreements with certain vendors, such as analytics providers, who help us track visitors' movements on certain pages on our website. 当社を代行して個人情報を収集しているベンダーのみが、当社のページ上のデータを収集することができます。当社は、当社を代行してこのデータを収集する各ベンダーとデータ保護契約を締結しています。 当社は、これらのベンダーから受け取ったデータを使用して、訪問者の関心をより深く理解し、当社のウェブサイトのパフォーマンスを把握し、コンテンツを改善します。 Any analytics vendor will be listed in our [subprocessor list](#github-subprocessors), and you may see a list of every page where we collect this kind of data below.

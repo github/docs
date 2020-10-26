@@ -1,6 +1,6 @@
 ---
-title: 'Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde'
-intro: 'Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.'
+title: Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork erstellt wurde
+intro: Du kannst Änderungen an einen Pull-Request-Branch freigeben, der von einem Fork Deines Repositorys erstellt wurde, wenn die Erlaubnis des Pull-Request-Erstellers vorliegt.
 redirect_from:
   - /articles/committing-changes-to-a-pull-request-branch-created-from-a-fork
 versions:
@@ -22,7 +22,9 @@ Nur der Benutzer, der den Pull Request erstellt hat, kann Dir die Erlaubnis erte
 
 {% endnote %}
 
-1. Navigiere auf {% data variables.product.product_name %} zur Hauptseite des Forks (oder der Kopie Deines Repositorys), auf dem der Pull-Request-Branch erstellt wurde.
+1. On
+
+{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

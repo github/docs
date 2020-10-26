@@ -1,6 +1,6 @@
 ---
 title: Auslieferungsmethode für Deine Benachrichtigungen wählen
-intro: 'Du kannst Benachrichtigungen auf {% data variables.product.product_location %} empfangen oder über Deinen E-Mail-Client.'
+intro: 'Sie können Benachrichtigungen auf {% data variables.product.product_location %} empfangen oder über Ihren E-Mail-Client.'
 versions:
   enterprise-server: <2.21
 ---

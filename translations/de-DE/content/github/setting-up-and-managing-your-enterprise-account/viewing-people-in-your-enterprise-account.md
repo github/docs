@@ -16,6 +16,7 @@ Du kannst Enterprise-Inhaber und Abrechnungsmanager anzeigen, wie auch eine List
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
+1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**. !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/administrators-pending.png)
 
 ### Mitglieder und externe Mitarbeiter anzeigen
 
@@ -25,7 +26,8 @@ Du kannst alle {% data variables.product.prodname_ghe_cloud %}-Organisationen un
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-3. Wenn Du optional anstelle der Liste der Mitglieder eine Liste der externen Mitarbeiter anzeigen möchtest, klicke auf **Outside collaborators** (Externe Mitarbeiter). ![Registerkarte „Outside collaborators“ (Externe Mitarbeiter) auf der Seite „Organization members“ (Organisationsmitglieder)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. Wenn Du optional anstelle der Liste der Mitglieder eine Liste der externen Mitarbeiter anzeigen möchtest, klicke auf **Outside collaborators** (Externe Mitarbeiter). ![Registerkarte „Outside collaborators“ (Externe Mitarbeiter) auf der Seite „Organization members“ (Organisationsmitglieder)](/assets/images/help/business-accounts/outside-collaborators-tab.png)
+1. Optionally, to view a list of pending invitations, click **_NUMBER_ pending**. !["NUMBER pending" button to the right of search and filter options](/assets/images/help/enterprises/members-pending.png)
 
 ### Weiterführende Informationen
 

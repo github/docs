@@ -5,7 +5,7 @@ redirect_from:
   - /v4/guides/managing-enterprise-accounts
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 ### Sobre o gerenciamento de contas corporativas com o GraphQL
@@ -23,7 +23,7 @@ Com a API de Log de Auditoria, você pode monitorar quando alguém:
 - Promove usuários a admininistradores.
 - Altera as permissões de um aplicativo GitHub.
 
-A API de Log de Auditoria permite que você mantenha cópias dos seus dados do log de auditoria. Para consultas feitas com a API do Log de Auditoria, a resposta do GraphQL pode incluir dados de 90 a 120 dias. Para obter uma lista dos campos disponíveis na API do Log de Auditoria, consulte a "[interface AuditEntry](/v4/interface/auditentry/)".
+A API de Log de Auditoria permite que você mantenha cópias dos seus dados do log de auditoria. Para consultas feitas com a API do Log de Auditoria, a resposta do GraphQL pode incluir dados de 90 a 120 dias. Para obter uma lista dos campos disponíveis na API do Log de Auditoria, consulte a "[interface AuditEntry](/graphql/reference/interfaces#auditentry/)".
 
 Com a API de Contas corporativas, você pode:
 - Listar e revisar todas as organizações e repositórios que pertencem à conta corporativa.

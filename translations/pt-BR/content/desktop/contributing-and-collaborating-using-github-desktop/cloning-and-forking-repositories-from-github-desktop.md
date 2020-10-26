@@ -19,8 +19,8 @@ Também é possível clonar um repositório diretamente no {% data variables.pro
   ![Opção de menu Clone (Clonar) no app Mac](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Guias Location (Local) no menu Clone a repository (Clonar um repositório)](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-mac.png)
 4. Clique em **Choose...** (Escolher...). Em seguida, navegue pela janela Finder (Localizador) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher)](/assets/images/help/desktop/clone-choose-button-mac.png)
 5. Clique em **Clone** (Clonar). ![Botão Clone (Clonar)](/assets/images/help/desktop/clone-button-mac.png)
 
@@ -32,8 +32,8 @@ Também é possível clonar um repositório diretamente no {% data variables.pro
   ![Opção de menu Clone (Clonar) no app Windows](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![Guias Location (Local) no menu Clone a repository (Clonar um repositório)](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-win.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![Clonar uma lista de repositórios](/assets/images/help/desktop/clone-a-repository-list-win.png)
 4. Clique em **Choose...** (Escolher...). Em seguida, navegue pelo Windows Explorer (Explorador do Windows) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher)](/assets/images/help/desktop/clone-choose-button-win.png)
 5. Clique em **Clone** (Clonar). ![Botão Clone (Clonar)](/assets/images/help/desktop/clone-button-win.png)
 
