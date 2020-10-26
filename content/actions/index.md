@@ -162,7 +162,7 @@ versions:
           <h4>Publishing Node.js packages</h4>
           <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
           <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
+            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
             <span class="IssueLabel text-white bg-blue mr-2">CI</span>
           </div>
         </div>
