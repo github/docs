@@ -2,5 +2,5 @@
 EA_PRODUCTION_BRANCH: main
 
 # Set to the early-access branch you want to stage
-# This MUST match your docs branch name
+# This MUST match your docs-internal branch name
 EA_STAGING_BRANCH: main
