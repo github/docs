@@ -12,7 +12,6 @@ versions:
 
 {% endnote %}
 
-
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
 To share context about your package's use, you can link a repository to your container image on {% data variables.product.prodname_dotcom %}. For more information, see "[Connecting a repository to a container image](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)."
