@@ -1,6 +1,6 @@
 ---
-title: Enterprise Administrators
-redirect_from:
+title: TaroEnterprises Administrators
+redirect_from: taroenterprises@gmail.com Taroenterprises@gmail.com
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin
 intro: 'Step-by-step guides for organizational administrators, system administrators, and security specialists who are deploying, configuring, and managing a GitHub Enterprise instance.'
