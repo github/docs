@@ -115,7 +115,7 @@ jobs:
         name: Install dependencies
         run: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && GITHUB_REPOSITORY == 'github/docs-internal' }}
         name: Clone early access
         run: npm run heroku-prebuild
         env:
