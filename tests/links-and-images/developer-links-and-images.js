@@ -88,7 +88,7 @@ describe('page rendering', () => {
           languageCode
         )
 
-        context.operationsForCurrentProduct = context.rest.operations[currentOldVersion] || []
+        context.operationsForCurrentProduct = context.rest.operations[pageVersion] || []
 
         if (relevantPermalink.href.includes('rest/reference/')) {
           const docsPath = relevantPermalink.href
