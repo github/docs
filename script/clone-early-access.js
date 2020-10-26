@@ -28,15 +28,18 @@ const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.y
 // Early Access details
 const earlyAccessOwner = 'docs'
 const earlyAccessDir = 'early-access-test'
-const earlyAccessRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
+const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
-// production vs. staging environment
+// Production vs. staging environment
+// TODO test that this works as expected
 const environment = HEROKU_PRODUCTION_APP ? 'production' : 'staging'
+
+// Early access branch to clone
 const earlyAccessBranch = HEROKU_PRODUCTION_APP ? eaConfig.EA_PRODUCTION_BRANCH : eaConfig.EA_STAGING_BRANCH
 
-// confirm that the branch exists in the remote
-const branchExists = execSync(`git ls-remote --heads ${earlyAccessRepo} ${earlyAccessBranch}`).toString()
+// Confirm that the branch exists in the remote
+const branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
 if (!branchExists) {
   console.log(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessDir}. Exiting!`)
   process.exit(0)
@@ -46,7 +49,7 @@ if (!branchExists) {
 rimraf(earlyAccessContentDir)
 
 // Clone the repo
-execSync(`git clone --single-branch --branch ${earlyAccessBranch} ${earlyAccessRepo} ${earlyAccessContentDir}`)
+execSync(`git clone --single-branch --branch ${earlyAccessBranch} ${earlyAccessFullRepo} ${earlyAccessContentDir}`)
 console.log(`Using early-access ${environment} branch: '${earlyAccessBranch}'`)
 
 // Remove the .git dir
