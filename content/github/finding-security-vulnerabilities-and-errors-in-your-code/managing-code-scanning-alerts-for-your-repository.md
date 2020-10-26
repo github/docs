@@ -56,7 +56,7 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" d
 
 ### Dismissing or deleting alerts
 
-There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. Alternatively, you can delete alerts. Deleting alerts is useful in situations where you have enabled a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have enabled {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.
+There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have enabled a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have enabled {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.
 
 Dismissing an alert is a way of closing an alert that you don't think needs to be fixed. {% data reusables.code-scanning.close-alert-examples %} You can dismiss alerts from {% data variables.product.prodname_code_scanning %} annotations in code, or from the summary list within the **Security** tab.
 
@@ -81,7 +81,7 @@ To dismiss or delete alerts:
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 
-1. If you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
+1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
    ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
 
