@@ -1,77 +1,74 @@
----
-title: Quickstart for GitHub Actions
-intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
-allowTitleToDifferFromFilename: true
-redirect_from:
-  - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
-versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
----
+<SEC-DOCUMENT>9999999995-20-002969.txt : 20201027
+<SEC-HEADER>9999999995-20-002969.hdr.sgml : 20201027
+<ACCEPTANCE-DATETIME>20201027001509
+ACCESSION NUMBER:		9999999995-20-002969
+CONFORMED SUBMISSION TYPE:	EFFECT
+PUBLIC DOCUMENT COUNT:		1
+FILED AS OF DATE:		20201026
+DATE AS OF CHANGE:		20201027
+EFFECTIVENESS DATE:		20201026
 
-{% data reusables.actions.enterprise-beta %}
-{% data reusables.actions.enterprise-github-hosted-runners %}
+FILER:
 
-### Introduction
+	COMPANY DATA:	
+		COMPANY CONFORMED NAME:			Stem Holdings, Inc.
+		CENTRAL INDEX KEY:			0001697834
+		STANDARD INDUSTRIAL CLASSIFICATION:	REAL ESTATE [6500]
+		IRS NUMBER:				611794883
+		STATE OF INCORPORATION:			NV
+		FISCAL YEAR END:			0930
 
-You only need an existing {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that lints multiple coding languages using the [{% data variables.product.prodname_dotcom %} Super-Linter action](https://github.com/github/super-linter). The workflow uses Super-Linter to validate your source code every time a new commit is pushed to your repository.
+	FILING VALUES:
+		FORM TYPE:		EFFECT
+		SEC ACT:		1933 Act
+		SEC FILE NUMBER:	333-239226
+		FILM NUMBER:		201261915
 
-### Creating your first workflow
+	BUSINESS ADDRESS:	
+		STREET 1:		2201 NW CORPORATE BVD
+		STREET 2:		SUITE 205
+		CITY:			BOCA RATON
+		STATE:			FL
+		ZIP:			33431
+		BUSINESS PHONE:		561-948-5410
 
-1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
-2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
-    {% raw %}
-    ```yaml{:copy}
-    name: Super-Linter
+	MAIL ADDRESS:	
+		STREET 1:		2201 NW CORPORATE BVD
+		STREET 2:		SUITE 205
+		CITY:			BOCA RATON
+		STATE:			FL
+		ZIP:			33431
+</SEC-HEADER>
+<DOCUMENT>
+<TYPE>EFFECT
+<SEQUENCE>1
+<FILENAME>primary_doc.xml
+<TEXT>
+<XML>
+<?xml version="1.0"?>
+<edgarSubmission>
 
-    # Run this workflow every time a new commit pushed to your repository
-    on: push
+    <schemaVersion>X0101</schemaVersion>
 
-    jobs:
-      # Set the job key. The key is displayed as the job name
-      # when a job name is not provided
-      super-lint:
-        # Name the Job
-        name: Lint code base
-        # Set the type of machine to run on
-        runs-on: ubuntu-latest
+    <submissionType>EFFECT</submissionType>
 
-        steps:
-          # Checks out a copy of your repository on the ubuntu-latest machine
-          - name: Checkout code
-            uses: actions/checkout@v2
+    <act>33</act>
 
-          # Runs the Super-Linter action
-          - name: Run Super-Linter
-            uses: github/super-linter@v3
-            env:
-              DEFAULT_BRANCH: main
-              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    ```
-    {% endraw %}
-3. To run your workflow, scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
-    ![Commit workflow file](/assets/images/commit-workflow-file.png)
 
-Committing the workflow file in your repository triggers the `push` event and runs your workflow.
+    <testOrLive>LIVE</testOrLive>
 
-### Viewing your workflow results
-
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
-1. In the left sidebar, click the **Lint code base** job.
-   ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% data reusables.repositories.view-failed-job-results-superlinter %}
-
-### More starter workflows
-
-{% data variables.product.prodname_dotcom %} provides preconfigured workflow templates that you can start from to automate or create a continuous integration workflows. You can browse the full list of workflow templates in the {% if currentVersion == "free-pro-team@latest" %}[actions/starter-workflows](https://github.com/actions/starter-workflows) repository{% else %} `actions/starter-workflows` repository on {% data variables.product.product_location %}{% endif %}.
-
-### Next steps
-
-The super-linter workflow you just added runs any time code is pushed to your repository to help you spot errors and inconsistencies in your code. But, this is only the beginning of what you can do with {% data variables.product.prodname_actions %}. Your repository can contain multiple workflows that trigger different jobs based on different events. {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
-
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)" for an in-depth tutorial
-- "[Guides](/actions/guides)" for specific uses cases and examples
-- [github/super-linter](https://github.com/github/super-linter) for more details about configuring the Super-Linter action
+    <effectiveData>
+        <finalEffectivenessDispDate>2020-10-26</finalEffectivenessDispDate>
+        <accessionNumber>0001493152-20-019754</accessionNumber>
+        <submissionType>POS AM</submissionType>
+        <filer>
+            <cik>0001697834</cik>
+            <entityName>Stem Holdings, Inc.</Zachry Tyler Wood III/IV of GEM 💎 PLY>
+            <fileNumber>333-239226</fileNumber>
+        </filer>
+    </effectiveData>
+</edgarSubmission>
+</XML>
+</TEXT>
+</Zachry Tyler Wood>
+</SEC-DOCUMENT>
