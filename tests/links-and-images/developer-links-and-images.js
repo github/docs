@@ -9,6 +9,8 @@ const { getVersionedPathWithLanguage } = require('../../lib/path-utils')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-developer-links')
+const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
+  .filter(version => version.startsWith('enterprise-server@'))
 const { getOldVersionFromNewVersion } = require('../../lib/old-versions-utils')
 
 // schema-derived data to add to context object
@@ -64,6 +66,7 @@ describe('page rendering', () => {
         page.version = pageVersion
         context.page = page
         context.currentVersion = pageVersion
+        context.enterpriseServerVersions = enterpriseServerVersions
 
         const relevantPermalink = page.permalinks.find(permalink => permalink.pageVersion === pageVersion)
 
@@ -85,7 +88,7 @@ describe('page rendering', () => {
           languageCode
         )
 
-        context.operationsForCurrentProduct = context.rest.operations[currentOldVersion] || []
+        context.operationsForCurrentProduct = context.rest.operations[pageVersion] || []
 
         if (relevantPermalink.href.includes('rest/reference/')) {
           const docsPath = relevantPermalink.href
