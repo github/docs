@@ -17,9 +17,9 @@ Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. We
 
 Gists können öffentlich oder geheim sein. Öffentliche Gists werden in {% data variables.gists.discover_url %} angezeigt, wo Benutzer neue Gists nach der Erstellung durchsuchen können. Gists können auch gesucht werden, Du kannst sie also verwenden, wenn Du möchtest, dass andere Benutzer Deine Arbeit finden und ansehen können. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Wenn Dein Websiteadministrator den privaten Modus deaktiviert hat, kannst Du auch anonyme Gists verwenden, die öffentlich oder geheim sein können.
 

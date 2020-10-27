@@ -29,7 +29,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. No prompt, especifique o tipo de tecla que você quer ou pressione `Enter` para aceitar o padrão `RSA e DSA`.
+4. No prompt, especifique o tipo de chave desejada ou pressione `Enter` para aceitar o `RSA e RSA` padrão.
 5. Insira o tamanho de chave desejado. Sua chave deve ter, no mínimo, `4096` bits.
 6. Digite o prazo de validade da chave. Pressione `Enter` para estipular a seleção padrão, indicando que chave não expira.
 7. Verifique se suas seleções estão corretas.

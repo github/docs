@@ -29,7 +29,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if currentVersion != "free-pro-team@latest" %}
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
 
 If your instance has subdomain isolation enabled:
@@ -51,7 +51,7 @@ If your instance has subdomain isolation enabled:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```xml
@@ -90,7 +90,7 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
     - `OWNER` with the name of the user or organization account that owns the repository containing your project.
     - `REPOSITORY` with the name of the repository containing the package you want to publish.
-    - `1.0.0` with the version number of the package.{% if currentVersion != "free-pro-team@latest" %}
+    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
     - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">

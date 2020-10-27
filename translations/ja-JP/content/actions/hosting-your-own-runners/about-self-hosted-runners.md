@@ -91,7 +91,7 @@ versions:
 
 - macOS 10.13 (High Sierra)以降
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 

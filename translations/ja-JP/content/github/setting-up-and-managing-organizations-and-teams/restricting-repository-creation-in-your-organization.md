@@ -8,11 +8,11 @@ versions:
   enterprise-server: '*'
 ---
 
-メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 If you allow members to create repositories, you can choose which types of repositories members can create.{% if currentVersion == "free-pro-team@latest" %} To allow members to create private repositories only, your organization must use {% data variables.product.prodname_ghe_cloud %}.{% endif %} For more information, see "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
+メンバーが Organization でリポジトリを作成できるかどうかを選択できます。 メンバーにリポジトリの作成を許可する場合、メンバーが作成できるリポジトリの種類を選択できます。{% if currentVersion == "free-pro-team@latest" %}メンバーがプライベートリポジトリのみを作成することを許可する場合、Organization は {% data variables.product.prodname_ghe_cloud %} を使用する必要があります。{% endif %} 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
 
 Organization のオーナーは、いつでもどんなタイプの Team でも作成できます。
 
-{% if currentVersion == "free-pro-team@latest" %}Enterprise owners{% else %}Site administrators{% endif %} can restrict the options you have available for your organization's repository creation policy. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account)."{% else %}"[Restricting repository creation in your instance](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)."{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}Enterprise オーナー{% else %}サイト管理者{% endif %}は、Organization のリポジトリ作成ポリシーで使用できるオプションを制限できます。 詳細は、{% if currentVersion == "free-pro-team@latest" %}"「[Enterprise アカウントでリポジトリ管理ポリシーを施行する](/github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account)」{% else %}"[インスタンス内でのリポジトリの作成を制限する](/enterprise/admin/user-management/restricting-repository-creation-in-your-instance)」{% endif %}を参照してください。
 
 {% warning %}
 
@@ -26,5 +26,5 @@ Organization のオーナーは、いつでもどんなタイプの Team でも�
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository creation", select one or more options. ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. [Repository creation] で、1 つ以上のオプションを選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. [**Save**] をクリックします。

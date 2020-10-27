@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Dies sind die öffentlichen Schlüssel-Fingerprints von {% data variables.product.prodname_dotcom %}:
+These are {% data variables.product.prodname_dotcom %}'s public key fingerprints:
 
 - `SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8` (RSA)
 - `SHA256:br9IjFspm1vxR3iA35FWE+4VTyz1hYVLIE2t1/CeyWQ` (DSA)

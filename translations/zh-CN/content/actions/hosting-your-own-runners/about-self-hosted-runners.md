@@ -91,7 +91,7 @@ versions:
 
 - macOS 10.13 (High Sierra) 或更高版本
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 

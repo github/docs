@@ -1,5 +1,5 @@
 Basierend auf der Anzahl Deiner Benutzerlizenzen empfehlen wir die folgenden Instanztypen. |
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 | Benutzerlizenzen                                           | Empfohlener Typ |
 |:---------------------------------------------------------- | ---------------:|
 | Test, Demo oder 10 Benutzer mit eingeschränkten Funktionen |        r4.large |

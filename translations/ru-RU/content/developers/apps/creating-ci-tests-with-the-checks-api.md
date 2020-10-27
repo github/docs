@@ -143,8 +143,7 @@ def create_check_run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
-      # This header allows for beta access to Checks API
-      accept: 'application/vnd.github.antiope-preview+json',
+      accept: 'application/vnd.github.v3+json',
       # The name of your check run.
       name: 'Octo RuboCop',
       # The payload structure differs depending on whether a check run or a check suite event occurred.

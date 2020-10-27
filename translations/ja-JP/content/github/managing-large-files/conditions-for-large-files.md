@@ -16,4 +16,4 @@ versions:
 
 ### 大きなファイルのブロックされたプッシュ
 
-{% if currentVersion != "free-pro-team@latest" %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if currentVersion != "free-pro-team@latest" %}However, a site administrator can configure a different limit for your {% data variables.product.prodname_ghe_server %} instance. 詳しい情報については 、「[Git のプッシュ制限を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)」を参照してください。{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}デフォルトでは、{% endif %}{% data variables.product.product_name %}は{% data variables.large_files.max_github_size %}以上のプッシュをブロックします。 {% if enterpriseServerVersions contains currentVersion %}ただし、サイト管理者は、{% data variables.product.prodname_ghe_server %}インスタンスに別の制限を構成できます。 詳しい情報については 、「[Git のプッシュ制限を設定する](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)」を参照してください。{% endif %}
