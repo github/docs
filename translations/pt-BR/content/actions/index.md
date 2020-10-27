@@ -2,15 +2,16 @@
 title: Documentação do GitHub Actions
 shortTitle: GitHub Actions
 intro: 'Automatize, personalize e execute seus fluxos de trabalho de desenvolvimento do software diretamente no seu repositório com o {% data variables.product.prodname_actions %}. Você pode descobrir, criar e compartilhar ações para realizar qualquer trabalho que desejar, incluindo CI/CD, bem como combinar ações em um fluxo de trabalho completamente personalizado.'
-gettingStartedLinks:
-  - /actions/quickstart
-  - /actions/learn-github-actions
-guideLinks:
-  - /actions/managing-workflow-runs
-  - /actions/hosting-your-own-runners
-popularLinks:
-  - /actions/reference/workflow-syntax-for-github-actions
-  - /actions/reference/events-that-trigger-workflows
+featuredLinks:
+  gettingStarted:
+    - /actions/quickstart
+    - /actions/learn-github-actions
+  guide:
+    - /actions/managing-workflow-runs
+    - /actions/hosting-your-own-runners
+  popular:
+    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/reference/events-that-trigger-workflows
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -39,7 +40,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.getting_started %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in gettingStartedLinks %}
+      {% for link in featuredLinks.gettingStarted %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -50,7 +51,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in popularLinks %}
+      {% for link in featuredLinks.popular %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -61,7 +62,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Gerenciar fluxos de trabalho</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in guideLinks %}
+      {% for link in featuredLinks.guide %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
