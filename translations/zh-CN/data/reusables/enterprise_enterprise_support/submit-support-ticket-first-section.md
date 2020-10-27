@@ -9,7 +9,7 @@
     - Choose **{% data variables.product.support_ticket_priority_urgent %}** to report {% if currentVersion == "free-pro-team@latest" %}critical system failure{% else %}fatal system failures, outages impacting critical system operations, security incidents, and expired licenses{% endif %}.
     - Choose **{% data variables.product.support_ticket_priority_high %}** to report issues impacting business operations, including {% if currentVersion == "free-pro-team@latest" %}removing sensitive data (commits, issues, pull requests, uploaded attachments) from your own accounts and organization restorations{% else %}system performance issues{% endif %}, or to report critical bugs.
     - Choose **{% data variables.product.support_ticket_priority_normal %}** to {% if currentVersion == "free-pro-team@latest" %}request account recovery or spam unflagging, report user login issues{% else %}make technical requests like configuration changes and third-party integrations{% endif %}, and to report non-critical bugs.
-    - Choose **{% data variables.product.support_ticket_priority_low %}** to ask general questions and submit requests for new features, purchases, training, or health checks.{% if currentVersion != "free-pro-team@latest" %}
+    - 选择 **{% data variables.product.support_ticket_priority_low %}**，提出一般问题并提交关于新功能、购买、培训或状态检查的请求。{% if enterpriseServerVersions contains currentVersion %}
 1. From the "
 {% data variables.product.prodname_enterprise %} Series" drop-down menu, select the version of {% data variables.product.prodname_ghe_server %} you're using.
   ![{% data variables.product.prodname_enterprise %} 系列下拉菜单](/assets/images/enterprise/support/support-ticket-ghes-series.png)

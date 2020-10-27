@@ -59,7 +59,7 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. dessen ungeachtet steht unser Support-Team zur Verfügung, um dringende Tickets zu beantworten.
 
-| U.S. Weihnachtsfeiertag | Beobachtetes Datum             |
+| U.S. Weihnachtsfeiertag | Date observed                  |
 | ----------------------- | ------------------------------ |
 | Neujahr                 | 1. Januar                      |
 | Martin Luther King Day  | Dritter Montag im Januar       |

@@ -14,7 +14,7 @@ versions:
 
 Du kannst global über das gesamte {% data variables.product.product_name %} nach Paketen suchen, oder nur innerhalb einer bestimmten Organisation. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github).“
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 You can only search for packages on
 {% data variables.product.product_location_enterprise %}, not {% data variables.product.prodname_dotcom_the_website %}, even if {% data variables.product.prodname_github_connect %} is enabled.
 {% endif %}

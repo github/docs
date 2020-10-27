@@ -22,7 +22,7 @@ versions:
 
 - {% data reusables.search.required_login %}
 - [フォーク](/articles/about-forks)のコードは、親リポジトリより Star が多い場合に限って検索可能です。 親リポジトリより Star が少ないフォークは、コード検索ではインデックス**されません。** 親リポジトリより Star が多いフォークを検索結果に含めるためには、クエリに `fork:true` または `fork:only` を追加する必要があります。 詳細は「[フォーク内で検索する](/articles/searching-in-forks)」を参照してください。
-- Only the _default branch_ is indexed for code search.{% if currentVersion == "free-pro-team@latest" %}
+- コード検索では、_デフォルトブランチ_のみインデックスされます。{% if currentVersion == "free-pro-team@latest" %}
 - 384 KB より小さいファイルのみ検索可能です。{% else %}* 5 MB より小さいファイルのみ検索可能です。
 - 各ファイルの最初の 500 KB のみ検索可能です。{% endif %}
 - 500,000 より少ないファイル数のリポジトリのみ検索可能です。
@@ -101,5 +101,5 @@ versions:
 ### 参考リンク
 
 - 「[検索結果をソートする](/articles/sorting-search-results/)」
-- "[Searching in forks](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- [フォーク内を検索する](/articles/searching-in-forks){% if currentVersion == "free-pro-team@latest" %}
 - "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

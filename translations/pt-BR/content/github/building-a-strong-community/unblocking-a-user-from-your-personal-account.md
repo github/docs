@@ -22,7 +22,7 @@ Você pode desbloquear um usuário nas configurações da sua conta ou na págin
 ### Desbloquear usuários na página de perfil deles
 
 {% data reusables.profile.user_profile_page_navigation %}
-2. Na barra lateral esquerda, na foto de perfil do usuário, clique em **Unblock or report user** (Desbloquear ou denunciar usuário). ![Link Unblock or report user (Desbloquear ou denunciar usuário)](/assets/images/help/profile/profile-unblock-or-report-user.png)
+2. Na barra lateral esquerda, abaixo da imagem de perfil do usuário, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e, em seguida, clique em  **Desbloquear ou relatar usuário**. ![Link Unblock or report user (Desbloquear ou denunciar usuário)](/assets/images/help/profile/profile-unblock-or-report-user.png)
 3. Clique em **Unblock user** (Desbloquear usuário). ![Caixa de diálogo modal com opção para desbloquear o usuário ou denunciar um abuso](/assets/images/help/profile/profile-unblockuser.png)
 
 {% tip %}

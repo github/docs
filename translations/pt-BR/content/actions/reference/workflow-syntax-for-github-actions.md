@@ -946,7 +946,7 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
+Imagem Docker a ser usada como contêiner para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contém currentVersion e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro{% endif %} público.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.container.credentials`**
@@ -1029,7 +1029,7 @@ serviços:
 
 #### **`jobs.<job_id>.services.<service_id>.image`**
 
-Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if currentVersion != "free-pro-team@latest" e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro público{% endif %}.
+Imagem Docker a ser usada como contêiner de serviço para executar a ação. O valor pode ser o nome da imagem do Docker Hub ou um {% if enterpriseServerVersions contém currentVersion e currentVersion ver_lt "enterprise-server@2.23" %}nome de registro{% endif %} público.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 #### **`jobs.<job_id>.services.<service_id>.credentials`**

@@ -7,7 +7,7 @@
 | Elm: `elm`                       |                    |
 | gitサブモジュール:`gitsubmodule`        |                    |
 | GitHub Actions: `github-actions` |                    |
-| Goモジュール:`gomod`                  |                    |
+| Goモジュール:`gomod`                  |       **X**        |
 | Gradle: `gradle`                 |                    |
 | Maven: `maven`                   |                    |
 | Mix: `mix`                       |                    |
