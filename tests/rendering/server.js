@@ -49,14 +49,12 @@ describe('server', () => {
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
-    expect(csp.get('img-src').includes('*.google-analytics.com')).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
     expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
     expect(csp.get('script-src').includes("'unsafe-eval'")).toBe(true) // exception for Algolia instantsearch
     expect(csp.get('script-src').includes("'unsafe-inline'")).toBe(true)
-    expect(csp.get('script-src').includes('*.google-analytics.com')).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
