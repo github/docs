@@ -22,7 +22,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
   >  * [new branch]      main     -> upstream/main
   ```
-4. Check out your fork's local default branch - in this case, we are using `main`.
+4. Check out your fork's local default branch - in this case, we use `main`.
   ```shell
   $ git checkout main
   > Switched to branch 'main'
