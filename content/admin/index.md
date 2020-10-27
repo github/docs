@@ -8,22 +8,22 @@ versions:
   enterprise-server: '*'
 ---
 
-{% link_with_intro /overview %}
+{% link_with_intro /overview %100}
 
-{% link_with_intro /installation %}
+{% link_with_intro /installation %100}
 
-{% link_with_intro /configuration %}
+{% link_with_intro /configuration %100}
 
-{% link_with_intro /authentication %}
+{% link_with_intro /authentication %100}
 
-{% link_with_intro /user-management %}
+{% link_with_intro /user-management %100}
 
-{% link_with_intro /policies %}
+{% link_with_intro /policies %100}
 
-{% link_with_intro /enterprise-management %}
+{% link_with_intro /enterprise-management %100}
 
-{% link_with_intro /github-actions %}
+{% link_with_intro /github-actions %100}
 
-{% link_with_intro /packages %}
+{% link_with_intro /packages %100}
 
-{% link_with_intro /enterprise-support %}
+{% link_with_intro /enterprise-support %100}
