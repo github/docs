@@ -3,7 +3,7 @@ title: Enabling code scanning for a repository
 shortTitle: Enabling code scanning
 intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project''s repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permissions to a repository can enable {% data variables.product.prodname_code_scanning %} for the repository.'
+permissions: 'If you have write permissions to a repository, you can enable {% data variables.product.prodname_code_scanning %} for the repository.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning

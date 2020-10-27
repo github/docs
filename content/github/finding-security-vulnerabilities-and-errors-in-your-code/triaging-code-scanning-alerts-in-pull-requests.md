@@ -3,7 +3,7 @@ title: Triaging code scanning alerts in pull requests
 shortTitle: Triaging alerts in pull requests
 intro: 'When {% data variables.product.prodname_code_scanning %} identifies a problem in a pull request, you can review the highlighted code and resolve the alert.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with write permission to a repository can resolve {% data variables.product.prodname_code_scanning %} alerts.'
+permissions: 'If you have write permission to a repository, you can resolve {% data variables.product.prodname_code_scanning %} alerts.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'
