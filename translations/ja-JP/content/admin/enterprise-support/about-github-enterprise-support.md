@@ -59,21 +59,21 @@ versions:
 
 {% data variables.contact.enterprise_support %} は、以下の米国の祝日を休日としています。 ただし、緊急サポートチケットにはグローバルサポートチームが対応しています。
 
-| アメリカ合衆国の祝日 祝日               | Date observed in {{ "now"   | 日付: "%Y" }} |
-| --------------------------- | --------------------------- | ----------- |
-| New Year's Day              | January 1                   |             |
-| Martin Luther King, Jr. Day | Third Monday in January     |             |
-| Presidents' Day             | Third Monday in February    |             |
-| Memorial Day                | Last Monday in May          |             |
-| Independence Day            | July 4                      |             |
-| Labor Day                   | First Monday in September   |             |
-| Veterans Day                | November 12                 |             |
-| Thanksgiving Day            | Fourth Thursday in November |             |
-| Day after Thanksgiving      | Fourth Friday in November   |             |
-| Christmas Eve               | December 24                 |             |
-| Christmas Day               | December 25                 |             |
-| Day after Christmas         | December 26                 |             |
-| New Year's Eve              | December 31                 |             |
+| アメリカ合衆国の祝日 祝日                | Date observed |
+| --------------------------- | --------------------------- |
+| New Year's Day              | January 1                   |
+| Martin Luther King, Jr. Day | Third Monday in January     |
+| Presidents' Day             | Third Monday in February    |
+| Memorial Day                | Last Monday in May          |
+| Independence Day            | July 4                      |
+| Labor Day                   | First Monday in September   |
+| Veterans Day                | November 12                 |
+| Thanksgiving Day            | Fourth Thursday in November |
+| Day after Thanksgiving      | Fourth Friday in November   |
+| Christmas Eve               | December 24                 |
+| Christmas Day               | December 25                 |
+| Day after Christmas         | December 26                 |
+| New Year's Eve              | December 31                 |
 
 #### 日本の祝日
 

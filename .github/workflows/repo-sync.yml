@@ -14,10 +14,9 @@ env:
   FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
-  repo-sync:
-    name: Repo Sync
+  check-freezer:
+    name: Check for deployment freezes
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
 
     - name: Exit if repo is frozen
@@ -25,6 +24,12 @@ jobs:
       run: |
         echo 'The repo is currently frozen! Exiting this workflow.'
         exit 1 # prevents further steps from running
+
+  repo-sync:
+    name: Repo Sync
+    needs: check-freezer
+    runs-on: ubuntu-latest
+    steps:
 
     - name: Check out repo
       uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
@@ -40,7 +45,7 @@ jobs:
         github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
     - name: Create pull request
-      uses: repo-sync/pull-request@ea6773388b83b337e4da9a223293309f2c3670e7
+      uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
       env:
         GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
       with:
@@ -57,6 +62,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         branch: repo-sync
+        base: main
 
     - name: Approve pull request
       if: ${{ steps.find-pull-request.outputs.number }}
@@ -67,7 +73,10 @@ jobs:
 
     - name: Send Slack notification if workflow fails
       uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
-      if: failure()
+      if: ${{ failure() }}
       env:
         SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}
+        SLACK_USERNAME: docs-repo-sync
+        SLACK_ICON_EMOJI: ':ohno:'
+        SLACK_COLOR: '#B90E0A' # Crimson
         SLACK_MESSAGE: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
