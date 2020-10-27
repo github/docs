@@ -7,7 +7,7 @@
   </div>
   <pre><code><span class="bg-blue text-white rounded-1 px-2 py-1" style="text-transform: uppercase">{{operation.verb}}</span> {{operation.requestPath}}</code></pre>
   <div>
-    {% if operation.parameters.size > 0 %}
+    {% if operation.parameters.size > 0 or operation.bodyParameters.size > 0 %}
       <h4 id="{{operation.slug}}--parameters">
         <a href="#{{operation.slug}}--parameters">{% data ui.products.rest.reference.parameters %}</a>
       </h4>
