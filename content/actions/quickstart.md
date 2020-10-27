@@ -2,7 +2,7 @@
 title: Quickstart for GitHub Actions
 intro: 'Add a {% data variables.product.prodname_actions %} workflow to an existing repository in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
-redirect_from:
+redirect_hifrom:
   - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
 versions:
   free-pro-team: '*'
