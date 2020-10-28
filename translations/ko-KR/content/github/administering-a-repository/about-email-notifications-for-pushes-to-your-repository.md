@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
 

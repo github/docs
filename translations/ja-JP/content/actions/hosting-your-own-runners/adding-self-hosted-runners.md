@@ -50,14 +50,14 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 セルフホストランナーを Enterprise アカウントに追加するには、Enterprise のオーナーである必要があります。
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 セルフホストランナーを
 {% data variables.product.product_location %} の Enterprise レベルでを追加するには、サイト管理者である必要があります。
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}

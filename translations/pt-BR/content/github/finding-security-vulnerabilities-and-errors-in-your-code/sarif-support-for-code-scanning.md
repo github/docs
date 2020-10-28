@@ -36,6 +36,8 @@ Se o seu arquivo SARIF não incluir `partialFingerprints`, o campo `partialFinge
 
 ### Validar seu arquivo SARIF
 
+<!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
+
 Você pode marcar um arquivo SARIF compatível com {% data variables.product.prodname_code_scanning %} testando-o com as regras de ingestão de {% data variables.product.prodname_dotcom %}. Para obter mais informações, acesse o [validador do Microsoft SARIF](https://sarifweb.azurewebsites.net/).
 
 ### Propriedades compatíveis do arquivo de saída SARIF

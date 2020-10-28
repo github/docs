@@ -91,7 +91,7 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 
 - macOS 10.13 (High Sierra) or versão posterior
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 

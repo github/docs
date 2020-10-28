@@ -61,3 +61,12 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 {% endfor %}
 
 {% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Web 挂钩
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}

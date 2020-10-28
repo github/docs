@@ -17,9 +17,9 @@ Every gist is a Git repository, which means that it can be forked and cloned. If
 
 Gists can be public or secret. Public gists show up in {% data variables.gists.discover_url %}, where people can browse new gists as they're created. They're also searchable, so you can use them if you'd like other people to find and see your work. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Secret gists aren't private. If you send the URL of a secret gist to a friend, they'll be able to see it. However, if someone you don't know discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/articles/creating-a-new-repository) instead.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
 

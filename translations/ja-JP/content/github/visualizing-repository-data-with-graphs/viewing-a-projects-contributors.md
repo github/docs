@@ -13,7 +13,7 @@ versions:
 
 ### コントリビューターについて
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
+コントリビューターグラフで{% if enterpriseServerVersions contains currentVersion %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can also see a list of people who have contributed to the project's Python dependencies. この、コミュニティコントリビューターのリストを表示するには、`https://github.com/REPO-OWNER/REPO-NAME/community_contributors` にアクセスしてください。

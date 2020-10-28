@@ -41,11 +41,13 @@ size 84977953
 
 Sie erfasst die `version` von {% data variables.large_files.product_name_short %}, die Sie verwenden, gefolgt von einem eindeutigen Kennzeichner für die Datei (`oid`). Außerdem speichert sie die Größe (`size`) der endgültigen Datei.
 
-{% tip %}
+{% note %}
 
-**Tipp**: {% data variables.large_files.product_name_short %} kann nicht mit {% data variables.product.prodname_pages %}-Websites verwendet werden.
+**Hinweise**:
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### Weiterführende Informationen
 

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-For a full list, see "[Audited actions](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)." For more information on finding a particular action, see "[Searching the audit log](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)."
+リスト全体については「[監査されたアクション](/enterprise/{{ currentVersion }}/admin/guides/installation/audited-actions)」を参照してください。 特定のアクションの検索についての詳細は、「[Audit log を検索する](/enterprise/{{ currentVersion }}/admin/guides/installation/searching-the-audit-log)」を参照してください。
 
 ### プッシュのログ
 

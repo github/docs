@@ -11,7 +11,7 @@ LDAP あるいはビルトイン認証を使っている場合、{% data variabl
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-詳しい情報については[2FAをサポートする認証方式に関するこのチャート](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)を参照してください。
+詳しい情報については「[2 要素認証について](/github/authenticating-to-github/about-two-factor-authentication)」を参照してください。
 
 ### 2 要素認証実施にあたっての要件
 

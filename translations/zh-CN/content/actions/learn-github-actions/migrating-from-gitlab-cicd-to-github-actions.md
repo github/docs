@@ -67,7 +67,7 @@ jobs:
 </tr>
 </table>
 
-### Runners
+### 运行器
 
 Runners are machines on which the jobs run. Both GitLab CI/CD and {% data variables.product.prodname_actions %} offer managed and self-hosted variants of runners. In GitLab CI/CD, `tags` are used to run jobs on different platforms, while in {% data variables.product.prodname_actions %} it is done with the `runs-on` key.
 

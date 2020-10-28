@@ -57,7 +57,7 @@ Ao criar um grupo, é necessário escolher uma política que conceda acesso a to
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}

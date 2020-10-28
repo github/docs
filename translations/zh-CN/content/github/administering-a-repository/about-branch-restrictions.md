@@ -17,7 +17,7 @@ People and apps with admin permissions to a repository are always able to push t
 
 {% tip %}
 
-**Note:** If "Include administrators" is selected, you've enabled required status checks on the branch, and if any status checks fail, any attempt to push changes to the protected branch will also fail, even for people and apps with admin permissions. 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks)”。
+**注：**如果选中“Include administrators（包括管理员）”，并且您对分支启用了必需状态检查，如有任何状态检查失败，则即使是具有管理员权限的人员和应用，将更改推送到受保护分支的任何尝试也会失败。 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks)”。
 
 {% endtip %}
 

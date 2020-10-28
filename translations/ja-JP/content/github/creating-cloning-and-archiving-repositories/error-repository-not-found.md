@@ -42,7 +42,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 詳細は「[GitHub アカウントに新しい GPG キーを追加する](/articles/adding-a-new-gpg-key-to-your-github-account)」を参照してください。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### インスタンスがプライベートモードであるかを確認する
 

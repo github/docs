@@ -29,10 +29,10 @@ versions:
 - 您已复刻该仓库。
 - 您已打开仓库中的拉取请求或议题。
 - 您已为仓库加星标。
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### 贡献未计算的常见原因
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### 24 小时内进行的提交
 
