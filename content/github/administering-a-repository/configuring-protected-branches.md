@@ -39,3 +39,4 @@ To create an exception to an existing branch rule, you can create a new branch p
 - "[About branch restrictions](/github/administering-a-repository/about-branch-restrictions)"
 - "[Enabling branch restrictions](/github/administering-a-repository/enabling-branch-restrictions)"
 - "[About required commit signing](/github/administering-a-repository/about-required-commit-signing)"
+.
