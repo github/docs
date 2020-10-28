@@ -29,10 +29,10 @@ Além disso, **pelo menos uma** das seguintes afirmativas devem ser verdadeiras:
 - Você bifurcou o repositório.
 - Você abriu uma pull request ou um problema no repositório.
 - Você marcou o repositório como favorito.
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### Motivos comuns para as contribuições não serem contabilizadas
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### O commit foi criado menos de 24 horas atrás
 
@@ -67,7 +67,7 @@ Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-
 
 Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e você quiser que eles sejam contabilizados para suas contribuições, precisará seguir um destes procedimentos:
 - [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no branch `gh-pages` ou padrão.
-- [Alterar o branch padrão](/github/administering-a-repository/changing-the-default-branch) do repositório.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 

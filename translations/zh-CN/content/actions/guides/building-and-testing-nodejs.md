@@ -33,7 +33,7 @@ versions:
 要快速开始，请将模板添加到仓库的 `.github/workflows` 目录中。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]

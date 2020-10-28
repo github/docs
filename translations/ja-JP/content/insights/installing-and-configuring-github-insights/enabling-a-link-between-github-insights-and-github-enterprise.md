@@ -17,7 +17,7 @@ versions:
   ```
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. Return to
+3. 次に、
 {% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}

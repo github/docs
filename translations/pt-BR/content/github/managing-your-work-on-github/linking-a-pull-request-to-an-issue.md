@@ -13,7 +13,7 @@ versions:
 
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Observação:** As palavras-chave especiais na descrição de um pull request são interpretadas quando o pull request aponta para o branch-padrão do *repositório*. No entanto, se a base do PR's for *qualquer outro branch*, essas palavras-chave serão ignoradas, nenhum link será criado e o merge do PR não terá efeito sobre os problemas. **Se você deseja vincular um pull request a um problema usando uma palavra-chave, o PR deverá estar no branch-padrão.**
 
 {% endnote %}
 
@@ -41,7 +41,7 @@ Você pode vincular manualmente até dez problemas para cada pull request. O pro
 
 ### Vinculando uma pull request a um problema usando uma palavra-chave
 
-You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message (please note that the pull request must be on the default branch).
+Você pode vincular uma solicitação de pull a um problema usando uma palavra-chave compatível na descrição do pull request ou em uma mensagem de commit (observe que a solicitação do pull deve estar no branch-padrão).
 
 * close
 * closes

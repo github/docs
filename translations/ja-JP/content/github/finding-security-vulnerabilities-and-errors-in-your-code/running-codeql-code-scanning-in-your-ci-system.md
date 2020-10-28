@@ -10,6 +10,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
+<!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
+
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -18,7 +20,7 @@ versions:
 
 If you use a continuous integration or continuous delivery/deployment (CI/CD) system other than {% data variables.product.prodname_actions %}, you can use your existing system to run {% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_codeql %} analysis and upload the results to {% data variables.product.prodname_dotcom %}. To do this, use the {% data variables.product.prodname_codeql_runner %}.
 
-### About the {% data variables.product.prodname_codeql_runner %}
+### {% data variables.product.prodname_codeql_runner %} について
 
 {% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
 
@@ -38,7 +40,7 @@ On Linux:
 chmod +x codeql-runner-linux
 ```
 
-On MacOS:
+macOSの場合:
 
 ```shell
 chmod +x codeql-runner-macos
@@ -49,7 +51,7 @@ On Windows, the `codeql-runner-win.exe` file usually requires no change to permi
 
 ### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
 
-Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example: 
+Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example:
 
 ```shell
 wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20200826/codeql-runner-linux 
@@ -64,8 +66,9 @@ In addition to this, each CI server also needs:
 The options for providing access to the {% data variables.product.prodname_codeql %} bundle are:
 
 1. Allow the CI servers access to {% data variables.product.prodname_dotcom_the_website %} so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
-1. Manually download/extract the bundle, store it with other central resources, and use the `--codeql-path` flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
-{% if currentVersion != "free-pro-team@latest" %}
+1. Manually download/extract the bundle, store it with other central resources, and use the `--codeql-path` flag to specify the location of the bundle in calls to initialize the
+{% data variables.product.prodname_codeql_runner %}.
+{% if enterpriseServerVersions contains currentVersion %}
 1. You can mirror the `github/codeql-action` repository on {% data variables.product.product_location %}. Unless you specify the <nobr>`--codeql-path`</nobr> flag, the runner automatically checks for the bundle in this location and on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
 
 ### Calling the {% data variables.product.prodname_codeql_runner %}
@@ -75,7 +78,7 @@ You should call the {% data variables.product.prodname_codeql_runner %} from the
 1. `init` required to initialize the runner and create a {% data variables.product.prodname_codeql %} database for each language to be analyzed. These databases are populated and analyzed by subsequent commands.
 1. `analyze` required to populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload results to {% data variables.product.product_location %}.
 
-For both commands, you must specify the URL of {% data variables.product.product_location %}, the repository *OWNER/NAME*, and the GitHub Apps or personal access token to use for authentication. You also need to specify the location of the CodeQL bundle unless the CI server has access to download it directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {% data variables.product.product_location %}{% endif %}.
+For both commands, you must specify the URL of {% data variables.product.product_location %}, the repository *OWNER/NAME*, and the GitHub Apps or personal access token to use for authentication. You also need to specify the location of the CodeQL bundle unless the CI server has access to download it directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if enterpriseServerVersions contains currentVersion %} or mirrored on {% data variables.product.product_location %}{% endif %}.
 
 You can configure where the {% data variables.product.prodname_codeql_runner %} stores the CodeQL bundle for future analysis on a server using the <nobr>`--tools-dir`</nobr> flag and where it stores temporary files during analysis using <nobr>`--temp-dir`</nobr>.
 
@@ -109,7 +112,7 @@ This example runs {% data variables.product.prodname_codeql %} analysis on a Lin
     > Successfully uploaded results
     ```
 
-The server has access to download the {% data variables.product.prodname_codeql %} bundle directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {% data variables.product.product_location %}{% endif %}, so there is no need to use the `--codeql-path` flag. When the analysis is complete, the {% data variables.product.prodname_codeql_runner %} uploads the results to the {% data variables.product.prodname_code_scanning %} view. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+The server has access to download the {% data variables.product.prodname_codeql %} bundle directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if enterpriseServerVersions contains currentVersion %} or mirrored on {% data variables.product.product_location %}{% endif %}, so there is no need to use the `--codeql-path` flag. When the analysis is complete, the {% data variables.product.prodname_codeql_runner %} uploads the results to the {% data variables.product.prodname_code_scanning %} view. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
 #### Compiled language example
 
@@ -155,7 +158,7 @@ This example is similar to the previous example, however this time the repositor
 
 {% endnote %}
 
-### Further reading
+### 参考リンク
 
 - "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
 - "[Troubleshooting {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"

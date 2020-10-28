@@ -134,7 +134,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
 
   {% endnote %}
 
-## Versehentliche Commits künftig vermeiden
+### Versehentliche Commits künftig vermeiden
 
 Durch einige einfache Tricks vermeidest Du den versehentlichen Commit von Änderungen, die nicht festgeschrieben werden sollen:
 
@@ -145,5 +145,5 @@ Durch einige einfache Tricks vermeidest Du den versehentlichen Commit von Änder
 
 ### Weiterführende Informationen
 
-- [Hauptseite zu `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git-Tools – Verlauf umschreiben](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

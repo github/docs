@@ -10,7 +10,7 @@ versions:
 
 ### エディタツール
 
-ワークフローをスムーズにするために、Atom、Unity、Visual Studioといったサードパーティのエディタツール内から {% data variables.product.product_name %} リポジトリに接続できます。
+You can connect to {% data variables.product.product_name %} repositories within third-party editor tools, such as Atom, Unity, and Visual Studio.
 
 #### {% data variables.product.product_name %} for Atom
 
@@ -30,8 +30,12 @@ versions:
 
 ### プロジェクト管理ツール
 
-ワークフローをスムーズにするために、{% data variables.product.product_name %} 個人アカウントや Organization を、Jira などのサードパーティーのプロジェクト管理ツールと統合できます。
+You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
 
 #### Jira Cloud と {% data variables.product.product_name %}.com の統合
 
-Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。
+Jira Cloud を個人または Organization のアカウントに統合すると、コミットとプルリクエストをスキャンし、メンションされている JIRA の Issue で、関連するメタデータとハイパーリンクを作成できます。 For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
+
+#### Slack and {% data variables.product.product_name %} integration
+
+You can integrate Slack with your personal or organization account to subscribe for notifications, close or open issues, and provide rich references to issues and pull requests without leaving Slack. For more information, visit the [Slack integration app](https://github.com/marketplace/slack-github) in the marketplace.

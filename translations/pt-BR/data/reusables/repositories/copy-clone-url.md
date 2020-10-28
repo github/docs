@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 1. No nome do repositório, clique em **Clonar ou fazer download**. ![Botão Clone or download (Clonar ou baixar)](/assets/images/help/repository/clone-repo-clone-url-button.png)
 2. Para clonar o repositório usando HTTPS, em "Clonar com HTTPS", clique em
 {% octicon "clippy" aria-label="The clipboard icon" %}.

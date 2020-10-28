@@ -29,7 +29,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认的 `RSA and DSA`。
+4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认的 `RSA and RSA`。
 5. 输入所需的密钥长度。 密钥必须至少是 `4096` 位。
 6. 输入密钥的有效时长。 按 `Enter` 键将指定默认选择，表示该密钥不会过期。
 7. 验证您的选择是否正确。

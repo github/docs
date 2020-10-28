@@ -51,7 +51,7 @@ The number of jobs you can run concurrently across all repositories in your user
 At the end of the month, {% data variables.product.prodname_dotcom %} calculates the cost of minutes and storage used over the amount included in your account. For example, if your organization uses {% data variables.product.prodname_team %} and allows unlimited spending, using 15,000 minutes could have a total storage and minute overage cost of $56, depending on the operating systems used to run jobs.
 
 - 5,000 (3,000 Linux and 2,000 Windows) minutes = $56 ($24 + $32).
-  - 3,000 Linux minutes at $0.008 per = $24.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2,000 Windows minutes at $0.016 per minute = $32.
 
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your data transfer to the nearest GB.

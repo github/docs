@@ -106,7 +106,7 @@ end
 
 #### 检查授予的作用域
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求和授予的范围的更多信息，请参阅“[OAuth 应用程序的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
 授予的作用域在交换令牌的响应中返回。
 

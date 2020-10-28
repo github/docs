@@ -163,25 +163,10 @@ If you are a member of more than one organization, you can configure each one to
 ### Security alert notification options
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. 您可以在收件箱中接收 {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} 安全警报 {% endif %}、作为 {% data variables.product.product_name %} 的横幅、在命令行上接收、通过电子邮件接收，或使用这些选项的一些组合。
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-如果您想通过电子邮件接收 {% data variables.product.prodname_dependabot_alerts %} ，请选择您是想每周接收最多 10 个仓库的漏洞电子邮件摘要，还是在每次检测到漏洞时接收一封新的电子邮件。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 {% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. 您可以在收件箱中接收安全警报、作为 {% data variables.product.product_name %} 的横幅、在命令行上接收、通过电子邮件接收，或使用这些选项的一些组合。
-
-如果您想通过电子邮件接收安全警报 ，请选择您是想每周接收最多 10 个仓库的漏洞电子邮件摘要，还是在每次检测到漏洞时接收一封新的电子邮件。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。 {% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} 警报选项](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![安全警报选项](/assets/images/help/notifications-v2/security-alerts-options.png)
-{% endif %}
-
-{% note %}
-
-**Note:** You can filter your {% data variables.product.company_short %} inbox notifications by {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts. 更多信息请参阅“[从收件箱管理通知](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)”。
-
-{% endnote %}
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
