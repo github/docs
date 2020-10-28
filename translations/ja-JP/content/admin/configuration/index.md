@@ -53,7 +53,7 @@ versions:
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 {% note %}
 
-**Note:** To configure {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} for your enterprise, see "[Managing GitHub Actions for your enterprise](/admin/github-actions)" or "[Managing GitHub Packages for your enterprise](/admin/packages)."
+**注釈:** Enterprise 向けに {% data variables.product.prodname_actions %} または {% data variables.product.prodname_registry %} を設定するには、「[GitHub Actions を Enterprise 向けに管理する](/admin/github-actions)」または「[GitHub Packages を Enterprise 向けに管理する](/admin/packages)」を参照してください。
 
 {% endnote %}
 {% endif %}

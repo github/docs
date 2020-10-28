@@ -48,7 +48,7 @@ Daten zwischen Aufträgen freigeben:
 * **Dateien hochladen**: Gib der hochgeladenen Datei einen Namen und lade die Daten hoch, bevor der Job endet.
 * **Dateien herunterladen**: Du kannst nur Artefakte herunterladen, die während des gleichen Workflow-Laufs hochgeladen wurden. Wenn Du eine Datei herunterlädst, kannst Du sie mit Namen referenzieren.
 
-Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben finden Sie unter „[Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)“.
+Die Steps („Schritte“) eines Jobs teilen sich die selbe Umgebung auf der Runner-Maschine, laufen aber in ihren eigenen individuellen Prozessen. Mithilfe von Ein- und Ausgaben können Sie Daten zwischen den Schritten in einem Auftrag weitergeben. Weitere Informationen zu Ein- und Ausgaben findest Du unter „[Metadatensyntax für {% data variables.product.prodname_actions %}](/articles/metadata-syntax-for-github-actions)“.
 
 ### Build- und Testartefakte hochladen
 
@@ -74,7 +74,7 @@ Zum Beispiel kann Dein Projektarchiv oder eine Webanwendung SASS- und TypeScript
 |   
 ```
 
-In diesem Beispiel wird gezeigt, wie Du einen Workflow für ein Node.js-Projekt erstellst, das den Code im `src`-Verzeichnis `erstellt` und die Tests im `tests`-Verzeichnis ausführt. Wenn `npm test` ausgeführt wird, wird im Verzeichnis `output/test/` ein Bericht zur Codeabdeckung mit dem Namen `code-coverage.html` erstellt und gespeichert.
+In diesem Beispiel wird gezeigt, wie Sie einen Workflow für ein Node.js-Projekt erstellen, das den Code im src-Verzeichnis `erstellt` und die Tests im `tests`-Verzeichnis ausführt. Wenn `npm test` ausgeführt wird, wird im Verzeichnis `output/test/` ein Bericht zur Codeabdeckung mit dem Namen `code-coverage.html` erstellt und gespeichert.
 
 Der Workflow lädt die Produktionsartefakte in das `dist` Verzeichnis, schließt jedoch alle Markdowndateien aus. Es lädt auch die `code-coverage.html` Bericht als ein weiteres Artefakt.
 

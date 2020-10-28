@@ -1,6 +1,6 @@
 ---
 title: Running CodeQL code scanning in your CI system
-shortTitle: Running in your CI
+shortTitle: 在 CI 中运行
 intro: 'You can use the {% data variables.product.prodname_codeql_runner %} to perform {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} in a third-party continuous integration system.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -10,6 +10,8 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
+<!--UI-LINK: When GitHub Enterprise Server doesn't have GitHub Actions set up, the Security > Code scanning alerts view links to this article.-->
+
 {% data reusables.code-scanning.beta-codeql-runner %}
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
@@ -18,76 +20,83 @@ versions:
 
 If you use a continuous integration or continuous delivery/deployment (CI/CD) system other than {% data variables.product.prodname_actions %}, you can use your existing system to run {% data variables.product.prodname_dotcom %}'s {% data variables.product.prodname_codeql %} analysis and upload the results to {% data variables.product.prodname_dotcom %}. To do this, use the {% data variables.product.prodname_codeql_runner %}.
 
-### About the {% data variables.product.prodname_codeql_runner %}
+### 关于 {% data variables.product.prodname_codeql_runner %}
 
-{% data reusables.code-scanning.about-code-scanning %} For information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+{% data reusables.code-scanning.about-code-scanning %} 更多信息请参阅“[关于 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-You can use the {% data variables.product.prodname_codeql_runner %} to run {% data variables.product.prodname_code_scanning %} on code that you're processing in a third-party continuous integration (CI) system. Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_location %}. For information, see "[Enabling {% data variables.product.prodname_code_scanning %} for a repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)."
+您可以使用 {% data variables.product.prodname_codeql_runner %} 在第三方持续集成 (CI) 系统中处理的代码上运行 {% data variables.product.prodname_code_scanning %}。 您也可以使用 {% data variables.product.prodname_actions %} 在 {% data variables.product.product_location %} 上运行 {% data variables.product.prodname_code_scanning %}。 更多信息请参阅“[为仓库启用 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning-for-a-repository)”。
 
-The {% data variables.product.prodname_codeql_runner %} is a command-line tool that runs {% data variables.product.prodname_codeql %} analysis on a checkout of a {% data variables.product.prodname_dotcom %} repository. You add the runner to your third-party system, then call the runner to analyze code and upload the results to {% data variables.product.product_location %}. These results are displayed as {% data variables.product.prodname_code_scanning %} alerts in the repository.
+{% data variables.product.prodname_codeql_runner %} 是在 {% data variables.product.prodname_dotcom %} 仓库的检出上运行 {% data variables.product.prodname_codeql %} 分析的命令行工具。 您可以将运行器添加到第三方系统，然后调用运行器以分析代码并将结果上传到 {% data variables.product.product_location %}。 这些结果在仓库中显示为 {% data variables.product.prodname_code_scanning %} 警报。
 
 {% data reusables.code-scanning.codeql-runner-license %}
 
-### Downloading the {% data variables.product.prodname_codeql_runner %}
+### 下载 {% data variables.product.prodname_codeql_runner %}
 
-You can download the {% data variables.product.prodname_codeql_runner %} from https://github.com/github/codeql-action/releases. On some operating systems, you may need to change permissions for the downloaded file before you can run it.
+您可以从 https://github.com/github/codeql-action/releases 下载 {% data variables.product.prodname_codeql_runner %}。 在某些操作系统上，您可能需要更改下载文件的权限才能运行它。
 
-On Linux:
+在 Linux 上：
 
 ```shell
 chmod +x codeql-runner-linux
 ```
 
-On MacOS:
+在 MacOS 上：
 
 ```shell
 chmod +x codeql-runner-macos
 sudo xattr -d com.apple.quarantine codeql-runner-macos
 ```
 
-On Windows, the `codeql-runner-win.exe` file usually requires no change to permissions.
-
-### Adding the {% data variables.product.prodname_codeql_runner %} to your CI system
-
-Once you have downloaded the {% data variables.product.prodname_codeql_runner %} and verified that it can be executed, you should make the runner available to each CI server that you intend to use for {% data variables.product.prodname_code_scanning %}. It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example: 
-
-```shell
-wget https://github.com/github/codeql-action/releases/download/codeql-bundle-20200826/codeql-runner-linux 
-chmod +x codeql-runner-linux
-```
-
-In addition to this, each CI server also needs:
-
-- A {% data variables.product.prodname_github_apps %} or personal access token for the {% data variables.product.prodname_codeql_runner %} to use. For private repositories  the token must have the `repo` scope. For public the token needs only the `public_repo` and `repo:security_events` scopes. For information, see "[Building {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)" and "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
-- Access to the {% data variables.product.prodname_codeql %} bundle associated with this release of the {% data variables.product.prodname_codeql_runner %}. This package contains the {% data variables.product.prodname_codeql %} CLI, queries, and libraries needed for {% data variables.product.prodname_codeql %} analysis. For information, see "[{% data variables.product.prodname_codeql %} CLI](https://help.semmle.com/codeql/codeql-cli.html)."
-
-The options for providing access to the {% data variables.product.prodname_codeql %} bundle are:
-
-1. Allow the CI servers access to {% data variables.product.prodname_dotcom_the_website %} so that the {% data variables.product.prodname_codeql_runner %} can download the bundle automatically.
-1. Manually download/extract the bundle, store it with other central resources, and use the `--codeql-path` flag to specify the location of the bundle in calls to initialize the {% data variables.product.prodname_codeql_runner %}.
-{% if currentVersion != "free-pro-team@latest" %}
-1. You can mirror the `github/codeql-action` repository on {% data variables.product.product_location %}. Unless you specify the <nobr>`--codeql-path`</nobr> flag, the runner automatically checks for the bundle in this location and on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}
-
-### Calling the {% data variables.product.prodname_codeql_runner %}
-
 You should call the {% data variables.product.prodname_codeql_runner %} from the checkout location of the repository you want to analyze. The two main commands are:
 
-1. `init` required to initialize the runner and create a {% data variables.product.prodname_codeql %} database for each language to be analyzed. These databases are populated and analyzed by subsequent commands.
-1. `analyze` required to populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload results to {% data variables.product.product_location %}.
+### 将 {% data variables.product.prodname_codeql_runner %} 添加到 CI 系统
 
-For both commands, you must specify the URL of {% data variables.product.product_location %}, the repository *OWNER/NAME*, and the GitHub Apps or personal access token to use for authentication. You also need to specify the location of the CodeQL bundle unless the CI server has access to download it directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {% data variables.product.product_location %}{% endif %}.
+下载 {% data variables.product.prodname_codeql_runner %} 并确认它可执行后，应将运行器提供给您打算用于 {% data variables.product.prodname_code_scanning %} 的每个 CI 服务器。 It is important to notice that each CI server that you intend to use for {% data variables.product.prodname_code_scanning %} needs to have the {% data variables.product.prodname_codeql_runner %}. You might configure each server to copy the runner from a central, internal location, or you could use the REST API to get the runner direct from GitHub, for example:
 
-You can configure where the {% data variables.product.prodname_codeql_runner %} stores the CodeQL bundle for future analysis on a server using the <nobr>`--tools-dir`</nobr> flag and where it stores temporary files during analysis using <nobr>`--temp-dir`</nobr>.
+```shell
+$ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
+        --github-url {% data variables.command_line.git_url_example %} --github-auth TOKEN
+    > Cleaning temp directory /srv/checkout/example-repo-2/codeql-runner
+    > ...
+    > CodeQL environment output to "/srv/checkout/example-repo-2/codeql-runner/codeql-env.json"
+      and "/srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
+      Please export these variables to future processes so the build can be traced, for example by running "
+      . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh".
+```
 
-To view the command-line reference for the runner, use the `-h` flag. For example, to list all commands run: `codeql-runner-OS -h`, or to list all the flags available for the `init` command run: `codeql-runner-OS init -h` (where `OS` varies according to the executable that you are using). For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)."
+除此之外，每个 CI 服务器还需要：
 
-#### Basic example
+- {% data variables.product.prodname_github_apps %} 或供 {% data variables.product.prodname_codeql_runner %} 使用的个人访问令牌。 对于私有仓库，令牌必须具有 `repo` 作用域。 对于公共仓库，令牌只需要 `public_repo` 和 `repo:security_events` 作用域。 更多信息请参阅“[构建 {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps)”和“[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。
+- 访问与此 {% data variables.product.prodname_codeql_runner %} 发行版相关联的 {% data variables.product.prodname_codeql %} 包。 此包包含 {% data variables.product.prodname_codeql %} 分析所需的 {% data variables.product.prodname_codeql %} CLI、查询和库。 更多信息请参阅“[{% data variables.product.prodname_codeql %} CLI](https://help.semmle.com/codeql/codeql-cli.html)”。
 
-This example runs {% data variables.product.prodname_codeql %} analysis on a Linux CI server for the `octo-org/example-repo` repository hosted on `{% data variables.command_line.git_url_example %}`. The process is very simple because the repository contains only languages that can be analyzed by {% data variables.product.prodname_codeql %} directly, without being built (that is, Go, JavaScript, Python, and TypeScript).
+提供 {% data variables.product.prodname_codeql %} 包访问权限的选项：
 
-1. Check out the repository to analyze.
-1. Move into the directory where the repository is checked out.
-1. Initialize the {% data variables.product.prodname_codeql_runner %} and create {% data variables.product.prodname_codeql %} databases for the languages detected.
+1. 允许 CI 服务器访问 {% data variables.product.prodname_dotcom_the_website %}，以便 {% data variables.product.prodname_codeql_runner %} 可以自动下载包。
+1. Manually download/extract the bundle, store it with other central resources, and use the `--codeql-path` flag to specify the location of the bundle in calls to initialize the
+{% data variables.product.prodname_codeql_runner %}.
+{% if enterpriseServerVersions contains currentVersion %}
+1. 您可以在 {% data variables.product.product_location %} 上镜像 `github/codeql-action` 仓库。 除非您指定 <nobr>`--codeql-path`</nobr> 标志，否则运行器将在此位置和 {% data variables.product.prodname_dotcom_the_website %}上自动检查包。{% endif %}
+
+### 调用 {% data variables.product.prodname_codeql_runner %}
+
+您应该从要分析的仓库的检出位置调用 {% data variables.product.prodname_codeql_runner %}。 两个主要命令是：
+
+1. `init` 需要初始化运行器并为需要分析的每种语言创建一个 {% data variables.product.prodname_codeql %} 数据库。 这些数据库由后续命令填充和分析。
+1. `analyze` 需要填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 {% data variables.product.product_location %}。
+
+对于这两个命令，都必须指定 {% data variables.product.product_location %} 的 URL、仓库*所有者/名称*以及 GitHub 应用程序或用于身份验证的个人访问令牌。 您还需要指定 CodeQL 包的位置，除非 CI 服务器有权直接从 {% data variables.product.prodname_dotcom_the_website %} 上{% if enterpriseServerVersions contains currentVersion %}或在 {% data variables.product.product_location %} 上镜像{% endif %}的 `github/codeql-action` 仓库下载它。
+
+您可以配置 {% data variables.product.prodname_codeql_runner %} 存储 CodeQL 包的位置以便将来在服务器上进行分析，使用： <nobr>`--tools-dir`</nobr> 标志；并配置在分析过程中存储临时文件的位置，使用： <nobr>`--temp-dir`</nobr>.
+
+要查看运行器的命令行引用，请使用 `-h` 标志。 例如，要列出所有运行的命令：`codeql-runner-OS -h`，或列出所有可用于 `init` 命令运行的标志：`codeql-runner-OS init -h`（其中 `OS` 因使用的可执行文件而异）。 For more information, see "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system#codeql-runner-command-reference)."
+
+#### 基本示例
+
+此示例在 Linux CI 服务器上对托管在 `{% data variables.command_line.git_url_example %}` 上的 `octo-org/example-repo` 仓库运行 {% data variables.product.prodname_codeql %} 分析。 这个过程非常简单，因为仓库只包含可通过 {% data variables.product.prodname_codeql %} 直接分析的语言，而无需构建（例如 Go、JavaScript、Python 和 TypeScript）。
+
+1. 检出要分析的仓库。
+1. 移至检出仓库的目录。
+1. 初始化 {% data variables.product.prodname_codeql_runner %} 并为检测到的语言创建 {% data variables.product.prodname_codeql %}。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo
@@ -97,7 +106,7 @@ This example runs {% data variables.product.prodname_codeql %} analysis on a Lin
     > Created CodeQL database at /srv/checkout/example-repo/codeql-runner/codeql_databases/javascript.
     ```
 
-1. Populate the {% data variables.product.prodname_codeql_runner %} databases, analyze them, and upload the results to {% data variables.product.product_name %}.
+1. 填充 {% data variables.product.prodname_codeql_runner %} 数据库、进行分析并将结果上传到 {% data variables.product.product_name %}。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo
@@ -109,15 +118,15 @@ This example runs {% data variables.product.prodname_codeql %} analysis on a Lin
     > Successfully uploaded results
     ```
 
-The server has access to download the {% data variables.product.prodname_codeql %} bundle directly from the `github/codeql-action` repository on {% data variables.product.prodname_dotcom_the_website %}{% if currentVersion != "free-pro-team@latest" %} or mirrored on {% data variables.product.product_location %}{% endif %}, so there is no need to use the `--codeql-path` flag. When the analysis is complete, the {% data variables.product.prodname_codeql_runner %} uploads the results to the {% data variables.product.prodname_code_scanning %} view. For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
+服务器有权直接从 {% data variables.product.prodname_dotcom_the_website %} 上{% if enterpriseServerVersions contains currentVersion %}或在 {% data variables.product.product_location %} 上镜像{% endif %}的 `github/codeql-action` 仓库下载 {% data variables.product.prodname_codeql %} 包，因此无需使用 `--codeql-path` 标志。 分析完成后， {% data variables.product.prodname_codeql_runner %} 会将结果上传到 {% data variables.product.prodname_code_scanning %} 视图。 For more information, see "[Managing {% data variables.product.prodname_code_scanning %} alerts for your repository](/github/finding-security-vulnerabilities-and-errors-in-your-code/managing-code-scanning-alerts-for-your-repository)."
 
-#### Compiled language example
+#### 编译语言示例
 
-This example is similar to the previous example, however this time the repository has code in C/C++, C#, or Java. To create a {% data variables.product.prodname_codeql %} database for these languages, the CLI needs to monitor the build. At the end of the initialization process, the runner reports the command you need to set up the environment before building the code. You need to run this command, before calling the normal CI build process, and then running the `analyze` command.
+此示例与前面的示例相似，但此例中的仓库含有用 C/C++、C# 或 Java 编写的代码。 To create a {% data variables.product.prodname_codeql %} database for these languages, the CLI needs to monitor the build. 在初始化过程结束时，运行器会报告您需要在构建代码之前设置环境的命令。 您需要在调用正常的 CI 构建进程之前运行此命令，然后运行 `analyze` 命令。
 
-1. Check out the repository to analyze.
-1. Move into the directory where the repository is checked out.
-1. Initialize the {% data variables.product.prodname_codeql_runner %} and create {% data variables.product.prodname_codeql %} databases for the languages detected.
+1. 检出要分析的仓库。
+1. 移至检出仓库的目录。
+1. 初始化 {% data variables.product.prodname_codeql_runner %} 并为检测到的语言创建 {% data variables.product.prodname_codeql %}。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux init --repository octo-org/example-repo-2
@@ -136,8 +145,8 @@ This example is similar to the previous example, however this time the repositor
     $ . /srv/checkout/example-repo-2/codeql-runner/codeql-env.sh
     ```
 
-1. Build the code.
-1. Populate the {% data variables.product.prodname_codeql %} databases, analyze them, and upload the results to GitHub.
+1. 构建代码。
+1. 填充 {% data variables.product.prodname_codeql %} 数据库、进行分析并将结果上传到 GitHub。
 
     ```shell
     $ /path/to-runner/codeql-runner-linux analyze --repository octo-org/example-repo-2
@@ -151,11 +160,11 @@ This example is similar to the previous example, however this time the repositor
 
 {% note %}
 
-**Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_runner %} in the container where your build task takes place.
+**注：**如果使用容器化构建，您需要在进行构建任务的容器中运行 {% data variables.product.prodname_codeql_runner %}。
 
 {% endnote %}
 
-### Further reading
+### 延伸阅读
 
-- "[Configuring {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
-- "[Troubleshooting {% data variables.product.prodname_code_scanning %} in your CI system](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"
+- "[在 CI 系统中配置 {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-codeql-code-scanning-in-your-ci-system)"
+- "[CI 系统中的{% data variables.product.prodname_code_scanning %} 故障排除](/github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-codeql-code-scanning-in-your-ci-system)"

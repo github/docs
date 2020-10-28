@@ -43,12 +43,12 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 
 ##### Parameters
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
+| Name           | Typ      | Beschreibung                                                                                                                                                                                                                                                 |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `client_id`    | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.                                                                                                 |
+| `redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters. |
+| `state`        | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.                                                                                                                                           |
+| `login`        | `string` | Suggests a specific account to use for signing in and authorizing the app.                                                                                                                                                                                   |
 
 {% note %}
 
@@ -74,13 +74,13 @@ Expiring user tokens are currently part of the user-to-server token expiration b
 
 ##### Parameters
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The  client ID for your GitHub App.
-`client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
-`code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
-`state` | `string` | The unguessable random string you provided in Step 1.
+| Name            | Typ      | Beschreibung                                                          |
+| --------------- | -------- | --------------------------------------------------------------------- |
+| `client_id`     | `string` | **Required.** The  client ID for your GitHub App.                     |
+| `client_secret` | `string` | **Required.** The  client secret for your GitHub App.                 |
+| `Code`          | `string` | **Required.** The code you received as a response to Step 1.          |
+| `redirect_uri`  | `string` | The URL in your application where users are sent after authorization. |
+| `state`         | `string` | The unguessable random string you provided in Step 1.                 |
 
 ##### Response
 
@@ -136,7 +136,7 @@ For more information about authorizing users using the device flow, see "[Author
 
 ### Check which installation's resources a user can access
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -226,7 +226,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List check runs in a check suite](/v3/checks/runs/#list-check-runs-in-a-check-suite)
 * [List check runs for a Git reference](/v3/checks/runs/#list-check-runs-for-a-git-reference)
 
-##### Check Suites
+##### Prüfsuiten
 
 * [Create a check suite](/v3/checks/suites/#create-a-check-suite)
 * [Get a check suite](/v3/checks/suites/#get-a-check-suite)
@@ -245,14 +245,14 @@ While most of your API interaction should occur using your server-to-server inst
 * [Create a deployment status](/rest/reference/repos#create-a-deployment-status)
 * [Get a deployment status](/rest/reference/repos#get-a-deployment-status)
 
-##### Deployments
+##### Bereitstellungen
 
 * [List deployments](/rest/reference/repos#list-deployments)
 * [Create a deployment](/rest/reference/repos#create-a-deployment)
 * [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 * [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
-##### Events
+##### Ereignisse
 
 * [List public events for a network of repositories](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 * [List public organization events](/rest/reference/activity#list-public-organization-events)
@@ -336,7 +336,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List assignees](/v3/issues/assignees/#list-assignees)
 * [Check if a user can be assigned](/v3/issues/assignees/#check-if-a-user-can-be-assigned)
 * [List repository issues](/v3/issues/#list-repository-issues)
-* [Create an issue](/v3/issues/#create-an-issue)
+* [Hiermit wird ein Issue erstellt.](/v3/issues/#create-an-issue)
 * [Get an issue](/v3/issues/#get-an-issue)
 * [Update an issue](/v3/issues/#update-an-issue)
 * [Lock an issue](/v3/issues/#lock-an-issue)
@@ -350,7 +350,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List jobs for a workflow run](/v3/actions/workflow-jobs/#list-jobs-for-a-workflow-run)
 {% endif %}
 
-##### Labels
+##### Kennzeichnungen
 
 * [List labels for an issue](/v3/issues/labels/#list-labels-for-an-issue)
 * [Add labels to an issue](/v3/issues/labels/#add-labels-to-an-issue)
@@ -378,7 +378,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [Meta](/v3/meta/#meta)
 
-##### Milestones
+##### Meilensteine
 
 * [List milestones](/v3/issues/milestones/#list-milestones)
 * [Create a milestone](/v3/issues/milestones/#create-a-milestone)
@@ -422,7 +422,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Convert an organization member to outside collaborator](/v3/orgs/outside_collaborators/#convert-an-organization-member-to-outside-collaborator)
 * [Remove outside collaborator from an organization](/v3/orgs/outside_collaborators/#remove-outside-collaborator-from-an-organization)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -460,7 +460,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/v3/teams/#list-teams)
 * [Create a team](/v3/teams/#create-a-team)
 * [Get a team by name](/v3/teams/#get-a-team-by-name)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/v3/teams/#get-a-team)
 {% endif %}
 * [Update a team](/v3/teams/#update-a-team)
@@ -475,7 +475,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List child teams](/v3/teams/#list-child-teams)
 * [List teams for the authenticated user](/v3/teams/#list-teams-for-the-authenticated-user)
 
-##### Organizations
+##### Organisationen
 
 * [List organizations](/v3/orgs/#list-organizations)
 * [Get an organization](/v3/orgs/#get-an-organization)
@@ -524,7 +524,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove project collaborator](/v3/projects/collaborators/#remove-project-collaborator)
 * [Get project permission for a user](/v3/projects/collaborators/#get-project-permission-for-a-user)
 
-##### Projects
+##### Projekte
 
 * [List organization projects](/v3/projects/#list-organization-projects)
 * [Create an organization project](/v3/projects/#create-an-organization-project)
@@ -607,9 +607,9 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete team discussion reaction](/v3/reactions/#delete-team-discussion-reaction)
 * [Delete team discussion comment reaction](/v3/reactions/#delete-team-discussion-comment-reaction){% endif %}
 
-##### Repositories
+##### Repositorys
 
-* [List organization repositories](/v3/repos/#list-organization-repositories)
+* [Repositorys einer Organisation auflisten](/v3/repos/#list-organization-repositories)
 * [Create a repository for the authenticated user](/v3/repos/#create-a-repository-for-the-authenticated-user)
 * [Get a repository](/v3/repos/#get-a-repository)
 * [Update a repository](/v3/repos/#update-a-repository)
@@ -762,7 +762,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
 * [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
@@ -773,10 +773,10 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Releases
 
-* [List releases](/rest/reference/repos/#list-releases)
+* [Veröffentlichungen auflisten](/rest/reference/repos/#list-releases)
 * [Create a release](/rest/reference/repos/#create-a-release)
 * [Get a release](/rest/reference/repos/#get-a-release)
-* [Update a release](/rest/reference/repos/#update-a-release)
+* [Einen Release aktualisieren](/rest/reference/repos/#update-a-release)
 * [Delete a release](/rest/reference/repos/#delete-a-release)
 * [List release assets](/rest/reference/repos/#list-release-assets)
 * [Get a release asset](/rest/reference/repos/#get-a-release-asset)
@@ -806,16 +806,16 @@ While most of your API interaction should occur using your server-to-server inst
 * [Emojis](/v3/emojis/#emojis)
 * [Get rate limit status for the authenticated user](/v3/rate_limit/#get-rate-limit-status-for-the-authenticated-user)
 
-##### Search
+##### Suche
 
 * [Search code](/v3/search/#search-code)
 * [Search commits](/v3/search/#search-commits)
 * [Search labels](/v3/search/#search-labels)
-* [Search repositories](/v3/search/#search-repositories)
+* [Repositorys suchen](/v3/search/#search-repositories)
 * [Search topics](/v3/search/#search-topics)
 * [Search users](/v3/search/#search-users)
 
-##### Statuses
+##### Status
 
 * [Get the combined status for a specific reference](/v3/repos/statuses/#get-the-combined-status-for-a-specific-reference)
 * [List commit statuses for a reference](/v3/repos/statuses/#list-commit-statuses-for-a-reference)
@@ -834,7 +834,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Update a discussion comment](/v3/teams/discussion_comments/#update-a-discussion-comment)
 * [Delete a discussion comment](/v3/teams/discussion_comments/#delete-a-discussion-comment)
 
-##### Topics
+##### Themen
 
 * [Get all repository topics](/v3/repos#get-all-repository-topics)
 * [Replace all repository topics](/v3/repos/#replace-all-repository-topics)
@@ -896,7 +896,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a public SSH key for the authenticated user](/v3/users/keys/#delete-a-public-ssh-key-for-the-authenticated-user)
 * [List public keys for a user](/v3/users/keys/#list-public-keys-for-a-user)
 
-##### Users
+##### Benutzer
 
 * [Get the authenticated user](/v3/users/#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token)

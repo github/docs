@@ -11,7 +11,7 @@ Ao usar LDAP ou autenticação integrada, a autenticação de dois fatores é co
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-Para obter mais informações, consulte [este gráfico sobre métodos de autenticação compatíveis com 2FA](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa).
+Para obter mais informações, consulte "[Sobre a autenticação de dois fatores](/github/authenticating-to-github/about-two-factor-authentication)".
 
 ### Requisitos para exigir a autenticação de dois fatores
 

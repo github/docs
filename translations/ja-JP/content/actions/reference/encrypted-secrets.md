@@ -1,5 +1,5 @@
 ---
-title: Encrypted secrets
+title: 暗号化されたシークレット
 intro: 暗号化されたシークレットを使用すると、機密情報をリポジトリまたは Organization に保存できます。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:

@@ -25,7 +25,7 @@ Bestimmte Aktionen zählen auf Deiner Profilseite als Beiträge:
 - Commits zum Standardbranch eines Repositorys oder zum Branch `gh-pages`
 - das Öffnen eines Issues
 - das Vorschlagen eines Pull Requests
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- das Absenden eines Pull-Request-Reviews{% if enterpriseServerVersions contains currentVersion %}
 - Commits mit Co-Autor im Standardbranch eines Repositorys oder im Branch `gh-pages`{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}

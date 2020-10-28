@@ -14,6 +14,9 @@ Now that we understand [the basics of webhooks][webhooks-overview], let's go thr
 
 Creating a webhook is a two-step process. You'll first need to set up how you want your webhook to behave through {% data variables.product.product_name %}--what events should it listen to. After that, you'll set up your server to receive and manage the payload.
 
+
+{% data reusables.webhooks.webhooks-rest-api-links %}
+
 ### Setting up a Webhook
 
 You can install webhooks on an organization or on a specific repository.

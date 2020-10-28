@@ -136,7 +136,7 @@ For more information about authorizing users using the device flow, see "[Author
 
 ### Check which installation's resources a user can access
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -422,7 +422,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Convert an organization member to outside collaborator](/v3/orgs/outside_collaborators/#convert-an-organization-member-to-outside-collaborator)
 * [Remove outside collaborator from an organization](/v3/orgs/outside_collaborators/#remove-outside-collaborator-from-an-organization)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -460,7 +460,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/v3/teams/#list-teams)
 * [Create a team](/v3/teams/#create-a-team)
 * [Get a team by name](/v3/teams/#get-a-team-by-name)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/v3/teams/#get-a-team)
 {% endif %}
 * [Update a team](/v3/teams/#update-a-team)
@@ -762,7 +762,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
 * [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)

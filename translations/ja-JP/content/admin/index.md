@@ -1,5 +1,5 @@
 ---
-title: Enterprise Administrators
+title: Enterprise 管理者
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin

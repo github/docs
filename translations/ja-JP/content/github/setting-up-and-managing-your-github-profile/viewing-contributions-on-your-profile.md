@@ -25,7 +25,7 @@ versions:
 - リポジトリのデフォルトブランチまたは `gh-pages` ブランチにコミットすること
 - Issue を開くこと
 - プルリクエストを提案すること
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- プルリクエストレビューのサブミット{% if enterpriseServerVersions contains currentVersion %}
 - リポジトリのデフォルトのブランチまたは `gh-pages` ブランチでコミットを共作{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}

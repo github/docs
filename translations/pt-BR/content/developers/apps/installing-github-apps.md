@@ -52,7 +52,7 @@ Essas etapas pressupõem que você [criou um {% data variables.product.prodname_
 
 Você pode simplificar o processo de autorização concluindo-o durante a instalação do aplicativo. Para fazer isso, selecione **Solicitar autorização de usuário (OAuth) durante a instalação** ao criar ou modificar seu aplicativo no GitHub. Consulte "[Criando um aplicativo GitHub](/apps/building-github-apps/creating-a-github-app/)" para saber mais.
 
-Assim que alguém tiver instalado seu aplicativo, você deverá obter um token de acesso para o usuário. Veja as etapas 2 e 3 em "[Identificando usuários em seu site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" para saber mais.
+Assim que alguém tiver instalado seu aplicativo, você deverá obter um token de acesso para o usuário. See steps 2 and 3 in "[Identifying users on your site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" to learn more.
 ### Preservar o estado do aplicativo durante a instalação
 
 Você pode fornecer um parâmetro de `estado` na URL de instalação de um aplicativo para preservar o estado da página do aplicativo e fazer com que as pessoas retornem para seu estado após efetuarem a instalação, autenticação ou aceitarem as atualizações no seu aplicativo GitHub. Por exemplo, você poderia usar o `estado` para correlacionar uma instalação a um usuário ou conta.

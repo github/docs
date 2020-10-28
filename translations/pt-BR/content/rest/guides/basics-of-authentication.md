@@ -21,7 +21,7 @@ Você pode fazer o download do código-fonte completo para este projeto[no repos
 
 ### Registrar seu aplicativo
 
-Primeiro, você precisará [registrar o seu aplicativo][new oauth app]. A cada aplicativo OAuth registrado recebe um ID de Cliente único e um Segredo de Cliente. O Segredo do Cliente não deve ser compartilhado! Isso inclui verificar o string de caracteres no seu repositório.
+First, you'll need to [register your application][new oauth app]. A cada aplicativo OAuth registrado recebe um ID de Cliente único e um Segredo de Cliente. O Segredo do Cliente não deve ser compartilhado! Isso inclui verificar o string de caracteres no seu repositório.
 
 Você pode preencher cada informação da forma que preferir, exceto a **URL de chamada de retorno de autorização**. Esta é facilmente a parte mais importante para configurar o seu aplicativo. É a URL de chamada de retorno que o {% data variables.product.product_name %} retorna ao usuário após a autenticação bem-sucedida.
 
@@ -46,7 +46,7 @@ get '/' do
 end
 ```
 
-O seu ID de cliente e as chaves secretas de cliente vêm da [página de configuração do seu aplicativo][app settings]. Você **nunca __** armazene esses valores em
+Your client ID and client secret keys come from [your application's configuration page][app settings]. Você **nunca __** armazene esses valores em
 {% data variables.product.product_name %} ou qualquer outro lugar público para essa questão. Recomendamos armazená-los como
 [Variáveis de ambiente][about env vars]--que é exatamente o que fizemos aqui.
 

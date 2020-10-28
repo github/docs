@@ -1,6 +1,6 @@
 ---
-title: Viewing workflow run history
-intro: You can view logs for each run of a workflow. Logs include the status for each job and step in a workflow.
+title: ワークフロー実行の履歴を表示する
+intro: ワークフロー実行ごとにログを表示できます。 ログには、ワークフローの各ジョブとステップのステータスが含まれます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
