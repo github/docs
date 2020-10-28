@@ -14,7 +14,7 @@ versions:
 - {% data variables.product.prodname_ghe_server %} へのサインイン。
 - Issue やプルリクエストへのコメント。
 - リポジトリの作成、削除、Watch、スター付け。
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
+- コミットのプッシュ。{% if currentVersion ver_gt "enterprise-server@2.21" %}
 - Accessing resources by using a personal access token or SSH key.{% endif %}
 
 ### 休眠ユーザの表示

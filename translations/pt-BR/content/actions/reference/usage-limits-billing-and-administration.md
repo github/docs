@@ -70,7 +70,7 @@ Para obter mais informações, consulte:
 - [Configurar o período de retenção para {% data variables.product.prodname_actions %} para artefatos e registros na sua empresa](/github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
-### Desativar ou limitar {% data variables.product.prodname_actions %} para o seu repositório ou organização
+### Desabilitar ou limitar {% data variables.product.prodname_actions %} para o seu repositório ou organização
 
 {% data reusables.github-actions.disabling-github-actions %}
 

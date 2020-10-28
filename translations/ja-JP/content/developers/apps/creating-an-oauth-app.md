@@ -35,7 +35,7 @@ versions:
 
   {% endwarning %}
 
-7. In "Homepage URL", type the full URL to your app's website. ![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
+7. [Homepage URL] に、アプリケーションのウェブサイトの完全な URL を入力します。 ![Field for the homepage URL of your app](/assets/images/oauth-apps/oauth_apps_homepage_url.png)
 8. Optionally, in "Application description", type a description of your app that users will see. ![Field for a description of your app](/assets/images/oauth-apps/oauth_apps_application_description.png)
 9. In "Authorization callback URL", type the callback URL of your app. ![Field for the authorization callback URL of your app](/assets/images/oauth-apps/oauth_apps_authorization_callback_url.png)
 10. **Register application** をクリックする。 ![Button to register an application](/assets/images/oauth-apps/oauth_apps_register_application.png)

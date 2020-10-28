@@ -19,7 +19,7 @@ For more information, see:
 
 ![Image of a team mention](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 You can also use LDAP Sync to synchronize {% data variables.product.product_location_enterprise %} team members and team roles against your established LDAP groups. This lets you establish role-based access control for users from your LDAP server instead of manually within {% data variables.product.product_location_enterprise %}. For more information, see "[Enabling LDAP Sync](/enterprise/admin/authentication/using-ldap#enabling-ldap-sync)."
 
@@ -55,7 +55,7 @@ To easily understand who shares a parent team's permissions and mentions, you ca
 
 You can choose a parent when you create the team, or you can move a team in your organization's hierarchy later. For more information see, "[Moving a team in your organization’s hierarchy](/articles/moving-a-team-in-your-organization-s-hierarchy)."
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

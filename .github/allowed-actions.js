@@ -31,7 +31,7 @@ module.exports = [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
-  'repo-sync/pull-request@58af525d19d3c2b4f744d3348c6823b6340a4921',
+  'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815',
   'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]

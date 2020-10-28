@@ -40,9 +40,9 @@ versions:
 GraphQL APIを利用したEnterpriseアカウントの管理に関する詳しい情報については、「[Enterprise アカウント](/v4/guides/managing-enterprise-accounts)」を参照してください。
 ### {% data variables.product.prodname_github_connect %} の有効化
 
-1. Sign in to
+1. まず、
 
-{% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.product_location_enterprise %} および {% data variables.product.prodname_dotcom_the_website %} にサインインします。
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

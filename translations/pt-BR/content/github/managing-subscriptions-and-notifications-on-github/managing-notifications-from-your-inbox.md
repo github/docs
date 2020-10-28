@@ -124,6 +124,8 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:repository-advisory`
 - `is:team-discussion`
 
+Para informações sobre a redução de ruído de notificações para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
+
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
 
 - `is:saved`

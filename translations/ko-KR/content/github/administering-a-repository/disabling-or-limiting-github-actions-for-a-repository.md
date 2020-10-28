@@ -17,7 +17,7 @@ You can enable {% data variables.product.prodname_actions %} for your repository
 
 Alternatively, you can enable {% data variables.product.prodname_actions %} in your repository but limit the actions a workflow can run. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 ### Managing {% data variables.product.prodname_actions %} permissions for your repository
 

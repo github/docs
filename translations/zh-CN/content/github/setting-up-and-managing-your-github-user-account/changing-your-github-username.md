@@ -1,6 +1,6 @@
 ---
-title: Changing your GitHub username
-intro: 'You can change your {% data variables.product.product_name %} username at any time.'
+title: 更改 GitHub 用户名
+intro: '您可以随时更改自己的 {% data variables.product.product_name %} 用户名。'
 redirect_from:
   - /articles/how-to-change-your-username/
   - /articles/changing-your-github-user-name/
@@ -12,50 +12,46 @@ versions:
   enterprise-server: '*'
 ---
 
-### About username changes
+### 关于用户名更改
 
 You can change your username to another username that is not currently in use.{% if currentVersion == "free-pro-team@latest" %} If the username you want is not available, you'll see information about whether you can request the username to be released when you type in the desired username.
 
-If the username is not eligible for release and you don't hold a trademark for the username, you can choose another username or keep your current username. {% data variables.contact.github_support %} cannot release the unavailable username for you. For more information, see "[Changing your username](#changing-your-username)."{% endif %}
+如果该用户名不符合释放条件，并且您不持有该用户名的商标，则可选择其他用户名或保留您当前的用户名。 {% data variables.contact.github_support %} 无法为您释放不可用的用户名。 更多信息请参阅“[更改用户名](#changing-your-username)”。{% endif %}
 
-After changing your username, your old username becomes available for anyone else to claim. Most references to your repositories under the old username automatically change to the new username. However, some links to your profile won't automatically redirect.
+更改用户名后，您的旧用户名即可供其他人申请使用。 对旧用户名下仓库的大多数引用会自动更改为新用户名。 不过，指向您个人资料的某些链接不会自动重定向。
 
-{% data variables.product.product_name %} cannot set up redirects for:
-- [@mentions](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) using your old username
-- Links to [gists](/articles/creating-gists) that include your old username
+{% data variables.product.product_name %} 无法为以下各项设置重定向：
+- 使用旧用户名的[@提及](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams)
+- 包含旧用户名的 [gists](/articles/creating-gists) 链接
 
-### Repository references
+### 仓库引用
 
-After you change your username, {% data variables.product.product_name %} will automatically redirect references to your repositories.
-- Web links to your existing repositories will continue to work. This can take a few minutes to complete after you make the change.
-- Command line pushes from your local repository clones to the old remote tracking URLs will continue to work.
+您更改用户名后，{% data variables.product.product_name %} 自动将引用重定向到您的仓库。
+- 指向现有仓库的 Web 链接仍然有效。 进行更改后，可能需要几分钟时间才能完成。
+- 从本地仓库克隆推送到旧的远程跟踪 URL 的命令行仍然有效。
 
-If the new owner of your old username creates a repository with the same name as your repository, that will override the redirect entry and your redirect will stop working. Because of this possibility, we recommend you update all existing remote repository URLs after changing your username. For more information, see "[Changing a remote's URL](/articles/changing-a-remote-s-url)."
+如果旧用户名的新所有者创建与您的仓库同名的仓库，则会覆盖重定向条目，并且您的重定向将停止工作。 由于这种可能性，我们建议您在更改用户名后更新所有现有的远程仓库 URL。 更多信息请参阅“[更改远程的 URL](/articles/changing-a-remote-s-url)”。
 
-### Links to your previous profile page
+### 指向以前的个人资料页面的链接
 
-After changing your username, links to your previous profile page, such as `https://{% data variables.command_line.backticks %}/previoususername`, will return a 404 error. We recommend updating any links to your {% data variables.product.product_name %} account from elsewhere{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profile{% endif %}.
+更改用户名后，指向以前的个人资料页面的链接（例如 `https://{% data variables.command_line.backticks %}/previoususername`）将返回 404 错误。 We recommend updating any links to your {% data variables.product.product_name %} account from elsewhere{% if currentVersion == "free-pro-team@latest" %}, such as your LinkedIn or Twitter profile{% endif %}.
 
-### Your Git commits
+### 您的 Git 提交
 
-{% if currentVersion == "free-pro-team@latest"%}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+{% if currentVersion == "free-pro-team@latest"%}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account), {% if currentVersion == "free-pro-team@latest"%}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. 有关设置电子邮件地址的更多详细信息，请参阅“[设置您的提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
-### Changing your username
+### 更改用户名
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.account_settings %}
-3. In the "Change username" section, click **Change username**.
-   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% if currentVersion == "free-pro-team@latest" %}
-4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
-5. Type a new username.
-   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
-6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
+3. 在“Change username（更改用户名）”部分，单击 **Change username（更改用户名）**。 ![Change Username button](/assets/images/help/settings/settings-change-username.png){% if currentVersion == "free-pro-team@latest" %}
+4. 阅读有关更改用户名的警告。 如果您仍要更改用户名，请单击 **I understand, let's change my username（我了解，让我们更改用户名）**。 ![更改用户名警告按钮](/assets/images/help/settings/settings-change-username-warning-button.png)
+5. 键入新的用户名。 ![新用户名字段](/assets/images/help/settings/settings-change-username-enter-new-username.png)
+6. 如果您选择的用户名可用，请单击 **Change my username（更改我的用户名）**。 如果您选择的用户名不可用，可以尝试其他用户名或您看到的建议之一。 ![更改用户名警告按钮](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
-### Further reading
+### 延伸阅读
 
-- "[Changing a remote's URL](/articles/changing-a-remote-s-url)"
+- “[更改远程的 URL](/articles/changing-a-remote-s-url)”
 - "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
-- "[{% data variables.product.prodname_dotcom %} Username Policy](/articles/github-username-policy)"{% endif %}
+- "[{% data variables.product.prodname_dotcom %} 用户名策略](/articles/github-username-policy)"{% endif %}

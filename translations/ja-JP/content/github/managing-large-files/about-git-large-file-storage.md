@@ -41,11 +41,13 @@ size 84977953
 
 これは、使用している{% data variables.large_files.product_name_short %}の`version`を追跡し、その後にファイルのユニークな識別子（`oid`）が続きます。 また、最終のファイルの`size` も保存します。
 
-{% tip %}
+{% note %}
 
-**Tip：**{% data variables.large_files.product_name_short %}は{% data variables.product.prodname_pages %}サイトと使うことはできません。
+設定ファイルでクエリスイートを指定すると、{% data variables.product.prodname_codeql %} 分析エンジンは、デフォルトのクエリセットに加えて、スイートに含まれるクエリを実行します。
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### 参考リンク
 

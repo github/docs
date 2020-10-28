@@ -28,11 +28,11 @@ Außerdem muss **mindestens eine** der folgenden Voraussetzung erfüllt sein:
 - Du bist ein Repository-Mitarbeiter oder ein Mitglied der Organisation, welcher das Repository gehört.
 - Du hast das Repository geforkt.
 - Du hast einen Pull Request oder Issue im Repository geöffnet.
-- Du hast das Repository mit Sternen versehen.
-{% if currentVersion != "free-pro-team@latest" %}
+- Sie haben das Repository mit Sternen versehen.
+
 ### Allgemeine Ursachen für nicht gezählte Beiträge
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### Die Commit-Erstellung liegt weniger als 24 Stunden zurück
 

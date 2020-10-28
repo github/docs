@@ -12,7 +12,7 @@ redirect_from:
 
 ### About changing the default branch
 
-You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
+You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
 
 {% note %}
 

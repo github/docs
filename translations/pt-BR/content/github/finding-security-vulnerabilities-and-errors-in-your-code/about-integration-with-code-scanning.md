@@ -22,5 +22,5 @@ Você pode usar {% data variables.product.prodname_code_scanning %} webhooks par
 ### Leia mais
 
 * "[Sobre {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)"
-* "[Usar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} com seu sistema de CI existente
+* "[Usar {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} com seu sistema CI existente](/github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system)"
 * "[Suporte do SARIF para {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/sarif-support-for-code-scanning)"

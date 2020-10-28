@@ -45,7 +45,7 @@ To publish a user site, you must create a repository owned by your user account 
 
 您只能为每个 {% data variables.product.product_name %} 账户创建一个用户或组织站点。 项目站点（无论是组织还是用户帐户拥有）没有限制。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 The URL where your site is available depends on whether subdomain isolation is enabled for
 {% data variables.product.product_location %}.
 

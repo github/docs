@@ -94,11 +94,11 @@ versions:
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. 既存の {% data variables.large_files.product_name_short %} アセットを移行します。 For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+3. 既存の {% data variables.large_files.product_name_short %} アセットを移行します。 詳しい情報については、「[異なる {% data variables.large_files.product_name_long %} サーバーへ移行する](#migrating-to-a-different-git-large-file-storage-server)」を参照してください。
 
 ### 異なるGit Large File Storageサーバへの移行
 
-異なる{% data variables.large_files.product_name_long %}サーバに移行する前に、サードパーティサーバを使うよう{% data variables.large_files.product_name_short %}を設定しなければなりません。 For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+異なる{% data variables.large_files.product_name_long %}サーバに移行する前に、サードパーティサーバを使うよう{% data variables.large_files.product_name_short %}を設定しなければなりません。 詳しい情報については、「[サードパーティサーバーを使用するように {% data variables.large_files.product_name_long %} を設定する](#configuring-git-large-file-storage-to-use-a-third-party-server)」を参照してください。
 
 1. 2 番目のリモートでリポジトリを設定します。
   ```shell

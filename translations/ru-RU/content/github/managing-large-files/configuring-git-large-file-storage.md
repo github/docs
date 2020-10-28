@@ -13,7 +13,7 @@ If there are existing files in your repository that you'd like to use {% data va
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% tip %}
 

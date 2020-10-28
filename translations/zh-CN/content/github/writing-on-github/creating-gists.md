@@ -17,9 +17,9 @@ versions:
 
 Gist 可为公共或秘密。 公共 gists 显示在 {% data variables.gists.discover_url %} 中，人们可在其中浏览新建的 gists。 它们也可供搜索，因此，如果您希望其他人查找和查看您的工作，便可使用公共 gists。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} 秘密 gists 不是私人的。 如果将秘密 gist 的 URL 发送给朋友，他们可以查看。 但是，如果您不认识的人发现该 URL，也能看到您的 gist。 如果需要让您的代码不被偷窥，可能要改为[创建私有仓库](/articles/creating-a-new-repository)。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 如果您的站点管理员禁用了私有模式，您也可以使用匿名 gists，可以是公共 gists 或秘密 gists。
 

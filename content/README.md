@@ -16,7 +16,7 @@ See the [contributing docs](/CONTRIBUTING.md) for general information about work
   - [`product`](#product)
   - [`layout`](#layout)
   - [`mapTopic`](#maptopic)
-  - [`gettingStartedLinks` and `popularLinks`](#gettingstartedlinks-and-popularlinks)
+  - [`featuredLinks`](#featuredlinks)
   - [`showMiniToc`](#showminitoc)
   - [`miniTocMaxHeadingLevel`](#minitocmaxheadinglevel)
   - [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename)
@@ -132,11 +132,21 @@ For a layout named `layouts/article.html`, the value would be `article`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
-### `gettingStartedLinks` and `popularLinks`
+### `featuredLinks`
 
-- Purpose: Renders the linked articles' titles and intros under `Getting started` and `Popular articles` headings, respectively. See site homepage for an example.
-- Type: `Array`.
+- Purpose: Renders the linked articles' titles and intros on product landing pages and the homepage.
+- Type: `Object`.
 - Optional.
+
+Example:
+
+```yaml
+featuredLinks:
+  gettingStarted:
+    - /path/to/page
+  guides:
+    - /guides/example
+```
 
 ### `showMiniToc`
 

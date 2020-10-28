@@ -49,7 +49,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot %} 
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-When {% data variables.product.product_name %} identifies a vulnerable dependency, we send a {% data variables.product.prodname_dependabot_short %} alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version. {% if currentVersion == "free-pro-team@latest" %}For repositories that have enabled {% data variables.product.prodname_dependabot_security_updates %}, the alert also contains a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."{% endif %}
+When {% data variables.product.product_name %} identifies a vulnerable dependency, we send a {% data variables.product.prodname_dependabot_short %} alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version. {% if currentVersion == "free-pro-team@latest" %}For repositories that have enabled {% data variables.product.prodname_dependabot_security_updates %}, the alert will also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."{% endif %}
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
@@ -79,6 +79,6 @@ We send security alerts to people with admin permissions in the affected reposit
 {% if currentVersion == "free-pro-team@latest" %}
 ### Further reading
 
-- "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)"
+- "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)"
 - "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[Understanding how {% data variables.product.product_name %} uses and protects your data](/categories/understanding-how-github-uses-and-protects-your-data)"{% endif %}
