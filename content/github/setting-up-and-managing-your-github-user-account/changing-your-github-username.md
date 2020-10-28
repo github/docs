@@ -59,3 +59,4 @@ After changing your username, links to your previous profile page, such as `http
 - "[Changing a remote's URL](/articles/changing-a-remote-s-url)"
 - "[Why are my commits linked to the wrong user?](/articles/why-are-my-commits-linked-to-the-wrong-user)"{% if currentVersion == "free-pro-team@latest" %}
 - "[{% data variables.product.prodname_dotcom %} Username Policy](/articles/github-username-policy)"{% endif %}
+.
