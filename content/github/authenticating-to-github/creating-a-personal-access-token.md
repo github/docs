@@ -26,7 +26,7 @@ Personal access tokens (PATs) are an alternative to using passwords for authenti
 4. Click **Generate new token**.
    ![Generate new token button](/assets/images/help/settings/generate_new_token.png)
 5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png)
+   ![Token description field](https://res.cloudinary.com/ramizackaryshamir/image/upload/c_scale,w_270/v1603818860/pullrequest-meetyourcreator-ramizackaryshamir-lines_28-29_htggx1.png)
 6. Select the scopes, or permissions, you'd like to grant this token. To use your token to access repositories from the command line, select **repo**.
    ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
 7. Click **Generate token**.
