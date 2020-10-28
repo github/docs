@@ -35,3 +35,4 @@ Or, you can simply use `git pull` to perform both commands at once:
 $ git pull origin <em>YOUR_BRANCH_NAME</em>
 # Grabs online updates and merges them with your local work
 ```
+.
