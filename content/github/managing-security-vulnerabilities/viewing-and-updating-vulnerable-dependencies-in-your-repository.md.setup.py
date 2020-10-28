@@ -1,4 +1,5 @@
----
+---setup.py
+
 title: Viewing and updating vulnerable dependencies in your repository
 intro: 'If {% data variables.product.product_name %} discovers vulnerable dependencies in your project, you can view them on the Dependabot alerts tab of your repository. Then, you can update your project to resolve or dismiss the vulnerability.'
 redirect_from:
