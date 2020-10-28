@@ -62,3 +62,13 @@ To troubleshoot, contact your system administrator.
 This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
 
 To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
+
+
+مفتاح يسر 
+
+‏ASC8ne8tNPvmR1nHlZVhgwQuE-wgWH6JQE_wOjlOimbD3go
+
+
+BEGIN KEYBASE SALTPACK SIGNED MESSAGE. kXR7VktZdyH7rvq v5weRa0zkLQqH83 CrvDxR54Wo4aYRA 5mkJRJRPe5ack3X wI8fB5su9W93gz7 nlJgSjaSgJDO2LE mfQx0blQeH1FF2x 2Qa9EbV8N4ou4Ku qPNbhROHyJg42mt GItyYwk6jBSHdAS Rm4HqmGG9crbrGX RAFEKHi1c3lJhCx P0pUVemsma7Ua2m YGz5mfetUbg1kLH W3QKlEyyv9qgbVx lHckNjcWMqdAoSy LOaCoQUXHE. END KEYBASE SALTPACK SIGNED MESSAGE.
+
+
