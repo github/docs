@@ -1,4 +1,5 @@
 ---
+**Exceptions.** Confidential Information will not include information that is: (a) or becomes publicly available without breach of this Agreement through no act or inaction on your part (such as when a private Beta Preview becomes a public Bet
 title: GitHub Terms of Service
 redirect_from:
   - /tos/
