@@ -1,6 +1,6 @@
 ---
 title: Exibir contribuidores do projeto
-intro: 'Você pode ver quem contribuiu com commits para um repositório{% if currentVersion == "free-pro-team@latest" %} e as dependências dele{% endif %}.'
+intro: 'Você pode ver quem contribuiu com commits em um repositório{% if currentVersion == "free-pro-team@latest" %} e suas dependências{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -13,7 +13,7 @@ versions:
 
 ### Sobre contribuidores
 
-No gráfico de contribuidores, você pode visualizar os 100 principais contribuidores de um repositório{% if currentVersion != "free-pro-team@latest" %}, incluindo coautores de commits{% endif %}. Commits de merge e commits vazios não são contabilizados como contribuições para este gráfico.
+No gráfico de contribuidores, você pode visualizar os 100 principais contribuidores de um repositório{% if enterpriseServerVersions contains currentVersion %}, incluindo coautores de commits{% endif %}. Commits de merge e commits vazios não são contabilizados como contribuições para este gráfico.
 
 {% if currentVersion == "free-pro-team@latest" %}
 Você também pode ver uma lista de pessoas que contribuíram para as dependências Python do projeto. Para acessar essa lista de contribuidores da comunidade, visite `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`.

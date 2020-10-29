@@ -1,6 +1,6 @@
 ---
 title: 过滤拉取请求中的文件
-intro: 要快速查看大型拉取请求中的更改，您可以过滤已更改的文件。
+intro: '要快速查看大型拉取请求中的更改，您可以过滤已更改的文件。'
 redirect_from:
   - /articles/filtering-files-in-a-pull-request-by-file-type/
   - /articles/filtering-files-in-a-pull-request
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-您可以按文件扩展名类型（例如 `.html` 或 `.js`）、无扩展名、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}代码所有权、{% endif %}或点文件过滤拉取请求中的文件。
+You can filter files in a pull request by file extension type, such as `.html` or `.js`, lack of an extension, code ownership, or dotfiles.
 
 {% tip %}
 
-**提示：**为简化拉取请求差异视图，也可以从过滤器下拉菜单在拉取请求差异中临时隐藏删除的文件{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}或您已经查看过的文件{% endif %}。
+**Tip:** To simplify your pull request diff view, you can also temporarily hide deleted files or files you have already viewed in the pull request diff from the file filter drop-down menu.
 
 {% endtip %}
 

@@ -39,7 +39,8 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
   $ git push
   # Pushes your local commits to the remote repository
   ```
-4. On {% data variables.product.product_name %}, navigate to your pull request.
+4. On
+{% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 5. To view more detailed information about the verified signature, click Verified. ![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

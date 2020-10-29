@@ -46,7 +46,7 @@ When your GitHub App specifies a `login` parameter, it prompts users with a spec
 Name | Type | Description
 -----|------|------------
 `client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
 `login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
 
@@ -79,7 +79,7 @@ Name | Type | Description
 `client_id` | `string` | **Required.** The  client ID for your GitHub App.
 `client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
 `code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+`redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters.
 `state` | `string` | The unguessable random string you provided in Step 1.
 
 ##### Response
@@ -136,7 +136,7 @@ For more information about authorizing users using the device flow, see "[Author
 
 ### Check which installation's resources a user can access
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -241,25 +241,25 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Deployment Statuses
 
-* [List deployment statuses](/v3/repos/deployments/#list-deployment-statuses)
-* [Create a deployment status](/v3/repos/deployments/#create-a-deployment-status)
-* [Get a deployment status](/v3/repos/deployments/#get-a-deployment-status)
+* [List deployment statuses](/rest/reference/repos#list-deployment-statuses)
+* [Create a deployment status](/rest/reference/repos#create-a-deployment-status)
+* [Get a deployment status](/rest/reference/repos#get-a-deployment-status)
 
 ##### Deployments
 
-* [List deployments](/v3/repos/deployments/#list-deployments)
-* [Create a deployment](/v3/repos/deployments/#create-a-deployment)
-* [Get a deployment](/v3/repos/deployments/#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-* [Delete a deployment](/v3/repos/deployments/#delete-a-deployment){% endif %}
+* [List deployments](/rest/reference/repos#list-deployments)
+* [Create a deployment](/rest/reference/repos#create-a-deployment)
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
 ##### Events
 
-* [List public events for a network of repositories](/v3/activity/events/#list-public-events-for-a-network-of-repositories)
-* [List public organization events](/v3/activity/events/#list-public-organization-events)
+* [List public events for a network of repositories](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
+* [List public organization events](/rest/reference/activity#list-public-organization-events)
 
 ##### Feeds
 
-* [Get feeds](/v3/activity/feeds/#get-feeds)
+* [Get feeds](/rest/reference/activity#get-feeds)
 
 ##### Git Blobs
 
@@ -388,12 +388,12 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Organization Hooks
 
-* [List organization webhooks](/v3/orgs/hooks/#list-organization-webhooks)
-* [Create an organization webhook](/v3/orgs/hooks/#create-an-organization-webhook)
-* [Get an organization webhook](/v3/orgs/hooks/#get-an-organization-webhook)
-* [Update an organization webhook](/v3/orgs/hooks/#update-an-organization-webhook)
-* [Delete an organization webhook](/v3/orgs/hooks/#delete-an-organization-webhook)
-* [Ping an organization webhook](/v3/orgs/hooks/#ping-an-organization-webhook)
+* [List organization webhooks](/rest/reference/orgs#webhooks/#list-organization-webhooks)
+* [Create an organization webhook](/rest/reference/orgs#webhooks/#create-an-organization-webhook)
+* [Get an organization webhook](/rest/reference/orgs#webhooks/#get-an-organization-webhook)
+* [Update an organization webhook](/rest/reference/orgs#webhooks/#update-an-organization-webhook)
+* [Delete an organization webhook](/rest/reference/orgs#webhooks/#delete-an-organization-webhook)
+* [Ping an organization webhook](/rest/reference/orgs#webhooks/#ping-an-organization-webhook)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Organization Invitations
@@ -422,7 +422,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Convert an organization member to outside collaborator](/v3/orgs/outside_collaborators/#convert-an-organization-member-to-outside-collaborator)
 * [Remove outside collaborator from an organization](/v3/orgs/outside_collaborators/#remove-outside-collaborator-from-an-organization)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -460,7 +460,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/v3/teams/#list-teams)
 * [Create a team](/v3/teams/#create-a-team)
 * [Get a team by name](/v3/teams/#get-a-team-by-name)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/v3/teams/#get-a-team)
 {% endif %}
 * [Update a team](/v3/teams/#update-a-team)
@@ -616,7 +616,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a repository](/v3/repos/#delete-a-repository)
 * [Compare two commits](/v3/repos/commits/#compare-two-commits)
 * [List repository contributors](/v3/repos/#list-repository-contributors)
-* [List forks](/v3/repos/forks/#list-forks)
+* [List forks](/rest/reference/repos#list-forks)
 * [Create a fork](/v3/repos/forks/#create-a-fork)
 * [List repository languages](/v3/repos/#list-repository-languages)
 * [List repository tags](/v3/repos/#list-repository-tags)
@@ -629,13 +629,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Activity
 
-* [List stargazers](/v3/activity/starring/#list-stargazers)
-* [List watchers](/v3/activity/watching/#list-watchers)
-* [List repositories starred by a user](/v3/activity/starring/#list-repositories-starred-by-a-user)
-* [Check if a repository is starred by the authenticated user](/v3/activity/starring/#check-if-a-repository-is-starred-by-the-authenticated-user)
-* [Star a repository for the authenticated user](/v3/activity/starring/#star-a-repository-for-the-authenticated-user)
-* [Unstar a repository for the authenticated user](/v3/activity/starring/#unstar-a-repository-for-the-authenticated-user)
-* [List repositories watched by a user](/v3/activity/watching/#list-repositories-watched-by-a-user)
+* [List stargazers](/rest/reference/activity#list-stargazers)
+* [List watchers](/rest/reference/activity#list-watchers)
+* [List repositories starred by a user](/rest/reference/activity#list-repositories-starred-by-a-user)
+* [Check if a repository is starred by the authenticated user](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
+* [Star a repository for the authenticated user](/rest/reference/activity#star-a-repository-for-the-authenticated-user)
+* [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
+* [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Repository Automated Security Fixes
@@ -753,16 +753,16 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Pages
 
-* [Get a GitHub Pages site](/v3/repos/pages/#get-a-github-pages-site)
-* [Create a GitHub Pages site](/v3/repos/pages/#create-a-github-pages-site)
-* [Update information about a GitHub Pages site](/v3/repos/pages/#update-information-about-a-github-pages-site)
-* [Delete a GitHub Pages site](/v3/repos/pages/#delete-a-github-pages-site)
-* [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds)
-* [Request a GitHub Pages build](/v3/repos/pages/#request-a-github-pages-build)
-* [Get GitHub Pages build](/v3/repos/pages/#get-github-pages-build)
-* [Get latest pages build](/v3/repos/pages/#get-latest-pages-build)
+* [Get a GitHub Pages site](/rest/reference/repos#get-a-github-pages-site)
+* [Create a GitHub Pages site](/rest/reference/repos#create-a-github-pages-site)
+* [Update information about a GitHub Pages site](/rest/reference/repos#update-information-about-a-github-pages-site)
+* [Delete a GitHub Pages site](/rest/reference/repos#delete-a-github-pages-site)
+* [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds)
+* [Request a GitHub Pages build](/rest/reference/repos#request-a-github-pages-build)
+* [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
+* [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
@@ -773,17 +773,17 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Releases
 
-* [List releases](/v3/repos/releases/#list-releases)
-* [Create a release](/v3/repos/releases/#create-a-release)
-* [Get a release](/v3/repos/releases/#get-a-release)
-* [Update a release](/v3/repos/releases/#update-a-release)
-* [Delete a release](/v3/repos/releases/#delete-a-release)
-* [List release assets](/v3/repos/releases/#list-release-assets)
-* [Get a release asset](/v3/repos/releases/#get-a-release-asset)
-* [Update a release asset](/v3/repos/releases/#update-a-release-asset)
-* [Delete a release asset](/v3/repos/releases/#delete-a-release-asset)
-* [Get the latest release](/v3/repos/releases/#get-the-latest-release)
-* [Get a release by tag name](/v3/repos/releases/#get-a-release-by-tag-name)
+* [List releases](/rest/reference/repos/#list-releases)
+* [Create a release](/rest/reference/repos/#create-a-release)
+* [Get a release](/rest/reference/repos/#get-a-release)
+* [Update a release](/rest/reference/repos/#update-a-release)
+* [Delete a release](/rest/reference/repos/#delete-a-release)
+* [List release assets](/rest/reference/repos/#list-release-assets)
+* [Get a release asset](/rest/reference/repos/#get-a-release-asset)
+* [Update a release asset](/rest/reference/repos/#update-a-release-asset)
+* [Delete a release asset](/rest/reference/repos/#delete-a-release-asset)
+* [Get the latest release](/rest/reference/repos/#get-the-latest-release)
+* [Get a release by tag name](/rest/reference/repos/#get-a-release-by-tag-name)
 
 ##### Repository Stats
 

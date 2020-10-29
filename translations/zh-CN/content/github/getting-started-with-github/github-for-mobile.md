@@ -9,19 +9,29 @@ versions:
 
 {% data variables.product.prodname_mobile %} 目前作为 Android 和 iOS app 提供给 {% data variables.product.prodname_dotcom_the_website %} 用户。
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.prodname_dotcom %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.prodname_dotcom %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} 为您提供随时随地快速高效使用 {% data variables.product.prodname_dotcom %} 的方式。 {% data variables.product.prodname_mobile %} 是通过可信的第一方客户端应用程序访问 {% data variables.product.prodname_dotcom %} 数据的安全可靠方式。
 
-With {% data variables.product.prodname_mobile %} you can:
+通过 {% data variables.product.prodname_mobile %}，您可以：
 - 管理、分类和清除通知
 - 阅读、审查及协作处理问题和拉取请求
 - 搜索、浏览用户、仓库和组织以及与之交互
 - 当有人提及您的用户名时收到推送通知
 
-For more information about notifications for {% data variables.product.prodname_mobile %}, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)."
+有关 {% data variables.product.prodname_mobile %} 通知的更多信息，请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#enabling-push-notifications-with-github-for-mobile)”。
 
 ### 安装 {% data variables.product.prodname_mobile %}
 
 要安装 Android 或 iOS 版 {% data variables.product.prodname_mobile %}，请参阅 [{% data variables.product.prodname_mobile %}](https://github.com/mobile)。
+
+### Supported languages for {% data variables.product.prodname_mobile %}
+
+{% data variables.product.prodname_mobile %} is available in the following languages.
+
+- 日语
+- Brazilian Portuguese
+- 西班牙语
+
+If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 
 ### 管理 iOS 上 {% data variables.product.prodname_mobile %} 的通用链接
 

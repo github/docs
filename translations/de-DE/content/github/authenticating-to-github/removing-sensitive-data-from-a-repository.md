@@ -19,7 +19,7 @@ Die Datei aus dem letzten Commit kannst Du auch mit `git rm` entfernen. Informat
 
 **Warnung: Wenn Du einen Commit per Push auf {% data variables.product.product_name %} überträgst, solltest Du alle darin enthaltenen Daten als kompromittiert betrachten.** Falls Du ein Passwort mitgegeben hast, ändere es! Falls Du einen Schlüssel mitgegeben hast, generiere einen neuen.
 
-In diesem Artikel erfährst Du, wie Du Commits mit vertraulichen Daten für alle Branches und Tags Deines {% data variables.product.product_name %}-Repositorys unzugänglich machst. Nicht verhindern lässt sich dadurch jedoch, dass diese Commits nach wie vor in Klonen oder Forks Deines Repositorys zugänglich sind, entweder direkt über ihre SHA-1-Hashes in zwischengespeicherten Ansichten auf {% data variables.product.product_name %} oder über alle referenzierten Pull Requests. An bestehenden Klonen oder Forks Deines Repositorys kannst Du nichts ändern. Zwischengespeicherte Ansichten und Referenzen auf vertrauliche Daten in Pull Requests auf {% data variables.product.product_name %} kannst Du jedoch dauerhaft durch den {% data variables.contact.contact_support %} entfernen lassen.
+In diesem Artikel erfährst Du, wie Du Commits mit vertraulichen Daten für alle Branches und Tags Deines {% data variables.product.product_name %}-Repositorys unzugänglich machst. Nicht verhindern lässt sich dadurch jedoch, dass diese Commits nach wie vor in Klonen oder Forks Ihres Repositorys, in zwischengespeicherten Ansichten auf {% data variables.product.product_name %} direkt über ihre SHA-1-Hashes und über alle referenzierten Pull Requests zugänglich sind. An bestehenden Klonen oder Forks Ihres Repositorys können Sie nichts ändern. Zwischengespeicherte Ansichten und Referenzen auf sensible Daten in Pull Requests auf {% data variables.product.product_name %} können Sie jedoch dauerhaft durch den {% data variables.contact.contact_support %} entfernen lassen.
 
 {% endwarning %}
 
@@ -74,7 +74,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
         "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -89,7 +89,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
   $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
-  > [master 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. Vergewissere Dich, dass Du alles aus Deinem Repository-Verlauf entfernt hast, was Du entfernen wolltest, und dass alle Deine Branches ausgecheckt wurden.
@@ -102,7 +102,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. Um die Datei mit vertraulichen Daten aus [Deinen getaggten Releases](/articles/about-releases) zu entfernen, musst Du auch einen „force-push“ an Deine Git-Tags ausführen:
   ```shell
@@ -113,7 +113,7 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 8. Kontaktiere den {% data variables.contact.contact_support %}, um ihn zu bitten, zwischengespeicherte Ansichten und Referenzen auf die vertraulichen Daten in Pull Requests auf {% data variables.product.product_name %} zu entfernen.
 9. Weise Deine Mitarbeiter an, ein [Rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *kein* Merge, aller Branches auszuführen, die sie aus Deinem alten (unbrauchbaren) Repository-Verlauf erstellt haben. Durch einen Merge-Commit würde womöglich der gesamte unbrauchbare Verlauf wiederhergestellt, den zu entfernen Du Dir gerade so viel Mühe gemacht hast.
@@ -130,20 +130,20 @@ Zur Veranschaulichung der Funktionsweise von `git filter-branch` zeigen wir Dir,
   ```
   {% note %}
 
-   **Hinweis:** Alternativ kannst Du den gefilterten Verlauf per Push in ein neues, noch leeres Repository übertragen und dann einen neuen Klon aus {% data variables.product.product_name %} erstellen.
+   **Hinweis:** Alternativ können Sie den gefilterten Verlauf per Push in ein neues, noch leeres Repository übertragen und dann einen neuen Klon aus {% data variables.product.product_name %} erstellen.
 
   {% endnote %}
 
-## Versehentliche Commits künftig vermeiden
+### Versehentliche Commits künftig vermeiden
 
 Durch einige einfache Tricks vermeidest Du den versehentlichen Commit von Änderungen, die nicht festgeschrieben werden sollen:
 
-- Verwende zum Committen von Änderungen ein visuelles Programm wie [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) oder [gitk](https://git-scm.com/docs/gitk). In visuellen Programmen ist meist leichter erkennbar, welche Dateien durch einen Commit hinzugefügt, gelöscht und geändert werden.
+- Verwenden Sie zum Festschreiben von Änderungen ein visuelles Programm wie [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) oder [gitk](https://git-scm.com/docs/gitk). In visuellen Programmen ist meist leichter erkennbar, welche Dateien durch einen Commit hinzugefügt, gelöscht und geändert werden.
 - Vermeide in der Befehlszeile möglichst die Verwendung der catch-all-Befehle `git add .` und `git commit -a` – verwende stattdessen die Befehle `git add filename` und `git rm filename` für das Staging einzelner Dateien.
 - Verwende `git add --interactive`, um die Änderungen jeder Datei einzeln zu überprüfen und per Staging für den Commit bereitzustellen.
 - Verwende `git diff --cached`, um die Änderungen zu überprüfen, die Du per Staging für den Commit bereitgestellt hast. Du siehst dadurch die exakte Differenz, die `git commit` generieren wird, sofern Du nicht das Flag `-a` verwendest.
 
 ### Weiterführende Informationen
 
-- [Hauptseite zu `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Git-Tools – Verlauf umschreiben](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

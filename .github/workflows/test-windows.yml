@@ -3,6 +3,7 @@
 name: Node.js Tests - Windows
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "50 19 * * *" # once a day at 19:50 UTC / 11:50 PST
 
@@ -10,41 +11,7 @@ env:
   CI: true
 
 jobs:
-  lint:
-    runs-on: windows-latest
-    steps:
-      - name: Check out repo
-        uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-
-      - name: Get npm cache directory
-        id: npm-cache
-        run: |
-          echo "::set-output name=dir::$(npm config get cache)"
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run linter
-        run: npx standard
-
-      - name: Check dependencies
-        run: npm run check-deps
-
   test:
-    if: github.repository == 'github/docs-internal'
     runs-on: windows-latest
     strategy:
       fail-fast: false
@@ -52,10 +19,10 @@ jobs:
         test-group: [content, meta, rendering, routing, unit, links-and-images]
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
         with:
           node-version: 14.x
 
@@ -65,7 +32,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

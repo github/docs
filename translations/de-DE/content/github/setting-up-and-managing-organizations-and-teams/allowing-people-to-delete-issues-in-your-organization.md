@@ -1,6 +1,6 @@
 ---
 title: Personen das Löschen von Issues in Deiner Organisation erlauben
-intro: 'Organisationsinhaber können es bestimmten Personen erlauben, Issues in Repositorys zu löschen, die Deiner Organisation gehören.'
+intro: Organisationsinhaber können es bestimmten Personen erlauben, Issues in Repositorys zu löschen, die Deiner Organisation gehören.
 redirect_from:
   - /articles/allowing-people-to-delete-issues-in-your-organization
 versions:

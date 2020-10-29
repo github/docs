@@ -1,6 +1,6 @@
 ---
 title: Organization で 2 要素認証の義務化を準備する
-intro: 2 要素認証を義務化する前に、予定されている変更についてユーザに通知し、どのユーザーが 2 要素認証をすでに使用しているかを確認することができます。
+intro: '2 要素認証を義務化する前に、予定されている変更についてユーザに通知し、どのユーザーが 2 要素認証をすでに使用しているかを確認することができます。'
 redirect_from:
   - /articles/preparing-to-require-two-factor-authentication-in-your-organization
 versions:

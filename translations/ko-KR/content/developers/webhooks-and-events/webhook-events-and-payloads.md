@@ -20,7 +20,6 @@ versions:
 
 You can create webhooks that subscribe to the events listed on this page. Each webhook event includes a description of the webhook properties and an example payload. For more information, see "[Creating webhooks](/webhooks/creating/)."
 
-
 ### Webhook payload object common properties
 
 Each webhook event payload also contains properties unique to the event. You can find the unique properties in the individual event type sections.
@@ -28,11 +27,8 @@ Each webhook event payload also contains properties unique to the event. You can
 | 키    | 유형    | 설명                                                                                                               |
 | ---- | ----- | ---------------------------------------------------------------------------------------------------------------- |
 | `동작` | `문자열` | Most webhook payloads contain an `action` property that contains the specific activity that triggered the event. |
-
 {% data reusables.webhooks.sender_desc %} This property is included in every webhook payload.
-{% data reusables.webhooks.repo_desc %} Webhook payloads contain the 
-
-`repository` property when the event occurs from activity in a repository.
+{% data reusables.webhooks.repo_desc %} Webhook payloads contain the `repository` property when the event occurs from activity in a repository.
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %} For more information, see "[Building {% data variables.product.prodname_github_app %}](/apps/building-github-apps/)."
 
@@ -48,13 +44,14 @@ The unique properties for a webhook event are the same properties you'll find in
 
 HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
 
-| Header                        | 설명                                                                                                                                                                                                                                                                 |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                     |
-| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if currentVersion != "free-pro-team@latest" %}
-| `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                               |
-| `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}
-| `X-Hub-Signature`             | The HMAC hex digest of the response body. This header will be sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). The HMAC hex digest is generated using the `sha1` hash function and the `secret` as the HMAC `key`. |
+| Header                        | 설명                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion %}
+| `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "private-instances@latest" %}
+| `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+| `X-Hub-Signature-256`         | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
@@ -64,10 +61,11 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > POST /payload HTTP/1.1
 
 > Host: localhost:4567
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if currentVersion != "free-pro-team@latest" %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "private-instances@latest" %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+> X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
 > Content-Length: 6615
@@ -292,10 +290,10 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 #### Webhook payload object
 
-| 키            | 유형                                                              | 설명                                                         |
-| ------------ | --------------------------------------------------------------- | ---------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `동작`         | `문자열`                                                           | The action performed. Can be `created`.{% endif %}
-| `deployment` | `개체`                                                            | The [deployment](/v3/repos/deployments/#list-deployments). |
+| 키            | 유형                                                                                                  | 설명                                                        |
+| ------------ | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| `동작`         | `문자열`                                                                                               | The action performed. Can be `created`.{% endif %}
+| `deployment` | `개체`                                                                                                | The [deployment](/rest/reference/repos#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -317,14 +315,14 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 #### Webhook payload object
 
-| 키                                  | 유형                                                              | 설명                                                                                             |
-| ---------------------------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `동작`                               | `문자열`                                                           | The action performed. Can be `created`.{% endif %}
-| `deployment_status`                | `개체`                                                            | The [deployment status](/v3/repos/deployments/#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `문자열`                                                           | The new state. Can be `pending`, `success`, `failure`, or `error`.                             |
-| `deployment_status["target_url"]`  | `문자열`                                                           | The optional link added to the status.                                                         |
-| `deployment_status["description"]` | `문자열`                                                           | The optional human-readable description added to the status.                                   |
-| `deployment`                       | `개체`                                                            | The [deployment](/v3/repos/deployments/#list-deployments) that this status is associated with. |
+| 키                                  | 유형                                                                                                  | 설명                                                                                            |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| `동작`                               | `문자열`                                                                                               | The action performed. Can be `created`.{% endif %}
+| `deployment_status`                | `개체`                                                                                                | The [deployment status](/rest/reference/repos#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `문자열`                                                                                               | The new state. Can be `pending`, `success`, `failure`, or `error`.                            |
+| `deployment_status["target_url"]`  | `문자열`                                                                                               | The optional link added to the status.                                                        |
+| `deployment_status["description"]` | `문자열`                                                                                               | The optional human-readable description added to the status.                                  |
+| `deployment`                       | `개체`                                                                                                | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -334,7 +332,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 엔터프라이즈
 
@@ -342,7 +340,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 #### Availability
 
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 #### Webhook payload object
 
@@ -619,7 +617,7 @@ For a detailed description of this payload and the payload for each type of `act
 
 ### meta
 
-The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to recieve meta events for.
+The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
 
 #### Availability
 
@@ -669,18 +667,18 @@ The webhook this event is configured on was deleted. This event will only listen
 
 #### Availability
 
-{% if currentVersion != "free-pro-team@latest" %}
-- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/).{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}
+- GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
 #### Webhook payload object
 
-| 키            | 유형    | 설명                                                                                                                                                                                |
-| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `동작`         | `문자열` | The action that was performed. Can be one of:{% if currentVersion != "free-pro-team@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
-| `초대`         | `개체`  | The invitation for the user or email if the action is `member_invited`.                                                                                                           |
-| `membership` | `개체`  | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                           |
+| 키            | 유형    | 설명                                                                                                                                                                                                        |
+| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `동작`         | `문자열` | The action that was performed. Can be one of:{% if enterpriseServerVersions contains currentVersion %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
+| `초대`         | `개체`  | The invitation for the user or email if the action is `member_invited`.                                                                                                                                   |
+| `membership` | `개체`  | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                                                   |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -747,10 +745,10 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 #### Webhook payload object
 
-| 키       | 유형        | 설명                                                                                |
-| ------- | --------- | --------------------------------------------------------------------------------- |
-| `id`    | `integer` | The unique identifier of the page build.                                          |
-| `build` | `개체`      | The [List GitHub Pages builds](/v3/repos/pages/#list-github-pages-builds) itself. |
+| 키       | 유형        | 설명                                                                                     |
+| ------- | --------- | -------------------------------------------------------------------------------------- |
+| `id`    | `integer` | The unique identifier of the page build.                                               |
+| `build` | `개체`      | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -772,11 +770,11 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 #### Webhook payload object
 
-| 키              | 유형        | 설명                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `zen`          | `문자열`     | Random string of GitHub zen.                                                                                                                                                                                                                                                                                                                                                                                   |
-| `hook_id`      | `integer` | The ID of the webhook that triggered the ping.                                                                                                                                                                                                                                                                                                                                                                 |
-| `후크`           | `개체`      | The [webhook configuration](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                                        |
+| 키              | 유형        | 설명                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `zen`          | `문자열`     | Random string of GitHub zen.                                                                                                                                                                                                                                                                                                                                                                         |
+| `hook_id`      | `integer` | The ID of the webhook that triggered the ping.                                                                                                                                                                                                                                                                                                                                                       |
+| `후크`           | `개체`      | The [webhook configuration](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                              |
 | `hook[app_id]` | `integer` | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -972,17 +970,21 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 | 키                          | 유형        | 설명                                                                                                                                                                                                                                                                                          |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ref`                      | `문자열`     | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/master`.                                                                                                                                                                                                          |
+| `ref`                      | `문자열`     | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/main`.                                                                                                                                                                                                            |
 | `before`                   | `문자열`     | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
 | `after`                    | `문자열`     | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
 | `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `문자열`     | The SHA of the commit.                                                                                                                                                                                                                                                                      |
+| `commits[][id]`            | `문자열`     | The SHA of the commit.                                                                                                                                                                                                                                                                      |
+| `commits[][timestamp]`     | `문자열`     | The ISO 8601 timestamp of the commit.                                                                                                                                                                                                                                                       |
 | `commits[][message]`       | `문자열`     | The commit message.                                                                                                                                                                                                                                                                         |
 | `commits[][author]`        | `개체`      | The git author of the commit.                                                                                                                                                                                                                                                               |
 | `commits[][author][name]`  | `문자열`     | The git author's name.                                                                                                                                                                                                                                                                      |
 | `commits[][author][email]` | `문자열`     | The git author's email address.                                                                                                                                                                                                                                                             |
 | `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
 | `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
+| `commits[][added]`         | `array`   | An array of files added in the commit.                                                                                                                                                                                                                                                      |
+| `commits[][modified]`      | `array`   | An array of files modified by the commit.                                                                                                                                                                                                                                                   |
+| `commits[][removed]`       | `array`   | An array of files removed in the commit.                                                                                                                                                                                                                                                    |
 | `pusher`                   | `개체`      | The user who pushed the commits.                                                                                                                                                                                                                                                            |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -1044,7 +1046,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 | 키    | 유형    | 설명                                                                          |
 | ---- | ----- | --------------------------------------------------------------------------- |
-| `동작` | `문자열` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/v3/orgs/hooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
+| `동작` | `문자열` | The action that was performed. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1246,14 +1248,14 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 사용자
 
 When a user is `created` or `deleted`.
 
 #### Availability
-- GitHub Enterprise webhooks. For more information, "[Global webhooks](/v3/enterprise-admin/global_webhooks/)."
+- GitHub Enterprise webhooks. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/)."
 
 #### Webhook payload example
 
@@ -1298,7 +1300,6 @@ This event occurs when someone triggers a workflow run on GitHub or sends a `POS
 
 {{ webhookPayloadsForCurrentVersion.workflow_dispatch }}
 {% endif %}
-
 
 ### workflow_run
 

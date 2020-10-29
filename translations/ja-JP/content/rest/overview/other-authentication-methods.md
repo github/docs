@@ -9,8 +9,9 @@ versions:
 ---
 
 
-
-API は複数の認証方式を提供していますが、本番アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト（完全な OAuth では過剰になる場合）に使用するために提供されています。 認証に {% data variables.product.product_name %} を使用するサードパーティのアプリケーションは、{% data variables.product.product_name %} の認証情報を要求または収集してはなりません。 代わりに、[OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使用してください。
+API は複数の認証方式を提供していますが、本番アプリケーションには [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) を使用することを強くお勧めします。 他の方式は、スクリプトまたはテスト（完全な OAuth では過剰になる場合）に使用するために提供されています。 Third party applications that rely on
+{% data variables.product.product_name %} for authentication should not ask for or collect {% data variables.product.product_name %} credentials.
+代わりに、[OAuth web フロー](/apps/building-oauth-apps/authorizing-oauth-apps/)を使用してください。
 
 ### Basic 認証
 
@@ -77,7 +78,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 
 2 要素認証を有効にしている場合、REST API の_ほとんど_のエンドポイントの [Basic 認証](#basic-authentication)では、ユーザ名とパスワードの代わりに個人アクセストークンまたは OAuth トークンを使用する必要があります。
 
-{% if currentVersion == "free-pro-team@latest" %}[{% data variables.product.product_name %}開発者設定](https://github.com/settings/tokens/new)で{% endif %}新しい個人用アクセストークンを生成するか、OAuth Authorizations APIのエンドポイントで「[新しい認可を生成][create-access]」して新しいOAuthトークンを作成することができます。 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 次に、これらのトークンを使って、GitHub API で [OAuth トークンを使用して認証][oauth-auth]します。 ユーザ名とパスワードで認証する必要があるのは、OAuth トークンを作成するとき、または OAuth Authorizations API を使用するときだけです。
+You can generate a new personal access token {% if currentVersion == "free-pro-team@latest" %}with [{% data variables.product.product_name %} developer settings](https://github.com/settings/tokens/new){% endif %} or use the "[Create a new authorization][create-access]" endpoint in the OAuth Authorizations API to generate a new OAuth token. 詳しい情報については、「[コマンドラインの個人アクセストークンを作成する](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)」を参照してください。 次に、これらのトークンを使って、GitHub API で [OAuth トークンを使用して認証][oauth-auth]します。 ユーザ名とパスワードで認証する必要があるのは、OAuth トークンを作成するとき、または OAuth Authorizations API を使用するときだけです。
 
 #### 2 要素認証で OAuth Authorizations API を使用する
 

@@ -48,10 +48,5 @@ module.exports = async function handleError (error, req, res, next) {
     }
   }
 
-  // If the CSRF token is bad
-  if (error.code === 'EBADCSRFTOKEN') {
-    return res.sendStatus(403)
-  }
-
   res.status(500).send(await liquid.parseAndRender(layouts['error-500'], req.context))
 }

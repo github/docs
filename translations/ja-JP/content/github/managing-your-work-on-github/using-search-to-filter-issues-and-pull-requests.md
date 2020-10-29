@@ -31,7 +31,7 @@ Issueについては、以下も検索に利用できます。
 - クローズしているリファレンス`linked:pr`によってプルリクエストにリンクされているIssueのフィルタリング
 {% endif %}
 
-For pull requests, you can also use search to:
+プルリクエストについては、検索を利用して以下の操作もできます。
 - [ドラフト](/articles/about-pull-requests#draft-pull-requests)プルリクエストのフィルタリング: `is:draft`
 - まだ[レビュー](/articles/about-pull-request-reviews)されていないプルリクエストのフィルタリング: `state:open type:pr review:none`
 - マージされる前に[レビューを必要とする](/articles/about-required-reviews-for-pull-requests)プルリクエストのフィルタリング: `state:open type:pr review:required`

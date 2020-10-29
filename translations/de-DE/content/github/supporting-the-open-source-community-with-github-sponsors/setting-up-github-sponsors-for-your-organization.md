@@ -50,7 +50,7 @@ Um {% data variables.product.prodname_sponsors %} als ein einzelner Mitwirkender
 
 ### Deine Bankinformationen einreichen
 
-Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkonto Deiner Organisation in einer unterstützten Region erhalten. Du kannst ein Unternehmensbankkonto über Dienste wie [Open Collective](https://opencollective.com/) und [Stripe Atlas](https://stripe.com/atlas) erhalten. {% data reusables.sponsors.stripe-supported-regions %}
+Als unterstützte Organisation musst Du Auszahlungen auf ein dediziertes Bankkonto Deiner Organisation in einer unterstützten Region erhalten. Du kannst ein Unternehmensbankkonto über Dienste wie [Open Collective](https://opencollective.com/) und [Stripe Atlas](https://stripe.com/atlas) erhalten. The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

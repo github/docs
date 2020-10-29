@@ -50,7 +50,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### 銀行口座情報をサブミットする
 
-サポートされている地域にお住まいの場合は、次の手順に従って Stripe Connect アカウントを作成し、銀行口座情報をサブミットできます。 {% data reusables.sponsors.stripe-supported-regions %}
+サポートされている地域にお住まいの場合は、次の手順に従って Stripe Connect アカウントを作成し、銀行口座情報をサブミットできます。 Your region of residence and the region of your bank account must match. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

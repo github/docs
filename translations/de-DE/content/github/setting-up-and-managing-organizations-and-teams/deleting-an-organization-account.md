@@ -1,6 +1,6 @@
 ---
 title: Organisationskonto löschen
-intro: 'Wenn Du eine Organisation löschst, werden alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Projekt- respektive Organisationsseiten ebenfalls gelöscht. {% if currentVersion == "free-pro-team@latest" %}Der Name der Organisation steht wieder zur Verwendung für ein neues Benutzer- oder Organisationskonto zur Verfügung, und Deine Abrechnung endet.{% endif %}'
+intro: 'Wenn Du eine Organisation löschst, werden alle Repositorys, Forks von privaten Repositorys, Wikis, Issues, Pull Requests und Projekt- respektive Organisationsseiten ebenfalls gelöscht. {% if currentVersion == "free-pro-team@latest" %}The organization name becomes available for use on a new user or organization account, and your billing will end.{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
 versions:

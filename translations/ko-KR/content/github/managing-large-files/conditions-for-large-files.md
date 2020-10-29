@@ -16,4 +16,4 @@ If you attempt to add or update a file that is larger than {% data variables.lar
 
 ### Blocked pushes for large files
 
-{% if currentVersion != "free-pro-team@latest" %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if currentVersion != "free-pro-team@latest" %}However, a site administrator can configure a different limit for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)".{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}By default, {% endif %}{% data variables.product.product_name %} blocks pushes that exceed {% data variables.large_files.max_github_size %}. {% if enterpriseServerVersions contains currentVersion %}However, a site administrator can configure a different limit for your {% data variables.product.prodname_ghe_server %} instance. For more information, see "[Setting Git push limits](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-git-push-limits)".{% endif %}

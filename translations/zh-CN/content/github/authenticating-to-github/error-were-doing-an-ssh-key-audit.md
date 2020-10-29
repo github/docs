@@ -1,5 +1,5 @@
 ---
-title: 错误：我们正在进行 SSH 密钥审核
+title: '错误：我们正在进行 SSH 密钥审核'
 intro: 此错误意味着无法验证正在用于执行 Git 操作的 SSH 密钥。
 redirect_from:
   - /articles/error-we-re-doing-an-ssh-key-audit

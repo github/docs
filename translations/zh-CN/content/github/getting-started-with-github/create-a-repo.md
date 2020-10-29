@@ -19,7 +19,9 @@ versions:
 
 {% data reusables.repositories.create_new %}
 2. 为仓库键入简短、令人难忘的名称。 例如 "hello-world"。 ![用于输入仓库名称的字段](/assets/images/help/repository/create-repository-name.png)
-3. （可选）添加仓库的说明。 例如，“我在 {% data variables.product.product_name %} 上的第一个仓库”。 ![用于输入仓库说明的字段](/assets/images/help/repository/create-repository-desc.png)
+3. （可选）添加仓库的说明。 For example, "My first repository on
+{% data variables.product.product_name %}。"
+  ![用于输入仓库说明的字段](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -29,7 +31,7 @@ versions:
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
-**Tip**: You can also create repositories using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo create`](https://cli.github.com/manual/gh_repo_create)" in the {% data variables.product.prodname_cli %} documentation.
+**提示**：您也可以使用 {% data variables.product.prodname_cli %} 创建仓库。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh 仓库创建`](https://cli.github.com/manual/gh_repo_create)”。
 
 {% endtip %}
 {% endif %}

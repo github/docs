@@ -16,7 +16,6 @@ A API de eventos pode retornar diferentes tipos de eventos acionados por ativida
 
 {% endif %}
 
-
 ### Propriedades comuns do objeto de evento
 
 Os objetos de evento retornados dos pontos de extremidade da API de eventos têm a mesma estrutura.

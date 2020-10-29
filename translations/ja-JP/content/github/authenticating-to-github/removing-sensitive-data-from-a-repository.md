@@ -1,6 +1,6 @@
 ---
 title: 機密データをリポジトリから削除する
-intro: Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。
+intro: 'Git リポジトリへのパスワードや SSH キーといった機密データをコミットする場合、そのデータを履歴から削除することができます。 不要なファイルをリポジトリの履歴から完全に削除するには、「git filter-branch」コマンドか BFG Repo-Cleaner オープンソースツールのいずれかを使用します。'
 redirect_from:
   - /remove-sensitive-data/
   - /removing-sensitive-data/
@@ -71,10 +71,10 @@ $ bfg --replace-text passwords.txt
     - **既存のタグを上書きする**
         ```shell
         $ git filter-branch --force --index-filter \
-        "git rm --cached --ignore-unmatch <em>機密データを含むファイルへのパス</em>" \
+        "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -86,10 +86,10 @@ $ bfg --replace-text passwords.txt
 4. 機密データを含むファイルを、誤って再度コミットしないようにするため、`.gitignore` に追加します。
 
   ```shell
-  $ echo "<em>機密データを含むファイル</em>" >> .gitignore
+  $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
-  $ git commit -m "Add <em>機密データを含むファイル</em> to .gitignore"
-  > [master 051452f] Add <em>機密データを含むファイル</em> to .gitignore
+  $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. リポジトリの履歴から削除対象をすべて削除したこと、すべてのブランチがチェックアウトされたことをダブルチェックします。
@@ -101,8 +101,8 @@ $ bfg --replace-text passwords.txt
   > Compressing objects: 100% (677/677), done.
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
-  > To https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>リポジトリ</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. 機密データを[タグ付きリリース](/articles/about-releases)から削除するため、Git タグに対しても次のようにフォースプッシュする必要があります。
   ```shell
@@ -112,8 +112,8 @@ $ bfg --replace-text passwords.txt
   > Compressing objects: 100% (166/166), done.
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
-  > To https://{% data variables.command_line.codeblock %}/<em>ユーザ名</em>/<em>リポジトリ</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 8. {% data variables.contact.contact_support %} に連絡し、{% data variables.product.product_name %} 上で、キャッシュされているビューと、プルリクエストでの機密データへの参照を削除するよう依頼します。
 9. コラボレータには、 作成したブランチを古い (汚染された) リポジトリ履歴から[リベース](https://git-scm.com/book/en/Git-Branching-Rebasing)する (マージ*しない*) よう伝えます。 マージコミットを 1 回でも行うと、パージで問題が発生したばかりの汚染された履歴の一部または全部が再導入されてしまいます。
@@ -134,7 +134,7 @@ $ bfg --replace-text passwords.txt
 
   {% endnote %}
 
-## 将来にわたって誤ったコミットを回避する
+### 将来にわたって誤ったコミットを回避する
 
 コミット対象でないものがコミットされるのを回避するためのシンプルな方法がいくつかあります。
 
@@ -145,5 +145,5 @@ $ bfg --replace-text passwords.txt
 
 ### 参考リンク
 
-- [`git filter-branch` メインページ](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

@@ -1,6 +1,6 @@
 ---
 title: Exigir autenticação de dois fatores na organização
-intro: Você pode exigir que integrantes da organização e colaboradores externos habilitem a autenticação de dois fatores em suas contas pessoais para dificultar o acesso de elementos mal-intencionados a repositórios e configurações da organização.
+intro: 'Você pode exigir que integrantes da organização e colaboradores externos habilitem a autenticação de dois fatores em suas contas pessoais para dificultar o acesso de elementos mal-intencionados a repositórios e configurações da organização.'
 redirect_from:
   - /enterprise/admin/user-management/requiring-two-factor-authentication-for-an-organization
 versions:
@@ -11,7 +11,7 @@ Ao usar LDAP ou autenticação integrada, a autenticação de dois fatores é co
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-Para obter mais informações, consulte [este gráfico sobre métodos de autenticação compatíveis com 2FA](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa).
+Para obter mais informações, consulte "[Sobre a autenticação de dois fatores](/github/authenticating-to-github/about-two-factor-authentication)".
 
 ### Requisitos para exigir a autenticação de dois fatores
 

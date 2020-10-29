@@ -37,7 +37,7 @@ Weitere Informationen zu den Weiterbildungsmöglichkeiten, einschließlich indiv
 
 {% note %}
 
-**Hinweis:** Schulungen sind im Leistungsumfang des {% data variables.product.premium_plus_support_plan %}s enthalten. Weitere Informationen finden Sie unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
+**Hinweis:** Schulungen sind im Leistungsumfang des {% data variables.product.premium_plus_support_plan %}s enthalten. Weitere Informationen finden Sie unter „[Informationen zum {{ site.data.variables.contact.premium_support }} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
 
 {% endnote %}
 

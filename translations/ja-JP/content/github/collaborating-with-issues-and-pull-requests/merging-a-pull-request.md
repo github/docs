@@ -45,13 +45,13 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
 6. [**Confirm merge**]、[**Confirm squash and merge**] をクリックするか、[**Confirm rebase and merge**] をクリックします。
 6. また、代わりに[ブランチを削除](/articles/deleting-unused-branches)することもできます。 こうすることで、リポジトリにあるブランチのリストが整理された状態を保てます。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}リポジトリは、プルリクエストをマージするとプルリクエストの head ブランチが自動的に削除されるように設定できます。 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。{% endif %}
+The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
 
    {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
-   **注釈:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
-詳しい情報については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)」を参照してください。
+   **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}
+   For more information, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#working-with-branches)."
 
    {% endnote %}
    {% endif %}

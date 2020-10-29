@@ -35,9 +35,9 @@ versions:
 
 ### 仓库中的 {% data variables.large_files.product_name_short %} 对象
 
-从 {% data variables.large_files.product_name_short %} 中删除文件后，{% data variables.large_files.product_name_short %} 对象仍存在于远程存储中{% if currentVersion == "free-pro-team@latest" %} 并将继续计入您的 {% data variables.large_files.product_name_short %} 存储配额{% endif %}。
+After you remove files from {% data variables.large_files.product_name_short %}, the {% data variables.large_files.product_name_short %} objects still exist on the remote storage{% if currentVersion == "free-pro-team@latest" %} and will continue to count toward your {% data variables.large_files.product_name_short %} storage quota{% endif %}.
 
-要从仓库中删除 {% data variables.large_files.product_name_short %} 对象，请{% if currentVersion == "free-pro-team@latest" %}删除并重新创建仓库。 删除仓库时，所有关联的议题、星标和复刻也会被删除。 更多信息请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。{% else %}请联系 {% data variables.product.prodname_enterprise %} 管理员以存档对象。 存档的对象将在三个月后清除。{% endif %}
+To remove {% data variables.large_files.product_name_short %} objects from a repository, {% if currentVersion == "free-pro-team@latest" %}delete and recreate the repository. 删除仓库时，所有关联的议题、星标和复刻也会被删除。 更多信息请参阅“[删除仓库](/github/administering-a-repository/deleting-a-repository)”。{% else %}请联系 {% data variables.product.prodname_enterprise %} 管理员以存档对象。 存档的对象将在三个月后清除。{% endif %}
 
 {% note %}
 

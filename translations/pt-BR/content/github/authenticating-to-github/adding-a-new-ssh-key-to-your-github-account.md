@@ -78,10 +78,10 @@ Depois de adicionar uma nova chave SSH à sua conta do {% data variables.product
 
   ```shell
   $ sudo apt-get install xclip
-  # Baixa e instala xclip. Se você não tiver `apt-get`, talvez seja necessário usar outro instalador (como o `yum`)
+  # Baixa e instala xclip. If you don't have `apt-get`, you might need to use another installer (like `yum`)
 
-  $ xclip -sel clip &lt; ~/.ssh/id_rsa.pub
-  # Copia o conteúdo do arquivo id_rsa.pub na área de transferência
+  $ xclip -selection clipboard &lt; ~/.ssh/id_rsa.pub
+  # Copies the contents of the id_rsa.pub file to your clipboard
   ```
   {% tip %}
 

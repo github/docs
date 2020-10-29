@@ -6,7 +6,7 @@ versions:
   enterprise-server: '>2.19'
 ---
 
-### {% data variables.product.prodname_cli %}について
+### {% data variables.product.prodname_cli %} について
 
 {% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
 

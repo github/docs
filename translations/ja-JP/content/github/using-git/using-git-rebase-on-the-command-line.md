@@ -123,7 +123,7 @@ i cant' typ goods
 Git の履歴を変更したので、通常の `git push origin` **は動作しません**。 最新の変更を「強制プッシュ」して、コマンドを変更する必要があります:
 
 ```shell
-$ git push origin master --force
+$ git push origin main --force
 ```
 
 {% warning %}

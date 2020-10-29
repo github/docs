@@ -1,6 +1,7 @@
 name: Algolia
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
@@ -12,12 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+      uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+    - uses: actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d
       with:
         node-version: 14.x
     - name: cache node modules
-      uses: actions/cache@v1
+      uses: actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -32,7 +33,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: npm run sync-search
     - name: Send slack notification if workflow run fails
-      uses: rtCamp/action-slack-notify@v2.1.0
+      uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815
       if: failure()
       env:
         SLACK_WEBHOOK: ${{ secrets.DOCS_ALERTS_SLACK_WEBHOOK }}

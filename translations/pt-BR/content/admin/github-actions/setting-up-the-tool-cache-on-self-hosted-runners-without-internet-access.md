@@ -34,7 +34,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
 
 ### Preencher o cache de ferramentas para um executor auto-hospedado
 
-1. Em {% data variables.product.prodname_dotcom_the_website %}, navegue até um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
+1. Em {% data variables.product.prodname_dotcom_the_website %}, acesse um repositório que você pode usar para executar um fluxo de trabalho de {% data variables.product.prodname_actions %}.
 1. Crie um novo arquivo de fluxo de trabalho na pasta `.github/workflows` do repositório que faz o upload de um artefato que contém o cache da ferramenta do executor armazenado em {% data variables.product.prodname_dotcom %}.
 
    O exemplo a seguir demonstra um fluxo de trabalho que faz o upload do cache da ferramenta para um ambiente do Ubuntu 18.04, usando a ação `setup-node` com as versões 10 e 12 do Node.js.
@@ -69,7 +69,7 @@ Você pode preencher o cache da ferramenta do executor, executando um fluxo de t
              path: ${{runner.tool_cache}}/tool_cache.tar.gz
    ```
    {% endraw %}
-1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Persistindo dados de fluxo de trabalho usando artefatos](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts#downloading-and-deleting-artifacts-after-a-workflow-run-is-complete)".
+1. Faça o download do artefato do cache da ferramenta da execução do fluxo de trabalho. Para obter instruções sobre o download de artefatos, consulte "[Fazer download de artefatos de fluxo de trabalho](/actions/managing-workflow-runs/downloading-workflow-artifacts)".
 1. Transfira o artefato de cache das ferramentas para o seu executor hospedado e extraia-o para o diretório de cache das ferramentas locais. O diretório de cache da ferramenta padrão é `RUNNER_DIR/_work/_tool`. Se o executor ainda não processou nenhum trabalho, você pode precisar criar os diretórios `_work/_tool`.
 
     Após extrair o artefato de cache da ferramenta carregado no exemplo acima, você deve ter uma estrutura de diretório no seu executor auto-hospedado semelhante ao exemplo a seguir:

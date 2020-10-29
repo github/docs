@@ -45,7 +45,7 @@ versions:
 3. 设置管理员密码。
 5. 单击 **Migrate**。 ![选择安装类型](/assets/images/enterprise/migration/migration-choose-install-type.png)
 6. 将备份主机访问 SSH 密钥粘贴到“Add new SSH key”中。 ![授权备份](/assets/images/enterprise/migration/migration-authorize-backup-host.png)
-7. Click **Add key** and then click **Continue**.
+7. 单击 **Add key（添加密钥）**，然后单击 **Continue（继续）**。
 8. 复制您将在备份主机上运行的 `ghe-restore` 命令，将数据迁移到新实例。 ![开始迁移](/assets/images/enterprise/migration/migration-restore-start.png)
 9. 在旧实例上启用维护模式，并等待所有活动进程完成。 更多信息请参阅“[启用和排定维护模式](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-and-scheduling-maintenance-mode)”。
 

@@ -1,6 +1,6 @@
 ---
 title: Abrechnungsplan für eine GitHub Marketplace-App herabstufen
-intro: 'Wenn Du einen anderen Abrechnungsplan wünschst, kannst Du Deine {% data variables.product.prodname_marketplace %}-App jederzeit herabstufen.'
+intro: 'Wenn Sie einen anderen Abrechnungsplan wünschen, können Sie Ihre {% data variables.product.prodname_marketplace %}-App jederzeit herabstufen.'
 redirect_from:
   - /articles/downgrading-an-app-for-your-personal-account/
   - /articles/downgrading-an-app-for-your-organization/
