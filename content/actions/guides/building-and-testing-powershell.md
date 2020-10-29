@@ -81,7 +81,16 @@ The table below describes the locations for various PowerShell modules in each {
 
 ### Installing dependencies
 
-{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code. You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
+{% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code. 
+
+{% note %}
+
+**Note:** The Pester package used by {% data variables.product.prodname_dotcom %}-hosted runners is regularly updated, and can introduce signficant changes.
+As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
+
+{% endnote %}
+
+You can also cache dependencies to speed up your workflow. For more information, see "[Caching dependencies to speed up your workflow](/actions/automating-your-workflow-with-github-actions/caching-dependencies-to-speed-up-workflows)."
 
 For example, the following job installs the `SqlServer` and `PSScriptAnalyzer` modules:
 
