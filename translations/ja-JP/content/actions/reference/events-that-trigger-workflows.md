@@ -624,7 +624,7 @@ on:
 
 {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
-たとえば、プルリクエストレビューが `eidted` または `dismissed` だったときにワークフローを実行する例は、次のとおりです。
+たとえば、プルリクエストレビューが `edited` または `dismissed` だったときにワークフローを実行する例は、次のとおりです。
 
 
 
