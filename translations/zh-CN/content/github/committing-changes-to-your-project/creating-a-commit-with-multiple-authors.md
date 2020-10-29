@@ -1,6 +1,6 @@
 ---
 title: 创建有多个作者的提交
-intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 合作提交在 {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} 上可见，并且可包含在个人资料贡献图和仓库统计信息中{% endif %}。'
+intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 合作提交在 {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion %} 上可见，并且可包含在个人资料贡献图和仓库统计信息中{% endif %}。'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -67,7 +67,7 @@ versions:
 新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
 ### 延伸阅读
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 - "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"
 - “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”{% endif %}
 - “[查看仓库活动的摘要](/articles/viewing-a-summary-of-repository-activity)”

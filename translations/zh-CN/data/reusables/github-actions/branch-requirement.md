@@ -1,5 +1,5 @@
 {% note %}
 
-**注：**仅当工作流程文件在 `master` 或默认分支上时，此事件才会触发工作流程运行。
+**Note:** This event will only trigger a workflow run if the workflow file is on the default branch.
 
 {% endnote %}

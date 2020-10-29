@@ -20,7 +20,8 @@ versions:
 You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.prodname_dotcom %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built, your repository must be public.
+You can write your own actions to use in your workflow or share the actions you build with the
+{% data variables.product.prodname_dotcom %} community. To share actions you've built, your repository must be public.
 {% endif %}
 
 Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
@@ -60,7 +61,8 @@ A _composite run steps_ action allows you to combine multiple workflow run steps
 If you're developing an action for other people to use, we recommend keeping the action in its own repository instead of bundling it with other application code. This allows you to version, track, and release the action just like any other software.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Storing an action in its own repository makes it easier for the {% data variables.product.prodname_dotcom %} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
+Storing an action in its own repository makes it easier for the
+{% data variables.product.prodname_dotcom %} community to discover the action, narrows the scope of the code base for developers fixing issues and extending the action, and decouples the action's versioning from the versioning of other application code.
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}If you're building an action that you don't plan to make available to the public, you {% else %} You{% endif %} can store the action's files in any location in your repository. If you plan to combine action, workflow, and application code in a single repository, we recommend storing actions in the `.github` directory. For example, `.github/actions/action-a` and `.github/actions/action-b`.
@@ -141,7 +143,7 @@ We recommend creating a README file to help people learn how to use your action.
 
 ### Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building actions and apps, see "[About GitHub Actions](/actions/getting-started-with-github-actions/about-github-actions)" and "[About apps](/apps/about-apps/)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[About apps](/apps/about-apps/)."
 
 #### Strengths of GitHub Actions and GitHub Apps
 

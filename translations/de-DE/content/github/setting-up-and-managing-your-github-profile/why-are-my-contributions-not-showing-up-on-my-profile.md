@@ -1,6 +1,6 @@
 ---
 title: Warum werden meine Beiträge nicht in meinem Profil angezeigt?
-intro: 'Beim Beteiligungsdiagramm für Dein Profil handelt es sich um eine Aufzeichnung Deiner Beiträge für {% data variables.product.product_name %}-Repositorys. Beiträge werden nicht entsprechend Deiner lokalen Zeitzone, sondern entsprechend der UTC-Zone (Coordinated Universal Time, koordinierte Weltzeit) mit Zeitstempeln versehen. Beiträge werden nur gezählt, falls sie bestimmte Kriterien erfüllen. In manchen Fällen muss Dein Diagramm allenfalls neu erstellt werden, damit die Beiträge angezeigt werden.'
+intro: 'Beim Beteiligungsdiagramm für Ihr Profil handelt es sich um einen Eintrag Ihrer Beiträge für {% data variables.product.product_name %}-Repositorys. Beiträge werden nicht entsprechend Deiner lokalen Zeitzone, sondern entsprechend der UTC-Zone (Coordinated Universal Time, koordinierte Weltzeit) mit Zeitstempeln versehen. Beiträge werden nur gezählt, falls sie bestimmte Kriterien erfüllen. In manchen Fällen muss Dein Diagramm allenfalls neu erstellt werden, damit die Beiträge angezeigt werden.'
 redirect_from:
   - /articles/why-are-my-contributions-not-showing-up-on-my-profile
 versions:
@@ -16,7 +16,7 @@ Issues und Pull Requests werden in Deinem Beteiligungsdiagramm angezeigt, falls 
 
 #### Commits
 Commits werden in Deinem Beteiligungsdiagramm angezeigt, falls sie **alle** folgenden Bedingungen erfüllen:
-- Die für die Commits verwendete E-Mail-Adresse ist mit Deinem {% data variables.product.product_name %}-Konto verknüpft.
+- Die für die Commits verwendete E-Mail-Adresse ist mit Ihrem {% data variables.product.product_name %}-Konto verknüpft.
 - Die Commits wurden in einem eigenständigen Repository vorgenommen und nicht in einem Fork.
 - Die Commits wurden
   - In the repository's default branch
@@ -28,11 +28,11 @@ Außerdem muss **mindestens eine** der folgenden Voraussetzung erfüllt sein:
 - Du bist ein Repository-Mitarbeiter oder ein Mitglied der Organisation, welcher das Repository gehört.
 - Du hast das Repository geforkt.
 - Du hast einen Pull Request oder Issue im Repository geöffnet.
-- Du hast das Repository mit Sternen versehen.
-{% if currentVersion != "free-pro-team@latest" %}
+- Sie haben das Repository mit Sternen versehen.
+
 ### Allgemeine Ursachen für nicht gezählte Beiträge
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### Die Commit-Erstellung liegt weniger als 24 Stunden zurück
 
@@ -67,7 +67,7 @@ Commits are only counted if they are made in the default branch or the `gh-pages
 
 Falls sich Deine Commits auf einem Nicht-Standard- oder Nicht-`gh-pages`-Branch befinden und sie auf Deine Beiträge angerechnet werden sollen, musst Du eine der folgenden Aktionen durchführen:
 - [Öffne einen Pull Request](/articles/creating-a-pull-request), damit Deine Änderungen in den Standardbranch oder in den `gh-pages`-Branch zusammengeführt werden.
-- [Ändere den Standardbranch](/articles/setting-the-default-branch) des Repositorys.
+- [Ändere den Standardbranch](/github/administering-a-repository/changing-the-default-branch) des Repositorys.
 
 {% warning %}
 
@@ -79,7 +79,7 @@ Durch das Ändern des Standardbranch des Repositorys wird er für alle Repositor
 
 Die in einem Fork durchgeführten Commits werden nicht auf Deine Beiträge angerechnet. Führe eine der folgenden Aktionen durch, damit sie angerechnet werden:
 - [Öffne einen Pull Request](/articles/creating-a-pull-request), damit Deine Änderungen in das übergeordnete Repository zusammengeführt werden.
-- Wende Dich an {% data variables.contact.contact_support %}, falls Du den Fork trennen und in ein eigenständiges Repository auf {% data variables.product.product_name %} umwandeln möchtest. Wenn der Fork eigene Forks hat, musst Du {% data variables.contact.github_support %} wissen lassen, ob die Forks mit Deinem Repository in ein neues Netzwerk verschoben werden sollen oder im aktuellen Netzwerk verbleiben sollen. Weitere Informationen findest Du unter „[Informationen zu Forks](/articles/about-forks/).“
+- Wenden Sie sich an {% data variables.contact.contact_support %}, falls Sie den Fork trennen und in ein eigenständiges Repository auf {% data variables.product.product_name %} umwandeln möchten. Wenn der Fork eigene Forks hat, musst Du {% data variables.contact.github_support %} wissen lassen, ob die Forks mit Deinem Repository in ein neues Netzwerk verschoben werden sollen oder im aktuellen Netzwerk verbleiben sollen. Weitere Informationen findest Du unter „[Informationen zu Forks](/articles/about-forks/).“
 
 ### Weiterführende Informationen
 

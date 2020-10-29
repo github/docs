@@ -33,7 +33,7 @@ Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates 
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`: Der Standardbranch Deines aktuellen Projekts, zum Beispiel `master` oder `gh-pages`.
+    - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
     ```shell
     $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
     # Filtere den spezifischen Branch in Deinem Verzeichnis und entferne leere Commits
@@ -43,7 +43,7 @@ Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates 
   Das Repository sollte nun nur die Dateien des zuvor angegebenen Unterordners enthalten.
 
 6. [Erstelle ein neues Repository](/articles/creating-a-new-repository/) auf {% data variables.product.product_name %}.
-7. Klicke oben auf der Seite zur Schnelleinrichtung Deines neuen {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres neuen {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
   {% tip %}
 

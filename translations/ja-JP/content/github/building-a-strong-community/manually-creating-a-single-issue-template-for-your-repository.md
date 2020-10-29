@@ -1,6 +1,6 @@
 ---
 title: リポジトリ用の単一 Issue テンプレートを手動で作成する
-intro: 手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。
+intro: '手動で作成した Issue テンプレートをリポジトリに追加すると、プロジェクトのコントリビューターは自動的に Issue の本体でテンプレートの内容が見えるようになります。'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository/
   - /articles/manually-creating-a-single-issue-template-for-your-repository
@@ -28,7 +28,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注釈:** YAML で予約済みの文字を `:` などの引用符で囲む必要があります。 たとえば、`":bug: Bug"` です。
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 

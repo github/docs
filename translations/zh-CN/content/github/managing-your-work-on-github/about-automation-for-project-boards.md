@@ -29,8 +29,11 @@ versions:
 | 已完成 | <ul><li>将所有关闭的议题移到此处</li><li>将所有合并的拉取请求移到此处</li><li>将所有已关闭、已取消合并的拉取请求移到此处</li></ul> |
 
 ### 项目进度跟踪
-项目板自动化默认启用进度跟踪。 "To do"（待处理）、"In progress"（进行中）或 "Done"（完成）列中的卡会预置总体目标进度值。 {% data reusables.project-management.project-progress-locations %}
+
+You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+
+For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ### 延伸阅读
-- "[配置项目板的自动化](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[复制项目板](/articles/copying-a-project-board)"{% endif %}

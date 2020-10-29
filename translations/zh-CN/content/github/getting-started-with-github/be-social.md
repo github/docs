@@ -21,7 +21,7 @@ versions:
 
 ### 关注仓库
 
-您可以关注仓库以接收有关新拉取请求和议题的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}”[关注和取消关注仓库](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}”。
+您可以关注仓库以接收有关新拉取请求和议题的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 在仓库顶部单击 **Watch（关注）**可关注它。
 

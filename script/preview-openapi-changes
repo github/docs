@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Stitches and unstitches the github/github OpenAPI description via rest-api-operations to produce a local preview in docs-internal. This script should be placed in the directory that contains all three repos.
+# Stitches and unstitches the github/github OpenAPI description via rest-api-operations to produce a local preview in docs-internal.
+# `github`, `rest-api-operations`, and `docs-internal` must share a parent directory locally.  
+# You must bootstrap `github` for this script to work. To check if you need to bootstrap, check if the `bin` directory in `github` exists. If it does not exist, run `./script/bootstrap` from the `github` directory.  
 
 # Options:
 # stitch: stitches the repos together and does the npm builds
@@ -46,7 +48,7 @@ if [[ $OPTION == "stitch" ]]; then
   
   # Generate the deferenced OpenAPI files from github/github
   cd github
-  bin/dump-openapi-description /tmp/dump
+  bin/openapi bundle /tmp/dump
 
   # Copy the derefrenced json files into rest-api-operations and build them
   cd ../rest-api-operations
@@ -70,13 +72,17 @@ elif [[ $OPTION == "unstitch" ]]; then
   echo "🔥 🔥  Unstitching the repos..."
   set -o xtrace
 
+  # clear the dump directory
+  rm -rf /tmp/dump/*
+
+  # Undo any docs-internal changes and reinstall rest-api-operations
   cd docs-internal
   git reset --hard HEAD
   npm install
 
+  # Undo any rest-api-operations changes
   cd ../rest-api-operations
   git reset --hard HEAD
-  npm install
 
   set +o xtrace
   echo "🏁 🏁  Finished unstitching the repos!"

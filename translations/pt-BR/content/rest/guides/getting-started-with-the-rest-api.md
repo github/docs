@@ -10,14 +10,13 @@ versions:
 ---
 
 
-
 Vamos andar pelos conceitos básicos da API, à medida que abordamos alguns casos de uso diário.
 
 ### Visão Geral
 
 A maioria dos aplicativos usará uma [biblioteca de segurança][wrappers] existente na linguagem da sua escolha, mas é importante familiarizar-se primeiro com os métodos HTTP e de API subjacentes.
 
-Não há uma maneira mais fazê-lo do que através do [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você será obrigado a enviar um [cabeçalho do agente de usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
+Não há uma maneira mais fácil dar os primeiros passos do que através do [cURL][curl]. {% if currentVersion == "free-pro-team@latest" %} Se você estiver usando um cliente alternativo, observe que você deve enviar um [cabeçalho do Agente de Usuário](/rest/overview/resources-in-the-rest-api#user-agent-required) válido na sua solicitação.{% endif %}
 
 #### Hello World
 
@@ -55,7 +54,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -194,7 +192,9 @@ Neste exemplo, pegamos apenas os repositórios que o octocat possui, não os nos
 
 #### Criar um repositório
 
-Buscar informações para repositórios existentes é um caso de uso comum, mas a API de {% data variables.product.product_name %} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo], precisamos `POST` alguns JSON que contenham as informações e opções de configuração.
+Buscar informações para repositórios existentes é um caso de uso comum, mas a
+API de {% data variables.product.product_name %} também é compatível com a criação de novos repositórios. Para [criar um repositório][create repo],
+precisamos `POST` alguns JSON que contém informações e opções de configuração.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

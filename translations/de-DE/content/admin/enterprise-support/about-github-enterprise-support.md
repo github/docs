@@ -29,7 +29,7 @@ Zusätzlich zu den Vorteilen des {% data variables.contact.enterprise_support %}
   - Geplante Zustandsprüfungen
   - Verwaltete Dienste
 
-Weitere Informationen finden Sie unter „[Informationen zum {% data variables.contact.premium_support %} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
+Weitere Informationen finden Sie unter „[Informationen zum {{ site.data.variables.contact.premium_support }} für {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)“.
 
 {% data reusables.support.scope-of-support %}
 
@@ -59,21 +59,21 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} beobachtet diese Feiertage in den USA. dessen ungeachtet steht unser Support-Team zur Verfügung, um dringende Tickets zu beantworten.
 
-| U.S. Weihnachtsfeiertag | Beobachtetes Datum             | Datum in {{ "now:%Y" }} |
-| ----------------------- | ------------------------------ | ----------------------- |
-| Neujahr                 | 1. Januar                      |                         |
-| Martin Luther King Day  | Dritter Montag im Januar       |                         |
-| Presidents' Day         | Dritter Montag im Februar      |                         |
-| Memorial Day            | Letzter Montag im Mai          |                         |
-| Independence Day        | 4. Juli                        |                         |
-| Labor Day               | Erster Montag im September     |                         |
-| Veterans Day            | 12. November                   |                         |
-| Thanksgiving            | Vierter Donnerstag im November |                         |
-| Tag nach Thanksgiving   | Vierter Freitag im November    |                         |
-| Heiligabend             | 24. Dezember                   |                         |
-| 1. Weihnachtsfeiertag   | 25. Dezember                   |                         |
-| 2. Weihnachtsfeiertag   | 26. Dezember                   |                         |
-| Silvester               | 31. Dezember                   |                         |
+| U.S. Weihnachtsfeiertag | Date observed                  |
+| ----------------------- | ------------------------------ |
+| Neujahr                 | 1. Januar                      |
+| Martin Luther King Day  | Dritter Montag im Januar       |
+| Presidents' Day         | Dritter Montag im Februar      |
+| Memorial Day            | Letzter Montag im Mai          |
+| Independence Day        | 4. Juli                        |
+| Labor Day               | Erster Montag im September     |
+| Veterans Day            | 12. November                   |
+| Thanksgiving            | Vierter Donnerstag im November |
+| Tag nach Thanksgiving   | Vierter Freitag im November    |
+| Heiligabend             | 24. Dezember                   |
+| 1. Weihnachtsfeiertag   | 25. Dezember                   |
+| 2. Weihnachtsfeiertag   | 26. Dezember                   |
+| Silvester               | 31. Dezember                   |
 
 #### Feiertage in Japan
 

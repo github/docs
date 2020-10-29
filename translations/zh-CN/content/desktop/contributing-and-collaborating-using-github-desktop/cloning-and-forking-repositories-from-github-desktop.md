@@ -19,8 +19,8 @@ versions:
   ![Mac 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-mac.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-mac.png)
-{% data reusables.desktop.cloning-repository-list %}  
-![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-mac.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-mac.png)
 4. 单击 **Choose...（选择...）**，并使用 Finder 窗口找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-mac.png)
 5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-mac.png)
 
@@ -32,8 +32,8 @@ versions:
   ![Windows 应用程序中的克隆菜单选项](/assets/images/help/desktop/clone-file-menu-windows.png)
 {% data reusables.desktop.cloning-location-tab %}
   ![克隆仓库菜单中的 Location（位置）选项卡](/assets/images/help/desktop/choose-repository-location-win.png)
-{% data reusables.desktop.cloning-repository-list %}     
-![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-win.png)
+{% data reusables.desktop.cloning-repository-list %}
+  ![克隆仓库列表](/assets/images/help/desktop/clone-a-repository-list-win.png)
 4. 单击 **Choose...（选择...）**，并使用 Windows 资源管理器找到要克隆仓库的本地路径。 ![选择按钮](/assets/images/help/desktop/clone-choose-button-win.png)
 5. 单击 **Clone（克隆）**。 ![克隆按钮](/assets/images/help/desktop/clone-button-win.png)
 

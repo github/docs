@@ -1,6 +1,6 @@
 ---
 title: Organization メンバーを外部コラボレーターに変換する
-intro: Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。
+intro: 'Organization の現在のメンバーが、コンサルタントや一時的な雇用者などで、特定のリポジトリへのアクセスのみが必要な場合は、そのメンバーを「外部コラボレーター」に変換できます。'
 redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
 versions:

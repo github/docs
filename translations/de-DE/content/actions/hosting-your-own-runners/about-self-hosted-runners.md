@@ -53,6 +53,15 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * Der Rechner verfügt über genügend Hardwareressourcen für den Typ der Workflows, den Du ausführen möchtest. Die Anwendung für selbst-gehostete Runner selbst erfordert nur minimale Ressourcen.
 * Wenn Du Workflows ausführen willst, die Docker-Container-Aktionen oder Service-Container verwenden, brauchst Du eine Linux-Maschine und Docker muss installiert sein.
 
+### Nutzungseinschränkungen
+
+There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. Die Einschränkungen können sich jederzeit ändern.
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **Job queue time** (Job-Warteschlangenzeit) - Jeder Auftrag für selbst-gehostete Läufer kann maximal 24 Stunden lang in die Warteschlange gestellt werden. Wenn ein selbst-gehosteter Läufer die Ausführung des Auftrags nicht innerhalb dieses Limits startet, wird der Auftrag beendet und kann nicht abgeschlossen werden.
+{% data reusables.github-actions.usage-api-requests %}
+- **Auftrags-Matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+
 ### Unterstützte Betriebssysteme für selbst-gehostete Runner
 
 The following operating systems are supported for the self-hosted runner application.
@@ -82,7 +91,7 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) oder höher
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Kommunikation zwischen selbst-gehosteten Runnern und {% data variables.product.prodname_dotcom %}
 

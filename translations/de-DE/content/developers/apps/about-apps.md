@@ -19,7 +19,7 @@ Apps on {% data variables.product.prodname_dotcom %} allow you to automate and i
 
 For a walkthrough of the process of building a {% data variables.product.prodname_github_app %}, see "[Building Your First {% data variables.product.prodname_github_app %}](/apps/building-your-first-github-app)."
 
-### Informationen zu {% data variables.product.prodname_github_apps %}
+### Informationen zum {% data variables.product.prodname_github_apps %}
 
 {% data variables.product.prodname_github_apps %} are first-class actors within GitHub. A {% data variables.product.prodname_github_app %} acts on its own behalf, taking actions via the API directly using its own identity, which means you don't need to maintain a bot or service account as a separate user.
 

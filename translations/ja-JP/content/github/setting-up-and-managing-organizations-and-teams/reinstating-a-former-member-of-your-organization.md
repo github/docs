@@ -1,6 +1,6 @@
 ---
 title: Oraganization の以前のメンバーを復帰させる
-intro: 'Organizationのオーナーは{% if currentVersion == "free-pro-team@latest" %}Oraganization の以前のメンバーを招待して Oraganization に復帰させて{% else %}以前のメンバーを Oraganization に追加して{% endif%}、その個人の以前のロール、アクセス権、フォーク、設定をリストアするかどうかを選択することができます。'
+intro: 'Organizationのオーナーは {% if currentVersion == "free-pro-team@latest" %}Oraganization の以前のメンバーを招待して Oraganization に復帰させて{% else %}以前のメンバーを Oraganization に追加して{% endif%}、その個人の以前のロール、アクセス権、フォーク、設定をリストアするかどうかを選択することができます。'
 redirect_from:
   - /articles/reinstating-a-former-member-of-your-organization
 versions:

@@ -53,6 +53,15 @@ versions:
 * 机器有足够的硬件资源来执行您计划运行的工作流程类型。 自托管运行器应用程序本身只需要很少的资源。
 * 如果您想运行使用 Docker 容器操作或服务容器的工作流程，您必须使用 Linux 机器并安装 Docker。
 
+### 使用限制
+
+在使用自托管的运行器时，对 {% data variables.product.prodname_actions %} 的使用有一些限制。 这些限制可能会有变动。
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **作业排队时间** - 自托管运行器的每个作业最多可排队 24 小时。 如果自托管运行器在此限制内没有开始执行作业，则作业将被终止，并且无法完成。
+{% data reusables.github-actions.usage-api-requests %}
+- **作业矩阵** - {% data reusables.github-actions.usage-matrix-limits %}
+
 ### 自托管运行器支持的操作系统
 
 自托管运行器应用程序支持以下操作系统。
@@ -82,7 +91,7 @@ versions:
 
 - macOS 10.13 (High Sierra) 或更高版本
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 自托管运行器与 {% data variables.product.prodname_dotcom %} 之间的通信
 

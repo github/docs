@@ -26,6 +26,6 @@ versions:
 ### 参考リンク
 
 - 「[{% data variables.product.prodname_dotcom %} アカウントの支払いを管理する](/articles/managing-billing-for-your-github-account)」
-- 「[{% data variables.product.prodname_marketplace %} アプリケーションの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)」
+- [{% data variables.product.prodname_marketplace %} アプリの支払いを管理する](/articles/managing-billing-for-github-marketplace-apps)
 - 「[{% data variables.large_files.product_name_long %} の支払いを管理する](/articles/managing-billing-for-git-large-file-storage)」
 - [{% data variables.product.prodname_sponsors %} の支払いを管理する](/articles/managing-billing-for-github-sponsors)

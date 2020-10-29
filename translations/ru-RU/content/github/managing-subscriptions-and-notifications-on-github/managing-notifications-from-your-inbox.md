@@ -19,7 +19,6 @@ To access your notifications inbox, in the upper-right corner of any page, click
 
   ![Notification indicating any unread message](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-
 Your inbox shows all of the notifications that you haven't unsubscribed to or marked as **Done.** You can customize your inbox to best suit your workflow using filters, viewing all or just unread notifications, and grouping your notifications to get a quick overview.
 
   ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
@@ -124,6 +123,8 @@ To filter notifications for specific activity on {% data variables.product.produ
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`
 - `is:team-discussion`
+
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 
 You can also use the `is:` query to describe how the notification was triaged.
 

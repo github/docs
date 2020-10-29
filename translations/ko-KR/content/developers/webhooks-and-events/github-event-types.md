@@ -16,7 +16,6 @@ The Events API can return different types of events triggered by activity on Git
 
 {% endif %}
 
-
 ### Event object common properties
 
 The event objects returned from the Events API endpoints have the same structure.
@@ -29,13 +28,13 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.id`               | The unique identifier for the actor.                                                                                                                                                          |
 | `actor.login`            | The username of the actor.                                                                                                                                                                    |
 | `actor.display_login`    | The specific display format of the username.                                                                                                                                                  |
-| `actor.gravatar_id`      | The unique indentifier of the Gravatar profile for the actor.                                                                                                                                 |
+| `actor.gravatar_id`      | The unique identifier of the Gravatar profile for the actor.                                                                                                                                  |
 | `actor.url`              | The REST API URL used to retrieve the user object, which includes additional user information.                                                                                                |
 | `actor.avatar_url`       | The URL of the actor's profile image.                                                                                                                                                         |
 | `repo`                   | The repository object where the event occurred.                                                                                                                                               |
 | `repo.id`                | The unique identifier of the repository.                                                                                                                                                      |
 | `repo.name`              | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url`               | The REST API URL used to retrive the repository object, which includes additional repository information.                                                                                     |
+| `repo.url`               | The REST API URL used to retrieve the repository object, which includes additional repository information.                                                                                    |
 | `payload`                | The event payload object is unique to the event type. See the event type below for the event API `payload` object.                                                                            |
 
 #### Example WatchEvent event object
@@ -203,7 +202,7 @@ This event returns an empty `payload` object.
 | `push_id`                  | `integer` | Unique identifier for the push.                                                                                                                                                                                                                                                             |
 | `크기`                       | `integer` | The number of commits in the push.                                                                                                                                                                                                                                                          |
 | `distinct_size`            | `integer` | The number of distinct commits in the push.                                                                                                                                                                                                                                                 |
-| `ref`                      | `문자열`     | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/master`.                                                                                                                                                                                                          |
+| `ref`                      | `문자열`     | The full [`git ref`](/v3/git/refs/) that was pushed. Example: `refs/heads/main`.                                                                                                                                                                                                            |
 | `head`                     | `문자열`     | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
 | `before`                   | `문자열`     | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
 | `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |

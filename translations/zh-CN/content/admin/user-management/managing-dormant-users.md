@@ -1,47 +1,38 @@
 ---
-title: Managing dormant users
+title: 管理休眠用户
 redirect_from:
   - /enterprise/admin/articles/dormant-users/
   - /enterprise/admin/articles/viewing-dormant-users/
   - /enterprise/admin/articles/determining-whether-a-user-account-is-dormant/
   - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-  - /enterprise/admin/user-management/managing-dormant-users
-intro: A user account is considered to be dormant if it has not been active for at least a month. You may choose to suspend dormant users to free up user licenses.
+intro: 如果一个月或更长时间不活动，用户帐户会被视为休眠。 您可以选择暂停休眠用户以释放用户许可证。
 versions:
   enterprise-server: '*'
 ---
 
-"Activity" includes, but is not limited to:
-- Signing in to {% data variables.product.prodname_ghe_server %}.
-- Commenting on issues and pull requests.
-- Creating, deleting, watching, and starring repositories.
-- Pushing commits.{% if currentVersion ver_gt "enterprise-server@2.21" %}
-- Accessing resources by using a personal access token or SSH key.{% endif %}
+“活动”包括但不限于：
+- 登录 {% data variables.product.prodname_ghe_server %}。
+- 评论问题和拉取请求。
+- 创建、删除、关注仓库和加星标。
+- 推送提交。{% if currentVersion ver_gt "enterprise-server@2.21" %}
+- 使用个人访问令牌或 SSH 密钥访问资源。{% endif %}
 
-### Viewing dormant users
+### 查看休眠用户
 
-You can view a list of all dormant users who have not been suspended and who are not site administrators.
+您可以查看未被挂起和不属于站点管理员的所有休眠用户的列表。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-3. In the left sidebar, click **Dormant users**.
-![Dormant users tab](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
-4. To suspend all the dormant users in this list, at the top of the page, click **Suspend all**.
-![Suspend all button](/assets/images/enterprise/site-admin-settings/suspend-all.png)
+3. 在左侧边栏中，单击 **Dormant users**。 ![Dormant users 选项卡](/assets/images/enterprise/site-admin-settings/dormant-users-tab.png)
+4. 要挂起此列表中的所有休眠用户，请在页面顶部单击 **Suspend all**。 ![Suspend all 按钮](/assets/images/enterprise/site-admin-settings/suspend-all.png)
 
-### Determining whether a user account is dormant
+### 确定用户帐户是否休眠
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
 {% data reusables.enterprise_site_admin_settings.click-user %}
-5. In the **User info** section, a red dot with the word "Dormant" indicates the user account is dormant, and a green dot with the word "Active" indicates the user account is active.
-![Dormant user account](/assets/images/enterprise/stafftools/dormant-user.png)
-![Active user account](/assets/images/enterprise/stafftools/active-user.png)
+5. 在 **User info** 部分中，后面为“Dormant”的红点表示该用户帐户为休眠状态，后面为“Active”的绿点表示该用户帐户处于活跃状态。 ![Dormant 用户帐户](/assets/images/enterprise/stafftools/dormant-user.png) ![Active 用户帐户](/assets/images/enterprise/stafftools/active-user.png)
 
-### Configuring the dormancy threshold
+### 配置休眠阈值
 
 {% data reusables.enterprise_site_admin_settings.dormancy-threshold %}
 
@@ -53,5 +44,4 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
-![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+4. 在“Dormancy threshold”，使用下拉菜单，然后单击所需的休眠阈值。 ![Dormancy threshold 下拉菜单](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)

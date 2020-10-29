@@ -1,6 +1,6 @@
 ---
 title: 添加组织成员到团队
-intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 具有所有者权限的人员也可{% if currentVersion == "free-pro-team@latest" %}邀请非成员加入{% else %}添加非成员到{% endif %}团队和组织。'
+intro: '拥有所有者或团队维护员权限的人员可以添加成员到团队。 People with owner permissions can also {% if currentVersion == "free-pro-team@latest" %}invite non-members to join{% else %}add non-members to{% endif %} a team and the organization.'
 redirect_from:
   - /articles/adding-organization-members-to-a-team-early-access-program/
   - /articles/adding-organization-members-to-a-team

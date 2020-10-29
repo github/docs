@@ -21,10 +21,6 @@ versions:
 
 必须将工作流程文件存储在仓库的 `.github/workflows` 目录中。
 
-### 使用限制
-
-{% data reusables.github-actions.github-actions-usage-limits %}
-
 ### **`name`**
 
 工作流程的名称。 {% data variables.product.prodname_dotcom %} 在仓库的操作页面上显示工作流程的名称。 如果省略 `name`，{% data variables.product.prodname_dotcom %} 将其设置为相对于仓库根目录的工作流程文件路径。
@@ -64,8 +60,8 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     branches:    
-      # Push events on master branch
-      - master
+      # Push events on main branch
+      - main
       # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
       # Push events to branches matching refs/heads/releases/10
@@ -229,7 +225,7 @@ defaults:
 
 每个作业在 `runs-on` 指定的环境中运行。
 
-在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制](#usage-limits)”。
+在工作流程的使用限制之内可运行无限数量的作业。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
 如果需要查找在工作流程运行中运行的作业的唯一标识符，可以使用 {% data variables.product.prodname_dotcom %} ApI。 更多信息请参阅“[工作流程作业](/v3/actions/workflow-jobs)”。
 
@@ -293,7 +289,7 @@ jobs:
 ##### **示例**
 
 ```yaml
-运行： ubuntu 最新
+runs-on: ubuntu-latest
 ```
 
 更多信息请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的虚拟环境](/github/automating-your-workflow-with-github-actions/virtual-environments-for-github-hosted-runners)”。
@@ -310,7 +306,7 @@ runs-on: [self-hosted, linux]
 
 更多信息请参阅“[关于自托管的运行器](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)”和“[在工作流程中使用自托管的运行器](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)”。
 
-### **`jobs.<jobs_id>.outputs`**
+### **`jobs.<job_id>.outputs`**
 
 作业的输出 `map`。 作业输出可用于所有依赖此作业的下游作业。 有关定义作业依赖项的更多信息，请参阅 [`jobs.<job_id>.needs`](#jobsjob_idneeds)。
 
@@ -393,7 +389,7 @@ jobs:
 
 作业包含一系列任务，称为 `steps`。 步骤可以运行命令、运行设置任务，或者运行您的仓库、公共仓库中的操作或 Docker 注册表中发布的操作。 并非所有步骤都会运行操作，但所有操作都会作为步骤运行。 每个步骤在运行器环境中以其自己的进程运行，且可以访问工作区和文件系统。 因为步骤以自己的进程运行，所以步骤之间不会保留环境变量的更改。 {% data variables.product.prodname_dotcom %} 提供内置的步骤来设置和完成作业。
 
-在工作流程的使用限制之内可运行无限数量的步骤。 更多信息请参阅“[使用限制](#usage-limits)”。
+在工作流程的使用限制之内可运行无限数量的步骤。 更多信息请参阅“[使用限制和计费](/actions/reference/usage-limits-billing-and-administration)”（对于 {% data variables.product.prodname_dotcom %} 托管的运行器）和“[关于自托管运行器](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)”（对于自托管运行器使用限制）。
 
 #### 示例
 
@@ -447,7 +443,7 @@ steps:
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@master
@@ -464,7 +460,7 @@ steps:
 强烈建议指定 Git ref、SHA 或 Docker 标记编号来包含所用操作的版本。 如果不指定版本，在操作所有者发布更新时可能会中断您的工作流程或造成非预期的行为。
 - 使用已发行操作版本的 SHA 对于稳定性和安全性是最安全的。
 - 使用特定主要操作版本可在保持兼容性的同时接收关键修复和安全补丁。 还可确保您的工作流程继续工作。
-- 使用操作的 `master` 分支可能很方便，但如果有人新发布具有突破性更改的主要版本，您的工作流程可能会中断。
+- 使用操作的默认分支可能很方便，但如果有人新发布具有突破性更改的主要版本，您的工作流程可能会中断。
 
 有些操作要求必须通过 [`with`](#jobsjob_idstepswith) 关键词设置输入。 请查阅操作的自述文件，确定所需的输入。
 
@@ -481,7 +477,7 @@ steps:
   # Reference a minor version of a release
   - uses: actions/setup-node@v1.2
   # Reference a branch
-  - uses: actions/setup-node@master
+  - uses: actions/setup-node@main
 ```
 
 ##### 使用公共操作的示例
@@ -495,7 +491,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Uses the master branch of a public repository
+        # Uses the default branch of a public repository
         uses: actions/heroku@master
       - name: My second step
         # Uses a specific version tag of a public repository
@@ -513,7 +509,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/aws/ec2@master
+        uses: actions/aws/ec2@main
 ```
 
 ##### 使用工作流程所在仓库中操作的示例
@@ -539,11 +535,11 @@ jobs:
 [Docker 中枢](https://hub.docker.com/)上发布的 Docker 映像。
 
 ```yaml
-工作：
-  my_first_job：
-    步：
-      - 名称： 我的第一步
-        使用： docker：： 3.8
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
 ```
 
 ##### 使用 Docker 公共注册表操作的示例
@@ -596,14 +592,14 @@ jobs:
 
 您可以使用 `shell` 关键词覆盖运行器操作系统中默认的 shell 设置。 您可以使用内置的 `shell` 关键词，也可以自定义 shell 选项集。
 
-| 支持的平台         | `shell` 参数   | 描述                                                                                                                    | 内部运行命令                                          |
-| ------------- | ------------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                        | `bash --noprofile --norc -eo pipefail {0}`      |
-| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                             | `pwsh -command "& '{0}'"`                   |
-| 所有            | `python`     | 执行 python 命令。                                                                                                         | `python {0}`                                    |
-| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                       | `sh -e {0}`                                     |
+| 支持的平台         | `shell` 参数   | 描述                                                                                                               | 内部运行命令                                          |
+| ------------- | ------------ | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 所有            | `bash`       | 非 Windows 平台上回退到 `sh` 的默认 shell。 指定 Windows 上的 bash shell 时，将使用 Git for Windows 随附的 bash shel。                   | `bash --noprofile --norc -eo pipefail {0}`      |
+| 所有            | `pwsh`       | PowerShell Core。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。                             | `pwsh -command ". '{0}'"`                       |
+| 所有            | `python`     | 执行 python 命令。                                                                                                    | `python {0}`                                    |
+| Linux / macOS | `sh`         | 未提供 shell 且 在路径中找不到 `bash` 时的非 Windows 平台的后退行为。                                                                  | `sh -e {0}`                                     |
 | Windows       | `cmd`        | {% data variables.product.prodname_dotcom %} 将扩展名 `.cmd` 附加到您的脚本名称并替换 `{0}`。                                     | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows       | `powershell` | 这是 Windows 上使用的默认 shell。 Desktop PowerShell。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 | `powershell -command "& '{0}'"`.            |
+| Windows       | `powershell` | 这是 Windows 上使用的默认 shell。 Desktop PowerShell。 {% data variables.product.prodname_dotcom %} 将扩展名 `.ps1` 附加到您的脚本名称。 | `powershell -command ". '{0}'"`.                |
 
 ##### 使用 bash 运行脚本的示例
 
@@ -678,7 +674,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@master
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
@@ -695,7 +691,7 @@ jobs:
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -708,7 +704,6 @@ steps:
 1. 使用默认值，允许不指定任何 `args` 即可使用操作。
 1. 如果操作显示 `--help` 标记或类似项，请将其用作默认值，以便操作自行记录。
 
-
 #### **`jobs.<job_id>.steps.with.entrypoint`**
 
 覆盖 `Dockerfile` 中的 Docker `ENTRYPOINT`，或在未指定时设置它。 与包含 shell 和 exec 表单的 Docker `ENTRYPOINT` 指令不同，`entrypoint` 关键词只接受定义要运行的可执行文件的单个字符串。
@@ -718,7 +713,7 @@ steps:
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -766,7 +761,7 @@ steps:
 
 您可以定义不同作业配置的矩阵。 矩阵允许您通过在单个作业定义中执行变量替换来创建多个作业。 例如，可以使用矩阵为多个受支持的编程语言、操作系统或工具版本创建作业。 矩阵重新使用作业的配置，并为您配置的每个矩阵创建作业。
 
-{% data reusables.github-actions.matrix-limits %}
+{% data reusables.github-actions.usage-matrix-limits %}
 
 您在 `matrix` 中定义的每个选项都有键和值。 定义的键将成为 `matrix` 上下文中的属性，您可以在工作流程文件的其他区域中引用该属性。 例如，如果定义包含操作系统数组的键 `os`，您可以使用 `matrix.os` 属性作为 `runs-on` 关键字的值，为每个操作系统创建一个作业。 更多信息请参阅“[{% data variables.product.prodname_actions %} 的上下文和表达式语法](/actions/reference/context-and-expression-syntax-for-github-actions)”。
 
@@ -842,7 +837,6 @@ strategy:
 ##### 包括新组合的示例
 
 您可以使用 `include` 将新作业添加到构建矩阵中。 任何不匹配包含配置都会添加到矩阵中。 例如，如果您想要使用 `node` 版本 12 在多个操作系统上构建，但在 Ubuntu 上需要一个使用节点版本 13 的额外实验性作业，则可使用 `include` 指定该额外作业。
-
 
 {% raw %}
 ```yaml
@@ -952,7 +946,25 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-要用作运行操作的容器的 Docker 图像。 值可以是 Docker 中枢映像名称或公共 Docker 注册表名称。
+要用作运行操作的容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.container.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### 示例
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
 #### **`jobs.<job_id>.container.env`**
 
@@ -1015,19 +1027,43 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+#### **`jobs.<job_id>.services.<service_id>.image`**
 
-要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker 基本映像名称或公共 Docker 中枢或注册表。
+要用作运行操作的服务容器的 Docker 图像。 值可以是 Docker Hub 映像名称或{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}公共{% endif %}注册表名称。
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### 示例
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+#### **`jobs.<job_id>.services.<service_id>.env`**
 
 在服务容器中设置环境变量的 `map`。
 
-#### **`jobs.<job_id>.services.ports`**
+#### **`jobs.<job_id>.services.<service_id>.ports`**
 
 设置要在服务容器上显示的端口 `array`。
 
-#### **`jobs.<job_id>.services.volumes`**
+#### **`jobs.<job_id>.services.<service_id>.volumes`**
 
 设置要使用的服务容器卷的 `array`。 您可以使用卷分享作业中服务或其他步骤之间的数据。 可以指定命名的 Docker 卷、匿名的 Docker 卷或主机上的绑定挂载。
 
@@ -1046,7 +1082,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+#### **`jobs.<job_id>.services.<service_id>.options`**
 
 附加 Docker 容器资源选项。 有关选项列表，请参阅“[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)”。
 
@@ -1076,16 +1112,16 @@ volumes:
 
 #### 匹配分支和标记的模式
 
-| 模式                                              | 描述                                                                   | 示例匹配                                                                                               |
-| ----------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `功能/*`                                          | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `功能/**`                                         | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | -`master`<br/>-`releases/mona-the-octocat`                                                   |
-| `'*'`                                           | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`master`<br/>-`releases`                                                                    |
-| `'**'`                                          | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*功能'`                                         | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                           | 匹配以 `v2` 开头的分支和标记名称。                                                 | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                           | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| 模式                                            | 描述                                                                   | 示例匹配                                                                                               |
+| --------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `功能/*`                                        | `*` 通配符匹配任何字符，但不匹配斜杠 (`/`)。                                          | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
+| `功能/**`                                       | `**` 通配符匹配任何字符，包括分支和标记名称中的斜杠 (`/`)。                                  | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
+| -`main`<br/>-`releases/mona-the-octcat` | 匹配分支或标记名称的确切名称。                                                      | -`main`<br/>-`releases/mona-the-octocat`                                                     |
+| `'*'`                                         | 匹配所有不包含斜杠 (`/`) 的分支和标记名称。 `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。 | -`main`<br/>-`releases`                                                                      |
+| `'**'`                                        | 匹配所有分支和标记名称。 这是不使用 `branches` or `tags` 过滤器时的默认行为。                   | -`all/the/branches`<br/>-`every/tag`                                                         |
+| `'*功能'`                                       | `*` 字符是 YAML 中的特殊字符。 当模式以 `*` 开头时，您必须使用引号。                           | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
+| `v2*`                                         | 匹配以 `v2` 开头的分支和标记名称。                                                 | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                         | 将所有语义版本控制标记与主要版本 1 或 2 匹配                                            | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
 
 #### 匹配文件路径的模式
 

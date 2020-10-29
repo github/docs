@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Organisationsmitgliedschaft
-intro: 'Du kannst Mitglied einer Organisation werden, um mit Mitarbeitern oder Open-Source-Mitwirkenden in vielen Repositorys gleichzeitig zusammenzuarbeiten.'
+intro: Du kannst Mitglied einer Organisation werden, um mit Mitarbeitern oder Open-Source-Mitwirkenden in vielen Repositorys gleichzeitig zusammenzuarbeiten.
 redirect_from:
   - /articles/about-organization-membership
 versions:

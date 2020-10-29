@@ -10,7 +10,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Entrada em vigor: **12 de agosto de 2020**
+Effective date: **October 2, 2020**
 
 O GitHub fornece um grande acordo de transparência em relação à forma como usamos seus dados, como os coletamos e com quem compartilhamos. Para tanto, nós fornecemos esta página, que detalha [nossos subprocessadores](#github-subprocessors), como usamos [cookies](#cookies-on-github), e onde e como executamos qualquer [rastreamento no GitHub](#tracking-on-github).
 
@@ -19,7 +19,7 @@ O GitHub fornece um grande acordo de transparência em relação à forma como u
 Quando compartilhamos suas informações com terceiros subprocessadores, tais como nossos fornecedores e provedores de serviços, permanecemos responsáveis por elas. Trabalhamos muito duro para manter sua confiança quando trazemos novos fornecedores, e exigimos que todos os fornecedores se submetam a contratos de proteção de dados conosco que restringem seu processamento de Informações Pessoais dos Usuários (conforme definido na [Declaração de Privacidade](/articles/github-privacy-statement/)).
 
 | Nome do subprocessador | Descrição do processamento                                            | Local do Processamento | Localização corporativa |
-| ---------------------- | --------------------------------------------------------------------- | ---------------------- | ----------------------- |
+|:---------------------- |:--------------------------------------------------------------------- |:---------------------- |:----------------------- |
 | Automattic             | Serviço de blogs                                                      | Estados Unidos         | Estados Unidos          |
 | AWS Amazon             | Hospedagem de dados                                                   | Estados Unidos         | Estados Unidos          |
 | Braintree (PayPal)     | Processador de pagamento de assinatura com cartão de crédito          | Estados Unidos         | Estados Unidos          |
@@ -28,7 +28,7 @@ Quando compartilhamos suas informações com terceiros subprocessadores, tais co
 | DiscoverOrg            | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
 | Eloqua                 | Automatização da campanha marketing                                   | Estados Unidos         | Estados Unidos          |
 | Google Apps            | Infraestrutura interna da empresa                                     | Estados Unidos         | Estados Unidos          |
-| Google Analytics       | Análise e desempenho de sites                                         | Estados Unidos         | Estados Unidos          |
+| Google Analytics       | Analytics and performance                                             | Estados Unidos         | Estados Unidos          |
 | LinkedIn Navigator     | Serviço de enriquecimento de dados de marketing                       | Estados Unidos         | Estados Unidos          |
 | Magic Robot            | Relatórios de campanha (Complemento para Vendas)                      | Estados Unidos         | Estados Unidos          |
 | MailChimp              | Fornecedor de serviços de correio para emissão de bilhetes a clientes | Estados Unidos         | Estados Unidos          |
@@ -49,63 +49,49 @@ Quando trouxermos um novo subprocessador que lida com as Informações Pessoais 
 
 ### Cookies no GitHub
 
-O GitHub usa cookies para tornar as interações com nosso serviço fáceis e significativas. Usamos cookies (e tecnologias similares, como HTML5 localStorage) para mantê-lo conectado, lembrar de suas preferências, fornecer informações para o desenvolvimento futuro do GitHub e anunciar os produtos e serviços do GitHub para você em sites de terceiros.
+GitHub uses cookies and similar technologies (collectively, “cookies”) to provide and secure our websites, as well as to analyze the usage of our websites, in order to offer you a great user experience. Please take a look at our [Privacy Statement](/github/site-policy/github-privacy-statement#our-use-of-cookies-and-tracking) if you’d like more information about cookies, and on how and why we use them.
 
-Um cookie é um pequeno pedaço de texto que nosso servidor web armazena em seu computador ou dispositivo móvel, que seu navegador nos envia quando você retorna ao nosso site. Os cookies não necessariamente o identificam se você está apenas visitando o GitHub; no entanto, um cookie pode armazenar um identificador exclusivo para cada usuário conectado. Usamos cookies para mantermos você logado, lembrarmos de suas preferências e fornecermos informações para o desenvolvimento futuro do GitHub. Por motivos de segurança, usamos cookies para identificar um dispositivo. Ao usar o nosso site, você concorda que podemos inserir esses tipos de cookies no seu computador ou dispositivo. Se você desativar o navegador ou a capacidade de o seu dispositivo aceitar cookies, não será possível fazer login nem usar os serviços do GitHub. Em determinadas áreas do site, também podemos usar cookies para identificar você e/ou seu dispositivo a fim de anunciar produtos e serviços no GitHub para você em sites de terceiros.
+Since the number and names of cookies may change,the table below may be updated from time to time.
 
-O GitHub define os seguintes cookies para os nossos usuários pelos seguintes motivos:
+| Service Provider   | Cookie Name                          | Descrição                                                                                                                                  | Expiration*                                                   |
+|:------------------ |:------------------------------------ |:------------------------------------------------------------------------------------------------------------------------------------------ |:------------------------------------------------------------- |
+| GitHub             | `app_manifest_token`                 | This cookie is used during the App Manifest flow to maintain the state of the flow during the redirect to fetch a user session.            | five minutes                                                  |
+| GitHub             | `cookie-preferences`                 | This cookie is used to track user cookie preferences.                                                                                      | one year                                                      |
+| GitHub             | `_device_id`                         | This cookie is used to track recognized devices.                                                                                           | one year                                                      |
+| GitHub             | `dotcom_user`                        | This cookie is used to signal to us that the user is already logged in.                                                                    | one year                                                      |
+| GitHub             | `_gh_ent`                            | This cookie is used for temporary application and framework state between pages like what step the customer is on in a multiple step form. | two weeks                                                     |
+| GitHub             | `_gh_sess`                           | This cookie is used for temporary application and framework state between pages like what step the user is on in a multiple step form.     | sessão                                                        |
+| GitHub             | `gist_oauth_csrf`                    | This cookie is set by Gist to ensure the user that started the oauth flow is the same user that completes it.                              | deleted when oauth state is validated                         |
+| GitHub             | `gist_user_session`                  | This cookie is used by Gist when running on a separate host.                                                                               | two weeks                                                     |
+| GitHub             | `has_recent_activity`                | This cookie is used to prevent showing the security interstitial to users that have visited the app recently.                              | one hour                                                      |
+| GitHub             | `__Host-gist_user_session_same_site` | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub.             | two weeks                                                     |
+| GitHub             | `__Host-user_session_same_site`      | This cookie is set to ensure that browsers that support SameSite cookies can check to see if a request originates from GitHub.             | two weeks                                                     |
+| GitHub             | `logged_in`                          | This cookie is used to signal to us that the user is already logged in.                                                                    | one year                                                      |
+| GitHub             | `marketplace_repository_ids`         | This cookie is used for the marketplace installation flow.                                                                                 | one hour                                                      |
+| GitHub             | `marketplace_suggested_target_id`    | This cookie is used for the marketplace installation flow.                                                                                 | one hour                                                      |
+| GitHub             | `_octo`                              | This cookie is used by our internal analytics service to distinguish unique users and clients.                                             | one year                                                      |
+| GitHub             | `org_transform_notice`               | This cookie is used to provide notice during organization transforms.                                                                      | one hour                                                      |
+| GitHub             | `private_mode_user_session`          | This cookie is used for Enterprise authentication requests.                                                                                | two weeks                                                     |
+| GitHub             | `saml_csrf_token`                    | This cookie is set by SAML auth path method to associate a token with the client.                                                          | until user closes browser or completes authentication request |
+| GitHub             | `saml_csrf_token_legacy`             | This cookie is set by SAML auth path method to associate a token with the client.                                                          | until user closes browser or completes authentication request |
+| GitHub             | `saml_return_to`                     | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop.                                     | until user closes browser or completes authentication request |
+| GitHub             | `saml_return_to_legacy`              | This cookie is set by the SAML auth path method to maintain state during the SAML authentication loop.                                     | until user closes browser or completes authentication request |
+| GitHub             | `tz`                                 | This cookie allows your browser to tell us what time zone you're in.                                                                       | sessão                                                        |
+| GitHub             | `user_session`                       | This cookie is used to log you in.                                                                                                         | two weeks                                                     |
+| Google Analytics** | `_ga`                                | This cookie is used by Google Analytics.                                                                                                   | two years                                                     |
+| Google Analytics** | `_gat`                               | This cookie is used by Google Analytics.                                                                                                   | one minute                                                    |
+| Google Analytics** | `_gid`                               | This cookie is used by Google Analytics.                                                                                                   | one day                                                       |
 
-| Nome do Cookie                       | Motivo                                                                                                                                                                      |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `user_session`                       | Este cookie é usado para fazer seu login.                                                                                                                                   |
-| `logged_in`                          | Este cookie é usado para sinalizar que o usuário já está logado.                                                                                                            |
-| `dotcom_user`                        | Este cookie é usado para sinalizar que o usuário já está logado.                                                                                                            |
-| `_gh_sess`                           | Este cookie é usado para aplicação temporária e para o estado do framework entre páginas, como por exemplo, em qual etapa o usuário está em um formulário de várias etapas. |
-| `tz`                                 | Este cookie permite que seu navegador nos diga em que fuso horário você está.                                                                                               |
-| `gist_user_session`                  | Este cookie é usado pelo Gist ao ser executado em um host separado.                                                                                                         |
-| `saml_csrf_token`                    | Este cookie é definido pelo método de caminho de autenticação SAML para associar um token ao cliente.                                                                       |
-| `saml_return_to`                     | Este cookie é definido pelo método de caminho de autenticação SAML para manter o estado durante o loop de autenticação SAML.                                                |
-| `gist_oauth_csrf`                    | Este cookie é definido pelo Gist para garantir que o usuário que iniciou o fluxo de autenticação seja o mesmo usuário que o completa.                                       |
-| `__Host-user_session_same_site`      | Este cookie foi definido para garantir que os navegadores que suportam cookies do SameSite possam verificar se uma solicitação é originária do GitHub.                      |
-| `__Host-gist_user_session_same_site` | Este cookie foi definido para garantir que os navegadores que suportam cookies do SameSite possam verificar se uma solicitação é originária do GitHub.                      |
-| `_ga`                                | Este cookie é usado pelo Google Analytics.                                                                                                                                  |
-| `_gat`                               | Este cookie é usado pelo Google Analytics.                                                                                                                                  |
-| `_gid`                               | Este cookie é usado pelo Google Analytics.                                                                                                                                  |
-| `_octo`                              | Este cookie é usado pela Octolytics, nosso serviço de análise interna, para distinguir usuários e clientes únicos.                                                          |
-| `tracker`                            | Este cookie rastreia a fonte de referência para análise de inscrição.                                                                                                       |
+_*_ The **expiration** dates for the cookies listed below generally apply on a rolling basis.
 
-Algumas páginas em nosso site podem definir cookies de terceiros. Por exemplo, podemos incorporar conteúdo, como vídeos, de outro site que define um cookie. Embora tentemos minimizar esses cookies de terceiros, nem sempre podemos controlar quais cookies esse conteúdo de terceiros define.
+_**_ We use **Google Analytics** as a third party analytics service to collect information about how our website performs and how our users, in general, navigate through and use GitHub. This helps us evaluate our users' use of GitHub, compile statistical reports on activity, and improve our content and website performance.
+
+You can control your Google Analytics cookie preferences through our cookie preference link located at the footer of our website. In addition, Google provides further information about its own privacy practices and [offers a browser add-on to opt out of Google Analytics tracking](https://tools.google.com/dlpage/gaoptout).
+
+(!) Please note certain pages on our website may set other third party cookies. For example, we may embed content, such as videos, from another site that sets a cookie. While we try to minimize these third party cookies, we can’t always control what cookies this third party content sets.
 
 ### Rastreamento no GitHub
 
-"[Não rastreie](https://www.eff.org/issues/do-not-track)" (DNT) é uma preferência de privacidade que você pode definir em seu navegador se você não quiser que serviços online - especificamente redes de anúncios - coletem e compartilhem certos tipos de informações sobre sua atividade online a partir de serviços de rastreamento de terceiros. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). Se você deseja configurar seu navegador para sinalizar que não gostaria de ser rastreado, verifique a documentação do seu navegador para saber como ativar essa sinalização. Há também bons aplicativos que bloqueiam o rastreamento online, como [Badger de Privacidade](https://www.eff.org/privacybadger).
+"[Do Not Track](https://www.eff.org/issues/do-not-track)" (DNT) is a privacy preference you can set in your browser if you do not want online services to collect and share certain kinds of information about your online activity from third party tracking services. O GitHub responde aos sinais de DNT dos navegadores e segue o [padrão do W3C de resposta aos sinais de DNT](https://www.w3.org/TR/tracking-dnt/). If you would like to set your browser to signal that you would not like to be tracked, please check your browser's documentation for how to enable that signal. There are also good applications that block online tracking, such as [Privacy Badger](https://www.eff.org/privacybadger).
 
-Caso você não tenha habilitado o DNT em um navegador compatível com esse recurso, os cookies de algumas partes do nosso site rastrearão sua atividade de navegação online em outros serviços online ao longo do tempo, embora não permitamos que terceiros além de nossos provedores de análise e serviços monitorem a atividade dos usuários do GitHub ao longo do tempo no GitHub. Usamos esses cookies para nos permitir anunciar produtos e serviços do GitHub a você em sites e serviços de terceiros. Também temos contratos com certos fornecedores, como provedores de análise, que nos ajudam a rastrear os movimentos dos visitantes em determinadas páginas do nosso site. Apenas nossos fornecedores, que estão coletando informações pessoais em nosso nome, podem coletar dados em nossas páginas, e assinamos contratos de proteção de dados com cada fornecedor que recolhe esses dados em nosso nome. Usamos os dados que recebemos desses fornecedores para entender melhor os interesses de nossos visitantes, entender o desempenho de nosso site e melhorar nosso conteúdo. Qualquer fornecedor de análise será listado em nossa Lista de Subprocessadores acima, e você pode ver uma lista de cada página onde coletamos esse tipo de dados abaixo.
-
-#### Google Analytics
-
-Usamos o Google Analytics como um serviço de análise terceirizado e para rastrear nossas campanhas de publicidade em sites e serviços de terceiros. Usamos o Google Analytics para coletar informações sobre o desempenho do nosso site e como nossos usuários, em geral, navegam e usam o GitHub. Isso nos ajuda a avaliar o uso do GitHub por nossos usuários; compilar relatórios estatísticos sobre a atividade; e melhorar o conteúdo e desempenho do nosso site. O Google fornece mais informações sobre suas próprias práticas de privacidade e [oferece um complemento do navegador para desativar o rastreamento do Google Analytics](https://tools.google.com/dlpage/gaoptout).
-
-#### Páginas no GitHub onde o analytics pode estar ativado
-
-Páginas em URLs que contenham qualquer um dos seguintes domínios e caminhos (incluindo quaisquer subdomínios ou subcaminhos) em nossos sites podem ter o analytics ou outro código de rastreamento ativado. Se quiser nos impedir de coletar informações sobre sua atividade de navegação no GitHub, você pode usar um bloqueador de rastreamento, como o [Badger de Privacidade](https://www.eff.org/privacybadger) ou desativar o rastreamento do Google Analytics.
-
-- github.com/home (se você está desconectado ou não tem uma conta, esta é a página que você verá quando visitar github.com)
-- github.com/about
-- github.blog
-- github.com/enterprise
-- github.com/collections
-- github.com/developer-stories
-- github.com/events
-- github.com/explore
-- github.com/features
-- github.com/logos
-- github.com/nonprofit
-- github.com/open-source
-- github.com/personal
-- github.com/pricing
-- github.com/ten
-- github.com/trending
-- resources.github.com
-- de.github.com
-- fr.github.com
+If you have not enabled DNT on a browser that supports it, cookies on some parts of our website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub users' activity over time on GitHub. We have agreements with certain vendors, such as analytics providers, who help us track visitors' movements on certain pages on our website. Only our vendors, who are collecting personal information on our behalf, may collect data on our pages, and we have signed data protection agreements with every vendor who collects this data on our behalf. We use the data we receive from these vendors to better understand our visitors' interests, to understand our website's performance, and to improve our content. Any analytics vendor will be listed in our [subprocessor list](#github-subprocessors), and you may see a list of every page where we collect this kind of data below.
