@@ -1,6 +1,6 @@
 ---
 title: Sicherung eines Repositorys durchführen
-intro: 'Du kannst{% if currentVersion != "free-pro-team@latest" %} Git und{% endif %} die API {% if currentVersion == "free-pro-team@latest" %}oder ein Drittanbieter-Werkzeug {% endif %}für die Sicherung Deines Repositorys verwenden.'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
@@ -22,21 +22,22 @@ Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien
 
 - [Issues](/v3/issues/#list-issues-for-a-repository)
 - [Pull Requests](/v3/pulls/#list-pull-requests)
-- [Forks](/v3/repos/forks/#list-forks)
-- [Kommentare](/v3/issues/comments/#list-comments-in-a-repository)
-- [Meilensteine](/v3/issues/milestones/#list-milestones-for-a-repository)
-- [Kennzeichnungen](/v3/issues/labels/#list-all-labels-for-this-repository)
-- [Watcher](/v3/activity/watching/#list-watchers)
-- [Stargazers](/v3/activity/starring/#list-stargazers)
+- [Forks](/rest/reference/repos#list-forks)
+- [Kommentare](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Meilensteine](/rest/reference/issues#list-milestones)
+- [Kennzeichnungen](/rest/reference/issues#list-labels-for-a-repository)
+- [Watcher](/rest/reference/activity#list-watchers)
+- [Stargazers](/rest/reference/activity#list-stargazers)
 - [Projekte](/v3/projects/#list-repository-projects)
 {% endif %}
 
-Sobald Du {% if currentVersion != "free-pro-team@latest" %}eine lokale Version aller Inhalte hast, die Du sichern möchtest, kannst Du ein ZIP-Archiv erstellen und {% else %}Dein Archiv heruntergeladen hast, kannst Du {% endif %}es auf eine externe Festplatte kopieren und/oder auf einen Cloud-basierten Dienst wie [Google Drive](https://www.google.com/drive/) oder [Dropbox](https://www.dropbox.com/) hochladen.
+Sobald Sie {% if enterpriseServerVersions contains currentVersion %}eine lokale Version aller Inhalte haben, die Sie sichern möchten, können Sie ein ZIP-Archiv erstellen und {% else %}Ihr Archiv heruntergeladen haben, können Sie {% endif %}es auf eine externe Festplatte kopieren und/oder auf einen Cloud-basierten Dienst wie [Google Drive](https://www.google.com/drive/) oder [Dropbox](https://www.dropbox.com/) hochladen.
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Backup-Tools (Sicherungswerkzeuge) von Drittanbietern
 
 Es sind mehrere Self-Service-Tools verfügbar, mit denen Du die Sicherung von Repositorys automatisieren kannst. Im Gegensatz zu Archivierungsprojekten, welche _alle_ nicht ausgeschlossenen öffentlichen Repositorys auf {% data variables.product.product_name %} archivieren und ihre Daten für jedermann zugänglich machen, werden Sicherungswerkzeuge die Daten von _spezifischen_ Repositorys herunterladen und sie in einem neuen Branch oder Verzeichnis organisieren. Weitere Informationen zu Archivierungsprojekten findest Du unter „[Über die Archivierung von Inhalt und Daten auf {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)."
+You can back up all of a repository's Git data (such as project files and commit history), as well as much data from
 
-Du kannst alle Git-Daten eines Repositorys (wie Projektdateien und den Commit-Verlauf) sowie viele Daten von {% data variables.product.product_name %} (wie Issues und Pull Requests) mit [BackHub](https://github.com/marketplace/backhub) sichern. Dieses Werkzeug erstellt täglich wiederkehrend eine Sicherung Deiner Repositorys, mit Snapshots bis zu 30 Tagen in die Vergangenheit. BackHub ist auf {% data variables.product.prodname_marketplace %} verfügbar.
+{% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub ist auf {% data variables.product.prodname_marketplace %} verfügbar.
 {% endif %}

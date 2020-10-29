@@ -1,6 +1,6 @@
 ---
 title: プルリクエストで提案された変更をレビューする
-intro: Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。
+intro: 'Pull Request では、コミット、変更されたファイル、ベース ブランチと比較ブランチでのファイル間の違い (つまり "diff") をレビューしたり議論したりできます。'
 redirect_from:
   - /articles/reviewing-proposed-changes-in-a-pull-request
 versions:
@@ -10,7 +10,7 @@ versions:
 
 ### プルリクエストのレビューについて
 
-プルリクエストの変更は、1 ファイルごとにレビューできます。 プルリクエストのファイルをレビューしている際に、特定の変更についてコメントを残すことができます。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}各ファイルのレビューを完了後、ファイルをレビュー済みとしてマーク付けできます。 これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 プルリクエストのヘッダにあるプログレスバーは、レビュー済みファイルの数を示します。{% endif %}任意の数のファイルをレビュー後、プルリクエストを承認するか、レビューに要約コメントを付けてサブミットし、さらなる変更をリクエストできます。
+プルリクエストの変更は、1 ファイルごとにレビューできます。 While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. これによりファイルが折りたたまれるので、まだレビューを必要とするファイルを特定するのに役立ちます。 A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
 {% data reusables.search.requested_reviews_search_tip %}
 
@@ -28,14 +28,12 @@ versions:
 
 ![[Cancel review] ボタン](/assets/images/help/pull_requests/cancel-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### ファイルをレビュー済みとしてマークする
 
 ファイルのレビュー後は、そのファイルをレビュー済みとしてマークできます。マークしたファイルは折りたたまれます。 ファイルを表示後に変更すると、レビュー済みマークが解除されます。
 
 {% data reusables.repositories.changed-files %}
 2. レビューを完了したファイルの、ヘッダの右側にある [**Viewed**] を選択します。 ![[Viewed] チェックボックス](/assets/images/help/pull_requests/viewed-checkbox.png)
-{% endif %}
 
 ### レビューを提出する
 

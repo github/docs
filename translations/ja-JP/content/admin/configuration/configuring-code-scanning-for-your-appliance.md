@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.code-scanning.beta %}
 
-### {% data variables.product.prodname_code_scanning %}について
+### {% data variables.product.prodname_code_scanning %} について
 
 {% data reusables.code-scanning.about-code-scanning %}
 
@@ -37,7 +37,9 @@ versions:
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_code_scanning_capc %}**] をクリックします。 ![{% data variables.product.prodname_code_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
+1. [
+{% data variables.product.prodname_advanced_security %}] の下にある [**{% data variables.product.prodname_code_scanning_capc %}**] をクリックします。
+![{% data variables.product.prodname_code_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/enable-code-scanning-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 
@@ -46,6 +48,8 @@ versions:
 #### セルフホストランナーを設定する
 
 {% data variables.product.prodname_actions %} ベータに登録している場合、{% data variables.product.prodname_ghe_server %} は {% data variables.product.prodname_actions %} ワークフローを使用して {% data variables.product.prodname_code_scanning %} を実行できます。 まず、環境内に 1 つ以上のセルフホスト {% data variables.product.prodname_actions %} ランナーをプロビジョニングする必要があります。 セルフホストランナーは、リポジトリ、Organization、または Enterprise アカウントレベルでプロビジョニングできます。 詳しい情報については、「[セルフホストランナーについて](/actions/hosting-your-own-runners/about-self-hosted-runners)」および「[セルフホストランナーを追加する](/actions/hosting-your-own-runners/adding-self-hosted-runners)」を参照してください。
+
+{% data variables.product.prodname_codeql %} アクションを実行するために使用するセルフホストランナーの PATH 変数に Git が含まれていることを確認する必要があります。
 
 #### アクションをプロビジョニングする
 {% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を使用して {% data variables.product.prodname_code_scanning %} を実行するには、適切なアクションがローカルで使用可能である必要があります。 アクションを 3 つの方法で利用可能にすることができます。
@@ -67,7 +71,7 @@ versions:
 ### {% data variables.product.prodname_codeql_runner %} を使用して {% data variables.product.prodname_code_scanning %} を実行する
 Organization が {% data variables.product.prodname_actions %} のベータに参加していない場合、または {% data variables.product.prodname_actions %} を使用しない場合は、{% data variables.product.prodname_codeql_runner %} を使用して {% data variables.product.prodname_code_scanning %} を実行できます。
 
-{% data variables.product.prodname_codeql_runner %} は、サードパーティの CI/CD システムに追加できるコマンドラインツールです。 このツールは、{% data variables.product.prodname_dotcom %} リポジトリのチェックアウトに対して {% data variables.product.prodname_codeql %} 分析を実行します。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を CI システムで実行する](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-code-scanning-in-your-ci-system)」を参照してください。
+{% data variables.product.prodname_codeql_runner %} は、サードパーティの CI/CD システムに追加できるコマンドラインツールです。 このツールは、{% data variables.product.prodname_dotcom %} リポジトリのチェックアウトに対して {% data variables.product.prodname_codeql %} 分析を実行します。 詳しい情報については、「[{% data variables.product.prodname_code_scanning %} を CI システムで実行する](/github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-your-ci-system)」を参照してください。
 
 ### {% data variables.product.prodname_code_scanning %} を無効にする
 
@@ -76,5 +80,7 @@ Organization が {% data variables.product.prodname_actions %} のベータに�
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. [{% data variables.product.prodname_advanced_security %}] で、[**{% data variables.product.prodname_code_scanning_capc %}**] を選択解除します。 ![{% data variables.product.prodname_code_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/code-scanning-disable.png)
+1. [
+[{% data variables.product.prodname_advanced_security %}] の下にある [**{% data variables.product.prodname_code_scanning_capc %}**] を選択解除します。
+![{% data variables.product.prodname_code_scanning %} を有効化または無効化するチェックボックス](/assets/images/enterprise/management-console/code-scanning-disable.png)
 {% data reusables.enterprise_management_console.save-settings %}

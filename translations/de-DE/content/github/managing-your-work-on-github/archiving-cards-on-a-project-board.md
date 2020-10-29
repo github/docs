@@ -1,6 +1,6 @@
 ---
 title: Tickets auf einem Projektboard archivieren
-intro: 'Du kannst Projektboard-Tickets archivieren, um Deinen Workflow übersichtlich zu halten, ohne die Verlaufsinformationen eines Projekts zu verlieren.'
+intro: Du kannst Projektboard-Tickets archivieren, um Deinen Workflow übersichtlich zu halten, ohne die Verlaufsinformationen eines Projekts zu verlieren.
 redirect_from:
   - /articles/archiving-cards-on-a-project-board
 versions:

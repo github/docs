@@ -29,10 +29,10 @@ Além disso, **pelo menos uma** das seguintes afirmativas devem ser verdadeiras:
 - Você bifurcou o repositório.
 - Você abriu uma pull request ou um problema no repositório.
 - Você marcou o repositório como favorito.
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### Motivos comuns para as contribuições não serem contabilizadas
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### O commit foi criado menos de 24 horas atrás
 
@@ -40,7 +40,7 @@ Depois de fazer um commit que atenda aos requisitos para ser contabilizado como 
 
 #### Você não adicionou o e-mail do commit no Git ao seu perfil
 
-Os commits devem ser feitos com um endereço de e-mail adicionado à sua conta de {% data variables.product.product_name %}{% if currentVersion == "free-pro-team@latest" %} ou o {% data variables.product.product_name %} fornecido `noreply` endereço de e-mail fornecido nas suas configurações de e-mail{% endif %} para aparecer no seu gráfico de contribuições.{% if currentVersion == "free-pro-team@latest" %} Para obter mais informações sobre endereços de e-mail `noreply`, consulte[Configurar o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses)."{% endif %}
+Commits devem ser feitos com um endereço de e-mail adicionado à sua conta do {% data variables.product.product_name %} {% if currentVersion == "free-pro-team@latest" %} ou o endereço de e-mail `noreply` fornecido por {% data variables.product.product_name %} a você nas suas configurações de e-mail{% endif %} para aparecer no seu gráfico de contribuições.{% if currentVersion == "free-pro-team@latest" %} Para onter mais informações sobre endereços de e-mail`noreply`, consulte "[Definir o seu endereço de e-mail do commit](/github/setting-up-and-managing-your-github-user-account/setting-your-commit-email-address#about-commit-email-addresses).{% endif %}
 
 Você pode verificar o endereço de e-mail usado para um commit adicionando `.patch` ao final de uma URL de commit; por exemplo, <a href="https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch" data-proofer-ignore>https://github.com/octocat/octocat.github.io/commit/67c0afc1da354d8571f51b6f0af8f2794117fd10.patch</a>:
 
@@ -67,7 +67,7 @@ Os commits só são contados se forem feitos no branch-padrão ou no branch `gh-
 
 Se os commits estiverem em um branch que não seja `gh-pages` ou o padrão e você quiser que eles sejam contabilizados para suas contribuições, precisará seguir um destes procedimentos:
 - [Abrir uma pull request](/articles/creating-a-pull-request) para que ocorra o merge das alterações no branch `gh-pages` ou padrão.
-- [Alterar o branch padrão](/articles/setting-the-default-branch) do repositório.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 

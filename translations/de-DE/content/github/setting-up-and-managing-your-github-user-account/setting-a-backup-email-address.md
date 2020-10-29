@@ -1,6 +1,6 @@
 ---
 title: Backup-E-Mail-Adresse festlegen
-intro: 'Deine Backup-E-Mail-Adresse kannst Du zur sicheren Zurücksetzung Deines Passworts verwenden, wenn auf Deine primäre E-Mail-Adresse kein Zugriff mehr möglich ist.'
+intro: Deine Backup-E-Mail-Adresse kannst Du zur sicheren Zurücksetzung Deines Passworts verwenden, wenn auf Deine primäre E-Mail-Adresse kein Zugriff mehr möglich ist.
 redirect_from:
   - /articles/setting-a-backup-email-address
 versions:

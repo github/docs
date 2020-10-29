@@ -1,1 +1,1 @@
-**Existing users:** When you limit interactions to `existing_users`, new users with accounts less than 24 hours old who have not previously contributed and are not collaborators will be temporarily restricted
+**现有用户：**当您将交互限制为 `existing_users`时，帐户年龄小于 24 小时、以前未参与并且不是协作者的新用户将暂时受到限制。

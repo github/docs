@@ -13,13 +13,26 @@ versions:
 
 {% data variables.product.prodname_actions %} に関する詳しい情報については、「[{% data variables.product.prodname_actions %} について](/actions/getting-started-with-github-actions/about-github-actions)」を参照してください。
 
-
 ### Enterprise アカウント の {% data variables.product.prodname_actions %} 権限の管理
+
+You can disable all workflows for an enterprise or set a policy that configures which actions can be used in an organization.
+
+{% data reusables.actions.actions-use-policy-settings %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
+1. [**Save**] をクリックします。
+
+### Allowing specific actions to run
+
+{% data reusables.actions.allow-specific-actions-intro %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+1. [**Policies**] で [**Allow specific actions**] を選択し、必要なアクションをリストに追加します。 ![Add actions to allow list](/assets/images/help/organizations/enterprise-actions-policy-allow-list.png)
 
 ### プライベートリポジトリのフォークのワークフローを有効にする
 

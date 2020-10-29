@@ -3,13 +3,13 @@ title: Ein Repository erstellen
 redirect_from:
   - /create-a-repo/
   - /articles/create-a-repo
-intro: 'Um Dein Projekt auf {% data variables.product.product_location %} aufzubauen, benötigst Du ein Repository, in dem Du das Projekt speichern kannst.'
+intro: 'Um Ihr Projekt auf {% data variables.product.product_location %} aufzubauen, benötigen Sie ein Repository, in dem Sie das Projekt speichern können.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
 
-Du kannst die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
+Sie können die unterschiedlichsten Projekte in {% data variables.product.product_name %}-Repositorys speichern, darunter auch Open-Source-Projekte. Mit [Open-Source-Projekten](http://opensource.org/about) kannst Du Code leichter für andere zugänglich machen, um eine bessere, zuverlässigere Software zu entwickeln.
 
 {% note %}
 
@@ -19,7 +19,9 @@ Du kannst die unterschiedlichsten Projekte in {% data variables.product.product_
 
 {% data reusables.repositories.create_new %}
 2. Gib einen kurzen, leicht merkbaren Namen für Dein Repository ein. Beispiel: „hello world“. ![Feld zum Eingeben eines Repository-Namens](/assets/images/help/repository/create-repository-name.png)
-3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. Beispiel: „Mein erstes Repository auf {% data variables.product.product_name %}“. ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
+3. Optional kannst Du auch eine Beschreibung des Repositorys hinzufügen. For example, "My first repository on
+{% data variables.product.product_name %}."
+  ![Feld zum Eingeben einer Repository-Beschreibung](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}

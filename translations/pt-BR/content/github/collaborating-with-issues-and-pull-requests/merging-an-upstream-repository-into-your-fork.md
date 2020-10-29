@@ -12,7 +12,7 @@ versions:
 2. Altere o diretório de trabalho atual referente ao seu projeto local.
 3. Faça checkout do branch que deseja fazer merge. Normalmente, você fará o merge no branch-padrão.
   ```shell
-  $ git checkout <em>master</em>
+  $ git checkout <em>DEFAULT_BRANCH_NAME</em>
   ```
 4. Faça pull do branch desejado do repositório upstream. Esse método guardará o histórico do commit sem modificações.
   ```shell
@@ -23,5 +23,5 @@ versions:
 7. Revise as alterações e certifique-se de que são adequadas.
 8. Faça push do merge para o seu repositório GitHub.
   ```shell
-  $ git push origin <em>master</em>
+  $ git push origin <em>DEFAULT_BRANCH_NAME</em>
   ```

@@ -1,6 +1,6 @@
 ---
 title: Organization 内でリポジトリの作成を制限する
-intro: Organization のデータを保護するために、Organization 内でリポジトリを作成するための権限を設定できます。
+intro: 'Organization のデータを保護するために、Organization 内でリポジトリを作成するための権限を設定できます。'
 redirect_from:
   - /articles/restricting-repository-creation-in-your-organization
 versions:
@@ -26,5 +26,5 @@ Organization のオーナーは、いつでもどんなタイプの Team でも�
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. [Repository creation] で、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}1 つ以上のオプション{% else %}設定{% endif %}を選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
+5. [Repository creation] で、1 つ以上のオプションを選択します。 ![リポジトリ作成のオプション](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
 6. [**Save**] をクリックします。

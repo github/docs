@@ -1,6 +1,6 @@
 ---
 title: REST APIを使ってみる
-intro: 認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。
+intro: '認証とエンドポイントの例から始めて、REST APIを使用するための基礎を学びます。'
 redirect_from:
   - /guides/getting-started/
   - /v3/guides/getting-started
@@ -10,14 +10,13 @@ versions:
 ---
 
 
-
 日常的なユースケースに取り組みながら、APIの中心的な概念を見ていきましょう。
 
 ### 概要
 
 ほとんどのアプリケーションは、任意の言語において既存の[ラッパーライブラリ][wrappers]を使用しています。ただ、まずは基底となっているAPI HTTPメソッドについて知ることが大切です。
 
-ちょっと試しにやってみるだけなら、[cURL][curl]を使うのが一番簡単です。{% if currentVersion == "free-pro-team@latest" %}別のクライアントを使用している場合、リクエストで有効な [ユーザエージェントのヘッダ](/rest/overview/resources-in-the-rest-api#user-agent-required)を送信する必要があることに注意してください。{% endif %}
+There's no easier way to kick the tires than through [cURL][curl].{% if currentVersion == "free-pro-team@latest" %} If you are using an alternative client, note that you are required to send a valid [User Agent header](/rest/overview/resources-in-the-rest-api#user-agent-required) in your request.{% endif %}
 
 #### Hello World
 
@@ -55,7 +54,6 @@ $ curl -i {% data variables.product.api_url_pre %}/users/defunkt
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -194,7 +192,9 @@ $ curl -i "{% data variables.product.api_url_pre %}/users/octocat/repos?type=own
 
 #### リポジトリの作成
 
-既存のリポジトリ情報をフェッチすることは一般的なユースケースですが、{% data variables.product.product_name %} APIは新規リポジトリの作成もサポートしています。 [リポジトリを作成する][create repo]には、詳細情報や設定オプションを含んだいくつかのJSONを`POST`する必要があります。
+Fetching information for existing repositories is a common use case, but the
+{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo],
+we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

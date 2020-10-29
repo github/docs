@@ -10,27 +10,29 @@ versions:
 ---
 
 
-### Introducing branches
+### About branches
 
 Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
 
 You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository. A branch you create to build a feature is commonly referred to as a feature branch or topic branch. For more information, see "[Creating and deleting branches within your repository](/articles/creating-and-deleting-branches-within-your-repository/)."
 
-You can also use a branch to publish a {% data variables.product.prodname_pages %} site. For more information, see "[What is {% data variables.product.prodname_dotcom %} Pages?](/articles/what-is-github-pages)"
+You can also use a branch to publish a {% data variables.product.prodname_pages %} site. For more information, see "[About {% data variables.product.prodname_pages %}](/articles/what-is-github-pages)."
 
-You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request.  For more information, see "[Access permissions on {% data variables.product.product_name %}](/articles/access-permissions-on-github)."
+You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see "[Access permissions on {% data variables.product.prodname_dotcom %}](/github/getting-started-with-github/access-permissions-on-github)."
 
 ### About the default branch
 
 {% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally out when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-
-By default, the default branch name is `master`, but you can set the name to anything that makes sense for your workflow. For more information on the default branch name, see "[Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)."
-
-{% endif %}
+By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.23" %}`main`{% else %}`master`{% endif %} in any new repository.
 
 {% data reusables.branches.set-default-branch %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+{% data reusables.branches.set-default-branch %}
+
+{% endif %}
 
 ### Working with branches
 

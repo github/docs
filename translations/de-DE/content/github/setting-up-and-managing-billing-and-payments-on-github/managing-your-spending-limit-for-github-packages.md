@@ -30,7 +30,7 @@ Jeder kann das Ausgabenlimit für {% data variables.product.prodname_registry %}
 
 Organisationsinhaber und Abrechnungsmanager können das Ausgabenlimit von {% data variables.product.prodname_registry %} für eine Organisation verwalten.
 
-Wenn Du Dein Organisationskonto per Rechnung bezahlst, kannst Du das Ausgabenlimit für Dein Enterprise-Konto auf {% data variables.product.product_name %} nicht verwalten. Wenn Du Repositorys im Besitz Deiner Organisation erlauben willst, {% data variables.product.prodname_registry %} über die in ihren Konten enthaltenen Speicher oder Datenübertragungen hinaus zu benutzen, kannst Du für Überschreitungen im Voraus bezahlen. Da Überschreitungen im Voraus bezahlt werden müssen, kannst Du keine unbegrenzten Ausgaben für Konten aktivieren, die per Rechnung bezahlt werden. Dein Ausgabenlimit beträgt 150 % des Betrags, den Du im Voraus bezahlt hast. Wenn Du Fragen hast, [wende Dich an unser Kundendienstteam](https://enterprise.github.com/contact).
+Wenn Du Dein Organisationskonto per Rechnung bezahlst, kannst Du das Ausgabenlimit für dieses Konto auf {% data variables.product.product_name %} nicht verwalten. Wenn Du Repositorys im Besitz Deiner Organisation erlauben willst, {% data variables.product.prodname_registry %} über die in ihren Konten enthaltenen Speicher oder Datenübertragungen hinaus zu benutzen, kannst Du für Überschreitungen im Voraus bezahlen. Da Überschreitungen im Voraus bezahlt werden müssen, kannst Du keine unbegrenzten Ausgaben für Konten aktivieren, die per Rechnung bezahlt werden. Dein Ausgabenlimit beträgt 150 % des Betrags, den Du im Voraus bezahlt hast. Wenn Du Fragen hast, [wende Dich an unser Kundendienstteam](https://enterprise.github.com/contact).
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
@@ -49,6 +49,8 @@ Enterprise-Inhaber und Abrechnungsmanager können das Ausgabenlimit von {% data 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Unter „Monatliche Nutzung von {% data variables.product.prodname_actions %} und Paketen" klicke auf **Cost management** (Kostenmanagement). ![Registerkarte „Cost Management" (Kostenverwaltung)](/assets/images/help/settings/cost-management-tab-enterprise.png)
+1. Under "
+{% data variables.product.prodname_actions %} and Packages monthly usage", click **Cost management**.
+  ![Registerkarte „Cost Management" (Kostenverwaltung)](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}

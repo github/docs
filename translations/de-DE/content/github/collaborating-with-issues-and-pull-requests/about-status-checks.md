@@ -1,6 +1,6 @@
 ---
 title: Informationen zu Statuschecks
-intro: 'Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.'
+intro: Statuschecks informieren Dich darüber, ob Deine Commits die festgelegten Bedingungen erfüllen, die für das Repository gelten, an dem Du mitwirkst.
 redirect_from:
   - /articles/about-statuses/
   - /articles/about-status-checks
@@ -46,7 +46,7 @@ Du kannst zwischen den Prüfungszusammenfassungen für verschiedene Commits in e
 
 #### Prüfungen für einzelne Commits überspringen und anfordern
 
-Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du die Prüfungen für einen einzelnen Commit überspringen, den Du überträgst. Wenn ein Repository _nicht_ so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du Prüfungen für einen einzelnen Commit anfordern, den Du überträgst. For more information on these settings, see "[Check Suites](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)."
+Wenn ein Repository so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du die Prüfungen für einen einzelnen Commit überspringen, den Du überträgst. Wenn ein Repository _nicht_ so konfiguriert ist, dass es automatisch Prüfungen für Pushes anfordert, kannst Du Prüfungen für einen einzelnen Commit anfordern, den Du überträgst. For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
 Um Prüfungen für Deinen Commit zu überspringen oder anzufordern, füge eine der folgenden Trailerzeilen an das Ende Deiner Commit-Mitteilung an:
 

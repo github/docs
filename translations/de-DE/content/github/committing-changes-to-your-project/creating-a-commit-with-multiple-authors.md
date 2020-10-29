@@ -1,6 +1,6 @@
 ---
 title: Einen Commit mit mehreren Autoren erstellen
-intro: 'Du kannst einen Commit mehreren Autoren zuordnen, indem Du einen oder mehrere `Co-authored-by`-Trailer zur Commit-Mitteilung hinzufügst. Commits mit Co-Autor sind auf {% data variables.product.product_name %} sichtbar{% if currentVersion != "free-pro-team@latest" %} und können in das Beteiligungsdiagramm des Profils sowie in die Statistik des Repositorys aufgenommen werden{% endif %}.'
+intro: 'Du kannst einen Commit mehreren Autoren zuordnen, indem Du einen oder mehrere `Co-authored-by`-Trailer zur Commit-Mitteilung hinzufügst. Commits mit Co-Autor sind auf {% data variables.product.product_name %} sichtbar{% if enterpriseServerVersions contains currentVersion %} und können in das Beteiligungsdiagramm des Profils sowie in die Statistik des Repositorys aufgenommen werden{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -14,7 +14,7 @@ Bevor Du einen Co-Autor zu einem Commit hinzufügen kannst, musst Du die richtig
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-Wenn ein Co-Autor seine E-Mail-Adresse als privat festgelegt hat, musst Du die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse verwenden, um die Daten des Co-Autors zu schützen. Andernfalls ist die E-Mail-Adresse des Co-Autors in der Commit-Mitteilung öffentlich einsehbar. Wenn Du Deine E-Mail-Adresse privat halten möchtest, kannst Du die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse für Git-Vorgänge verwenden und andere Co-Autoren bitten, Deine `no-reply`-Adresse in Commit-Trailern zu verwenden.
+Wenn ein Co-Autor seine E-Mail-Adresse als privat festgelegt hat, musst Du die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse verwenden, um die Daten des Co-Autors zu schützen. Andernfalls ist die E-Mail-Adresse des Co-Autors in der Commit-Mitteilung öffentlich einsehbar. Wenn Sie Ihre E-Mail-Adresse öffentlich machen möchten, können Sie die von {% data variables.product.product_name %} bereitgestellte `no-reply`-E-Mail-Adresse für Git-Vorgänge verwenden und andere Co-Autoren bitten, Ihre `no-reply`-Adresse in Commit-Trailern zu verwenden.
 
 Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen](/articles/setting-your-commit-email-address).“
 
@@ -30,7 +30,7 @@ Weitere Informationen findest Du unter „[Deine Commit-E-Mail-Adresse festlegen
 
 ### Commits mit Co-Autor mit {% data variables.product.prodname_desktop %} erstellen
 
-Du kannst mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
+Sie können mit {% data variables.product.prodname_desktop %} einen Commit mit einem Co-Autor erstellen. Weitere Informationen findest Du unter „[Commit-Mitteilung schreiben und Deine Änderungen via Push übertragen](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)“ und „[{% data variables.product.prodname_desktop %}](https://desktop.github.com)“.
 
 ![Einen Co-Autor zur Commit-Mitteilung hinzufügen](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
@@ -55,7 +55,7 @@ Der neue Commit und die neue Commit-Mitteilung werden beim nächsten Push auf {%
 
 ### Commits mit Co-Autor auf {% data variables.product.product_name %} erstellen
 
-Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen hast, kannst Du einen Commit mit Co-Autor erstellen, indem Du den Trailer `Co-authored-by:` zur Commit-Mitteilung hinzufügst.
+Wenn Sie mit dem Web-Editor Änderungen an einer Datei auf {% data variables.product.product_name %} vorgenommen haben, können Sie einen Commit mit Co-Autor erstellen, indem Sie den Trailer `Co-authored-by:` zur Commit-Mitteilung hinzufügen.
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 2. Nachdem Du alle Deine Änderungen vorgenommen hast, gib unten auf der Seite eine kurze, aussagekräftige Commit-Mitteilung ein, die die von Dir gemachten Änderungen beschreibt. ![Commit-Mitteilung für Deine Änderung](/assets/images/help/repository/write-commit-message-quick-pull.png)
@@ -67,7 +67,7 @@ Wenn Du mit dem Web-Editor Änderungen an einer Datei auf {% data variables.prod
 Der neue Commit samt Mitteilung wird auf {% data variables.product.product_location %} angezeigt.
 
 ### Weiterführende Informationen
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 - „"[Beiträge auf Deinem Profil anzeigen](/articles/viewing-contributions-on-your-profile)“
 - „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“{% endif %}
 - „[Eine Zusammenfassung der Repository-Aktivitäten anzeigen](/articles/viewing-a-summary-of-repository-activity)“

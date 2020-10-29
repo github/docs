@@ -1,1 +1,1 @@
-Represents an attempted build of a GitHub Pages site, whether successful or not. A push to a GitHub Pages enabled branch (`gh-pages` for project pages, `master` for user and organization pages) triggers this event.
+Representa uma tentativa de criação de um site do {% data variables.product.prodname_pages %}, independentemente de êxito. Um push para um branch habilitado de {% data variables.product.prodname_pages %} (`gh-pages` para páginas de projeto, o branch-padrão para páginas de usuário e organização) aciona este evento.

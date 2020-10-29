@@ -35,9 +35,7 @@ You can use this API to manage the OAuth tokens an OAuth application uses to acc
 
 The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations. An _installation_ refers to any user or organization account that has installed the app. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 To list all GitHub App installations for an organization, see "[List app installations for an organization](/v3/orgs/#list-app-installations-for-an-organization)."
-{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
@@ -60,6 +58,15 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Webhooks
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

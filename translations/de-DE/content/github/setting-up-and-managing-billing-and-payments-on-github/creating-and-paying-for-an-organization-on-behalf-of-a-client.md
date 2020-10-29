@@ -1,6 +1,6 @@
 ---
 title: Eine Organisation im Namen eines Kunden erstellen und bezahlen
-intro: 'Du kannst im Namen eines Kunden eine {% data variables.product.prodname_dotcom %}-Organisation erstellen und bezahlen.'
+intro: 'Sie können im Namen eines Kunden eine {% data variables.product.prodname_dotcom %}-Organisation erstellen und bezahlen.'
 redirect_from:
   - /articles/creating-and-paying-for-an-organization-on-behalf-of-a-client
 versions:
@@ -86,7 +86,7 @@ Wenn Du bereits ein persönliches {% data variables.product.prodname_dotcom %}-B
 ### Nächste Schritte:
 
 1. Bitte Deinen Kunden darum, Dich [als Abrechnungsmanager zur Organisation hinzuzufügen](/articles/adding-a-billing-manager-to-your-organization). Du musst Abrechnungsmanager für die Organisation sein, um in Zukunft das Abonnement Deines Kunden verlängern oder ändern zu können.
-2. Wenn Du die Kreditkarte Deiner Organisation aus der neuen Organisation entfernen möchtest, damit sie nicht mehr belastet wird, wende Dich an {% data variables.contact.contact_support %}.
+2. Wenn Sie die Kreditkarte Ihrer Organisation aus der Organisation entfernen möchten, damit sie nicht mehr belastet wird, wenden Sie sich an {% data variables.contact.contact_support %}.
 3. Informationen zum Verlängern des bezahlten Abonnements Deines Kunden findest Du unter „[Eine bezahlte Organisation Deines Kunden erneuern](/articles/renewing-your-client-s-paid-organization).“
 
 ### Weiterführende Informationen

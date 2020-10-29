@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Archivierung von Inhalten und Daten auf GitHub
-intro: 'Du kannst Inhalte und Daten auf {% data variables.product.product_name %} archivieren, damit andere Personen sie ansehen und darauf verweisen können.'
+intro: 'Sie können Inhalte und Daten auf {% data variables.product.product_name %} archivieren, damit andere Personen sie ansehen und darauf verweisen können.'
 redirect_from:
   - /articles/about-archiving-content-and-data-on-github
 versions:
@@ -9,7 +9,7 @@ versions:
 
 ### Dauerhaftigkeit von öffentlichen Repositorys
 
-{% data variables.product.product_name %} beabsichtigt, Deine öffentlichen Repositorys verfügbar zu lassen, es sei denn, Du entfernst sie. In einigen Fällen entfernen wir möglicherweise öffentliche Inhalte, beispielsweise in folgenden Fällen:
+{% data variables.product.product_name %} beabsichtigt, Ihre öffentlichen Repositorys verfügbar zu lassen, es sei denn, Sie entfernen sie. In einigen Fällen entfernen wir möglicherweise öffentliche Inhalte, beispielsweise in folgenden Fällen:
 
 - Wir erhalten einen [Aufruf zum Entfernen gemäß DMCA](/articles/dmca-takedown-policy) für Inhalte in einem Repository.
 - Wir stellen fest, dass der Inhalt eines Repositorys gegen unsere [Community-Richtlinien](/articles/github-community-guidelines) oder [Nutzungsbedingungen](/articles/github-terms-of-service/) verstößt.

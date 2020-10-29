@@ -47,7 +47,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `repository_content_analysis` | Contains all activities related to [enabling or disabling data use for a private repository](/articles/about-github-s-use-of-your-data).
 | `repository_dependency_graph` | Contains all activities related to [enabling or disabling the dependency graph for a private repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository).{% endif %}
 | `repository_vulnerability_alert` | Contains all activities related to [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors` | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+| `sponsors` | Contains all events related to sponsor buttons (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion %}
 | `team` | Contains all activities related to teams in your organization.{% endif %}
 | `team_discussions` | Contains activities related to managing team discussions for an organization.
 
@@ -85,7 +85,7 @@ This list describes the available categories and associated events:
 - [The `repository_content_analysis` category](#the-repository_content_analysis-category)
 - [The `repository_dependency_graph` category](#the-repository_dependency_graph-category){% endif %}
 - [The `repository_vulnerability_alert` category](#the-repository_vulnerability_alert-category){% if currentVersion == "free-pro-team@latest" %}
-- [The `sponsors` category](#the-sponsors-category){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+- [The `sponsors` category](#the-sponsors-category){% endif %}{% if enterpriseServerVersions contains currentVersion %}
 - [The `team` category](#the-team-category){% endif %}
 - [The `team_discussions` category](#the-team_discussions-category)
 
@@ -184,7 +184,8 @@ For more information, see "[Restricting publication of {% data variables.product
 |------------------|-------------------{% if currentVersion == "free-pro-team@latest"%}
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/articles/blocking-a-user-from-your-organization).
-| `cancel_invitation` | Triggered when an organization invitation has been revoked.
+| `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `create_actions_secret` | Triggered when a organization admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).{% endif %} {% if currentVersion == "free-pro-team@latest"%} 
 | `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/articles/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.
 | `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}
 | `disable_member_team_creation_permission` | Triggered when an organization owner limits team creation to owners. For more information, see "[Setting team creation permissions in your organization](/articles/setting-team-creation-permissions-in-your-organization)." |
@@ -196,13 +197,23 @@ For more information, see "[Restricting publication of {% data variables.product
 | `invite_member` | Triggered when [a new user was invited to join your organization](/articles/adding-organization-members-to-a-team).{% if currentVersion == "free-pro-team@latest" %}
 | `oauth_app_access_approved` | Triggered when an owner [grants organization access to an {% data variables.product.prodname_oauth_app %}](/articles/approving-oauth-apps-for-your-organization/).
 | `oauth_app_access_denied` | Triggered when an owner [disables a previously approved {% data variables.product.prodname_oauth_app %}'s access](/articles/denying-access-to-a-previously-approved-oauth-app-for-your-organization) to your organization.
-| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| `oauth_app_access_requested` | Triggered when an organization member requests that an owner grant an {% data variables.product.prodname_oauth_app %} access to your organization.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `register_self_hosted_runner` | Triggered when an organization owner [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization).
+| `remove_actions_secret` | Triggered when a organization admin removes a {% data variables.product.prodname_actions %} secret.{% endif %}{% if currentVersion == "free-pro-team@latest"%}
 | `remove_billing_manager` | Triggered when an [owner removes a billing manager from an organization](/articles/removing-a-billing-manager-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and a billing manager doesn't use 2FA or disables 2FA. |{% endif %}
 | `remove_member` | Triggered when an [owner removes a member from an organization](/articles/removing-a-member-from-your-organization/) or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an organization member doesn't use 2FA or disables 2FA. Also triggered when an [organization member removes themselves](/articles/removing-yourself-from-an-organization/) from an organization.|
-| `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA. |{% if currentVersion == "free-pro-team@latest" %}
+| `remove_outside_collaborator` | Triggered when an owner removes an outside collaborator from an organization or when [two-factor authentication is required in an organization](/articles/requiring-two-factor-authentication-in-your-organization) and an outside collaborator does not use 2FA or disables 2FA. |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `remove_self_hosted_runner` | Triggered when an organization owner [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization). {% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | `revoke_external_identity` | Triggered when an organization owner revokes a member's linked identity. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
-| `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)."
-| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/articles/unblocking-a-user-from-your-organization).{% endif %}
+| `revoke_sso_session` | Triggered when an organization owner revokes a member's SAML session. For more information, see "[Viewing and managing a member's SAML access to your organization](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization#viewing-and-revoking-a-linked-identity)." {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `runner_group_created` | Triggered when an organization admin [creates a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization).
+| `runner_group_removed` | Triggered when an organization admin removes a self-hosted runner group.
+| `runner_group_renamed` | Triggered when an organization admin renames a self-hosted runner group.
+| `runner_group_runners_added` | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
+| `runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group. {% endif %}{% if currentVersion == "free-pro-team@latest"%}
+| `unblock_user` | Triggered when an organization owner [unblocks a user from an organization](/articles/unblocking-a-user-from-your-organization).{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `update_actions_secret` | Triggered when a organization admin updates a {% data variables.product.prodname_actions %} secret.{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+| `update_new_repository_default_branch_setting` | Triggered when an owner changes the name of the default branch for new repositories in the organization. For more information, see "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)."{% endif %}
 | `update_default_repository_permission` | Triggered when an owner changes the default repository permission level for organization members.
 | `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
 | `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% if currentVersion == "free-pro-team@latest" %}
@@ -299,21 +310,26 @@ For more information, see "[Restricting publication of {% data variables.product
 | `access` | Triggered when a repository owned by an organization is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
 | `add_member` | Triggered when a user accepts an [invitation to have collaboration access to a repository](/articles/inviting-collaborators-to-a-personal-repository).
 | `add_topic` | Triggered when a repository admin [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if currentVersion != "free-pro-team@latest" %}
+| `archived` | Triggered when a repository admin [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.enable_anonymous_git_access` | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | `config.lock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
 | `config.unlock_anonymous_git_access` | Triggered when a repository's [anonymous Git read access setting is unlocked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).{% endif %}
-| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).
+| `create` | Triggered when [a new repository is created](/articles/creating-a-new-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `create_actions_secret` | Triggered when a repository admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).{% endif %}
 | `destroy` | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
 | `disable` | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}
-| `enable` | Triggered when a repository is reenabled.
-| `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).
+| `enable` | Triggered when a repository is reenabled.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `remove_actions_secret` | Triggered when a repository admin removes a {% data variables.product.prodname_actions %} secret.{% endif %}
+| `remove_member` | Triggered when a user is [removed from a repository as a collaborator](/articles/removing-a-collaborator-from-a-personal-repository).{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `register_self_hosted_runner` | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).
+| `remove_self_hosted_runner` | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository). {% endif %}
 | `remove_topic` | Triggered when a repository admin removes a topic from a repository.
 | `rename` | Triggered when [a repository is renamed](/articles/renaming-a-repository).
 | `transfer` | Triggered when [a repository is transferred](/articles/how-to-transfer-a-repository).
 | `transfer_start` | Triggered when a repository transfer is about to occur.
-| `unarchived` | Triggered when a repository admin unarchives a repository.
+| `unarchived` | Triggered when a repository admin unarchives a repository.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| `update_actions_secret` | Triggered when a repository admin updates a {% data variables.product.prodname_actions %} secret.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
@@ -350,7 +366,7 @@ For more information, see "[Restricting publication of {% data variables.product
 | repo_funding_links_file_action | Triggered when you change the FUNDING file in your repository (see "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)")
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### The `team` category
 
 | Action | Description
@@ -400,7 +416,6 @@ Using the qualifier `country`, you can filter actions in the audit log based on 
 {% data reusables.audit_log.exported-log-keys-and-values %}
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 ### Using the Audit log API
 
 {% note %}
@@ -418,9 +433,7 @@ To ensure a secure IP and maintain compliance for your organization, you can use
 
 The GraphQL response can include data for up to 90 to 120 days.
 
-For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/v4/interface/auditentry/)."
-
-{% endif %}
+For example, you can make a GraphQL request to see all the new organization members added to your organization. For more information, see the "[GraphQL API Audit Log](/graphql/reference/interfaces#auditentry/)."
 
 ### Further reading
 

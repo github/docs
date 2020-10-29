@@ -14,8 +14,8 @@ versions:
 
 Die Datenübertragung wird jeden Monat zurückgesetzt, während Speichernutzung dies nicht tut.
 
-| Produkt                                                                   | Speicher | Datenübertragung (pro Monat) |
-| ------------------------------------------------------------------------- | -------- | ---------------------------- |
+| Produkt                                                              | Speicher | Datenübertragung (pro Monat) |
+| -------------------------------------------------------------------- | -------- | ---------------------------- |
 | {% data variables.product.prodname_free_user %}                    | 500 MB   | 1 GB                         |
 | {% data variables.product.prodname_pro %}                            | 2 GB     | 10 GB                        |
 | {% data variables.product.prodname_free_team %} für Organisationen | 500 MB   | 1 GB                         |

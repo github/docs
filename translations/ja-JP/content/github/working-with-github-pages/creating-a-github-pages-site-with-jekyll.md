@@ -80,7 +80,7 @@ gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. Gemfile を保存して閉じます。
 11. 必要に応じて、サイトをローカルでテストします。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。
-12. {% data variables.product.product_name %} リポジトリをリモートとして追加します。{% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ はアプライアンスのホスト名に、{% endif %}_USER_ はリポジトリ所有者のアカウントに{% if currentVersion != "free-pro-team@latest" %}、{% endif %}そして _REPOSITORY_ はリポジトリの名前に置き換えてください。
+12. {% data variables.product.product_name %} リポジトリをリモートとして追加します。{% if enterpriseServerVersions contains currentVersion %}_HOSTNAME_ はアプライアンスのホスト名に、{% endif %}_USER_ はリポジトリ所有者のアカウントに{% if enterpriseServerVersions contains currentVersion %}、{% endif %}そして _REPOSITORY_ はリポジトリの名前に置き換えてください。
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

@@ -71,9 +71,9 @@ O objeto `hook_attributes` tem a chave a seguir:
 
 ##### Parâmetros
 
- | Nome     | Tipo     | Descrição                                        |
- | -------- | -------- | ------------------------------------------------ |
- | `estado` | `string` | {% data reusables.apps.state_description %} |
+ | Nome     | Tipo     | Descrição                                   |
+ | -------- | -------- | ------------------------------------------- |
+ | `estado` | `string` | {% data reusables.apps.state_description %}
 
 ##### Exemplos
 
@@ -162,7 +162,7 @@ Você deve concluir esta etapa do fluxo do manifesto do aplicativo GitHub em uma
 
 {% endnote %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% data reusables.pre-release-program.fury-pre-release %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

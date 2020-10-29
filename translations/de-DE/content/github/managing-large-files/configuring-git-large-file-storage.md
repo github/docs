@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {% data variables.product.product_name %} verwenden möchtest, musst Du sie zuerst aus dem Repository entfernen und sie dann lokal zu {% data variables.large_files.product_name_short %} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {% data variables.large_files.product_name_short %} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
+Wenn in Ihrem Repository bereits Dateien vorhanden sind, für die Sie {% data variables.product.product_name %} verwenden möchten, müssen Sie sie zunächst aus dem Repository entfernen und lokal zu {% data variables.large_files.product_name_short %} hinzufügen. Weitere Informationen findest Du unter „[Eine Datei in Deinem Repository zu {% data variables.large_files.product_name_short %} verschieben](/articles/moving-a-file-in-your-repository-to-git-large-file-storage).“
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% tip %}
 
@@ -24,8 +24,8 @@ Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {% data va
 {% endif %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Ändere das aktuelle Arbeitsverzeichnis in ein vorhandenes Repository, das Du mit {% data variables.large_files.product_name_short %} verwenden möchtest.
-3. Um eine Datei in Deinem Repository mit {% data variables.large_files.product_name_short %} zu verknüpfen, gib `git {% data variables.large_files.command_name %} track` ein, gefolgt vom Namen der Dateierweiterung, die Du automatisch zu {% data variables.large_files.product_name_short %} hochladen möchtest.
+2. Ändern Sie das aktuelle Arbeitsverzeichnis in ein vorhandenes Repository, das Sie mit {% data variables.large_files.product_name_short %} verwenden möchten.
+3. Um eine Datei in Ihrem Repository mit {% data variables.large_files.product_name_short %} zu verknüpfen, geben Sie `git {% data variables.large_files.command_name %} track` gefolgt vom Namen der Dateierweiterung ein, die Sie automatisch zu {% data variables.large_files.product_name_short %} hochladen möchten.
 
   Um beispielsweise eine _.psd_-Datei zu verknüpfen, gib den folgenden Befehl ein:
   ```shell
@@ -47,7 +47,7 @@ Wenn in Deinem Repository bereits Dateien vorhanden sind, für die Du {% data va
 5. Gib die Datei frei und übertrage sie zu {% data variables.product.product_name %}:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   Du solltest Diagnoseinformationen zum Hochladen der Datei sehen:
   ```shell

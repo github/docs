@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
-  - /enterprise/admin/user-management/viewing-push-logs
 versions:
   enterprise-server: '*'
 ---

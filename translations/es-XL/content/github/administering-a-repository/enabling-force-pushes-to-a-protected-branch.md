@@ -1,31 +1,32 @@
 ---
-title: Habilitar subidas de información forzadas en una rama protegida
-intro: Puedes permitir subidas de información forzadas en una rama protegida.
+title: Enabling force pushes to a protected branch
+intro: You can allow force pushes to a protected branch.
 product: '{% data reusables.gated-features.protected-branches %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
 ---
 
-Cualquiera con permisos de administrador en un repositorio puede habilitar las subidas de información forzadas.
+Anyone with admin permissions to a repository can enable force pushes.
 
-### Acerca de las subidas de información forzadas en ramas protegidas
+### About force pushes to protected branches
 
-Predeterminadamente, las subidas de información forzadas se encuentran bloqueadas en todas las ramas protegidas. Cuando habilitas estas subidas forzadas en una rama protegida, cualquiera que tenga privilegios por lo menos de escritura en ese repositorio puede forzar la subida de información a la rama, incluyendo aquellos con permisos de administrador.
+By default, force pushes are blocked on all protected branches. When you enable force pushes to a protected branch, anyone with at least write permissions to the repository can force push to the branch, including those with admin permissions.
 
-Habilitar las subidas forzadas no invalidará ninguna otra regla de protección a la rama. Por ejemplo, si una rama requiere un historial de confirmaciones linear, no puedes forzar la subida de fusión de confirmaciones en esa rama.
+Enabling force pushes will not override any other branch protection rules. For example, if a branch requires a linear commit history, you cannot force push merge commits to that branch.
 
-{% if currentVersion != "free-pro-team@latest" %}No puedes habilitar las subidas forzadas en una rama protegida si un administrador de sitio las ha bloqueado en todas las ramas de tu repositorio. Para obtener más información, consulta "[Bloquear las subidas de información forzadas en los repositorios que sean propiedad de una organización o cuenta de usuario](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
+{% if currentVersion != "free-pro-team@latest" %}You cannot enable force pushes for a protected branch if a site administrator has blocked force pushes to all branches in your repository. For more information, see "[Blocking force pushes to repositories owned by a user account or organization](/enterprise/{{ currentVersion }}/admin/developer-workflow/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization)."
 
-Si un administrador de sitio ha bloqueado las subidas de información forzadas en la rama predeterminada únicamente, entonces aún puedes habilitarlas en cualquier otra rama protegida.{% endif %}
+If a site administrator has blocked force pushes to the default branch only, you can still enable force pushes for any other protected branch.{% endif %}
 
 {% data reusables.repositories.protected-branches-options %}
 
-### Habilitar subidas de información forzadas
+### Enabling force pushes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
-6. Debajo de "Reglas aplicadas a todos, incluyendo administradores", selecciona **Permitir subidas de información forzadas**. ![Permitir la opción de subida de información forzada](/assets/images/help/repository/allow-force-pushes.png)
-7. Haz clic en **Create** (crear).
+6. Under "Rules applied to everyone including administrators", select **Allow force pushes**.
+![Allow force pushes option](/assets/images/help/repository/allow-force-pushes.png)
+7. Click **Create**.

@@ -16,17 +16,17 @@ Qualquer pessoa com acesso de leitura a um repositório pode exibir e pesquisar 
 
 O {% data variables.product.product_name %} fornece etiquetas padrão para todos os repositórios novos. Você pode usar essas etiquetas padrão para ajudar com a criação de um fluxo de trabalho padronizado em um repositório:
 
-| Etiqueta           | Descrição                                                                                                                  |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `bug`              | Indica um problema inesperado ou comportamento involuntário{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-| `documentation`    | Indica a necessidade de aprimoramentos ou adições à documentação{% endif %}
-| `duplicate`        | Indica problemas ou pull requests semelhantes                                                                              |
-| `enhancement`      | Indica novas solicitações de recurso                                                                                       |
-| `good first issue` | Indica um bom problema para contribuidores principiantes                                                                   |
-| `help wanted`      | Indica que um mantenedor deseja ajudar em um problema ou uma pull request                                                  |
-| `invalid`          | Indica que um problema ou uma pull request não é mais relevante                                                            |
-| `question`         | Indica que um problema ou uma pull request precisa de mais informações                                                     |
-| `wontfix`          | Indica que o trabalho não continuará em um problema ou uma pull request                                                    |
+| Etiqueta           | Descrição                                                                 |
+| ------------------ | ------------------------------------------------------------------------- |
+| `bug`              | Indica um problema inesperado ou um comportamento indesejado              |
+| `documentation`    | Indica a necessidade de aprimoramentos ou adições à documentação          |
+| `duplicate`        | Indica problemas ou pull requests semelhantes                             |
+| `enhancement`      | Indica novas solicitações de recurso                                      |
+| `good first issue` | Indica um bom problema para contribuidores principiantes                  |
+| `help wanted`      | Indica que um mantenedor deseja ajudar em um problema ou uma pull request |
+| `invalid`          | Indica que um problema ou uma pull request não é mais relevante           |
+| `question`         | Indica que um problema ou uma pull request precisa de mais informações    |
+| `wontfix`          | Indica que o trabalho não continuará em um problema ou uma pull request   |
 
 Etiquetas padrão são incluídas em todos os novos repositórios quando criados, mas você pode editar ou excluir as etiquetas posteriormente. Para obter mais informações, consulte "[Excluir uma etiqueta](/articles/deleting-a-label/)".
 

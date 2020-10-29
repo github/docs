@@ -17,8 +17,9 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
+お問い合わせください。
 
-他者による悪用を防ぐため Issues をオフにしたいということであれば、{% data variables.contact.contact_support %} までご連絡ください。
+他者による悪用を防ぐため Issues をオフにしたい場合は、{% data variables.contact.contact_support %} までご連絡ください。
 {% data reusables.policies.abuse %}
 
 {% endtip %}

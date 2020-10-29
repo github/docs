@@ -11,7 +11,7 @@ When using LDAP or built-in authentication, two-factor authentication is support
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-For more information, see [this chart on authentication methods that support 2FA](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa).
+For more information, see "[About two-factor authentication](/github/authenticating-to-github/about-two-factor-authentication)."
 
 ### Requirements for enforcing two-factor authentication
 

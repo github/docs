@@ -1,7 +1,7 @@
 ---
 title: Workflow-Syntax für GitHub Actions
 shortTitle: Syntax für Workflows
-intro: 'Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.'
+intro: Ein Workflow ist ein konfigurierbarer automatisierter Prozess, der aus einem oder mehreren Jobs besteht. Du musst eine YAML-Datei erstellen, um Deine Workflow-Konfiguration zu definieren.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/workflow-syntax-for-github-actions
@@ -20,10 +20,6 @@ versions:
 Workflow-Dateien verwenden die YAML-Syntax und müssen die Dateierweiterung `.yml` oder `.yaml` aufweisen. Wenn Sie bislang noch nicht mit YAML gearbeitet haben, lesen Sie den Artikel „[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)“.
 
 Workflow-Dateien müssen im Verzeichnis `.github/workflows` im Repository gespeichert werden.
-
-### Nutzungseinschränkungen
-
-{% data reusables.github-actions.github-actions-usage-limits %}
 
 ### **`name`**
 
@@ -62,18 +58,18 @@ Die in `branches` und `tags` definierten Muster werden anhand des Namens des Git
 ```yaml
 on:
   push:
-    # Folge von Mustern zum Abgleich mit refs/heads
+    # Sequence of patterns matched against refs/heads
     branches:    
-      # Push-Ereignisse auf den Master-Branch
-      - master
-      # Push-Ereignisse auf Branches, die zu refs/heads/mona/octocat passen
+      # Push events on main branch
+      - main
+      # Push events to branches matching refs/heads/mona/octocat
       - 'mona/octocat'
-      # Push-Ereignisse auf Branches, die zu refs/heads/releases/10 passen
+      # Push events to branches matching refs/heads/releases/10
       - 'releases/**'
-    # Folge von Mustern zum Abgleich mit refs/tags
+    # Sequence of patterns matched against refs/tags
     tags:        
-      - v1             # Push-Ereignisse auf den Tag v1
-      - v1.*           # Push-Ereignisse auf die Tags v1.0, v1.1 und v1.9
+      - v1             # Push events to v1 tag
+      - v1.*           # Push events to v1.0, v1.1, and v1.9 tags
 ```
 
 #### Beispiel zum Ignorieren von Branches und Tags
@@ -229,7 +225,7 @@ Ein Workflow-Lauf besteht aus mindestens einem Auftrag. Die Aufträge werden sta
 
 Jeder Job läuft in einer Umgebung, die mit `runs-on` angegeben wird.
 
-Innerhalb der Nutzungsbeschränkungen des Workflows kannst Du unbegrenzt viele Jobs ausführen. Weitere Informationen finden Sie unter „[Nutzungseinschränkungen](#usage-limits)“.
+Innerhalb der Nutzungsbeschränkungen des Workflows kannst Du unbegrenzt viele Jobs ausführen. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 Wenn Du den eindeutigen Bezeichner eines Jobs finden musst, der in einem Workflowlauf ausgeführt wird, kannst Du die API von {% data variables.product.prodname_dotcom %} verwenden. For more information, see "[Workflow Jobs](/v3/actions/workflow-jobs)."
 
@@ -310,7 +306,7 @@ runs-on: [self-hosted, linux]
 
 Weitere Informationen findest Du unter „[Informationen zu selbst-gehosteten Runnern](/github/automating-your-workflow-with-github-actions/about-self-hosted-runners)“ und „[Selbst-gehostete Runner in einem Workflow verwenden](/github/automating-your-workflow-with-github-actions/using-self-hosted-runners-in-a-workflow)“.
 
-### **`jobs.<jobs_id>.outputs`**
+### **`jobs.<job_id>.outputs`**
 
 Eine `map` der Ausgaben eines Jobs. Ausgaben eines Jobs stehen allen nachgelagerten Jobs zur Verfügung, die von diesem Job abhängen. Weitere Informationen zur Definition von Abhängigkeiten zwischen Jobs findest Du unter [`Jobs.<job_id>.needs`](#jobsjob_idneeds).
 
@@ -393,7 +389,7 @@ Mit der `if`-Bedingung geben Sie an, dass ein Auftrag nur dann ausgeführt werde
 
 Ein Auftrag enthält eine Sequenz von Aufgaben, sogenannten `steps`. Mit Schritten können Befehle oder Einrichtungsaufgaben ausgeführt werden, und außerdem Aktionen, die sich in Ihrem Repository oder in einem öffentlichen Repository befinden oder in einer Docker Registry veröffentlicht sind. Nicht alle Schritte führen eine Aktion aus, doch alle Aktionen werden als Schritt ausgeführt. Jeder Schritt wird in einem eigenen Prozess in der Runner-Umgebung ausgeführt. Er hat Zugriff auf den Arbeitsbereich und das Dateisystem. Da die Schritte jeweils in einem eigenen Prozess ausgeführt werden, werden Änderungen an den Umgebungsvariablen nicht von Schritt zu Schritt beibehalten. {% data variables.product.prodname_dotcom %} umfasst integrierte Schritte zum Einrichten und Ausführen eines Auftrags.
 
-Innerhalb der Nutzungseinschränkungen des Workflows können Sie unbegrenzt viele Schritte ausführen. Weitere Informationen finden Sie unter „[Nutzungseinschränkungen](#usage-limits)“.
+Innerhalb der Nutzungseinschränkungen des Workflows können Sie unbegrenzt viele Schritte ausführen. For more information, see "[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits)" for self-hosted runner usage limits.
 
 #### Beispiel
 
@@ -421,7 +417,7 @@ jobs:
 
 #### **`jobs.<job_id>.steps.id`**
 
-Eindeutige Kennung für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Eindeutige Kennung für den Schritt. Anhand der `id` können Sie in Kontexten auf den Schritt verweisen. Weitere Informationen findest Du unter „[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
 #### **`jobs.<job_id>.steps.if`**
 
@@ -447,7 +443,7 @@ steps:
 ```yaml
 steps:
   - name: My first step
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
   - name: My backup step
     if: {% raw %}${{ failure() }}{% endraw %}
     uses: actions/heroku@master
@@ -464,7 +460,7 @@ Wählt eine Aktion aus, die als Teil eines Schritts im Auftrag ausgeführt wird.
 Es wird dringend empfohlen, die verwendete Version der Aktion zu nennen (Git-Ref, SHA oder Docker-Tag-Nummer angeben). Wenn Sie keine Version angeben, könnten damit die Workflows gestört werden, oder es wird ein unerwartetes Verhalten hervorgerufen, wenn der Inhaber der Aktion eine Aktualisierung veröffentlicht.
 - Am besten in Hinblick auf Stabilität und Sicherheit ist es, die Commit-SHA einer freigegebenen Version einer Aktion zu verwenden.
 - Wenn Du Dich auf die Hauptversion der Aktion beziehst, kannst Du kritische Fehlerbehebungen und Sicherheits-Patches erhalten und gleichzeitig die Kompatibilität wahren. Außerdem ist damit sichergestellt, dass der Workflow weiterhin problemlos arbeiteten sollte.
-- Die Verwendung des `master`-Branches einer Aktion ist zwar auf den ersten Blick komfortabel, doch wenn eine neue Hauptversion mit einer bahnbrechenden Änderung veröffentlicht wird, könnte damit Dein Workflow gestört werden.
+- Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
 
 Für einige Aktionen sind Eingaben erforderlich, die Sie mit dem Stichwort [`with`](#jobsjob_idstepswith) festlegen müssen. Die erforderlichen Eingaben finden Sie in der README-Datei der Aktion.
 
@@ -474,14 +470,14 @@ Aktionen sind entweder JavaScript-Dateien oder Docker-Container. Bei Docker-Cont
 
 ```yaml
 steps:    
-  # Verweis auf einen bestimmten Commit
+  # Reference a specific commit
   - uses: actions/setup-node@74bc508
-  # Verweis auf die Hauptversion eines Release
+  # Reference the major version of a release
   - uses: actions/setup-node@v1
-  #Verweis auf eine Unterversion eines Release
+  # Reference a minor version of a release
   - uses: actions/setup-node@v1.2
-  # Verweis auf einen Branch
-  - uses: actions/setup-node@master
+  # Reference a branch
+  - uses: actions/setup-node@main
 ```
 
 ##### Beispiel mit einer öffentlichen Aktion
@@ -495,10 +491,10 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        # Verwendet den Master-Branch eines oeffentlichen Repositorys
+        # Uses the default branch of a public repository
         uses: actions/heroku@master
       - name: My second step
-        # Verwendet eine bestimmte Versionsbezeichnung eines oeffentlichen Repositorys
+        # Uses a specific version tag of a public repository
         uses: actions/aws@v2.0.1
 ```
 
@@ -513,7 +509,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/aws/ec2@master
+        uses: actions/aws/ec2@main
 ```
 
 ##### Beispiel mit einer Aktion im selben Repository wie der Workflow
@@ -599,11 +595,11 @@ Du kannst die Einstellungen zur Standard-Shell im Betriebssystem des Läufers mi
 | Unterstützte Plattform | Parameter `shell` | Beschreibung                                                                                                                                                                                          | Intern ausgeführter Befehl                      |
 | ---------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | Alle                   | `bash`            | Die standardmäßige Shell für alle Plattformen außer Windows mit einem Fallback zu `sh`. Wenn eine Bash-Shell für Windows angegeben wird, wird die in Git für Windows enthaltene Bash-Shell verwendet. | `bash --noprofile --norc -eo pipefail {0}`      |
-| Alle                   | `pwsh`            | Der PowerShell Core. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an den Skriptnamen an.                                                                            | `pwsh -command "& '{0}'"`                   |
+| Alle                   | `pwsh`            | Der PowerShell Core. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an Deinen Skriptnamen an.                                                                              | `pwsh -command ". '{0}'"`                       |
 | Alle                   | `python`          | Führt den Befehl Python aus.                                                                                                                                                                          | `python {0}`                                    |
 | Linux / macOS          | `sh`              | Das Fallback-Verhalten für alle Betriebssystem-Plattformen außer Windows, falls keine Shell angegeben ist und `bash` nicht im Pfad gefunden wird.                                                     | `sh -e {0}`                                     |
-| Windows                | `cmd`             | {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.cmd` an Deinen Skriptnamen an und ersetzt `{0}`.                                                                            | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
-| Windows                | `powershell`      | Dies ist die standardmäßig für Windows verwendete Shell. Die Desktop PowerShell. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an den Skriptnamen an.                | `powershell -command "& '{0}'"`.            |
+| Windows                | `cmd`             | {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.cmd` an Deinen Skriptnamen an und ersetzt `{0}`.                                                                                 | `%ComSpec% /D /E:ON /V:OFF /S /C "CALL "{0}""`. |
+| Windows                | `powershell`      | Dies ist die standardmäßig für Windows verwendete Shell. Die Desktop PowerShell. {% data variables.product.prodname_dotcom %} hängt die Erweiterung `.ps1` an Deinen Skriptnamen an.                  | `powershell -command ". '{0}'"`.                |
 
 ##### Beispiel zur Ausführung eines Skripts mittels Bash
 
@@ -678,7 +674,7 @@ jobs:
   my_first_job:
     steps:
       - name: My first step
-        uses: actions/hello_world@master
+        uses: actions/hello_world@main
         with:
           first_name: Mona
           middle_name: The
@@ -695,7 +691,7 @@ Ein `string`, der die Eingaben für einen Docker-Container definiert. Beim Start
 ```yaml
 steps:
   - name: Explain why this job ran
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
@@ -708,7 +704,6 @@ Die `args`-Anweisungen werden anstelle der `CMD`-Anweisung in einem `Dockerfile`
 1. Verwenden Sie Standardwerte, die die Verwendung der Aktion ohne Angabe von `args` erlauben.
 1. Wenn die Aktion einen Schalter `--help` oder Ähnliches anbietet, verwende diesen als Standard, um eine selbstständige Dokumentation der Aktion herbeizuführen.
 
-
 #### **`jobs.<job_id>.steps.with.entrypoint`**
 
 Überschreibt den Docker-`ENTRYPOINT` im `Dockerfile` oder legt ihn fest, sofern er noch nicht angegeben wurde. Im Gegensatz zur Docker `ENTRYPOINT`-Anweisung, die eine Shell- und eine ausführbare Form aufweist, akzeptiert das Stichwort `entrypoint` nur einen einzigen Schritt, der die entsprechende ausführbare Datei definiert.
@@ -718,7 +713,7 @@ Die `args`-Anweisungen werden anstelle der `CMD`-Anweisung in einem `Dockerfile`
 ```yaml
 steps:
   - name: Run a custom command
-    uses: monacorp/action-name@master
+    uses: monacorp/action-name@main
     with:
       entrypoint: /a/different/executable
 ```
@@ -766,9 +761,9 @@ Mit einer Strategie wird eine Build-Matrix für die Aufträge erstellt. Sie kön
 
 Du kannst eine Matrix aus verschiedenen Job-Konfigurationen definieren. Mit einer Matrix kannst Du mehrere Jobs erstellen, indem Du in einer einzigen Jobdefinition Variablen substituierst. Zum Beispiel kannst Du eine Matrix verwenden, um Jobs für mehrere unterstützte Versionen einer Programmiersprache, eines Betriebssystems oder eines Tools zu erstellen. Eine Matrix verwendet die Job-Konfiguration mehrfach und erstellt einen Job für jeden Eintrag in der Matrix, die Du konfigurierst.
 
-{% data reusables.github-actions.matrix-limits %}
+{% data reusables.github-actions.usage-matrix-limits %}
 
-Jede Option, die Du in der `Matrix` definierst, hat einen Schlüssel und einen Wert. Die Schlüssel, die Du definierst, werden zu Eigenschaften im Kontext `Matrix` und Du kannst diese Eigenschaften in anderen Bereichen Ihrer Workflow-Datei referenzieren. Wenn Du zum Beispiel den Schlüssel `os` definierst, der ein Array von Betriebssystemen enthält, kannst Du die Eigenschaft `matrix.os` als Wert für das Schlüsselwort `runs-on` verwenden, um einen Job für jedes Betriebssystem zu erstellen. Weitere Informationen findest Du unter "[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+Jede Option, die Du in der `Matrix` definierst, hat einen Schlüssel und einen Wert. Die Schlüssel, die Du definierst, werden zu Eigenschaften im Kontext `Matrix` und Du kannst diese Eigenschaften in anderen Bereichen Ihrer Workflow-Datei referenzieren. Wenn Du zum Beispiel den Schlüssel `os` definierst, der ein Array von Betriebssystemen enthält, kannst Du die Eigenschaft `matrix.os` als Wert für das Schlüsselwort `runs-on` verwenden, um einen Job für jedes Betriebssystem zu erstellen. Weitere Informationen findest Du unter „[Kontext- und Ausdrucks-Syntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)“.
 
 Die Reihenfolge, in der Du eine `Matrix` definierst, ist wichtig. Die erste Option, die Du definierst, ist der erste Job, der im Workflow ausgeführt wird.
 
@@ -842,7 +837,6 @@ strategy:
 ##### Beispiel zum Einbeziehen neuer Kombinationen
 
 Du kannst `include` verwenden, um neue Jobs zu einer Build-Matrix hinzuzufügen. Alle Include-Konfigurationen, die nicht passen, werden zur Matrix hinzugefügt. Wenn Du beispielsweise `node` Version 12 verwenden willst, um auf mehreren Betriebssystemen zu bauen, aber Du willst einen zusätzlichen experimentellen Job mit Node Version 13 auf Ubuntu, kannst Du `include` verwenden, um diesen zusätzlichen Job anzugeben.
-
 
 {% raw %}
 ```yaml
@@ -952,7 +946,25 @@ jobs:
 
 #### **`jobs.<job_id>.container.image`**
 
-Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. Als Wert kann der Name des Docker Hub-Images oder einer öffentlichen Docker Registry angegeben werden.
+Docker-Image, das beim Ausführen der Aktion als Container herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.container.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Beispiel
+
+{% raw %}
+```yaml
+container:
+  image: ghcr.io/owner/image
+  credentials:
+     username: ${{ github.actor }}
+     password: ${{ secrets.ghcr_token }}
+```
+{% endraw %}
+{% endif %}
 
 #### **`jobs.<job_id>.container.env`**
 
@@ -997,7 +1009,7 @@ Wenn Du den Job so konfigurierst, dass er direkt auf der Runner-Maschine läuft 
 
 Weitere Informationen über die Unterschiede zwischen Netzwerk-Servicecontainern finden Sie unter „[Informationen zu Servicecontainern](/actions/automating-your-workflow-with-github-actions/about-service-containers)“.
 
-#### Beispiel für die Verwendung von localhost
+#### Beispiel für die Verwendung von „localhost“
 
 Dieses Beispiel erzeugt zwei Dienste: nginx und redis. Wenn Du den Port des Docker-Hosts angibst, aber nicht den des Containers, dann wird der Container-Port zufällig einem freien Port zugewiesen. {% data variables.product.prodname_dotcom %} setzt den zugewiesenen Containerport im Kontext {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} . In diesem Beispiel kannst Du über die Kontexte {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} und {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} auf die Ports des Servicecontainers zugreifen.
 
@@ -1015,19 +1027,43 @@ services:
       - 6379/tcp
 ```
 
-#### **`jobs.<job_id>.services.image`**
+#### **`jobs.<job_id>.services.<service_id>.image`**
 
-Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. Als Wert kann der Name des Docker-Basis-Images, eines öffentlichen Docker Hub oder einer öffentlichen Docker Registry angegeben werden.
+Docker-Image, das beim Ausführen der Aktion als Dienstcontainer herangezogen wird. The value can be the Docker Hub image name or a {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}public{% endif %} registry name.
 
-#### **`jobs.<job_id>.services.env`**
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+#### **`jobs.<job_id>.services.<service_id>.credentials`**
+
+{% data reusables.actions.registry-credentials %}
+
+##### Beispiel
+
+{% raw %}
+```yaml
+services:
+  myservice1: 
+    image: ghcr.io/owner/myservice1
+    credentials:
+      username: ${{ github.actor }}
+      password: ${{ secrets.ghcr_token }}
+  myservice2:
+    image: dockerhub_org/myservice2
+    credentials:
+      username: ${{ secrets.DOCKER_USER }}
+      password: ${{ secrets.DOCKER_PASSWORD }}
+```
+{% endraw %}
+{% endif %}
+
+#### **`jobs.<job_id>.services.<service_id>.env`**
 
 Legt eine `map` mit Umgebungsvariablen im Servicecontainer fest.
 
-#### **`jobs.<job_id>.services.ports`**
+#### **`jobs.<job_id>.services.<service_id>.ports`**
 
 Legt ein `array` mit Ports fest, die im Dienstcontainer offengelegt werden.
 
-#### **`jobs.<job_id>.services.volumes`**
+#### **`jobs.<job_id>.services.<service_id>.volumes`**
 
 Legt ein `array` mit Volumes für den Dienstcontainer fest. Mithilfe von Volumes können Sie Daten zwischen Diensten oder anderen Schritten in einem Auftrag austauschen. Sie können benannte Docker-Volumes, anonyme Docker-Volumes oder Bind-Mounts auf dem Host angegeben.
 
@@ -1046,11 +1082,11 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-#### **`jobs.<job_id>.services.options`**
+#### **`jobs.<job_id>.services.<service_id>.options`**
 
 Zusätzliche Optionen für die Docker-Containerressource. Eine Liste der Optionen finden Sie unter „[Optionen für `docker create`](https://docs.docker.com/engine/reference/commandline/create/#options)“.
 
-### Spickzettel zu Filtermustern
+### Merkzettel zu Filtermustern
 
 Die Pfad-, Branch- und Tag-Filter können bestimmte Sonderzeichen umfassen.
 
@@ -1076,16 +1112,16 @@ Weitere Informationen zur Syntax für Branch-, Tag- und Pfadfilter finden Sie un
 
 #### Muster für den Abgleich von Branches und Tags
 
-| Muster                                          | Beschreibung                                                                                                                                                                                                  | Beispiele für Übereinstimmungen                                                                    |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `feature/*`                                     | Das Platzhalterzeichen `*` steht für ein beliebiges Zeichen, nicht jedoch für den Schrägstrich (`/`).                                                                                                         | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
-| `feature/**`                                    | Das Platzhalterzeichen `**` steht für ein beliebiges Zeichen, also auch für den Schrägstrich (`/`), in Branch- und Tag-Namen.                                                                                 | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
-| -`master`<br/>-`releases/mona-the-octcat` | Abgleich mit dem exakten Branch- oder Tag-Namen.                                                                                                                                                              | -`master`<br/>-`releases/mona-the-octocat`                                                   |
-| `'*'`                                           | Abgleich mit allen Branch- und Tag-Namen, die keinen Schrägstrich (`/`) enthalten. Das Zeichen `*` ist ein Sonderzeichen in YAML. Wenn ein Muster mit `*` beginnen soll, sind Anführungszeichen erforderlich. | -`master`<br/>-`releases`                                                                    |
-| `'**'`                                          | Abgleich mit allen Branch- und Tag-Namen. Dies ist das Standardverhalten, wenn Sie keinen `branches`- oder `tags`-Filter angeben.                                                                             | -`all/the/branches`<br/>-`every/tag`                                                         |
-| `'*feature'`                                    | Das Zeichen `*` ist ein Sonderzeichen in YAML. Wenn ein Muster mit `*` beginnen soll, sind Anführungszeichen erforderlich.                                                                                    | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
-| `v2*`                                           | Abgleich mit Branch- und Tag-Namen, die mit `v2` beginnen.                                                                                                                                                    | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
-| `v[12].[0-9]+.[0-9]+`                           | Abgleich mit allen semantischen Versions-Tags mit der Hauptversion 1 oder 2.                                                                                                                                  | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
+| Muster                                        | Beschreibung                                                                                                                                                                                                  | Beispiele für Übereinstimmungen                                                                    |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `feature/*`                                   | Das Platzhalterzeichen `*` steht für ein beliebiges Zeichen, nicht jedoch für den Schrägstrich (`/`).                                                                                                         | -`feature/my-branch`<br/>-`feature/your-branch`                                              |
+| `feature/**`                                  | Das Platzhalterzeichen `**` steht für ein beliebiges Zeichen, also auch für den Schrägstrich (`/`), in Branch- und Tag-Namen.                                                                                 | -`feature/beta-a/my-branch`<br/>-`feature/your-branch`<br/>-`feature/mona/the/octocat` |
+| -`main`<br/>-`releases/mona-the-octcat` | Abgleich mit dem exakten Branch- oder Tag-Namen.                                                                                                                                                              | -`main`<br/>-`releases/mona-the-octocat`                                                     |
+| `'*'`                                         | Abgleich mit allen Branch- und Tag-Namen, die keinen Schrägstrich (`/`) enthalten. Das Zeichen `*` ist ein Sonderzeichen in YAML. Wenn ein Muster mit `*` beginnen soll, sind Anführungszeichen erforderlich. | -`main`<br/>-`releases`                                                                      |
+| `'**'`                                        | Abgleich mit allen Branch- und Tag-Namen. Dies ist das Standardverhalten, wenn Sie keinen `branches`- oder `tags`-Filter angeben.                                                                             | -`all/the/branches`<br/>-`every/tag`                                                         |
+| `'*feature'`                                  | Das Zeichen `*` ist ein Sonderzeichen in YAML. Wenn ein Muster mit `*` beginnen soll, sind Anführungszeichen erforderlich.                                                                                    | -`mona-feature`<br/>-`feature`<br/>-`ver-10-feature`                                   |
+| `v2*`                                         | Abgleich mit Branch- und Tag-Namen, die mit `v2` beginnen.                                                                                                                                                    | -`v2`<br/>-`v2.0`<br/>-`v2.9`                                                          |
+| `v[12].[0-9]+.[0-9]+`                         | Abgleich mit allen semantischen Versions-Tags mit der Hauptversion 1 oder 2.                                                                                                                                  | -`v1.10.1`<br/>-`v2.0.0`                                                                     |
 
 #### Muster für den Abgleich von Dateinamen
 

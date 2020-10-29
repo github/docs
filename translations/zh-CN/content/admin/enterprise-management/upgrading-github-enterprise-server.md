@@ -76,7 +76,7 @@ versions:
 4. 在新的热补丁下载完毕后，请使用 Install package 下拉菜单：
     - 要立即安装，请选择 **Now**：
     - 要稍后安装，请选择以后的日期。 ![热补丁安装日期下拉菜单](/assets/images/enterprise/management-console/hotpatch-installation-date-dropdown.png)
-5. Click **Install**. ![热补丁安装按钮](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
+5. 单击 **Install（安装）**。 ![热补丁安装按钮](/assets/images/enterprise/management-console/hotpatch-installation-install-button.png)
 
 ##### 使用管理 shell 安装热补丁
 
@@ -114,7 +114,7 @@ versions:
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 按照“[使用管理 shell 安装热补丁](#installing-a-hotpatch-using-the-administrative-shell)”中的说明升级副本实例。 如果使用多个副本进行异地复制，则必须重复此过程，每次升级一个副本。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
@@ -183,7 +183,7 @@ versions:
 
 {% endnote %}
 
-1. Upgrade the replica instance by following the instructions in "[Upgrading a single appliance with an upgrade package](#upgrading-a-single-appliance-with-an-upgrade-package)." If you are using multiple replicas for Geo-replication, you must repeat this procedure to upgrade each replica one at a time.
+1. 按照“[使用升级包升级单个设备](#upgrading-a-single-appliance-with-an-upgrade-package)”中的说明升级副本实例。 如果使用多个副本进行异地复制，则必须重复此过程，每次升级一个副本。
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 
