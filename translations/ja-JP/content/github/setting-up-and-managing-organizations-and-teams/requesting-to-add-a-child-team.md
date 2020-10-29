@@ -1,6 +1,6 @@
 ---
 title: 子チームの追加をリクエストする
-intro: あなたがある Team でメンテナーの権限を有している場合は、Organization の階層内で既存の Team を自分の Team の下にネストするようリクエストできます。
+intro: 'あなたがある Team でメンテナーの権限を有している場合は、Organization の階層内で既存の Team を自分の Team の下にネストするようリクエストできます。'
 redirect_from:
   - /articles/requesting-to-add-a-child-team
 versions:

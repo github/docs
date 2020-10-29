@@ -27,7 +27,7 @@ Antes de suspender os administradores do site, você deve rebaixá-los para usu�
 
 {% tip %}
 
-**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) para a {% data variables.product.product_location_enterprise %}, os usuários serão suspensos automaticamente quando forem removidos do servidor de diretório LDAP. Quando a Sincronização LDAP estiver habilitada para a sua instância, os métodos normais de suspensão do usuário ficarão desabilitados.
+**Observação:** se a [Sincronização LDAP estiver habilitada](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync) para a {% data variables.product.product_location_enterprise %}, os usuários serão suspensos automaticamente quando forem removidos do servidor de diretório LDAP. Quando a Sincronização LDAP estiver habilitada para a sua instância, os métodos normais de suspensão do usuário ficarão desabilitados.
 
 {% endtip %}
 

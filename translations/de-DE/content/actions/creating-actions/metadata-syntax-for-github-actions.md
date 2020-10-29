@@ -1,7 +1,7 @@
 ---
 title: Metadaten-Syntax für GitHub-Aktionen
 shortTitle: Metadaten-Syntax
-intro: 'Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.'
+intro: Du kannst Aktionen erstellen, um Aufgaben in Ihrem Repository zu erledigen. Für Aktionen ist eine Metadaten-Datei erforderlich, welche die YAML-Syntax verwendet.
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
   - /articles/metadata-syntax-for-github-actions
@@ -42,7 +42,6 @@ Aktionsmetadatendateien verwenden die YAML-Syntax. Wenn Sie bislang noch nicht m
 
 In diesem Beispiel werden zwei Eingaben konfiguriert: „numOctocats“ und „octocatEyeColor“. Die Eingabe „numOctocats“ ist nicht erforderlich und entspricht standardmäßig dem Wert „1“. Die Eingabe „octocatEyeColor“ ist erforderlich und weist keinen Standardwert auf. Workflow-Dateien, die diese Aktion einsetzen, müssen das Stichwort `with` verwenden, um für „octocatEyeColor“ einen Eingabewert festzulegen. Weitere Informationen zu `with`-Syntax finden Sie unter „[Workflow-Syntax für {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idstepswith)“.
 
-
 ```yaml
 inputs:
   numOctocats:
@@ -53,7 +52,6 @@ inputs:
     description: 'Eye color of the Octocats'
     required: true
 ```
-
 
 Wenn Sie eine Eingabe für eine Aktion in einer Workflow-Datei angeben oder einen Standardeingabewert verwenden, erstellt {% data variables.product.prodname_dotcom %} eine Umgebungsvariable für die Eingabe mit dem Namen `INPUT_<VARIABLE_NAME>`. Die erstellte Umgebungsvariable wandelt Eingabenamen in Großbuchstaben um und ersetzt Leerzeichen durch `_`-Zeichen.
 
@@ -99,7 +97,7 @@ outputs:
 
 ### **`-Ausgaben`** für Aktionen mit zusammengesetzten Ausführungsschritten
 
-**Optionale** `-Ausgänge verwenden` die gleichen Parameter wie `-Ausgänge.<output_id>` und `Ausgänge.<output_id>.description` (siehe "[`Ausgaben` für {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), enthält aber auch den `-Wert` Token.
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for {% data variables.product.prodname_actions %}](/actions/creating-actions/metadata-syntax-for-github-actions#outputs)"), but also includes the `value` token.
 
 #### Beispiel
 
@@ -121,7 +119,7 @@ läuft:
 #### **`outputs.<output_id.value>`**
 **Erforderliche** Der Wert, dem der Ausgabeparameter zugeordnet wird. Sie können dies auf eine `Zeichenfolge` oder einen Ausdruck mit Kontext festlegen. Sie können z. B. die `Schritte` Kontext verwenden, um den `Wert` einer Ausgabe auf den Ausgabewert eines Schritts festzulegen.
 
-Weitere Informationen zur Verwendung von Kontext- und Ausdruckssyntax finden Sie unter "[Kontext- und Ausdruckssyntax für {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
+For more information on how to use context and expression syntax, see "[Context and expression syntax for {% data variables.product.prodname_actions %}](/actions/reference/context-and-expression-syntax-for-github-actions)".
 
 ### **`runs`** für JavaScript-Aktionen
 
@@ -243,7 +241,7 @@ Weitere Informationen finden Sie unter "[`github context`](/actions/reference/co
 
 ##### **`runs.steps.env`**
 
-**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. Wenn Sie die im Workflow gespeicherte Umgebungsvariable ändern möchten, verwenden Sie `Echo "::set-env name={name}::{value}"` in einem zusammengesetzten Ausführungsschritt.
+**Optionale**  Legt eine `Zuordnung` von Umgebungsvariablen nur für diesen Schritt fest. If you want to modify the environment variable stored in the workflow, use {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}`echo "{name}={value}" >> $GITHUB_ENV`{% else %}`echo "::set-env name={name}::{value}"`{% endif %} in a composite run step.
 
 ##### **`runs.steps.working-directory`**
 

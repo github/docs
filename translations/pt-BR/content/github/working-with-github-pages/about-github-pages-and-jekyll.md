@@ -27,7 +27,7 @@ versions:
 
 O Jekyll é um gerador de site estático com suporte integrado para {% data variables.product.prodname_pages %} e um processo de compilação simplificado. O Jekyll usa arquivos Markdown e HTML, além de criar um site estático completo com base na sua escolha de layouts. O Jekyll aceita Markdown e Liquid, uma linguagem de modelagem que carrega conteúdo dinâmico no site. Para obter mais informações, consulte [Jekyll](https://jekyllrb.com/).
 
-O Jekyll não é oficialmente compatível com o Windows. Para obter mais informações, consulte "[Jekyll no Windows](http://jekyllrb.com/docs/windows/#installation)" na documentação do Jekyll.
+O Jekyll não é oficialmente compatível com o Windows. For more information, see "[Jekyll on Windows](http://jekyllrb.com/docs/windows/#installation)" in the Jekyll documentation.
 
 É recomendável usar o Jekyll com o {% data variables.product.prodname_pages %}. Se preferir, você pode usar outros geradores de site estáticos ou personalizar seu próprio processo de compilação localmente ou em outro servidor. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_pages %}](/articles/about-github-pages#static-site-generators)".
 
@@ -69,9 +69,10 @@ Você pode adicionar `site.github` a uma publicação ou página para incluir me
 {% data reusables.pages.add-jekyll-theme %} Para obter mais informações, consulte "[Temas](https://jekyllrb.com/docs/themes/)" na documentação do Jekyll.
 
 {% if currentVersion == "free-pro-team@latest" %}
-É possível adicionar um tema compatível ao seu site no {% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
+Você pode adicionar um tema compatível ao seu site em
+{% data variables.product.prodname_dotcom %}. Para obter mais informações, consulte "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} com o seletor de temas](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser)".
 
-Para usar qualquer outro tema Jekyll de código aberto hospedado no {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para obter mais informações, consulte{% if currentVersion == "free-pro-team@latest" %} [temas hospedados no {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveis](https://pages.github.com/themes/)" no site do {% data variables.product.prodname_pages %} e{% endif %} "[Adicionar um tema ao seu site do {% data variables.product.prodname_pages %} usando o Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
+Para usar qualquer outro tema de código aberto do Jekyll hospedado em {% data variables.product.prodname_dotcom %}, você pode adicionar o tema manualmente.{% else %} Você pode adicionar um tema ao seu site manualmente.{% endif %} Para mais informações, consulte {% if currentVersion == "free-pro-team@latest" %} [temas hospedados em {% data variables.product.prodname_dotcom %}](https://github.com/topics/jekyll-theme) e{% else %} "[Temas compatíveis](https://pages.github.com/themes/)no site de {% data variables.product.prodname_pages %} e{% endif %} "[Adicionar um tema ao seu site de {% data variables.product.prodname_pages %} usando Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)".
 
 Você pode substituir qualquer um dos padrões do seu tema editando os arquivos do tema. Para obter mais informações, consulte a documentação do seu tema e "[Substituir padrões do tema](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)" na documentação do Jekyll.
 

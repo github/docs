@@ -33,7 +33,7 @@ versions:
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`：当前项目的默认分支，例如 `master` 或 `gh-pages`。
+    - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
     ```shell
     $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
     # Filter the specified branch in your directory and remove empty commits

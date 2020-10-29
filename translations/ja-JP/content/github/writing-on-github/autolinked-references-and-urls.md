@@ -1,6 +1,6 @@
 ---
 title: 自動リンクされた参照と URL
-intro: URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。
+intro: 'URL、Issue、プルリクエスト、コミットへの参照は、自動的に短縮されてリンクに変換されます。'
 redirect_from:
   - /articles/autolinked-references-and-urls
 versions:
@@ -45,14 +45,11 @@ versions:
 | コミット URL       | https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
 | SHA            | a5c3785ed8d6a35868bc169f07e40e889087fd2e                                             | [a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)                   |
 | ユーザ@SHA        | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e                                       | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)             |
-| ユーザ名/リポジトリ@SHA | User/Repository@SHA: jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e      | [jlord/sheetsee.js@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
+| ユーザ名/リポジトリ@SHA | jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e                           | [jlord/sheetsee.js@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 ### 外部リソースへのカスタム自動リンク
 
 {% data reusables.repositories.autolink-references %}
-
-{% endif %}
 
 ### 参考リンク
 

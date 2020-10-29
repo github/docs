@@ -3,7 +3,6 @@ title: Placing a legal hold on a user or organization
 intro: 'You can place a legal hold on a user or organization to ensure that repositories they own cannot be permanently removed from {% data variables.product.product_location_enterprise %}.'
 redirect_from:
   - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
-  - /enterprise/admin/user-management/placing-a-legal-hold-on-a-user-or-organization
 versions:
   enterprise-server: '*'
 ---

@@ -1,6 +1,6 @@
 ---
 title: High Availabilityレプリカの作成
-intro: アクティブ／パッシブ設定では、レプリカアプライアンスはプライマリアプライアンスの冗長コピーです。 プライマリアプライアンスに障害が起こると、High Availabilityモードではレプリカがプライマリアプライアンスとして動作し、サービスの中断を最小限にできます。
+intro: 'アクティブ／パッシブ設定では、レプリカアプライアンスはプライマリアプライアンスの冗長コピーです。 プライマリアプライアンスに障害が起こると、High Availabilityモードではレプリカがプライマリアプライアンスとして動作し、サービスの中断を最小限にできます。'
 redirect_from:
   - /enterprise/admin/installation/creating-a-high-availability-replica
   - /enterprise/admin/enterprise-management/creating-a-high-availability-replica
@@ -49,7 +49,7 @@ versions:
   (replica2)$ ghe-repl-setup --add <em>PRIMARY IP</em>
   (replica2)$ ghe-repl-start
   ```
-3. デフォルトでは、レプリカは同じデータセンターに設定され{% if currentVersion ver_gt "enterprise-server@2.17" %}、同じノードにある既存のノードからシードを試行し{% endif %}ます。 レプリカを別のデータセンターに設定するには、datacenter オプションに異なる値を設定します。 具体的な値は、それらが互いに異なる限り、どのようなものでもかまいません。 各ノードで `ghe-repl-node` コマンドを実行し、データセンターを指定します。
+3. デフォルトでは、レプリカは同じデータセンターに設定され、同じノードにある既存のノードからシードを試行します。 レプリカを別のデータセンターに設定するには、datacenter オプションに異なる値を設定します。 具体的な値は、それらが互いに異なる限り、どのようなものでもかまいません。 各ノードで `ghe-repl-node` コマンドを実行し、データセンターを指定します。
 
   プライマリでは以下のコマンドを実行します。
   ```shell

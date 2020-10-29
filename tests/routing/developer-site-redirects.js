@@ -1,6 +1,7 @@
 const { eachOfLimit } = require('async')
 const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const { get } = require('../helpers')
+const { getEnterpriseVersionNumber } = require('../../lib/patterns')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 const restRedirectFixtures = require('../fixtures/rest-redirects')
 const graphqlRedirectFixtures = require('../fixtures/graphql-redirects')
@@ -125,6 +126,29 @@ describe('developer redirects', () => {
       )
     })
 
+    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // for currently supported enterprise releases only
+    // EXAMPLE: /en/enterprise-server@2.20/v3/pulls/comments -> /en/enterprise-server@2.20/rest/reference/pulls#comments
+    // We can remove test after we update all the old `/v3` links to point to `/rest`
+    test('temporary rest reference enterprise redirects', async () => {
+      await eachOfLimit(
+        restRedirectFixtures,
+        MAX_CONCURRENT_REQUESTS,
+        async (newPath, oldPath) => {
+          const releaseNumber = oldPath.match(getEnterpriseVersionNumber)
+          if (!releaseNumber) return
+          if (!enterpriseServerReleases.supported.includes(releaseNumber[1])) return
+
+          oldPath = oldPath
+            .replace(/\/enterprise\/(\d.\d\d)\//, '/enterprise-server@$1/')
+            .replace('/user/', '/')
+          const res = await get(oldPath)
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(res.headers.location).toBe(newPath)
+        }
+      )
+    })
+
     // this fixtures file includes /v4 and /enterprise/v4 paths
     test('graphql reference redirects', async () => {
       await eachOfLimit(
@@ -134,6 +158,29 @@ describe('developer redirects', () => {
           // REST and GraphQL developer Enterprise paths with a version are only supported up to 2.21.
           // We make an exception to always redirect versionless paths to the latest version.
           newPath = newPath.replace('/enterprise-server/', `/enterprise-server@${enterpriseServerReleases.latest}/`)
+          const res = await get(oldPath)
+          expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
+          expect(res.headers.location).toBe(newPath)
+        }
+      )
+    })
+
+    // TODO temprarily ensure we redirect old links using the new enterprise format
+    // for currently supported enterprise releases only
+    // EXAMPLE: /en/enterprise-server@2.20/v4/interface/actor -> /en/enterprise-server@2.20/graphql/reference/interfaces#actor
+    // We can remove test after we update all the old `/v4` links to point to `/graphql`
+    test('temporary rest reference enterprise redirects', async () => {
+      await eachOfLimit(
+        graphqlRedirectFixtures,
+        MAX_CONCURRENT_REQUESTS,
+        async (newPath, oldPath) => {
+          const releaseNumber = oldPath.match(getEnterpriseVersionNumber)
+          if (!releaseNumber) return
+          if (!enterpriseServerReleases.supported.includes(releaseNumber[1])) return
+
+          oldPath = oldPath
+            .replace(/\/enterprise\/(\d.\d\d)\//, '/enterprise-server@$1/')
+            .replace('/user/', '/')
           const res = await get(oldPath)
           expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(301)
           expect(res.headers.location).toBe(newPath)

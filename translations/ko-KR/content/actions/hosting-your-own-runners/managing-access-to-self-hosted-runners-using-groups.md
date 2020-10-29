@@ -56,7 +56,7 @@ When creating a group, you must choose a policy that grants access to all organi
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}

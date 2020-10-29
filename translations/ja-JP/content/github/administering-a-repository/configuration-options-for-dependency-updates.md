@@ -18,32 +18,33 @@ versions:
 
 *dependabot.yml* ファイルは、`version: 2` で始まり、その後に `updates` の配列が続く形である必要があります。
 
-| Option                                                                     |  必須   | 説明                          |
-|:-------------------------------------------------------------------------- |:-----:|:--------------------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー             |
-| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所              |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                   |
-| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする             |
-| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者             |
-| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定              |
-| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する        |
-| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル             |
-| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン         |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する     |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                |
-| [`reviewers`](#reviewers)                                                  |       | プルリクエストのレビュー担当者             |
-| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                   |
-| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)           |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）           |
-| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ            |
-| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法         |
+| Option                                                                     |  必須   | 説明                                     |
+|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 使用するパッケージマネージャー                        |
+| [`directory`](#directory)                                                  | **X** | パッケージマニフェストの場所                         |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 更新を確認する頻度                              |
+| [`allow`](#allow)                                                          |       | 許可する更新をカスタマイズする                        |
+| [`assignees`](#assignees)                                                  |       | プルリクエストのアサイン担当者                        |
+| [`commit-message`](#commit-message)                                        |       | コミットメッセージの環境設定                         |
+| [`ignore`](#ignore)                                                        |       | 特定の依存関係またはバージョンを無視する                   |
+| [`labels`](#labels)                                                        |       | プルリクエストに設定するラベル                        |
+| [`マイルストーン`](#milestone)                                                    |       | プルリクエストに設定するマイルストーン                    |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | バージョン更新時のオープンなプルリクエスト数を制限する            |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | プルリクエストブランチ名の区切り文字を変更する                |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 自動リベースを無効にする                           |
+| [`reviewers`](#reviewers)                                                  |       | プルリクエストのレビュー担当者                        |
+| [`schedule.day`](#scheduleday)                                             |       | 更新を確認する曜日                              |
+| [`schedule.time`](#scheduletime)                                           |       | 更新を確認する時刻 (hh:mm)                      |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 時刻のタイムゾーン（ゾーン識別子）                      |
+| [`target-branch`](#target-branch)                                          |       | プルリクエストを作成するブランチ                       |
+| [`vendor`](#vendor)                                                        |       | Update vendored or cached dependencies |
+| [`versioning-strategy`](#versioning-strategy)                              |       | マニフェストのバージョン要件の更新方法                    |
 
 これらのオプションは、次のようなカテゴリに幅広く適合しています。
 
 - すべての設定に含める必要がある必須のセットアップオプション: [`package-ecosystem`](#package-ecosystem)、 [`directory`](#directory)、[`schedule.interval`](#scheduleinterval)
 - 更新スケジュールをカスタマイズするためのオプション: [`schedule.time`](#scheduletime)、[`schedule.timezone`](#scheduletimezone)、 [`schedule.day`](#scheduleday)
-- 更新する依存関係を制御するオプション: [`allow`](#allow)、[`ignore`](#ignore)
+- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - プルリクエストにメタデータを追加するオプション: [`reviewers`](#reviewers)、[`assignees`](#assignees)、[`labels`](#labels)、 [`milestone`](#milestone)
 - プルリクエストの動作を変更するオプション: [`target-branch`](#target-branch)、[`versioning-strategy`](#versioning-strategy)、[`commit-message`](#commit-message)、[`rebase-strategy`](#rebase-strategy)、[`pull-request-branch-name.separator`](#pull-request-branch-nameseparator)
 
@@ -61,7 +62,7 @@ versions:
 
 ### `package-ecosystem`
 
-**必須** {% data variables.product.prodname_dependabot %} で新しいバージョンを監視するパッケージマネージャーごとに、`package-ecosystem` 要素を1つ追加してください。 リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。
+**必須** {% data variables.product.prodname_dependabot %} で新しいバージョンを監視するパッケージマネージャーごとに、`package-ecosystem` 要素を1つ追加してください。 リポジトリには、これらの各パッケージマネージャーの依存関係マニフェストまたはロックファイルも含まれている必要があります。 If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -538,6 +539,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot_short %} to vendor dependencies when updating them.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot_short %} only updates the vendored dependencies located in specific directories in a repository.
+
+| パッケージマネージャー | Required file path for vendored dependencies                                                      | 詳細情報                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler`   | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`     | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

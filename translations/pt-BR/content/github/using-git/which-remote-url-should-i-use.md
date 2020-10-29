@@ -31,7 +31,7 @@ Quando você aplicar `git clone`, `git fetch`, `git pull` ou `git push` a um rep
 
 {% endtip %}
 
- {% if currentVersion == "free-pro-team@latest" %}Se você prefere usar o SSH mas não consegue conectar-se pela porta 22, você poderá usar o SSH através da porta HTTPS. Para obter mais informações, consulte "[Usar SSH através da porta HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}Se você preferir usar SSH mas não pode conectar-se pela porta 22, você pode usar SSH através da porta HTTPS. Para obter mais informações, consulte "[Usar SSH através da porta HTTPS](/github/authenticating-to-github/using-ssh-over-the-https-port)".{% endif %}
 
 ### Clonar com URLs de SSH
 

@@ -1,6 +1,6 @@
 ---
 title: Bots und Dienstkonten mit SAML Single-Sign-On verwalten
-intro: 'Organisationen, für die SAML Single-Sign-On aktiviert ist, können den Zugriff von Bots und Dienstkonten beibehalten.'
+intro: Organisationen, für die SAML Single-Sign-On aktiviert ist, können den Zugriff von Bots und Dienstkonten beibehalten.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/managing-bots-and-service-accounts-with-saml-single-sign-on

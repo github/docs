@@ -43,7 +43,7 @@ For more information about how custom domains affect the URL for your site, see 
 
 You can only create one user or organization site for each {% data variables.product.product_name %} account. Project sites, whether owned by an organization or a user account, are unlimited.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.product.product_location %}.
 
 | Type of site | Subdomain isolation enabled | Subdomain isolation disabled |

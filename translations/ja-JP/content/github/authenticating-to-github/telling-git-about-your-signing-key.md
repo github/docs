@@ -1,6 +1,6 @@
 ---
 title: Git へ署名キーを伝える
-intro: 'ローカルでコミットに署名するには、使いたい GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} または X.509{% endif %} キーがあることを Git に通知する必要があります。'
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or X.509{% endif %} key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key

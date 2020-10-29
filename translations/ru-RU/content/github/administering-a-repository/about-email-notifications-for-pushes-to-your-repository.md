@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
 
@@ -33,8 +33,7 @@ You can filter email notifications you receive for pushes to a repository. For m
 {% data reusables.repositories.sidebar-notifications %}
 5. Type up to two email addresses, separated by whitespace, where you'd like notifications to be sent. If you'd like to send emails to more than two accounts, set one of the email addresses to a group email address. ![Email address textbox](/assets/images/help/settings/email_services_addresses.png)
 6. If you operate your own server, you can verify the integrity of emails via the **Secret** token. This token is sent with the email as the `Approved` header. If the `Approved` header matches the token you sent, you can trust that the email is from {% data variables.product.product_name %}. ![Email secret textbox](/assets/images/help/settings/email_services_token.png)
-7. Optionally, select **Send from author** to have emails delivered using the committer's email address. Otherwise, emails are sent from {% data variables.notifications.no_reply_address %}. ![Email author checkbox](/assets/images/help/settings/email_services_author.png)
-8. Click **Save settings**. ![Save settings button](/assets/images/help/settings/save_notification_settings.png)
+7. Click **Save settings**. ![Save settings button](/assets/images/help/settings/save_notification_settings.png)
 
 ### Дополнительная литература
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}

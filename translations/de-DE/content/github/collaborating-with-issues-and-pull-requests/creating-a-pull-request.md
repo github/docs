@@ -21,7 +21,7 @@ Du kannst festlegen, in welchen Branch Du Deine Änderungen zusammenführen möc
 
 ### Branch-Bereich und Ziel-Repository ändern
 
-Standardmäßig basieren Pull Requests auf dem [Standardbranch](/articles/setting-the-default-branch) des übergeordneten Repositorys.
+By default, pull requests are based on the parent repository's default branch. Weitere Informationen finden Sie unter „[Informationen zu Branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)“.
 
 Wenn das standardmäßige übergeordnete Repository nicht korrekt ist, kannst Du über die Dropdownlisten sowohl das übergeordnete Repository als auch den Branch ändern. Du kannst über die Dropdownlisten auch Head- und Basis-Branches untereinander austauschen, um Diffs zwischen Referenzpunkten zu erstellen. Referenzen müssen hier Branch-Namen in Deinem GitHub-Repository sein.
 

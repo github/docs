@@ -28,10 +28,10 @@ This callback request will send you a new access token and a new refresh token. 
 
 #### Parameters
 
-| Name            | Тип      | Description                                                                                                                                                           |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name            | Тип      | Description                                                                                                                                                      |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `строка` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token. |
-| `grant_type`    | `строка` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                                    |
+| `grant_type`    | `строка` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                               |
 | `client_id`     | `строка` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.                                                                        |
 | `client_secret` | `строка` | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.                                                                    |
 

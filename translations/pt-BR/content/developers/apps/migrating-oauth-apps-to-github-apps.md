@@ -11,7 +11,6 @@ versions:
 
 Este artigo fornece orientações para integradores existentes que estão considerando a migração de um aplicativo OAuth para um aplicativo GitHub.
 
-
 ### Razões para alternar para aplicativos GitHub
 
 [Os aplicativos GitHub](/apps/) são a forma oficialmente recomendada de integrar-se ao GitHub, pois oferecem muitas vantagens em relação a uma integração pura baseada no OAuth:

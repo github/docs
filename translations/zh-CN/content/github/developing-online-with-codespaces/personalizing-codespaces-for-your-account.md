@@ -22,7 +22,7 @@ Dotfiles 是类似 Unix 的系统上以 `.` 开头的文件和文件夹，用于
 创建新的代码空间时，{% data variables.product.prodname_dotcom %} 会将 `dotfile` 仓库克隆到代码空间环境，并查找以下文件之一来设置环境。
 
 * _install.sh_
-* _install_
+* _安装_
 * _bootstrap.sh_
 * _bootstrap_
 * _setup.sh_

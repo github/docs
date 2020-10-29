@@ -3,7 +3,7 @@ title: リモートの URL の変更
 redirect_from:
   - /articles/changing-a-remote-s-url
   - /articles/changing-a-remotes-url
-intro: 「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。
+intro: '「git remote set-url」コマンドにより、既存のリモートリポジトリ URL を変更できます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
@@ -50,7 +50,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。
+次にリモートリポジトリに対して `git fetch`、`git pull`、または `git push` を実行するときに、GitHub ユーザ名とパスワードを求められます。 {% data reusables.user_settings.password-authentication-deprecation %}
 
 - [2要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa) を有効にしている場合は、[パーソナルアクセストークンを作成](/github/authenticating-to-github/creating-a-personal-access-token)して、GitHub パスワードのかわりに使用することができます。
 - Git が GitHub と通信するたびに GitHub のユーザ名とパスワードを思い出すよう、[認証情報ヘルパーを使用する](/github/using-git/caching-your-github-credentials-in-git)ことができます。

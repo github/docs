@@ -19,7 +19,7 @@ prodname_ghe_cloud: 'GitHub Enterprise Cloud'
 prodname_ghe_one: 'GitHub One'
 ## Use these variables when referring specifically to a location within a product
 product_location: >-
-  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}sua instância do GitHub Enterprise Server{% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}GitHub{% else %}a sua instância do servidor do GitHub Enterprise{% endif %}
 product_location_enterprise: 'sua instância do GitHub Enterprise Server'
 prodname_free_user: 'GitHub Free'
 prodname_pro: 'GitHub Pro'
@@ -56,12 +56,9 @@ prodname_github_app: 'aplicativo GitHub'
 prodname_github_apps: 'Aplicativos do GitHub'
 prodname_oauth_app: 'aplicativo OAuth'
 #API and developer docs
-prodname_dev_docs: 'documentação do GitHub Developer'
 prodname_enterprise_api: 'API do GitHub Enterprise Server'
-prodname_support_forum: 'Fórum de Suporte e Desenvolvimento de API GitHub'
 prodname_support_forum_with_url: '[Fórum de Suporte e Desenvolvimento de API GitHub](https://github.community/c/github-api-development-and-support/37)'
 prodname_unfurls: 'Anexos do conteúdo'
-prodname_component_kit: 'Kit de componente GitHub'
 #GitHub Actions
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
@@ -69,8 +66,8 @@ prodname_actions: 'GitHub Actions'
 prodname_debug: 'GitHub Debug'
 #GitHub Packages
 prodname_registry: 'GitHub Package Registry'
-prodname_github_container_registry: 'GitHub Container Registry'
-prodname_container_registry: 'container registry'
+prodname_github_container_registry: 'Registro de contêiner do GitHub'
+prodname_container_registry: 'registro de contêiner'
 #GitHub Insights
 prodname_insights: 'GitHub Insights'
 #GitHub Sponsors
@@ -80,16 +77,15 @@ prodname_matching_fund: 'Fundo Correspondentes para Patrocinadores do GitHub'
 prodname_advanced_security: 'Segurança Avançada'
 #Codespaces
 prodname_codespaces: 'Codespaces'
-prodname_vscode: 'Visual Studio Code'
 prodname_vs_codespaces: 'Espaços de códigos Visual Studio'
-prodname_vs: 'Visual Studio'
+prodname_github_codespaces: 'GitHub Codespaces'
 #GitHub resources: blog, jobs, Learning Lab
 prodname_gcf: 'Suporte à Comunidade GitHub'
 prodname_blog: 'GitHub Blog'
 prodname_jobs: 'GitHub Jobs'
 prodname_learning: 'GitHub Learning Lab'
 prodname_learning_link: 'https://lab.github.com/'
-prodname_roadmap: 'GitHub public roadmap'
+prodname_roadmap: 'Itinerário público do GitHub'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 #GitHub support
 premium_support_plan: 'Plano Premium'
@@ -108,28 +104,31 @@ prodname_secret_scanning: 'varredura secreta'
 prodname_secret_scanning_caps: 'Varredura secreta'
 prodname_code_scanning: 'Varredura de código'
 prodname_code_scanning_capc: 'Varredura de código'
-prodname_codeql_runner: 'CodeQL runner'
+prodname_codeql_runner: 'Executor do CodeQL'
 prodname_advisory_database: 'Banco de Dados Consultivo GitHub'
-prodname_codeql_workflow: 'CodeQL Analysis workflow'
+prodname_codeql_workflow: 'Fluxo de trabalho de análise do CodeQL'
+#Visual Studio
+prodname_vs: 'Visual Studio'
+prodname_vscode: 'Visual Studio Code'
+prodname_vss_ghe: 'Assinatura do Visual Studio com GitHub Enterprise'
+prodname_vss_admin_portal_with_url: '[portal de administrador para assinaturas do Visual Studio](https://visualstudio.microsoft.com/subscriptions-administration/)'
 #GitHub Dependabot
 prodname_dependabot: 'GitHub Dependabot'
 prodname_dependabot_short: 'Dependabot'
 prodname_dependabot_alerts: 'Alertas GitHub Dependabot'
 prodname_dependabot_security_updates: 'Atualizações de segurança do GitHub Dependabot'
 prodname_dependabot_version_updates: 'Atualizações de versão do GitHub Dependabot'
-#GitHub Policies
-prodname_policies: 'GitHub Policies'
 #GitHub Archive Program
 prodname_archive: 'Programa Arquivo do GitHub'
-prodname_arctic_vault: 'Arctic Code Vault'
+prodname_arctic_vault: 'Cofre de Código do Ártico'
 #Links
 product_url: >-
   {% if currentVersion == "free-pro-team@latest" %}github.com{% else %}[hostname]{% endif %}
 pricing_url: 'https://github.com/pricing'
 signin_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Entrar (`https://[hostname]/login`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign in](https://github.com/login){% else %}Iniciar sessão (`https://[hostname]/login`){% endif %}
 signout_link: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Sair (`https://[hostname]/logout`){% endif %}
+  {% if currentVersion == "free-pro-team@latest" %}[Sign out](https://github.com/logout){% else %}Encerrar sessão (`https://[hostname]/logout`){% endif %}
 raw_github_com: >-
   {% if currentVersion == "free-pro-team@latest" %}raw.githubusercontent.com{% else %}[hostname]/user/repo/raw{% endif %}
 #GitHub Enterprise Server past versions

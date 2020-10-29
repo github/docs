@@ -16,7 +16,6 @@ versions:
 - 个人访问令牌
 - SSH 密钥
 
-
 ### 在浏览器中进行身份验证
 
 您可以在浏览器中以不同方式向 {% data variables.product.product_name %} 验证。
@@ -50,4 +49,4 @@ versions:
 
 * 您可以通过 SSH 处理 {% data variables.product.product_name %} 上的所有仓库，尽管防火墙和代理可能拒绝允许 SSH 连接。 使用 SSH 需要在本地计算机上生成 SSH 公钥/私密对，并将公钥添加到 {% data variables.product.product_name %} 帐户。 除非您已[存储密钥](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)，否则每次使用 Git 向 {% data variables.product.product_name %} 验证时，系统都会提示您输入 SSH 密钥密码短语。 更多信息请参阅“[生成新的 SSH 密钥并添加到 ssh-agent](/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)”。
 
-{% if currentVersion == "free-pro-team@latest" %}要使用个人访问令牌或 SSH 密钥访问由使用 SAML 单点登录的组织所拥有的资源，还必须授权个人令牌或 SSH 密钥。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权 SSH 密钥用于 SAML 单点登录](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}To use a personal access token or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”或“[授权 SSH 密钥用于 SAML 单点登录](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。{% endif %}

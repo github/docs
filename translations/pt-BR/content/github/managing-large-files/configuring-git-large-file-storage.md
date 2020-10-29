@@ -13,7 +13,7 @@ Se houver arquivos no seu repositório com os quais deseja usar o {% data variab
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% tip %}
 

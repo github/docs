@@ -24,8 +24,8 @@ Para obter mais informações, consulte "[Sobre {% data variables.product.prodna
 
 O domínio para o {% data variables.product.prodname_container_registry %} é `ghcr.io`.
 
-| Registro                                                               | Exemplo de URL                                      |
-| ---------------------------------------------------------------------- | --------------------------------------------------- |
+| Registro                                                          | Exemplo de URL                                      |
+| ----------------------------------------------------------------- | --------------------------------------------------- |
 | Registro Docker de {% data variables.product.prodname_registry %} | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_github_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
@@ -33,7 +33,9 @@ O domínio para o {% data variables.product.prodname_container_registry %} é `g
 
 Você deverá efetuar a autenticação no {% data variables.product.prodname_container_registry %} com a URL de base `ghcr.io`. Recomendamos criar um novo token de acesso para usar o {% data variables.product.prodname_container_registry %}.
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Fazer a migração de uma imagem do Docker usando a CLI do Docker
 
@@ -55,7 +57,9 @@ Para mover imagens do Docker que você hospeda no registro do Docker do {% data 
   $ docker tag docker.pkg.github.com/SOURCE_OWNER/SOURCE_REPOSITORY/SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
   ```
 
-4. Faça login no novo {% data variables.product.prodname_container_registry %}. Recomendamos criar um novo PAT limitado aos escopos `read:packages` e `write: packages` já que você não precisa mais do escopo `repositório` e seu PAT anterior pode não ter o escopo `write:packages`.
+4. Fazer login no novo
+
+{% data variables.product.prodname_container_registry %}. Recomendamos criar um novo PAT limitado aos escopos `read:packages` e `write: packages` já que você não precisa mais do escopo `repositório` e seu PAT anterior pode não ter o escopo `write:packages`.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
@@ -74,7 +78,7 @@ Se tiver um fluxo de trabalho de {% data variables.product.prodname_actions %} q
 
 2. No seu arquivo de fluxo de trabalho do {% data variables.product.prodname_actions %}, atualize a URL do pacote de `https://docker.pkg.github.com` para `ghcr.io`.
 
-3. Adicione seu novo token de acesso pessoal (PAT) do {% data variables.product.prodname_container_registry %} como um segredo do GitHub ACtions. {% data variables.product.prodname_github_container_registry %} não é compatível com o uso do `GITHUB_TOKEN` para o seu PAT. Portanto, você deve usar uma variável personalizada diferente, como `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} não é compatível com o uso do `GITHUB_TOKEN` para o seu PAT. Portanto, você deve usar uma variável personalizada diferente, como `CR_PAT`. Para obter mais informações, consulte "[Criar e armazenar segredos encriptados](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)".
 
 4. No seu arquivo de fluxo de trabalho de {% data variables.product.prodname_actions %} atualize a autenticação do PAT substituindo o seu PAT do registro do Docker ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) por uma nova variável para o seu PAT de {% data variables.product.prodname_container_registry %}, como, por exemplo, {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
 

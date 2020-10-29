@@ -1,6 +1,6 @@
 ---
 title: 以前の外部のコラボレータの Organization へのアクセスを復帰させる
-intro: Organization で 2 要素認証を要求しており、外部コラボレーターが 2 要素認証を有効化していないために Organization から削除された場合、以前の外部コラボレーターの Organization リポジトリへのアクセス権、フォーク、設定を復帰させることができます。
+intro: 'Organization で 2 要素認証を要求しており、外部コラボレーターが 2 要素認証を有効化していないために Organization から削除された場合、以前の外部コラボレーターの Organization リポジトリへのアクセス権、フォーク、設定を復帰させることができます。'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization

@@ -27,7 +27,7 @@ fatal: The remote end hung up unexpectedly
 
 {% tip %}
 
-**メモ:** 仮に {% data variables.product.product_location_enterprise %} で [LDAP Sync が有効化されている](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)なら、LDAP ディレクトリサーバから削除されたユーザは自動的にサスペンドされます。 インスタンスで LDAP Sync が有効化されている場合、通常のユーザのサスペンド方法は無効化されています。
+**メモ:** 仮に {% data variables.product.product_location_enterprise %} で [LDAP Sync が有効化されている](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)なら、LDAP ディレクトリサーバから削除されたユーザは自動的にサスペンドされます。 インスタンスで LDAP Sync が有効化されている場合、通常のユーザのサスペンド方法は無効化されています。
 
 {% endtip %}
 
@@ -84,4 +84,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 参考リンク
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- 「[ユーザーをサスペンドする](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)」

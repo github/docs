@@ -7,7 +7,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
   - /github/installing-and-configuring-github-insights/navigating-between-github-insights-and-github-enterprise
 versions:
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
 ---
 
 リンクを有効化した後、それぞれのユーザは{% data variables.product.prodname_ghe_server %}から{% data variables.product.prodname_insights %}へ直接アクセスできます。 詳しい情報については「[{% data variables.product.prodname_enterprise %}と{% data variables.product.prodname_insights %}間のアクセス](/insights/exploring-your-usage-of-github-enterprise/navigating-between-github-enterprise-and-github-insights)」を参照してください。
@@ -17,7 +17,8 @@ versions:
   ```
   ghe-config 'app.github.insights-available' 'true' && ghe-config-apply
   ```
-3. {% data variables.product.prodname_ghe_server %}に戻ります。
+3. 次に、
+{% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

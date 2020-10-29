@@ -1,6 +1,6 @@
 ---
 title: プルリクエストのステージの変更
-intro: 'プルリクエストのドラフトをレビュー準備完了としてマークしたり{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}、プルリクエストをドラフトに変換したりすることができます{% endif %}。'
+intro: 'You can mark a draft pull request as ready for review{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} or convert a pull request to a draft{% endif %}.'
 permissions: リポジトリへの書き込み権限を持つユーザとプルリクエストの作者は、プルリクエストのステージを変更できます。
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:

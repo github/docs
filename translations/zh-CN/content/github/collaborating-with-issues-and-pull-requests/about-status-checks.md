@@ -46,7 +46,7 @@ _检查_与_状态_的不同之处在于它们提供行注解、更详细的信�
 
 #### 跳过和申请个别提交的检查
 
-当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。 当仓库_未_设置为自动申请检查推送时，您可以申请检查您推送的个别提交。 有关这些设置的更多信息，请参阅“[检查套件](/v3/checks/suites/#set-preferences-for-check-suites-on-a-repository)”。
+当仓库设置为自动申请检查推送时，您可以选择跳过所推送的个别提交的检查。 当仓库_未_设置为自动申请检查推送时，您可以申请检查您推送的个别提交。 For more information on these settings, see "[Check Suites](/rest/reference/checks#update-repository-preferences-for-check-suites)."
 
 要跳过或申请检查提交，请在提交消息末添加以下尾行之一：
 
