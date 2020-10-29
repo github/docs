@@ -32,7 +32,7 @@ Some open-source projects provide mirrors on {% data variables.product.prodname_
 
 Here are a few prominent repositories that are mirrored on {% data variables.product.prodname_dotcom_the_website %}:
 
-- [android](https://github.com/android)
+- [android](https://github.com/aosp-mirror)
 - [The Apache Software Foundation](https://github.com/apache)
 - [The Chromium Project](https://github.com/chromium)
 - [The Eclipse Foundation](https://github.com/eclipse)
