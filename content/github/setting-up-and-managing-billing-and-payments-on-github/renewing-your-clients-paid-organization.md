@@ -1,6 +1,6 @@
 ---
 title: Renewing your client's paid organization
-intro: 'If your client''s organization has a valid payment method on file, their yearly subscription will automatically renew. Billing managers can view and update the organization''s payment method and subscription.'
+intro: 'If your client\'s organization has a valid payment method on file, their yearly subscription will automatically renew. Billing managers can view and update the organization\'s payment method and subscription.'
 redirect_from:
   - /articles/renewing-your-client-s-paid-organization
   - /articles/renewing-your-clients-paid-organization

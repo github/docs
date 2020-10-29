@@ -1,6 +1,6 @@
 ---
 title: Adding a file to a repository
-intro: 'You can upload and commit an existing file to a {% data variables.product.product_name %} repository. Drag and drop a file to any directory in the file tree, or upload files from the repository''s main page.'
+intro: 'You can upload and commit an existing file to a {% data variables.product.product_name %} repository. Drag and drop a file to any directory in the file tree, or upload files from the repository\'s main page.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
 versions:

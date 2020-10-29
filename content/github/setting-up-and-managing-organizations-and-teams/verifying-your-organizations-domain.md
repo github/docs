@@ -1,6 +1,6 @@
 ---
 title: Verifying your organization's domain
-intro: 'You can verify the domains controlled by your organization to confirm your organization''s identity on {% data variables.product.product_name %}.'
+intro: 'You can verify the domains controlled by your organization to confirm your organization\'s identity on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain

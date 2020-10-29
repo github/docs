@@ -1,6 +1,6 @@
 ---
 title: Viewing your milestone's progress
-intro: 'In order to track your milestones, you''ll want to get a better understanding of how many open issues and pull requests are remaining.'
+intro: 'In order to track your milestones, you\'ll want to get a better understanding of how many open issues and pull requests are remaining.'
 redirect_from:
   - /articles/viewing-your-milestone-s-progress
   - /articles/viewing-your-milestones-progress

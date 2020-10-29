@@ -231,7 +231,7 @@ env:
   myHexNumber: ${{ 0xff }}
   myExponentialNumber: ${{ -2.99-e2 }}
   myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myEscapedString: ${{ 'It\'s open source!' }}
 ```
 {% endraw %}
 

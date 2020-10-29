@@ -1,6 +1,6 @@
 ---
 title: Listing the issues and pull requests you're subscribed to
-intro: 'You can see an overview of all the issues and pull requests you''re subscribed to, making it easier to navigate to conversations you''re interested in but have not received recent notifications about.'
+intro: 'You can see an overview of all the issues and pull requests you\'re subscribed to, making it easier to navigate to conversations you\'re interested in but have not received recent notifications about.'
 versions:
   enterprise-server: <2.21
 ---

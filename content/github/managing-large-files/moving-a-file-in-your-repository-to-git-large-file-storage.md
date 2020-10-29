@@ -1,6 +1,6 @@
 ---
 title: Moving a file in your repository to Git Large File Storage
-intro: 'If you''ve set up {% data variables.large_files.product_name_short %}, and you have an existing file in your repository that needs to be tracked in {% data variables.large_files.product_name_short %}, you need to first remove it from your repository.'
+intro: 'If you\'ve set up {% data variables.large_files.product_name_short %}, and you have an existing file in your repository that needs to be tracked in {% data variables.large_files.product_name_short %}, you need to first remove it from your repository.'
 redirect_from:
   - /articles/moving-a-file-in-your-repository-to-git-large-file-storage
 versions:

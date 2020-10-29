@@ -4,7 +4,7 @@ redirect_from:
   - /hidden/about-improved-navigation-to-commonly-accessed-pages-on-github/
   - /articles/opting-into-the-public-beta-for-a-new-dashboard/
   - /articles/about-your-personal-dashboard
-intro: 'You can visit your personal dashboard to keep track of issues and pull requests you''re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you''re subscribed to, and explore recommended repositories.'
+intro: 'You can visit your personal dashboard to keep track of issues and pull requests you\'re working on or following, navigate to your top repositories and team pages, stay updated on recent activities in organizations and repositories you\'re subscribed to, and explore recommended repositories.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

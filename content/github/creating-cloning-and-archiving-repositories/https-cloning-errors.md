@@ -1,6 +1,6 @@
 ---
 title: HTTPS cloning errors
-intro: 'There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don''t have access to the repository.'
+intro: 'There are a few common errors when using HTTPS with Git. These errors usually indicate you have an old version of Git, or you don\'t have access to the repository.'
 redirect_from:
   - /articles/error-the-requested-url-returned-error-403/
   - /articles/error-the-requested-url-returned-error-401/

@@ -1,6 +1,6 @@
 ---
 title: Filtering issues and pull requests by assignees
-intro: 'Once you''ve [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who''s working on them.'
+intro: 'Once you\'ve [assigned an issue or pull request to someone](/articles/assigning-issues-and-pull-requests-to-other-github-users), you can find items based on who\'s working on them.'
 redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-assignees
 versions:

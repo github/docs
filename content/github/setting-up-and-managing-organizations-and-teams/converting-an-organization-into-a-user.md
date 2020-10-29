@@ -1,6 +1,6 @@
 ---
 title: Converting an organization into a user
-intro: 'It''s not possible to convert an organization into a personal user account, but you can create a new user account and transfer the organization''s repositories to it.'
+intro: 'It\'s not possible to convert an organization into a personal user account, but you can create a new user account and transfer the organization\'s repositories to it.'
 redirect_from:
   - /articles/converting-an-organization-into-a-user
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Removing yourself from an organization
-intro: 'If you''re an outside collaborator or a member of an organization, you can leave the organization at any time.'
+intro: 'If you\'re an outside collaborator or a member of an organization, you can leave the organization at any time.'
 redirect_from:
   - /articles/how-do-i-remove-myself-from-an-organization/
   - /articles/removing-yourself-from-an-organization

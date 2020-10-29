@@ -1,6 +1,6 @@
 ---
 title: Dealing with non-fast-forward errors
-intro: 'Sometimes, Git can''t make your change to a remote repository without losing commits. When this happens, your push is refused.'
+intro: 'Sometimes, Git can\'t make your change to a remote repository without losing commits. When this happens, your push is refused.'
 redirect_from:
   - /articles/dealing-with-non-fast-forward-errors
 versions:

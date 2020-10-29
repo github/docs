@@ -1,6 +1,6 @@
 ---
 title: Using submodules with GitHub Pages
-intro: 'You can use submodules with {% data variables.product.prodname_pages %} to include other projects in your site''s code.'
+intro: 'You can use submodules with {% data variables.product.prodname_pages %} to include other projects in your site\'s code.'
 redirect_from:
   - /articles/using-submodules-with-pages/
   - /articles/using-submodules-with-github-pages

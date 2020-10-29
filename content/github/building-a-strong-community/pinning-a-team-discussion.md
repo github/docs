@@ -1,6 +1,6 @@
 ---
 title: Pinning a team discussion
-intro: 'You can pin important discussions to your organization''s team pages for easy reference, and unpin discussions that are no longer relevant.'
+intro: 'You can pin important discussions to your organization\'s team pages for easy reference, and unpin discussions that are no longer relevant.'
 redirect_from:
   - /articles/pinning-a-team-discussion
 versions:

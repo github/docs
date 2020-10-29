@@ -1,6 +1,6 @@
 ---
 title: Viewing your subscriptions and billing date
-intro: 'You can view your account''s subscription, your other paid features and products, and your next billing date in your account''s billing settings.'
+intro: 'You can view your account\'s subscription, your other paid features and products, and your next billing date in your account\'s billing settings.'
 redirect_from:
   - /articles/finding-your-next-billing-date/
   - /articles/finding-your-personal-account-s-next-billing-date/

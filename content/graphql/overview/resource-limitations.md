@@ -1,6 +1,6 @@
 ---
 title: Resource limitations
-intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}''s servers.'
+intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API has limitations in place to protect against excessive or abusive calls to {% data variables.product.prodname_dotcom %}\'s servers.'
 redirect_from:
   - /v4/guides/resource-limitations
 versions:

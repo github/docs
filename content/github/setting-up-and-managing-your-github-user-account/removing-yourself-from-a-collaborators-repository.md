@@ -1,6 +1,6 @@
 ---
 title: Removing yourself from a collaborator's repository
-intro: 'If you no longer want to be a collaborator on someone else''s repository, you can remove yourself.'
+intro: 'If you no longer want to be a collaborator on someone else\'s repository, you can remove yourself.'
 redirect_from:
   - /leave-a-collaborative-repo/
   - /leave-a-repo/

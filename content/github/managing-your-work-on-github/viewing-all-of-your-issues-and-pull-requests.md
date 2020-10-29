@@ -1,6 +1,6 @@
 ---
 title: Viewing all of your issues and pull requests
-intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you''ve created. You can use them to update items that have gone stale, close them, or keep track of where you''ve been mentioned across all repositories—including those you''re not subscribed to.'
+intro: 'The Issues and Pull Request dashboards list the open issues and pull requests you\'ve created. You can use them to update items that have gone stale, close them, or keep track of where you\'ve been mentioned across all repositories—including those you\'re not subscribed to.'
 redirect_from:
   - /articles/viewing-all-of-your-issues-and-pull-requests
 versions:

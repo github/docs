@@ -1,6 +1,6 @@
 ---
 title: About billing for Git Large File Storage
-intro: 'If you purchase additional storage and bandwidth for {% data variables.large_files.product_name_long %}, your purchase shares your account''s existing billing date, payment method, and receipt.'
+intro: 'If you purchase additional storage and bandwidth for {% data variables.large_files.product_name_long %}, your purchase shares your account\'s existing billing date, payment method, and receipt.'
 redirect_from:
   - /articles/about-billing-for-git-large-file-storage
 versions:

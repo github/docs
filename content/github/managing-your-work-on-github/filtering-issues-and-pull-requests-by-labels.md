@@ -1,6 +1,6 @@
 ---
 title: Filtering issues and pull requests by labels
-intro: 'Once you''ve [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.'
+intro: 'Once you\'ve [applied labels to an issue or pull request](/articles/applying-labels-to-issues-and-pull-requests), you can find items based on their labels.'
 redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-labels
 versions:

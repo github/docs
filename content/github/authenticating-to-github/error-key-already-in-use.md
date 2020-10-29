@@ -1,6 +1,6 @@
 ---
 title: 'Error: Key already in use'
-intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that''s already been added to another account or repository.'
+intro: 'This error occurs when you try to [add a key](/articles/adding-a-new-ssh-key-to-your-github-account) that\'s already been added to another account or repository.'
 redirect_from:
   - /articles/error-key-already-in-use
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Reinstating a former outside collaborator's access to your organization
-intro: 'If you required two-factor authentication in your organization and an outside collaborator was removed from the organization for not having 2FA enabled, you can reinstate a former outside collaborator''s access permissions for organization repositories, forks, and settings.'
+intro: 'If you required two-factor authentication in your organization and an outside collaborator was removed from the organization for not having 2FA enabled, you can reinstate a former outside collaborator\'s access permissions for organization repositories, forks, and settings.'
 redirect_from:
   - /articles/reinstating-a-former-outside-collaborator-s-access-to-your-organization
   - /articles/reinstating-a-former-outside-collaborators-access-to-your-organization

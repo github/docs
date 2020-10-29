@@ -1,6 +1,6 @@
 ---
 title: Removing a billing manager from your organization
-intro: 'If a person with the *billing manager* role no longer needs to view or change your organization''s billing information, you can remove their access to the organization.'
+intro: 'If a person with the *billing manager* role no longer needs to view or change your organization\'s billing information, you can remove their access to the organization.'
 redirect_from:
   - /articles/removing-a-billing-manager-from-your-organization
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Requesting to add or change a parent team
-intro: 'If you have maintainer permissions in a team, you can request to nest your team under a parent team in your organization''s hierarchy.'
+intro: 'If you have maintainer permissions in a team, you can request to nest your team under a parent team in your organization\'s hierarchy.'
 redirect_from:
   - /articles/requesting-to-add-or-change-a-parent-team
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Changing access permissions for wikis
-intro: 'Only repository collaborators can edit a public repository''s wiki by default, but you can allow anyone with a {% data variables.product.product_name %} account to edit your wiki.'
+intro: 'Only repository collaborators can edit a public repository\'s wiki by default, but you can allow anyone with a {% data variables.product.product_name %} account to edit your wiki.'
 product: '{% data reusables.gated-features.wikis %}'
 redirect_from:
   - /articles/changing-access-permissions-for-wikis

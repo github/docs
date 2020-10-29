@@ -1,6 +1,6 @@
 ---
 title: Developing in a codespace
-intro: 'You can open a codespace on {% data variables.product.product_name %}, then develop using {% data variables.product.prodname_vscode %}''s features.'
+intro: 'You can open a codespace on {% data variables.product.product_name %}, then develop using {% data variables.product.prodname_vscode %}\'s features.'
 product: '{% data reusables.gated-features.codespaces %}'
 permissions: Anyone can develop in a codespace owned by their user account.
 redirect_from:

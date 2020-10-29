@@ -1,6 +1,6 @@
 ---
 title: Moving a file to a new location
-intro: 'When editing a file, you can choose to move it anywhere within your repository, even if the directory doesn''t exist.'
+intro: 'When editing a file, you can choose to move it anywhere within your repository, even if the directory doesn\'t exist.'
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
 versions:

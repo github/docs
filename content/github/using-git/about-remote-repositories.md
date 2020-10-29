@@ -4,7 +4,7 @@ redirect_from:
   - /articles/working-when-github-goes-down/
   - /articles/sharing-repositories-without-github/
   - /articles/about-remote-repositories
-intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository for other people to view, fetch, and update.'
+intro: 'GitHub\'s collaborative approach to development depends on publishing commits from your local repository for other people to view, fetch, and update.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

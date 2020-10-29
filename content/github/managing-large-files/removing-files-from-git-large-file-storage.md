@@ -1,6 +1,6 @@
 ---
 title: Removing files from Git Large File Storage
-intro: 'If you''ve set up {% data variables.large_files.product_name_short %} for your repository, you can remove all files or a subset of files from {% data variables.large_files.product_name_short %}.'
+intro: 'If you\'ve set up {% data variables.large_files.product_name_short %} for your repository, you can remove all files or a subset of files from {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /articles/removing-files-from-git-large-file-storage
 versions:

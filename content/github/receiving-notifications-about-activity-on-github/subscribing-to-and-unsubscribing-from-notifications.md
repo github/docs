@@ -1,6 +1,6 @@
 ---
 title: Subscribing to and unsubscribing from notifications
-intro: 'You can subscribe to individual conversations in issues, pull requests, and team discussions, even if you''re not watching the repository or a member of the team where the conversation is occurring. If you''re no longer interested in a conversation, you can unsubscribe or customize the types of notifications you receive.'
+intro: 'You can subscribe to individual conversations in issues, pull requests, and team discussions, even if you\'re not watching the repository or a member of the team where the conversation is occurring. If you\'re no longer interested in a conversation, you can unsubscribe or customize the types of notifications you receive.'
 versions:
   enterprise-server: <2.21
 ---

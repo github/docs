@@ -1,6 +1,6 @@
 ---
 title: Migrating to GitHub Container Registry for Docker images
-intro: 'If you''ve used the GitHub Packages Docker registry to store Docker images, you can migrate to the new {% data variables.product.prodname_container_registry %}.'
+intro: 'If you\'ve used the GitHub Packages Docker registry to store Docker images, you can migrate to the new {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'

@@ -1,6 +1,6 @@
 ---
 title: Writing a listing description for your app
-intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you''ll need to write descriptions of your app and provide images that follow GitHub''s guidelines.'
+intro: 'To [list your app](/marketplace/listing-on-github-marketplace/) in the {% data variables.product.prodname_marketplace %}, you\'ll need to write descriptions of your app and provide images that follow GitHub\'s guidelines.'
 redirect_from:
   - /apps/marketplace/getting-started-with-github-marketplace-listings/guidelines-for-writing-github-app-descriptions/
   - /apps/marketplace/creating-and-submitting-your-app-for-approval/writing-github-app-descriptions/

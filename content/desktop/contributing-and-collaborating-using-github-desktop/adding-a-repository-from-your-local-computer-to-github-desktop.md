@@ -1,6 +1,6 @@
 ---
 title: Adding a repository from your local computer to GitHub Desktop
-intro: 'You can add any Git repository to {% data variables.product.prodname_desktop %}, even if it''s not a {% data variables.product.prodname_dotcom %} repository.'
+intro: 'You can add any Git repository to {% data variables.product.prodname_desktop %}, even if it\'s not a {% data variables.product.prodname_dotcom %} repository.'
 redirect_from:
   - /desktop/contributing-to-projects/adding-a-repository-from-your-local-computer-to-github-desktop
 versions:

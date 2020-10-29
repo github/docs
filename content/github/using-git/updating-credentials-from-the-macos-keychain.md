@@ -1,6 +1,6 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {% data variables.product.product_name %}.'
+intro: 'You\'ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain

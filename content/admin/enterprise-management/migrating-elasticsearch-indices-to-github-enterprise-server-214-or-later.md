@@ -1,6 +1,6 @@
 ---
 title: Migrating Elasticsearch indices to GitHub Enterprise Server 2.14 or later
-intro: 'To prepare for an upgrade to {% data variables.product.prodname_ghe_server %} 2.14, you''ll need to migrate your indices to Elasticsearch 5.6 with our migration script.'
+intro: 'To prepare for an upgrade to {% data variables.product.prodname_ghe_server %} 2.14, you\'ll need to migrate your indices to Elasticsearch 5.6 with our migration script.'
 redirect_from:
   - /enterprise/admin/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/
   - /enterprise/admin/guides/installation/migrating-elasticsearch-indices-to-github-enterprise-2-14-or-later/

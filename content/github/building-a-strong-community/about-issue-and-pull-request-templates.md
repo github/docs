@@ -1,6 +1,6 @@
 ---
 title: About issue and pull request templates
-intro: 'With issue and pull request templates, you can customize and standardize the information you''d like contributors to include when they open issues and pull requests in your repository.'
+intro: 'With issue and pull request templates, you can customize and standardize the information you\'d like contributors to include when they open issues and pull requests in your repository.'
 redirect_from:
   - /articles/about-issue-and-pull-request-templates
 versions:

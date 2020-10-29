@@ -1,6 +1,6 @@
 ---
 title: Security review process for submitted apps
-intro: 'GitHub''s security team reviews all apps submitted to {% data variables.product.prodname_marketplace %} to ensure that they meet security requirements. Follow these best practices to be prepared for the review process.'
+intro: 'GitHub\'s security team reviews all apps submitted to {% data variables.product.prodname_marketplace %} to ensure that they meet security requirements. Follow these best practices to be prepared for the review process.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process/
   - /marketplace/getting-started/security-review-process

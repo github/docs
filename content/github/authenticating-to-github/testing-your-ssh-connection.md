@@ -1,6 +1,6 @@
 ---
 title: Testing your SSH connection
-intro: 'After you''ve set up your SSH key and added it to your {% data variables.product.product_name %} account, you can test your connection.'
+intro: 'After you\'ve set up your SSH key and added it to your {% data variables.product.product_name %} account, you can test your connection.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:

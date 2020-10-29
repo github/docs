@@ -1,6 +1,6 @@
 ---
 title: Unblocking a user from your organization
-intro: 'Organization owners can unblock a user who was previously blocked, restoring their access to the organization''s repositories.'
+intro: 'Organization owners can unblock a user who was previously blocked, restoring their access to the organization\'s repositories.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
 versions:

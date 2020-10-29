@@ -1,6 +1,6 @@
 ---
 title: Accessing GitHub using two-factor authentication
-intro: 'With 2FA enabled, you''ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
+intro: 'With 2FA enabled, you\'ll be asked to provide your 2FA authentication code, as well as your password, when you sign in to {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/providing-your-2fa-security-code/
   - /articles/providing-your-2fa-authentication-code/

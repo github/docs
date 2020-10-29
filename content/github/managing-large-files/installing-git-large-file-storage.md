@@ -1,6 +1,6 @@
 ---
 title: Installing Git Large File Storage
-intro: 'In order to use {% data variables.large_files.product_name_short %}, you''ll need to download and install a new program that''s separate from Git.'
+intro: 'In order to use {% data variables.large_files.product_name_short %}, you\'ll need to download and install a new program that\'s separate from Git.'
 redirect_from:
   - /articles/installing-large-file-storage/
   - /articles/installing-git-large-file-storage

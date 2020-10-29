@@ -1,6 +1,6 @@
 ---
 title: Creating a commit on behalf of an organization
-intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit''s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
+intro: 'You can create commits on behalf of an organization by adding a  trailer to the commit\'s message. Commits attributed to an organization include an `on-behalf-of` badge on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/creating-a-commit-on-behalf-of-an-organization
 versions:

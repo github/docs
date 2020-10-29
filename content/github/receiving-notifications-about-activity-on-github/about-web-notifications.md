@@ -1,6 +1,6 @@
 ---
 title: About web notifications
-intro: 'If you''re receiving web notifications, you can view your participating and watching notifications on the notifications page on {% data variables.product.product_name %}.'
+intro: 'If you\'re receiving web notifications, you can view your participating and watching notifications on the notifications page on {% data variables.product.product_name %}.'
 versions:
   enterprise-server: <2.21
 ---

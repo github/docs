@@ -1,6 +1,6 @@
 ---
 title: Viewing your Git Large File Storage usage
-intro: 'You can audit your account''s monthly bandwidth quota and remaining storage for {% data variables.large_files.product_name_short %}.'
+intro: 'You can audit your account\'s monthly bandwidth quota and remaining storage for {% data variables.large_files.product_name_short %}.'
 redirect_from:
   - /articles/viewing-storage-and-bandwidth-usage-for-a-personal-account/
   - /articles/viewing-storage-and-bandwidth-usage-for-an-organization/

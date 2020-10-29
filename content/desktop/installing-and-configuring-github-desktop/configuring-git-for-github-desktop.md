@@ -1,7 +1,7 @@
 ---
 title: Configuring Git for GitHub Desktop
 shortTitle: Configuring Git
-intro: 'If you don''t already have Git installed, you must configure it before using GitHub Desktop.'
+intro: 'If you don\'t already have Git installed, you must configure it before using GitHub Desktop.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Managing billing for your GitHub account
-intro: '{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account''s subscription at any time.'
+intro: '{% data variables.product.product_name %} offers free and paid products for every account. You can upgrade, downgrade, and view pending changes to your account\'s subscription at any time.'
 redirect_from:
   - /categories/97/articles/
   - /categories/paying-for-user-accounts/

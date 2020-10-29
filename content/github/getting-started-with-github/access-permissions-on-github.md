@@ -5,7 +5,7 @@ redirect_from:
   - /articles/what-are-the-different-types-of-team-permissions/
   - /articles/what-are-the-different-access-permissions/
   - /articles/access-permissions-on-github
-intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization''s repositories.'
+intro: 'While you can grant read/write access to collaborators on a personal repository, members of an organization can have more granular access permissions for the organization\'s repositories.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

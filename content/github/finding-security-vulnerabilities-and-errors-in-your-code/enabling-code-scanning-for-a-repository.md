@@ -1,7 +1,7 @@
 ---
 title: Enabling code scanning for a repository
 shortTitle: Enabling code scanning
-intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project''s repository.'
+intro: 'You can enable {% data variables.product.prodname_code_scanning %} for your project\'s repository.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can enable {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:

@@ -1,6 +1,6 @@
 ---
 title: About team discussions
-intro: 'Your team can plan together, update one another, or talk about any topic you''d like in discussion posts on your team''s page in an organization.'
+intro: 'Your team can plan together, update one another, or talk about any topic you\'d like in discussion posts on your team\'s page in an organization.'
 redirect_from:
   - /articles/about-team-discussions
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Marking notifications as read
-intro: 'You can mark web notifications as read without reviewing them. If an update is made to the conversation, you''ll receive a new notification. You can also mark read notifications as unread, so you can easily find them again later.'
+intro: 'You can mark web notifications as read without reviewing them. If an update is made to the conversation, you\'ll receive a new notification. You can also mark read notifications as unread, so you can easily find them again later.'
 versions:
   enterprise-server: <2.21
 ---

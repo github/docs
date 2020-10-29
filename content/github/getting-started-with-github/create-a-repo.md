@@ -3,7 +3,7 @@ title: Create a repo
 redirect_from:
   - /create-a-repo/
   - /articles/create-a-repo
-intro: 'To put your project up on {% data variables.product.product_location %}, you''ll need to create a repository for it to live in.'
+intro: 'To put your project up on {% data variables.product.product_location %}, you\'ll need to create a repository for it to live in.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

@@ -1,6 +1,6 @@
 ---
 title: Filtering issues and pull requests by milestone
-intro: 'Issues and pull requests can be filtered based on the milestone they''re associated with. Once you''ve [associated an issue or pull request with a milestone](/articles/associating-milestones-with-issues-and-pull-requests), you can find items based on their milestones. Within a milestone, you can prioritize issues and pull requests.'
+intro: 'Issues and pull requests can be filtered based on the milestone they\'re associated with. Once you\'ve [associated an issue or pull request with a milestone](/articles/associating-milestones-with-issues-and-pull-requests), you can find items based on their milestones. Within a milestone, you can prioritize issues and pull requests.'
 redirect_from:
   - /articles/filtering-issues-and-pull-requests-by-milestone
 versions:

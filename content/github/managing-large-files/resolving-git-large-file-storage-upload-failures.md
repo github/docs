@@ -1,6 +1,6 @@
 ---
 title: Resolving Git Large File Storage upload failures
-intro: 'If your {% data variables.large_files.product_name_short %} files didn''t upload properly, you can take several steps to troubleshoot the upload error.'
+intro: 'If your {% data variables.large_files.product_name_short %} files didn\'t upload properly, you can take several steps to troubleshoot the upload error.'
 redirect_from:
   - /articles/resolving-git-large-file-storage-upload-failures
 versions:

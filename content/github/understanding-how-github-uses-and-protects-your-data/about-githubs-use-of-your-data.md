@@ -3,7 +3,7 @@ title: About GitHub's use of your data
 redirect_from:
   - /articles/about-github-s-use-of-your-data
   - /articles/about-githubs-use-of-your-data
-intro: '{% data variables.product.product_name %} uses your repository''s data to connect you to relevant tools, people, projects, and information.'
+intro: '{% data variables.product.product_name %} uses your repository\'s data to connect you to relevant tools, people, projects, and information.'
 versions:
   free-pro-team: '*'
 ---

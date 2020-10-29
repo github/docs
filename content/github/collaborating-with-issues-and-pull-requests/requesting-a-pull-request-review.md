@@ -1,6 +1,6 @@
 ---
 title: Requesting a pull request review
-intro: 'After you create a pull request, you can ask a specific person to review the changes you''ve proposed. If you''re an organization member, you can also request a specific team to review your changes.'
+intro: 'After you create a pull request, you can ask a specific person to review the changes you\'ve proposed. If you\'re an organization member, you can also request a specific team to review your changes.'
 redirect_from:
   - /articles/requesting-a-pull-request-review
 versions:

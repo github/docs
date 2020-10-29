@@ -1,6 +1,6 @@
 ---
 title: Connecting with third-party applications
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing one of these applications, you should ensure you trust the application, review who it\'s developed by, and review the kinds of information the application wants to access.'
 redirect_from:
   - /articles/connecting-with-third-party-applications
 versions:

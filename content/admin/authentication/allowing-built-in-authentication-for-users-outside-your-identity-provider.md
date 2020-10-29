@@ -1,6 +1,6 @@
 ---
 title: Allowing built-in authentication for users outside your identity provider
-intro: 'You can configure built-in authentication to authenticate users who don''t have access to your identity provider that uses LDAP, SAML, or CAS.'
+intro: 'You can configure built-in authentication to authenticate users who don\'t have access to your identity provider that uses LDAP, SAML, or CAS.'
 redirect_from:
   - /enterprise/admin/user-management/allowing-built-in-authentication-for-users-outside-your-identity-provider
   - /enterprise/admin/authentication/allowing-built-in-authentication-for-users-outside-your-identity-provider

@@ -1,6 +1,6 @@
 ---
 title: Viewing insights for your organization
-intro: 'Organization insights provide data about your organization''s activity, contributions, and dependencies.'
+intro: 'Organization insights provide data about your organization\'s activity, contributions, and dependencies.'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization

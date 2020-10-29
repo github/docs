@@ -3,7 +3,7 @@ title: Be social
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they''re connecting with from your personal dashboard.'
+intro: 'You can interact with people, repositories, and organizations on {% data variables.product.prodname_dotcom %}. See what others are working on and who they\'re connecting with from your personal dashboard.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

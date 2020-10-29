@@ -1,6 +1,6 @@
 ---
 title: About billing on GitHub
-intro: 'Everything you purchase on {% data variables.product.prodname_dotcom %} shares your account''s billing date, payment method, and receipt.'
+intro: 'Everything you purchase on {% data variables.product.prodname_dotcom %} shares your account\'s billing date, payment method, and receipt.'
 redirect_from:
   - /articles/about-billing-on-github
 versions:

@@ -1,6 +1,6 @@
 ---
 title: About authentication to GitHub
-intro: 'You can securely access your account''s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
+intro: 'You can securely access your account\'s resources by authenticating to {% data variables.product.product_name %}, using different credentials depending on where you authenticate.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

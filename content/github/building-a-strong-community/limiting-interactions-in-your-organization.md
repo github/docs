@@ -1,6 +1,6 @@
 ---
 title: Limiting interactions in your organization
-intro: 'Organization owners can temporarily restrict certain users from commenting, opening issues, or creating pull requests in the organization''s public repositories to enforce a period of limited activity.'
+intro: 'Organization owners can temporarily restrict certain users from commenting, opening issues, or creating pull requests in the organization\'s public repositories to enforce a period of limited activity.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/limiting-interactions-in-your-organization
   - /articles/limiting-interactions-in-your-organization

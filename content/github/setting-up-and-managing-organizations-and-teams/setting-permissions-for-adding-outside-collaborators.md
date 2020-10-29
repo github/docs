@@ -1,6 +1,6 @@
 ---
 title: Setting permissions for adding outside collaborators
-intro: 'To protect your organization''s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
+intro: 'To protect your organization\'s data and the number of paid licenses used in your organization, you can allow only owners to invite outside collaborators to organization repositories.'
 product: '{% data reusables.gated-features.restict-add-collaborator %}'
 redirect_from:
   - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories/

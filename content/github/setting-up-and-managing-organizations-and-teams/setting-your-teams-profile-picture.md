@@ -1,6 +1,6 @@
 ---
 title: Setting your team's profile picture
-intro: 'Team maintainers and organization owners can set a profile picture for a team, which is displayed on the team''s page.'
+intro: 'Team maintainers and organization owners can set a profile picture for a team, which is displayed on the team\'s page.'
 redirect_from:
   - /articles/setting-your-team-s-profile-picture
   - /articles/setting-your-teams-profile-picture

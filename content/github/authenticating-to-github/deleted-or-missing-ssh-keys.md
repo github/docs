@@ -1,6 +1,6 @@
 ---
 title: Deleted or missing SSH keys
-intro: 'As a security precaution, {% data variables.product.prodname_dotcom %} automatically deletes SSH keys that haven''t been used in a year.'
+intro: 'As a security precaution, {% data variables.product.prodname_dotcom %} automatically deletes SSH keys that haven\'t been used in a year.'
 redirect_from:
   - /articles/deleted-or-missing-ssh-keys
 versions:

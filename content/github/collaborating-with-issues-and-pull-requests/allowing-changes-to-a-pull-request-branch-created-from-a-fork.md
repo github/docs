@@ -1,6 +1,6 @@
 ---
 title: Allowing changes to a pull request branch created from a fork
-intro: 'For greater collaboration, you can allow commits on branches you''ve created from forks owned by your user account.'
+intro: 'For greater collaboration, you can allow commits on branches you\'ve created from forks owned by your user account.'
 redirect_from:
   - /articles/allowing-changes-to-a-pull-request-branch-created-from-a-fork
 permissions: People with push access to the upstream repository of a fork owned by a user account can commit to the forked branches.

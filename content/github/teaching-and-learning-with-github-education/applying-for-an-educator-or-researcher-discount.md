@@ -1,6 +1,6 @@
 ---
 title: Applying for an educator or researcher discount
-intro: 'If you''re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
+intro: 'If you\'re an educator or a researcher, you can apply to receive {% data variables.product.prodname_team %} for your organization account for free.'
 redirect_from:
   - /articles/applying-for-a-classroom-discount/
   - /articles/applying-for-a-discount-for-your-school-club/

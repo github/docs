@@ -1,6 +1,6 @@
 ---
 title: About billing for GitHub Marketplace
-intro: 'If you install a paid app in {% data variables.product.prodname_marketplace %}, your subscription shares your account''s existing billing date, payment method, and receipt.'
+intro: 'If you install a paid app in {% data variables.product.prodname_marketplace %}, your subscription shares your account\'s existing billing date, payment method, and receipt.'
 redirect_from:
   - /articles/about-billing-for-github-marketplace
 versions:

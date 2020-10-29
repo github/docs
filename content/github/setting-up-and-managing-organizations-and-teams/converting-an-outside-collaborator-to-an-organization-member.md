@@ -1,6 +1,6 @@
 ---
 title: Converting an outside collaborator to an organization member
-intro: 'If you would like to give an outside collaborator on your organization''s repositories broader permissions within your organization, you can {% if currentVersion == "free-pro-team@latest" %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
+intro: 'If you would like to give an outside collaborator on your organization\'s repositories broader permissions within your organization, you can {% if currentVersion == "free-pro-team@latest" %}invite them to become a member of{% else %}make them a member of{% endif %} the organization.'
 redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
 versions:

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting connectivity problems
-intro: 'If you''re having trouble connecting to {% data variables.product.prodname_dotcom %}, you can troubleshoot your connection, then use the {% data variables.product.prodname_debug %} tool to diagnose problems.'
+intro: 'If you\'re having trouble connecting to {% data variables.product.prodname_dotcom %}, you can troubleshoot your connection, then use the {% data variables.product.prodname_debug %} tool to diagnose problems.'
 redirect_from:
   - /articles/troubleshooting-connectivity-problems
 versions:

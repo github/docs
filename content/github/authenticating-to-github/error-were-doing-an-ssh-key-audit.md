@@ -1,5 +1,5 @@
 ---
-title: 'Error: We''re doing an SSH key audit'
+title: 'Error: We\'re doing an SSH key audit'
 intro: This error means the SSH key you're using to perform a Git operation is unverified.
 redirect_from:
   - /articles/error-we-re-doing-an-ssh-key-audit

@@ -1,6 +1,6 @@
 ---
 title: Editing or deleting a team discussion
-intro: 'Organization members can edit or delete discussions on a team''s page. If you''re an organization member, you can edit or delete the discussion.'
+intro: 'Organization members can edit or delete discussions on a team\'s page. If you\'re an organization member, you can edit or delete the discussion.'
 redirect_from:
   - /articles/editing-or-deleting-a-team-discussion
 versions:

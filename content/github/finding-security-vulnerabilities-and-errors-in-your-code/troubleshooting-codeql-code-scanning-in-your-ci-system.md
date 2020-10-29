@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting CodeQL code scanning in your CI system
 shortTitle: Troubleshooting in your CI
-intro: 'If you''re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
+intro: 'If you\'re having problems with the {% data variables.product.prodname_codeql_runner %}, you can troubleshoot by using these tips.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/troubleshooting-code-scanning-in-your-ci-system

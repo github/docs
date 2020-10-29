@@ -1,6 +1,6 @@
 ---
 title: About your organization dashboard
-intro: 'As an organization member, you can visit your organization''s dashboard throughout the day to stay updated on recent activity and keep track of issues and pull requests you''re working on or following in the organization.'
+intro: 'As an organization member, you can visit your organization\'s dashboard throughout the day to stay updated on recent activity and keep track of issues and pull requests you\'re working on or following in the organization.'
 redirect_from:
   - /articles/about-your-organization-dashboard
 versions:

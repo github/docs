@@ -1,6 +1,6 @@
 ---
 title: Restricting repository visibility changes in your organization
-intro: 'To protect your organization''s data, you can configure permissions for changing repository visibility in your organization.'
+intro: 'To protect your organization\'s data, you can configure permissions for changing repository visibility in your organization.'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:

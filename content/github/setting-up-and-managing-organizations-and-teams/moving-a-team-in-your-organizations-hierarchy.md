@@ -1,6 +1,6 @@
 ---
 title: Moving a team in your organization’s hierarchy
-intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team''s parent.'
+intro: 'Team maintainers and organization owners can nest a team under a parent team, or change or remove a nested team\'s parent.'
 redirect_from:
   - /articles/changing-a-team-s-parent/
   - /articles/moving-a-team-in-your-organization-s-hierarchy

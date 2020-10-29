@@ -1,6 +1,6 @@
 ---
 title: Creating gists
-intro: 'You can create two kinds of gists: public and secret. Create a public gist if you''re ready to share your ideas with the world or a secret gist if you''re not.'
+intro: 'You can create two kinds of gists: public and secret. Create a public gist if you\'re ready to share your ideas with the world or a secret gist if you\'re not.'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/

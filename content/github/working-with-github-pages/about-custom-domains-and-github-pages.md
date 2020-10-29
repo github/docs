@@ -1,6 +1,6 @@
 ---
 title: About custom domains and GitHub Pages
-intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site''s URL from the default, like `octocat.github.io`, to any domain you own.'
+intro: '{% data variables.product.prodname_pages %} supports using custom domains, or changing the root of your site\'s URL from the default, like `octocat.github.io`, to any domain you own.'
 redirect_from:
   - /articles/about-custom-domains-for-github-pages-sites/
   - /articles/about-supported-custom-domains/

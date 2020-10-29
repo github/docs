@@ -1,6 +1,6 @@
 ---
 title: Manually creating a single issue template for your repository
-intro: 'When you add a manually-created issue template to your repository, project contributors will automatically see the template''s contents in the issue body.'
+intro: 'When you add a manually-created issue template to your repository, project contributors will automatically see the template\'s contents in the issue body.'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository/
   - /articles/manually-creating-a-single-issue-template-for-your-repository

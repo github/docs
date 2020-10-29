@@ -1,6 +1,6 @@
 ---
 title: Removing a payment method
-intro: 'If you aren''t using your payment method for any paid subscriptions on {% data variables.product.prodname_dotcom %}, you can remove the payment method so it''s no longer stored in your account.'
+intro: 'If you aren\'t using your payment method for any paid subscriptions on {% data variables.product.prodname_dotcom %}, you can remove the payment method so it\'s no longer stored in your account.'
 redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-user-account/
   - /articles/removing-a-payment-method-associated-with-your-user-account/

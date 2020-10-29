@@ -1,6 +1,6 @@
 ---
 title: Sharing filters
-intro: 'When you filter or sort issues and pull requests, your browser''s URL is automatically updated to match the new view.'
+intro: 'When you filter or sort issues and pull requests, your browser\'s URL is automatically updated to match the new view.'
 redirect_from:
   - /articles/sharing-filters
 versions:

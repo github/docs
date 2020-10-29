@@ -1,6 +1,6 @@
 ---
 title: Why is Git always asking for my password?
-intro: 'If Git prompts you for a username and password every time you try to interact with GitHub, you''re probably using the HTTPS clone URL for your repository.'
+intro: 'If Git prompts you for a username and password every time you try to interact with GitHub, you\'re probably using the HTTPS clone URL for your repository.'
 redirect_from:
   - /articles/why-is-git-always-asking-for-my-password
 versions:

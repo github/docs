@@ -1,6 +1,6 @@
 ---
 title: Editing files in another user's repository
-intro: 'When you edit a file in another user''s repository, we''ll automatically [fork the repository](/articles/fork-a-repo) and [open a pull request](/articles/creating-a-pull-request) for you.'
+intro: 'When you edit a file in another user\'s repository, we\'ll automatically [fork the repository](/articles/fork-a-repo) and [open a pull request](/articles/creating-a-pull-request) for you.'
 redirect_from:
   - /articles/editing-files-in-another-users-repository/
   - /articles/editing-files-in-another-user-s-repository

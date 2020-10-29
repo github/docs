@@ -1,6 +1,6 @@
 ---
 title: Merging an upstream repository into your fork
-intro: 'If you don''t have push (write) access to an upstream repository, then you can pull commits from that repository into your own fork.'
+intro: 'If you don\'t have push (write) access to an upstream repository, then you can pull commits from that repository into your own fork.'
 redirect_from:
   - /articles/merging-an-upstream-repository-into-your-fork
 versions:

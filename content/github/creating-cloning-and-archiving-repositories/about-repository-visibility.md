@@ -1,6 +1,6 @@
 ---
 title: About repository visibility
-intro: 'You can restrict who has access to a repository by choosing a repository''s visibility: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}public, internal, or private{% else %} public or private{% endif %}.'
+intro: 'You can restrict who has access to a repository by choosing a repository\'s visibility: {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}public, internal, or private{% else %} public or private{% endif %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

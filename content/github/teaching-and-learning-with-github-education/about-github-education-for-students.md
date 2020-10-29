@@ -1,6 +1,6 @@
 ---
 title: About GitHub Education for students
-intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}''s partners.'
+intro: '{% data variables.product.prodname_education %} offers students real-world experience with free access to various developer tools from {% data variables.product.prodname_dotcom %}\'s partners.'
 redirect_from:
   - /articles/about-github-education-for-students
 versions:

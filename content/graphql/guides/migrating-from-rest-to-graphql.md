@@ -1,6 +1,6 @@
 ---
 title: Migrating from REST to GraphQL
-intro: 'Learn best practices and considerations for migrating from {% data variables.product.prodname_dotcom %}''s REST API to {% data variables.product.prodname_dotcom %}''s GraphQL API.'
+intro: 'Learn best practices and considerations for migrating from {% data variables.product.prodname_dotcom %}\'s REST API to {% data variables.product.prodname_dotcom %}\'s GraphQL API.'
 redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest

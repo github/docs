@@ -1,6 +1,6 @@
 ---
 title: Receiving payment for app purchases
-intro: 'At the end of each month, you''ll receive payment for your {% data variables.product.prodname_marketplace %} listing.'
+intro: 'At the end of each month, you\'ll receive payment for your {% data variables.product.prodname_marketplace %} listing.'
 redirect_from:
   - /apps/adding-integrations/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/
   - /apps/marketplace/managing-pricing-and-payments-for-a-github-marketplace-listing/receiving-payment-for-a-github-marketplace-listing/

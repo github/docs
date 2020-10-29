@@ -1,6 +1,6 @@
 ---
 title: Creating a composite run steps action
-intro: 'In this guide, you''ll learn how to build a composite run steps action.'
+intro: 'In this guide, you\'ll learn how to build a composite run steps action.'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

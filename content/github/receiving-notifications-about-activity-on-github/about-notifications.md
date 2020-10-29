@@ -1,6 +1,6 @@
 ---
 title: About notifications
-intro: 'Notifications provide updates about the activities and conversations you''re interested in. You can receive notifications on {% data variables.product.product_name %} or through your email client.'
+intro: 'Notifications provide updates about the activities and conversations you\'re interested in. You can receive notifications on {% data variables.product.product_name %} or through your email client.'
 versions:
   enterprise-server: <2.21
 ---

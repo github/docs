@@ -1,6 +1,6 @@
 ---
 title: Creating a pull request template for your repository
-intro: 'When you add a pull request template to your repository, project contributors will automatically see the template''s contents in the pull request body.'
+intro: 'When you add a pull request template to your repository, project contributors will automatically see the template\'s contents in the pull request body.'
 redirect_from:
   - /articles/creating-a-pull-request-template-for-your-repository
 versions:

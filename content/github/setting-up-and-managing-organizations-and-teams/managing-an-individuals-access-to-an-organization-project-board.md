@@ -1,6 +1,6 @@
 ---
 title: Managing an individual’s access to an organization project board
-intro: 'As an organization owner or project board admin, you can manage an individual member''s access to a project board owned by your organization.'
+intro: 'As an organization owner or project board admin, you can manage an individual member\'s access to a project board owned by your organization.'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board

@@ -1,6 +1,6 @@
 ---
 title: Viewing and managing a member's SAML access to your organization
-intro: 'You can view and revoke an organization member''s linked identity, active sessions, and authorized credentials.'
+intro: 'You can view and revoke an organization member\'s linked identity, active sessions, and authorized credentials.'
 permissions: Organization owners can view and manage a member's SAML access to an organization.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:

@@ -1,6 +1,6 @@
 ---
 title: Roles for an enterprise account
-intro: 'To control access to your enterprise account''s settings and data, you can give different roles to people in the enterprise account.'
+intro: 'To control access to your enterprise account\'s settings and data, you can give different roles to people in the enterprise account.'
 product: '{% data reusables.gated-features.enterprise-accounts %}'
 redirect_from:
   - /articles/permission-levels-for-a-business-account/

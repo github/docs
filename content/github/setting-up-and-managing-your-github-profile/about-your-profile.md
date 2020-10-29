@@ -1,6 +1,6 @@
 ---
 title: About your profile
-intro: 'Your profile page tells people the story of your work through the repositories you''re interested in, the contributions you''ve made, and the conversations you''ve had.'
+intro: 'Your profile page tells people the story of your work through the repositories you\'re interested in, the contributions you\'ve made, and the conversations you\'ve had.'
 redirect_from:
   - /articles/viewing-your-feeds/
   - /articles/profile-pages/

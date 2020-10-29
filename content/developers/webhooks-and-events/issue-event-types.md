@@ -1,6 +1,6 @@
 ---
 title: Issue event types
-intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event''s unique properties.'
+intro: 'For the Issues Events API and Timeline API, learn about each event type, the triggering action on {% data variables.product.prodname_dotcom %}, and each event\'s unique properties.'
 redirect_from:
   - /v3/issues/issue-event-types
 versions:

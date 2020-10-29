@@ -1,6 +1,6 @@
 ---
 title: Downgrading the billing plan for a GitHub Marketplace app
-intro: 'If you''d like to use a different billing plan, you can downgrade your {% data variables.product.prodname_marketplace %} app at any time.'
+intro: 'If you\'d like to use a different billing plan, you can downgrade your {% data variables.product.prodname_marketplace %} app at any time.'
 redirect_from:
   - /articles/downgrading-an-app-for-your-personal-account/
   - /articles/downgrading-an-app-for-your-organization/

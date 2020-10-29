@@ -1,6 +1,6 @@
 ---
 title: Classifying your repository with topics
-intro: 'To help other people find and contribute to your project, you can add topics to your repository related to your project''s intended purpose, subject area, affinity groups, or other important qualities.'
+intro: 'To help other people find and contribute to your project, you can add topics to your repository related to your project\'s intended purpose, subject area, affinity groups, or other important qualities.'
 redirect_from:
   - /articles/about-topics/
   - /articles/classifying-your-repository-with-topics
