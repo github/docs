@@ -88,14 +88,19 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
         UseKeychain yes
         IdentityFile ~/.ssh/id_rsa
       ```
+  {% note %}
 
+  **Note:** If you are not using the passphrase and if you get an error then try removing the UseKeychain line.
+  
+  {% endnote %}
+  
 3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
    $ ssh-add -K ~/.ssh/id_rsa
   ```
   {% note %}
 
-  **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent.
+  **Note:** The `-K` option is Apple's standard version of `ssh-add`, which stores the passphrase in your keychain for you when you add an ssh key to the ssh-agent.If you leave your passphrase blank, run the command without -K option. 
 
   If you don't have Apple's standard version installed, you may receive an error. For more information on resolving this error, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
 
