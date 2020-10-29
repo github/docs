@@ -1,6 +1,6 @@
 ---
 title: プロジェクトのコントリビューターを表示する
-intro: 'リポジトリへのコミットにコントリビュートした人{% if currentVersion == "free-pro-team@latest" %}とその依存関係{% endif %}を表示できます。'
+intro: 'You can see who contributed commits to a repository{% if currentVersion == "free-pro-team@latest" %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -13,7 +13,7 @@ versions:
 
 ### コントリビューターについて
 
-コントリビューターグラフで{% if currentVersion != "free-pro-team@latest" %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
+コントリビューターグラフで{% if enterpriseServerVersions contains currentVersion %}、コミットの共作者を含めて{% endif %}、リポジトリに貢献した上位 100 人のコントリビューターを表示できます。 マージコミットと空のコミットは、このグラフでコントリビューションとして数えられません。
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can also see a list of people who have contributed to the project's Python dependencies. この、コミュニティコントリビューターのリストを表示するには、`https://github.com/REPO-OWNER/REPO-NAME/community_contributors` にアクセスしてください。

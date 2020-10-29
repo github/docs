@@ -16,7 +16,6 @@ The Events API can return different types of events triggered by activity on Git
 
 {% endif %}
 
-
 ### Event object common properties
 
 The event objects returned from the Events API endpoints have the same structure.
@@ -29,13 +28,13 @@ The event objects returned from the Events API endpoints have the same structure
 | `actor.id`               | The unique identifier for the actor.                                                                                                                                                          |
 | `actor.login`            | The username of the actor.                                                                                                                                                                    |
 | `actor.display_login`    | The specific display format of the username.                                                                                                                                                  |
-| `actor.gravatar_id`      | The unique indentifier of the Gravatar profile for the actor.                                                                                                                                 |
+| `actor.gravatar_id`      | The unique identifier of the Gravatar profile for the actor.                                                                                                                                  |
 | `actor.url`              | The REST API URL used to retrieve the user object, which includes additional user information.                                                                                                |
 | `actor.avatar_url`       | The URL of the actor's profile image.                                                                                                                                                         |
 | `repo`                   | The repository object where the event occurred.                                                                                                                                               |
 | `repo.id`                | The unique identifier of the repository.                                                                                                                                                      |
 | `repo.name`              | The name of the repository, which includes the owner and repository name. For example, `octocat/hello-world` is the name of the `hello-world` repository owned by the `octocat` user account. |
-| `repo.url`               | The REST API URL used to retrive the repository object, which includes additional repository information.                                                                                     |
+| `repo.url`               | The REST API URL used to retrieve the repository object, which includes additional repository information.                                                                                    |
 | `payload`                | The event payload object is unique to the event type. See the event type below for the event API `payload` object.                                                                            |
 
 #### Example WatchEvent event object
@@ -203,7 +202,7 @@ This event returns an empty `payload` object.
 | `push_id`                  | `整数`  | Unique identifier for the push.                                                                                   |
 | `size`                     | `整数`  | The number of commits in the push.                                                                                |
 | `distinct_size`            | `整数`  | The number of distinct commits in the push.                                                                       |
-| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/v3/git/refs/)。 例如：`refs/heads/master`。                                                        |
+| `ref`                      | `字符串` | 被推送的完整 [`git ref`](/v3/git/refs/)。 Example: `refs/heads/main`.                                                    |
 | `头部`                       | `字符串` | 推送之后在 `ref` 上最近提交的 SHA。                                                                                           |
 | `before`                   | `字符串` | 推送之前在 `ref` 上最近提交的 SHA。                                                                                           |
 | `commits`                  | `数组`  | 描述所推送提交的提交对象数组。 （该数组最多包含 20 个提交。 如有必要，可使用 [Commits API](/v3/repos/commits/) 获取更多提交。 此限制仅适用于时间表事件，而不适用于 web 挂钩递送。） |

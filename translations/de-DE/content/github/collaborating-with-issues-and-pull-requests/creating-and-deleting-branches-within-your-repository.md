@@ -1,6 +1,6 @@
 ---
 title: Branches in Deinem Repository erstellen und löschen
-intro: 'Du kannst Branches direkt auf {% data variables.product.product_name %} erstellen oder löschen.'
+intro: 'Sie können Branches direkt auf {% data variables.product.product_name %} erstellen oder löschen.'
 redirect_from:
   - /articles/deleting-branches-in-a-pull-request/
   - /articles/creating-and-deleting-branches-within-your-repository
@@ -21,7 +21,7 @@ versions:
 
 {% data reusables.pull_requests.automatically-delete-branches %}
 
-If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Setting the default branch](/github/administering-a-repository/setting-the-default-branch)."
+If the branch you want to delete is the repository's default branch, you must choose a new default branch before deleting the branch. For more information, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
 
 If the branch you want to delete is associated with an open pull request, you must merge or close the pull request before deleting the branch. For more information, see "[Merging a pull request](/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request)" or "[Closing a pull request](/github/collaborating-with-issues-and-pull-requests/closing-a-pull-request)."
 

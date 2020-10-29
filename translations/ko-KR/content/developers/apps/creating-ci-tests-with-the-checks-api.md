@@ -9,7 +9,6 @@ versions:
 ---
 
 
-
 ### Introduction
 
 This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/v3/checks/), which you'll use to build a continuous integration (CI) server that runs tests.
@@ -134,6 +133,26 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Create a new check run with the status queued
+def create_check_run
+  # # At the time of writing, Octokit does not support the Checks API yet, but
+  # it does provide generic HTTP methods you can use:
+  # /v3/checks/runs/#create-a-check-run
+  check_run = @installation_client.post(
+    "repos/#{@payload['repository']['full_name']}/check-runs",
+    {
+      accept: 'application/vnd.github.v3+json',
+      # The name of your check run.
+      name: 'Octo RuboCop',
+      # The payload structure differs depending on whether a check run or a check suite event occurred.
+      head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
+    }
+  )
+end
+```
+{% else %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -153,6 +172,7 @@ def create_check_run
   )
 end
 ```
+{% endif %}
 
 This code calls the "[Create a check run](/v3/checks/runs/#create-a-check-run)" endpoint using the generic [HTTP `POST` method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#post-instance_method). This method takes two parameters: the URL of the endpoint and the input parameters to the method.
 
@@ -209,6 +229,43 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Start the CI process
+def initiate_check_run
+  # Once the check run is created, you'll update the status of the check run
+  # to 'in_progress' and run the CI process. When the CI finishes, you'll
+  # update the check run status to 'completed' and add the CI results.
+
+  # Octokit doesn't yet support the Checks API, but it does provide generic
+  # HTTP methods you can use:
+  # /v3/checks/runs/#update-a-check-run
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'in_progress',
+      started_at: Time.now.utc.iso8601
+    }
+  )
+
+  # ***** RUN A CI TEST *****
+
+  # Mark the check run as complete!
+  updated_check_run = @installation_client.patch(
+    "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+    {
+      accept: 'application/vnd.github.v3+json',
+      name: 'Octo RuboCop',
+      status: 'completed',
+      conclusion: 'success',
+      completed_at: Time.now.utc.iso8601
+    }
+  )
+end
+```
+{% else %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -245,6 +302,7 @@ def initiate_check_run
   )
 end
 ```
+{% endif %}
 
 The code above calls the "[Update a check run](/v3/checks/runs/#update-a-check-run)" API endpoint using the generic [`patch` HTTP method](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) to update the check run that you already created.
 
@@ -549,6 +607,21 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Mark the check run as complete!
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: 'success',
+    completed_at: Time.now.utc.iso8601
+  }
+)
+```
+{% else %}
 ``` ruby
 # Mark the check run as complete!
 updated_check_run = @installation_client.patch(
@@ -562,9 +635,36 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
 
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+``` ruby
+# Mark the check run as complete! And if there are warnings, share them.
+updated_check_run = @installation_client.patch(
+  "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
+  {
+    accept: 'application/vnd.github.v3+json',
+    name: 'Octo RuboCop',
+    status: 'completed',
+    conclusion: conclusion,
+    completed_at: Time.now.utc.iso8601,
+    output: {
+      title: 'Octo RuboCop',
+      summary: summary,
+      text: text,
+      annotations: annotations
+    },
+    actions: [{
+      label: 'Fix this',
+      description: 'Automatically fix all linter notices.',
+      identifier: 'fix_rubocop_notices'
+    }]
+  }
+)
+```
+{% else %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 updated_check_run = @installation_client.patch(
@@ -589,6 +689,7 @@ updated_check_run = @installation_client.patch(
   }
 )
 ```
+{% endif %}
 
 Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
 

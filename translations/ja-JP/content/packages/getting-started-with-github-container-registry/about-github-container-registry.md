@@ -1,6 +1,6 @@
 ---
-title: About GitHub Container Registry
-intro: 'The {% data variables.product.prodname_github_container_registry %} allows you to seamlessly host and manage Docker container images in your organization or personal user account on {% data variables.product.prodname_dotcom %}. {% data variables.product.prodname_github_container_registry %} allows you to configure who can manage and access packages using fine-grained permissions.'
+title: GitHub Container Registry について
+intro: '{% data variables.product.prodname_github_container_registry %} を利用すると、{% data variables.product.prodname_dotcom %} の Organization または個人ユーザアカウントにシームレスに Docker コンテナイメージをホストして管理できるようになります。 {% data variables.product.prodname_github_container_registry %} を利用すれば、パッケージを管理できるユーザやパッケージにアクセスできるユーザを、きめ細かく設定できます。'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,35 +8,35 @@ versions:
 
 {% note %}
 
-**Note:** {% data variables.product.prodname_github_container_registry %} is currently in public beta and subject to change. Currently, {% data variables.product.prodname_github_container_registry %} only supports Docker image formats. During the beta, storage and bandwidth is free.
+**注釈:** {% data variables.product.prodname_github_container_registry %} は現在パブリックベータであり、変更されることがあります。 現在のところ、{% data variables.product.prodname_github_container_registry %} がサポートしているのは Docker イメージフォーマットのみです。 ベータ期間中は、ストレージおよび帯域幅の制限はありません。
 
 {% endnote %}
 
 
 {% data reusables.package_registry.container-registry-feature-highlights %}
 
-To share context about your package's use, you can link a repository to your container image on {% data variables.product.prodname_dotcom %}. For more information, see "[Connecting a repository to a container image](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)."
+パッケージの使用についてのコンテキストを共有するには、{% data variables.product.prodname_dotcom %} でコンテナイメージをリポジトリにリンクできます。 詳しい情報については、「[リポジトリをコンテナイメージに接続する](/packages/managing-container-images-with-github-container-registry/connecting-a-repository-to-a-container-image)」を参照してください。
 
 ### サポートされているフォーマット
 
-The {% data variables.product.prodname_container_registry %} currently only supports Docker images.
+{% data variables.product.prodname_container_registry %} は、現在のところ Docker イメージのみをサポートしています。
 
 
-### Visibility and access permissions for container images
+### コンテナイメージの可視性とアクセス権限
 
-If you have admin permissions to a container image, you can set the container image to private or public. Public images allow anonymous access and can be pulled without authentication or signing in via the CLI.
+コンテナイメージへのアクセス権限がある場合、コンテナイメージをプライべートまたはパブリックに設定できます。 パブリックイメージは匿名でアクセスでき、認証や CLI 経由でサインインすることなくプルできます。
 
-As an admin, you can also grant access permissions for a container image that are separate from the permissions you've set at the organization and repository levels.
+あなたが管理者であれば、Organization レベルおよびリポジトリレベルに設定した権限とは別に、コンテナイメージに対してアクセス権限を付与することもできます。
 
-For container images published and owned by a user account, you can give any person an access role. For container images published and owned by an organization, you can give any person or team in the organization an access role.
+ユーザアカウントが所有し公開しているコンテナイメージには、任意のユーザにアクセスロールを付与できます。 Organization が所有し公開しているコンテナイメージには、Organization 内の任意の Team にアクセスロールを付与できます。
 
-| Permission role | Access description                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Read            | Can download package. <br> Can read package metadata.                                                                                      |
-| Write           | Can upload and download this package. <br> Can read and write package metadata.                                                            |
-| Admin           | Can upload, download, delete, and manage this package. <br> Can read and write package metadata. <br> Can grant package permissions. |
+| 権限ロール | アクセス権の内容                                                                                             |
+| ----- | ---------------------------------------------------------------------------------------------------- |
+| Read  | パッケージをダウンロードできます。 <br>メタデータの読み取りができます。                                                         |
+| Write | このパッケージをアップロードおよびダウンロードできます。 <br>パッケージのメタデータの読み取りおよび書き込みができます。                                 |
+| Admin | このパッケージのアップロード、ダウンロード、削除、管理ができます。 <br>パッケージのメタデータの読み取りおよび書き込みができます。 <br>パッケージに権限を付与できます。 |
 
-For more information, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
+詳しい情報については、「[コンテナイメージにアクセス制御と可視性を設定する](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)」を参照してください。
 
 ### {% data variables.product.prodname_github_container_registry %}の支払いについて
 
@@ -44,10 +44,10 @@ For more information, see "[Configuring access control and visibility for contai
 
 ### サポートへの連絡
 
-If you have feedback or feature requests for {% data variables.product.prodname_github_container_registry %}, use the [feedback form](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages).
+{% data variables.product.prodname_github_container_registry %} に関するフィードバックや機能のリクエストがある場合は、[フィードバックフォーム](https://support.github.com/contact/feedback?contact%5Bcategory%5D=packages)でご連絡ください。
 
 [連絡フォーム](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages)を使い、{% data variables.product.prodname_github_container_registry %}について{% data variables.contact.github_support %}に連絡してください。
 
 * ドキュメンテーションに反する何らかの体験をした時.
 * 漠然とした、あるいは不明確なエラーを体験した時.
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally-identifying information.
+* GDPR 違反、API キー、個人を識別できる情報といったセンシティブなデータを含むパッケージを公開した時。

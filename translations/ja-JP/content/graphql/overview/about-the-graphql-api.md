@@ -44,7 +44,7 @@ GitHubがGraphQLに移行した理由の詳細については、オリジナル�
 
 * スキーマ定義型：[スカラー](/v4/scalar)、[オブジェクト](/v4/object)、[列挙](/v4/enum)、[インターフェース](/v4/interface)、[union](/v4/union)、[入力オブジェクト](/v4/input_object)。
 
-同じ内容には、[Explorer Docsサイドバー](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)からもアクセスできます。 GraphQL APIの呼び出しをうまく行うためには、ドキュメントとスキーマ検証の両方に依存しなければならないことがあり増す。
+同じ内容には、[Explorer Docsサイドバー](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)からもアクセスできます。 GraphQL APIの呼び出しをうまく行うためには、ドキュメントとスキーマ検証の両方に依存しなければならないことがあります。
 
 認証やレート制限の詳細など その他の情報については[ガイド](/v4/guides)を参照してください。
 

@@ -13,7 +13,7 @@ versions:
 
 {% tip %}
 
-**提示：**{% if currentVersion != "free-pro-team@latest" %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion %}
   - 本文章包含在 {% data variables.product.prodname_dotcom %}.com 网站上的示例搜索，但您可以在 {% data variables.product.product_location_enterprise %} 上使用相同的搜索过滤器。{% endif %}
   - 有关可以添加到任何搜索限定符以进一步改善结果的搜索语法列表，请参阅“[了解搜索语法](/articles/understanding-the-search-syntax)”。
   - 对多个字词的搜索词使用引号。 例如，如果要搜索具有标签 "In progress" 的议题，可搜索 `label:"in progress"`。 搜索不区分大小写。
@@ -229,11 +229,11 @@ versions:
 ### 搜索草稿拉取请求
 您可以过滤草稿拉取请求。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests#draft-pull-requests)”。
 
-| 限定符        | 示例 | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) 匹配拉取请求草稿。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) 匹配可供审查的拉取请求。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) 匹配拉取请求草稿。{% endif %}
 
 ### 按拉取请求审查状态和审查者搜索
 
-You can filter pull requests based on their [review status](/articles/about-pull-request-reviews) (_none_, _required_, _approved_, or _changes requested_), by reviewer, and by requested reviewer.
+您可以基于拉取请求的[审查状态](/articles/about-pull-request-reviews)（_无_、_必需_、_批准_或_请求更改_）、按审查者和请求的审查者过滤拉取请求。
 
 | 限定符                        | 示例                                                                                                                                                                                                                        |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -253,10 +253,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                        | 示例                                                                                                                                                                                                                              |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>created:<em>YYYY-MM-DD</em></code> | [**language:c# created:<2011-01-01 state:open**](https://github.com/search?q=language%3Ac%23+created%3A%3C2011-01-01+state%3Aopen&type=Issues) matches open issues that were created before 2011 in repositories written in C#. |
-| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2013-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2013-02-01&type=Issues) matches issues with the word "weird" in the body that were updated after February 2013.            |
+| 限定符                        | 示例                                                                                                                                                                            |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>created:<em>YYYY-MM-DD</em></code> | [**language:c# created:<2011-01-01 state:open**](https://github.com/search?q=language%3Ac%23+created%3A%3C2011-01-01+state%3Aopen&type=Issues) 匹配以 C# 编写的仓库中 2011 年以前创建的开放议题。 |
+| <code>updated:<em>YYYY-MM-DD</em></code> | [**weird in:body updated:>=2013-02-01**](https://github.com/search?q=weird+in%3Abody+updated%3A%3E%3D2013-02-01&type=Issues) 匹配 2013 年 2 月后更新的、正文中含有 "weird" 字样的议题。           |
 
 ### 按议题或拉取请求关闭的时间搜索
 
@@ -266,10 +266,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                        | 示例                                                                                                                                                                                                                                           |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>closed:<em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) matches issues and pull requests in Swift that were closed after June 11, 2014.                                     |
-|                            | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012. |
+| 限定符                        | 示例                                                                                                                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>closed:<em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) 匹配 2014 年 6 月 11 日后关闭的 Swift 中的议题和拉取请求。                |
+|                            | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) 匹配 2012 年 10 月后关闭、正文中含有 "data" 字样的议题和拉取请求。 |
 
 ### 按拉取请求合并的时间搜索
 
@@ -279,10 +279,10 @@ You can filter pull requests based on their [review status](/articles/about-pull
 
 {% data reusables.search.date_gt_lt %}
 
-| 限定符                        | 示例                                                                                                                                                                                                                                                         |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) matches pull requests in JavaScript repositories that were merged before 2011.                                         |
-|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) matches pull requests in Ruby with the word "fast" in the title that were merged after May 2014. |
+| 限定符                        | 示例                                                                                                                                                                                                          |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>merged:<em>YYYY-MM-DD</em></code> | [**language:javascript merged:<2011-01-01**](https://github.com/search?q=language%3Ajavascript+merged%3A%3C2011-01-01+&type=Issues) 匹配 2011 年以前合并的 JavaScript 仓库中的拉取请求。                                     |
+|                            | [**fast in:title language:ruby merged:>=2014-05-01**](https://github.com/search?q=fast+in%3Atitle+language%3Aruby+merged%3A%3E%3D2014-05-01+&type=Issues) 匹配 2014 年 5 月之后合并、标题中含有 "fast" 字样、以 Ruby 编写的拉取请求。 |
 
 ### 基于拉取请求是否已合并搜索
 

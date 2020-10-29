@@ -1,6 +1,6 @@
 ---
 title: Deine Sponsoren kontaktieren
-intro: 'Du kannst eine E-Mail an Deine Sponsoren senden, wenn diese den Erhalt von Aktualisierungen zu Deiner Arbeit abonniert haben.'
+intro: Du kannst eine E-Mail an Deine Sponsoren senden, wenn diese den Erhalt von Aktualisierungen zu Deiner Arbeit abonniert haben.
 redirect_from:
   - /articles/contacting-your-sponsors
 versions:

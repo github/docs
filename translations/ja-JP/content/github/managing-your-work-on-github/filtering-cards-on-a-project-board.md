@@ -8,14 +8,14 @@ versions:
   enterprise-server: '*'
 ---
 
-カードでは、任意のアサインされた人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、マイルストーン、{% endif %}、またはラベルをクリックして、その修飾子でプロジェクトをフィルタリングできます。 検索をクリアするには、同じアサインされた人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、マイルストーン、{% endif %}またはラベルを再度クリックします。
+カードでは、任意のアサインされた人、マイルストーン、またはラベルをクリックして、その修飾子でプロジェクトをフィルタリングできます。 検索をクリアするには、同じアサインされた人、マイルストーン、またはラベルを再度クリックします。
 
 また、各プロジェクトボードの上部にある [Filter cards] 検索バーを使用して、カードを検索することも可能です。 以下の検索修飾子をさまざまに組み合わせて使用したり、検索したいテキストを入力したりすることで、カードをフィルタリングできます。
 
 - `author:USERNAME` を使用してカードを作者でフィルタする
 - `assignee:USERNAME` または `no:assignee` を使用して、カードをアサインされた人でフィルタリングする
-- `label:LABEL`、`label:"MULTI-WORD LABEL NAME"`、または `no:label` を使用して、カードをラベルでフィルタリングする{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- `milestone:MY-MILESTONE` を使用して、カードをマイルストーンでフィルタリングする{% endif %}
+- `label:LABEL`、`label:"MULTI-WORD LABEL NAME"`、または `no:label` を使用して、カードをラベルでフィルタリングする
+- `milestone:MY-MILESTONE` を使用して、カードをマイルストーンでフィルタリングする
 - `state:open`、`state:closed`、または `state:merged` を使用して、カードを状態でフィルタリングする
 - `review:none`、`review:required`、`review:approved`、または `review:changes_requested` を使用して、カードをレビューステータスでフィルタリングする
 - `status:pending`、`status:success`、または `status:failure` を使用して、カードをチェックステータスでフィルタリングする

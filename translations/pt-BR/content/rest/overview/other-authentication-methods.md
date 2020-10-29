@@ -9,9 +9,9 @@ versions:
 ---
 
 
-
-Embora a API forneça vários métodos para autenticação, é altamente recomendável usar [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) para aplicativos de produção. Os outros métodos fornecidos destinam-se a ser usados para scripts ou testes (ou seja, casos em que o OAuth completo seria exagerado). Os aplicativos de terceiros que dependem de
-{% data variables.product.product_name %} para autenticação não devem pedir ou coletar credenciais de {% data variables.product.product_name %}. Em vez disso, eles devem usar o [Fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
+Embora a API forneça vários métodos para autenticação, é altamente recomendável usar [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) para aplicativos de produção. Os outros métodos fornecidos destinam-se a ser usados para scripts ou testes (ou seja, casos em que o OAuth completo seria exagerado). Aplicativos de terceiros que dependem de
+{% data variables.product.product_name %} para autenticação não devem pedir ou coletar credenciais de {% data variables.product.product_name %}.
+Em vez disso, eles devem usar o [Fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
 
 ### Autenticação básica
 
@@ -78,7 +78,7 @@ O valor das `organizações` é uma lista de ID de organizações separada por v
 
 Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pontos de extremidade na API REST exige que você use um token de acesso pessoal ou token do OAuth em vez de seu nome de usuário e senha.
 
-Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}com [{% data variables.product.product_name %} configurações de desenvolvedor](https://github.com/settings/tokens/new){% endif %} ou usar o ponto de extremidade "[Criar um uma nova autorização][create-access]" na API de Autorização do OAuth para gerar um novo token do OAuth. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API do GitHub. A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.
+Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}com [configurações do desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %} ou usar o ponto de extremidade [Criar uma nova autorização][create-access]" na API de Autorização do OAuth para gerar um novo token do OAuth. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API do GitHub. A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.
 
 #### Usar a API de Autorização do OAuth com autenticação de dois fatores
 

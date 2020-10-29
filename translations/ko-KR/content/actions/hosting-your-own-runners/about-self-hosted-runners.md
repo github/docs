@@ -53,6 +53,15 @@ You can use any machine as a self-hosted runner as long at it meets these requir
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
+### Usage limits
+
+There are some limits on {% data variables.product.prodname_actions %} usage when using self-hosted runners. These limits are subject to change.
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **Job queue time** - Each job for self-hosted runners can be queued for a maximum of 24 hours. If a self-hosted runner does not start executing the job within this limit, the job is terminated and fails to complete.
+{% data reusables.github-actions.usage-api-requests %}
+- **Job matrix** - {% data reusables.github-actions.usage-matrix-limits %}
+
 ### Supported operating systems for self-hosted runners
 
 The following operating systems are supported for the self-hosted runner application.
@@ -82,7 +91,7 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) or later
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Supported actions on self-hosted runners
 

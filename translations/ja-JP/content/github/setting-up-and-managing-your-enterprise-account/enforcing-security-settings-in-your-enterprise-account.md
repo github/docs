@@ -182,7 +182,7 @@ Enterprise アカウントに対して Team の同期を有効化する前提条
 
 Enterprise オーナーは、Enterprise アカウントの SSH 認証局 (CA) を追加および削除できます。
 
-Enterprise アカウントに SSH CA を追加することにより、その Enterprise アカウントが所有する Organization のメンバー誰でも、その Enterprise アカウントが提供する SSH 認証を使用して Organization のリポジトリにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳細については、「[SSL認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
+Enterprise アカウントに SSH CA を追加することにより、その Enterprise アカウントが所有する Organization のメンバー誰でも、その Enterprise アカウントが提供する SSH 認証を使用して Organization のリポジトリにアクセスできるようになります。 {% data reusables.organizations.can-require-ssh-cert %}詳細については、「[SSH認証局について](/articles/about-ssh-certificate-authorities)」を参照してください。
 
 #### SSH 認証局を追加する
 

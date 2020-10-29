@@ -1,6 +1,6 @@
 ---
 title: Verbindung zu GitHub mit SSH herstellen
-intro: 'Du kannst mit SSH eine Verbindung zu {% data variables.product.product_name %} herstellen.'
+intro: 'Sie können mit SSH eine Verbindung zu {% data variables.product.product_name %} herstellen.'
 redirect_from:
   - /key-setup-redirect/
   - /linux-key-setup/

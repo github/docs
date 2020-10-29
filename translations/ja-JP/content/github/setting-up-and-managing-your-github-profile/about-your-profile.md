@@ -1,6 +1,6 @@
 ---
 title: プロフィールについて
-intro: プロフィールページは、関心のあるリポジトリ、行ったコントリビューション、会話を通じて、あなたの作業の様子を他者に伝えます。
+intro: 'プロフィールページは、関心のあるリポジトリ、行ったコントリビューション、会話を通じて、あなたの作業の様子を他者に伝えます。'
 redirect_from:
   - /articles/viewing-your-feeds/
   - /articles/profile-pages/
@@ -26,7 +26,7 @@ versions:
 
 - あなたが所有している、もしくはコントリビューションしたリポジトリと Gist。 リポジトリおよび Gist をプロフィールにピン止めすることで、あなたの最も優れた作業を提示することができます。 詳細は「[プロフィールにアイテムをピン止めする](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)」を参照してください。
 - Star を付けたリポジトリ。 詳しい情報については、「[Star を付けてリポジトリを保存する](/articles/saving-repositories-with-stars/)」を参照してください。
-- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 詳しい情報については、「[プロフィール上にアクティビティの概要を表示する](/articles/showing-an-overview-of-your-activity-on-your-profile)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+- あなたが最もアクティブな Organization、リポジトリ、Team でのあなたのアクティビティの概要。 For more information, see "[Showing an overview of your activity on your profile](/articles/showing-an-overview-of-your-activity-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
 - {% data variables.product.prodname_arctic_vault %}、{% data variables.product.prodname_sponsors %}、または {% data variables.product.company_short %} 開発者プログラムなどのプログラムに参加したことを示すバッジ。
 - {% data variables.product.prodname_pro %} を使っているか。 詳細は「[プロフィールをパーソナライズする](/articles/personalizing-your-profile)」を参照してください。{% endif %}
 

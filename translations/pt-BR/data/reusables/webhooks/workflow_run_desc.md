@@ -1,4 +1,4 @@
 
-This event occurs when a workflow run is requested or completed, and allows you to execute a workflow based on the finished result of another workflow. For example, if your `pull_request` workflow generates build artifacts, you can create a new workflow that uses `workflow_run` to analyze the results and add a comment to the original pull request.
+Este evento ocorre quando uma execução do fluxo de trabalho é solicitada ou concluída, e permite que você execute um fluxo de trabalho com base no resultado concluído de outro fluxo de trabalho. Por exemplo, se o fluxo de trabalho `pull_request` gera artefatos de criação, você pode criar um novo fluxo de trabalho que usa `workflow_run` para analisar os resultados e adicionar um comentário ao pull request original.
 
-The workflow started by the `workflow_run` event is able to access the secrets and write tokens used by the original workflow.
+O fluxo de trabalho iniciado pelo evento `workflow_run` pode acessar os segredos e escrever tokens usados pelo fluxo de trabalho original.

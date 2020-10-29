@@ -59,21 +59,21 @@ For urgent issues, we can help you in English 24 hours per day, 7 days per week,
 
 {% data variables.contact.enterprise_support %} observes these U.S. holidays, although our global support team is available to answer urgent tickets.
 
-| U.S. holiday                | Date observed in {{ "now"   | date: "%Y" }} |
-| --------------------------- | --------------------------- | ------------- |
-| New Year's Day              | January 1                   |               |
-| Martin Luther King, Jr. Day | Third Monday in January     |               |
-| Presidents' Day             | Third Monday in February    |               |
-| Memorial Day                | Last Monday in May          |               |
-| Independence Day            | July 4                      |               |
-| Labor Day                   | First Monday in September   |               |
-| Veterans Day                | November 12                 |               |
-| Thanksgiving Day            | Fourth Thursday in November |               |
-| Day after Thanksgiving      | Fourth Friday in November   |               |
-| Christmas Eve               | December 24                 |               |
-| Christmas Day               | December 25                 |               |
-| Day after Christmas         | December 26                 |               |
-| New Year's Eve              | December 31                 |               |
+| U.S. holiday                | Date observed               |
+| --------------------------- | --------------------------- |
+| New Year's Day              | January 1                   |
+| Martin Luther King, Jr. Day | Third Monday in January     |
+| Presidents' Day             | Third Monday in February    |
+| Memorial Day                | Last Monday in May          |
+| Independence Day            | July 4                      |
+| Labor Day                   | First Monday in September   |
+| Veterans Day                | November 12                 |
+| Thanksgiving Day            | Fourth Thursday in November |
+| Day after Thanksgiving      | Fourth Friday in November   |
+| Christmas Eve               | December 24                 |
+| Christmas Day               | December 25                 |
+| Day after Christmas         | December 26                 |
+| New Year's Eve              | December 31                 |
 
 #### Holidays in Japan
 

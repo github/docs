@@ -5,7 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/about-cas-authentication/
   - /enterprise/admin/user-management/using-cas
   - /enterprise/admin/authentication/using-cas
-intro: 'CAS は、複数の Web アプリケーションのためのシングルサインオン (SSO) プロトコルです。 CASのユーザアカウントは、ユーザがサインインするまで{% if currentVersion ver_gt "enterprise-server@2.16" %}ユーザライセンス{% else %}シート{% endif %}を消費しません。'
+intro: 'CAS は、複数の Web アプリケーションのためのシングルサインオン (SSO) プロトコルです。 CAS ユーザアカウントは、ユーザがサインインするまで、{% if currentVersion ver_gt "enterprise-server@2.16" %}ユーザライセンス{% else %}シート{% endif %}を消費しません。'
 versions:
   enterprise-server: '*'
 ---
@@ -25,8 +25,8 @@ versions:
 
 以下の属性が利用できます。
 
-| 属性名    | 種類 | 説明                                                            |
-| ------ | -- | ------------------------------------------------------------- |
+| 属性名    | 種類 | 説明                                                       |
+| ------ | -- | -------------------------------------------------------- |
 | `ユーザ名` | 必須 | {% data variables.product.prodname_ghe_server %} のユーザ名 |
 
 ### CASの設定

@@ -1,6 +1,6 @@
 ---
 title: Wiki-Inhalte bearbeiten
-intro: Du kannst Bilder und Links zu Inhalten zu Deinem Wiki hinzufügen und unterstützte MediaWiki-Formate verwenden.
+intro: 'Du kannst Bilder und Links zu Inhalten zu Deinem Wiki hinzufügen und unterstützte MediaWiki-Formate verwenden.'
 redirect_from:
   - /articles/adding-links-to-wikis/
   - /articles/how-do-i-add-links-to-my-wiki/

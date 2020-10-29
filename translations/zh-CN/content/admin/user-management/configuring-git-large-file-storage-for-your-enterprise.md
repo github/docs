@@ -1,5 +1,5 @@
 ---
-title: Configuring Git Large File Storage for your enterprise
+title: 为企业配置 Git 大型文件存储
 intro: '{% data reusables.enterprise_site_admin_settings.configuring-large-file-storage-short-description %}'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-git-large-file-storage-on-github-enterprise/
@@ -94,11 +94,11 @@ versions:
   $ git add .lfsconfig
   $ git commit -m "Adding LFS config file"
   ```
-3. 迁移任何现有的 {% data variables.large_files.product_name_short %} 资源。 For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+3. 迁移任何现有的 {% data variables.large_files.product_name_short %} 资源。 更多信息请参阅“[迁移到不同的 {% data variables.large_files.product_name_long %} 服务器](#migrating-to-a-different-git-large-file-storage-server)”。
 
 ### 迁移到其他 Git Large File Storage 服务器
 
-迁移到其他 {% data variables.large_files.product_name_long %} 服务器之前，您必须将 {% data variables.large_files.product_name_short %} 配置为使用第三方服务器。 For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+迁移到其他 {% data variables.large_files.product_name_long %} 服务器之前，您必须将 {% data variables.large_files.product_name_short %} 配置为使用第三方服务器。 解更多信息请参阅“[配置 {% data variables.large_files.product_name_long %} 使用第三方服务器](#configuring-git-large-file-storage-to-use-a-third-party-server)”。
 
 1. 使用第二个远端配置仓库。
   ```shell

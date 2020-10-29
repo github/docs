@@ -50,7 +50,7 @@ To join {% data variables.product.prodname_sponsors %} as an individual contribu
 
 ### Submitting your bank information
 
-As a sponsored organization, you must receive payouts to a dedicated bank account for your organization in a supported region. You can get a business bank account through services like [Open Collective](https://opencollective.com/) and [Stripe Atlas](https://stripe.com/atlas). {% data reusables.sponsors.stripe-supported-regions %}
+As a sponsored organization, you must receive payouts to a dedicated bank account for your organization in a supported region. You can get a business bank account through services like [Open Collective](https://opencollective.com/) and [Stripe Atlas](https://stripe.com/atlas). The region your organization legally operates in and the region of your bank account must match. The person setting up {% data variables.product.prodname_sponsors %} for the organization must live in the same supported region, too. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

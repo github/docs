@@ -1,6 +1,6 @@
 ---
 title: SAMLのシングルサインオンでの認証について
-intro: SAMLシングルサインオン（SSO）を使うOrganizationには、アイデンティティプロバイダ（IdP）を通じての認証を受けてアクセスできます。 Organization が SAML SSO を実施するときにコマンドラインで API または Git で認証するには、個人アクセストークンまたは SSH キーを承認する必要があります。
+intro: 'SAMLシングルサインオン（SSO）を使うOrganizationには、アイデンティティプロバイダ（IdP）を通じての認証を受けてアクセスできます。 Organization が SAML SSO を実施するときにコマンドラインで API または Git で認証するには、個人アクセストークンまたは SSH キーを承認する必要があります。'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on

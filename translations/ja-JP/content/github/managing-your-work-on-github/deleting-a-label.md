@@ -1,6 +1,6 @@
 ---
 title: ラベルの削除
-intro: 書き込みアクセスのあるリポジトリでは、Issue やプルリクエストを分類するために必要のないラベルを削除できます。
+intro: '書き込みアクセスのあるリポジトリでは、Issue やプルリクエストを分類するために必要のないラベルを削除できます。'
 redirect_from:
   - /articles/deleting-a-label
 versions:

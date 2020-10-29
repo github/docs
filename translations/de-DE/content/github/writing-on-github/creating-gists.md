@@ -13,13 +13,13 @@ versions:
 
 ### Informationen zu Gists
 
-Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. Wenn Du bei der Erstellung eines Gists bei {% data variables.product.product_name %} angemeldet bist, wird der Gist mit Deinem Konto verknüpft und in der Liste Deiner Gists angezeigt, wenn Du Deine {% data variables.gists.gist_homepage %} aufrufst.
+Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. Wenn Sie bei der Erstellung eines Gists bei {% data variables.product.product_name %} angemeldet sind, wird der Gist mit Ihrem Konto verknüpft und in der Liste Ihrer Gists angezeigt, wenn Sie Ihre {% data variables.gists.gist_homepage %} aufrufen.
 
 Gists können öffentlich oder geheim sein. Öffentliche Gists werden in {% data variables.gists.discover_url %} angezeigt, wo Benutzer neue Gists nach der Erstellung durchsuchen können. Gists können auch gesucht werden, Du kannst sie also verwenden, wenn Du möchtest, dass andere Benutzer Deine Arbeit finden und ansehen können. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Geheime Gists werden nicht in {% data variables.gists.discover_url %} angezeigt{% if currentVersion != "free-pro-team@latest" %}{% endif %} und können nicht gesucht werden. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Wenn Dein Websiteadministrator den privaten Modus deaktiviert hat, kannst Du auch anonyme Gists verwenden, die öffentlich oder geheim sein können.
 
@@ -27,17 +27,14 @@ Wenn Dein Websiteadministrator den privaten Modus deaktiviert hat, kannst Du auc
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-
 In folgenden Fällen erhältst Du eine Benachrichtigung:
 - Du bist der Autor eines Gists.
 - Jemand erwähnt Dich in einem Gist.
 - Du abonnierst einen Gist, indem Du oben im Gist auf **Subscribe** (Abonnieren) klickst.
-{% endif %}
 
-Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen findest Du unter „[Elemente an Dein Profil anheften](/articles/pinning-items-to-your-profile).“
+Du kannst Gists an Deinem Profil anheften, damit andere Personen sie leichter sehen. Weitere Informationen finden Sie unter „[Elemente an Ihr Profil anheften](/articles/pinning-items-to-your-profile)“.
 
-Um Gists zu entdecken, die von anderen Benutzern erstellt wurden, rufe die {% data variables.gists.gist_homepage %} auf und klicke dort auf **All Gists** (Alle Gists). Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} kannst Du Gists auch nach Sprache suchen. Die Gist-Suche nutzt dieselbe Suchsyntax wie [die Codesuche](/articles/searching-code).
+Um Gists zu entdecken, die von anderen Benutzern erstellt wurden, rufe die {% data variables.gists.gist_homepage %} auf und klicke dort auf **All Gists** (Alle Gists). Daraufhin wird eine Seite mit allen Gists angezeigt, die nach dem Zeitpunkt der Erstellung oder Aktualisierung sortiert sind. Mit der {% data variables.gists.gist_search_url %} können Sie Gists auch nach Sprache suchen. Die Gist-Suche nutzt dieselbe Suchsyntax wie [die Codesuche](/articles/searching-code).
 
 Da es sich bei Gists um Git-Repositorys handelt, kannst Du ihren vollständigen Commit-Verlauf anzeigen, einschließlich der Diffs. Du kannst Gists auch forken oder klonen. Weitere Informationen findest Du unter „[Gists forken und klonen](/articles/forking-and-cloning-gists)“.
 
@@ -61,8 +58,8 @@ You can also create a gist using the {% data variables.product.prodname_cli %}. 
 {% endnote %}
 {% endif %}
 
-1. Melde Dich bei {% data variables.product.product_name %} an.
-2. Navigiere zu Deiner {% data variables.gists.gist_homepage %}.
+1. Melden Sie sich bei {% data variables.product.product_name %} an.
+2. Navigieren Sie zu Ihrer {% data variables.gists.gist_homepage %}.
 3. Gib eine optionale Beschreibung und einen Namen für Deinen Gist ein. ![Name und Beschreibung des Gists](/assets/images/help/gist/gist_name_description.png)
 
 4. Gib den Text für den Gist in das Gist-Textfeld ein. ![Gist-Textfeld](/assets/images/help/gist/gist_text_box.png)

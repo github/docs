@@ -11,7 +11,6 @@ versions:
 
 Issue events are triggered by activity in issues and pull requests and are available in the [Issue Events API](/v3/issues/events) and the [Timeline Events API](/v3/issues/timeline). Each event type specifies whether the event is available in the Issue Events or Timeline Events APIs.
 
-
 GitHub's REST API considers every pull request to be an issue, but not every issue is a pull request. For this reason, the Issue Events and Timeline Events endpoints may return both issues and pull requests in the response. Pull requests have a `pull_request` property in the `issue` object. Because pull requests are issues, issue and pull request numbers do not overlap in a repository. For example, if you open your first issue in a repository, the number will be 1. If you then open a pull request, the number will be 2. Each event type specifies if the event occurs in pull request, issues, or both.
 
 ### Issue event object common properties
@@ -230,7 +229,7 @@ The issue or pull request was referenced from another issue or pull request.
 | --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `actor`         | `объект` | The person who generated the event.                                                                                                                                                                                                                                                                                           |
 | `created_at`    | `строка` | The timestamp indicating when the cross-reference was added.                                                                                                                                                                                                                                                                  |
-| `updated_at`    | `строка` | The timestamp indicating when the cross-refererence was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                          |
+| `updated_at`    | `строка` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                            |
 | `source`        | `объект` | The issue or pull request that added a cross-reference.                                                                                                                                                                                                                                                                       |
 | `source[type]`  | `строка` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request` object exists. |
 | `source[issue]` | `объект` | The `issue` object that added the cross-reference.                                                                                                                                                                                                                                                                            |
@@ -348,7 +347,7 @@ The issue or pull request was locked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -665,7 +664,7 @@ The issue was unlocked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

@@ -19,7 +19,6 @@ Um auf Deinen Posteingang für Benachrichtigungen zuzugreifen, klicke in der rec
 
   ![Benachrichtigung, die auf eine ungelesene Mitteilung hinweist](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-
 Dein Posteingang zeigt alle Benachrichtigungen, die Du nicht abgemeldet oder als **Done** (Erledigt) markiert hast. Du kannst Deinen Posteingang so anpassen, dass er Deinem Workflow am besten entspricht, indem Du Filter verwendest, alle oder nur ungelesene Benachrichtigungen anzeigst und Deine Benachrichtigungen gruppierst, um eine schnelle Übersicht zu erhalten.
 
   ![Posteingangsansicht](/assets/images/help/notifications-v2/inbox-view.png)
@@ -113,7 +112,7 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 
 #### Unterstützte `is:`-Abfragen
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. Um beispielsweise nur Aktualisierungen zu Repository-Einladungen zu sehen, benutze die Abfrage `is:repository-invitation`.
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
 
 - `is:check-suite`
 - `is:commit`
@@ -124,6 +123,8 @@ Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`
 - `is:team-discussion`
+
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 
 Du kannst die Abfrage `is:` auch verwenden, um zu beschreiben, wie die Benachrichtigung selektiert wurde.
 

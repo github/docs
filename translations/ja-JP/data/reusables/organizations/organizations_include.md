@@ -1,5 +1,5 @@
 Organizationには以下が含まれます。
-{% if currentVersion == "free-pro-team@latest" %} - フル機能を持つ無制限のパブリックリポジトリ上の無制限のコラボレータと、機能限定された無制限のプライベートリポジトリを持つ無料オプション、{% data variables.product.prodname_free_team %}。
+{% if currentVersion == "free-pro-team@latest" %}- A free option, {% data variables.product.prodname_free_team %}, with unlimited collaborators on unlimited public repositories with full features and unlimited private repositories with limited features.
 - 洗練されたユーザ認証と管理、拡張されたサポートオプションを含む{% data variables.product.prodname_team %}もしくは{% data variables.product.prodname_ghe_cloud %}へのアップグレードオプション。 {% data reusables.gated-features.more-info %}{% endif %}
 - [Organizationとそのデータへの様々なレベルでのアクセス](/articles/permission-levels-for-an-organization)を許可する様々なロールを持つ無制限のメンバーシップ。
 - [Organizationのリポジトリに対する様々なアクセス権限](/articles/repository-permission-levels-for-an-organization)をユーザに与える機能。

@@ -37,12 +37,12 @@ Wenn Du {% data variables.product.prodname_github_connect %} aktivierst, wird zu
 
 Wenn {% data variables.product.prodname_github_connect %} aktiviert wird, können {% data variables.product.prodname_dotcom_the_website %}-Benutzer keine Änderungen an {% data variables.product.prodname_ghe_server %} vornehmen.
 
-{% if currentVersion ver_gt "enterprise-server@2.18" %}
 For more information about managing enterprise accounts using the GraphQL API, see "[Enterprise accounts](/v4/guides/managing-enterprise-accounts)."
-{% endif %}
 ### {% data variables.product.prodname_github_connect %} aktivieren
 
-1. Melden Sie sich bei {% data variables.product.product_location_enterprise %} und {% data variables.product.prodname_dotcom_the_website %} an.
+1. Sign in to
+
+{% data variables.product.product_location_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% data reusables.enterprise-accounts.settings-tab %}

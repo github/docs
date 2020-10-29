@@ -51,13 +51,13 @@ The record types match those found in the [migrated data](/enterprise/admin/guid
 | Teams                                    | `команда`                     |
 | Milestones                               | `контрольная точка`           |
 | Project boards                           | `проект`                      |
-| Вопросы                                  | `задача`                      |
+| Вопросы                                  | `проблема`                    |
 | Issue comments                           | `issue_comment`               |
 | Pull requests                            | `pull_request`                |
 | Pull request reviews                     | `pull_request_review`         |
 | Commit comments                          | `commit_comment`              |
 | Pull request review comments             | `pull_request_review_comment` |
-| Релизы                                   | `релиз`                       |
+| Релизы                                   | `версия`                      |
 | Actions taken on pull requests or issues | `issue_event`                 |
 | Protected branches                       | `protected_branch`            |
 

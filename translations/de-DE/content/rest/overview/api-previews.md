@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 API previews let you try out new APIs and changes to existing API methods before they become part of the official GitHub API.
 
 During the preview period, we may change some features based on developer feedback. If we do make changes, we'll announce them on the [developer blog](https://developer.github.com/changes/) without advance notice.
@@ -27,7 +26,7 @@ Allows you to download repositories from your GitHub user or organization accoun
 
 ### Enhanced deployments
 
-Exercise greater control over [deployments](/v3/repos/deployments/) with more information and finer granularity.
+Exercise greater control over [deployments](/rest/reference/repos#deployments) with more information and finer granularity.
 
 **Custom media type:** `ant-man-preview` **Announced:** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
@@ -43,15 +42,7 @@ Get a [list of events](/v3/issues/timeline/) for an issue or pull request.
 
 **Custom media type:** `mockingbird-preview` **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Pages
-
-Get more information about your [GitHub Pages](/v3/repos/pages/) site.
-
-**Custom media type:** `mister-fantastic-preview` **Announced:** [2016-07-06](https://developer.github.com/changes/2016-07-06-github-pages-preview-api/)
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Pre-receive environments
 
 Create, list, update, and delete environments for pre-receive hooks.
@@ -59,7 +50,7 @@ Create, list, update, and delete environments for pre-receive hooks.
 **Custom media type:** `eye-scream-preview` **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### Integrations
 
 Manage [integrations](/early-access/integrations/) through the API.
@@ -107,7 +98,7 @@ View all [codes of conduct](/v3/codes_of_conduct) or get which code of conduct a
 
 **Custom media type:** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Verschachtelte Teams
 
 Include nested team content in [team](/v3/teams/) payloads.
@@ -116,17 +107,17 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Global webhooks
 
-Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
+Enables [global webhooks](/rest/reference/enterprise-admin#global-webhooks/) for  [organization](/webhooks/event-payloads/#organization) and [user](/webhooks/event-payloads/#user) event types. This API preview is only available for {% data variables.product.prodname_ghe_server %}.
 
-**Custom media type:** `superpro-preview` **Announced:** [2017-12-12](/v3/enterprise-admin/global_webhooks)
+**Custom media type:** `superpro-preview` **Announced:** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Repository transfer
 
 Transfer a [repository](/v3/repos/) to an organization or user.
@@ -134,21 +125,12 @@ Transfer a [repository](/v3/repos/) to an organization or user.
 **Custom media type:** `nightshade-preview` **Announced:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### Add lock reason
 
 You can now add a reason when you [lock an issue](/v3/issues/#lock-an-issue).
 
 **Custom media type:** `sailor-v-preview` **Announced:** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### Teamdiskussionen,
-
-You can now use the API to manage [team discussions](/v3/teams/discussions) and [team discussion comments](/v3/teams/discussion_comments).
-
-**Custom media type:** `echo-preview` **Announced:** [2018-02-07](https://developer.github.com/changes/2018-02-07-team-discussions-api)
-
 {% endif %}
 
 ### Require signed commits
@@ -163,7 +145,7 @@ You can now [require multiple approving reviews](/v3/repos/branches) for a pull 
 
 **Custom media type:** `luke-cage-preview` **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 ### Retrieve hovercard information
 
 Retrieve information from [someone's hovercard](/v3/users/#get-contextual-information-for-a-user).
@@ -172,13 +154,15 @@ Retrieve information from [someone's hovercard](/v3/users/#get-contextual-inform
 
 {% endif %}
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/v3/checks/runs/) and [Check suites](/v3/checks/suites/) APIs for more details.
 
 **Custom media type:** `antiope-preview` **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
+{% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Anonymous Git access to repositories
 
@@ -206,7 +190,7 @@ GitHub App Manifests allow people to create preconfigured GitHub Apps. See "[Cre
 
 ### Deployment statuses
 
-You can now update the `environment` of a [deployment status](/v3/repos/deployments/#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
+You can now update the `environment` of a [deployment status](/rest/reference/repos#create-a-deployment-status) and use the `in_progress` and `queued` states. When you create deployment statuses, you can now use the `auto_inactive` parameter to mark old `production` deployments as `inactive`.
 
 **Custom media type:** `flash-preview` **Announced:** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -232,7 +216,7 @@ Allows you to temporarily restrict interactions, such as commenting, opening iss
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### Entwürfe für Pull Requests
 
 You can use the Draft Pull Requests API and its [pull request](/v3/pulls/) endpoints to see whether a pull request is in draft state. To learn more about draft pull requests, see "[About pull requests](/articles/about-pull-requests/)".
@@ -243,7 +227,7 @@ You can use the Draft Pull Requests API and its [pull request](/v3/pulls/) endpo
 
 ### Enable and disable Pages
 
-You can use the new endpoints in the [Pages API](/v3/repos/pages/) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
+You can use the new endpoints in the [Pages API](/rest/reference/repos#pages) to enable or disable Pages. To learn more about Pages, see "[GitHub Pages Basics](/categories/github-pages-basics)".
 
 **Custom media types:** `switcheroo-preview` **Announced:** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
@@ -253,7 +237,7 @@ You can use two new endpoints in the [Commits API](/v3/repos/commits/) to list b
 
 **Custom media types:** `groot-preview` **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### Uninstall a GitHub App
 
 Owners of GitHub Apps can now uninstall an app using the [Apps API](/v3/apps/#delete-an-installation-for-the-authenticated-app).

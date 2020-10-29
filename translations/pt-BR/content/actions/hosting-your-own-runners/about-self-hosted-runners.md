@@ -53,6 +53,15 @@ Você pode usar qualquer máquina como um executor auto-hospedado, desde que ela
 * A máquina tem recursos de hardware suficientes para o tipo de fluxos de trabalho que você planeja executar. O aplicativo do executor auto-hospedado requer apenas recursos mínimos.
 * Se você desejar executar fluxos de trabalho que usam ações do contêiner do Docker ou dos contêineres de serviço, você deverá usar uma máquina Linux e o Docker deve estar instalados.
 
+### Limites de uso
+
+Existem alguns limites sobre o uso de {% data variables.product.prodname_actions %} ao usar executores auto-hospedados. Estes limites estão sujeitos a mudanças.
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **Tempo de fila de tarefas** - Cada trabalho para executores auto-hospedados pode ser enfileirado por um máximo de 24 horas. Se um executor auto-hospedado não começar a executar a tarefa dentro deste limite, a tarefa será encerrada e não será concluída.
+{% data reusables.github-actions.usage-api-requests %}
+- **Matriz de vagas** - {% data reusables.github-actions.usage-matrix-limits %}
+
 ### Sistemas operacionais compatíveis com executores auto-hospedados
 
 Os sistemas operacionais a seguir são compatíveis com o aplicativo de execução auto-hospedado.
@@ -82,7 +91,7 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 
 - macOS 10.13 (High Sierra) or versão posterior
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 
