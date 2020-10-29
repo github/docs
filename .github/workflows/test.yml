@@ -32,6 +32,7 @@ jobs:
   test:
     needs: see_if_should_skip
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
