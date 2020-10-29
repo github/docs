@@ -5,7 +5,7 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners
 versions:
-  free-pro-team: '*'
+  codecov-team: '*'
   enterprise-server: '>=2.22'
 ---
 
