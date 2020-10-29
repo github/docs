@@ -6,7 +6,7 @@ redirect_from:
   - /v3
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '*' 
 ---
 
 {% link_with_intro /overview %}
