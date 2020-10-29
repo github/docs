@@ -25,7 +25,7 @@ On your profile page, certain actions count as contributions:
 - Committing to a repository's default branch or `gh-pages` branch
 - Opening an issue
 - Proposing a pull request
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}

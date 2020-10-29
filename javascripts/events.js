@@ -46,7 +46,8 @@ export function sendEvent ({
   survey_email,
   experiment_name,
   experiment_variation,
-  experiment_success
+  experiment_success,
+  clipboard_operation
 }) {
   const body = {
     _csrf: getCsrf(),
@@ -107,7 +108,10 @@ export function sendEvent ({
     // Experiment event
     experiment_name,
     experiment_variation,
-    experiment_success
+    experiment_success,
+
+    // Clipboard event
+    clipboard_operation
   }
   const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
   navigator.sendBeacon('/events', blob)
@@ -168,6 +172,13 @@ export default function initializeEvents () {
   const pageEvent = sendEvent({
     type: 'page',
     page_render_duration: render
+  })
+
+  // Clipboard event
+  ;['copy', 'cut', 'paste'].forEach(verb => {
+    document.documentElement.addEventListener(verb, () => {
+      sendEvent({ type: 'clipboard', clipboard_operation: verb })
+    })
   })
 
   // Link event

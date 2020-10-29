@@ -19,7 +19,7 @@ Weitere Informationen findest Du unter:
 
 ![Bild einer Teamerwähnung](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Sie können außerdem mit LDAP Sync {% data variables.product.product_location_enterprise %}-Teammitglieder und -Teamrollen mit Ihren bestehenden LDAP-Gruppen synchronisieren. Dadurch können Sie eine rollenbasierte Zugriffskontrolle für Benutzer von Ihrem LDAP-Server aus statt manuell innerhalb von {% data variables.product.product_location_enterprise %} einrichten. Weitere Informationen finden Sie unter „[LDAP-Synchronisierung aktivieren](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)“.
 
@@ -55,7 +55,7 @@ Um zu verstehen, wer die Berechtigungen und Erwähnungen eines übergeordneten T
 
 Du kannst beim Erstellen des Teams ein übergeordnetes Team auswählen oder ein Team in der Hierarchie Deiner Organisation später verschieben. Weitere Informationen findest Du unter „[Team innerhalb der Hierarchie Deiner Organisation verschieben](/articles/moving-a-team-in-your-organization-s-hierarchy).“
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
 

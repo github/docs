@@ -53,6 +53,13 @@ versions:
 
 {% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
 
+### Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+
 ### 延伸阅读
 
 - {% data variables.product.prodname_dotcom %} 词汇中的“[拉取请求](/articles/github-glossary/#pull-request)”

@@ -61,3 +61,12 @@ Certifique-se de substituir pontos de extremidades de amostra pelos pontos de ex
 {% endfor %}
 
 {% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Webhooks
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}

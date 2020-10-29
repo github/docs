@@ -18,7 +18,7 @@ versions:
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 2. No nome do repositório, clique em **Find file** (Localizar arquivo). ![Botão Find file (Localizar arquivo)](/assets/images/help/search/find-file-button.png)
 {% else %}
 2. Acima da lista de arquivos, clique em **Ir para o arquivo**. ![Botão Find file (Localizar arquivo)](/assets/images/help/search/find-file-button.png)

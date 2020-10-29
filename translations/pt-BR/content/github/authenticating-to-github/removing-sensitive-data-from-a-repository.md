@@ -134,7 +134,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
 
   {% endnote %}
 
-## Evitar commits acidentais no futuro
+### Evitar commits acidentais no futuro
 
 Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
@@ -145,5 +145,5 @@ Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
 ### Leia mais
 
-- [Página principal do `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [man page de `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Ferramentas do Git - Reescrevendo o Histórico](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

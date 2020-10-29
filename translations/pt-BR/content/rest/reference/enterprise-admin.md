@@ -21,7 +21,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### URLs do ponto de extremidade
 
@@ -39,7 +39,7 @@ http(s)://<em>hostname</em>/
 
 ### Autenticação
 
-Os endpoints de API da sua instalação do {% data variables.product.product_name %} aceitam [os mesmos métodos de autenticação](/rest/overview/resources-in-the-rest-api#authentication) da API do GitHub.com. Você pode se autenticar com **[tokens OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que podem ser criados usando a [API de Autorizações](/rest/reference/oauth-authorizations#create-a-new-authorization)) ou **[autenticação básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} Os tokens OAuth devem ter o escopo do OAuth `site_admin` [](/developers/apps/scopes-for-oauth-apps#available-scopes) quando usados com pontos de extremidades específicos da empresa.{% endif %}
+Os endpoints de API da sua instalação do {% data variables.product.product_name %} aceitam [os mesmos métodos de autenticação](/rest/overview/resources-in-the-rest-api#authentication) da API do GitHub.com. Você pode se autenticar com **[tokens OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que podem ser criados usando a [API de Autorizações](/rest/reference/oauth-authorizations#create-a-new-authorization)) ou **[autenticação básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} Os tokens OAuth devem ter o `site_admin` [escopo OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) quando usados com endpoints específicos da Enterprise.{% endif %}
 
 Os endpoints da API de administração da empresa somente são acessíveis para administradores do site autenticados pelo {% data variables.product.product_name %}, exceto a API [Console de gerenciamento](#management-console), que requer a [senha do Console de Gerenciamento](/enterprise/admin/articles/accessing-the-management-console/).
 
@@ -135,7 +135,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ## Estatísticas de admin
 

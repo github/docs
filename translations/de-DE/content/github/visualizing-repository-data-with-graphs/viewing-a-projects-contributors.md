@@ -13,7 +13,7 @@ versions:
 
 ### Informationen zu Mitarbeitern
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
+Im Mitarbeiterdiagramm kannst Du die Top 100 der Mitarbeiter an einem Repository anzeigen{% if enterpriseServerVersions contains currentVersion %}, darunter auch die Commit-Co-Autoren{% endif %}. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
 
 {% if currentVersion == "free-pro-team@latest" %}
 Darüber hinaus kannst Du eine Liste der Personen anzeigen, die Beiträge zu den Python-Abhängigkeiten des Projekts geliefert haben. Rufe `https://github.com/REPO-OWNER/REPO-NAME/community_contributors` auf, um auf diese Liste der Community-Mitarbeiter zuzugreifen.

@@ -24,7 +24,7 @@ Before you configure a publishing source, make sure the branch{% if currentVersi
 4. Optionally, use the drop-down menu to select a folder for your publishing source. ![Drop-down menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 5. [**Save**] をクリックします。 ![Button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
   {% else %}
-3. Under "
+3. [
 {% data variables.product.prodname_pages %}", use the **Source** drop-down menu and select a publishing source.
    ![公開元を選択するドロップダウンメニュー](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}

@@ -22,9 +22,9 @@ versions:
 
 ### Enterprise アカウントを使用してチケットをサブミットする
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. 左のサイドバーで、** Enterprise licensing（Enterpriseライセンス）**をクリックしてください。 ![[Enterprise account settings] サイトバーの "Enterprise licensing"](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. [{% data variables.product.prodname_enterprise %} Help] の下で、[**{% data variables.contact.enterprise_support %} Portal**] をクリックします。 ![Enterprise Support サイトに移動するリンク](/assets/images/enterprise/support/enterprise-support-link.png)
 5. [**Submit a Ticket**] をクリックします。 ![Enterprise Support チームにチケットをサブミットする](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

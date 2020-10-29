@@ -134,7 +134,7 @@ $ bfg --replace-text passwords.txt
 
   {% endnote %}
 
-## 将来にわたって誤ったコミットを回避する
+### 将来にわたって誤ったコミットを回避する
 
 コミット対象でないものがコミットされるのを回避するためのシンプルな方法がいくつかあります。
 
@@ -145,5 +145,5 @@ $ bfg --replace-text passwords.txt
 
 ### 参考リンク
 
-- [`git filter-branch` メインページ](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

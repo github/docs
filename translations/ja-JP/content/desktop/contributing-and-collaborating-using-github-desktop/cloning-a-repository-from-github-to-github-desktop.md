@@ -15,7 +15,7 @@ versions:
 
 {% mac %}
 
-1. Sign in to
+1. まず、
 
 {% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
@@ -34,7 +34,7 @@ versions:
 
 {% windows %}
 
-1. Sign in to
+1. まず、
 
 {% data variables.product.product_location %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
