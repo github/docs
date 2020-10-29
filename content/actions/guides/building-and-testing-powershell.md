@@ -73,7 +73,7 @@ jobs:
 
 The table below describes the locations for various PowerShell modules in each {% data variables.product.prodname_dotcom %}-hosted runner.
 
-|| Ubuntu | Mac | Windows |
+|| Ubuntu | macOS | Windows |
 |------|-------|------|----------|
 |**PowerShell system modules** |`/opt/microsoft/powershell/7/Modules/*`|`/usr/local/microsoft/powershell/7/Modules/*`|`C:\program files\powershell\7\Modules\*`|
 |**PowerShell add-on modules**|`/usr/local/share/powershell/Modules/*`|`/usr/local/share/powershell/Modules/*`|`C:\Modules\*`|
