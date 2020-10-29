@@ -55,24 +55,24 @@ The best way to explain subtree merges is to show by example. We will:
   > Receiving objects: 100% (1732/1732), 528.19 KiB | 621 KiB/s, done.
   > Resolving deltas: 100% (1086/1086), done.
   > From git://github.com/octocat/Spoon-Knife
-  >  * [new branch]      main     -> Spoon-Knife/main
+  >  * [new branch]      main     -> Spoon-Knife/master
   ```
 2. Merge the `Spoon-Knife` project into the local Git project. This doesn't change any of your files locally, but it does prepare Git for the next step.
 
   If you're using Git 2.9 or above:
   ```shell
-  $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/main
+  $ git merge -s ours --no-commit --allow-unrelated-histories spoon-knife/master
   > Automatic merge went well; stopped before committing as requested
   ```
 
   If you're using Git 2.8 or below:
   ```shell
-  $ git merge -s ours --no-commit spoon-knife/main
+  $ git merge -s ours --no-commit spoon-knife/master
   > Automatic merge went well; stopped before committing as requested
   ```
 3. Create a new directory called **spoon-knife**, and copy the Git history of the `Spoon-Knife` project into it.
   ```shell
-  $ git read-tree --prefix=spoon-knife/ -u spoon-knife/main
+  $ git read-tree --prefix=spoon-knife/ -u spoon-knife/master
   ```
 4. Commit the changes to keep them safe.
   ```shell
@@ -99,7 +99,7 @@ $ git pull -s subtree <em>remotename</em> <em>branchname</em>
 For the example above, this would be:
 
 ```shell
-$ git pull -s subtree spoon-knife main
+$ git pull -s subtree spoon-knife master
 ```
 
 ### Further reading
