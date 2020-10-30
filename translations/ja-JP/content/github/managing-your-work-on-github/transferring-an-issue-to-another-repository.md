@@ -12,7 +12,7 @@ versions:
 
 同じユーザまたは Organization アカウントが所有するリポジトリ間においてのみ、Issue を移譲できます。 プライベートリポジトリからパブリックリポジトリへは、Issue を移譲できません。
 
-Issueを委譲する場合、コメントとアサインされた人は保持されます。 The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
+Issueを委譲する場合、コメントとアサインされた人は保持されます。 Issue のラベルとマイルストーンは保持されません。 このIssueは、ユーザー所有または組織全体のプロジェクトボードにとどまり、リポジトリのプロジェクトボードから削除されます。 詳細は「[プロジェクトボードについて](/articles/about-project-boards)」を参照してください。
 
 Issue でメンションされた人や Team は、Issue が新しいリポジトリに移譲されたことを知らせる通知を受け取ります。 当初の URL は、新しい Issue の URL にリダイレクトします。 新しいリポジトリの読み取り権限がない人には、アクセスできない新しいリポジトリに Issue が移譲されたことを知らせるバナーが表示されます。
 

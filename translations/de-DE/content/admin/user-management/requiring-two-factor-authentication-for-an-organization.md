@@ -11,7 +11,7 @@ Bei Verwendung von LDAP oder der integrierten Authentifizierung wird die Zwei-Fa
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-Weitere Informationen finden Sie in „[dieser Tabelle zu den Authentifizierungsmethoden, welche die 2FA unterstützen](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)“.
+Weitere Informationen findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/github/authenticating-to-github/about-two-factor-authentication).“
 
 ### Anforderungen für die Erzwingung der Zwei-Faktor-Authentifizierung
 

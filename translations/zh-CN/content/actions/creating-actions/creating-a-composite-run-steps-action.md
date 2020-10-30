@@ -36,7 +36,7 @@ versions:
   echo "Goodbye"
   ```
 
-3. From your terminal, make `goodbye.sh` executable.
+3. 从您的终端创建 `goodbye.sh` 可执行文件。
 
   ```shell
   chmod +x goodbye.sh
@@ -93,7 +93,7 @@ versions:
   git push
   ```
 
-1. From your terminal, add a tag. This example uses a tag called `v1`. 更多信息请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
+1. 从终端添加标记。 此示例使用名为 `v1` 的标记。 更多信息请参阅“[关于操作](/actions/creating-actions/about-actions#using-release-management-for-actions)”。
 
   ```shell
   git tag -a -m "Description of this release" v1
@@ -104,7 +104,7 @@ versions:
 
 以下工作流程代码使用您在“[创建操作元数据文件](/actions/creating-actions/creating-a-composite-run-steps-action#creating-an-action-metadata-file)”中设置的已完成 hello world 操作。
 
-Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-run-steps-action@v1` with the repository and tag you created. 您还可以将 `who-to-greet` 输入替换为您的名称。
+将工作流程代码复制到另一个仓库中的 `.github/workflows/main.yml` 文件，但用您创建的仓库和标记替换 `actions/hello-world-compposite-run-steps-action@v1`。 您还可以将 `who-to-greet` 输入替换为您的名称。
 
 {% raw %}
 **.github/workflows/main.yml**

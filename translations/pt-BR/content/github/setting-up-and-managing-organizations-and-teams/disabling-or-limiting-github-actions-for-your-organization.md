@@ -17,7 +17,7 @@ Você pode habilitar o {% data variables.product.prodname_actions %} para todos 
 
 Como alternativa, você pode habilitar o {% data variables.product.prodname_actions %} para todos os repositórios na sua organização e limitar as ações que um fluxo de trabalho pode executar. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 ### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua organização
 

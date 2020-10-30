@@ -42,7 +42,7 @@ Wenn das Repository zu einer Organisation gehört und Du einen SSH-Schlüssel ve
 
 Weitere Informationen findest Du unter „[Einen neuen SSH-Schlüssel zum GitHub-Konto hinzufügen](/articles/adding-a-new-ssh-key-to-your-github-account)“.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Überprüfe, ob sich Deine Instanz im privaten Modus befindet
 

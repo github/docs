@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, abaixo da imagem de perfil do usuário, clique em **Bloquear ou relatar usuário**. ![Link para bloquear ou relatar usuário](/assets/images/help/profile/profile-block-or-report-button.png)
+1. In the left sidebar, under the user's profile picture, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Block or report user**. ![Link para bloquear ou relatar usuário](/assets/images/help/profile/profile-block-or-report-button.png)

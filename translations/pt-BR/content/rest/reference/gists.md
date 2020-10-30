@@ -9,7 +9,7 @@ versions:
 
 ### Autenticação
 
-Você pode ler gists públicos {% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "2.9" %}e criá-los para usuários anônimos sem um token.{% else %} anonimamente,. No entanto, você deve entrar no GitHub para criar gists.{% endif %} Para ler ou escrever gists em nome do usuário, você precisa do escopo do OAuth e um token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
+Você pode ler listas públicas {% if enterpriseServerVersions contains currentVersion %}e criá-las para usuários anônimos sem um token.{% else %} anonimamente, mas você precisa conectar-se ao GitHub para criar gist.{% endif %} Para ler ou escrever gists em nome de um usuário, você precisa do escopo do OAuth e de um token. Para obter mais informações, consulte "[Escopos para aplicativos OAuth](/developers/apps/scopes-for-oauth-apps)."
 
 <!-- When an OAuth client does not have the gists scope, the API will return a 404 "Not Found" response regardless of the validity of the credentials. The API will return a 401 "Bad credentials" response if the gists scope was given to the application but the credentials are invalid. -->
 

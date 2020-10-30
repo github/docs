@@ -51,7 +51,7 @@ versions:
 在月末，{% data variables.product.prodname_dotcom %} 会计算您使用的超过帐户自带限额的分钟数和存储空间费用。 例如，如果您的组织使用 {% data variables.product.prodname_team %} 并允许无限制支出，则使用 15,000 分钟可能会产生 56 美元的总存储空间和分钟数超额费用，具体取决于用于运行作业的操作系统。
 
 - 5,000（3,000 Linux 加 2,000 Windows）分钟 = $56 ($24 + $32)。
-  - 3,000 Linux 分钟（每分钟 $0.008）= $24。
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2,000 Windows 分钟（每分钟 $0.016）= $32。
 
 到月底，{% data variables.product.prodname_dotcom %} 会将您的数据传输舍入到最接近的 GB。

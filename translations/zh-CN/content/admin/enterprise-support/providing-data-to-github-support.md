@@ -99,9 +99,9 @@ $ ssh -p122 admin@<em>hostname</em> -- 'ghe-diagnostics' > diagnostics.txt
 
 #### 使用您的企业帐户上传支持包
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. 在左侧边栏中，单击 **Enterprise licensing（企业许可）**。 ![企业帐户设置侧边栏中的"Enterprise licensing（企业许可）"选项卡](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. 在“{% data variables.product.prodname_enterprise %} 帮助”下，单击 **Upload a support bundle（上传支持包）**。 ![上传支持包链接](/assets/images/enterprise/support/upload-support-bundle.png)
 5. 在“Select an enterprise account（选择企业帐户）”下，从下拉菜单选择支持包的相关帐户。 ![选择支持包的企业帐户](/assets/images/enterprise/support/support-bundle-account.png)
 6. 在“为 {% data variables.contact.enterprise_support %} 上传支持包”下，选择您的支持包，单击 **Choose file（选择文件）**，或将您的支持包文件拖到 **Choose file（选择文件）**上。 ![上传支持包文件](/assets/images/enterprise/support/choose-support-bundle-file.png)

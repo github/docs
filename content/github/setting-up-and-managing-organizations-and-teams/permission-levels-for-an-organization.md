@@ -63,7 +63,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 | Purchase, install, manage billing for, and cancel {% data variables.product.prodname_marketplace %} apps | **X** | | |
 | List apps in {% data variables.product.prodname_marketplace %} | **X** | | |
 | Receive [{% data variables.product.prodname_dependabot_alerts %} about vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) for all of an organization's repositories | **X** |  |  |
-| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)") | **X** | | |
+| Manage {% data variables.product.prodname_dependabot_security_updates %} (see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)") | **X** | | |
 | [Manage the forking policy](/github/setting-up-and-managing-organizations-and-teams/managing-the-forking-policy-for-your-organization) | **X** |  |  |
 | [Limit activity in public repositories in an organization](/articles/limiting-interactions-in-your-organization) | **X** | | |
 | Pull (read), push (write), and clone (copy) *all repositories* in the organization | **X** | | |
