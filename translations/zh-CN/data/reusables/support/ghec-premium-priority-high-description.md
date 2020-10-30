@@ -1,0 +1,1 @@
+在 {% data variables.product.prodname_ghe_cloud %} 上的组织或企业的帐户或安全问题对您的业务产生了有限的影响。

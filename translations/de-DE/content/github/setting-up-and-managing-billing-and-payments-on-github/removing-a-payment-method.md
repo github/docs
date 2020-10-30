@@ -1,6 +1,6 @@
 ---
 title: Zahlungsmethode entfernen
-intro: 'Wenn Sie Ihre Zahlungsmethode für kein bezahltes Abonnement auf {% data variables.product.prodname_dotcom %} verwenden, können Sie diese Zahlungsmethode entfernen. Sie wird dann nicht mehr unter Ihrem Konto gespeichert.'
+intro: 'Wenn Du Deine Zahlungsmethode für kein bezahltes Abonnement auf {% data variables.product.prodname_dotcom %} verwendest, kannst Du diese Zahlungsmethode entfernen. Sie wird dann nicht mehr unter Deinem Konto gespeichert.'
 redirect_from:
   - /articles/removing-a-credit-card-associated-with-your-user-account/
   - /articles/removing-a-payment-method-associated-with-your-user-account/
@@ -11,7 +11,7 @@ versions:
   free-pro-team: '*'
 ---
 
-Wenn Sie Ihr {% data variables.product.product_name %}-Abonnement mit einem Gutschein bezahlen und Ihre Zahlungsmethode für keine [anderen bezahlten Funktionen oder Produkte](/articles/about-billing-on-github) auf {% data variables.product.product_name %} benötigen, können Sie Ihre Kreditkarten- oder PayPal-Daten entfernen.
+Wenn Du Dein {% data variables.product.product_name %}-Abonnement mit einem Gutschein bezahlst und Deine Zahlungsmethode für keine [anderen bezahlten Funktionen oder Produkte](/articles/about-billing-on-github) auf {% data variables.product.product_name %} benötigst, kannst Du Deine Kreditkarten- oder PayPal-Daten entfernen.
 
 {% tip %}
 

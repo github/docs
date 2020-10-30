@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_server %} requer um disco de dados persistente separado do disco raiz. Para obter mais informações, consulte "[System overview](/enterprise/admin/guides/installation/system-overview)."

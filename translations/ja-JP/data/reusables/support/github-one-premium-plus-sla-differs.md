@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_one %}を購入したお客様については、{% data variables.contact.premium_support %}による初期返信時間のSLAは、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %}、{% data variables.product.prodname_registry %}のチケットには適用されません。

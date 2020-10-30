@@ -3,7 +3,7 @@ const enterpriseServerReleases = require('../../lib/enterprise-server-releases')
 const japaneseCharacters = require('japanese-characters')
 const nonEnterpriseDefaultVersion = require('../../lib/non-enterprise-default-version')
 
-describe('featuredLinks', () => {
+describe('gettingStartedLinks and popularLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
 
   describe('rendering', () => {
@@ -55,7 +55,7 @@ describe('featuredLinks', () => {
 
   describe('context.page object', () => {
     test('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
+      const gettingStartedLinks = await getJSON('/en?json=gettingStartedLinks')
       const expectedFirstLink = {
         href: `/en/${nonEnterpriseDefaultVersion}/github/getting-started-with-github/set-up-git`,
         title: 'Set up Git'
@@ -66,7 +66,7 @@ describe('featuredLinks', () => {
     })
 
     test('returns raw array of links on the page object', async () => {
-      const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
+      const rawGettingStartedLinks = await getJSON('/en?json=page.rawGettingStartedLinks')
       expect(rawGettingStartedLinks[0]).toEqual('/github/getting-started-with-github/set-up-git')
     })
   })

@@ -30,15 +30,6 @@ Runs tests. Equivalent of `npm test`.
 
 ## Additional scripts
 
-### [`anonymize-branch.js`](anonymize-branch.js)
-
-Flatten all the commits in the current branch into a single anonymized @Octomerger commit
-
-Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
-
----
-
-
 ### [`archive-enterprise-version.js`](archive-enterprise-version.js)
 
 Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
@@ -279,19 +270,6 @@ Usage $ script/new-versioning/main
 ---
 
 
-### [`new-versioning/update-not-fpt-conditionals.js`](new-versioning/update-not-fpt-conditionals.js)
-
-Run this script to update these Liquid conditionals:
-
-{% if currentVersion != 'free-pro-team@latest' %}
-
-to:
-
-{% if enterpriseServerVersions contains currentVersion %}
-
----
-
-
 ### [`new-versioning/update-products-yml.js`](new-versioning/update-products-yml.js)
 
 
@@ -329,7 +307,15 @@ This script is run as a git precommit hook (installed by husky after npm install
 
 ### [`preview-openapi-changes`](preview-openapi-changes)
 
+This script stitches and unstitches the `github/github` OpenAPI description via `rest-api-operations` to produce a local preview in docs-internal.  
 
+`github`, `rest-api-operations`, and `docs-internal` must share a parent directory locally.  
+
+You must bootstrap `github` for this script to work. To check if you need to bootstrap, check if the `bin` directory in `github` exists locally. If it does not exist, run `./script/bootstrap` from the `github` directory.  
+
+To stitch the repos together and do an npm build, pass the `stitch` argument.  
+
+To unstitch the repos and revert them to their pre-stitched state, pass the `unstitch` argument.  
 
 ---
 
@@ -393,19 +379,13 @@ Run this script to remove reusables and image files that exist in the repo but a
 
 This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
 
-It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
+It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for Crowdin to fix them.
 
-Usage: script/reset-translated-file.js <filename>
+Usage: script/reset-translated-File.js <relative-filename> [<two-letter-language-code>]
 
-Examples:
+script/reset-translated-File.js content/desktop/foo.md -> resets all translations of foo.md
 
-reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
-
-reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
-
-reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
-
-reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+script/reset-translated-File.js content/desktop/foo.md de -> resets german translation of foo.md
 
 ---
 

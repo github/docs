@@ -1,6 +1,6 @@
 ---
-title: '管理用户、组织和仓库'
-shortTitle: '管理用户、组织和仓库'
+title: 'Managing users, organizations, and repositories'
+shortTitle: 'Managing users, organizations, and repositories'
 redirect_from:
   - /enterprise/admin/categories/user-management/
   - /enterprise/admin/developer-workflow/using-webhooks-for-continuous-integration

@@ -7,25 +7,25 @@ versions:
   enterprise-server: '*'
 ---
 
-A API dos aplicativos GitHub permite que você obtenha informações de alto nível sobre um aplicativo GitHub, bem como informações específicas sobre as instalações do aplicativo. Para saber mais sobre aplicativos GitHub, consulte "[Efetuar a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)".
+The GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of the app. To learn more about GitHub Apps, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)."
 
 {% data reusables.apps.general-apps-restrictions %}
 
-Esta página lista os pontos de extremidade que você pode acessar enquanto autenticado como um aplicativo GitHub. Consulte "[Efetuar a autenticação como um aplicativo GitHub](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" para saber mais.
+This page lists endpoints that you can access while authenticated as a GitHub App. See "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)" to learn more.
 
-Quando autenticado como um aplicativo GitHub, a API dos aplicativos GitHub permite que você obtenha informações de alto nível sobre um aplicativo GitHub, bem como informações específicas sobre instalações de um aplicativo.
+When authenticated as a GitHub App, the GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of an app.
 
-Você pode acessar os pontos de extremidade da API v3 de REST enquanto autenticado como um aplicativo GitHub. Estes pontos de extremidade têm uma seção de "Observação" que contém um ponto que diz "Funciona com aplicativos GitHub". Você também pode acessar esses pontos de extremidade enquanto estiver autenticado como usuário.
+You can access REST API v3 endpoints while authenticated as a GitHub App. These endpoints have a "Notes" section that contains a bullet point that says "Works with GitHub Apps." You can also access these endpoints while authenticated as a user.
 
-Um subconjunto de pontos de extremidade da API v2 de REST exige autenticação como uma instalação do aplicativo GitHub. Consulte [Instalações](/v3/apps/installations/) para obter uma lista desses pontos de extremidade.
+A subset of REST API v3 endpoints requires authenticating as a GitHub App installation. See [Installations](/v3/apps/installations/) for a list of these endpoints.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
 {% endfor %}
 
-## API de aplicativos do OAuth
+## OAuth Applications API
 
-Você pode usar essa API para gerenciar os tokens do OAuth que um aplicativo OAuth usa para acessar as contas {% data variables.product.prodname_dotcom %} das pessoas.
+You can use this API to manage the OAuth tokens an OAuth application uses to access people's {% data variables.product.prodname_dotcom %} accounts.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'oauth-applications' %}{% include rest_operation %}{% endif %}
@@ -33,9 +33,11 @@ Você pode usar essa API para gerenciar os tokens do OAuth que um aplicativo OAu
 
 ## Instalações
 
-A API de instalações permite que você obtenha informações sobre as instalações do seu aplicativo GitHub e execute ações nessas instalações. Uma _instalação_ refere-se a qualquer usuário ou conta de organização que instalou o aplicativo. Para obter informações sobre como efetuar a autenticação como uma instalação e limitar o acesso a repositórios específicos, consulte "[Efetuar a autenticação como uma instalação](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)".
+The Installations API enables you to get information about installations of your GitHub App and perform actions within those installations. Uma _instalação_ refere-se a qualquer usuário ou conta de organização que instalou o aplicativo. For information on how to authenticate as an installation and limit access to specific repositories, see "[Authenticating as an installation](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)."
 
-Para listar todas as instalações do aplicativo GitHub para uma organização, consulte "[Listar instalações de aplicativos para uma organização](/v3/orgs/#list-app-installations-for-an-organization)".
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+To list all GitHub App installations for an organization, see "[List app installations for an organization](/v3/orgs/#list-app-installations-for-an-organization)."
+{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
@@ -44,29 +46,20 @@ Para listar todas as instalações do aplicativo GitHub para uma organização, 
 {% if currentVersion == "free-pro-team@latest" %}
 ## Marketplace
 
-Para obter mais informações sobre {% data variables.product.prodname_marketplace %}, consulte "[GitHub Marketplace](/marketplace/)".
+For more information about {% data variables.product.prodname_marketplace %}, see "[GitHub Marketplace](/marketplace/)."
 
-A API de {% data variables.product.prodname_marketplace %} permite que você veja quais clientes estão usando um plano de preços, as compras de um cliente e se uma conta tem uma assinatura ativa.
+The {% data variables.product.prodname_marketplace %} API allows you to see which customers are using a pricing plan, see a customer's purchases, and see if an account has an active subscription.
 
-### Fazer testes com pontos de extremidades de amostra
+### Testing with stubbed endpoints
 
-Esta API inclui pontos de extremidade que permitem que você [teste o seu {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) com **dados de amostra**. Os dados do de amostra têm código rígido, dados falsos e não serão alterados com base em assinaturas reais.
+This API includes endpoints that allow you to [test your {% data variables.product.prodname_github_app %}](/marketplace/integrating-with-the-github-marketplace-api/testing-github-marketplace-apps/) with **stubbed data**. Stubbed data is hard-coded, fake data that will not change based on actual subscriptions.
 
-Para fazer teste com dados de amostra, use um pontos de extremidade de amostra no lugar da sua contraparte de produção. Isso permite que você teste se a lógica da API é bem-sucedida antes de listar {% data variables.product.prodname_github_app %} no {% data variables.product.prodname_marketplace %}.
+To test with stubbed data, use a stubbed endpoint in place of its production counterpart. This allows you to test whether API logic succeeds before listing {% data variables.product.prodname_github_app %}s on {% data variables.product.prodname_marketplace %}.
 
-Certifique-se de substituir pontos de extremidades de amostra pelos pontos de extremidades de produção antes de implantar seu {% data variables.product.prodname_github_app %}.
+Be sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
-{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-## Webhooks
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

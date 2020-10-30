@@ -1,0 +1,1 @@
+如果没有配置文件，请按照首次安装 {% data variables.product.prodname_insights %} 的说明进行操作。 更多信息请参阅“[安装 {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/installing-github-insights#installing-github-insights)。”

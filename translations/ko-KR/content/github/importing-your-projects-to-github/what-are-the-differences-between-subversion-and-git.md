@@ -35,9 +35,9 @@ Git projects are also stored within a single directory. However, Git obscures th
 A Git workflow looks like this:
 
 * A Git repository stores the full history of all of its branches and tags within the *.git* directory.
-* The latest stable release is contained within the default branch.
+* The latest stable release is contained within the `master` branch.
 * Active feature work is developed in separate branches.
-* When a feature is finished, the feature branch is merged into the default branch and deleted.
+* When a feature is finished, the feature branch is merged into `master` and deleted.
 
 Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 

@@ -1,6 +1,6 @@
 ---
 title: リポジトリ間の接続を理解する
-intro: 'You can better understand the connections that exist between repositories by viewing a repository''s network{% if currentVersion == "free-pro-team@latest" %}, projects that depend on the repository,{% endif %} and its forks.'
+intro: 'リポジトリのネットワーク{% if currentVersion == "free-pro-team@latest" %}、リポジトリに依存するプロジェクト{% endif %}やそのフォークを確認することで、リポジトリ間のつながりをより深く理解できます。'
 mapTopic: true
 redirect_from:
   - /articles/understanding-connections-between-repositories

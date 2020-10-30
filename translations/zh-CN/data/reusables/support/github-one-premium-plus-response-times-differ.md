@@ -1,0 +1,1 @@
+对于购买 {% data variables.product.prodname_ghe_one %} 的客户，对 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %} 和 {% data variables.product.prodname_registry %} 的支持服务为每周 5 天，每天 24 小时，不包括周末和美国国家法定节假日。 标准响应时间为 1 个工作日

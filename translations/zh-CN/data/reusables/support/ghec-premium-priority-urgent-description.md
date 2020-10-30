@@ -1,0 +1,1 @@
+在 {% data variables.product.prodname_ghe_cloud %} 上的组织或企业的生产工作流程由于严重服务错误或中断而失败，并且该失败直接影响您的业务运营。

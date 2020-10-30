@@ -1,6 +1,6 @@
 ---
-title: 推送和拉取 Docker 映像
-intro: '您可以在 {% data variables.product.prodname_github_container_registry %} 中存储和管理 Docker 映像。'
+title: Pushing and pulling Docker images
+intro: 'You can store and manage Docker images in {% data variables.product.prodname_github_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 versions:
   free-pro-team: '*'
@@ -8,57 +8,55 @@ versions:
 
 {% data reusables.package_registry.container-registry-beta %}
 
-要推送和拉取组织拥有的容器映像，组织管理员必须为组织启用 {% data variables.product.prodname_github_container_registry %}。 更多信息请参阅“[为组织启用 GitHub Container Registry](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)”。
+To push and pull container images owned by an organization, an organization admin must enable {% data variables.product.prodname_github_container_registry %} for the organization. For more information, see "[Enabling GitHub Container Registry for your organization](/packages/getting-started-with-github-container-registry/enabling-github-container-registry-for-your-organization)."
 
 ### 向 {% data variables.product.prodname_github_container_registry %} 验证
 
-{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+{% data reusables.package_registry.authenticate-to-container-registry %}
 
-{% data reusables.package_registry.authenticate-to-container-registry-steps %}
+### Pushing container images
 
-### 推送容器映像
-
-此示例推送最新版本的 `IMAGE-NAME`。
+This example pushes the latest version of `IMAGE-NAME`.
   ```shell
-  $ docker push ghcr.io/OWNER/IMAGE_NAME:latest
+  $ docker push ghcr.io/OWNER/IMAGE_NAME.latest
   ```
 
-此示例推送 `2.5` 版的映像。
+This example pushes the `2.5` version of the image.
   ```shell
   $ docker push ghcr.io/OWNER/IMAGE-NAME:2.5
   ```
 
-首次发布包时，默认可见性是私有的。 要更改可见性或设置访问权限，请参阅“[配置容器映像的访问控制和可见性](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)”。
+When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[Configuring access control and visibility for container images](/packages/managing-container-images-with-github-container-registry/configuring-access-control-and-visibility-for-container-images)."
 
-### 拉取容器映像
+### Pulling container images
 
-#### 通过摘要拉取
+#### Pull by digest
 
-为了确保始终使用相同的映像，您可以通过 `digest` SHA 值指定要拉取的准确容器映像版本。
+To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
 
-1. 要查找摘要 SHA 值，请使用 `docker inspect` 或 `docker pull`，并复制 `Digest:` 后的 SHA 值
+1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
   ```shell
   $ docker inspect ghcr.io/OWNER/IMAGE_NAME
   ```
-2. 按需要在本地删除映像。
+2. Remove image locally as needed.
   ```shell
-  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME:latest
+  $ docker rmi  ghcr.io/OWNER/IMAGE_NAME.latest
   ```
 
-3. 拉取图像名称后有 `@YOUR_SHA_VALUE` 的容器映像。
+3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
   ```
 
-#### 按名称拉取
+#### Pull by name
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME
   ```
 
-#### 按名称和版本拉取
+#### Pull by name and version
 
-显示按名称和 `1.14.1` 版本标记拉取映像的 Docker CLI 示例：
+Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:1.14.1
   > 5e35bd43cf78: Pull complete
@@ -70,7 +68,7 @@ versions:
   > ghcr.io/orgname/image-name/release:1.14.1
   ```
 
-#### 按名称和最新版本拉取
+#### Pull by name and latest version
 
   ```shell
   $ docker pull ghcr.io/OWNER/IMAGE_NAME:latest
@@ -80,16 +78,16 @@ versions:
   > ghcr.io/user/image-name:latest
   ```
 
-### 构建容器映像
+### Building container images
 
-此示例构建 `hello_docker` 映像：
+This example builds the `hello_docker` image:
   ```shell
   $ docker build -t hello_docker .
   ```
 
-### 标记容器映像
+### Tagging container images
 
-1. 找到要标记的 Docker 映像的 ID。
+1. Find the ID for the Docker image you want to tag.
   ```shell
   $ docker images
   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
@@ -98,7 +96,7 @@ versions:
   > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
   ```
 
-2. 使用映像 ID 以及所需的映像名称和托管目标标记 Docker 映像。
+2. Tag your Docker image using the image ID and your desired image name and hosting destination.
   ```shell
   $ docker tag 38f737a91f39 ghcr.io/OWNER/NEW_IMAGE_NAME:latest
   ```

@@ -1,3 +1,3 @@
-Você deve usar a "Interface Clássica" no Okta. Para obter mais informações, consulte [Navegação Organizada](https://developer.okta.com/blog/2017/09/25/all-new-developer-console#new-look--feel) no blog do Okta.
+You must use the "Classic UI" in Okta. For more information, see [Organized Navigation](https://developer.okta.com/blog/2017/09/25/all-new-developer-console#new-look--feel) on the Okta blog.
 
-![Selecionar "Interface de usuário clássica" do seletor de estilo da interface de usuário do Okta acima do painel](/assets/images/help/saml/okta-classic-ui.png)
+![Selecting "Classic UI" from Okta UI style picker above dashboard](/assets/images/help/saml/okta-classic-ui.png)

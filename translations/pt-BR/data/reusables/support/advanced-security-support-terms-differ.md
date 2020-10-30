@@ -1,0 +1,1 @@
+The terms of this article do not apply to support for {% data variables.product.prodname_advanced_security %}. For more information, see "[About support for {% data variables.product.prodname_advanced_security %}](/enterprise/admin/enterprise-support/about-support-for-advanced-security)."

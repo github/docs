@@ -1,0 +1,1 @@
+Las GitHub Apps deben utilizar un [JWT](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) para acceder a esta terminal. Las Apps de OAuth deben utilizar la [autenticación básica](/v3/auth/#basic-authentication) con su ID y secreto de cliente para acceder a esta terminal.

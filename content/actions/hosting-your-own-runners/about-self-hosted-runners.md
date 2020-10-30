@@ -91,7 +91,7 @@ The following operating systems are supported for the self-hosted runner applica
 
 - macOS 10.13 (High Sierra) or later
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion != "free-pro-team@latest" %}
 
 ### Supported actions on self-hosted runners
 

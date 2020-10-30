@@ -1,0 +1,1 @@
+**`completed_at`もしくは`completed`という`status`を提供する場合必須**です。 チェックの最終的な結果です。 Can be one of `success`, `failure`, `neutral`, `cancelled`, {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}`skipped`, {% endif %}`timed_out`, or `action_required`.

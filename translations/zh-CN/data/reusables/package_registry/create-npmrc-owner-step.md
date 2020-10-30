@@ -5,11 +5,11 @@
 registry=https://npm.pkg.github.com/<em>OWNER</em>
   ```
 {% else %}
-  如果启用了子域隔离：
+  If subdomain isolation is enabled:
   ```shell
   registry=https://npm.<em>HOSTNAME</em>/<em>OWNER</em>
   ```
-  如果禁用了子域隔离：
+  If subdomain isolation is disabled:
   ```shell
   https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
   ```

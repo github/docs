@@ -1,0 +1,1 @@
+この記事の条項は{% data variables.product.prodname_advanced_security %}のサポートには適用されません。 詳しい情報については「[{% data variables.product.prodname_advanced_security %}のサポートについて](/enterprise/admin/enterprise-support/about-support-for-advanced-security)」を参照してください。

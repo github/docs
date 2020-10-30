@@ -1,0 +1,1 @@
+Por padrão, sua conta terá um limite de gastos de $0 para o seu uso combinado de {% data variables.product.prodname_registry %} e {% data variables.product.prodname_actions %}. Para permitir superações, você pode aumentar o limite de gastos ou permitir gastos ilimitados.

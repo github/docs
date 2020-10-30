@@ -1,0 +1,1 @@
+Tienes una pregunta o sugerencia sobre tu organización o empresa en {% data variables.product.prodname_ghe_cloud %} que no es urgente, o no bloquea la productividad de tu equipo en alguna otra forma.

@@ -1,1 +1,1 @@
-Depois de criar um aplicativo GitHub, você pode fazer alterações nele.
+After creating a GitHub App, you can make changes to it.

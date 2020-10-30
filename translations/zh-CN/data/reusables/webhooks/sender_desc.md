@@ -1,1 +1,1 @@
-`sender` | `object` | 触发事件的用户。
+`sender` | `object` | The user that triggered the event.

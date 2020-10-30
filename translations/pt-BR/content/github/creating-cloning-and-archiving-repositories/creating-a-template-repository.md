@@ -1,25 +1,19 @@
 ---
-title: Creating a template repository
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} and files.'
-permissions: 'Anyone with admin permissions to a repository can make the repository a template.'
+title: Criar um repositório de modelos
+intro: 'Você pode converter um repositório existente em um modelo, para que você e outras pessoas possam gerar novos repositórios com a mesma estrutura de diretório{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} e arquivos.'
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '>=2.18'
 ---
 
-{% note %}
+Qualquer pessoa com permissões de administrador em um repositório pode transformar o repositório em um modelo.
 
-**Note**: Your template repository cannot include files stored using {% data variables.large_files.product_name_short %}.
+Para criar um repositório de modelos, é preciso criar um repositório e, em seguida, torná-lo um modelo. Para obter mais informações sobre como criar um repositório, consulte "[Criar um repositório](/articles/creating-a-new-repository)".
 
-{% endnote %}
-
-To create a template repository, you must create a repository, then make the repository a template. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
-
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+Depois de converter o seu repositório em um modelo, qualquer pessoa com acesso ao repositório poderá gerar um novo repositório com a mesma estrutura de diretório e arquivos do branch-padrão.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Eles também podem optar por incluir todos os outros branches no seu repositório.{% endif %} Para obter mais informações, consulte "[Criar um repositório a partir de um modelo](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Select **Template repository**.
-  ![Checkbox to make a repository a template](/assets/images/help/repository/template-repository-checkbox.png)
+3. Selecione **Template repository** (Repositório de modelos). ![Caixa de seleção para transformar um repositório em modelo](/assets/images/help/repository/template-repository-checkbox.png)

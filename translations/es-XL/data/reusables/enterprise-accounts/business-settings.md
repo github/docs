@@ -1,0 +1,1 @@
+1. Dentro del nombre de tu cuenta de empresa, haz clic en {% octicon "gear" aria-label="The Settings gear" %} **Settings (Parámetros)**. ![Pestaña de parámetros en la página de perfil de la cuenta de empresa](/assets/images/help/business-accounts/business-account-settings-tab.png)

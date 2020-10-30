@@ -1,6 +1,6 @@
 ---
 title: 情報を表に編成する
-intro: '表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。'
+intro: 表を作成して、コメント、Issue、プルリクエスト、ウィキの情報を編成できます。
 redirect_from:
   - /articles/organizing-information-with-tables
 versions:

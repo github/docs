@@ -10,10 +10,10 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data variables.product.prodname_actions %} の支払いを管理する
+{% data reusables.actions.enterprise-beta %}
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
-### {{ site.data.variables.product.prodname_dotcom }}を使ったセルフホストランナーのステータスのチェック
+### {% data variables.product.prodname_dotcom %}を使ったセルフホストランナーのステータスのチェック
 
 {% data reusables.github-actions.self-hosted-runner-management-permissions-required %}
 

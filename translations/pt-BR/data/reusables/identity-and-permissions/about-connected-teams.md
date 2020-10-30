@@ -1,0 +1,7 @@
+Depois que as equipes do {% data variables.product.prodname_dotcom %} estiverem conectadas a um grupo de IdP, o administrador do IdP deve fazer as alterações na associação a equipes por meio do provedor de identidade. Se uma equipe estiver conectada a um grupo de IdP, você não poderá gerenciar a associação à equipe no {% data variables.product.product_name %} ou usando a API.
+
+Para gerenciar o acesso ao repositório de qualquer equipe do {% data variables.product.prodname_dotcom %} incluindo equipes conectadas a um grupo de IdP, você deve fazer alterações no {% data variables.product.product_name %}. Para obter mais informações, consulte "[Sobre equipes](/articles/about-teams)" e "[Gerenciar o acesso da equipe ao repositório de uma organização](/articles/managing-team-access-to-an-organization-repository)".
+
+Você pode selecionar os repositórios aos quais você deseja que os membros da equipe tenham acesso por padrão. Os grupos de IdP conectados terão acesso automaticamente a esses repositórios. Para obter mais informações, consulte "[Managing team access to an organization repository](/articles/managing-team-access-to-an-organization-repository)."
+
+Todas as alterações de membros da equipe feitas através do seu IdP aparecerão no log de auditoria do {% data variables.product.product_name %} como alterações feitas pelo bot de sincronização de equipe. Seu IdP enviará dados de membros da equipe para {% data variables.product.prodname_dotcom %} uma vez a cada hora.

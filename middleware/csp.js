@@ -8,6 +8,7 @@ module.exports = contentSecurityPolicy({
     defaultSrc: ["'none'"],
     connectSrc: [
       "'self'",
+      '*.google-analytics.com',
       '*.algolia.net',
       '*.algolianet.com'
     ],
@@ -18,6 +19,7 @@ module.exports = contentSecurityPolicy({
     ],
     imgSrc: [
       "'self'",
+      '*.google-analytics.com',
       'github.githubassets.com',
       'github-images.s3.amazonaws.com',
       'octodex.github.com',
@@ -30,7 +32,8 @@ module.exports = contentSecurityPolicy({
       "'self'",
       'data:',
       "'unsafe-eval'", // exception for Algolia instantsearch
-      "'unsafe-inline'"
+      "'unsafe-inline'",
+      '*.google-analytics.com'
     ],
     frameSrc: [ // exceptions for GraphQL Explorer
       'https://graphql-explorer.githubapp.com', // production env

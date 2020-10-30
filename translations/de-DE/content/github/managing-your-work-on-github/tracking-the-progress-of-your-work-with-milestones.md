@@ -1,6 +1,6 @@
 ---
 title: Fortschritt Deiner Arbeit mit Meilensteinen verfolgen
-intro: 'Sie können den Fortschritt Ihrer Arbeit auf {% data variables.product.product_name %} mithilfe von Meilensteinen verfolgen, die Sie für Issues und Pull Requests erstellen.'
+intro: 'Du kannst den Fortschritt Deiner Arbeit auf {% data variables.product.product_name %} mithilfe von Meilensteinen verfolgen, die Du für Issues und Pull Requests erstellst.'
 mapTopic: true
 redirect_from:
   - /articles/tracking-the-progress-of-your-work-with-milestones

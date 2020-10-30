@@ -1,14 +1,14 @@
 ##### **Example using a single event**
 
 ```yaml
-# Triggered when code is pushed to any branch in a repository
+# Trigger on push
 on: push
 ```
 
 ##### **Example using a list of events**
 
 ```yaml
-# Triggers the workflow on push or pull request events
+# Trigger the workflow on push or pull request
 on: [push, pull_request]
 ```
 
@@ -19,13 +19,13 @@ If you need to specify activity types or configuration for an event, you must co
 ```yaml
 on:
   # Trigger the workflow on push or pull request,
-  # but only for the main branch
+  # but only for the master branch
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
   # Also trigger on page_build, as well as release created events
   page_build:
   release:

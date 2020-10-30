@@ -1,1 +1,1 @@
-1. Escolha quem pode ver o seu patrocínio.
+1. Choose who can see your sponsorship.

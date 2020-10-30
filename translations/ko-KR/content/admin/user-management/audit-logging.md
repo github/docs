@@ -5,6 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/audit-logging/
   - /enterprise/admin/installation/audit-logging
   - /enterprise/admin/user-management/audit-logging
+  - /enterprise/admin/user-management/audit-logging
 versions:
   enterprise-server: '*'
 ---

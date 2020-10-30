@@ -1,1 +1,1 @@
-  1. Leia o alerta e clique em **OK**.
+  1. Read the warning, then click **OK**.

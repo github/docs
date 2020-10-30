@@ -17,9 +17,8 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
-Please contact
 
-{% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
+如果您因陌生人滥用而需要关闭议题，请联系 {% data variables.contact.contact_support %}。
 {% data reusables.policies.abuse %}
 
 {% endtip %}

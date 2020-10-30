@@ -4,6 +4,7 @@ shortTitle: GitHub Packages
 intro: 'You can enable {% data variables.product.prodname_registry %} for your enterprise and manage {% data variables.product.prodname_registry %} settings and allowed packaged types.'
 redirect_from:
   - /enterprise/admin/packages
+  - /enterprise/admin/packages
 versions:
   enterprise-server: '>=2.22'
 ---

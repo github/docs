@@ -1,0 +1,1 @@
+1. Klicke rechts neben Deiner Organisation auf **Sponsorship dashboard** (Sponsoring-Dashboard). ![Schaltfläche „Sponsorship dashboard" (Sponsoring-Dashboard)](/assets/images/help/sponsors/org-sponsorship-dashboard.png)

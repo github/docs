@@ -1,1 +1,1 @@
-You can require that members use SSH certificates to access organization resources,, unless SSH is disabled in your repository.
+{% if currentVersion ver_gt "enterprise-server@2.17" %}SSHがリポジトリで無効になっていなければ、{% endif %}Organizationのリソースにメンバーがアクセスする際に、SSH証明書を使わなければならないようにすることができます。

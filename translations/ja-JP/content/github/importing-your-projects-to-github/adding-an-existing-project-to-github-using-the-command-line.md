@@ -21,15 +21,12 @@ versions:
 
 {% mac %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
@@ -51,23 +48,20 @@ versions:
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
-  $ git push -u origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  $ git push -u origin master
+  # origin として指定したリモートリポジトリにローカルリポジトリの変更をプッシュ
   ```
 
 {% endmac %}
 
 {% windows %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
@@ -89,23 +83,20 @@ versions:
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
-  $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  $ git push origin master
+  # origin として指定したリモートリポジトリにローカルリポジトリの変更をプッシュ
   ```
 
 {% endwindows %}
 
 {% linux %}
 
-1. [Create a new repository](/articles/creating-a-new-repository) on
-
-{% data variables.product.product_location %}. エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。
-    ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
+1. {% data variables.product.product_location %}上で[新しいリポジトリを作成](/articles/creating-a-new-repository)します。 エラーを避けるため、新しいリポジトリは*README*、ライセンス、あるいは `gitignore` で初期化しないでください。 これらのファイルは、プロジェクトを {% data variables.product.product_name %}にプッシュした後で追加できます。 ![[Create New Repository] ドロップダウン](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. ワーキングディレクトリをローカルプロジェクトに変更します。
 4. ローカルディレクトリを Git リポジトリとして初期化します。
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. ファイルを新しいローカルリポジトリに追加します。 これで、それらのファイルが最初のコミットに備えてステージングされます。
   ```shell
@@ -127,8 +118,8 @@ versions:
   ```
 9. {% data variables.product.product_location %} へ、ローカルリポジトリの[変更をプッシュ](/articles/pushing-commits-to-a-remote-repository/)します。
   ```shell
-  $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+  $ git push origin master
+  # origin として指定したリモートリポジトリにローカルリポジトリの変更をプッシュ
   ```
 
 {% endlinux %}

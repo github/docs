@@ -1,0 +1,1 @@
+<ul><li>{% data variables.product.prodname_dotcom_the_website %}のエラーもしくは中断が、OrganizationもしくはEnterpriseのすべてのメンバーに対し、中核的なGitもしくはWebアプリケーションの機能に影響している。</li></ul>

@@ -1,0 +1,1 @@
+Se você não tem um arquivo de configuração, siga as instruções para instalar {% data variables.product.prodname_insights %} pela primeira vez. Para obter mais informações, consulte "[Installing {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/installing-github-insights#installing-github-insights)."

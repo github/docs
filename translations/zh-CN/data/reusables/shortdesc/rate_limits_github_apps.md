@@ -1,1 +1,1 @@
-GitHub 应用程序的速率限制有助于控制流量。
+Rate limits for GitHub Apps help control the rate of traffic.

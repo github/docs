@@ -1,0 +1,1 @@
+Wenn Dein Projekt Abhängigkeiten hat, aber keine Abhängigkeiten in Deinem Diagramm entdeckt werden, kann es ein Problem mit der Datei sein, die Deine Abhängigkeiten enthält. Überprüfe Deine Projektdatei, um sicherzustellen, dass sie für diesen Dateityp korrekt formatiert ist.

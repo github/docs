@@ -1,0 +1,1 @@
+必须使用个人访问令牌（您可以通过[命令行](/articles/creating-a-personal-access-token-for-the-command-line/)或[OAuth 授权 API](/v3/oauth_authorizations/#create-a-new-authorization) 来创建）或[基本身份验证](/v3/auth/#basic-authentication)才能访问此端点。

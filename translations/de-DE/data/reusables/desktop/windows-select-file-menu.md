@@ -1,0 +1,1 @@
+1. Wähle in der oberen linken Ecke Deines Bildschirms das Menü **File** (Datei) aus. ![Das Menü {% data variables.product.prodname_desktop %} auf der Windows-Menüleiste](/assets/images/help/desktop/windows-select-file-menu.png)

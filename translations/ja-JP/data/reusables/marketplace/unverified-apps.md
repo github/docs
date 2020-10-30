@@ -1,1 +1,1 @@
-未検証のアプリケーションは、Freeプランでのみ提供されます。 有料プランでリストされるには、検証済みアプリケーションをサブミットしなければなりません。
+Unverified apps are only offered with free plans. To list paid plans, you must submit a verified app.

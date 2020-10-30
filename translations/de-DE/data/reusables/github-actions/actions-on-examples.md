@@ -1,14 +1,14 @@
 ##### **Beispiel mit einem einzelnen Ereignis**
 
 ```yaml
-# Triggered when code is pushed to any branch in a repository
+# Bei Push auslösen
 on: push
 ```
 
 ##### **Beispiel mit einer Ereignisliste**
 
 ```yaml
-# Triggers the workflow on push or pull request events
+# Workflow bei Push oder bei Pull Request auslösen
 on: [push, pull_request]
 ```
 
@@ -18,17 +18,17 @@ Wenn Du Aktivitätstypen oder Konfigurationen für ein Ereignis angeben musst, m
 
 ```yaml
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
+  # Workflow bei Push oder Pull Request ausloesen,
+  # aber nur für den Master-Branch
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
-  # Also trigger on page_build, as well as release created events
+      - master
+  # Auch bei page_build ausloesen, wie auch für Release erstellte Ereignisse
   page_build:
   release:
-    types: # This configuration does not affect the page_build event above
+    types: # Diese Konfiguration beeinflusst das obige page_build Ereignis nicht
       - created
 ```

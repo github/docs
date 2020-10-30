@@ -1,0 +1,7 @@
+Wenn Ihre {% data variables.product.prodname_dotcom %}-Teams mit einer IdP-Gruppe verbunden sind, muss Ihr IdP-Administrator Änderungen an der Teammitgliedschaft über den Identity Provider vornehmen. Wenn ein Team mit einer IdP-Gruppe verbunden ist, kannst Du die Teammitgliedschaft nicht auf {% data variables.product.product_name %} oder mit dem API verwalten.
+
+Um den Repository-Zugriff für jedes {% data variables.product.prodname_dotcom %}-Team zu verwalten, einschließlich Teams, die mit einer IdP-Gruppe verbunden sind, musst Du Änderungen auf {% data variables.product.product_name %} vornehmen. Weitere Informationen findest Du unter „[Informationen zu Teams](/articles/about-teams)“ und „[Teamzugriff auf ein Organisations-Repository verwalten](/articles/managing-team-access-to-an-organization-repository).“
+
+Du kannst die Repositorys auswählen, auf die Deine Teammitglieder standardmäßig Zugriff haben sollen. Verbundene IdP-Gruppen werden automatisch Zugriff auf diese Repositorys haben. Weitere Informationen findest Du unter „[Den Zugriff eines Teams auf ein Repository einer Organisation verwalten](/articles/managing-team-access-to-an-organization-repository).“
+
+Alle über den IdP vorgenommenen Änderungen an der Teammitgliedschaft werden im Auditprotokoll von {% data variables.product.product_name %} als Änderungen des Teamsynchronisierungs-Bots angezeigt. Dein IdP wird die Daten der Teammitgliedschaft einmal pro Stunde an {% data variables.product.prodname_dotcom %} senden.

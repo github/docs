@@ -27,7 +27,7 @@ versions:
 {% data reusables.sponsors.opt-in-to-being-featured %}
 {% data reusables.sponsors.save-profile %}
 
-### 编辑被赞助组织资料
+### Editing your sponsored organization profile
 
 {% data reusables.sponsors.navigate-to-org-sponsors-dashboard %}
 {% data reusables.sponsors.navigate-to-profile-tab %}

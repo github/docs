@@ -11,6 +11,7 @@ versions:
 
 This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 
+
 ### Reasons for switching to GitHub Apps
 
 [GitHub Apps](/apps/) are the officially recommended way to integrate with GitHub because they offer many advantages over a pure OAuth-based integration:

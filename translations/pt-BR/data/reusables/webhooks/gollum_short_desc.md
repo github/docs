@@ -1,1 +1,1 @@
-Uma página wiki foi criada ou atualizada. Para obter mais informações, consulte "[Sobre wikis](/github/building-a-strong-community/about-wikis)".
+A wiki page is created or updated. For more information, see the "[About wikis](/github/building-a-strong-community/about-wikis)".

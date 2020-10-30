@@ -5,6 +5,7 @@ redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
+  - /enterprise/admin/user-management/activity-dashboard
 versions:
   enterprise-server: '*'
 ---

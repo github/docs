@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_cloud %}上のOrganizationあるいはEnterpriseのメンバーが、{% data variables.product.prodname_dotcom_the_website %}において限定的あるいは中程度の問題を体験している、もしくはOrganizatonもしくはEnterpriseに関する一般的な懸念や疑問がある。

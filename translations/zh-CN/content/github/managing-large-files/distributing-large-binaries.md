@@ -1,6 +1,6 @@
 ---
 title: 分发大型二进制文件
-intro: '除了分发源代码外，一些项目还需要分发大型文件，例如二进制文件或安装程序。'
+intro: 除了分发源代码外，一些项目还需要分发大型文件，例如二进制文件或安装程序。
 redirect_from:
   - /articles/distributing-large-binaries
 versions:

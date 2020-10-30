@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_cloud %}上のOrganizationもしくはEnterpriseにおけるアカウントもしくはセキュリティの問題が、ビジネスに限定的な影響を及ぼしている。

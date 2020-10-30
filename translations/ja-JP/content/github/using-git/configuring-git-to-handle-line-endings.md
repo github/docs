@@ -1,6 +1,6 @@
 ---
 title: 行終端を処理するようGitを設定する
-intro: 'diff における問題を回避するため、行終端を正しく処理できるよう Git を設定できます。'
+intro: diff における問題を回避するため、行終端を正しく処理できるよう Git を設定できます。
 redirect_from:
   - /dealing-with-lineendings/
   - /line-endings/

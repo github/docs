@@ -1,6 +1,6 @@
 ---
 title: 基本的なリポジトリデータへのアクセス
-intro: 'You can view basic information about a repository, such as the repository''s activity{% if currentVersion == "free-pro-team@latest" %}, traffic,{% endif %} and contribution activity.'
+intro: 'リポジトリのアクティビティ{% if currentVersion == "free-pro-team@latest" %}、トラフィック{% endif %}、コントリビューションのアクティビティなど、リポジトリについての基本情報を見ることができます。'
 mapTopic: true
 redirect_from:
   - /articles/accessing-basic-repository-data

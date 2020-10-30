@@ -4,6 +4,7 @@ redirect_from:
   - /enterprise/admin/articles/preventing-users-from-creating-organizations/
   - /enterprise/admin/hidden/preventing-users-from-creating-organizations/
   - /enterprise/admin/user-management/preventing-users-from-creating-organizations
+  - /enterprise/admin/user-management/preventing-users-from-creating-organizations
 intro: 'You can prevent users from creating organizations on your {% data variables.product.prodname_ghe_server %} appliance.'
 versions:
   enterprise-server: '*'

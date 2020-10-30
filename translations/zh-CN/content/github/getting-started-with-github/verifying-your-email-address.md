@@ -28,7 +28,7 @@ versions:
 
 {% warning %}
 
-**警告**：
+**Warnings**:
 
 - {% data reusables.user_settings.no-verification-disposable-emails %}
 - {% data reusables.user_settings.verify-org-approved-email-domain %}

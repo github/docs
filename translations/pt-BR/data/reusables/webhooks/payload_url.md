@@ -1,1 +1,1 @@
-A URL doa carga é a URL do servidor que receberá as solicitações de `POST` do webhook.
+The payload URL is the URL of the server that will receive the webhook `POST` requests.

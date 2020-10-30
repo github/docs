@@ -1,0 +1,1 @@
+1. No canto superior esquerdo da janela, selecione o menu **File** (Arquivo). ![Menu do {% data variables.product.prodname_desktop %} na barra de menu do Windows](/assets/images/help/desktop/windows-select-file-menu.png)

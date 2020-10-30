@@ -7,16 +7,16 @@ versions:
   enterprise-server: '*'
 ---
 
-### Tipos de mídia personalizados para problemas
+### Custom media types for issues
 
-Estes são os tipos de mídia compatíveis para problemas.
+These are the supported media types for issues.
 
     application/vnd.github.VERSION.raw+json
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
 
-Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de mídia personalizados](/rest/overview/media-types)".
+For more information about media types, see "[Custom media types](/rest/overview/media-types)."
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -30,9 +30,9 @@ Para obter mais informações sobre os tipos de mídia, consulte "[Tipos de míd
 
 ## Comentários
 
-A API de Comentários do Problema é compatível com listagem, visualização, edição e criação de comentários em problemas e pull requests.
+The Issue Comments API supports listing, viewing, editing, and creating comments on issues and pull requests.
 
-Os comentários do problema usam [estes tipos de mídia personalizados](#custom-media-types). Você pode ler mais sobre o uso de tipos de mídia na API [aqui](/v3/media/).
+Issue Comments use [these custom media types](#custom-media-types). You can read more about the use of media types in the API [here](/v3/media/).
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'comments' %}{% include rest_operation %}{% endif %}
@@ -40,7 +40,7 @@ Os comentários do problema usam [estes tipos de mídia personalizados](#custom-
 
 ## Eventos
 
-A API de Eventos de problema pode retornar diferentes tipos de eventos desencadeados por atividades em problemas e pull requests. The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." Para obter mais informações, consulte a "[API de Eventos](/developers/webhooks-and-events/github-event-types)".
+The Issue Events API can return different types of events triggered by activity in issues and pull requests. The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." For more information, see the "[Events API](/developers/webhooks-and-events/github-event-types)."
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'events' %}{% include rest_operation %}{% endif %}
@@ -60,9 +60,9 @@ A API de Eventos de problema pode retornar diferentes tipos de eventos desencade
 
 ## Linha do tempo
 
-A API de Eventos da Linha do Tempo pode retornar diferentes tipos de eventos acionados pela atividade da linha do tempo em problemas e pull requests. The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." Para obter mais informações, consulte a "[API de Eventos do GitHub](/developers/webhooks-and-events/github-event-types)".
+The Timeline Events API can return different types of events triggered by timeline activity in issues and pull requests. The Issue Events API can return different types of events triggered by activity in issues and pull requests. For more information about the specific events that you can receive from the Issue Events API, see "[Issue event types](/developers/webhooks-and-events/issue-event-types)." For more information, see the "[GitHub Events API](/developers/webhooks-and-events/github-event-types)."
 
-Você pode usar esta API para exibir informações sobre problemas e pull request ou determinar quem deve ser notificado sobre os comentários de problema.
+You can use this API to display information about issues and pull request or determine who should be notified of issue comments.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'timeline' %}{% include rest_operation %}{% endif %}

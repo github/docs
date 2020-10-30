@@ -6,7 +6,7 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '>=2.18'
 ---
 
 Organization のオーナーは、Organization 内のメンバー名表示を管理できます。

@@ -1,0 +1,1 @@
+1. Um Dich im {% data variables.contact.enterprise_portal %} anzumelden, klicke in der oberen rechten Ecke der Seite auf **Sign in** (Anmelden). ![Melden Dich bei {% data variables.contact.enterprise_portal %} an](/assets/images/enterprise/support/sign-in-support-portal.png)

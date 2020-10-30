@@ -1,6 +1,6 @@
 ---
 title: 配置 Git 处理行结束符
-intro: '为避免差异中出现问题，可配置 Git 正常处理行标题。'
+intro: 为避免差异中出现问题，可配置 Git 正常处理行标题。
 redirect_from:
   - /dealing-with-lineendings/
   - /line-endings/

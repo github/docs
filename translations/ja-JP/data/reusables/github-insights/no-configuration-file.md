@@ -1,0 +1,1 @@
+設定ファイルを持っていない場合は、{% data variables.product.prodname_insights %}の初回インストールのための指示に従ってください。 詳しい情報については「[{% data variables.product.prodname_insights %}のインストール](/insights/installing-and-configuring-github-insights/installing-github-insights#installing-github-insights)」を参照してください。

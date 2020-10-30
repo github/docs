@@ -10,6 +10,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/web-based-management-console/
   - /enterprise/admin/installation/accessing-the-management-console
   - /enterprise/admin/configuration/accessing-the-management-console
+  - /enterprise/admin/configuration/accessing-the-management-console
 versions:
   enterprise-server: '*'
 ---

@@ -1,0 +1,2 @@
+1. Aktiviere oder deaktiviere unter „Automated security updates" (Automatische Sicherheitsaktualisierungen) die Option **Opt out of automated security updates** (auf automatische Sicherheitsaktualisierungen verzichten). ![Kontrollkästchen für den Verzicht auf automatische Sicherheitsaktualisierungen](/assets/images/help/repository/opt-out-automated-security-updates.png)
+2. Klicke auf **Save** (Speichern).

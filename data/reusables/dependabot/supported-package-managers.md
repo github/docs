@@ -7,7 +7,7 @@ Docker: `docker` |
 Elm: `elm` |
 git submodule: `gitsubmodule` |
 GitHub Actions: `github-actions` |
-Go modules: `gomod` | **X**
+Go modules: `gomod` |
 Gradle: `gradle` |
 Maven: `maven` |
 Mix: `mix` |

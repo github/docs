@@ -21,7 +21,7 @@ You only need an existing {% data variables.product.prodname_dotcom %} repositor
 1. From your repository on {% data variables.product.prodname_dotcom %}, create a new file in the `.github/workflows` directory named `superlinter.yml`. For more information, see "[Creating new files](/github/managing-files-in-a-repository/creating-new-files)."
 2. Copy the following YAML contents into the `superlinter.yml` file. **Note:** If your default branch is not `main`, update the value of `DEFAULT_BRANCH` to match your repository's default branch name.
     {% raw %}
-    ```yaml{:copy}
+    ```yaml
     name: Super-Linter
 
     # Run this workflow every time a new commit pushed to your repository
@@ -55,12 +55,11 @@ Committing the workflow file in your repository triggers the `push` event and ru
 
 ### Viewing your workflow results
 
-{% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
-{% data reusables.repositories.navigate-to-workflow-superlinter %}
-{% data reusables.repositories.view-run-superlinter %}
+1. In the left sidebar, click the workflow you want to see. ![Workflow list in left sidebar](/assets/images/help/repository/superlinter-workflow-sidebar.png)
+1. From the list of workflow runs, click the name of the run you want to see. ![Name of workflow run](/assets/images/help/repository/superlinter-run-name.png)
 1. In the left sidebar, click the **Lint code base** job. ![Lint code base job](/assets/images/help/repository/superlinter-lint-code-base-job.png)
-{% data reusables.repositories.view-failed-job-results-superlinter %}
+2. Expand the **Run Super-Linter** step to view the results. ![Super linter workflow results](/assets/images/help/repository/super-linter-workflow-results.png)
 
 ### More starter workflows
 

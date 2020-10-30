@@ -1,1 +1,1 @@
-Datas são compatíveis com os [qualificadores maior que, menor que e de intervalo](/articles/understanding-the-search-syntax).
+Dates support [greater than, less than, and range qualifiers](/articles/understanding-the-search-syntax).

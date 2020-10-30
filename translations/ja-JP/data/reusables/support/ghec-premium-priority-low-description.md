@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_cloud %}上のOrganizationあるいはEnterpriseに関して、時間の問題がない、あるいはチームの生産性を阻害していない疑問や提案がある。

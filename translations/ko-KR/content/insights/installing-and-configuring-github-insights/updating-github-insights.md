@@ -6,6 +6,7 @@ redirect_from:
   - /github/installing-and-configuring-github-insights/updating-github-insights
 permissions: 'People with read permissions to the `github/insights-releases` repository and administrative access to the application server can update {% data variables.product.prodname_insights %}.'
 versions:
+  free-pro-team: '*'
   enterprise-server: '*'
 ---
 

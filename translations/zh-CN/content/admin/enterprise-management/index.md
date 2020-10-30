@@ -1,14 +1,20 @@
 ---
-title: '监控、管理和更新企业'
-intro: '您可以监控设备、升级到较新版本以及配置群集或高可用性'
+title: 'Monitoring, managing, and updating your enterprise'
+intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
 redirect_from:
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
 ---
 
 
-### 目录
+### Table of Contents
 
 {% topic_link_in_list /monitoring-your-appliance %}
     {% link_in_list /accessing-the-monitor-dashboard %}
@@ -16,7 +22,8 @@ versions:
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
     {% link_in_list /log-forwarding %}
-    {% link_in_list /monitoring-using-snmp %}
+    {% link_in_list /monitoring-using-snmp %}{% if currentVersion ver_gt "enterprise-server@2.21" %}
+    {% link_in_list /monitoring-using-analytics %}{% endif %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}
     {% link_in_list /upgrading-github-enterprise-server %}

@@ -1,1 +1,1 @@
-Write access to the repository is required to perform these steps.
+リポジトリへの書き込みレベルのアクセス権を持つ人は、以下のステップを実行できます。

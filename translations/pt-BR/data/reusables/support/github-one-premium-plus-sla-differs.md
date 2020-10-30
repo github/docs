@@ -1,0 +1,1 @@
+For customers who purchase {% data variables.product.prodname_ghe_one %}, the SLA for initial response time by {% data variables.contact.premium_support %} does not apply to tickets for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_insights %}, {% data variables.product.prodname_learning %}, or {% data variables.product.prodname_registry %}.

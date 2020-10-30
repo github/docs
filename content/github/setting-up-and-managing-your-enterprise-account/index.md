@@ -6,7 +6,6 @@ redirect_from:
   - /categories/setting-up-and-managing-your-enterprise-account
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
 ---
 
 

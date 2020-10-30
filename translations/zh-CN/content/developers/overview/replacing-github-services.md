@@ -19,6 +19,7 @@ As an alternative to the email service, you can now start using email notificati
 
 {% endnote %}
 
+
 ### Deprecation timeline
 
 - **October 1, 2018**: GitHub discontinued allowing users to install services. We removed GitHub Services from the GitHub.com user interface.
@@ -29,7 +30,7 @@ As an alternative to the email service, you can now start using email notificati
 
 GitHub Services (sometimes referred to as Service Hooks) is the legacy method of integrating where GitHub hosted a portion of our integrator’s services via [the `github-services` repository](https://github.com/github/github-services). Actions performed on GitHub trigger these services, and you can use these services to trigger actions outside of GitHub.
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion != "free-pro-team@latest" %}
 ### Finding repositories that use GitHub Services
 We provide a command-line script that helps you identify which repositories on your appliance use GitHub Services. For more information, see [ghe-legacy-github-services-report](/enterprise/{{currentVersion}}/admin/articles/command-line-utilities/#ghe-legacy-github-services-report).{% endif %}
 

@@ -4,6 +4,7 @@ intro: 'You can change the way {% data variables.product.prodname_ghe_server %} 
 redirect_from:
   - /enterprise/admin/user-management/changing-authentication-methods
   - /enterprise/admin/authentication/changing-authentication-methods
+  - /enterprise/admin/authentication/changing-authentication-methods
 versions:
   enterprise-server: '*'
 ---

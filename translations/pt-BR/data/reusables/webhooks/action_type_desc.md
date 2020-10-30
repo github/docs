@@ -1,1 +1,1 @@
-O tipo de atividade é especificado na propriedade `ação` do objeto da carga.
+The type of activity is specified in the `action` property of the payload object.

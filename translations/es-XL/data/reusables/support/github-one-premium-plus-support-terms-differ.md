@@ -1,0 +1,1 @@
+Para clientes que compran {% data variables.product.prodname_ghe_one %}, los términos de soporta para el {% data variables.product.premium_plus_support_plan %} difieren para {% data variables.product.prodname_actions %}, {% data variables.product.prodname_insights %}, {% data variables.product.prodname_learning %}, y {% data variables.product.prodname_registry %}.

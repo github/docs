@@ -4,6 +4,7 @@ intro: You can evacuate data services on a cluster node.
 redirect_from:
   - /enterprise/admin/clustering/evacuating-a-cluster-node
   - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
+  - /enterprise/admin/enterprise-management/evacuating-a-cluster-node
 versions:
   enterprise-server: '*'
 ---

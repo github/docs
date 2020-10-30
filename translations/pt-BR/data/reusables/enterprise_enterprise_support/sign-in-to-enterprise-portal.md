@@ -1,0 +1,1 @@
+1. Para entrar no portal de suporte {% data variables.contact.enterprise_portal %}, clique no canto superior direito da página em **Sign in**. ![Entre no {% data variables.contact.enterprise_portal %}](/assets/images/enterprise/support/sign-in-support-portal.png)

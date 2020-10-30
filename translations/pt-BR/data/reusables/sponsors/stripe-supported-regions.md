@@ -1,1 +1,1 @@
-Para obter uma lista de regiões compatíveis, consulte [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors#countries).
+For a list of supported regions, see [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

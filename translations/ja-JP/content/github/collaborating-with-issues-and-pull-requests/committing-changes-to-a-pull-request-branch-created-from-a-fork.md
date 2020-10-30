@@ -22,9 +22,7 @@ versions:
 
 {% endnote %}
 
-1. On
-
-{% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
+1. {% data variables.product.product_name %}で、プルリクエストのブランチを作成したフォーク (またはリポジトリのコピー) のメインページに移動します。
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
  {% tip %}

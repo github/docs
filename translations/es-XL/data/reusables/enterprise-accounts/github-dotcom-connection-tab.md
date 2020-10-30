@@ -1,0 +1,1 @@
+1. En la barra lateral izquierda, haz clic en **conexión a {% data variables.product.prodname_dotcom_the_website %}**. ![Pestaña de conexión a GitHub.com en la barra lateral de parámetros de la cuenta de empresa](/assets/images/enterprise/business-accounts/settings-github-dotcom-connection-tab.png)

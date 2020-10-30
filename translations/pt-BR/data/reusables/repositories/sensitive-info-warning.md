@@ -1,13 +1,13 @@
 {% warning %}
 
-**Aviso:** Se estiver manuseando informações confidenciais, nunca faça `git add`, `commit` ou `push` para um repositório remoto. As informações confidenciais pode incluir, entre outros:
+**Warning:** Never `git add`, `commit`, or `push` sensitive information to a remote repository. Sensitive information can include, but is not limited to:
 
-- Senhas
+- Passwords
 - Chaves SSH
-- [Chaves de acesso AWS](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)
-- Chaves API
-- Números de cartão de crédito
-- Código PIN
+- [AWS access keys](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html)
+- API keys
+- Credit card numbers
+- PIN numbers
 
 Para obter mais informações, consulte "[Remover dados confidenciais do repositório](/articles/removing-sensitive-data-from-a-repository)".
 

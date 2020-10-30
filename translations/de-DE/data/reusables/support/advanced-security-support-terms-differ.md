@@ -1,0 +1,1 @@
+Die Bedingungen dieses Artikels gelten nicht für die Unterstützung für {% data variables.product.prodname_advanced_security %}. Weitere Informationen findest Du unter „[Unterstützung für {% data variables.product.prodname_advanced_security %}](/enterprise/admin/enterprise-support/about-support-for-advanced-security)."

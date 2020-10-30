@@ -1,1 +1,1 @@
-Write access to the repository is required to perform these steps.
+People with write-level access to the repository can perform these steps.

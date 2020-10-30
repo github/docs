@@ -4,6 +4,7 @@ intro: 'You can enable automatic update checks so that {% data variables.product
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-update-checks
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
+  - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
 versions:
   enterprise-server: '*'
 ---

@@ -1,1 +1,1 @@
-1. Clique na etiqueta para o aplicativo que você criou para a sua conta corporativa.
+1. Click the label for the application you created for your enterprise account.

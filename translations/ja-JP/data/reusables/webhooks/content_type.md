@@ -1,6 +1,6 @@
-webhookは、様々なコンテンツタイプを使って配信できます。
+Webhooks can be delivered using different content types:
 
-- `application/json`コンテンツタイプは、JSONペイロードを`POST`リクエストのボディとして直接配信します。
-- `application/x-www-form-urlencoded`コンテンツタイプは、JSONペイロードを`payload`と呼ばれるフォームのパラメータとして送信します。
+- The `application/json` content type will deliver the JSON payload directly as the body of the `POST` request.
+- The `application/x-www-form-urlencoded` content type will send the JSON payload as a form parameter called `payload`.
 
-要求に最適なものを選んでください。
+Choose the one that best fits your needs.

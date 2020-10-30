@@ -1,7 +1,6 @@
 ---
 title: Organization のリポジトリのデフォルブランチ名を管理する
-intro: 'Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。'
-permissions: リポジトリのデフォルトブランチ名を管理する
+intro: Organization でメンバーが作成するリポジトリについて、デフォルトブランチ名を設定できます。
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
@@ -9,9 +8,11 @@ versions:
 
 ### デフォルトブランチ名について
 
-Organization のメンバーが Organization で新しいリポジトリを作成するとき、リポジトリにはブランチが 1 つ含まれます。これがデフォルトブランチです。 Organization のメンバーが新しいリポジトリを作成するとき、{% data variables.product.prodname_dotcom %} はブランチを 1 つ作成し、それをリポジトリのデフォルトブランチに設定します。 デフォルトブランチの詳細については、「[ブランチについて](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)」を参照してください。
+Organization のメンバーが新しいリポジトリを作成するとき、{% data variables.product.prodname_dotcom %} はブランチを 1 つ作成し、それをリポジトリのデフォルトブランチに設定します。 {% data variables.product.prodname_dotcom %} は現在、デフォルトブランチに `master` という名前を付けまが、開発環境でわかりやすいようにデフォルトブランチには任意の名前を設定することができます。
 
 {% data reusables.branches.set-default-branch %}
+
+{% data reusables.branches.rename-existing-branch %}
 
 ### デフォルトブランチ 名を設定する
 
@@ -30,4 +31,4 @@ Organization のメンバーが Organization で新しいリポジトリを作�
 
 ### 参考リンク
 
-- /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories
+- [リポジトリのデフォルトブランチ名を管理する](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)

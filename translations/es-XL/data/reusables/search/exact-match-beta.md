@@ -1,0 +1,1 @@
+Las coincidencias exactas en la búsqueda de código es una característica que se encuentra actualmente en fase beta y se proporciona a una cantidad limitada de usuarios y repositorios en {% data variables.product.prodname_dotcom %}, y está sujeta a cambios.

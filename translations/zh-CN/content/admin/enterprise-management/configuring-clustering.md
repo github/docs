@@ -1,5 +1,5 @@
 ---
-title: 配置群集
+title: Configuring clustering
 intro: 了解具有高可用性的集群和差异。
 redirect_from:
   - /enterprise/admin/clustering/setting-up-the-cluster-instances

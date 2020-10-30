@@ -1,0 +1,1 @@
+{% data variables.product.prodname_ghe_one %}を購入したお客様には、{% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %}、{% data variables.product.prodname_registry %}のサポートが1日24時間、週末と米国の祝日を除く週に5日利用できます。 返信までの標準的な時間は 1 営業日です。

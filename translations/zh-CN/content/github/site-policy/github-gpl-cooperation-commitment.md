@@ -1,5 +1,5 @@
 ---
-title: GitHub GPL 合作承诺
+title: GitHub GPL Cooperation Commitment
 redirect_from:
   - /articles/github-gpl-cooperation-commitment
 versions:

@@ -1,1 +1,1 @@
-Você pode excluir aplicativos GitHub quando não os usar mais.
+You can delete GitHub Apps when you no longer use them.

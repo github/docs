@@ -1,0 +1,1 @@
+La actividad relacionada con GitHub Packages. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta "[GitHub Packages](/packages)".

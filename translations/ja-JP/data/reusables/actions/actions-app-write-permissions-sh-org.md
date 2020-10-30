@@ -1,0 +1,1 @@
+{% data variables.product.prodname_github_app %}s must have the `self-hosted runners:write` organization permission to use this endpoint.

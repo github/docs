@@ -13,23 +13,25 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-{% data reusables.package_registry.default-name %} たとえば、{% data variables.product.prodname_dotcom %}は`OWNER/test`というリポジトリ内の`com.example:test`という名前のパッケージを公開します。
+**ノート:** dockerイメージをインストールしたり公開したりする際に、現時点で{% data variables.product.prodname_registry %}はWindowsイメージのような外部レイヤーはサポートしていません。
 
 ### {% data variables.product.prodname_registry %} への認証を行う
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+{% warning %}
+
+**Note:** The {% data variables.product.prodname_registry %} Docker registry will be superseded by {% data variables.product.prodname_github_container_registry %}{% if currentVersion != "free-pro-team@latest" %} in a future {% data variables.product.product_name %} release{% endif %}.{% if currentVersion == "free-pro-team@latest" %} To learn how to migrate your existing Docker images and any workflows using them, see "[Migrating to {% data variables.product.prodname_github_container_registry %} for Docker images](/packages/getting-started-with-github-container-registry/migrating-to-github-container-registry-for-docker-images)" and "[Getting started with {% data variables.product.prodname_github_container_registry %}](/packages/getting-started-with-github-container-registry)."{% endif %}
+
+{% endwarning %}
 
 `docker` loginコマンドを使い、Dockerで{% data variables.product.prodname_registry %}の認証を受けることができます。
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion != "free-pro-team@latest" %}
 
-Docker レジストリを {% data variables.product.prodname_registry %} で使用する前に、{% data variables.product.product_location_enterprise %} のサイト管理者がインスタンスに対し Docker のサポートとand Subdomain Isolation を有効化する必要があります。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
+Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location_enterprise %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
 {% endif %}
 
 ### {% data variables.product.prodname_registry %} への認証を行う
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -49,7 +51,7 @@ Docker レジストリを {% data variables.product.prodname_registry %} で使�
 {% endraw %}
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion != "free-pro-team@latest" %}
 {% raw %}
  ```shell
  $ docker images
@@ -60,13 +62,13 @@ Docker レジストリを {% data variables.product.prodname_registry %} で使�
 # <em>OWNER/REPO/IMAGE_NAME</em>でイメージにタグ付けする
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
-# {{ site.data.variables.product.prodname_registry }}にイメージをプッシュ
+# {% data variables.product.prodname_registry %}にイメージをプッシュ
 $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 {% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location_enterprise %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+この例のloginコマンドを使うには、`USERNAME` を{% data variables.product.prodname_dotcom %}のユーザ名で、`~/TOKEN.txt`を{% data variables.product.prodname_dotcom %}の個人アクセストークンへのファイルパスで置き換えてください。
 
 詳しい情報については「[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)」を参照してください。
 
@@ -75,8 +77,6 @@ To use this example login command, replace `USERNAME` with your {% data variable
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### パッケージを公開する
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data variables.product.prodname_registry %} は、リポジトリごとに複数の最上位 Docker イメージをサポートしています。 リポジトリは任意の数のイメージタグを持つことができます。 10GB以上のDockerイメージの公開やインストールの際には、サービスのパフォーマンスが低下するかもしれず、各レイヤーは5GBが上限です。 詳しい情報については、Dockerのドキュメンテーションの「[Docker tag](https://docs.docker.com/engine/reference/commandline/tag/)」を参照してください。
 
@@ -92,7 +92,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. 新しいDockerイメージを初めて公開し、`monalisa`という名前にできます。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
+{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -103,7 +103,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
   ```
   {% endif %}
 3. パッケージ用のDockerイメージをまだ構築していないなら、イメージを構築してください。 *OWNER*をリポジトリを所有しているユーザあるいはOrganizationのアカウント名で、*REPOSITORY*をプロジェクトを含むリポジトリ名で、*IMAGE_NAME*をパッケージもしくはイメージの名前で、*VERSION*をビルド時点のパッケージバージョンで置き換え、イメージが現在のワーキングディレクトリにないなら*PATH*をイメージへのパスで置き換えてください。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -113,8 +113,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
-4. イメージを
-{% data variables.product.prodname_registry %}.
+4. {% data variables.product.prodname_registry %}にイメージを公開してください。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -131,8 +130,6 @@ To use this example login command, replace `USERNAME` with your {% data variable
   {% endnote %}
 
 #### Dockerイメージのプッシュの例
-
-{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 `monalisa`イメージのバージョン1.0を、イメージIDを使って`octocat/octo-app`に公開できます。
 
@@ -193,9 +190,8 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 ### パッケージをインストールする
 
-{% data reusables.package_registry.docker_registry_deprecation_status %}
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the user or organization account that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %} and *TAG_NAME* with tag for the image you want to install. {% data reusables.package_registry.lowercase-name-field %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -212,6 +208,7 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 **ノート:** イメージのプルは`IMAGE_NAME:SHA`を使うのではなく、`IMAGE_NAME:VERSION`を使って行ってください。
 
 {% endnote %}
+
 
 ### 参考リンク
 

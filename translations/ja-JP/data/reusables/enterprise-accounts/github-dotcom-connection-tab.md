@@ -1,0 +1,1 @@
+1. 左のサイドバーで**{% data variables.product.prodname_dotcom_the_website %} connection（{% data variables.product.prodname_dotcom_the_website %}の接続）**をクリックしてください。 ![ビジネスアカウント設定サイドバー内のGitHub.com connectionタブ](/assets/images/enterprise/business-accounts/settings-github-dotcom-connection-tab.png)

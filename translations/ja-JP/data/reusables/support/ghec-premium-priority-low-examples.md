@@ -1,0 +1,1 @@
+<ul><li>OrganizationあるいはEnterpriseによる過剰なリソースの利用</li><li>ヘルスチェックのリクエスト</li><li>Gists、通知、ウィキ、{% data variables.product.prodname_pages %}、{% data variables.product.prodname_desktop %}、Atom、あるいはその他のOrganizationあるいはEnterpriseについての周辺サービスや機能の利用に関する支援</li><li>機能リクエスト</li><li>製品のフィードバック</li></ul>

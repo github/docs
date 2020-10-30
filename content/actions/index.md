@@ -5,16 +5,15 @@ intro: 'Automate, customize, and execute your software development workflows rig
 introLinks:
   quickstart: /actions/quickstart
   learn: /actions/learn-github-actions
-featuredLinks:
-  gettingStarted:
-    - /actions/managing-workflow-runs
-    - /actions/hosting-your-own-runners
-  guide:
-    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-    - /actions/guides/about-packaging-with-github-actions
-  popular:
-    - /actions/reference/workflow-syntax-for-github-actions
-    - /actions/reference/events-that-trigger-workflows
+gettingStartedLinks:
+  - /actions/managing-workflow-runs
+  - /actions/hosting-your-own-runners
+guideLinks:
+  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+  - /actions/guides/about-packaging-with-github-actions
+popularLinks:
+  - /actions/reference/workflow-syntax-for-github-actions
+  - /actions/reference/events-that-trigger-workflows
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -43,7 +42,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.guide %}
+      {% for link in guideLinks %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -54,7 +53,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.popular %}
+      {% for link in popularLinks %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -65,7 +64,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Manage workflows</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.gettingStarted %}
+      {% for link in gettingStartedLinks %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -163,7 +162,7 @@ versions:
           <h4>Publishing Node.js packages</h4>
           <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
           <div class="d-flex">
-            <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
+            <span class="IssueLabel text-white bg-blue mr-2">Java</span>
             <span class="IssueLabel text-white bg-blue mr-2">CI</span>
           </div>
         </div>

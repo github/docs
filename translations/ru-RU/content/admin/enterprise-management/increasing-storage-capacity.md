@@ -4,6 +4,8 @@ intro: 'You can increase or change the amount of storage available for Git repos
 redirect_from:
   - /enterprise/admin/installation/increasing-storage-capacity
   - /enterprise/admin/enterprise-management/increasing-storage-capacity
+  - /enterprise/admin/enterprise-management/increasing-storage-capacity
+  - /enterprise/admin/enterprise-management/increasing-storage-capacity
 versions:
   enterprise-server: '*'
 ---

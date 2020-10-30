@@ -1,0 +1,1 @@
+Você deve usar um [user-to-server OAuth access token](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site), criado para um usuário que autorizou seu GitHub App, para acessar este ponto de extremidade.

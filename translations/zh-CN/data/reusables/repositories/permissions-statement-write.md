@@ -1,1 +1,1 @@
-Write access to the repository is required to perform these steps.
+对仓库具有写入级权限的用户可以执行这些步骤。

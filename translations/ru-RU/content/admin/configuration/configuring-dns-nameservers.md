@@ -5,6 +5,8 @@ redirect_from:
   - /enterprise/admin/guides/installation/about-dns-nameservers/
   - /enterprise/admin/installation/configuring-dns-nameservers
   - /enterprise/admin/configuration/configuring-dns-nameservers
+  - /enterprise/admin/configuration/configuring-dns-nameservers
+  - /enterprise/admin/configuration/configuring-dns-nameservers
 versions:
   enterprise-server: '*'
 ---

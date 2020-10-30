@@ -21,15 +21,12 @@ versions:
 
 {% mac %}
 
-1. [Crie um repositório ](/articles/creating-a-new-repository) no
-
-{% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}.
-    ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
+1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell
@@ -51,7 +48,7 @@ versions:
   ```
 9. [Faça push das alterações](/articles/pushing-commits-to-a-remote-repository/) no seu repositório local para o {% data variables.product.product_location %}.
   ```shell
-  $ git push -u origin main
+  $ git push -u origin master
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -59,15 +56,12 @@ versions:
 
 {% windows %}
 
-1. [Crie um repositório ](/articles/creating-a-new-repository) no
-
-{% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}.
-    ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
+1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell
@@ -89,7 +83,7 @@ versions:
   ```
 9. [Faça push das alterações](/articles/pushing-commits-to-a-remote-repository/) no seu repositório local para o {% data variables.product.product_location %}.
   ```shell
-  $ git push origin main
+  $ git push origin master
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -97,15 +91,12 @@ versions:
 
 {% linux %}
 
-1. [Crie um repositório ](/articles/creating-a-new-repository) no
-
-{% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}.
-    ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
+1. [Crie um repositório ](/articles/creating-a-new-repository) no {% data variables.product.product_location %}. Para evitar erros, não inicialize o novo repositório com os arquivos *LEIAME*, de licença ou `gitignore`. É possível adicionar esses arquivos após push do projeto no {% data variables.product.product_name %}. ![Menu suspenso Create New Repository (Criar novo repositório)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell
@@ -127,7 +118,7 @@ versions:
   ```
 9. [Faça push das alterações](/articles/pushing-commits-to-a-remote-repository/) no seu repositório local para o {% data variables.product.product_location %}.
   ```shell
-  $ git push origin main
+  $ git push origin master
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 

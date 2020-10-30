@@ -1,1 +1,1 @@
-您可以将 GitHub 应用程序的所有权转让给其他用户或组织。
+You can transfer ownership of a GitHub App to another user or organization.

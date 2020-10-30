@@ -1,6 +1,6 @@
 ---
-title: サポートされているオペレーティングシステム
-intro: 'サポートされているオペレーティングシステムで {% data variables.product.prodname_desktop %} を使用できます。'
+title: Supported operating systems
+intro: 'You can use {% data variables.product.prodname_desktop %} on any supported operating system.'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /desktop/getting-started-with-github-desktop/supported-operating-systems
@@ -8,54 +8,54 @@ versions:
   free-pro-team: '*'
 ---
 
-### サポートされているオペレーティングシステムについて
+### About supported operating systems
 
-{% data variables.product.prodname_desktop %} では、次のオペレーティングシステムがサポートされています。
+The following operating systems are supported for {% data variables.product.prodname_desktop %}.
 - {% data variables.desktop.mac-osx-versions %}
-- {% data variables.desktop.windows-versions %}. {% data variables.product.prodname_desktop %} を実行するには、64 ビットのオペレーティングシステムが必要です。
+- {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
 
-### macOS に関する問題のトラブルシューティング
-macOS で {% data variables.product.prodname_desktop %} を使用して問題が発生した場合は、以下の解決策を試してください。 詳しい情報については、[`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md) を参照してください。
+### Troubleshooting problems on macOS
+If you're encountering problems using {% data variables.product.prodname_desktop %} on macOS, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
-#### アカウントへのサインイン時のエラー：`The username or passphrase you entered is not correct`（入力したユーザ名またはパスフレーズが正しくありません）
+#### `The username or passphrase you entered is not correct` error after signing into your account
 
-このエラーは、{% data variables.product.prodname_desktop %} がキーチェーンに保存されている認証情報にアクセスできない場合に発生する可能性があります。
+This error can occur when {% data variables.product.prodname_desktop %} can't access your stored credentials on Keychain.
 
-このエラーのトラブルシューティングを行うには、次のステップを実行します。
+To troubleshoot this error, follow these steps.
 
-1. 「Keychain Access」アプリケーションを開きます。
-2. [**login**] を右クリックして、[**Lock Keychain "login"**] をクリックします。 !["Lock Keychain "login" オプション](/assets/images/help/desktop/mac-lock-keychain.png)
-3. [**login**] を右クリックして、[**Unlock Keychain "login"**] をクリックします。 画面の指示に従って、Keychain "login" のロック解除を完了します。 !["Unlock Keychain "login" オプション](/assets/images/help/desktop/mac-unlock-keychain.png)
-4. {% data variables.product.prodname_dotcom %} または {% data variables.product.prodname_enterprise %} でアカウントを再認証します。
+1. Open the "Keychain Access" app.
+2. Right-click on **login** and then click **Lock Keychain "login"**. ![The "Lock Keychain "login" option](/assets/images/help/desktop/mac-lock-keychain.png)
+3. Right-click on **login** and then click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login." ![The "Unlock Keychain "login" option](/assets/images/help/desktop/mac-unlock-keychain.png)
+4. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
 
-#### アップデート確認時のエラー：`Could not create temporary directory: Permission denied`（一時ディレクトリを作成できませんでした：権限が拒否されました）
+#### `Could not create temporary directory: Permission denied` error after checking for updates
 
-このエラーは、`~/Library/Caches/com.github.GitHubClient.ShipIt` ディレクトリの権限がない場合に発生する可能性があります。 {% data variables.product.prodname_desktop %} はこのディレクトリを使用して、アプリケーションの更新の一部として一時ファイルを作成および解凍します。
+This error can be caused by missing permissions for the `~/Library/Caches/com.github.GitHubClient.ShipIt` directory. {% data variables.product.prodname_desktop %} uses this directory to create and unpack temporary files as part of updating the application.
 
-このエラーのトラブルシューティングを行うには、次のステップを実行します。
+To troubleshoot this error, follow these steps.
 
-1. {% data variables.product.prodname_desktop %} を閉じます。
-2. 「Finder」を開き、`~/Library/Caches/` に移動します。
-3. `com.github.GitHubClient.ShipIt` を右クリックし、[**Get Info**] をクリックします。
-4. [Sharing & Permissions] の左にある矢印をクリックします。
-5. ユーザアカウントの右にある権限に「Read & Write」と表示されていない場合は、テキストをクリックして、[**Read & Write**] をクリックします。 !["Sharing & Permissions" オプション](/assets/images/help/desktop/mac-adjust-permissions.png)
-6. {% data variables.product.prodname_desktop %} を開き、更新を確認します。
+1. Close {% data variables.product.prodname_desktop %}.
+2. Open "Finder" and navigate to `~/Library/Caches/`.
+3. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
+4. Click the arrow to the left of "Sharing & Permissions."
+5. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**. ![The "Sharing & Permissions" options](/assets/images/help/desktop/mac-adjust-permissions.png)
+6. Open {% data variables.product.prodname_desktop %} and check for updates.
 
-### Windows に関する問題のトラブルシューティング
-Windows で {% data variables.product.prodname_desktop %} を使用して問題が発生した場合は、以下の解決策を試してください。 詳しい情報については、[`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md) を参照してください。
+### Troubleshooting problems on Windows
+If you're encountering problems using {% data variables.product.prodname_desktop %} on Windows, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
-#### エラー: `The revocation function was unable to check revocation for the certificate.`（失効機能で証明書の失効を確認できませんでした。）
+#### `The revocation function was unable to check revocation for the certificate.` error
 
-このエラーは、Windows が証明書の失効ステータスチェックをブロックする企業ネットワークで {% data variables.product.prodname_desktop %} を使用している場合に発生する可能性があります。
+This error can occur if you are using {% data variables.product.prodname_desktop %} on a corporate network that blocks Windows from checking the revocation status of a certificate.
 
-トラブルシューティングを行うには、システム管理者にお問い合わせください。
+To troubleshoot, contact your system administrator.
 
-#### エラー: `git clone failed` (フォルダリダイレクトで設定されたリポジトリのクローン作成中にエラーが発生しました)
+#### `git clone failed` error while cloning a repository configured with Folder Redirection
 
-{% data variables.product.prodname_desktop %} は、フォルダリダイレクトで設定されたリポジトリをサポートしていません。
+{% data variables.product.prodname_desktop %} does not support repositories configured with Folder Redirection.
 
-#### エラー: `cygheap base mismatch detected` (cygheap ベースの不一致が検出されました)
+#### `cygheap base mismatch detected` error
 
-このエラーは、必須 ASLR が有効になっている場合に発生する可能性があります。 必須 ASLR を有効にすると、{% data variables.product.prodname_desktop %} がプロセスのフォークをエミュレートするために依存している MSYS2 コアライブラリに影響します。
+This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
 
-このエラーのトラブルシューティングを行うには、必須 ASLR を無効にするか、MSYS2 に依存する `<Git>\usr\bin` 下のすべての実行可能ファイルを明示的に許可します。
+To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.

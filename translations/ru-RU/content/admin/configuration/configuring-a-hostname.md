@@ -5,6 +5,7 @@ redirect_from:
   - /enterprise/admin/guides/installation/configuring-hostnames/
   - /enterprise/admin/installation/configuring-a-hostname
   - /enterprise/admin/configuration/configuring-a-hostname
+  - /enterprise/admin/configuration/configuring-a-hostname
 versions:
   enterprise-server: '*'
 ---

@@ -1,0 +1,1 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}Solo las {% data variables.product.prodname_github_app %}s instaladas con acceso de `write` al permiso de `contents` podrán agregarse como actores autorizados en una rama protegida.{% endif %}

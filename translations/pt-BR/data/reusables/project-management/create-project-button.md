@@ -1,1 +1,1 @@
-1. Clique em **Criar projeto**.
+1. Click **Create project**.

@@ -1,5 +1,5 @@
-1. 配置运行完成后，{% data variables.product.prodname_ghe_server %} 将显示以下消息。
+1. After the configuration run finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
 
     ```shell
-        已完成集群配置
+        Finished cluster configuration
     ```

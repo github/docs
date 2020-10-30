@@ -1,0 +1,1 @@
+在个人参与 {% data variables.product.prodname_sponsors %} 的第一年，赞助资格匹配可能受限于此处规定的限制。 在 {% data variables.product.company_short %} 许可帐户使用 {% data variables.product.prodname_sponsors %}（可发布帐户的赞助个人资料）之后开始资格匹配。 匹配期不能因任何原因而延长。 如果您离开 {% data variables.product.prodname_sponsors %} 后重新加入，参与期与匹配期之间可能有差距，或者您的匹配期可能过期。

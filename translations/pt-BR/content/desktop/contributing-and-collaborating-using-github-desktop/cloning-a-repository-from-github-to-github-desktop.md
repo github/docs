@@ -15,9 +15,7 @@ versions:
 
 {% mac %}
 
-1. Fazer login em
-
-{% data variables.product.product_location %} e {% data variables.product.prodname_desktop %} antes de começar a clonar.
+1. Entre no {% data variables.product.product_location %} e no {% data variables.product.prodname_desktop %} antes de começar a clonar.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. Clique em **Choose...** (Escolher...). Em seguida, navegue pela janela Finder (Localizador) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher) na guia URL](/assets/images/help/desktop/clone-choose-button-url-mac.png)
@@ -34,9 +32,7 @@ versions:
 
 {% windows %}
 
-1. Fazer login em
-
-{% data variables.product.product_location %} e {% data variables.product.prodname_desktop %} antes de começar a clonar.
+1. Entre no {% data variables.product.product_location %} e no {% data variables.product.prodname_desktop %} antes de começar a clonar.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 5. Clique em **Choose...** (Escolher...). Em seguida, navegue pelo Windows Explorer (Explorador do Windows) até o local em que você pretende clonar o repositório. ![Botão Choose (Escolher)](/assets/images/help/desktop/clone-choose-button-url-win.png)

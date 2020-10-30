@@ -1,1 +1,1 @@
-1. Clique em **Enviar revisão**.
+1. Click **Submit review**.

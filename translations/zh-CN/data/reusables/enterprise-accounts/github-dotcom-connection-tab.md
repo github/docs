@@ -1,0 +1,1 @@
+1. 在左侧边栏中，单击 **{% data variables.product.prodname_dotcom_the_website %} connection（连接）**。 ![企业帐户设置侧边栏中的“GitHub.com 连接”选项卡](/assets/images/enterprise/business-accounts/settings-github-dotcom-connection-tab.png)

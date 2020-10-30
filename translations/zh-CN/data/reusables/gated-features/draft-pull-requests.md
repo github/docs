@@ -1,0 +1,2 @@
+
+拉取请求草稿可用于具有 {% data variables.product.prodname_free_user %} 和组织的 {% data variables.product.prodname_free_team %}、{% data variables.product.prodname_pro %} 及传统按仓库结算方案的公共仓库，以及具有 {% data variables.product.prodname_team %}{% if currentVersion != "free-pro-team@latest" %}、{% data variables.product.prodname_ghe_server %} 2.17+、{% endif %} 和 {% data variables.product.prodname_ghe_cloud %} 的公共和私有仓库。 {% if currentVersion == "free-pro-team@latest" %}{% data reusables.gated-features.more-info %}{% endif %}

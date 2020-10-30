@@ -14,9 +14,9 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-**Note:** When installing or publishing a docker image, {% data variables.product.prodname_registry %} does not currently support foreign layers, such as Windows images.
+{% data reusables.package_registry.admins-can-configure-package-types %}
 
-### Bei {% data variables.product.prodname_registry %} authentifizieren
+### Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -29,7 +29,7 @@ To authenticate to {% data variables.product.prodname_registry %} with the `dotn
 You must replace:
 - `USERNAME` with the name of your user account on {% data variables.product.prodname_dotcom %}.
 - `TOKEN` with your personal access token.
-- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if currentVersion != "free-pro-team@latest" %}
 - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.
 
 If your instance has subdomain isolation enabled:
@@ -51,34 +51,33 @@ If your instance has subdomain isolation enabled:
 </configuration>
 ```
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion != "free-pro-team@latest" %}
 If your instance has subdomain isolation disabled:
 
 ```xml
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <PackageId>OctodogApp</PackageId>
-    <Version>1.0.0</Version>
-    <Authors>Octodog</Authors>
-    <Company>GitHub</Company>
-    <PackageDescription>This package adds an Octodog!</PackageDescription>
-    <RepositoryUrl>https://github.com/octo-org/octo-cats-and-dogs</RepositoryUrl>
-  </PropertyGroup>
-
-</Project>
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <packageSources>
+        <clear />
+        <add key="github" value="https://HOSTNAME/_registry/nuget/OWNER/index.json" />
+    </packageSources>
+    <packageSourceCredentials>
+        <github>
+            <add key="Username" value="USERNAME" />
+            <add key="ClearTextPassword" value="TOKEN" />
+        </github>
+    </packageSourceCredentials>
+</configuration>
 ```
 {% endif %}
 
-#### #### Authenticating with the `GITHUB_TOKEN`
+#### Authenticating with the `GITHUB_TOKEN`
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Ein Paket veröffentlichen
+### Publishing a package
 
-You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. Weitere Informationen zum Erstellen eines Pakets finden Sie unter „[Ein Paket erstellen und veröffentlichen](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)“ in der Microsoft-Dokumentation.
+You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a *nuget.config* file. When publishing, you need to use the same value for `OWNER` in your *csproj* file that you use in your *nuget.config* authentication file. Specify or increment the version number in your *.csproj* file, then use the `dotnet pack` command to create a *.nuspec* file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -89,8 +88,8 @@ You can publish a package to {% data variables.product.prodname_registry %} by a
   ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  You must replace:
     - `OWNER` with the name of the user or organization account that owns the repository containing your project.
-    - `REPOSITORY` with the name of the repository containing the package you want to publish.
-    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
+    - `REPOSITORY` with the name of the repository containing the package you want to publish.                      
+    - `1.0.0` with the version number of the package.{% if currentVersion != "free-pro-team@latest" %}
     - `HOSTNAME` with the host name for your {% data variables.product.prodname_ghe_server %} instance.{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">
@@ -158,7 +157,8 @@ For example, the *OctodogApp* and *OctocatApp* projects will publish to the same
 </Project>
 ```
 
-### Ein Paket installieren
+
+### Installing a package
 
 Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from *nuget.org*. Add your package dependencies to your *.csproj* file, specifying the package name and version. For more information on using a *.csproj* file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/en-us/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
 
@@ -191,6 +191,6 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
   dotnet restore
   ```
 
-### Weiterführende Informationen
+### Further reading
 
 - "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"

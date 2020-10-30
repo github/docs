@@ -1,14 +1,18 @@
 ---
-title: 'Monitorar, gerenciar e atualizar a sua empresa'
-intro: 'Você pode monitorar o seu aplicativo, atualizar para uma versão mais recente e configurar o agrupamento ou alta disponibilidade'
+title: 'Monitoring, managing, and updating your enterprise'
+intro: 'You can monitor your appliance, upgrade to a newer version, and configure clustering or high availability'
 redirect_from:
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
+  - /enterprise/admin/enterprise-management
   - /enterprise/admin/enterprise-management
 versions:
   enterprise-server: '*'
 ---
 
 
-### Índice
+### Table of Contents
 
 {% topic_link_in_list /monitoring-your-appliance %}
     {% link_in_list /accessing-the-monitor-dashboard %}
@@ -16,7 +20,8 @@ versions:
     {% link_in_list /setting-up-external-monitoring %}
     {% link_in_list /configuring-collectd %}
     {% link_in_list /log-forwarding %}
-    {% link_in_list /monitoring-using-snmp %}
+    {% link_in_list /monitoring-using-snmp %}{% if currentVersion ver_gt "enterprise-server@2.21" %}
+    {% link_in_list /monitoring-using-analytics %}{% endif %}
 {% topic_link_in_list /updating-the-virtual-machine-and-physical-resources %}
     {% link_in_list /upgrade-requirements %}
     {% link_in_list /upgrading-github-enterprise-server %}

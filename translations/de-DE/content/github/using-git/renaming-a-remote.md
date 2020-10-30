@@ -15,7 +15,7 @@ Der Befehl `git remote rename` hat zwei Argumente:
 
 ### Beispiel
 
-Bei diesen Beispielen wird davon ausgegangen, dass Du wie empfohlen [Klone mit HTTPS erstellst](/articles/which-remote-url-should-i-use/#cloning-with-https-urls).
+These examples assume you're [cloning using HTTPS](/articles/which-remote-url-should-i-use/#cloning-with-https-urls), which is recommended.
 
 ```shell
 $ git remote -v

@@ -9,7 +9,7 @@ versions:
   free-pro-team: '*'
 ---
 
-### Von einer Organisation die Genehmigung für eine {% data variables.product.prodname_oauth_app %} anfordern, die Sie bereits für Ihr persönliches Konto zugelassen haben
+### Organisations-Genehmigung für eine {% data variables.product.prodname_oauth_app %} anfordern, die Du bereits für Dein persönliches Konto autorisiert hast
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.access_applications %}

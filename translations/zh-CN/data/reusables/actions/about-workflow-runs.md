@@ -1,1 +1,1 @@
-工作流程运行是当预配置的事件发生时运行的工作流程实例。
+A workflow run is an instance of your workflow that runs when the pre-configured event occurs.

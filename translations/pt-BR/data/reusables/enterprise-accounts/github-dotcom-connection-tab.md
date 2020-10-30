@@ -1,0 +1,1 @@
+1. Na barra lateral esquerda, clique em **{% data variables.product.prodname_dotcom_the_website %} connection**. ![Aba de conexão GitHub.com na barra lateral de configurações da conta de negócios](/assets/images/enterprise/business-accounts/settings-github-dotcom-connection-tab.png)

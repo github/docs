@@ -1,1 +1,1 @@
-Ao definir uma matriz de sistemas operacionais, você deve definir o valor de `runs-on` para a propriedade de contexto de `matrix.os` que você definiu.
+When you define a matrix of operating systems, you must set the value of `runs-on` to the `matrix.os` context property you defined.

@@ -1,6 +1,6 @@
 ---
 title: Personen zu Deiner Organisation hinzufügen
-intro: 'Sie können jede beliebige Person mithilfe ihres {% data variables.product.product_name %}-Benutzernamens oder ihrer E-Mail-Adresse zu einem Mitglied Ihrer Organisation machen.'
+intro: 'Du kannst jede beliebige Person mithilfe ihres {% data variables.product.product_name %}-Benutzernamens oder ihrer E-Mail-Adresse zu einem Mitglied Deiner Organisation machen.'
 redirect_from:
   - /articles/adding-people-to-your-organization
 versions:

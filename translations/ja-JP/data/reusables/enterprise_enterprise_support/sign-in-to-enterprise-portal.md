@@ -1,0 +1,1 @@
+1. {% data variables.contact.enterprise_portal %}にサインインするには、ページの右上で**Sign in（サインイン）**をクリックしてください。 ![{% data variables.contact.enterprise_portal %}へのサインイン](/assets/images/enterprise/support/sign-in-support-portal.png)

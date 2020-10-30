@@ -1,1 +1,1 @@
-Ao criar um aplicativo GitHub, você define as permissões que definem os recursos que o aplicativo pode acessar através da API REST.
+When you create a GitHub App, you set the permissions that define the resources the app can access via the REST API.

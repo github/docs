@@ -1,5 +1,5 @@
     - Escolha **Accounts** (Contas) para adicionar ou remover uma conta do {% data variables.product.prodname_dotcom %} ou do {% data variables.product.prodname_enterprise %};
-    - Escolha **Integrações** para selecionar um editor externo ou shell.
+    - Choose **Integrations** to pick an external editor or shell.
     - Escolha **Git** para editar a configuração do Git;
-    - Escolha **Aparência** para alternar entre o tema claro ou escuro.
+    - Choose **Appearance** to switch between the light or dark theme.
     - Escolha **Advanced** (Avançado) para ver mais opções de configuração.

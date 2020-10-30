@@ -1,0 +1,1 @@
+a lista de colaboradores inclui colaboradores externos, membros da organização que são colaboradores diretos, integrantes da organização com acesso por meio de associações de equipe, integrantes da organização com acesso por meio das permissões padrão da organização e proprietários da organização.

@@ -47,8 +47,7 @@ const main = async () => {
       'search-with-your-keyboard',
       'uuid',
       'imurmurhash',
-      'js-cookie',
-      'clipboard'
+      'js-cookie'
     ]
   })
 

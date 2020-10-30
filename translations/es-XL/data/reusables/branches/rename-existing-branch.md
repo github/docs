@@ -1,0 +1,3 @@
+Si bien puedes renombrar la rama predeterminada existente de tu repositorio, {% data variables.product.company_short %} planea proporcionar herramientas para simplificar el proceso de renombrar la rama predeterminada. Para obtener más información sobre estos planes, consulta [`github/renaming`](https://github.com/github/renaming).
+
+Si ya renombraste a la rama predeterminada, {% data variables.product.prodname_dotcom %} redireccionará automáticamente los links en {% if currentVersion ver_gt "enterprise-server@2.22" %}{% data variables.product.product_location_enterprise %}{% else %}{% data variables.product.prodname_dotcom_the_website %}{% endif %} que contenga una rama de `master` borrada en el enlace equivalente de la rama predeterminada del repositorio.

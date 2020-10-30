@@ -1,0 +1,1 @@
+对于购买 {% data variables.product.prodname_ghe_one %} 的客户，{% data variables.contact.premium_support %} 的初始响应时间 SLA 不适用于 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %} 或 {% data variables.product.prodname_registry %} 事件单。

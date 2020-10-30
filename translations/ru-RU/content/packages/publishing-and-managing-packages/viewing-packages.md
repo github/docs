@@ -32,7 +32,7 @@ You can see all the packages installed in an organization and search for a speci
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
-3. Под названием вашей организации щелкните
+3. Под названием вашей организации нажмите
 {% octicon "package" aria-label="The package icon" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 

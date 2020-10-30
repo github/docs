@@ -1,0 +1,1 @@
+1. En la barra lateral de parámetros de la empresa, haz clic en **Member privileges** (Privilegios del miembro). ![Pestaña Member privileges (Privilegios del miembros) en la barra lateral de parámetros de la cuenta de empresa](/assets/images/help/business-accounts/settings-member-privileges-tab.png)

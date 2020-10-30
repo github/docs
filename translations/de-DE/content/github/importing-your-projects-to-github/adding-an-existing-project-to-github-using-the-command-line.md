@@ -1,6 +1,6 @@
 ---
 title: Ein vorhandenes Projekt über die Befehlszeile zu GitHub hinzufügen
-intro: 'Wenn Sie Ihr vorhandenes Projekt zu {% data variables.product.product_name %} hinzufügen, stehen Ihnen großartige Möglichkeiten zur Freigabe und Zusammenarbeit zur Verfügung.'
+intro: 'Wenn Du Dein vorhandenes Projekt zu {% data variables.product.product_name %} hinzufügst, stehen Dir großartige Möglichkeiten zum Teilen und zur Zusammenarbeit zur Verfügung.'
 redirect_from:
   - /articles/add-an-existing-project-to-github/
   - /articles/adding-an-existing-project-to-github-using-the-command-line
@@ -21,15 +21,12 @@ versions:
 
 {% mac %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell
@@ -41,7 +38,7 @@ versions:
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. Klicke oben auf der Seite zur Schnelleinrichtung Deines {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Füge in Terminal die URL für das Remote-Repository hinzu](/articles/adding-a-remote), an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em>remote repository URL</em>
@@ -49,7 +46,7 @@ versions:
   $ git remote -v
   # Verifiziert die neue Remote-Repository URL
   ```
-9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
+9. [Übergeben Sie die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Ihrem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell
   $ git push -u origin master
   # Pusht die Aenderungen Deines lokalen Repositorys hinauf zum Remote-Repository, das Du als Ursprung festgelegt hast
@@ -59,15 +56,12 @@ versions:
 
 {% windows %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell
@@ -79,7 +73,7 @@ versions:
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. Klicke oben auf der Seite zur Schnelleinrichtung Deines {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. Gib in der Eingabeaufforderung [die URL für das Remote-Repository](/articles/adding-a-remote) ein, an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em>remote repository URL</em>
@@ -87,7 +81,7 @@ versions:
   $ git remote -v
   # Verifiziert die neue Remote-Repository URL
   ```
-9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
+9. [Übergeben Sie die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Ihrem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell
   $ git push origin master
   # Pusht die Aenderungen Deines lokalen Repositorys hinauf zum Remote-Repository, das Du als Ursprung festgelegt hast
@@ -97,15 +91,12 @@ versions:
 
 {% linux %}
 
-1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf
-
-{% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Du kannst diese Dateien hinzufügen, nachdem Dein Projekt per Push an {% data variables.product.product_name %} übergeben wurde.
-    ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
+1. [Erstellen Sie ein neues Repository](/articles/creating-a-new-repository) auf {% data variables.product.product_location %}. Um Fehler zu vermeiden, initialisiere das neue Repository nicht mit *README*-, Lizenz- oder `gitignore`-Dateien. Sie können diese Dateien hinzufügen, nachdem Ihr Projekt per Push an {% data variables.product.product_name %} übergeben wurde. ![Dropdownmenü „Create New Repository" (Erstelle neues Repository)](/assets/images/help/repository/repo-create.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init -b main
+  $ git init
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell
@@ -117,7 +108,7 @@ versions:
   $ git commit -m "First commit"
   # Gibt die verfolgten Aenderungen frei und bereitet sie fuer den Push in ein Remote-Repository vor. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
   ```
-7. Klicken Sie oben auf der Seite zur Schnelleinrichtung Ihres {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+7. Klicke oben auf der Seite zur Schnelleinrichtung Deines {% data variables.product.product_name %}-Repositorys auf {% octicon "clippy" aria-label="The copy to clipboard icon" %}, um die URL des Remote-Repositorys zu kopieren. ![Feld zum Kopieren der Remote-Repository-URL](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 8. [Füge in Terminal die URL für das Remote-Repository hinzu](/articles/adding-a-remote), an das Dein lokales Repository per Push übergeben werden soll.
   ```shell
   $ git remote add origin <em>remote repository URL</em>
@@ -125,7 +116,7 @@ versions:
   $ git remote -v
   # Verifiziert die neue Remote-Repository URL
   ```
-9. [Übergib die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Deinem lokalen Repository per Push an {% data variables.product.product_location %}.
+9. [Übergeben Sie die Änderungen](/articles/pushing-commits-to-a-remote-repository/) in Ihrem lokalen Repository per Push an {% data variables.product.product_location %}.
   ```shell
   $ git push origin master
   # Pusht die Aenderungen Deines lokalen Repositorys hinauf zum Remote-Repository, das Du als Ursprung festgelegt hast

@@ -1,1 +1,1 @@
-Um ou mais commits são enviados para uma branch ou tag de um repositório.
+One or more commits are pushed to a repository branch or tag.

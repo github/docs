@@ -5,11 +5,11 @@
 registry=https://npm.pkg.github.com/<em>OWNER</em>
   ```
 {% else %}
-  Se o isolamento de subdomínio estiver habilitado:
+  If subdomain isolation is enabled:
   ```shell
   registry=https://npm.<em>HOSTNAME</em>/<em>OWNER</em>
   ```
-  Se o isolamento de subdomínio estiver desabilitado:
+  If subdomain isolation is disabled:
   ```shell
   https://<em>HOSTNAME</em>/_registry/npm/<em>OWNER</em>
   ```

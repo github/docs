@@ -1,1 +1,1 @@
-1. Leia as informações e, em seguida, clique em **Eu entendo. Revogar o acesso para esse token.**
+1. Read the information, then click **I understand, revoke access for this token.**

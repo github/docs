@@ -1,0 +1,1 @@
+4. Na barra lateral esquerda, clique em **Repository roles** (Funções do repositório). ![Aba de funções do repositório nas configurações da organização](/assets/images/help/organizations/org-settings-repository-roles.png)

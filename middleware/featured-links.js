@@ -8,12 +8,9 @@ module.exports = async (req, res, next) => {
 
   if (!(req.context.page.relativePath.endsWith('index.md') || req.context.page.layout === 'product-landing')) return next()
 
-  if (!req.context.page.featuredLinks) return next()
-
-  req.context.featuredLinks = {}
-  for (const key in req.context.page.featuredLinks) {
-    req.context.featuredLinks[key] = await getLinkData(req.context.page.featuredLinks[key], req.context)
-  }
+  req.context.gettingStartedLinks = await getLinkData(req.context.page.rawGettingStartedLinks, req.context)
+  req.context.popularLinks = await getLinkData(req.context.page.rawPopularLinks, req.context)
+  req.context.guideLinks = await getLinkData(req.context.page.rawGuideLinks, req.context)
 
   return next()
 }

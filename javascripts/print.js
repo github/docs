@@ -1,5 +1,3 @@
-import { sendEvent } from './events'
-
 export default function () {
   const printButton = document.querySelector('.js-print')
 
@@ -12,6 +10,11 @@ export default function () {
 
   // Track print events
   window.onbeforeprint = function () {
-    sendEvent({ type: 'print' })
+    // Ensure that Google Analytics was registered
+    if (!window.ga) return
+    const category = 'Print'
+    const action = 'print'
+    const label = 'print'
+    window.ga('send', 'event', category, action, label)
   }
 }

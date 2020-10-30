@@ -1,6 +1,6 @@
 ---
 title: Fehlerbehebung bei Verwendung von SSH
-intro: 'Wenn Sie SSH zur Authentifizierung und Verbindung mit {% data variables.product.product_name %} verwenden, treten eventuell unerwartete Fehler auf, die Sie beheben müssen.'
+intro: 'Wenn Du SSH zur Authentifizierung und Verbindung mit {% data variables.product.product_name %} verwendest, treten eventuell unerwartete Fehler auf, die Du beheben musst.'
 mapTopic: true
 redirect_from:
   - /articles/troubleshooting-ssh

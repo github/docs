@@ -1,1 +1,1 @@
-`remetente` | `objeto` | O usuário que ativou o evento.
+`sender` | `object` | The user that triggered the event.

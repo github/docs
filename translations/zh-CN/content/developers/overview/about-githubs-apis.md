@@ -28,7 +28,7 @@ For information on using the GraphQL API, see the [v4 docs](/v4/).
 
 ## Deprecated versions
 
-### 测试版
+### beta
 
 We deprecated the beta API on April 22, 2014.
 

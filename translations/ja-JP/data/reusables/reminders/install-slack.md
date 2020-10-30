@@ -1,0 +1,1 @@
+リポジトリすべてのSlackをインストールしたいなら、**All repositories（すべてのリポジトリ）**を選択してください。 選択したリポジトリにのみSlackをインストールしたいなら、**Only select repositories（選択されたリポジトリのみ）**を選択してください。 そして、Slackのアクセスを許可したい権限のリストを読み、**Install（インストール）**をクリックしてください。 ![Slackのインストールボタン](/assets/images/help/settings/scheduled-reminders-install-slack.png)

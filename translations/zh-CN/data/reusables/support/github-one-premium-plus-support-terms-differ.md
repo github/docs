@@ -1,0 +1,1 @@
+对于购买 {% data variables.product.prodname_ghe_one %} 的客户，{% data variables.product.premium_plus_support_plan %} 的支持条款不同于 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_insights %}、{% data variables.product.prodname_learning %} 和 {% data variables.product.prodname_registry %} 的支持条款。

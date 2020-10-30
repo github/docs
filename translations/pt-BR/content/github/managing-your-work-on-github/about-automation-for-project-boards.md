@@ -29,11 +29,8 @@ A automação do quadro de projeto também pode ajudar as equipes a desenvolver 
 | Concluído                 | <ul><li>Mover todos os problemas fechados aqui</li><li>Mover todas as pull requests mescladas aqui</li><li>Mover todas as pull requests fechadas e não mescladas aqui</li></ul> |
 
 ### Acompanhamento do andamento do projeto
-
-Você pode acompanhar o progresso no seu quadro de projeto. Cartões nas colunas "Pendente", "Em progresso" ou "Concluído" contam para o progresso geral do projeto. {% data reusables.project-management.project-progress-locations %}
-
-Para obter mais informações, consulte "[Acompanhamento do progresso no quadro de projeto](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)".
+A automação do quadro de projeto permite o acompanhamento do andamento por padrão. Os cartões em colunas com as predefinições "Tarefas pendentes", "Em andamento" ou "Concluído" contam no andamento geral do projeto. {% data reusables.project-management.project-progress-locations %}
 
 ### Leia mais
-- "[Configurar automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
+- "[Configurar a automação para quadros de projeto](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}
 - "[Copiar um quadro de projeto](/articles/copying-a-project-board)"{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Auf grundlegende Daten des Repositorys zugreifen
-intro: 'You can view basic information about a repository, such as the repository''s activity{% if currentVersion == "free-pro-team@latest" %}, traffic,{% endif %} and contribution activity.'
+intro: 'Du kannst grundlegende Informationen über ein Repository anzeigen, beispielsweise über die Aktivität{% if currentVersion == "free-pro-team@latest" %}, den Datenverkehr{% endif %} und die Beitragsaktivitäten des Repositorys.'
 mapTopic: true
 redirect_from:
   - /articles/accessing-basic-repository-data

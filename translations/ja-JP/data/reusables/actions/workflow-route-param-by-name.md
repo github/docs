@@ -1,0 +1,1 @@
+`:workflow_id`を`:workflow_file_name`で置き換えることもできます。 たとえば`main.yml`を使用できます。

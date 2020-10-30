@@ -1,0 +1,110 @@
+---
+title: Managing branches
+intro: You can create a branch off of a repository's default branch so you can safely experiment with changes.
+redirect_from:
+  - /desktop/contributing-to-projects/creating-a-branch-for-your-work
+  - /desktop/contributing-to-projects/switching-between-branches
+versions:
+  free-pro-team: '*'
+---
+
+### About managing branches
+You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
+
+ブランチは常に既存のものから作成します。 通常、リポジトリの `master` ブランチから作成します。 その後、他の人がリポジトリに加えた変更とは別に、新しいブランチで作業できます。
+
+Once you're satisfied with your work, you can [open a pull request](/desktop/contributing-to-projects/creating-an-issue-or-pull-request) to merge the changes in the current branch into another branch. 詳しい情報については[プルリクエストについて](/articles/about-pull-requests)を参照してください。
+
+You can always create a branch in {% data variables.product.prodname_desktop %} if you have read access to a repository, but you can only push the branch to {% data variables.product.prodname_dotcom %} if you have write access to the repository.
+
+{% data reusables.desktop.protected-branches %}
+
+### ブランチの作成
+
+{% tip %}
+
+**ヒント：**最初に作成するブランチは、ほとんどの場合`master`であるデフォルトブランチに基づきます。 If you have more than one branch, you can choose to base the new branch on the currently checked out branch or the default branch.
+
+{% endtip %}
+
+{% mac %}
+
+{% data reusables.desktop.click-base-branch-in-drop-down %}
+  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+{% data reusables.desktop.create-new-branch %}
+  ![ブランチメニュー内の [New Branch] オプション](/assets/images/help/desktop/new-branch-button-mac.png)
+{% data reusables.desktop.name-branch %}
+  ![新しいブランチの名前を作成するフィールド](/assets/images/help/desktop/create-branch-name-mac.png)
+{% data reusables.desktop.select-base-branch %}
+  ![ベースブランチのオプション](/assets/images/help/desktop/create-branch-choose-branch-mac.png)
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create Branchボタン](/assets/images/help/desktop/create-branch-button-mac.png)
+
+{% endmac %}
+
+{% windows %}
+
+{% data reusables.desktop.click-base-branch-in-drop-down %}
+  ![現在のブランチを切り替えるドロップダウンメニュー](/assets/images/help/desktop/click-branch-in-drop-down-win.png)
+{% data reusables.desktop.create-new-branch %}
+  ![ブランチメニュー内の [New Branch] オプション](/assets/images/help/desktop/new-branch-button-win.png)
+{% data reusables.desktop.name-branch %}
+  ![新しいブランチの名前を作成するフィールド](/assets/images/help/desktop/create-branch-name-win.png)
+{% data reusables.desktop.select-base-branch %}
+  ![ベースブランチのオプション](/assets/images/help/desktop/create-branch-choose-branch-win.png)
+{% data reusables.desktop.confirm-new-branch-button %}
+  ![Create branchボタン](/assets/images/help/desktop/create-branch-button-win.png)
+
+{% endwindows %}
+
+### ブランチ間の切り替え
+リポジトリのどんなブランチに対しても、コミットを表示したり、コミットを行ったりすることができます。 まだコミットしていない、保存した変更がある場合は、その変更の扱いについて、ブランチを切り替える前に決める必要があります。 現在のブランチに変更をコミットする、現在のブランチに変更を stash する、または変更を新しいブランチに移動することが可能です。 変更を現在のブランチにコミットしたい場合は、ブランチを切り替える前に、「[プロジェクトへの変更をコミットまたはレビューする](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)」の手順に従ってください。
+
+{% tip %}
+
+**Tip**: **Advanced（高度）**な設定で、ブランチの切り替え時のデフォルトの動作を設定できます。 For more information, see "[Configuring basic settings](/desktop/getting-started-with-github-desktop/configuring-basic-settings)."
+
+{% endtip %}
+
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
+  ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+3. 保存していて、まだコミットしていない変更がある場合は、[**Leave my changes**] または [**Bring my changes**] を選択してから、[**Switch Branch**] をクリックしてください。 ![[Switch branch] と変更オプション](/assets/images/help/desktop/stash-changes-options.png)
+
+### stash した変更を取得する
+他のブランチで stash した変更にアクセスするには、変更を stash したブランチに切り替えます。
+
+{% data reusables.desktop.current-branch-menu %}
+{% data reusables.desktop.switching-between-branches %}
+  ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
+3. 左サイドバーで [**Stashed Changes**] をクリックします。 ![[Stash changes] オプション](/assets/images/help/desktop/stashed-changes.png)
+4. stash した変更を削除するには、[**Discard**] をクリックします。stash した変更を利用するには、[**Restore**] をクリックします。 ![stash した変更の [Discard] または [Restore]](/assets/images/help/desktop/discard-restore-stash-buttons.png)
+
+### ブランチの削除
+
+現時点でブランチがオープンなプルリクエストに関連付けられている場合は、ブランチを削除できません。 You cannot undo deleting a branch.
+
+{% mac %}
+
+{% data reusables.desktop.select-branch-to-delete %}
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
+{% data reusables.desktop.delete-branch-mac %}
+  ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-mac.png)
+
+{% endmac %}
+
+{% windows %}
+
+{% data reusables.desktop.select-branch-to-delete %}
+  ![Drop-down menu to select which branch to delete](/assets/images/help/desktop/select-branch-to-delete.png)
+{% data reusables.desktop.delete-branch-win %}
+  ![Delete... option in the Branch menu](/assets/images/help/desktop/delete-branch-win.png)
+
+{% endwindows %}
+
+### 参考リンク
+
+- 「[{% data variables.product.prodname_desktop %}からのリポジトリのクローン方法](/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-to-github-desktop)」
+- {% data variables.product.prodname_dotcom %} 用語集中の[ブランチ](/articles/github-glossary/#branch)
+- [ブランチについて](/articles/about-branches)
+- Gitのドキュメンテーション中の[ブランチの要約](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)

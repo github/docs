@@ -1,0 +1,1 @@
+<ul><li>OrganizationもしくはEnterpriseのためのAPIや機能の利用についての疑問</li><li>{% data variables.product.company_short %}が提供しているOrganizationのデータ移行のためのツールについての問題</li><li>OrganizationあるいはEnterpriseに関係する機能が、期待どおりに動作していない</li><li>OrganizationあるいはEnterpriseに関する一般的なセキュリティの疑問</li></ul>

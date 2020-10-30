@@ -1,1 +1,1 @@
-有效负载 URL 是接收 web 挂钩 `POST` 请求的服务器的 URL。
+The payload URL is the URL of the server that will receive the webhook `POST` requests.

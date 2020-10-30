@@ -1,0 +1,1 @@
+GitHub Apps devem usar um [JWT](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) para acessar este ponto de extremidade. Os aplicativos OAuth devem usar [basic authentication](/v3/auth/#basic-authentication) com o ID do cliente e o segredo do cliente para acessar este ponto de extremidade.

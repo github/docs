@@ -1,0 +1,1 @@
+1. Retorne ao {% data variables.product.prodname_dotcom %}. No prompt, insira seu código 2FA e clique em **Verify** (Verificar). ![Campo de autenticação do código 2FA](/assets/images/help/desktop/2fa-code-field.png)

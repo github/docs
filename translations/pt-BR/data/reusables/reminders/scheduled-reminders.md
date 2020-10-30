@@ -1,1 +1,1 @@
-1. Na barra lateral esquerda, clique em **Lembretes agendados**.
+1. In the left sidebar, click **Scheduled reminders**.

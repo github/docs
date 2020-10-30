@@ -1,0 +1,1 @@
+1. Na barra lateral de configurações de negócios, clique em **Member privileges** (privilégios de membros). ![Aba de privilégios de membro na barra lateral de configurações da conta empresarial](/assets/images/help/business-accounts/settings-member-privileges-tab.png)

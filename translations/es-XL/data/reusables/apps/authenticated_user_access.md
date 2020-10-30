@@ -1,0 +1,1 @@
+El usuario autenticado tiene permiso explícito para acceder a los repositorios que le pertenezcan, a aquellos en donde es colaborador, y a aquellos a los que puede acceder mediante una membrecía organizacional.

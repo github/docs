@@ -4,6 +4,7 @@ intro: 'Site administrators can view, add, edit, and delete global webhooks to t
 redirect_from:
   - /enterprise/admin/user-management/about-global-webhooks
   - /enterprise/admin/user-management/managing-global-webhooks
+  - /enterprise/admin/user-management/managing-global-webhooks
 versions:
   enterprise-server: '*'
 ---

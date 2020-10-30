@@ -14,9 +14,8 @@ versions:
 
 É possível procurar pacotes globalmente em todos os {% data variables.product.product_name %} ou pesquisar pacotes dentro de uma determinada organização. Para obter mais informações, consulte "[Sobre a pesquisa no {% data variables.product.prodname_dotcom %}](/articles/about-searching-on-github)".
 
-{% if enterpriseServerVersions contains currentVersion %}
-Você só pode pesquisar pacotes em
-{% data variables.product.product_location_enterprise %}, não em {% data variables.product.prodname_dotcom_the_website %}, mesmo se {% data variables.product.prodname_github_connect %} estiver habilitado.
+{% if currentVersion != "free-pro-team@latest" %}
+Para encontrar pacotes que pertencem a um determinado usuário ou organização, use o `usuário` ou `org` qualificador.
 {% endif %}
 
 {% data reusables.search.syntax_tips %}
@@ -25,10 +24,10 @@ Você só pode pesquisar pacotes em
 
 Para encontrar pacotes que pertencem a um determinado usuário ou organização, use o `usuário` ou `org` qualificador.
 
-| Qualifier                 | Exemplo                                                                                                                                                                          |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) corresponde pacotes que pertencem ao @codertocat                                      |
-| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) corresponde pacotes que pertencem à organização do {% data variables.product.prodname_dotcom %}
+| Qualifier                 | Exemplo                                                                                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <code>user:<em>USERNAME</em></code> | [**user:codertocat**](https://github.com/search?q=user%3Acodertocat&type=RegistryPackages) corresponde pacotes que pertencem ao @codertocat                                           |
+| <code>org:<em>ORGNAME</em></code> | [**org:github**](https://github.com/search?q=org%3Agithub&type=RegistryPackages) corresponde pacotes que pertencem à organização do {% data variables.product.prodname_dotcom %} |
 
 ### Filtrar por visibilidade do pacote
 

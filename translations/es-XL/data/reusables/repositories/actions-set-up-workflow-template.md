@@ -1,0 +1,1 @@
+1. Debajo del nombre de la plantilla que deseas utilizar, da clic en **Configurar este flujo de trabajo**. ![Recomendaciones de plantillas de Node.js](/assets/images/help/repository/actions-recommended-workflow-template.png)

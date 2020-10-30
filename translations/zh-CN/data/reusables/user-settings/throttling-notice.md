@@ -1,0 +1,1 @@
+此端点触发[通知](/articles/about-notifications/)。 使用此端点创建内容过快可能会导致滥用率限制。 See "[Abuse rate limits](/v3/#abuse-rate-limits)"{% if currentVersion == "free-pro-team@latest" %} and "[Dealing with abuse rate limits](/v3/guides/best-practices-for-integrators/#dealing-with-abuse-rate-limits)"{% endif %} for details.

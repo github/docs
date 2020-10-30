@@ -15,8 +15,7 @@ versions:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-3. Selecione o
-{% data variables.product.prodname_github_app %} para o qual você deseja habilitar um recurso beta.
+3. Selecione o {% data variables.product.prodname_github_app %} para o qual você deseja habilitar um recurso do beta.
 {% data reusables.apps.beta_feature_activation %}
 
 ### Ativar recursos do beta para {% data variables.product.prodname_oauth_app %}s

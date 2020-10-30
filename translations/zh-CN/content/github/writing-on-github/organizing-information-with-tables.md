@@ -1,6 +1,6 @@
 ---
 title: 使用表格组织信息
-intro: '您可以创建表格来组织评论、议题、拉取请求和 wiki 中的信息。'
+intro: 您可以创建表格来组织评论、议题、拉取请求和 wiki 中的信息。
 redirect_from:
   - /articles/organizing-information-with-tables
 versions:

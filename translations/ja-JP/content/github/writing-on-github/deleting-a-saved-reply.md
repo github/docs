@@ -1,6 +1,6 @@
 ---
 title: 返信テンプレートの削除
-intro: '使用しなくなった返信テンプレートは削除できます。'
+intro: 使用しなくなった返信テンプレートは削除できます。
 redirect_from:
   - /articles/deleting-a-saved-reply
 versions:

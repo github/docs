@@ -1,0 +1,1 @@
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}apenas {% data variables.product.prodname_github_app %}s instalados com acesso de `write` à permissão `contents` podem ser adicionados como atores autorizados em uma branch protegida.{% endif %}

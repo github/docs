@@ -1,20 +1,19 @@
 ---
-title: Creating a template repository
-intro: 'You can make an existing repository a template, so you and others can generate new repositories with the same directory structure{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}, branches,{% endif %} and files.'
+title: Crear un repositorio desde una plantilla
+intro: 'Puedes crear una plantilla a partir de un repositorio existente para que tanto tú como otras personas puedan generar nuevos repositorios con la misma estructura de {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}ramas y{% endif %}archivos en el directorio.'
 redirect_from:
   - /articles/creating-a-template-repository
 versions:
   free-pro-team: '*'
-  enterprise-server: '*'
+  enterprise-server: '>=2.18'
 ---
 
-Anyone with admin permissions to a repository can make the repository a template.
+Cualquier usuario con permisos de administrador para un repositorio puede convertir el repositorio en una plantilla.
 
-To create a template repository, you must create a repository, then make the repository a template. For more information about creating a repository, see "[Creating a new repository](/articles/creating-a-new-repository)."
+Para crear un repositorio de plantilla, debes crear un repositorio y luego convertirlo en una plantilla. Para obtener más información sobre la creación de repositorios, consulta "[Crear un repositorio nuevo](/articles/creating-a-new-repository)."
 
-After you make your repository a template, anyone with access to the repository can generate a new repository with the same directory structure and files as your default branch.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} They can also choose to include all the other branches in your repository.{% endif %} For more information, see "[Creating a repository from a template](/articles/creating-a-repository-from-a-template)."
+Después de convertir tu repositorio en una plantilla, cualquiera con acceso a él puede generar un nuevo repositorio con la misma estructura de directorio y archivos que tu rama predeterminada. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} También pueden elegir incluir todas las otras ramas de tu repositorio.{% endif %} Para obtener más información, consulta la sección "[Crear un repositorio desde una plantilla](/articles/creating-a-repository-from-a-template)".
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Select **Template repository**.
-  ![Checkbox to make a repository a template](/assets/images/help/repository/template-repository-checkbox.png)
+3. Selecciona **Repositorio de plantilla**. ![Casilla de verificación para convertir un repositorio en una plantilla](/assets/images/help/repository/template-repository-checkbox.png)

@@ -1,0 +1,1 @@
+Você deve usar um token de acesso com o escopo `security_events` para usar este ponto de extremidade.

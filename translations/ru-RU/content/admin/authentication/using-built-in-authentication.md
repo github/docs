@@ -4,6 +4,7 @@ intro: 'When you use the default authentication method, all authentication detai
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication
+  - /enterprise/admin/authentication/using-built-in-authentication
 versions:
   enterprise-server: '*'
 ---

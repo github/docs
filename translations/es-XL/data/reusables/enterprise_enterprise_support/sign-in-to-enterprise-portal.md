@@ -1,0 +1,1 @@
+1. Para iniciar sesión en el {% data variables.contact.enterprise_portal %}, en el ángulo superior derecho de la página, haz clic en **Sign in** (Iniciar sesión). ![Inicia sesión en {% data variables.contact.enterprise_portal %}](/assets/images/enterprise/support/sign-in-support-portal.png)

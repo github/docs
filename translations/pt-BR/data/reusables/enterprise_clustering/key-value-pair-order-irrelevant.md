@@ -1,1 +1,1 @@
-A ordem dos pares chave-valor não importa.
+The order of the key-value pairs doesn't matter.
