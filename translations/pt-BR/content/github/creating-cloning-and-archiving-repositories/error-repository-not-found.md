@@ -1,6 +1,6 @@
 ---
 title: 'Erro: repositório não encontrado'
-intro: '{% if currentVersion == "free-pro-team@latest" %}Se você encontrar esse erro ao clonar um repositório, significa que o repositório não existe ou você não tem permissão para acessá-lo. Existem algumas soluções para esse erro, dependendo do motivo.{% else %}Ao encontrar esse erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou a instância do GitHub Enterprise está em modo privado. Existem algumas soluções para esse erro, dependendo do motivo.{% endif %}'
+intro: '{% if currentVersion == "free-pro-team@latest" %}Se você vir este erro ao clonar um repositório, isto significa que o repositório não existe ou que você não tem permissão para acessá-lo. Existem algumas soluções para esse erro, dependendo do motivo.{% else %}Ao encontrar esse erro ao clonar um repositório, significa que o repositório não existe, você não tem permissão para acessá-lo ou a instância do GitHub Enterprise está em modo privado. Existem algumas soluções para esse erro, dependendo do motivo.{% endif %}'
 redirect_from:
   - /articles/error-repository-not-found
 versions:
@@ -42,7 +42,7 @@ Se o repositório pertencer a uma organização e você estiver usando uma chave
 
 Para obter mais informações, consulte [Adicionar uma nova chave SSH à sua conta GitHub](/articles/adding-a-new-ssh-key-to-your-github-account).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Verifique se sua instância está em modo privado
 

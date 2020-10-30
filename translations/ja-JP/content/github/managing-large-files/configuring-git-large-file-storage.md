@@ -13,7 +13,7 @@ versions:
 
 {% data reusables.large_files.resolving-upload-failures %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% tip %}
 
@@ -47,7 +47,7 @@ versions:
 5. 以下のように、ファイルをコミットし、{% data variables.product.product_name %} にプッシュします:
   ```shell
   $ git commit -m "add file.psd"
-  $ git push origin master
+  $ git push
   ```
   アップロードしたファイルの Diagnostics 情報が、以下のように表示されるはずです:
   ```shell
@@ -58,5 +58,5 @@ versions:
 
 ### 参考リンク
 
-- 「[{% data variables.large_files.product_name_long %} とのコラボレーション](/articles/collaboration-with-git-large-file-storage/)」{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+- "[Collaboration with {% data variables.large_files.product_name_long %}](/articles/collaboration-with-git-large-file-storage/)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 - 「[リポジトリのアーカイブ内の {% data variables.large_files.product_name_short %} オブジェクトを管理する](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)」{% endif %}

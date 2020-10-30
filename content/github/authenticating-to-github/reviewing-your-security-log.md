@@ -48,7 +48,7 @@ Actions listed in your security log are grouped within the following categories:
 | `project` | Contains all activities related to project boards.
 | `public_key` | Contains all activities related to [your public SSH keys](/articles/adding-a-new-ssh-key-to-your-github-account).
 | `repo` | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if currentVersion != "free-pro-team@latest" %}
+| `sponsors` | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion %}
 | `team` | Contains all activities related to teams you are a part of.{% endif %}
 | `two_factor_authentication` | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).
 | `user` | Contains all activities related to your account.
@@ -142,7 +142,7 @@ A description of the events within these categories is listed below.
 | access | Triggered when you a repository you own is [switched from "private" to "public"](/articles/making-a-private-repository-public) (or vice versa).
 | add_member | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | add_topic | Triggered when a repository owner [adds a topic](/articles/classifying-your-repository-with-topics) to a repository.
-| archived | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if currentVersion != "free-pro-team@latest" %}
+| archived | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
 | config.disable_anonymous_git_access | Triggered when [anonymous Git read access is disabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | config.enable_anonymous_git_access | Triggered when [anonymous Git read access is enabled](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
 | config.lock_anonymous_git_access | Triggered when a repository's [anonymous Git read access setting is locked](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access).
@@ -191,7 +191,7 @@ A description of the events within these categories is listed below.
 | revoke | Triggered when you revoke a succession invitation (see "[Maintaining ownership continuity of your user account's repositories](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)")
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 #### The `team` category
 

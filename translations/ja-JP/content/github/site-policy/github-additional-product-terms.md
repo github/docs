@@ -42,11 +42,11 @@ GitHub Pagesは、特定の帯域幅および使用法の制限を受けるた�
 ### 5. アクションとパッケージ
 
 #### a. アクションの使用量
-GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 各アカウントには、アクションで使用できる付属の計算処理およびストレージ容量が、アカウントプランに応じて付属しています。これについては、[Gアクションのドキュメント](/github/automating-your-workflow-with-github-actions/about-github-actions#about-github-actions)を参照してください。 アクションの計算使用量は[アカウント設定](https://github.com/settings/billing)に表示され、付属の量の制限に達すると前ってメールで通知されます。 付属の量を超えてアクションを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)こともできます。
+GitHubアクションでは、カスタムソフトウェア開発のライフサイクルにわたるワークフローをGitHubリポジトリに直接作成することができます。 Each Account comes with included compute and storage quantities for use with Actions, depending on your Account plan, which can be found in the [Actions documentation](/actions). アクションの計算使用量は[アカウント設定](https://github.com/settings/billing)に表示され、付属の量の制限に達すると前ってメールで通知されます。 付属の量を超えてアクションを使用したい場合は、[超過使用を有効にする](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions)こともできます。
 
-付属の量と有料の量の計算使用量は、実行するアクションの種類 (Linux、Windows、macOSなど)に基づいて分単位で計算されます。 各アクションのジョブまたはタスクに使用された時間を、分単位で切り上げます。 付属の量の場合は、アクションの種類に応じ、各ジョブまたはタスクの実行に使われた時間に倍数をかけてから、最も近い分単位に切り上げます。 超過使用時間は、実行するアクションの種類に基づいて[申告された分単位の価格](https://github.com/features/actions)で請求されます。 アクションとパッケージはストレージを共有し、ストレージの使用量は、[アカウント設定](https://github.com/settings/billing)に表示されます。 付属の量の使用量計算に関する詳細は、[アクションのドキュメント](/github/automating-your-workflow-with-github-actions/about-github-actions#about-github-actions)を参照してください。
+付属の量と有料の量の計算使用量は、実行するアクションの種類 (Linux、Windows、macOSなど)に基づいて分単位で計算されます。 各アクションのジョブまたはタスクに使用された時間を、分単位で切り上げます。 付属の量の場合は、アクションの種類に応じ、各ジョブまたはタスクの実行に使われた時間に倍数をかけてから、最も近い分単位に切り上げます。 超過使用時間は、実行するアクションの種類に基づいて[申告された分単位の価格](https://github.com/features/actions)で請求されます。 アクションとパッケージはストレージを共有し、ストレージの使用量は、[アカウント設定](https://github.com/settings/billing)に表示されます。 For additional details about included quantity usage calculations, see the [Actions documentation](/actions).
 
-アクションとアクションサービスの要素は、本契約、[利用規定](/github/site-policy/github-acceptable-use-policies)、またはGitHubアクション[サービス制限](/github/automating-your-workflow-with-github-actions/about-github-actions#usage-limits)に違反して使用される場合があります。 また、アクションは次の用途には使用しないでください。
+アクションとアクションサービスの要素は、本契約、[利用規定](/github/site-policy/github-acceptable-use-policies)、またはGitHubアクション[サービス制限](/actions/reference/usage-limits-billing-and-administration/#usage-limits)に違反して使用される場合があります。 また、アクションは次の用途には使用しないでください。
 - クリプトマイニング;
 - 当社サーバーを使用して、何らかのサービス、デバイス、データ、アカウントまたはネットワークを妨害すること、またはこれらに不正アクセスするかあるいはこれを試みること ([GitHub Bug Bounty program](https://bounty.github.com) により許可されている場合を除く)、
 - the provision of a stand-alone or integrated application or service offering Actions or any elements of Actions for commercial purposes;

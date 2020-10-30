@@ -11,7 +11,6 @@ versions:
 
 This describes the resources that make up the official {% data variables.product.product_name %} REST API. If you have any problems or requests, please contact {% data variables.contact.contact_support %}.
 
-
 ### Current version
 
 By default, all requests to `{% data variables.product.api_url_code %}` receive the **v3** [version](/v3/versions) of the REST API. We encourage you to [explicitly request this version via the `Accept` header](/v3/media/#request-specific-version).
@@ -36,13 +35,12 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -109,7 +107,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 Using your `client_id` and `client_secret` does _not_ authenticate as a user, it will only identify your OAuth application to increase your rate limit. Permissions are only granted to users, not applications, and you will only get back data that an unauthenticated user would see. For this reason, you should only use the OAuth2 key/secret in server-to-server scenarios. Don't leak your OAuth application's client secret to your users.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 You will be unable to authenticate using your OAuth2 key and secret while in private mode, and trying to authenticate will return `401 Unauthorized`. For more information, see "[Enabling private mode](/enterprise/admin/installation/enabling-private-mode)".
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -165,10 +163,10 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 You can issue a `GET` request to the root endpoint to get all the endpoint categories that the REST API supports:
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

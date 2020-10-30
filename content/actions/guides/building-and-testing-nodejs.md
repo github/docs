@@ -33,7 +33,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 To get started quickly, add the template to the `.github/workflows` directory of your repository.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]

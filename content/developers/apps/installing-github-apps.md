@@ -55,7 +55,7 @@ These steps assume you have [built a {% data variables.product.prodname_github_a
 
 You can simplify the authorization process by completing it during app installation. To do this, select **Request user authorization (OAuth) during installation** when creating or modifying your app in GitHub. See "[Creating a GitHub App](/apps/building-github-apps/creating-a-github-app/)" to learn more.
 
-Once someone has installed your app, you will need to get an access token for the user. See steps 2 and 3 in "[Identifying a users on your site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" to learn more.
+Once someone has installed your app, you will need to get an access token for the user. See steps 2 and 3 in "[Identifying users on your site](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/#identifying-users-on-your-site)" to learn more.
 ### Preserving an application state during installation
 
 You can provide a `state` parameter in an app's installation URL to preserve the state of the application page and return people back to that state after they install, authenticate, or accept updates to your GitHub App. For example, you could use the `state` to correlate an installation to a user or account.

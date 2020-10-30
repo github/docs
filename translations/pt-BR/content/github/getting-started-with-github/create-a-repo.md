@@ -19,7 +19,9 @@ Você pode armazenar vários projetos nos repositórios do {% data variables.pro
 
 {% data reusables.repositories.create_new %}
 2. Digite um nome curto e fácil de memorizar para seu repositório. Por exemplo, "olá mundo". ![Campo para inserir um nome de repositório](/assets/images/help/repository/create-repository-name.png)
-3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no {% data variables.product.product_name %}". ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
+3. Se desejar, adicione uma descrição do repositório. Por exemplo, "Meu primeiro repositório no
+{% data variables.product.product_name %}."
+  ![Campo para inserir uma descrição do repositório](/assets/images/help/repository/create-repository-desc.png)
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}

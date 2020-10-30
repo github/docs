@@ -8,20 +8,20 @@ versions:
   enterprise-server: '*'
 ---
 
-在卡上可以单击任何受理人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、里程碑{% endif %}或标签来按限定条件过滤项目板。 要清除搜索，可再次单击同一个受理人{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、里程碑{% endif %}或标签。
+On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.
 
 也可使用每个项目板顶部的“Filter cards（过滤卡）”搜索栏来搜索卡。 您可以使用以下搜索限定符的任意组合来过滤卡，或者直接输入您要搜索的某些文本。
 
 - 使用 `author:USERNAME` 按作者过滤卡
 - 使用 `assignee:USERNAME` 或 `no:assignee` 按受理人过滤卡
-- 使用 `label:LABEL`、`label:"MULTI-WORD LABEL NAME"` 或 `no:label`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %} 按标签过滤卡
-- 使用 `milestone:MY-MILESTONE`{% endif %} 按里程碑过滤
+- Filter cards by label using `label:LABEL`, `label:"MULTI-WORD LABEL NAME"`, or `no:label`
+- 使用 `milestone:MY-MILESTONE` 按里程碑过滤
 - 使用 `state:open`、`state:closed` 或 `state:merged` 按状态过滤卡
 - 使用 `review:none`、`review:required`、`review:approved` 或 `review:changes_requested` 按审查状态过滤
 - 使用 `status:pending`、`status:success` 或 `status:failure` 按检查状态过滤
 - 使用 `type:issue`、`type:pr` 或 `type:note` 按类型过滤卡
 - 使用 `is:open`、`is:closed` 或 `is:merged` 和 `is:issue`、`is:pr` 或 `is:note` 按状态和类型过滤卡
-- 使用 `linked:pr` 关闭引用，按链接到拉取请求的议题过滤卡{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Filter cards by issues that are linked to a pull request by a closing reference using `linked:pr`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - 使用 `repo:ORGANIZATION/REPOSITORY` 在组织范围的项目板中按仓库过滤卡{% endif %}
 
 1. 导航到包含要过滤的卡的项目板。

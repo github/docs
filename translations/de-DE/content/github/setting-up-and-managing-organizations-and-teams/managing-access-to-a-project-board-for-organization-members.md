@@ -1,6 +1,6 @@
 ---
 title: Zugriff auf ein Projektboard für Organisationsmitglieder verwalten
-intro: Als Organisationsinhaber oder Projektboard-Administrator kannst Du eine standardmäßige Berechtigungsebene für ein Projektboard für alle Organisationsmitglieder festlegen.
+intro: 'Als Organisationsinhaber oder Projektboard-Administrator kannst Du eine standardmäßige Berechtigungsebene für ein Projektboard für alle Organisationsmitglieder festlegen.'
 redirect_from:
   - /articles/managing-access-to-a-project-board-for-organization-members
 versions:

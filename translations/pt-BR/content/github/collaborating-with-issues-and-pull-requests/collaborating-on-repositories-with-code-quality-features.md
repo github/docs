@@ -1,6 +1,6 @@
 ---
-title: Colaborar nos repositórios com recursos de qualidade de código
-intro: 'Os recursos de qualidade do fluxo de trabalho, como status, {% if currentVersion != "free-pro-team@latest" %}hooks pre-receive, {% endif %}branches protegidos e verificações de status obrigatórias ajudam os colaboradores a fazer contribuições que atendem às condições definidas pela organização e por administradores de repositório.'
+title: Collaborating on repositories with code quality features
+intro: 'Workflow quality features like statuses, {% if enterpriseServerVersions contains currentVersion %}pre-receive hooks, {% endif %}protected branches, and required status checks help collaborators make contributions that meet conditions set by organization and repository administrators.'
 mapTopic: true
 redirect_from:
   - /articles/collaborating-on-repositories-with-code-quality-features-enabled/

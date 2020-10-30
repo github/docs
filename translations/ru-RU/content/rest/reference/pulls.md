@@ -36,7 +36,7 @@ Pull Requests have these possible link relations:
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `self`            | The API location of this Pull Request.                                                                                                           |
 | `html`            | The HTML location of this Pull Request.                                                                                                          |
-| `задача`          | The API location of this Pull Request's [Issue](/v3/issues/).                                                                                    |
+| `проблема`        | The API location of this Pull Request's [Issue](/v3/issues/).                                                                                    |
 | `комментарии`     | The API location of this Pull Request's [Issue comments](/v3/issues/comments/).                                                                  |
 | `review_comments` | The API location of this Pull Request's [Review comments](/v3/pulls/comments/).                                                                  |
 | `review_comment`  | The [URL template](/v3/#hypermedia) to construct the API location for a [Review comment](/v3/pulls/comments/) in this Pull Request's repository. |

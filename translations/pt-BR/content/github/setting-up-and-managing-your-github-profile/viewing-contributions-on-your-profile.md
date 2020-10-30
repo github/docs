@@ -25,7 +25,7 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 - Fazer commit no branch `gh-pages` ou no branch padrão de um repositório
 - Abrir um problema
 - Propor uma pull request
-- Enviar uma revisão de pull request{% if currentVersion != "free-pro-team@latest" %}
+- Enviar uma revisão de pull request{% if enterpriseServerVersions contains currentVersion %}
 - Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}

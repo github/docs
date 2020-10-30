@@ -32,14 +32,14 @@ versions:
 
 {% warning %}
 
-**警告！**请勿直接使用 Git 或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} 进行更新以 `merge` Git 引用，因为此内容会过时而不发出警告。
+**警告！**请不要依赖直接使用 Git 或 [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference)  更新 `merge` Git 引用，因为此内容会在不发出警告的情况下过期。
 
 {% endwarning %}
 
 消费 API 需要明确请求拉取请求来创建一个_测试_合并提交。 当您在 UI 中查看拉取请求并且“ Merge（合并）”按钮显示时，或者当您使用 REST API 来[获取](/v3/pulls/#get-a-pull-request)、[创建](/v3/pulls/#create-a-pull-request)或[编辑](/v3/pulls/#update-a-pull-request)拉取请求时，将创建一个_测试_合并提交。 如果没有此请求，`merge` Git 引用将过时，直到下次有人查看拉取请求。
 
-如果您当前正在使用会生成过时 `merge` Git 引用的轮询方法，GitHub 建议您使用以下步骤从基本分支（通常是 `master`）获取最新更改：
+如果您当前正在使用会生成过时 `merge` Git 引用的轮询方法，GitHub 建议使用以下步骤从默认分支获取最新更改：
 
 1. 接收拉取请求 web 挂钩。
 2. 调用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 以启动创建合并提交候选项的后台作业。
-3. 使用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 轮询仓库，以查看 `mergeable` 属性是 `true` 还是 `false`。 您可以直接使用 Git 或 {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}[`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference){% endif %} 进行更新以 `merge` Git 引用，前提是您已执行上述步骤。
+3. 使用 [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/v3/pulls/#get-a-pull-request) 轮询仓库，以查看 `mergeable` 属性是 `true` 还是 `false`。 您仅在执行上述步骤后才可直接使用 Git 或 [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/v3/git/refs/#get-a-reference) 更新 `merge` Git 引用。

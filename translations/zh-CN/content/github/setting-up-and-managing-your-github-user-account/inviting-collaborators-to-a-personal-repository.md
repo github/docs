@@ -1,6 +1,6 @@
 ---
 title: 邀请协作者参加个人仓库
-intro: '您可以{% if currentVersion == "free-pro-team@latest" %}邀请用户成为{% else %}添加用户成为{% endif %}个人仓库的协作者。'
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}invite users to become{% else %}add users as{% endif %} collaborators to your personal repository.'
 redirect_from:
   - /articles/how-do-i-add-a-collaborator/
   - /articles/adding-collaborators-to-a-personal-repository/
@@ -29,7 +29,7 @@ versions:
 
 1. 询问您要邀请成为合作者的人员的用户名。
 
-{% if currentVersion == "free-pro-team@latest" %} 如果他们还没有用户名，他们可以注册 {% data variables.product.prodname_dotcom %} 更多信息请参阅“[注册新 {% data variables.product.prodname_dotcom %} 帐户](/articles/signing-up-for-a-new-github-account)”。{% endif %}
+{% if currentVersion == "free-pro-team@latest" %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %} For more information, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)".{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% if currentVersion == "free-pro-team@latest" %}

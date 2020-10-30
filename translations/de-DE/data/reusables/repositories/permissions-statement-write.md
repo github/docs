@@ -1,1 +1,1 @@
-Personen mit Schreibzugriff auf das Repository können diese Schritte ausführen.
+Write access to the repository is required to perform these steps.

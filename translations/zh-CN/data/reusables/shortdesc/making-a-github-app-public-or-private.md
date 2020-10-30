@@ -1,1 +1,1 @@
-When setting up a GitHub App, you can make its installation public so any GitHub user or organization can install the app, or private so you can only install it on the account that created it.
+设置 GitHub 应用程序时，您可以将其安装设为公共，使任何 GitHub 用户或组织都可以安装该应用程序，也可以将其设为私有，限制为只能在创建它的帐户上安装它。

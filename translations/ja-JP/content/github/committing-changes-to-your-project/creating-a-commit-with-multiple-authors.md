@@ -1,6 +1,6 @@
 ---
 title: 複数の作者を持つコミットを作成する
-intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} で表示され、プロフィールコントリビューショングラフとリポジトリの統計に含めることができます。{% endif %}'
+intro: 'コミットのメッセージに、1 つ以上の "Co-authored-by" トレーラーを追加することで、1 つのコミットに複数の作者を追加できます。 共作されたコミットは {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion %} で表示され、プロフィールコントリビューショングラフとリポジトリの統計に含めることができます。{% endif %}'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
@@ -67,7 +67,7 @@ versions:
 {% data variables.product.product_location %} に新たなコミットとメッセージが表示されます。
 
 ### 参考リンク
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 - [プロフィール上でのコントリビューションの表示](/articles/viewing-contributions-on-your-profile)
 - [プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile){% endif %}
 - [リポジトリアクティビティの概要を表示する](/articles/viewing-a-summary-of-repository-activity)

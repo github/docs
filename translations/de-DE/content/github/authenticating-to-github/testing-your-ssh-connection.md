@@ -1,6 +1,6 @@
 ---
 title: SSH-Verbindung testen
-intro: 'Wenn Du Deinen SSH-Schlüssel eingerichtet und Deinem {% data variables.product.product_name %}-Konto hinzugefügt hast, kannst Du die Verbindung testen.'
+intro: 'Wenn Sie Ihren SSH-Schlüssel eingerichtet und Ihrem {% data variables.product.product_name %}-Konto hinzugefügt haben, können Sie die Verbindung testen.'
 redirect_from:
   - /articles/testing-your-ssh-connection
 versions:
@@ -23,14 +23,6 @@ Für den Test Deiner Verbindung musst Du diese Aktion mit Deinem Passwort authen
   ```
 
   Eventuell erhälst Du eine Warnung wie die folgende:
-
-  ```shell
-  > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.
-  > RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
-  > Are you sure you want to continue connecting (yes/no)?
-  ```
-
-  oder wie diese:
 
   ```shell
   > The authenticity of host '{% data variables.command_line.codeblock %} (IP ADDRESS)' can't be established.

@@ -26,7 +26,7 @@ versions:
 其他贡献者可以审查您提议的更改，添加审查注释，参与拉取请求讨论，甚至对拉取请求添加评论。
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. 更多信息请参阅“[查看仓库的部署活动](/articles/viewing-deployment-activity-for-your-repository)”。
+您可以在“Conversation（对话）”选项卡上查看有关分支当前部署状态和以前部署活动的信息。 更多信息请参阅“[查看仓库的部署活动](/articles/viewing-deployment-activity-for-your-repository)”。
 {% endif %}
 
 对提议的更改感到满意后，您可以合并拉取请求。 如果您在使用共享仓库模型，可以创建一个拉取请求，然后您或其他人将您的功能分支中的更改合并到您在拉取请求中指定的基础分支。 更多信息请参阅“[合并拉取请求](/articles/merging-a-pull-request)”。
@@ -52,6 +52,13 @@ You can see information about the branch's current deployment status and past de
 在创建拉取请求时，可以选择创建可直接审查的拉取请求，或草稿拉取请求。 草稿拉取请求不能合并，也不会自动向代码所有者申请审查草稿拉取请求。 有关创建草稿拉取请求的更多信息，请参阅“[创建拉取请求](/articles/creating-a-pull-request)”和“[从复刻创建拉取请求](/articles/creating-a-pull-request-from-a-fork)”。
 
 {% data reusables.pull_requests.mark-ready-review %} 您可以随时将拉取请求转换为草稿。 更多信息请参阅“[更改拉取请求的阶段](/articles/changing-the-stage-of-a-pull-request)”。
+
+### Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
 
 ### 延伸阅读
 

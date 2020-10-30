@@ -24,7 +24,9 @@ versions:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. [{% data variables.product.prodname_github_app %}s] の下で、{% data variables.product.prodname_github_app %} マネージャーを追加したいアプリケーションのアバターをクリックします。 ![{% data variables.product.prodname_github_app %} を選択](/assets/images/help/organizations/select-github-app.png)
+1. [
+[{% data variables.product.prodname_github_app %}s] で、{% data variables.product.prodname_github_app %} マネージャーを追加したいアプリケーションのアバターをクリックします。
+![{% data variables.product.prodname_github_app %} を選択](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. [App managers] の下で、そのアプリケーションの GitHub App マネージャーとして指名したい人物のユーザ名を入力し、[**Grant**] をクリックしてください。 ![特定のアプリケーションに {% data variables.product.prodname_github_app %} マネージャーを追加](/assets/images/help/organizations/add-github-app-manager-for-app.png)
 

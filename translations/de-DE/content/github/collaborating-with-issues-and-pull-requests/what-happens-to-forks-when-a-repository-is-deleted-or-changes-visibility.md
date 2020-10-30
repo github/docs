@@ -1,6 +1,6 @@
 ---
-title: 'Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?'
-intro: 'Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.'
+title: Was geschieht mit Forks, wenn ein Repository gelöscht wird oder sich dessen Sichtbarkeit ändert?
+intro: Wenn Du Dein Repository löschst oder dessen Sichtbarkeit änderst, wirkt sich dies auf die Forks dieses Repositorys aus.
 redirect_from:
   - /articles/changing-the-visibility-of-a-network/
   - /articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility
@@ -29,7 +29,7 @@ Wenn ein öffentliches Repository auf privat festgelegt wird, werden die zugehö
 
 Die Forks eines öffentlichen Repositorys bleiben demnach in ihrem eigenen separaten Repository-Netzwerk öffentlich, selbst nachdem das übergeordnete Repository auf privat eingestellt wurde. Dadurch können Fork-Inhaber ohne Unterbrechung weiterhin arbeiten und zusammenarbeiten. Wenn öffentliche Forks nicht auf diese Weise in ein separates Netzwerk verschoben wurden, benötigen die Inhaber dieser Forks die entsprechenden [Zugriffsberechtigungen](/articles/access-permissions-on-github), um Änderungen vom (inzwischen privaten) übergeordneten Repository abzurufen und um Pull Requests an das übergeordnete Repository abzusenden, auch wenn sie zuvor diese Berechtigungen nicht benötigt haben.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Wenn für ein öffentliches Repository der anonyme Git-Lesezugriff aktiviert ist und das Repository auf privat festgelegt wird, verlieren alle Forks des Repositorys den anonymen Git-Lesezugriff und verwenden wieder die standardmäßig deaktivierte Einstellung. Wenn ein geforktes Repository als öffentlich festgelegt wird, kann der anonyme Git-Lesezugriff durch die Repository-Administratoren wieder aktiviert werden. Weitere Informationen finden Sie unter „[Anonymen Git-Lesezugriff für ein Repository aktivieren](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)“.
 {% endif %}
 

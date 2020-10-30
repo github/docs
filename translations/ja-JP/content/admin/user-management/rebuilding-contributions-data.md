@@ -15,4 +15,5 @@ versions:
 3. ページ左にある、**Admin** をクリックする。 ![[Admin] タブ](/assets/images/enterprise/site-admin-settings/admin-tab.png)
 4. **Contributions data** で、**Rebuild** をクリックする。 ![[Rebuild] ボタン](/assets/images/enterprise/site-admin-settings/rebuild-button.png)
 
-{% data variables.product.prodname_enterprise %} は、コミットをユーザアカウントに再度リンクするためのバックグラウンドジョブを開始します。  ![待ち行列に入っている再構築ジョブ](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)
+{% data variables.product.prodname_enterprise %} は、コミットをユーザアカウントに再度リンクするためのバックグラウンドジョブを開始します。
+  ![待ち行列に入っている再構築ジョブ](/assets/images/enterprise/site-admin-settings/rebuild-jobs.png)

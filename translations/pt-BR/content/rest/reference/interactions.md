@@ -1,12 +1,12 @@
 ---
-title: Interactions
+title: Interações
 redirect_from:
   - /v3/interactions
 versions:
   free-pro-team: '*'
 ---
 
-Users interact with repositories by commenting, opening issues, and creating pull requests. The Interactions APIs allow people with owner or admin access to temporarily restrict certain users from interacting with public repositories.
+Os usuários interagem com repositórios comentando, abrindo problemas e criando pull requests. As APIs de interações permitem que pessoas com acesso de proprietário ou administrador restrinjam temporariamente certos usuários de interagir com repositórios públicos.
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -14,11 +14,11 @@ Users interact with repositories by commenting, opening issues, and creating pul
 
 ## organização
 
-The Organization Interactions API allows organization owners to temporarily restrict which users can comment, open issues, or create pull requests in the organization's public repositories. {% data reusables.interactions.interactions-detail %} Here's more about the groups of {% data variables.product.product_name %} users:
+A API de Interações da Organização permite que os proprietários da organização restrinjam temporariamente quais usuários podem comentar, abrir problemas ou criar pull requests nos repositórios públicos da organização. {% data reusables.interactions.interactions-detail %} Veja mais sobre os grupos de usuários do {% data variables.product.product_name %}:
 
-* {% data reusables.interactions.existing-user-limit-definition %} in the organization.
-* {% data reusables.interactions.contributor-user-limit-definition %} in the organization.
-* {% data reusables.interactions.collaborator-user-limit-definition %} in the organization.
+* {% data reusables.interactions.existing-user-limit-definition %} na organização.
+* {% data reusables.interactions.contributor-user-limit-definition %} na organização.
+* {% data reusables.interactions.collaborator-user-limit-definition %} na organização.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
@@ -26,7 +26,7 @@ The Organization Interactions API allows organization owners to temporarily rest
 
 ## Repositório
 
-The Repository Interactions API allows people with owner or admin access to temporarily restrict which users can comment, open issues, or create pull requests in a public repository. {% data reusables.interactions.interactions-detail %} Here's more about the groups of {% data variables.product.product_name %} users:
+A API de Interações do Repositório permite que pessoas com acesso de proprietário ou administrador restrinjam temporariamente quais usuários podem comentar, abrir problemas ou criar pull requests em um repositório público. {% data reusables.interactions.interactions-detail %} Veja mais sobre os grupos de usuários do {% data variables.product.product_name %}:
 
 * {% data reusables.interactions.existing-user-limit-definition %} in the respository.
 * {% data reusables.interactions.contributor-user-limit-definition %} in the respository.

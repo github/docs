@@ -1,6 +1,6 @@
 ---
 title: 从收件箱管理通知
-intro: '使用收件箱快速分类并在电子邮件{% if currentVersion == "free-pro-team@latest" %}与手机{% endif %}之间同步您的通知。'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -12,25 +12,24 @@ versions:
 ### 关于收件箱
 
 {% if currentVersion == "free-pro-team@latest" %}
-{% data reusables.notifications-v2.notifications-inbox-required-setting %} For more information, see "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)."
+{% data reusables.notifications-v2.notifications-inbox-required-setting %} 更多信息请参阅“[配置通知](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#choosing-your-notification-settings)”。
 {% endif %}
 
-To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
+要访问通知收件箱，请在任意页面的右上角单击 {% octicon "bell" aria-label="The notifications bell" %}。
 
   ![表示任何未读消息的通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
 
-
 收件箱显示您尚未取消订阅或标记为**完成**的所有通知。您可以使用过滤器自定义收件箱，使之最适合您的工作流程，查看所有通知或只查看未读通知，对通知分组通知以获取快速概览。
 
-  ![inbox view](/assets/images/help/notifications-v2/inbox-view.png)
+  ![收件箱视图](/assets/images/help/notifications-v2/inbox-view.png)
 
-By default, your inbox will show read and unread notifications. To only see unread notifications, click **Unread** or use the `is:unread` query.
+默认情况下，您的收件箱将显示已读和未读通知。 如果只想查看未读通知，请单击 **Unread（未读）**或使用 `is:unread` 查询。
 
-  ![unread inbox view](/assets/images/help/notifications-v2/unread-inbox-view.png)
+  ![未读收件箱视图](/assets/images/help/notifications-v2/unread-inbox-view.png)
 
 ### 分类选项
 
-You have several options for triaging notifications from your inbox.
+有多个选项可对收件箱中的通知进行分类。
 
 | 分类选项 | 描述                                                                                                                                                                                                  |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -42,23 +41,23 @@ You have several options for triaging notifications from your inbox.
 
 要查看可用的键盘快捷键，请参阅“[键盘快捷键](/github/getting-started-with-github/keyboard-shortcuts#notifications)”。
 
-Before choosing a triage option, you can preview your notification's details first and investigate. For more information, see "[Triaging a single notification](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)."
+在选择分类选项之前，您可以先预览通知的详细信息并进行调查。 更多信息请参阅“[对单个通知进行分类](/github/managing-subscriptions-and-notifications-on-github/triaging-a-single-notification)”。
 
 ### 同时对多种通知分类
 
 要一次对多种通知分类，请选择相关通知并使用 {% octicon "kebab-horizontal" aria-label="The edit icon" %} 下拉列表以选择分类选项。
 
-![Drop-down menu with triage options and selected notifications](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
+![带有分类选项和选定通知的下拉菜单](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
 ### 默认通知过滤器
 
-By default, your inbox has filters for when you are assigned, participating in a thread, requested to review a pull request, or when your username is @mentioned directly or a team you're a member of is @mentioned.
+默认情况下，收件箱中有针对您被分配任务、参与帖子、请求审查拉取请求的过滤器，或者针对您的用户名被直接 @提及或您所属团队被 @提及的过滤器。
 
-  ![Default custom filters](/assets/images/help/notifications-v2/default-filters.png)
+  ![默认自定义过滤器](/assets/images/help/notifications-v2/default-filters.png)
 
 ### 使用自定义过滤器自定义收件箱
 
-You can add up to 15 of your own custom filters.
+您可以添加最多 15 个自定义过滤器。
 
 {% data reusables.notifications.access_notifications %}
 2. 若要打开过滤器设置，在左侧边栏的“Filters（过滤器）”旁边，单击 {% octicon "gear" aria-label="The Gear icon" %}。
@@ -77,7 +76,7 @@ You can add up to 15 of your own custom filters.
 
 ### 自定义过滤器限制
 
-Custom filters do not currently support:
+自定义过滤器当前不支持：
   - 收件箱中的全文搜索，包括搜索拉取请求或议题标题。
   - 区分 `is:issue`、`is:pr` 及 `is:pull-request` 查询过滤器。 这些查询将返回议题和拉取请求。
   - 创建超过 15 个自定义过滤器。
@@ -85,16 +84,16 @@ Custom filters do not currently support:
 
 ### 支持的自定义过滤器查询
 
-There are three types of filters that you can use:
+您可以使用三种类型的过滤器：
   - 使用 `repo:` 按仓库过滤
   - 使用 `is:` 按讨论类型过滤
   - 使用 `reason:` 按通知原因过滤
 
-To add a `repo:` filter, you must include the owner of the repository in the query. For example, `repo:atom/atom` represents the Atom repository owned by the Atom organization.
+要添加 `repo:` 过滤器，您必须在查询中包含仓库的所有者。 例如，`repo:atom/atom` 表示 Atom 组织拥有的 Atom 仓库。
 
 #### 支持的 `reason:` 查询
 
-To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
+要根据收到更新的原因过滤通知，您可以使用 `reason:` 查询。 例如，要查看当您（或您所属团队）被请求审查拉取请求时的通知，请使用 `reason:review-requested`。 更多信息请参阅“[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)”。
 
 | 查询                        | 描述                                     |
 | ------------------------- | -------------------------------------- |
@@ -113,7 +112,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 
 #### 支持的 `is:` 查询
 
-要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`.
+要在 {% data variables.product.product_name %} 上过滤特定活动的通知，您可以使用 `is` 查询。 For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
 
 - `is:check-suite`
 - `is:commit`
@@ -125,7 +124,9 @@ To filter notifications by why you've received an update, you can use the `reaso
 - `is:repository-advisory`
 - `is:team-discussion`
 
-You can also use the `is:` query to describe how the notification was triaged.
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+
+您还可以使用 `is:` 查询来描述如何对通知进行分类。
 
 - `is:saved`
 - `is:done`

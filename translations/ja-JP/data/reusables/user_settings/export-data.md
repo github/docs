@@ -1,3 +1,4 @@
 {% if currentVersion == "free-pro-team@latest" %}
-{% data variables.product.product_name %} が個人アカウントに関して保存するメタデータをエクスポートしてレビューできます。
+You can export and review the metadata that
+{% data variables.product.product_name %} stores about your personal account.
 {% endif %}

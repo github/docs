@@ -13,7 +13,7 @@ versions:
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. 按照提示创建组织。 {% if currentVersion == "free-pro-team@latest" %}要详细了解可用于您的团队的计划，请参阅“[{% data variables.product.prodname_dotcom %} 的产品](/articles/githubs-products)”。{% endif %}
+4. 按照提示创建组织。 {% if currentVersion == "free-pro-team@latest" %}For more information about the plans available for your team, see "[{% data variables.product.prodname_dotcom %}'s products](/articles/githubs-products)."{% endif %}
 
 ### 延伸阅读
 
