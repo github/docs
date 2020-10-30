@@ -1,0 +1,7 @@
+on:
+  workflow_run:
+    workflows: ["Run Tests"]
+    branches: [bnhassin-patch-1]
+    types: 
+      - completed
+      - requested
