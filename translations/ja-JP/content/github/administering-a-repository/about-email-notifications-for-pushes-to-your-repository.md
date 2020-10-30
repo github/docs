@@ -12,7 +12,7 @@ versions:
   enterprise-server: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% if enterpriseServerVersions contains currentVersion %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
 
 リポジトリへのプッシュに対する各メール通知は、新しいコミットとそれらのコミットだけを含む diff へのリンクのリストを含みます。 このメール通知には以下が含まれます:
 

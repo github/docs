@@ -1,1 +1,1 @@
-Quando a automação do quadro de projeto está habilitada, uma barra de progresso aparece acima do quadro de projeto, na página de listagem de projetos, na barra lateral do problema e nas referências ao projeto em outros quadros de projeto.
+If progress tracking is enabled, a progress bar appears above the project board, on the project listing page, in the issue sidebar, and in references to the project on other project boards.

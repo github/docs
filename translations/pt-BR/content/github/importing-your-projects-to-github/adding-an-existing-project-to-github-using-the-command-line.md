@@ -29,7 +29,7 @@ versions:
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell
@@ -67,7 +67,7 @@ versions:
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell
@@ -105,7 +105,7 @@ versions:
 3. Altere o diretório de trabalho atual referente ao seu projeto local.
 4. Inicialize o diretório local como um repositório Git.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Adicione os arquivos ao novo repositório local. Isso faz stage deles para o primeiro commit.
   ```shell

@@ -127,7 +127,7 @@ versions:
     {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->

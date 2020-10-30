@@ -29,10 +29,10 @@ In addition, **at least one** of the following must be true:
 - You have forked the repository.
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### Common reasons that contributions are not counted
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### Commit was made less than 24 hours ago
 

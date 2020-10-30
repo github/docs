@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 1. リポジトリ名の下で**Clone or download（クローンもしくはダウンロード）**をクリックしてください。 ![Clone or downloadボタン](/assets/images/help/repository/clone-repo-clone-url-button.png)
 2. To clone the repository using HTTPS, under "Clone with HTTPS", click
 {% octicon "clippy" aria-label="The clipboard icon" %}.

@@ -12,6 +12,7 @@ versions:
 
 Assim que seu servidor estiver configurado para receber cargas, ele ouvirá qualquer carga enviada para o ponto de extremidade que você configurou. Por motivos de segurança, você provavelmente vai querer limitar os pedidos para aqueles provenientes do GitHub. Existem algumas maneiras de fazer isso. Você poderia, por exemplo, optar por permitir solicitações do endereço IP do GitHub. No entanto, um método muito mais fácil é configurar um token secreto e validar a informação.
 
+{% data reusables.webhooks.webhooks-rest-api-links %}
 
 ### Definir seu token secreto
 
@@ -33,7 +34,7 @@ $ export SECRET_TOKEN=<em>your_token</em>
 
 ### Validar cargas do GitHub
 
-Quando seu token secreto está definido, {% data variables.product.product_name %} use-o para criar uma assinatura de hash com cada carga. Esta assinatura de hash está incluída com os cabeçalhos de cada solicitação como {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" ou versão atual == "private-instances@latest" %}`X-Hub-Signature-256`{% else if currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
+Quando seu token secreto está definido, {% data variables.product.product_name %} o utiliza para criar uma assinatura de hash com cada carga. Esta assinatura de hash está incluída com os cabeçalhos de cada solicitação como {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" ou versão atual == "private-instances@latest" %}`X-Hub-Signature-256`{% else if currentVersion ver_lt "enterprise-server@2.23" %}`X-Hub-Signature`{% endif %}.
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
 {% note %}

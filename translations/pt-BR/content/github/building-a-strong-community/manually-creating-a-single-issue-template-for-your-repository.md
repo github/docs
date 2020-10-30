@@ -28,7 +28,7 @@ assignees: octocat
 ```
 {% note %}
 
-**Observação:** Você deve colocar caracteres reservados YAML, como `:` entre aspas. Por exemplo, `":bug: Bug"`.
+**Nota:** Se um valor da matéria frontal incluir um caractere reservado em YAML como `:`, você deverá colocar todo o valor entre aspas. Por exemplo, `":bug: Bug"` ou `":new: triagem necessária, :bug: bug"`.
 
 {% endnote %}
 

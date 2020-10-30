@@ -22,9 +22,9 @@ Nachdem Sie Ihre Supportanfrage und optionale Diagnoseinformationen abgesendet h
 
 ### Ein Ticket über Dein Firmenkonto einreichen
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Klicke unter „{% data variables.product.prodname_enterprise %} Help“ (Hilfe für {% data variables.product.prodname_enterprise %}), auf **{% data variables.contact.enterprise_support %} Portal**. ![Link zum Navigieren zur Enterprise-Support-Seite](/assets/images/enterprise/support/enterprise-support-link.png)
 5. Klicke auf **Submit a Ticket** (Ticket einreichen) ![Ein Ticket beim Enterprise-Support-Team einreichen](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

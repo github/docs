@@ -57,20 +57,20 @@ In addition to the usage limits, you must ensure that you use
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### 构件和日志保留策略
+### Artifact and log retention policy
 
-您可以为仓库、组织或企业帐户配置构件和日志保留期。
+You can configure the artifact and log retention period for your repository, organization, or enterprise account.
 
 {% data reusables.actions.about-artifact-log-retention %}
 
 更多信息请参阅：
 
-- [为仓库中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
-- [为组织中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
-- [为企业中构件和日志的 {% data variables.product.prodname_actions %} 配置保留期](/github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
+- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your repository](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
+- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your organization](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+- [Configuring the retention period for {% data variables.product.prodname_actions %} for artifacts and logs in your enterprise](/github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
-### 禁用或限制仓库或组织的 {% data variables.product.prodname_actions %}
+### Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.github-actions.disabling-github-actions %}
 

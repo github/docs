@@ -11,7 +11,7 @@ versions:
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
-更多信息请参阅[支持双重身份验证的身份验证方法图表](/enterprise/{{ currentVersion }}/user/articles/about-two-factor-authentication/#authentication-methods-that-support-2fa)。
+更多信息请参阅“[关于双重身份验证](/github/authenticating-to-github/about-two-factor-authentication)”。
 
 ### 强制执行双重身份验证的要求
 

@@ -18,10 +18,13 @@ Você pode conectar {% data variables.product.product_location_enterprise %} a {
 
 Depois de conectar {% data variables.product.product_location_enterprise %} a {% data variables.product.prodname_dotcom_the_website %} e habilitar {% if currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_short %}{% else %}alertas de segurança{% endif %} para dependências vulneráveis, os dados de vulnerabilidade serão sincronizados de {% data variables.product.prodname_dotcom_the_website %} para a sua instância uma vez por hora. Também é possível sincronizar os dados de vulnerabilidade manualmente a qualquer momento. Nenhum código ou informações sobre o código da {% data variables.product.product_location_enterprise %} são carregados para o {% data variables.product.prodname_dotcom_the_website %}.
 
-{% if currentVersion ver_gt "enterprise-server@2. 1" %}Quando {% data variables.product.product_location_enterprise %} recebe informações sobre uma vulnerabilidade, ele identificará repositórios na sua instância que usam a versão afetada da dependência e enviará alertas de {% data variables.product.prodname_dependabot_short %} para proprietários e pessoas com acesso de administrador nesses repositórios. Eles podem personalizar a forma como recebem os alertas de {% data variables.product.prodname_dependabot_short %}. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)"
+{% if currentVersion ver_gt "enterprise-server@2. 1" %}Quando {% data variables.product.product_location_enterprise %} recebe informações sobre uma vulnerabilidade, ele identifica repositórios na sua instância que usam a versão afetada da dependência e enviará alertas de {% data variables.product.prodname_dependabot_short %}. Você pode personalizar como receber alertas de {% data variables.product.prodname_dependabot_short %}. Para obter mais informações, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)".
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.21" or currentVersion == "enterprise-server@2. 1" %}Quando {% data variables.product.product_location_enterprise %} recebe informações sobre uma vulnerabilidade, ele identificará repositórios na sua instância que usam a versão afetada da dependência e enviará alertas de segurança a proprietários e pessoas com acesso de administrador nesses repositórios. É possível personalizar o recebimento dos alertas de segurança. Para obter mais informações, consulte "[Sobre alertas para dependências vulneráveis](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)"
+{% if currentVersion == "enterprise-server@2. 1" %}Quando {% data variables.product.product_location_enterprise %} recebe informações sobre uma vulnerabilidade, ele identifica repositórios na sua instância que usam a versão afetada da dependência e envia alertas de segurança. Você pode personalizar a forma como recebe os alertas de segurança. Para obter mais informações, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)".
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@2. 1" %}Quando {% data variables.product.product_location_enterprise %} recebe informações sobre uma vulnerabilidade, ele identifica repositórios na sua instância que usam a versão afetada da dependência e envia alertas de segurança. Você pode personalizar a forma como recebe os alertas de segurança. Para obter mais informações, consulte "[Escolher o método de entrega das suas notificações](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications#choosing-the-delivery-method-for-security-alerts-for-vulnerable-dependencies)".
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -45,7 +48,14 @@ Antes de habilitar {% if currentVersion ver_gt "enterprise-server@2. 1" %}{% dat
  ``` shell
 $ ghe-dep-graph-enable
 ```
+   {% note %}
+
+   **Observação**: Para obter mais informações sobre como habilitar o acesso ao shell administrativo via SSH, veja "[Acessar o shell administrativo (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)".
+
+   {% endnote %}
+
 3. Retornar para
+
 {% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}

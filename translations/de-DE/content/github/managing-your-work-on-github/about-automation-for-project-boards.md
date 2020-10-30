@@ -29,7 +29,10 @@ Durch die Automatisierung von Projektboards können Teams auch ein gemeinsames V
 | Done (Erledigt)       | <ul><li>Alle abgeschlossenen Issues hierhin verschieben</li><li>Alle zusammengeführten Pull Requests hierhin verschieben</li><li>Alle abgeschlossenen, nicht zusammengeführten Pull Requests hierhin verschieben</li></ul> |
 
 ### Projektfortschrittsverfolgung
-Die Automatisierung des Projektboards ermöglicht standardmäßig die Verfolgung des Fortschritts. Tickets in Spalten mit den Voreinstellungen „Zu Bearbeiten“, „In Bearbeitung“ oder „Abgeschlossen“ zählen zum Gesamtprojektfortschritt. {% data reusables.project-management.project-progress-locations %}
+
+You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+
+For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ### Weiterführende Informationen
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}

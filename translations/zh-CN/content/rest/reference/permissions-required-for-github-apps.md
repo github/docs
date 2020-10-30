@@ -577,7 +577,7 @@ _团队_
 - [`GET /orgs/:org/teams`](/v3/teams/#list-teams) (:read)
 - [`POST /orgs/:org/teams`](/v3/teams/#create-a-team) (:write)
 - [`GET /orgs/:org/teams/:team_slug`](/v3/teams/#get-a-team-by-name) (:read)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 - [`GET /teams/:team_id`](/v3/teams/#get-a-team) (:read)
 {% endif %}
 - [`PATCH /teams/:team_id`](/v3/teams/#update-a-team) (:write)
@@ -619,7 +619,7 @@ _团队_
 _团队_
 - [`DELETE /teams/:team_id/projects/:project_id`](/v3/teams/#remove-a-project-from-a-team) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### 有关“组织预接收挂钩”的权限
 
 - [`GET /orgs/:org/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization) (:read)
@@ -766,7 +766,7 @@ _审查_
 - [`POST /repos/:owner/:repo/hooks/:hook_id/pings`](/v3/repos/hooks/#ping-a-repository-webhook) (:read)
 - [`POST /repos/:owner/:repo/hooks/:hook_id/tests`](/v3/repos/hooks/#test-the-push-repository-webhook) (:read)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### 有关“仓库预接收挂钩”的权限
 
 - [`GET /repos/:owner/:repo/pre-receive-hooks`](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository) (:read)

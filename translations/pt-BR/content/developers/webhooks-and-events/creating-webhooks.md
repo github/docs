@@ -14,6 +14,9 @@ Agora que entendemos [os conceitos básicos de webhooks][webhooks-overview], vam
 
 Criar um webhook é um processo de duas etapas. Primeiro, você deverá configurar como deseja que seu webhook se comporte através do {% data variables.product.product_name %} - quais eventos devem ser ouvidos. Em seguida, você irá configurar seu servidor para receber e gerenciar a carga.
 
+
+{% data reusables.webhooks.webhooks-rest-api-links %}
+
 ### Configurar um Webhook
 
 É possível instalar webhooks em uma organização ou em um repositório específico.
