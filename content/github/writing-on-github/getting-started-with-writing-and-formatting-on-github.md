@@ -10,4 +10,3 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-
