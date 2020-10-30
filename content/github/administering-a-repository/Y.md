@@ -1,4 +1,4 @@
----
+en_us---
 title: Configuring autolinks to reference external resources
 intro: You can add autolinks to external resources like JIRA issues and Zendesk tickets to help streamline your workflow.
 product: '{% data reusables.gated-features.autolinks %}'
