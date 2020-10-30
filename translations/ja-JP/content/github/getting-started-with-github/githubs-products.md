@@ -96,7 +96,7 @@ Organizationの{% data variables.product.prodname_free_team %}で利用できる
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}
+- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
 - [Organization の {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
 {% data variables.product.prodname_ghe_one %} へのサインアップの詳細については、[{% data variables.product.product_name %} の販売チーム](https://enterprise.github.com/contact)にお問い合わせください。

@@ -1,6 +1,6 @@
 ---
 title: ラベルの作成
-intro: 書き込みアクセスを持つリポジトリでは、Issue とプルリクエストを整理するためのラベルを作成できます。
+intro: '書き込みアクセスを持つリポジトリでは、Issue とプルリクエストを整理するためのラベルを作成できます。'
 redirect_from:
   - /articles/creating-and-editing-labels-for-issues-and-pull-requests/
   - /articles/creating-a-label

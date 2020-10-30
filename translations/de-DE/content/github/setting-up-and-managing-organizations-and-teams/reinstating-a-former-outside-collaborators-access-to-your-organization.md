@@ -9,7 +9,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Wenn der Zugriff eines externen Mitarbeiters auf die privaten Repositorys Deiner Organisation entfernt wurde, weil Du von Deinen [Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. Du kannst die Berechtigungen dieses Benutzers wiederherstellen, wenn Du ihn innerhalb dieses Zeitrahmens wieder zur Organisation {% if currentVersion == "free-pro-team@latest" %}einlädst{% else %}hinzufügst{% endif %}.
+Wenn der Zugriff eines externen Mitarbeiters auf die privaten Repositorys Deiner Organisation entfernt wurde, weil Du von Deinen [Mitgliedern und externen Mitarbeitern die Aktivierung der Zwei-Faktor-Authentifizierung verlangst](/articles/requiring-two-factor-authentication-in-your-organization), bleiben die Zugriffsberechtigungen und Einstellungen des Benutzers drei Monate lang im System gespeichert. You can restore the user's privileges if you {% if currentVersion == "free-pro-team@latest" %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -26,7 +26,7 @@ Bei der Wiedereinsetzung eines ehemaligen externen Mitarbeiters kannst Du Folgen
 
 **Tips**:
  - Nur der Organisationsinhaber kann den Zugriff eines externen Mitarbeiters auf seine Organisation wieder einsetzen. Weitere Informationen finden Sie unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization)".
- - Auch wenn der Ablauf „Mitglied wieder einsetzen“ unter {% data variables.product.product_location %} für die Beschreibung der Wiedereinsetzung eines externen Mitarbeiters den Begriff „Mitglied“ verwendet, erhält ein ehemaliger externer Mitarbeiter bei der Wiedereinsetzung mit seinen früheren Berechtigungen lediglich seine früheren [Berechtigungen als externer Mitarbeiter](/articles/permission-levels-for-an-organization/#outside-collaborators).{% if currentVersion == "free-pro-team@latest" %}
+ - The reinstating a member flow on {% data variables.product.product_location %} may use the term "member" to describe reinstating an outside collaborator but if you reinstate this person and keep their previous privileges, they will only have their previous [outside collaborator permissions](/articles/permission-levels-for-an-organization/#outside-collaborators).{% if currentVersion == "free-pro-team@latest" %}
  - Wenn Deine Organisation ein benutzerabhängiges Abonnement abgeschlossen hat, muss eine Lizenz verfügbar sein, bevor Du ein neues Mitglied zur Organisation einladen oder ein ehemaliges Organisationsmitglied wieder einsetzen kannst. Weitere Informationen findest Du unter „[Informationen zu benutzerbasierten Preisen](/articles/about-per-user-pricing)“.{% endif %}
 
 {% endtip %}

@@ -83,8 +83,8 @@ For example, if you edited a file, such as *README.md*, and another person remov
 2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
   ```shell
   $ git status
-  > # On branch master
-  > # Your branch and 'origin/master' have diverged,
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
   > # and have 1 and 2 different commits each, respectively.
   > #  (use "git pull" to merge the remote branch into yours)
   > # You have unmerged paths.

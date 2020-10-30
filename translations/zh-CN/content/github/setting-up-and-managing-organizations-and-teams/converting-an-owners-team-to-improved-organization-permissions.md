@@ -1,6 +1,6 @@
 ---
 title: 将所有者团队转换为改进的组织权限
-intro: 如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 “所有者”现在是赋予组织中个别成员的管理角色。 旧所有者团队的成员自动获得所有者权限。
+intro: '如果您的组织是在 2015 年 9 月之后创建的，则您的组织默认具有改进的组织权限。 在 2015 年 9 月之前创建的组织可能需要将较旧的所有者和管理员团队迁移到改进的权限模型。 “所有者”现在是赋予组织中个别成员的管理角色。 旧所有者团队的成员自动获得所有者权限。'
 redirect_from:
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions-early-access-program/
   - /articles/converting-your-previous-owners-team-to-the-improved-organization-permissions/

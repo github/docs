@@ -20,13 +20,15 @@ versions:
 {% data variables.product.prodname_pages %} is a static site hosting service that takes HTML, CSS, and JavaScript files straight from a repository on {% data variables.product.product_name %}, optionally runs the files through a build process, and publishes a website. You can see examples of {% data variables.product.prodname_pages %} sites in the [{% data variables.product.prodname_pages %} examples collection](https://github.com/collections/github-pages-examples).
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can host your site on {% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. For more information, see "[Using a custom domain with {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)."
+You can host your site on
+{% data variables.product.prodname_dotcom %}'s `github.io` domain or your own custom domain. For more information, see "[Using a custom domain with {% data variables.product.prodname_pages %}](/articles/using-a-custom-domain-with-github-pages)."
 {% endif %}
 
 To get started, see "[Creating a {% data variables.product.prodname_pages %} site](/articles/creating-a-github-pages-site)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-Organization owners can disable the publication of {% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
+Organization owners can disable the publication of
+{% data variables.product.prodname_pages %} sites from the organization's repositories. For more information, see "[Disabling publication of {% data variables.product.prodname_pages %} sites for your organization](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)."
 {% endif %}
 
 ### Types of {% data variables.product.prodname_pages %} sites
@@ -43,8 +45,9 @@ For more information about how custom domains affect the URL for your site, see 
 
 You can only create one user or organization site for each {% data variables.product.product_name %} account. Project sites, whether owned by an organization or a user account, are unlimited.
 
-{% if currentVersion != "free-pro-team@latest" %}
-The URL where your site is available depends on whether subdomain isolation is enabled for {% data variables.product.product_location %}.
+{% if enterpriseServerVersions contains currentVersion %}
+The URL where your site is available depends on whether subdomain isolation is enabled for
+{% data variables.product.product_location %}.
 
 | Type of site | Subdomain isolation enabled | Subdomain isolation disabled |
 | ------------ | --------------------------- | ---------------------------- |
@@ -132,8 +135,9 @@ Additionally, {% data variables.product.prodname_pages %} sites must refrain fro
   - Get-rich-quick schemes
   - Sexually obscene content
   - Content that misrepresents your identity or site purpose
+If you have questions about whether your use or intended use falls into these categories, please contact
 
-If you have questions about whether your use or intended use falls into these categories, please contact {% data variables.contact.contact_support %}.
+{% data variables.contact.contact_support %}.
 {% endif %}
 
 ### MIME types on {% data variables.product.prodname_pages %}

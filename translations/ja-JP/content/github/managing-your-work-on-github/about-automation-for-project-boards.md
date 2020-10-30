@@ -29,9 +29,12 @@ versions:
 | 完了          | <ul><li>クローズされたすべてのIssueをここに移動させる</li><li>マージされたすべてのプルリクエストをここに移動させる</li><li>マージされずにクローズされたすべてのプルリクエストをここに移動させる</li></ul> |
 
 ### プロジェクトの進捗の追跡
-プロジェクトボードの自動化によって、デフォルトで進捗を追跡できるようになります。 "To do"、"In progress"、"Done" がプリセットされた列内のカードは、プロジェクト全体の進捗に対してカウントされます。 {% data reusables.project-management.project-progress-locations %}
+
+You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+
+For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ### 参考リンク
-- 「[プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards)」{% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/configuring-automation-for-project-boards){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}

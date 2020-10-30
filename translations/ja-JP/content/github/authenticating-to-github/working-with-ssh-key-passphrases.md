@@ -57,7 +57,7 @@ elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
 fi
 ```
 
-秘密鍵がデフォルトの場所 (`~/.ssh/id_rsa`{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}または`~/.ssh/id_dsa`{% endif %}) に保存されていない場合は、SSH 認証エージェントにそれがどこにあるかを指定する必要があります。 キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。
+If your private key is not stored in one of the default locations (like `~/.ssh/id_rsa`), you'll need to tell your SSH authentication agent where to find it. キーを ssh-agent に追加するには、`ssh-add ~/path/to/my_key` と入力します。 詳細は「[新しい SSH キーを生成して ssh-agent に追加する](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)」を参照してください。
 
 {% tip %}
 
@@ -88,8 +88,7 @@ fi
 
 OS X El Capitan を介する OS X Leopard では、これらのデフォルトの秘密鍵ファイルは自動的に処理されます:
 
-- *.ssh/id_rsa*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-- *.ssh/id_dsa*{% endif %}
+- *.ssh/id_rsa*
 - *.ssh/identity*
 
 初めてキーを使用するときは、パスフレーズを入力するよう求められます。 キーチェーンと一緒にパスフレーズを保存することを選択した場合は、もう一度入力する必要はありません。

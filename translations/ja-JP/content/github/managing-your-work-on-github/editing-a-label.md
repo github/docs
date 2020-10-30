@@ -1,6 +1,6 @@
 ---
 title: ラベルの編集
-intro: 書き込みアクセスがあるリポジトリでは、既存のラベルの名前、色、および説明を編集できます。
+intro: '書き込みアクセスがあるリポジトリでは、既存のラベルの名前、色、および説明を編集できます。'
 redirect_from:
   - /articles/editing-a-label
 versions:

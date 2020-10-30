@@ -56,5 +56,5 @@ versions:
 {% data variables.product.product_name %} 发送时将附带几个 HTTP 标头，以区分事件类型和有效负载标识符。 更多信息请参阅 [web 挂钩标头](/webhooks/event-payloads/#delivery-headers)。
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}

@@ -15,5 +15,7 @@ versions:
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 3. 左のサイドバーで、**Applications（アプリケーション）** をクリックしてください。 ![[Settings] サイドバーでの [Applications] タブ](/assets/images/enterprise/management-console/sidebar-applications.png)
-4. [Avatar image cache time (seconds)] で、{% data variables.product.product_location_enterprise %} にアバター画像をキャッシュさせる秒数を入力します。 ![アバター画像キャッシュのフォームフィールド](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
+4. [Avatar image cache time (seconds)] で、
+{% data variables.product.product_location_enterprise %} がアバター画像をキャッシュする秒数を入力します。
+![アバター画像キャッシュのフォームフィールド](/assets/images/enterprise/management-console/add-image-caching-value-field.png)
 {% data reusables.enterprise_management_console.save-settings %}

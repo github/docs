@@ -8,7 +8,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### セルフホストランナーのグループについて
@@ -56,7 +56,7 @@ Enterprise は、セルフホストランナーをグループに追加して、
 
 {% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
+{% else if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21"%}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
 {% endif %}

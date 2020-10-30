@@ -1,6 +1,6 @@
 ---
 title: Backing up a repository
-intro: 'You can use{% if currentVersion != "free-pro-team@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
@@ -21,16 +21,16 @@ When you clone a repository or wiki, only Git data, such as project files and co
 
 - [Issues](/v3/issues/#list-issues-for-a-repository)
 - [Pull requests](/v3/pulls/#list-pull-requests)
-- [Forks](/v3/repos/forks/#list-forks)
-- [Comments](/v3/issues/comments/#list-comments-in-a-repository)
-- [Milestones](/v3/issues/milestones/#list-milestones-for-a-repository)
-- [Labels](/v3/issues/labels/#list-all-labels-for-this-repository)
-- [Watchers](/v3/activity/watching/#list-watchers)
-- [Stargazers](/v3/activity/starring/#list-stargazers)
+- [Forks](/rest/reference/repos#list-forks)
+- [Comments](/rest/reference/issues#list-issue-comments-for-a-repository)
+- [Milestones](/rest/reference/issues#list-milestones)
+- [Labels](/rest/reference/issues#list-labels-for-a-repository)
+- [Watchers](/rest/reference/activity#list-watchers)
+- [Stargazers](/rest/reference/activity#list-stargazers)
 - [Projects](/v3/projects/#list-repository-projects)
 {% endif %}
 
-Once you have {% if currentVersion != "free-pro-team@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
+Once you have {% if enterpriseServerVersions contains currentVersion %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Third-party backup tools

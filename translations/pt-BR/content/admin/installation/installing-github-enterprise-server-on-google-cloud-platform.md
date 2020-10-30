@@ -24,8 +24,8 @@ Antes de iniciar a {% data variables.product.product_location_enterprise %} no G
 
 #### Tipos de máquina compatíveis
 
-O {% data variables.product.prodname_ghe_server %} é compatível nos seguintes tipos de máquina do Google Compute Engine (GCE). Para obter mais informações, consulte o [artigo sobre tipos de máquina do Google Cloud Platform](https://cloud.google.com/compute/docs/machine-types). |
-{% if currentVersion != "free-pro-team@latest" %}
+O {% data variables.product.prodname_ghe_server %} é compatível nos seguintes tipos de máquina do Google Compute Engine (GCE). Para obter mais informações, consulte o [artigo sobre tipos de máquina do Google Cloud Platform](https://cloud.google.com/compute/docs/machine-types).
+
 |  | Memória alta  |
 |  | ------------- |
 |  | n1-highmem-4  |
@@ -34,7 +34,6 @@ O {% data variables.product.prodname_ghe_server %} é compatível nos seguintes 
 |  | n1-highmem-32 |
 |  | n1-highmem-64 |
 |  | n1-highmem-96 |
-{% endif %}
 
 #### Tipos de máquina recomendados
 

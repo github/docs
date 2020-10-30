@@ -1,6 +1,6 @@
 ---
 title: プルリクエストをIssueにリンクする
-intro: 'プルリクエストをIssueにリンクして、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}修正が進行中であることを示し、{% endif %}プルリクエストがマージされるときIssueを自動的にクローズすることができます。'
+intro: 'プルリクエストをIssueにリンクして、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}修正が進行中であることを示し、{% endif %} プルリクエストがマージされるときIssueを自動的にクローズすることができます。'
 redirect_from:
   - /articles/closing-issues-via-commit-message/
   - /articles/closing-issues-via-commit-messages/
@@ -11,15 +11,19 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**注釈:** プルリクエストにおける特別なキーワードは、プルリクエストがリポジトリの*デフォルト* ブランチをターゲットするときに解釈されます。 ただし、PRのベースが*それ以外のブランチ*である場合、それらのキーワードは無視され、リンクは作成されません。PRのマージはこのIssueに対して何の効果も持ちません。 **キーワードの1つを使用してプルリクエストをIssueにリンクしたい場合は、PRがデフォルトブランチ上になければなりません。**
+
+{% endnote %}
+
 ### リンクされたIssueとプルリクエストについて
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}手動で、または{% endif %}プルリクエストの説明でサポートされているキーワードを使用して、Issueをプルリクエストにリンクすることができます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
-プルリクエストが対処するIssueにそのプルリクエストにリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。
-{% if currentVersion ver_lt "enterprise-server@2.21" %}プルリクエストとIssueが別のリポジトリにある場合は、プルリクエストをマージするユーザーにIssueをクローズする権限もあれば、そのマージが実行された後で{% data variables.product.product_name %}にリンクが表示されます。{% endif %}{% endif %}
+プルリクエストが対処するIssueにそのプルリクエストにリンクすると、コラボレータは、誰かがそのIssueに取り組んでいることを確認できます。 {% if currentVersion ver_lt "enterprise-server@2.21" %}プルリクエストとIssueが別のリポジトリにある場合は、プルリクエストをマージするユーザーにIssueをクローズする権限もあれば、そのマージが実行された後で{% data variables.product.product_name %}にリンクが表示されます。{% endif %}
 
-リンクされたプルリクエストをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを設定する](/github/administering-a-repository/setting-the-default-branch)」を参照してください。
+リンクされたプルリクエストをリポジトリのデフォルトブランチにマージすると、それにリンクされているIssueは自動的にクローズされます。 デフォルトブランチの詳細については、「[デフォルトブランチを変更する](/github/administering-a-repository/changing-the-default-branch)」を参照してください。
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 ### 手動でプルリクエストをIssueにリンクする
@@ -37,7 +41,7 @@ versions:
 
 ### キーワードを使用してプルリクエストをIssueにリンクする
 
-プルリクエストの説明でサポートされているキーワードを使用して、プルリクエストにIssueにリンクすることができます。
+プルリクエストの説明で、またはコミットメッセージで、サポートされているキーワードを使用してプルリクエストにIssueにリンクすることができます (プルリクエストはデフォルトブランチになければなりません)。
 
 * close
 * closes
@@ -59,7 +63,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}手動でリンクを解除できるのは、手動でリンクされたプルリクエストだけです。 キーワードを使用してリンクしたIssueのリンクを解除するには、プルリクエストの説明を編集してそのキーワードを削除する必要があります。{% endif %}
 
-クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされます{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}が、そのコミットを含むプルリクエストは、リンクされたプルリクエストとしてリストされません{% endif %}。
+クローズするキーワードは、コミットメッセージでも使用できます。 デフォルトブランチにコミットをマージするとIssueはクローズされますが、そのコミットを含むプルリクエストは、リンクされたプルリクエストとしてリストされません。
 
 ### 参考リンク
 

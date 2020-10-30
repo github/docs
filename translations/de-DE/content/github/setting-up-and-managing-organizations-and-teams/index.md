@@ -1,7 +1,7 @@
 ---
 title: Organisationen und Teams einrichten und verwalten
 shortTitle: Organisationen und Teams
-intro: 'Arbeite an zahlreichen Projekten zusammen, verwalte den Zugriff auf Projekte und Daten, und passe die Einstellungen für Deine Organisation an.'
+intro: Arbeite an zahlreichen Projekten zusammen, verwalte den Zugriff auf Projekte und Daten, und passe die Einstellungen für Deine Organisation an.
 redirect_from:
   - /articles/about-improved-organization-permissions/
   - /categories/setting-up-and-managing-organizations-and-teams
@@ -100,6 +100,7 @@ versions:
     {% link_in_list /managing-the-forking-policy-for-your-organization %}
 <!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /disabling-or-limiting-github-actions-for-your-organization %}
+    {% link_in_list /entering-a-data-protection-agreement-with-github-for-gdpr-compliance %}
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.15" -->
     {% link_in_list /setting-permissions-for-adding-outside-collaborators %}
@@ -126,12 +127,11 @@ versions:
     {% link_in_list /disabling-publication-of-github-pages-sites-for-your-organization %}
     {% link_in_list /deleting-an-organization-account %}
     {% link_in_list /converting-an-organization-into-a-user %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /integrating-jira-with-your-organization-project-board %}
 <!-- endif -->
 <!-- if currentVersion == "free-pro-team@latest" -->
     {% link_in_list /upgrading-to-the-corporate-terms-of-service %}
-    {% link_in_list /entering-a-data-protection-agreement-with-github-for-gdpr-compliance %}
 <!-- endif -->
 {% topic_link_in_list /migrating-to-improved-organization-permissions %}
     {% link_in_list /converting-an-owners-team-to-improved-organization-permissions %}

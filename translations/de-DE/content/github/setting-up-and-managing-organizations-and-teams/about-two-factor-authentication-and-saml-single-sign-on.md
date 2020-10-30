@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Zwei-Faktor-Authentifizierung und zu SAML Single-Sign-On
-intro: 'Administratoren von Organisationen können sowohl SAML Single-Sign-On als auch die Zwei-Faktor-Authentifizierung aktivieren, um zusätzliche Authentifizierungsmaßnahmen für ihre Organisationsmitglieder hinzuzufügen.'
+intro: Administratoren von Organisationen können sowohl SAML Single-Sign-On als auch die Zwei-Faktor-Authentifizierung aktivieren, um zusätzliche Authentifizierungsmaßnahmen für ihre Organisationsmitglieder hinzuzufügen.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-two-factor-authentication-and-saml-single-sign-on

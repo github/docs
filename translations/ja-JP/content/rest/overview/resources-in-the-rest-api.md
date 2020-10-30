@@ -11,7 +11,6 @@ versions:
 
 公式の {% data variables.product.product_name %} REST API を構成するリソースについて説明しています。 ご不明な点やご要望がございましたら、{% data variables.contact.contact_support %} までご連絡ください。
 
-
 ### 最新バージョン
 
 デフォルトでは、`{% data variables.product.api_url_code %}` へのすべてのリクエストが REST API の **v3** [バージョン](/v3/versions)を受け取ります。 [`Accept` ヘッダを介してこのバージョンを明示的にリクエストする](/v3/media/#request-specific-version)ことをお勧めします。
@@ -26,7 +25,7 @@ GitHub の GraphQL API についての情報は、[v4 ドキュメント](/v4)�
 
 ### スキーマ
 
-{% if currentVersion == "free-pro-team@latest" %}すべての API アクセスは HTTPS 経由で行われ、{% else %}API は{% endif %} `{% data variables.product.api_url_code %}` からアクセスされます。  すべてのデータは
+{% if currentVersion == "free-pro-team@latest" %}All API access is over HTTPS, and{% else %}The API is{% endif %} accessed from `{% data variables.product.api_url_code %}`.  すべてのデータは
 JSON として送受信されます。
 
 ```shell
@@ -36,13 +35,12 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > Server: nginx
 > Date: Fri, 12 Oct 2012 23:33:14 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "a00049ba79152d03380c34652f2cb612"
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -109,7 +107,7 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 `client_id` と `client_secret` を使用してもユーザとして認証_されず_、OAuth アプリケーションを識別してレート制限を増やすだけです。 アクセス許可はユーザにのみ付与され、アプリケーションには付与されません。また、認証されていないユーザに表示されるデータのみが返されます。 このため、サーバー間のシナリオでのみ OAuth2 キー/シークレットを使用する必要があります。 OAuth アプリケーションのクライアントシークレットをユーザーに漏らさないようにしてください。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 プライベートモードでは、OAuth2 キーとシークレットを使用して認証することはできません。認証しようとすると `401 Unauthorized` が返されます。 詳しい情報については、 「[プライベートモードを有効化する](/enterprise/admin/installation/enabling-private-mode)」を参照してください。
 {% endif %}
 {% if currentVersion == "free-pro-team@latest" %}
@@ -165,10 +163,10 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 ルートエンドポイントに `GET` リクエストを発行して、REST API がサポートするすべてのエンドポイントカテゴリを取得できます。
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

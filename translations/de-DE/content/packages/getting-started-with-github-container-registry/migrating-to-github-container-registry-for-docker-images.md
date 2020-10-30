@@ -24,8 +24,8 @@ Weitere Informationen findest Du unter „[Informationen zu {% data variables.pr
 
 The domain for the {% data variables.product.prodname_container_registry %} is `ghcr.io`.
 
-| Registry                                                               | Example URL                                         |
-| ---------------------------------------------------------------------- | --------------------------------------------------- |
+| Registry                                                          | Example URL                                         |
+| ----------------------------------------------------------------- | --------------------------------------------------- |
 | {% data variables.product.prodname_registry %} Docker registry    | `docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME` |
 | {% data variables.product.prodname_github_container_registry %} | `ghcr.io/OWNER/IMAGE_NAME`                          |
 
@@ -33,7 +33,9 @@ The domain for the {% data variables.product.prodname_container_registry %} is `
 
 You will need to authenticate to the {% data variables.product.prodname_container_registry %} with the base URL `ghcr.io`. We recommend creating a new access token for using the {% data variables.product.prodname_container_registry %}.
 
-{% data reusables.package_registry.authenticate-to-container-registry %}
+{% data reusables.package_registry.authenticate_with_pat_for_container_registry %}
+
+{% data reusables.package_registry.authenticate-to-container-registry-steps %}
 
 ### Migrating a Docker image using the Docker CLI
 
@@ -55,7 +57,9 @@ To move Docker images that you host on {% data variables.product.prodname_regist
   $ docker tag docker.pkg.github.com/SOURCE_OWNER/SOURCE_REPOSITORY/SOURCE_IMAGE_NAME:VERSION ghcr.io/TARGET_OWNER/TARGET_IMAGE_NAME:VERSION
   ```
 
-4. Sign in to the new {% data variables.product.prodname_container_registry %}. We recommend creating a new PAT limited to the `read:packages` and `write:packages` scopes since you no longer need the `repo` scope and your previous PAT may not have the `write:packages` scope.
+4. Sign in to the new
+
+{% data variables.product.prodname_container_registry %}. We recommend creating a new PAT limited to the `read:packages` and `write:packages` scopes since you no longer need the `repo` scope and your previous PAT may not have the `write:packages` scope.
   {% raw %}
   ```shell
   $ echo $CR_PAT | docker login ghcr.io -u USERNAME --password-stdin
@@ -74,7 +78,7 @@ If you have a {% data variables.product.prodname_actions %} workflow that uses a
 
 2. In your {% data variables.product.prodname_actions %} workflow file, update the package url from `https://docker.pkg.github.com` to `ghcr.io`.
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub ACtions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und speichern](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)“.
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. Weitere Informationen findest Du unter „[Verschlüsselte Geheimnisse erstellen und speichern](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)“.
 
 4. In your {% data variables.product.prodname_actions %} workflow file, update the authentication PAT by replacing your Docker registry PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) with a new variable for your {% data variables.product.prodname_container_registry %} PAT, such as {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
 

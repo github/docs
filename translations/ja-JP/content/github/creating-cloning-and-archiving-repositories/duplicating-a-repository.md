@@ -1,6 +1,6 @@
 ---
 title: リポジトリを複製する
-intro: フォークせずにリポジトリを複製するため、特別なクローンコマンドを実行して、新しいリポジトリにミラープッシュすることができます。
+intro: 'フォークせずにリポジトリを複製するため、特別なクローンコマンドを実行して、新しいリポジトリにミラープッシュすることができます。'
 redirect_from:
   - /articles/duplicating-a-repo/
   - /articles/duplicating-a-repository

@@ -18,7 +18,7 @@ versions:
 
 {% if currentVersion == "free-pro-team@latest" %}
 **提示：**
-- You must verify your email address before you can create a personal access token. 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
+- 您必须先验证您的电子邮件地址才能创建个人访问令牌。 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。
 - {% data reusables.user_settings.review_oauth_tokens_tip %}
 {% else %}
 **提示：**{% data reusables.user_settings.review_oauth_tokens_tip %}
@@ -32,7 +32,7 @@ versions:
 
 {% data reusables.command_line.providing-token-as-password %}
 
-To avoid these prompts, you can use Git password caching. 有关信息请参阅“[在 Git 中缓存 GitHub 凭据](/github/using-git/caching-your-github-credentials-in-git)”。
+为了避免这些提示，您可以使用 Git 密码缓存。 有关信息请参阅“[在 Git 中缓存 GitHub 凭据](/github/using-git/caching-your-github-credentials-in-git)”。
 
 {% warning %}
 

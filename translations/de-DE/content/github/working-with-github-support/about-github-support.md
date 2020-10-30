@@ -1,6 +1,6 @@
 ---
 title: Informationen zum GitHub Support
-intro: 'Der {% data variables.contact.github_support %} kann Dir helfen, Probleme zu beheben, auf die Du bei der Verwendung von {% data variables.product.prodname_dotcom %} stößt.'
+intro: 'Der {% data variables.contact.github_support %} kann Ihnen helfen, Probleme zu beheben, auf die Sie bei der Verwendung von {% data variables.product.prodname_dotcom %} stoßen.'
 redirect_from:
   - /articles/about-github-support
 versions:
@@ -11,13 +11,13 @@ versions:
 
 Die Supportoptionen variieren je nach Deinem {% data variables.product.prodname_dotcom_the_website %}-Produkt. Wenn Du ein bezahltes Produkt hast, kannst Du {% data variables.contact.github_support %} in Englisch kontaktieren. Dein Konto beinhaltet allenfalls auch {% data variables.contact.premium_support %}.
 
-|                                                        | {% data variables.product.prodname_gcf %} | Standard-Support | Premium Support |
-| ------------------------------------------------------ | ---------------------------------------------- | ---------------- | --------------- |
-| {% data variables.product.prodname_free_user %} | X                                              |                  |                 |
-| {% data variables.product.prodname_pro %}         | X                                              | X                |                 |
-| {% data variables.product.prodname_team %}        | X                                              | X                |                 |
-| {% data variables.product.prodname_ghe_cloud %} | X                                              | X                | X               |
-| {% data variables.product.prodname_ghe_server %} | X                                              | X                | X               |
+|                                                    | {% data variables.product.prodname_gcf %} | Standard-Support | Premium Support |
+| -------------------------------------------------- | ----------------------------------------- | ---------------- | --------------- |
+| {% data variables.product.prodname_free_user %}  | X                                         |                  |                 |
+| {% data variables.product.prodname_pro %}          | X                                         | X                |                 |
+| {% data variables.product.prodname_team %}         | X                                         | X                |                 |
+| {% data variables.product.prodname_ghe_cloud %}  | X                                         | X                | X               |
+| {% data variables.product.prodname_ghe_server %} | X                                         | X                | X               |
 
 Um zu prüfen, ob es derzeit Probleme gibt, die die Dienstleistungen von {% data variables.product.prodname_dotcom %} beeinflussen, oder um Benachrichtigungen über zukünftige Statusaktualisierungen zu abonnieren und zu erhalten, besuche die [Statusseite](https://www.githubstatus.com/) von {% data variables.product.prodname_dotcom %}.
 

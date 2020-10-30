@@ -1,1 +1,1 @@
-{% if currentVersion == "free-pro-team@latest" %}[Persönliches Dashboard](https://github.com/dashboard){% else %}Persönliches Dashboard (`https://[hostname]/dashboard`){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}[personal dashboard](https://github.com/dashboard){% else %}personal dashboard (`https://[hostname]/dashboard`){% endif %}

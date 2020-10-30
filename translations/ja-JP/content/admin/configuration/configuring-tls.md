@@ -26,7 +26,7 @@ SSL が有効な場合、{% data variables.product.prodname_ghe_server %} アプ
 
 また、証明書には"[Subdomain Isolationの有効化](/enterprise/{{ currentVersion }}/admin/guides/installation/enabling-subdomain-isolation#about-subdomain-isolation)"のリストにあるサブドメインに設定されたSubject Alternative Namesが必要で、中間証明書認証局によって署名されたものであれば、完全な証明書チェーンを含んでいる必要があります。 詳しい情報についてはWikipediaの"[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)"を参照してください。
 
-`ghe-ssl-generate-csr` コマンドを使用すれば、インスタンス用の証明書署名要求 (CSR) を生成できます。 詳しい情報については、「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)」を参照してください。
+`ghe-ssl-generate-csr` コマンドを使用すれば、インスタンス用の証明書署名要求 (CSR) を生成できます。 詳細は「[コマンドラインユーティリティ](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities/#ghe-ssl-generate-csr)」を参照してください。
 
 ### カスタムのTLS証明書のアップロード
 

@@ -50,7 +50,7 @@ git@{% data variables.command_line.codeblock %}:<em>USERNAME</em>/<em>REPOSITORY
   > origin  https://{% data variables.command_line.codeblock %}/<em>USERNAME/REPOSITORY</em>.git (push)
   ```
 
-Na próxima vez que você aplicar `git fetch`, `git pull` ou `git push` no repositório remote, precisará fornecer seu nome de usuário e a senha do GitHub.
+Na próxima vez que você aplicar `git fetch`, `git pull` ou `git push` no repositório remote, precisará fornecer seu nome de usuário e a senha do GitHub. {% data reusables.user_settings.password-authentication-deprecation %}
 
 - Se você tiver habilitado a [autenticação de dois fatores](/articles/securing-your-account-with-two-factor-authentication-2fa), precisará [criar um token de acesso pessoal](/github/authenticating-to-github/creating-a-personal-access-token) para ser usado no lugar da senha do GitHub.
 - Você pode [usar um auxiliar de credenciais](/github/using-git/caching-your-github-credentials-in-git) para que o Git se lembre do seu nome de usuário e da sua senha do GitHub sempre que ele conversar com o GitHub.

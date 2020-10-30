@@ -11,15 +11,15 @@ versions:
 
 ### Informationen zu Themen
 
-Mithilfe von Themen kannst Du Repositorys zu einem bestimmten Themenbereich erkunden, Projekte finden, zu denen Du einen Beitrag leisten kannst, und neue Lösungen für ein bestimmtes Problem entdecken. Themen werden auf der Hauptseite eines Repositorys angezeigt. Du kannst auf den Namen eines Themas klicken, um {% if currentVersion == "free-pro-team@latest" %}ähnliche Themen und eine Liste anderer Repositorys mit demselben Thema anzuzeigen{% else %}nach anderen Repositorys mit demselben Thema zu suchen{% endif %}.
+Mithilfe von Themen kannst Du Repositorys zu einem bestimmten Themenbereich erkunden, Projekte finden, zu denen Du einen Beitrag leisten kannst, und neue Lösungen für ein bestimmtes Problem entdecken. Themen werden auf der Hauptseite eines Repositorys angezeigt. You can click a topic name to {% if currentVersion == "free-pro-team@latest" %}see related topics and a list of other repositories classified with that topic{% else %}search for other repositories with that topic{% endif %}.
 
 ![Hauptseite des Test-Repositorys, auf der Themen angezeigt werden](/assets/images/help/repository/os-repo-with-topics.png)
 
 Rufe https://github.com/topics/ auf, um die am häufigsten verwendeten Themen zu durchsuchen.
 
-{% if currentVersion == "free-pro-team@latest" %}Du kannst im [github/exlore](https://github.com/github/explore)-Repository zu allen vorgestellten Themen von {% data variables.product.product_name %} beitragen. {% endif %}
+{% if currentVersion == "free-pro-team@latest" %}You can contribute to {% data variables.product.product_name %}'s set of featured topics in the [github/explore](https://github.com/github/explore) repository. {% endif %}
 
-Repository-Administratoren können beliebige Themen zu einem Repository hinzufügen. Hilfreiche Themen, mit denen Du ein Repository klassifizieren kannst, sind beispielsweise der beabsichtigte Zweck, der Themenbereich, die Community oder die Sprache des Repositorys.{% if currentVersion == "free-pro-team@latest" %} Zusätzlich analysiert {% data variables.product.product_name %} Inhalte öffentlicher Repositorys und erzeugt Themenvorschläge, die Repository-Administratoren annehmen oder ablehnen können. Die Inhalte privater Repositorys werden nicht analysiert, und es gibt keine Themenvorschläge für private Repositorys.{% endif %}
+Repository-Administratoren können beliebige Themen zu einem Repository hinzufügen. Helpful topics to classify a repository include the repository's intended purpose, subject area, community, or language.{% if currentVersion == "free-pro-team@latest" %} Additionally, {% data variables.product.product_name %} analyzes public repository content and generates suggested topics that repository admins can accept or reject. Die Inhalte privater Repositorys werden nicht analysiert, und es gibt keine Themenvorschläge für private Repositorys.{% endif %}
 
 Öffentliche und private Repositorys können Themen haben, aber in den Resultaten der Themensuche wirst Du nur die privaten Repositorys sehen, auf die Du Zugriff hast.
 
@@ -27,7 +27,7 @@ Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sin
 
 ### Themen zum Repository hinzufügen
 
-{% data reusables.repositories.navigate-to-repo %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter der Beschreibung des Repositorys auf **Add topics** (Themen hinzufügen). ![Link „Add topics“ (Themen hinzufügen) auf der Hauptseite eines Repositorys](/assets/images/help/repository/add-topics-link.png)
 3. Gib das Thema ein, das Du zum Repository hinzufügen möchtest, gefolgt von einem Leerzeichen. ![Formular zur Eingabe von Themen](/assets/images/help/repository/add-topic-form.png)
 4. Wenn Du mit dem Hinzufügen von Themen fertig bist, klicke auf **Done** (Fertig). ![Formular mit einer Liste an Themen und Schaltfläche „Done“ (Fertig)](/assets/images/help/repository/add-topics-done-button.png)

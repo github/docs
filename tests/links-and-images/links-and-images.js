@@ -5,6 +5,8 @@ const getApplicableVersions = require('../../lib/get-applicable-versions')
 const renderContent = require('../../lib/render-content')
 const checkImages = require('../../lib/check-images')
 const checkLinks = require('../../lib/check-links')
+const enterpriseServerVersions = Object.keys(require('../../lib/all-versions'))
+  .filter(version => version.startsWith('enterprise-server@'))
 const flat = require('flat')
 const { last } = require('lodash')
 
@@ -56,6 +58,7 @@ describe('page rendering', () => {
         page.version = pageVersion
         context.page = page
         context.currentVersion = pageVersion
+        context.enterpriseServerVersions = enterpriseServerVersions
 
         // collect elements of the page that may contain links
         const pageContent = page.intro + page.permissions + page.markdown

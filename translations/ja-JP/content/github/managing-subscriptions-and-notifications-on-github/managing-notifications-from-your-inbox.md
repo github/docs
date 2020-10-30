@@ -1,6 +1,6 @@
 ---
 title: インボックスからの通知を管理する
-intro: 'インボックスを使用して、メール{% if currentVersion == "free-pro-team@latest" %}とモバイル{% endif %}間で通知をすばやくトリアージして同期します。'
+intro: 'Use your inbox to quickly triage and sync your notifications across email{% if currentVersion == "free-pro-team@latest" %} and mobile{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -18,7 +18,6 @@ versions:
 To access your notifications inbox, in the upper-right corner of any page, click {% octicon "bell" aria-label="The notifications bell" %}.
 
   ![未読メッセージを示す通知](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-
 
 インボックスには、登録を解除していないか、**Done** とマークされていないすべての通知が表示されます。ワークフローに対して最適な形になるよう、フィルタを使用してインボックスをカスタマイズし、すべてまたは未読の通知を表示して、通知をグループ化することで概要をすばやく確認できます。
 
@@ -113,7 +112,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 
 #### サポートされている `is:` クエリ
 
-{% data variables.product.product_name %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`.
+{% data variables.product.product_name %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
 
 - `is:check-suite`
 - `is:commit`
@@ -124,6 +123,8 @@ To filter notifications by why you've received an update, you can use the `reaso
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`
 - `is:team-discussion`
+
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 
 You can also use the `is:` query to describe how the notification was triaged.
 

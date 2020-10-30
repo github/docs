@@ -1,6 +1,6 @@
 ---
 title: Explorar as dependências de um repositório
-intro: 'Ao usar o gráfico de dependência, você pode ver os pacotes dos quais o seu projeto depende{% if currentVersion == "free-pro-team@latest" %} e os repositórios que dependem dele{% endif %}. Além disso, você pode ver todas as vulnerabilidades detectadas nas suas dependências.'
+intro: 'Ao usar o gráfico de dependência, você pode ver os pacotes dos quais o projeto depende {% if currentVersion == "free-pro-team@latest" %} e os repositórios que dependem dele{% endif %}. Além disso, você pode ver todas as vulnerabilidades detectadas nas suas dependências.'
 redirect_from:
   - /articles/listing-the-packages-that-a-repository-depends-on
   - /github/visualizing-repository-data-with-graphs/listing-the-packages-that-a-repository-depends-on
@@ -26,7 +26,8 @@ O gráfico de dependências mostra as dependências{% if currentVersion == "free
 #### Vista de dependências
 
 {% if currentVersion == "free-pro-team@latest" %}
-As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências. Para dependências em repositórios públicos hospedadas no {% data variables.product.product_name %}, você também pode clicar em uma dependência para visualizar o repositório. Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação.
+As dependências são agrupadas por ecossistema. Você pode expandir sua dependência para visualizar suas dependências. Para dependências de repositórios públicos hospedados em
+{% data variables.product.product_name %}, você também pode clicar em uma dependência para visualizar o repositório. Dependências de repositórios privados, pacotes privados ou arquivos não reconhecidos são exibidos em texto sem formatação.
 
 Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso ao {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -34,8 +35,9 @@ Se foram detectadas vulnerabilidades no repositório, estas são exibidas na par
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
-Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas serão exibidas na parte superior da visualização para usuários com acesso a alertas do {% data variables.product.prodname_dependabot_short %}.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
+Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas serão exibidas na parte superior da visualização para usuários com acesso ao
+Alertas de {% data variables.product.prodname_dependabot_short %}.
 
 {% note %}
 
@@ -53,7 +55,7 @@ Todas as dependências diretas e indiretas especificadas no manifesto do reposit
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 Todas as dependências diretas e indiretas especificadas no manifesto do repositório ou arquivos de bloqueio são listadas e agrupadas pelo ecossistema. Se foram detectadas vulnerabilidades no repositório, estas são exibidas na parte superior da visualização para usuários com acesso a alertas de segurança.
 
 {% note %}
@@ -98,7 +100,8 @@ Você pode desabilitar o gráfico de dependências a qualquer momento clicando e
 Se seu gráfico de dependências estiver vazio, poderá haver um problema com o arquivo que contém suas dependências. Selecione o arquivo para garantir que ele esteja corretamente formatado para o tipo de arquivo.
 
 {% if currentVersion == "free-pro-team@latest" %}
-Se o arquivo estiver formatado corretamente, verifique o seu tamanho. O gráfico de dependências ignora arquivos de manifesto individual e os arquivos e bloqueio com tamanho superior a Mb, a menos que você seja um usuário do {% data variables.product.prodname_enterprise %}. Ele processa até 20 arquivos de manifesto ou de bloqueio por repositório por padrão; logo você pode dividir dependências em arquivos menores em subdiretórios do repositório.{% endif %}
+Se o arquivo estiver formatado corretamente, verifique o seu tamanho. O gráfico de dependências ignora manifesto individual e arquivos de bloqueio com tamanho superior a 0,5 Mb, a menos que você seja um
+usuário de {% data variables.product.prodname_enterprise %}. Ele processa até 20 arquivos de manifesto ou de bloqueio por repositório por padrão; logo você pode dividir dependências em arquivos menores em subdiretórios do repositório.{% endif %}
 
 Se um arquivo de manifesto ou de bloqueio não for processado, suas dependências serão omitidas no gráfico de dependências e não será possível verificar se há dependências.
 

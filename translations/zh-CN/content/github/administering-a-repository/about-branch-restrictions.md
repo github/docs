@@ -1,6 +1,6 @@
 ---
 title: 关于分支限制
-intro: '属于组织的仓库内的分支可配置为只允许特定用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}推送到该分支。'
+intro: 'Branches within repositories that belong to organizations can be configured so that only certain users{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %} or{% endif %} teams{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, or apps{% endif %} can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
@@ -9,15 +9,15 @@ versions:
   enterprise-server: '*'
 ---
 
-在启用分支限制后，只有被授予权限的用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}才可推送到受保护分支。 在启用分支限制后，只有被授予权限的用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}才可推送到受保护分支。 您可以在受保护分支的设置中查看和编辑对该受保护分支具有推送权限的用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %},{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或应用{% endif %}。
+When you enable branch restrictions, only users, teams, or apps that have been given permission can push to the protected branch. 在启用分支限制后，只有被授予权限的用户{% if page.version == "dotcom" or page.version ver_gt "2.18" %},{% else %}或{% endif %}团队{% if page.version == "dotcom" or page.version ver_gt "2.18" %}或应用{% endif %}才可推送到受保护分支。 You can view and edit the users, teams, or apps with push access to a protected branch in the protected branch's settings.
 
-您只能将推送到受保护分支的权限授予具有仓库`写入`权限的用户{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}、{% else %}或{% endif %}团队{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}或安装的{% data variables.product.prodname_github_apps %}{% endif %}。
+You can only give push access to a protected branch to users, teams, or installed {% data variables.product.prodname_github_apps %} with `write` access to a repository.
 
-具有仓库管理员权限的人员{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}和应用{% endif %}始终可以推送到受保护分支。
+People and apps with admin permissions to a repository are always able to push to a protected branch.
 
 {% tip %}
 
-**注：**如果选中“Include administrators（包括管理员）”，并且您对分支启用了必需状态检查，如有任何状态检查失败，则即使是具有管理员权限的人员{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}和应用{% endif %}，将更改推送到受保护分支的任何尝试也会失败。 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks)”。
+**注：**如果选中“Include administrators（包括管理员）”，并且您对分支启用了必需状态检查，如有任何状态检查失败，则即使是具有管理员权限的人员和应用，将更改推送到受保护分支的任何尝试也会失败。 更多信息请参阅“[启用必需状态检查](/articles/enabling-required-status-checks)”。
 
 {% endtip %}
 

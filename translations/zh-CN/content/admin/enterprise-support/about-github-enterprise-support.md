@@ -49,31 +49,31 @@ versions:
 
 对于非紧急问题，日语支持的服务时间为周一至周五上午 9:00 至下午 5:00（日本标准时间），不包括日本的法定节假日。 对于紧急问题，我们每周 7 天、每天 24 小时提供英语支持，即使在美国法定节假日也不例外。 </em>GitHub 每天二十四 (24) 小时、每周五 (5) 天（不包括周末和美国全国性假日）对软件提供标准技术支持，不收取额外费用。
 
-For a complete list of U.S. 有关 {% data variables.contact.enterprise_support %} 遵守的美国和日本法定节假日的完整列表，请参阅“[节假日安排](#holiday-schedules)”。
+有关 有关 {% data variables.contact.enterprise_support %} 遵守的美国和日本法定节假日的完整列表，请参阅“[节假日安排](#holiday-schedules)”。
 
 ### 节假日安排
 
-For urgent issues, we can help you in English 24 hours per day, 7 days per week, including on U.S. and Japanese holidays.
+对于紧急问题，我们全天候为您提供英语帮助，包括美国 和日本的节假日。
 
 #### 美国的节假日
 
-{% data variables.contact.enterprise_support %} observes these U.S. holidays. {% data variables.contact.enterprise_support %} 会庆祝这些美国节假日，但我们的全球支持团队可以回答紧急事件单。
+{% data variables.contact.enterprise_support %} observes these U.S. holidays. {{ site.data.variables.contact.enterprise_support }} 会庆祝这些美国节假日，但我们的全球支持团队可以回答紧急事件单。
 
-| U.S. 美国节假日  | Date observed in {{ "now" | date: "%Y" }} |
-| ----------- | ------------------------- | ------------- |
-| 元旦          | 1 月 1 日                   |               |
-| 马丁·路德·金纪念 日 | 1 月的第三个星期一                |               |
-| 总统日         | 2 月的第三个星期一                |               |
-| 阵亡将士纪念日     | 5 月的最后一个星期一               |               |
-| 独立日         | 7 月 4 日                   |               |
-| 劳动节         | 9 月的第一个星期一                |               |
-| 老兵节         | 11 月 12 日                 |               |
-| 感恩节         | 11 月的第四个星期四               |               |
-| 感恩节后的第一天    | 11 月的第四个星期五               |               |
-| 平安夜         | 12 月 24 日                 |               |
-| 圣诞节         | 12 月 25 日                 |               |
-| 圣诞节后的第一天    | 12 月 26 日                 |               |
-| 新年除夕        | 12 月 31 日                 |               |
+| 美国 美国节假日    | 观察日期        |
+| ----------- | ----------- |
+| 元旦          | 1 月 1 日     |
+| 马丁·路德·金纪念 日 | 1 月的第三个星期一  |
+| 总统日         | 2 月的第三个星期一  |
+| 阵亡将士纪念日     | 5 月的最后一个星期一 |
+| 独立日         | 7 月 4 日     |
+| 劳动节         | 9 月的第一个星期一  |
+| 老兵节         | 11 月 12 日   |
+| 感恩节         | 11 月的第四个星期四 |
+| 感恩节后的第一天    | 11 月的第四个星期五 |
+| 平安夜         | 12 月 24 日   |
+| 圣诞节         | 12 月 25 日   |
+| 圣诞节后的第一天    | 12 月 26 日   |
+| 新年除夕        | 12 月 31 日   |
 
 #### 日本节假日
 

@@ -1,6 +1,6 @@
 ---
 title: 添加远程
-intro: 要新增远程，请在终端上存储仓库的目录中使用 `git remote add` 命令。
+intro: '要新增远程，请在终端上存储仓库的目录中使用 `git remote add` 命令。'
 redirect_from:
   - /articles/adding-a-remote
 versions:

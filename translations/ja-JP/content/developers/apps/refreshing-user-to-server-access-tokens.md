@@ -28,10 +28,10 @@ This callback request will send you a new access token and a new refresh token. 
 
 #### パラメータ
 
-| 名前              | 種類       | 説明                                                                                                                                                                    |
-| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 名前              | 種類       | 説明                                                                                                                                                               |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `refresh_token` | `string` | **Required.** The token generated when the  {% data variables.product.prodname_github_app %} owner enables expiring tokens and issues a new user access token. |
-| `grant_type`    | `string` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                                    |
+| `grant_type`    | `string` | **Required.** Value must be `refresh_token` (required by the OAuth specification).                                                                               |
 | `client_id`     | `string` | **Required.** The  client ID for your {% data variables.product.prodname_github_app %}.                                                                        |
 | `client_secret` | `string` | **Required.** The  client secret for your {% data variables.product.prodname_github_app %}.                                                                    |
 
@@ -64,7 +64,7 @@ When you create a new {% data variables.product.prodname_github_app %}, by defau
 
 If you want your app to use non-expiring user-to-server access tokens, you can deselect "Expire user authorization tokens" on the app settings page.
 
-![Option to opt-in to expiring user tokens during GitHub Apps setup](/assets/images/github-apps/expire-user-tokens-selection.png)
+![GitHub App のセットアップ中に期限付きユーザトークンをオプトインするオプション](/assets/images/github-apps/expire-user-tokens-selection.png)
 
 Existing {% data variables.product.prodname_github_app %}s using user-to-server authorization tokens are only affected by this new flow when the app owner enables expiring user tokens for their app.
 

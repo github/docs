@@ -9,7 +9,7 @@ versions:
 
 {% tip %}
 
-**Tips**:
+**提示**：
 - 仅组织所有者才可将用户添加到组织。 更多信息请参阅“[组织的权限级别](/articles/permission-levels-for-an-organization)”。
 - 如果您的组织[要求成员使用双重身份验证](/articles/requiring-two-factor-authentication-in-your-organization)，则用户必须[启用双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)，然后您才可将他们添加到组织。
 

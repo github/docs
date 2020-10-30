@@ -25,7 +25,6 @@ redirect_from:
   - /enterprise/admin/articles/blocking-force-pushes-to-repositories-owned-by-a-user-account-or-organization/
   - /enterprise/admin/developer-workflow/blocking-force-pushes
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
-  - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
 versions:
   enterprise-server: '*'
 ---
@@ -40,7 +39,7 @@ If a site administrator disallows members from creating certain types of reposit
 
 **Tip:** You can restrict the ability to change repository visibility to site administrators only. For more information, see "[Preventing users from changing a repository's visibility](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility)."
 
-{% endnote %}
+{% endtip %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}
@@ -216,5 +215,4 @@ If necessary, you can prevent repository administrators from changing anonymous 
 6. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**. !["Enabled" button under "Enable anonymous Git read access" in danger zone of a repository's site admin settings ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
 7. Review the changes. To confirm, click **Yes, enable anonymous Git read access.** ![Confirm anonymous Git read access setting in pop-up window](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from changing anonymous Git read access**. ![Select checkbox to prevent repository admins from changing anonymous Git read access for this repository](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
-
 

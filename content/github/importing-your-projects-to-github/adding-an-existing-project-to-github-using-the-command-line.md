@@ -26,7 +26,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -63,7 +63,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -86,7 +86,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 
@@ -100,7 +100,7 @@ versions:
 3. Change the current working directory to your local project.
 4. Initialize the local directory as a Git repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Add the files in your new local repository. This stages them for the first commit.
   ```shell
@@ -123,7 +123,7 @@ versions:
   ```
 9. [Push the changes](/articles/pushing-commits-to-a-remote-repository/) in your local repository to {% data variables.product.product_location %}.
   ```shell
-  $ git push origin master
+  $ git push origin main
   # Pushes the changes in your local repository up to the remote repository you specified as the origin
   ```
 

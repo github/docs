@@ -1,6 +1,6 @@
 ---
 title: Aplicar logon único de SAML para sua organização
-intro: 'Administradores e proprietários da organização podem aplicar logon único (SSO, Single Sign-On) de SAML para que todos os integrantes da organização precisem se autenticar por meio de um provedor de identidade.'
+intro: Administradores e proprietários da organização podem aplicar logon único (SSO, Single Sign-On) de SAML para que todos os integrantes da organização precisem se autenticar por meio de um provedor de identidade.
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/enforcing-saml-single-sign-on-for-your-organization
