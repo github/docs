@@ -32,3 +32,14 @@ versions:
     {% link_in_list /pricing-plans-for-github-marketplace-apps %}
     {% link_in_list /billing-customers %}
     {% link_in_list /receiving-payment-for-app-purchases %}
+
+
+
+
+
+
+{
+        "code": "401.1.1",
+        "message": "Failed to resolve API Key variable Verify-API-Key" 
+}
+
