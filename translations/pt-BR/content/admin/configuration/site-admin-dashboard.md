@@ -15,7 +15,7 @@ Para acessar o painel, clique em {% octicon "rocket" aria-label="The rocket ship
 
 ### Pesquisar
 
-Neste espaço, é possível iniciar o {% data variables.enterprise.management_console %} para gerenciar configurações do appliance virtual, como domínio, autenticação e SSL.
+Neste espaço, é possível iniciar o {{ site.data.variables.enterprise.management_console }} para gerenciar configurações do appliance virtual, como domínio, autenticação e SSL.
 
 {% else %}
 
@@ -162,7 +162,7 @@ Esta categoria controla a forma como o índice [Problemas][] é reparado. Você 
 
 ### Todos os usuários
 
-Aqui você verá todos os usuários que foram suspensos da {% data variables.product.product_location_enterprise %} e poderá [iniciar uma auditoria de chave SSH](/enterprise/{{ currentVersion }}/admin/guides/user-management/auditing-ssh-keys).
+Aqui você verá todos os usuários que foram suspensos da {{ site.data.variables.product.product_location_enterprise }} e poderá [iniciar uma auditoria de chave SSH](/enterprise/{{ page.version }}/admin/guides/user-management/auditing-ssh-keys).
 
 {% endif %}
 

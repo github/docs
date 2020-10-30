@@ -17,21 +17,19 @@ versions:
 
 ### 向 {% data variables.product.prodname_registry %} 验证
 
-{% warning %}
-
-# Build the image with docker.pkg.github.com/&lt;em&gt;OWNER/REPOSITORY/IMAGE_NAME:VERSION&lt;/em&gt; # Assumes Dockerfile resides in the current working directory (.) $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 . # Push the image to {% data variables.product.prodname_registry %} $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
-
-{% endwarning %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 您可以使用 `docker` 登录命令，通过 Docker 向 {% data variables.product.prodname_registry %} 验证。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location_enterprise %} must enable Docker support and subdomain isolation for your instance. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
+必须在 {% data variables.product.product_location_enterprise %} 的网站管理员为您的实例启用 Docker 支持和子域隔离后，您才可在 {% data variables.product.prodname_registry %} 上使用 Docker 注册表。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
 
 {% endif %}
 
 ### 向 {% data variables.product.prodname_registry %} 验证
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data reusables.package_registry.authenticate-packages %}
 
@@ -51,7 +49,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% endraw %}
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 {% raw %}
  ```shell
  $ cat <em>~/TOKEN.txt</em> | docker login docker.HOSTNAME -u <em>USERNAME</em> --password-stdin
@@ -59,7 +57,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% endraw %}
 {% endif %}
 
-要使用此示例登录命令，请将 `USERNAME` 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 `~/TOKEN.txt` 替换为您用于 {% data variables.product.prodname_dotcom %} 的个人访问令牌的文件路径。
+要使用此示例登录命令，请将 `USERNAME` 替换为您的 {% data variables.product.product_name %} 用户名{% if enterpriseServerVersions contains currentVersion %}，将 `HOSTNAME` 替换为 {% data variables.product.product_location_enterprise %},{% endif %} 的 URL，并将 `~/TOKEN.txt` 替换为您用于 {% data variables.product.product_name %} 的个人访问令牌的文件路径。
 
 更多信息请参阅“[Docker 登录](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)”。
 
@@ -68,6 +66,8 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
 ### 发布包
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 {% data variables.product.prodname_registry %} 支持每个仓库的多个顶层 Docker 镜像。 仓库可以拥有任意数量的映像标记。 在发布或安装大于 10GB 的 Docker 映像（每个图层上限为 5GB）时，可能会遇到服务降级的情况。 更多信息请参阅 Docker 文档中的“[Docker 标记](https://docs.docker.com/engine/reference/commandline/tag/)”。
 
@@ -83,7 +83,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. 使用 Docker 映像 ID 标记 docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *VERSION* 替换为构建时的包版本。
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* 使用 {% data variables.product.product_location_enterprise %} 的主机名，{% endif %}而 *VERSION* 使用构建时的软件包版本。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -94,7 +94,7 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   ```
   {% endif %}
 3. 您可能首次发布新的 Docker 映像并将其命名为 `monalisa`。
-{% if currentVersion != "free-pro-team@latest" %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* 使用 {% data variables.product.product_location_enterprise %} 的主机名，{% endif %}以及映像的 *PATH*（如果不在当前工作目录中）。
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
@@ -104,7 +104,8 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   $ docker build -t docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>
   ```
   {% endif %}
-4. 将映像发布到 {% data variables.product.prodname_registry %}。
+4. 将映像发布到
+{% data variables.product.prodname_registry %}.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker push docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -121,6 +122,8 @@ Before you can use the Docker registry on {% data variables.product.prodname_reg
   {% endnote %}
 
 #### 发布 Docker 映像的示例
+
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
 您可以使用映像 ID 将 `monalisa` 映像的 1.0 版本发布到 `octocat/octo-app` 仓库。
 
@@ -180,8 +183,9 @@ $ docker push docker.<em>HOSTNAME</em>/octocat/octo-app/monalisa:1.0
 
 ### 安装包
 
-您可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，将 *TAG_NAME* 替换为要安装的映像的标记。 {% data reusables.package_registry.lowercase-name-field %}
+{% data reusables.package_registry.docker_registry_deprecation_status %}
 
+您可以使用 `docker pull` 命令从 {% data variables.product.prodname_registry %} 安装 Docker 映像，将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称，将 *REPOSITORY* 替换为包含项目的仓库的名称，将 *IMAGE_NAME* 替换为包或映像的名称，{% if enterpriseServerVersions contains currentVersion %}将 *HOSTNAME* 替换为您 {% data variables.product.prodname_ghe_server %} 实例的主机名称，{% endif %}并将 *TAG_NAME* 替换为要安装的映像的标记。 {% data reusables.package_registry.lowercase-name-field %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 ```shell
@@ -198,7 +202,6 @@ $ docker pull docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME</em>
 **注：**必须使用 `IMAGE_NAME:VERSION` 推送映像，而不能使用 `IMAGE_NAME:SHA`。
 
 {% endnote %}
-
 
 ### 延伸阅读
 

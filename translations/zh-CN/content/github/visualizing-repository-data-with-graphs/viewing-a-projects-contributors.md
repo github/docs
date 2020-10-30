@@ -1,6 +1,6 @@
 ---
 title: 查看项目的贡献者
-intro: '您可以查看向仓库{% if currentVersion == "free-pro-team@latest" %}及其依赖项{% endif %}贡献提交的人员。'
+intro: 'You can see who contributed commits to a repository{% if currentVersion == "free-pro-team@latest" %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -13,10 +13,10 @@ versions:
 
 ### 关于贡献者
 
-您可以在贡献者图中查看仓库的前 100 名贡献者{% if currentVersion != "free-pro-team@latest" %}，包括提交合作作者{% endif %}。 合并提交和空提交不会计为此图的贡献。
+您可以在贡献者图中查看仓库的前 100 名贡献者{% if enterpriseServerVersions contains currentVersion %}，包括提交合作作者{% endif %}。 合并提交和空提交不会计为此图的贡献。
 
 {% if currentVersion == "free-pro-team@latest" %}
-You can also see a list of people who have contributed to the project's Python dependencies. 要访问此社区贡献者列表，请访问 `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`。
+您还可以看到为项目的 Python 依赖项做出贡献的人员列表。 要访问此社区贡献者列表，请访问 `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`。
 {% endif %}
 
 ### 访问贡献者图

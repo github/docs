@@ -12,7 +12,7 @@ versions:
 `git push` コマンドは、2 つの引数を取ります:
 
 * リモート名。たとえば `origin`
-* ブランチ名。たとえば `master`
+* ブランチ名。 たとえば `master`
 
 例:
 
@@ -97,3 +97,4 @@ git fetch upstream
 - [`git remote` の man ページ](https://git-scm.com/docs/git-remote.html)
 - [Git チートシート](/articles/git-cheatsheet)
 - [Git のワークフロー](/articles/git-workflows)
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

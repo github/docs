@@ -1,6 +1,6 @@
 ---
 title: 手动为仓库创建单一议题模板
-intro: 将手动创建的议题模板添加到仓库后，项目贡献者会自动在议题正文中看到模板的内容。
+intro: '将手动创建的议题模板添加到仓库后，项目贡献者会自动在议题正文中看到模板的内容。'
 redirect_from:
   - /articles/creating-an-issue-template-for-your-repository/
   - /articles/manually-creating-a-single-issue-template-for-your-repository
@@ -28,7 +28,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注：**必须将 YAML 保留的字符（如 `:`）放在引号中。 例如 `":bug: Bug"`。
+**Note:** If a front matter value includes a YAML-reserved character such as `:` , you must put the whole value in quotes. For example, `":bug: Bug"` or `":new: triage needed, :bug: bug"`.
 
 {% endnote %}
 

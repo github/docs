@@ -29,10 +29,10 @@ In addition, **at least one** of the following must be true:
 - You have forked the repository.
 - You have opened a pull request or issue in the repository.
 - You have starred the repository.
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### Common reasons that contributions are not counted
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### Commit was made less than 24 hours ago
 
@@ -67,7 +67,7 @@ Commits are only counted if they are made in the default branch or the `gh-pages
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
 - [Open a pull request](/articles/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.
-- [Change the default branch](/articles/setting-the-default-branch) of the repository.
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 

@@ -1,6 +1,6 @@
 ---
 title: 混乱を生むコメントを管理する
-intro: 'Issue、プルリクエスト、 およびコミットに対するコメントを{% if currentVersion == "free-pro-team@latest" %}非表示、編集{% else %}編集{% endif %}、削除できます。'
+intro: 'You can {% if currentVersion == "free-pro-team@latest" %}hide, edit,{% else %}edit{% endif %} or delete comments on issues, pull requests, and commits.'
 redirect_from:
   - /articles/editing-a-comment/
   - /articles/deleting-a-comment/
@@ -39,7 +39,7 @@ versions:
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、およびコミットに対するコメントを編集することができます。
 
-会話に関係がない、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを編集して内容を削除するのが妥当です。
+It's appropriate to edit a comment and remove content that doesn't contribute to the conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 コメントを編集する際には、削除した内容があった元の場所がわかるように記録し、オプションで削除の理由を示します。
 
@@ -59,7 +59,7 @@ versions:
 
 リポジトリに対する書き込み権限があるユーザは、Issue、プルリクエスト、 およびコミットに対するコメントを削除することができます。 Organization オーナー、チームメンテナ、コメント作成者は、チームのページのコメントを削除することもできます。
 
-コメントの削除は、モデレーターとしての最終手段です。 コメント全体が会話にとって建設的な内容ではない場合や、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の[コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反している場合は、コメントを削除するのが妥当です。
+コメントの削除は、モデレーターとしての最終手段です。 It's appropriate to delete a comment if the entire comment adds no constructive content to a conversation and violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}.
 
 コメントを削除すると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、コメントを削除したユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 

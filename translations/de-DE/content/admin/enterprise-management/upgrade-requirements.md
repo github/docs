@@ -21,7 +21,7 @@ versions:
 
 ### Empfehlungen
 
-- Sie sollten möglichst wenig Upgrades in Ihren Upgrade-Prozess einbeziehen. Anstatt beispielsweise ein Upgrade von {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} auf {{ enterpriseVersions.supported[1] }} auf {{ enterpriseVersions.latest }} vorzunehmen, können Sie ein Upgrade von {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[2] }} auf {{ enterpriseVersions.latest }} vornehmen.
+- Sie sollten möglichst wenig Upgrades in Ihren Upgrade-Prozess einbeziehen. For example, instead of upgrading from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.supported[1] }} to {{ enterpriseServerReleases.latest }}, you could upgrade from {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[2] }} to {{ enterpriseServerReleases.latest }}.
 - Wenn Sie mehrere Versionen zurückliegen, sollten Sie {% data variables.product.product_location_enterprise %} so weit wie möglich mit jedem Schritt Ihres Upgrade-Prozesses upgraden. Wenn Sie die nach Möglichkeit neueste Version für jedes Upgrade verwenden, können Sie von Leistungsverbesserungen und Bug-Korrekturen profitieren. So können Sie beispielsweise ein Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.8 auf 2.10 vornehmen. Beim Upgrade von {% data variables.product.prodname_enterprise %} 2.7 auf 2.9 auf 2.10 wird im zweiten Schritt jedoch eine neuere Version verwendet.
 - Verwenden Sie beim Upgraden die neueste Patch-Veröffentlichung. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %}
 - Verwenden Sie eine Testinstanz zum Testen der Upgrade-Schritte. Weitere Informationen finden Sie unter „[Testinstanz einrichten](/enterprise/{{ currentVersion }}/admin/guides/installation/setting-up-a-staging-instance/)“.
@@ -29,7 +29,7 @@ versions:
 
 ### Anforderungen
 
-- Sie müssen ein Upgrade von einer Feature-Veröffentlichung vornehmen, die **höchstens** zwei Versionen zurückliegt. Wenn Sie beispielsweise ein Upgrade auf {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.latest }} vornehmen, müssen Sie {% data variables.product.prodname_enterprise %} {{ enterpriseVersions.supported[1] }} oder {{ enterpriseVersions.supported[2] }} verwenden.
+- Sie müssen ein Upgrade von einer Feature-Veröffentlichung vornehmen, die **höchstens** zwei Versionen zurückliegt. For example, to upgrade to {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.latest }}, you must be on {% data variables.product.prodname_enterprise %} {{ enterpriseServerReleases.supported[1] }} or {{ enterpriseServerReleases.supported[2] }}.
 - {% data reusables.enterprise_installation.hotpatching-explanation %}
 - Ein Hotpatch kann Ausfallzeiten nach sich ziehen, falls für die betroffenen Dienste (z. B. der Kernel, MySQL oder ElasticSearch) ein VM- oder Dienstneustart erforderlich ist. Sie werden benachrichtigt, falls ein Neustart erforderlich ist. Sie können den Neustart zu einem späteren Zeitpunkt abschließen.
 - Beim Upgrade mittels Hotpatching muss zusätzlicher Root-Storage verfügbar sein, da bis zum Abschluss des Upgrades mehrere Versionen bestimmter Dienste installiert werden. Preflight-Checks benachrichtigen Sie, falls nicht genügend Root-Disk-Storage verfügbar ist.

@@ -186,10 +186,10 @@ In {% data variables.product.prodname_pages %} API endpoints with a `status` key
 * `built`: The site has been built.
 * `errored`: Indicates an error occurred during the build.
 
-In {% data variables.product.prodname_pages %} API endpoints that {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}support the `mister-fantastic-preview` and{% endif %} return GitHub Pages site information, the JSON responses include these fields:
+In {% data variables.product.prodname_pages %} API endpoints that  return GitHub Pages site information, the JSON responses include these fields:
 * `html_url`: The absolute URL (including scheme) of the rendered Pages site. For example, `https://username.github.io`.
 * `source`: An object that contains the source branch and directory for the rendered Pages site. This includes:
-   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _master_ or _gh-pages_.
+   - `branch`: The repository branch used to publish your [site's source files](/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). For example, _main_ or _gh-pages_.
    - `path`: The repository directory from which the site publishes. Will be either `/` or `/docs`.
 
 {% for operation in currentRestOperations %}
@@ -216,7 +216,7 @@ The Repository Statistics API allows you to fetch the data that {% data variable
 
 Computing repository statistics is an expensive operation, so we try to return cached data whenever possible.  If the data hasn't been cached when you query a repository's statistics, you'll receive a `202` response; a background job is also fired to start compiling these statistics. Give the job a few moments to complete, and then submit the request again. If the job has completed, that request will receive a `200` response with the statistics in the response body.
 
-Repository statistics are cached by the SHA of the repository's default branch, which is usually master; pushing to the default branch resets the statistics cache.
+Repository statistics are cached by the SHA of the repository's default branch; pushing to the default branch resets the statistics cache.
 
 ### Statistics exclude some types of commits
 
@@ -263,7 +263,7 @@ The Repository Webhooks API allows repository admins to manage the post-receive 
 If you would like to set up a single webhook to receive events from all of your organization's repositories, see our API documentation for [Organization Webhooks](/rest/reference/orgs#webhooks).
 
 {% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'hooks' %}{% include rest_operation %}{% endif %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 ### Receiving Webhooks
@@ -292,14 +292,14 @@ The default format is what [existing post-receive hooks should expect](/post-rec
 #### Callback URLs
 Callback URLs can use the `http://` protocol.
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}You can also `github://` callbacks to specify a GitHub service.
 {% data reusables.apps.deprecating_github_services_ghe %}
 {% endif %}
 
     # Send updates to postbin.org
     http://postbin.org/123
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
     # Send updates to Campfire github://campfire?subdomain=github&room=Commits&token=abc123
 {% endif %}
 

@@ -1,6 +1,6 @@
 ---
 title: 会話をロックする
-intro: リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。
+intro: 'リポジトリのオーナーおよびコラボレーター、そしてリポジトリへの書き込みアクセスを持つユーザは、過熱した議論を和らげるために、Issue、プルリクエスト、およびコミットに関する会話を、恒久的または一時的にロックすることができます。'
 redirect_from:
   - /articles/locking-conversations
 versions:
@@ -8,7 +8,7 @@ versions:
   enterprise-server: '*'
 ---
 
-会話が全体的に非建設的になったときや、コミュニティの行動規範{% if currentVersion == "free-pro-team@latest" %}または GitHub の [コミュニティ ガイドライン](/articles/github-community-guidelines){% endif %}に違反しているときは、会話をロックすることが妥当です。 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
+It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct{% if currentVersion == "free-pro-team@latest" %} or GitHub's [Community Guidelines](/articles/github-community-guidelines){% endif %}. 会話をロックするとき、理由を指定することもできます。これは誰にでも見ることができます。
 
 会話をロックすると、リポジトリに対する読み取りアクセスを持つユーザなら誰でも見ることのできるタイムラインイベントが作成されます。 ただし、会話をロックしたユーザの名前は、リポジトリへの書き込みアクセスを持つユーザにしか見えません。 書き込みアクセスを持たないユーザから見ると、タイムラインイベントは匿名化されています。
 
@@ -28,7 +28,7 @@ versions:
 
 - [健全なコントリビューションを促すプロジェクトをセットアップする](/articles/setting-up-your-project-for-healthy-contributions)
 - 「[テンプレートを使用して便利な Issue およびプルリクエストを推進する](/github/building-a-strong-community/using-templates-to-encourage-useful-issues-and-pull-requests)」
-- 「[混乱を生むコメントを管理する](/articles/managing-disruptive-comments)」{% if currentVersion == "free-pro-team@latest" %}
+- "[Managing disruptive comments](/articles/managing-disruptive-comments)"{% if currentVersion == "free-pro-team@latest" %}
 - 「[{% data variables.product.prodname_dotcom %} での安全性を維持する](/github/building-a-strong-community/maintaining-your-safety-on-github)」
 - [悪用あるいはスパムのレポート](/articles/reporting-abuse-or-spam)
 - 「[リポジトリでのインタラクションを制限する](/github/building-a-strong-community/limiting-interactions-in-your-repository)」

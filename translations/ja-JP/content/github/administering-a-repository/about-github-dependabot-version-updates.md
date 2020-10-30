@@ -9,13 +9,15 @@ versions:
 
 {% data reusables.dependabot.beta-note %}
 
-### {% data variables.product.prodname_dependabot_version_updates %}について
+### {% data variables.product.prodname_dependabot_version_updates %} について
 
 {% data variables.product.prodname_dependabot %} は、依存関係を維持する手間を省きます。 これを使用して、リポジトリが依存するパッケージおよびアプリケーションの最新リリースに自動的に対応できるようにすることができます。
 
-{% data variables.product.prodname_dependabot_version_updates %} を有効にするには、リポジトリに設定ファイルをチェックインします。 設定ファイルでは、リポジトリに保存されているマニフェストまたは他のパッケージ定義ファイルの場所を指定します。 {% data variables.product.prodname_dependabot_short %} はこの情報を使用して、古いパッケージとアプリケーションをチェックします。 {% data variables.product.prodname_dependabot_short %} は、依存関係のセマンティックバージョニング（[semver](https://semver.org/)）を調べて、そのバージョンへの更新の必要性を判断することにより、依存関係の新しいバージョンの有無を決定します。 {% data variables.product.prodname_dependabot_short %} が古い依存関係を特定すると、プルリクエストを発行して、マニフェストを依存関係の最新バージョンに更新します。 テストに合格したことを確認し、プルリクエストの概要に含まれている変更履歴とリリースノートを確認して、マージします。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+{% data variables.product.prodname_dependabot_version_updates %} を有効にするには、リポジトリに設定ファイルをチェックインします。 設定ファイルでは、リポジトリに保存されているマニフェストまたは他のパッケージ定義ファイルの場所を指定します。 {% data variables.product.prodname_dependabot_short %} はこの情報を使用して、古いパッケージとアプリケーションをチェックします。 {% data variables.product.prodname_dependabot_short %} は、依存関係のセマンティックバージョニング（[semver](https://semver.org/)）を調べて、そのバージョンへの更新の必要性を判断することにより、依存関係の新しいバージョンの有無を決定します。 For certain package managers, {% data variables.product.prodname_dependabot_version_updates %} also supports vendoring. Vendored (or cached) dependencies are dependencies that are checked in to a specific directory in a repository, rather than referenced in a manifest. Vendored dependencies are available at build time even if package servers are unavailable. {% data variables.product.prodname_dependabot_version_updates %} can be configured to check vendored dependencies for new versions and update them if necessary.
 
-セキュリティアップデートを有効にすると、{% data variables.product.prodname_dependabot %} はプルリクエストを発行し、脆弱性のある依存関係を更新します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} を設定する](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)」を参照してください。
+{% data variables.product.prodname_dependabot_short %} が古い依存関係を特定すると、プルリクエストを発行して、マニフェストを依存関係の最新バージョンに更新します。 For vendored dependencies, {% data variables.product.prodname_dependabot_short %} raises a pull request to directly replace the outdated dependency with the new version. テストに合格したことを確認し、プルリクエストの概要に含まれている変更履歴とリリースノートを確認して、マージします。 詳しい情報については、「[バージョン更新の有効化と無効化](/github/administering-a-repository/enabling-and-disabling-version-updates)」を参照してください。
+
+セキュリティアップデートを有効にすると、{% data variables.product.prodname_dependabot %} はプルリクエストを発行し、脆弱性のある依存関係を更新します。 詳しい情報については、「[{% data variables.product.prodname_dependabot_security_updates %} について](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)」を参照してください。
 
 {% data reusables.dependabot.dependabot-tos %}
 
@@ -35,7 +37,7 @@ versions:
 
 {% endnote %}
 
-サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。
+サポートされているパッケージマネージャーのいずれかの依存関係マニフェストまたはロックファイルを含むリポジトリのバージョン更新を設定できます。 For some package managers, you can also configure vendoring for dependencies. 詳しい情報については、「[依存関係の更新の設定オプション](/github/administering-a-repository/configuration-options-for-dependency-updates#vendor) 」を参照してください。
 
 {% data reusables.dependabot.supported-package-managers %}
 

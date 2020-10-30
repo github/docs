@@ -57,23 +57,23 @@ Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias 
 
 #### Feriados nos Estados Unidos
 
-O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {% data variables.contact.enterprise_support %} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
+O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
 
-| EUA Feriado             | Data observada em {{ "now"    | date: "%Y" }} |
-| ----------------------- | ----------------------------- | ------------- |
-| Fraternidade Universal  | 1º de janeiro                 |               |
-| Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |               |
-| Dia dos Presidentes     | 3ª segunda-feira de fevereiro |               |
-| Dia do Memorial         | Última segunda-feira de maio  |               |
-| Dia da Independência    | 4 de julho                    |               |
-| Dia do Trabalho         | 1ª segunda-feira de setembro  |               |
-| Dia dos Veteranos       | 12 de novembro                |               |
-| Ação de Graças (Dia 1)  | 4ª quinta-feira de novembro   |               |
-| Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |               |
-| Natal (Dia 1)           | 24 de dezembro                |               |
-| Natal (Dia 2)           | 25 de dezembro                |               |
-| Natal (Dia 3)           | 26 de dezembro                |               |
-| Ano-Novo                | 31 de dezembro                |               |
+| EUA Feriado             | Data de observação            |
+| ----------------------- | ----------------------------- |
+| Fraternidade Universal  | 1º de janeiro                 |
+| Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |
+| Dia dos Presidentes     | 3ª segunda-feira de fevereiro |
+| Dia do Memorial         | Última segunda-feira de maio  |
+| Dia da Independência    | 4 de julho                    |
+| Dia do Trabalho         | 1ª segunda-feira de setembro  |
+| Dia dos Veteranos       | 12 de novembro                |
+| Ação de Graças (Dia 1)  | 4ª quinta-feira de novembro   |
+| Ação de Graças (Dia 2)  | 4ª sexta-feira de novembro    |
+| Natal (Dia 1)           | 24 de dezembro                |
+| Natal (Dia 2)           | 25 de dezembro                |
+| Natal (Dia 3)           | 26 de dezembro                |
+| Ano-Novo                | 31 de dezembro                |
 
 #### Feriados no Japão
 

@@ -12,7 +12,7 @@ versions:
 
 ### 新しいパスワードをリクエストする
 
-1. 新しいパスワードをリクエストするには、{% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %} にアクセスしてください。
+1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
 2. 個人 {% data variables.product.product_name %} アカウントに関連するメールアドレスを入力し、次に [**Send password reset email**] をクリックします。バックアップメールアドレスが設定されている場合、そのアドレスにメールが送られます。 ![パスワードリセットのメールリクエストダイアログ](/assets/images/help/settings/password-recovery-email-request.png)
 3. パスワードをリセットするためのリンクがメールで届きます。 メールを受信してから 3 時間以内に、このリンクをクリックする必要があります。 弊社からメールが届かない場合、スパムフォルダを確認してください。
 4. メールのリンクをクリックすると、新しいパスワードを入力するように求められます。 ![パスワードリカバリボックス](/assets/images/help/settings/password_recovery_page.png)
@@ -29,11 +29,7 @@ versions:
 
 1. {% data variables.product.product_name %} への {% data variables.product.signin_link %}
 {% data reusables.user_settings.access_settings %}
-{%- if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
 {% data reusables.user_settings.security %}
-{%- else %}
-{% data reusables.user_settings.account_settings %}
-{%- endif %}
 4. [Change password] の下で、古いパスワード、新しい強靭なパスワードを入力し、新しいパスワードを確認します。 強靭なパスワードを作成するための参考として、「[強靭なパスワードを作成する](/articles/creating-a-strong-password)」を参照してください。
 5. [**Update password**] をクリックします。
 

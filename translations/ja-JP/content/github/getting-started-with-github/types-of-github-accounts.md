@@ -1,6 +1,6 @@
 ---
 title: GitHub アカウントの種類
-intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 ユーザアカウントはいくつでも Organization のメンバーになれます。{% if currentVersion == "free-pro-team@latest" %} Organization は Enterprise アカウントに所属できます。{% endif %}'
+intro: 'ユーザアカウントは {% data variables.product.product_location %} 上での身分証明となります。 Your user account can be a member of any number of organizations.{% if currentVersion == "free-pro-team@latest" %} Organizations can belong to enterprise accounts.{% endif %}'
 redirect_from:
   - /manage-multiple-clients/
   - /managing-clients/
@@ -13,7 +13,8 @@ versions:
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
-各 {% data variables.product.product_name %} 製品の機能の完全なリストについては、「[{% data variables.product.prodname_dotcom %} の製品](/github/getting-started-with-github/githubs-products)」を参照してください。
+For a full list of features for each
+{% data variables.product.product_name %} product, see "[{% data variables.product.prodname_dotcom %}'s products](/github/getting-started-with-github/githubs-products)."
 {% endif %}
 
 ### 個人ユーザアカウント
@@ -71,6 +72,6 @@ Enterprise アカウントを使用すると、複数の {% data variables.produ
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- "[新しい {% data variables.product.prodname_dotcom %} アカウントへのサインアップ](/articles/signing-up-for-a-new-github-account)"
+{% if currentVersion == "free-pro-team@latest" %}- "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/articles/signing-up-for-a-new-github-account)"
 - 「[{% data variables.product.prodname_dotcom %} の製品](/articles/githubs-products)」{% endif %}
 - 「[新しい Organization アカウントを作成する](/articles/creating-a-new-organization-account)」

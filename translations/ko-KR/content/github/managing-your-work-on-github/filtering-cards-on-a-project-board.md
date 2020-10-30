@@ -8,14 +8,14 @@ versions:
   enterprise-server: '*'
 ---
 
-On a card, you can click any assignee{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, milestone,{% endif %} or label to filter the project board by that qualifier. To clear the search, you can click the same assignee{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}, milestone,{% endif %} or label again.
+On a card, you can click any assignee, milestone, or label to filter the project board by that qualifier. To clear the search, you can click the same assignee, milestone, or label again.
 
 You can also use the "Filter cards" search bar at the top of each project board to search for cards. You can filter cards using the following search qualifiers in any combination, or by simply typing some text you'd like to search for.
 
 - Filter cards by author using `author:USERNAME`
 - Filter cards by assignee using `assignee:USERNAME` or `no:assignee`
-- Filter cards by label using `label:LABEL`, `label:"MULTI-WORD LABEL NAME"`, or `no:label`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- Filter by milestone by using `milestone:MY-MILESTONE`{% endif %}
+- Filter cards by label using `label:LABEL`, `label:"MULTI-WORD LABEL NAME"`, or `no:label`
+- Filter by milestone by using `milestone:MY-MILESTONE`
 - Filter cards by state using `state:open`, `state:closed`, or `state:merged`
 - Filter by review status using `review:none`, `review:required`, `review:approved`, or `review:changes_requested`
 - Filter by check status using `status:pending`, `status:success`, or `status:failure`

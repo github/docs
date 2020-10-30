@@ -20,37 +20,37 @@ versions:
 
 ### 站点快捷键
 
-| 键盘快捷键                       | 描述                                                                                                                                                                                                                                                                                |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。                                                                                                                                                                  |
-| <kbd>g</kbd> <kbd>n</kbd>   | 转到您的通知。 更多信息请参阅{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}“[关于通知](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}”。 |
-| <kbd>esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                                            |
+| 键盘快捷键                       | 描述                                                                                                                                                                                                                                                                                                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>s</kbd> 或 <kbd>/</kbd> | 聚焦于搜索栏。 更多信息请参阅“[关于在 {% data variables.product.company_short %} 上搜索](/articles/about-searching-on-github)”。                                                                                                                                                                                                                                                            |
+| <kbd>g</kbd> <kbd>n</kbd>   | 转到您的通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}." |
+| <kbd>esc</kbd>              | 当聚焦于用户、议题或拉取请求悬停卡时，关闭悬停卡并重新聚焦于悬停卡所在的元素                                                                                                                                                                                                                                                                                                                                 |
 
 ### 仓库
 
-| 键盘快捷键                     | 描述                                                                                                                                         |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| <kbd>g</kbd> <kbd>c</kbd> | 转到 **Code（代码）**选项卡                                                                                                                         |
-| <kbd>g</kbd> <kbd>i</kbd> | 转到 **Issues（议题）**选项卡。 更多信息请参阅“[关于议题](/articles/about-issues)”。                                                                             |
-| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 更多信息请参阅“[关于拉取请求](/articles/about-pull-requests)”。                                                           |
-| <kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)." |
-| <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                  |
-| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wikis](/articles/about-wikis)”。                                                                               |
+| 键盘快捷键                     | 描述                                                                                                                                                                                                                  |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>g</kbd> <kbd>c</kbd> | 转到 **Code（代码）**选项卡                                                                                                                                                                                                  |
+| <kbd>g</kbd> <kbd>i</kbd> | 转到 **Issues（议题）**选项卡。 更多信息请参阅“[关于议题](/articles/about-issues)”。                                                                                                                                                      |
+| <kbd>g</kbd> <kbd>p</kbd> | 转到 **Pull requests（拉取请求）**选项卡。 For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+| <kbd>g</kbd> <kbd>a</kbd> | 转到 **Actions（操作）**选项卡。 For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
+| <kbd>g</kbd> <kbd>b</kbd> | 转到 **Projects（项目）**选项卡。 更多信息请参阅“[关于项目板](/articles/about-project-boards)”。                                                                                                                                           |
+| <kbd>g</kbd> <kbd>w</kbd> | 转到 **Wiki** 选项卡。 更多信息请参阅“[关于 wikis](/articles/about-wikis)”。                                                                                                                                                        |
 
 ### 源代码编辑
 
-| 键盘快捷键                                                          | 描述                                                             |
-| -------------------------------------------------------------- | -------------------------------------------------------------- |
-| <kbd>e</kbd>                                                   | 在 **Edit file（编辑文件）**选项卡中打开源代码文件                               |
-| <kbd>control f</kbd> 或 <kbd>command f</kbd>                    | 开始在文件编辑器中搜索                                                    |
-| <kbd>control g</kbd> 或 <kbd>command g</kbd>                    | 查找下一个                                                          |
-| <kbd>shift control g</kbd> 或 <kbd>shift command g</kbd>        | 查找上一个                                                          |
-| <kbd>shift control f</kbd> 或 <kbd>command option f</kbd>       | 替换                                                             |
-| <kbd>shift control r</kbd> 或 <kbd>shift command option f</kbd> | 全部替换                                                           |
-| <kbd>alt g</kbd>                                               | 跳至行                                                            |
-| <kbd>control z</kbd> 或 <kbd>command z</kbd>                    | 撤消                                                             |
-| <kbd>control y</kbd> 或 <kbd>command y</kbd>                    | 重做                                                             |
-| <kbd>cmd + shift + p</kbd>                                     | Toggles between the **Edit file** and **Preview changes** tabs |
+| 键盘快捷键                                                          | 描述                                                       |
+| -------------------------------------------------------------- | -------------------------------------------------------- |
+| <kbd>e</kbd>                                                   | 在 **Edit file（编辑文件）**选项卡中打开源代码文件                         |
+| <kbd>control f</kbd> 或 <kbd>command f</kbd>                    | 开始在文件编辑器中搜索                                              |
+| <kbd>control g</kbd> 或 <kbd>command g</kbd>                    | 查找下一个                                                    |
+| <kbd>shift control g</kbd> 或 <kbd>shift command g</kbd>        | 查找上一个                                                    |
+| <kbd>shift control f</kbd> 或 <kbd>command option f</kbd>       | 替换                                                       |
+| <kbd>shift control r</kbd> 或 <kbd>shift command option f</kbd> | 全部替换                                                     |
+| <kbd>alt g</kbd>                                               | 跳至行                                                      |
+| <kbd>control z</kbd> 或 <kbd>command z</kbd>                    | 撤消                                                       |
+| <kbd>control y</kbd> 或 <kbd>command y</kbd>                    | 重做                                                       |
+| <kbd>cmd + shift + p</kbd>                                     | 在 **Edit file（编辑文件）** 与 **Preview changes（预览更改）**选项卡之间切换 |
 
 有关更多键盘快捷键，请参阅 [CodeMirror 文档](https://codemirror.net/doc/manual.html#commands)。
 
@@ -67,16 +67,16 @@ versions:
 
 ### 评论
 
-| 键盘快捷键                                                   | 描述                                                                                                               |
-| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| <kbd>control b</kbd> 或 <kbd>command b</kbd>             | 插入 Markdown 格式用于粗体文本                                                                                             |
-| <kbd>control i</kbd> 或 <kbd>command i</kbd>             | 插入 Markdown 格式用于斜体文本                                                                                             |
-| <kbd>control k</kbd> 或 <kbd>command k</kbd>             | 插入 Markdown 格式用于创建链接                                                                                             |
-| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换                                                                        |
-| <kbd>control enter</kbd>                                | 提交评论                                                                                                             |
-| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>    | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 更多信息请参阅“[关于已保存回复](/articles/about-saved-replies)”。{% if currentVersion == "free-pro-team@latest" %}
+| 键盘快捷键                                                   | 描述                                                                                                                                                              |
+| ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>control b</kbd> 或 <kbd>command b</kbd>             | 插入 Markdown 格式用于粗体文本                                                                                                                                            |
+| <kbd>control i</kbd> 或 <kbd>command i</kbd>             | 插入 Markdown 格式用于斜体文本                                                                                                                                            |
+| <kbd>control k</kbd> 或 <kbd>command k</kbd>             | 插入 Markdown 格式用于创建链接                                                                                                                                            |
+| <kbd>control shift p</kbd> 或 <kbd>command shift p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**评论选项卡之间切换                                                                                                                       |
+| <kbd>control enter</kbd>                                | 提交评论                                                                                                                                                            |
+| <kbd>control .</kbd>，然后 <kbd>control [已保存回复编号]</kbd>    | 打开已保存回复菜单，然后使用已保存回复自动填写评论字段。 For more information, see "[About saved replies](/articles/about-saved-replies)."{% if currentVersion == "free-pro-team@latest" %}
 | <kbd>control g</kbd> 或 <kbd>command g</kbd>             | 插入建议。 更多信息请参阅“[审查拉取请求中提议的更改](/articles/reviewing-proposed-changes-in-a-pull-request)”。 |{% endif %}
-| <kbd>r</kbd>                                            | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                 |
+| <kbd>r</kbd>                                            | 在您的回复中引用所选的文本。 更多信息请参阅“[基本撰写和格式语法](/articles/basic-writing-and-formatting-syntax#quoting-text)”。                                                                |
 
 ### 议题和拉取请求列表
 
@@ -92,24 +92,24 @@ versions:
 | <kbd>o</kbd> 或 <kbd>enter</kbd>             | 打开议题                                                                                                   |
 
 ### 议题和拉取请求
-| 键盘快捷键                                                       | 描述                                                                                                                                                      |
-| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>q</kbd>                                                | 请求审查者。 更多信息请参阅“[申请拉取请求审查](/articles/requesting-a-pull-request-review/)”。                                                                                |
-| <kbd>m</kbd>                                                | 设置里程碑。 更多信息请参阅“[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests/)”。                                                      |
-| <kbd>l</kbd>                                                | 应用标签。 更多信息请参阅“[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests/)”。                                                                  |
+| 键盘快捷键                                                       | 描述                                                                                                                                                 |
+| ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>q</kbd>                                                | 请求审查者。 更多信息请参阅“[申请拉取请求审查](/articles/requesting-a-pull-request-review/)”。                                                                           |
+| <kbd>m</kbd>                                                | 设置里程碑。 更多信息请参阅“[将里程碑与议题及拉取请求关联](/articles/associating-milestones-with-issues-and-pull-requests/)”。                                                 |
+| <kbd>l</kbd>                                                | 应用标签。 更多信息请参阅“[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests/)”。                                                             |
 | <kbd>a</kbd>                                                | 设置受理人。 更多信息请参阅“[分配议题和拉取请求到其他 {% data variables.product.company_short %} 用户](/articles/assigning-issues-and-pull-requests-to-other-github-users/)”。 |
-| <kbd>cmd + shift + p</kbd> 或 <kbd>control + shift + p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**选项卡之间切换                                                                                                                 |
+| <kbd>cmd + shift + p</kbd> 或 <kbd>control + shift + p</kbd> | 在 **Write（撰写）**和 **Preview（预览）**选项卡之间切换                                                                                                            |
 
 ### 拉取请求中的更改
 
-| 键盘快捷键                           | 描述                                                                                                                                                                                                          |
-| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| <kbd>c</kbd>                    | 在拉取请求中打开提交列表                                                                                                                                                                                                |
-| <kbd>t</kbd>                    | 在拉取请求中打开已更改文件列表                                                                                                                                                                                             |
-| <kbd>j</kbd>                    | 将所选内容在列表中向下移动                                                                                                                                                                                               |
-| <kbd>k</kbd>                    | 将所选内容在列表中向上移动                                                                                                                                                                                               |
-| <kbd>cmd + shift + enter </kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                             |
-| <kbd>alt</kbd> 并单击              | 通过按下 `alt` 并单击 **Show outdated（显示已过期）**或 **Hide outdated（隐藏已过期）**，在折叠和展开拉取请求中所有过期的审查评论之间切换。{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| 键盘快捷键                           | 描述                                                                                                                                                                                                                                                                    |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| <kbd>c</kbd>                    | 在拉取请求中打开提交列表                                                                                                                                                                                                                                                          |
+| <kbd>t</kbd>                    | 在拉取请求中打开已更改文件列表                                                                                                                                                                                                                                                       |
+| <kbd>j</kbd>                    | 将所选内容在列表中向下移动                                                                                                                                                                                                                                                         |
+| <kbd>k</kbd>                    | 将所选内容在列表中向上移动                                                                                                                                                                                                                                                         |
+| <kbd>cmd + shift + enter </kbd> | 添加一条有关拉取请求差异的评论                                                                                                                                                                                                                                                       |
+| <kbd>alt</kbd> 并单击              | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 | 单击，然后按住 <kbd>shift</kbd> 并单击    | 单击一个行号，按住 <kbd>shift</kbd>，然后单击另一行号，便可对拉取请求的多行发表评论。 更多信息请参阅“[评论拉取请求](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)。”|{% endif %}
 
 ### 项目板

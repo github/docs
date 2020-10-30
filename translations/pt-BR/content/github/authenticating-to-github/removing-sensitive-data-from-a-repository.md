@@ -74,7 +74,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
         "git rm --cached --ignore-unmatch <em>PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA</em>" \
         --prune-empty --tag-name-filter cat -- --all
         > Rewrite 48dc599c80e20527ed902928085e7861e6b3cbe6 (266/266)
-        > Ref 'refs/heads/master' was rewritten
+        > Ref 'refs/heads/main' was rewritten
         ```
 
   {% note %}
@@ -89,7 +89,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
   $ echo "<em>YOUR-FILE-WITH-SENSITIVE-DATA</em>" >> .gitignore
   $ git add .gitignore
   $ git commit -m "Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore"
-  > [master 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
+  > [main 051452f] Add <em>YOUR-FILE-WITH-SENSITIVE-DATA</em> to .gitignore
   >  1 files changed, 1 insertions(+), 0 deletions(-)
   ```
 5. Verifique se você removeu todo o conteúdo desejado do histórico do repositório e fez checkout de todos os branches.
@@ -102,7 +102,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
   > Writing objects: 100% (1058/1058), 148.85 KiB, done.
   > Total 1058 (delta 590), reused 602 (delta 378)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 7. Para remover o arquivo com dados confidenciais das [versões com tag](/articles/about-releases), você também precisará forçar o push das tags do Git:
   ```shell
@@ -113,7 +113,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
   > Writing objects: 100% (321/321), 331.74 KiB | 0 bytes/s, done.
   > Total 321 (delta 124), reused 269 (delta 108)
   > To https://{% data variables.command_line.codeblock %}/<em>YOUR-USERNAME</em>/<em>YOUR-REPOSITORY</em>.git
-  >  + 48dc599...051452f master -> master (forced update)
+  >  + 48dc599...051452f main -> main (forced update)
   ```
 8. Entre em contato com o {% data variables.contact.contact_support %} e solicite a remoção das visualizações em cache e das referências aos dados confidenciais em pull requests no {% data variables.product.product_name %}.
 9. Peça para os colaboradores [fazerem rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *e não* merge, nos branches criados a partir do histórico antigo do repositório. Um commit de merge poderia reintroduzir o histórico antigo completo (ou parte dele) que você acabou de se dar ao trabalho de corrigir.
@@ -134,7 +134,7 @@ Para demonstrar como o `git filter-branch` funciona, mostraremos como remover o 
 
   {% endnote %}
 
-## Evitar commits acidentais no futuro
+### Evitar commits acidentais no futuro
 
 Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
@@ -145,5 +145,5 @@ Há alguns truques simples para evitar fazer commit de coisas não desejadas:
 
 ### Leia mais
 
-- [Página principal do `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
+- [man page de `git filter-branch`](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git: Ferramentas do Git - Reescrevendo o Histórico](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

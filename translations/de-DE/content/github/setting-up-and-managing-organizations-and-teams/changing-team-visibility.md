@@ -1,6 +1,6 @@
 ---
 title: Sichtbarkeit eines Teams ändern
-intro: 'Team-Betreuer und Organisationsinhaber können festlegen, ob ein Team *sichtbar* oder *geheim* ist.'
+intro: Team-Betreuer und Organisationsinhaber können festlegen, ob ein Team *sichtbar* oder *geheim* ist.
 redirect_from:
   - /articles/changing-team-visibility
 versions:

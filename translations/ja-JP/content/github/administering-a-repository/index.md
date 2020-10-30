@@ -26,7 +26,8 @@ versions:
     {% link_in_list /viewing-deployment-activity-for-your-repository %}
 <!-- endif -->
     {% link_in_list /managing-the-forking-policy-for-your-repository %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
+    {% link_in_list /setting-the-default-branch %}
     {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}
     {% link_in_list /enabling-anonymous-git-read-access-for-a-repository %}
@@ -41,8 +42,8 @@ versions:
     {% link_in_list /restoring-a-deleted-repository %}
 <!-- endif -->
 {% topic_link_in_list /managing-branches-in-your-repository %}
-    {% link_in_list /setting-the-default-branch %}
     {% link_in_list /viewing-branches-in-your-repository %}
+    {% link_in_list /changing-the-default-branch %}
     {% link_in_list /deleting-and-restoring-branches-in-a-pull-request %}
 {% topic_link_in_list /configuring-pull-request-merges %}
     {% link_in_list /about-merge-methods-on-github %}

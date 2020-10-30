@@ -18,32 +18,33 @@ versions:
 
 *dependabot.yml* 文件必须以 `version: 2` 开头，后接 `updates` 数组。
 
-| 选项                                                                         |  必选   | 描述                |
-|:-------------------------------------------------------------------------- |:-----:|:----------------- |
-| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器          |
-| [`目录`](#directory)                                                         | **X** | 包清单位置             |
-| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率           |
-| [`allow`](#allow)                                                          |       | 自定义允许的更新          |
-| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人     |
-| [`commit-message`](#commit-message)                                        |       | 提交消息首选项           |
-| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本        |
-| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签      |
-| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑     |
-| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数   |
-| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符    |
-| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基            |
-| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者     |
-| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期          |
-| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm) |
-| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）   |
-| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支       |
-| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求        |
+| 选项                                                                         |  必选   | 描述                                     |
+|:-------------------------------------------------------------------------- |:-----:|:-------------------------------------- |
+| [`package-ecosystem`](#package-ecosystem)                                  | **X** | 要使用的包管理器                               |
+| [`目录`](#directory)                                                         | **X** | 包清单位置                                  |
+| [`schedule.interval`](#scheduleinterval)                                   | **X** | 检查更新的频率                                |
+| [`allow`](#allow)                                                          |       | 自定义允许的更新                               |
+| [`assignees`](#assignees)                                                  |       | 要在拉取请求上设置的受让人                          |
+| [`commit-message`](#commit-message)                                        |       | 提交消息首选项                                |
+| [`ignore`](#ignore)                                                        |       | 忽略某些依赖项或版本                             |
+| [`labels`](#labels)                                                        |       | 要在拉取请求上设置的标签                           |
+| [`里程碑`](#milestone)                                                        |       | 要在拉取请求上设置的里程碑                          |
+| [`open-pull-requests-limit`](#open-pull-requests-limit)                    |       | 限制对版本更新打开的拉取请求数                        |
+| [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator) |       | 更改拉取请求分支名称的分隔符                         |
+| [`rebase-strategy`](#rebase-strategy)                                      |       | 禁用自动变基                                 |
+| [`reviewers`](#reviewers)                                                  |       | 要在拉取请求上设置的审查者                          |
+| [`schedule.day`](#scheduleday)                                             |       | 检查更新的周日期                               |
+| [`schedule.time`](#scheduletime)                                           |       | 每天检查更新的时间 (hh:mm)                      |
+| [`schedule.timezone`](#scheduletimezone)                                   |       | 一天中时间的时区（区域标识符）                        |
+| [`target-branch`](#target-branch)                                          |       | 对其创建拉取请求的分支                            |
+| [`vendor`](#vendor)                                                        |       | Update vendored or cached dependencies |
+| [`versioning-strategy`](#versioning-strategy)                              |       | 如何更新清单版本要求                             |
 
 这些选项大致分为以下类别。
 
 - 必须包含在所有配置中的基本设置选项：[`package-ecosystem`](#package-ecosystem)、[`directory`](#directory)、[`schedule.interval`](#scheduleinterval)。
 - 用于自定义更新计划的选项：[`schedule.time`](#scheduletime)、[`schedule.timezone`](#scheduletimezone)、[`schedule.day`](#scheduleday)。
-- 用于控制更新哪些依赖项的选项：[`allow`](#allow)、[`ignore`](#ignore)。
+- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - 用于将元数据添加到拉取请求的选项：[`reviewers`](#reviewers)、[`assignees`](#assignees)、[`labels`](#labels)、[`milestone`](#milestone)。
 - 用于更改拉取请求行为的选项：[`target-branch`](#target-branch)、[`versioning-strategy`](#versioning-strategy)、[`commit-message`](#commit-message)、[`rebase-strategy`](#rebase-strategy)、[`pull-request-branch-name.separator`](#pull-request-branch-nameseparator)。
 
@@ -61,7 +62,7 @@ versions:
 
 ### `package-ecosystem`
 
-**必选** 为您希望 {% data variables.product.prodname_dependabot %} 监控新版本的每个包管理器添加一个 `package-ecosystem` 元素。 仓库还必须包含其中每个包管理器的依赖项清单或锁定文件。
+**Required** You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot_short %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -155,13 +156,13 @@ updates:
 - `dependency-name`—用于更新名称匹配的依赖项，可以选择使用 `*` 来匹配零个或更多字符。 对于 Java 依赖项，`dependency-name` 属性的格式为：`groupId:artifactId`，例如：`org.kohsuke:github-api`。
 - `dependency-type`—用于更新特定类型的依赖项。
 
-  | 依赖项类型         | 支持的包管理器                                        | 允许更新                                                            |
-  | ------------- | ---------------------------------------------- | --------------------------------------------------------------- |
-  | `直接`          | 所有                                             | 所有明确定义的依赖项。                                                     |
-  | `间接`          | `bundler`、`pip`、`composer`、`cargo`             | 直接依赖关系的依赖项（也称为子依赖项或暂时依赖项）。                                      |
-  | `all`         | 所有                                             | 所有明确定义的依赖项。 对于 `bundler`、`pip`、`composer`、`cargo` 以及直接依赖关系的依赖项。 |
-  | `生产`          | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
-  | `development` | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
+  | 依赖项类型 | 支持的包管理器                                        | 允许更新                                                            |
+  | ----- | ---------------------------------------------- | --------------------------------------------------------------- |
+  | `直接`  | 所有                                             | 所有明确定义的依赖项。                                                     |
+  | `间接`  | `bundler`、`pip`、`composer`、`cargo`             | 直接依赖关系的依赖项（也称为子依赖项或暂时依赖项）。                                      |
+  | `all` | 所有                                             | 所有明确定义的依赖项。 对于 `bundler`、`pip`、`composer`、`cargo` 以及直接依赖关系的依赖项。 |
+  | `生产`  | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
+  | `开发`  | `bundler`、`composer`、`mix`、`maven`、`npm`、`pip` | 仅“产品依赖项组”中的依赖项。                                                 |
 
 ```yaml
 # Customizing the dependencies to maintain with `allow`
@@ -273,7 +274,7 @@ updates:
 
 #### 检查现有的 ignore 首选项
 
-在添加 `ignore` 选项到配置文件之前，检查您以前是否对安全更新或版本更新拉取请求使用过任何e `@dependabot ignore` 命令。 {% data variables.product.prodname_dependabot %} 集中存储每个包管理器的这些首选项，并且此信息被 `ignore` 选项覆盖。 For more information about the `@dependabot ignore` commands, see "[Managing pull requests for dependency updates](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)."
+在添加 `ignore` 选项到配置文件之前，检查您以前是否对安全更新或版本更新拉取请求使用过任何e `@dependabot ignore` 命令。 {% data variables.product.prodname_dependabot %} 集中存储每个包管理器的这些首选项，并且此信息被 `ignore` 选项覆盖。 有关 `@dependabot ignore` 命令的更多信息，请参阅“[管理依赖项更新的拉取请求](/github/administering-a-repository/managing-pull-requests-for-dependency-updates)”。
 
 您可以搜索仓库中是否有 `"@dependabot ignore" in:comments`，以检查仓库是否存储了首选项。 如果审查结果中的任何拉取请求，您可以决定是否在配置文件中指定这些忽略的依赖项或版本。
 
@@ -307,7 +308,7 @@ updates:
 
 {% note %}
 
-{% data variables.product.prodname_dependabot_version_updates %} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. For more information, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)."
+**Note**: {% data variables.product.prodname_dependabot_version_updates %} can't run version updates for any dependencies in manifests containing private git dependencies or private git registries, even if you add the private dependencies to the `ignore` option of your configuration file. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)”。
 
 {% endnote %}
 
@@ -539,6 +540,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use the `vendor` option to tell {% data variables.product.prodname_dependabot_short %} to vendor dependencies when updating them.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot_short %} only updates the vendored dependencies located in specific directories in a repository.
+
+| 包管理器      | Required file path for vendored dependencies                                                      | 更多信息                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler` | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`   | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

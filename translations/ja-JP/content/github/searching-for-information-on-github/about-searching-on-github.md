@@ -1,6 +1,6 @@
 ---
 title: GitHub での検索について
-intro: 'GitHub の強力な検索ツールを使って、{% data variables.product.product_name %}上の多くのリポジトリ、ユーザ、コードの行から探しているものを見つけてください。'
+intro: 'GitHub の統合検索機能は、{% data variables.product.product_name %}上の多くのリポジトリ、ユーザ、コードの行が対象です。'
 redirect_from:
   - /articles/using-the-command-bar/
   - /articles/github-search-basics/
@@ -24,6 +24,8 @@ versions:
 
 - {% data reusables.search.required_login %}
 - {% data variables.product.prodname_pages %}サイトは、{% data variables.product.product_name %}上では検索できません。 ただし、コンテンツのソースがリポジトリのデフォルトブランチにある場合は、コード検索を使って検索できます。 詳しい情報については[コードの検索](/articles/searching-code)を参照してください。 {% data variables.product.prodname_pages %}に関する詳しい情報については、[GitHub Pages とは何ですか？ ](/articles/what-is-github-pages/)を参照してください。
+- 現在、GitHub の検索は完全一致をサポートしていません。
+- コードファイルのどこを検索しても、返されるのは各ファイルで最初の 2 つの結果のみです。
 
 {% endnote %}
 

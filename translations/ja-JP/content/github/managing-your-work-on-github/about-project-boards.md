@@ -59,7 +59,7 @@ Organization が所有するプロジェクトボードに、あなたが表示�
 ### 参考リンク
 
 - [プロジェクトボードの作成](/articles/creating-a-project-board)
-- [プロジェクトボードの編集](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
+- [プロジェクトボードの自動化を設定する](/articles/editing-a-project-board){% if currentVersion == "free-pro-team@latest" %}
 - [プロジェクトボードのコピー](/articles/copying-a-project-board)
 {% endif %}
 - [プロジェクトボードへの Issue およびプルリクエストの追加](/articles/adding-issues-and-pull-requests-to-a-project-board)

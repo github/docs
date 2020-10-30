@@ -1,1 +1,1 @@
-1. Click **Payment information**. ![Payment information tab](/assets/images/help/settings/payment-info-tab.png)
+1. Clique em **Informações de pagamento**. ![Aba de informações de pagamento](/assets/images/help/settings/payment-info-tab.png)

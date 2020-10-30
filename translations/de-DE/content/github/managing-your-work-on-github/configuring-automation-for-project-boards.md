@@ -1,6 +1,6 @@
 ---
 title: Automatisierung für Projektboards konfigurieren
-intro: 'Du kannst automatische Workflows einrichten, die Issues und Pull Requests in eine Projektboard-Spalte verschieben, wenn ein festgelegtes Ereignis auftritt.'
+intro: Du kannst automatische Workflows einrichten, die Issues und Pull Requests in eine Projektboard-Spalte verschieben, wenn ein festgelegtes Ereignis auftritt.
 redirect_from:
   - /articles/configuring-automation-for-project-boards
 versions:

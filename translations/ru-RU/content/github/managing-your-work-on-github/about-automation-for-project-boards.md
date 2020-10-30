@@ -29,7 +29,10 @@ Project board automation can also help teams develop a shared understanding of a
 | Done          | <ul><li>Move all closed issues here</li><li>Move all merged pull requests here</li><li>Move all closed, unmerged pull requests here</li></ul> |
 
 ### Project progress tracking
-Project board automation enables progress tracking by default. Cards in columns with the "To do", "In progress", or "Done" presets count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+
+You can track the progress on your project board. Cards in the "To do", "In progress", or "Done" columns count toward the overall project progress. {% data reusables.project-management.project-progress-locations %}
+
+For more information, see "[Tracking progress on your project board](/github/managing-your-work-on-github/tracking-progress-on-your-project-board)."
 
 ### Дополнительная литература
 - "[Configuring automation for project boards](/articles/configuring-automation-for-project-boards)"{% if currentVersion == "free-pro-team@latest" %}

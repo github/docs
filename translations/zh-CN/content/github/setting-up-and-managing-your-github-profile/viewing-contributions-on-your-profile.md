@@ -25,7 +25,7 @@ versions:
 - 提交到仓库的默认分支或 `gh-pages` 分支
 - 打开议题
 - 提议拉取请求
-- 提交拉取请求审查{% if currentVersion != "free-pro-team@latest" %}
+- 提交拉取请求审查{% if enterpriseServerVersions contains currentVersion %}
 - 合作创作仓库默认分支或 `gh-pages` 分支中的提交{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}

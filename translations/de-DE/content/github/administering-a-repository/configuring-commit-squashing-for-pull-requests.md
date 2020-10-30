@@ -1,6 +1,6 @@
 ---
 title: Commit-Squashing für Pull-Requests konfigurieren
-intro: 'Du kannst Commit-Squashing für alle Pull-Request-Merges auf {% data variables.product.product_location %} in Deinem Repository erzwingen, zulassen oder deaktivieren.'
+intro: 'Sie können der Commit-Squashing für alle Pull-Request-Merges auf {% data variables.product.product_location %} in Ihrem Repository erzwingen, zulassen oder deaktivieren.'
 redirect_from:
   - /articles/configuring-commit-squashing-for-pull-requests
 versions:

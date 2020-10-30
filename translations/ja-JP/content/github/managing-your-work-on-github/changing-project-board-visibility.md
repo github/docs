@@ -1,6 +1,6 @@
 ---
 title: プロジェクトボードの表示設定の変更
-intro: Organization のオーナーあるいはプロジェクトボードの管理者は、プロジェクトボードをパブリックまたはプライベートに設定できます。
+intro: 'Organization のオーナーあるいはプロジェクトボードの管理者は、プロジェクトボードをパブリックまたはプライベートに設定できます。'
 redirect_from:
   - /articles/changing-project-board-visibility
 versions:

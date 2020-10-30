@@ -101,5 +101,5 @@ versions:
 ### 参考リンク
 
 - 「[検索結果をソートする](/articles/sorting-search-results/)」
-- "[フォーク内を検索する](/articles/searching-in-forks)"{% if currentVersion == "free-pro-team@latest" %}
+- [フォーク内を検索する](/articles/searching-in-forks){% if currentVersion == "free-pro-team@latest" %}
 - "[ {% data variables.product.prodname_dotcom %} 上のコード間を移動する](/github/managing-files-in-a-repository/navigating-code-on-github)"{% endif %}

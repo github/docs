@@ -1,7 +1,7 @@
 ---
 title: Referência
 shortTitle: Referência
-intro: View reference documentation to learn about the resources available in the GitHub REST API.
+intro: Veja documentação de referência para aprender os recursos disponíveis na API REST do GitHub.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'

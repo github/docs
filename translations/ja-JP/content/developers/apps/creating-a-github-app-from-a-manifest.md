@@ -1,6 +1,6 @@
 ---
-title: Creating a GitHub App from a manifest
-intro: 'A GitHub App Manifest is a preconfigured GitHub App you can share with anyone who wants to use your app in their personal repositories. The manifest flow allows someone to quickly create, install, and start extending a GitHub App without needing to register the app or connect the registration to the hosted app code.'
+title: マニフェストから GitHub App を作成する
+intro: 'GitHub App マニフェストは、アプリケーションを個人のリポジトリで使いたい人と共有できる、事前設定された GitHub App です。 マニフェストフローにより、ユーザはアプリケーションを登録したり、ホストされたアプリケーションコードに登録を接続したりすることなく、GitHub App の拡張を素早く作成、インストール、開始できるようになります。'
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
 versions:
@@ -9,9 +9,9 @@ versions:
 ---
 
 
-### About GitHub App Manifests
+### GitHub App マニフェストについて
 
-When someone creates a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and retrieves the app's webhook secret, private key (PEM file), and GitHub App ID. The person who creates the app from the manifest will own the app and can choose to [edit the app's configuration settings](/apps/managing-github-apps/modifying-a-github-app/), delete it, or transfer it to another person on GitHub.
+GitHub App をマニフェストから作成する場合、URL とアプリケーションの名前をフォローするだけで済みます。 マニフェストには、アプリケーションを自動的に登録するために必要な権限、イベント、webhook URL が含まれています。 マニフェストフローは、GitHub App の登録を作成し、アプリケーションの webhook シークレット、秘密鍵 (PEM ファイル)、および GitHub App ID を取得します。 マニフェストからアプリケーションを作成した人はそのアプリケーションを所有し、[アプリケーションの構成設定を編集](/apps/managing-github-apps/modifying-a-github-app/)、削除、または GitHub 上の他のユーザに移譲することを選択できます。
 
 You can use [Probot](https://probot.github.io/) to get started with GitHub App Manifests or see an example implementation. See "[Using Probot to implement the GitHub App Manifest flow](#using-probot-to-implement-the-github-app-manifest-flow)" to learn more.
 
@@ -71,9 +71,9 @@ The `hook_attributes` object has the following key:
 
 ##### パラメータ
 
- | 名前   | 種類       | 説明                                               |
- | ---- | -------- | ------------------------------------------------ |
- | `状態` | `string` | {% data reusables.apps.state_description %} |
+ | 名前      | 種類       | 説明                                          |
+ | ------- | -------- | ------------------------------------------- |
+ | `state` | `string` | {% data reusables.apps.state_description %}
 
 ##### サンプル
 
@@ -162,7 +162,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% endnote %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% data reusables.pre-release-program.fury-pre-release %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

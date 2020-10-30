@@ -1,6 +1,6 @@
 ---
 title: 删除和恢复拉取请求中的分支
-intro: 如果拥有仓库的写入权限，可删除与已关闭或已合并拉取请求关联的分支。 无法删除与已打开拉取请求关联的分支。
+intro: '如果拥有仓库的写入权限，可删除与已关闭或已合并拉取请求关联的分支。 无法删除与已打开拉取请求关联的分支。'
 redirect_from:
   - /articles/tidying-up-pull-requests/
   - /articles/restoring-branches-in-a-pull-request/
@@ -35,6 +35,5 @@ versions:
 
 ### 延伸阅读
 
-- “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)”{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
+- “[在仓库内创建和删除分支](/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository)”
 - "[管理分支的自动删除](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)."。
-{% endif %}

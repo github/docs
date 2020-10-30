@@ -1,6 +1,6 @@
 ---
 title: Private Beiträge in Deinem Profil veröffentlichen oder verbergen
-intro: 'Dein {% data variables.product.product_name %}-Profil zeigt ein Diagramm Deiner Repository-Beiträge des letzten Jahres an. Du kannst auswählen, ob neben den Aktivitäten in öffentlichen Repositorys auch anonymisierte Aktivitäten in privaten Repositorys angezeigt werden sollen.'
+intro: 'Ihr {% data variables.product.product_name %}-Profil zeigt ein Diagramm Ihrer Repository-Beiträge des letzten Jahres an. Du kannst auswählen, ob neben den Aktivitäten in öffentlichen Repositorys auch anonymisierte Aktivitäten in privaten Repositorys angezeigt werden sollen.'
 redirect_from:
   - /articles/publicizing-or-hiding-your-private-contributions-on-your-profile
 versions:

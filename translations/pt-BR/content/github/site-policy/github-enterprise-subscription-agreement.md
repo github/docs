@@ -165,7 +165,7 @@ Os Produtos foram desenvolvidos exclusivamente com fundos privados e são consid
 
 #### 1.13.3 Exportação.
 
-Os Produtos estão sujeitos a restrições de exportação por parte dos EUA. Os Produtos estão sujeitos a restrições de exportação pelo Governo dos EUA e a restrições de importação por determinados governos estrangeiros, e o Cliente cumprirá todas as leis e regulamentações de exportação e importação aplicáveis ao fazer uso dos Produtos. O cliente não deve remover ou exportar dos Estados Unidos (nem permitir que algum terceiro o faça) ou permitir a exportação ou reexportação de qualquer parte dos Produtos ou de qualquer produto direto deles: (i) para qualquer país sob embargo ou que apoie terroristas (ou para cidadãos ou residentes nessa categoria de país); (ii) para qualquer pessoa na lista de cidadãos designados especialmente (SDN – Specially Designated Nationals) do Departamento do Tesouro dos Estados Unidos ou da tabela de negação de ordens (Table of Deny Orders) do Departamento de Comércio dos Estados Unidos; (iii) para qualquer país em que essa exportação ou reexportação seja restrita ou proibida ou no qual o Governo dos EUA ou qualquer órgão do mesmo exija uma licença de exportação ou outra aprovação governamental no momento da exportação ou reexportação sem que ela seja obtida primeiro; ou (iv) que, de qualquer outra forma, violem quaisquer regulamentos, leis ou restrições de exportação ou importação de qualquer autoridade ou órgão internacional ou norte-americano. Commerce Department's Table of Denial Orders or U.S. Treasury Department's list of Specially Designated Nationals; (iii) to any country to which such export or re-export is restricted or prohibited, or as to which the U.S. government or any agency thereof requires an export license or other governmental approval at the time of export or re-export without first obtaining such license or approval; or (iv) otherwise in violation of any export or import restrictions, laws or regulations of any United States or foreign agency or authority. O Cliente declara e garante que (a) não está não está localizado em, não está sob o controle de ou não é cidadão nem residente de nenhum desses países proibidos nem consta de nenhuma dessas listas proibidas e que (b) nenhum dos dados do Cliente são controlados pelas normas para o tráfico internacional de armas (ITAR – International Traffic in Arms Regulations) dos EUA. International Traffic in Arms Regulations. O cliente reconhece e concorda que os Produtos não podem ser usados para o projeto ou o desenvolvimento de armas nucleares, químicas ou biológicas ou tecnologia de mísseis sem a permissão prévia do Governo dos EUA. Government.
+Os Produtos estão sujeitos a restrições de exportação por parte dos EUA. Os Produtos estão sujeitos a restrições de exportação pelo Governo dos EUA e a restrições de importação por determinados governos estrangeiros, e o Cliente cumprirá todas as leis e regulamentações de exportação e importação aplicáveis ao fazer uso dos Produtos. O cliente não deve remover ou exportar dos Estados Unidos (nem permitir que algum terceiro o faça) ou permitir a exportação ou reexportação de qualquer parte dos Produtos ou de qualquer produto direto deles: (i) para qualquer país sob embargo ou que apoie terroristas (ou para cidadãos ou residentes nessa categoria de país); (ii) para qualquer pessoa na lista de cidadãos designados especialmente (SDN – Specially Designated Nationals) do Departamento do Tesouro dos Estados Unidos ou da tabela de negação de ordens (Table of Deny Orders) do Departamento de Comércio dos Estados Unidos; (iii) para qualquer país em que essa exportação ou reexportação seja restrita ou proibida ou no qual o Governo dos EUA ou qualquer órgão do mesmo exija uma licença de exportação ou outra aprovação governamental no momento da exportação ou reexportação sem que ela seja obtida primeiro; ou (iv) que, de qualquer outra forma, violem quaisquer regulamentos, leis ou restrições de exportação ou importação de qualquer autoridade ou órgão internacional ou norte-americano. Tabela de Indeferimento do Departamento do Comércio ou dos EUA. Lista do Departamento do Tesouro dos Nacionais Designados Especialmente; (iii) para qualquer país para o qual essas exportações ou reexportações sejam restritas ou proibidas, ou do qual o governo ou qualquer agência dos EUA exigir uma licença de exportação ou outra aprovação do governo no momento da exportação ou reexportação sem primeiro obter essa licença ou aprovação; ou (iv) de outra forma violando qualquer tipo de exportação ou restrições à importação, leis ou regulamentos de qualquer autoridade ou agência ou autoridade dos Estados Unidos ou estrangeiras. O Cliente declara e garante que (a) não está não está localizado em, não está sob o controle de ou não é cidadão nem residente de nenhum desses países proibidos nem consta de nenhuma dessas listas proibidas e que (b) nenhum dos dados do Cliente são controlados pelas normas para o tráfico internacional de armas (ITAR – International Traffic in Arms Regulations) dos EUA. Tráfego Internacional nos Regulamentos do Armamento. O cliente reconhece e concorda que os Produtos não podem ser usados para o projeto ou o desenvolvimento de armas nucleares, químicas ou biológicas ou tecnologia de mísseis sem a permissão prévia do Governo dos EUA. Governo.
 
 #### 1.13.4 Nenhuma publicidade sem permissão.
 
@@ -259,7 +259,7 @@ Para criar uma conta, o Cliente deve atender às seguintes condições:
 
 **(ii)** O login de um Usuário não pode ser compartilhado por várias pessoas.
 
-**(iii)** O Cliente não deverá usar o Serviço (a) se isso violar o controle de exportação ou as leis de sanções dos Estados Unidos ou de qualquer outra jurisdição aplicável; (b) se ele estiver localizado ou residir normalmente em um país ou território sujeito a sanções abrangentes administradas pelo Escritório de Controle de Ativos Estrangeiros (OFAC – Office of Foreign Assets Control) do Departamento do Tesouro Americano ou (c) se o Cliente é ou representa um [cidadão designado especialmente](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) (SDN – Specially Designated National) ou uma pessoa sujeita a bloqueio semelhante ou a proibições partidárias negadas. Office of Foreign Assets Control (OFAC), or (c) if Customer is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. Para obter mais informações, consulte a [Política de controles de exportação do GitHub](/articles/github-and-export-controls).
+**(iii)** O Cliente não deverá usar o Serviço (a) se isso violar o controle de exportação ou as leis de sanções dos Estados Unidos ou de qualquer outra jurisdição aplicável; (b) se ele estiver localizado ou residir normalmente em um país ou território sujeito a sanções abrangentes administradas pelo Escritório de Controle de Ativos Estrangeiros (OFAC – Office of Foreign Assets Control) do Departamento do Tesouro Americano ou (c) se o Cliente é ou representa um [cidadão designado especialmente](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) (SDN – Specially Designated National) ou uma pessoa sujeita a bloqueio semelhante ou a proibições partidárias negadas. O Escritório e Controle de Ativos Estrangeiros (OFAC); ou (c) se o Cliente estiver trabalhando em nome de um [Nacional Especialmente Designado (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) ou de pessoa sujeita a bloqueios semelhantes ou proibições de partes negadas. Para obter mais informações, consulte a [Política de controles de exportação do GitHub](/articles/github-and-export-controls).
 
 #### 3.1.3 Segurança da conta.
 
@@ -269,7 +269,7 @@ O cliente é responsável por: (i) todo o Conteúdo postado e pela atividade que
 
 Em algumas situações, os termos de terceiros podem ser aplicados ao uso do serviço pelo Cliente.  Por exemplo, o Cliente pode ser integrante de uma Organização com seus próprios termos ou contratos de licença. O cliente poderá baixar um aplicativo que se integra ao Serviço ou utilizar o Serviço para autenticar em outro serviço. Embora este Contrato seja o acordo completo do GitHub com o Cliente, os termos de outras partes regem as relações dele com o Cliente.
 
-#### 3.1.5 Termos do Governo Federal do EUA. Federal Government Terms.
+#### 3.1.5 Termos do Governo Federal do EUA. Termos do Governo Federal.
 
 Se o cliente é dos EUA. If Customer is a U.S. federal government agency or otherwise accessing or using any portion of the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions. Aplica-se a alteração do Governo Federal</a> e o Cliente concorda com suas disposições.
 
@@ -330,7 +330,7 @@ A aparência do Serviço é Copyright © GitHub, Inc. Todos os direitos reservad
 
 #### 3.5.2 Violação de direitos autorais e política DMCA.
 
-Se o Cliente for proprietário de direitos autorais e acreditar que o Conteúdo no Serviço viola seus direitos autorais, ele poderá notificar o GitHub de acordo com a [Lei dos Direitos Autorais do Milênio Digital](https://github.com/contact/dmca) (DMCA – Digital Millenium Copyright Act Policy) usando o [Formulário DMCA](https://github.com/contact/dmca-notice) ou pelo e-mail copyright@github.com.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 3.5.3 Logotipos e marcas registradas do GitHub.
 
@@ -341,7 +341,7 @@ O GitHub tem o direito de suspender a qualquer momento o acesso parcial ou total
 
 ### 3.7 Contrato de Nível de Serviço.
 
-GitHub’s quarterly uptime commitment for the Service is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). Customer will be entitled to a service credit if GitHub does not meet its service level.
+O compromisso trimestral do GitHub com o Serviço é fornecido no [Contrato de Nível de Serviço Empresarial](/github/site-policy/github-enterprise-service-level-agreement). O cliente terá direito a um crédito de serviço se o GitHub não atender ao seu nível de serviço.
 
 ### 3.8 Alterações no serviço.
 O GitHub altera o Serviço através de Atualizações e adição de novos recursos. Sujeito à Seção 3,7, o GitHub se reserva o direito de, a qualquer momento, modificar ou interromper, temporária ou permanentemente, o Serviço (ou qualquer parte dele), com ou sem aviso prévio.
@@ -374,7 +374,7 @@ Alguns recursos do Serviço podem estar sujeitos a termos adicionais definidos n
 
 **"Conta corporativa"** significa uma conta criada por um Usuário em nome de uma entidade.
 
-**"Customer"** means, collectively, the company or organization that has entered into this Agreement with GitHub by clicking on the "I AGREE" or similar button or by accessing the Products, its Affiliates and Representatives.
+**"Cliente"** significa, coletivamente, a empresa ou organização que entrou neste Contrato com o GitHub, clicando no botão "EU CONCORDO", ou semelhante, ou acessando os Produtos, seus Afiliados e Representantes.
 
 **"Conteúdo do cliente"** significa Conteúdo que o cliente cria, possui ou para o qual o cliente detém os direitos.
 
@@ -390,7 +390,7 @@ Alguns recursos do Serviço podem estar sujeitos a termos adicionais definidos n
 
 **"Feedback"** significa ideias, conhecimento, algoritmos, contribuições de código, sugestões, solicitações de aprimoramento, recomendações ou qualquer outro feedback sobre produtos ou serviços do GitHub.
 
-**“Fees”** means the fees Customer is required to pay GitHub to (i) use the Products during the applicable Subscription Term or (ii) receive Professional Services, as such fees are reflected on an Order Form or SOW.
+**"Taxas"** significa as taxas que o Cliente é obrigado a pagar ao GitHub (i) usar os Produtos durante o Termo de Assinatura aplicável ou (ii) receber Serviços Profissionais, como essas taxas são refletidas em um formulário de pedido ou SOW.
 
 **"Bifurcação"** significa copiar o Conteúdo de um repositório para outro.
 

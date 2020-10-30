@@ -180,7 +180,7 @@
 - 
   term: デフォルトブランチ
   description: >-
-    リポジトリの base ブランチ。別途ブランチを指定しない限り、すべてのプルリクエストとコードコミットが自動的に作成されます。 このブランチは通常「master」といいます。
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - 
   term: 依存グラフ
   description: >-

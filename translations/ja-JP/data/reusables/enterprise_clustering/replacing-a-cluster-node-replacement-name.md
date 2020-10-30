@@ -1,6 +1,6 @@
-1. MySQLのマスターノードもしくはRedisのマスターノードを入れ替えているなら、`cluster.conf`で`mysql-master`もしくは`redis-master`の値を入れ替えるノード名に修正してください。
+1. If you're replacing the primary MySQL or Redis node, in `cluster.conf`, modify the `mysql-master` or `redis-master` value with the replacement node name.
 
-  たとえば以下の修正された`cluster.conf`ファイルでは、新しくプロビジョニングされたクラスタノードの`ghe-replacement-data-node-1`をMySQL及びRedisのマスターノードとして指定しています。 <pre>
+  For example, this modified `cluster.conf` file specifies a newly provisioned cluster node, `ghe-replacement-data-node-1` as the primary MySQL and Redis node: <pre>
   mysql-master = <em>ghe-replacement-data-node-1</em>
   redis-master = <em>ghe-replacement-data-node-1</em>
   </pre>

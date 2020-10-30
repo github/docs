@@ -10,7 +10,6 @@ versions:
 ---
 
 
-
 API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它们被纳入正式的 GitHub API 之前）。
 
 在预览期间，我们可以根据开发者的反馈更改某些功能。 如果我们要执行变更，将在[开发者博客](https://developer.github.com/changes/)上宣布消息，不会事先通知。
@@ -27,7 +26,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 ### 增强型部署
 
-使用更多信息和更精细的方式更好地控制[部署](/v3/repos/deployments/)。
+使用更多信息和更精细的方式更好地控制[部署](/rest/reference/repos#deployments)。
 
 **自定义媒体类型：** `ant-man-preview` **公布日期：** [2016-04-06](https://developer.github.com/changes/2016-04-06-deployment-and-deployment-status-enhancements/)
 
@@ -43,15 +42,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 **自定义媒体类型：** `mockingbird-preview` **公布日期：** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### 页面
-
-获取有关 [GitHub Pages](/v3/repos/pages/) 站点的更多信息。
-
-**自定义媒体类型：** `mister-fantastic-preview` **公布日期：** [2016-07-06](https://developer.github.com/changes/2016-07-06-github-pages-preview-api/)
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### 预接收环境
 
 创建、列出、更新和删除预接收挂钩的环境。
@@ -59,7 +50,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `eye-scream-preview` **公布日期：** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### 集成
 
 通过 API 管理[集成](/early-access/integrations/)。
@@ -107,7 +98,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 **自定义媒体类型：** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### 嵌套团队
 
 在[团队](/v3/teams/)有效负载中包含嵌套团队内容。
@@ -116,17 +107,17 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 全局 web 挂钩
 
-为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 web 挂钩](/v3/enterprise-admin/global_webhooks/)。 此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
+为[组织](/webhooks/event-payloads/#organization)和[用户](/webhooks/event-payloads/#user)事件类型启用[全局 web 挂钩](/rest/reference/enterprise-admin#global-webhooks/)。 此 API 预览仅适用于 {% data variables.product.prodname_ghe_server %}。
 
-**自定义媒体类型：** `superpro-preview` **公布日期：** [2017-12-12](/v3/enterprise-admin/global_webhooks)
+**自定义媒体类型：** `superpro-preview` **公布日期：** [2017-12-12](/rest/reference/enterprise-admin#global-webhooks)
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### 仓库转让
 
 将[仓库](/v3/repos/)转让给组织或用户。
@@ -134,21 +125,12 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `nightshade-preview` **公布日期：** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### 添加锁定原因
 
 现在，您可以在[锁定议题](/v3/issues/#lock-an-issue)时添加原因。
 
 **自定义媒体类型：** `sailor-v-preview` **公布日期：** [2018-01-10](https://developer.github.com/changes/2018-01-10-lock-reason-api-preview)
-{% endif %}
-
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-### 团队讨论
-
-现在，您可以使用 API 来管理[团队讨论](/v3/teams/discussions)和[团队讨论注释](/v3/teams/discussion_comments)。
-
-**自定义媒体类型：** `echo-preview` **公布日期：** [2018-02-07](https://developer.github.com/changes/2018-02-07-team-discussions-api)
-
 {% endif %}
 
 ### 要求签名提交
@@ -163,7 +145,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 **自定义媒体类型：** `luke-cage-preview` **公布日期：** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 ### 检索悬停卡信息
 
 从[某人的悬停卡](/v3/users/#get-contextual-information-for-a-user)检索信息。
@@ -172,13 +154,15 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
+{% if currentVersion ver_lt "enterprise-server@2.23" %}
 ### 检查运行和检查套件 API
 
 允许 GitHub 应用程序对仓库的代码运行外部检查。 更多信息请参阅[检查运行](/v3/checks/runs/)和[检查套件](/v3/checks/suites/) API。
 
 **自定义媒体类型：** `antiope-preview` **公布日期：** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
+{% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 对仓库的匿名 Git 访问
 
@@ -206,7 +190,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 ### 部署状态
 
-现在，您可以更新[部署状态](/v3/repos/deployments/#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
+现在，您可以更新[部署状态](/rest/reference/repos#create-a-deployment-status)的 `environment` 并使用 `in_progress` 和 `queued` 状态。 创建部署状态时，现在可以使用 `auto_inactive` 参数将旧的 `production` 部署标记为 `inactive`。
 
 **自定义媒体类型：** `flash-preview` **公布日期：** [2018-10-16](https://developer.github.com/changes/2018-10-16-deployments-environments-states-and-auto-inactive-updates/)
 
@@ -232,7 +216,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### 草稿拉取请求
 
 您可以使用草稿拉取请求 API 及其[拉取请求](/v3/pulls/)端点来查看拉取请求是否处于草稿状态。 要了解有关草稿拉取请求的更多信息，请参阅“[关于拉取请求](/articles/about-pull-requests/)”。
@@ -243,7 +227,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 ### 启用和禁用页面
 
-您可以使用[页面 API](/v3/repos/pages/) 中的新端点来启用或禁用页面。 要了解有关页面的更多信息，请参阅“[GitHub Pages 基础知识](/categories/github-pages-basics)”。
+您可以使用[页面 API](/rest/reference/repos#pages) 中的新端点来启用或禁用页面。 要了解有关页面的更多信息，请参阅“[GitHub Pages 基础知识](/categories/github-pages-basics)”。
 
 **自定义媒体类型：** `switcheroo-preview` **公布日期：** [2019-03-14](https://developer.github.com/changes/2019-03-14-enabling-disabling-pages/)
 
@@ -253,7 +237,7 @@ GitHub 应用程序清单允许用户创建预配置的 GitHub 应用程序。 �
 
 **自定义媒体类型：** `groot-preview` **公布日期：** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### 卸载 GitHub 应用程序
 
 GitHub 应用程序的所有者现在可以使用[应用程序 API](/v3/apps/#delete-an-installation-for-the-authenticated-app) 卸载其应用程序。

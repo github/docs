@@ -70,9 +70,9 @@ versions:
 
 ### {% data variables.product.prodname_enterprise %}
 
-{% data variables.product.prodname_enterprise %} includes two deployment options: cloud-hosted and self-hosted.
+{% data variables.product.prodname_enterprise %} 包括两个部署选项：云托管和自托管。
 
-In addition to the features available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_enterprise %} includes:
+除了 {% data variables.product.prodname_team %} 的可用功能之外，{% data variables.product.prodname_enterprise %} 还包括：
 - {% data variables.contact.enterprise_support %}
 - 更多安全、合规和部署控件
 - SAML 单点登录进行身份验证
@@ -86,17 +86,17 @@ In addition to the features available with {% data variables.product.prodname_te
 - 99.95% 月持续运行时间的服务等级协议
 - 通过企业帐户集中管理多个 {% data variables.product.prodname_dotcom_the_website %} 组织的策略和帐单的选项。 更多信息请参阅“<a href="/articles/about-enterprise-accounts" class="dotcom-only">关于企业帐户</a>”。
 
-You can set up a trial to evaluate {% data variables.product.prodname_ghe_cloud %}. 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
+您可以设置试用版来评估 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[设置 {% data variables.product.prodname_ghe_cloud %} 的试用](/articles/setting-up-a-trial-of-github-enterprise-cloud)”。
 
 有关托管理您自己的 [{% data variables.product.prodname_ghe_server %}](https://enterprise.github.com) 实例的更多信息，请联系 {% data variables.contact.contact_enterprise_sales %}。 {% data reusables.enterprise_installation.request-a-trial %}
 
 ### {% data variables.product.prodname_ghe_one %}
 
-{% data variables.product.prodname_ghe_one %} includes [{% data variables.product.prodname_enterprise %}](#github-enterprise), plus:
+{% data variables.product.prodname_ghe_one %} 包括 [{% data variables.product.prodname_enterprise %}](#github-enterprise)，加上：
 
 - {% data variables.contact.github_support %} {% data variables.product.premium_plus_support_plan %}
 - {% data variables.product.prodname_insights %}
-- {% data variables.product.prodname_advanced_security %}
+- {% data variables.product.prodname_advanced_security %}{% if currentVersion == "free-pro-team@latest" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)" and "[About {% data variables.product.prodname_secret_scanning %}](/github/administering-a-repository/about-secret-scanning) (beta)."{% endif %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}. For more information, see "[About {% data variables.product.prodname_code_scanning %}](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning) (beta)."{% endif %}
 - [组织的 {% data variables.product.prodname_learning %}](https://lab.github.com/organizations)
 
-For more information about signing up for {% data variables.product.prodname_ghe_one %}, contact [{% data variables.product.product_name %}'s Sales team](https://enterprise.github.com/contact).
+有关注册 {% data variables.product.prodname_ghe_one %} 的更多信息，请联系 [{% data variables.product.product_name %} 的销售团队](https://enterprise.github.com/contact)。

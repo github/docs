@@ -1,6 +1,6 @@
 ---
 title: サブスクリプションを表示する
-intro: 通知の送信元と通知のボリュームを把握するため、定期的にサブスクリプションを確認し、リポジトリを Watch することをお勧めします。
+intro: '通知の送信元と通知のボリュームを把握するため、定期的にサブスクリプションを確認し、リポジトリを Watch することをお勧めします。'
 redirect_from:
   - /articles/subscribing-to-conversations/
   - /articles/unsubscribing-from-conversations/

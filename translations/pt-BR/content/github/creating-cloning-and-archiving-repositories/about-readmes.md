@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Um arquivo README, com {% if currentVersion == "free-pro-team@latest" %}uma [licença de repositório](/articles/licensing-a-repository), [diretrizes de contribuição](/articles/setting-guidelines-for-repository-contributors) e um [código de conduta](/articles/adding-a-code-of-conduct-to-your-project){% else %}uma [licença de repositório](/articles/licensing-a-repository) e [diretrizes de contribuição](/articles/setting-guidelines-for-repository-contributors){% endif %}, ajuda você a comunicar expectativas e a gerenciar contribuições para seu projeto.
+Um arquivo LEIAME, junto com {% if currentVersion == "free-pro-team@latest" %}a [licença de repositório](/articles/licensing-a-repository), [diretrizes de contribuição](/articles/setting-guidelines-for-repository-contributors) e um [código de conduta](/articles/adding-a-code-of-conduct-to-your-project){% else %}uma [licença de repositório](/articles/licensing-a-repository) e diretrizes de contribuição [](/articles/setting-guidelines-for-repository-contributors){% endif %} ajudam você a comunicar as expectativas e gerenciar contribuições para o seu projeto.
 
 Um LEIAME, muitas vezes, é o primeiro item que um visitante verá ao visitar seu repositório. Os arquivos LEIAME geralmente incluem informações sobre:
 - O que o projeto faz

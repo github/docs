@@ -180,7 +180,7 @@
 - 
   term: 기본 분기
   description: >-
-    다른 분기를 지정하지 않는 한 모든 끌어오기 요청 및 코드 커밋이 자동으로 수행되는 리포지토리의 기본 분기입니다. 이 분기를 일반적으로 `마스터`라고 합니다.
+    The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
 - 
   term: 의존도 그래프
   description: >-

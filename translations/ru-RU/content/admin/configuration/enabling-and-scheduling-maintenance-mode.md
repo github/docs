@@ -10,7 +10,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/maintenance-mode/
   - /enterprise/admin/installation/enabling-and-scheduling-maintenance-mode
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
-  - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
 versions:
   enterprise-server: '*'
 ---

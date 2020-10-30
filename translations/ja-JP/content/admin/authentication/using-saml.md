@@ -54,15 +54,15 @@ versions:
 
 以下の属性が利用できます。 `administrator`属性以外の属性の名前は[Management Console](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console/)で変更できます。
 
-| デフォルトの属性名       | 種類 | 説明                                                                                                                               |
-| --------------- | -- | -------------------------------------------------------------------------------------------------------------------------------- |
+| デフォルトの属性名       | 種類 | 説明                                                                                                                          |
+| --------------- | -- | --------------------------------------------------------------------------------------------------------------------------- |
 | `NameID`        | 必須 | 永続ユーザ識別子。 任意の名前識別子の形式を使用できます。 どの代替アサーションも指定しない場合、{% data variables.product.prodname_ghe_server %}ユーザ名には`NameID`要素が使用されます。 |
-| `administrator` | 任意 | この値が 'true' であれば、ユーザは自動的に管理者に昇格します。 他の値、あるいは値が存在しない場合は、ユーザは通常のユーザアカウントに降格します。                                                    |
+| `administrator` | 任意 | この値が 'true' であれば、ユーザは自動的に管理者に昇格します。 他の値、あるいは値が存在しない場合は、ユーザは通常のユーザアカウントに降格します。                                               |
 | `ユーザ名`          | 任意 | {% data variables.product.prodname_ghe_server %} のユーザ名                                                                    |
-| `full_name`     | 任意 | ユーザのプロフィールページに表示されるユーザ名です。 ユーザはプロビジョニング後に名前を変更できます。                                                                              |
-| `emails`        | 任意 | ユーザのメールアドレス。 複数指定することができます。                                                                                                      |
-| `public_keys`   | 任意 | ユーザの公開 SSH キー。 複数指定することができます。                                                                                                    |
-| `gpg_keys`      | 任意 | ユーザの GPG キー。 複数指定することができます。                                                                                                      |
+| `full_name`     | 任意 | ユーザのプロフィールページに表示されるユーザ名です。 ユーザはプロビジョニング後に名前を変更できます。                                                                         |
+| `emails`        | 任意 | ユーザのメールアドレス。 複数指定することができます。                                                                                                 |
+| `public_keys`   | 任意 | ユーザの公開 SSH キー。 複数指定することができます。                                                                                               |
+| `gpg_keys`      | 任意 | ユーザの GPG キー。 複数指定することができます。                                                                                                 |
 
 ### SAMLの設定
 
@@ -88,7 +88,7 @@ versions:
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
 
-### {% data variables.product.product_location_enterprise %}へのアクセスの削除
+### {{ site.data.variables.product.product_location_enterprise }}へのアクセスの削除
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. **SAML**を選択してください。 ![サイト管理者設定の "All users" サイドバー項目](/assets/images/enterprise/site-admin-settings/all-users.png)

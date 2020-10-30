@@ -18,7 +18,7 @@ module.exports = [
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
-  'fkirc/skip-duplicate-actions@a12175f6209d4805b5a163d723270be2a0dc7b36',
+  'fkirc/skip-duplicate-actions@36feb0d8d062137530c2e00bd278d138fe191289',
   'github/codeql-action/analyze@v1',
   'github/codeql-action/init@v1',
   'ianwalter/puppeteer@12728ddef82390d1ecd4732fb543f62177392fbb',
@@ -31,7 +31,7 @@ module.exports = [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
-  'repo-sync/pull-request@ea6773388b83b337e4da9a223293309f2c3670e7',
+  'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815',
   'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]

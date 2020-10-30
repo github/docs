@@ -1,6 +1,6 @@
 ---
 title: Gerenciamento de notificações da sua caixa de entrada
-intro: 'Utilize sua caixa de entrada para rapidamente fazer triagem e sincronizar suas notificações do e-mail{% if currentVersion == "free-pro-team@latest" %} e o aparelho móvel{% endif %}.'
+intro: 'Use a sua caixa de entrada para rapidamente rastrear e sincronizar as notificações entre os e-mails{% if currentVersion == "free-pro-team@latest" %} e dispositivos móveis{% endif %}.'
 redirect_from:
   - /articles/marking-notifications-as-read
   - /articles/saving-notifications-for-later
@@ -18,7 +18,6 @@ versions:
 Para acessar sua caixa de entrada de notificações, no canto superior direito de qualquer página, clique em {% octicon "bell" aria-label="The notifications bell" %}.
 
   ![Notificação indicando qualquer mensagem não lida](/assets/images/help/notifications/notifications_general_existence_indicator.png)
-
 
 Sua caixa de entrada mostra todas as notificações que você não cancelou sua inscrição ou marcou como **Concluído.** Você pode personalizar sua caixa de entrada para melhor se adequar ao seu fluxo de trabalho usando filtros, visualizando todas ou apenas notificações não lidas e agrupando suas notificações para obter uma visão geral.
 
@@ -113,7 +112,7 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 
 #### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. Por exemplo, para ver apenas atualizações de convite do repositório, use `is:repository-invitation`.
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. Por exemplo, para visualizar apenas atualizações de convite do repositório, use `is:repository-invitation` e para visualizar apenas {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_short %}{% else %} alertas de segurança{% endif %}, use `is:repository-vulnerability-alert`.
 
 - `is:check-suite`
 - `is:commit`
@@ -124,6 +123,8 @@ Para filtrar notificações para uma atividade específica no {% data variables.
 - `is:repository-vulnerability-alert`
 - `is:repository-advisory`
 - `is:team-discussion`
+
+Para informações sobre a redução de ruído de notificações para {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}alertas de segurança{% endif %}, consulte "[Configurar notificações para dependências vulneráveis](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)".
 
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
 

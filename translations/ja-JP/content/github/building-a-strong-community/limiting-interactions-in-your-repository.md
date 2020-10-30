@@ -1,6 +1,6 @@
 ---
 title: リポジトリでのインタラクションを制限する
-intro: オーナーまたは管理者のアクセス権を持つユーザは、あなたのパブリックリポジトリで特定のユーザがコメントする、Issue をオープンする、あるいはプルリクエストを作成するのを一時的に制限し、一定の期間、アクティビティ制限を適用することができます。
+intro: 'オーナーまたは管理者のアクセス権を持つユーザは、あなたのパブリックリポジトリで特定のユーザがコメントする、Issue をオープンする、あるいはプルリクエストを作成するのを一時的に制限し、一定の期間、アクティビティ制限を適用することができます。'
 redirect_from:
   - /articles/limiting-interactions-with-your-repository/
   - /articles/limiting-interactions-in-your-repository

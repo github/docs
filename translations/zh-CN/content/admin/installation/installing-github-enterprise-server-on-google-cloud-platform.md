@@ -24,8 +24,8 @@ versions:
 
 #### 支持的机器类型
 
-以下 Google Compute Engine (GCE) 机器类型支持 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅 [Google Cloud Platform 机器类型文章](https://cloud.google.com/compute/docs/machine-types)。 |
-{% if currentVersion != "free-pro-team@latest" %}
+以下 Google Compute Engine (GCE) 机器类型支持 {% data variables.product.prodname_ghe_server %}。 更多信息请参阅 [Google Cloud Platform 机器类型文章](https://cloud.google.com/compute/docs/machine-types)。
+
 |  | 高内存           |
 |  | ------------- |
 |  | n1-highmem-4  |
@@ -34,7 +34,6 @@ versions:
 |  | n1-highmem-32 |
 |  | n1-highmem-64 |
 |  | n1-highmem-96 |
-{% endif %}
 
 #### 建议的机器类型
 

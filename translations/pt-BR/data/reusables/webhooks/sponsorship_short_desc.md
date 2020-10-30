@@ -1,1 +1,1 @@
-Activity related to a sponsorship listing. {% data reusables.webhooks.action_type_desc %} For more information, see "[About GitHub Sponsors](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors)".
+Atividade relacionada a uma listagem de patrocínios. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte "[Sobre os Patrocinadores do GitHub](/github/supporting-the-open-source-community-with-github-sponsors/about-github-sponsors)".

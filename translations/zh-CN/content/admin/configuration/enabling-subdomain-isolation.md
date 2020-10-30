@@ -16,28 +16,29 @@ versions:
 启用子域隔离后，{% data variables.product.prodname_ghe_server %} 会以子域替代多个路径。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-To use Docker with {% data variables.product.prodname_registry %}, you must also enable subdomain isolation. For more information, see "[Configuring Docker for use with {% data variables.product.prodname_registry %}](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)."
+要将 Docker 与
+{% data variables.product.prodname_registry %} 一起使用，您还必须启用子域隔离。 更多信息请参阅“[配置 Docker 与 {% data variables.product.prodname_registry %} 一起使用](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)”。
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |
 {% endif %}
-| 未使用子域隔离的路径                                                                                                            | 使用子域隔离的路径                                                              |
-| --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `http(s)://HOSTNAME/assets/`                                                                                          | `http(s)://assets.HOSTNAME/`                                           |
-| `http(s)://HOSTNAME/avatars/`                                                                                         | `http(s)://avatars.HOSTNAME/`                                          |
-| `http(s)://HOSTNAME/codeload/`                                                                                        | `http(s)://codeload.HOSTNAME/`                                         |
-| `http(s)://HOSTNAME/gist/`                                                                                            | `http(s)://gist.HOSTNAME/`                                             |
-| `http(s)://HOSTNAME/media/`                                                                                           | `http(s)://media.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/pages/`                                                                                           | `http(s)://pages.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/raw/`                                                                                             | `http(s)://raw.HOSTNAME/`                                              |
-| `http(s)://HOSTNAME/render/`                                                                                          | `http(s)://render.HOSTNAME/`                                           |
-| `http(s)://HOSTNAME/reply/`                                                                                           | `http(s)://reply.HOSTNAME/`                                            |
-| `http(s)://HOSTNAME/uploads/`                                                                                         | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
-| N/A, Docker with {% data variables.product.prodname_registry %} will not work with subdomain isolation disabled. | `http(s)://uploads.HOSTNAME/`                                          |
-| `https://HOSTNAME/_registry/npm/`                                                                                     | `https://npm.HOSTNAME/`                                                |
-| `https://HOSTNAME/_registry/rubygems/`                                                                                | `https://rubygems.HOSTNAME/`                                           |
-| `https://HOSTNAME/_registry/maven/`                                                                                   | `https://maven.HOSTNAME/`                                              |
-| `https://HOSTNAME/_registry/nuget/`                                                                                   | `https://nuget.HOSTNAME/`{% endif %}
+| 未使用子域隔离的路径                                                                   | 使用子域隔离的路径                                                                                  |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| `http(s)://HOSTNAME/assets/`                                                 | `http(s)://assets.HOSTNAME/`                                                               |
+| `http(s)://HOSTNAME/avatars/`                                                | `http(s)://avatars.HOSTNAME/`                                                              |
+| `http(s)://HOSTNAME/codeload/`                                               | `http(s)://codeload.HOSTNAME/`                                                             |
+| `http(s)://HOSTNAME/gist/`                                                   | `http(s)://gist.HOSTNAME/`                                                                 |
+| `http(s)://HOSTNAME/media/`                                                  | `http(s)://media.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/pages/`                                                  | `http(s)://pages.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/raw/`                                                    | `http(s)://raw.HOSTNAME/`                                                                  |
+| `http(s)://HOSTNAME/render/`                                                 | `http(s)://render.HOSTNAME/`                                                               |
+| `http(s)://HOSTNAME/reply/`                                                  | `http(s)://reply.HOSTNAME/`                                                                |
+| `http(s)://HOSTNAME/uploads/`                                                | `http(s)://uploads.HOSTNAME/`     |{% if currentVersion ver_gt "enterprise-server@2.21" %}
+| （不适用）装有 {% data variables.product.prodname_registry %} 的 Docker 不适用于禁用的子域隔离。 | `http(s)://uploads.HOSTNAME/`                                                              |
+| `https://HOSTNAME/_registry/npm/`                                            | `https://npm.HOSTNAME/`                                                                    |
+| `https://HOSTNAME/_registry/rubygems/`                                       | `https://rubygems.HOSTNAME/`                                                               |
+| `https://HOSTNAME/_registry/maven/`                                          | `https://maven.HOSTNAME/`                                                                  |
+| `https://HOSTNAME/_registry/nuget/`                                          | `https://nuget.HOSTNAME/`{% endif %}
 
 ### 基本要求
 
