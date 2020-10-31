@@ -6,7 +6,9 @@ When you select the **Allow select actions**, there are additional options that 
 
   To restrict access to specific tags or commit SHAs of an action, use the same `<OWNER>/<REPO>@<TAG OR SHA>` syntax used in the workflow to select the action. For example, `actions/javascript-action@v1.0.1` to select a tag or `actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89` to select a SHA. For more information, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
 
-  You can use the `*` wildcard character to match patterns. For example, to allow all actions in organizations that start with `space-org`, you can specify `space-org*/*`. To add all actions in repositories that start with octocat, you can use `*/octocat*@*`. For more information about using the `*` wildcard, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)." 
+  You can use the `*` wildcard character to match patterns. For example, to allow all actions in organizations that start with `space-org`, you can specify `space-org*/*`. To add all actions in repositories that start with octocat, you can use `*/octocat*@*`. For more information about using the `*` wildcard, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)".
+
+  Actions whose repositories are in the same organization or user account (local actions) are automatically allowed. For example, the action `space-org/action` is allowed in `space-org/project` without adding it to the list.
 
   {% if currentVersion == "free-pro-team@latest" %}
   {% note %}
