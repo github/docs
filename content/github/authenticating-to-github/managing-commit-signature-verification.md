@@ -10,4 +10,4 @@ versions:
   free-pro-team: '*'
   enterprise-server: '*'
 ---
-
+docs/content/github/authenticating-to-github/managing-commit-signature-verification.md
