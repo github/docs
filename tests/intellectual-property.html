@@ -1,0 +1,4473 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+        
+        
+        
+            
+                
+            
+            
+        
+        <!--[if IE ]><![endif]-->
+        <!doctype html>
+        <!--[if IE 7]>
+        <html class="rwd geo-override no-js vis lt-ie10 lt-ie9 lt-ie8 no-rtl headerfooter-menu3" lang="en"><![endif]-->
+        <!--[if IE 8]>
+        <html class="rwd geo-override no-js vis lt-ie10 lt-ie9 no-rtl headerfooter-menu3 " lang="en"><![endif]-->
+        <!--[if IE 9]>
+        <html class="rwd geo-override no-js vis lt-ie10 no-rtl headerfooter-menu3 " lang="en"><![endif]-->
+        <!--[if gt IE 9]><!-->
+        <html class="rwd geo-override no-js vis no-rtl headerfooter-menu3 " lang="en">
+        <!--<![endif]-->
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8"/>
+    
+
+
+
+
+
+<title>FPGA IP (Intellectual Property) Cores - Intel® FPGA</title>
+
+    
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src='/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/global/js/resources/performance-config.js'></script>
+
+<link rel="preconnect" href="//dpm.demdex.net/" crossorigin>
+<link rel="dns-prefetch" href="//dpm.demdex.net/">
+<link rel="preconnect" href="//starget.intel.com/">
+<link rel="dns-prefetch" href="//starget.intel.com/">
+<link rel="preconnect" href="//a.idio.co/" crossorigin>
+<link rel="dns-prefetch" href="//a.idio.co/">
+<link rel="preconnect" href="//s334284386.t.eloqua.com/">
+<link rel="dns-prefetch" href="//s334284386.t.eloqua.com/">
+<link rel="dns-prefetch" href="//onsite2.researchintel.com/">
+<link rel="preconnect" href="//tags.tiqcdn.com/" crossorigin>
+<link rel="dns-prefetch" href="//tags.tiqcdn.com/">
+<link rel="preconnect" href="//www91.intel.com/">
+<link rel="dns-prefetch" href="//www91.intel.com/">
+
+    
+
+
+
+
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<!--[if lte IE 9]>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<![endif]-->
+
+
+    <meta name="keywords" content="fpga intellectual property, ip strategies, fpga ip, ip cores, fpga, ip library, ip"/>
+
+    <meta name="description" content="FPGA IP from the Intel® FPGA Intellectual Property portfolio includes soft and hardened IP cores to complement application performance and strategy."/>
+
+    <meta name="language" content="en"/>
+
+    <meta name="location" content="us"/>
+
+    <meta name="robots" content="follow,index,noarchive"/>
+
+    <meta name="X-Server" content="INTE-T1"/>
+
+
+    <meta property="og:image" content="https://www.intel.com/apps/settings/wcm/designs/intel/us/en/images/resources/printlogo.png"/>
+
+    <meta property="og:type" content="company"/>
+
+    <meta property="og:site_name" content="Intel"/>
+
+    <meta property="og:title" content="FPGA IP (Intellectual Property) Cores - Intel® FPGA"/>
+
+    <meta property="fb:admins" content="267985180046218"/>
+
+    <meta property="og:url" content="https://www.intel.com/content/www/us/en/products/programmable/intellectual-property.html"/>
+
+    <meta property="og:description" content="FPGA IP from the Intel® FPGA Intellectual Property portfolio includes soft and hardened IP cores to complement application performance and strategy."/>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <meta name="emtcontenttype" content="Content Type|Web Pages|Landing Pages;"/>
+
+    <meta name="contentpath" content="/content/www/us/en/products/programmable/intellectual-property"/>
+
+    <meta name="authoreddate" content=""/>
+
+    <meta name="localecode" content="en_US"/>
+
+    <meta name="mime" content="text/html"/>
+
+    <meta name="format" content="productoverview"/>
+
+    <meta name="marketingproducts" content="Marketing Products|Programmable Solutions;Marketing Products|Programmable Solutions|Intel® FPGAs;"/>
+
+    <meta name="excludefromviews" content="false"/>
+
+    <meta name="taxonomy" content="etm-30beffb9bf8e465b879ecd57d233fe56;etm-0600934c60f445cf884bcee14b802226;"/>
+
+    <meta name="title" content="FPGA IP (Intellectual Property) Cores - Intel® FPGA"/>
+
+    <meta name="menu" content=""/>
+
+    <meta name="reimaginefilters" content="Marketing Products|Programmable Solutions;Marketing Products|Programmable Solutions|Intel® FPGAs;"/>
+
+    <meta name="generic1" content="true"/>
+
+    <meta name="emtaudience" content="Audience|Business|Business Technology Solution Specialist (BTSS)|Hardware Engineer|FPGA Engineer;"/>
+
+    <meta name="intelkeywords" content="fpga intellectual property, ip strategies, fpga ip, ip cores, fpga, ip library, ip"/>
+
+    <meta name="lastModifieddate" content="2020-09-25T16:07:48.039Z"/>
+
+    <meta name="thumbnailurl" content=""/>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+
+
+
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="/etc.clientlibs/settings/wcm/designs/intel/default/resources/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/etc.clientlibs/settings/wcm/designs/intel/default/resources/favicon-16x16.png">
+<link rel="shortcut icon" href="/etc.clientlibs/settings/wcm/designs/intel/default/resources/favicon.ico">
+    
+
+
+
+
+
+
+<link rel="canonical" href="https://www.intel.com/content/www/us/en/products/programmable/intellectual-property.html"/>
+
+    
+
+    <style>
+        @-ms-viewport {
+            width: device-width;
+        }
+    </style>
+    <script>
+        (function () {
+            if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+                var msViewportStyle = document.createElement("style");
+                msViewportStyle.appendChild(
+                    document.createTextNode("@-ms-viewport{width:auto!important}")
+                );
+                document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+            }
+        })();
+    </script>
+    <!--[if gt IE 9 | !IE ]><!-->
+    
+        
+        
+            <link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/intc-core.min.css" type="text/css">
+<link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/commons-page.min.css" type="text/css">
+<script type="text/javascript" src="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/intc-core.min.js"></script>
+<script type="text/javascript" src="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/commons-page.min.js"></script>
+
+        
+    
+    
+    <![endif]-->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/intel/clientlibs/pages/commons-page-legacy.min.css" type="text/css">
+<script type="text/javascript" src="/etc.clientlibs/settings/wcm/designs/intel/clientlibs/pages/commons-page-legacy.min.js"></script>
+
+    <link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/intel/clientlibs/pages/commons-page-legacy-ie9.min.css" type="text/css">
+
+    <![endif]-->
+    
+    <div class="clientcontext parbase"><script type="text/javascript">
+    $CQ(function() {
+        CQ_Analytics.SegmentMgr.loadSegments("\/etc\/segmentation");
+        CQ_Analytics.ClientContextUtils.init("\/etc\/clientcontext\/default", "\/content\/www\/us\/en\/products\/programmable\/intellectual\u002Dproperty");
+
+        
+    });
+</script>
+</div>
+
+    
+    
+    
+
+
+
+
+
+
+<link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/productscatalog.min.css" type="text/css">
+<script type="text/javascript" src="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/productscatalog.min.js"></script>
+
+<link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/productscatalogreseller.min.css" type="text/css">
+<script type="text/javascript" src="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/productscatalogreseller.min.js"></script>
+
+
+    
+    <link rel="stylesheet" type="text/css" href="/etc.clientlibs/settings/wcm/designs/intel/us/en/css/resources/css/intel.rwd.override.css"/>
+    
+</head>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<body class="page-is-published global-nav">
+<script type="text/javascript">
+    var isTargetEnabled=false;
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+        
+        
+    
+
+
+
+
+    
+    
+        
+    
+
+
+
+
+    
+    
+    
+        
+    
+    
+
+<script type="text/javascript">
+    var cq_tms = {
+        wa_rmarketingproducts: "rmarketingproducts:programmablesolutions/intelfpgas,rmarketingproducts:programmablesolutions",
+        wa_emtcontenttype: "emtcontenttype:webpage/landingpage",
+        
+        wa_industry_type: "",
+        wa_partner_prog: "",
+        wa_subject: "",
+        wa_biz_size: "",
+        wa_emt_org: "emtorganizationalstructure:psgprogrammablesolutionsgroup,emtorganizationalstructure:smgsalesandmarketinggroup/smgcxssmgcustomerexperienceandscalegroup",
+        wa_emt_intel: "",
+        wa_partner_type: "",
+        wa_programidentifier: "psg",
+        wa_location: "us",
+        wa_language: "en",
+        wa_english_title: "Intel® FPGA Intellectual Property",
+        wa_content_type: "landingpage",
+        wa_intel_platform: "",
+        wa_applications: "",
+        wa_local: "en_US",
+        wa_intel_technology: "",
+        wa_system_type: "",
+        wa_product_name: "",
+        wa_audience: "emtaudience:business/btssbusinesstechnologysolutionspecialist/hardwareengineer/fpgaengineer",
+        wa_life_cycle: "",
+        wa_cq_url: "/content/www/us/en/products/programmable/intellectual-property.html",
+        wa_page_type_micro: "productoverview",
+        wa_env: "prd",
+        wa_cq_pub_env: "publish",
+        wa_transl_status: "",
+        wa_product_id: "98836",
+        wa_software: "",
+        wa_reference_design: "",
+        wa_codename: "",
+        wa_created_date: "1530545435069",
+        wa_modifed_date: "1601050068039",
+        wa_off_time: "1630731600000",
+        wa_ownedby: "emtorganizationalstructure:psgprogrammablesolutionsgroup,emtorganizationalstructure:psgprogrammablesolutionsgroup,emtorganizationalstructure:smgsalesandmarketinggroup/smgcxssmgcustomerexperienceandscalegroup",
+        wa_managedby: "emtorganizationalstructure:psgprogrammablesolutionsgroup,emtorganizationalstructure:smgsalesandmarketinggroup/smgcxssmgcustomerexperienceandscalegroup,emtorganizationalstructure:smgsalesandmarketinggroup/smgcxssmgcustomerexperienceandscalegroup",
+        wa_idz_nid : "",
+        wa_event_type: "",
+        wa_idz_custom_tags: "",
+        wa_programming_language: "",
+        wa_skill_level: "",
+        wa_solution: "",
+        wa_product_formFactor: "",
+        wa_operating_system: "",
+        wa_marketing_products: "rmarketingproducts:programmablesolutions,rmarketingproducts:programmablesolutions/intelfpgas",
+        wa_ssg_third_party_prod_sys_sol: "",
+        wa_intel_prd_levels: '[{"level1":{"id":"MPH_7275127","desc":"programmablesolutions"},"productCategory":"rmarketingproducts"},{"level1":{"id":"MPH_7275127","desc":"programmablesolutions"},"productCategory":"rmarketingproducts","level2":{"id":"98836","desc":"intelfpgas"}}]',
+        
+        wa_secondary_content_type: ""
+    };
+    
+    
+    
+</script>
+
+
+
+
+
+    <script type="text/javascript" src="/content/dam/www/global/wap/tms.sync.js" async></script>
+
+
+
+<div class="promo-banner-content"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    var isLoggedin = (location.protocol == 'https:' && document.cookie.indexOf('SMSESSION') != -1);
+    var loginValidateURL = 'https://www.intel.com/libs/apps/intel/myintel/profile.html/validate/loggedin';
+</script>
+
+
+
+
+    
+        <div class="global">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+    
+        <div class="global-nav-redesign global component" data-component="global-nav-redesign" data-component-id="1">
+            <header role="banner">
+                <nav class="intel-navbar" role="navigation" aria-label="main navigation" data-igm="">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-wraper">
+
+                        <div class="navbar-logo">
+                            <a href="/content/www/us/en/homepage.html" alt="Intel homepage" class="intel-logo-rebrand" title="Intel Logo">
+                                    
+                                <img src="/content/dam/logos/intel-header-logo.svg" alt="Intel Home">
+                                <span class="sr-only">Intel Home</span>
+                            </a>
+                        </div>
+
+                        <div class="navbar-left">
+                            <!-- mobile: menu toggle, sign in -->
+                            <div class="visible-xs">
+                                <button type="button"
+                                        data-wap="{&quot;linktype&quot;:&quot;level1&quot;}"
+                                        class="mega-hamburger nav-link-icon nav-link-icon-toggle collapsed"
+                                        data-target="#primary-nav" aria-expanded="false" aria-controls="primary-nav"
+                                        data-mega-control="hamburger">
+                                    <span class="sr-only">Toggle Navigation</span>
+                                    <span class="fa-intel-menu icon-toggle-off"></span>
+                                    <span class="fa-cancel-thin icon-toggle-on"></span>
+                                </button>
+                            </div>
+
+                            <!-- START DYNAMIC NAVIGATION MENEU -->
+                            <div class="collapse mega-menu-collapse" id="primary-nav">
+                                <div class="mega-menu-wrap">
+                                    <ol class="mega-navbar unique-container-global-nav-items">
+                                        <!-- Start: Primary Nav Items -->
+
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- START MOBLE TOGGLE buttons -->
+                        <div class="navbar-right">
+
+
+                            <!-- START: NON-signed in panel -->
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+    
+
+
+<span id="not-logged-in-scenario" class="hidden">
+    <button type="button" title="Sign In" class="nav-link-icon nav-link-icon-toggle collapsed"
+            data-wap="{&quot;linktype&quot;:&quot;level1&quot;}"
+            data-target="#panel-signin" aria-expanded="false" aria-controls="panel-signin"
+            data-mega-control="signin">
+        <span class="sr-only">Sign In</span>
+        <span class="fa-intel-user-o icon-toggle-off"></span>
+        <span class="fa-intel-user icon-toggle-on"></span>
+    </button>
+
+    <div class="mega-panel panel-layout-signin collapse" id="panel-signin">
+    <div class="mega-panel-wrap">
+        <div class="mega-panel-body">
+            <div class="panel-content flex-content-wrap">
+                <div class="panel-item with-sep-line panel-col-1of2">
+                    <form id="igm-form-signin" action="https://www.intel.com/libs/apps/intel/login.json/securitytoken" method="POST" name="igm-form-signin" class="intel-form" novalidate="">
+                        <h3 class="section-title">Sign In</h3>
+                        <div class="flex-layout-md">
+                            <div class="form-group flex-col-md vertical-gutter">
+                                <label for="username">
+                                    <span class="sr-only">Username</span>
+                                    <input class="form-control form-input" aria-describedby="uname-error" name="userid"
+                                           id="username" placeholder="Username" required="">
+                                </label>
+                                <div class="error validation-messages " id="uname-error">
+                                    <div class="rule broken">Your username is missing</div>
+                                </div>
+                            </div>
+                            <div class="form-group flex-col-md vertical-gutter">
+                                <label for="password">
+                                    <span class="sr-only">Password</span>
+                                    <input type="password" class="form-control form-input" aria-describedby="pwd-error" id="password"
+                                           name="password" placeholder="Password" required="" autocomplete="off">
+                                </label>
+                                <div class="error validation-messages " id="pwd-error">
+                                    <div class="rule broken">Your password is missing</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="vertical-gutter">By signing in, you agree to our <a href="/content/www/us/en/legal/terms-of-use.html"/>Terms of Service</a>.</p>
+
+                        <div class="flex-layout-md flex-align-center vertical-gutter">
+                            <input type="hidden" name="callBack" id="callBackSimplify">
+                            <input type="hidden" name="queryParam" id="queryParam">
+                            <input type="submit" class="btn btn-primary blue-btn-white-text"
+                                   value="Sign In"
+                                   data-wap="{&quot;linktype&quot;:&quot;sign-in&quot;}">
+                            <label for="cbRememberMe" class="has-switch-input">
+                                <input id="cbRememberMe" name="rememberme" type="checkbox" value="true">
+                                <span class="check-box"></span>
+                                <span>Remember me</span>
+                            </label>
+                        </div>
+
+                        <p class="vertical-gutter">
+                            Forgot your Intel
+                            <a href="https://www.intel.com/content/www/us/en/my-intel/forgot-userid.html">username</a>
+                            or
+                            <a href="https://www.intel.com/content/www/us/en/my-intel/forgot-password.html">password</a>?
+                        </p>
+
+                    </form>
+                    <div class="alert alert-danger" id="login-error" role="alert"></div>
+                </div>
+                <div class="panel-item panel-col-variant">
+                    <div class="padding-wrap valign-to-input">
+                        <p class="vertical-gutter">Do you work for Intel? <a href="#" onclick="intel.signinsimplify.geturl('https://sifederation.intel.com/federation/bridge/sso_irp.asp?target=')">
+                            Sign in here</a>.
+                        </p>
+                        
+                            <p class="vertical-gutter">Don’t have an Intel account?
+                                <a href="#" onclick="intel.signinHeaderSimplify.doRedirect('/forms/basic-intel-registration.html')"> Sign up here </a>
+                                for a basic account.
+                            </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</span>
+
+<iframe id="frameSigninSimplify" tabindex="-1" title="My Intel Sign in" aria-hidden="true" name="frameSigninSimplify" src="/etc.clientlibs/settings/wcm/designs/intel/clientlibs/pages/commons-page/resources/html/idamFormStaticSimplify.html" style="display:none;"></iframe>
+
+<script>
+
+    
+    
+
+    
+    var intel = intel || {};
+    intel.signinsimplifyConfig = {
+        locale: '',
+        messages: {
+            InvalidCredential: 'The username or password you entered was invalid.',
+            InvalidField: 'The username or password you entered was invalid.',
+            AccountDisabled: 'For security reasons, your account has been disabled. For help, <a href=\"#\" class=\"contactLink new-tab-link\" target=\"_blank\" rel=\"noopener noreferrer\" >contact us<\/a>.',
+            AccountLocked: 'Your account has been locked. For help, please read the <a href=\"#\" class=\"faqsLink new-tab-link\" target=\"_blank\" rel=\"noopener noreferrer\" >Sign In FAQ<\/a>.',
+            UserNotFound: 'The username or password you entered was invalid.',
+            Unknown: 'An unexpected error occurred. Try it again. For help, use the contact or support options below.',
+            PasswordExpired: 'Your password is expired. Please change your password.',
+            LoginAssistLink: 'https://signin.intel.com/ContactUs.aspx',
+            faqsLink: '/content/www/my-intel/sign-in-help.html'
+        },
+        nameField: 'Username',
+        passField: 'Password',
+        signinUrl: '/libs/apps/intel/login.json/securitytoken',
+        isPopup: true,
+        responseHref: 'https://www.intel.com/content/www/us/en/products/programmable/intellectual-property.html' + window.location.hash,
+        sslDomainUrl: 'www.intel.com',
+        loginUrl: 'https://welcome.intel.com/login.aspx?appid=258&qlogin=true',
+        ssoUri: 'https://federatesso.intel.com',
+        logoutUrl: 'https://welcome.intel.com/logout.aspx',
+        logoutHref: 'https://signin.intel.com/Logout?RedirectURL=https://www.intel.com/content/www/us/en/products/programmable/intellectual-property' + '.html',
+        loginErrorID: '#login-error',
+        usernameID: '#username',
+        remembermeId: '#cbRememberMe',
+        formID: '#igm-form-signin',
+        unameErrorID: '#uname-error',
+        passID: '#password',
+        passError: '#pwd-error',
+        changePasswordUrl: '/content/www/us/en/my-intel/change-password.html',
+        emailVerificationUrl: '/content/www/us/en/my-intel/email-verification.expired.html',
+        aboutToExpireEmailUrl: '/content/www/us/en/my-intel/email-verification.html',
+        renewalUrl: '/content/www/us/en/secure/technology-provider/forms/renew-technology-provider-membership.html',
+        limitedUrl: '/content/www/us/en/resellers/limited-status-secondary.html',
+        isaPRMDashBoardURL: '/content/www/us/en/secure/partner/solutions-alliance/overview.html',
+        itpPRMDashBoardURL: '/content/www/us/en/secure/partner/technology-provider/iot/overview.html',
+        itpisaPRMDashBoardURL: '/content/www/us/en/secure/partner/iot-itp-isa/overview.html',
+        isaRenewalURL: '/content/www/us/en/secure/partner/forms/solutions-alliance-renewal.html',
+        primaryPostLaunchURL: 'https://crmdevint3-intelcloudcrm.cs37.force.com/ipa/s/post-launch-primary',
+        nonPrimaryPostLaunchURL: 'https://crmdevint3-intelcloudcrm.cs37.force.com/ipa/s/post-launch-non-primary'
+    };
+    
+    if(location.protocol=='https:' && document.cookie.indexOf('SMSESSION')!=-1) {
+        if (document.cookie.indexOf('IGHFLoggedIn') == -1) {
+            var currentUrl = window.location.href;
+            var cookiename = "IGHFtarget";
+            var samlcookieValue = cookiename + "=" + encodeURIComponent(currentUrl) + ";secure;path=/;domain=.intel.com";
+            document.cookie= samlcookieValue;
+            window.location.href = 'https://sfederation.intel.com/federation2/sp/WebExperienceManagementSolutiononAEMforIntel/d3d3LmludGVsLmNvbQ%3D%3D';
+        }
+    }
+    
+</script>
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script id="myinteldrpdown-template" type="text/x-handlebars-template">
+    <section class="myintel-tools-content" role="region"
+             aria-label="My Intel">
+        
+        <div class="panel-header force-background solid brand-very-dark-gray my-intel-menu">
+            <button type="button" class="icon close pull-right" data-igm-search-toggle="" aria-label="Close"
+                    tabindex="0" data-wap="" data-wap_ref="myintel-navmenu-closing">
+                <span></span>
+            </button>
+            <ul class="nav nav-tabs component">
+                
+                    
+                    
+                        
+                    
+                    
+                    
+                    
+                
+                <li role="presentation" class="active" data-step='1'  data-title='My Intel Dashboard and My Tools'  data-intro='<p>Click here to access the My Intel Dashboard from any Intel.com page. From here you can also access your Subscriptions page, as well as your personalized list of tools.</p>'>
+                    <a href="#my-intel" role="tab" tabindex="0">My Intel<span
+                            class="fa fa-user"></span></a>
+                </li>
+            </ul>
+        </div>
+        
+
+        <div class="my-intel-panel-body tab-content">
+            
+            <div role="tabpanel" class="tab-pane fade in active" id="my-intel">
+                <ul class="myintel-links">
+                    {{#each myintelpagelinks}}
+                    <li data-agsrole="{{{agsrole}}}"
+                        data-blacklistedagsrole="{{{blacklistedagsgroupname}}}"
+                        data-isinternal="{{{displayOnlyInternal}}}"
+                        data-isexternal="{{{displayOnlyExternal}}}"
+                        class="{{{class}}}">
+                        <a target="{{{target}}}"
+                           href="{{{href}}}" tabindex="0">{{{label}}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+                <div class="tools-pane component" data-component="myintel-tools" data-component-id="1">
+                    <h5 class="my-intel-tools">My Tools</h5>
+                    
+                    <ul class="myintel-links">
+                        {{#each mytoollinks}}
+                        <li class="myintellink"
+                            data-isinternal="{{{displayOnlyInternal}}}"
+                            data-isexternal="{{{displayOnlyExternal}}}">
+                            <h3 style="display:none;">{{{agsgroupname}}}</h3>
+                            <h4 style="display:none;">{{{blacklistedagsgroupname}}}</h4>
+                            <a tabindex="0" href="{{{linkurl}}}" target="_blank" rel="noopener noreferrer" title="">{{{linktext}}}</a>
+                            {{#if tooltip}}
+                            <a class="fa fa-help-circled" data-toggle="tooltip" data-html="true"
+                                  data-title="{{tooltip}}" data-placement="bottom" data-wap_ref="tooltip:{{{linktext}}}"></a>
+                            {{/if}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+</script>
+
+
+<span id="logged-in-scenario" class="hidden">
+
+<button type="button" title="My Intel"
+        data-wap="{&quot;linktype&quot;:&quot;level1&quot;}"
+        class="nav-link-icon nav-link-icon-toggle collapsed" data-target="#panel-signedin" aria-expanded="false"
+        aria-controls="panel-signedin" data-mega-control="signedin">
+    <span class="sr-only">My Intel</span>
+    <span class="fa-intel-user-checked-o icon-toggle-off"></span>
+    <span class="fa-intel-user-checked icon-toggle-on"></span>
+</button>
+
+<div class="mega-panel panel-layout-signed-in collapse" id="panel-signedin">
+    <div class="mega-panel-wrap">
+        <div class="mega-panel-body">
+            <div class="panel-content flex-content-wrap">
+
+                <!-- MyIntel Section -->
+                <!-- -------------------------------------------------------------- -->
+                <div class="panel-item hidden" id="myIntelPageLinks">
+                    <a id="myIntelPageLinksHeader" class="nav-l3 has-border has-link"></a> <!-- {{#if heading.onState}} selected{{/if}} {{#if heading.onStateParent}} selected-parent{{/if}} -->
+                    <div class="panel-item-content">
+                        <ul id="myIntelPageLinksItemList" class="panel-links nav-l4-list list-unstyled">
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- My Tools Section -->
+                <!-- -------------------------------------------------------------- -->
+                <div class="panel-item col-span-2" id="myIntelTools">
+                    
+                    <div class="nav-l3">
+                        My Tools
+                    </div>
+
+                    <div class="panel-item-content">
+                            <!--  
+                                Note: right now this panel (myTools) has only one column/ul
+                                if more columns are needed, remove below's 'w-auto' class
+                            -->
+                            <ul class="panel-links nav-l4-list list-unstyled w-auto" id="mytools-ul">
+                                
+                                <!-- this 'li' will be used as the template to populate this section from the js -->
+                                <li class="hidden">
+                                    <a class="nav-l4"></a>
+
+                                    <button class="btn-tooltip-trigger hidden" data-toggle="tooltip" data-placement="bottom"
+                                            title="" data-original-title="">
+                                        <span>?</span>
+                                    </button>
+                                </li>
+                            </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="item-actions">
+               <button type="button" class="btn btn-primary"
+                       data-sso-uri='https://federatesso.intel.com'
+                       data-logout-uri="" data-wap="{&quot;linktype&quot;:&quot;logout&quot;}"
+                       onclick="intel.signinsimplify.signOut()">Sign Out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</span>
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+<button type="button" title="Language Selector"
+        data-wap="{&quot;linktype&quot;:&quot;level1&quot;}"
+        class="nav-link-icon nav-link-icon-toggle collapsed"
+        data-target="#panel-language-selector" aria-label="USA (English)"
+        aria-expanded="false" aria-controls="panel-language-selector"
+        data-mega-control="language-selector">
+    <span class="fa-intel-globe-o icon-toggle-off"></span>
+    <span class="fa-intel-globe icon-toggle-on"></span>
+    <span class="nav-link-icon-label">USA (English)</span>
+</button>
+
+<div class="mega-panel panel-layout-language collapse" id="panel-language-selector"
+     aria-expanded="false" aria-selected="false" aria-collapsed="true">
+    <div class="mega-panel-wrap">
+        <div class="mega-panel-body">
+            <div class="mega-panel-heading">
+                <div class="nav-l2">
+                    Select Your Region
+                </div>
+            </div>
+            <div class="panel-content flex-content-wrap">
+                
+                    <div class="panel-item">
+                        <!-- region.countryName is actually region name -->
+                        <div class="nav-l3 no-border">Asia Pacific</div>
+                        <ul class="list-unstyled panel-links nav-l4-list">
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_xa" href="https://www.intel.sg/content/www/xa/en/products/programmable/intellectual-property.html">
+                                            Asia Pacific (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_au" href="https://www.intel.com.au/content/www/au/en/products/programmable/intellectual-property.html">
+                                            Australia (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="zh_cn" href="https://www.intel.cn/content/www/cn/zh/products/programmable/intellectual-property.html">
+                                            China (简体中文)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_in" href="https://www.intel.in/content/www/in/en/products/programmable/intellectual-property.html">
+                                            India (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="id_id" href="https://www.intel.co.id/content/www/id/id/products/programmable/intellectual-property.html">
+                                            Indonesia (Bahasa Indonesia)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="ja_jp" href="https://www.intel.co.jp/content/www/jp/ja/products/programmable/intellectual-property.html">
+                                            Japan (日本語)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="ko_kr" href="https://www.intel.co.kr/content/www/kr/ko/products/programmable/intellectual-property.html">
+                                            Korea (한국어)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="zh_tw" href="https://www.intel.com.tw/content/www/tw/zh/products/programmable/intellectual-property.html">
+                                            Taiwan (繁體中文)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="th_th" href="https://www.thailand.intel.com/content/www/th/th/products/programmable/intellectual-property.html">
+                                            Thailand (ไทย)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="vi_vn" href="https://www.intel.vn/content/www/vn/vi/products/programmable/intellectual-property.html">
+                                            Vietnam (Tiếng Việt)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+                    <div class="panel-item">
+                        <!-- region.countryName is actually region name -->
+                        <div class="nav-l3 no-border">Europe</div>
+                        <ul class="list-unstyled panel-links nav-l4-list">
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="fr_fr" href="https://www.intel.fr/content/www/fr/fr/products/programmable/intellectual-property.html">
+                                            France (Français)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="de_de" href="https://www.intel.de/content/www/de/de/products/programmable/intellectual-property.html">
+                                            Germany (Deutsch)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                    
+                                        
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_ie" href="https://www.intel.ie/content/www/ie/en/homepage.html">
+                                            Ireland (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="it_it" href="https://www.intel.it/content/www/it/it/products/programmable/intellectual-property.html">
+                                            Italy (Italiano)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="pl_pl" href="https://www.intel.pl/content/www/pl/pl/products/programmable/intellectual-property.html">
+                                            Poland (Polski)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="ru_ru" href="https://www.intel.ru/content/www/ru/ru/products/programmable/intellectual-property.html">
+                                            Russia (Русский)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_es" href="https://www.intel.es/content/www/es/es/products/programmable/intellectual-property.html">
+                                            Spain (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="tr_tr" href="https://www.intel.com.tr/content/www/tr/tr/products/programmable/intellectual-property.html">
+                                            Turkey (Türkçe)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_uk" href="https://www.intel.co.uk/content/www/uk/en/products/programmable/intellectual-property.html">
+                                            United Kingdom (English)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+                    <div class="panel-item">
+                        <!-- region.countryName is actually region name -->
+                        <div class="nav-l3 no-border">Latin America</div>
+                        <ul class="list-unstyled panel-links nav-l4-list">
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Argentina (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="pt_br" href="https://www.intel.com.br/content/www/br/pt/products/programmable/intellectual-property.html">
+                                            Brazil (Português)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Chile (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Colombia (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Latin America (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Mexico (Español)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="es_xl" href="https://www.intel.la/content/www/xl/es/products/programmable/intellectual-property.html">
+                                            Peru (Español)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+                    <div class="panel-item">
+                        <!-- region.countryName is actually region name -->
+                        <div class="nav-l3 no-border">Middle East/Africa</div>
+                        <ul class="list-unstyled panel-links nav-l4-list">
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                    
+                                        
+                                    
+                                
+                                    <a class="nav-l4" data-locale="he_il" href="https://www.intel.co.il/content/www/il/he/homepage.html">
+                                            Israel (עברית)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+                    <div class="panel-item">
+                        <!-- region.countryName is actually region name -->
+                        <div class="nav-l3 no-border">North America</div>
+                        <ul class="list-unstyled panel-links nav-l4-list">
+                            
+                                
+                                
+                                    <li class="selected lang-option">
+                                
+                                
+                                
+                                    
+                                    
+                                        
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_us" href="https://www.intel.com/content/www/us/en/homepage.html">
+                                            United States (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="en_ca" href="https://www.intel.ca/content/www/ca/en/products/programmable/intellectual-property.html">
+                                            Canada (English)
+                                    </a>
+                                </li>
+                            
+                                
+                                
+                                
+                                    <li class="lang-option">
+                                
+                                
+                                    
+                                        
+                                    
+                                    
+                                
+                                    <a class="nav-l4" data-locale="fr_ca" href="https://www.intel.ca/content/www/ca/fr/products/programmable/intellectual-property.html">
+                                            Canada (Français)
+                                    </a>
+                                </li>
+                            
+                        </ul>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                            <!-- END: NON-sign in panel -->
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+        
+    
+
+
+    <button type="button" title="Search intel.com" class="nav-link-icon toggle-search collapsed"
+            data-target="#simplify-search" aria-expanded="false"
+            aria-controls="simplify-search" data-mega-control="global-search">
+        <span class="sr-only">Toggle Search</span>
+        <span class="fa-global-search"></span>
+    </button>
+    <div class="mega-panel mega-search-panel collapse" id="simplify-search"
+         aria-expanded="false" aria-selected="false" aria-collapsed="true"
+         document-height="true">
+        <div class="mega-panel-wrap">
+            <div class="mega-panel-body">
+                <div class="panel-content">
+                    <div class="search-component search-component"
+                         data-igm-search-content="">
+
+                        <form class="mega-search-form search item" data-igm-search-control="" name="hpsform-new" id="hpsform-new" action="/content/www/us/en/search.html" role="search" onsubmit="return INTEL_TYPE_AHEAD.onSubmitHps('Search', '/content/www/us/en', 'en_US')">
+                            <button type="submit" class="btn-mega-search icon"
+                                    aria-label="Search" tabindex="-1">
+                                <span class="sr-only">Search</span>
+                                <span class="fa-global-search"></span>
+                            </button>
+
+                            
+                                
+                                
+                                    <label for="mobile-search">
+                                        <span class="sr-only"><</span>
+                                        <input id="toplevelcategory" name="toplevelcategory" type="hidden" value="none">
+                                        <input id="query" name="query" type="hidden" value="">
+                                        <input data-tabindex="1" class="form-control" data-search-input id="mobile-search" name="keyword" type="text"
+                                               data-igm-search-input title="Search" autocomplete="off"
+                                               data-target-result="#igm-search-result" aria-controls="mega-results-overlay" placeholder="Search Intel.com">
+                                    </label>
+                                
+                            
+
+                            <button type="button" id="cls-btn" class="btn-mega-close"
+                                    aria-label="Close Search Panel"
+                                    data-mega-close="global-search">
+                                <span class="sr-only"></span>
+                                <span class="fa-cancel-thin"></span>
+                            </button>
+
+                        </form>
+                        <!-- 
+                            'hidden' class is conditionally removed on load @ intel.search-dropdown.js
+                         -->
+                        <div class="results-overlay mega-results-overlay search-quick-links hidden" aria-live="polite"
+                             id="mega-results-overlay" data-component="wa_skip_track">
+                            <!-- Search Result Typeahead -->
+                            <div class="results-typeahead collapse" id="igm-search-result"
+                                 data-igm-search-results="">
+                                <div class="overlay-content">
+                                    <h3>Top Results </h3>
+                                    <!-- added content-quick-search class -->
+                                    <div class="content-quick-search">
+                                    </div>
+                                </div>
+                                <div class="search-info">
+                                    <a href="javascript:void();" class="login-toggle" data-activate-mega-control="signin">
+                                        Sign In</a> to access restricted content
+                                </div>
+                            </div>
+
+                            <!-- Recent Searches: 1) display default search info if no search terms is available  -->
+                            <!-- Recent Searches: 2) display recenter terms when available and hide default search info  -->
+                            <div class="results-recent collapse" data-igm-search-related="">
+                                <div>
+                                    <!-- default search info -->
+                                    <div class="content-search-block content-search-info">
+                                        <h3>Using Intel.com Search</h3>
+                                        <p>You can easily search the entire Intel.com site in several ways.</p>
+                                        <ul>
+                                            <li>
+                                                Brand Name:
+                                                <strong>
+                                                    Core i9
+                                                </strong>
+                                            </li>
+                                            <li>
+                                                Document Number:
+                                                <strong>
+                                                    123456
+                                                </strong>
+                                            </li>
+                                            <li>
+                                                Code Name:
+                                                <strong>
+                                                    Kaby Lake
+                                                </strong>
+                                            </li>
+                                            <li>
+                                                Special Operators:
+                                                <strong>
+                                                    “Ice Lake”, Ice AND Lake, Ice OR Lake, Ice*
+                                                </strong>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- quick links is always visible on the recents overlay -->
+                                    <div class="content-search-block content-quick-links">
+                                        <h3>Quick Links</h3>
+                                        <p>You can also try the quick links below to see results for most popular searches.</p>
+                                        <ul>
+                                            <li>
+                                                <a class="quick-link" rel="noopener noreferrer" href="https://downloadcenter.intel.com?wapkw=quicklink:download-center">
+                                                    Download Center
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="quick-link" rel="noopener noreferrer" href="https://ark.intel.com?wapkw=quicklink:product-specifications">
+                                                    Product Specifications
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="quick-link" rel="noopener noreferrer" href="https://www.intel.com/content/www/us/en/products/devices-systems.html?wapkw=quicklink:products">
+                                                    Products
+                                                </a>
+                                            </li>
+                                            <li><a class="quick-link" rel="noopener noreferrer" href="https://www.intel.com/content/www/us/en/support.html?wapkw=quicklink:support">
+                                                Support
+                                            </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- recent search terms -->
+                                    <div class="results-overlay results-recent results component content-search-block content-recent" data-component="wa_skip_track"
+                                         data-component-id="1">
+                                        <div class="overlay-content recent-searches-terms">
+                                            <h3>Recent Searches</h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="search-info">
+                                    <a href="javascript:void();" class="login-toggle" data-activate-mega-control="signin">
+                                        Sign In</a> to access restricted content
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<script type="text/javascript">
+    var global_config = {
+        "icsUrl": "https://supporttickets.intel.com/services/oauth2/authorize?response_type=token&client_id=3MVG9QDx8IX8nP5Rh0X3B7gohGtUh8sjFQ8Tw_U8sS9_PoVrupDFwZ_nwLcze2n64lGBbGchyUb7_9W8n8pAV&redirect_uri=https%3A%2F%2Fwww.intel.com%2Fcontent%2Fwww%2Fus%2Fen%2Fsecure%2Fmy-intel%2Ftoken.html",
+        "ipsUrl": "https://premiersupport.intel.com/IPS/services/oauth2/authorize?response_type=token&client_id=3MVG9xOCXq4ID1uEa5F2lCYAp6mmKvTMlKbMIrsMKShY2oOqs1ETvPRjwmhoPivHd9_U53EzmiyYxn3nVpA9J&redirect_uri=https%3A%2F%2Fwww.intel.com%2Fcontent%2Fwww%2Fus%2Fen%2Fsecure%2Fmy-intel%2Ftoken.html"
+    };
+    var globalSearch = globalSearch || {};
+    globalSearch = {
+        sharePointSearchPromote:true,
+        searchProvider: 'coveo',
+        baseSearchQuery: 'localecode:"en_US" NOT generic1:"false" ',
+        langRootPath: '/content/www/us/en',
+        headingTxt: 'Best Match',
+        locale: 'en_US',
+        typeAheadUrl: 'http://search.intel.com/SearchLookup/DataProvider.ashx',
+        bestMatchUrl: 'https://platform.cloud.coveo.com/rest/search/v2/querySuggest',
+        searchRealm: 'Default',
+        bestMatchQ1: 'NAR',
+        bestMatchQ2: 'en',
+        bestMatchQ11: 'sptitle,description,url,thumbnailurl,reimaginerootlevel',
+        progId: 'psg',
+        useEMTTags: true,
+        defaultPage: 'search.html',
+        token: 'xx43151f87-f1d8-4211-ae65-ce98d805849c',
+        searchHub: 'entepriseSearch',
+        newNavRedesign: true,
+
+        gtvLabels: {
+            suggested: "",
+            products: "Products",
+            support: "Support",
+            developers: "Developers",
+            drivers: "Drivers",
+            forums: "Forums",
+            specifications: "Specifications",
+            download: "",
+            searchesRelatedTo: "",
+            search: "Search Intel.com",
+            inLabel: "in",
+            searchSupport: "Search Intel® Support",
+            intelcom: "",
+            forLabel: "for",
+            allResults: "All Results",
+            show: "Show",
+            results: "Results"
+        },
+        mobileResults: "5",
+        laptopResults: "10",
+        EDCProgramIdentifier: "false",
+        rdcContentDataSource: ""
+    };
+</script>
+
+                        </div>
+                        <!-- END MOBILE TOGGLE buttons -->
+                    </div>
+                </nav>
+            </header>
+        </div>
+
+        
+        <div id="secondary-nav-1" class="component secondary-nav hidden" data-component="subnavigation-breadcrumb"
+             data-component-id="1">
+        </div>
+
+        <script type="text/javascript">
+            var globalHeader = globalHeader || {};
+            globalHeader = {
+                currentPath: "/content/www/us/en/products/programmable/intellectual-property",
+                lanloc: "/us/en",
+                lanLoc: "US/en",
+                helpformurl: "",
+                intelHeaderFooterVersion: "menu3",
+                megaMenuPath: "/content/data/globalelements/US/en/globalnav4",
+                globalBannerPath: "/content/data/globalelements/US/en/sitewide-banner-placeholder",
+                subMenuPath: "",
+                isCHF:false,
+                secureRedirectURL: "",
+                excludeGlobalNav4: "false",
+                allowSubNavigationBreadcrumb: "true",
+            }
+        </script>
+    
+
+
+<link rel="stylesheet" href="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/nav.min.css" type="text/css"><script src="/etc.clientlibs/settings/wcm/designs/ver/8.0.00.50/intel/clientlibs/pages/nav.min.js" defer></script>
+</div>
+
+    
+    
+
+
+<section data-scroll-track="false">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 pull-right persistent-cta-integration-globalNav" id="alertMsg">
+                <div id="alertSupport">
+                    <div class="browser_detect" id="browserdetectid" style="display:none;">
+                        <p>The browser version you are using is not recommended for this site.<br/>Please consider upgrading to the latest version of your browser by clicking one of the following links.</p>
+                        <div class="browser_types">
+                            <ul>
+                                
+                                    <li><a href="https://support.apple.com/downloads/safari">Safari</a></li>
+                                
+                                    <li><a href="https://support.google.com/chrome/answer/95346?hl=en">Chrome</a></li>
+                                
+                                    <li><a href="https://www.microsoft.com/en-us/edge">Edge</a></li>
+                                
+                                    <li><a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+<div id="productOverview-1" class="component productOverviewTemplate" data-component="productOverview"
+     data-component-id="1">
+    <div class="producthero">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+    
+        
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+            
+
+            
+            
+            
+            
+            
+                
+            
+
+            <div class="product-masthead blade full-bleed-image compact background-product-overview header-peek text-align-center component
+                theme-dark-1    has-breadcrumb"
+                 data-component="product-hero" data-component-id="1"
+                 data-picture-full-bleed>
+                
+                    
+                    
+                    <span data-picture-sources="">
+                        
+
+
+
+
+
+
+    
+
+
+
+    
+        
+        
+        
+            
+                
+                    <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.864.486.jpg" data-media="(min-width: 320px)"></span>
+                    <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.864.486.jpg" data-media="(min-width: 480px)"></span>
+                
+                
+            
+        
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+            <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.1072.603.jpg" data-media="(min-width: 768px)"></span>
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.1280.720.jpg" data-media="(min-width: 992px)"></span>
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.1648.927.jpg" data-media="(min-width: 1200px)"></span>
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/products/hero/background/processor-marquee-default-16x9.jpg.rendition.intel.web.1920.1080.jpg" data-media="(min-width: 1650px)"></span>
+        
+    
+
+                    </span>
+                
+                
+                <div itemscope itemtype="http://schema.org" class="masthead-content">
+                    
+
+
+
+    
+        
+    
+    
+
+
+
+    
+
+
+
+    <div id="productCatalogBreadcrumbs-1" class="component" data-component="productCatalogBreadcrumbs"
+         data-component-id="1">
+        <div class="breadcrumb-overlay" id="breadcrumb-overlay">
+            <a class="btn btn-icon no-style btn-close"><span class="icon icon-remove color-white"></span></a>
+            <div class="valign-middle">
+                <ol class="breadcrumb-list">
+                </ol>
+            </div>
+        </div>
+        <ol class="breadcrumb" id="breadcrumbId" itemscope="" itemtype="http://schema.org/BreadcrumbList">
+            
+                
+            
+
+            
+                
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="hidden-mobile">
+                        <a itemprop="item" href="/content/www/us/en/products/programmable.html">
+                          <span itemprop="name">Intel® FPGAs and Programmable Devices</span></a>
+                        <meta itemprop="position" content="1">
+                    </li>
+                
+                
+            
+                
+                
+                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem" class="hidden-mobile toggle-current-page">
+                        <a itemprop="item" href="/content/www/us/en/products/programmable/intellectual-property.html">
+                            <span itemprop="name">Intel® FPGA IP Intellectual Property Cores</span></a>
+                        <meta itemprop="position" content="2">
+                    </li>
+                
+            
+            
+                
+                <li class="hidden-desktop no-caret item-for-mobile">
+                    <a class="breadcrumb-toggle">
+                        <span>Intel® FPGAs and Programmable Devices<span class="span-caret">&gt;</span>...</span>
+                    </a>
+                </li>
+            
+        </ol>
+    </div>
+
+
+                    
+                        
+
+
+
+
+
+<div class="product-info">
+    <h1 class="headline-font-clear-bold" itemprop="name">Intel® FPGA IP Portfolio</h1>
+    
+        
+        <p itemprop="description" class="sub-headline">Accelerate. Optimize. Differentiate.</p>
+    
+</div>
+
+                    
+                    
+                    
+                        
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        <div class="media-gallery" tabindex="-1">
+            <div class="owl-carousel" data-gallery-config="product">
+                
+            </div>
+        </div>
+    
+
+
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        
+    
+
+</div>
+
+    
+        <div class="jumplinksContainer"></div>
+    
+    
+        
+        
+            <div class="products-intro-text">
+                <div class="introText introtext">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+                
+                    
+                    
+                    
+                        
+                        
+                    
+                    
+                    
+                
+                
+            
+            
+        
+        
+        
+            <div  class="component intel-brand-ux" data-component="introText" data-component-id="1">
+                <div class="blade solid full-width brand-lightest-gray intro-text-component  text-align-center big-intro">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                
+                                    <p>Whether you need help to expedite your design schedules, gain that extra performance to differentiate your products, or both,&nbsp;Intel can provide the solutions you need to be successful.</p>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+
+            </div>
+            <div class="editorialProductCard">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+</div>
+
+        
+    
+    <div class="bladepar intelparsys">
+<div class="introtext section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                
+            
+        
+        
+            
+            
+                
+                    
+                
+                
+            
+        
+        
+            <div id="introtext_9a22" class="component intel-brand-ux" data-component="introText" data-component-id="2">
+                <div class="blade solid white intro-text-component  text-align-left">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                    
+                                        
+                                            <h3>Maximize Performance and Productivity with Intel and Partner IP Portfolio</h3>
+                                        
+                                        
+                                    
+                                
+                                
+                                    <p>The Intel® FPGA Intellectual Property (IP) portfolio includes a unique combination of soft and hardened IP cores along with reference designs to complement your application’s performance and IP strategies. On top of that, our straightforward selection of <a></a>development kits give you the flexibility to test multiple types of platforms using a single board.</p>
+<p>Intel also simplified the IP evaluation process with a no-hassle licensing Intel® FPGA IP Evaluation Mode feature. In addition, Intel provides dynamically generated design examples that use your custom IP configuration and create an out-of-the-box hardware test platform to enable functionality and performance verification on hardware. All of these are available at your fingertips by simply downloading the Intel® Quartus® Prime Design Software.</p>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+<div class="exhibitasset section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+
+        
+            <script type="text/javascript">
+            jQuery(document).ready(function () {
+                window.picturefill();
+            });
+            
+            </script>
+            
+        
+
+        
+
+        
+            
+            
+                
+                
+                    
+                
+            
+        
+        
+        
+
+        
+            
+            
+            
+                
+            
+            
+        
+
+        
+        <div id="exhibitAssetBlade-1" role="region" aria-labelledby="exhibit-asset-blade-1" class="component intel-brand-ux" data-component="exhibitAssetBlade" data-component-id="1">
+            <div class="jumpLinksEnabled" id="">
+                
+                    
+                        <div class="l3-media-component  blade solid brand-lightest-gray">
+                    
+                    
+                
+
+                <div class="container">
+                    
+                        
+                            <div class="col-xs-12 padding-0">
+                                
+                                
+                                    
+                                    
+                                        
+                                        
+                                            
+                                            
+                                            
+                                                    <div class="image-container">
+                                                        <p class="image-mask"></p>
+                                                        
+                                                            
+                                                                <figure class="detail-image media-asset-image">
+                                                                    <span class="media-asset-image" data-ignore="">
+                                                                         <span data-picture="" data-alt="IP ecosystem">
+                                                                             
+
+
+
+
+
+
+
+
+    
+        
+            <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.864.486.jpg"></span>
+        
+        
+        
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+            
+                
+                    <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.864.486.jpg" data-media="(min-width: 320px)"></span>
+                    <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.864.486.jpg" data-media="(min-width: 480px)"></span>
+                
+                
+            
+        
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+            <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.320.180.jpg" data-media="(min-width: 768px)"></span>
+        
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.416.234.jpg" data-media="(min-width: 992px)"></span>
+        
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.480.270.jpg" data-media="(min-width: 1200px)"></span>
+        
+        
+    
+
+    
+        
+        
+        
+        
+        
+        
+        
+            <span data-src="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg.rendition.intel.web.720.405.jpg" data-media="(min-width: 1650px)"></span>
+        
+    
+
+                                                                         </span>
+                                                                    </span>
+                                                                </figure>
+                                                            
+                                                            
+                                                        
+                                                    </div>
+                                            
+                                        
+                                    
+                                    
+                                
+
+                                
+
+                                
+                                    <div class="download-image media-asset-link">
+                                        <a target="_blank" rel="noopener noreferrer" href="/content/dam/www/public/us/en/images/programmable/legacy/IP-ecosystem.jpg">
+                                            View Full Size
+                                        </a>
+                                    </div>
+                                
+                            </div>
+                        
+                        
+                    
+                </div>
+
+                
+                    
+                        </div>
+                    
+                    
+                
+
+                <div class="modal fade modal-image media-asset-modal" id="media-asset-modal" tabindex=-1 role="dialog">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close icon" data-dismiss="modal" aria-label="Close">
+                                    <span></span></button>
+                            </div>
+                            <div class="modal-body">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        
+    
+</div>
+<div class="linklist section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+            
+        
+        
+    
+
+
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+
+
+
+    
+
+
+
+<div id="linklist_3416_copy">
+    <div id="linklistblade-1" class="component item-list-blade intel-brand-ux has-rte-buttons" data-component="linklistblade"
+         data-component-id="1">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="blade blade-list solid white theme-light-2">
+        <div class="container">
+            
+            <header class="row">
+                
+                    
+                    
+                        <div class="col-xs-12 col-sm-12 col-xl-12 col-md-12">
+                            <h2>Resources -IP Product Portfolio</h2>
+                            <h4 class="subtitle"></h4>
+                        </div>
+                    
+                
+                <div class="col-xs-12 col-sm-3 col-md-3 col-xl-2 pull-right"></div>
+            </header>
+            <div class="row">
+                
+                    
+
+                    
+                    
+                        
+                            
+                            
+                            
+                                <div class="blade-item col-xs-12 col-ms-6 col-sm-4 col-xl-3 linklist-equal">
+                                    
+                                        
+                                            <h3></h3>
+                                        
+                                        
+                                    
+                                    <div class="section-item-content">
+                                        <p></p>
+                                        
+                                        
+
+
+
+
+
+
+
+
+
+
+
+<div class="list-description"></div>
+
+                                    </div>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+
+    
+    
+        
+        <ul class="" style="">
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/m-pci-express-protocol.html">PCI Express*</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/solutions/technology/transceiver/protocols/pro-interlaken.html">Interlaken</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/support/support-resources/external-memory.html">External Memory Interfaces</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/m-jesd-megacore.html">JESD204B</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/documentation/cyj1557212206882.html#bje1561624228117">JESD204C</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/m-alt-riophy.html">RapidIO*</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/solutions/industry/wireline/applications/transmission.html">Optical Transport (OTN, FlexE)</a>
+                        
+                    
+                </li>
+            
+        </ul>
+    
+
+
+                                </div>
+                            
+                        
+                    
+                    
+                    
+
+                    
+                    
+                    
+                
+                    
+
+                    
+                    
+                        
+                            
+                            
+                            
+                                <div class="blade-item col-xs-12 col-ms-6 col-sm-4 col-xl-3 linklist-equal">
+                                    
+                                        
+                                            <h3></h3>
+                                        
+                                        
+                                    
+                                    <div class="section-item-content">
+                                        <p></p>
+                                        
+                                        
+
+
+
+
+
+
+
+
+
+
+
+<div class="list-description"></div>
+
+                                    </div>
+                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+
+    
+    
+        
+        <ul class="" style="">
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/ethernet.html">Ethernet</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/m-alt-seriallite3.html">SerialLite III</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/m-alt-seriallite4.html">SerialLite IV</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/dsp/m-alt-vipsuite.html">Video Processing</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/broadcast/products/programmable/applications/connectivity-solutions.html">Connectivity</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/products/programmable/processor/nios-ii.html">Nios® II Processor</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/ip/interface-protocols/altera-cpri-ip.html">CPRI</a>
+                        
+                    
+                </li>
+            
+        </ul>
+    
+
+
+                                </div>
+                            
+                        
+                    
+                    
+                    
+
+                    
+                        <div class="clearfix visible-xs"></div>
+                    
+                    
+                    
+                
+            </div>
+        </div>
+    </section>
+
+    </div>
+</div></div>
+<div class="introtext section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                
+            
+        
+        
+            
+            
+                
+                    
+                
+                
+            
+        
+        
+            <div id="introtext_c5f5_copy" class="component intel-brand-ux" data-component="introText" data-component-id="3">
+                <div class="blade solid white intro-text-component  text-align-left">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                    
+                                        
+                                            <h3>What’s New in Intel® Quartus® Prime Design Software v20.3 </h3>
+                                        
+                                        
+                                    
+                                
+                                
+                                    <h2 class="clear-font">PCI Express*</h2>
+<ul>
+<li>New Multichannel DMA (MCDMA) IP on H-tile</li>
+</ul>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+<div class="introtext section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                
+            
+        
+        
+        
+            <div  class="component intel-brand-ux" data-component="introText" data-component-id="4">
+                <div class="blade solid white intro-text-component  text-align-left">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                
+                                    <h2 class="clear-font">Ethernet</h2>
+<p>Intel® Stratix® 10&nbsp;FPGA&nbsp;device family</p>
+<ul style="list-style-position: inside;">
+<li>Intel® Stratix® 10 FPGA&nbsp;E-tile 1588 PTP with accuracy of +/-1.5ns</li>
+</ul>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+<div class="introtext section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                
+            
+        
+        
+        
+            <div  class="component intel-brand-ux" data-component="introText" data-component-id="5">
+                <div class="blade solid white intro-text-component  text-align-left">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                
+                                    <h2 class="clear-font">EMIF</h2>
+<p>Intel® Stratix® 10 DX&nbsp;FPGA&nbsp;device</p>
+<ul style="list-style-position: inside;">
+<li>DDR-T IP support with 1 DIMM per channel up to 2400 Mbps</li>
+</ul>
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+<div class="chat section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+            
+        
+        
+    
+
+
+
+
+
+    
+    
+        
+            
+            <div id="calltoaction-1" class="component intel-brand-ux" data-component="calltoaction"
+                 data-component-id="1">
+                <div class="design-assistance" id="chat_c339">
+                    
+                    
+
+                    
+
+                    
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                    
+                    
+                    
+                        
+                        
+                        
+                    
+
+                    
+                    
+                    
+                        
+                        
+                            
+                            
+                        
+                    
+                    <div class="tab-pane fade active in">
+                        <div class="chat-component blade ">
+                            <div class="container">
+                                <div class="">
+                                    
+                                        
+                                        
+                                            
+                                                
+                                                
+                                            
+                                        
+                                    
+                                    <h2 class="headline-font-clear-bold">
+                                        Documentation and Support
+                                    </h2>
+                                </div>
+                                <br>
+                                <div class="">
+                                    <div class="chat-text alignTextClass">
+                                        
+                                            
+                                                <p>Includes documentation and videos and other resources.</p>
+                                            
+                                            
+                                        
+                                        <p>
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                    <div class="">
+                                        
+                                            
+                                                <a class="btn blue-btn-white-text intel-cta btn-no-shadow" href="/content/www/us/en/programmable/support/support-resources.html" target="_top">Get support</a>
+                                            
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+    
+</div>
+<div class="chat section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+            
+        
+        
+    
+
+
+
+
+
+    
+    
+        
+            
+            <div id="calltoaction-2" class="component intel-brand-ux" data-component="calltoaction"
+                 data-component-id="2">
+                <div class="design-assistance" id="chat_3a88">
+                    
+                    
+
+                    
+
+                    
+                        
+                        
+                        
+                        
+                            
+                            
+                        
+                    
+                    
+                    
+                        
+                        
+                        
+                    
+
+                    
+                    
+                    
+                        
+                        
+                            
+                            
+                        
+                    
+                    <div class="tab-pane fade active in">
+                        <div class="chat-component blade ">
+                            <div class="container">
+                                <div class="">
+                                    
+                                        
+                                        
+                                            
+                                                
+                                                
+                                            
+                                        
+                                    
+                                    <h2 class="headline-font-clear-bold">
+                                        Find IP
+                                    </h2>
+                                </div>
+                                <br>
+                                <div class="">
+                                    <div class="chat-text alignTextClass">
+                                        
+                                            
+                                                <p>Find IP by technology, provider, or end market.</p>
+                                            
+                                            
+                                        
+                                        <p>
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                    <div class="">
+                                        
+                                            
+                                                <a class="btn blue-btn-white-text intel-cta btn-no-shadow" href="/content/www/us/en/programmable/products/intellectual-property/ip.html" target="_top">Search now</a>
+                                            
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+    
+</div>
+<div class="introtext section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                    
+                    
+                    
+                        
+                    
+                
+            
+        
+        
+            
+            
+                
+                    
+                
+                
+            
+        
+        
+            <div id="introtext" class="component intel-brand-ux" data-component="introText" data-component-id="6">
+                <div class="blade solid white intro-text-component  text-align-left">
+                    <div class="container">
+                        <div class="row">
+                            <div class="text-container col-xs-12 col-md-10 col-xl-8">
+                                
+                                    
+                                        
+                                            <h3> </h3>
+                                        
+                                        
+                                    
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        
+    
+</div>
+<div class="reference parbase section">
+
+
+        <div id="reference_459d" class="component reference" data-component="reference" data-component-id="1">
+        
+            <div class="chat_7fb4 chat">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+            
+            <div id="calltoaction-3" class="component intel-brand-ux" data-component="calltoaction"
+                 data-component-id="3">
+                <div class="design-assistance" id="">
+                    
+                    
+
+                    
+
+                    
+                        
+                            
+                            
+                        
+                        
+                        
+                        
+                    
+                    
+                    
+                        
+                        
+                        
+                    
+
+                    
+                    
+                    
+                        
+                        
+                            
+                            
+                        
+                    
+                    <div class="tab-pane fade active in">
+                        <div class="chat-component blade solid brand-primary theme-dark-1">
+                            <div class="container">
+                                <div class="">
+                                    
+                                        
+                                        
+                                            
+                                                
+                                                
+                                            
+                                        
+                                    
+                                    <h2 class="headline-font-clear-bold">
+                                        Intel® FPGA Design Services
+                                    </h2>
+                                </div>
+                                <br>
+                                <div class="">
+                                    <div class="chat-text alignTextClass">
+                                        
+                                            
+                                                <p>Accelerate your time to market now with the Intel® FPGA turn-key video & vision design services.</p>
+                                            
+                                            
+                                        
+                                        <p>
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                    <div class="">
+                                        
+                                            
+                                                <a class="btn white-btn-blue-text intel-cta btn-no-shadow" href="/content/www/us/en/design/design-tools-and-services/fpga-design-services.html" target="_top">Learn more</a>
+                                            
+                                            
+                                        
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        
+    
+</div>
+
+        
+        </div>
+        
+</div>
+<div class="linklist section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+        
+    
+
+
+
+    
+
+
+
+<div >
+    <div id="linklistblade-2" class="component item-list-blade intel-brand-ux has-rte-buttons" data-component="linklistblade"
+         data-component-id="2">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="blade blade-list solid white theme-light-2">
+        <div class="container">
+            
+            <header class="row">
+                
+                    
+                    
+                        <div class="col-xs-12 col-sm-12 col-xl-12 col-md-12">
+                            <h2> </h2>
+                            <h4 class="subtitle"></h4>
+                        </div>
+                    
+                
+                <div class="col-xs-12 col-sm-3 col-md-3 col-xl-2 pull-right"></div>
+            </header>
+            <div class="row">
+                
+                    
+
+                    
+                        <div class="blade-item col-xs-12">
+                            
+                                
+                                    <h3></h3>
+                                
+                                
+                            
+                            <div class="section-item-content">
+                                <p>Related Links</p>
+                                
+                                
+
+
+
+
+
+
+
+
+
+
+
+<div class="list-description"></div>
+
+                            </div>
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+  
+	
+
+
+
+    
+    
+        
+        <ul class="" style="">
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/support/support-resources/download/megacore-ip.html">IP Evaluation and Purchase</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/design/ip-base-suite.html">IP Base Suite</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/products/intellectual-property/all-ip/design/certifications.html">IP Certifications</a>
+                        
+                    
+                </li>
+            
+                
+                    
+                    
+                        
+                    
+                
+                
+                    
+                    
+                        
+                    
+                
+                <li>
+                    
+                        
+                        
+                            <a href="/content/www/us/en/programmable/solutions/partners/design-solutions-network/find-member.html">IP Partners</a>
+                        
+                    
+                </li>
+            
+        </ul>
+    
+
+
+                        </div>
+                    
+                    
+                    
+                    
+
+                    
+                    
+                    
+                
+            </div>
+        </div>
+    </section>
+
+    </div>
+</div></div>
+</div>
+
+    <div class="reference parbase">
+
+
+</div>
+
+    
+        <div class="jumplinks jumplink">
+
+
+
+
+
+
+
+    
+
+
+
+
+
+<div class="nav-overflower spynav nav-spy component" data-component="jumplink" data-component-id="1">
+    <div class="wrap-1  nav-affixer off-screen">
+        <div class="wrap-2 overflower">
+            <ul class="nav overflower-inner">
+                
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#introtext_9a22">Overview</a>
+                        </li>
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#linklist_3416_copy">IP Product Portfolio</a>
+                        </li>
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#introtext_c5f5_copy">What's New</a>
+                        </li>
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#chat_c339">Support</a>
+                        </li>
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#chat_3a88">Find IP</a>
+                        </li>
+                    
+                        
+                        
+                        
+                        
+                        <li class="overflower-item">
+                            <a href="#introtext">Design Services</a>
+                        </li>
+                    
+                
+            </ul>
+        </div>
+    </div>
+    <div class="paddlesJumplink">
+        <button class="left-paddle-jumplink paddle">
+            <span aria-hidden="true" class="fa fa-angle-left"></span>
+        </button>
+        <button class="right-paddle-jumplink paddle">
+            <span aria-hidden="true" class="fa fa-angle-right"></span>
+        </button>
+    </div>
+</div>
+</div>
+
+    
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    <input id="compare-product-data" type="hidden" value="/libs/apps/intel/services/compareTray.json">
+    <input id="compare-tray-path" type="hidden" value="/content/www/us/en/products/programmable/intellectual-property">
+    
+        
+        
+            
+            
+            
+        
+    
+    
+        
+        
+            
+        
+    
+
+    
+    <div class="compare-tray component hidden intel-brand-ux" data-component="compare-tray" data-component-id="1"
+         data-product-type="programmablesolutions">
+        <div class="tray-wrap">
+            <div class="tray-title">
+                <a class="btn btn-primary compare-btn" data-wap_type="compare">
+                    Compare
+                    <span class="num-count" data-max-items="4"></span>
+                </a>
+                <span class="toggle-area" data-wap_ref="open:compare-tray" tabindex="0"></span>
+            </div>
+            <div class="content-message">
+                <div class="max-item-error hidden compare-error-msg">
+                    <div class="text-left msg col-md-10">
+                        You may compare a maximum of four products at a time. Please remove one or more items before adding more.
+                    </div>
+                    <button class="btn btn-secondary col-md-2" data-wap_type="clear">
+                        Clear All
+                    </button>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="invalid-category-msg hidden compare-error-msg">
+                    <div class="text-left msg col-md-10">
+                        The item selected cannot be compared to the items already added to compare.                         Please select a comparable product or clear existing items before adding this product.
+                    </div>
+                    <button class="btn btn-secondary col-md-2" data-wap_type="clear">
+                        Clear All
+                    </button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="tray-content text-center">
+                <div class="content-wrap">
+                    
+                        <div class="compare-item empty">
+                            <a class="item-link">
+                                <figure class="blade-image">
+                                    <span class="resp-img-target" data-alt="badge"></span>
+                                </figure>
+                                <span class="item-label"></span>
+                            </a>
+                            <button class="btn btn-icon" title="remove" data-wap_ref="remove-product" ><span class="icon icon-remove-sm"></span>
+                            </button>
+                        </div>
+                    
+                        <div class="compare-item empty">
+                            <a class="item-link">
+                                <figure class="blade-image">
+                                    <span class="resp-img-target" data-alt="badge"></span>
+                                </figure>
+                                <span class="item-label"></span>
+                            </a>
+                            <button class="btn btn-icon" title="remove" data-wap_ref="remove-product" ><span class="icon icon-remove-sm"></span>
+                            </button>
+                        </div>
+                    
+                        <div class="compare-item empty">
+                            <a class="item-link">
+                                <figure class="blade-image">
+                                    <span class="resp-img-target" data-alt="badge"></span>
+                                </figure>
+                                <span class="item-label"></span>
+                            </a>
+                            <button class="btn btn-icon" title="remove" data-wap_ref="remove-product" ><span class="icon icon-remove-sm"></span>
+                            </button>
+                        </div>
+                    
+                        <div class="compare-item empty">
+                            <a class="item-link">
+                                <figure class="blade-image">
+                                    <span class="resp-img-target" data-alt="badge"></span>
+                                </figure>
+                                <span class="item-label"></span>
+                            </a>
+                            <button class="btn btn-icon" title="remove" data-wap_ref="remove-product" ><span class="icon icon-remove-sm"></span>
+                            </button>
+                        </div>
+                    
+                </div>
+                <span class="tray-actions hidden-sm hidden-md hidden-lg">
+                <a class="btn btn-primary mobile-btn" href="/content/www/us/en/products/compare-products.html/programmable" data-wap_type="compare">
+                    Compare
+                    <span class="num-count" data-max-items="4"></span>
+                </a>
+            </span>
+            </div>
+        </div>
+    </div>
+    
+
+
+<div class="checkPreload hidden"></div>
+
+
+
+
+    <div class="disclaimer parbase">
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+        
+        
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="global blade solid brand-lighter-gray theme-light-2 component" data-component-id="1"
+        data-component="footer" role="contentinfo" data-wap_type="wa_skip_track" id="skip-footer">
+    <div class="container">
+        <div class="content-footer">
+            <div class="content">
+                
+                    
+                        
+                            <ul class="footer-links">
+                                
+                                    <li>
+                                        <a href="/content/www/us/en/company-overview/company-overview.html">Company Information</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/content/www/us/en/corporate-responsibility/corporate-responsibility.html">Our Commitment</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/content/www/us/en/blogs-communities-social.html">Communities </a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="https://www.intc.com/investor-relations/default.aspx">Investor Relations</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/content/www/us/en/company-overview/contact-us.html">Contact Us</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="https://newsroom.intel.com/">Newsroom</a>
+                                    </li>
+                                
+                                    <li>
+                                        <a href="/content/www/us/en/jobs/jobs-at-intel.html"> Jobs</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                        
+                        
+                    
+                
+                    
+                        
+                        
+                            <ul class="footer-links social">
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <a href="https://www.facebook.com/Intel" target="" aria-label="Intel on Facebook" data-wap="{&quot;linktype&quot;:&quot;footersocial&quot;}">
+                                                    <i aria-hidden="true" class="fa-facebook"></i>
+                                                </a>
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <a href="https://twitter.com/intel" target="" aria-label="Intel on Twitter" data-wap="{&quot;linktype&quot;:&quot;footersocial&quot;}">
+                                                    <i aria-hidden="true" class="fa-twitter"></i>
+                                                </a>
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <a href="https://www.linkedin.com/company/intel-corporation" target="" aria-label="Intel on LinkedIn" data-wap="{&quot;linktype&quot;:&quot;footersocial&quot;}">
+                                                    <i aria-hidden="true" class="fa-linkedin"></i>
+                                                </a>
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <a href="https://www.youtube.com/user/channelintel?sub_confirmation=1" target="" aria-label="Intel on YouTube" data-wap="{&quot;linktype&quot;:&quot;footersocial&quot;}">
+                                                    <i aria-hidden="true" class="fa-youtube"></i>
+                                                </a>
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <a href="https://www.instagram.com/intel/" target="" aria-label="Intel on Instagram" data-wap="{&quot;linktype&quot;:&quot;footersocial&quot;}">
+                                                    <i aria-hidden="true" class="fa-instagram"></i>
+                                                </a>
+                                            
+                                        
+                                    </li>
+                                
+                            </ul>
+                        
+                        
+                    
+                
+                    
+                        
+                        
+                        
+                            <ul class="footer-links secondary-links" id="footerSecondaryLinks">
+                                
+                                    <li>
+                                        
+                                            
+                                            
+                                                <small>© Intel Corporation</small>
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/legal/terms-of-use.html">
+                                                    <small>Terms of Use</small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/legal/trademarks.html">
+                                                    <small>*Trademarks</small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/privacy/intel-privacy-notice.html">
+                                                    <small>Privacy</small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/privacy/intel-cookie-notice.html">
+                                                    <small>Cookies</small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/corporate-responsibility/statement-combating-modern-slavery.html">
+                                                    <small>Supply Chain Transparency </small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                                    <li>
+                                        
+                                            
+                                                <a href="/content/www/us/en/siteindex.html">
+                                                    <small>Site Map</small>
+                                                </a>
+                                            
+                                            
+                                        
+                                    </li>
+                                
+                            </ul>
+                        
+                    
+                
+            </div>
+            <div class="logo-container">
+                <a href="/content/www/us/en/homepage.html" class="footer-logo-rebrand" aria-label="Intel Footer Logo" title="Intel Footer Logo">
+                    <img src="/content/dam/logos/intel-footer-logo.svg" class="footer-logo-rebrand" alt="Intel Footer Logo" title="Intel Footer Logo">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+
+        </html>
+    
+

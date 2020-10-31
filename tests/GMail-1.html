@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<base href="https://www.maxum.com/Rumpus/" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="Sending mail from Rumpus using the most popular mail service on the planet..." />
+<meta name="keywords" content="Gmail,Event Notice,Rumpus,SMTP,settings,TLS,mail,e-mail" />
+
+<title>John's Blog: Sending Mail Through Gmail</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="styles/reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="styles/960.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="styles/screen.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="styles/jqueryslidemenu.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
+<!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="styles/ie6.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="styles/ie7.css" /><![endif]-->
+<script type="text/javascript" src="js/jquery-1.4.1.min.js"></script>
+<script type="text/javascript" src="js/jqueryslidemenu.js"></script>
+<style type="text/css">
+#backButton { float: left; position: absolute; font-size: 12px; font-weight: normal; text-align: center; margin-top: -12px; margin-left: -16px; }
+</style>
+</head>
+<body>
+
+<div id="header-wrap">
+  <div id="header" class="container_16 clearfix">
+    <div class="logo">
+      <h1><a href="/Rumpus/index.html" title="Rumpus" id="logo"></a></h1>
+      <h2 id="slogan">The Complete Internet File Transfer Solution<br><div style="font-size:16px;">For <div style="display:inline-block;color:#6F8799;">Mac</div> & <div style="display:inline-block;color:#6F8799;">Windows</div></h2>
+    </div>
+    <div id="topnav" class="jqueryslidemenu">
+      <ul>
+        <li><a class="home" href="/">Home</a></li>
+        <li><a class="navEffect">About Rumpus</a>
+          <ul>
+            <li><a href="/Rumpus/Overview.html">Overview</a></li>
+            <li><a href="/Rumpus/Benefits.html">Benefits</a></li>
+            <li><a href="/Rumpus/Tether.html">Rumpus Tether</a></li>
+            <li><a href="/Rumpus/Mobile.html">iPhone/iPad App</a></li>
+            <li><a href="/Rumpus/Pricing.html">Pricing</a></li>
+            <li><a href="/Rumpus/PartnerPage.html">Partners</a></li>
+            <li><a href="/Rumpus/Blog.html">John's Blog</a></li>
+		  </ul>
+		</li>
+        <li><a class="navEffect">Version 8.2</a>
+          <ul>
+            <li><a href="/Rumpus/WhatsNew.html">What's New</a></li>
+            <li><a href="/Rumpus/Upgrading.html">Upgrading</a></li>
+          </ul>
+        </li>
+        <li><a class="navEffect">FAQ</a>
+          <ul>
+            <li><a href="/Rumpus/FAQ-GetStarted.html">Getting Started</a></li>
+            <li><a href="/Rumpus/FAQ-PreSales.html">Pre-Sales</a></li>
+            <li><a href="/Rumpus/FAQ-FTP.html">FTP</a></li>
+            <li><a href="/Rumpus/FAQ-WFM.html">Web File Manager</a></li>
+		  </ul>
+		</li>
+        <li><a  class="navEffect">Support</a>
+          <ul>
+            <li><a href="/Rumpus/Support.html">Technical Support</a></li>
+            <li><a href="/Rumpus/GetConnected.html">Get Connected</a></li>
+            <li><a href="/Rumpus/MacDocs/">Documentation (Mac)</a></li>
+            <li><a href="/Rumpus/PCDocs/">Documentation (Win)</a></li>
+            <li><a href="https://www.maxum.com/Rumpus/PremiumSupport.html">Premium Support Contracts</a></li>
+          </ul>
+        </li>
+        <li><a class="navEffect" href="/Rumpus/Screencasts.html">Screencast Tutorials</a></li>
+        <li><a class="navEffect" href="/Rumpus/Download.html">Download Rumpus</a>
+        <li><a class="navEffect">Maxum</a>
+          <ul>
+            <li><a href="/Rumpus/AboutMaxum.html">About Maxum</a></li>
+            <li><a href="/Rumpus/Contact.html">Contact Us</a></li>
+          </ul>
+        </li>
+        <li><a class="navEffect" href="https://www.maxum.com/Rumpus/OrderRumpus.html">Order Rumpus</a></li>
+      </ul>
+      <br style="clear:left" />
+    </div>
+  </div>
+</div>
+
+<div id="contentTop"></div><div id="content-wrap"><div id="content" class="container_16 clearfix"><div id="contentLeft" class="grid_15">
+
+<div id="backButton"><a href="/Rumpus/Blog.html"><img src="Blog/Back.gif" /></a></div>
+
+<h1>John's Blog: Sending Mail Through Gmail</h1>
+
+<p>July 3, 2012</p>
+
+<p class="plainText"></p>
+
+<p class="plainText">Gmail is not only the most commonly used mail service on the Internet, it's also available to just about everyone, so it makes a great test service.  Whether you need to use Gmail as your primary mail service or just want to set up an easy test of Rumpus' mail sending capabilities, it's worthwhile to take a look at a sample setup.</p>
+
+<p class="plainText"><b>Update (April 2016)!</b> Google Mail recently made a change that effectively disables standard SMTP authentication. Log into your Gmail account and make sure "Allow Less Secure Apps” is enabled, which re-enables standard mail suthentication.  Google "Gmail Allow Less Secure Apps” for details.</p>
+
+<p class="plainText">There are really only two special details to make note of when setting up for Gmail mail service.  First, Gmail requires that all SMTP messages are sent using TLS encryption, so be sure that option is enabled in Rumpus.  Second, the preferred SMTP port for Gmail is 587.  (This is pretty common for SMTP servers in general.)</p>
+
+<p class="plainText">Here's an example setup, as configured on the Network Settings window in Rumpus:</p>
+
+<center><p class="plainText"><img src="Blog/GMailSettings.png"></p></center>
+
+<p class="plainText">For standard Gmail accounts, the "Server Address", "Port", "Use TLS" and "Use Extended Greeting" options will be configured exactly as shown above.  In all cases, you'll need to enter "Username", "Password" and "Administrator E-Mail" values that are specific to your Gmail account.  For initial testing, at least, be sure to set both the "Username" and "Administrator E-Mail" fields to the full Gmail address.  And of course, the "Password" field will need to be set to that account's Gmail password.</p>
+
+<p class="plainText">The "Send A Test Message" button is really handy, and its result window is very accurate.  If the test result indicates that the mail was successfully sent, you can be sure that it was.  If the message fails to come through, check your spam filter and you'll almost certainly find it.  If an error is indicated, read the message carefully... It almost always specifically identifies the problem.</p>
+
+<p class="plainText">When you create new Event Notices, the E-Mail settings defined on the Network Settings window will be used as default values, making notice creation easy.  Notice that the Event Notices window offers similar SMTP options, but lacks the "Port" and "Use TLS" options.  The "Use TLS" option automatically applies to all Event Notices.  The SMTP port is appended to the Server Name, separated by a colon, as in "smtp.gmail.com:587".  But again, since Rumpus applies the SMTP options as defaults for new Event Notices, you shouldn't need to worry about those details, as they'll automatically be set correctly when you create a new notice.</p>
+
+<p class="plainText">As always, if you have trouble, send mail to <a href="mailto:support@maxum.com">support@maxum.com</a>.  Be sure to include details, especially the entire test e-mail result message, which is always the best way to diagnose mail problems.</p>
+
+</div></div></div>
+
+<div id="footer-wrap">
+
+  <div id="footer" class="container_16 clearfix"> </div>
+
+</div>
+
+<div id="bottom-wrap">
+
+  <div id="bottom" class="container_16 clearfix">
+
+    <p>&copy; Copyright 2019, Maxum Development Corp.</p>
+
+  </div>
+
+</div>
+
+<script type='text/javascript'>
+
+$("#searchImput").focus(function() {
+
+	if( this.value == this.defaultValue ) {
+
+		this.value = "";
+
+	}
+
+}).blur(function() {
+
+	if( !this.value.length ) {
+
+		this.value = this.defaultValue;
+
+	}
+
+});
+
+</script>
+
+
+<div id="VidPlayer" class="ModalBG" style="visibility: hidden;"><div class="ModalDialog" width="880" height="680">
+	<div class="closeButton"><a href="javascript:CloseVid();"><img src="VidClose.png"></a></div>
+	<div class="BoxContent">
+		<div id="Video"></div>
+	</div>
+</div></div>
+
+</body>
+</html>
