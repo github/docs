@@ -1,0 +1,1781 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE HTML>
+
+
+<html id="intel_fpga" class="en_us" data-region="en_us">
+<head>
+  
+<title>Intel FPGA Training - Intel&reg; FPGA Technical Training Partners</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8; IE=9; IE=10; IE=11">
+  <meta name="description" content="The Intel&reg; FPGA Training Partner Program enables engineers worldwide to receive high-quality training on Intel FPGA products. ">
+  <meta name="date" content="2020-05-10">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="X-Server" content="PRD4-03">
+  
+<title>Intel&reg; FPGA Technical Training Partners</title>
+
+  <link rel="stylesheet" href="/etc/clientlibs/psg/core/granite/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="/etc/clientlibs/altera-www/global/custom-bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="/etc/clientlibs/altera-www/global.min.css" type="text/css">
+<script type="text/javascript" src="/etc/clientlibs/psg/core/granite/jquery.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/psg/core/granite/utils.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/psg/core/granite/jquery/granite.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/psg/core/foundation/jquery.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/psg/core/granite/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/psg/core/foundation/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/altera-www/global/custom-bootstrap.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/altera-www/global.min.js"></script>
+<link rel="stylesheet" href="/etc/clientlibs/altera-www/fonts/default.min.css" type="text/css">
+<link rel="stylesheet" href="/etc/clientlibs/altera-www/components.min.css" type="text/css">
+<link rel="stylesheet" href="/etc/clientlibs/altera-www/comps.min.css" type="text/css">
+<!-- Tealium Tagging + target -->
+    <script type="text/javascript">
+      var wapLocalCode = 'us-en';
+      var wapSection = "altera";
+    </script>
+    <script type="text/javascript" src="https://www.intel.com/content/dam/www/global/wap/wap-altera.js"></script>
+<!--IGHF (Performance tweaks for Mobile and Slow connections)-->  
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="https://www.intel.com" pr="1.0">
+<link rel="dns-prefetch" href="https://www.google-analytics.com" pr="1.0">
+<link rel="preconnect" href="https://www.intel.com" crossorigin="anonymous" pr="1.0">
+<link rel="preconnect" href="https://www.google-analytics.com" crossorigin="anonymous" pr="1.0"> 
+<!--/IGHF-->
+	
+    <!--IGHF Loader-->
+<!--[if le IE 9]>
+<script type="text/javascript" src="https://www.intel.com/ighf/50recode.2/js/headerchooser.js" ASYNC DEFER></script>
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<script type="text/javascript" src="https://www.intel.com/ighf/50recode.2/js/headerchooser.js" ASYNC></script>
+<!--<![endif]-->
+<script>INTELNAV = window.INTELNAV || {};INTELNAV.renderSettings={version:"2.0 - 03/12/2017 08:00:00",textDirection:"--",culture:"--",OutputId:"--"};</script>
+<!--/IGHF Loader--></head>
+
+<body>
+<script type="text/javascript" src="/content/dam/altera-www/global/en_US/scripts/js/survey/onsite.js"></script>
+<script type="text/javascript">
+      INTELNAV.dashboard = {
+        languageSelector: {
+          settings: {
+            behavior: "mineOnly",
+            method: "path",
+            regex: /\/content\/www\/\w{2}\/\w{2}/
+          },
+          geos: [
+            { geo: "en_us", path: "/content/www/us/en" },
+            { geo: "zh_cn", path: "/content/www/cn/zh" },
+            { geo: "ja_jp", path: "/content/www/jp/ja" }
+          ]
+        }
+      };
+    </script>
+    <!--googleoff:all-->
+    <!--IGHF Header-->
+<!--GAATversion='50recode.2' date='10/02/2017 08:00:00' Version='2.0':CharacterEncoding:utf8--> 
+<div id="recode50header"></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+INTELNAV = window.INTELNAV || {};INTELNAV.renderSettings={version:"2.0 - 10/02/2017 08:00:00",textDirection:"ltr",culture:"en_US",OutputId:"default"};
+/*]]>*/</script>
+<noscript><link rel="stylesheet" href="https://www.intel.com/ighf/50recode.2/css/ltr_nojsheader.css" type="text/css"><div id="smallfootprint-header"><a href="https://www.intel.com/content/www/us/en/homepage.html" class="gaat40-logo" title="Logo - Intel"></a><form method="get" id="user-bar-searchbox-form" name="user-bar-searchbox-form" action="https://www.intel.com/content/www/us/en/search.html"><input id="toplevelcategory" name="toplevelcategory" type="hidden" value="none" tabindex="0"><input id="query" name="query" type="hidden" value="" tabindex="0"><fieldset><legend></legend><label for="input-search">Search</label><input type="text" id="input-search" name="keyword" tabindex="0" autocomplete="off" /><input type="submit" id="input-submit" name="input-submit" value="Search" /></fieldset></form></div></noscript>
+<!--/IGHF Header-->
+    <!--googleon:all--><div class="main-wrapper" id="page_generic_tabbed"> <nav class="breadcrumbs-container">
+  <div class="breadcrumbs container breadcrumb"><a class="breadcrumb-links" href="/content/altera-www/global/en_us/index.html" onclick="CQ_Analytics.record({event:'followBreadcrumb',values: { breadcrumbPath: '/content/altera-www/global/en_us/index.html' },collect: false,options: { obj: this },componentPath: 'altera-www/components/included/breadcrumb'})">Intel® FPGAs and Programmable Devices</a>
+<span class="breadcrumb-arrow">/</span>
+<span class="title">Partners</span>
+</div>
+</nav>
+
+<div class="top-ipar iparsys parsys"><div class="iparys_inherited"><div class="top-ipar iparsys parsys"></div>
+</div><header class="title section">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="gradient-title large">
+	
+	
+
+
+
+
+	
+	<div class="title-content-wrapper center-align">
+		
+		
+		<div class="text-container">
+		    
+		    
+		        <h1 class="page-title  headline-title">Intel® FPGA Technical Training Partners</h1>
+		    
+
+		    
+		        
+				
+		    
+		</div>
+	</div>
+</div>
+</header>
+
+</div>
+<div class="link-bar-container">
+<div class="link-bar container"><ul class="no-bullets link-bar-nav">
+	<li class='link-bar-item'><a class='link-bar-url' target='_self' href="/content/www/us/en/programmable/support/training/whats-new.html" null>What's New</a>
+      </li><li class='link-bar-item'><a class='link-bar-url' target='_self' href="/content/www/us/en/programmable/support/training/overview.html" null>Overview</a>
+      </li><li class='link-bar-item'><a class='link-bar-url' target='_self' href="/content/www/us/en/programmable/support/training/curricula.html" null>Curricula</a>
+      </li><li class='link-bar-item'><a class='link-bar-url' target='_self' href="/content/www/us/en/programmable/support/training/catalog.html" null>Catalog</a>
+      </li><li class='link-bar-item'><a class='link-bar-url' target='_self' href="/content/www/us/en/programmable/support/training/schedule.html" null>Schedule</a>
+      </li><li class="link-bar-item active"><a class='link-bar-url'>Partners</a>
+      </li></ul>
+</div>
+</div>
+
+<div class="main-content"><!--  start of main-content -->
+  <div class="content-body-par parsys">
+
+
+<div class="text-media parbase">
+
+
+
+<div class=" theme-white theme-dark-text">
+	<div class="container -container">
+		<div class="txt-media-wrapper top-padding bottom-padding  row section-content multimedia-on-left   text-media-text-only">
+			
+
+
+
+
+
+    <section class='text-media-item txt-media-content-wrapper-left text-media-content article-section col-md-12  '>
+        
+
+
+
+
+
+        <div class="txt-multimedia-content">
+        <p>  </p>
+
+</div>
+        
+
+
+    </section>
+
+		</div>
+		
+	</div>
+</div></div>
+<div class="text-media parbase">
+
+
+
+<div class=" theme-white theme-dark-text">
+	<div class="container -container">
+		<div class="txt-media-wrapper top-padding bottom-padding  row section-content multimedia-on-left   text-media-text-only">
+			
+
+
+
+
+
+    <section class='text-media-item txt-media-content-wrapper-left text-media-content article-section col-md-12  '>
+        
+
+
+
+
+
+        <div class="txt-multimedia-content">
+        <p>The Intel® FPGA Training Partner Program enables engineers worldwide to receive high-quality training on Intel FPGA products. Intel FPGA Technical Training works closely with select companies who are designated members of the program.  These companies receive information regularly from Intel FPGA Technical Training to ensure they have the tools to teach the latest technologies. Please click on the links below for details.</p>
+
+</div>
+        
+
+
+    </section>
+
+		</div>
+		
+	</div>
+</div></div>
+<div class="table parbase"><div class="altera-table container">
+<div class="table-wrapper top-padding bottom-padding">
+        <div class="table-content table-responsive " id="comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485">
+        <input type="hidden" id="keywords_text" value="" />
+
+
+            <table cellspacing="0" cellpadding="0">
+<colgroup><col> <col> <col> <col> </colgroup><tbody><tr><th scope="row">Geography</th>
+<th>Country Where Instructor-led Training is Provided</th>
+<th>Training Partner</th>
+<th>Contact Information</th>
+</tr><tr><td>Africa or the Middle East</td>
+<td>Israel</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/" target="_blank">http://www.doulos.com</a></td>
+</tr><tr><td>Africa or the Middle East</td>
+<td>Israel</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com" target="_blank">http://www.HandsOn-Training.co</a></td>
+</tr><tr><td>Africa or the Middle East</td>
+<td>Nigeria</td>
+<td><a href="http://www.fasmicro.com/training">First Atlantic Semiconductors &amp; Microelectronics (Fasmicro)</a></td>
+<td>124a Okigwe Road (1st Floor)<br>
+Opp Water Board<br>
+Owerri, Imo State, Nigeria<br>
+Twitter: @fasmicro @tekedia<br>
+Tel: 23483823195<br>
+Email: <a href="mailto:info@fasmicro.com">info@fasmicro.com</a><br>
+<a href="http://www.fasmicro.com">http://www.fasmicro.com</a></td>
+</tr><tr><td>Africa or the Middle East</td>
+<td>South Africa</td>
+<td><a href="http://www.parsec.co.za/fpga.php">Parsec</a></td>
+<td>Building 10,<br>
+Manhattan Office Park<br>
+16 Pieter Street, Highveld Technopark<br>
+Centurion 0157<br>
+South Africa<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+27 12 678 9740<a title="Call: +27 12 678 9740" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +27 12 678 9740" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@parsec.co.za">info@parsec.co.za</a><br>
+<a href="http://www.parsec.co.za">http://www.parsec.co.za</a></td>
+</tr><tr><td>Asia</td>
+<td>Belarus</td>
+<td><a href="http://iu3.bmstu.ru/altera/">Bauman Moscow State Technical University</a></td>
+<td>Bauman MSTU, IU3 department<br>
+2nd Baumanskaya Street, 5<br>
+105005 Moscow<br>
+Russia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+7 499 263 6286<a title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:altera@bmstu.ru">altera@bmstu.ru</a><br>
+<a href="http://iu3.bmstu.ru">http://iu3.bmstu.ru</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Beijing Representative Offices<br>
+Arrow Electronics Distribution (Shanghai) Co. Ltd - Beijing Office<br>
+Room 902, Tower A, Capital Group Plaza,<br>
+6 Chaoyangmen Beidajie,<br>
+Beijing, 100027, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 10 8528 2030<a title="Call: +86 10 8528 2030" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 10 8528 2030" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sijun.geng@arrowasia.com">sijun.geng@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Tianjin Representative Offices<br>
+Arrow Electronics China Ltd.<br>
+Unit 1204, 12/F, The Exchange 189 Nanjing Road,<br>
+Heping District,<br>
+Tianjin, 300051, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 22 8319 1526<a title="Call: +86 22 8319 1526" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 22 8319 1526" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sijun.geng@arrowasia.com">sijun.geng@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Wuhan<br>
+Wuhan Representative Offices<br>
+Arrow Electronics Distribution (Shanghai) Co. Ltd.<br>
+Room A2002, Zhongshang Plaza,<br>
+No.7, Zhongnan Rd, Wuchang, Wuhan,<br>
+Hubei, 430071, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 27 5980 5281<a title="Call: +86 27 5980 5281" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 27 5980 5281" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sijun.geng@arrowasia.com">sijun.geng@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Chengdu Representative Offices<br>
+Arrow Electronics China Ltd.<br>
+Wing C, 16/F, Citytower, No. 86,<br>
+Part 1 Renmin Nan Road,<br>
+Chengdu 610016, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 28 8620 3226<a title="Call: +86 28 8620 3226" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 28 8620 3226" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:yang.hu@arrowasia.com">yang.hu@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Chongqing Liaison Office<br>
+Arrow Electronics Distribution (Shanghai) Co., Ltd.<br>
+Room 906, Wanyou Conifer Hotel,<br>
+77 Changjiang 2nd road, Daping,<br>
+Yuzhong District, Chongqing, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 23 6877 0466<a title="Call: +86 23 6877 0466" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 23 6877 0466" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:yang.hu@arrowasia.com">yang.hu@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Guangzhou Representative Offices<br>
+Arrow Electronics Distribution (Shanghai) Co. Ltd.<br>
+Room 1807, East Tower, Yang Cheng International Comercial Center,<br>
+No. 122, TiYuDong Rd, TianHe,<br>
+Guangzhou, 510620, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 20 3887 1735<a title="Call: +86 20 3887 1735" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 20 3887 1735" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> / <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 20 3887 173<a title="Call: +86 20 3887 173" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 20 3887 173" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:yang.hu@arrowasia.com">yang.hu@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Hangzhou Representative Offices<br>
+Arrow Electronics Distribution (Shanghai) Co. Ltd.<br>
+Room 702, Tower D, World Trade Center,<br>
+No.15 Shuguang Road,<br>
+Hangzhou, 310007, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 571 8763 1324<a title="Call: +86 571 8763 1324" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 571 8763 1324" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> / <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 571 8763 2465<a title="Call: +86 571 8763 2465" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 571 8763 2465" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sunflow.zhao@arrowasia.com">sunflow.zhao@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Nanjing Representative Offices<br>
+HK Arrow Electronics China Co. Ltd.<br>
+Room 3401 &amp; 3408, Tower A, New Century Plaza,<br>
+No.1 South Taiping Road,<br>
+Nanjing, 210001, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 25 8454 7458<a title="Call: +86 25 8454 7458" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 25 8454 7458" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sunflow.zhao@arrowasia.com">sunflow.zhao@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Qingdao Representative Offices<br>
+Arrow Electronics China Ltd.<br>
+Room B210, Fullhope Plaza,<br>
+12 Hong Kong Central Road,<br>
+Qingdao, 266071, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 532 8502 6916<a title="Call: +86 532 8502 6916" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 532 8502 6916" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sijun.geng@arrowasia.com">sijun.geng@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Shanghai Representative Offices<br>
+Arrow Electronics Distribution (Shanghai) Co. Ltd<br>
+6/F, Building 1, Zhangjiang River Front Harbor,<br>
+3000 Long Dong Avenue,<br>
+Shanghai, 201203, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 21 2893 2000<a title="Call: +86 21 2893 2000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 21 2893 2000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sunflow.zhao@arrowasia.com">sunflow.zhao@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Shenyang Representative Offices<br>
+Arrow Electronics China Ltd.<br>
+Room 1001, Tower 1, City Plaza Shenyang,<br>
+No.206, North Nanjing Street,<br>
+Heping District, Shenyang City,<br>
+Liaoning Provinc, 110001, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 24 2334 1176<a title="Call: +86 24 2334 1176" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 24 2334 1176" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sijun.geng@arrowasia.com">sijun.geng@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Asia Pac Ltd.</a></td>
+<td>Shenzhen Representative Offices<br>
+Arrow Electronics China Ltd.<br>
+No 2, 3/F, Changpin, Honghua Road,<br>
+99 Futian Free Trade Zone,<br>
+Shenzhen, 518038, PRC<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 755 8836 7918<a title="Call: +86 755 8836 7918" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 755 8836 7918" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:yang.hu@arrowasia.com">yang.hu@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.farsight.com.cn/">Beijing Farsight Technology &amp; Information Limited Corporation</a></td>
+<td>Room 310, Yingu Mansion, Haidian District<br>
+Beijing<br>
+P.R. China<br>
+Tel: 010-82600151<br>
+Email: <a href="mailto:jjf@farsight.com.cn">jjf@farsight.com.cn</a><br>
+<a href="http://www.farsight.com.cn">http://www.farsight.com.cn</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Shenzhen<br>
+Room 702A-B, Han Tang Building,<br>
+Oversea Chinese Town, Shenzhen<br>
+China 518040<br>
+Tel: (86755) 2693 5811<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Guangzhou<br>
+Room 3017, R&amp;F Ying Long Plaza, No.76,<br>
+Huangpu Road West, Tianhe District,<br>
+Guangzhou, China 510623<br>
+Tel: (8620) 3839 3844<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Nanjing<br>
+D1, 10/F., Huang-Pu Bldg,<br>
+No. 2 Huang Pu Rd., Nanjing, China<br>
+210016<br>
+Tel: (8625) 8481 0877<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Shanghai<br>
+Unit D &amp; E1, 10/F., Zao-Fong Universe Bldg,<br>
+No. 1800 Zhong Shan West Rd., Shanghai,<br>
+China 200235<br>
+Tel: (8621) 6440 1373<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Wuhan<br>
+Rm 7001, Joint-International Estate,<br>
+Youkeyuan Road, Wujiawan Road,<br>
+Hongshan District, Wuhan, China<br>
+430079<br>
+Tel: (8627) 8756 8665; 8756 8487; 8756 8546<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd</a></td>
+<td>Xi'an<br>
+Room 303, Yong An Building, No.9,<br>
+West Section Nan er Huan Road, Xi'an,<br>
+China 710068<br>
+Tel: (8629) 8836 2820 , 8837 8918<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd&nbsp;</a></td>
+<td>Beijing<br>
+Room 501, Ideal Plaza, No.58 West Road,<br>
+The 4th Ring Road, Haidian District,<br>
+Beijing, China 100080<br>
+Tel: (8610) 8260 7990<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd&nbsp;</a></td>
+<td>Chengdu<br>
+Room 26H, First City Plaza, 308#,<br>
+Shuncheng Street, Chengdu City,<br>
+China 610017<br>
+Tel: (8628) 8652 7116, 8652 7226, 8652 7336<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd&nbsp;</a></td>
+<td>Hangzhou<br>
+Rm 6010, Wu Shan Ming Building,<br>
+No. 9 Yan An South Rd, Hangzhou,<br>
+China 310012<br>
+Tel: (86571) 8755 2869<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.cytech.com/">Cytech Technology Ltd&nbsp;</a></td>
+<td>Xiamen<br>
+Room 0231, Bingo Business Centre,<br>
+No.57, Hubin Bei Road, Xiamen, China<br>
+361012<br>
+Tel: (86592) 2681022<br>
+Email: <a href="mailto:enquiry@cytech.com">enquiry@cytech.com</a><br>
+<a href="http://www.cytech.com">http://www.cytech.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="https://www.intel.cn/content/www/cn/zh/programmable/support/training/overview.html">Intel FPGA Technical Training China</a></td>
+<td><p>301 Changxing Building,</p>
+<p>888# Bi Bo Road Pudong,</p>
+<p>Shanghai, China</p>
+<p>Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 21 61461700<a title="Call: +86 21 61461700" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 21 61461700" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email:&nbsp;<a href="mailto:grp_apfpgatraining@intel.com">grp_apfpgatraining@intel.com</a></p>
+<p><a href="https://www.altera.com.cn/support/training/overview.html">https://www.altera.com.cn/support/training/overview.html</a></p>
+</td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.zxopen.com/fpga_cj.html">SuperCoreLink Micro Technology Co., Ltd&nbsp;</a></td>
+<td>Room 330, Beijing JiangShanfu Building, 8,AnFu Road, ShunYi District, Beijing, P.R. China<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 10 62670708<a title="Call: +86 10 62670708" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 10 62670708" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:tr@zxopen.com">tr@zxopen.com</a><br>
+<a href="http://www.zxopen.com">http://www.zxopen.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://attp.terasic.com/">Terasic Technologies</a></td>
+<td>406, Jingfeng Building (B),<br>
+International Business Center,<br>
+The Special No. 1,<br>
+GuangGu Road, Wuhan,<br>
+China. Postal Code: 430074<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+86 27 8774 5390<a title="Call: +86 27 8774 5390" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +86 27 8774 5390" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:support@terasic.com">support@terasic.com</a><br>
+<a href="http://www.terasic.com">http://www.terasic.com</a></td>
+</tr><tr><td>Asia</td>
+<td>China</td>
+<td><a href="http://www.zhiqingsys.com/EN/index.html">ZhiQing Information System (Shanghai) Co. Ltd.</a></td>
+<td>No. 304, Building 19,<br>
+498, Guoshoujing Road, ZhangJiang<br>
+High-tech Park, Shanghai, P.R.C<br>
+Tel: 021-50786676<br>
+Email: <a href="mailto:feng_huang75@163.com">feng_huang75@163.com</a><br>
+<a href="http://www.zhiqingsys.com/EN/index.html">http://www.zhiqingsys.com/EN/index.html</a></td>
+</tr><tr><td>Asia</td>
+<td>India</td>
+<td><a href="http://www.calligotech.com/">Calligo Technologies Pvt. Ltd</a></td>
+<td><p>Calligo Technologies Pvt. Ltd</p>
+<p>#55/C, First floor, 40th&nbsp;Cross,&nbsp;</p>
+<p>8th&nbsp;Block, Jayanagar</p>
+<p>Bangalore – 560070</p>
+<p>India</p>
+<p>Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+91-80-26542726<a title="Call: +91-80-26542726" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +91-80-26542726" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span>,&nbsp;26542736</p>
+<p>Email:&nbsp;<a href="mailto:training@calligotech.com">training@calligotech.com</a></p>
+<p><a href="http://www.calligotech.com/">www.calligotech.com</a>&nbsp;&nbsp;</p>
+</td>
+</tr><tr><td>Asia</td>
+<td>India</td>
+<td><a href="http://www.dexceldesigns.com/project/corporatetraining/">Dexcel Electronics Designs Pvt. Ltd.&nbsp;</a></td>
+<td>Level 3, Maruthi Towers ,<br>
+# 138 Airport Road, Kodihalli<br>
+Bangalore 560 008<br>
+Tel:&nbsp;+91 80 41914921/22<br>
+Email: <a href="mailto:training@dexceldesigns.com">training@dexceldesigns.com</a><br>
+<a href="http://www.dexceldesigns.com/project/corporatetraining/">http://www.dexceldesigns.com/project/corporatetraining/</a></td>
+</tr><tr><td>Asia</td>
+<td>India</td>
+<td><a href="http://www.rv-vlsi.com">RV-VLSI &amp; Embedded Systems Design Center</a></td>
+<td><p>RV-VLSI &amp; Embedded Systems Design Center</p>
+<p>CA17- 26th Main Road, 36th cross Road</p>
+<p>Jayanagar 4th T Block</p>
+<p>Bangalore 560041</p>
+<p>Tel.: 080-40788574, +917899617941, +917899617936</p>
+<p>Email:&nbsp;<a href="mailto:info@rv-vlsi.com">info@rv-vlsi.com</a></p>
+<p><a href="http://www.rv-vlsi.com">www.rv-vlsi.com</a></p>
+</td>
+</tr><tr><td>Asia</td>
+<td>Kazakhstan</td>
+<td><a href="http://iu3.bmstu.ru/altera/">Bauman Moscow State Technical University</a></td>
+<td>Bauman MSTU, IU3 department<br>
+2nd Baumanskaya Street, 5<br>
+105005 Moscow<br>
+Russia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+7 499 263 6286<a title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:altera@bmstu.ru">altera@bmstu.ru</a><br>
+<a href="http://iu3.bmstu.ru">http://iu3.bmstu.ru</a></td>
+</tr><tr><td>Asia</td>
+<td>Korea</td>
+<td><a href="http://www.mdsacademy.com/">Hancommds</a></td>
+<td><p>Hancommds Academy(Pangyo): 235, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do</p>
+<p>Hancommds Academy(Guro): 306, Digital-ro, Guro-gu, Seoul</p>
+<p>Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+82-31-737-7924<a title="Call: +82-31-737-7924" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +82-31-737-7924" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span></p>
+<p>Fax: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+82-31-737-7910<a title="Call: +82-31-737-7910" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +82-31-737-7910" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span></p>
+<p>Email:&nbsp;<a href="mailto:heewook@hancommds.com">heewook@hancommds.com</a><br>
+http://<a href="http://www.mdsacademy.co.kr/">www.mdsacademy.co.kr</a></p>
+</td>
+</tr><tr><td>Asia</td>
+<td>Korea</td>
+<td><a href="http://www.uniquest.co.kr/04/04_05.htm">Uniquest Corporation</a></td>
+<td>Uniquest Building 271-2 Seohyeon-dong,<br>
+Bundang-gu, Sungnam-si,<br>
+Gyeonggi-do,<br>
+Korea, 463-824<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+82 31 776 9863<a title="Call: +82 31 776 9863" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +82 31 776 9863" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:contact@uniquest.co.kr">contact@uniquest.co.kr</a><br>
+<a href="http://www.uniquest.co.kr">http://www.uniquest.co.kr</a></td>
+</tr><tr><td>Asia</td>
+<td>Malaysia</td>
+<td><a href="http://www.cytechglobal.com/">Cytech Global Pte Ltd</a></td>
+<td>Cytech Global Pte Ltd<br>
+Suite 13.05 &amp; 13.06, 13th floor, MWE Plaza, No:8, Lebuh Farquhar, 10200, Penang, Malaysia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+604 2618200<a title="Call: +604 2618200" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +604 2618200" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:cyg_enquiry@cytech.com">cyg_enquiry@cytech.com</a><br>
+<a href="http://www.cytechglobal.com/">http://www.cytechglobal.com/</a></td>
+</tr><tr><td>Asia</td>
+<td>Malaysia</td>
+<td><a href="http://dreamcatcher.asia/">Dream Catcher Consulting Sdn Bhd</a></td>
+<td>303-5-5 &amp; 303-5-6<br>
+Block B<br>
+Krystal Point<br>
+Jln Sultan Azlan Shah<br>
+11900 Sg Nibong<br>
+Penang, Malaysia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+604 640 7111<a title="Call: +604 640 7111" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +604 640 7111" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> / 7112<br>
+Email: <a href="mailto:enquiry@dreamcatcher.asia">enquiry@dreamcatcher.asia</a><br>
+<a href="http://dreamcatcher.asia">http://dreamcatcher.asia</a></td>
+</tr><tr><td>Asia</td>
+<td>Malaysia</td>
+<td><a href="http://www.elvirasys.com/main/3133/index.asp?pageid=164910&amp;t=training">Elvira Systems Sdn Bhd</a></td>
+<td>6th Floor Suite 16, IOI Business Park,<br>
+Persiaran Puchong Jaya Selatan,<br>
+Bandar Puchong Jaya,<br>
+47100 Selangor, Malaysia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+603-8064 4190<a title="Call: +603-8064 4190" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +603-8064 4190" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elvirasys.com">info@elvirasys.com</a>&nbsp; &nbsp;<br>
+<a href="http://www.elvirasys.com">http://www.elvirasys.com</a></td>
+</tr><tr><td>Asia</td>
+<td>Singapore</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Electronics (S) Pte Ltd.</a></td>
+<td>Singapore offices<br>
+Arrow Electronics (S) Pte Ltd.<br>
+750E Chai Chee Road,<br>
+#07-01/02,<br>
+Technopark@Chai Chee<br>
+Singapore 469005<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+65 6559 8388<a title="Call: +65 6559 8388" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +65 6559 8388" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sales.singapore@arrowasia.com">sales.singapore@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>Singapore</td>
+<td><a href="http://www.cytechglobal.com/">Cytech Global Pte Ltd</a></td>
+<td>Cytech Global Pte Ltd<br>
+19 Tai Seng Avenue, #03-01,<br>
+Singapore 534054<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+65 6396 0200<a title="Call: +65 6396 0200" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +65 6396 0200" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:cyg_enquiry@cytech.com">cyg_enquiry@cytech.com</a><br>
+<a href="http://www.cytechglobal.com/">http://www.cytechglobal.com/</a></td>
+</tr><tr><td>Asia</td>
+<td>Taiwan</td>
+<td><a href="http://www.arrowasia.com.hk/public/MAR/UEVN/?version=en">Arrow Electronics Taiwan Ltd.</a></td>
+<td>17/F, No. 150 Jian-yi Road,<br>
+Chung-ho City, Taipei 23511,<br>
+Taiwan, R.O.C.<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+886 2 7722 5168<a title="Call: +886 2 7722 5168" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +886 2 7722 5168" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:sales.taiwan@arrowasia.com">sales.taiwan@arrowasia.com</a><br>
+<a href="http://www.arrowasia.com">http://www.arrowasia.com</a></td>
+</tr><tr><td>Asia</td>
+<td>Taiwan</td>
+<td><a href="http://www.gfec.com.tw/">Macnica Galaxy Inc.</a></td>
+<td><p>14F, 207-5, Sec3, Peihsin Road<br>
+Hsintien Dist.,<br>
+New Taipei, 231, Taiwan, R.O.C.<br>
+Tel: 886 2 8913-2200 Ext. 1305<br>
+Email: <a href="mailto:doug.lee@macnica.com">doug.lee@macnica.com</a></p>
+<p><a href="http://www.gfec.com.tw">http://www.gfec.com.tw</a></p>
+</td>
+</tr><tr><td>Asia</td>
+<td>Taiwan</td>
+<td><a href="http://attp.terasic.com/">Terasic Technologies</a></td>
+<td>No. 356, Sec. 1, Fusing E Road<br>
+Jhubei City, HsinChu County.<br>
+Taiwan. 302<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+886 3 550 8800<a title="Call: +886 3 550 8800" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +886 3 550 8800" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:support@terasic.com">support@terasic.com</a><br>
+<a href="http://www.terasic.com">http://www.terasic.com</a></td>
+</tr><tr><td>Asia</td>
+<td>Thailand</td>
+<td><a href="http://dreamcatcher.asia/">Dream Catcher Consulting Co, Ltd</a></td>
+<td>802/305 River Park, Soi 11<br>
+Phaholyothin Road<br>
+Kukot, Lumlukka<br>
+Pathumthani 12130<br>
+Thailand<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+668 1825 191<a title="Call: +668 1825 191" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +668 1825 191" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:enquiry@dreamcatcher.asia">enquiry@dreamcatcher.asia</a><br>
+<a href="http://dreamcatcher.asia">http://dreamcatcher.asia</a></td>
+</tr><tr><td>Europe</td>
+<td>Austria</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Garbsener Landstr. 10<br>
+30419 Hannover<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 (0)511 277 1349<a title="Call: +49 (0)511 277 1349" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 (0)511 277 1349" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info.de@doulos.com">info.de@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Austria</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: i<a href="mailto:nfo@elca.de">nfo@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Austria</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Austria</td>
+<td><a href="http://www.ifi-pld.de/Workshops/workshops.html">Ingenieurbüro für IC-Technologie (IFI)</a></td>
+<td>F. Sprenger<br>
+Kleiner Weg 3<br>
+97877 Wertheim<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 9342 9608 0<a title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ifi@ifi-pld.de">ifi@ifi-pld.de</a><br>
+<a href="http://www.ifi-pld.de/">http://www.ifi-pld.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Belgium</td>
+<td><a href="http://www.alse-fr.com/training_courses.php">ALSE</a></td>
+<td>8 Passage Barrault<br>
+75013 Paris - France<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+33 1 84 16 32 32<a title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@alse-fr.com">info@alse-fr.com</a><br>
+<a href="http://www.alse-fr.com/">http://www.alse-fr.com/</a></td>
+</tr><tr><td>Europe</td>
+<td>Belgium</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Belgium</td>
+<td><a href="http://www.transferdsw.nl/">Transfer DSW B.V.</a></td>
+<td>Transfer DSW B.V.<br>
+Goorseweg 5<br>
+7475 BB Markelo<br>
+The&nbsp;Netherlands<br>
+Tel: +31(0)547 -&nbsp;700216<br>
+Email:&nbsp;<a href="mailto:training@transfer.nl">training@transferdsw.nl</a><br>
+<a href="http://www.transfer.nl">http://www.transferdsw.nl</a></td>
+</tr><tr><td>Europe</td>
+<td>Czech Republic</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Denmark</td>
+<td><a href="http://www.agstu.se/">Agstu AB</a></td>
+<td>Dragverksgatan 138,<br>
+S-724 74, Västerås,<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 (0)70 66 89 517<a title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@agstu.com">info@agstu.com</a><br>
+<a href="http://www.agstu.se/">http://www.agstu.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Denmark</td>
+<td><a href="http://www.axcon.dk/training/">Axcon ApS</a></td>
+<td>Diplomvej 381<br>
+DK-2800 Lyngby<br>
+Denmark<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+45 4822 9266<a title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@axcon.dk">info@axcon.dk</a><br>
+<a href="http://www.axcon.dk">http://www.axcon.dk</a></td>
+</tr><tr><td>Europe</td>
+<td>Denmark</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Denmark</td>
+<td><a href="http://www.realfast.se/rfe/altera.shtml">RealFast Education AB</a></td>
+<td>Kopparbegsvagen 8<br>
+S-724 81 Vasteras<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 0 7049 16571<a title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:stefan.sjoholm@realfast.se">stefan.sjoholm@realfast.se</a><br>
+<a href="http://www.realfast.se/">http://www.realfast.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Finland</td>
+<td><a href="http://www.agstu.se/">Agstu AB</a></td>
+<td>Dragverksgatan 138,<br>
+S-724 74, Västerås,<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 (0)70 66 89 517<a title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@agstu.com">info@agstu.com</a><br>
+<a href="http://www.agstu.se/">http://www.agstu.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Finland</td>
+<td><a href="http://www.axcon.dk/training/">Axcon ApS</a></td>
+<td>Diplomvej 381<br>
+DK-2800 Lyngby<br>
+Denmark<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+45 4822 9266<a title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@axcon.dk">info@axcon.dk</a><br>
+<a href="http://www.axcon.dk">http://www.axcon.dk</a></td>
+</tr><tr><td>Europe</td>
+<td>Finland</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Finland</td>
+<td><a href="http://www.realfast.se/rfe/altera.shtml">RealFast Education AB</a></td>
+<td>Kopparbegsvagen 8<br>
+S-724 81 Vasteras<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 0 7049 16571<a title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:stefan.sjoholm@realfast.se">stefan.sjoholm@realfast.se</a><br>
+<a href="http://www.realfast.se/">http://www.realfast.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>France</td>
+<td><a href="http://www.alse.fr/Formations/altera.html">ALSE</a></td>
+<td>8 Passage Barrault<br>
+75013 Paris - France<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+33 1 84 16 32 32<a title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@alse-fr.com">info@alse-fr.com</a><br>
+<a href="http://www.alse-fr.com/">http://www.alse-fr.com/</a></td>
+</tr><tr><td>Europe</td>
+<td>Germany</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Garbsener Landstr. 10<br>
+30419 Hannover<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 (0)511 277 1340<a title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info.de@doulos.com">info.de@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Germany</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Germany</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Germany</td>
+<td><a href="http://www.ifi-pld.de/Workshops/workshops.html">Ingenieurbüro für IC-Technologie (IFI)</a></td>
+<td>F. Sprenger<br>
+Kleiner Weg 3<br>
+97877 Wertheim<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 9342 9608 0<a title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ifi@ifi-pld.de">ifi@ifi-pld.de</a><br>
+<a href="http://www.ifi-pld.de/">http://www.ifi-pld.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Hungary</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Ireland</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Italy</td>
+<td><a href="http://www.geb-enterprise.com/">GEB Enterprise S.r.l.</a></td>
+<td>Via Rocca di Papa, 21<br>
+00179 Roma (Italy)<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+39 0 6782 7464<a title="Call: +39 0 6782 7464" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +39 0 6782 7464" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@geb-enterprise.com">info@geb-enterprise.com</a><br>
+<a href="http://www.geb-enterprise.com">http://www.geb-enterprise.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Italy</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Italy</td>
+<td><a href="http://www.leading-edge.it/altera.php">Leading Edge Snc</a></td>
+<td>Via delle Attivita' 18<br>
+24041 Brembate<br>
+Italy<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+39 039 690 7288<a title="Call: +39 039 690 7288" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +39 039 690 7288" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: i<a href="mailto:nfo@leading-edge.it">nfo@leading-edge.it</a><br>
+<a href="http://www.leading-edge.it/">http://www.leading-edge.it/</a></td>
+</tr><tr><td>Europe</td>
+<td>Italy</td>
+<td><a href="http://www.skytechnology.it/en/intel-fpga-trainings/">SkyTechnology s.r.l.</a></td>
+<td>Via Gonin 55,<br>
+20147 Milano,<br>
+Italy<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+39 02 370 511<a title="Call: +39 02 370 511" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +39 02 370 511" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@skytechnology.it">info@skytechnology.it</a><br>
+<a href="http://www.skytechnology.it/">http://www.skytechnology.it/</a></td>
+</tr><tr><td>Europe</td>
+<td>Luxembourg</td>
+<td><a href="http://www.transferdsw.nl/">Transfer DSW B.V.</a></td>
+<td>Transfer DSW B.V.<br>
+Goorseweg 5<br>
+7475 BB Markelo<br>
+The&nbsp;Netherlands<br>
+Tel: +31(0)547 -&nbsp;700216<br>
+Email:&nbsp;<a href="mailto:training@transfer.nl">training@transferdsw.nl</a><br>
+<a href="http://www.transfer.nl/">http://www.transferdsw.nl</a></td>
+</tr><tr><td>Europe</td>
+<td>Norway</td>
+<td><a href="http://www.agstu.se/">Agstu AB</a></td>
+<td>Dragverksgatan 138,<br>
+S-724 74, Västerås,<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 (0)70 66 89 517<a title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@agstu.com">info@agstu.com</a><br>
+<a href="http://www.agstu.se/">http://www.agstu.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Norway</td>
+<td><a href="http://www.axcon.dk/training/">Axcon ApS</a></td>
+<td>Diplomvej 381<br>
+DK-2800 Lyngby<br>
+Denmark<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+45 4822 9266<a title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@axcon.dk">info@axcon.dk</a><br>
+<a href="http://www.axcon.dk">http://www.axcon.dk</a></td>
+</tr><tr><td>Europe</td>
+<td>Norway</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Norway</td>
+<td><a href="http://www.realfast.se/rfe/altera.shtml">RealFast Education AB</a></td>
+<td>Kopparbegsvagen 8<br>
+S-724 81 Vasteras<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 0 7049 16571<a title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:stefan.sjoholm@realfast.se">stefan.sjoholm@realfast.se</a><br>
+<a href="http://www.realfast.se/">http://www.realfast.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Poland</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Garbsener Landstr. 10<br>
+30419 Hannover<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 (0)511 277 1340<a title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info.de@doulos.com">info.de@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Poland</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Portugal</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Russia</td>
+<td><a href="http://www.almaz-sp.ru">ALMAZ-SP, JSC</a></td>
+<td><p>ALMAZ-SP, JSC</p>
+<p>10 Staryy Petrovsko-Razumovskiy</p>
+<p>125167 Moscow</p>
+<p>Tel: +7(495) 221-69-21</p>
+<p>Email: <a href="mailto:fpga@almaz-sp.ru">fpga@almaz-sp.ru</a></p>
+<p><a href="http://www.almaz-sp.ru">http://www.almaz-sp.ru &nbsp;</a></p>
+</td>
+</tr><tr><td>Europe</td>
+<td>Russia</td>
+<td><a href="http://iu3.bmstu.ru/altera/">Bauman Moscow State Technical University</a></td>
+<td>Bauman MSTU, IU3 department<br>
+2nd Baumanskaya Street, 5<br>
+105005 Moscow<br>
+Russia<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+7 499 263 6286<a title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +7 499 263 6286" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:altera@bmstu.ru">altera@bmstu.ru</a><br>
+<a href="http://iu3.bmstu.ru">http://iu3.bmstu.ru</a></td>
+</tr><tr><td>Europe</td>
+<td>Russia</td>
+<td><a href="http://www.altera.ru/cgi-bin/go?32">EFO&nbsp; Ltd.&nbsp; and&nbsp; Peter the Great St. Petersburg&nbsp; Polytechnic University (International&nbsp; Scientific-Educational&nbsp; Center &quot;Embedded Microelectronic Systems&quot;)</a></td>
+<td>21, Politechnicheskaya str., office 212<br>
+Saint-Petersburg<br>
+194021 Russia<br>
+http://www.efo.ru/<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+7 812 327 8654<a title="Call: +7 812 327 8654" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +7 812 327 8654" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:dima@efo.ru">dima@efo.ru</a><br>
+<a href="http://www.altera.ru/">http://www.altera.ru/</a></td>
+</tr><tr><td>Europe</td>
+<td>Slovenia</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Slovenska Republic</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Spain</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Sweden</td>
+<td><a href="http://www.agstu.se/">Agstu AB</a></td>
+<td>Dragverksgatan 138,<br>
+S-724 74, Västerås,<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 (0)70 66 89 517<a title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 (0)70 66 89 517" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@agstu.com">info@agstu.com</a><br>
+<a href="http://www.agstu.se/">http://www.agstu.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Sweden</td>
+<td><a href="http://www.axcon.dk/training/">Axcon ApS</a></td>
+<td>Diplomvej 381<br>
+DK-2800 Lyngby<br>
+Denmark<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+45 4822 9266<a title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +45 4822 9266" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@axcon.dk">info@axcon.dk</a><br>
+<a href="http://www.axcon.dk">http://www.axcon.dk</a></td>
+</tr><tr><td>Europe</td>
+<td>Sweden</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Sweden</td>
+<td><a href="http://www.realfast.se/rfe/altera.shtml">RealFast Education AB</a></td>
+<td>Kopparbegsvagen 8<br>
+S-724 81 Vasteras<br>
+Sweden<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+46 0 7049 16571<a title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +46 0 7049 16571" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:stefan.sjoholm@realfast.se">stefan.sjoholm@realfast.se</a><br>
+<a href="http://www.realfast.se/">http://www.realfast.se/</a></td>
+</tr><tr><td>Europe</td>
+<td>Switzerland</td>
+<td><a href="http://www.alse-fr.com/training_courses.php">ALSE</a></td>
+<td>8 Passage Barrault<br>
+75013 Paris - France<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+33 1 84 16 32 32<a title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@alse-fr.com">info@alse-fr.com</a><br>
+<a href="http://www.alse-fr.com/">http://www.alse-fr.com/</a></td>
+</tr><tr><td>Europe</td>
+<td>Switzerland</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Garbsener Landstr. 10<br>
+30419 Hannover<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 (0)511 277 1340<a title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 (0)511 277 1340" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info.de@doulos.com">info.de@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Switzerland</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Switzerland</td>
+<td><a href="http://www.ifi-pld.de/Workshops/workshops.html">Ingenieurbüro für IC-Technologie (IFI)</a></td>
+<td>F. Sprenger<br>
+Kleiner Weg 3<br>
+97877 Wertheim<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 9342 9608 0<a title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 9342 9608 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: i<a href="mailto:fi@ifi-pld.de">fi@ifi-pld.de</a><br>
+<a href="http://www.ifi-pld.de/">http://www.ifi-pld.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Swizerland</td>
+<td><a href="http://www.handson-training.com/">HandsOn Training</a></td>
+<td>P.O.B. 803 Kfar Saba<br>
+4410801 ISRAEL<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+972-52-5816791<a title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +972-52-5816791" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:ContactUs@HandsOnTraining.co.il">ContactUs@HandsOnTraining.co.il</a><br>
+<a href="http://www.HandsOn-Training.com">http://www.HandsOn-Training.com</a></td>
+</tr><tr><td>Europe</td>
+<td>The Netherlands</td>
+<td><a href="http://www.alse-fr.com/training_courses.php">ALSE</a></td>
+<td>8 Passage Barrault<br>
+75013 Paris - France<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+33 1 84 16 32 32<a title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@alse-fr.com">info@alse-fr.com</a><br>
+<a href="http://www.alse-fr.com/">http://www.alse-fr.com/</a></td>
+</tr><tr><td>Europe</td>
+<td>The Netherlands</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>The Netherlands</td>
+<td><a href="http://www.transferdsw.nl/">Transfer DSW B.V.</a></td>
+<td>Transfer DSW B.V.<br>
+Goorseweg 5<br>
+7475 BB Markelo<br>
+The&nbsp;Netherlands<br>
+Tel: +31(0)547 -&nbsp;700216<br>
+Email:&nbsp;<a href="mailto:training@transfer.nl">training@transferdsw.nl</a><br>
+<a href="http://www.transfer.nl/">http://www.transferdsw.nl</a></td>
+</tr><tr><td>Europe</td>
+<td>Turkey</td>
+<td><a href="http://www.ayduo.com.tr/">AYDUO Inc.</a></td>
+<td>AYDUO Inc.<br>
+Isci bloklari Mh. Mevlana Blv. No: 182B/93<br>
+EGE Plaza Cankaya, Ankara,<br>
+TURKIYE<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+90 312 272 93<a title="Call: +90 312 272 93" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +90 312 272 93" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email:&nbsp;<a href="mailto:info@ayduo.com.tr">info@ayduo.com.tr</a><br>
+<a href="http://www.ayduo.com.tr/">http://www.ayduo.com.tr/</a></td>
+</tr><tr><td>Europe</td>
+<td>Turkey</td>
+<td><a href="http://www.doulos.com/altera">Doulos</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Europe</td>
+<td>Turkey</td>
+<td><a href="http://www.elcamino.de/en/trainingtop/training/">El Camino GmbH</a></td>
+<td>Landshuter Str. 1<br>
+D-84048 Mainburg<br>
+Germany<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+49 8751 8787 0<a title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +49 8751 8787 0" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@elca.de">info@elca.de</a><br>
+<a href="http://www.elcamino.de/">http://www.elcamino.de/</a></td>
+</tr><tr><td>Europe</td>
+<td>Ukraine</td>
+<td><a href="http://digitallab.keoa.kpi.ua">National Technical University of Ukraine &quot;Igor Sikorsky Kyiv Polytechnic Institute&quot;</a></td>
+<td>16 Politekhnicheskaya str.<br>
+Kyiv, 03056, Ukraine<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+380-44-204-93-63<a title="Call: +380-44-204-93-63" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +380-44-204-93-63" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:o.m.lysenko@kpi.ua">o.m.lysenko@kpi.ua</a><br>
+<a href="http://digitallab.keoa.kpi.ua">http://digitallab.keoa.kpi.ua</a></td>
+</tr><tr><td>Europe</td>
+<td>United Kingdom</td>
+<td><a href="http://www.alse-fr.com/training_courses.php">ALSE</a></td>
+<td>8 Passage Barrault<br>
+75013 Paris - France<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+33 1 84 16 32 32<a title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +33 1 84 16 32 32" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@alse-fr.com">info@alse-fr.com</a><br>
+<a href="http://www.alse-fr.com/">http://www.alse-fr.com/</a></td>
+</tr><tr><td>Europe</td>
+<td>United Kingdom</td>
+<td><a href="http://www.doulos.com/altera">Doulos Headquarters</a></td>
+<td>Church Hatch<br>
+22 Market Place<br>
+Ringwood, Hampshire<br>
+BH24 1AW<br>
+United Kingdom<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+44 (0)1425 471223<a title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +44 (0)1425 471223" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:info@doulos.com">info@doulos.com</a><br>
+<a href="http://www.doulos.com/">http://www.doulos.com</a></td>
+</tr><tr><td>Japan</td>
+<td>Japan</td>
+<td><a href="http://www.altima.jp/seminar/instructor/fpga_master.html">Macnica Inc, Altima Company</a></td>
+<td>1-5-5 Shin-Yokohama<br>
+Kouhoku-ku, Yokohama, 222-8563<br>
+Japan<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+81 45 476 2155<a title="Call: +81 45 476 2155" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +81 45 476 2155" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+<a href="https://www.macnica.co.jp/business/semiconductor/manufacturers/intel/events/">https://www.macnica.co.jp/business/semiconductor/manufacturers/intel/events/</a></td>
+</tr><tr><td>North America</td>
+<td>Canada</td>
+<td><a href="http://www.altera.com/servlets/searchclass?forwardto=schedule">Intel FPGA North America Training</a></td>
+<td>101 Innovation Drive<br>
+San Jose, CA 95134<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">888-830-4100<a title="Call: 888-830-4100" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: 888-830-4100" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> or <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">408-544-7832<a title="Call: 408-544-7832" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: 408-544-7832" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:fpgatraining@intel.com">FPGATraining@intel.com</a><br>
+<a href="/content/www/us/en/programmable/support/training/overview.html">http://www.altera.com/support/training/overview.html</a></td>
+</tr><tr><td>North America</td>
+<td>Mexico</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>North America</td>
+<td>Mexico</td>
+<td><a href="http://www.gda.itesm.mx/cde/">Centro de Diseño Electronico Tecnológico de Monterrey, Campus Guadalajara</a></td>
+<td>Dr. Luis Fernando González Pérez<br>
+Av. General Ramon Corona #2514,<br>
+Col. Nvo.Mexico, Zapopan, Jalisco<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+52 33 3669 3000<a title="Call: +52 33 3669 3000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +52 33 3669 3000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> ext 2820<br>
+Email: <a href="mailto:gonzalez.luis@itesm.mx">gonzalez.luis@itesm.mx</a><br>
+<a href="http://www.gda.itesm.mx/cde/">http://www.gda.itesm.mx/cde/</a></td>
+</tr><tr><td>North America</td>
+<td>USA</td>
+<td><a href="http://www.altera.com/servlets/searchclass?forwardto=schedule">Intel FPGA North America Training</a></td>
+<td>101 Innovation Drive<br>
+San Jose, CA 95134<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">888-830-4100<a title="Call: 888-830-4100" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: 888-830-4100" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> or <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">408-544-7832<a title="Call: 408-544-7832" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: 408-544-7832" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:fpgatraining@intel.com">FPGATraining@intel.com</a><br>
+<a href="/content/www/us/en/programmable/support/training/overview.html">http://www.altera.com/support/training/overview.html</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Argentina</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td><p>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Tel: (+54)(264)4253071</p>
+<p>Argent</p>
+<p><br>
+<br>
+Email:&nbsp;cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></p>
+</td>
+</tr><tr><td>South or Central America</td>
+<td>Bolivia</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: <a href="mailto:cristian@c7t-hdl.com">cristian@c7technology.com</a><br>
+<a href="http://www.c7t-hdl.com">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Brazil</td>
+<td><a href="http://www.macnicadhw.com.br/">Macnica DHW Ltda</a></td>
+<td>Rua Patricio Farias, 131<br>
+Edificio Multicenter, loja 01<br>
+Florianopolis/SC<br>
+88034-132<br>
+Brazil<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+55 48 32255052<a title="Call: +55 48 32255052" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +55 48 32255052" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span> or <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+55 48 91320974<a title="Call: +55 48 91320974" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +55 48 91320974" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:cintia.miranda@macnicadhw.com.br">cintia.miranda@macnicadhw.com.br</a><br>
+<a href="http://www.macnicadhw.com.br">http://www.macnicadhw.com.br</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Brazil</td>
+<td><a href="https://unisal.br/">Unisal</a></td>
+<td>Av. Almeida Garret, 267<br>
+Jd. Nossa Senhora Auxiliadora<br>
+Campinas—SP, Brazil<br>
+13089-270<br>
+Tel: <span class="baec5a81-e4d6-4674-97f3-e9220f0136c1" style="white-space: nowrap;">+55 (19) 3744 3000<a title="Call: +55 (19) 3744 3000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; width: 16px; height: 16px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"><img width="16" height="16" title="Call: +55 (19) 3744 3000" style="margin: 0px; border: currentColor; border-image: none; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; vertical-align: middle; float: none; display: inline; white-space: nowrap; position: static !important;"></a></span><br>
+Email: <a href="mailto:wlamir.passos@sj.unisal.br">wlamir.passos@sj.unisal.br</a><br>
+<a href="http://www.unisal.br/">http://www.unisal.br/</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Chile</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<br>
+http://www.c7technology.com/</td>
+</tr><tr><td>South or Central America</td>
+<td>Colombia</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7t-hdl.com">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Costa Rica</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7t-hdl.com">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Cuba</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7t-hdl.com">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Ecuador</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7t-hdl.com">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>El Savador</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Guatemala</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Honduras</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Nicaragua</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Panama</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Paraguay</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Peru</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Uruguay</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr><tr><td>South or Central America</td>
+<td>Venezuela</td>
+<td><a href="http://www.c7technology.com/">C7 Technology</a></td>
+<td>Santa María de Oro 177 Norte<br>
+Santa Lucía, 5411 San Juan<br>
+Argentina<br>
+Tel: (+54)(264)4253071<br>
+Email: cristian@c7technology.com<br>
+<a href="http://www.c7technology.com/">http://www.c7technology.com</a></td>
+</tr></tbody></table>
+</div>
+    </div>
+    </div>
+
+
+<script type="text/javascript">
+        //document.getElementById("copyButton").addEventListener("click", function() {
+    	$('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 #copyButton').click(function(){
+   			copyToClipboardMsg(document.getElementById("copyTarget"),"msg");
+
+    		$(".share-container").next().hide(); //hide share-container
+			$(".share-container").hide();
+			$(".share-container").prev().removeClass('active'); //remove class on btn-share
+		});
+
+function copyToClipboardMsg(elem, msgElem) {
+	  var succeed = copyToClipboard(elem);
+    var msg;
+    if (!succeed) {
+        msg = "Copy not supported or blocked.  Press Ctrl+c to copy."
+    } else {
+        msg = "Text copied to the clipboard."
+    }
+
+    alert(msg);
+}
+
+function copyToClipboard(elem) {
+	  // create hidden text element, if it doesn't already exist
+    var targetId = "_hiddenCopyText_";
+    var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+    var origSelectionStart, origSelectionEnd;
+    if (isInput) {
+        // can just use the original source element for the selection and copy
+        target = elem;
+        origSelectionStart = elem.selectionStart;
+        origSelectionEnd = elem.selectionEnd;
+    } else {
+        // must use a temporary form element for the selection and copy
+        target = document.getElementById(targetId);
+        if (!target) {
+            var target = document.createElement("textarea");
+            target.style.position = "absolute";
+            target.style.left = "-9999px";
+            target.style.top = "0";
+            target.id = targetId;
+            document.body.appendChild(target);
+        }
+        target.textContent = elem.textContent;
+    }
+    // select the content
+    var currentFocus = document.activeElement;
+    target.focus();
+    target.setSelectionRange(0, target.value.length);
+
+    // copy the selection
+    var succeed;
+    try {
+    	  succeed = document.execCommand("copy");
+    } catch(e) {
+        succeed = false;
+    }
+    // restore original focus
+    if (currentFocus && typeof currentFocus.focus === "function") {
+        currentFocus.focus();
+    }
+
+    if (isInput) {
+        // restore prior selection
+        elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+    } else {
+        // clear temporary content
+        target.textContent = "";
+    }
+    return succeed;
+}
+</script>
+
+<script type="text/javascript">
+    Array.prototype.getUnique = function(){
+        var u = {}, a = [];
+        for(var i = 0, l = this.length; i < l; ++i){
+           if(u.hasOwnProperty(this[i])) {
+              continue;
+           }
+           a.push(this[i]);
+           u[this[i]] = 1;
+        }
+        return a;
+     };	
+
+    var hash = window.location.hash;
+    hash = hash.substring(hash.indexOf("#")+1); 
+
+	$(function() {
+        function bindShareButton() {
+            var btnShare = $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .btn-share').click(function() {
+                var shareUrl = window.location.href;
+                var hasQuestionMark = false;
+                if (shareUrl.indexOf('?') > 0) {
+                    shareUrl = shareUrl.substr(0, shareUrl.lastIndexOf('?'));
+                }
+                var queryStrings = '';
+
+                var hasFilters = false;
+                $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .filter').each(function() {	
+                    if ($(this).find('select').val() != 'None' && $(this).find('select').val() != null) {
+                        if (hasQuestionMark === true) {
+                            queryStrings += '&';
+                        } else {
+                            queryStrings += '?';
+                            hasQuestionMark = true;
+                        }
+
+                        queryStrings += $(this).find('select').attr('name') + '=' + $(this).find('select').val();
+
+                        hasFilters = true;
+                    }
+                });
+
+                //share keywords
+                var keywords = $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .dataTables_filter input').val();
+                if (keywords !== '') {
+                    if (hasQuestionMark == true) {
+                        queryStrings += '&';
+                    } else {
+                        queryStrings += '?';
+                        hasQuestionMark = true;
+                    }
+                    queryStrings += 'keywords='+encodeURIComponent(keywords);
+                    hasFilters = true;
+                }
+
+                var anchorPage = '';
+
+                if (anchorPage !== '') {
+                    shareUrl += queryStrings +"#"+ anchorPage;
+                } else {
+                    shareUrl += queryStrings;
+                }
+
+                if (hasFilters == true) {
+                    $(this).next().show(); //show btn-close
+                    $(this).next().next().show(); //show share-container
+                    $(this).next().next().find('.txt-copyurl').val(shareUrl).select(); //traverse to share-container
+                    if ($(this).hasClass('active') == false) {
+                        $(this).addClass('active');
+                    }
+                } else {
+                    alert('Please select at least one filter');
+                }
+            });
+
+            $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .btn-close').click(function() {
+                $(this).next().hide(); //hide share-container
+                $(this).hide();
+                $(this).prev().removeClass('active'); //remove class on btn-share
+            });
+        }
+
+         function bindCustomFilter(tableId, selId, className, title, colIndex, name) {
+            var tableFilterWrapper = $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .table-filter');
+            tableFilterWrapper.find('.'+className).remove();
+
+            var table = $('#'+tableId).DataTable();
+            var filter = $('<div class="'+className+' form-group"></div>');
+            filter.append('<label class="form-label">'+title+': </label>');
+
+            var items=[];
+            var options=[];
+
+            $.each( oTable.column(colIndex+':visIdx').data(), function(idx, val) {
+                items.push(val);
+            });
+
+            var items = items.getUnique().sort();
+		
+            //iterate unique array and build array of select options
+            options.push('<option value="None">None</option>');
+            for(var i=0; i<items.length; i++) {
+                options.push('<option value="' + items[i] + '">' + items[i] + '</option>');
+            }
+
+            var selection = $('<select name="'+name+ '" class="'+selId+'"></select>').append(options.join()).change(function() {
+                if ($(this).val() != 'None')
+                	oTable.column(colIndex+':visIdx').search($(this).val(),false,false,true).draw();
+                else
+                    oTable.column(colIndex+':visIdx').search('',false,false,true).draw();
+            });
+
+            filter.append(selection);
+            tableFilterWrapper.append(filter);
+        };
+
+        var columnDefs = [];
+        $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table th').each(function(i) {
+            if ($(this).attr('coltype') != null) {
+                var colType = { 'sType': $(this).attr('coltype'), 'aTargets': [i] };
+                columnDefs.push(colType);
+            }
+        });
+
+		var labelsLoc = {};
+
+		labelsLoc.first = 'First';
+		labelsLoc.last = 'Last';
+		labelsLoc.next = 'Next';
+		labelsLoc.prev = 'Prev';
+		labelsLoc.noData = 'No data available in table';
+		labelsLoc.showing = 'Showing';
+		labelsLoc.entries = 'Entries';
+		labelsLoc.total = 'total';
+		labelsLoc.filteredFrom = 'Filtered From';
+		labelsLoc.noEntries = 'No Entries meet criteria';
+
+        fpga.AlteraTable.initDataTables('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table', columnDefs, labelsLoc, true, false);
+        var tableId = $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table').attr('id');
+        fpga.AlteraTable.modifySearchBox('#' + tableId + '_filter input', 'Search');
+
+        var oTable = $('#' + tableId).DataTable();
+
+        var courseTypeIndex = 0;
+        var filterLangIndex = 0;
+        $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table th').each(function() {
+			if ($(this).text().toLowerCase() == 'type' ) {
+                courseTypeIndex = $(this).index();
+            }
+
+            if ($(this).text().toLowerCase() == 'language') {
+                filterLangIndex = $(this).index();
+            }
+        });
+
+        if (false && courseTypeIndex != 0) {
+			//bindCustomFilter(tableId, 'course-type', 'filter-course-type', 'Course Type', courseTypeIndex);
+			bindCustomFilter(tableId, 'course-type', 'filter course-type', 'Course Type', courseTypeIndex, 'courseType');
+        }
+        if (false && filterLangIndex != 0) {
+			// bindCustomFilter(tableId, 'filter lang-filter', 'filter-language', 'Language', filterLangIndex);
+            bindCustomFilter(tableId, 'language', 'filter language', 'Language', filterLangIndex, 'language');
+        }
+
+		bindShareButton();
+
+ 		if(hash!="" && $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table').closest($('div#'+hash)).length>0) {
+            //querystring filters
+            if ('' !== '') { 
+                //$('.filter.course-type select').val('').change();
+                $('div#'+hash +' .filter.course-type select').val('').change();
+
+                hasPreselectedFilters = true;
+            }
+
+            if ('' !== '') {;
+                //$('.filter.language select').val('').change();
+                $('div#'+hash +' .filter.language select').val('').change();
+                hasPreselectedFilters = true;
+            }
+
+            //filter by keywords
+            var keywords = document.getElementById('keywords_text').value;
+            if (keywords != '') {
+                $('.dataTable_keyword input').val(keywords);
+                //oTable.search(keywords).draw();
+
+                $('div#'+hash +' #'+tableId).DataTable().search(keywords).draw();
+
+            }
+		}
+
+        if (false) {
+            $('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 .csv a').click(function() {
+                var now = new Date();
+                // CSV
+                fpga.AlteraTable.exportTableToCSV.apply(this, [$('#comp-6b6a0af8-9c9f-4dbe-9ab2-8af187da9485 table'), 'CQ_Table_Export_'+now.getTime()+'.csv']);
+            });
+        }
+	});
+</script>
+
+</div>
+
+</div>
+</div><!--  end of main-content -->
+</div> <!--mainWrapper-->
+
+<!--googleoff:all-->
+    <!--IGHF Footer--> 
+<!--GAATversion='50recode.2' date='10/02/2017 08:00:00' Version='2.0':CharacterEncoding:utf8--> 
+<div id="recode50footer"></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+INTELNAV = window.INTELNAV || {}; INTELNAV.renderSettingsFooter={version:"2.0 - 10/02/2017 08:00:00",OutputId:"gf_default"};
+/*]]>*/</script> 
+<noscript><div id="smallfootprint-footer"><ul><li>©Intel Corporation</li><li><a href="https://www.intel.com/content/www/us/en/legal/terms-of-use.html" target="">Terms of Use</a></li><li><a href="https://www.intel.com/content/www/us/en/legal/trademarks.html" target="">*Trademarks</a></li><li><a href="https://www.intel.com/content/www/us/en/privacy/intel-privacy-notice.html" target="">Privacy</a></li><li><a href="https://www.intel.com/content/www/us/en/privacy/intel-cookie-notice.html" target="">Cookies</a></li><li><a href="https://www.intel.com/content/www/us/en/policy/policy-human-trafficking-and-slavery.html" target="">Supply Chain Transparency </a></li><li><a href="https://www.intel.com/content/www/us/en/siteindex.html" target="">Site Map</a></li></ul></div></noscript>
+<!--/IGHF Footer-->
+    <!--googleon:all--><script type="text/javascript" src="/etc/clientlibs/altera-www/comps.min.js"></script>
+<script type="text/javascript" src="/etc/clientlibs/altera-www/components.min.js"></script>
+<script type="text/javascript" src="/content/dam/altera-www/global/en_US/scripts/js/analytics/google_analytics.js"></script>
+	<script type="text/javascript" src="/content/dam/altera-www/global/en_US/scripts/js/analytics/auto-tracker.js"></script>
+</body>
+
+</html>

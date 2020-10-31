@@ -1,0 +1,194 @@
+#!/usr/bin/env ruby
+
+begin
+  require 'thor'
+rescue LoadError => e
+  puts "Thor is required. Please install the gem with development dependencies."
+  exit 1
+end
+
+require 'open-uri'
+require 'google/apis/discovery_v1'
+require 'logger'
+require 'psych'
+
+module Google
+  class ApiGenerator < Thor
+
+    def self.exit_on_failure?
+      true
+    end
+
+    include Thor::Actions
+
+    Google::Apis::ClientOptions.default.application_name = "generate-api"
+    Google::Apis::ClientOptions.default.application_version = Google::Apis::VERSION
+
+    Discovery = Google::Apis::DiscoveryV1
+
+    desc 'gen OUTDIR', 'Generate ruby API from an API description'
+    method_options url: :array, file: :array, from_discovery: :boolean, preferred_only: :boolean,
+                   verbose: :boolean, names: :string, names_out: :string, api: :string, clean: :boolean
+    def gen(dir)
+      ensure_active_support
+      require 'google/apis/generator'
+
+      self.destination_root = dir
+      Google::Apis.logger.level = Logger::DEBUG if options[:verbose]
+      count = 0
+      count += generate_from_url(options[:url]) if options[:url]
+      count += generate_from_file(options[:file]) if options[:file]
+      count += generate_specific_apis(options[:api]) if options[:api]
+      count += generate_from_discovery(preferred_only: options[:preferred_only]) if options[:from_discovery]
+      count += clean_from_discovery if options[:clean]
+      create_file(options[:names_out]) { |*| generator.dump_api_names } if count > 0 && options[:names_out]
+    end
+
+    desc 'list', 'List public APIs'
+    method_options verbose: :boolean, preferred_only: :boolean
+    def list
+      Google::Apis.logger.level = Logger::DEBUG if options[:verbose]
+      discovery_api_list.each do |api|
+        say sprintf('%s - %s', api.id, api.description).strip unless options[:preferred_only] && !api.preferred?
+      end
+    end
+
+    no_commands do
+      def generate_from_url(urls, first_only: false)
+        count = 0
+        Array(urls).each do |url|
+          begin
+            json = discovery.http(:get, url)
+          rescue Google::Apis::Error
+            warn sprintf('Failed request, skipping %s', url)
+            next
+          end
+          generate_api(json)
+          return 1 if first_only
+          count += 1
+        end
+        count
+      end
+
+      def generate_from_file(files)
+        Array(files).each do |file|
+          File.open(file) do |f|
+            generate_api(f.read)
+          end
+        end
+        Array(files).size
+      end
+
+      def generate_specific_apis(apis)
+        discovery_apis = discovery_api_list.each_with_object({}) do |api, hash|
+          hash["#{api.name}.#{api.version}"] = api
+        end
+        paused_apis = Array(api_list_config["pause"])
+        count = 0
+        Array(apis).each do |name_version|
+          api = discovery_apis[name_version]
+          if api.nil?
+            say "API #{api} is not in the discovery list."
+          elsif paused_apis.include? name_version
+            say "Ignoring paused API #{api.name} #{api.version}"
+          else
+            discovery_rest_url = "https://raw.githubusercontent.com/googleapis/discovery-artifact-manager/master/discoveries/#{api.name}.#{api.version}.json"
+            say sprintf('Loading %s, version %s from %s', api.name, api.version, discovery_rest_url)
+            generate_from_url([discovery_rest_url, api.discovery_rest_url], first_only: true)
+            count += 1
+          end
+        end
+        count
+      end
+
+      def generate_from_discovery(preferred_only: false)
+        say 'Fetching API list'
+        paused_apis = Array(api_list_config["pause"])
+        count = 0
+        discovery_api_list.each do |api|
+          if paused_apis.include? "#{api.name}.#{api.version}"
+            say "Ignoring paused API #{api.name} #{api.version}"
+          elsif (preferred_only && !api.preferred?)
+            say sprintf('Ignoring disoverable API %s', api.id)
+          else
+	    # The Discovery service may returned cached versions of a Discovery document that are
+	    # not the most recent revision. That means that subsequent requests to the same
+	    # Discovery document URL can return different documents. The
+	    # `discovery-artifact-manager` repo always holds the most recent revision, so it's
+	    # easier to use that document than to force revision checking against the URL returned
+	    # by the Discovery index.
+            discovery_rest_url = "https://raw.githubusercontent.com/googleapis/discovery-artifact-manager/master/discoveries/#{api.name}.#{api.version}.json"
+            say sprintf('Loading %s, version %s from %s', api.name, api.version, discovery_rest_url)
+            generate_from_url([discovery_rest_url, api.discovery_rest_url], first_only: true)
+            count += 1
+          end
+        end
+        count
+      end
+
+      def clean_from_discovery
+        count = 0
+        apis = discovery_api_list.map { |api| "#{api.name.underscore}_#{api.version.tr '.', '_'}" }
+        Dir.chdir("#{destination_root}/google/apis") do
+          Dir.glob("*.rb").each do |filename|
+            filename = File.basename(filename, ".rb")
+            unless apis.include? filename
+              FileUtils.rm_r filename
+              FileUtils.rm "#{filename}.rb"
+              count += 1
+            end
+          end
+        end
+        count
+      end
+
+      def generate_api(json)
+        files = generator.render(json)
+        files.each do |file, content|
+          create_file(file) { |*| content }
+        end
+      end
+
+      def discovery
+        @discovery ||= Discovery::DiscoveryService.new
+      end
+
+      def discovery_api_list
+        @discovery_api_list ||= begin
+          items = discovery.list_apis.items
+          excluded = Array(api_list_config["exclude"])
+          items.delete_if { |item| excluded.include? "#{item.name}.#{item.version}" }
+          Array(api_list_config["include"]).each do |include_hash|
+            include_hash.symbolize_keys!
+            include_item = Discovery::DirectoryList::Item.new(**include_hash)
+            items << include_item unless items.any? { |item| item.name == include_item.name && item.version == include_item.version }
+          end
+          items
+        end
+      end
+
+      def generator
+        @generator ||= Google::Apis::Generator.new(api_names: options[:names], api_names_out: options[:names_out])
+      end
+
+      def api_list_config
+        @api_list_config ||= Psych.load_file(__dir__ + "/../api_list_config.yaml")
+      end
+
+      def ensure_active_support
+        begin
+          require 'active_support'
+          require 'active_support/inflector'
+          require 'active_support/core_ext'
+        rescue LoadError => e
+          error 'ActiveSupport is required, please run:'
+          error 'gem install activesupport'
+          exit 1
+        end
+      end
+    end
+  end
+
+end
+
+Google::ApiGenerator.start(ARGV)
