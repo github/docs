@@ -49,6 +49,10 @@ For more information, see "[About required reviews for pull requests](/articles/
 
 {% endtip %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Further reading
 
 - "[Reviewing proposed changes in a pull request](/articles/reviewing-proposed-changes-in-a-pull-request)"
