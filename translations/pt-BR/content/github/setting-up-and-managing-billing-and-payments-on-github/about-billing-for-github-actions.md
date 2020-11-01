@@ -51,7 +51,7 @@ O número de trabalhos que você pode executar simultaneamente em todos os repos
 No final do mês, {% data variables.product.prodname_dotcom %} calcula o custo de minutos e armazenamento usado sobre o valor incluído em sua conta. Por exemplo, se sua organização usa {% data variables.product.prodname_team %} e permite gastos ilimitados, usando 15.000 minutos, poderia ter um custo total de armazenamento e custo médio de minuto de $56, dependendo dos sistemas operacionais usados para executar trabalhos.
 
 - 5.000 (3.000 Linux e 2.000 Windows) minutos = $56 ($24 + $32).
-  - 3.000 minutos Linux a $0,008 por = $24.
+  - 3,000 Linux minutes at $0.008 per minute = $24.
   - 2.000 minutos do Windows a $0,016 por minuto = $32.
 
 No final do mês, {% data variables.product.prodname_dotcom %} arredonda sua transferência de dados para o GB mais próximo.

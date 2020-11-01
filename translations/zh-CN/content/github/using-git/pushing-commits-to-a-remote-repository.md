@@ -97,3 +97,4 @@ git fetch upstream
 - [`git remote` 手册页](https://git-scm.com/docs/git-remote.html)
 - "[Git 小抄](/articles/git-cheatsheet)"
 - "[Git 工作流程](/articles/git-workflows)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

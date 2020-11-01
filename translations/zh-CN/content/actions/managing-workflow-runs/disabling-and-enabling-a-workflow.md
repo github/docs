@@ -1,6 +1,6 @@
 ---
 title: Disabling and enabling a workflow
-intro: 您可以使用 {% data variables.product.prodname_dotcom %} 或 REST API 禁用和重新启用工作流程。
+intro: '您可以使用 {% data variables.product.prodname_dotcom %} 或 REST API 禁用和重新启用工作流程。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'

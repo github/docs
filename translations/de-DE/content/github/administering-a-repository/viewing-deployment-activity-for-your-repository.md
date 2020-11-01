@@ -14,7 +14,7 @@ versions:
 
 {% endnote %}
 
-Personen mit Lesezugriff auf ein Repository können eine Zusammenfassung sämtlicher aktueller Bereitstellungen und ein Protokoll der letzten Bereitstellungsaktivitäten anzeigen, sofern der Bereitstellungs-Workflow des Repositorys über die API für Bereitstellungen oder über eine App aus [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) in {% data variables.product.product_name %} integriert ist. For more information, see "[Deployments](/v3/repos/deployments/)."
+Personen mit Lesezugriff auf ein Repository können eine Zusammenfassung sämtlicher aktueller Bereitstellungen und ein Protokoll der letzten Bereitstellungsaktivitäten anzeigen, sofern der Bereitstellungs-Workflow des Repositorys über die API für Bereitstellungen oder über eine App aus [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace/category/deployment) in {% data variables.product.product_name %} integriert ist. For more information, see "[Deployments](/rest/reference/repos#deployments)."
 
 Darüber hinaus können Bereitstellungsinformationen auf der Registerkarte „Conversation“ (Unterhaltung) eines Pull-Requests angezeigt werden.
 

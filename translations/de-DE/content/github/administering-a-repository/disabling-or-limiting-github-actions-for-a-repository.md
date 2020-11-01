@@ -17,7 +17,7 @@ Du kannst {% data variables.product.prodname_actions %} für Dein Repository akt
 
 Alternativ kannst Du {% data variables.product.prodname_actions %} in Deinem Repository aktivieren, aber die Aktionen limitieren, die ein Workflow ausführen kann. {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 ### {% data variables.product.prodname_actions %}-Berechtigungen für Dein Repository verwalten
 

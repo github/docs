@@ -13,7 +13,7 @@ versions:
 
 ### 关于贡献者
 
-You can view the top 100 contributors to a repository{% if currentVersion != "free-pro-team@latest" %}, including commit co-authors,{% endif %} in the contributors graph. 合并提交和空提交不会计为此图的贡献。
+您可以在贡献者图中查看仓库的前 100 名贡献者{% if enterpriseServerVersions contains currentVersion %}，包括提交合作作者{% endif %}。 合并提交和空提交不会计为此图的贡献。
 
 {% if currentVersion == "free-pro-team@latest" %}
 您还可以看到为项目的 Python 依赖项做出贡献的人员列表。 要访问此社区贡献者列表，请访问 `https://github.com/REPO-OWNER/REPO-NAME/community_contributors`。

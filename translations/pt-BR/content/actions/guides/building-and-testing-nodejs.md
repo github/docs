@@ -33,7 +33,7 @@ O {% data variables.product.prodname_dotcom %} fornece um modelo de fluxo de tra
 Para iniciar rapidamente, adicione o modelo ao diretório `.github/workflows` do repositório.
 
 {% raw %}
-```yaml
+```yaml{:copy}
 Nome: Node.js CI
 
 em: [push]

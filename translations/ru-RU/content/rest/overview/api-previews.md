@@ -42,7 +42,7 @@ Get a [list of events](/v3/issues/timeline/) for an issue or pull request.
 
 **Custom media type:** `mockingbird-preview` **Announced:** [2016-05-23](https://developer.github.com/changes/2016-05-23-timeline-preview-api/)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ### Pre-receive environments
 
 Create, list, update, and delete environments for pre-receive hooks.
@@ -50,7 +50,7 @@ Create, list, update, and delete environments for pre-receive hooks.
 **Custom media type:** `eye-scream-preview` **Announced:** [2015-07-29](/rest/reference/enterprise-admin#pre-receive-environments)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### Integrations
 
 Manage [integrations](/early-access/integrations/) through the API.
@@ -98,7 +98,7 @@ View all [codes of conduct](/v3/codes_of_conduct) or get which code of conduct a
 
 **Custom media type:** `scarlet-witch-preview`
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Nested teams
 
 Include nested team content in [team](/v3/teams/) payloads.
@@ -107,7 +107,7 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Global webhooks
 
@@ -117,7 +117,7 @@ Enables [global webhooks](/v3/enterprise-admin/global_webhooks/) for  [organizat
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.20" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.20" %}
 ### Repository transfer
 
 Transfer a [repository](/v3/repos/) to an organization or user.
@@ -125,7 +125,7 @@ Transfer a [repository](/v3/repos/) to an organization or user.
 **Custom media type:** `nightshade-preview` **Announced:** [2017-11-09](https://developer.github.com/changes/2017-11-09-repository-transfer-api-preview)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 ### Add lock reason
 
 You can now add a reason when you [lock an issue](/v3/issues/#lock-an-issue).
@@ -145,7 +145,7 @@ You can now [require multiple approving reviews](/v3/repos/branches) for a pull 
 
 **Custom media type:** `luke-cage-preview` **Announced:** [2018-03-16](https://developer.github.com/changes/2018-03-16-protected-branches-required-approving-reviews)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.19" %}
 ### Retrieve hovercard information
 
 Retrieve information from [someone's hovercard](/v3/users/#get-contextual-information-for-a-user).
@@ -162,7 +162,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 **Custom media type:** `antiope-preview` **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Anonymous Git access to repositories
 
@@ -216,7 +216,7 @@ Allows you to temporarily restrict interactions, such as commenting, opening iss
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### Draft pull requests
 
 You can use the Draft Pull Requests API and its [pull request](/v3/pulls/) endpoints to see whether a pull request is in draft state. To learn more about draft pull requests, see "[About pull requests](/articles/about-pull-requests/)".
@@ -237,7 +237,7 @@ You can use two new endpoints in the [Commits API](/v3/repos/commits/) to list b
 
 **Custom media types:** `groot-preview` **Announced:** [2019-04-11](https://developer.github.com/changes/2019-04-11-pulls-branches-for-commit/)
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 ### Uninstall a GitHub App
 
 Owners of GitHub Apps can now uninstall an app using the [Apps API](/v3/apps/#delete-an-installation-for-the-authenticated-app).

@@ -1,5 +1,5 @@
 ---
-title: Downloading workflow artifacts
+title: ワークフロー アーティファクトをダウンロードする
 intro: アーカイブされたアーティファクトは、自動的に有効期限切れになる前にダウンロードできます。
 product: '{% data reusables.gated-features.actions %}'
 versions:
@@ -19,4 +19,4 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click the artifact you want to download. ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)
+1. [**Artifacts**] の下で、ダウンロードするアーティファクトをクリックします。 ![成果物のダウンロードのドロップダウンメニュー](/assets/images/help/repository/artifact-drop-down.png)

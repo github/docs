@@ -20,7 +20,7 @@ Star を付けることで、リポジトリやトピックが後で見つけや
 
 {% if currentVersion == "free-pro-team@latest" %}
 You can star repositories and topics to discover similar projects on
-{% data variables.product.product_name %}. リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
+{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 リポジトリあるいはトピックに Star を付けると、{% data variables.product.product_name %} はニュースフィードの discovery ビューで関連するコンテンツを推薦することがあります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} でオープンソースにコントリビュートする方法を見つける](/github/getting-started-with-github/finding-ways-to-contribute-to-open-source-on-github)」を参照してください。
 {% endif %}
 
 リポジトリに Star を付けるということは、リポジトリメンテナに対してその作業についての感謝を示すことでもあります。 {% data variables.product.prodname_dotcom %} のリポジトリランキングの多くは、リポジトリに付けられた Star の数を考慮しています。 また、[Explore](https://github.com/explore) は、リポジトリに付けられた Star の数に基づいて、人気のあるリポジトリを表示しています。
