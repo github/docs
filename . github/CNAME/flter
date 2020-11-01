@@ -1,1 +1,1 @@
-{{ product.title | upcase }}
+{{ product.Github | docs.github.com }}
