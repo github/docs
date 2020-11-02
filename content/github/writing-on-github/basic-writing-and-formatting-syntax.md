@@ -227,7 +227,6 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 `Let's rename \*our-new-project\* to \*our-old-project\*.`
 
 ![Rendered escaped character](/assets/images/help/writing/escaped-character-rendered.png)
-
 For more information, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
 ### Further reading
