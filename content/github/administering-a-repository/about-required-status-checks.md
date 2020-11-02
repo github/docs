@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About required status checks
@@ -59,7 +60,7 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, it must pass. Otherwise, the status of the head commit must pass before you can merge the branch. For more information about test merge commits, see "[Pull Requests](/v3/pulls/#response-1)."
 

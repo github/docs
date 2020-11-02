@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -123,7 +124,7 @@ Include nested team content in [team](/v3/teams/) payloads.
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Global webhooks
 
@@ -176,7 +177,7 @@ Retrieve information from [someone's hovercard](/v3/users/#get-contextual-inform
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ### Check runs and check suites API
 
 Allows a GitHub App to run external checks on a repository's code. See the [Check runs](/v3/checks/runs/) and [Check suites](/v3/checks/suites/) APIs for more details.
@@ -185,7 +186,7 @@ Allows a GitHub App to run external checks on a repository's code. See the [Chec
 **Announced:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### Anonymous Git access to repositories
 
@@ -316,7 +317,7 @@ You can more securely manage tokens for OAuth Apps by using OAuth tokens as inpu
 **Announced:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ### New visibility parameter for the Repositories API
 
 You can set and retrieve the visibility of a repository in the [Repositories API](/v3/repos/).
