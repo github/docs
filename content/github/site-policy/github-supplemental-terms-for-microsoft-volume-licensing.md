@@ -1,4 +1,4 @@
----
+
 title: GitHub Supplemental Terms for Microsoft Volume Licensing
 redirect_from:
   - /articles/GitHub-Supplemental-Terms-for-Microsoft-Volume-Licensing/
