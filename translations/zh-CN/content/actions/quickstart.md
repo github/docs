@@ -21,7 +21,7 @@ versions:
 1. 从 {% data variables.product.prodname_dotcom %} 上的仓库，在 `.github/workflow` 目录中创建一个名为 `superlinter.yml` 的新文件。 更多信息请参阅“[创建新文件](/github/managing-files-in-a-repository/creating-new-files)”。
 2. 将以下 YAML 内容复制到 `superlinter.yml` 文件中。 **注：** 如果您的默认分支不是 `main`，请更新 `DEFAULT_BRANCH` 的值以匹配您仓库的默认分支名称。
     {% raw %}
-    ```yaml
+    ```yaml{:copy}
     name: Super-Linter
 
     # Run this workflow every time a new commit pushed to your repository

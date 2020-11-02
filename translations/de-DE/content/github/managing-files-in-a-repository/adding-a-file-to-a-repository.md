@@ -19,7 +19,7 @@ Für Dateien, die Sie über einen Browser zu einem Repository hinzufügen, gilt 
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter dem Namen des Repositorys auf **Upload files** (Dateien hochladen). ![Schaltfläche „Upload files“ (Dateien hochladen)](/assets/images/help/repository/upload-files-button.png)
 {% else %}
 2. Above the list of files, using the **Add file** drop-down, click **Upload files**. !["Upload files" in the "Add file" dropdown](/assets/images/help/repository/upload-files-button.png)

@@ -53,6 +53,13 @@ Wenn Du einen Pull Request erstellst, kannst Du wählen, ob Du einen für den Re
 
 {% data reusables.pull_requests.mark-ready-review %} Du kannst einen Pull Request jederzeit in einen Entwurf umwandeln. Weitere Informationen findest Du unter „[Den Zustand eines Pull Requests ändern](/articles/changing-the-stage-of-a-pull-request).“
 
+### Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+- Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+- Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+
 ### Weiterführende Informationen
 
 - „[Pull Request](/articles/github-glossary/#pull-request)“ im {% data variables.product.prodname_dotcom %}-Glossar

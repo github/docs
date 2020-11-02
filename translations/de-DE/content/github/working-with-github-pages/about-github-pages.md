@@ -45,7 +45,7 @@ Weitere Informationen dazu, wie sich die URL Ihrer Website bei benutzerdefiniert
 
 Sie können für jedes {% data variables.product.product_name %}-Konto nur eine Benutzer- oder Organisations-Website erstellen. Für Projekt-Websites gibt es keine Beschränkung, egal, ob sie einer Organisation oder einem Benutzerkonto gehören.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 The URL where your site is available depends on whether subdomain isolation is enabled for
 {% data variables.product.product_location %}.
 

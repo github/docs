@@ -59,7 +59,7 @@ Para problemas urgentes, fornecemos suporte em inglês 44 horas por dia, 7 dias 
 
 O {% data variables.contact.enterprise_support %} observa esses feriados dos EUA. O {{ site.data.variables.contact.enterprise_support }} observa os feriados americanos, embora nossa equipe de suporte global esteja disponível para responder tíquetes urgentes.
 
-| EUA Feriado             | Data observada |
+| EUA Feriado             | Data de observação            |
 | ----------------------- | ----------------------------- |
 | Fraternidade Universal  | 1º de janeiro                 |
 | Martin Luther King, Jr. | 3ª segunda-feira de janeiro   |

@@ -22,9 +22,9 @@ After submitting your support request and optional diagnostic information, {% da
 
 ### Submitting a ticket using your enterprise account
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. In the left sidebar, click **Enterprise licensing**. !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Under "{% data variables.product.prodname_enterprise %} Help", click **{% data variables.contact.enterprise_support %} Portal**. ![Link to navigate to Enterprise support site](/assets/images/enterprise/support/enterprise-support-link.png)
 5. Click **Submit a Ticket** ![Submit a ticket to Enterprise Support team](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

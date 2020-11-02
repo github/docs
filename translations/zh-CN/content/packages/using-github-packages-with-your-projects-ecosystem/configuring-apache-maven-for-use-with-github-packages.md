@@ -1,6 +1,6 @@
 ---
-title: Configuring Apache Maven for use with GitHub Packages
-intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
+title: 配置 Apache Maven 用于 GitHub 包
+intro: '您可以配置 Apache Maven 以将包发布到 {% data variables.product.prodname_registry %} 并将存储在 {% data variables.product.prodname_registry %} 上的包用作 Java 项目中的依赖项。'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /articles/configuring-apache-maven-for-use-with-github-package-registry
@@ -13,28 +13,28 @@ versions:
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
-{% data reusables.package_registry.admins-can-configure-package-types %}
+**注：**安装或发布 Docker 映像时，{% data variables.product.prodname_registry %} 当前不支持外部图层，如 Windows 映像。
 
-### Authenticating to {% data variables.product.prodname_registry %}
+### 向 {% data variables.product.prodname_registry %} 验证
 
 {% data reusables.package_registry.authenticate-packages %}
 
-#### Authenticating with a personal access token
+#### 使用个人访问令牌进行身份验证
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with Apache Maven by editing your *~/.m2/settings.xml* file to include your personal access token. Create a new *~/.m2/settings.xml* file if one doesn't exist.
+通过编辑 *~/.m2/settings.xml* 文件以包含个人访问令牌，您可以使用 Apache Maven 向 {% data variables.product.prodname_registry %} 验证。 如果 *~/.m2/settings.xml* 文件不存在，请新建该文件。
 
-In the `servers` tag, add a child `server` tag with an `id`, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, and *TOKEN* with your personal access token.
+在 `servers` 标记中，添加带 `id` 的子 `server` 标记，将 *USERNAME* 替换为您的 {% data variables.product.prodname_dotcom %} 用户名，将 *TOKEN* 替换为您的个人访问令牌。
 
-In the `repositories` tag, configure a repository by mapping the `id` of the repository to the `id` you added in the `server` tag containing your credentials. Replace {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}*REPOSITORY* with the name of the repository you'd like to publish a package to or install a package from, and *OWNER* with the name of the user or organization account that owns the repository. {% data reusables.package_registry.lowercase-name-field %}
+在 `repositories` 标记中，通过将仓库的 `id` 映射到您在包含凭据的 `server` 标记中添加的 `id` 来配置仓库。 将 {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* 替换为 {% data variables.product.prodname_ghe_server %} 实例的主机名称，{% endif %}将 *REPOSITORY* 替换为您要向其发布包或从中安装包的仓库的名称，并将 *OWNER* 替换为拥有仓库的用户或组织帐户的名称。 {% data reusables.package_registry.lowercase-name-field %}
 
-If you want to interact with multiple repositories, you can add each repository to separate `repository` children in the `repositories` tag, mapping the `id` of each to the credentials in the `servers` tag.
+如果要与多个仓库交互，您可以将每个仓库添加到 `repository` 标记中独立的子 `repositories`，将每个仓库的 `id` 映射到 `servers` 标记中的凭据。
 
 {% data reusables.package_registry.apache-maven-snapshot-versions-supported %}
 
-{% if currentVersion != "free-pro-team@latest" %}
-If your instance has subdomain isolation enabled:
+{% if enterpriseServerVersions contains currentVersion %}
+有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 {% endif %}
 
 ```
@@ -76,8 +76,8 @@ If your instance has subdomain isolation enabled:
 </settings>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
-If your instance has subdomain isolation disabled:
+{% if enterpriseServerVersions contains currentVersion %}
+例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -119,21 +119,23 @@ If your instance has subdomain isolation disabled:
 ```
 {% endif %}
 
-#### Authenticating with the `GITHUB_TOKEN`
+#### 使用 `GITHUB_TOKEN` 进行身份验证
 
 {% data reusables.package_registry.package-registry-with-github-tokens %}
 
-### Publishing a package
+### 发布包
 
-{% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
+{% data reusables.package_registry.default-name %} 例如，{% data variables.product.prodname_dotcom %} 将名为 `com.example:test` 的包发布到名为 `OWNER/test` 的仓库中。
 
-If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the *pom.xml* file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
+如果要将多个包发布到同一个仓库，您可以在 `pom.xml` 文件的 `<distributionManagement>` 元素中包含该仓库的 URL。 {% data variables.product.prodname_dotcom %} 将根据该字段匹配仓库。 由于仓库名称也是 `distributionManagement` 元素的一部分，因此将多个包发布到同一个仓库无需额外步骤、
 
-For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
+有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
 
-1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance, {% endif %}`OWNER` with the name of the user or organization account that owns the repository and `REPOSITORY` with the name of the repository containing your project.
-  {% if currentVersion != "free-pro-team@latest" %}
-  If your instance has subdomain isolation enabled:
+1. 编辑包目录中 *pom.xml* 文件的 `distributionManagement` 元素，将 `OWNER` 替换为拥有该仓库的用户或组织帐户的名称，将 `REPOSITORY` 替换为包含项目的仓库的名称。
+
+{% if enterpriseServerVersions contains currentVersion %}将 *HOSTNAME* 替换为您的 {% data variables.product.prodname_ghe_server %} 实例的主机名称， {% endif %}将 `OWNER` 替换为拥有仓库的用户或组织帐户的名称，并将 `REPOSITORY` 替换为包含您项目的仓库的名称。
+  {% if enterpriseServerVersions contains currentVersion %}
+  有关创建包的更多信息，请参阅 [maven.apache.org 文档](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html)。
   {% endif %}
   ```
   <distributionManagement>
@@ -144,8 +146,8 @@ For more information on creating a package, see the [maven.apache.org documentat
      </repository>
   </distributionManagement>
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
-  If your instance has subdomain isolation disabled:
+  {% if enterpriseServerVersions contains currentVersion %}
+  例如，*OctodogApp* 和 *OctocatApp* 项目将发布到同一个仓库：
   ```
   <distributionManagement>
      <repository>
@@ -156,7 +158,7 @@ For more information on creating a package, see the [maven.apache.org documentat
   </distributionManagement>
   ```
   {% endif %}
-2. Publish the package.
+2. 发布包。
 
    ```shell
    $ mvn deploy
@@ -164,12 +166,12 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Installing a package
+### 安装包
 
-To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the *pom.xml* file to include the package as a dependency. If you want to install packages from more than one repository, add a `repository` tag for each. For more information on using a *pom.xml* file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+要从 {% data variables.product.prodname_registry %} 安装 Apache Maven 包，请编辑 *pom.xml* 文件以包含该包作为依赖项。 如果要从多个仓库安装包，请为每个仓库添加 `repository` 标记。 有关在项目中使用 *pom.xml* 文件的更多信息，请参阅 Apache Maven 文档中的“[POM 简介](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)”。
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
+2. 将包依赖项添加到项目 *pom.xml* 文件的 `dependencies` 元素，将 `com.example:test` 替换为您的包。
 
   ```
   <dependencies>
@@ -180,13 +182,13 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
     </dependency>
   </dependencies>
   ```
-3. Install the package.
+3. 安装包。
 
   ```shell
   $ mvn install
   ```
 
-### Further reading
+### 延伸阅读
 
-- "[Configuring Gradle for use with {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
-- "[Deleting a package](/packages/publishing-and-managing-packages/deleting-a-package/)"
+- "[配置 Gradle 用于 {% data variables.product.prodname_registry %}](/packages/using-github-packages-with-your-projects-ecosystem/configuring-gradle-for-use-with-github-packages)"
+- “[删除包](/packages/publishing-and-managing-packages/deleting-a-package/)”

@@ -50,7 +50,7 @@ To push to Docker Hub, you will need to have a Docker Hub account, and have a Do
 
 The `build-push-action` options required for Docker Hub are:
 
-* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as encrypted secrets in the your {% data variables.product.prodname_dotcom %} repository so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
+* `username` and `password`: This is your Docker Hub username and password. We recommend storing your Docker Hub username and password as encrypted secrets in your {% data variables.product.prodname_dotcom %} repository so they aren't exposed in your workflow file. For more information, see "[Creating and using encrypted secrets](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)."
 * `repository`: Your Docker Hub repository in the format `DOCKER-HUB-NAMESPACE/DOCKER-HUB-REPOSITORY`.
 
 {% raw %}

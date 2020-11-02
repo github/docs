@@ -1,5 +1,6 @@
 ---
 title: Finding security vulnerabilities and errors in your code
+shortTitle: Finding vulnerabilities and coding errors
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/finding-security-vulnerabilities-in-your-projects-code

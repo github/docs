@@ -21,7 +21,7 @@ versions:
 
 ### アプリケーションの登録
 
-まず、[アプリケーションの登録][new oauth app]が必要です。 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
+First, you'll need to [register your application][new oauth app]. 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
 
 どのような情報を入力しても構いませんが、**認証コールバック URL** は例外です。 これが、アプリケーションの設定にあたってもっとも重要な情報と言えるでしょう。 認証の成功後に {% data variables.product.product_name %} がユーザに返すのは、コールバックURLなのです。
 
@@ -46,7 +46,7 @@ get '/' do
 end
 ```
 
-クライアント ID とクライアントシークレットは、[アプリケーションの設定ページ][app settings]から取得されます。 You should **never, _ever_** store these values in
+Your client ID and client secret keys come from [your application's configuration page][app settings]. You should **never, _ever_** store these values in
 {% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
