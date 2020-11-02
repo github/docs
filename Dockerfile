@@ -8,6 +8,8 @@
 
 FROM node:14-alpine as installation
 ENV NODE_ENV production
+
+RUN apk add --no-cache python make g++
 WORKDIR /usr/src/docs
 COPY package*.json ./
 
@@ -20,6 +22,7 @@ RUN npm ci
 
 FROM node:14-alpine as bundles
 WORKDIR /usr/src/docs
+RUN apk add --no-cache python make g++
 # Install the files used to create the bundles
 COPY package*.json ./
 COPY javascripts ./javascripts
@@ -36,7 +39,7 @@ FROM node:14-alpine
 
 # Let's make our home
 WORKDIR /usr/src/docs
-
+RUN apk add --no-cache python make g++
 # Ensure our node user owns the directory we're using
 RUN chown node:node /usr/src/docs -R
 
@@ -62,6 +65,8 @@ COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node translations ./translations
 COPY --chown=node:node server.js ./server.js
 COPY --chown=node:node package*.json ./
+COPY --chown=node:node feature-flags.json ./
+COPY --chown=node:node layouts ./layouts
 
 EXPOSE 443
 CMD ["node", "server.js"]
