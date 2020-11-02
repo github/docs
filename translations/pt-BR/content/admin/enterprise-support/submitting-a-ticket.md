@@ -22,9 +22,9 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 
 ### Enviando um tíquete usando sua conta corporativa
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Em "Ajuda {% data variables.product.prodname_enterprise %}", clique em Portal **{% data variables.contact.enterprise_support %}**. ![Link para navegar para o site de Suporte do Enterprise](/assets/images/enterprise/support/enterprise-support-link.png)
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}

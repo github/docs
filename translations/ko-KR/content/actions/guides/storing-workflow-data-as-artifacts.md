@@ -74,7 +74,7 @@ For example, your repository or a web application might contain SASS and TypeScr
 |   
 ```
 
-This example shows you how to create a workflow for a Node.js project that `builds` the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
+This example shows you how to create a workflow for a Node.js project that builds the code in the `src` directory and runs the tests in the `tests` directory. You can assume that running `npm test` produces a code coverage report named `code-coverage.html` stored in the `output/test/` directory.
 
 The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also and uploads the `code-coverage.html` report as another artifact.
 

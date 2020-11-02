@@ -47,7 +47,7 @@ HTTP POST payloads that are delivered to your webhook's configured URL endpoint 
 | ヘッダ                           | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if currentVersion != "free-pro-team@latest" %}
+| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion %}
 | `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "private-instances@latest" %}
 | `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
@@ -61,7 +61,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > POST /payload HTTP/1.1
 
 > Host: localhost:4567
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if currentVersion != "free-pro-team@latest" %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: 2.15.0
 > X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "private-instances@latest" %}
 > X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
@@ -332,7 +332,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### enterprise
 
@@ -617,7 +617,7 @@ For a detailed description of this payload and the payload for each type of `act
 
 ### メタ情報
 
-The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to recieve meta events for.
+The webhook this event is configured on was deleted. This event will only listen for changes to the particular hook the event is installed on. Therefore, it must be selected for each hook that you'd like to receive meta events for.
 
 #### Availability
 
@@ -626,11 +626,11 @@ The webhook this event is configured on was deleted. This event will only listen
 
 #### Webhook payload object
 
-| キー        | 種類       | 説明                                                                                                                                                         |
-| --------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`  | `string` | 実行されたアクション。 Can be `deleted`.                                                                                                                              |
-| `hook_id` | `整数`     | The id of the modified webhook.                                                                                                                            |
-| `フック`     | `オブジェクト` | The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace. |
+| キー        | 種類        | 説明                                                                                                                                                         |
+| --------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`  | `string`  | 実行されたアクション。 Can be `deleted`.                                                                                                                              |
+| `hook_id` | `integer` | The id of the modified webhook.                                                                                                                            |
+| `フック`     | `オブジェクト`  | The modified webhook. This will contain different keys based on the type of webhook it is: repository, organization, business, app, or GitHub Marketplace. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -667,18 +667,18 @@ The webhook this event is configured on was deleted. This event will only listen
 
 #### Availability
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 - GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
 #### Webhook payload object
 
-| キー           | 種類       | 説明                                                                                                                                                                             |
-| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `action`     | `string` | 実行されたアクション. Can be one of:{% if currentVersion != "free-pro-team@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
-| `招待`         | `オブジェクト` | The invitation for the user or email if the action is `member_invited`.                                                                                                        |
-| `membership` | `オブジェクト` | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                        |
+| キー           | 種類       | 説明                                                                                                                                                                                     |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action`     | `string` | 実行されたアクション. Can be one of:{% if enterpriseServerVersions contains currentVersion %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
+| `招待`         | `オブジェクト` | The invitation for the user or email if the action is `member_invited`.                                                                                                                |
+| `membership` | `オブジェクト` | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                                |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -745,10 +745,10 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 #### Webhook payload object
 
-| キー    | 種類       | 説明                                                                                     |
-| ----- | -------- | -------------------------------------------------------------------------------------- |
-| `id`  | `整数`     | The unique identifier of the page build.                                               |
-| `ビルド` | `オブジェクト` | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself. |
+| キー    | 種類        | 説明                                                                                     |
+| ----- | --------- | -------------------------------------------------------------------------------------- |
+| `id`  | `integer` | The unique identifier of the page build.                                               |
+| `ビルド` | `オブジェクト`  | The [List GitHub Pages builds](/rest/reference/repos#list-github-pages-builds) itself. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -770,12 +770,12 @@ Activity related to {% data variables.product.prodname_registry %}. {% data reus
 
 #### Webhook payload object
 
-| キー             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                                   |
-| -------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `zen`          | `string` | Random string of GitHub zen.                                                                                                                                                                                                                                                                                                                                                                         |
-| `hook_id`      | `整数`     | The ID of the webhook that triggered the ping.                                                                                                                                                                                                                                                                                                                                                       |
-| `フック`          | `オブジェクト` | The [webhook configuration](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                              |
-| `hook[app_id]` | `整数`     | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app. |
+| キー             | 種類        | 説明                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `zen`          | `string`  | Random string of GitHub zen.                                                                                                                                                                                                                                                                                                                                                                         |
+| `hook_id`      | `integer` | The ID of the webhook that triggered the ping.                                                                                                                                                                                                                                                                                                                                                       |
+| `フック`          | `オブジェクト`  | The [webhook configuration](/v3/repos/hooks/#get-a-repository-webhook).                                                                                                                                                                                                                                                                                                                              |
+| `hook[app_id]` | `integer` | When you register a new {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} sends a ping event to the **webhook URL** you specified during registration. The event contains the `app_id`, which is required for [authenticating](/apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps/) an app. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -974,13 +974,17 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 | `before`                   | `string`  | The SHA of the most recent commit on `ref` before the push.                                                                                                                                                                                                                                 |
 | `after`                    | `string`  | The SHA of the most recent commit on `ref` after the push.                                                                                                                                                                                                                                  |
 | `commits`                  | `array`   | An array of commit objects describing the pushed commits. (The array includes a maximum of 20 commits. If necessary, you can use the [Commits API](/v3/repos/commits/) to fetch additional commits. This limit is applied to timeline events only and isn't applied to webhook deliveries.) |
-| `commits[][sha]`           | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                   |
+| `commits[][id]`            | `string`  | コミットのSHA。                                                                                                                                                                                                                                                                                   |
+| `commits[][timestamp]`     | `string`  | The ISO 8601 timestamp of the commit.                                                                                                                                                                                                                                                       |
 | `commits[][message]`       | `string`  | コミットメッセージ。                                                                                                                                                                                                                                                                                  |
 | `commits[][author]`        | `オブジェクト`  | The git author of the commit.                                                                                                                                                                                                                                                               |
 | `commits[][author][name]`  | `string`  | The git author's name.                                                                                                                                                                                                                                                                      |
 | `commits[][author][email]` | `string`  | The git author's email address.                                                                                                                                                                                                                                                             |
 | `commits[][url]`           | `url`     | URL that points to the commit API resource.                                                                                                                                                                                                                                                 |
 | `commits[][distinct]`      | `boolean` | Whether this commit is distinct from any that have been pushed before.                                                                                                                                                                                                                      |
+| `commits[][added]`         | `array`   | An array of files added in the commit.                                                                                                                                                                                                                                                      |
+| `commits[][modified]`      | `array`   | An array of files modified by the commit.                                                                                                                                                                                                                                                   |
+| `commits[][removed]`       | `array`   | An array of files removed in the commit.                                                                                                                                                                                                                                                    |
 | `pusher`                   | `オブジェクト`  | The user who pushed the commits.                                                                                                                                                                                                                                                            |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
@@ -1042,7 +1046,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 | キー       | 種類       | 説明                                                       |
 | -------- | -------- | -------------------------------------------------------- |
-| `action` | `string` | 実行されたアクション. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if currentVersion != "free-pro-team@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
+| `action` | `string` | 実行されたアクション. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1173,14 +1177,14 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 #### Webhook payload object
 
-| キー           | 種類       | 説明                                                                                                                                                                                            |
-| ------------ | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`         | `整数`     | The unique identifier of the status.                                                                                                                                                          |
-| `sha`        | `string` | The Commit SHA.                                                                                                                                                                               |
-| `状態`         | `string` | The new state. Can be `pending`, `success`, `failure`, or `error`.                                                                                                                            |
-| `説明`         | `string` | The optional human-readable description added to the status.                                                                                                                                  |
-| `target_url` | `string` | The optional link added to the status.                                                                                                                                                        |
-| `ブランチ`       | `array`  | An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches. |
+| キー           | 種類        | 説明                                                                                                                                                                                            |
+| ------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`         | `integer` | The unique identifier of the status.                                                                                                                                                          |
+| `sha`        | `string`  | The Commit SHA.                                                                                                                                                                               |
+| `state`      | `string`  | The new state. Can be `pending`, `success`, `failure`, or `error`.                                                                                                                            |
+| `説明`         | `string`  | The optional human-readable description added to the status.                                                                                                                                  |
+| `target_url` | `string`  | The optional link added to the status.                                                                                                                                                        |
+| `ブランチ`       | `array`   | An array of branch objects containing the status' SHA. Each branch contains the given SHA, but the SHA may or may not be the head of the branch. The array includes a maximum of 10 branches. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1244,7 +1248,7 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### ユーザ
 

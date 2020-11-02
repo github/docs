@@ -163,25 +163,10 @@ If you are a member of more than one organization, you can configure each one to
 ### Security alert notification options
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}Choose how you want to receive {% data variables.product.prodname_dependabot_alerts %} for repositories that you are watching. You can receive {% if page.version == 'dotcom' %} {% data variables.product.prodname_dependabot_alerts %} {% else %} security alerts {% endif %} in your inbox, as a banner on {% data variables.product.product_name %}, on the command line, through email, or some combination of these options.
+{% data reusables.notifications.vulnerable-dependency-notification-delivery-method-customization %}
+{% data reusables.notifications.vulnerable-dependency-notification-options %}
 
-If you want to receive {% data variables.product.prodname_dependabot_alerts %} by email, choose whether you want a weekly email summary of vulnerabilities for up 10 repositories or a new email each time a vulnerability is detected. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
-
-{% if currentVersion == "enterprise-server@2.21" %}Choose how you want to receive security alerts for repositories that you are watching. Du kannst Sicherheitswarnungen in Deinem Posteingang erhalten, als Banner auf {% data variables.product.product_name %}, auf der Befehlszeile, per E-Mail oder eine beliebige Kombination dieser Optionen.
-
-Wenn Du Sicherheitswarnungen per E-Mail erhalten möchtest, wähle, ob Du eine wöchentliche E-Mail-Zusammenfassung von Verwundbarkeiten für bis zu 10 Repositories erhalten möchtest, oder eine neue E-Mail jedes Mal, wenn eine Verwundbarkeit entdeckt wird. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)." |{% endif %}
-
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-  ![{% data variables.product.prodname_dependabot_short %} alerts options](/assets/images/help/notifications-v2/dependabot-alerts-options.png)
-{% else %}
-  ![Optionen für Sicherheitswarnungen](/assets/images/help/notifications-v2/security-alerts-options.png)
-{% endif %}
-
-{% note %}
-
-**Note:** You can filter your {% data variables.product.company_short %} inbox notifications by {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts. Weitere Informationen findest Du unter „[Benachrichtigungen über Deinen Posteingang verwalten](/github/managing-subscriptions-and-notifications-on-github/managing-notifications-from-your-inbox#supported-queries-for-custom-filters)."
-
-{% endnote %}
+For more information about the notification delivery methods available to you, and advice on optimizing your notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 

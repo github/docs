@@ -12,7 +12,7 @@ Before you can sync your fork with an upstream repository, you must [configure a
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `master` will be stored in a local branch, `upstream/master`.
+3. Fetch the branches and their respective commits from the upstream repository. Commits to `main` will be stored in a local branch, `upstream/main`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.

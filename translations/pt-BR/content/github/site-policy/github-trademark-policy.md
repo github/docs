@@ -23,7 +23,7 @@ Quando recebemos relatórios de violações de políticas de marcas de propriet�
 
 ### Como faço para denunciar uma violação da Política de Marca?
 
-Os proprietários de marcas registradas podem relatar possíveis violações de política de marcas registradas ao GitHub, via [formulário de contato](https://support.github.com/contact). Por favor, envie solicitações relacionadas a marcas registradas a partir do seu endereço de e-mail comercial e inclua todas as informações solicitadas abaixo para ajudar a acelerar nossa resposta. Também certifique-se de nos descrever claramente por que razão a conta pode causar confusão com a sua marca ou como a conta pode mitigar ou manchar sua marca.
+Os proprietários de marcas registradas podem relatar possíveis violações de política de marcas registradas ao GitHub, via [formulário de contato](https://support.github.com/contact?tags=docs-trademark). Por favor, envie solicitações relacionadas a marcas registradas a partir do seu endereço de e-mail comercial e inclua todas as informações solicitadas abaixo para ajudar a acelerar nossa resposta. Também certifique-se de nos descrever claramente por que razão a conta pode causar confusão com a sua marca ou como a conta pode mitigar ou manchar sua marca.
 
 ### Quais informações são necessárias para denunciar violação de Política de Marca?
 

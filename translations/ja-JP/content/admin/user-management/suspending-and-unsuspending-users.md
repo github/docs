@@ -84,4 +84,4 @@ fatal: The remote end hung up unexpectedly
   ```
 
 ### 参考リンク
-- "[Suspend a user](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)"
+- 「[ユーザーをサスペンドする](/enterprise/{{ currentVersion }}/v3/enterprise-admin/users/#suspend-a-user)」

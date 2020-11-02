@@ -134,7 +134,7 @@ $ bfg --replace-text passwords.txt
 
   {% endnote %}
 
-## 避免将来的意外提交
+### 避免将来的意外提交
 
 有一些简单的技巧可避免提交您不想要提交的内容：
 
@@ -145,5 +145,5 @@ $ bfg --replace-text passwords.txt
 
 ### 延伸阅读
 
-- [`git filter-branch` 主页](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git 工具 - 重写历史记录](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

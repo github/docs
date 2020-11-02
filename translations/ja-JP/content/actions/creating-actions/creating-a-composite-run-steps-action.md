@@ -32,7 +32,7 @@ versions:
   エコー"さようなら"
   ```
 
-3. 端末から、`goodbye.sh` を実行可能にします。
+3. ターミナルから、`goodbye.sh` を実行可能にします。
 
   ```shell
   chmod +x goodbye.sh
@@ -82,7 +82,7 @@ versions:
 <p spaces-before="2"><code>github.action_path`の使用方法の詳細については、「github コンテキスト</code>](/actions/creating-actions/metadata-syntax-for-github-actions#outputs-for-composite-run-steps-actions)の
 
 `」を参照してください。</p></li>
-<li><p spaces-before="0">端末から、<code>action.yml` ファイルを確認します。 
+<li><p spaces-before="0">ターミナルから、<code>action.yml` ファイルをチェックインします。 
 
 
 
@@ -93,7 +93,7 @@ versions:
   ```
 </p></li> 
 
-1 端末から、タグを追加します。 この例では、`v1` というタグを使用しています。 詳細については、「[アクションについて](/actions/creating-actions/about-actions#using-release-management-for-actions)」を参照してください。 
+1 ターミナルから、タグを追加します。 この例では、`v1` というタグを使用しています。 詳しい情報については、「[アクションについて](/actions/creating-actions/about-actions#using-release-management-for-actions)」を参照してください。 
   
   
 

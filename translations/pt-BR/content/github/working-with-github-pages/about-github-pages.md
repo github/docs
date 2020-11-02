@@ -45,7 +45,7 @@ Para obter mais informações sobre como os domínios personalizados afetam o UR
 
 Você pode criar apenas um site de usuário ou organização para cada conta do {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 A URL em que o site está disponível depende da habilitação do isolamento de subdomínio para
 {% data variables.product.product_location %}.
 

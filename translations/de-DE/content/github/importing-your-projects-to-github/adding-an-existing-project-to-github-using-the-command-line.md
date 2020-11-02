@@ -29,7 +29,7 @@ versions:
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell
@@ -67,7 +67,7 @@ versions:
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell
@@ -105,7 +105,7 @@ versions:
 3. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
 4. Initialisiere das lokale Verzeichnis als Git-Repository.
   ```shell
-  $ git init
+  $ git init -b main
   ```
 5. Fügen Sie die Daten zum neuen lokalen Repository hinzu. Das bereitet sie für den ersten Commit vor.
   ```shell

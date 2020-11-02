@@ -63,7 +63,7 @@
       </div>
     </div>
     <div id="article-contents" class="article-grid-body">
-      {% if gettingStartedLinks and popularLinks %}
+      {% if featuredLinks.gettingStarted and featuredLinks.popular %}
       {% include featured-links %}
       {% endif %}
       {{ renderedPage }}

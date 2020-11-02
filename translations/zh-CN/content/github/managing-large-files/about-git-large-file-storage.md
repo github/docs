@@ -41,11 +41,13 @@ size 84977953
 
 它会跟踪所用 {% data variables.large_files.product_name_short %} 的 `version`，后接文件的唯一标识符 (`oid`)。 它还会存储最终文件的 `size`。
 
-{% tip %}
+{% note %}
 
-**提示**：{% data variables.large_files.product_name_short %} 不能用于 {% data variables.product.prodname_pages %} 站点。
+**注意**：
+- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
-{% endtip %}
+{% endnote %}
 
 ### 延伸阅读
 

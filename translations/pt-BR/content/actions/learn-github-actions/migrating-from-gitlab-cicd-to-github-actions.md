@@ -290,7 +290,7 @@ Para obter mais informações, consulte "[Eventos que acionam fluxos de trabalho
 
 ### Variáveis e segredos
 
-O GitLab CI/CD e {% data variables.product.prodname_actions %} são compatíveis com as variáveis de ambiente no pipeline u no arquivo de configuração do fluxo de trabalho e ao criar segredos usando o GitLab ou a interface de usuário de {% data variables.product.product_name %}.
+O GitLab CI/CD e {% data variables.product.prodname_actions %} são compatíveis com as variáveis de ambiente no pipeline ou no arquivo de configuração do fluxo de trabalho e ao criar segredos usando o GitLab ou a interface de usuário de {% data variables.product.product_name %}.
 
 Para obter mais informações, consulte "[Variáveis de ambiente](/actions/reference/environment-variables)" e "[Segredos criptografados](/actions/reference/encrypted-secrets)".
 

@@ -21,7 +21,7 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### エンドポイント URL
 
@@ -39,7 +39,7 @@ http(s)://<em>hostname</em>/
 
 ### 認証
 
-{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if currentVersion != "free-pro-team@latest" %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+{% data variables.product.product_name %} のインストールの API エンドポイントは、GitHub.com APIと[同じ認証方法](/rest/overview/resources-in-the-rest-api#authentication)を受け入れます。 **[OAuth トークン](/apps/building-integrations/setting-up-and-registering-oauth-apps/)**（[認証 API](/rest/reference/oauth-authorizations#create-a-new-authorization) を使用して作成可能）または **[Basic 認証](/rest/overview/resources-in-the-rest-api#basic-authentication)**で自分自身を認証できます。 {% if enterpriseServerVersions contains currentVersion %}Enterprise 固有のエンドポイントで使用する場合、OAuthトークンには `site_admin` [OAuth スコープ](/developers/apps/scopes-for-oauth-apps#available-scopes)が必要です。{% endif %}
 
 Enterprise 管理 API エンドポイントには、認証された {% data variables.product.product_name %} サイト管理者のみがアクセスできます。ただし、[Management Console のパスワード](/enterprise/admin/articles/accessing-the-management-console/)が必要な [Management Console](#management-console) API は除きます。
 
@@ -135,7 +135,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ## 管理統計
 
@@ -250,13 +250,13 @@ pre-receive 環境 API を使用すると、pre-receive フックの環境を作
 | `image_url`           | `string`  | ダウンロードおよび抽出される tarball への URL。                                            |
 | `default_environment` | `boolean` | これが {% data variables.product.prodname_ghe_server %} に同梱されるデフォルト環境かどうか。 |
 | `download`            | `オブジェクト`  | この環境のダウンロードステータス。                                                         |
-| `hooks_count`         | `整数`      | この環境を使用する pre-receive フックの数。                                              |
+| `hooks_count`         | `integer` | この環境を使用する pre-receive フックの数。                                              |
 
 #### pre-receive 環境のダウンロード
 
 | 名前              | 種類       | 説明                    |
 | --------------- | -------- | --------------------- |
-| `状態`            | `string` | 最新のダウンロードの状態。         |
+| `state`         | `string` | 最新のダウンロードの状態。         |
 | `downloaded_at` | `string` | 最新のダウンロードの開始時刻。       |
 | `message`       | `string` | 失敗時に、エラーメッセージが生成されます。 |
 

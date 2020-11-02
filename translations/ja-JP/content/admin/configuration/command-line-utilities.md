@@ -20,8 +20,8 @@ SSH 管理ユーザとしてサインインした後では、VM 上のどこか�
 このユーティリティは、あらゆる {% data variables.product.prodname_enterprise %} ページの上部にバナーを設定します。 これを使用すればユーザにメッセージを配信することができます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on
-{% data variables.product.product_name %}. 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
+また、
+{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。 詳しい情報については「[インスタンス上でのユーザメッセージをカスタマイズする](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)」を参照してください。
 {% endif %}
 
 ```shell

@@ -124,6 +124,8 @@ To filter notifications by why you've received an update, you can use the `reaso
 - `is:repository-advisory`
 - `is:team-discussion`
 
+For information about reducing noise from notifications for {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+
 You can also use the `is:` query to describe how the notification was triaged.
 
 - `is:saved`
