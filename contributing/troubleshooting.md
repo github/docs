@@ -1,5 +1,6 @@
-# Troubleshooting status checks <!-- omit in toc -->
+# Troubleshooting <!-- omit in toc -->
 
+- [Troubleshooting server tests that fail locally but pass in CI](#troublshooting-server-tests-that-fail-locally-but-pass-in-ci)
 - [Troubleshooting stalled deployments and CI](#troubleshooting-stalled-deployments-and-ci)
   - [Staging deployment stalled](#staging-deployment-stalled)
   - [CI stalled or stuck](#ci-stalled-or-stuck)
@@ -11,7 +12,13 @@
 - [Check external links](#check-external-links)
 - [Debugging locally](#debugging-locally)
 
-## Troubleshooting stalled deployments and CI
+## Troubleshooting
+
+### Troubleshooting server tests that fail locally but pass in CI
+
+If you run the tests locally and get failures in `tests/rendering/server.js` around static assets, stylesheets, and/or the client-side JavaScript bundle, but **the same tests pass in CI** on a PR, you likely need to run `npm run build`. This is a one-time command that creates static assets locally.
+
+See [`development.md`](./development.md) for more info.
 
 ### Staging deployment stalled
 If a staging deployment is pending for more than 5-10min, try the following:
