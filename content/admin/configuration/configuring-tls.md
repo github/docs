@@ -1,6 +1,6 @@
 ---
 title: Configuring TLS
-intro: 'You can configure Transport Layer Security (TLS) on {% data variables.product.product_location_enterprise %} so that you can use a certificate that is signed by a trusted certificate authority.'
+intro: 'You can configure Transport Layer Security (TLS) on {% data variables.product.product_location %} so that you can use a certificate that is signed by a trusted certificate authority.'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -54,9 +54,9 @@ Let's Encrypt is a public certificate authority that issues free, automated TLS 
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.product.product_location_enterprise %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
+When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.product.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.product.product_location_enterprise %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
+You can also use the `ghe-ssl-acme` command line utility on {% data variables.product.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[Command-line utilities](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)."
 
 ### Configuring TLS using Let's Encrypt
 
