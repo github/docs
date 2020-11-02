@@ -5,7 +5,7 @@ on:
 
 jobs:
   triage-issue-comments:
-    if: github.repository == 'github/docs'
+    if: github.repository == 'github/docs' && github.event.issue.pull_request == null
     runs-on: ubuntu-latest
 
     steps:
