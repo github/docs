@@ -1,22 +1,27 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
 const path = require('path')
 const { chain, difference } = require('lodash')
 const loadPages = require('../lib/pages')
 const loadSiteData = require('../lib/site-data')
 const renderContent = require('../lib/render-content')
-const enterpriseServerReleases = require('../lib/enterprise-server-releases').supported
+const allVersions = require('../lib/all-versions')
+const nonEnterpriseDefaultVersion = require('../lib/non-enterprise-default-version')
+const { getS3BucketPathFromVersion, getVersionFromS3BucketPath } = require('../lib/s3-bucket-path-utils')
 const patterns = require('../lib/patterns')
 const authenticateToAWS = require('../lib/authenticate-to-aws.js')
 const readlineSync = require('readline-sync')
 const { execSync } = require('child_process')
-const uploadScript = path.join(process.cwd(), 'script/upload-enterprise-images-to-s3.js')
+const uploadScript = path.join(process.cwd(), 'script/upload-images-to-s3.js')
+
+// ignore the non-enterprise default version
+const versionsToCheck = Object.keys(allVersions)
+  .filter(version => version !== nonEnterpriseDefaultVersion)
 
 // [start-readme]
 //
-// Run this script in your branch to check whether any images referenced in Enterprise content are
-// not in the expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
+// Run this script in your branch to check whether any images referenced in content are
+// not in an expected S3 bucket. You will need to authenticate to S3 via `awssume` to use this script.
 // Instructions for the one-time setup are [here](https://github.com/github/product-documentation/blob/master/doc-team-workflows/workflow-information-for-all-writers/setting-up-awssume-and-s3cmd.md).
 //
 // [end-readme]
@@ -32,9 +37,9 @@ async function main () {
 
   const s3References = []
 
-  for (const version of enterpriseServerReleases) {
+  for (const version of versionsToCheck) {
     for (const page of pages) {
-      // skip page if it doesn't have a permalink for the current product version
+      // skip page if it doesn't have a permalink for the current version
       if (!page.permalinks.some(permalink => permalink.pageVersion === version)) continue
 
       // skip index pages because they do not contain images
@@ -44,7 +49,9 @@ async function main () {
       page.version = version
       const context = {
         page,
-        site: siteData
+        site: siteData,
+        currentVersion: version,
+        currentLanguage: 'en'
       }
 
       const rendered = await renderContent(page.markdown, context)
@@ -52,8 +59,10 @@ async function main () {
 
       if (!imageReferences) continue
 
+      const bucketPath = getS3BucketPathFromVersion(version)
+
       imageReferences.forEach(ref => {
-        s3References.push(`enterprise/${version}${ref}`)
+        s3References.push(`${bucketPath}${ref}`)
       })
     }
   }
@@ -61,14 +70,15 @@ async function main () {
   // store all images referenced in Enterprise content
   const s3ReferencesToCheck = chain(s3References).uniq().sort().value()
 
-  console.log(`Found ${s3ReferencesToCheck.length} images referenced in Enterprise content in the current checkout.\n`)
+  console.log(`Found ${s3ReferencesToCheck.length} images referenced in S3-eligible content in the current checkout.\n`)
 
   console.log('Checking the github-images S3 bucket...\n')
 
   const imagesOnS3 = []
-  for (const version of enterpriseServerReleases) {
-    const versionDirectory = `enterprise/${version}`
-    imagesOnS3.push(await listObjects(s3, versionDirectory, imagesOnS3))
+  // now look for the images on S3
+  for (const version of versionsToCheck) {
+    const bucketPath = getS3BucketPathFromVersion(version)
+    imagesOnS3.push(await listObjects(s3, bucketPath, imagesOnS3))
   }
 
   // store all found images on s3
@@ -96,18 +106,12 @@ async function main () {
 
   console.log('Trying to upload...\n')
   imagesMissingFromS3.forEach(missingImage => {
-    // s3 path: enterprise/2.19/assets/images/developer/graphql/insomnia-base-url-and-pat.png
-    // local path: assets/images/developer/graphql/insomnia-base-url-and-pat.png
-    const version = missingImage.split('/')[1]
-    const localPath = missingImage.replace(`enterprise/${version}/`, '')
-    const fullPath = path.join(process.cwd(), localPath)
-
-    if (!fs.existsSync(fullPath)) {
-      console.log(`cannot upload ${localPath}, file not found`)
-      return
-    }
-
-    const result = execSync(`${uploadScript} --core --single ${localPath} ${version}`)
+    // given an s3 path like `enterprise/2.19/assets/images/foo.png`,
+    // find the version `enterprise-server@2.19` and the local path `assets/images/foo.png`,
+    // then attempt to upload the file using the upload script
+    const version = getVersionFromS3BucketPath(missingImage)
+    const assetPath = missingImage.replace(/.+?assets/, 'assets')
+    const result = execSync(`${uploadScript} --single ${assetPath} --version ${version}`)
     console.log(result.toString())
   })
 
@@ -125,10 +129,10 @@ async function getEnglishSiteData () {
   return siteData.en.site
 }
 
-async function listObjects (s3, versionDirectory, imagesOnS3, token) {
+async function listObjects (s3, bucketPath, imagesOnS3, token) {
   const params = {
     Bucket: 'github-images',
-    StartAfter: versionDirectory
+    StartAfter: bucketPath
   }
 
   if (token) params.ContinuationToken = token
@@ -137,14 +141,14 @@ async function listObjects (s3, versionDirectory, imagesOnS3, token) {
 
   const matchingKeys = data.Contents
     .map(obj => obj.Key)
-    .filter(imageFile => imageFile.startsWith(versionDirectory))
+    .filter(imageFile => imageFile.startsWith(bucketPath))
 
   if (!matchingKeys.length) return []
 
   imagesOnS3.push(matchingKeys)
 
   if (data.IsTruncated) {
-    await listObjects(s3, versionDirectory, imagesOnS3, data.NextContinuationToken)
+    await listObjects(s3, bucketPath, imagesOnS3, data.NextContinuationToken)
   }
 
   return imagesOnS3

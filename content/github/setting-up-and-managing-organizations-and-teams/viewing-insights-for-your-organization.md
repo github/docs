@@ -52,4 +52,4 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
    - "[About organizations](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - "[Changing the visibility of your organization's dependency insights](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)"
-   - "[Enforcing a policy on dependency insights in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"
+   - "[Enforcing a policy on dependency insights in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)"

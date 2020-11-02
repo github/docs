@@ -72,8 +72,7 @@ For more information about creating a chroot environment see "[Chroot](https://w
 
 ### Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
 5. Click **Manage environments**.
