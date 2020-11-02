@@ -31,3 +31,6 @@ When you create a branch protection rule in a repository, collaborators cannot f
 - "[About required status checks](/articles/about-required-status-checks)"
 - "[About required reviews for pull requests](/articles/about-required-reviews-for-pull-requests)"
 - "[About required commit signing](/articles/about-required-commit-signing)"
+	product	redirect_from	versions
+About protected branches
+Protected branches ensure that collaborators on your repository cannot make irrevocable changes to branches. Enabling protected branches also allows you to enable other optional checks and requirements, like required status checks and required reviews
