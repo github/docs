@@ -11,7 +11,8 @@ versions:
 
 ### Informationen zum Zusammenführen von Pull Requests
 
-Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. {% data reusables.pull_requests.about-protected-branches %} Es kann jedoch Einschränkungen geben, wann Du einen Pull Request zu einem bestimmten Branch zusammenführen kannst. For example, you may only be able to merge a pull request into the default branch if required status checks are passing. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
+Mit einem Pull Request schlägst Du vor, dass Änderungen, die Du an einem Head-Branch gemacht hast, in einen Basis-Branch zusammengeführt werden sollten. {% data reusables.pull_requests.about-protected-branches %} Es kann jedoch Einschränkungen geben, wann Du einen Pull Request zu einem bestimmten Branch zusammenführen kannst. Zum Beispiel kannst du eine Pull Request möglicherweise nur dann zu einem Branch einbinden, wenn die erforderlichen Status Rechte übereinstimmen.
+Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
 
 Wenn beim Pull Request Mergekonflikte vorliegen oder Du die Änderungen vor dem Zusammenführen testen möchtest, kannst Du [den Pull Request lokal auschecken](/articles/checking-out-pull-requests-locally) und ihn über die Befehlszeile zusammenführen.
 
