@@ -107,7 +107,7 @@
     "mock-express-response": "^0.2.2",
     "nock": "^13.0.4",
     "nodemon": "^2.0.4",
-    "npm-merge-driver-install": "^1.1.1",
+    "npm-merge-driver-install": "^2.0.0",
     "object-hash": "^2.0.1",
     "pa11y-ci": "^2.4.0",
     "puppeteer": "^2.1.1",
