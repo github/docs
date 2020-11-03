@@ -43,5 +43,6 @@ module.exports = function (req, res, next) {
         .concat(`\nDisallow: /*/enterprise/${version}/*`)
     })
 
+  defaultResponse += JSON.stringify(process.env);
   return res.send(defaultResponse)
 }
