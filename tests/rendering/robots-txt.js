@@ -118,15 +118,15 @@ describe('robots.txt', () => {
     enterpriseServerReleases.deprecated.forEach(version => {
       const blockedPaths = [
         // English
-        `https://help.github.com/en/enterprise-server@${version}/actions`,
-        `https://help.github.com/en/enterprise/${version}/actions`,
-        `https://help.github.com/en/enterprise-server@${version}/actions/overview`,
-        `https://help.github.com/en/enterprise/${version}/actions/overview`,
+        `https://docs.github.com/en/enterprise-server@${version}/actions`,
+        `https://docs.github.com/en/enterprise/${version}/actions`,
+        `https://docs.github.com/en/enterprise-server@${version}/actions/overview`,
+        `https://docs.github.com/en/enterprise/${version}/actions/overview`,
         // Japanese
-        `https://help.github.com/ja/enterprise-server@${version}/actions`,
-        `https://help.github.com/ja/enterprise/${version}/actions`,
-        `https://help.github.com/ja/enterprise-server@${version}/actions/overview`,
-        `https://help.github.com/ja/enterprise/${version}/actions/overview`
+        `https://docs.github.com/ja/enterprise-server@${version}/actions`,
+        `https://docs.github.com/ja/enterprise/${version}/actions`,
+        `https://docs.github.com/ja/enterprise-server@${version}/actions/overview`,
+        `https://docs.github.com/ja/enterprise/${version}/actions/overview`
       ]
 
       blockedPaths.forEach(path => {
