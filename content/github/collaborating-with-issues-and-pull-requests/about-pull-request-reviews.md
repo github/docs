@@ -38,6 +38,10 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% data reusables.pull_requests.resolving-conversations %}
 
+### Re-requesting a review
+
+{% data reusables.pull_requests.re-request-review %}
+
 ### Required reviews
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
@@ -49,10 +53,6 @@ For more information, see "[About required reviews for pull requests](/articles/
 **Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[Dismissing a pull request review](/articles/dismissing-a-pull-request-review)."
 
 {% endtip %}
-
-### Re-requesting a review
-
-{% data reusables.pull_requests.re-request-review %}
 
 ### Further reading
 
