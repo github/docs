@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.automate-project-board-permissions %} 更多信息请参阅“[关于项目板的自动化](/articles/about-automation-for-project-boards)”。

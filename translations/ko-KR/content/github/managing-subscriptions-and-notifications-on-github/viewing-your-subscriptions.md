@@ -17,6 +17,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 You receive notifications for your subscriptions of ongoing activity on {% data variables.product.product_name %}. There are many reasons you can be subscribed to a conversation. For more information, see "[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications#notifications-and-subscriptions)."

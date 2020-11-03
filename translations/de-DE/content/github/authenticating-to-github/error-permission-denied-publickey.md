@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Kann ich den Befehl `sudo` bei Git verwenden?
@@ -51,7 +52,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # starte den ssh-agent im Hintergrund
   $ eval "$(ssh-agent -s)"
@@ -86,7 +87,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
@@ -108,7 +109,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. Überprüfen Sie, dass Sie einen privaten Schlüssel erzeugt und in SSH geladen haben. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -186,7 +187,7 @@ Du musst Deinen öffentlichen Schlüssel für {% data variables.product.product_
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+3. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -218,7 +219,7 @@ Du musst Deinen öffentlichen Schlüssel für {% data variables.product.product_
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+3. Suchen und notieren Sie Ihren öffentlichen Schlüssel-Fingerprint. {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

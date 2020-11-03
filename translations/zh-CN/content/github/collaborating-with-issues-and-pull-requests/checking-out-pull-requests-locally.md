@@ -7,6 +7,7 @@ permissions: 对仓库具有写入权限的任何人都可以在本地向下拉�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -18,7 +19,7 @@ versions:
 ### 在本地修改活动的拉取请求
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to modify.{% if currentVersion == "free-pro-team@latest" %}
+2. 在拉取请求列表中，单击要修改的拉取请求。{% if currentVersion == "free-pro-team@latest" %}
 3. 要选择想打开拉取请求的位置，请选择**使用 {% octicon "triangle-down" aria-label="The down triangle icon" %} 打开**下拉列表，然后单击其中一个选项卡。 ![Link to access command line pull request instructions](/assets/images/help/pull_requests/open-with-button.png){% else %}
 3. 在合并框中，单击**命令行说明**。 按照步骤顺序解决提议的拉取请求。 ![访问命令行拉取请求说明的链接](/assets/images/help/pull_requests/pull_request_show_command_line_merge.png)
 4. （可选）要在 {% data variables.product.prodname_desktop %} 中查看提议的更改，请单击 **open this in {% data variables.product.prodname_desktop %}（在 GitHub Desktop 中打开）**。 ![Link to open a pull request locally in Desktop](/assets/images/help/desktop/open-pr-in-desktop.png){% endif %}

@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
+ 
 
 
 このガイドでは、APIを使用して、所有するリポジトリと、それを構成するプログラミング言語についての情報を取得します。 次に、[D3.js][D3.js]ライブラリを使用して、その情報をいくつかの方法で視覚化します。 To interact with the {% data variables.product.product_name %} APIやり取りを行うため、ここでは優れたRubyライブラリである[Octokit][Octokit]を使用します。

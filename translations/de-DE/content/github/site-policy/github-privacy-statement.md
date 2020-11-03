@@ -144,7 +144,7 @@ Weitere Informationen über unsere Offenlegung als Reaktion auf gesetzliche Anfr
 Wir können personenbezogene Benutzerdaten weitergeben, wenn wir an einer Fusion, einem Verkauf oder Erwerb von Unternehmen oder Geschäftseinheiten beteiligt sind. Wenn eine solche Änderung des Eigentumsverhältnisses eintritt, werden wir sicherstellen, dass dies unter Wahrung der Vertraulichkeit der personenbezogenen Benutzerdaten geschieht, und wir werden Sie auf unserer Website oder per E-Mail benachrichtigen, bevor Sie Ihre persönlichen Benutzerinformationen übermitteln. Die Organisation, die personenbezogene Benutzerdaten erhält, muss alle Verpflichtungen einhalten, die wir in unserer Datenschutzerklärung oder unseren Nutzungsbedingungen gemacht haben.
 
 #### Aggregierte, nicht personenbezogene Informationen
-Wir teilen bestimmte aggregierte, nicht-personenbezogene Informationen mit anderen darüber, wie unsere Benutzer gemeinsam GitHub nutzen oder wie unsere Benutzer auf andere Angebote wie unsere Konferenzen oder Veranstaltungen reagieren. Zum Beispiel [können wir Statistiken über die Open-Source-Aktivität auf GitHub erstellen](https://octoverse.github.com/).
+Wir teilen bestimmte aggregierte, nicht-personenbezogene Informationen mit anderen darüber, wie unsere Benutzer gemeinsam GitHub nutzen oder wie unsere Benutzer auf andere Angebote wie unsere Konferenzen oder Veranstaltungen reagieren.
 
 Wir verkaufen Ihre personenbezogenen Benutzerinformationen **nicht** gegen eine finanzielle oder andere Gegenleistung.
 

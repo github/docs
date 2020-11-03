@@ -4,11 +4,11 @@
 
 #### Requisitos mínimos
 
-Recomendamos diferentes configurações de hardware, dependendo do número de licenças de usuário para {% data variables.product.product_location_enterprise %}. Se você fornecer mais recursos do que os requisitos mínimos, sua instância terá um desempenho e uma escala melhores.
+Recomendamos diferentes configurações de hardware, dependendo do número de licenças de usuário para {% data variables.product.product_location %}. Se você fornecer mais recursos do que os requisitos mínimos, sua instância terá um desempenho e uma escala melhores.
 
 {% data reusables.enterprise_installation.hardware-rec-table %} Para obter mais informações sobre o ajuste de recursos para uma instância existente, consulte "[aumentar a capacidade de armazenamento](/enterprise/admin/installation/increasing-storage-capacity)" e "[aumentar recursos de CPU ou memória](/enterprise/admin/installation/increasing-cpu-or-memory-resources)".
 
-{% if currentVersion == "enterprise-server@2.22" %}
+{% if currentVersion == "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 Se você habilitar o beta para {% data variables.product.prodname_actions %} na sua instância, recomendamos que você planeje uma capacidade adicional.
 
@@ -32,7 +32,7 @@ Recomendamos um SSD de alto desempenho com operações de alta entrada/saída po
 
 A sua instância exige um disco de dados persistente separado do disco raiz. Para obter mais informações, consulte "[System overview](/enterprise/admin/guides/installation/system-overview)."
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 Se você habilitar o beta de {% data variables.product.prodname_actions %} em {% data variables.product.prodname_ghe_server %} 2.22, você precisará configurar o armazenamento externo do blob. Para obter mais informações, consulte "[Habilitar {% data variables.product.prodname_actions %} e configurar o armazenamento](/enterprise/admin/github-actions/enabling-github-actions-and-configuring-storage)".
 

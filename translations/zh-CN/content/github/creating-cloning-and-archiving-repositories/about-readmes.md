@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
+自述文件连同 {% if currentVersion == "free-pro-team@latest" %}[仓库许可证](/articles/licensing-a-repository)、[参与指南](/articles/setting-guidelines-for-repository-contributors)和[行为准则](/articles/adding-a-code-of-conduct-to-your-project){% else %}、[仓库许可证](/articles/licensing-a-repository)和[参与指南](/articles/setting-guidelines-for-repository-contributors){% endif %}一起，帮助您,沟通项目要求以及管理对项目的参与。
 
 自述文件通常是访问者在访问仓库时看到的第一个项目。 自述文件通常包含以下信息：
 - 项目做什么
@@ -23,7 +24,7 @@ A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [re
 
 ![Github/scientist 仓库的主页面及其自述文件](/assets/images/help/repository/repo-with-readme.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 {% data reusables.profile.profile-readme %}
 

@@ -8,6 +8,7 @@ intro: 'パーソナルダッシュボードにアクセスして、作業した
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### パーソナルダッシュボードにアクセスする

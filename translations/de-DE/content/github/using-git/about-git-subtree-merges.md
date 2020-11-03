@@ -8,6 +8,7 @@ intro: 'Wenn Du mehrere Projekte innerhalb eines einzigen Repositorys verwalten 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Typischerweise wird eine Unterstruktur zusammengeführt, um ein Repository innerhalb eines anderen Repositorys einzubinden. Das „Unterrepository“ wird in einem Ordner des Haupt-Repositorys gespeichert.

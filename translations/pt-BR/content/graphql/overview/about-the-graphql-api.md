@@ -4,6 +4,7 @@ intro: 'A API do GraphQL de {% data variables.product.prodname_dotcom %} oferece
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão Geral

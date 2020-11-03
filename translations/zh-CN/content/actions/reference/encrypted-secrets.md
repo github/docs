@@ -1,5 +1,5 @@
 ---
-title: Encrypted secrets
+title: 加密机密
 intro: 加密密码允许您在仓库或组织中存储敏感信息。
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:

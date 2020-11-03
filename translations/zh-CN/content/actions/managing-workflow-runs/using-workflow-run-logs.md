@@ -1,6 +1,6 @@
 ---
-title: Using workflow run logs
-intro: 'You can view, search, and download the logs for each job in a workflow run.'
+title: 使用工作流程运行日志
+intro: '您可以查看、搜索和下载工作流程运行中每个作业的日志。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
   free-pro-team: '*'
@@ -22,7 +22,7 @@ versions:
 
 如果工作流程运行失败，您可以查看是哪个步骤导致了失败，然后审查失败步骤的创建日志进行故障排除。 您可以查看每个步骤运行的时长。 也可以将永久链接复制到日志文件中的特定行，与您的团队分享。 {% data reusables.repositories.permissions-statement-read %}
 
-In addition to the steps configured in the workflow file, {% data variables.product.prodname_dotcom %} adds two additional steps to each job to set up and complete the job's execution. These steps are logged in the workflow run with the names "Set up job" and "Complete job".
+除了工作流程文件中配置的步骤外，{% data variables.product.prodname_dotcom %} 为每个作业添加了另外两个步骤，以设置和完成作业的执行。 这些步骤以名称"设置作业"和"完成作业"记录在工作流程运行中。
 
 对于在 {% data variables.product.prodname_dotcom %} 托管的运行器上运行的作业，“设置作业”记录运行器虚拟环境的详细信息。 并包含一个链接，可链接到运行器机器上的预安装工具列表。
 
@@ -60,12 +60,12 @@ In addition to the steps configured in the workflow file, {% data variables.prod
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. 在右上角单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 并选择 **Download log archive（下载日志存档）**。
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down-updated.png)
 {% else %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. 在右上角单击
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} 并选择 **Download log archive（下载日志存档）**。
   ![下载日志下拉菜单](/assets/images/help/repository/download-logs-drop-down.png)
 {% endif %}
 
@@ -78,9 +78,9 @@ In addition to the steps configured in the workflow file, {% data variables.prod
 {% data reusables.repositories.navigate-to-workflow-superlinter %}
 {% data reusables.repositories.view-run-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon-updated.png)
 2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![删除所有日志](/assets/images/help/repository/delete-all-logs-updated.png) 删除日志后，**Delete all logs（删除所有日志）**按钮将被删除，以表明工作流程运行中未剩下任何日志文件。
 {% else %}
-1. In the upper right corner, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Kebab-horizontal icon](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+1. 在右上角，单击 {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}。 ![烤肉串水平图标](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
+2. 要删除日志文件，单击 **Delete all logs（删除所有日志）**按钮并审查确认提示。 ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) 删除日志后，**Delete all logs（删除所有日志）**按钮将被删除，以表明工作流程运行中未剩下任何日志文件。
 {% endif %}

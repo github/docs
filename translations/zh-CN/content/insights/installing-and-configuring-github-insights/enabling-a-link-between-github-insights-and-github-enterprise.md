@@ -19,8 +19,7 @@ versions:
   ```
 3. 返回到
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. 在
 {% octicon "gear" aria-label="The Settings gear" %} **Settings（设置）**下，单击 **{% data variables.product.prodname_insights %}**。

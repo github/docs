@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 このエラーの検出方法は簡単です。リポジトリのクローンを試みると Git により警告されます:

@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 一般的なタスクの自動化、データのバックアップ、または {% data variables.product.product_name %} を拡張するインテグレーションの作成には、{% data variables.product.product_name %} API を使用できます。

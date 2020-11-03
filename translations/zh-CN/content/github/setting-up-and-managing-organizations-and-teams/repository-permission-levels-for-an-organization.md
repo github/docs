@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 具有管理员权限的人员可以管理对组织所拥有仓库的个人和团队访问权限。
@@ -68,7 +69,7 @@ versions:
 | [锁定对话](/articles/locking-conversations)                                                                                                                                            |       |       | **X** | **X** |                                                                                             **X**                                                                                             |
 | 转让议题（更多信息请参阅“[将议题转让给其他仓库](/articles/transferring-an-issue-to-another-repository)”）                                                                                                 |       |       | **X** | **X** |                                                                                             **X**                                                                                             |
 | [作为仓库的指定代码所有者](/articles/about-code-owners)                                                                                                                                        |       |       | **X** | **X** |                                                                                             **X**                                                                                             |
-| [将拉取请求草稿标记为可供审查](/articles/changing-the-stage-of-a-pull-request)                                                                                                                   |       |       | **X** | **X** |                                          **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| [将拉取请求草稿标记为可供审查](/articles/changing-the-stage-of-a-pull-request)                                                                                                                   |       |       | **X** | **X** |                      **X** |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | [将拉取请求转换为草稿](/articles/changing-the-stage-of-a-pull-request)                                                                                                                       |       |       | **X** | **X** |                                                                                      **X** |{% endif %}
 | 提交影响拉取请求可合并性的审查                                                                                                                                                                    |       |       | **X** | **X** |                                                                                             **X**                                                                                             |
 | 对拉取请求[应用建议的更改](/articles/incorporating-feedback-in-your-pull-request)                                                                                                              |       |       | **X** | **X** |                                                                                             **X**                                                                                             |

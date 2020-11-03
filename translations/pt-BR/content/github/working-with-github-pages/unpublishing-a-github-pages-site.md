@@ -12,6 +12,7 @@ permissions: 'As pessoas com permissões de administrador para um repositório p
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Cancelar a publicação de um site de projeto
