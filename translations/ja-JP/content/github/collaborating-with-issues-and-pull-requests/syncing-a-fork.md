@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 上流リポジトリとフォークを同期する前に、Git で[上流リポジトリをポイントするリモートの設定](/articles/configuring-a-remote-for-a-fork)をする必要があります。
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. ワーキングディレクトリをローカルプロジェクトに変更します。
-3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 `master` へのコミットは、ローカルブランチ `upstream/master` に保管されます。
+3. 上流リポジトリから、ブランチと各ブランチのコミットをフェッチします。 Commits to `main` will be stored in a local branch, `upstream/main`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.

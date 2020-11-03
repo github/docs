@@ -4,6 +4,7 @@ intro: 'Git 数据库 API 使您能够在 {% data variables.product.product_name
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概览

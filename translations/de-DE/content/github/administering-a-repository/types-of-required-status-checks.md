@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | Art des erforderlichen Statuschecks | Einstellung                                                                                                                                                   | Merge-Anforderungen                                                                    | Erwägungen                                                                                                                                                                                                                                                                                                 |

@@ -7,13 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在仓库中使用议题收集用户反馈，报告软件漏洞，并且组织要完成的任务。 议题不只是一个报告软件漏洞的地方。
 
 {% data reusables.pull_requests.close-issues-using-keywords %}
 
-为保持更新议题中的最新评论，您可以监控问题以接收关于最新评论的通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+为保持更新议题中的最新评论，您可以监控问题以接收关于最新评论的通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 要快速查找指向您订阅的最新议题的链接，请访问仪表板。 更多信息请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
 

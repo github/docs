@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %}は、リポジトリに実際のファイルではなく、ファイルへの参照を保存することで大きなファイルを扱います。 Gitのアーキテクチャを回避するために、{% data variables.large_files.product_name_short %}は実際のファイル（これはどこか別の場所に保存されます）への参照として働くポインタファイルを作成します。 {% data variables.product.product_name %}はこのポインタファイルをリポジトリ中で管理します。 リポジトリをクローンすると、{% data variables.product.product_name %}はこのポインタファイルを大きなファイルを見つけるための地図として使います。

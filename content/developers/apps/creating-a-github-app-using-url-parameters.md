@@ -6,21 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### About {% data variables.product.prodname_github_app %} URL parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
-* **User account:** `https://github.com/settings/apps/new`
-* **Organization account:** `https://github.com/organizations/:org/settings/apps/new`
+* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
   ```
-  https://github.com/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+  {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
   ```
 
 The complete list of available query parameters, permissions, and events is listed in the sections below.
@@ -55,8 +56,8 @@ Permission | Description
 [`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks) | Grants access to the [Checks API](/v3/checks/). Can be one of: `none`, `read`, or `write`.
 `content_references` | Grants access to the "[Create a content attachment](/v3/apps/installations/#create-a-content-attachment)" endpoint. Can be one of: `none`, `read`, or `write`.
 [`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents) |  Grants access to various endpoints that allow you to modify repository contents. Can be one of: `none`, `read`, or `write`.
-[`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/rest/reference/repos#deployments). Can be one of: `none`, `read`, or `write`.
-[`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/v3/users/emails/). Can be one of: `none`, `read`, or `write`.
+[`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/rest/reference/repos#deployments). Can be one of: `none`, `read`, or `write`.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+[`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/v3/users/emails/). Can be one of: `none`, `read`, or `write`.{% endif %}
 [`followers`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers) | Grants access to the [Followers API](/v3/users/followers/). Can be one of: `none`, `read`, or `write`.
 [`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys) | Grants access to the [GPG Keys API](/v3/users/gpg_keys/). Can be one of: `none`, `read`, or `write`.
 [`issues`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues) | Grants access to the [Issues API](/v3/issues/). Can be one of: `none`, `read`, or `write`.

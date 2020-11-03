@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -107,7 +108,7 @@ API を介して[インテグレーション](/early-access/integrations/)を管
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### グローバル webhook
 
@@ -154,7 +155,7 @@ API を使用して、プルリクエストに対して[複数の承認レビュ
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ### チェック実行とチェックスイート API
 
 GitHub App がリポジトリのコードに対して外部チェックを実行できるようにします。 詳細については、[チェック実行](/v3/checks/runs/)と[チェックスイート](/v3/checks/suites/) API をご覧ください。
@@ -162,7 +163,7 @@ GitHub App がリポジトリのコードに対して外部チェックを実行
 **カスタムメディアタイプ:** `antiope-preview` **発表日:** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### リポジトリへの匿名 Git アクセス
 
@@ -279,7 +280,7 @@ GitHub App の所有者は、[Apps API](/v3/apps/#delete-an-installation-for-the
 **カスタムメディアタイプ:** `doctor-strange-preview` **発表日:** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ### Repositories API の新しい可視性パラメータ
 
 [Repositories API](/v3/repos/) でリポジトリの可視性を設定および取得できます。

@@ -4,6 +4,7 @@ intro: 'Git Database APIでは、{% data variables.product.product_name %}上の
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概要

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando um aplicativo de terceiro quiser identificar você pelo seu login do {% data variables.product.product_name %}, será exibida uma página com as informações de contato do desenvolvedor e uma lista dos dados específicos que estão sendo solicitados.

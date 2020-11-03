@@ -1,10 +1,11 @@
 ---
 title: Absenden eines Tickets vorbereiten
-intro: 'Unterstützen Sie den {% data variables.contact.github_support %} dabei, Ihnen schneller zu helfen, indem Sie diesen Vorschlägen folgen, bevor Sie ein Supportticket erstellen.'
+intro: 'You can expedite your issue with {% data variables.contact.enterprise_support %} by following these suggestions before you open a support ticket.'
 redirect_from:
   - /enterprise/admin/enterprise-support/preparing-to-submit-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:
@@ -16,13 +17,11 @@ Bevor Sie ein Ticket absenden, sollten Sie folgende Schritte durchführen:
 - Stelle fest, ob es in irgend einer laufenden Kommunikation mit {% data variables.contact.github_support %} eine vorhandene Ticketnummer gibt.
 - Bestimmen Sie die am besten geeignete Person zur Kontaktaufnahme mit dem {% data variables.contact.github_support %}.
 
-Weitere Informationen finden Sie unter „[Ticket absenden](/enterprise/admin/guides/enterprise-support/submitting-a-ticket)“.
-
 ### Ansprechpartner auswählen
 
 Die Person die mit dem {% data variables.contact.github_support %} Kontakt aufnimmt, sollte speziell für Tickets mit Priorität „{% data variables.product.support_ticket_priority_urgent %}“ (dringend):
 
  - erfahren in Bezug auf Ihre internen Systeme, Tools, Richtlinien und Praktiken
- - erfahrener Anwender von {% data variables.product.prodname_ghe_server %}
+ - erfahrener Anwender von {% data variables.product.product_name %}
  - uneingeschränkten Zugriff auf und alle Berechtigungen für alle Dienste haben, die zur Behebung des Problems erforderlich sind.
  - ist berechtigt, die empfohlenen Änderungen an Ihrem Netzwerk und den entsprechenden Produkten vorzunehmen

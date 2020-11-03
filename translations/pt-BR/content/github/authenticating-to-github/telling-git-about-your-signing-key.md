@@ -1,12 +1,13 @@
 ---
 title: Informar ao Git sobre a chave de assinatura
-intro: 'Para assinar os commits localmente, você precisa informar ao Git que existe um GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 4" %} ou chave X.509{% endif %} que deseja usar.'
+intro: "To sign commits locally, you need to inform Git that there's a GPG or X.509 key you'd like to use."
 redirect_from:
   - /articles/telling-git-about-your-gpg-key/
   - /articles/telling-git-about-your-signing-key
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}

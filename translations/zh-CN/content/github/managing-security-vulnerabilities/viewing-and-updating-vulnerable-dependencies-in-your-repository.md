@@ -15,7 +15,7 @@ versions:
 
 ### 关于仓库中有漏洞的依赖项的更新
 
-当我们检测到影响到您的仓库的漏洞时，{% data variables.product.product_name %} 会发出 {% data variables.product.prodname_dependabot_alerts %}。 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot_short %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
+{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository. 对于启用了 {% data variables.product.prodname_dependabot_security_updates %} 的仓库，当 {% data variables.product.product_name %} 检测到有漏洞的依赖项时，{% data variables.product.prodname_dependabot_short %} 会创建拉取请求来修复它。 拉取请求会将依赖项升级到避免漏洞所需的最低安全版本。
 
 ### 查看和更新有漏洞的依赖项
 
