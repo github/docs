@@ -65,7 +65,7 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         name: Clone early access
-        run: npm run heroku-prebuild
+        run: npm run heroku-postbuild
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
 
@@ -117,7 +117,7 @@ jobs:
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         name: Clone early access
-        run: npm run heroku-prebuild
+        run: npm run heroku-postbuild
         env:
           DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
 
