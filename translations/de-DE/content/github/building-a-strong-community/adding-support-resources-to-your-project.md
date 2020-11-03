@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Um Personen auf bestimmte Support-Ressourcen zu verweisen, kannst Du eine SUPPORT-Datei zum Root-, `docs`- oder `.github`-Ordner Deines Repositorys hinzufügen. Wenn jemand einen Issue in Deinem Repository erstellt, wird ihm ein Link zur SUPPORT-Datei Deines Projekts angezeigt.
 
 ![Support-Richtlinien](/assets/images/help/issues/support_guidelines_in_issue.png)
 
-You can create default support resources for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create default support resources for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Weitere Informationen findest Du unter „[Eine Standard Community-Unterstützungsdatei erstellen](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 {% tip %}
 

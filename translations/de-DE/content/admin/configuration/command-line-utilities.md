@@ -64,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-Mit diesem Dienstprogramm können Sie die Konfigurationseinstellungen von {% data variables.product.product_location_enterprise %} abrufen und ändern.
+Mit diesem Dienstprogramm können Sie die Konfigurationseinstellungen von {% data variables.product.product_location %} abrufen und ändern.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -395,7 +395,7 @@ Mit diesem Dienstprogramm können Sie ein benutzerdefiniertes CA-Root-Zertifikat
 
 Führen Sie dieses Dienstprogramm aus, um eine Zertifikatskette für die S/MIME-Commit-Signaturverifizierung hinzuzufügen. Weitere Informationen finden Sie unter „[Informationen zur Verifizierung einer Commit-Signatur](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)“.
 
-Führen Sie dieses Dienstprogramm aus, wenn {% data variables.product.product_location_enterprise %} keine Verbindung mit einem anderen Server herstellen kann, da Letzterer ein selbstsigniertes SSL-Zertifikat oder ein SSL-Zertifikat verwendet, wofür kein erforderliches CA-Bundle bereitgestellt wird. Eine Möglichkeit, dies zu bestätigen, besteht darin, `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` auf {% data variables.product.product_location_enterprise %} auszuführen. Wenn das SSL-Zertifikat des Remote-Servers verifiziert werden kann, sollte Ihre `SSL-Sitzung` den Rückgabecode 0 aufweisen (siehe unten).
+Führen Sie dieses Dienstprogramm aus, wenn {% data variables.product.product_location %} keine Verbindung mit einem anderen Server herstellen kann, da Letzterer ein selbstsigniertes SSL-Zertifikat oder ein SSL-Zertifikat verwendet, wofür kein erforderliches CA-Bundle bereitgestellt wird. Eine Möglichkeit, dies zu bestätigen, besteht darin, `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` auf {% data variables.product.product_location %} auszuführen. Wenn das SSL-Zertifikat des Remote-Servers verifiziert werden kann, sollte Ihre `SSL-Sitzung` den Rückgabecode 0 aufweisen (siehe unten).
 
 ```
 SSL-Session:
@@ -453,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-Dieses Dienstprogramm gibt die Version, Plattform und den Build von {% data variables.product.product_location_enterprise %} aus.
+Dieses Dienstprogramm gibt die Version, Plattform und den Build von {% data variables.product.product_location %} aus.
 
 ```shell
 $ ghe-version

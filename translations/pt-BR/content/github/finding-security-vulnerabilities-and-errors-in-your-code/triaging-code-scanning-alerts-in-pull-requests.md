@@ -3,7 +3,7 @@ title: Alertas de varredura de código de triagem em pull requests
 shortTitle: Alertas de triagem em pull requests
 intro: 'Quando {% data variables.product.prodname_code_scanning %} identifica um problema em um pull request, você poderá revisar o código destacado e resolver o alerta.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'As pessoas com permissão de gravação em um repositório podem resolver alertas de {% data variables.product.prodname_code_scanning %}.'
+permissions: 'If you have write permission to a repository, you can resolve {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

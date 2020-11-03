@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Schreibberechtigungen für ein Repository können mit Jekyll Inhalte zu einer {% data variables.product.prodname_pages %}-Website hinzufügen.

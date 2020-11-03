@@ -24,7 +24,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
 
 ### 빌드전 요구 사양
 
-* Before using the the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating organizations](/enterprise/admin/user-management/creating-organizations)."
+* Before using the the `actions-sync` tool, you must ensure that all destination organizations already exist on your enterprise instance. The following example demonstrates how to sync actions to an organization named `synced-actions` on an enterprise instance. For more information, see "[Creating a new organization from scratch](/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch)."
 * You must create a personal access token (PAT) on your enterprise instance that can create and write to repositories in the destination organizations. For more information, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
 
 ### Example: Using the `actions-sync` tool

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### ヘッディング
@@ -170,7 +171,7 @@ git commit
 
 ### 人や Team のメンション
 
-{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+{% data variables.product.product_name %}上の人あるいは [Team](/articles/setting-up-teams/) は、`@` に加えてユーザ名もしくは Team 名を入力することでメンションできます。 This will trigger a notification and bring their attention to the conversation. コメントを編集してユーザ名や Team 名をメンションすれば、人々に通知を受信してもらえます。 For more information about notifications, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 
 `@github/support これらのアップデートについてどう思いますか？`
 

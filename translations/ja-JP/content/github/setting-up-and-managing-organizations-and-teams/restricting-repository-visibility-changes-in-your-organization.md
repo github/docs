@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリの可視性を変更する資格を Organization のオーナーのみに制限すること、またはプライベートからパブリックまたはパブリックからプライベートに可視性を変更することをリポジトリの管理者権限を所有するメンバーに許可することができます。

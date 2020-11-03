@@ -64,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-此实用程序可用于检索和修改 {% data variables.product.product_location_enterprise %} 的配置设置。
+此实用程序可用于检索和修改 {% data variables.product.product_location %} 的配置设置。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -395,7 +395,7 @@ ghe-ssl-acme -e
 
 运行此实用程序可添加证书链进行 S/MIME 提交签名验证。 更多信息请参阅“[关于提交签名验证](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)”。
 
-如果 {% data variables.product.product_location_enterprise %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location_enterprise %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
+如果 {% data variables.product.product_location %} 无法连接到另一台服务器的原因是后者使用自签名 SSL 证书或没有为其提供必要 CA 包的 SSL 证书，请运行此实用程序。 确认这种情况的一种方法是通过 {% data variables.product.product_location %} 运行 `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs`。 如果可以验证远程服务器的 SSL 证书，`SSL-Session` 的返回代码应为 0，如下所示。
 
 ```
 SSL-Session:
@@ -453,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-此实用程序会打印 {% data variables.product.product_location_enterprise %} 的版本、平台和内部版本号。
+此实用程序会打印 {% data variables.product.product_location %} 的版本、平台和内部版本号。
 
 ```shell
 $ ghe-version

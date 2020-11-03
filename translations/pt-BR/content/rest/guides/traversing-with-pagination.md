@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 A API de {% data variables.product.product_name %} fornece uma grande quantidade de informações para os desenvolvedores consumirem. Na maioria das vezes, você pode até achar que está pedindo _muita_ informação, e, para manter nossos servidores satisfeitos, a API irá automaticamente [paginar os itens solicitados][pagination].
 
@@ -31,8 +32,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 O parâmetro `-I` indica que só nos importamos com os cabeçalhos, não com o conteúdo real. Ao examinar o resultado, você notará algumas informações no cabeçalho do link que se parecem com isso:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 Vamos explicar isso. `rel="next"` diz que a próxima página é `page=2`. Isto faz sentido, pois, por padrão, todas as consultas paginadas iniciam na página `1.` e `rel="última"` fornece mais algumas informações, afirmando que a última página com resultados está na página `34`. Assim, temos mais 33 páginas de informações sobre o `addClass` que podemos consumir. Ótimo!
 
@@ -48,10 +49,10 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Aqui está o cabeçalho do link mais uma vez:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 Como esperado, `rel="next"` está em 15 e `rel="last"` ainda está em 34. Mas agora temos mais informações: `rel="first"` indica a URL para a _primeira_ página e, mais importante, `rel="prev"` informa o número da página anterior. Ao usar essas informações, você pode construir uma interface de usuário que permite que esses pulem entre a lista de resultados primeira, anterior ou seguinte em uma chamada de API.
 
@@ -65,8 +66,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Observe o que ele faz com a resposta do cabeçalho:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 Como você deve ter imaginado, as informações `rel="last"` dizem que a última página agora é a 20. Isso ocorre porque estamos pedindo mais informações por página sobre os nossos resultados.
 

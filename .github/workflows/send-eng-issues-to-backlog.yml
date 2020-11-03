@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Add issues with engineering label to project board
       if: contains(github.event.issue.labels.*.name, 'engineering') || contains(github.event.issue.labels.*.name, 'design') || contains(github.event.issue.labels.*.name, 'Design')
-      uses: actions/github-script@44b873bc975058192f5279ebe7579496381f575d
+      uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
       with:
           github-token: ${{ secrets.DOCUBOT_FR_PROJECT_BOARD_WORKFLOWS_REPO_ORG_READ_SCOPES }} 
           script: |

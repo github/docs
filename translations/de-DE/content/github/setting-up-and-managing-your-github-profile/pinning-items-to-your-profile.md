@@ -1,12 +1,13 @@
 ---
 title: Elemente an Dein Profil anheften
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst ein öffentliches Repository anheften, wenn Dir das Repository gehört oder wenn Du Beiträge zu dem Repository geleistet hast. Commits zu Forks zählen nicht als Beiträge. Daher kannst Du Forks, die Du nicht besitzt, auch nicht anheften. Weitere Informationen findest Du unter „[Warum werden meine Beiträge nicht in meinem Profil angezeigt?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)“

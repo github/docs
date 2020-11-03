@@ -91,7 +91,7 @@ versions:
 
 您可以生成帐户恢复令牌并通过合作伙伴的恢复提供程序存储它。
 
-1. Sign in to your Facebook account, then return to
+1. 登录到您的 Facebook 帐户，然后返回
 
 {% data variables.product.product_name %} 上的企业设置来设置公告横幅。
 {% data reusables.user_settings.access_settings %}

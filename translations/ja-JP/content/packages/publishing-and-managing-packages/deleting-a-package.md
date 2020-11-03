@@ -31,7 +31,7 @@ versions:
 
 {% else %}
 
-以下は、個人アクセストークンを使って`MDIyOlJlZ2lzdHJ5UGFja2FnZVZlcnNpb243MTExNg`というパッケージバージョンIDを持つパッケージのバージョンを削除するcURLコマンドの例です。
+At this time, {% data variables.product.prodname_registry %} on {% data variables.product.product_location %} does not support deleting public packages.
 
 {% endif %}
 
