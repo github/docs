@@ -1,4 +1,4 @@
----
+---content/github/site-policy/submitting-content-removal-requests.md
 title: Searching code
 intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
 redirect_from:
