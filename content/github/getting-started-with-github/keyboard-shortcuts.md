@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -23,7 +24,7 @@ Below is a list of some of the available keyboard shortcuts.
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>s</kbd> or <kbd>/</kbd> | Focus the search bar. For more information, see "[About searching on {% data variables.product.company_short %}](/articles/about-searching-on-github)."
-|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
+|<kbd>g</kbd> <kbd>n</kbd> | Go to your notifications. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[About notifications](/github/receiving-notifications-about-activity-on-github/about-notifications){% endif %}."
 |<kbd>esc</kbd> | When focused on a user, issue, or pull request hovercard, closes the hovercard and refocuses on the element the hovercard is in
 
 ### Repositories
@@ -32,7 +33,7 @@ Below is a list of some of the available keyboard shortcuts.
 |-----------|------------
 |<kbd>g</kbd> <kbd>c</kbd> | Go to the **Code** tab
 |<kbd>g</kbd> <kbd>i</kbd> | Go to the **Issues** tab. For more information, see "[About issues](/articles/about-issues)."
-|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+|<kbd>g</kbd> <kbd>p</kbd> | Go to the **Pull requests** tab. For more information, see "[About pull requests](/articles/about-pull-requests)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 |<kbd>g</kbd> <kbd>a</kbd> | Go to the **Actions** tab. For more information, see "[About Actions](/actions/getting-started-with-github-actions/about-github-actions)."{% endif %}
 |<kbd>g</kbd> <kbd>b</kbd> | Go to the **Projects** tab. For more information, see "[About project boards](/articles/about-project-boards)."
 |<kbd>g</kbd> <kbd>w</kbd> | Go to the **Wiki** tab. For more information, see "[About wikis](/articles/about-wikis)."
@@ -109,7 +110,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>j</kbd> | Move selection down in the list
 |<kbd>k</kbd> | Move selection up in the list
 | <kbd>cmd + shift + enter </kbd> | Add a single comment on a pull request diff |
-| <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+| <kbd>alt</kbd> and click | Toggle between collapsing and expanding all outdated review comments in a pull request by holding down `alt` and clicking **Show outdated** or **Hide outdated**.|{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Click, then <kbd>shift</kbd> and click | Comment on multiple lines of a pull request by clicking a line number, holding <kbd>shift</kbd>, then clicking another line number. For more information, see "[Commenting on a pull request](/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#adding-line-comments-to-a-pull-request)."|{% endif %}
 
 ### Project boards
@@ -163,7 +164,7 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 
 ### Notifications
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>e</kbd> | Mark as done

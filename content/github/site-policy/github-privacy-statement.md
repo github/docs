@@ -144,7 +144,7 @@ For more information about our disclosure in response to legal requests, see our
 We may share User Personal Information if we are involved in a merger, sale, or acquisition of corporate entities or business units. If any such change of ownership happens, we will ensure that it is under terms that preserve the confidentiality of User Personal Information, and we will notify you on our Website or by email before any transfer of your User Personal Information. The organization receiving any User Personal Information will have to honor any promises we made in our Privacy Statement or Terms of Service.
 
 #### Aggregate, non-personally identifying information
-We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events. For example, [we may compile statistics on the open source activity across GitHub](https://octoverse.github.com/).
+We share certain aggregated, non-personally identifying information with others about how our users, collectively, use GitHub, or how our users respond to our other offerings, such as our conferences or events. 
 
 We **do not** sell your User Personal Information for monetary or other consideration.
 
