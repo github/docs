@@ -53,7 +53,7 @@ jobs:
 
   first-responder-remove-pr:
     name: Remove PR from FR project board
-    if: github.repository == 'github/docs-internal' && (github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed'
+    if: github.repository == 'github/docs-internal' && ((github.event.label.name == 'docs-content-fr' && github.event.action == 'unlabeled') || github.event.action == 'closed')
     runs-on: ubuntu-latest
 
     steps:
