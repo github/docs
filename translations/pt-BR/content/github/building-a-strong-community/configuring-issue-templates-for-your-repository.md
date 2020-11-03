@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.default-issue-templates %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Criando modelos de problemas
 {% endif %}
 
@@ -27,7 +28,7 @@ versions:
 10. Abaixo dos campos de mensagem do commit, decida se vai fazer commit do seu modelo diretamente no branch padrão ou se vai criar um branch e abrir uma pull request. Para obter mais informações sobre pull requests, consulte "[Sobre pull requests](/articles/about-pull-requests)". ![Commit do modelo de problema com opção para principal ou abrir pull request](/assets/images/help/repository/issue-template-commit-to-master-or-open-pull-request.png)
 11. Clique em **Commit changes** (Fazer commit das alterações). Assim que essas alterações passarem por merge no branch padrão, o modelo será disponibilizado para os contribuidores usarem quando abrirem novos problemas no repositório.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Configurando o seletor de modelos
 
 {% data reusables.repositories.issue-template-config %}

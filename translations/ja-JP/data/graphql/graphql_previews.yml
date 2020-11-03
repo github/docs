@@ -53,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: リポジトリの依存関係グラフへのアクセス
   description: このプレビューは、リポジトリの依存関係グラフの読み取りのサポートを追加します。

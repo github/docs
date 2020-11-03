@@ -7,6 +7,7 @@ intro: 您可以将 Git 仓库内的文件夹变为全新的仓库。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您创建仓库的新克隆副本，则将文件夹拆分为单独的仓库时不会丢失任何 Git 历史记录或更改。

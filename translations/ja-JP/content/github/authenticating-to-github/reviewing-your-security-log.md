@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### セキュリティログにアクセスする
@@ -13,7 +14,7 @@ versions:
 The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
 
 {% data reusables.user_settings.access_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 2. ユーザ設定サイドバーで [**Security log**] をクリックします。 ![セキュリティログのタブ](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
@@ -21,7 +22,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 4. エントリをクリックして、イベントに関する詳細情報を表示します。 ![セキュリティ ログ](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### セキュリティログを検索する
 
 {% data reusables.audit_log.audit-log-search %}
@@ -31,22 +32,22 @@ The security log lists all actions performed within the last 90 days{% if curren
 ### セキュリティログでのイベントを理解する
 
 セキュリティログに一覧表示されるアクションは以下のカテゴリに分類されます。 |{% endif %}
-| カテゴリー名                                            | 説明                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| `account_recovery_token`                          | [リカバリトークンの追加](/articles/configuring-two-factor-authentication-recovery-methods)に関連するすべての活動が対象です。                                                                                                                                                                                                                             |
-| `支払い`                                             | 自分の支払い情報に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                    |
-| `marketplace_agreement_signature`                 | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                   |
+| カテゴリー名                                            | 説明                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
+| `account_recovery_token`                          | [リカバリトークンの追加](/articles/configuring-two-factor-authentication-recovery-methods)に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                               |
+| `支払い`                                             | 自分の支払い情報に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                                                                                      |
+| `marketplace_agreement_signature`                 | {% data variables.product.prodname_marketplace %} Developer Agreement の署名に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                     |
 | `marketplace_listing`                             | {% data variables.product.prodname_marketplace %} に一覧表示しているアプリに関連するすべての活動が対象です。{% endif %}
 | `oauth_access`                                    | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
 | `payment_method`                                  | {% data variables.product.prodname_dotcom %} プランに対する支払いに関連するすべての活動が対象です。{% endif %}
-| `profile_picture`                                 | 自分のプロファイル写真に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                 |
-| `project`                                         | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                  |
-| `public_key`                                      | [公開 SSH キー](/articles/adding-a-new-ssh-key-to-your-github-account)に関連するすべての活動が対象です。                                                                                                                                                                                                                                          |
+| `profile_picture`                                 | 自分のプロファイル写真に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `project`                                         | プロジェクト ボードに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `public_key`                                      | [公開 SSH キー](/articles/adding-a-new-ssh-key-to-your-github-account)に関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                            |
 | `repo`                                            | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors`                                        | {% data variables.product.prodname_sponsors %}およびスポンサーボタンに関連するすべての活動が対象です (「[{% data variables.product.prodname_sponsors %}について](/articles/about-github-sponsors)」と「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照){% endif %}{% if enterpriseServerVersions contains currentVersion %}
-| `Team`                                            | 自分が所属する Team に関連するすべての活動が対象です。{% endif %}
-| `two_factor_authentication`                       | [2 要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa)に関連するすべての活動が対象です。                                                                                                                                                                                                                                |
-| `ユーザ`                                             | アカウントに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                       |
+| `sponsors`                                        | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `Team`                                            | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `two_factor_authentication`                       | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
+| `ユーザ`                                             | アカウントに関連するすべての活動が対象です。                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 これらのカテゴリ内のイベントの説明は以下のとおりです。
 
@@ -137,7 +138,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 | access                                | 自分が所有するリポジトリが["プライベート" から "パブリック" に切り替えられる](/articles/making-a-private-repository-public) (またはその逆) ときにトリガーされます。                                                                                                                                                                                                                                    |
 | add_member                            | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
 | add_topic                             | リポジトリのオーナーがリポジトリに[トピックを追加する](/articles/classifying-your-repository-with-topics)ときにトリガーされます。                                                                                                                                                                                                                                                        |
-| archived                              | リポジトリのオーナーが[リポジトリをアーカイブする](/articles/about-archiving-repositories)ときにトリガーされます。{% if enterpriseServerVersions contains currentVersion %}
+| archived                              | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 | config.disable_anonymous_git_access | 公開リポジトリで[匿名の Git 読み取りアクセスが無効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                                                   |
 | config.enable_anonymous_git_access  | 公開リポジトリで[匿名の Git 読み取りアクセスが有効になる](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)ときにトリガーされます。                                                                                                                                                                                                   |
 | config.lock_anonymous_git_access    | リポジトリの[匿名の Git 読み取りアクセス設定がロックされる](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)ときにトリガーされます。                                                                                                                                                                              |
@@ -186,7 +187,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 | revoke  | 継承の招待を取り消すとトリガーされます（「[ユーザアカウントのリポジトリの所有権の継続性を管理する](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)」を参照）    |
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 #### `team` カテゴリ
 
@@ -201,26 +202,28 @@ The security log lists all actions performed within the last 90 days{% if curren
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 #### `two_factor_authentication` カテゴリ
 
 | アクション    | 説明                                                                                             |
 | -------- | ---------------------------------------------------------------------------------------------- |
 | enabled  | [2 要素認証](/articles/securing-your-account-with-two-factor-authentication-2fa)が有効になるときにトリガーされます。 |
 | disabled | 2 要素認証が無効になるときにトリガーされます。                                                                       |
+{% endif %}
 
 #### `user` カテゴリ
 
 | アクション                              | 説明                                                                                                                                                                                            |
 | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| add_email                          | [新たなメール アドレスを追加する](/articles/changing-your-primary-email-address)ときにトリガーされます。                                                                                                                 |
-| create                             | 新たなユーザ アカウントを作成するときにトリガーされます。                                                                                                                                                                 |
+| add_email                          | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.         |
+| create                             | 新たなユーザー アカウントを作成するときにトリガーされます。                                                                                                                                                                |
 | remove_email                       | メール アドレスを削除するときにトリガーされます。                                                                                                                                                                     |
-| rename                             | 自分のアカウント名を変更するときにトリガーされます。                                                                                                                                                                    |
+| rename                             | Triggered when you rename your account.{% if currentVersion != "github-ae@latest" %}
 | change_password                    | 自分のパスワードを変更するときにトリガーされます。                                                                                                                                                                     |
-| forgot_password                    | [パスワード のリセット](/articles/how-can-i-reset-my-password)を依頼するときにトリガーされます。                                                                                                                         |
+| forgot_password                    | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
 | login                              | {% data variables.product.product_location %} にログインするときにトリガーされます                                                                                                                              |
-| failed_login                       | 正常にログインできなかったときにトリガーされます                                                                                                                                                                      |
-| two_factor_requested             | {% data variables.product.product_name %} が[自分の 2 要素認証コード](/articles/accessing-github-using-two-factor-authentication)を要求するときにトリガーされます。                                                       |
+| failed_login                       | Triggered when you failed to log in successfully.{% if currentVersion != "github-ae@latest" %}
+| two_factor_requested             | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
 | show_private_contributions_count | [自分のプロフィールでプライベート コントリビューションを公開する](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)ときにトリガーされます。                                                                    |
 | hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
 | report_content                     | [Issue または Pull Request、あるいは Issue、Pull Request、または Commit でのコメントを報告する](/articles/reporting-abuse-or-spam)ときにトリガーされます。{% endif %}

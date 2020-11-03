@@ -1,6 +1,6 @@
 ---
-title: Managing workflow runs
-shortTitle: Managing workflow runs
+title: 管理工作流程运行
+shortTitle: 管理工作流程运行
 intro: '您可以查看工作流程中每个步骤的状态和结果，取消待定的工作流程，查看可计费作业执行分钟数，调试并重新运行失败的工作流程，搜索并下载日志，以及下载构件。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run

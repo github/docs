@@ -8,6 +8,7 @@ product: '{% data reusables.gated-features.wikis %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Cada repositório do {% data variables.product.product_name %} é equipado com uma seção para hospedar documentação, chamada de wiki. Você pode usar o wiki do repositório para compartilhar conteúdo longo sobre seu projeto, por exemplo, como usá-lo, como ele foi projetado ou seus princípios básicos. Um arquivo LEIAME informa rapidamente o que seu projeto pode fazer, enquanto você pode usar um wiki para fornecer documentação adicional. Para obter mais informações, consulte "[Sobre LEIAME](/articles/about-readmes)".

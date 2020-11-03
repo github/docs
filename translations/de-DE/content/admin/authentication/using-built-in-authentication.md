@@ -1,6 +1,6 @@
 ---
 title: Integrierte Authentifizierung verwenden
-intro: 'Wenn Sie die standardmäßige Authentifizierungsmethode verwenden, werden alle Authentifizierungsdetails in {% data variables.product.product_location_enterprise %} gespeichert. Die integrierte Authentifizierung ist die Standardmethode, wenn Sie nicht bereits über einen etablierten Authentifizierungsanbieter wie LDAP, SAML oder CAS verfügen.'
+intro: 'Wenn Sie die standardmäßige Authentifizierungsmethode verwenden, werden alle Authentifizierungsdetails in {% data variables.product.product_location %} gespeichert. Die integrierte Authentifizierung ist die Standardmethode, wenn Sie nicht bereits über einen etablierten Authentifizierungsanbieter wie LDAP, SAML oder CAS verfügen.'
 redirect_from:
   - /enterprise/admin/user-management/using-built-in-authentication
   - /enterprise/admin/authentication/using-built-in-authentication

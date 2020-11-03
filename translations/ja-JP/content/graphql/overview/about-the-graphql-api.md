@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %}のGraphQL APIは、柔軟�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概要

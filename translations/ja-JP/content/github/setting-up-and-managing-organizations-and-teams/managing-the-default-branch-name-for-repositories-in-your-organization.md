@@ -5,6 +5,7 @@ permissions: リポジトリのデフォルトブランチ名を管理する
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
+  github-ae: '*'
 ---
 
 ### デフォルトブランチ名について
@@ -13,6 +14,8 @@ Organization のメンバーが Organization で新しいリポジトリを作�
 
 {% data reusables.branches.set-default-branch %}
 
+If an enterprise owner has enforced a policy for the default branch name for your enterprise, you cannot set a default branch name for your organization. Instead, you can change the default branch for individual repositories. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Enforcing repository management policies in your enterprise](/github/setting-up-and-managing-your-enterprise/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)"{% else %}"[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-on-the-default-branch-name)"{% endif %} and "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+
 ### デフォルトブランチ 名を設定する
 
 {% data reusables.profile.access_profile %}
@@ -20,11 +23,6 @@ Organization のメンバーが Organization で新しいリポジトリを作�
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.repository-defaults %}
 3. [Repository default branch] で、[**Change default branch name now**] をクリックします。 ![[Override] ボタン](/assets/images/help/organizations/repo-default-name-button.png)
-    {% note %}
-
-    **ノート:** Enterprise オーナーがデフォルト名についてポリシーを施行している場合、ここでデフォルト名を変更することはできません。 個々のリポジトリでデフォルトブランチを設定することは可能です。 詳しい情報については、「[デフォルトブランチ名に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise-account/enforcing-repository-management-policies-in-your-enterprise-account#enforcing-a-policy-on-the-default-branch-name)」と「[デフォルトブランチを設定する](/github/administering-a-repository/setting-the-default-branch)」を参照してください。
-
-    {% endnote %}
 4. 新しいブランチに使用したいデフォルト名を入力します。 ![デフォルト名を入力するテキストフィールド](/assets/images/help/organizations/repo-default-name-text.png)
 5. [**Update**] をクリックします。 ![[Update] ボタン](/assets/images/help/organizations/repo-default-name-update.png)
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-default %} Consulte "[Sobre discussões de equipe](/articles/about-team-discussions)" para obter mais informações sobre esse assunto.

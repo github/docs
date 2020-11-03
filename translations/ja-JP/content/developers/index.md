@@ -4,6 +4,7 @@ intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrati
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_with_intro /overview %}

@@ -79,10 +79,10 @@ Os atributos a seguir estão disponíveis. Você pode alterar seus nomes no [con
 
   {% endtip %}
 
-5. Selecione **Disable administrator demotion/promotion** (Desabilitar rebaixamento/promoção do administrador) se você **não** quiser que o provedor SAML determine direitos de administrador para usuários no {% data variables.product.product_location_enterprise %}. ![Configuração desativar administrador SAML](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
-6. No campo **Sign on URL** (URL de logon), digite o ponto de extremidade HTTP ou HTTPS do seu IdP para solicitações de logon único. Esse valor é fornecido pela configuração do IdP. Se o nome do host só estiver disponível na rede interna, talvez seja necessário [configurar a {% data variables.product.product_location_enterprise %} para usar servidores de nomes internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![Autenticação SAML](/assets/images/enterprise/management-console/saml-single-sign-url.png)
-7. Como alternativa, no campo **Issuer** (Emissor), digite o nome do emissor de SAML. Fazer isso verifica a autenticidade das mensagens enviadas para a {% data variables.product.product_location_enterprise %}. ![Emissor SAML](/assets/images/enterprise/management-console/saml-issuer.png)
-8. Nos menus suspensos **Signature Method** (Método de assinatura) e **Digest Method** (Método de compilação), escolha o algoritmo de hash usado pelo emissor SAML para verificar a integridade das solicitações do {% data variables.product.product_location_enterprise %}. Especifique o formato no menu suspenso **Name Identifier Format** (Formato de identificador de nome). ![Método SAML ](/assets/images/enterprise/management-console/saml-method.png)
+5. Selecione **Disable administrator demotion/promotion** (Desabilitar rebaixamento/promoção do administrador) se você **não** quiser que o provedor SAML determine direitos de administrador para usuários no {% data variables.product.product_location %}. ![Configuração desativar administrador SAML](/assets/images/enterprise/management-console/disable-admin-demotion-promotion.png)
+6. No campo **Sign on URL** (URL de logon), digite o ponto de extremidade HTTP ou HTTPS do seu IdP para solicitações de logon único. Esse valor é fornecido pela configuração do IdP. Se o nome do host só estiver disponível na rede interna, talvez seja necessário [configurar a {% data variables.product.product_location %} para usar servidores de nomes internos](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/). ![Autenticação SAML](/assets/images/enterprise/management-console/saml-single-sign-url.png)
+7. Como alternativa, no campo **Issuer** (Emissor), digite o nome do emissor de SAML. Fazer isso verifica a autenticidade das mensagens enviadas para a {% data variables.product.product_location %}. ![Emissor SAML](/assets/images/enterprise/management-console/saml-issuer.png)
+8. Nos menus suspensos **Signature Method** (Método de assinatura) e **Digest Method** (Método de compilação), escolha o algoritmo de hash usado pelo emissor SAML para verificar a integridade das solicitações do {% data variables.product.product_location %}. Especifique o formato no menu suspenso **Name Identifier Format** (Formato de identificador de nome). ![Método SAML ](/assets/images/enterprise/management-console/saml-method.png)
 9. Em **Verification certificate** (Certificado de verificação), clique em **Choose File** (Escolher arquivo) e escolha um certificado para validar as respostas SAML do IdP. ![Autenticação SAML](/assets/images/enterprise/management-console/saml-verification-cert.png)
 10. Modifique os nomes do atributo SAML para corresponder ao IdP, se necessário, ou aceite os nomes padrão. ![Nomes de atributos SAML](/assets/images/enterprise/management-console/saml-attributes.png)
 
@@ -100,7 +100,7 @@ Os atributos a seguir estão disponíveis. Você pode alterar seus nomes no [con
 
 {% endif %}
 
-### Revogar o acesso à {% data variables.product.product_location_enterprise %}
+### Revogar o acesso à {% data variables.product.product_location %}
 
 Se remover um usuário do seu provedor de identidade, você também deverá suspendê-lo manualmente. Caso contrário, ele continuará podendo fazer autenticação usando tokens de acesso ou chaves SSH. Para obter mais informações, consulte "[Suspender e cancelar a suspensão de usuários](/enterprise/admin/guides/user-management/suspending-and-unsuspending-users)".
 

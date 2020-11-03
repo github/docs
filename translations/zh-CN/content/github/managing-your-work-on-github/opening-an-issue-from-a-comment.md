@@ -4,6 +4,7 @@ intro: 您可以从议题或拉取请求中的特定评论行打开新议题。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 从评论打开议题时，该议题包含一个代码段，显示评论的原始发布位置。

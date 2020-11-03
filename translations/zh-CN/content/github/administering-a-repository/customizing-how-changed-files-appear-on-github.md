@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 使用 *.gitattributes* 文件标记与给定“模式”（含指定属性）匹配的文件。 *.gitattributes* 文件采用与 _.gitignore_ 文件相同的匹配规则。 更多信息请参阅 Git 文档中的[模式格式](https://www.git-scm.com/docs/gitignore#_pattern_format)。

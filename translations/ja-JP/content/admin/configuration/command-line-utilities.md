@@ -64,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-このユーティリティを使用すると、{% data variables.product.product_location_enterprise %} の設定を取得して変更することができます。
+このユーティリティを使用すると、{% data variables.product.product_location %} の設定を取得して変更することができます。
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -394,7 +394,7 @@ ghe-ssl-acme -e
 
 S/MIME コミット署名の検証のために証明書チェーンを追加するには、このユーティリティを実行します。 詳細は「[コミット署名の検証について](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)」を参照してください。
 
-他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {% data variables.product.product_location_enterprise %} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{% data variables.product.product_location_enterprise %} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
+他のサーバが自己署名証明書または必要な CA バンドルがついていない SSL 証明書を使っているため {% data variables.product.product_location %} がそのサーバに接続できない場合、このユーティリティを使ってください。 これを確認する方法は、{% data variables.product.product_location %} から`openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` を実行することです。 リモートサーバの SSL 証明書を確認できたら、`SSL-Session` が次のように0の終了コードを表示します。
 
 ```
 SSL-Session:
@@ -452,7 +452,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-このユーティリティは、{% data variables.product.product_location_enterprise %} のバージョンやプラットフォーム、ビルドを表示します。
+このユーティリティは、{% data variables.product.product_location %} のバージョンやプラットフォーム、ビルドを表示します。
 
 ```shell
 $ ghe-version

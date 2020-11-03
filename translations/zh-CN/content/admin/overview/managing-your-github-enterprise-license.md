@@ -36,8 +36,7 @@ versions:
 4. 在“Enterprise Server Instances（企业服务器实例）”下，单击 {% octicon "download" aria-label="The download icon" %} 下载您的许可文件。 ![下载 GitHub Enterprise Server 许可](/assets/images/help/business-accounts/download-ghes-license.png)
 5. 作为站点管理员登录到
 您的 {% data variables.product.prodname_ghe_server %} 实例。
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. 在“Quick links”下，单击 **Update license**。 ![更新许可链接](/assets/images/enterprise/business-accounts/update-license-link.png)
@@ -59,8 +58,7 @@ versions:
 
 您可以从 {% data variables.product.prodname_ghe_server %} 下载 JSON 文件并将文件上传到 {% data variables.product.prodname_ghe_cloud %}，在两个部署之间手动同步用户许可使用情况。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. 在“Quick links（快速链接）”下，下载包含
