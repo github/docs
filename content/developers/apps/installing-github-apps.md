@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -49,7 +50,7 @@ These steps assume you have [built a {% data variables.product.prodname_github_a
 ![Homepage URL](/assets/images/github-apps/github_apps_homepageURL.png)
 3. GitHub provides a landing page for your app that includes a link to your app's "Homepage URL." To visit the landing page on GitHub, copy the URL from "Public link" and paste it into a browser.
 ![Public link](/assets/images/github-apps/github_apps_public_link.png)
-4. Create a homepage for your app that includes the app installation URL: `https://github.com/apps/<app name>/installations/new`.
+4. Create a homepage for your app that includes the app installation URL: `{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new`.
 
 ### Authorizing users during installation
 
@@ -62,4 +63,4 @@ You can provide a `state` parameter in an app's installation URL to preserve the
 
 To preserve a state, add it to the installation URL:
 
-`https://github.com/apps/<app name>/installations/new?state=AB12t`
+`{% data variables.product.oauth_host_code %}/apps/<app name>/installations/new?state=AB12t`
