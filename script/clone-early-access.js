@@ -28,7 +28,7 @@ const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.y
 // Early Access details
 const earlyAccessOwner = 'docs'
 const earlyAccessDir = 'early-access-test'
-const earlyAccessFullRepo = `https://x-access-token:${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
+const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
 // Production vs. staging environment
