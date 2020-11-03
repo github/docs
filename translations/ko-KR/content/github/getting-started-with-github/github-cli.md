@@ -4,6 +4,7 @@ intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
 ### About {% data variables.product.prodname_cli %}

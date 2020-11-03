@@ -7,6 +7,7 @@ intro: Im Folgenden findest Du ein kurzes Tutorial zur Verwendung von „git reb
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 In diesem Beispiel werden mit Ausnahme von `exec` alle verfügbaren `git rebase`-Befehle vorgestellt.

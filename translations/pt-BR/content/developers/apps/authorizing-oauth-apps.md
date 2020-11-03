@@ -11,13 +11,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 To authorize your OAuth app, consider which authorization flow best fits your app.
 
@@ -111,7 +112,7 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
 {% note %}
@@ -235,6 +236,7 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 Non-web authentication is available for limited situations like testing. If you need to, you can use [Basic Authentication](/v3/auth#basic-authentication) to create a personal access token using your [Personal access tokens settings page](/articles/creating-an-access-token-for-command-line-use). This technique enables the user to revoke access at any time.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
 **Note:** When using the non-web application flow to create an OAuth2 token, make sure to understand how to [work with
@@ -242,6 +244,7 @@ two-factor authentication](/v3/auth/#working-with-two-factor-authentication) if
 you or your users have two-factor authentication enabled.
 
 {% endnote %}
+{% endif %}
 
 ### Redirect URLs
 
@@ -299,6 +302,6 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 * "[Troubleshooting authorization request errors](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[Troubleshooting OAuth App access token request errors](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Device flow errors](#errors-for-the-device-flow)"
 {% endif %}

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以将议题生成的 URL 发送给任何用户，这些用户将能够看到与您所见相同的过滤视图。

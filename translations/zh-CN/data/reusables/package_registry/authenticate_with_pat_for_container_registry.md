@@ -1,9 +1,9 @@
 {% if currentVersion == "free-pro-team@latest" %}
-If you want to authenticate to
-{% data variables.product.prodname_github_container_registry %} in a {% data variables.product.prodname_actions %} workflow, then you must use a personal access token (PAT). The `GITHUB_TOKEN` does not currently have the required permissions. During the {% data variables.product.prodname_github_container_registry %} beta, the only supported form of authentication is the PAT.
+如果要向
+{% data variables.product.prodname_actions %} 工作流程中的 {% data variables.product.prodname_github_container_registry %} 验证，则您必须使用个人访问令牌 (PAT)。 `GITHUB_TOKEN` 目前没有所需的权限。 在 {% data variables.product.prodname_github_container_registry %} 测试阶段，唯一支持的身份验证形式是 PAT 。
 
-PATs can grant broad access to your account. We recommend selecting only the necessary read, write, or delete `package` scope when creating a PAT to authenticate to the {% data variables.product.prodname_container_registry %}. Avoid including the `repo` scope in a PAT used by a GitHub Actions workflow because it gives unnecessary additional access.
+PAT 可以授予对您的帐户的广泛访问权限。 在创建 PAT 以向 {% data variables.product.prodname_container_registry %} 验证时，我们建议只选择必要的读取、写入或删除 `package` 作用域。 避免在 GitHub Actions 工作流程使用的 PAT 中包括 `repo` 作用域，因为它会授予不必要的额外访问权限。
 
-If you'd like to use the {% data variables.product.prodname_container_registry %} in actions during the beta, follow our security best practices for PAT use at "[Security hardening for GitHub Actions](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)."
+如果要在测试期间的操作中使用 {% data variables.product.prodname_container_registry %}，请遵循我们在“[GitHub Actions 的安全强化](/actions/getting-started-with-github-actions/security-hardening-for-github-actions#considering-cross-repository-access)”中的 PAT 使用安全最佳实践。
 
 {% endif %}

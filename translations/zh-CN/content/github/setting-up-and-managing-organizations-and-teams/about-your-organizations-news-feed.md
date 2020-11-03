@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 组织的消息馈送显示其他人在该组织拥有的仓库上的活动。 您可以使用组织的消息馈送来查看何时有人打开、关闭或合并议题或拉取请求，创建或删除分支，创建标记或发行版，评论议题，拉取请求，或者提交或推送提交到 {% data variables.product.product_name %}。

@@ -8,6 +8,7 @@ intro: 'Documentação, guias e tópicos de ajuda para desenvolvedores de softwa
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /getting-started-with-github %}
@@ -31,7 +32,7 @@ versions:
 {% link_in_list /setting-up-and-managing-organizations-and-teams %}
 
 <!-- if currentVersion == "free-pro-team@latest" -->
-{% link_in_list /setting-up-and-managing-your-enterprise-account %}
+{% link_in_list /setting-up-and-managing-your-enterprise %}
 <!-- endif -->
 
 <!-- if currentVersion == "free-pro-team@latest" -->

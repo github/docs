@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre clonagem de um repositório
@@ -16,7 +17,7 @@ Clonar um repositório extrai uma cópia completa de todos os dados do repositó
 
 É possível clonar o repositório existente ou clonar o repositório existente de outra pessoa para contribuir para um projeto.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
 **Dica**: Você também pode clonar um repositório usando o {% data variables.product.prodname_cli %}. Para obter mais informações, consulte "[`clone de repositório gh`](https://cli.github.com/manual/gh_repo_clone)" na documentação do {% data variables.product.prodname_cli %}.

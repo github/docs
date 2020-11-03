@@ -1,5 +1,5 @@
 ---
-title: Viewing job execution time
+title: 查看作业执行时间
 intro: '您可以查看作业的执行时间，包括某个作业累积的可计费分钟数。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
@@ -15,7 +15,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under the job summary, you can view the job's execution time. To view the billable job execution time, click **Run and billable time details**. ![运行和可计费时间详细信息链接](/assets/images/help/repository/view-run-billable-time.png)
+1. 在作业摘要下，您可以查看作业的执行时间。 要查看可计费的作业执行时间，单击 **Run and billable time details（运行和可计费时间详细信息）**。 ![运行和可计费时间详细信息链接](/assets/images/help/repository/view-run-billable-time.png)
 
    {% note %}
 
