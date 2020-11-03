@@ -121,7 +121,7 @@ Email notifications from {% data variables.product.product_name %} contain the f
 3. On the notifications settings page, choose how you receive notifications when:
     - There are updates in repositories or team discussions you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
     - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#github-dependabot-alerts-notification-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
+    - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)." {% endif %}{% if currentVersion == "enterprise-server@2.21" %}
     - There are new security alerts in your repository. For more information, see "[Security alert notification options](#security-alert-notification-options)." {% endif %} {% if currentVersion == "free-pro-team@latest" %}
     - There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see "[{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options)."{% endif %}
 
