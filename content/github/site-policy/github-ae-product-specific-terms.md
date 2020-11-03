@@ -2,6 +2,8 @@
 title: GitHub AE Product Specific Terms
 versions: 
   free-pro-team: '*'
+redirect_from:
+  - /github/site-policy/ghem-supplemental-terms-for-microsoft-volume-licensing
 ---
 
 Version Effective Date: November 1, 2020

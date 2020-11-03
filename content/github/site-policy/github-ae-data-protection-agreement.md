@@ -2,6 +2,8 @@
 title: GitHub AE Data Protection Agreement
 versions: 
   free-pro-team: '*'
+redirect_from:
+  - /github/site-policy/ghem-data-protection-addendum
 ---
 
 Version Effective Date: November 1, 2020
