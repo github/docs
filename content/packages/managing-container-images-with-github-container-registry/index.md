@@ -1,4 +1,4 @@
----
+.github/workflows/linter.yml---
 title: Managing container images with GitHub Container Registry
 intro: 'Learn how to manage container images using a supported CLI or on {% data variables.product.prodname_dotcom %}.'
 versions:
