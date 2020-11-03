@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If you don't already have an SSH key, you must [generate a new SSH key](#generating-a-new-ssh-key). If you're unsure whether you already have an SSH key, check for [existing keys](/articles/checking-for-existing-ssh-keys).
@@ -19,18 +20,26 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Paste the text below, substituting in your {% data variables.product.product_name %} email address.
   ```shell
-  $ ssh-keygen -t rsa -b 4096 -C "<em>your_email@example.com</em>"
+  $ ssh-keygen -t ed25519 -C "<em>your_email@example.com</em>"
   ```
+  {% note %}
+
+  **Note:** If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+  ```shell
+   $ ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+  ```
+
+  {% endnote %}  
   This creates a new ssh key, using the provided email as a label.
   ```shell
-  > Generating public/private rsa key pair.
+  > Generating public/private ed25519 key pair.
   ```
 3. When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
 
   {% mac %}
 
   ```shell
-  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/Users/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endmac %}
@@ -38,7 +47,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   {% windows %}
 
   ```shell
-  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_rsa):<em>[Press enter]</em>
+  > Enter a file in which to save the key (/c/Users/<em>you</em>/.ssh/id_ed25519):<em>[Press enter]</em>
   ```
 
   {% endwindows %}
@@ -46,7 +55,7 @@ If you don't want to reenter your passphrase every time you use your SSH key, yo
   {% linux %}
 
   ```shell
-  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_rsa): <em>[Press enter]</em>
+  > Enter a file in which to save the key (/home/<em>you</em>/.ssh/id_ed25519): <em>[Press enter]</em>
   ```
 
   {% endlinux %}
@@ -80,18 +89,18 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
       $ touch ~/.ssh/config
       ```
 
-    * Open your `~/.ssh/config` file, then modify the file, replacing ` ~/.ssh/id_rsa` if you are not using the default location and name for your `id_rsa` key.
+    * Open your `~/.ssh/config` file, then modify the file, replacing ` ~/.ssh/id_ed25519` if you are not using the default location and name for your `id_ed25519` key.
 
       ```
       Host *
         AddKeysToAgent yes
         UseKeychain yes
-        IdentityFile ~/.ssh/id_rsa
+        IdentityFile ~/.ssh/id_ed25519
       ```
 
 3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
-   $ ssh-add -K ~/.ssh/id_rsa
+   $ ssh-add -K ~/.ssh/id_ed25519
   ```
   {% note %}
 

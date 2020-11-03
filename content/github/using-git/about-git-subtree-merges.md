@@ -8,6 +8,7 @@ intro: 'If you need to manage multiple projects within a single repository, you 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Typically, a subtree merge is used to contain a repository within a repository. The "subrepository" is stored in a folder of the main repository.
