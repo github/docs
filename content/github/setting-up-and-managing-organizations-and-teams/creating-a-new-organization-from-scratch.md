@@ -1,11 +1,13 @@
 ---
 title: Creating a new organization from scratch
 intro: Create an organization to apply fine-grained access permissions to repositories.
-redirect_from:
-  - /articles/creating-a-new-organization-from-scratch
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+redirect_from:
+  - /articles/creating-a-new-organization-from-scratch
+  - /admin/user-management/creating-organizations
 ---
 
 When you create a new organization from scratch, it doesn't have any repositories associated with it. For more information on adding repositories to your organization, see "[Creating a new repository](/articles/creating-a-new-repository)" and "[Transferring a repository](/articles/transferring-a-repository)."
