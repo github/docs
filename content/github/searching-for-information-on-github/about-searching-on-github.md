@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can search globally across all of {% data variables.product.product_name %}, or scope your search to a particular repository or organization.
@@ -54,6 +55,7 @@ The {% data variables.search.advanced_url %} provides a visual interface for con
 
 ![Advanced Search](/assets/images/help/search/advanced_search_demo.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Searching across {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_dotcom_the_website %} simultaneously
 
 If you use {% data variables.product.prodname_enterprise %} and you're a member of a {% data variables.product.prodname_dotcom_the_website %} organization using {% data variables.product.prodname_ghe_cloud %}, your {% data variables.product.prodname_enterprise %} site administrator can enable {% data variables.product.prodname_github_connect %} so that you can search across both environments at the same time. For more information, see "[Enabling {% data variables.product.prodname_unified_search %} between {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com)."
@@ -63,6 +65,7 @@ You can only search across both environments from {% data variables.product.prod
 Your {% data variables.product.prodname_enterprise %} site administrator can enable {% data variables.product.prodname_unified_search %} for all public repositories, all private repositories, or only certain private repositories in the connected {% data variables.product.prodname_ghe_cloud %} organization.
 
 If your site administrator enables {% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Your {% data variables.product.prodname_enterprise %} administrators and organization owners on {% data variables.product.prodname_dotcom_the_website %} cannot search private repositories owned by your account. To search the applicable private repositories, you must enable private repository search for your personal accounts on {% data variables.product.prodname_dotcom_the_website %} and {% data variables.product.prodname_enterprise %}. For more information, see "[Enabling private {% data variables.product.prodname_dotcom_the_website %} repository search in your {% data variables.product.prodname_enterprise %} account](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)."
+{% endif %}
 
 ### Further reading
 

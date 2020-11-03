@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -21,7 +22,7 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 {% endif %}
 
@@ -66,7 +67,7 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
+Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
 
 Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
 
@@ -84,7 +85,7 @@ Name | Type | Description
 
 ##### Response
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable the beta for expiring user-to-server access tokens.
 
@@ -119,7 +120,7 @@ For example, in curl you can set the Authorization header like this:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
 {% note %}
@@ -249,7 +250,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List deployments](/rest/reference/repos#list-deployments)
 * [Create a deployment](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
 ##### Events
@@ -431,7 +432,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Organization Team Projects
 
 * [List team projects](/v3/teams/#list-team-projects)
@@ -459,7 +460,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List teams](/v3/teams/#list-teams)
 * [Create a team](/v3/teams/#create-a-team)
-* [Get a team by name](/v3/teams/#get-a-team-by-name)
+* [Get a team by name](/v3/teams/#get-a-team-by-name) 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/v3/teams/#get-a-team)
 {% endif %}
@@ -481,7 +482,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get an organization](/v3/orgs/#get-an-organization)
 * [Update an organization](/v3/orgs/#update-an-organization)
 * [List organization memberships for the authenticated user](/v3/orgs/members/#list-organization-memberships-for-the-authenticated-user)
-* [Get an organization membership for the authenticated user](/v3/orgs/members/#get-an-organization-membership-for-the-authenticated-user)
+* [Get an organization membership for the authenticated user](/v3/orgs/members/#get-an-organization-membership-for-the-authenticated-user) 
 * [Update an organization membership for the authenticated user](/v3/orgs/members/#update-an-organization-membership-for-the-authenticated-user)
 * [List organizations for the authenticated user](/v3/orgs/#list-organizations-for-the-authenticated-user)
 * [List organizations for a user](/v3/orgs/#list-organizations-for-a-user)
@@ -587,7 +588,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Reactions
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
 * [List reactions for a commit comment](/v3/reactions/#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/v3/reactions/#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/v3/reactions/#list-reactions-for-an-issue)
@@ -599,7 +600,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/v3/reactions/#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/v3/reactions/#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/v3/reactions/#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/v3/reactions/#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Create reaction for a team discussion](/v3/reactions/#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a commit comment reaction](/v3/reactions/#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/v3/reactions/#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/v3/reactions/#delete-an-issue-comment-reaction)
@@ -719,7 +720,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/v3/repos/contents/#get-a-repository-readme)
 * [Get the license for a repository](/v3/licenses/#get-the-license-for-a-repository)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Repository Event Dispatches
 
 * [Create a repository dispatch event](/v3/repos/#create-a-repository-dispatch-event)
@@ -821,7 +822,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List commit statuses for a reference](/v3/repos/statuses/#list-commit-statuses-for-a-reference)
 * [Create a commit status](/v3/repos/statuses/#create-a-commit-status)
 
-##### Team Discussions
+##### Team Discussions 
 
 * [List discussions](/v3/teams/discussions/#list-discussions)
 * [Create a discussion](/v3/teams/discussions/#create-a-discussion)
@@ -861,6 +862,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unblock a user](/v3/users/blocking/#unblock-a-user)
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ##### User Emails
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -870,6 +872,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Add email address(es)](/v3/users/emails/#add-an-email-address-for-the-authenticated-user)
 * [Delete email address(es)](/v3/users/emails/#delete-an-email-address-for-the-authenticated-user)
 * [List public email addresses for the authenticated user](/v3/users/emails/#list-public-email-addresses-for-the-authenticated-user)
+{% endif %}
 
 ##### User Followers
 
