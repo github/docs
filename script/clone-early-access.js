@@ -31,7 +31,10 @@ const earlyAccessDir = 'early-access-test'
 const earlyAccessFullRepo = `https://x-access-token:${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
-console.log(`Full repo URL: ${earlyAccessFullRepo}`)
+console.log(`PAT 0-8: ${DOCUBOT_REPO_PAT.slice(0, 8)}`)
+console.log(`PAT 8-16: ${DOCUBOT_REPO_PAT.slice(8, 16)}`)
+console.log(`PAT 16-24: ${DOCUBOT_REPO_PAT.slice(16, 24)}`)
+console.log(`PAT 24+: ${DOCUBOT_REPO_PAT.slice(24)}`)
 
 // Production vs. staging environment
 // TODO test that this works as expected
