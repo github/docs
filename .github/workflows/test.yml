@@ -27,7 +27,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '[".github/workflows/test.yml",".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
+          paths: '[".github/workflows/test.yml", ".node-version", ".npmrc", "app.json", "content/**", "data/**","lib/**", "Dockerfile", "feature-flags.json", "Gemfile", "Gemfile.lock", "middleware/**", "node_modules/**","package.json", "package-lock.json", "server.js", "tests/**", "translations/**", "Procfile", "webpack.config.js"]'
   lint:
     needs: see_if_should_skip
     runs-on: ubuntu-latest
@@ -115,7 +115,7 @@ jobs:
         name: Install dependencies
         run: npm ci
 
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && GITHUB_REPOSITORY == 'github/docs-internal' }}
+      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         name: Clone early access
         run: npm run heroku-prebuild
         env:
