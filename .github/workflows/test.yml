@@ -110,16 +110,8 @@ jobs:
         run: npm ci
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
-        name: Override Actions git authorization extraHeader config
-        env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-        run: |
-          # Reset the header
-          git config --local "http.https://github.com/.extraheader" ""
-
-          # Override the header
-          GIT_AUTH_HEADER='AUTHORIZATION: basic '$(printf "x-access-token:$DOCUBOT_REPO_PAT" | base64)
-          git config --local "http.https://github.com/docs/early-access-test/.extraheader" "${GIT_AUTH_HEADER}"
+        name: Clear out the Actions git authorization extraHeader config
+        run: git config --local "http.https://github.com/.extraheader" ""
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         name: Clone early access
