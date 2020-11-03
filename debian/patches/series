@@ -1,0 +1,4 @@
+skip_support_file_installation.patch
+disable-autoupdate-mechanism.patch
+disable_more_online_tests.patch
+skip-style-checks-for-flake8.patch

@@ -1,2 +1,0 @@
-1. No canto superior direito de qualquer página, clique na sua foto do perfil e depois em **{% data variables.product.prodname_sponsors %}**. ![Botão {% data variables.product.prodname_sponsors %}](/assets/images/help/sponsors/access-github-sponsors-dashboard.png)
-2. Se uma lista de suas contas patrocinadas e elegíveis for exibida, à direita do nome de sua conta, clique em **Painel**. ![Botão do painel de patrocinadores de desenvolvedor](/assets/images/help/sponsors/dev-sponsors-dashboard-button.png)

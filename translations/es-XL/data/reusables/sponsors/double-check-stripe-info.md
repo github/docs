@@ -1,1 +1,0 @@
-Al solicitar una cuenta Stripe Connect, asegúrate de que toda la información sea correcta antes de enviar tu solicitud. Una vez que enviaste tu solicitud, es difícil actualizar la información de identidad, como tu nombre y fecha de nacimiento.

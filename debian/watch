@@ -1,0 +1,4 @@
+version=4
+opts="dversionmangle=s/\+dfsg\d*$//,pgpsigurlmangle=s/$/.sig/" \
+https://github.com/ytdl-org/youtube-dl/releases \
+     (?:.*?/)?v?youtube-dl-(\d[\d.]*)\.tar\.gz debian uupdate

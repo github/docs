@@ -1,1 +1,0 @@
-1. Em "Subscriptions" (Assinaturas), revise suas alterações pendentes. ![Seção Subscriptions (Assinaturas) de Billing settings (configurações de cobrança) listando quaisquer alterações de assinatura pendentes](/assets/images/help/billing/review-pending-subscription-changes.png)

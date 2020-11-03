@@ -1,1 +1,0 @@
-- Apply for free [{% data variables.product.prodname_team %}](/articles/github-s-products), which allows unlimited users and private repositories. For more information, see "[Applying for an educator or researcher discount](/articles/applying-for-an-educator-or-researcher-discount)."

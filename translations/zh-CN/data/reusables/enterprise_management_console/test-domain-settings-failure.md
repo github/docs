@@ -1,1 +1,0 @@
-1. 如果在所有条目旁边没有看到绿色的复选标记，请检查配置，查找失效的设置。 更多信息请参阅“[配置 DNS 域名服务器](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-dns-nameservers/)”。 ![显示 DNS 和 SSL 配置状态的表格](/assets/images/enterprise/management-console/domain-dns-ssl-settings-check.png)

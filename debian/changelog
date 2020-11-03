@@ -1,0 +1,1398 @@
+youtube-dl (2020.09.14-1) unstable; urgency=medium
+
+  * New upstream version 2020.09.14.
+    + Fixes problems with YouTube and downloads from Google Drive.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 13 Sep 2020 21:30:13 -0300
+
+youtube-dl (2020.07.28-1) unstable; urgency=medium
+
+  * New upstream version 2020.07.28
+    + Fixes problems with some playlists from YouTube (among other things).
+  * debian/control: Update list of supported sites.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 10 Aug 2020 13:56:03 -0300
+
+youtube-dl (2020.06.16.1-1) unstable; urgency=medium
+
+  * New upstream version 2020.06.16.1
+    + Fixes problems with some metadata from YouTube.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 17 Jun 2020 18:22:20 -0300
+
+youtube-dl (2020.06.16-1) unstable; urgency=medium
+
+  * New upstream version 2020.06.16.
+    + Fixes problems when downloading YouTube playlists.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 15 Jun 2020 17:14:11 -0300
+
+youtube-dl (2020.05.08-1) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+  * Use canonical URL in Vcs-Git.
+
+  [ Rogério Brito ]
+  * New upstream version 2020.05.08
+  * debian/control: Upgrade debhelper-compat to 13.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 13 May 2020 15:37:41 -0300
+
+youtube-dl (2020.03.24-1) unstable; urgency=medium
+
+  [ Unit 193 ]
+  * debian/patches:
+    + disable-autoupdate-mechanism.patch: Extend to clean up errant import
+      and README clobber on clean.
+    + disable_more_online_tests.patch: Disable remaining tests that require
+      internet.
+  * debian/control:
+    + Build-depend on flake8 and python3-nose.
+  * debian/rules:
+    + Drop makefile mangling
+    + Run offline tests.
+
+  [ Rogério Brito ]
+  * New upstream version 2020.03.24 (Closes: #950163, #954875)
+  * debian/patches:
+    + Add patch to skip style checks from flake8 during test.
+  * debian/control:
+    + State compliancy with policy 4.5.0 (no further changes needed).
+    + Move phantomjs from Recommends to Suggests. (Closes: #950358)
+    + Add 'libfribidi-bin | bidiv' to Suggests. (Closes: #950674)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 10 Apr 2020 10:47:11 -0300
+
+youtube-dl (2020.01.24-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream version 2020.01.24. Closes: #947208
+
+ -- Simon Spöhel <simon@spoehel.ch>  Fri, 31 Jan 2020 16:29:34 +0100
+
+youtube-dl (2019.09.28-1) unstable; urgency=medium
+
+  * New upstream version 2019.09.28. Closes: #940053
+  * debian/README.source: Document source-only uploads procedure.
+  * debian/control:
+    + Update list of extractors/supported sites.
+    + Mark my GitHub trees as the preferred repos.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 01 Oct 2019 17:06:33 -0300
+
+youtube-dl (2019.09.01-1) unstable; urgency=medium
+
+  * New upstream version 2019.09.01.
+    Highlight:
+     + Fix extraction of video titles from YouTube.
+     Closes: #933381, #939041
+  * debian/{control,copyright,watch}: Change upstream location.
+  * debian/README.source: Change 'markup'.
+  * debian/copyright: Update my copyright years.
+  * debian/control: State compliancy with Debian Policy 4.4.0.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 02 Sep 2019 15:41:39 -0300
+
+youtube-dl (2019.07.02-1) unstable; urgency=medium
+
+  * New upstream version 2019.07.02.
+    Highlight:
+     + Fixes download of encrypted videos (e.g., almost everything with music)
+       from YouTube.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 03 Jul 2019 19:36:43 -0300
+
+youtube-dl (2019.06.08-1) unstable; urgency=medium
+
+  * ACK NMU. Thanks Antoine and Salvatore for the upload!
+  * New upstream version 2019.06.08. Closes: #930462.
+  * debian/README.source: Update steps used to create new release.
+  * debian/patches:
+    + Remove patch cherry-picked from upstream for the NMU.
+    + Refresh patches to apply cleanly.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 13 Jun 2019 21:24:55 -0300
+
+youtube-dl (2019.01.17-1.1) unstable; urgency=medium
+
+  [ Salvatore Bonaccorso ]
+  * Fix extraction from youtube. (Closes: #927862)
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 27 Apr 2019 17:03:56 -0400
+
+youtube-dl (2019.01.17-1) unstable; urgency=medium
+
+  * New upstream version 2019.01.17.
+    Highlight:
+     + Fixes downloads from YouTube. Closes: #919867
+     + Note: May still have some pending issues with YouTube, but a new
+       package will be uploaded as soon as upstream has it ready. OTOH, all
+       the videos with which I have verified with this version of the package
+       work.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 21 Jan 2019 12:13:04 -0200
+
+youtube-dl (2019.01.16-1) unstable; urgency=medium
+
+  * New upstream version 2019.01.16. Fixes downloads from YouTube.
+  * debian/patches: Remove patch to disambiguate between ffmpeg and avconv.
+  * debian/{compat,control}: Update to debhelper compatibility level 12.
+  * debian/control: Mark package compliant with Policy 4.3.0 (no changes).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 16 Jan 2019 20:20:25 -0200
+
+youtube-dl (2018.11.07-1) unstable; urgency=medium
+
+  * New upstream version 2018.11.07.
+    + Highlight: Fix problem extracting videos from YouTube.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 11 Nov 2018 00:06:15 -0200
+
+youtube-dl (2018.09.10-1) unstable; urgency=medium
+
+  * ACK NMU by Clint Adams. Thanks!
+  * New upstream version 2018.09.10. Closes: #908461, #907722, #904619.
+  * debian/patch:
+    + Refresh all patches to avoid FTBFS.
+  * debian/control:
+    + Set 'Rules-Requires-Root: no'.
+    + Mark compliance with Debian policy 4.2.1. No further changes needed.
+    + Update list of extractors in long description.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 14 Sep 2018 23:11:59 -0300
+
+youtube-dl (2018.06.18-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add missing python3-setuptools build dependency.  closes: #902279.
+
+ -- Clint Adams <clint@debian.org>  Sun, 24 Jun 2018 16:54:30 -0400
+
+youtube-dl (2018.06.18-1) unstable; urgency=medium
+
+  * New upstream version 2018.06.18 (Closes: #900642)
+  * debian/control:
+    + Canonicalize with `wrap-and-sort -s -a -b`.
+    + Remove X-Python3-Version indication with ancient versions.
+    + Remove trailing whitespace at EOF.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 19 Jun 2018 07:44:05 -0300
+
+youtube-dl (2018.04.25-1) unstable; urgency=medium
+
+  * New upstream version 2018.04.25
+  * New buld to fix missing build dependencies due to changes in python3.6.
+    (Closes: #896789)
+  * debian/control:
+    + Verify compliance with Policy 4.1.4 (no changes needed).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 27 Apr 2018 17:20:44 -0300
+
+youtube-dl (2018.03.14-1) unstable; urgency=medium
+
+  [ Andreas Tille ]
+  * cme fix dpkg-control
+  * Moved packaging to salsa.debian.org
+
+  [ Nicolas Braud-Santoni ]
+  * d/p/remove-autoupdate-mechanism.patch: Remove upstream's autoupdate
+    mechanism (Closes: #693534, #890119)
+
+  [ Rogério Brito ]
+  * New upstream version 2018.01.27
+  * New upstream version 2018.03.14
+  * debian/copyright:
+    + Update my copyright years.
+  * debian/{compat,control}:
+    + Relutanctly update compat to 11.
+  * debian/control:
+    + Add Recommends: python3-pyxattr. Thanks to Mathieu Malaterre for the
+      report. (Closes: #891446)
+    + Update long description with list of supported sites/extractors.
+  * debian/patches:
+    + remove-autoupdate-mechanism.patch: Update patch with metadata at the top.
+    + fix_libav_compat_outdated.patch: Refresh.
+    + remove-autoupdate-mechanism.patch: Refresh.
+    + remove-autoupdate-mechanism.patch: Remove fewer things to avoid future
+      conflicts.
+    + remove-autoupdate-mechanism.patch: Update metadata and rename to
+      disable-autoupdate-mechanism.patch
+    + Refresh all patches with gbp pq.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 16 Mar 2018 15:55:33 -0300
+
+youtube-dl (2017.12.31-1) unstable; urgency=medium
+
+  * New upstream version 2017.12.31. (Closes: #886249)
+  * debian/control: Mark compliancy with policy 4.1.3 (no changes needed).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 04 Jan 2018 04:35:08 -0200
+
+youtube-dl (2017.11.06-1) unstable; urgency=medium
+
+  * New upstream version 2017.11.06
+  * debian/control: Add recommends on phantomjs. Closes: #880739
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 08 Nov 2017 04:40:10 -0200
+
+youtube-dl (2017.10.15.1-1) unstable; urgency=medium
+
+  * New upstream version 2017.10.15.1 (Closes: #793054, #812547)
+  * debian/control:
+    + Update the source repository to github.com.
+    + Update S-V to 4.0.0, no more changes needed.
+    + Change priority from extra to optional.
+    + Mark compliance with policy 4.1.1. No further changes needed.
+  * debian/README.source:
+    + Update with instructions relative to my workflow.
+  * debian/copyright:
+    + Use HTTPS for Format: field.
+    + Use HTTPS for upstream's source.
+  * debian/{compat,control}: Update compat to 10.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 19 Oct 2017 19:40:59 -0200
+
+youtube-dl (2017.09.24-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release 2017.09.24.
+    + Fixes downloads from Daily Motion. Closes: #876118, #873853.
+
+ -- Francois Marier <francois@debian.org>  Sun, 24 Sep 2017 16:07:57 -0700
+
+youtube-dl (2017.05.18.1-1) unstable; urgency=medium
+
+  * New upstream version 2017.05.18.1.
+    + Fixes downloads from YouTube, among other sites. Closes: #861538.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 19 May 2017 03:29:30 -0300
+
+youtube-dl (2017.03.26-1) unstable; urgency=medium
+
+  * New upstream version 2017.03.26.
+    + More fixes for downloads from popular sites.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 30 Mar 2017 18:18:12 -0300
+
+youtube-dl (2017.03.07-1) unstable; urgency=medium
+
+  * New upstream version 2017.03.07.
+    + Fixes downloads from Facebook, among other things.
+  * debian/control:
+    + Update list of supported sites (and list one per line).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 09 Mar 2017 05:45:30 -0300
+
+youtube-dl (2017.02.24.1-1) unstable; urgency=medium
+
+  * New upstream version 2017.02.24.1.
+    (Closes: #855538)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 24 Feb 2017 21:12:46 -0300
+
+youtube-dl (2017.02.07-1) unstable; urgency=medium
+
+  * New upstream version 2017.02.07
+    (Closes: #850893, #851157, #854314, #853120)
+  * debian/upstream/signing-key.asc:
+    + Add keys for both upstream "releasers". (Addresses: #846495)
+  * debian/watch: Simplify the watch file and make it work.
+    Thanks to "user" for the warning. (Closes: #846495)
+  * debian/control:
+    + Update list of supported sites. People keep complaining that it is not
+      up-to-date.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 09 Feb 2017 05:39:37 -0200
+
+youtube-dl (2016.12.01-1) unstable; urgency=medium
+
+  [ Rogério Brito ]
+  * Revert "debian/watch: Add back pgpsigurlmangle."
+  * Imported Upstream version 2016.08.17
+  * debian/patches: Remove unneeded patches.
+
+  [ Carlos Maddela ]
+  * Tidy up cleanup rule and keep lintian happy.
+  * Rebuild with only Python 3 support. (Closes: #723990)
+  * Update Standards-Version to 3.9.8 (no changes required).
+  * Add support for zsh completion. (Closes: #816412)
+  * debian/patches:
+    + skip_support_file_installation.patch: Install support files via
+      debhelper instead of setup.py.
+    + fix_libav_compat_outdated.patch: Stop libav compatibility links from
+      being considered as genuine. (Closes: #798936)
+
+  [ Rogério Brito ]
+  * New upstream version 2016.12.01 (Closes: #753309, #781180, #841156, #840839)
+  * debian/watch:
+    + Re-enable signature checking.
+  * debian/control:
+    + Remove mplayer2 from recommends. (Closes: #841187)
+    + Rerun wrap-and-sort.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 01 Dec 2016 01:18:00 -0200
+
+youtube-dl (2016.06.25-2) unstable; urgency=medium
+
+  * The "The next upload will only support Python 3" release.
+  * debian/control:
+    + Add B-D on pandoc and zip. (Closes: #828905)
+      Thanks to Chris Lamb (for the report) and Logan Rosen from Ubuntu
+      (for a patch).
+    + Add recommends on ca-certificates. (Closes: 819759)
+  * debian/watch: Add back pgpsigurlmangle.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 17 Aug 2016 07:39:54 -0300
+
+youtube-dl (2016.06.25-1) unstable; urgency=medium
+
+  * Imported Upstream version 2016.06.25 (Closes: #824799)
+  * debian/watch:
+    + Update for version 4.
+    + Skip pgpsigurlmangle for the moment.
+  * debian/patch: Add patch to update list of supported sites
+  * debian/rules:
+    + Adapt to new upstream build system.
+    + Add commented snippet for conffile removal.
+    + Ignore tests temporarily.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 25 Jun 2016 15:06:41 -0300
+
+youtube-dl (2016.02.22-1) unstable; urgency=medium
+
+  * ACK NMU. Thanks Wookey! (Closes: #809454)
+  * Imported Upstream version 2016.02.22.
+    (Closes: #808423, #809454, #808468, #721317)
+  * debian/patches: Removed, they came from upstream.
+  * debian/control:
+    + Make all URLs use HTTPS.
+    + Update list of supported sites.
+    + The package complies with policy 3.9.7.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 25 Feb 2016 00:38:12 -0300
+
+youtube-dl (2015.11.27.1-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Fix for youtube failure #809454
+
+ -- Wookey <wookey@debian.org>  Fri, 08 Jan 2016 01:48:02 +0000
+
+youtube-dl (2015.11.27.1-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.11.27.1 (Closes: #806559).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 30 Nov 2015 01:39:56 -0200
+
+youtube-dl (2015.11.10-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.07.21 (Closes: #735012, #736151)
+  * Imported Upstream version 2015.11.10 (Closes: #796035, #804724, #801491).
+  * debian/control:
+    + Drop really ancient Recommends to have ffprobe.
+    + Prefer ffmpeg to libav-tools in Recommends.
+    + Prefer mplayer to mplayer2 in Recommends. (Closes: #796227).
+      Note: I'm still leaving mplayer2 to ease the life of backporters.
+    + Prefer mpv to mplayer in Recommends.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 11 Nov 2015 12:23:08 -0200
+
+youtube-dl (2015.06.04.1-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.05.15 (Closes: #784322, #783093, #785335)
+  * Imported Upstream version 2015.06.04.1
+  * debian/README.source: Adapt according to changes in git-builpackage.
+  * debian/copyright:
+    + Update my copyright years.
+    + Fix lintian's dep5-copyright-license-name-not-unique.
+  * debian/gbp.conf: Change to new git-buildpackage syntax.
+  * debian/NEWS:
+    + Document that the --max-quality option is gone.
+    + Update with version to be uploaded.
+  * debian/control:
+    + Add build-dependency on dh-python as per warning from dh_python2.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 13 Jun 2015 17:41:32 -0300
+
+youtube-dl (2015.02.28-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.02.28. Closes: #778765.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 01 Mar 2015 02:12:13 -0300
+
+youtube-dl (2015.02.06-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.02.06
+  * debian/control:
+    + Update list of supported sites.
+    + Add recommends on "aria2 | wget | curl" to use the new external
+      downloaders feature.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 09 Feb 2015 01:37:50 -0200
+
+youtube-dl (2015.01.16-1) unstable; urgency=medium
+
+  * Imported Upstream version 2015.01.16. Highlight:
+    + Fix changes with Youtube changing the signature algorithm.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 16 Jan 2015 16:08:59 -0200
+
+youtube-dl (2014.12.01-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.11.21
+  * Imported Upstream version 2014.11.23
+  * Imported Upstream version 2014.12.01.
+    Closes: #771316, #769602.
+  * debian/copyright:
+    + Record the explicit provenance of public domain status.
+      Thanks Ben Finney for the patch. Closes: #770249.
+    + Fix missing-license-paragraph-in-dep5-copyright.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 02 Dec 2014 21:25:47 -0200
+
+youtube-dl (2014.10.30-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.10.30.
+    Closes: #765997, #762046.
+  * debian/control: Confirm that the package conforms to policy 3.9.6.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 31 Oct 2014 18:57:02 -0200
+
+youtube-dl (2014.08.05-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.08.05.
+    Closes: #756246, #756371, #756493.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 06 Aug 2014 15:43:31 -0300
+
+youtube-dl (2014.07.15-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.07.15. Closes: #754919.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 15 Jul 2014 22:32:37 -0300
+
+youtube-dl (2014.07.11-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.07.11.
+    Closes: #754569, #740616, #752740, #754628, #754585.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 13 Jul 2014 12:31:12 -0300
+
+youtube-dl (2014.06.19-1) unstable; urgency=medium
+
+  * debian/upstream-signing-key.asc: Add keys from upstream.
+  * Rename: debian/upstream-signing-key.asc -> debian/upstream/signing-key.asc
+  * debian/watch: Make use of the signing key from upstream.
+  * Imported Upstream version 2014.06.19. Closes: #752139.
+  * debian/changelog: Annotate with bugs being closed.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 22 Jun 2014 11:53:20 -0300
+
+youtube-dl (2014.06.07-1) unstable; urgency=medium
+
+  * Imported Upstream version 2014.06.07. Closes: #743005, #749828,
+    #746345.
+  * debian/control: Annotate with bug numbers closed by this release.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 08 Jun 2014 12:39:54 -0300
+
+youtube-dl (2014.02.17-1) unstable; urgency=medium
+
+  * The "Way too many changes release".
+  * Imported Upstream version 2013.12.23
+  * Imported Upstream version 2014.01.17.2
+  * Imported Upstream version 2014.02.17.
+    + There are too many goodies that this new release brings us,
+      including that it is possible to combine/merge/multiplex audio and
+      video formats that Youtube now offers separately (See the previous
+      notes about Youtube using DASH for video and audio).
+      .
+      Now, if you want a 480p video in H.264 format, High profile, with
+      128kbps AAC audio (this used to be Youtube's format 35), you can
+      specify format `-f 135+140` on the command-line, and so on. Only your
+      imagination is the limit.
+    + Fixes "using --list-subs triggers downloading video from vimeo".
+      Closes: #734647.
+  * debian/NEWS:
+    + Write news about new muxing feature of youtube-dl.
+  * debian/control:
+    + Massive update of supported sites in long description.
+    + Package complies with policy 3.9.5.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 17 Feb 2014 19:41:53 -0300
+
+youtube-dl (2013.12.04-1) unstable; urgency=low
+
+  * The "I still have a flu (but am getting better) release".
+  * Imported Upstream version 2013.12.04.
+    + Fixes "more youtube encrypted signature problems". Closes: #730556.
+    + Fixes "collegehumor.com - unicode encode error". Closes: #729730.
+    + Fixes listing 'youtube:search' twice in extractor list.
+      Thanks Jaime Marquínez Ferrándiz for the fix. Closes: #730730.
+  * debian/control: Update list of extractors.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 05 Dec 2013 02:24:18 -0200
+
+youtube-dl (2013.11.11-2) unstable; urgency=low
+
+  * debian/control: Add dependency on python-pkg-resources.
+    Closes: #729416. Thanks Josh Triplett.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 12 Nov 2013 16:34:16 -0200
+
+youtube-dl (2013.11.11-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.11.11. Highlights:
+    + Add support for many sites (see long description of the package).
+    + Fix support for many sites (Closes: #728424).
+    + Improve support for many sites (including CNN, Youtube).
+    + Improve support for download of subtitles.
+    + Allow to download tracks marked as not 'streamable' via rtmpdump in
+      soundcloud.
+    + Avoid reencoding videos that are downloaded via HTTP Live Streaming
+      (Apple's version of DASH). These videos have to be downloaded with
+      ffmpeg (or avconv), as youtube-dl doesn't have a downloader for that
+      particular protocol.
+      .
+      See https://en.wikipedia.org/wiki/HTTP_Live_Streaming for more
+      information.
+  * debian/control: Update list of extractors.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 11 Nov 2013 23:06:01 -0200
+
+youtube-dl (2013.10.23-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.10.23.
+    + Fix time display for > 60 minutes. Closes: #724834.
+    + All adult-related sites should respect the age being set via the
+      `--age-limit` option (which can be put in a global configuration file
+      under the /etc directory), thus making youtube-dl safe for Debian Edu
+      and Debian Jr. Closes: #715407.
+    + Document that the output template accepts specification of
+      downloaded formats (template: %(format)s). In particular, this:
+      - Avoids resuming downloads with different formats. Closes: #689294.
+      - Allows downloading all available formats. Closes: #643831.
+  * debian/control:
+    + Update long description with list of supported sites.
+  * debian/NEWS:
+    + Update with notes about split audio/video downloads.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 25 Oct 2013 01:33:56 -0200
+
+youtube-dl (2013.10.04-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.10.04. Closes: #723592.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 04 Oct 2013 09:44:46 -0300
+
+youtube-dl (2013.10.01-1) unstable; urgency=low
+
+  * The "In a hurry release".
+  * Imported Upstream version 2013.10.01.
+    + Closes: #724321, #722343, #722298.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 03 Oct 2013 01:28:58 -0300
+
+youtube-dl (2013.08.29-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.08.29. Highlights:
+    + Fix subtitle downloading. (Closes: #721257)
+    + Add/improve support cryptographic signatures of lengths 80, 82, 84,
+      86, 88 on youtube.
+    + Add/improve support for the following sites:
+      - Youtube: Add support for DASH videos. See:
+        https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP
+      - Slashdot: tv.slashdot.org
+      - News sites: CNN, NBC news, PBS.
+      - MIT sites: video.mit.edu, techtv.mit.edu
+      - Other sites: Youporn, hark.com, AddAnime, RTLnow, jeuxvideo.com,
+        VOXnow, collegehumor, the generic extractor, Vimeo, funnyordie,
+        statigram, utv.unistra.fr, canalc2.tv, XHamster, 220.ro,
+        trilulilu.ro, canalplus, appletrailers, addanime, orf.at,
+        kankan.com.
+    + Allow embedding of subtitles in mp4 videos.
+    + Allow the use to specify languages for subtitles.
+  * debian/changelog:
+    + Fix long line in the previous uploaded entry, to please lintian and
+      other tools.
+  * debian/control:
+    + Remove upper limit on the python version that we support.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 29 Aug 2013 21:36:16 -0300
+
+youtube-dl (2013.08.17-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.08.17. Highlights:
+    + Add/improve support cryptographic signatures of lengths 83, 85, 86, 87,
+      89. (Closes: #719309).
+
+    Fixing the signature of the lengths listed above makes it to download
+    many music videos (including those from VEVO). For those (like me)
+    that don't know what VEVO is/was, here is a snippet from Wikipedia:
+
+    "Vevo, LLC (stylized vevo) is a joint venture music video website
+    operated by Sony Music Entertainment, Universal Music Group, Google
+    and Abu Dhabi Media with EMI licensing its content to the group
+    without taking an ownership stake."
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 18 Aug 2013 08:03:58 -0300
+
+youtube-dl (2013.08.08-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.08.02
+  * Imported Upstream version 2013.08.08. Highlights:
+    + Improve GenericIE for compatibility with more sites.
+    + Youtube:
+      - Add/improve support cryptographic signatures of lengths 79, 81, 83,
+        84, 85, 86, 87, 90, 92. (Closes: #718391, #717537, #716987)
+      - Support signatures with more than 2 parts.
+      - Add support for downloading recommended videos (via :ytrec)
+      - Support downloading videos from the user's "Watch Later" playlist.
+      - Add better support for "age protected videos".
+      - Add explicit support for 3D videos.
+    + Add support for:
+      - IGNE
+      - criterion.com
+      - Canalplus
+      - Livestream
+      - freesound.org
+      - thisav
+      - CondeNast
+      - ex.fm
+      - video.sina.com.cn
+      - 56.com
+      - Weibo
+      - roxwell.com
+      - kankan.com
+      - Ooyala
+      - videofy.me
+      - muzu.tv
+    + Improve support for:
+      - ComedyCentral.
+      - Instagram.
+      - MTV.
+      - Metacafe: support AnyClip videos.
+      - Soundcloud.
+      - traileraddict.
+      - keek.
+      - videos from VEVO (they just keep changing stuff to prevent people
+        downloading music videos).
+    + Fix support for:
+      - CollegeHumor.
+      - Break
+  * debian/control: Update long description with list of supported sites.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 07 Aug 2013 20:40:48 -0300
+
+youtube-dl (2013.07.10-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.07.10. (Closes: #716092)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 10 Jul 2013 18:53:05 -0300
+
+youtube-dl (2013.07.02-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.07.02. Highlights:
+    + Add support for hotnewhiphop.com.
+    + Add support for auengine.com.
+    + Add support for gamespot.com.
+    + Add support for RingTV.
+    + Add support for wat.tv.
+    + Add support for traileraddict.com.
+    + Add support for tu.tv.
+    + Add support for instagram.com.
+    + Improve support for encrypted signatures in Youtube.
+    + Improve support for videos from ArteTv.
+    + Minor improvements to the generic fallback information extractor.
+    + Change the default naming of videos to the template:
+      `%(title)s-%(id)s.%(ext)s`
+  * debian/control:
+    + Revise that package complies with standars version 3.9.4.
+      (No changes needed)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 04 Jul 2013 10:00:59 -0300
+
+youtube-dl (2013.06.34-1) unstable; urgency=low
+
+  * Imported Upstream version 2013.06.26
+  * Imported Upstream version 2013.06.33. Highlights:
+    + VimeoIE: allow to download password protected videos. (Closes: #523326)
+    + YoutubeIE: A lot of work for downloading VEVO videos.
+    + Add support for Statigr.am.
+    + Add support for break.com.
+    + Add support for tudou.com. (Closes: #657148)
+    + Add support for Jukebox.
+    + Add specific code for VEVO videos.
+    + Modularize the code so that each site has its code in a
+      respective file (usable as python modules, as, for instance,
+      `youtube_dl.extractor.youtube`).
+    + Modularize the code so that the downloading class is split in two:
+      - YoutubeDL is the class that coordinates everything.
+      - FileDownloader gets a filename and an info dict and downloads the
+        video.
+    + Fix downloading from Google+ videos (new URL format).
+  * Imported Upstream version 2013.06.34. Highlights:
+    + Add support for downloading automatic transcribed subtitles.
+    + Add support for downloading subtitles in WebVTT (vtt) format.
+    + Add support for Wimp.com.
+    + Add support for CSpan. (Closes: #659623)
+    + Improve support for Youtube's crypto signing fields.
+  * debian/control:
+    + Add mplayer{,2} as recommends, needed for mms:// or rtsp:// schemes.
+    + Make explicit version of Python that we require.
+  * debian/rules: Use python2 plugin with debhelper.
+  * debian/control:
+    + Make determination of python versions automatic.
+    + Fix syntax error in Depends: field.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 23 Jun 2013 20:10:54 -0300
+
+youtube-dl (2013.06.21-2) unstable; urgency=low
+
+  * debian/control:
+    + Add missing Build-Dependency on python-pkg-resources.
+      Thanks to Sven Joachim <svenjoac@gmx.de> for the hint (Closes: #713835)
+  * debian/rules:
+    + Fix misplaced README.txt.gz.
+      Thanks to Sven Joachim <svenjoac@gmx.de> for the patch (Closes: #713834)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 23 Jun 2013 18:59:25 -0300
+
+youtube-dl (2013.06.21-1) unstable; urgency=low
+
+  * New upstream version.
+    Closes: #711733, #697086, #697594, #645925, #683795, #659515.
+  * Imported Upstream version 2013.05.14
+  * debian/watch:
+    + Update to track github tags. Thanks to Bart Martens for the rewrite.
+  * debian/README.source:
+    + Update my own instructions.
+  * Imported Upstream version 2013.05.23
+  * debian/watch:
+    + Download version specific for distributors.
+  * debian/control:
+    + Bump build-dep on debhelper to >= 9.
+  * debian/compat:
+    + Use level 9 of debhelper.
+  * Imported Upstream version 2013.06.21
+  * debian/install:
+    + Remove, as we let setup.py install things. (Closes: #699043)
+  * debian/rules:
+    + Simplify rules file with use of buildsystem.
+  * debian/control:
+    + Remove B-D on pandoc.
+    + Remove B-D-I on perl.
+    + Remove obsolete DMUA flag.
+  * debian/rules:
+    + Move incorrectly (bash completion) installed file to its right place.
+    + Remove egg-info directory in the clean target.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 22 May 2013 21:01:15 -0300
+
+youtube-dl (2012.12.11-1) unstable; urgency=low
+
+  * debian/watch:
+    + Adapt to new upstream distribution scheme.
+  * Imported Upstream version 2012.12.11
+  * debian/rules:
+    + Disable new test suites. They depend on network access.
+    + Remove repackaging need: Upstream adopted a new strategy.
+    + Leave it as vanilla as possible.
+    + Simplify the build process by not calling setup.py.
+  * debian/{control,manpages,rules,youtube-dl.pod}:
+    + Use manpage from upstream.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 18 Dec 2012 09:45:19 -0200
+
+youtube-dl (2012.09.27+dfsg1-1) unstable; urgency=low
+
+  * Urgency set to high to fix an RC bug.
+  * Imported Upstream version 2012.09.27+dfsg1:
+     + Remove binaries without sources. Thanks to Ansgar Burchardt for
+       notifying me. (Closes: #689493)
+  * debian/copyright:
+    + Rewrite in Copyright Format 1.0 for readability.
+  * debian/rules:
+    + Add a `get-orig-source` target to remove binaries without sources.
+  * debian/clean:
+    + Remove `*.pyc` files due to new upstream changes.
+  * debian/watch:
+    + Adapt for mangled debian version.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 17 Nov 2012 15:01:05 -0200
+
+youtube-dl (2012.09.27-1) unstable; urgency=low
+
+  * Imported Upstream version 2012.09.27:
+    + Fixes changes in youtube that prevented youtube-dl from working.
+      Thanks Alex Wauck and Josh Triplett for notifying me of the breakage.
+      (Closes: #688997)
+    + Incorporates my patch for downloading from tube.majestyc.net.
+      (Closes: #683962)
+  * debian/patches: Remove unneeded patches.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 28 Sep 2012 02:27:37 -0300
+
+youtube-dl (2012.02.27+gita171dbf-3) unstable; urgency=low
+
+  * Add python to build-depends-indep. (Closes: #647407)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 06 Aug 2012 22:11:25 -0300
+
+youtube-dl (2012.02.27+gita171dbf-2) unstable; urgency=low
+
+  * Disable downloading from tube.majestyc.net for the moment.
+    (Closes: #683962)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 05 Aug 2012 16:50:15 -0300
+
+youtube-dl (2012.02.27+gita171dbf-1) unstable; urgency=low
+
+  * Imported Upstream version 2012.02.27+gita171dbf. Highlights:
+    + Fixes for sites changing layouts:
+      - Vimeo. Closes: #682865.
+      - blip.tv. Closes: #671167.
+    + Redirects are now supported. Closes: #597797.
+  * debian/control:
+    + Allow use of libav-tools for transcoding instead of ffmpeg.
+    + Build-Depend-Indep on zip for upstream's build system.
+    + Bump depends on python >= 2.6, for new "zipped executables".
+  * debian/rules: We now have something to make.
+  * debian/patches: Add support for tube.majestyc.net. Closes: #612586.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 05 Aug 2012 01:45:05 -0300
+
+youtube-dl (2012.02.27-1) unstable; urgency=low
+
+  * Imported Upstream version 2012.02.27. Highlights:
+    + Add support for MTV.
+    + Allow the Vimeo engine to work with embedded video URLs.
+    + Add --verbose switch option. Not documented in the manpage yet,
+      patches welcome.
+  * debian/gbp.conf: Add defaults for the git-buildpackage suite.
+  * Make debian/README.source simpler.
+  * Don't automatically sign tags with git-buildpackage.
+  * Update the manpage to cite which sites youtube-dl supports.
+    Thanks to Adrian Knoth for the patch (Closes: #657978)
+  * Update Standards-Version to 3.9.3 (no other changes).
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 17 Mar 2012 13:41:15 -0300
+
+youtube-dl (2012.01.05-2) unstable; urgency=low
+
+  * debian/control: Per requests, change rtmpdump to a Recommends.
+    Thanks to Nicola Ferralis (Closes: #655036)
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 07 Jan 2012 22:51:17 -0200
+
+youtube-dl (2012.01.05-1) unstable; urgency=low
+
+  * Imported Upstream version 2012.01.05. Highlights:
+    + Fixed duplicated downloads from YouTube user page.
+    + Support configuration files. (Closes: #429557).
+    + Added support for Soundcloud.
+    + Added support for InfoQ.
+    + Added support for Mixcloud.
+    + Added support for OpenClassRoom.
+    + Support aac audio in mp4 container (as .m4a files).
+    + Support wav audio output.
+    + Added --max-downloads option. Not documented in the manpage yet,
+      patches welcome.
+    + Added --prefer-free-formats option. Not documented in the manpage
+      yet, patches welcome.
+  * debian/patches: Drop patches already included upstream.
+  * debian/control: Add support for earlier versions of ffmpeg/ffprobe.
+    Thanks to Uwe Kleine-König for the suggestion. (Closes: #651060)
+  * debian/control: Update list of supported sites.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 06 Jan 2012 13:48:47 -0200
+
+youtube-dl (2011.10.19-4) unstable; urgency=low
+
+  * debian/{rules,control}:
+    + Remove build-dependency on python, as that's not really needed.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 20 Nov 2011 10:22:04 -0200
+
+youtube-dl (2011.10.19-3) unstable; urgency=low
+
+  * debian/control:
+   + Add python to B-D-Indep. Closes: #647407.
+     Thanks to Felix Geyer, Daniel T Chen, and Simon Paillard.
+   + Fix capitalization of YouTube. Closes: #649111.
+     Thanks to Filipus Klutiero.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 18 Nov 2011 19:28:01 -0200
+
+youtube-dl (2011.10.19-2) unstable; urgency=low
+
+  * Add patch to fix downloading from facebook.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 22 Oct 2011 01:16:31 -0200
+
+youtube-dl (2011.10.19-1) unstable; urgency=low
+
+  * Imported Upstream version 2011.10.19. Highlights:
+    + Added option -L to list available formats.
+    + Understand more playlist formats in youtube.
+    + Added support for CollegeHumor.
+    + Added support for xvideos.com.
+    + Added support for HD videos in vimeo.
+  * debian/control:
+    + Update short description.
+    + Mention that getting worst quality is also possible.
+    + Update list of sites in the long description.
+    + It's vcs-browseR, not vcs-browse.
+  * Update the manpage wrt the 'worst' format. Thanks Cristian Rigamonti.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 18 Oct 2011 21:13:16 -0200
+
+youtube-dl (2011.09.27-1) unstable; urgency=low
+
+  * New upstream version. Highlights:
+    + Added support for vimeo (closes: #619023).
+    + Added support for blip.tv.
+    + Added support for myvideo.de.
+    + Added support for comedycentral.
+    + Added support for "The Escapist".
+    + Added ability to download worst quality video (closes:#609328).
+    + Added ability to get available formats for a video (--get-format).
+    + Added support to extract vorbis audio with --extract-audio.
+    + New command line options: --writedescription, --write-info-json,
+      --list-extractors, --skip-download, --get-format.  Not documented in
+      the manpage yet, patches welcome.
+  * debian/control:
+    + Add fields for the VCS system.
+    + cosmetics: Run wrap-and-sort to make the packaging canonical.
+  * debian/patches:
+    + Remove 01-prefer-open-formats.patch, integrated upstream.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 29 Sep 2011 14:37:13 -0300
+
+youtube-dl (2011.08.04-2) unstable; urgency=low
+
+  * debian/{clean,youtube-dl.1}: Don't keep old files hanging around.
+  * debian/control: We comply with policy 3.9.2.
+  * debian/rules: Fix references to Perl. Closes: #637107.
+  * debian/source/local-options: Set to unapply-patches.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 09 Aug 2011 16:38:46 -0300
+
+youtube-dl (2011.08.04-1) unstable; urgency=low
+
+  * Imported Upstream version 2011.08.04. Highlight:
+    + Fix changes on Youtube's side. Closes: #636611, #624139, #636547.
+      Thanks for all those that were kind enough to notify me.
+    + Includes robustness fixes for youtube videos, including a fix (dated
+      2011-02-25, which I forgot to include) to cope with videos whose IDs
+      begin with an hyphen. Closes: #632922. Sorry, Matt Kraai, for
+      forgetting about this!
+  * debian: Add a README.source file describing how the package is
+    usually made.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 05 Aug 2011 12:25:55 -0300
+
+youtube-dl (2011.02.25b-1) unstable; urgency=low
+
+  * New upstream release. Some highlights:
+    + Enable artist playlists in YoutubePlaylistIE.
+    + Add support for getting videos from Facebook.
+    + Support more common YouTube playlist URLs
+    + Extract audio from your videos using ffmpeg as a postprocessor.
+  * debian/control:
+    + Add recommends on ffmpeg.
+    + Update the list of sites supported by youtube-dl in the long
+      description.
+  * debian/patches/*:
+    + Refresh.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 25 Feb 2011 20:27:47 -0300
+
+youtube-dl (2011.01.30-2) unstable; urgency=low
+
+  * debian/control:
+    + include build-depends-indep on perl, for pod2man (not used during clean).
+    + update the build-dependency on debhelper (we use the override feature).
+  * debian/rules:
+    + generate the actual manpage from the pod source at build time.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 31 Jan 2011 20:30:36 -0200
+
+youtube-dl (2011.01.30-1) unstable; urgency=low
+
+  * New upstream release. Some highlights:
+    + options -b and -f are removed.
+    + fix progress report when continuing partial downloads.
+    + request compressed pages by default.
+    + add support for embedded youtube playlist URLs; doesn't fix #495164 yet.
+    + add option --dump-user-agent.
+    + add option --console-title.
+    + add option --no-part.
+    + add option --get-filename.
+    + set downloaded file mtime to the last-modified header, if possible.
+    + add option --no-mtime.
+  * debian/control:
+    + update dependency on python's minimum version to 2.5.
+  * debian/youtube-dl.pod:
+    + update a lot.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 31 Jan 2011 00:31:09 -0200
+
+youtube-dl (2010.12.09-1) unstable; urgency=low
+
+  * New upstream release:
+    + Use filename with suffix .part while the download is still incomplete.
+    + Add support for downloading files from depositfiles.com.
+    + Fix recent changes in youtube.com. Closes: #606537.
+  * debian/watch:
+    + Update to work with the github redirector.
+  * debian/youtube-dl.pod:
+    + Add short description on youtube.com's video formats.
+      Based on Nicola Ferralis's patch. Closes: #605311.
+    + Add description of options -A, --playlist-start, and --playlist-end
+      options. Thanks to Josh Triplett. Closes: #604983.
+  * debian/patches:
+    + refresh patch.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 10 Dec 2010 10:41:25 -0200
+
+youtube-dl (2010.11.19-1) unstable; urgency=low
+
+  * New upstream release. Highlights:
+    + Fix downloading of RTMP URL's.
+    + Added command line switch (-A) to auto-number downloads.
+    + Allow comments in batchfiles.
+    + Add option to specify the video to end at in a playlist.
+  * debian/{watch,control}:
+    + Update for the move from bitbucket to github.
+  * debian/patches:
+    + refresh patch.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 25 Nov 2010 15:54:56 -0200
+
+youtube-dl (2010.10.24-2) unstable; urgency=low
+
+  * The "I forgot to save the changelog file" release.
+  * The highlights of the new release are:
+    + Add --cookies option to allow saving cookies to disk
+      (primarily to be used with external downloaders: e.g., aria2c).
+    + Support "https" both for YouTube URLs and for login.
+  * debian/patches:
+    + refresh patch.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 25 Oct 2010 03:10:07 -0200
+
+youtube-dl (2010.10.24-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 25 Oct 2010 02:23:40 -0200
+
+youtube-dl (2010.10.03-1) unstable; urgency=low
+
+  * The "upload from sunny California" release
+  * New upstream release:
+    + Downloading manually the release 2010.10.03 corresponding to
+      http://bitbucket.org/rg3/youtube-dl/changeset/190d2d0fd729
+    + Abort downloads that can't be written to the disk
+    + Fix downloading some videos from metacafe.com
+    + Try to discover the video extension from metacafe.com
+    + Allow #! in youtube urls
+    + Fix extraction of uploader nickname on dailymotion
+    + Support downloads from youtube-nocookie.com urls
+    + Code improvements in general
+    + Retry that fail with codes 5xx on youtube
+  * debian/patches/*:
+    + rename 01-add-support-to-webm.patch to 01-prefer-open-formats.patch
+    + update the patch to apply to new versions of youtube-dl
+    + re-enable the patch to give preference to webm videos
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 13 Oct 2010 21:58:24 -0700
+
+youtube-dl (2010.08.04-1) unstable; urgency=low
+
+  * New upstream release:
+    + Fix metacafe.com code not working due to gdaKey again
+    + Add option (--playlist-start) to specify the initial video for playlists
+    + Put back -b option as a placeholder with a warning message
+    + Consider the file downloaded if the size differs in less than 100 bytes
+    + Reorganize request code to make it a bit more robust
+    + Properly detect YouTube error messages to print them on screen
+  * debian/control:
+    + Remove suggests on gst-p-b (>= 0.10.18.3-2)
+    + The package complies with Policy 3.9.1 without any other changes.
+  * debian/watch:
+    + Remove commented lines.
+  * debian/youtube-dl.pod:
+    + Update the manpage to include newer options.
+    + Don't mention removed options anymore. Closes: #590825, #592368.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 09 Aug 2010 13:27:41 -0400
+
+youtube-dl (2010.07.24-1) unstable; urgency=medium
+
+  * Urgency medium due to changes in the site that broke earlier versions.
+  * New upstream release:
+    + restore support for WebM formats.
+  * debian/changelog:
+    + fix entry that stated incorrect removed options. Closes: #590144.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 24 Jul 2010 22:29:21 -0300
+
+youtube-dl (2010.07.22-1) unstable; urgency=medium
+
+  * Urgency set to medium due to changes in the site
+  * New upstream release:
+    + make youtube-dl work again. Closes: #589974.
+    + removed command line options -b and -d.
+  * debian/NEWS:
+    + document the removal of command line options and the new behavior.
+  * debian/patches:
+    + disabled for the moment.
+  * debian/control:
+    + include the support of dailymotion in the long description.
+    + update the standards version to 3.9.0, with no other changes.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 22 Jul 2010 18:58:29 -0300
+
+youtube-dl (2010.07.14-1) unstable; urgency=low
+
+  * New upstream release:
+    + add preliminary support for Dailymotion videos
+    + improve support for WebM in YouTube
+    + add support for the "original" video format in YouTube
+    + add a --max-quality option
+    + add support for youtu.be URLs
+    + add fixes.
+  * debian/patches/01-add-support-to-webm.patch:
+    + update and refresh.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 14 Jul 2010 22:39:54 -0300
+
+youtube-dl (2010.06.06-1) unstable; urgency=low
+
+  * New upstream release:
+    + support for retrying connections after a 503 error
+    + argument '-' can be used with -a to indicate stdin
+    + support for webm formats
+  * debian/patches/01-add-support-to-webm.patch:
+    + remove parts applied upstream
+    + update to download webm videos based on their quality
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 07 Jun 2010 04:16:54 -0300
+
+youtube-dl (2010.04.04-3) unstable; urgency=low
+
+  * Migrate the packaging to smaller dh(7) style.
+  * Update the years of copyright.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 01 Jun 2010 11:06:06 -0300
+
+youtube-dl (2010.04.04-2) unstable; urgency=low
+
+  * Add support to webm (vp8 + vorbis) format:
+    + debian/patches/01-add-support-to-webm.patch: the code
+    + debian/NEWS: the documentation
+    + debian/control: the suggests field
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 29 May 2010 13:11:43 -0300
+
+youtube-dl (2010.04.04-1) unstable; urgency=low
+
+  * New upstream release:
+    + allow grabbing videos from vevo.
+    + allow download whole playlists and keep the videos numbered.
+    + add support for new playlist style.
+    + fix detection of multipage playlists.
+    + insist a little bit more to grab videos from youtube.
+    + add information extractor for video.yahoo.com.
+    + fix cosmetic issues with rtmpdump.
+    + add option --all-formats to grab all available formats for a given video.
+    + add "-" (without quotes) as an alias to output videos to stdout.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 04 Apr 2010 17:55:00 -0300
+
+youtube-dl (2010.03.13-1) unstable; urgency=low
+
+  * New upstream release
+    + added option to disable the status/progress updates.
+    + fine tuned the sequence of formats searched to discover the best quality.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sun, 14 Mar 2010 23:33:48 -0300
+
+youtube-dl (2010.02.13-1) unstable; urgency=low
+
+  * New upstream release
+    + stronger parsing of URLs.
+    + better generation of filenames.
+  * debian/control:
+    + include misc-depends due to debhelper.
+    + the package is compliant with policy 3.8.4.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Wed, 17 Feb 2010 00:19:23 -0200
+
+youtube-dl (2010.01.19-1) unstable; urgency=low
+
+  * New upstream release. As upstream does not provide a changelog, here
+    are the highlights:
+    + patched to add Google Video and Photobucket support
+    + add support for using rtmpdump
+    + added support to download all of a user's videos!
+    + fix detection of uploader nickname in metacafe
+    + take format 37 into account
+    + add self-updating code
+    + allow empty titles because they do appear in some videos
+    + use default values for "continuedl" and "nooverwrites" parameters
+    + avoid using Unicode strings when forming URL requests
+    + improve preferred encoding detection method
+  * Remove all patches (applied upstream).
+  * Add suggests on rtmpdump.
+  * Shorten the short description.
+  * Include list of sites supported in the long description.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Tue, 26 Jan 2010 11:28:40 -0200
+
+youtube-dl (2009.09.13-2) unstable; urgency=low
+
+  * change to "3.0 (quilt)" format.
+  * add support for 1080p videos. Thanks Josh Triplett. Closes: #557042.
+  * include a better manpage. Closes: #553919.
+  * include the DMUA: yes field.
+  * kindly reviewed by Li Daobing.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 19 Nov 2009 11:21:36 -0200
+
+youtube-dl (2009.09.13-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/watch:
+    + adjust for the new upstream layout.
+  * debian/control:
+    + Standards-Version updated to 3.8.3. No changes needed.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Sat, 10 Oct 2009 12:17:53 -0300
+
+youtube-dl (2009.08.08-1~try01) unstable; urgency=low
+
+  * The current maintainer seems busy (Closes: #491616):
+    + ability to recognize more qualities of a video.
+    + ability to automatically find the best quality video.
+    + ability to download entire playlists.
+    + ability to specify various urls. (Closes: #452071)
+    + ability to resume interrupted downloads.
+    + many other things.
+  * debian/copyright:
+    + rework the file.
+    + mention that the package is in the public domain.
+    + include my information.
+    + update the URL of the package.
+  * debian/control:
+    + add a Homepage: field.
+    + keeping the current manpage for now.
+    + give more details in the long description.
+    + list me as the maintainer.
+    + Standards-Version updated to 3.8.2.
+  * debian/watch:
+    + let's help with automatic updates.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 10 Aug 2009 08:14:08 -0300
+
+youtube-dl (2008.03.22-1) unstable; urgency=low
+
+  * New upstream release:
+    - adds -f / --format command line option.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Wed, 26 Mar 2008 13:19:23 -0400
+
+youtube-dl (2008.03.08-1) unstable; urgency=low
+
+  * New upstream release:
+    - adds -b / --best-quality command line option.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Wed, 12 Mar 2008 14:26:04 -0400
+
+youtube-dl (2008.01.24-1) unstable; urgency=low
+
+  * New upstream release; closes: #462427, #462428.
+    - fixes youtube download issues.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Thu, 24 Jan 2008 22:15:05 -0500
+
+youtube-dl (2007.10.09-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Mon, 08 Oct 2007 19:22:33 -0400
+
+youtube-dl (2007.08.24-1) unstable; urgency=low
+
+  * New upstream release; closes: #439363.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Fri, 24 Aug 2007 13:54:40 -0400
+
+youtube-dl (2007.06.22-1) unstable; urgency=low
+
+  * New upstream release:
+    - regex update.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Thu, 21 Jun 2007 20:42:57 -0400
+
+youtube-dl (2007.06.06-1) unstable; urgency=low
+
+  * New upstream release:
+    - "--title-too" command line option to print the video's title.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Thu, 07 Jun 2007 01:04:01 -0400
+
+youtube-dl (2007.03.27-1) unstable; urgency=low
+
+  * New upstream release:
+    - Progress meter.
+    - "--literal" command line option to use the video title in the filename.
+    - "--get-url" command line option to print the real video URL.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Mon,  2 Apr 2007 21:46:56 -0400
+
+youtube-dl (2007.02.18-1) unstable; urgency=low
+
+  * New upstream release:
+    - Diction.
+    - Catches socket errors.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Tue, 20 Feb 2007 13:57:32 -0500
+
+youtube-dl (2007.01.19-1) unstable; urgency=low
+
+  * New upstream release, closes: #406146.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun, 28 Jan 2007 17:41:44 -0500
+
+youtube-dl (2006.12.07-1) unstable; urgency=low
+
+  * New upstream release:
+    - Use -t to name the downloaded file after the title, closes: #395184.
+    - Parses URLs without a leading "http://", closes: #400321.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun, 10 Dec 2006 13:52:36 -0500
+
+youtube-dl (2006.11.12-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sat, 25 Nov 2006 16:12:03 -0500
+
+youtube-dl (2006.09.25-1) unstable; urgency=low
+
+  * New upstream release.
+  * python >= 2.4 is now required.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Wed, 27 Sep 2006 17:43:07 -0400
+
+youtube-dl (2006.08.28-1) unstable; urgency=low
+
+  * Initial release, closes: #385748.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun,  3 Sep 2006 19:43:27 -0400

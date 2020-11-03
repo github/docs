@@ -1,0 +1,21 @@
+Description: Disable remaining tests that require internet.
+Author: Unit 193 <unit193@ubuntu.com>
+
+---
+ Makefile |    5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+--- a/Makefile
++++ b/Makefile
+@@ -49,7 +49,10 @@
+ 		--exclude test_subtitles.py \
+ 		--exclude test_write_annotations.py \
+ 		--exclude test_youtube_lists.py \
+-		--exclude test_youtube_signature.py
++		--exclude test_youtube_signature.py \
++		--exclude test_downloader_http.py \
++		--exclude test_InfoExtractor.py \
++		--exclude test_http.py
+ 
+ tar: youtube-dl.tar.gz
+ 

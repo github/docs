@@ -1,1 +1,0 @@
-1. Klicke in der linken Seitenleiste auf **Enterprise licensing** (Enterprise-Lizenzierung). ![Registerkarte „License" (Lizenzierung) auf der Seitenleiste der Einstellungen des Enterprise-Kontos](/assets/images/enterprise/business-accounts/enterprise-licensing-tab.png)

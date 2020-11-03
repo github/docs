@@ -1,1 +1,0 @@
-1. Na lista de arquivos alterados, selecione os arquivos dos quais você deseja descartar as alterações desde o último commit. Para selecionar vários arquivos, clique `shift` e clique no intervalo de arquivos dos quais você deseja descartar as alterações. ![Selecionar vários arquivos com alterações para descartar](/assets/images/help/desktop/select-multiple-files-discard.png)

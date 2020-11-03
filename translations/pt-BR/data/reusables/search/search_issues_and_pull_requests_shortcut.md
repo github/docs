@@ -1,1 +1,0 @@
-Você pode focar o cursor na barra de pesquisa acima da lista de problemas ou pull request com um atalho de teclado. Para obter mais informações, consulte "[Atalhos de teclado](/articles/keyboard-shortcuts/#issue-and-pull-request-lists)".

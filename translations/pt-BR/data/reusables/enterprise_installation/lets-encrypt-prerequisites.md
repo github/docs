@@ -1,1 +1,0 @@
-Para usar a automação Let's Encrypt, seu appliance deve ser configurado com um nome de host acessível ao público por HTTP. O appliance deve também ser autorizado a estabelecer conexões HTTPS de saída.

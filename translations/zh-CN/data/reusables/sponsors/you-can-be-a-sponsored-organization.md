@@ -1,1 +1,0 @@
-任何参与开源项目并在受支持的地区合法经营的组织都有资格成为被赞助的组织。 If your organization operates in a region that isn't already supported by {% data variables.product.prodname_sponsors %}, join the waitlist at [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

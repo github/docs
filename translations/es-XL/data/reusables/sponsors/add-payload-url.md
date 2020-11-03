@@ -1,1 +1,0 @@
-1. Escribe una URL de carga, luego opcionalmente personaliza la configuración. Para obtener más información, consulta "[Crear webhooks](/webhooks/creating/#creating-webhooks)". ![Campos para la URL de carga y otras opciones de personalización](/assets/images/help/sponsors/webhook-payload-url.png)

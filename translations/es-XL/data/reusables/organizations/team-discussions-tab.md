@@ -1,1 +1,0 @@
-1. En la parte superior de la página del equipo, da clic en {% octicon "comment-discussion" aria-label="The discussion icon" %}**Debates**. ![Pestaña de debates de equipo](/assets/images/help/teams/org-team-page-discussions-tab.png)

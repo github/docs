@@ -1,1 +1,0 @@
-コメント作者のプロフィール名の参照のメンバーへの許可は、{% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %}、{% data variables.product.prodname_ghe_cloud %}で利用できます。 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

@@ -1,7 +1,0 @@
----
-user_migrations_intro: >-
-  您可以使用此 API 审查、备份或迁移您在 {% data variables.product.product_name %}.com 上存储的用户数据。
-organization_migrations_intro: >-
-  组织迁移 API 可让您将仓库从 GitHub 移动到 {% data variables.product.prodname_ghe_server %}。
-source_imports_intro: >-
-  源导入 API 可让您从 Git、Subversion、Mercurial 或 Team Foundation Server 源仓库开始导入。这是与 {% data variables.product.prodname_dotcom %} Importer 相同的功能。更多信息请参阅“[使用 {% data variables.product.prodname_dotcom %} Importer 导入仓库](/github/importing-your-projects-to-github/importing-a-repository-with-github-importer)”。

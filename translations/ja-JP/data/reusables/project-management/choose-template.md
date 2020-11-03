@@ -1,1 +1,0 @@
-5. あるいは、プロジェクトボードにテンプレートを追加するには**Template:（テンプレート：）**ドロップダウンメニューを使い、テンプレートをクリックしてください。 ![プロジェクトボードのテンプレートの選択肢を表示しているドロップダウンメニュー](/assets/images/help/projects/project_board_template_drop_down_menu.png)

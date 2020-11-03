@@ -1,1 +1,0 @@
-You can edit code, debug, and use Git commands while developing in a codespace with {% data variables.product.prodname_vscode %}. 更多信息请参阅 [{% data variables.product.prodname_vscode %} 文档](https://code.visualstudio.com/docs)。

@@ -1,1 +1,0 @@
-Puedes emitir ambas, una app sin verificar y una verificada. Esto te permitirá hacer el lanzamiento con una versión gratuita de tu app. Una vez que GitHub verifique tu app, tu listado cambiará de sin verificar a verificado en {% data variables.product.prodname_marketplace %} y GitHub publicará tus planes de precios nuevos.

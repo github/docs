@@ -1,1 +1,0 @@
-1. Na barra lateral esquerda, clique em **Conteúdo relatado**. !["Conteúdo relatado" na barra lateral de Configurações do repositório](/assets/images/help/repository/repo-settings-reported-content.png)

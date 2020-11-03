@@ -1,0 +1,104 @@
+youtube-dl (2015.06.04.1-1) unstable; urgency=medium
+
+  Starting with Debian's version 2015.06.04.1-1, the handling of video
+  formats has been revamped in youtube-dl.  In particular, the option
+  `--max-quality` doesn't exist anymore.  This is likely to break scripts
+  and/or other programs that use this option.
+
+  Please, refer to the manpage (in particular to the section named
+  "FORMAT SELECTION") for more details.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 18 May 2015 08:23:20 -0300
+
+youtube-dl (2014.02.17-1) unstable; urgency=medium
+
+  There are too many goodies that this new release brings us,
+  including that it is possible to combine/merge/multiplex audio and
+  video formats that Youtube now offers separately (See the previous
+  notes about Youtube using DASH for video and audio).
+
+  Now, if you want a 480p video in H.264 format, High profile, with
+  128kbps AAC audio (this used to be Youtube's format 35), you can
+  specify format `-f 135+140` on the command-line, and so on. Only your
+  imagination is the limit.
+
+  See http://cynic.cc/blog/posts/2014-02-17-youtube-dl_news/ for more
+  verbose news.
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Mon, 17 Feb 2014 18:24:20 -0300
+
+youtube-dl (2013.10.23-1) unstable; urgency=low
+
+  From http://cynic.cc/blog/posts/2013-10-23-assorted_news/:
+
+   [13]Some people may have noticed, others may not, but when downloading
+   videos from Youtube, they apparently are getting more aggressive with
+   the use of [14]Dynamic Adaptive Streaming over HTTP (also called DASH)
+   and, as a result, some (perhaps going to be all in the near future?) of
+   the videos may not be available in the resolution/formats that you used
+   to like (like me, with format number 35).
+
+   By the way, one thing that is interesting with youtube videos provided
+   via DASH is that they are available in different streams: one for the
+   video and another for the audio.
+
+   What does this mean in practical terms for users of youtube-dl? Well,
+   if you wanted to download videos in resolutions like the 480p (format
+   35) that I mentioned, then you will probably have to change your way of
+   doing things, until a more automated solution is in place.
+
+   You will have to download both the audio and the video and, then,
+   "combine" them (that is, multiplex them) to create one "normal" video
+   file with both the audio and the video. I usually do this via:
+
+   ffmpeg -i audio.m4a -i video.mp4 -vcodec copy -acodec copy combined.mp4
+
+   If you prefer having a Matroska container instead of an mp4 container
+   (which, BTW, results in smaller muxing overhead), then you can use the
+   command line:
+
+   mkvmerge -o combined.mkv audio.m4a video.mp4
+
+   Oh, those m4a and mp4 extensions are a new addition that [15]I just
+   sent upstream (in the past, both would have been named with an
+   extension of mp4).
+
+   As, an aside, I like formats 135 for video and 140 for audio, for the
+   reasons that I mentioned in a comments to issue 1612:
+
+     Otherwise, to download 480p videos (which I do for lectures and so
+     on with other projects of mine, like edx-dl) I have to call
+     youtube-dl twice: once for format 135 and another for format 140,
+     since the old (?) format 35 files are much smaller than the lower
+     resolution 360p files (due to the former being encoded in High
+     profile vs. the latter being encoded in Constrained Baseline
+     profile).
+
+   While this is unfortunate for some, this is a good thing for others: I
+   once had a blind user of youtube-dl asking me if he could avoid
+   downloading the whole video just to extract the audio, so that he save
+   on bandwidth. Well, now this is possible.
+
+
+  13. https://github.com/rg3/youtube-dl/issues/1612
+  14. https://en.wikipedia.org/wiki/Dynamic%20Adaptive%20Streaming%20over%20HTTP
+  15. https://github.com/rg3/youtube-dl/pull/1622
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Fri, 25 Oct 2013 01:25:41 -0200
+
+youtube-dl (2010.07.22-1) unstable; urgency=medium
+
+  The upstream author has removed support for the -b ("best format") and
+  the -d ("high def") command line options.
+  
+  The behavior now is to download the best quality for each video.
+  If you experience a problem with youtube-dl downloading videos that are
+  too large, you should consider using the --max-quality option to limit
+  which format to use.
+  
+  The list of formats (in decreasing quality) can be found with:
+  
+      grep "available_formats =" /usr/bin/youtube-dl
+
+ -- Rogério Brito <rbrito@ime.usp.br>  Thu, 22 Jul 2010 19:07:03 -0300
+

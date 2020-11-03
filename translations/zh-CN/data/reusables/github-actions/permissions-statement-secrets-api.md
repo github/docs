@@ -1,1 +1,0 @@
-To create secrets using the REST API, you must have write access to the repository or admin access to the organization. 更多信息请参阅“[{% data variables.product.prodname_actions %} 密码 API](/v3/actions/secrets/)”。

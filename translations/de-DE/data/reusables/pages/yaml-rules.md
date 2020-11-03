@@ -1,5 +1,0 @@
-- Verwende Leerzeichen statt Tabs.
-- Füge für jedes Schlüsselwertpaar ein Leerzeichen nach dem `:` ein, beispielsweise `timezone: Africa/Nairobi`.
-- Verwende nur UTF-8-Zeichen.
-- Setze alle Sonderzeichen wie zum Beispiel `:` in Anführungszeichen, beispielsweise `title: "my awesome site: an adventure in parse errors"`.
-- Für mehrzeilige Werte verwende `|` um Zeilenumbrüche zu erstellen und `>` um Zeilenumbrüche zu ignorieren.

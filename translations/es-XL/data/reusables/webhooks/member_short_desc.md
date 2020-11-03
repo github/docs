@@ -1,1 +1,0 @@
-La actividad relacionada con los colaboradores del repositorio. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[colaboradores](/v3/repos/collaborators/)".

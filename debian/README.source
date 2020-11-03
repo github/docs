@@ -1,0 +1,61 @@
+Debian packaging for youtube-dl
+-------------------------------
+
+# Basic building of the package
+
+A quick summary of how one can update the Debian packaging of youtube-dl is
+to, assuming that one already has the packages `devscripts`,
+`git-buildpackage`, and `pristine-tar` installed:
+
+    gbp clone --all https://github.com/rbrito/pkg-youtube-dl
+    cd pkg-youtube-dl
+    gbp import-orig --pristine-tar --uscan
+    gbp dch -S -a
+    [ Make here some adaptations, like updating debian/patches, if needed ]
+    gbp buildpackage -us -uc # create a test build
+
+    # Final (source only) package creation:
+
+    gbp dch -R -a
+    gbp buildpackage -S -k8F930BD1934C3E2140A258790747BD39BCFCAAAA --git-tag
+
+    # Push the results to the repositories:
+    git push --all; git push --tags
+    git push git@salsa.debian.org:debian/youtube-dl.git --all; git push git@salsa.debian.org:debian/youtube-dl.git --tags
+    dput ftp-master youtube-dl*changes
+
+These are the important steps and may need to be changed according to
+deviations, say, in the release process of upstream releases (e.g., if
+upstream changes the location where the tarballs reside).
+
+Maintaining the repository
+--------------------------
+
+I keep my development of the package (in particular, the master branch) at
+GitHub and I usually try to have my changes there, since I am not always
+with my SSH/GPG keys at hand.
+
+For the benefit of the co-maintainers, I keep a backup copy of the changes
+at salsa.debian.org, where, due to said keys not being available at all times,
+I can't push my changes, which leads, sometimes to my GitHub repository to
+be ahead of the Debian mirror.
+
+I prefer that, if possible, when working with the master branch:
+
+* Please, check if I don't have changes already made at:
+
+      https://github.com/rbrito/pkg-youtube-dl
+
+* People send me pull requests there
+
+* If they are not comfortable with the use of GitHub for any kind of reason
+  (political, ideological etc.), that they send me patches via email (git
+  send-email is best).
+
+  This can be sent to my personal email or to the Debian BTS. I'm flexible.
+
+Of course, if it is not possible to coordinate in the way described above,
+alas... :-(
+
+
+ -- Rogério Brito <rbrito@ime.usp.br>, Tue,  1 Oct 2019 15:45:10 -0300

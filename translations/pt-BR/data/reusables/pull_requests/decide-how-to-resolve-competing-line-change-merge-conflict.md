@@ -1,1 +1,0 @@
-1. Decida se você deseja manter apenas as alterações do seu branch, manter apenas as alterações do outro branch, ou fazer uma nova alteração, que pode incorporar alterações de ambos os branches. Exclua os marcadores de conflito `<<<<<<<`, `=============` `>>>>>>>` e faça as alterações desejadas no merge final.

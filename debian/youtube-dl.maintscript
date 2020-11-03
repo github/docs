@@ -1,0 +1,2 @@
+rm_conffile /etc/bash_completion.d/youtube-dl.bash-completion 2016.08.17-1~
+rm_conffile /etc/fish/completions/youtube-dl.fish 2016.08.17-1~

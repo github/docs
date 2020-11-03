@@ -1,0 +1,21 @@
+Subject: Skip directories and style checks for flake8
+From: Rogério Theodoro de Brito <rbrito@ime.usp.br>
+Forwarded: no
+Last-Update: 2020-04-10
+
+diff --git a/Makefile b/Makefile
+index 3e17365..aacc281 100644
+--- a/Makefile
++++ b/Makefile
+@@ -30,7 +30,10 @@ install: youtube-dl youtube-dl.1 youtube-dl.bash-completion youtube-dl.zsh youtu
+ 	install -m 644 youtube-dl.fish $(DESTDIR)$(SYSCONFDIR)/fish/completions/youtube-dl.fish
+ 
+ codetest:
+-	flake8 .
++	flake8 \
++		--exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,.pc,.pybuild \
++		--ignore=E121,E123,E126,E226,E24,E704,E402,E501,E731,E741,W503,W504,N802,N803,N806,N816,F401,F821,E302,E305,N801,N815,E265,N813,F403,F405 \
++		.
+ 
+ test:
+ 	#nosetests --with-coverage --cover-package=youtube_dl --cover-html --verbose --processes 4 test

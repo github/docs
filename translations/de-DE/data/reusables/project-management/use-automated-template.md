@@ -1,1 +1,0 @@
-Du kannst eine Projektboard-Vorlage verwenden, um ein Projektboard mit bereits konfigurierter Automatisierung zu erstellen. Weitere Informationen findest Du unter „[Informationen zu Projektboards](/articles/about-project-boards#templates-for-project-boards)“.

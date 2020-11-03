@@ -1,1 +1,0 @@
-Você pode carregar arquivos SARIF de ferramentas de análise estáticas de terceiros para o {% data variables.product.prodname_dotcom %} e ver {% data variables.product.prodname_code_scanning %} alertas dessas ferramentas no seu repositório.

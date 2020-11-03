@@ -1,1 +1,0 @@
-1. "{% data variables.large_files.product_name_short %} Data（{% data variables.large_files.product_name_short %}のデータ）"の下で、利用している帯域とストレージの詳細を見てください。 ![Git LFSのデータ利用状況の詳細](/assets/images/help/billing/lfs-data.png)

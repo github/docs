@@ -1,1 +1,0 @@
-1. Acima da lista de membros da equipe, clique em {% octicon "repo" aria-label="The Repository icon" %} **Repositories**. ![Aba repositórios da equipe](/assets/images/help/organizations/team-repositories-button.png)

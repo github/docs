@@ -1,0 +1,30 @@
+From: Carlos Maddela <e7appew@gmail.com>
+Date: Tue, 1 Mar 2016 02:31:47 +1100
+Subject: Don't install support files via setup.py
+
+Description: Don't install support files via setup.py
+ for better control over where they should be installed.
+Author: Carlos Maddela <e7appew@gmail.com>
+Origin: vendor
+Forwarded: not-needed
+Last-Update: 2016-06-27
+---
+ setup.py | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+--- a/setup.py
++++ b/setup.py
+@@ -58,12 +58,7 @@
+ if len(sys.argv) >= 2 and sys.argv[1] == 'py2exe':
+     params = py2exe_params
+ else:
+-    files_spec = [
+-        ('etc/bash_completion.d', ['youtube-dl.bash-completion']),
+-        ('etc/fish/completions', ['youtube-dl.fish']),
+-        ('share/doc/youtube_dl', ['README.txt']),
+-        ('share/man/man1', ['youtube-dl.1'])
+-    ]
++    files_spec = []
+     root = os.path.dirname(os.path.abspath(__file__))
+     data_files = []
+     for dirname, files in files_spec:

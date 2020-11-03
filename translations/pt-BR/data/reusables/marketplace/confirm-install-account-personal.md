@@ -1,1 +1,0 @@
-1. Em "Billing information" (Informações de pagamento), confirme que você está instalando o aplicativo para sua conta pessoal. ![Seu nome, seu avatar, o texto "Conta pessoal," e um menu suspenso para alterar a conta de faturamento](/assets/images/help/marketplace/marketplace-confirm-personal-account.png)

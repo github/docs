@@ -1,1 +1,0 @@
-1. 求められたなら、{% data variables.enterprise.management_console %}のパスワードを入力してください。 ![{% data variables.enterprise.management_console %}のロック解除画面](/assets/images/enterprise/management-console/unlock-password.png)

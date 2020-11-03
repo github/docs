@@ -1,1 +1,0 @@
-1. アーカイブされたマイグレーションデータを {% data variables.product.prodname_ghe_server %} のインスタンスにインポートする方法については「[{% data variables.product.prodname_ghe_server %} へのマイグレーションデータのインポート](/enterprise/admin/guides/migrations/importing-migration-data-to-github-enterprise-server/)」を参照してください。

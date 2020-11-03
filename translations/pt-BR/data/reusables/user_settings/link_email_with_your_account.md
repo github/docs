@@ -1,1 +1,0 @@
-Adicione o endereço de e-mail à sua conta de {% data variables.product.product_name %} [definindo seu endereço de e-mail do commit](/articles/setting-your-commit-email-address), para que seus commits sejam atribuídos a você e apareçam no seu gráfico de contribuições.

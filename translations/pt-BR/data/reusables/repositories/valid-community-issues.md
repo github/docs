@@ -1,1 +1,0 @@
-Para ser incluído na lista de perfil da comunidade, os modelos de problemas devem estar localizados na pasta `.github/ISSUE_TEMPLATE` e conter campos de `name:` válido e `sobre:` de YAML front matter válidos.

@@ -1,4 +1,0 @@
-- **Softwareabstürze** durch Ausfall des Betriebssystems oder nicht wiederherstellbare Anwendungen.
-- **Hardwarefehler** einschließlich Storage-Hardware, CPU, RAM, Netzwerkschnittstellen usw.
-- **Virtualisierungshostsystem-Fehler** einschließlich ungeplanter und [geplanter Wartungsereignisse auf AWS](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html).
-- **Logisch oder physisch getrenntes Netzwerk**. Wenn sich die Failover-Appliance in einem getrennten Netzwerk befindet, ist sie vom Fehler nicht betroffen.
