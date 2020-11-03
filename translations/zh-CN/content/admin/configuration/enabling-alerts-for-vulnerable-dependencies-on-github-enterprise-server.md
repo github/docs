@@ -18,10 +18,13 @@ versions:
 
 将 {% data variables.product.product_location_enterprise %} 连接到 {% data variables.product.prodname_dotcom_the_website %} 并为易受攻击的依赖项启用 {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}安全{% endif %}警报后，每个小时都会将漏洞数据从 {% data variables.product.prodname_dotcom_the_website %} 同步到您的实例一次。 您还可以随时选择手动同步漏洞数据。 代码和关于代码的信息不会从 {% data variables.product.product_location_enterprise %} 上传到 {% data variables.product.prodname_dotcom_the_website %}。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}当 {% data variables.product.product_location_enterprise %} 接收到有关漏洞的信息时，它将识别实例中使用受影响版本依赖项的仓库，并向这些仓库中具有管理员访问权限的所有者和人员发送 {% data variables.product.prodname_dependabot_short %} 警报。 他们可以自定义接收 {% data variables.product.prodname_dependabot_short %} 警报的方式。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)”。
+{% if currentVersion ver_gt "enterprise-server@2.21" %}当 {% data variables.product.product_location_enterprise %} 接收到有关漏洞的信息时，它将识别实例中使用受影响依赖项版本的仓库，并发送 {% data variables.product.prodname_dependabot_short %} 警报。 您可以自定义接收 {% data variables.product.prodname_dependabot_short %} 警报的方式。 更多信息请参阅“[为易受攻击的依赖项配置通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)”。
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.21" or currentVersion == "enterprise-server@2.21" %}当 {% data variables.product.product_location_enterprise %} 接收到有关漏洞的信息时，它将识别实例中使用受影响版本依赖项的仓库，并向这些仓库中具有管理员访问权限的所有者和人员发送安全警报。 您可以自定义接收安全警报的方式。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)”。
+{% if currentVersion == "enterprise-server@2.21" %}当 {% data variables.product.product_location_enterprise %} 接收到有关漏洞的信息时，它将识别实例中使用受影响依赖项版本的仓库，并发送安全警报。 您可以自定义接收安全警报的方式。 更多信息请参阅“[为易受攻击的依赖项配置通知](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)”。
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@2.21" %}当 {% data variables.product.product_location_enterprise %} 接收到有关漏洞的信息时，它将识别实例中使用受影响依赖项版本的仓库，并发送安全警报。 您可以自定义接收安全警报的方式。 更多信息请参阅“[选择通知的递送方式](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications#choosing-the-delivery-method-for-security-alerts-for-vulnerable-dependencies)”。
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -45,7 +48,14 @@ versions:
  ``` shell
 $ ghe-dep-graph-enable
 ```
+   {% note %}
+
+   **注**：有关启用通过 SSH 访问管理 shell 的更多信息，请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)”。
+
+   {% endnote %}
+
 3. 返回到
+
 {% data variables.product.prodname_ghe_server %}.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.business %}

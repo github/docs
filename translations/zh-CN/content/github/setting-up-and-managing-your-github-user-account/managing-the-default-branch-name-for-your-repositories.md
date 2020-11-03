@@ -1,6 +1,6 @@
 ---
 title: 管理仓库的默认分支名称
-intro: 'You can set a default branch name for all new repositories that you create.'
+intro: 'You can set the default branch name new repositories that you create on {% data variables.product.product_location %}.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
@@ -22,4 +22,4 @@ When you create a new repository on {% data variables.product.product_location %
 
 ### 延伸阅读
 
-- /github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization
+- "[Managing the default branch name for repositories in your organization](/github/setting-up-and-managing-organizations-and-teams/managing-the-default-branch-name-for-repositories-in-your-organization)"

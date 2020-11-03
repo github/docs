@@ -38,7 +38,7 @@ X-Accepted-OAuth-Scopes: user
 
 Name | Description
 -----|-----------|
-**`(no scope)`** | Grants read-only access to public information (includes public user profile info, public repository info, and gists){% if currentVersion != "free-pro-team@latest" %}
+**`(no scope)`** | Grants read-only access to public information (includes public user profile info, public repository info, and gists){% if enterpriseServerVersions contains currentVersion %}
 **`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/v3/enterprise-admin).{% endif %}
 **`repo`** | Grants full access to private and public repositories. That includes read/write access to code, commit statuses, repository and organization projects, invitations, collaborators, adding team memberships, deployment statuses, and repository webhooks for public and private repositories and organizations. Also grants ability to manage user projects.
 &emsp;`repo:status`| Grants read/write access to public and private repository commit statuses. This scope is only necessary to grant other users or services access to private repository commit statuses *without* granting access to the code.
@@ -71,7 +71,7 @@ Name | Description
 **`admin:gpg_key`** | Fully manage GPG keys.
 &emsp;`write:gpg_key`| Create, list, and view details for GPG keys.
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% if currentVersion == "free-pro-team@latest" %}
-**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository.{% endif %}
+**`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes, see https://docs.github.com/en/free-pro-team@latest/actions/reference/authentication-in-a-workflow#permissions-for-the-github_token for details.{% endif %}
 
 {% note %}
 

@@ -42,7 +42,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 更多信息请参阅[添加 SSH 密钥到 GitHub 帐户](/articles/adding-a-new-ssh-key-to-your-github-account)。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### 检查实例是否处于私有模式
 

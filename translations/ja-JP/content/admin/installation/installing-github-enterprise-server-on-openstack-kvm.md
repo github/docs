@@ -29,9 +29,9 @@ versions:
 
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
-1. In OpenStack Horizon, upload the
+1. OpenStack Horizon で、
 
-{% data variables.product.prodname_ghe_server %} image you downloaded. 手順については、OpenStack ガイドの「[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)」の 「Upload an image」セクションを参照してください。
+ダウンロードした {% data variables.product.prodname_ghe_server %} の画像をアップロードします。 手順については、OpenStack ガイドの「[Upload and manage images](https://docs.openstack.org/horizon/latest/user/manage-images.html)」の 「Upload an image」セクションを参照してください。
 {% data reusables.enterprise_installation.create-attached-storage-volume %} 手順については、OpenStack ガイドの「[Create and manage volumes](https://docs.openstack.org/horizon/latest/user/manage-volumes.html)」を参照してください。
 3. セキュリティグループを作成し、下の表の各ポートについて新しいセキュリティグループルールを追加してください。 その方法についてはOpenStackのガイド"[Configure access and security for instances](https://docs.openstack.org/horizon/latest/user/configure-access-and-security-for-instances.html)"を参照してください。
 

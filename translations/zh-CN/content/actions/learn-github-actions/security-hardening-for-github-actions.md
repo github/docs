@@ -95,3 +95,40 @@ versions:
 您还应考虑自托管运行器机器的环境：
 - 配置为自托管运行器的计算机上存储哪些敏感信息？ 例如，私有 SSH 密钥、API 访问令牌等。
 - 计算机是否可通过网络访问敏感服务？ 例如，Azure 或 AWS 元数据服务。 此环境中的敏感信息量应保持在最低水平，您应该始终注意，任何能够调用工作流程的用户都有权访问此环境。
+
+### Auditing {% data variables.product.prodname_actions %} events
+
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account perfomed the action.
+
+For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets: ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+
+The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+
+#### Events for secret management
+| 操作                                  | 描述                                                                                                                                                                                         |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action:org.create_actions_secret`  | Triggered when a organization admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). |
+| `action:org.remove_actions_secret`  | Triggered when a organization admin removes a {% data variables.product.prodname_actions %} secret.                                                                                        |
+| `action:org.update_actions_secret`  | Triggered when a organization admin updates a {% data variables.product.prodname_actions %} secret.                                                                                        |
+| `action:repo.create_actions_secret` | Triggered when a repository admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).      |
+| `action:repo.remove_actions_secret` | Triggered when a repository admin removes a {% data variables.product.prodname_actions %} secret.                                                                                          |
+| `action:repo.update_actions_secret` | Triggered when a repository admin updates a {% data variables.product.prodname_actions %} secret.                                                                                          |
+
+#### Events for self-hosted runners
+| 操作                                        | 描述                                                                                                                                                                                      |
+| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.register_self_hosted_runner`  | Triggered when an organization owner [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization). |
+| `action:org.remove_self_hosted_runner`    | Triggered when an organization owner [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).             |
+| `action:repo.register_self_hosted_runner` | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).       |
+| `action:repo.remove_self_hosted_runner`   | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                   |
+
+#### Events for self-hosted runner groups
+| 操作                                        | 描述                                                                                                                                                                                                                        |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.runner_group_created`         | Triggered when an organization admin [creates a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization). |
+| `action:org.runner_group_removed`         | Triggered when an organization admin removes a self-hosted runner group.                                                                                                                                                  |
+| `action:org.runner_group_renamed`         | Triggered when an organization admin renames a self-hosted runner group.                                                                                                                                                  |
+| `action:org.runner_group_runners_added`   | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                |
+| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           | 
+
+

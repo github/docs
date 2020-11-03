@@ -7,7 +7,7 @@
 | Elm: `elm`                 |                    |
 | Git 子模块：`gitsubmodule`     |                    |
 | GitHub 操作：`github-actions` |                    |
-| Go 模块：`gomod`              |                    |
+| Go 模块：`gomod`              |       **X**        |
 | Gradle: `gradle`           |                    |
 | Maven: `maven`             |                    |
 | Mix: `mix`                 |                    |

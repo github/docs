@@ -154,17 +154,17 @@ end
 ```
 {% else %}
 ``` ruby
-# Criar uma nova execução de verificação com o status em fila
+# Create a new check run with the status queued
 def create_check_run
-  # # No momento da gravação, o Octokit não é compatível ainda com a API de verificações, mas
-  # fornece métodos HTTP genéticos que você pode usar:
+  # # At the time of writing, Octokit does not support the Checks API yet, but
+  # it does provide generic HTTP methods you can use:
   # /v3/checks/runs/#create-a-check-run
   check_run = @installation_client.post(
     "repos/#{@payload['repository']['full_name']}/check-runs",
     {
-      # Este cabeçalho permite acesso beta à API de verificação
-      aceitar: 'application/vnd.github.antiope-preview+json',
-      # O nome da sua execução de verificação.
+      # This header allows for beta access to Checks API
+      accept: 'application/vnd.github.antiope-preview+json',
+      # The name of your check run.
       nome: 'Octo RuboCop',
       # A estrutura da carga difere dependendo da ocorrência de um evento de execução de verificação ou de conjunto de verificações.
       head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
@@ -196,7 +196,7 @@ Agora abra um pull request no repositório em que você instalou seu aplicativo.
 
 ![Execução de verificação enfileirada](/assets/images/github-apps/github_apps_queued_check_run.png)
 
-Se você vir outros aplicativos na aba Verificações, isso significa que você tem outros aplicativos instalados no seu repositório que têm acesso de **leitura & gravação ** para verificações que estão inscritos em eventos **Conjunto de verificaçõessuite** e **Execução de verificações**.
+Se você vir outros aplicativos na aba Verificações, isso significa que você tem outros aplicativos instalados no seu repositório que têm acesso de **leitura & gravação ** para verificações e que estão inscritos em eventos **Conjunto de verificações** e **Execução de verificações**.
 
 Ótimo! Você disse ao GitHub para criar uma execução de verificação. Você pode ver que o status da execução de verificação está definido como `enfileirado` ao lado de um ícone amarelo. Em seguida, você irá aguardar que o GitHub crie a execução de verificação e atualize seu status.
 
@@ -204,14 +204,14 @@ Se você vir outros aplicativos na aba Verificações, isso significa que você 
 
 Quando o seu método `create_check_run` é executado, ele pede ao GitHub para criar uma nova execução de verificação. Quando o Github terminar de criar a execução de verificação, você receberá o evento do webhook `check_run` com a ação `criada`. Esse evento é o sinal para começar a executar a verificação.
 
-Você vai atualizar o manipulador do evento para procurar a ação `criada`. Enquanto você está atualizando o manipulador de eventos, você pode adicionar uma condição para a ação `ressolicitada`. Quando alguém executa novamente um único teste no GitHub clicando no botão "Reexecutar", o GitHub envia o evento da execução de verificação `ressolicitado` para o seu aplicativo. Quando a execução de uma verificação `ressolicitada`, você irá iniciar todo o processo e criar uma nova execução de verificação.
+Você vai atualizar o manipulador do evento para procurar a ação `criada`. Enquanto você está atualizando o manipulador de eventos, você pode adicionar uma condição para a ação `ressolicitada`. Quando alguém executa novamente um único teste no GitHub clicando no botão "Reexecutar", o GitHub envia o evento da execução de verificação `ressolicitado` para o seu aplicativo. Quando a execução de uma verificação é `ressolicitada`, você irá iniciar todo o processo e criar uma nova execução de verificação.
 
-Para incluir uma condição para o evento `check_run` no encaminhamento `post '/event_handler'`, adicione o seguinte código em `solicitação de caso.env['HTTP_X_GITHUB_EVENT']`:
+Para incluir uma condição para o evento `check_run` no encaminhamento `post '/event_handler'`, adicione o seguinte código em `case request.env['HTTP_X_GITHUB_EVENT']`:
 
 ``` ruby
 when 'check_run'
-  # Verifica se o evento está sendo enviado para este aplicativo
-  se @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
+  # Check that the event is being sent to this app
+  if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
     case @payload['action']
     when 'created'
       initiate_check_run
@@ -231,11 +231,11 @@ Vamos criar o método `initiate_check_run` e atualizar o status da execução de
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ``` ruby
-# Iniciar o processo de CI
+# Start the CI process
 def initiate_check_run
-  # Uma vez criada a execução de verificação, você irá atualizar o status da verificação de execução
-  # para 'in_progress' e executar o processo de CI. Após a conclusão da CI, você
-  # irá atualizar o status da execução de verificação para "concluído" e irá adicionar os resultados de CI.
+  # Once the check run is created, you'll update the status of the check run
+  # to 'in_progress' and run the CI process. When the CI finishes, you'll
+  # update the check run status to 'completed' and add the CI results.
 
   # Octokit doesn't yet support the Checks API, but it does provide generic
   # HTTP methods you can use:
@@ -267,20 +267,20 @@ end
 ```
 {% else %}
 ``` ruby
-# Iniciar o processo de CI
+# Start the CI process
 def initiate_check_run
-  # Uma vez criada a execução de verificação, você irá atualizar o status da verificação de execução
-  # para 'in_progress' e executar o processo de CI. Após a conclusão da CI, você
-  # irá atualizar o status da execução de verificação para "concluído" e irá adicionar os resultados de CI.
+  # Once the check run is created, you'll update the status of the check run
+  # to 'in_progress' and run the CI process. When the CI finishes, you'll
+  # update the check run status to 'completed' and add the CI results.
 
-  # O Octokit ainda não é compatível com a a API de verificações, mas fornece métodos HTTP genéticos
-  # que você pode usar:
+  # Octokit doesn't yet support the Checks API, but it does provide generic
+  # HTTP methods you can use:
   # /v3/checks/runs/#update-a-check-run
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
-      accept: 'application/vnd.github.antiope-preview+json', # Este cabeçalho é necessário para o acesso beta à API de verificação
-      nome: 'Octo RuboCop',
+      accept: 'application/vnd.github.antiope-preview+json', # This header is necessary for beta access to Checks API
+      name: 'Octo RuboCop',
       status: 'in_progress',
       started_at: Time.now.utc.iso8601
     }
@@ -288,15 +288,15 @@ def initiate_check_run
 
   # ***** RUN A CI TEST *****
 
-  # Marque a execução de verificação como concluída!
+  # Mark the check run as complete!
   updated_check_run = @installation_client.patch(
     "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
     {
-      # Este cabeçalho é necessário para o acesso beta à API deverificação
-      aceita: 'application/vnd.github.antiope-preview+json',
-      nome: 'Octo RuboCop',
+      # This header is necessary for beta access to Checks API
+      accept: 'application/vnd.github.antiope-preview+json',
+      name: 'Octo RuboCop',
       status: 'completed',
-      conclusão: 'success',
+      conclusion: 'success',
       completed_at: Time.now.utc.iso8601
     }
   )
@@ -304,9 +304,9 @@ end
 ```
 {% endif %}
 
-O código acima chama o ponto final da API "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" usando o método genérico [`patch` HTTP](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) para atualizar a verificação que você já criou.
+O código acima chama o ponto de extremidade da API "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" usando o método genérico [`patch` HTTP](http://octokit.github.io/octokit.rb/Octokit/Connection.html#patch-instance_method) para atualizar a execução de verificação que você já criou.
 
-Veja o que este código está fazendo. Primeiro, ele atualiza o status de verificação de execução para `in_progress` e define o tempo do `started_at` para o tempo atual. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você irá adicionar cum ódigo que inicia um teste de CI real em `***** EXECUTAR UM TEST DE CI *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Finalmente, o código atualiza o status da execução de verificação novamente para `concluído`.
+Veja o que este código está fazendo. Primeiro, ele atualiza o status de verificação de execução para `in_progress` e define o tempo do `started_at` para o tempo atual. Na [Parte 2](#part-2-creating-the-octo-rubocop-ci-test) deste início rápido, você irá adicionar um código que inicia um teste de CI real em `***** EXECUTAR UM TEST DE CI *****`. Por enquanto, você sairá da seção como um espaço reservado, para que o código que o segue apenas simule que o processo de CI seja bem-sucedido e todos os testes sejam aprovados. Finalmente, o código atualiza o status da execução de verificação novamente para `concluído`.
 
 Você observará na documentação "[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run)" que, quando você fornece um status de `concluído`, os parâmetros `conclusão` e `completed_at` são necessários. A conclusão `` resume o resultado de uma verificação de resultado e pode ser `sucesso`, `falha`, `neutro`, `cancelado`, `timed_out` ou `action_required`. Você irá definir a conclusão como `sucesso`, o tempo `completed_at` como a hora atual e o status como `concluído`.
 
@@ -316,7 +316,7 @@ Você também pode fornecer mais informações sobre o que a sua verificação e
 $ ruby template_server.rb
 ```
 
-Vá para seu pull request aberta e clique na aba **Verificações**. Clique no botão "Executar tudo novamente" no canto superior esquerdo. Você deverá ver a execução da verificação mover de `pendente` para `in_progress` e terminar com `sucesso`:
+Vá para seu pull request aberto e clique na aba **Verificações**. Clique no botão "Executar tudo novamente" no canto superior esquerdo. Você deverá ver a execução da verificação mover de `pendente` para `in_progress` e terminar com `sucesso`:
 
 ![Execução de verificação concluída](/assets/images/github-apps/github_apps_complete_check_run.png)
 
@@ -353,10 +353,10 @@ Vamos começar! Estas são as etapas que você concluirá nesta seção:
 Você pode passar arquivos específicos ou diretórios inteiros para o RuboCop verificar. Nesse início rápido, você irá executar o RuboCop em um diretório inteiro. Como RuboCop verifica apenas códigos Ruby, será necessário pelo menos um arquivo Ruby no seu repositório que contém erros. O arquivo de exemplo fornecido abaixo contém alguns erros. Adicione este exemplo de arquivo Ruby ao repositório onde seu aplicativo está instalado (certifique-se de nomear o arquivo com uma extensão `.rb`, como em `myfile.rb`):
 
 ```ruby
-# A classe do Octocat informa os diferentes tipos do Octocat
+# The Octocat class tells you about different breeds of Octocat
 class Octocat
   def initialize(name, *breeds)
-    # Variáveis da instânciavariables
+    # Instance variables
     @name = name
     @breeds = breeds
   end
@@ -374,7 +374,7 @@ m.display
 
 ### Etapa 2.2. Clonar um repositório
 
-O RuboCop está disponível como um utilitário da linha de comando. Isso significa que o seu aplicativo GitHub deverá clonar uma cópia local do repositório no servidor da CI para que RuboCop possa analisar os arquivos. Para executar operações do Git no seu aplicativo Ruby, você pode usar a gem de [ruby-git](https://github.com/ruby-git/ruby-git).
+O RuboCop está disponível como um utilitário da linha de comando. Isso significa que o seu aplicativo GitHub deverá clonar uma cópia local do repositório no servidor da CI para que RuboCop possa analisar os arquivos. Para executar operações do Git no seu aplicativo Ruby, você pode usar o gem de [ruby-git](https://github.com/ruby-git/ruby-git).
 
 O `Gemfile` no repositório `building-a-checks-api-ci-server` já inclui a gem de ruby-git, e você o instalou quando executou a `instalação em conjunto` nas [etapas requisitadas](#prerequisites). Para usar a gem, adicione este código à parte superior do seu arquivo `template_server.rb`:
 
@@ -396,15 +396,15 @@ git clone https://x-access-token:<token>@github.com/<owner>/<repo>.git
 
 O código acima clone um repositório por HTTP. Isto exige o nome completo do repositório, que inclui o proprietário do repositório (usuário ou organização) e o nome do repositório. Por exemplo, o nome completo do repositório [octocat Hello-World](https://github.com/octocat/Hello-World) é `octocat/hello-world`.
 
-Depois que seu aplicativo clonar repositório, ele deverá resgatar as alterações mais recentes do código fazer checkout do Git ref específico. O código para fazer tudo isto encaixa-se perfeitamente no seu próprio método. Para realizar essas operações, o método precisa do nome e nome completo do repositório e que o ref faça checkout. O ref pode ser um commit SHA, branch ou tag. Adicione o método a seguir à seção do método auxiliar no `template_server.rb`:
+Depois que seu aplicativo clonar o repositório, ele deverá resgatar as alterações mais recentes do código fazer checkout do Git ref específico. O código para fazer tudo isto encaixa-se perfeitamente no seu próprio método. Para realizar essas operações, o método precisa do nome e nome completo do repositório e que o ref faça checkout. O ref pode ser um commit SHA, branch ou tag. Adicione o método a seguir à seção do método auxiliar no `template_server.rb`:
 
 ``` ruby
-# Clona o repositório para o diretório de trabalho atual, atualiza o
-# conteúdo usando o pull do Git e faz o check out do ref.
+# Clones the repository to the current working directory, updates the
+# contents using Git pull, and checks out the ref.
 #
 # full_repo_name  - The owner and repo. Ex: octocat/hello-world
-# repositório - O nome do repositório
-# ref             - O commit SHA do branch ou tag a fazer checkout
+# repository      - The repository name
+# ref             - The branch, commit SHA, or tag to check out
 def clone_repository(full_repo_name, repository, ref)
   @git = Git.clone("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", repository)
   pwd = Dir.getwd()
@@ -439,7 +439,7 @@ O código acima obtém o nome completo do repositório e o SHA principal do comm
 O código a seguir executa RuboCop e salva os erros do código de estilo no formato JSON. Adicione este código abaixo da chamada para `clone_repository` que você adicionou na [etapa anterior](#step-22-cloning-the-repository) e acima do código que atualiza a execução de verificação para concluir.
 
 ``` ruby
-# Execute RuboCop em todos os arquivos do repositório
+# Run RuboCop on all files in the repository
 @report = `rubocop '#{repository}' --format json`
 logger.debug @report
 `rm -rf #{repository}`
@@ -479,7 +479,7 @@ Você deve ver os erros de linting na saída de depuração, embora não sejam i
       "offenses": [
         {
           "severity": "convention",
-          "message": "Style/StringLiterals: Prefira strings com aspas simples quando você não precisar de interpolação de strings ou símbolos especiais.",
+          "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
           "cop_name": "Style/StringLiterals",
           "corrected": false,
           "location": {
@@ -494,7 +494,7 @@ Você deve ver os erros de linting na saída de depuração, embora não sejam i
         },
         {
           "severity": "convention",
-          "message": "Style/StringLiterals: Prefira strings com aspas simples quando você não precisar de interpolação de strings ou símbolos especiais.",
+          "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
           "cop_name": "Style/StringLiterals",
           "corrected": false,
           "location": {
@@ -524,35 +524,35 @@ A variável `@output` contém os resultados do JSON analisados do relatório do 
 
 A API de verificação permite que você crie anotações para linhas específicas do código. Ao criar ou atualizar uma execução de verificação, você pode adicionar anotações. Neste início rápido, você está [atualizando a execução de verificações](/v3/checks/runs/#update-a-check-run) com anotações.
 
-A API de verificação limita o número de anotações a um máximo de 50 por solicitação de API. Para criar mais de 50 anotações, você deve fazer várias solicitações para o ponto final [Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run). Por exemplo, para criar 105 anotações você deve chamar o ponto final [Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run) três vezes. Cada uma das duas primeiras solicitações teria 50 anotações e a terceira solicitação incluiria as cinco anotações restantes. Cada vez que você atualizar a execução de verificação, as anotações são anexadas à lista de anotações que já existem para a execução de verificação.
+A API de verificação limita o número de anotações a um máximo de 50 por solicitação de API. Para criar mais de 50 anotações, você deve fazer várias solicitações para o ponto de extremidade [Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run). Por exemplo, para criar 105 anotações você deve chamar o ponto de extremidade[Atualizar uma execução de verificação](/v3/checks/runs/#update-a-check-run) três vezes. Cada uma das duas primeiras solicitações teria 50 anotações e a terceira solicitação incluiria as cinco anotações restantes. Cada vez que você atualizar a execução de verificação, as anotações são anexadas à lista de anotações que já existem para a execução de verificação.
 
-Uma execução de verificação espera anotações como um array de objetos. Cada objeto de anotação deve incluir o `caminho`, `start_line`,, `end_line`, `annotation_level` e `mensagem`. O RuboCop também fornece `start_column` e `end_column`. Portanto, você pode incluir esses parâmetros opcionais na anotação. As anotações são compatíveis apenas com `start_column` e `end_column` na mesma linha. Para obter mais informações, consulte a documentação de referência do [`anotações` objeto](/v3/checks/runs/#annotations-object-1).
+Uma execução de verificação espera anotações como um array de objetos. Cada objeto de anotação deve incluir o `caminho`, `start_line`,, `end_line`, `annotation_level` e `mensagem`. O RuboCop também fornece `start_column` e `end_column`. Portanto, você pode incluir esses parâmetros opcionais na anotação. As anotações são compatíveis apenas com `start_column` e `end_column` na mesma linha. Para obter mais informações, consulte a documentação de referência do [`objeto` anotações](/v3/checks/runs/#annotations-object-1).
 
 Você irá extrair as informações necessárias do RuboCop para criar cada anotação. Acrescente o seguinte código ao código que você adicionou na [seção anterior](#step-23-running-rubocop):
 
 ``` ruby
-anotações = []
-# Você pode criar um máximo de 50 anotações por solicitação para as verificações
-# API. Para adicionar mais de 50 anotações, use a API "Atualizar uma execução de verificação"
-# ponto final. Este código de exemplo limita o número de anotações a 50.
-# Consulte /v3/checks/runs/#update-a-check-run
-# para obter informações.
+annotations = []
+# You can create a maximum of 50 annotations per request to the Checks
+# API. To add more than 50 annotations, use the "Update a check run" API
+# endpoint. Este código de exemplo limita o número de anotações a 50.
+# See /v3/checks/runs/#update-a-check-run
+# for details.
 max_annotations = 50
 
-# O RuboCop relata o número de erros encontrados em "offense_count"
+# RuboCop reports the number of errors found in "offense_count"
 if @output['summary']['offense_count'] == 0
-  conclusão= 'success'
-ou
-  conclusão= 'neutral'
+  conclusion = 'success'
+else
+  conclusion = 'neutral'
   @output['files'].each do |file|
 
-    # Analise somente ofensas para arquivos no repositório deste aplicativo
+    # Only parse offenses for files in this app's repository
     file_path = file['path'].gsub(/#{repository}\//,'')
     annotation_level = 'notice'
 
-    # Analisa cada ofensa para obter informações e a localização
+    # Parse each offense to get details and location
     file['offenses'].each do |offense|
-      # Limita o número de anotações a 50
+      # Limit the number of annotations to 50
       next if max_annotations == 0
       max_annotations -= 1
 
@@ -562,17 +562,17 @@ ou
       end_column   = offense['location']['last_column']
       message      = offense['message']
 
-      # Cria uma nova anotação para cada erro
-      anotação= {
-        caminho: file_path,
+      # Create a new annotation for each error
+      annotation = {
+        path: file_path,
         start_line: start_line,
         end_line: end_line,
         start_column: start_column,
         end_column: end_column,
         annotation_level: annotation_level,
-        mensagem: message
+        message: message
       }
-      # As anotações são compatíveis apenas com colunas iniciais e finais na mesma linha
+      # Annotations only support start and end columns on the same line
       if start_line == end_line
         annotation.merge({start_column: start_column, end_column: end_column})
       end
@@ -589,7 +589,7 @@ Quando o `offense_count` é zero, o teste de CI é um `sucesso`. Se houver erros
 
 Quando os erros são relatados, o código acima afirma por meio da array de `arquivos` no relatório do RuboCop. Para cada arquivo, ele extrai o caminho do arquivo e define o nível de anotação como `aviso`. Você pode ir além e definir os níveis específicos de aviso para cada tipo de [RuboCop Cop](https://rubocop.readthedocs.io/en/latest/cops/), mas simplificar as coisas neste início rápido, todos os erros são definidos para um nível de `aviso`.
 
-Este código também é afirmado por meio de cada erro no array de `ofensas` e coleta o local da mensagem de erro e de abuso. Após extrair as informações necessárias, o código cria uma anotação para cada erro e a armazena no array de `anotações`. Uma vez que as anotações são compatíveis apenas com colunas iniciais e finais na mesma linha, `start_column` e `end_column` só são adicionados ao objeto `anotação` se os valores da linha inicial e final forem iguais.
+Este código também é afirmado por meio de cada erro no array de `ofensas` e coleta o local da mensagem de erro e de ofensa. Após extrair as informações necessárias, o código cria uma anotação para cada erro e a armazena no array de `anotações`. Uma vez que as anotações são compatíveis apenas com colunas iniciais e finais na mesma linha, `start_column` e `end_column` só são adicionados ao objeto `anotação` se os valores da linha inicial e final forem iguais.
 
 Esse código ainda não cria uma anotação para a execução de verificação. Você irá adicionar esse código na próxima seção.
 
@@ -600,7 +600,7 @@ Cada execução de verificação no GitHub contém um objeto de `saída` que inc
 Para o `resumo`, este exemplo usa a informação de resumo do RuboCop e adiciona algumas novas linhas (`\n`) para formatar a saída. É possível personalizar o que você adiciona ao parâmetro `texto`, mas este exemplo define o parâmetro `texto` para a versão do RuboCop. Para definir o `resumo` e o `texto`, adicione este código ao código que você adicionou na [seção anterior](#step-24-collecting-rubocop-errors):
 
 ``` ruby
-# Resumo da execução de verificação atualizada e parâmetros de texto
+# Updated check run summary and text parameters
 summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
@@ -609,7 +609,7 @@ Agora você tem todas as informações de que precisa para atualizar sua execuç
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ``` ruby
-# Marque a verificação como concluída!
+# Mark the check run as complete!
 updated_check_run = @installation_client.patch(
   "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
   {
@@ -623,25 +623,25 @@ updated_check_run = @installation_client.patch(
 ```
 {% else %}
 ``` ruby
-# Marque a verificação como concluída!
+# Mark the check run as complete!
 updated_check_run = @installation_client.patch(
   "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
   {
-    aceitar: 'application/vnd.github.antiope-preview+json', # Este cabeçalho é necessário para o acesso beta à API de verificação
-    nome: 'Octo RuboCop',
+    accept: 'application/vnd.github.antiope-preview+json', # This header is necessary for beta access to Checks API
+    name: 'Octo RuboCop',
     status: 'completed',
-    conclusão: 'success',
+    conclusion: 'success',
     completed_at: Time.now.utc.iso8601
   }
 )
 ```
 {% endif %}
 
-Você deverá atualizar esse código para usar a variável de `Conclusão` definida com base nos resultados do RuboCop (para `sucesso` Ou `neutro`). Você pode atualizar o código com o seguinte:
+Você deverá atualizar esse código para usar a variável de `conclusão` definida com base nos resultados do RuboCop (para `sucesso` ou `neutro`). Você pode atualizar o código com o seguinte:
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ``` ruby
-# Marque a verificação como concluída! E, se houver avisos, compartilhe-os.
+# Mark the check run as complete! E, se houver avisos, compartilhe-os.
 updated_check_run = @installation_client.patch(
   "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
   {
@@ -666,25 +666,25 @@ updated_check_run = @installation_client.patch(
 ```
 {% else %}
 ``` ruby
-# Marque a verificação como concluída! E, se houver avisos, compartilhe-os.
+# Mark the check run as complete! E, se houver avisos, compartilhe-os.
 updated_check_run = @installation_client.patch(
   "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
   {
-    aceitar: 'application/vnd.github.antiope-preview+json',
-    nome: 'Octo RuboCop',
+    accept: 'application/vnd.github.antiope-preview+json',
+    name: 'Octo RuboCop',
     status: 'completed',
-    conclusão: conclusion,
+    conclusion: conclusion,
     completed_at: Time.now.utc.iso8601,
-    saída: {
-      título: 'Octo RuboCop',
-      resumo: summary,
-      texto: text,
-      anotações: annotations
+    output: {
+      title: 'Octo RuboCop',
+      summary: summary,
+      text: text,
+      annotations: annotations
     },
-    ações: [{
-      etiqueta: 'Fix this',
-      descrição: 'Fixar automaticamente todas os avisos do linter.',
-      identificador: 'fix_rubocop_notices'
+    actions: [{
+      label: 'Fix this',
+      description: 'Automatically fix all linter notices.',
+      identifier: 'fix_rubocop_notices'
     }]
   }
 )
@@ -735,8 +735,8 @@ Quando alguém clica no botão "Corrija isso", seu aplicativo recebe o [webhook 
 Na [Etapa 1.4. Ao atualizar uma verificação, ](#step-14-updating-a-check-run) você atualizou o seu `event_handler` para lidar com a procura de ações no evento `check_run`. Você já tem uma afirmação de caso para lidar com os tipos de ação `criado` e `ressolicitado`:
 
 ``` ruby
-quando 'check_run'
-  # Verifica se o evento está sendo enviado para este aplicativo
+when 'check_run'
+  # Check that the event is being sent to this app
   if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
     case @payload['action']
     when 'created'
@@ -757,21 +757,21 @@ quando 'requested_action'
 Este código chama um novo método que irá lidar com todos os eventos `requested_action` para seu aplicativo. Adicione o seguinte método à seção de métodos auxiliares do seu código:
 
 ``` ruby
-# Lida com o evento execução de verificação `requested_action`
-# Consulte /webhooks/event-payloads/#check_run
+# Handles the check run `requested_action` event
+# See /webhooks/event-payloads/#check_run
 def take_requested_action
   full_repo_name = @payload['repository']['full_name']
-  repositório = @payload['repository']['name']
+  repository     = @payload['repository']['name']
   head_branch    = @payload['check_run']['check_suite']['head_branch']
 
-  se (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
+  if (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
     clone_repository(full_repo_name, repository, head_branch)
 
-    # Define o nome de usuário e o e-mail do seu commit
+    # Sets your commit username and email address
     @git.config('user.name', ENV['GITHUB_APP_USER_NAME'])
     @git.config('user.email', ENV['GITHUB_APP_USER_EMAIL'])
 
-    # Corrige os erros de estilo do RuboCop automaticamente
+    # Automatically correct RuboCop style errors
     @report = `rubocop '#{repository}/*' --format json --auto-correct`
 
     pwd = Dir.getwd()
@@ -781,7 +781,7 @@ def take_requested_action
       @git.push("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", head_branch)
     rescue
       # Nothing to commit!
-      coloca 'Nothing to commit'
+      puts 'Nothing to commit'
     end
     Dir.chdir(pwd)
     `rm -rf '#{repository}'`
@@ -815,18 +815,18 @@ Você pode encontrar o código concluído para o aplicativo que você acabou de 
 
 ### Etapa 2.7. Dicas de segurança
 
-O modelo de código do aplicativo GitHub já possui um método para verificar os as cargas do webhook de entrada para garantir que sejam de uma fonte confiável. Se você não estiver validando as cargas do webhook, você deverá garantir que, quando nomes do repositório estiverem incluídos na carga do webhook, este não conterá comandos arbitrários que possam ser usados maliciosamente. O código abaixo valida que o nome do repositório contém apenas caracteres alfabéticos latinos, hifens e sublinhados. Para dar um exemplo completo, o código completo completo `server.rb` disponível no [repositório complementar](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) para este início rápido inclui tanto o método de validação de recebimento das cargas do webhook quanto esta verificação do nome do repositório.
+O modelo de código do aplicativo GitHub já possui um método para verificar as cargas do webhook de entrada para garantir que sejam de uma fonte confiável. Se você não estiver validando as cargas do webhook, você deverá garantir que, quando nomes do repositório estiverem incluídos na carga do webhook, este não conterá comandos arbitrários que possam ser usados maliciosamente. O código abaixo valida que o nome do repositório contém apenas caracteres alfabéticos latinos, hifens e sublinhados. Para dar um exemplo completo, o código completo completo `server.rb` disponível no [repositório complementar](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) para este início rápido inclui tanto o método de validação de recebimento das cargas do webhook quanto esta verificação do nome do repositório.
 
 ``` ruby
-# Este exemplo de início rápido usa o nome do repositório no webhook com
-# utilitários de linha de comando. Por motivos de segurança você deve validar o
-# nome do repositório para garantir que um ator ruim não tente executar
-# comandos arbitrários ou injetar nomes de repositório falsos. Se um nome de repositório
+# This quickstart example uses the repository name in the webhook with
+# command-line utilities. For security reasons, you should validate the
+# repository name to ensure that a bad actor isn't attempting to execute
+# arbitrary commands or inject false repository names. Se um nome de repositório
 # for fornecido no webhook, certifique-se de que consiste apenas de
 # caracteres alfabéticos latinos `-`, e `_`.
-a menos que @payload['repositório'].nil?
+unless @payload['repository'].nil?
   halt 400 if (@payload['repository']['name'] =~ /[0-9A-Za-z\-\_]+/).nil?
-fim
+end
 ```
 
 ### Solução de Problemas

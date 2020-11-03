@@ -100,7 +100,7 @@ Se o {% data variables.product.product_location_enterprise %} tiver o isolamento
 | Ruby       | Gerenciador de pacotes de RubyGems                                    | `Gemfile`                            | `gem`             | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
 | Java       | Ferramenta de gerenciamento de projetos e compreensão do Apache Maven | `pom.xml`                            | `mvn`             | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
 | Java       | Ferramenta de automação do build Gradle para Java                     | `build.gradle` ou `build.gradle.kts` | `gradle`          | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| .NET       | Gerenciamento de pacotes NuGet para .NET                              | `nupkg`                              | `dotnet` CLI      | nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | Gerenciamento de pacotes NuGet para .NET                              | `nupkg`                              | `dotnet` CLI      | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
 

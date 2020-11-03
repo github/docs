@@ -5,15 +5,16 @@ intro: 'Automate, customize, and execute your software development workflows rig
 introLinks:
   quickstart: /actions/quickstart
   learn: /actions/learn-github-actions
-gettingStartedLinks:
-  - /actions/managing-workflow-runs
-  - /actions/hosting-your-own-runners
-guideLinks:
-  - /actions/guides/setting-up-continuous-integration-using-workflow-templates
-  - /actions/guides/about-packaging-with-github-actions
-popularLinks:
-  - /actions/reference/workflow-syntax-for-github-actions
-  - /actions/reference/events-that-trigger-workflows
+featuredLinks:
+  gettingStarted:
+    - /actions/managing-workflow-runs
+    - /actions/hosting-your-own-runners
+  guide:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/about-packaging-with-github-actions
+  popular:
+    - /actions/reference/workflow-syntax-for-github-actions
+    - /actions/reference/events-that-trigger-workflows
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions/
   - /articles/customizing-your-project-with-github-actions/
@@ -42,7 +43,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in guideLinks %}
+      {% for link in featuredLinks.guide %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -53,7 +54,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.popular_articles %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in popularLinks %}
+      {% for link in featuredLinks.popular %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -64,7 +65,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Manage workflows</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in gettingStartedLinks %}
+      {% for link in featuredLinks.gettingStarted %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>

@@ -11,6 +11,7 @@ jobs:
   check-freezer:
     name: Remind about deployment freezes
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal'
     steps:
 
     - name: Send Slack notification if repo is frozen

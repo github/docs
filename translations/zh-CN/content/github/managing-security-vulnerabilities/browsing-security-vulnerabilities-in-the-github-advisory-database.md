@@ -1,6 +1,7 @@
 ---
 title: 浏览 GitHub Advisory Database 中的安全漏洞
 intro: '{% data variables.product.prodname_advisory_database %} 允许您浏览或搜索影响 {% data variables.product.company_short %} 上开源项目的漏洞。'
+shortTitle: Browsing the Advisory Database
 versions:
   free-pro-team: '*'
 ---

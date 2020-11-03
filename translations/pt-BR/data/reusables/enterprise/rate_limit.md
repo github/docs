@@ -1,4 +1,4 @@
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Observe que os limites mencionados acima são os limites de taxa padrão para um
 instância de {% data variables.product.prodname_ghe_server %}. Entre em contato com o administrador do site para confirmar se os limites de taxa estão habilitados e como eles estão configurados.
 {% endif %}

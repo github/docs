@@ -42,7 +42,7 @@ Você não pode criar um arquivo de licença padrão. Os arquivos de licença de
 {% data reusables.repositories.create_new %}
 2. Use o menu suspenso **Proprietário** e selecione a organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} ou conta de usuário{% endif %} para a qual você deseja criar arquivos-padrão. ![Menu suspenso Owner (Proprietário)](/assets/images/help/repository/create-repository-owner.png)
 3. Digite **.github** como o nome para seu repositório e uma descrição opcional. ![Campo Create repository (Criar repositório)](/assets/images/help/repository/default-file-repository-name.png)
-4. Make sure the repository status is set to **Public** (a repository for default files cannot be private). ![Botões de opção para selecionar status privado ou público](/assets/images/help/repository/create-repository-public-private.png)
+4. Certifique-se de que o status do repositório está definido como **Público** (um repositório-padrão para arquivos não pode ser privado). ![Botões de opção para selecionar status privado ou público](/assets/images/help/repository/create-repository-public-private.png)
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 7. No repositório, crie um dos arquivos compatíveis de integridade da comunidade. Os modelos de problema{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %} e o seu arquivo de configuração{% endif %} devem estar em uma pasta denominada `.github/ISSUE_TEMPLATE`. Todos os outros arquivos compatíveis devem estar na raiz do repositório. Para obter mais informações, consulte "[Criar arquivos](/articles/creating-new-files/)".

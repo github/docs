@@ -45,7 +45,7 @@ To publish a user site, you must create a repository owned by your user account 
 
 {% data variables.product.product_name %} アカウントごとに、ユーザまたは Organization サイトを 1 つだけ作成できます。 プロジェクトサイトの数については、Organization アカウントでもユーザアカウントでも、無制限です。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 The URL where your site is available depends on whether subdomain isolation is enabled for
 {% data variables.product.product_location %}.
 
@@ -124,7 +124,7 @@ If you choose the `/docs` folder of any branch as your publishing source, {% dat
 
 #### 禁止される用途
 
-{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とるす、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
+{% data variables.product.prodname_pages %} は、オンラインビジネス、eコマースサイト、主に商取引の円滑化またはサービスとしての商用ソフトウェアの提供 (SaaS) のどちらかを目的とする、その他のウェブサイトを運営するための無料のウェブホスティングサービスとしての使用を意図したものではなく、またそのような使用を許可するものでもありません。
 
 さらに、{% data variables.product.prodname_pages %} サイトでは、以下を禁じています:
 

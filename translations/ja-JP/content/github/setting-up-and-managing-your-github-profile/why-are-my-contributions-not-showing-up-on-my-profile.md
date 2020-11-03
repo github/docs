@@ -29,10 +29,10 @@ Issue とプルリクエストは、フォークではなく、スタンドア�
 - リポジトリをフォークしたこと。
 - リポジトリでプルリクエストまたは Issue を開いていること。
 - リポジトリに Star を付けたこと。
-{% if currentVersion != "free-pro-team@latest" %}
+
 ### コントリビューションがカウントされない一般的な理由
 
-{% data reusables.pull_requests.pull_request_merges_and_contributions %}{% endif %}
+{% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
 #### コミットしてからまだ 24 時間経過していない
 
@@ -67,7 +67,7 @@ Subject: [PATCH] より良いウェルカムメッセージのためのインデ
 
 コミットがデフォルト以外または `gh-pages` 以外のブランチにあり、コントリビューションにカウントする場合は、以下のうち 1 つを行う必要があります:
 - 変更をデフォルトのブランチまたは `gh-pages` ブランチにマージするには、[プルリクエストを開きます](/articles/creating-a-pull-request)。
-- リポジトリの[デフォルトブランチを変更します](/github/administering-a-repository/changing-the-default-branch)。
+- [Change the default branch](/github/administering-a-repository/changing-the-default-branch) of the repository.
 
 {% warning %}
 

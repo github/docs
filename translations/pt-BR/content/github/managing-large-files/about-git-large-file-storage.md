@@ -41,11 +41,13 @@ size 84977953
 
 Ele rastreia a `version` (versão) do {% data variables.large_files.product_name_short %} que você está usando, seguida por um identificador exclusivo para o arquivo (`oid`). Ele também armazena o `size` (tamanho) do arquivo final.
 
-{% tip %}
+{% note %}
 
-**Dica**: o {% data variables.large_files.product_name_short %} não pode ser usado com os sites do {% data variables.product.prodname_pages %}.
+**Atenção**:
+- {% data variables.large_files.product_name_short %} não pode ser usado com sites de {% data variables.product.prodname_pages %}.
+- {% data variables.large_files.product_name_short %} não pode ser usado com repositórios de modelos.
 
-{% endtip %}
+{% endnote %}
 
 ### Leia mais
 
