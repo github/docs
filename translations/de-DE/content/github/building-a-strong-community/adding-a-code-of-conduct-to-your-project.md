@@ -20,7 +20,7 @@ Du kannst einen Standard-Verhaltenskodex für Deine Organisation oder Dein Benut
 
 ### Einen Verhaltenskodex über eine Vorlage hinzufügen
 
-{% data variables.product.product_name %} bietet Vorlagen für gängige Verhaltenskodizes. So kannst Du rasch einen Verhaltenskodex zu Deinem Projekt hinzufügen.
+{% data variables.product.product_name %} bietet Vorlagen für gängige Verhaltenskodizes. So können Sie rasch einen Verhaltenskodex zu Ihrem Projekt hinzufügen.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

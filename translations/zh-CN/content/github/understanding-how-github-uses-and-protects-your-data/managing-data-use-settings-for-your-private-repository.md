@@ -10,7 +10,7 @@ versions:
 
 ### 关于私有仓库的数据使用
 
-When you enable data use for your private repository, you'll be able to access the dependency graph, where you can track your repository's dependencies and receive {% data variables.product.prodname_dependabot_short %} alerts when {% data variables.product.product_name %} detects vulnerable dependencies. 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#github-dependabot-alerts-for-vulnerable-dependencies)”。
+启用私有仓库的数据使用后，您可以访问依赖项图，从中可以跟踪仓库的依赖项，在 {% data variables.product.product_name %} 检测到漏洞依赖项时接收 {% data variables.product.prodname_dependabot_short %} 警报。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies#github-dependabot-alerts-for-vulnerable-dependencies)”。
 
 ### 启用或禁用数据使用功能
 
@@ -27,4 +27,4 @@ When you enable data use for your private repository, you'll be able to access t
 
 - "[关于 {% data variables.product.prodname_dotcom %} 对数据的使用](/articles/about-github-s-use-of-your-data)"
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
-- "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"

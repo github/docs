@@ -1,6 +1,6 @@
 ---
 title: ユーザーアカウントのリポジトリ権限レベル
-intro: ユーザーアカウントが所有するリポジトリは、*リポジトリオーナー*と*コラボレーター*という 2 つの権限レベルを持ちます。
+intro: 'ユーザーアカウントが所有するリポジトリは、*リポジトリオーナー*と*コラボレーター*という 2 つの権限レベルを持ちます。'
 redirect_from:
   - /articles/permission-levels-for-a-user-account-repository
 versions:
@@ -18,22 +18,22 @@ versions:
 
 リポジトリオーナーは、リポジトリを完全に制御することができます。 リポジトリコラボレータによって許可されるすべての権限に加えて、リポジトリオーナーは次の操作が可能です:
 
-- {% if currentVersion == "free-pro-team@latest" %}[コラボレーターを招待する](/articles/inviting-collaborators-to-a-personal-repository){% else %}[コラボレーターを追加する](/articles/inviting-collaborators-to-a-personal-repository){% endif %}
-- リポジトリの可視性を変更する ([public から private へ](/articles/making-a-public-repository-private)、または [private から public](/articles/making-a-private-repository-public) へ) {% if currentVersion == "free-pro-team@latest" %}
+- {% if currentVersion == "free-pro-team@latest" %}[Invite collaborators](/articles/inviting-collaborators-to-a-personal-repository){% else %}[Add collaborators](/articles/inviting-collaborators-to-a-personal-repository){% endif %}
+- Change the visibility of the repository (from [public to private](/articles/making-a-public-repository-private), or from [private to public](/articles/making-a-private-repository-public)){% if currentVersion == "free-pro-team@latest" %}
 - [リポジトリでのインタラクションを制限する](/articles/limiting-interactions-with-your-repository){% endif %}
 - 保護されたブランチで、レビューの承認がなくてもプルリクエストをマージする
 - [リポジトリを削除する](/articles/deleting-a-repository)
-- [リポジトリのトピックを管理する](/articles/classifying-your-repository-with-topics){% if currentVersion == "free-pro-team@latest" %}
+- [Manage a repository's topics](/articles/classifying-your-repository-with-topics){% if currentVersion == "free-pro-team@latest" %}
 - Manage security and analysis settings. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)."{% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- プライベートリポジトリに対して[依存グラフを有効にする](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository){% endif %}{% if currentVersion == "free-pro-team@latest" %}
-- パッケージを削除する。 詳細は「[>パッケージを削除する](/github/managing-packages-with-github-packages/deleting-a-package)」を参照してください。{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
+- [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- パッケージを削除する。 詳細は「[>パッケージを削除する](/github/managing-packages-with-github-packages/deleting-a-package)」を参照してください。{% endif %}
 - リポジトリソーシャルカードを作成および編集する。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/articles/customizing-your-repositorys-social-media-preview)」を参照してください。
-- リポジトリをテンプレートにする。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)を参照してください。{% endif %}
-- 脆弱な依存関係についての[{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}セキュリティ{% endif %}アラートを受け取ります](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)。 {% if currentVersion == "free-pro-team@latest" %}
+- リポジトリをテンプレートにする。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)」を参照してください。
+- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% if currentVersion == "free-pro-team@latest" %}
 - リポジトリで {% data variables.product.prodname_dependabot_alerts %} を閉じます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 - [プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [リポジトリのコードオーナーを定義する](/articles/about-code-owners)
-- [リポジトリをアーカイブする](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
+- [Archive repositories](/articles/about-archiving-repositories){% if currentVersion == "free-pro-team@latest" %}
 - セキュリティアドバイザリを作成する。 詳しい情報については「[{% data variables.product.prodname_security_advisories %}について](/github/managing-security-vulnerabilities/about-github-security-advisories)」を参照してください。
 - スポンサーボタンを表示する。 詳細は「[リポジトリにスポンサーボタンを表示する](/articles/displaying-a-sponsor-button-in-your-repository)」を参照してください。{% endif %}
 
@@ -56,17 +56,16 @@ versions:
 - Issue またはプルリクエストを重複としてマークする。 詳細は「[重複した Issue やプルリクエストについて](/articles/about-duplicate-issues-and-pull-requests)」を参照してください。
 - Open, merge and close pull requests
 - 提案された変更をプルリクエストに適用する。 詳細は「[プルリクエストでのフィードバックを取り込む](/articles/incorporating-feedback-in-your-pull-request)」を参照してください。
-- リポジトリのフォークからプルリクエストを送信する{% if currentVersion == "free-pro-team@latest" %}
+- Send pull requests from forks of the repository{% if currentVersion == "free-pro-team@latest" %}
 - パッケージを公開、表示、インストールする。 詳細は、「[パッケージの公開と管理](/github/managing-packages-with-github-packages/publishing-and-managing-packages)」を参照してください。{% endif %}
 - ウィキを作成および編集する
 - リリースの作成と編集。 詳細は「[リポジトリのリリースを管理する](/github/administering-a-repository/managing-releases-in-a-repository)」を参照してください。
 - リポジトリでコラボレーターである自身を削除する
 - マージ可能性に影響するプルリクエストレビューをサブミットする
 - リポジトリに指定されたコードオーナーとして行動する。 詳細は「[コードオーナーについて](/articles/about-code-owners)」を参照してください。
-- 会話をロックする。 詳細は「[会話をロックする](/articles/locking-conversations)」を参照してください。{% if currentVersion == "free-pro-team@latest" %}
+- 会話をロックする。 For more information, see "[Locking conversations](/articles/locking-conversations)."{% if currentVersion == "free-pro-team@latest" %}
 - 乱用コンテンツを {% data variables.contact.contact_support %} にレポートする 詳細は「[乱用やスパムをレポートする](/articles/reporting-abuse-or-spam)」を参照してください。{% endif %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-- 他のリポジトリへ Issue を移譲する。 詳細は「[他のリポジトリへ Issue を移譲する](/articles/transferring-an-issue-to-another-repository)」を参照してください。{% endif %}
+- 他のリポジトリへ Issue を移譲する。 詳細は「[他のリポジトリへ Issue を移譲する](/articles/transferring-an-issue-to-another-repository)」を参照してください。
 
 ### 参考リンク
 

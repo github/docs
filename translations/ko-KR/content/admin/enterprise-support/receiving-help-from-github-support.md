@@ -4,7 +4,6 @@ intro: 'If you run into trouble with {% data variables.product.product_location_
 redirect_from:
   - /enterprise/admin/guides/enterprise-support/receiving-help-from-github-enterprise-support/
   - /enterprise/admin/enterprise-support/receiving-help-from-github-support
-  - /enterprise/admin/enterprise-support/receiving-help-from-github-support
 mapTopic: true
 versions:
   enterprise-server: '*'

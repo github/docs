@@ -8,6 +8,12 @@ versions:
   enterprise-server: '*'
 ---
 
+{% note %}
+
+**Note:** In order to link a repository to your organization or user owned project board the repository needs to have issues enabled. For information on how to see if issues are disabled for a repository, see "[Disabling issues](/github/managing-your-work-on-github/disabling-issues) ."
+
+{% endnote %}
+
 Anyone with write permissions to a project board can link repositories owned by that organization or user account to the project board. For more information, see "[Project board permissions for an organization](/articles/project-board-permissions-for-an-organization/)" or "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards/)."
 
 {% data reusables.project-management.link-repos-to-project-board %} You can add issues and pull requests from any unlinked repositories by typing the issue or pull request URL in a card. For more information, see "[Adding issues and pull requests to a project board](/articles/adding-issues-and-pull-requests-to-a-project-board)."

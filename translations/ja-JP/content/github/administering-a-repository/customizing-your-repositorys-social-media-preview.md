@@ -5,7 +5,7 @@ redirect_from:
   - /articles/customizing-your-repositorys-social-media-preview
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
 ---
 
 画像を追加するまでは、リポジトリへのリンクは、リポジトリの基本的な情報とオーナーのアバターを表示します。 リポジトリに画像を追加すると、さまざまなソーシャルプラットフォーム上で、あなたのプロジェクトが見つかりやすくなります。

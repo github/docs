@@ -1,6 +1,6 @@
 ---
 title: GitHub Pages-Website mit Jekyll erstellen
-intro: 'Du kannst mit Jekyll eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
+intro: 'Sie können mit Jekyll eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
@@ -62,7 +62,7 @@ Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website ers
  $ git checkout --orphan gh-pages
  # Erstellt einen neuen Branch, ohne Verlauf und Inhalte, mit dem namen gh-pages und wechselt zum gh-pages-Branch
  ```
- 7. Um eine neue Jekyll-Website zu erstellen, führe den Befehl `jekyll new` aus. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für Jekyll. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
+ 7. Um eine neue Jekyll-Website zu erstellen, führe den Befehl `jekyll new` aus. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für Jekyll. Weitere Informationen findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
     - Wenn Du Bundler installiert hast:
       ```shell
       $ bundle exec jekyll <em>VERSION</em> new .
@@ -74,13 +74,13 @@ Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website ers
      # Erstellt eine Jekyll-Website im aktuellen Verzeichnis
      ```
 8. Öffne das gerade erstellte Gemfile, und befolge die Anweisungen in den Gemfile-Kommentaren, um {% data variables.product.prodname_pages %} zu verwenden. ![Anleitung zum Aktualisieren der Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Aktualisiere die Zeile `gem "github-pages"` so, dass sie wie folgt aussieht. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für `github-pages`. Weitere Informationen finden Sie unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
+9. Aktualisiere die Zeile `gem "github-pages"` so, dass sie wie folgt aussieht. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für `github-pages`. Weitere Informationen findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
 ```shell
 gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
 10. Speichere und schließe das Gemfile.
 11. Teste Deine Website optional lokal. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_pages %}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
-12. Füge Dein {% data variables.product.product_name %}-Repository als Remote-Repository hinzu. Ersetze dabei {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ durch den Hostnamen Deiner Appliance,{% endif %} _USER_ durch das Konto, das das Repository besitzt{% if currentVersion != "free-pro-team@latest" %},{% endif %} und _REPOSITORY_ durch den Namen des Repositorys.
+12. Fügen Sie Ihr {% data variables.product.product_name %}-Repository als Remote-Repository hinzu. Ersetzen Sie dabei {% if enterpriseServerVersions contains currentVersion %}_HOSTNAME_ durch den Hostnamen Ihrer Appliance,{% endif %} _USER_ durch das Konto, das das Repository besitzt{% if enterpriseServerVersions contains currentVersion %},{% endif %} und _REPOSITORY_ durch den Namen des Repositorys.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git

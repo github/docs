@@ -6,7 +6,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Informationen zu {% data variables.product.prodname_desktop %}
+### Informationen zum {% data variables.product.prodname_desktop %}
 
 {% data reusables.desktop.about-github-desktop %}
 

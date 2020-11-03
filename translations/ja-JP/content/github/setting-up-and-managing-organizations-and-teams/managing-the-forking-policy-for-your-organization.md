@@ -10,9 +10,9 @@ versions:
   enterprise-server: '*'
 ---
 
-デフォルトでは、新しい Organization はプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}および内部{% endif %}リポジトリのフォークを禁止するように設定されます。
+デフォルトでは、新しい Organization はプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} および内部{% endif %}リポジトリのフォークを禁止するように設定されます。
 
-Organization レベルでプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} および内部{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}または内部{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
+Organization レベルでプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}および内部{% endif %}リポジトリのフォークを許可する場合は、特定のプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}または内部{% endif %}リポジトリをフォークする機能も設定することができます。 詳細は「[リポジトリのフォークポリシーを管理する](/github/administering-a-repository/managing-the-forking-policy-for-your-repository)」を参照してください。
 
 {% data reusables.organizations.internal-repos-enterprise %}
 

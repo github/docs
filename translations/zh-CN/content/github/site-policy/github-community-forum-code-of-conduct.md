@@ -106,7 +106,7 @@ GitHub 社区论坛提倡互相尊重。 论坛是一种共享资源 — 通过�
 
 ### 联系 GitHub 工作人员
 
-If, for any reason, you want to contact GitHub Staff, the Community Managers, Administrators, or Moderators of this forum privately, you can use our [Support contact form](https://support.github.com/contact?tags=community-support). Contacting any member of GitHub Staff via channels other than the forum itself or the Support contact form is strongly discouraged and may be considered a violation of our prohibition against harassment.
+如果出于任何原因要私下联系本论坛的 GitHub 工作人员、社区管理员或版主，您可以使用我们的[支持联系表](https://support.github.com/contact?tags=community-support)。 强烈建议不要通过论坛或支持联系表以外的渠道联系任何 GitHub 工作人员，否则可能被视为违反我们禁止骚扰的规定。
 
 让我们共同努力，互相尊重并珍惜每个人的时间，使论坛成为一个人们可以安全舒适地参与的环境。
 

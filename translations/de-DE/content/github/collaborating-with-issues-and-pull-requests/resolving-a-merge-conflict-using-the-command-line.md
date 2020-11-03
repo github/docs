@@ -67,11 +67,11 @@ ask your question in IRC.
   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
   ```
 
-Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
+Sie können die Branches nun in der Befehlszeile mergen oder [die Änderungen mittels Push an Ihr Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Ihre Änderungen mit einem Pull Request mergen](/articles/merging-a-pull-request/).
 
 ### Mergekonflikte durch das Entfernen einer Datei
 
-Zur Behebung eines Mergekonflikts, der entsteht, wenn eine Person eine Datei in einem Branch löscht und eine andere Person die gleiche Datei in einem anderen Branch bearbeitet, musst Du entscheiden, ob die Datei in einem neuen Commit gelöscht oder beibehalten werden soll.
+Zur Behebung eines Mergekonflikts, der entsteht, wenn eine Person eine Datei in einem Branch löscht und eine andere Person die gleiche Datei in einem anderen Branch bearbeitet, müssen Sie entscheiden, ob die Datei in einem neuen Commit gelöscht oder beibehalten werden soll.
 
 Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md*, und eine andere Person hat die gleiche Datei in einem anderen Branch des gleichen Git-Repositorys gelöscht. Beim Zusammenführen beider Branches erhältst Du einen Mergekonflikt. Diesen Mergekonflikt musst Du durch einen neuen Commit beheben, um die beiden Branches zusammenführen zu können.
 
@@ -83,8 +83,8 @@ Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md
 2. Generiere eine Liste der Dateien, die von diesem Mergekonflikt betroffen sind. In diesem Beispiel enthält die Datei *README.md* einen Mergekonflikt.
   ```shell
   $ git status
-  > # On branch master
-  > # Your branch and 'origin/master' have diverged,
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
   > # and have 1 and 2 different commits each, respectively.
   > #  (use "git pull" to merge the remote branch into yours)
   > # You have unmerged paths.
@@ -116,7 +116,7 @@ Ein Beispiel: Du hast eine Datei bearbeitet, beispielsweise die Datei *README.md
   > [branch-d 6f89e49] Merge branch 'branch-c' into branch-d
   ```
 
-Du kannst die Branches nun in der Befehlszeile zusammenführen oder [die Änderungen mittels Push an Dein Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Deine Änderungen mit einem Pull Request zusammenführen](/articles/merging-a-pull-request/).
+Sie können die Branches nun in der Befehlszeile mergen oder [die Änderungen mittels Push an Ihr Remote-Repository auf {% data variables.product.product_name %} übertragen](/articles/pushing-commits-to-a-remote-repository/) und [Ihre Änderungen mit einem Pull Request mergen](/articles/merging-a-pull-request/).
 
 ### Weiterführende Informationen
 

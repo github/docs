@@ -1,6 +1,7 @@
 ---
 title: Managing the default branch name for repositories in your organization
-intro: You can set the default branch name for repositories that members create in your organization.
+intro: 'You can set the default branch name for repositories that members create in your organization.'
+permissions: Managing the default branch name for your repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
@@ -8,11 +9,9 @@ versions:
 
 ### About the default branch name
 
-When a member of your organization creates a new repository, {% data variables.product.prodname_dotcom %} will create a single branch and set it as the repository's default branch. {% data variables.product.prodname_dotcom %} currently names the default branch `master`, but you can set the default branch to be named anything that makes sense for your development environment.
+When a member of your organization creates a new repository, {% data variables.product.prodname_dotcom %} will create a single branch and set it as the repository's default branch. You can change the name that {% data variables.product.product_name %} uses for the default branch in new repositories that members of your organization create. For more information about the default branch, see "[About branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)."
 
 {% data reusables.branches.set-default-branch %}
-
-{% data reusables.branches.rename-existing-branch %}
 
 ### Setting the default branch name
 
@@ -31,4 +30,4 @@ When a member of your organization creates a new repository, {% data variables.p
 
 ### Weiterführende Informationen
 
-- [Managing the default branch name for your repositories](/github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories)
+- /github/setting-up-and-managing-your-github-user-account/managing-the-default-branch-name-for-your-repositories

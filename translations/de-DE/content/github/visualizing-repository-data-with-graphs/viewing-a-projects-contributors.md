@@ -1,6 +1,6 @@
 ---
 title: Mitwirkende eines Projekts anzeigen
-intro: 'Du kannst anzeigen, wer Commits zu einem Repository{% if currentVersion == "free-pro-team@latest" %} und seinen Abhängigkeiten{% endif %} beigetragen hat.'
+intro: 'You can see who contributed commits to a repository{% if currentVersion == "free-pro-team@latest" %} and its dependencies{% endif %}.'
 redirect_from:
   - /articles/i-don-t-see-myself-in-the-contributions-graph/
   - /articles/viewing-contribution-activity-in-a-repository/
@@ -13,7 +13,7 @@ versions:
 
 ### Informationen zu Mitarbeitern
 
-Im Mitarbeiterdiagramm kannst Du die Top 100 der Mitarbeiter an einem Repository anzeigen{% if currentVersion != "free-pro-team@latest" %}, darunter auch die Commit-Co-Autoren{% endif %}. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
+Im Mitarbeiterdiagramm kannst Du die Top 100 der Mitarbeiter an einem Repository anzeigen{% if enterpriseServerVersions contains currentVersion %}, darunter auch die Commit-Co-Autoren{% endif %}. Merge- und leere Commits werden für dieses Diagramm nicht als Beiträge gezählt.
 
 {% if currentVersion == "free-pro-team@latest" %}
 Darüber hinaus kannst Du eine Liste der Personen anzeigen, die Beiträge zu den Python-Abhängigkeiten des Projekts geliefert haben. Rufe `https://github.com/REPO-OWNER/REPO-NAME/community_contributors` auf, um auf diese Liste der Community-Mitarbeiter zuzugreifen.

@@ -9,7 +9,7 @@ versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 自己ホストランナーについて
@@ -53,6 +53,15 @@ versions:
 * そのマシンが、実行しようとしている種類のワークフローに対して十分なハードウェアリソースを持っていること。 セルフホストランナーアプリケーションそのものは、最小限のリソースしか必要としません。
 * Dockerコンテナアクションあるいはサービスコンテナを使うワークフローを実行したいなら、Linuxのマシンを使い、Dockerがインストールされていなければなりません。
 
+### 使用制限
+
+セルフホストランナーを使用する場合、{% data variables.product.prodname_actions %} の使用にはいくつかの制限があります。 これらの制限は変更されることがあります。
+
+{% data reusables.github-actions.usage-workflow-run-time %}
+- **ジョブキュー時間** - セルフホストランナーの各ジョブは、最大24時間キューイングできます。 この制限内にセルフホストランナーがジョブの実行を開始しなければ、ジョブは終了させられ、完了に失敗します。
+{% data reusables.github-actions.usage-api-requests %}
+- **ジョブマトリックス** - {% data reusables.github-actions.usage-matrix-limits %}
+
 ### セルフホストランナーをサポートするオペレーティングシステム
 
 セルフホストランナーアプリケーション用には、以下のオペレーティングシステムがサポートされています。
@@ -82,7 +91,7 @@ versions:
 
 - macOS 10.13 (High Sierra)以降
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### セルフホストランナーと{% data variables.product.prodname_dotcom %}との通信
 

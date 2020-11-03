@@ -1,44 +1,48 @@
 ---
-title: About securing your repository
-intro: '{% data variables.product.product_name %} provides a number of ways that you can help keep your repository secure.'
+title: 关于保护仓库
+intro: '{% data variables.product.product_name %} 提供了许多可帮助您保护仓库安全的方法。'
 versions:
   free-pro-team: '*'
 ---
 
-### Setting up your repository securely
+### 安全地设置仓库
 
-The first step to securing a repository is to set up who can see and modify your code. For more information, see "[Managing repository settings](/github/administering-a-repository/managing-repository-settings)."
+保护仓库的第一步是设置谁可以查看和修改您的代码。 更多信息请参阅“[管理仓库设置](/github/administering-a-repository/managing-repository-settings)”。
 
 ### 保护您的仓库
 
-{% data variables.product.prodname_dotcom %} has a growing set of security features that help you keep your code secure. You can find these on the **Security** tab for your repository.
+{% data variables.product.prodname_dotcom %} 有越来越多的安全功能，可帮助您保护代码安全。 您可以在仓库的 **Security（安全）**选项卡上找到这些功能。
 
-- **Security policy**
+- **安全策略**
 
-  Make it easy for people to confidentially report security vulnerabilities they've found in your repository. 更多信息请参阅“[添加安全政策到仓库](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)”。
+  让人们能够轻松地秘密报告他们在仓库中发现的安全漏洞。 更多信息请参阅“[添加安全政策到仓库](/github/managing-security-vulnerabilities/adding-a-security-policy-to-your-repository)”。
 
-- **Security advisories**
+- **安全通告**
 
-  Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage them to upgrade. 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
+  私下讨论并修复仓库代码中的安全漏洞。 然后，您可以发布安全通告，提醒您的社区注意漏洞并鼓励他们升级。 更多信息请参阅“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 
-- **{% data variables.product.prodname_dependabot_short %} alerts**
+- **{% data variables.product.prodname_dependabot_short %} alerts and security updates**
 
-  View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see "[Viewing and updating vulnerable dependencies in your repository](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)" and "[Configuring {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+  查看有关已知包含安全漏洞的依赖项的警报，并选择是否自动生成拉取请求以更新这些依赖项。 For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)" and "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."
 
-- **{% data variables.product.prodname_code_scanning_capc %} alerts**
+- **{% data variables.product.prodname_dependabot_short %} version updates**
 
-  Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[About code scanning](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)."
+  Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. 更多信息请参阅“[关于 {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot-version-updates)”。
 
-- **Detected secrets**
+- **{% data variables.product.prodname_code_scanning_capc %} 警报**
 
-  View any secrets that {% data variables.product.prodname_dotcom %} has found in your code. You should treat tokens or credentials that have been checked into the repository as compromised. For more information, see "[About secret scanning](/github/administering-a-repository/about-secret-scanning)."
+  自动检测新代码或修改代码中的安全漏洞和编码错误。 潜在的问题被高亮显示，并附有详细信息，允许您在将代码合并到默认分支之前修复它。 更多信息请参阅“[关于代码扫描](/github/finding-security-vulnerabilities-and-errors-in-your-code/about-code-scanning)”。
 
-### Exploring dependencies
-{% data variables.product.prodname_dotcom %}'s dependency graph allows you to explore:
+- **检测到的密钥**
 
-* Ecosystems and packages that your repository depends on
-* Repositories and packages that depend on your repository
+  查看 {% data variables.product.prodname_dotcom %} 在您的代码中找到的任何密钥。 应将已检入仓库的令牌或凭据视为已泄露。 更多信息请参阅“[关于密钥扫描](/github/administering-a-repository/about-secret-scanning)”。
 
-You must enable the dependency graph before {% data variables.product.prodname_dotcom %} can generate {% data variables.product.prodname_dependabot_short %} alerts for dependencies with security vulnerabilities.
+### 探索依赖项
+{% data variables.product.prodname_dotcom %} 的依赖项图允许您探索：
 
-You can find the dependency graph on the **Insights** tab for your repository. 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
+* 您的仓库依赖的生态系统和包
+* 依赖于您的仓库的仓库和包
+
+必须先启用依赖项图，然后 {% data variables.product.prodname_dotcom %} 才能针对有安全漏洞的依赖项生成 {% data variables.product.prodname_dependabot_short %} 警报。
+
+您可以在仓库的 **Insights（洞察）**选项卡上找到依赖项图。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。

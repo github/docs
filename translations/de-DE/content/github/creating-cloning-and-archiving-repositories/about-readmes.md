@@ -10,7 +10,7 @@ versions:
   enterprise-server: '*'
 ---
 
-Eine README-Datei zusammen mit {% if currentVersion == "free-pro-team@latest" %}einer [Repository-Lizenz](/articles/licensing-a-repository), [Beitragsrichtlinien](/articles/setting-guidelines-for-repository-contributors) und einem [Verhaltenskodex](/articles/adding-a-code-of-conduct-to-your-project){% else %}einer [Repository-Lizenz](/articles/licensing-a-repository) und [Beitragsrichtlinien](/articles/setting-guidelines-for-repository-contributors){% endif %} hilft Dir, die Erwartungen an Dein Projekt zu kommunizieren und die Beiträge zu Deinem Projekt zu verwalten.
+A README file, along with {% if currentVersion == "free-pro-team@latest" %}a [repository license](/articles/licensing-a-repository), [contribution guidelines](/articles/setting-guidelines-for-repository-contributors), and a [code of conduct](/articles/adding-a-code-of-conduct-to-your-project){% else %}a [repository license](/articles/licensing-a-repository) and [contribution guidelines](/articles/setting-guidelines-for-repository-contributors){% endif %}, helps you communicate expectations for and manage contributions to your project.
 
 Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines Repositorys sieht. README-Dateien enthalten in der Regel folgende Informationen:
 - Was ist die Aufgabe des Projekts?
@@ -19,7 +19,7 @@ Die README-Datei ist oft das erste Element, das ein Benutzer beim Besuch Deines 
 - Wo erhalten Benutzer Hilfe zu Ihrem Projekt?
 - Wer verwaltet das Projekt und trägt dazu bei?
 
-Wenn Du Deine README-Datei im root-, `docs`- oder im verborgenen `.github`-Verzeichnis Deines Repositorys ablegst, erkennt {% data variables.product.product_name %} Deine README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
+Wenn Sie Ihre README-Datei im Stammverzeichnis, im Ordner `docs` oder im verborgenen Verzeichnis `.github` Ihres Repositorys ablegen, erkennt {% data variables.product.product_name %} Ihre README-Datei und stellt sie automatisch den Besuchern des Repositorys zur Verfügung.
 
 ![Hauptseite des github/scientist-Repositorys und seiner README-Datei](/assets/images/help/repository/repo-with-readme.png)
 

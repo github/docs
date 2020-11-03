@@ -5,7 +5,8 @@ redirect_from:
   - /articles/building-actions
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
-  - /aktionen/Building-Aktionen
+  - /actions/building-actions
+  - /articles/creating-a-github-action/
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

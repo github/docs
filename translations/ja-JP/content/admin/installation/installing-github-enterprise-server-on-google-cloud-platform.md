@@ -24,8 +24,8 @@ Google Cloud Platformde{% data variables.product.product_location_enterprise %}�
 
 #### サポートされているマシンタイプ
 
-{% data variables.product.prodname_ghe_server %} は、次の Google Compute Engine (GCE) マシンタイプでサポートされています。 詳しい情報については[Google Cloud Platformのマシンタイプの記事](https://cloud.google.com/compute/docs/machine-types)を参照してください。 |
-{% if currentVersion != "free-pro-team@latest" %}
+{% data variables.product.prodname_ghe_server %} は、次の Google Compute Engine (GCE) マシンタイプでサポートされています。 詳しい情報については[Google Cloud Platformのマシンタイプの記事](https://cloud.google.com/compute/docs/machine-types)を参照してください。
+
 |  | ハイメモリ         |
 |  | ------------- |
 |  | n1-highmem-4  |
@@ -34,7 +34,6 @@ Google Cloud Platformde{% data variables.product.product_location_enterprise %}�
 |  | n1-highmem-32 |
 |  | n1-highmem-64 |
 |  | n1-highmem-96 |
-{% endif %}
 
 #### 推奨マシンタイプ
 

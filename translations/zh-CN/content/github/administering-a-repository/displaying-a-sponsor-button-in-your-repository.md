@@ -14,18 +14,18 @@ versions:
 
 您也可以每个赞助平台添加一个用户名、包名称或项目名，以及最多四个自定义 URL。 最多可在 {% data variables.product.prodname_sponsors %} 中添加四位被赞助的开发者或组织。 在新行上添加每个平台，使用以下语法：
 
-| 平台                                                                                 | 语法                                                                      |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| [CommunityBridge](https://communitybridge.org)                                     | `community_bridge: PROJECT-NAME`                                        |
+| 平台                                                                            | 语法                                                                      |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [CommunityBridge](https://communitybridge.org)                                | `community_bridge: PROJECT-NAME`                                        |
 | [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors) | `github: USERNAME` 或 `github: [USERNAME, USERNAME, USERNAME, USERNAME]` |
-| [IssueHunt](https://issuehunt.io/)                                                 | `issuehunt: USERNAME`                                                   |
-| [Ko-fi](https://ko-fi.com/)                                                        | `ko_fi: USERNAME`                                                       |
-| [Liberapay](https://en.liberapay.com/)                                             | `liberapay: USERNAME`                                                   |
-| [Open Collective](https://opencollective.com/)                                     | `open_collective: USERNAME`                                             |
-| [Otechie](https://otechie.com/)                                                    | `otechie: USERNAME`                                                     |
-| [Patreon](https://www.patreon.com/)                                                | `patreon: USERNAME`                                                     |
-| [Tidelift](https://tidelift.com/)                                                  | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                  |
-| Custom URL                                                                         | `custom: LINK1` 或 `custom: [LINK1, LINK2, LINK3, LINK4]`                |
+| [IssueHunt](https://issuehunt.io/)                                            | `issuehunt: USERNAME`                                                   |
+| [Ko-fi](https://ko-fi.com/)                                                   | `ko_fi: USERNAME`                                                       |
+| [Liberapay](https://en.liberapay.com/)                                        | `liberapay: USERNAME`                                                   |
+| [Open Collective](https://opencollective.com/)                                | `open_collective: USERNAME`                                             |
+| [Otechie](https://otechie.com/)                                               | `otechie: USERNAME`                                                     |
+| [Patreon](https://www.patreon.com/)                                           | `patreon: USERNAME`                                                     |
+| [Tidelift](https://tidelift.com/)                                             | `tidelift: PLATFORM-NAME/PACKAGE-NAME`                                  |
+| Custom URL                                                                    | `custom: LINK1` 或 `custom: [LINK1, LINK2, LINK3, LINK4]`                |
 
 对于 TideLift，请使用 `platform-name/package-name` 带有以下平台名称的语法：
 

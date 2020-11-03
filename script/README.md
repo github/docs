@@ -30,6 +30,15 @@ Runs tests. Equivalent of `npm test`.
 
 ## Additional scripts
 
+### [`anonymize-branch.js`](anonymize-branch.js)
+
+Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+
+Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
+
+---
+
+
 ### [`archive-enterprise-version.js`](archive-enterprise-version.js)
 
 Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
@@ -270,6 +279,19 @@ Usage $ script/new-versioning/main
 ---
 
 
+### [`new-versioning/update-not-fpt-conditionals.js`](new-versioning/update-not-fpt-conditionals.js)
+
+Run this script to update these Liquid conditionals:
+
+{% if currentVersion != 'free-pro-team@latest' %}
+
+to:
+
+{% if enterpriseServerVersions contains currentVersion %}
+
+---
+
+
 ### [`new-versioning/update-products-yml.js`](new-versioning/update-products-yml.js)
 
 
@@ -371,13 +393,19 @@ Run this script to remove reusables and image files that exist in the repo but a
 
 This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
 
-It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for Crowdin to fix them.
+It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
 
-Usage: script/reset-translated-File.js <relative-filename> [<two-letter-language-code>]
+Usage: script/reset-translated-file.js <filename>
 
-script/reset-translated-File.js content/desktop/foo.md -> resets all translations of foo.md
+Examples:
 
-script/reset-translated-File.js content/desktop/foo.md de -> resets german translation of foo.md
+reset a single translated file using a relative path: $ script/reset-translated-file.js translations/es-XL/content/actions/index.md
+
+reset a single translated file using a full path: $ script/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
+
+reset all language variants of a single English file (using a relative path): $ script/reset-translated-file.js content/actions/index.md $ script/reset-translated-file.js data/ui.yml
+
+reset all language variants of a single English file (using a full path): $ script/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
 
 ---
 

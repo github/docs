@@ -1,6 +1,6 @@
 ---
 title: Creating a GitHub Pages site
-intro: 'Du kannst eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
+intro: 'Sie können eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
 redirect_from:
   - /articles/creating-project-pages-using-the-command-line/
   - /articles/creating-a-github-pages-site
@@ -39,11 +39,11 @@ versions:
 
 ### Nächste Schritte:
 
-Du kannst Deiner Website weitere Seiten hinzufügen, indem Du zusätzliche neue Dateien erstellst. Jede Datei wird auf Deiner Website im selben Verzeichnis verfügbar sein wie Deine Veröffentlichungsquelle. Wenn beispielsweise die Veröffentlichungsquelle für Deine Projekt-Website der Branch `gh-pages` ist und Du eine neue Datei mit dem Namen `/about/contact-us.md` auf dem Branch `gh-pages` erstellst, ist die Datei unter {% if currentVersion == "free-pro-team@latest" %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.md` verfügbar.
+Du kannst Deiner Website weitere Seiten hinzufügen, indem Du zusätzliche neue Dateien erstellst. Jede Datei wird auf Deiner Website im selben Verzeichnis verfügbar sein wie Deine Veröffentlichungsquelle. For example, if the publishing source for your project site is the `gh-pages` branch, and you create a new file called `/about/contact-us.md` on the `gh-pages` branch, the file will be available at {% if currentVersion == "free-pro-team@latest" %}`https://<user>.github.io/<repository>/{% else %}`http(s)://<hostname>/pages/<username>/<repository>/{% endif %}about/contact-us.md` verfügbar.
 
-Du kannst auch ein Design hinzufügen, um das Aussehen der Website anzupassen. Weitere Informationen findest Du unter {% if currentVersion == "free-pro-team@latest" %}„[Ein Design mit dem Theme Chooser zu Deiner {% data variables.product.prodname_pages %}-Website hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}„[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}.“
+Du kannst auch ein Design hinzufügen, um das Aussehen der Website anzupassen. For more information, see {% if currentVersion == "free-pro-team@latest" %}"[Adding a theme to your {% data variables.product.prodname_pages %} site with the theme chooser](/articles/adding-a-theme-to-your-github-pages-site-with-the-theme-chooser){% else %}"[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll){% endif %}."
 
-Um Deine Website noch weiter anzupassen, kannst Du Jekyll verwenden, einen Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %}. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll).“
+Um Ihre Website noch weiter anzupassen, können Sie Jekyll verwenden, einen Generator für statische Websites mit integrierter Unterstützung von {% data variables.product.prodname_pages %}. Weitere Informationen finden Sie unter „[Informationen zu {% data variables.product.prodname_pages %} und Jekyll](/articles/about-github-pages-and-jekyll)“.
 
 ### Weiterführende Informationen
 

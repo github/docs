@@ -35,9 +35,7 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 安装设施 API 使您能够获取有关 GitHub 应用程序安装设施的信息并在这些安装设施中执行操作。 _安装设施_是指已安装该应用程序的任何用户或组织帐户。 有关如何验证为安装设施和限制访问特定仓库的信息，请参阅“[验证为安装设施](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}
 要列出组织的所有 GitHub 应用程序安装设施，请参阅“[列出组织的应用程序安装设施](/v3/orgs/#list-app-installations-for-an-organization)”。
-{% endif %}
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'installations' %}{% include rest_operation %}{% endif %}
@@ -60,6 +58,15 @@ GitHub 应用程序 API 使您能够获取有关 GitHub 应用程序的高层次
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'marketplace' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+## Web 挂钩
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
 {% endif %}

@@ -1,6 +1,6 @@
 ---
 title: 议题和拉取请求中的文件附件
-intro: 在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。
+intro: '在打开议题或更新拉取请求时，您可以使用议题附件上传提议功能的图像或漏洞的屏幕截图。'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
@@ -11,7 +11,7 @@ versions:
 
 {% warning %}
 
-**警告：**如果您在拉取请求或议题评论中添加了图像，则任何人都可以查看匿名图像 URL，无需身份验证，即使该拉取请求位于私有仓库中{% if currentVersion != "free-pro-team@latest" %}或者启用了私有模式{% endif %}。 要对敏感图像保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}有关匿名 URL 的更多信息，请参阅“[关于匿名图像 URL](/articles/about-anonymized-image-urls)”。{% endif %}
+**警告：**如果您在拉取请求或议题评论中添加了图像，则任何人都可以查看匿名图像 URL，无需身份验证，即使该拉取请求位于私有仓库中{% if enterpriseServerVersions contains currentVersion %}或者启用了私有模式{% endif %}。 要对敏感图像保密，请从需要身份验证的私有网络或服务器提供它们。 {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
 
 {% endwarning %}
 
@@ -21,7 +21,7 @@ versions:
 
 {% tip %}
 
-**提示：**如果使用 Chrome，您还可以将图像直接复制并粘贴到该框中。
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 

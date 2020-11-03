@@ -1,6 +1,6 @@
 ---
 title: Mithilfe von Issues und Pull Requests zusammenarbeiten
-intro: 'Mit dem {% data variables.product.prodname_dotcom %}-Flow kannst Du Änderungen in Issues verfolgen und diskutieren und dann Änderungen in Pull Requests vorschlagen und überprüfen.'
+intro: 'Mit dem {% data variables.product.prodname_dotcom %}-Flow können Sie Issues nachverfolgen und Änderungen diskutieren sowie Änderungen vorschlagen und in Pull Requests überprüfen.'
 redirect_from:
   - /categories/63/articles/
   - /categories/collaborating/
@@ -28,7 +28,7 @@ versions:
     {% link_in_list /what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility %}
 {% topic_link_in_list /collaborating-on-repositories-with-code-quality-features %}
     {% link_in_list /about-status-checks %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /working-with-pre-receive-hooks %}
 <!-- endif -->
 {% topic_link_in_list /proposing-changes-to-your-work-with-pull-requests %}

@@ -1,13 +1,13 @@
 ---
 title: Managing GitHub Actions for your enterprise
-intro: 'Enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
+intro: '{% data variables.product.prodname_ghe_server %} で {% data variables.product.prodname_actions %} を有効にし、{% data variables.product.prodname_actions %} のポリシーと設定を管理します。'
 redirect_from:
   - /enterprise/admin/github-actions
 versions:
   enterprise-server: '>=2.22'
 ---
 
-{% data reusables.actions.enterprise-beta %}
+{% data variables.product.prodname_actions %} の支払いを管理する
 {% data variables.product.prodname_dotcom %}は、macOSランナーのホストに[MacStadium](https://www.macstadium.com/)を使用しています。
 
 ### 目次

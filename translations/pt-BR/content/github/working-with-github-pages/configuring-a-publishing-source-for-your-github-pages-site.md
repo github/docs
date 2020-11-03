@@ -1,6 +1,6 @@
 ---
 title: Configurar uma fonte de publicação para o site do GitHub Pages
-intro: 'Se você usar a fonte de publicação padrão do site do {% data variables.product.prodname_pages %}, seu site será publicado automaticamente. Você também pode optar por publicar o {% if currentVersion ver_lt "enterprise-server@2.23" %} site{% endif %} do projeto a partir de um branch ou pasta diferente.'
+intro: 'Se você usar a fonte de publicação padrão do site do {% data variables.product.prodname_pages %}, seu site será publicado automaticamente. Você também pode optar por publicar o seu{% if currentVersion ver_lt "enterprise-server@2.23" %} site do projeto{% endif %} a partir de um branch ou pasta diferente.'
 redirect_from:
   - /articles/configuring-a-publishing-source-for-github-pages/
   - /articles/configuring-a-publishing-source-for-your-github-pages-site
@@ -15,7 +15,7 @@ Para obter mais informações sobre fontes de publicação, consulte "[Sobre o {
 
 ### Escolher uma fonte de publicação
 
-Before you configure a publishing source, make sure the branch{% if currentVersion ver_lt "enterprise-server@2.22" %} or folder{% endif %} you want to use as your publishing source already exists in your repository.{% if currentVersion ver_lt "enterprise-server@2.22" %} For example, before you can publish your project site from the `/docs` folder on the `master` branch of your repository, you or a collaborator must create a `/docs` folder on the default `master` branch of your repository.{% endif %}
+Antes de configurar uma fonte de publicação, certifique-se o branch{% if currentVersion ver_lt "enterprise-server@2. 3" %} ou pasta{% endif %} que você deseja usar como fonte de publicação já existe no repositório.{% if currentVersion ver_lt "enterprise-server@2. 3" %} Por exemplo, antes de poder publicar seu site de projeto na pasta `/docs` no `mestre` branch do repositório, um colaborador deverá criar uma pasta `/docs` no branch `mestre` padrão do seu repositório.{% endif %}
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -24,11 +24,13 @@ Before you configure a publishing source, make sure the branch{% if currentVersi
 4. Opcionalmente, use o menu suspenso para selecionar uma pasta para sua fonte de publicação. ![Menu suspenso para selecionar uma pasta para a fonte de publicação](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 5. Clique em **Salvar**. ![Botão para salvar alterações nas configurações da fonte de publicação](/assets/images/help/pages/publishing-source-save.png)
   {% else %}
-3. No "{% data variables.product.prodname_pages %}", use o menu suspenso **Source** (Fonte) e selecione uma fonte de publicação. ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
+3. Em "
+{% data variables.product.prodname_pages %}", use o menu suspenso **Fonte** e selecione uma fonte de publicação.
+   ![Menu suspenso para selecionar uma fonte de publicação](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
 
 ### Solucionar problemas de publicação com o site do {% data variables.product.prodname_pages %}
 
 {% data reusables.pages.admin-must-push %}
 
-If you choose the `docs` folder on {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}any{% else %}the `master`{% endif %} branch as your publishing source, then later remove the `/docs` folder from that branch in your repository, your site won't build and you'll get a page build error message for a missing `/docs` folder. Para obter informações, consulte [Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".
+Se você escolher a pasta `docs` em {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 2" %}qualquer{% else %}o `master`{% endif %} branch como fonte de publicação, remova a pasta `/docs` do branch do repositório. Seu site não será criado e você receberá uma mensagem de erro de criação de página para uma pasta `/docs` ausente. Para obter informações, consulte [Solucionar problemas de erros de criação do Jekyll para sites do {% data variables.product.prodname_pages %}](/articles/troubleshooting-jekyll-build-errors-for-github-pages-sites#missing-docs-folder)".

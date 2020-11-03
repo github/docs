@@ -21,7 +21,7 @@ You can use these endpoints to administer your enterprise.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Endpoint URLs
 
@@ -39,7 +39,7 @@ http(s)://<em>hostname</em>/
 
 ### Authentication
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
 Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/).
 
@@ -124,11 +124,10 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 ### Supported SCIM Group attributes
 
-| Name          | Тип      | Description                                                                                                                                                                                                                                                      |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name          | Тип      | Description                                                                                                                                                                                                                                                 |
+| ------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `displayName` | `строка` | The name of the SCIM group, which must exactly match the name of the corresponding {% data variables.product.product_name %} organization. For example, if the URL of the organization is `https://github.com/octo-org`, the group name must be `octo-org`. |
-| `members`     | `array`  | List of SCIM user IDs that are members of the group.                                                                                                                                                                                                             |
-
+| `members`     | `array`  | List of SCIM user IDs that are members of the group.                                                                                                                                                                                                        |
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'scim' %}{% include rest_operation %}{% endif %}
@@ -136,7 +135,7 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ## Admin stats
 
@@ -245,13 +244,13 @@ The Pre-receive Environments API allows you to create, list, update and delete e
 
 #### Pre-receive Environment
 
-| Name                  | Тип       | Description                                                                                                      |
-| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------- |
-| `name`                | `строка`  | The name of the environment as displayed in the UI.                                                              |
-| `image_url`           | `строка`  | URL to the tarball that will be downloaded and extracted.                                                        |
+| Name                  | Тип       | Description                                                                                                 |
+| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
+| `name`                | `строка`  | The name of the environment as displayed in the UI.                                                         |
+| `image_url`           | `строка`  | URL to the tarball that will be downloaded and extracted.                                                   |
 | `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.prodname_ghe_server %}. |
-| `download`            | `объект`  | This environment's download status.                                                                              |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                                       |
+| `download`            | `объект`  | This environment's download status.                                                                         |
+| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                                  |
 
 #### Pre-receive Environment Download
 

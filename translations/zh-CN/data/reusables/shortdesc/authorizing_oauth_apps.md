@@ -1,1 +1,1 @@
-You can enable other users to authorize your OAuth App.
+您可以让其他用户授权您的 OAuth 应用程序。
