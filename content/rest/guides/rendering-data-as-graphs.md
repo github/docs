@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
+ 
 
 
 In this guide, we're going to use the API to fetch information about repositories
