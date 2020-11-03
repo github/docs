@@ -6,12 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 虽然 API 提供多种身份验证方法，但我们强烈建议对生产应用程序使用 [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)。 提供的其他方法旨在用于脚本或测试（即没有必要使用完整 OAuth 方法的情况）。 依赖
 {% data variables.product.product_name %} 进行身份验证的第三方应用程序不应要求或收集 {% data variables.product.product_name %} 凭据。
 它们应该使用 [OAuth web 工作流程](/apps/building-oauth-apps/authorizing-oauth-apps/)。
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a personal access token through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+
+{% endif %}
 
 ### 基本身份验证
 
@@ -27,6 +37,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 如果您的工具只支持基本身份验证，但您想要利用 OAuth 访问令牌的安全功能，这个方法非常有用。
 
+{% if enterpriseServerVersions contains currentVersion %}
 #### 通过用户名和密码
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -39,6 +50,8 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
 如果您启用了双重身份验证，请务必了解如何[使用双重身份验证](/v3/auth/#working-with-two-factor-authentication)。
+
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 #### SAML SSO 身份验证
@@ -72,6 +85,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 `organizations` 的值是需要您授权个人访问令牌的组织列表，用逗号分隔。
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### 使用双重身份验证
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -79,6 +93,8 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 启用双重身份验证后，REST API 中_大多数_端点的[基本身份验证](#basic-authentication)均要求您使用个人访问令牌或 OAuth 令牌，而不是用户名和密码。
 
 您可以 {% if currentVersion == "free-pro-team@latest" %}使用 [{% data variables.product.product_name %}开发者设置](https://github.com/settings/tokens/new){% endif %}来生成新的个人访问令牌，或者使用 OAuth 授权 API 中的“[创建新授权][create-access]”端点来生成新的 OAuth 令牌。 更多信息请参阅“[创建用于命令行的个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)”。 然后，您将使用这些令牌向 GitHub API 验证，更多信息请参阅“[使用 OAuth 令牌进行身份验证][oauth-auth]”。 唯一需要使用用户名和密码进行身份验证的时候是创建 OAuth 令牌或使用 OAuth 授权 API 时。
+
+
 
 #### 结合使用 OAuth 授权 API 与双重身份验证
 
@@ -96,6 +112,7 @@ $ curl --request POST \
   --header 'x-github-otp: <em>OTP</em>' \
   --data '{"scopes": ["public_repo"], "note": "test"}'
 ```
+{% endif %}
 
 [create-access]: /v3/oauth_authorizations/#create-a-new-authorization
 [curl]: http://curl.haxx.se/

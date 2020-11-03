@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Anhand dieser Informationen können Administratoren außenstehende Personen unterstützen, Daten für Compliance-Zwecke erfassen und andere allgemeine Sicherheitsüberprüfungen durchführen.

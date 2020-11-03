@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -47,7 +48,7 @@ You can't merge a draft pull request. ドラフトのプルリクエストに関
 
 The repository may be configured so that the head branch for a pull request is automatically deleted when you merge a pull request. 詳しい情報については「[ブランチの自動削除の管理](/github/administering-a-repository/managing-the-automatic-deletion-of-branches)」を参照してください。
 
-   {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+   {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
    {% note %}
 
    **Note:** {% data reusables.pull_requests.retargeted-on-branch-deletion %}

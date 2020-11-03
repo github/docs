@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -132,7 +133,7 @@ Inclua o conteúdo aninhado das cargas da [equipe](/v3/teams/).
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
@@ -193,7 +194,7 @@ Recuperar informações do [hovercard de alguém](/v3/users/#get-contextual-info
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 
 ### Verificar execuções e a API de conjuntos de verificações
@@ -204,7 +205,7 @@ Permite que um aplicativo GitHub execute verificações externas no código de u
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 
 
@@ -356,7 +357,7 @@ Você pode gerenciar os tokens de forma mais segura para aplicativos OAuth usand
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 
 ### Novo parâmetro de visibilidade para a API de repositórios

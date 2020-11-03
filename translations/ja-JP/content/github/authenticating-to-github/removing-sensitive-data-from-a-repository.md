@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git filter-branch` コマンドと BFG Repo-Cleaner は、リポジトリの履歴を書き換えます。変更を加えた既存のコミットや依存関係にあるコミットの SHA を変更します。 コミットの SHA が変更されると、リポジトリでオープンされたプルリクエストに影響する可能性があります。 ファイルをリポジトリから削除する前に、オープンプルリクエストをすべてマージまたはクローズすることを推奨します。

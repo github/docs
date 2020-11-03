@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A repository's graphs give you information on {% if currentVersion == "free-pro-team@latest" %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. 如果是您维护仓库，您可以使用此数据更好地了解谁在使用您的仓库，以及为什么使用。

@@ -22,7 +22,7 @@ Sie können {% data variables.product.prodname_ghe_server %} auf Global Azure od
 
 ### Typ der virtuellen Maschine ermitteln
 
-Bevor Sie {% data variables.product.product_location_enterprise %} auf Azure starten, müssen Sie den Typ der virtuellen Maschine ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
+Bevor Sie {% data variables.product.product_location %} auf Azure starten, müssen Sie den Typ der virtuellen Maschine ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
 
 #### Unterstützte VM-Typen und -Regionen
 

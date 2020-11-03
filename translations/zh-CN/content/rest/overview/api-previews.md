@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -107,7 +108,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### 全局 web 挂钩
 
@@ -154,7 +155,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 ### 检查运行和检查套件 API
 
 允许 GitHub 应用程序对仓库的代码运行外部检查。 更多信息请参阅[检查运行](/v3/checks/runs/)和[检查套件](/v3/checks/suites/) API。
@@ -162,7 +163,7 @@ API 预览允许您试用新的 API 以及对现有 API 方法的更改（在它
 **自定义媒体类型：** `antiope-preview` **公布日期：** [2018-05-07](https://developer.github.com/changes/2018-05-07-new-checks-api-public-beta/)
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 
 ### 对仓库的匿名 Git 访问
 
@@ -279,7 +280,7 @@ GitHub 应用程序的所有者现在可以使用[应用程序 API](/v3/apps/#de
 **自定义媒体类型：** `doctor-strange-preview` **公布日期：** [2019-11-05](https://developer.github.com/changes/2019-11-05-deprecated-passwords-and-authorizations-api/)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 ### 仓库 API 的新可见性参数
 
 您可以在[仓库 API](/v3/repos/) 中设置和检索仓库可见性。

@@ -7,6 +7,7 @@ intro: コマンドラインで、「git rebase」を使うための簡単なチ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 この例では、`exec` を除く、利用可能なすべての ` git rebase ` コマンドについて説明します。

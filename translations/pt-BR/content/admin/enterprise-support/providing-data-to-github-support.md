@@ -85,7 +85,7 @@ Você pode usar essas etapas para criar e compartilhar um pacote de suporte se c
 
 #### Criar um pacote de suporte usando SSH
 
-Você pode usar estas etapas para criar e compartilhar um pacote de suporte se tiver acesso SSH ao seu appliance do {% data variables.enterprise.management_console %} e se tiver acesso à internet.
+You can use these steps to create and share a support bundle if you have SSH access to {% data variables.product.product_location %} and have outbound internet access.
 
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
@@ -110,8 +110,8 @@ Você pode usar estas etapas para criar e compartilhar um pacote de suporte se t
 #### Fazer upload de um pacote de suporte usando SSH
 
 Você pode fazer upload diretamente de um pacote de suporte para o nosso servidor nas seguintes situações:
-- Se você tiver acesso SSH ao seu appliance do {% data variables.product.prodname_ghe_server %};
-- Se as conexões de saída HTTPS na porta TCP 443 forem permitidas no seu appliance do {% data variables.product.prodname_ghe_server %}.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Faça upload do pacote para o nosso servidor de pacotes de suporte:
   ```shell
@@ -126,7 +126,7 @@ Para evitar que fiquem grandes demais, os pacotes só têm logs que não passara
 
 #### Criar um pacote de suporte estendido usando SSH
 
-Você pode usar essas etapas para criar e compartilhar um pacote de suporte estendido se tiver acesso SSH ao seu dispositivo do {% data variables.product.prodname_ghe_server %} e se você tiver acesso à internet.
+You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.product.product_location %} and you have outbound internet access.
 
 1. Baixe o pacote de suporte estendido via SSH adicionando o sinalizador `-x` ao comando `ghe-support-bundle`:
   ```shell
@@ -138,8 +138,8 @@ Você pode usar essas etapas para criar e compartilhar um pacote de suporte este
 #### Fazer upload de um pacote de suporte estendido usando SSH
 
 Você pode fazer upload diretamente de um pacote de suporte para o nosso servidor nas seguintes situações:
-- Se você tiver acesso SSH ao seu appliance do {% data variables.product.prodname_ghe_server %};
-- Se as conexões de saída HTTPS na porta TCP 443 forem permitidas no seu appliance do {% data variables.product.prodname_ghe_server %}.
+- You have SSH access to {% data variables.product.product_location %}.
+- Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.product.product_location %}.
 
 1. Faça upload do pacote para o nosso servidor de pacotes de suporte:
   ```shell

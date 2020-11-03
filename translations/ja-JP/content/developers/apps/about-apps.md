@@ -1,6 +1,6 @@
 ---
 title: アプリケーションについて
-intro: '{% data variables.product.prodname_dotcom %} API でインテグレーションを構築し、ワークフローにおいて柔軟性を高めて摩擦を軽減できます。 また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) でインテグレーションを共有することも可能です。'
+intro: 'You can build integrations with the {% data variables.product.prodname_dotcom %} APIs to add flexibility and reduce friction in your own workflow.{% if currentVersion == "free-pro-team@latest" %} You can also share integrations with others on [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace).{% endif %}'
 redirect_from:
   - /apps/building-integrations/setting-up-a-new-integration/
   - /apps/building-integrations/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.prodname_dotcom %} のアプリケーションを使用すると、ワークフローを自動化し改善できます。 アプリケーションを構築して、ワークフローを改善できます。{% if currentVersion == "free-pro-team@latest" %} また、[{% data variables.product.prodname_marketplace %}](https://github.com/marketplace) でアプリケーションを共有または販売することも可能です。 {% data variables.product.prodname_marketplace %} にアプリを掲載する方法については、「[GitHub Marketplace を使ってみる](/marketplace/getting-started/)」を参照してください。{% endif %}
@@ -44,11 +45,11 @@ versions:
 * GitHub ユーザとして振る舞い、ユーザが実行できることを全て実行したい_だけ_の場合は、{% data variables.product.prodname_github_app %} を構築しないでください。{% if currentVersion == "free-pro-team@latest" %}
 * {% data reusables.apps.general-apps-restrictions %}{% endif %}
 
-{% data variables.product.prodname_github_apps %} アプリケーションの開発を始めるには、「[{% data variables.product.prodname_github_app %} を作成する](/apps/building-github-apps/creating-a-github-app/)」から取りかかってください。{% if currentVersion == "free-pro-team@latest" %}事前設定された {% data variables.product.prodname_github_apps %} を作成できる {% data variables.product.prodname_github_app %} マニフェストの使い方については、「[マニフェストから {% data variables.product.prodname_github_apps %} を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
+{% data variables.product.prodname_github_apps %} アプリケーションの開発を始めるには、「[{% data variables.product.prodname_github_app %} を作成する](/apps/building-github-apps/creating-a-github-app/)」から取りかかってください。{% if currentVersion == "free-pro-team@latest" %}構成済みの {% data variables.product.prodname_github_apps %} を作成できる {% data variables.product.prodname_github_app %} マニフェストの使い方については、「[マニフェストから {% data variables.product.prodname_github_apps %} を作成する](/apps/building-github-apps/creating-github-apps-from-a-manifest/)」を参照してください。{% endif %}
 
 ### {% data variables.product.prodname_oauth_app %} について
 
-OAuth2 は、外部アプリケーションがパスワードにアクセスすることなく、ユーザの {% data variables.product.prodname_dotcom %} アカウントの個人情報への認証を要求できるようにするプロトコルです。 これは Basic 認証よりも好ましい方法です。なぜなら、トークンは特定の種類のデータに限定でき、ユーザがいつでも取り消すことができるからです。
+OAuth2 は、外部アプリケーションがパスワードにアクセスすることなく、ユーザの {% data variables.product.prodname_dotcom %} アカウントの個人情報にアクセスする承認を要求できるようにするプロトコルです。 これは Basic 認証よりも好ましい方法です。なぜなら、トークンは特定の種類のデータに限定でき、ユーザがいつでも取り消すことができるからです。
 
 {% data reusables.apps.deletes_ssh_keys %}
 

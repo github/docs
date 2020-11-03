@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -44,13 +45,13 @@ The unique properties for a webhook event are the same properties you'll find in
 
 HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers:
 
-| Header                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion %}
-| `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "private-instances@latest" %}
-| `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+| Header                        | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-GitHub-Event`              | Name of the event that triggered the delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| `X-GitHub-Delivery`           | A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `X-GitHub-Enterprise-Version` | The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `X-GitHub-Enterprise-Host`    | The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `X-Hub-Signature`             | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 | `X-Hub-Signature-256`         | This header is sent if the webhook is configured with a [`secret`](/v3/repos/hooks/#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-256 hash function and the `secret` as the HMAC `key`.{% endif %}
 
 Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
@@ -61,10 +62,10 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > POST /payload HTTP/1.1
 
 > Host: localhost:4567
-> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion %}
+> X-GitHub-Delivery: 72d3162e-cc78-11e3-81ab-4c9367dc0958{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 > X-GitHub-Enterprise-Version: 2.15.0
-> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "private-instances@latest" %}
-> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "private-instances@latest" %}
+> X-GitHub-Enterprise-Host: example.com{% endif %}{% if currentVersion != "github-ae@latest" %}
+> X-Hub-Signature: sha1=7d38cdd689735b008b3c702edd92eea23791c5f6{% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 > X-Hub-Signature-256: sha256=d57c68ca6f92289e6987922ff26938930f6e66a2d161ef06abdf1859230aa23c{% endif %}
 > User-Agent: GitHub-Hookshot/044aadd
 > Content-Type: application/json
@@ -144,7 +145,7 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 
 {{ webhookPayloadsForCurrentVersion.check_suite.completed }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### code_scanning_alert
 
 {% data reusables.webhooks.code_scanning_alert_event_short_desc %}
@@ -290,10 +291,10 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 #### Webhook payload object
 
-| Schlüssel    | Typ                                                                                                 | Beschreibung                                              |
-| ------------ | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `action`     | `string`                                                                                            | The action performed. Can be `created`.{% endif %}
-| `deployment` | `Objekt`                                                                                            | The [deployment](/rest/reference/repos#list-deployments). |
+| Schlüssel    | Typ                                                                                                                                         | Beschreibung                                              |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| `action`     | `string`                                                                                                                                    | The action performed. Can be `created`.{% endif %}
+| `deployment` | `Objekt`                                                                                                                                    | The [deployment](/rest/reference/repos#list-deployments). |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -315,14 +316,14 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 #### Webhook payload object
 
-| Schlüssel                          | Typ                                                                                                 | Beschreibung                                                                                  |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
-| `action`                           | `string`                                                                                            | The action performed. Can be `created`.{% endif %}
-| `deployment_status`                | `Objekt`                                                                                            | The [deployment status](/rest/reference/repos#list-deployment-statuses).                      |
-| `deployment_status["state"]`       | `string`                                                                                            | The new state. Can be `pending`, `success`, `failure`, or `error`.                            |
-| `deployment_status["target_url"]`  | `string`                                                                                            | The optional link added to the status.                                                        |
-| `deployment_status["description"]` | `string`                                                                                            | The optional human-readable description added to the status.                                  |
-| `deployment`                       | `Objekt`                                                                                            | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with. |
+| Schlüssel                          | Typ                                                                                                                                         | Beschreibung                                                                                  |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
+| `action`                           | `string`                                                                                                                                    | The action performed. Can be `created`.{% endif %}
+| `deployment_status`                | `Objekt`                                                                                                                                    | The [deployment status](/rest/reference/repos#list-deployment-statuses).                      |
+| `deployment_status["state"]`       | `string`                                                                                                                                    | The new state. Can be `pending`, `success`, `failure`, or `error`.                            |
+| `deployment_status["target_url"]`  | `string`                                                                                                                                    | The optional link added to the status.                                                        |
+| `deployment_status["description"]` | `string`                                                                                                                                    | The optional human-readable description added to the status.                                  |
+| `deployment`                       | `Objekt`                                                                                                                                    | The [deployment](/rest/reference/repos#list-deployments) that this status is associated with. |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -332,7 +333,7 @@ Only {% data variables.product.prodname_github_app %}s can receive this event. {
 
 {{ webhookPayloadsForCurrentVersion.deployment_status }}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 ### Unternehmen
 
@@ -429,7 +430,7 @@ When someone revokes their authorization of a {% data variables.product.prodname
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 **Note:** {% data reusables.pre-release-program.suspend-installation-beta %} For more information, see "[Suspending a {% data variables.product.prodname_github_app %} installation](/apps/managing-github-apps/suspending-a-github-app-installation/)."
@@ -667,18 +668,18 @@ The webhook this event is configured on was deleted. This event will only listen
 
 #### Availability
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - GitHub Enterprise webhooks only receive `created` and `deleted` events. For more information, "[Global webhooks](/rest/reference/enterprise-admin#global-webhooks/).{% endif %}
 - Organization webhooks only receive the `deleted`, `added`, `removed`, `renamed`, and `invited` events
 - {% data variables.product.prodname_github_app %}s with the `members` permission
 
 #### Webhook payload object
 
-| Schlüssel    | Typ      | Beschreibung                                                                                                                                                                                                   |
-| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action`     | `string` | die Aktion, die durchgeführt wurde. Can be one of:{% if enterpriseServerVersions contains currentVersion %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
-| `Einladung`  | `Objekt` | The invitation for the user or email if the action is `member_invited`.                                                                                                                                        |
-| `membership` | `Objekt` | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                                                        |
+| Schlüssel    | Typ      | Beschreibung                                                                                                                                                                                                                                           |
+| ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action`     | `string` | die Aktion, die durchgeführt wurde. Can be one of:{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} `created`,{% endif %} `deleted`, `renamed`, `member_added`, `member_removed`, or `member_invited`. |
+| `Einladung`  | `Objekt` | The invitation for the user or email if the action is `member_invited`.                                                                                                                                                                                |
+| `membership` | `Objekt` | The membership between the user and the organization.  Not present when the action is `member_invited`.                                                                                                                                                |
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
 {% data reusables.webhooks.sender_desc %}
@@ -1018,7 +1019,7 @@ Deliveries for `review_requested` and `review_request_removed` events will have 
 
 {{ webhookPayloadsForCurrentVersion.release.published }}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### repository_dispatch
 
 This event occurs when a {% data variables.product.prodname_github_app %} sends a `POST` request to the "[Create a repository dispatch event](/v3/repos/#create-a-repository-dispatch-event)" endpoint.
@@ -1046,7 +1047,7 @@ This event occurs when a {% data variables.product.prodname_github_app %} sends 
 
 | Schlüssel | Typ      | Beschreibung                                                                     |
 | --------- | -------- | -------------------------------------------------------------------------------- |
-| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
+| `action`  | `string` | die Aktion, die durchgeführt wurde. This can be one of:<ul><li>`created` - A repository is created.</li><li>`deleted` - A repository is deleted. This event type is only available to [organization hooks](/rest/reference/orgs#webhooks/)</li><li>`archived` - A repository is archived.</li><li>`unarchived` - A repository is unarchived.</li>{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}<li>`anonymous_access_enabled` - A repository is [enabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories), `anonymous_access_disabled` - A repository is [disabled for anonymous Git access](/v3/previews/#anonymous-git-access-to-repositories)</li>{% endif %}<li>`edited` - A repository's information is edited.</li><li>`renamed` - A repository is renamed.</li><li>`transferred` - A repository is transferred.</li><li>`publicized` - A repository is made public.</li><li> `privatized` - A repository is made private.</li></ul> |
 {% data reusables.webhooks.repo_desc %}
 {% data reusables.webhooks.org_desc %}
 {% data reusables.webhooks.app_desc %}
@@ -1248,7 +1249,7 @@ You can only create a sponsorship webhook on {% data variables.product.prodname_
 
 {{ webhookPayloadsForCurrentVersion.team_add }}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 ### Benutzer
 
