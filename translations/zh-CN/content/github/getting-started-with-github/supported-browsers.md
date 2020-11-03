@@ -8,6 +8,7 @@ intro: '我们将 {% data variables.product.product_name %} 设计为支持最�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox Extended Support Release

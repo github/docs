@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Qualquer pessoa com permissões de gravação em um repositório pode atribuir problemas e pull requests.

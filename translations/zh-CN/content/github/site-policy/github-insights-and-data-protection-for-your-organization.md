@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 有关 {% data variables.product.prodname_insights %} 管制条款的更多信息，请参阅您的 {% data variables.product.prodname_ghe_one %} 订阅协议。

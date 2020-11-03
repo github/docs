@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.create-issue-in-public-repository %}
@@ -14,7 +15,7 @@ versions:
 
 Issue または Pull Requestレビューのコメントから新しい Issue を直接開くことができます。 詳しい情報については「[コメントからIssueを開く](/github/managing-your-work-on-github/opening-an-issue-from-a-comment)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **ヒント**: {% data variables.product.prodname_cli %} を使用して Issue を作成することもできます。 詳しい情報については、ドキュメントの「[`gh issue create`](https://cli.github.com/manual/gh_issue_create)」{% data variables.product.prodname_cli %} を参照してください。

@@ -20,7 +20,7 @@ versions:
 
 ### Determinar o tipo de máquina
 
-Antes de iniciar a {% data variables.product.product_location_enterprise %} no Google Cloud Platform, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
+Antes de iniciar a {% data variables.product.product_location %} no Google Cloud Platform, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
 
 #### Tipos de máquina compatíveis
 
