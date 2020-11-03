@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Sie können Code global auf {% data variables.product.product_name %} oder in bestimmten Repositorys oder Organisationen durchsuchen. Um den Code aller öffentlichen Repositorys zu durchsuchen, musst Du bei einem {% data variables.product.product_name %}-Konto angemeldet sein. Weitere Informationen findest Du unter „[Informationen zur Suche auf GitHub](/articles/about-searching-on-github).“

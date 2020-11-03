@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 {% data variables.product.product_name %} APIに対して認証済みのリクエストを行う際には、カレントユーザのリポジトリやOrganizationをフェッチする必要がある場合もあります。 このガイドでは、これらのリソースを確実に調べる方法について説明します。
 

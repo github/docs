@@ -2,13 +2,16 @@
 title: GitHub Actions Documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
+introLinks:
+  quickstart: /actions/quickstart
+  learn: /actions/learn-github-actions
 featuredLinks:
   gettingStarted:
-    - /actions/quickstart
-    - /actions/learn-github-actions
-  guide:
     - /actions/managing-workflow-runs
     - /actions/hosting-your-own-runners
+  guide:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/about-packaging-with-github-actions
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
@@ -40,7 +43,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.gettingStarted %}
+      {% for link in featuredLinks.guide %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -62,7 +65,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">Manage workflows</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.guide %}
+      {% for link in featuredLinks.gettingStarted %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>

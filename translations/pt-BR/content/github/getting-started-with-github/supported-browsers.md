@@ -8,6 +8,7 @@ intro: 'Nós projetamos o {% data variables.product.product_name %} para ser com
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Versão de suporte estendido do Firefox

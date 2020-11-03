@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você aplicou proteções de branch no repositório, será possível configurar as revisões obrigatórias. Para obter mais informações sobre como aplicar proteções de branch, consulte "[Configurar branches protegidos](/articles/configuring-protected-branches/)". Para obter mais informações sobre como configurar revisões obrigatórias, consulte "[Habilitar revisões obrigatórias para pull requests](/articles/enabling-required-reviews-for-pull-requests)".

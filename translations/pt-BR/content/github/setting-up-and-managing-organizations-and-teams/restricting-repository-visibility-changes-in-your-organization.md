@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode restringir a capacidade de alterar a visibilidade do repositório aos proprietários da organização ou permitir que integrantes com privilégios de administrador em um repositório também alterem a visibilidade do repositório.

@@ -96,39 +96,39 @@ versions:
 - 配置为自托管运行器的计算机上存储哪些敏感信息？ 例如，私有 SSH 密钥、API 访问令牌等。
 - 计算机是否可通过网络访问敏感服务？ 例如，Azure 或 AWS 元数据服务。 此环境中的敏感信息量应保持在最低水平，您应该始终注意，任何能够调用工作流程的用户都有权访问此环境。
 
-### Auditing {% data variables.product.prodname_actions %} events
+### 审核 {% data variables.product.prodname_actions %} 事件
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account perfomed the action.
+您可以使用审核日志来监控组织中的管理任务。 审核日志记录操作类型、操作的运行时间以及执行操作的用户帐户。
 
-For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets: ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+例如，您可以使用审核日志跟踪 `action:org.update_actions_secret` 事件，以跟踪组织机密的更改： ![审核日志条目](/assets/images/help/repository/audit-log-entries.png)
 
-The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see "[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+以下表格描述了您可以在审核日志中找到的 {% data variables.product.prodname_actions %} 事件。 有关使用审核日志的更多信息，请参阅“[查看组织的审核日志](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)”。
 
-#### Events for secret management
-| 操作                                  | 描述                                                                                                                                                                                         |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `action:org.create_actions_secret`  | Triggered when a organization admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization). |
-| `action:org.remove_actions_secret`  | Triggered when a organization admin removes a {% data variables.product.prodname_actions %} secret.                                                                                        |
-| `action:org.update_actions_secret`  | Triggered when a organization admin updates a {% data variables.product.prodname_actions %} secret.                                                                                        |
-| `action:repo.create_actions_secret` | Triggered when a repository admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).      |
-| `action:repo.remove_actions_secret` | Triggered when a repository admin removes a {% data variables.product.prodname_actions %} secret.                                                                                          |
-| `action:repo.update_actions_secret` | Triggered when a repository admin updates a {% data variables.product.prodname_actions %} secret.                                                                                          |
+#### 机密管理的事件
+| 操作                                  | 描述                                                                                                                                                  |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.create_actions_secret`  | 组织管理员[创建 {% data variables.product.prodname_actions %} 机密](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization)时触发。 |
+| `action:org.remove_actions_secret`  | 组织管理员删除 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:org.update_actions_secret`  | 组织管理员更新 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:repo.create_actions_secret` | 仓库管理员[创建 {% data variables.product.prodname_actions %} 机密](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository)时触发。    |
+| `action:repo.remove_actions_secret` | 仓库管理员删除 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
+| `action:repo.update_actions_secret` | 仓库管理员更新 {% data variables.product.prodname_actions %} 机密时触发。                                                                                        |
 
-#### Events for self-hosted runners
-| 操作                                        | 描述                                                                                                                                                                                      |
-| ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:org.register_self_hosted_runner`  | Triggered when an organization owner [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization). |
-| `action:org.remove_self_hosted_runner`    | Triggered when an organization owner [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).             |
-| `action:repo.register_self_hosted_runner` | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository).       |
-| `action:repo.remove_self_hosted_runner`   | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository).                   |
+#### 自托管运行器的事件
+| 操作                                        | 描述                                                                                                                                 |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `action:org.register_self_hosted_runner`  | 组织所有者[注册新的自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)时触发。 |
+| `action:org.remove_self_hosted_runner`    | 组织所有者[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)时触发。         |
+| `action:repo.register_self_hosted_runner` | 仓库管理员[注册新的自托管运行器](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)时触发。    |
+| `action:repo.remove_self_hosted_runner`   | 仓库管理员[删除自托管运行器](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)时触发。            |
 
-#### Events for self-hosted runner groups
-| 操作                                        | 描述                                                                                                                                                                                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `action:org.runner_group_created`         | Triggered when an organization admin [creates a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization). |
-| `action:org.runner_group_removed`         | Triggered when an organization admin removes a self-hosted runner group.                                                                                                                                                  |
-| `action:org.runner_group_renamed`         | Triggered when an organization admin renames a self-hosted runner group.                                                                                                                                                  |
-| `action:org.runner_group_runners_added`   | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).                |
-| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group.                                                                                                                                           | 
+#### 自托管运行器组的事件
+| 操作                                        | 描述                                                                                                                                                                 |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `action:org.runner_group_created`         | 组织管理员[删除自托管运行器](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)时触发。 |
+| `action:org.runner_group_removed`         | 组织管理员删除自托管运行器组时触发。                                                                                                                                                 |
+| `action:org.runner_group_renamed`         | 组织管理员重命名自托管运行器组时触发。                                                                                                                                                |
+| `action:org.runner_group_runners_added`   | 组织管理员[添加自托管运行器到组](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)时触发。                |
+| `action:org.runner_group_runners_removed` | 组织管理员从组中删除自托管运行器时触发。                                                                                                                                               | 
 
 

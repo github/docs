@@ -5,6 +5,7 @@ permissions: Pessoas com permissões de administrador em um repositório podem a
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 redirect_from:
   - /github/administering-a-repository/setting-the-default-branch
   - /articles/setting-the-default-branch
@@ -14,13 +15,15 @@ redirect_from:
 
 Você pode escolher o branch-padrão para um repositório. O branch-padrão é o branch de base para pull requests e commits de código. Para obter mais informações sobre o branch padrão, consulte "[Sobre branches](/github/collaborating-with-issues-and-pull-requests/about-branches#about-the-default-branch)".
 
+{% if currentVersion != "github-ae@latest" %}
 {% note %}
 
 **Observação**: Se você usar a ponte Git-Subversion, a alteração do branch-padrão afetará o conteúdo do seu `trunk` e o `HEAD` que você visualiza ao listar referências para o repositório remoto. Para obter mais informações, consulte "[Suporte para clientes do Subversion](/github/importing-your-projects-to-github/support-for-subversion-clients)" e [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) na documentação do Git.
 
 {% endnote %}
+{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.branches.set-default-branch %}
 
@@ -32,7 +35,7 @@ Para alterar o branch-padrão, seu repositório deve ter mais de um branch. Para
 
 ### Alterar o branch-padrão
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

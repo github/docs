@@ -1,12 +1,13 @@
 ---
 title: 查看推送日志
-intro: '站点管理员可以查看 {% data variables.product.product_location_enterprise %} 上任何仓库的 Git 推送操作列表。'
+intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 推送日志条目会显示：
@@ -26,6 +27,7 @@ versions:
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. 在左侧边栏中，单击 **Push Log**。 ![Push Log 选项卡](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### 在命令行上查看仓库的推送日志
 
 1. 通过 SSH 登录您的设备。 更多信息请参阅“[访问管理 shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)”。
@@ -33,3 +35,4 @@ versions:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```
+{% endif %}
