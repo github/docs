@@ -1,6 +1,8 @@
 ---
-title: Keeping your actions up to date with GitHub Dependabot
+title: Keeping your actions up to date with Dependabot
 intro: 'You can use {% data variables.product.prodname_dependabot %} to keep the actions you use updated to the latest versions.'
+redirect_from:
+  - /github/administering-a-repository/keeping-your-actions-up-to-date-with-github-dependabot
 versions:
   free-pro-team: '*'
 ---
@@ -9,7 +11,7 @@ versions:
 
 ### About {% data variables.product.prodname_dependabot_version_updates %} for actions
 
-Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's *workflow.yml* file are kept up to date. For each action in the file, {% data variables.product.prodname_dependabot_short %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. If a more recent version of the action is available, {% data variables.product.prodname_dependabot_short %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
+Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. When you enable {% data variables.product.prodname_dependabot_version_updates %} for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_dependabot %} will help ensure that references to actions in a repository's *workflow.yml* file are kept up to date. For each action in the file, {% data variables.product.prodname_dependabot %} checks the action's reference (typically a version number or commit identifier associated with the action) against the latest version. If a more recent version of the action is available, {% data variables.product.prodname_dependabot %} will send you a pull request that updates the reference in the workflow file to the latest version. For more information about {% data variables.product.prodname_dependabot_version_updates %}, see "[About {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-dependabot-version-updates)." For more information about configuring workflows for {% data variables.product.prodname_actions %}, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
   
 ### Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions
 
@@ -23,7 +25,7 @@ You can also enable {% data variables.product.prodname_dependabot_version_update
 
 #### Example *dependabot.yml* file for {% data variables.product.prodname_actions %}
 
-The example *dependabot.yml* file below configures version updates for {% data variables.product.prodname_actions %}. The `directory` must be set to `"/"` to check for workflow files in `.github/workflows`. The `schedule.interval` is set to `"daily"`. After this file has been checked in or updated, {% data variables.product.prodname_dependabot %} checks for new versions of your actions. {% data variables.product.prodname_dependabot_short %} will raise pull requests for version updates for any outdated actions that it finds. After the initial version updates, {% data variables.product.prodname_dependabot_short %} will continue to check for outdated versions of actions once a day.
+The example *dependabot.yml* file below configures version updates for {% data variables.product.prodname_actions %}. The `directory` must be set to `"/"` to check for workflow files in `.github/workflows`. The `schedule.interval` is set to `"daily"`. After this file has been checked in or updated, {% data variables.product.prodname_dependabot %} checks for new versions of your actions. {% data variables.product.prodname_dependabot %} will raise pull requests for version updates for any outdated actions that it finds. After the initial version updates, {% data variables.product.prodname_dependabot %} will continue to check for outdated versions of actions once a day.
 
 ```yaml
 # Set update schedule for GitHub Actions
