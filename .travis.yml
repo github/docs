@@ -1,0 +1,16 @@
+
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::6}
+sudo: required
+services:
+- docker
+script:
+- export REPO=mayadataio/kubera-docs;
+- docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" && docker build -t $REPO:$TRAVIS_BRANCH-$COMMIT . ;
+- if [ "$TRAVIS_BRANCH" = "staging" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then export REPO=mayadataio/staging-kubera-docs;
+   docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" && docker build -t $REPO:$TRAVIS_BRANCH-$COMMIT . && docker push $REPO:$TRAVIS_BRANCH-$COMMIT; 
+  fi
+- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then 
+   docker login -u "$DOCKER_USER" -p "$DOCKER_PASS" && docker build -t $REPO:$COMMIT . && docker push $REPO; 
+  fi
