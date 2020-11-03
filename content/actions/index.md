@@ -73,7 +73,7 @@ versions:
 </div>
 
 <!-- Code examples -->
-<div class="mt-6 pt-6">
+<div class="my-6 pt-6">
   <h2 class="mb-2">More guides</h2>
 
   <div class="d-flex flex-wrap gutter">
