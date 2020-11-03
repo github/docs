@@ -2,8 +2,8 @@ header:
   github_docs: GitHub Docs
   contact: Contact
   notices:
-    ghe_release_candidate:
-      GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch:
+      GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
     localization_complete:
       We publish frequent updates to our documentation, and translation of this page may still be in progress.
       For the most current information, please visit the
