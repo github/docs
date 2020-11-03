@@ -9,6 +9,7 @@ intro: 'While you can grant read/write access to collaborators on a personal rep
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Personal user accounts
@@ -27,7 +28,7 @@ Organization members can have *owner*{% if currentVersion == "free-pro-team@late
 
 ### Enterprise accounts
 
-*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles for an enterprise account](/articles/roles-for-an-enterprise-account)."
+*Enterprise owners* have ultimate power over the enterprise account and can take every action in the enterprise account. *Billing managers* can manage your enterprise account's billing settings. Members and outside collaborators of organizations owned by your enterprise account are automatically members of the enterprise account, although they have no access to the enterprise account itself or its settings. For more information, see "[Roles in an enterprise](/github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise)."
 
 {% data reusables.gated-features.enterprise-accounts %}
 

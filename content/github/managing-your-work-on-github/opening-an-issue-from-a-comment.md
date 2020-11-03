@@ -4,6 +4,7 @@ intro: You can open a new issue from a specific comment in an issue or pull requ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 When you open an issue from a comment, the issue contains a snippet showing where the comment was originally posted.

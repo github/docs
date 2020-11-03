@@ -89,4 +89,25 @@ describe('robots.txt', () => {
     expect(robots.isAllowed(`https://help.github.com/en/enterprise/${enterpriseServerReleases.latest}/user/actions`)).toBe(true)
     expect(robots.isAllowed(`https://help.github.com/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)).toBe(true)
   })
+
+  it('disallows indexing of deprecated enterprise releases', async () => {
+    enterpriseServerReleases.deprecated.forEach(version => {
+      const blockedPaths = [
+        // English
+        `https://help.github.com/en/enterprise-server@${version}/actions`,
+        `https://help.github.com/en/enterprise/${version}/actions`,
+        `https://help.github.com/en/enterprise-server@${version}/actions/overview`,
+        `https://help.github.com/en/enterprise/${version}/actions/overview`,
+        // Japanese
+        `https://help.github.com/ja/enterprise-server@${version}/actions`,
+        `https://help.github.com/ja/enterprise/${version}/actions`,
+        `https://help.github.com/ja/enterprise-server@${version}/actions/overview`,
+        `https://help.github.com/ja/enterprise/${version}/actions/overview`
+      ]
+
+      blockedPaths.forEach(path => {
+        expect(robots.isAllowed(path)).toBe(false)
+      })
+    })
+  })
 })
