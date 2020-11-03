@@ -1,5 +1,6 @@
 const languages = require('../lib/languages')
 const products = require('../lib/all-products')
+const { deprecated } = require('../lib/enterprise-server-releases.js')
 
 let defaultResponse = 'User-agent: *'
 
@@ -34,6 +35,14 @@ module.exports = function (req, res, next) {
       product.versions.forEach(version => {
         defaultResponse = defaultResponse.concat(`\nDisallow: /*/${version}/${product.id}\nDisallow: /*/${version}/${product.id}/*\n`)
       })
+    })
+
+  // Disallow crawling of Deprecated enterprise versions
+  deprecated
+    .forEach(version => {
+      defaultResponse = defaultResponse
+        .concat(`\nDisallow: /*/enterprise-server@${version}/*`)
+        .concat(`\nDisallow: /*/enterprise/${version}/*`)
     })
 
   return res.send(defaultResponse)
