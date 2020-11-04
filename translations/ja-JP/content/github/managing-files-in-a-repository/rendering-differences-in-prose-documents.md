@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 文章ドキュメントを含むコミットとプルリクエストには、そのドキュメントを*ソース*と*レンダリング済み*のビューで表示する機能があります。

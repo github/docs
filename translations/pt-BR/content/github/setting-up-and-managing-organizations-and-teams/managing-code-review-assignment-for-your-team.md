@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Os mantenedores de equipe e os proprietários da organização podem configurar atribuições de revisão de código.

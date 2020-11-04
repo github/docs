@@ -8,6 +8,7 @@ intro: A fork is a copy of a repository. Forking a repository allows you to free
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
@@ -34,7 +35,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% tip %}
 
 **Tip**: You can also fork a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo fork`](https://cli.github.com/manual/gh_repo_fork)" in the {% data variables.product.prodname_cli %} documentation.

@@ -53,13 +53,15 @@ core.setOutput('SELECTED_COLOR', 'green');
 
 您可以在工作流程中使用 `set-output` 命令来设置相同的值：
 
+{% raw %}
 ``` yaml
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
       - name: Get color
-        run: echo 'The selected color is' ${steps.random-color-generator.outputs.SELECTED_COLOR}
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 ```
+{% endraw %}
 
 下表显示了在工作流程中可用的工具包功能：
 

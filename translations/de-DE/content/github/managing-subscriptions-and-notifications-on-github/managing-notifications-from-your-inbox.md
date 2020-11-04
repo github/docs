@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Über Deinen Posteingang
@@ -104,25 +105,30 @@ Um Benachrichtigungen nach dem Grund zu filtern, weshalb Du eine Aktualisierung 
 | `reason:invitation`       | Wenn Du in ein Team, eine Organisation oder ein Repository eingeladen wirst.                                                                  |
 | `reason:manual`           | Wenn Du auf einem Issue oder Pull Request **Subscribe** (Abonnieren) klickst, die Du noch nicht abonniert hattest.                            |
 | `reason:mention`          | Du wurdest direkt @erwähnt.                                                                                                                   |
-| `reason:review-requested` | Du oder ein Team, in dem du angehörst, wurden gebeten, einen Pull Request zu überprüfen.                                                      |
-| `reason:security-alert`   | Wenn eine Sicherheitswarnung für ein Repository ausgegeben wird.                                                                              |
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`     | Wenn der Status eines Pull Request oder Issue geändert wird. Beispielsweise wird ein Issue geschlossen oder ein Pull Request zusammengeführt. |
 | `reason:team-mention`     | Wenn ein Team, dem Du angehörst, @erwähnt wird.                                                                                               |
 | `reason:ci-activity`      | Wenn ein Repository CI-Aktualisierungen hat, wie beispielsweise einen neuen Status für eine Workflow-Ausführung.                              |
 
 #### Unterstützte `is:`-Abfragen
 
-Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
+Um Benachrichtigungen nach bestimmten Aktivitäten auf {% data variables.product.product_name %} zu filtern, kannst du die Abfrage `is` verwenden. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
 - `is:repository-vulnerability-alert`
-- `is:repository-advisory`
+- `is:repository-advisory`{% endif %}
 - `is:team-discussion`
+
+{% if currentVersion != "github-ae@latest" %}
+For information about reducing noise from notifications for
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
 
 Du kannst die Abfrage `is:` auch verwenden, um zu beschreiben, wie die Benachrichtigung selektiert wurde.
 

@@ -16,7 +16,7 @@ You can restrict access to organization assets by configuring an allow list for 
 
 {% data reusables.identity-and-permissions.ip-allow-lists-enable %}
 
-You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
+You can also configure allowed IP addresses for the organizations in an enterprise account. For more information, see "[Enforcing security settings in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-allowed-ip-addresses-for-organizations-in-your-enterprise-account)."
 
 ### Adding an allowed IP address
 

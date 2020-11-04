@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 在添加图像之前，请展开仓库链接以显示关于仓库和所有者头像的基本信息。 为仓库添加图像有助于在各种社交平台上识别您的项目。

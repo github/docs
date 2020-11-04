@@ -29,7 +29,7 @@ Para efetuar a autenticação em {% data variables.product.prodname_registry %} 
 Você deve substituir:
 - `USUÁRIO` pelo o nome da sua conta de usuário em {% data variables.product.prodname_dotcom %}.
 - `TOKEN` pelo seu token de acesso pessoal.
-- `PROPRIETÁRIO` com o nome do usuário ou conta da organização à qual pertence o repositório que contém o seu projeto.{% if currentVersion != "free-pro-team@latest" %}
+- `OWNER` with the name of the user or organization account that owns the repository containing your project.{% if enterpriseServerVersions contains currentVersion %}
 - `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %}.
 
 Se sua instância tem o isolamento de subdomínio habilitado:
@@ -51,7 +51,7 @@ Se sua instância tem o isolamento de subdomínio habilitado:
 </configuration>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 Se sua instância tem o isolamento de subdomínio desabilitado:
 
 ```xml
@@ -89,7 +89,7 @@ Você pode publicar um pacote no {% data variables.product.prodname_registry %},
 3. Adicione informações específicas do seu projeto ao arquivo do seu projeto, que termina em *.csproj*.  Você deve substituir:
     - `PROPRIETÁRIO` com o nome do usuário ou conta da organização proprietária do repositório que contém o seu projeto.
     - `REPOSITÓRIO` pelo nome do repositório que contém o pacote que você deseja publicar.
-    - `1.0.0` com o número de versão do pacote.{% if currentVersion != "free-pro-team@latest" %}
+    - `1.0.0` with the version number of the package.{% if enterpriseServerVersions contains currentVersion %}
     - `HOSTNAME` com o nome de host para sua instância de {% data variables.product.prodname_ghe_server %} .{% endif %}
   ``` xml
   <Project Sdk="Microsoft.NET.Sdk">

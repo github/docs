@@ -1,12 +1,13 @@
 ---
 title: プロフィールにアイテムをピン止めする
-intro: 'You can pin {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %}gists and {% endif %}repositories to your profile so other people can quickly see your best work.'
+intro: 'You can pin gists and repositories to your profile so other people can quickly see your best work.'
 redirect_from:
   - /articles/pinning-repositories-to-your-profile/
   - /articles/pinning-items-to-your-profile
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 あなたが所有するか、コントリビュートしたパブリックリポジトリをピン止めできます。 フォークへのコミットはコントリビューションとして扱われないので、所有していないフォークをピン止めすることはできません。 詳細は「[プロフィール上でコントリビューションが表示されない理由](/articles/why-are-my-contributions-not-showing-up-on-my-profile)」を参照してください。

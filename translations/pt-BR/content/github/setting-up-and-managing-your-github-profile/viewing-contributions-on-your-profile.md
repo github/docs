@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O gráfico de contribuição mostra a atividade em repositórios públicos. Você pode optar por mostrar a atividade de repositórios públicos e privados, com detalhes específicos da sua atividade em repositórios privados anônimos. Para obter mais informações, consulte "[Mostrar ou ocultar contribuições privadas no perfil](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)".
 
 {% note %}
 
-**Observação:** os commits só serão exibidos no gráfico de contribuições se você tiver [adicionado o endereço de e-mail usado para sua configuração local do Git nas configurações de e-mail do {% data variables.product.product_name %}](/articles/adding-an-email-address-to-your-github-account). Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. Para obter mais informações, consulte "[Por que minhas contribuições não aparecem no meu perfil?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
@@ -25,7 +26,7 @@ Na sua página de perfil, determinadas ações contam como contribuições:
 - Fazer commit no branch `gh-pages` ou no branch padrão de um repositório
 - Abrir um problema
 - Propor uma pull request
-- Enviar um pull request{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Fazer coautoria de commits no branch `gh-pages` ou no branch padrão do repositório{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -79,9 +80,12 @@ A seção de atividade de contribuição contém uma linha do tempo detalhada do
 
 ![Filtro de hora de atividade de contribuição](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Exibir contribuições da {% data variables.product.product_location_enterprise %} no {% data variables.product.prodname_dotcom_the_website %}
+If your site administrator has enabled
 
-Se o administrador do site tiver ativado o {% data variables.product.prodname_unified_contributions %}, você poderá enviar contagens de contribuição do {% data variables.product.prodname_enterprise %} para o perfil do {% data variables.product.prodname_dotcom_the_website %}. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. Para obter mais informações, consulte "[Enviar suas contribuições do {% data variables.product.prodname_ghe_server %} para o {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)".
+{% endif %}
 
 ### Leia mais
 

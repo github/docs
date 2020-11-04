@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 When you disable project boards, you will no longer see project board information in timelines or [audit logs](/articles/reviewing-your-security-log/).
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du noch kein Bild hinzugefügt hast, werden sich Repository-Links erweitern, um grundlegende Informationen zum Repository sowie den Avatar des Inhabers anzeigen. Durch das Hinzufügen eines Bildes zu Deinem Repository vereinfachst Du die Identifizierung Deines Projekts auf den verschiedenen Social-Media-Kanälen.

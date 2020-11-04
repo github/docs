@@ -87,11 +87,11 @@ versions:
 
 {% else %}
 
-サイト管理者がさまざまなパッケージのタイプを有効化、無効化できるため、{% data variables.product.product_location_enterprise %} でサポートされているパッケージのタイプはさまざまです。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
+サイト管理者がさまざまなパッケージのタイプを有効化、無効化できるため、{% data variables.product.product_location %} でサポートされているパッケージのタイプはさまざまです。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
 
-{% data variables.product.product_location_enterprise %} が Subdomain Isolation を有効化している場合、パッケージレジストリは `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Dockerfile は `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
+{% data variables.product.product_location %} が Subdomain Isolation を有効化している場合、パッケージレジストリは `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。`PACKAGE-TYPE` は、パッケージの名前空間に置き換えます。 たとえば、Dockerfile は `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。
 
-{% data variables.product.product_location_enterprise %} が Subdomain Isolation を無効化している場合、パッケージレジストリは `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。 たとえば、Gemfile は `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。*HOSTNAME* は、{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えます。 |{% endif %}
+{% data variables.product.product_location %} が Subdomain Isolation を無効化している場合、パッケージレジストリは `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` をパッケージのホスト URL として使用します。 たとえば、Gemfile は `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` にホストされます。*HOSTNAME* は、{% data variables.product.prodname_ghe_server %} インスタンスのホスト名に置き換えます。 |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                             |
@@ -100,11 +100,11 @@ versions:
 | Ruby       | RubyGemsパッケージマネージャー           | `Gemfile`                             | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
 | Java       | Apache Mavenのプロジェクト管理及び包括的ツール | `pom.xml`                             | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
 | Java       | Java用のGradleビルド自動化ツール         | `build.gradle` または `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
 
-{% data variables.product.product_location_enterprise %} で Subdomain Isolation を有効化している場合
+{% data variables.product.product_location %} で Subdomain Isolation を有効化している場合
 
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                       |
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | ----------------------------------------------- |
@@ -115,7 +115,7 @@ versions:
 | .NET       | .NET用のNuGetパッケージ管理            | `nupkg`                               | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | なし         | Dockerコンテナ管理プラットフォーム          | `Dockerfile`                          | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-{% data variables.product.product_location_enterprise %} で Subdomain Isolation を無効化している場合
+{% data variables.product.product_location %} で Subdomain Isolation を無効化している場合
 
 | 言語         | 説明                            | パッケージフォーマット                           | パッケージクライアント  | パッケージ名前空間                                                 |
 | ---------- | ----------------------------- | ------------------------------------- | ------------ | --------------------------------------------------------- |

@@ -1,6 +1,6 @@
 ---
 title: コミット署名の検証について
-intro: 'Using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}, you can sign tags and commits locally. それらのタグやコミットは検証済みとして {% data variables.product.product_name %}上でマークされ、他の人々がその変更が信頼できるソースから来たものと信頼できるようになります。'
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. それらのタグやコミットは検証済みとして {% data variables.product.product_name %}上でマークされ、他の人々がその変更が信頼できるソースから来たものと信頼できるようになります。'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### コミット署名の検証について

@@ -87,11 +87,11 @@ versions:
 
 {% else %}
 
-{% data variables.product.product_location_enterprise %} 支持的软件包类型可能有所不同，因为您的网站管理员可能启用或禁用对不同软件包的支持。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
+{% data variables.product.product_location %} 支持的软件包类型可能有所不同，因为您的网站管理员可能启用或禁用对不同软件包的支持。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
 
-如果 {% data variables.product.product_location_enterprise %} 已启用子域隔离，则软件包注册表将使用 `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL，用软件包命名空间替换 `PACKAGE-TYPE`。 例如，Dockerfile 将托管在 `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 上。
+如果 {% data variables.product.product_location %} 已启用子域隔离，则软件包注册表将使用 `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL，用软件包命名空间替换 `PACKAGE-TYPE`。 例如，Dockerfile 将托管在 `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 上。
 
-如果 {% data variables.product.product_location_enterprise %} 已禁用子域隔离，则软件包注册表将使用 `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL。 例如，Gemfile 将托管在 `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` 上，用 {% data variables.product.prodname_ghe_server %} 实例的主机名称替换 *HOSTNAME*。 |{% endif %}
+如果 {% data variables.product.product_location %} 已禁用子域隔离，则软件包注册表将使用 `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL。 例如，Gemfile 将托管在 `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` 上，用 {% data variables.product.prodname_ghe_server %} 实例的主机名称替换 *HOSTNAME*。 |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                                 |
@@ -100,11 +100,11 @@ versions:
 | Ruby       | RubyGems 包管理器          | `Gemfile`                           | `gem`        | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` |
 | Java       | Apache Maven 项目管理和理解工具 | `pom.xml`                           | `mvn`        | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
 | Java       | Java 的 Gradle 构建自动化工具  | `build.gradle` 或 `build.gradle.kts` | `gradle`     | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`          |
-| .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
+| .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`    |
 
 {% else %}
 
-在 {% data variables.product.product_location_enterprise %} 上启用了子域隔离：
+在 {% data variables.product.product_location %} 上启用了子域隔离：
 
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                           |
 | ---------- | ---------------------- | ----------------------------------- | ------------ | ----------------------------------------------- |
@@ -115,7 +115,7 @@ versions:
 | .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | 不适用        | Docker 容器管理平台          | `Dockerfile`                        | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-在 {% data variables.product.product_location_enterprise %} 上禁用了子域隔离：
+在 {% data variables.product.product_location %} 上禁用了子域隔离：
 
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                                     |
 | ---------- | ---------------------- | ----------------------------------- | ------------ | --------------------------------------------------------- |
@@ -180,7 +180,7 @@ versions:
 
 ### 管理包
 
-You can delete a version of a private package on {% data variables.product.product_name %} or using the GraphQL API. 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/v4/guides/forming-calls/)”。
+您可以在 {% data variables.product.product_name %} 上或使用 GraphQL API 删除私有包的版本。 使用 GraphQL API 查询和删除私有包时，必须使用与向 {% data variables.product.prodname_registry %} 验证时相同的令牌。 更多信息请参阅“[删除包](/packages/publishing-and-managing-packages/deleting-a-package)”和“[使用 GraphQL 进行调用](/v4/guides/forming-calls/)”。
 
 您可以配置 web 挂钩来订阅与包相关的事件，例如包的发布或更新等事件。 更多信息请参阅“[`package` web 挂钩事件](/webhooks/event-payloads/#package)”。
 

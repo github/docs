@@ -72,13 +72,17 @@ elif [[ $OPTION == "unstitch" ]]; then
   echo "🔥 🔥  Unstitching the repos..."
   set -o xtrace
 
+  # clear the dump directory
+  rm -rf /tmp/dump/*
+
+  # Undo any docs-internal changes and reinstall rest-api-operations
   cd docs-internal
   git reset --hard HEAD
   npm install
 
+  # Undo any rest-api-operations changes
   cd ../rest-api-operations
   git reset --hard HEAD
-  npm install
 
   set +o xtrace
   echo "🏁 🏁  Finished unstitching the repos!"

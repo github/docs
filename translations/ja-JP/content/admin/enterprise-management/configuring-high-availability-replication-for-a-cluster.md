@@ -1,6 +1,6 @@
 ---
 title: Configuring high availability replication for a cluster
-intro: 'You can configure a passive replica of your entire {% data variables.product.prodname_ghe_server %} cluster in a different location, allowing your cluster to fail over to redundant nodes.'
+intro: '{% data variables.product.prodname_ghe_server %} クラスタ全体のパッシブレプリカを別の場所に設定することで、クラスタを冗長ノードにフェイルオーバーできるようにすることができます。'
 miniTocMaxHeadingLevel: 4
 redirect_from:
   - /enterprise/admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
@@ -10,11 +10,11 @@ versions:
 
 ### About high availability replication for clusters
 
-You can configure a cluster deployment of {% data variables.product.prodname_ghe_server %} for high availability, where an identical set of passive nodes sync with the nodes in your active cluster. If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests without data loss.
+High Availability を実現するために、{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントを設定できます。この場合、パッシブノードの同一のセットがアクティブクラスタ内のノードと同期されます。 If hardware or software failures affect the datacenter with your active cluster, you can manually fail over to the replica nodes and continue processing user requests without data loss.
 
 In high availability mode, each active node syncs regularly with a corresponding passive node. The passive node runs in standby and does not serve applications or process user requests.
 
-We recommend configuring high availability as a part of a comprehensive disaster recovery plan for {% data variables.product.prodname_ghe_server %}. We also recommend performing regular backups. 詳しくは、"[ アプライアンスでのバックアップの設定](/enterprise/admin/configuration/configuring-backups-on-your-appliance)。"を参照してください。
+{% data variables.product.prodname_ghe_server %} の包括的なシステム災害復旧計画の一部として High Availability を設定することをお勧めします。 We also recommend performing regular backups. 詳しくは、"[ アプライアンスでのバックアップの設定](/enterprise/admin/configuration/configuring-backups-on-your-appliance)。"を参照してください。
 
 ### 必要な環境
 
@@ -22,11 +22,11 @@ We recommend configuring high availability as a part of a comprehensive disaster
 
 For each existing node in your active cluster, you'll need to provision a second virtual machine with identical hardware resources. For example, if your cluster has 11 nodes and each node has 12 vCPUs, 96 GB of RAM, and 750 GB of attached storage, you must provision 11 new virtual machines that each have 12 vCPUs, 64 GB of RAM, and 750 GB of attached storage.
 
-On each new virtual machine, install the same version of {% data variables.product.prodname_ghe_server %} that runs on the nodes in your active cluster. You don't need to upload a license or perform any additional configuration. 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
+新しい仮想マシンごとに、アクティブクラスタ内のノードで実行されているものと同じバージョンの {% data variables.product.prodname_ghe_server %} をインストールします。 You don't need to upload a license or perform any additional configuration. 詳細は「[{% data variables.product.prodname_ghe_server %}インスタンスをセットアップする](/enterprise/admin/installation/setting-up-a-github-enterprise-server-instance)」を参照してください。
 
 {% note %}
 
-**Note**: The nodes that you intend to use for high availability replication should be standalone {% data variables.product.prodname_ghe_server %} instances. Don't initialize the passive nodes as a second cluster.
+**Note**: High Availability レプリケーションに使用する予定のノードは、スタンドアロンの {% data variables.product.prodname_ghe_server %} インスタンスである必要があります。 Don't initialize the passive nodes as a second cluster.
 
 {% endnote %}
 
@@ -61,7 +61,7 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
     - Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
 
-4. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
+4. {% data reusables.enterprise_clustering.configuration-file-heading %} 各ノードの見出しの下に、新しいキー/値ペアのペアを追加して、ノードをデータセンターに割り当てます。 Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
 
       datacenter = default
 
@@ -88,7 +88,7 @@ Before you define a secondary datacenter for your passive nodes, ensure that you
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
+{% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、ノードをクラスタのプライマリデータセンターに割り当てます。
 
 #### Adding passive nodes to the cluster configuration file
 
@@ -101,7 +101,7 @@ To configure high availability, you must define a corresponding passive node for
 
 For an example configuration, see "[Example configuration](#example-configuration)."
 
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of  {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
+1. クラスタ内のノードごとに、同じバージョンの {% data variables.product.prodname_ghe_server %} を実行して、同じ仕様で一致する仮想マシンをプロビジョニングします。 Note the IPv4 address and hostname for each new cluster node. For more information, see "[Prerequisites](#prerequisites)."
 
   {% note %}
 
@@ -204,7 +204,7 @@ For an example configuration, see "[Example configuration](#example-configuratio
     ghe-cluster-config-init
     ```
 
-14. After the initialization finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
+14. 初期化が完了すると、{% data variables.product.prodname_ghe_server %} は次のメッセージを表示します。
 
     ```shell
         Finished cluster initialization
@@ -260,7 +260,7 @@ The configuration for an active node in your cluster's storage tier should look 
 The configuration for the corresponding passive node in the storage tier should look like the following example.
 
 - Important differences from the corresponding active node are **bold**.
-- {% data variables.product.prodname_ghe_server %} assigns values for `vpn`, `uuid`, and `wireguard-pubkey` automatically, so you shouldn't define the values for passive nodes that you will initialize.
+- {% data variables.product.prodname_ghe_server %} は、`vpn`、`uuid`、`wireguard-pubkey` の値を自動的に割り当てるため、初期化するパッシブノードの値を定義しないでください。
 - The server roles, defined by `*-server` keys, match the corresponding active node.
 
 ```shell
@@ -288,9 +288,9 @@ The configuration for the corresponding passive node in the storage tier should 
 
 ### Monitoring replication between active and passive cluster nodes
 
-Initial replication between the active and passive nodes in your cluster takes time. The amount of time depends on the amount of data to replicate and the activity levels for {% data variables.product.prodname_ghe_server %}.
+Initial replication between the active and passive nodes in your cluster takes time. 時間は、複製するデータの量と {% data variables.product.prodname_ghe_server %} のアクティビティレベルによって異なります。
 
-You can monitor the progress on any node in the cluster, using command-line tools available via the {% data variables.product.prodname_ghe_server %} administrative shell. For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
+{% data variables.product.prodname_ghe_server %} 管理シェルから利用できるコマンドラインツールを使用して、クラスタ内の任意のノードの進行状況を監視できます。 For more information about the administrative shell, see "[Accessing the administrative shell (SSH)](/enterprise/admin/configuration/accessing-the-administrative-shell-ssh)."
 
 - Monitor replication of databases:
   
@@ -327,7 +327,7 @@ The process for reconfiguring high availability is identical to the initial conf
 
 ### Disabling high availability replication for a cluster
 
-You can stop replication to the passive nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}.
+{% data variables.product.prodname_ghe_server %} のクラスタデプロイメントのパッシブノードへのレプリケーションを停止できます。
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 
@@ -341,4 +341,4 @@ You can stop replication to the passive nodes for your cluster deployment of {% 
 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished disabling high availability replication.
+{% data variables.product.prodname_ghe_server %} がプロンプトに戻ったら、High Availability レプリケーションの無効化が完了したことになります。

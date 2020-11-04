@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.package_registry.packages-billing %}
 
-設定する利用上限を引き上げたり、一部のアカウントについて無制限に設定することができます。 OrganizationまたはEnterprise アカウントの分を請求書で支払っている場合、超過分を前払いして、利用上限を引き上げることができます。 The spending limit applies to your combined overages for {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}. For more information about pricing for {% data variables.product.prodname_registry %} usage, see "[About billing for {% data variables.product.prodname_registry %}](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)."
+設定する利用上限を引き上げたり、一部のアカウントについて無制限に設定することができます。 OrganizationまたはEnterprise アカウントの分を請求書で支払っている場合、超過分を前払いして、利用上限を引き上げることができます。 利用上限は、{% data variables.product.prodname_registry %} と {% data variables.product.prodname_actions %} を組み合わせた範囲に適用されます。 {% data variables.product.prodname_registry %}の価格に関する詳細な情報については、「[{% data variables.product.prodname_registry %}の支払いについて](/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-packages)」を参照してください。
 
 利用上限を$0より高く設定すると、過去に発生した超過分についても請求が生じます。 たとえば、Organizationで {% data variables.product.prodname_team %} を使用していて超過を許可しておらず、月あたりのストレージ使用量が1.9GBから2.1GBに増えるプライベートパッケージの新しいバージョンを発行した場合、ストレージは製品に含まれる2GBをわずかに超えることになります。
 
@@ -42,15 +42,15 @@ Organizationアカウントに対して請求書での支払いをしている�
 
 ### Enterprise アカウントの {% data variables.product.prodname_registry %} に対する利用上限を管理する
 
-Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_registry %} for an enterprise account.
+Enterprise アカウントの {% data variables.product.prodname_registry %} については、Enterprise オーナーと支払いマネージャーが利用上限を管理できます。
 
 {% data reusables.package_registry.spending-limit-enterprise-account %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "
-{% data variables.product.prodname_actions %} and Packages monthly usage", click **Cost management**.
+1. [
+[{% data variables.product.prodname_actions %} and Packages monthly usage] で、[**Cost management**] をクリックします。
   ![コスト管理タブ](/assets/images/help/settings/cost-management-tab-enterprise.png)
 {% data reusables.dotcom_billing.monthly-spending-limit %}
 {% data reusables.dotcom_billing.update-spending-limit %}
