@@ -337,8 +337,8 @@ jobs:
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      -  run: |
-           echo "Comment on issue #${{ github.event.issue.number }}"
+      - run: |
+          echo "Comment on issue #${{ github.event.issue.number }}"
 ```
 
 #### `issues`
