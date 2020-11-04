@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Zugriff auf Dein Sicherheitsprotokoll
@@ -13,7 +14,7 @@ versions:
 The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
 
 {% data reusables.user_settings.access_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 2. Klicke in der Seitenleiste für Benutzereinstellungen auf **Security log** (Sicherheitsprotokoll). ![Registerkarte „Security log" (Sicherheitsprotokoll)](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
@@ -21,7 +22,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 4. Klicken Sie auf einen Eintrag, um weitere Informationen zum betreffenden Ereignis anzuzeigen. ![Sicherheitsprotokoll](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### Dein Sicherheitsprotokoll durchsuchen
 
 {% data reusables.audit_log.audit-log-search %}
@@ -31,22 +32,22 @@ The security log lists all actions performed within the last 90 days{% if curren
 ### Ereignisse im Sicherheitsprotokoll verstehen
 
 Die Aktionen in Deinem Sicherheitsprotokoll sind nach folgenden Kategorien gruppiert:{% endif %}
-| Kategoriename                                                               | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| `account_recovery_token`                                                    | Umfasst alle Aktivitäten in Verbindung mit dem [Hinzufügen eines Wiederherstellungstokens](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                                              |
-| `Abrechnung`                                                                | Umfasst alle Aktivitäten in Verbindung mit Deinen Abrechnungsinformationen.                                                                                                                                                                                                                                                                                                                                                |
-| `marketplace_agreement_signature (Unterzeichnung Marketplace-Vereinbarung)` | Umfasst alle Aktivitäten in Verbindung mit der Signierung der {% data variables.product.prodname_marketplace %}-Entwicklervereinbarung.                                                                                                                                                                                                                                                                                    |
+| Kategoriename                                                               | Beschreibung                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
+| `account_recovery_token`                                                    | Umfasst alle Aktivitäten in Verbindung mit dem [Hinzufügen eines Wiederherstellungstokens](/articles/configuring-two-factor-authentication-recovery-methods).                                                                                                                                                                                                                                                                  |
+| `Abrechnung`                                                                | Umfasst alle Aktivitäten in Verbindung mit Deinen Abrechnungsinformationen.                                                                                                                                                                                                                                                                                                                                                    |
+| `marketplace_agreement_signature (Unterzeichnung Marketplace-Vereinbarung)` | Umfasst alle Aktivitäten in Verbindung mit der Signierung der {% data variables.product.prodname_marketplace %}-Entwicklervereinbarung.                                                                                                                                                                                                                                                                                        |
 | `marketplace_listing (Eintrag auf Marketplace)`                             | Umfasst alle Aktivitäten in Verbindung mit dem Eintragen von Apps auf {% data variables.product.prodname_marketplace %}.{% endif %}
 | `oauth_access`                                                              | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
 | `payment_method`                                                            | Umfasst alle Aktivitäten in Verbindung mit der Bezahlung Deines {% data variables.product.prodname_dotcom %}-Abonnements.{% endif %}
-| `profile_picture`                                                           | Umfasst alle Aktivitäten in Verbindung mit Deinem Profilbild.                                                                                                                                                                                                                                                                                                                                                              |
-| `project (Projekt)`                                                         | Umfasst alle Aktivitäten in Verbindung mit Projektboards.                                                                                                                                                                                                                                                                                                                                                                  |
-| `public_key`                                                                | Umfasst alle Aktivitäten in Verbindung mit [Deinen öffentlichen SSH-Schlüsseln](/articles/adding-a-new-ssh-key-to-your-github-account).                                                                                                                                                                                                                                                                                    |
+| `profile_picture`                                                           | Umfasst alle Aktivitäten in Verbindung mit Deinem Profilbild.                                                                                                                                                                                                                                                                                                                                                                  |
+| `project (Projekt)`                                                         | Umfasst alle Aktivitäten in Verbindung mit Projektboards.                                                                                                                                                                                                                                                                                                                                                                      |
+| `public_key`                                                                | Umfasst alle Aktivitäten in Verbindung mit [Deinen öffentlichen SSH-Schlüsseln](/articles/adding-a-new-ssh-key-to-your-github-account).                                                                                                                                                                                                                                                                                        |
 | `repo`                                                                      | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors`                                                                  | Umfasst alle Ereignisse in Verbindung mit {% data variables.product.prodname_sponsors %} und Sponsorenschaltflächen (siehe „[Informationen zu {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)“ und „[Sponsorenschaltfläche in Deinem Repository anzeigen](/articles/displaying-a-sponsor-button-in-your-repository)“){% endif %}{% if enterpriseServerVersions contains currentVersion %}
-| `Team`                                                                      | Umfasst alle Aktivitäten in Verbindung mit Teams, deren Mitglied Du bist.{% endif %}
-| `two_factor_authentication`                                                 | Umfasst alle Aktivitäten in Verbindung mit der [Zwei-Faktor-Authentifizierung](/articles/securing-your-account-with-two-factor-authentication-2fa).                                                                                                                                                                                                                                                                        |
-| `Benutzer`                                                                  | Umfasst alle Aktivitäten in Verbindung mit Deinem Konto.                                                                                                                                                                                                                                                                                                                                                                   |
+| `sponsors`                                                                  | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `Team`                                                                      | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `two_factor_authentication`                                                 | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
+| `Benutzer`                                                                  | Umfasst alle Aktivitäten in Verbindung mit Deinem Konto.                                                                                                                                                                                                                                                                                                                                                                       |
 
 Eine Beschreibung der Ereignisse dieser Kategorien findest Du nachfolgend.
 
@@ -137,7 +138,7 @@ Eine Beschreibung der Ereignisse dieser Kategorien findest Du nachfolgend.
 | access                                | Wird ausgelöst, wenn die Sichtbarkeit eines Repositorys, dessen Inhaber Du bist, [von „privat“ auf „öffentlich“ gesetzt wird](/articles/making-a-private-repository-public) (oder umgekehrt).                                                                                                                                                      |
 | add_member                            | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
 | add_topic                             | Wird ausgelöst, wenn ein Repository-Inhaber einem Repository [ein Thema hinzufügt](/articles/classifying-your-repository-with-topics).                                                                                                                                                                                                             |
-| archived                              | Wird ausgelöst, wenn ein Repository-Inhaber ein [Repository archiviert](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion %}
+| archived                              | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 | config.disable_anonymous_git_access | Wird ausgelöst, wenn für ein öffentliches Repository der [anonyme Git-Lesezugriff deaktiviert](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) wird.                                                                                                                                           |
 | config.enable_anonymous_git_access  | Wird ausgelöst, wenn für ein öffentliches Repository der [anonyme Git-Lesezugriff aktiviert](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository) wird.                                                                                                                                             |
 | config.lock_anonymous_git_access    | Wird ausgelöst, wenn für ein Repository die [Einstellung für den anonymen Git-Lesezugriff gesperrt](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access) wird.                                                                                                                  |
@@ -186,7 +187,7 @@ Eine Beschreibung der Ereignisse dieser Kategorien findest Du nachfolgend.
 | revoke  | Wird ausgelöst, wenn du eine Erneuerungseinladung zurückziehst (siehe „[Inhaber-Kontinuität Deiner Benutzerkonto-Repositorys aufrechterhalten](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)") |
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 #### Kategorie `team`
 
@@ -201,36 +202,38 @@ Eine Beschreibung der Ereignisse dieser Kategorien findest Du nachfolgend.
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 #### Kategorie `two_factor_authentication`
 
 | Aktion   | Beschreibung                                                                                                                                |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | enabled  | Wird bei der Aktivierung der [Zwei-Faktor-Authentifizierung](/articles/securing-your-account-with-two-factor-authentication-2fa) ausgelöst. |
 | disabled | Wird bei der Deaktivierung der Zwei-Faktor-Authentifizierung ausgelöst.                                                                     |
+{% endif %}
 
 #### Kategorie `user`
 
-| Aktion                             | Beschreibung                                                                                                                                                                                              |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| add_email                          | Wird ausgelöst, wenn Du [eine neue E-Mail-Adresse hinzufügst](/articles/changing-your-primary-email-address).                                                                                             |
-| create                             | Wird ausgelöst, wenn Du ein neues Benutzerkonto erstellst.                                                                                                                                                |
-| remove_email                       | Wird ausgelöst, wenn Du eine E-Mail-Adresse entfernst.                                                                                                                                                    |
-| rename                             | Wird ausgelöst, wenn Du Dein Konto umbenennst.                                                                                                                                                            |
-| change_password                    | Wird ausgelöst, wenn Du Dein Passwort änderst.                                                                                                                                                            |
-| forgot_password                    | Wird ausgelöst, wenn Du die [Zurücksetzung Deines Passworts anforderst](/articles/how-can-i-reset-my-password).                                                                                           |
-| login                              | Wird ausgelöst, wenn Du Dich bei {% data variables.product.product_location %} anmeldest.                                                                                                                 |
-| failed_login                       | Wird ausgelöst, wenn Deine Anmeldung fehlschlägt.                                                                                                                                                         |
-| two_factor_requested             | Wird ausgelöst, wenn Du von {% data variables.product.product_name %} nach [Deinem Code für die Zwei-Faktor-Authentifizierung](/articles/accessing-github-using-two-factor-authentication) gefragt wirst. |
-| show_private_contributions_count | Wird ausgelöst, wenn Du [private Beiträge in Deinem Profil veröffentlichst](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).                                                  |
+| Aktion                             | Beschreibung                                                                                                                                                                                  |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| add_email                          | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}.         |
+| create                             | Wird ausgelöst, wenn Sie ein neues Benutzerkonto erstellen.                                                                                                                                   |
+| remove_email                       | Wird ausgelöst, wenn Sie eine E-Mail-Adresse entfernen.                                                                                                                                       |
+| rename                             | Triggered when you rename your account.{% if currentVersion != "github-ae@latest" %}
+| change_password                    | Wird ausgelöst, wenn Sie Ihr Passwort ändern.                                                                                                                                                 |
+| forgot_password                    | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
+| login                              | Wird ausgelöst, wenn Du Dich bei {% data variables.product.product_location %} anmeldest.                                                                                                     |
+| failed_login                       | Triggered when you failed to log in successfully.{% if currentVersion != "github-ae@latest" %}
+| two_factor_requested             | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+| show_private_contributions_count | Wird ausgelöst, wenn Sie [private Beiträge in Ihrem Profil veröffentlichen](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).                                      |
 | hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
-| report_content                     | Wird ausgelöst, wenn Du [einen Issue oder Pull Request, oder einen Kommentar zu einem Issue, einem Pull Request oder einem Commit meldest](/articles/reporting-abuse-or-spam).{% endif %}
+| report_content                     | Wird ausgelöst, wenn Sie [ein Issue oder einen Pull Request bzw. einen Kommentar zu einem Issue, einem Pull Request oder einem Commit melden](/articles/reporting-abuse-or-spam).{% endif %}
 
 #### Kategorie `user_status`
 
-| Aktion        | Beschreibung                                                                                                                                                                                   |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| aktualisieren | Wird ausgelöst, wenn Du den Status Deines Profils festlegst oder änderst. Weitere Informationen findest Du unter „[Status festlegen](/articles/personalizing-your-profile/#setting-a-status).“ |
-| destroy       | Wird ausgelöst, wenn Du den Status Deines Profils löschst.                                                                                                                                     |
+| Aktion        | Beschreibung                                                                                                                                                                                  |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| aktualisieren | Wird ausgelöst, wenn Sie den Status Ihres Profils festlegen oder ändern. Weitere Informationen findest Du unter „[Status festlegen](/articles/personalizing-your-profile/#setting-a-status).“ |
+| destroy       | Wird ausgelöst, wenn Sie den Status Ihres Profils löschen.                                                                                                                                    |
 
 {% if currentVersion == "free-pro-team@latest" %}
 

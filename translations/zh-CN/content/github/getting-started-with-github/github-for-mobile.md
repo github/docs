@@ -43,8 +43,9 @@ If you configure the language on your device to a supported language, {% data va
 
 ### 分享反馈
 
-如果您对 {% data variables.product.prodname_mobile %} 有反馈或功能请求，可以发送电子邮件到 <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a> 联系我们。
+If you find a bug in {% data variables.product.prodname_mobile %}, you can email us at <a href="mailto:mobilefeedback@github.com">mobilefeedback@github.com</a>.
 
+You can submit feature requests or other feedback for {% data variables.product.prodname_mobile %} [on GitHub Discussions](https://github.com/github/feedback/discussions?discussions_q=category%3A%22Mobile+Feedback%22).
 
 ### 选择退出 iOS 的测试版
 

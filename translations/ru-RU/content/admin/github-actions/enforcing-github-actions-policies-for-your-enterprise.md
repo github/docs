@@ -16,8 +16,7 @@ When you enable {% data variables.product.prodname_actions %} on {% data variabl
 
 ### Managing {% data variables.product.prodname_actions %} permissions for your enterprise
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
@@ -29,8 +28,7 @@ When you enable {% data variables.product.prodname_actions %} on {% data variabl
 
 #### Configuring the private fork policy for your enterprise
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}

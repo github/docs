@@ -4,6 +4,7 @@ intro: Du kannst einen neuen Issue aus einem spezifischen Kommentar in einem Iss
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du einen Issue aus einem Kommentar öffnest, wird der Issue ein Ausschnitt enthalten, der zeigt, wo der Kommentar ursprünglich eingestellt wurde.

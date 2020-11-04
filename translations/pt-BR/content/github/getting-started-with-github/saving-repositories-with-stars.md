@@ -1,6 +1,6 @@
 ---
 title: Salvar repositórios com estrelas
-intro: 'Você pode favoritar repositórios{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 6" %} e tópicos{% endif %} para acompanhar os projetos que você considera interessantes{% if currentVersion == "free-pro-team@latest" %} e descobrir o conteúdo relacionado no feed de notícias{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode pesquisar, classificar e filtrar seus repositórios e tópicos com estrela no seu {% data variables.explore.your_stars_page %}.'

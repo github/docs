@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
@@ -28,8 +29,8 @@ versions:
 - [Enable the dependency graph](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-and-dependents-of-a-repository) for a private repository{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - パッケージを削除する。 詳細は「[>パッケージを削除する](/github/managing-packages-with-github-packages/deleting-a-package)」を参照してください。{% endif %}
 - リポジトリソーシャルカードを作成および編集する。 詳細は「[リポジトリのソーシャルメディア向けプレビューをカスタマイズする](/articles/customizing-your-repositorys-social-media-preview)」を参照してください。
-- リポジトリをテンプレートにする。 詳細は「[テンプレートリポジトリを作成する](/articles/creating-a-template-repository)」を参照してください。
-- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% if currentVersion == "free-pro-team@latest" %}
+- リポジトリをテンプレートにする。 For more information, see "[Creating a template repository](/articles/creating-a-template-repository)."{% if currentVersion != "github-ae@latest" %}
+- Receive [{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %} for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies) in a repository.{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - リポジトリで {% data variables.product.prodname_dependabot_alerts %} を閉じます。 詳細については、「[リポジトリ内の脆弱な依存関係を表示・更新する](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)」を参照してください。
 - [プライベートリポジトリのデータ使用を管理する](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository){% endif %}
 - [リポジトリのコードオーナーを定義する](/articles/about-code-owners)

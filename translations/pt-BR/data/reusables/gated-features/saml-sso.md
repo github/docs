@@ -1,1 +1,1 @@
-Logon único SAML estão disponíveis com {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".
+SAML single sign-on is available with {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %} and {% data variables.product.prodname_ghe_managed %}{% endif %}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".

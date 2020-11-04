@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于 gists
@@ -50,7 +51,7 @@ Gist 支持地图 GeoJSON 文件。 这些地图显示在嵌入的 Gist 中，�
 
 也可以将桌面上的文本文件直接拖放到 Gist 编辑器中。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 您也可以使用 {% data variables.product.prodname_cli %} 创建 Gist。 更多信息请参阅 {% data variables.product.prodname_cli %} 文档中的“[`gh Gist 创建`](https://cli.github.com/manual/gh_gist_create)”。

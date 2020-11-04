@@ -1,6 +1,6 @@
 ---
 title: Star を付けてリポジトリを保存する
-intro: 'You can star repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.16" %} and topics{% endif %} to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
+intro: 'You can star repositories and topics to keep track of projects you find interesting{% if currentVersion == "free-pro-team@latest" %} and discover related content in your news feed{% endif %}.'
 redirect_from:
   - /articles/stars/
   - /articles/about-stars/
@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.explore.your_stars_page %} の Star 付きリポジトリとトピックを検索、ソート、フィルタできます。
