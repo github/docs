@@ -21,7 +21,7 @@ jobs:
         with:
           cancel_others: 'false'
           github_token: ${{ github.token }}
-          paths: '["**/*.js","package*.json",".github/workflows/js-lint.yml"]'
+          paths: '["**/*.js", "package*.json", ".github/workflows/js-lint.yml"]'
 
   lint:
     runs-on: ubuntu-latest
