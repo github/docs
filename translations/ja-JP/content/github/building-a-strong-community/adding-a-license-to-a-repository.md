@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリに見つけやすいライセンスを含めておくと、リポジトリにアクセスした人はリポジトリページの先頭ですぐに見つけることができます。 ライセンスファイル全体を読むには、ライセンスの名前をクリックします。
@@ -32,7 +33,7 @@ versions:
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

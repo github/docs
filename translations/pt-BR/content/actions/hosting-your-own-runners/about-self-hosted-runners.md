@@ -91,7 +91,7 @@ Os sistemas operacionais a seguir são compatíveis com o aplicativo de execuç�
 
 - macOS 10.13 (High Sierra) or versão posterior
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 ### Comunicação entre executores auto-hospedados e {% data variables.product.prodname_dotcom %}
 
@@ -113,7 +113,7 @@ api.github.com
 *.actions.githubusercontent.com
 ```
 
-Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
+Se você usar uma lista de endereços IP permitida para a sua a sua organização ou conta corporativa do {% data variables.product.prodname_dotcom %}, você deverá adicionar o endereço IP do executor auto-hospedado à lista de permissões. Para obter mais informações consulte "[Gerenciar endereços IP permitidos para a sua organização](/github/setting-up-and-managing-organizations-and-teams/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list)" ou "[Aplicar as configurações de segurança na sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#using-github-actions-with-an-ip-allow-list)".
 
 {% else %}
 

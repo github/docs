@@ -15,22 +15,67 @@
             <h1 class="mb-3 font-mktg">{{ page.shortTitle }}</h1>
             <div class="lead-mktg text-gray">{{ page.intro }}</div>
 
-            <a href="{{ page.introLinks.quickstart }}" class="btn btn-large f4 btn-blue mt-3">
-              Quickstart
+            <a href="{{ page.introLinks.quickstart }}" class="btn-mktg btn-large f4 mt-3">
+              {% data ui.product_landing.quick_start %}
             </a>
 
-            <a href="{{ page.introLinks.learn }}" class="ml-3 btn btn-large f4 btn-outline mt-3">
-              Learn {% data variables.product.prodname_actions %}
+            <a href="{{ page.introLinks.reference }}" class="ml-3 btn-mktg btn-outline-mktg btn-large f4 mt-3">
+              {% data ui.product_landing.reference_guides %}
             </a>
           </div>
         </header>
 
+        <!-- Article links -->
+        <div class="d-lg-flex gutter my-6 py-6">
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <div class="featured-links-heading pb-3 mb-4 border-bottom">
+              <h3 class="f5 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.guides %}</h3>
+            </div>
+            <ul class="list-style-none">
+              {% for link in featuredLinks.guides %}
+                <li class="Box px-3 py-1 mb-2">
+                  {% include featured-link %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <div class="featured-links-heading pb-3 mb-4 border-bottom">
+              <h3 class="f5 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.popular_articles %}</h3>
+            </div>
+            <ul class="list-style-none">
+              {% for link in featuredLinks.popular %}
+                <li class="Box px-3 py-1 mb-2">
+                  {% include featured-link %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+
+          <div class="col-12 col-lg-4 mb-4 mb-lg-0">
+            <div class="featured-links-heading pb-3 mb-4 border-bottom">
+              <h3 class="f5 text-normal text-mono text-uppercase color-gray-5">{% data ui.toc.whats_new %}</h3>
+            </div>
+            <ul class="list-style-none">
+              {% for link in page.changelog %}
+                <li class="mb-2">
+                  <a href="{{ link.href }}" class="Box text-gray-dark Bump-link--hover p-3 d-flex flex-justify-between flex-items-center no-underline">
+                    <h4>{{ link.title }} <span class="Bump-link-symbol">→</span></h4>
+                    <span class="text-gray-light text-mono ml-2" style="white-space: nowrap">{{ link.date | date: "%B %d, %Y" }}</span>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
         {{ renderedPage }}
       </div>
 
-
-      {% include support %}
-      {% include footer %}
+      <div class="border-top">
+        {% include small-footer %}
+      </div>
     </main>
   </body>
 </html>

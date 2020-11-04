@@ -1,6 +1,7 @@
 ---
 title: Sicherheitslücken in der GitHub Advisory Database durchsuchen
 intro: 'Die {% data variables.product.prodname_advisory_database %} erlaubt Dir, nach Schwachstellen zu suchen, die Open-Source-Projekte auf {% data variables.product.company_short %} betreffen.'
+shortTitle: Browsing the Advisory Database
 versions:
   free-pro-team: '*'
 ---

@@ -33,7 +33,7 @@ Node.js、YAML、ワークフローの設定オプションと、ワークフロ
 手早く始めるために、テンプレートをリポジトリの`.github/workflows`ディレクトリに追加してください。
 
 {% raw %}
-```yaml
+```yaml{:copy}
 name: Node.js CI
 
 on: [push]

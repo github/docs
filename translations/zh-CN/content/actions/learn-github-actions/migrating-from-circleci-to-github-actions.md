@@ -39,7 +39,7 @@ CircleCI 和 {% data variables.product.prodname_actions %} 在配置文件中使
 
 CircleCI 和 {% data variables.product.prodname_actions %} 都提供在工作流程中重复使用和共享任务的机制。 CircleCI 使用以 YAML 编写的概念 orbs 来提供人们可以在工作流程中重复使用的任务。 {% data variables.product.prodname_actions %} 具有强大而灵活的可重复使用的组件，称为“操作”，您可以使用 JavaScript 文件或 Docker 映像来构建操作。 您可以编写自定义代码来创建操作，以您喜欢的方式与仓库交互，包括使用 {% data variables.product.product_name %} 的 API 以及任何公开的第三方 API 进行交互。 例如，操作可以发布 npm 模块、在创建紧急议题时发送短信提醒，或者部署可用于生产的代码。 更多信息请参阅“[创建操作](/actions/creating-actions)”。
 
-CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 支持对于重复使用构建矩阵的最常见需求。 For more information about build matrixes, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)."
+CircleCI 可以使用 YAML 锚点和别名来重复使用工作流程的组件。 {% data variables.product.prodname_actions %} 支持对于重复使用构建矩阵的最常见需求。 有关构建矩阵的更多信息，请参阅“[管理复杂的工作流程](/actions/learn-github-actions/managing-complex-workflows/#using-a-build-matrix)”。
 
 ### 使用 Docker 映像
 
@@ -52,7 +52,7 @@ CircleCI 提供一套具有共同依赖项的预建映像。 这些映像的 `US
 
 有关 Docker 文件系统的更多信息，请参阅“[ {% data variables.product.product_name %} 托管运行器的虚拟环境](/actions/reference/virtual-environments-for-github-hosted-runners#docker-container-filesystem)”。
 
-For more information about the tools and packages available on {% data variables.product.prodname_dotcom %}-hosted virtual environments, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+有关 {% data variables.product.prodname_dotcom %} 托管的虚拟环境中可用的工具和软件包的更多信息，请参阅“[{% data variables.product.prodname_dotcom %} 托管的运行器的规格](/actions/reference/specifications-for-github-hosted-runners/#supported-software)”。
 
 ### 使用变量和密码
 

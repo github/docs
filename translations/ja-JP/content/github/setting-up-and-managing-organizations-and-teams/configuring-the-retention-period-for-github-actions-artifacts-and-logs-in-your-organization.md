@@ -1,6 +1,6 @@
 ---
-title: Configuring the retention period for GitHub Actions artifacts and logs in your organization
-intro: 'You can configure the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your organization.'
+title: Organization 内の GitHub Actions アーティファクトとログの保持期間を設定する
+intro: 'Organization 内の {% data variables.product.prodname_actions %} アーティファクトとログの保持期間を設定することができます。'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.23'
@@ -8,7 +8,7 @@ versions:
 
 {% data reusables.actions.about-artifact-log-retention %}
 
-## Setting the retention period for an organization
+## Organization の保持期間を設定する
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}

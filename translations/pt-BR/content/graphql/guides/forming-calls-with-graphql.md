@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Autenticar com o GraphQL
@@ -334,9 +335,9 @@ Com a identificação conhecida, podemos prosseguir com a mutação:
 
   Vamos examinar essa linha:
 
-    - `addReaction` é o nome da mutação.
-    - `entrada` é a chave de argumento obrigatória. Isso sempre será `entrada` para uma mutação.
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` é o valor do argumento obrigatório. Este sempre será um [objeto de entrada](/v4/input_object/) (daí as chaves) compostas de campos de entrada (`subjectId` e `conteúdo`, neste caso) para uma mutação.
+  - `addReaction` é o nome da mutação.
+  - `entrada` é a chave de argumento obrigatória. Isso sempre será `entrada` para uma mutação.
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` é o valor do argumento obrigatório. Este sempre será um [objeto de entrada](/v4/input_object/) (daí as chaves) compostas de campos de entrada (`subjectId` e `conteúdo`, neste caso) para uma mutação.
 
   Como sabemos qual o valor usar para o conteúdo? Os documentos [`addReaction`](/v4/mutation/addreaction/) nos dizem que o campo do `conteúdo` tem o tipo [`ReactionContent`](/v4/enum/reactioncontent/), que é um [enum](/v4/enum), porque apenas algumas reações de emojis são compatíveis com em problemas no GitHub. Estes são os valores permitidos para reações (observe que alguns valores diferem de seus nomes de emojis correspondentes):
 

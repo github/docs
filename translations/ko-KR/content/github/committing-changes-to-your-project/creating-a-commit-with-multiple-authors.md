@@ -1,11 +1,12 @@
 ---
 title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Required co-author information
@@ -67,7 +68,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
 The new commit and message will appear on {% data variables.product.product_location %}.
 
 ### 더 읽을거리
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
 - "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
 - "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -40,7 +41,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 > X-GitHub-Media-Type: github.v3
 > X-RateLimit-Limit: 5000
 > X-RateLimit-Remaining: 4987
-> X-RateLimit-Reset: 1350085394{% if currentVersion != "free-pro-team@latest" %}
+> X-RateLimit-Reset: 1350085394{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 > X-GitHub-Enterprise-Version: {{ currentVersion }}.0{% endif %}
 > Content-Length: 5
 > Cache-Control: max-age=0, private, must-revalidate
@@ -75,7 +76,7 @@ $ curl -i {% data variables.product.api_url_pre %}/users/octocat/orgs
 
 ### 身份验证
 
-通过 {% data variables.product.product_name %} API v3 进行身份验证有两种方法。  在某些情况下，要求身份验证的请求将返回 `404 Not Found`，而不是 `403 Forbidden`。  这是为了防止私有仓库意外泄露给未经授权的用户。
+{% if currentVersion == "github-ae@latest" %} We recommend authenticating to the {% data variables.product.product_name %} REST API by creating an OAuth2 token through the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow). {% else %} There are two ways to authenticate through {% data variables.product.product_name %} REST API.{% endif %} Requests that require authentication will return `404 Not Found`, instead of `403 Forbidden`, in some places.  This is to prevent the accidental leakage of private repositories to unauthorized users.
 
 #### 基本验证
 
@@ -95,8 +96,9 @@ $ curl -H "Authorization: token <em>OAUTH-TOKEN</em>" {% data variables.product.
 
 {% endnote %}
 
-阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  请注意，OAuth2 令牌可使用生产应用程序的 [web 应用程序流](/apps/building-oauth-apps/authorizing-oauth-apps/#web-application-flow)来获取。
+阅读[关于 OAuth2 的更多信息](/apps/building-oauth-apps/)。  Note that OAuth2 tokens can be acquired using the [web application flow](/developers/apps/authorizing-oauth-apps#web-application-flow) for production applications.
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 #### OAuth2 键/密钥
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}
@@ -107,9 +109,9 @@ curl -u my_client_id:my_client_secret '{% data variables.product.api_url_pre %}/
 
 使用 `client_id` 和 `client_secret`_不会_验证为用户，只会识别您的 OAuth 应用程序以提高速率限制。 权限仅授予用户，而不授予应用程序，因此只会返回未经验证用户可以看到的数据。 因此，您应该仅在服务器到服务器的场景中使用 OAuth2 键/密钥。 不要将 OAuth 应用程序的客户端密钥泄露给用户。
 
-{% if currentVersion != "free-pro-team@latest" %}
 在私有模式下无法使用 OAuth2 键和密钥进行身份验证，尝试验证时会返回 `401 Unauthorized`。 更多信息请参阅“[启用私有模式](/enterprise/admin/installation/enabling-private-mode)”。
 {% endif %}
+
 {% if currentVersion == "free-pro-team@latest" %}
 
 阅读[有关未经验证速率限制的更多信息](#increasing-the-unauthenticated-rate-limit-for-oauth-applications)。
@@ -163,10 +165,10 @@ $ curl -i -u username -d '{"scopes":["public_repo"]}' {% data variables.product.
 您可以向根端点发出 `GET` 请求，以获取 REST API 支持的所有端点类别：
 
 ```shell
-$ curl {% if currentVersion != "free-pro-team@latest" %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
+$ curl {% if currentVersion == "github-ae@latest" %}-u <em>username</em>:<em>token</em> {% endif %}{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}-u <em>username</em>:<em>password</em> {% endif %}{% data variables.product.api_url_pre %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 
 {% note %}
 

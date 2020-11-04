@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ファイルの場所を変えるだけでなく、同じコミットで[ファイルの内容を更新](/articles/editing-files-in-your-repository)したり、

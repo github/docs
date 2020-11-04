@@ -20,7 +20,7 @@ versions:
 
 构件允许您在作业完成后保留数据，并与同一工作流程中的另一个作业共享该数据。 构件是指在工作流程运行过程中产生的文件或文件集。 例如，在工作流程运行结束后，您可以使用构件保存您的构建和测试输出。
 
-{% data reusables.github-actions.artifact-log-retention-statement %} The retention period for a pull request restarts each time someone pushes a new commit to the pull request.
+{% data reusables.github-actions.artifact-log-retention-statement %} 每当有人向拉取请求推送新提交时，拉取请求的保留期将重新开始。
 
 以下是您可以上传的一些常见构件：
 
@@ -74,7 +74,7 @@ versions:
 |   
 ```
 
-本例向您展示如何创建 Node.js 项目的工作流程，该项目在 `src` 目录中 `builds` 代码，并在 `tests` 目录中运行测试。 您可以假设运行 `npm test` 会产生名为 `code-coverage.html`、存储在 `output/test/` 目录中的代码覆盖报告。
+本例向您展示如何创建 Node.js 项目的工作流程，该项目在 src 目录中 `builds` 代码，并在 `tests` 目录中运行测试。 您可以假设运行 `npm test` 会产生名为 `code-coverage.html`、存储在 `output/test/` 目录中的代码覆盖报告。
 
 工作流程上传 `dist` 目录中的生产构件，但不包括任何 markdown 文件。 它还会上传 `code-coverage.html` 报告作为另一个构件。
 
@@ -111,9 +111,9 @@ jobs:
 ![工作流程上传构件工作流程运行的图像](/assets/images/help/repository/upload-build-test-artifact.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-### Configuring a custom artifact retention period
+### 配置自定义构件保留期
 
-You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
+您可以为工作流程创建的单个构件自定义保留期。 使用工作流程创建新构件时，可以同时使用 `retention-days` with the `upload-artifact` 操作。 此示例演示如何为名为 `my-artifact` 的构件设置 5 天的自定义保留期：
 
 ```
   - name: 'Upload Artifact'
@@ -124,18 +124,18 @@ You can define a custom retention period for individual artifacts created by a w
       retention-days: 5
 ```
 
-The `retention-days` value cannot exceed the retention limit set by the repository, organization, or enterprise.
+`retention-days` 值不能超过仓库、组织或企业设置的保留时间限制。
 {% endif %}
 
 ### 下载或删除构件
 
-During a workflow run, you can use the [`download-artifact`](https://github.com/actions/download-artifact)action to download artifacts that were previously uploaded in the same workflow run.
+在工作流程运行期间，您可以使用 [`download-artifact`](https://github.com/actions/download-artifact) 操作下载以前在同一工作流程运行中上传的构件。
 
-After a workflow run has been completed, you can download or delete artifacts on {% data variables.product.prodname_dotcom %} or using the REST API. For more information, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)," "[Removing workflow artifacts](/actions/managing-workflow-runs/removing-workflow-artifacts)," and the "[Artifacts REST API](/v3/actions/artifacts/)."
+工作流程运行完成后，您可以在 {% data variables.product.prodname_dotcom %} 上或使用 REST API 下载或删除构件。 更多信息请参阅“[下载工作流程构件](/actions/managing-workflow-runs/downloading-workflow-artifacts)”、“[删除工作流程构件](/actions/managing-workflow-runs/removing-workflow-artifacts)”和“[构件 REST API](/v3/actions/artifacts/)”。
 
 #### 在工作流程运行期间下载构件
 
-The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
+[`actions/download-artifact`](https://github.com/actions/download-artifact) 操作可用于下载工作流程运行期间之前上传的构件。
 
 {% note %}
 

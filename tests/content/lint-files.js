@@ -146,7 +146,7 @@ describe('lint-files', () => {
             if (match === '[Link Text](full-URL-of-wiki-page)') {
               return false
             }
-          } else if (markdownRelPath === 'content/admin/user-management/configuring-email-for-notifications.md') {
+          } else if (markdownRelPath === 'content/admin/configuration/configuring-email-for-notifications.md') {
             if (/^\[\d+\]: (?:connect|disconnect|[0-9A-F]+:)\s*$/.test(match)) {
               return false
             }

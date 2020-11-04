@@ -1,6 +1,6 @@
 ---
 title: Wartungsmodus aktivieren und planen
-intro: 'Für einige Standardwartungsprozeduren, beispielsweise für das Upgrade von {% data variables.product.product_location_enterprise %} oder für das Wiederherstellen von Backups, muss die Instanz für die normale Verwendung offline genommen werden.'
+intro: 'Für einige Standardwartungsprozeduren, beispielsweise für das Upgrade von {% data variables.product.product_location %} oder für das Wiederherstellen von Backups, muss die Instanz für die normale Verwendung offline genommen werden.'
 redirect_from:
   - /enterprise/admin/maintenance-mode/
   - /enterprise/admin/categories/maintenance-mode/
@@ -16,7 +16,7 @@ versions:
 
 ### Informationen zum Wartungsmodus
 
-Bei einigen Vorgangstypen müssen Sie {% data variables.product.product_location_enterprise %} offline nehmen und in den Wartungsmodus versetzen.
+Bei einigen Vorgangstypen müssen Sie {% data variables.product.product_location %} offline nehmen und in den Wartungsmodus versetzen.
 - Upgrade auf eine neue Version von {% data variables.product.prodname_ghe_server %}
 - Die der virtuellen Maschine zugeordneten CPU-, Arbeitsspeicher- oder  Speicherressourcen erhöhen
 - Daten von einer virtuelle Maschine zu einer anderen migrieren

@@ -7,6 +7,7 @@ permissions: Anyone with write access to a repository can pull a remote pull req
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}

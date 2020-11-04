@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Gists
@@ -17,9 +18,9 @@ Jeder Gist ist ein Git-Repository, d. h., er kann geforkt und geklont werden. We
 
 Gists können öffentlich oder geheim sein. Öffentliche Gists werden in {% data variables.gists.discover_url %} angezeigt, wo Benutzer neue Gists nach der Erstellung durchsuchen können. Gists können auch gesucht werden, Du kannst sie also verwenden, wenn Du möchtest, dass andere Benutzer Deine Arbeit finden und ansehen können. {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-Secret gists don't show up in {% data variables.gists.discover_url %}{% if currentVersion != "free-pro-team@latest" %},{% endif %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %} Geheime Gists sind nicht privat. Wenn Du die URL eines geheimen Gists an einen Freund sendest, kann er den Gist sehen. Wenn jemand, den Du nicht kennst, die URL findet, kann er Deinen Gist ebenfalls sehen. Wenn Du nicht möchtest, dass Dein Code von anderen gesehen werden kann, kannst Du stattdessen [ein privates Repository erstellen](/articles/creating-a-new-repository).
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 Wenn Dein Websiteadministrator den privaten Modus deaktiviert hat, kannst Du auch anonyme Gists verwenden, die öffentlich oder geheim sein können.
 
@@ -50,7 +51,7 @@ Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in ein
 
 Du kannst auch eine Textdatei per Drag-and-Drop von Deinem Desktop direkt in den Gist-Editor ziehen.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

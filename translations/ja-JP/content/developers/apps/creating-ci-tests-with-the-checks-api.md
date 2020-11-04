@@ -1,40 +1,41 @@
 ---
-title: Creating CI tests with the Checks API
-intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and the Checks API.'
+title: Checks API で CI テストを作成する
+intro: '{% data variables.product.prodname_github_app %} と Checks API を使用して、テストを実行するための継続的インテグレーションサーバーを構築します。'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### はじめに
 
-This guide will introduce you to [Github Apps](/apps/) and the [Checks API](/v3/checks/), which you'll use to build a continuous integration (CI) server that runs tests.
+このガイドでは、[Github App](/apps/) と [Checks API](/v3/checks/) について紹介します。Checks API は、テストを実行する継続的インテグレーション (CI) サーバーを構築するために使用します。
 
-CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 開発者がコードの記述にばかり時間をとられ、エラーのデバッグやマージコンフリクトの解決にかける時間が少ないときに威力を発揮します。 🙌
+CI とは、ソフトウェアの開発においてコードを頻繁に共有リポジトリにコミットする手法のことです。 コードをコミットする頻度が高いほどエラーの発生が早くなり、開発者がエラーの原因を見つけようとしてデバッグする必要性も減ります。 コードの更新が頻繁であれば、ソフトウェア開発チームの他のメンバーによる変更をマージするのも、それだけ容易になります。 開発者がコードの記述にばかり時間をとられ、エラーのデバッグやマージコンフリクトの解決にかける時間が少ないときに威力を発揮します。 🙌
 
-A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a GitHub App, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in GitHub Marketplace.
+CI サーバーは、コードの文法チェッカー (スタイルフォーマットをチェックする)、セキュリティチェック、コード網羅率、その他のチェックといった CI テストをリポジトリの新しいコードコミットに対して実行するコードをホストします。 CI サーバーは、ステージングサーバーや本番サーバーにコードを構築しデプロイすることも可能です。 GitHub App で作成できる CI テストのタイプの例については、GitHub Marketplace で入手できる[継続的インテグレーションアプリケーション](https://github.com/marketplace/category/continuous-integration)を確認してください。
 
 {% data reusables.apps.app-ruby-guides %}
 
-#### Checks API overview
+#### Checks API の概要
 
-The [Checks API](/v3/checks/) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
+[Checks API](/v3/checks/) を使用すると、リポジトリでコミットされている各コードに対して自動的に実行される CI テストを設定できます。 The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. Checks API を使用すると、コードの特定の行に対して追加的な情報を含むアノテーションを作成できます。 アノテーションは **Checks** タブに表示されます。 プルリクエストの一部であるファイルに対してアノテーションを作成すると、そのアノテーションは**Files changed** タブにも表示されます。
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/v3/repos/branches/) can prevent people from merging pull requests prematurely. See "[Enabling required status checks](/articles/enabling-required-status-checks/)" for more details.
+_チェックスイート_とは、 _チェック実行_ (個々の CI テスト) をグループ化したものです。 チェックスイートにもチェック実行にも_ステータス_が含まれており、GitHub のプルリクエストで表示できます。 You can use statuses to determine when a code commit introduces errors. これらのステータスを[保護されたブランチ](/v3/repos/branches/)で使用すると、プルリクエストを早まってマージすることを防げます。 詳細は「[ステータスチェック必須の有効化](/articles/enabling-required-status-checks/)」を参照してください。
 
-The Checks API sends the [`check_suite` webhook event](/webhooks/event-payloads/#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/v3/checks/suites/#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
+Checks API は、新しいコードがリポジトリにプッシュされるたびに、リポジトリにインストールされている全ての GitHub App に [`check_suite` webhook イベント](/webhooks/event-payloads/#check_suite)を送信します。 Checks API イベントの全てのアクションを受信するには、アプリケーションに `checks:write` 権限が必要です。 GitHub はデフォルトのフローを使ってリポジトリの新しいコードのコミットに `check_suite` イベントを自動的に作成しますが、[チェックスイートのためのリポジトリプリファレンスの更新](/v3/checks/suites/#update-repository-preferences-for-check-suites)を行っても構いません。 デフォルトのフローは以下の通りです。
 
-1. Whenever someone pushes code to the repository, GitHub sends the `check_suite` event with an action of `requested` to all GitHub Apps installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed and that GitHub has automatically created a new check suite.
-1. When your app receives this event, it can [add check runs](/v3/checks/runs/#create-a-check-run) to that suite.
-1. Your check runs can include [annotations](/v3/checks/runs/#annotations-object) that are displayed on specific lines of code.
+1. 誰かがリポジトリにコードをプッシュすると、GitHubは、`checks:write` 権限を持つ、リポジトリにインストールされている全ての GitHub Apps に `requested` のアクションと共に `check_suite` イベントを送信します。 このイベントにより、コードがプッシュされたことと、GitHub が新しいチェックスイートを自動的に作成したことがアプリケーションに通知されます。
+1. アプリケーションがこのイベントを受信すると、アプリケーションはスイートに[チェック実行を追加](/v3/checks/runs/#create-a-check-run)できます。
+1. チェック実行には、コードの特定の行で表示される[アノテーション](/v3/checks/runs/#annotations-object)を含めることができます。
 
 **In this guide, you’ll learn how to:**
 
-* Part 1: Set up the framework for a CI server using the Checks API.
-  * Configure a GitHub App as a server that receives Checks API events.
+* パート 1: Checks API を使用して CI サーバー用のフレームワークをセットアップする。
+  * Checks API イベントを受信するサーバーとして GitHub App を構成します。
   * Create new check runs for CI tests when a repository receives newly pushed commits.
   * Re-run check runs when a user requests that action on GitHub.
 * Part 2: Build on the CI server framework you created by adding a linter CI test.
@@ -67,7 +68,7 @@ You don't need to be an expert in any of these tools or concepts to complete thi
 
   See the [troubleshooting](/apps/quickstart-guides/setting-up-your-development-environment/#troubleshooting) section if you are running into problems setting up your template GitHub App.
 
-### Part 1. Creating the Checks API interface
+### パート1. Checks API インターフェースを作成する
 
 In this part, you will add the code necessary to receive `check_suite` webhook events and create and update check runs. You'll also learn how to create check runs when a check was re-requested on GitHub. At the end of this section, you'll be able to view the check run you created in a GitHub pull request.
 
@@ -133,7 +134,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Create a new check run with the status queued
 def create_check_run
@@ -229,7 +230,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Start the CI process
 def initiate_check_run
@@ -320,7 +321,7 @@ Head over to your open pull request and click the **Checks** tab. Click the "Re-
 
 ![Completed check run](/assets/images/github-apps/github_apps_complete_check_run.png)
 
-### Part 2. Creating the Octo RuboCop CI test
+### パート2. Octo RuboCop CI テストを作成する
 
 [RuboCop](https://rubocop.readthedocs.io/en/latest/) is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the "[Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide)." RuboCop has three primary functions:
 
@@ -348,7 +349,7 @@ Let's get started! These are the steps you'll complete in this section:
 1. [Automatically fixing RuboCop errors](#step-26-automatically-fixing-rubocop-errors)
 1. [Security tips](#step-27-security-tips)
 
-### Step 2.1. Adding a Ruby file
+### ステップ 2.1. Adding a Ruby file
 
 You can pass specific files or entire directories for RuboCop to check. In this quickstart, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
 
@@ -518,7 +519,7 @@ You should see the linting errors in the debug output, although they aren't prin
 }
 ```
 
-### Step 2.4. Collecting RuboCop errors
+### ステップ 2.4. Collecting RuboCop errors
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
@@ -593,7 +594,7 @@ This code also iterates through each error in the `offenses` array and collects 
 
 This code doesn't yet create an annotation for the check run. You'll add that code in the next section.
 
-### Step 2.5. Updating the check run with CI test results
+### ステップ 2.5. Updating the check run with CI test results
 
 Each check run from GitHub contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this quickstart adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
 
@@ -607,7 +608,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete!
 updated_check_run = @installation_client.patch(
@@ -639,7 +640,7 @@ updated_check_run = @installation_client.patch(
 
 You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ``` ruby
 # Mark the check run as complete! And if there are warnings, share them.
 updated_check_run = @installation_client.patch(
@@ -713,7 +714,7 @@ If the annotations are related to a file already included in the PR, the annotat
 
 ![Check run annotations in the files changed tab](/assets/images/github-apps/github_apps_checks_annotation_diff.png)
 
-### Step 2.6. Automatically fixing RuboCop errors
+### ステップ 2.6. Automatically fixing RuboCop errors
 
 If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
 
@@ -813,7 +814,7 @@ Because a new commit was pushed to the repo, you'll see a new check suite for Oc
 
 You can find the completed code for the app you just built in the `server.rb` file in the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
 
-### Step 2.7. Security tips
+### ステップ 2.7. Security tips
 
 The template GitHub App code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this quickstart includes both the method of validating incoming webhook payloads and this check to verify the repository name.
 

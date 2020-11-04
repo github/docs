@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -251,7 +252,7 @@ You'll learn about authenticating as an installation in the [next section](#auth
 [Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app) lets you do a couple of things:
 
  * You can retrieve high-level management information about your GitHub App.
- * You can request access tokens for an installation of the app.
+ * アプリケーションのインストールのため、アクセストークンをリクエストできます。
 
 For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token.
 
@@ -285,7 +286,7 @@ end
 
 The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)."
 
-##### Authenticating as an installation
+##### インストールとして認証を行う
 
 _インストレーション_とは、アプリケーションをインストールしたユーザまたは Organization のアカウントを指します。 Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
 

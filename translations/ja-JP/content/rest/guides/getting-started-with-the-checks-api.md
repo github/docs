@@ -4,6 +4,7 @@ intro: 'Check Runs APIを使うと、リポジトリのコード変更に対し�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概要
@@ -36,7 +37,7 @@ GitHub Appは、単に合格/不合格の二択ではない、情報量の多い
 
 ![チェック実行のワークフロー](/assets/images/check_runs.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 If a check run is in a incomplete state for more than 14 days, then the check run's `conclusion` becomes `stale` and appears on
 {% data variables.product.prodname_dotcom %} as stale with {% octicon "issue-reopened" aria-label="The issue-reopened icon" %}. {% data variables.product.prodname_dotcom %}のみが、チェック実行を`stale`としてマークできます。 チェック実行で出る可能性がある結果についての詳細は、 [`conclusion`パラメータ](/rest/reference/checks#create-a-check-run--parameters)を参照してください。
 {% endif %}

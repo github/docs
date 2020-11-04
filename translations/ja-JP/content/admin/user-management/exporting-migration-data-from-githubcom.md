@@ -1,6 +1,6 @@
 ---
 title: GitHub.comからの移行データのエクスポート
-intro: 'You can export migration data from an organization on {% data variables.product.prodname_dotcom_the_website %} by using the API to select repositories to migrate, then generating a migration archive that you can import into a {% data variables.product.prodname_ghe_server %} instance.'
+intro: 'API を使用して移行するリポジトリを選択し、{% data variables.product.prodname_ghe_server %} インスタンスにインポートできる移行アーカイブを生成することで、{% data variables.product.prodname_dotcom_the_website %} 上の Organization から移行データをエクスポートできます。'
 redirect_from:
   - /enterprise/admin/guides/migrations/exporting-migration-data-from-github-com
   - /enterprise/admin/migrations/exporting-migration-data-from-githubcom
@@ -13,7 +13,7 @@ versions:
   enterprise-server: '*'
 ---
 
-### Preparing the source organization on {% data variables.product.prodname_dotcom %}
+### {% data variables.product.prodname_dotcom %} でソース Organization を準備する
 
 1. ソースOrganizationのリポジトリに[オーナー権限](/articles/permission-levels-for-an-organization/)を持っていることを確認してください。
 

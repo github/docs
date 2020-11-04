@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 The {% data variables.product.product_name %} API provides a vast wealth of information for developers to consume.
 Most of the time, you might even find that you're asking for _too much_ information,
@@ -44,8 +45,8 @@ The `-I` parameter indicates that we only care about the headers, not the actual
 content. In examining the result, you'll notice some information in the Link header
 that looks like this:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 Let's break that down. `rel="next"` says that the next page is `page=2`. This makes
 sense, since by default, all paginated queries start at page `1.` `rel="last"`
@@ -68,10 +69,10 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Here's the link header once more:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 As expected, `rel="next"` is at 15, and `rel="last"` is still 34. But now we've
 got some more information: `rel="first"` indicates the URL for the _first_ page,
@@ -90,8 +91,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 Notice what it does to the header response:
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 As you might have guessed, the `rel="last"` information says that the last page
 is now 20. This is because we are asking for more information per page about

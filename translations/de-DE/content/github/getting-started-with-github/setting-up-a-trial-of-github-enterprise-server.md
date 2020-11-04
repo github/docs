@@ -36,7 +36,7 @@ Um Deine Testversion optimal zu nutzen, folge diesen Schritten:
    - Webcast „[Kurzanleitung zu {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)“
    - „[Verstehen des {% data variables.product.prodname_dotcom %}-Ablaufs](https://guides.github.com/introduction/flow/)“ unter „{% data variables.product.prodname_dotcom %}-Anleitungen“
    - „[Hello World](https://guides.github.com/activities/hello-world/)“ unter „{% data variables.product.prodname_dotcom %}-Anleitungen“
-3. Konfiguriere Deine Instanz entsprechend den Anforderungen Deiner Organisation. Details findest Du unter „[{% data variables.product.prodname_ghe_server %}-Appliance konfigurieren](/enterprise/admin/installation/configuring-the-github-enterprise-server-appliance).“
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 4. Integrieren Sie {% data variables.product.prodname_ghe_server %} mit Ihrem Identity Provider. Details finden Sie unter „[SAML verwenden](/enterprise/admin/user-management/using-saml)“ und „[LDAP verwenden](/enterprise/admin/authentication/using-ldap)“.
 5. Lade beliebig viele Personen zum Test ein.
    - Füge die Benutzer zu Deiner {% data variables.product.prodname_ghe_server %}-Instanz hinzu, entweder mit der integrierten Authentifizierung oder Deinem konfigurierten Identitätsanbieter. Weitere Informationen findest Du unter „[Integrierte Authentifizierung verwenden](/enterprise/admin/user-management/using-built-in-authentication).“
