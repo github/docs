@@ -314,7 +314,9 @@ on:
     types: [created, deleted]
 ```
 
-The `issue_comment` event occurs for both, comments on issues as well as pull requests. To run jobs only in one of the cases, you can check the event payload for the `issue.pull_request` attribute and use it as condition to skip jobs.
+The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
+
+For example, you can choose to run the `pr_commented` job when comments are added to a pull request or the `issue_commented` job when comments are added to an issue. 
 
 ```yaml
 on: issue_comment
