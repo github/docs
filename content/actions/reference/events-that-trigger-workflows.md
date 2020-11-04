@@ -324,19 +324,21 @@ on: issue_comment
 jobs:
   pr_commented:
     # This job only runs for pull request comments
-    name: New PR comment
+    name: PR comment
     if: ${{ github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "New PR comment"
+      - run: |
+          echo "Comment on PR #${{ github.event.issue.number }}"
 
   issue-commented:
     # This job only runs for issue comments
-    name: New issue comment
+    name: Issue comment
     if: ${{ !github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
-      -  run: echo "New issue comment"
+      -  run: |
+           echo "Comment on issue #${{ github.event.issue.number }}"
 ```
 
 #### `issues`
