@@ -37,7 +37,7 @@ describe('algolia browser search', () => {
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('sends the correct data to algolia', async () => {
+  it('sends the correct data to algolia for Enterprise Server', async () => {
     const newPage = await browser.newPage()
     await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
 
@@ -49,6 +49,29 @@ describe('algolia browser search', () => {
         const parsedParams = querystring.parse(params)
         const analyticsTags = JSON.parse(parsedParams.analyticsTags)
         expect(indexName).toBe('github-docs-2.22-ja')
+        expect(analyticsTags).toHaveLength(2)
+        // browser tests are run against production build, so we are expecting env:production
+        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+      }
+      interceptedRequest.continue()
+    })
+
+    await newPage.click('#search-input-container input[type="search"]')
+    await newPage.type('#search-input-container input[type="search"]', 'test')
+  })
+
+  it('sends the correct data to algolia for GHAE', async () => {
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+
+    await newPage.setRequestInterception(true)
+    newPage.on('request', interceptedRequest => {
+      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
+        const data = JSON.parse(interceptedRequest.postData())
+        const { indexName, params } = data.requests[0]
+        const parsedParams = querystring.parse(params)
+        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
+        expect(indexName).toBe('github-docs-ghae-en')
         expect(analyticsTags).toHaveLength(2)
         // browser tests are run against production build, so we are expecting env:production
         expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))

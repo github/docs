@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.deleted_forks_from_private_repositories_warning %}
@@ -29,7 +30,7 @@ versions:
 
 言い換えれば、パブリックリポジトリのフォークは、親リポジトリが非公開にされた後も、独自の別のリポジトリネットワークで公開されたままになります。 これにより、フォークオーナーは作業を中断せずに作業を継続できます。 このようにパブリックフォークが別のネットワークに移動されなかった場合、それらのフォークのオーナーは適切な[アクセス許可](/articles/access-permissions-on-github)を取得してプルする必要があります。 以前はこれらのアクセス権が必要ではなかったとしても、(現在はプライベートになっている) 親リポジトリからの変更を取得して送信します。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 パブリックリポジトリで匿名の Git 読み取りアクセスが有効になっていて、そのリポジトリが非公開になっている場合、リポジトリのすべてのフォークは匿名の Git 読み取りアクセスを失い、デフォルトの無効設定に戻ります。 分岐したリポジトリが公開された場合、リポジトリ管理者は匿名の Git 読み取りアクセスを再度有効にすることができます。 詳細は「[リポジトリに対する匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。
 {% endif %}
 

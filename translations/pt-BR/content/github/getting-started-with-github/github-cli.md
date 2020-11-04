@@ -4,6 +4,7 @@ intro: 'O {% data variables.product.prodname_cli %} é uma ferramenta de linha d
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
 ### Sobre o {% data variables.product.prodname_cli %}

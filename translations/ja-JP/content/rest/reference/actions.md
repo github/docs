@@ -26,7 +26,7 @@ versions:
 
 ## 権限
 
-The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run. For more information, see "[Usage limits, billing, and administration](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)."
+The Permissions API allows you to set permissions for what organizations and repositories are allowed to run {% data variables.product.prodname_actions %}, and what actions are allowed to run. 詳しい情報については、「[使用制限、支払い、および管理](/actions/reference/usage-limits-billing-and-administration#disabling-or-limiting-github-actions-for-your-repository-or-organization)」を参照してください。
 
 You can also set permissions for an enterprise. 詳しい情報については、「[{% data variables.product.prodname_dotcom %} Enterprise 管理](/rest/reference/enterprise-admin#github-actions)」REST API を参照してください。
 

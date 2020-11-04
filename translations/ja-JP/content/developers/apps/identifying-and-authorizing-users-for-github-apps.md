@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -21,34 +22,34 @@ When your GitHub App acts on behalf of a user, it performs user-to-server reques
 
 To authorize users for standard apps that run in the browser, use the [web application flow](#web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 To authorize users for headless apps without direct access to the browser, such as CLI tools or Git credential managers, use the [device flow](#device-flow). The device flow uses the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628).
 {% endif %}
 
-### Web application flow
+### Web アプリケーションフロー
 
 Using the web application flow, the process to identify users on your site is:
 
-1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
+1. ユーザはGitHubのアイデンティティをリクエストするためにリダイレクトされます
+2. ユーザはGitHubによってサイトにリダイレクトして戻されます
 3. Your GitHub App accesses the API with the user's access token
 
 If you select **Request user authorization (OAuth) during installation** when creating or modifying your app, step 1 will be completed during app installation. For more information, see "[Authorizing users during installation](/apps/installing-github-apps/#authorizing-users-during-installation)."
 
-#### 1. Request a user's GitHub identity
+#### 1. ユーザのGitHubアイデンティティのリクエスト
 
     GET {% data variables.product.oauth_host_code %}/login/oauth/authorize
 
-When your GitHub App specifies a `login` parameter, it prompts users with a specific account they can use for signing in and authorizing your app.
+GitHub Appが`login`パラメータを指定すると、ユーザに対して利用できる特定のアカウントでサインインしてアプリケーションを認可するよう求めます。
 
-##### Parameters
+##### パラメータ
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.
-`redirect_uri` | `string` | The URL in your application where users will be sent after authorization.  This must be an exact match to the URL you provided in the **User authorization callback URL** field when setting up your GitHub App and can't contain any additional parameters.
-`state` | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
+| 名前             | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                        |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`    | `string` | **Required.** The client ID for your GitHub App. You can find this in your [GitHub App settings](https://github.com/settings/apps) when you select your app.                                                                                                                                                                                                                              |
+| `redirect_uri` | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
+| `state`        | `string` | This should contain a random string to protect against forgery attacks and could contain any other arbitrary data.                                                                                                                                                                                                                                                                        |
+| `login`        | `string` | サインインとアプリケーションの認可に使われるアカウントを指示します。                                                                                                                                                                                                                                                                                                                                                        |
 
 {% note %}
 
@@ -56,7 +57,7 @@ Name | Type | Description
 
 {% endnote %}
 
-#### 2. Users are redirected back to your site by GitHub
+#### 2. ユーザはGitHubによってサイトにリダイレクトして戻されます
 
 If the user accepts your request, GitHub redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. If the states don't match, the request was created by a third party and the process should be aborted.
 
@@ -66,25 +67,25 @@ If the user accepts your request, GitHub redirects back to your site with a temp
 
 {% endnote %}
 
-Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
+Exchange this `code` for an access token. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} When expiring tokens are enabled, the access token expires in 8 hours and the refresh token expires in 6 months. Every time you refresh the token, you get a new refresh token. For more information, see "[Refreshing user-to-server access tokens](/apps/building-github-apps/refreshing-user-to-server-access-tokens/)."
 
 Expiring user tokens are currently part of the user-to-server token expiration beta and subject to change. To opt-in to the user-to-server token expiration beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-##### Parameters
+##### パラメータ
 
-Name | Type | Description
------|------|------------
-`client_id` | `string` | **Required.** The  client ID for your GitHub App.
-`client_secret` | `string`   | **Required.** The  client secret for your GitHub App.
-`code` | `string`   | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
-`state` | `string` | The unguessable random string you provided in Step 1.
+| 名前              | 種類       | 説明                                                                                                                                                                                                                                                                                                                                                                                        |
+| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `client_id`     | `string` | **Required.** The  client ID for your GitHub App.                                                                                                                                                                                                                                                                                                                                         |
+| `client_secret` | `string` | **Required.** The  client secret for your GitHub App.                                                                                                                                                                                                                                                                                                                                     |
+| `コード`           | `string` | **必須。** ステップ1でレスポンスとして受け取ったコード。                                                                                                                                                                                                                                                                                                                                                           |
+| `redirect_uri`  | `string` | 認可の後にユーザが送られるアプリケーション中のURL。 This must be an exact match to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %} one of the URLs you provided as a **Callback URL** {% else %} the URL you provided in the **User authorization callback URL** field{% endif %} when setting up your GitHub App and can't contain any additional parameters. |
+| `state`         | `string` | ステップ1で提供した推測できないランダムな文字列。                                                                                                                                                                                                                                                                                                                                                                 |
 
-##### Response
+##### レスポンス
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 By default, the response takes the following form. The response parameters `expires_in`, `refresh_token`,  and `refresh_token_expires_in` are only returned when you enable the beta for expiring user-to-server access tokens.
 
@@ -100,7 +101,7 @@ By default, the response takes the following form. The response parameters `expi
 ```
 {% else %}
 
-By default, the response takes the following form:
+デフォルトでは、レスポンスは以下の形式になります。
 
     access_token=e72e16c7e42f292c6912e7710c838347ae178b4a&token_type=bearer
 
@@ -113,22 +114,22 @@ The user's access token allows the GitHub App to make requests to the API on beh
     Authorization: token OAUTH-TOKEN
     GET {% data variables.product.api_url_code %}/user
 
-For example, in curl you can set the Authorization header like this:
+たとえば、curlでは以下のようにAuthorizationヘッダを設定できます。
 
 ```shell
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-### Device flow
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
+### デバイスフロー
 
 {% note %}
 
-**Note:** The device flow is in public beta and subject to change.{% if currentVersion == "free-pro-team@latest" %} To enable this beta feature, see "[Activating beta features for apps](/developers/apps/activating-beta-features-for-apps)."{% endif %}
+**ノート:** デバイスフローはパブリックベータであり、変更されることがあります。{% if currentVersion == "free-pro-team@latest" %} このベータの機能を有効化するには、「[アプリケーションのベータ機能のアクティベート](/developers/apps/activating-beta-features-for-apps)」を参照してください。{% endif %}
 
 {% endnote %}
 
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
+デバイスフローを使えば、CLIツールやGit認証情報マネージャーなどのヘッドレスアプリケーションのユーザを認可できます。
 
 For more information about authorizing users using the device flow, see "[Authorizing OAuth Apps](/developers/apps/authorizing-oauth-apps#device-flow)".
 
@@ -136,7 +137,7 @@ For more information about authorizing users using the device flow, see "[Author
 
 ### Check which installation's resources a user can access
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.machine-man-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -208,7 +209,7 @@ While most of your API interaction should occur using your server-to-server inst
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Artifacts
+##### 成果物
 
 * [List artifacts for a repository](/v3/actions/artifacts/#list-artifacts-for-a-repository)
 * [List workflow run artifacts](/v3/actions/artifacts/#list-workflow-run-artifacts)
@@ -217,7 +218,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Download an artifact](/v3/actions/artifacts/#download-an-artifact)
 {% endif %}
 
-##### Check Runs
+##### チェックラン
 
 * [Create a check run](/v3/checks/runs/#create-a-check-run)
 * [Get a check run](/v3/checks/runs/#get-a-check-run)
@@ -226,7 +227,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List check runs in a check suite](/v3/checks/runs/#list-check-runs-in-a-check-suite)
 * [List check runs for a Git reference](/v3/checks/runs/#list-check-runs-for-a-git-reference)
 
-##### Check Suites
+##### チェックスイート
 
 * [Create a check suite](/v3/checks/suites/#create-a-check-suite)
 * [Get a check suite](/v3/checks/suites/#get-a-check-suite)
@@ -245,19 +246,19 @@ While most of your API interaction should occur using your server-to-server inst
 * [Create a deployment status](/rest/reference/repos#create-a-deployment-status)
 * [Get a deployment status](/rest/reference/repos#get-a-deployment-status)
 
-##### Deployments
+##### デプロイメント
 
 * [List deployments](/rest/reference/repos#list-deployments)
 * [Create a deployment](/rest/reference/repos#create-a-deployment)
-* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Get a deployment](/rest/reference/repos#get-a-deployment){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a deployment](/rest/reference/repos#delete-a-deployment){% endif %}
 
-##### Events
+##### イベント
 
 * [List public events for a network of repositories](/rest/reference/activity#list-public-events-for-a-network-of-repositories)
 * [List public organization events](/rest/reference/activity#list-public-organization-events)
 
-##### Feeds
+##### フィード
 
 * [Get feeds](/rest/reference/activity#get-feeds)
 
@@ -330,13 +331,13 @@ While most of your API interaction should occur using your server-to-server inst
 
 * [List timeline events for an issue](/v3/issues/timeline/#list-timeline-events-for-an-issue)
 
-##### Issues
+##### 問題
 
 * [List issues assigned to the authenticated user](/v3/issues/#list-issues-assigned-to-the-authenticated-user)
 * [List assignees](/v3/issues/assignees/#list-assignees)
 * [Check if a user can be assigned](/v3/issues/assignees/#check-if-a-user-can-be-assigned)
 * [List repository issues](/v3/issues/#list-repository-issues)
-* [Create an issue](/v3/issues/#create-an-issue)
+* [Issue を作成します](/v3/issues/#create-an-issue)
 * [Get an issue](/v3/issues/#get-an-issue)
 * [Update an issue](/v3/issues/#update-an-issue)
 * [Lock an issue](/v3/issues/#lock-an-issue)
@@ -350,7 +351,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List jobs for a workflow run](/v3/actions/workflow-jobs/#list-jobs-for-a-workflow-run)
 {% endif %}
 
-##### Labels
+##### ラベル
 
 * [List labels for an issue](/v3/issues/labels/#list-labels-for-an-issue)
 * [Add labels to an issue](/v3/issues/labels/#add-labels-to-an-issue)
@@ -364,7 +365,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a label](/v3/issues/labels/#delete-a-label)
 * [Get labels for every issue in a milestone](/v3/issues/labels/#list-labels-for-issues-in-a-milestone)
 
-##### Licenses
+##### ライセンス
 
 * [Get all commonly used licenses](/v3/licenses/#get-all-commonly-used-licenses)
 * [Get a license](/v3/licenses/#get-a-license)
@@ -374,11 +375,11 @@ While most of your API interaction should occur using your server-to-server inst
 * [Render a Markdown document](/v3/markdown/#render-a-markdown-document)
 * [Render a markdown document in raw mode](/v3/markdown/#render-a-markdown-document-in-raw-mode)
 
-##### Meta
+##### メタ情報
 
-* [Meta](/v3/meta/#meta)
+* [メタ情報](/v3/meta/#meta)
 
-##### Milestones
+##### マイルストーン
 
 * [List milestones](/v3/issues/milestones/#list-milestones)
 * [Create a milestone](/v3/issues/milestones/#create-a-milestone)
@@ -422,7 +423,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Convert an organization member to outside collaborator](/v3/orgs/outside_collaborators/#convert-an-organization-member-to-outside-collaborator)
 * [Remove outside collaborator from an organization](/v3/orgs/outside_collaborators/#remove-outside-collaborator-from-an-organization)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Organization Pre Receive Hooks
 
 * [List pre-receive hooks for an organization](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-an-organization)
@@ -431,7 +432,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove pre-receive hook enforcement for an organization](/enterprise/user/rest/reference/enterprise-admin#remove-pre-receive-hook-enforcement-for-an-organization)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Organization Team Projects
 
 * [List team projects](/v3/teams/#list-team-projects)
@@ -442,7 +443,7 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Organization Team Repositories
 
-* [List team repositories](/v3/teams/#list-team-repositories)
+* [Team リポジトリの一覧表示](/v3/teams/#list-team-repositories)
 * [Check team permissions for a repository](/v3/teams/#check-team-permissions-for-a-repository)
 * [Add or update team repository permissions](/v3/teams/#add-or-update-team-repository-permissions)
 * [Remove a repository from a team](/v3/teams/#remove-a-repository-from-a-team)
@@ -460,7 +461,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List teams](/v3/teams/#list-teams)
 * [Create a team](/v3/teams/#create-a-team)
 * [Get a team by name](/v3/teams/#get-a-team-by-name)
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 * [Get a team](/v3/teams/#get-a-team)
 {% endif %}
 * [Update a team](/v3/teams/#update-a-team)
@@ -475,7 +476,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List child teams](/v3/teams/#list-child-teams)
 * [List teams for the authenticated user](/v3/teams/#list-teams-for-the-authenticated-user)
 
-##### Organizations
+##### Organization
 
 * [List organizations](/v3/orgs/#list-organizations)
 * [Get an organization](/v3/orgs/#get-an-organization)
@@ -524,7 +525,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Remove project collaborator](/v3/projects/collaborators/#remove-project-collaborator)
 * [Get project permission for a user](/v3/projects/collaborators/#get-project-permission-for-a-user)
 
-##### Projects
+##### プロジェクト
 
 * [List organization projects](/v3/projects/#list-organization-projects)
 * [Create an organization project](/v3/projects/#create-an-organization-project)
@@ -585,9 +586,9 @@ While most of your API interaction should occur using your server-to-server inst
 * [Check if a pull request has been merged](/v3/pulls/#check-if-a-pull-request-has-been-merged)
 * [Merge a pull request (Merge Button)](/v3/pulls/#merge-a-pull-request)
 
-##### Reactions
+##### リアクション
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}* [Delete a reaction](/v3/reactions/#delete-a-reaction-legacy){% else %}* [Delete a reaction](/v3/reactions/#delete-a-reaction){% endif %}
 * [List reactions for a commit comment](/v3/reactions/#list-reactions-for-a-commit-comment)
 * [Create reaction for a commit comment](/v3/reactions/#create-reaction-for-a-commit-comment)
 * [List reactions for an issue](/v3/reactions/#list-reactions-for-an-issue)
@@ -599,7 +600,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [List reactions for a team discussion comment](/v3/reactions/#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/v3/reactions/#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/v3/reactions/#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/v3/reactions/#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+* [Create reaction for a team discussion](/v3/reactions/#create-reaction-for-a-team-discussion){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 * [Delete a commit comment reaction](/v3/reactions/#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/v3/reactions/#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/v3/reactions/#delete-an-issue-comment-reaction)
@@ -607,16 +608,16 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete team discussion reaction](/v3/reactions/#delete-team-discussion-reaction)
 * [Delete team discussion comment reaction](/v3/reactions/#delete-team-discussion-comment-reaction){% endif %}
 
-##### Repositories
+##### リポジトリ
 
-* [List organization repositories](/v3/repos/#list-organization-repositories)
+* [Organization リポジトリの一覧表示](/v3/repos/#list-organization-repositories)
 * [Create a repository for the authenticated user](/v3/repos/#create-a-repository-for-the-authenticated-user)
-* [Get a repository](/v3/repos/#get-a-repository)
+* [リポジトリの Get](/v3/repos/#get-a-repository)
 * [Update a repository](/v3/repos/#update-a-repository)
 * [Delete a repository](/v3/repos/#delete-a-repository)
 * [Compare two commits](/v3/repos/commits/#compare-two-commits)
 * [List repository contributors](/v3/repos/#list-repository-contributors)
-* [List forks](/rest/reference/repos#list-forks)
+* [一覧表示のフォーク](/rest/reference/repos#list-forks)
 * [Create a fork](/v3/repos/forks/#create-a-fork)
 * [List repository languages](/v3/repos/#list-repository-languages)
 * [List repository tags](/v3/repos/#list-repository-tags)
@@ -624,7 +625,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Transfer a repository](/v3/repos/#transfer-a-repository)
 * [List public repositories](/v3/repos/#list-public-repositories)
 * [List repositories for the authenticated user](/v3/repos/#list-repositories-for-the-authenticated-user)
-* [List repositories for a user](/v3/repos/#list-repositories-for-a-user)
+* [ユーザのリポジトリの一覧表示](/v3/repos/#list-repositories-for-a-user)
 * [Create repository using a repository template](/v3/repos/#create-repository-using-a-repository-template)
 
 ##### Repository Activity
@@ -635,7 +636,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Check if a repository is starred by the authenticated user](/rest/reference/activity#check-if-a-repository-is-starred-by-the-authenticated-user)
 * [Star a repository for the authenticated user](/rest/reference/activity#star-a-repository-for-the-authenticated-user)
 * [Unstar a repository for the authenticated user](/rest/reference/activity#unstar-a-repository-for-the-authenticated-user)
-* [List repositories watched by a user](/rest/reference/activity#list-repositories-watched-by-a-user)
+* [ユーザが Watch しているリポジトリの一覧表示](/rest/reference/activity#list-repositories-watched-by-a-user)
 
 {% if currentVersion == "free-pro-team@latest" %}
 ##### Repository Automated Security Fixes
@@ -719,7 +720,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get a repository README](/v3/repos/contents/#get-a-repository-readme)
 * [Get the license for a repository](/v3/licenses/#get-the-license-for-a-repository)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ##### Repository Event Dispatches
 
 * [Create a repository dispatch event](/v3/repos/#create-a-repository-dispatch-event)
@@ -762,7 +763,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get GitHub Pages build](/rest/reference/repos#get-github-pages-build)
 * [Get latest pages build](/rest/reference/repos#get-latest-pages-build)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 ##### Repository Pre Receive Hooks
 
 * [List pre-receive hooks for a repository](/enterprise/user/rest/reference/enterprise-admin#list-pre-receive-hooks-for-a-repository)
@@ -773,10 +774,10 @@ While most of your API interaction should occur using your server-to-server inst
 
 ##### Repository Releases
 
-* [List releases](/rest/reference/repos/#list-releases)
+* [リリースの一覧表示](/rest/reference/repos/#list-releases)
 * [Create a release](/rest/reference/repos/#create-a-release)
 * [Get a release](/rest/reference/repos/#get-a-release)
-* [Update a release](/rest/reference/repos/#update-a-release)
+* [リリースの更新](/rest/reference/repos/#update-a-release)
 * [Delete a release](/rest/reference/repos/#delete-a-release)
 * [List release assets](/rest/reference/repos/#list-release-assets)
 * [Get a release asset](/rest/reference/repos/#get-a-release-asset)
@@ -794,28 +795,28 @@ While most of your API interaction should occur using your server-to-server inst
 * [Get the hourly commit count for each day](/v3/repos/statistics/#get-the-hourly-commit-count-for-each-day)
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Repository Vulnerability Alerts
+##### リポジトリ脆弱性アラート
 
 * [Enable vulnerability alerts](/v3/repos/#enable-vulnerability-alerts)
 * [Disable vulnerability alerts](/v3/repos/#disable-vulnerability-alerts)
 {% endif %}
 
-##### Root
+##### ルート
 
-* [Root endpoint](/v3/#root-endpoint)
-* [Emojis](/v3/emojis/#emojis)
+* [ルートエンドポイント](/v3/#root-endpoint)
+* [絵文字](/v3/emojis/#emojis)
 * [Get rate limit status for the authenticated user](/v3/rate_limit/#get-rate-limit-status-for-the-authenticated-user)
 
-##### Search
+##### 検索
 
 * [Search code](/v3/search/#search-code)
 * [Search commits](/v3/search/#search-commits)
 * [Search labels](/v3/search/#search-labels)
-* [Search repositories](/v3/search/#search-repositories)
+* [リポジトリを検索](/v3/search/#search-repositories)
 * [Search topics](/v3/search/#search-topics)
 * [Search users](/v3/search/#search-users)
 
-##### Statuses
+##### ステータス
 
 * [Get the combined status for a specific reference](/v3/repos/statuses/#get-the-combined-status-for-a-specific-reference)
 * [List commit statuses for a reference](/v3/repos/statuses/#list-commit-statuses-for-a-reference)
@@ -840,7 +841,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Replace all repository topics](/v3/repos/#replace-all-repository-topics)
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Traffic
+##### トラフィック
 
 * [Get repository clones](/v3/repos/traffic/#get-repository-clones)
 * [Get top referral paths](/v3/repos/traffic/#get-top-referral-paths)
@@ -861,6 +862,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Unblock a user](/v3/users/blocking/#unblock-a-user)
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ##### User Emails
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -870,6 +872,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Add email address(es)](/v3/users/emails/#add-an-email-address-for-the-authenticated-user)
 * [Delete email address(es)](/v3/users/emails/#delete-an-email-address-for-the-authenticated-user)
 * [List public email addresses for the authenticated user](/v3/users/emails/#list-public-email-addresses-for-the-authenticated-user)
+{% endif %}
 
 ##### User Followers
 
@@ -896,7 +899,7 @@ While most of your API interaction should occur using your server-to-server inst
 * [Delete a public SSH key for the authenticated user](/v3/users/keys/#delete-a-public-ssh-key-for-the-authenticated-user)
 * [List public keys for a user](/v3/users/keys/#list-public-keys-for-a-user)
 
-##### Users
+##### ユーザ
 
 * [Get the authenticated user](/v3/users/#get-the-authenticated-user)
 * [List app installations accessible to the user access token](/v3/apps/installations/#list-app-installations-accessible-to-the-user-access-token)
@@ -920,7 +923,7 @@ While most of your API interaction should occur using your server-to-server inst
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-##### Workflows
+##### ワークフロー
 
 * [List repository workflows](/v3/actions/workflows/#list-repository-workflows)
 * [Get a workflow](/v3/actions/workflows/#get-a-workflow)

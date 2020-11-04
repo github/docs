@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果在仓库中包含可检测的许可，仓库的访问者将会在仓库页面顶部看到它。 要阅读整个许可文件，请单击许可名称。
@@ -32,7 +33,7 @@ versions:
 {% endif %}
 
 <!--GHE version just adds a file named LICENSE or LICENSE.md-->
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}

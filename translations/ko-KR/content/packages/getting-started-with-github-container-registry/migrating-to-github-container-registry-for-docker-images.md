@@ -78,7 +78,7 @@ If you have a {% data variables.product.prodname_actions %} workflow that uses a
 
 2. In your {% data variables.product.prodname_actions %} workflow file, update the package url from `https://docker.pkg.github.com` to `ghcr.io`.
 
-3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub ACtions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
+3. Add your new {% data variables.product.prodname_container_registry %} authentication personal access token (PAT) as a GitHub Actions secret. {% data variables.product.prodname_github_container_registry %} does not support using `GITHUB_TOKEN` for your PAT so you must use a different custom variable, such as `CR_PAT`. For more information, see "[Creating and storing encrypted secrets](/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets)."
 
 4. In your {% data variables.product.prodname_actions %} workflow file, update the authentication PAT by replacing your Docker registry PAT ({% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}) with a new variable for your {% data variables.product.prodname_container_registry %} PAT, such as {% raw %}`${{ secrets.CR_PAT }}`{% endraw %}.
 

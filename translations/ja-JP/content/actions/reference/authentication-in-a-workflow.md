@@ -1,5 +1,5 @@
 ---
-title: Authentication in a workflow
+title: ワークフローで認証する
 intro: '{% data variables.product.prodname_dotcom %}は、{% data variables.product.prodname_actions %}の代理で認証を受けるために利用できるトークンを提供します。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Os arquivos que você adiciona a um repositório por meio do navegador são limitados a {% data variables.large_files.max_github_browser_size %} por arquivo. É possível adicionar arquivos maiores, de até {% data variables.large_files.max_github_size %} cada um, usando a linha de comando. Para obter mais informações, consulte "[Adicionar um arquivo a um repositório usando a linha de comando](/articles/adding-a-file-to-a-repository-using-the-command-line)".
@@ -19,7 +20,7 @@ Os arquivos que você adiciona a um repositório por meio do navegador são limi
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 2. Abaixo do nome do repositório, clique em **Upload files** (Fazer upload de arquivos). ![Butão Upload files (Fazer upload de arquivos)](/assets/images/help/repository/upload-files-button.png)
 {% else %}
 2. Acima da lista de arquivos, usando o menu suspenso **Adicionar arquivo** clique em **Fazer upload de arquivos**. !["Fazer upload de arquivos" no menu suspenso "Adicionar arquivo"](/assets/images/help/repository/upload-files-button.png)

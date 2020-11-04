@@ -60,12 +60,12 @@ Você pode fazer o download dos arquivos de registro da execução do seu fluxo 
 {% data reusables.repositories.view-run-superlinter %}
 {% data reusables.repositories.navigate-to-job-superlinter %}
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. No canto superior direito, clique em
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Fazer o download o arquivo de registro**.
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down-updated.png)
 {% else %}
-1. In the upper right corner, click
-{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} and select **Download log archive**.
+1. No canto superior direito, clique em
+{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} e selecione **Fazer o download o arquivo de registro**.
   ![Menu suspenso Download logs (Baixar logs)](/assets/images/help/repository/download-logs-drop-down.png)
 {% endif %}
 
@@ -82,5 +82,5 @@ Você pode excluir arquivos de registro da execução do seu fluxo de trabalho. 
 2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs-updated.png)Após excluir os registros, o botão **Excluir todos os registros** será removido para indicar que não restaram arquivos de registro na execução do fluxo de trabalho.
 {% else %}
 1. No canto superior direito, clique em {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. ![Ícone horizontal do kebab](/assets/images/help/repository/workflow-run-kebab-horizontal-icon.png)
-2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) After the logs have been deleted, the **Delete all logs** button is removed to indicate that no log files remain in the workflow run.
+2. Para excluir os arquivos de registro, clique no botão **Excluir todos os registros** e revise a instrução de confirmação. ![Delete all logs](/assets/images/help/repository/delete-all-logs.png) Depois que os registros forem excluídos, o botão **Excluir todos os registros** é removido para indicar que nenhum arquivo de registro permanece na execução do fluxo de trabalho.
 {% endif %}

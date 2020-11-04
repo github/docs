@@ -13,6 +13,7 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre o {% data variables.product.prodname_pages %}
@@ -26,7 +27,7 @@ no domínio `github.io` de {% data variables.product.prodname_dotcom %}de `githu
 
 Para começar, consulte "[Criar um site do {% data variables.product.prodname_pages %}](/articles/creating-a-github-pages-site)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 Os proprietários da organização podem desabilitar a publicação de
 sites de {% data variables.product.prodname_pages %} nos repositórios da organização. Para obter mais informações, consulte "[Desabilitar a publicação de sites de {% data variables.product.prodname_pages %} para sua organização](/github/setting-up-and-managing-organizations-and-teams/disabling-publication-of-github-pages-sites-for-your-organization)".
 {% endif %}
@@ -35,26 +36,26 @@ sites de {% data variables.product.prodname_pages %} nos repositórios da organi
 
 Há três tipos de site do {% data variables.product.prodname_pages %}: projeto, usuário e organização. Os sites de projeto são conectados a um projeto específico hospedado no {% data variables.product.product_name %}, como uma biblioteca do JavaScript ou um conjunto de receitas. Os sites de usuário e organização são conectados a uma conta específica do {% data variables.product.product_name %}.
 
-Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% if currentVersion == "free-pro-team@latest" %}`<user>. ithub.io`{% else %}`<user>.<hostname>`{% endif %}. Para publicar um site da organização, você deve criar um repositório pertencente a uma organização denominada {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}A menos que você esteja usando um domínio personalizado, os sites de usuário e organização estarão disponíveis em `http(s)://<username>.github.io` ou `http(s)://<organization>.github.io`.{% endif %}
+Para publicar um site de usuário, você deve criar um repositório pertencente à sua conta de usuário denominada {% if currentVersion == "free-pro-team@latest" %}`<user>. ithub.io`{% else %}`<user>.<hostname>`{% endif %}. Para publicar um site da organização, você deve criar um repositório pertencente a uma organização denominada {% if currentVersion == "free-pro-team@latest" %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% elsif currentVersion == "github-ae@latest" %}User and organization sites are available at `http(s)://pages.<hostname>/<username>` or `http(s)://pages.<hostname>/<organization>`.{% endif %}
 
-Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% if currentVersion == "free-pro-team@latest" %}A menos que você esteja usando um domínio personalizado, os sites de projeto estão disponíveis em `http(s)://<user>. .github.io<repository>` ou `http(s)://<organization>.github.io/<repository>`.{% endif %}
+Os arquivos de origem de um site de projeto são armazenados no mesmo repositório que o respectivo projeto. {% if currentVersion == "free-pro-team@latest" %}Unless you're using a custom domain, project sites are available at `http(s)://<user>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% elsif currentVersion == "github-ae@latest" %}Project sites are available at `http(s)://pages.<hostname>/<username>/<repository>/` or `http(s)://pages.<hostname>/<organization>/<repository>/`.{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 Para obter mais informações sobre como os domínios personalizados afetam o URL do seu site, consulte "[Sobre domínios personalizados e {% data variables.product.prodname_pages %}](/articles/about-custom-domains-and-github-pages)".
 {% endif %}
 
-Você pode criar apenas um site de usuário ou organização para cada conta do {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
+You can only create one user or organization site for each account on {% data variables.product.product_name %}. Os sites de projeto, sejam eles de uma conta de organização ou de usuário, são ilimitados.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 A URL em que o site está disponível depende da habilitação do isolamento de subdomínio para
 {% data variables.product.product_location %}.
 
 | Tipo de site | Isolamento de subdomínio habilitado | Isolamento de subdomínio desabilitado |
 | ------------ | ----------------------------------- | ------------------------------------- |
 |              |                                     |                                       |
- Usuário | 
+ User | 
 
-`http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` | Organização | `http(s)://pages.<hostname>/<organization>/<repository>/` | `http(s)://<hostname>/pages/<organization>/<repository>/` | Site de projeto pertencente a uma conta de usuário | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Site de projeto pertencente a uma conta de organização | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
+`http(s)://pages.<hostname>/<username>` | `http(s)://<hostname>/pages/<username>` | Organization | `http(s)://pages.<hostname>/<organization>` | `http(s)://<hostname>/pages/<organization>` | Project site owned by user account | `http(s)://pages.<hostname>/<username>/<repository>/` | `http(s)://<hostname>/pages/<username>/<repository>/` Project site owned by organization account | `http(s)://pages.<hostname>/<orgname>/<repository>/` | `http(s)://<hostname>/pages/<orgname>/<repository>/`
 
 Para obter mais informações, consulte "[Habilitar isolamento de subdomínio](/enterprise/{{ currentVersion }}/admin/installation/enabling-subdomain-isolation)" ou contate o administrador do site.
 {% endif %}
@@ -73,7 +74,7 @@ A fonte de publicação do seu site de {% data variables.product.prodname_pages 
 
 {% data reusables.pages.private_pages_are_public_warning %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 Se existir uma fonte de publicação padrão no repositório, o {% data variables.product.prodname_pages %} publicará automaticamente um site a partir dessa fonte. A fonte de publicação padrão para sites de usuário e organização é a raiz do branch-padrão do repositório. A fonte de publicação padrão para sites de projeto é a raiz do branch `gh-pages`.
 

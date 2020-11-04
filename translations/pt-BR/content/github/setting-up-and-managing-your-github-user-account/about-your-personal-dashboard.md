@@ -8,6 +8,7 @@ intro: 'Você pode visitar seu painel pessoal para acompanhar problemas e pull r
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Acessar seu painel pessoal

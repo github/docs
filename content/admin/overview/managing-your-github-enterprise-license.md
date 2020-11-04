@@ -37,8 +37,7 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file.
   ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
 5. Log into your {% data variables.product.prodname_ghe_server %} instance as a site administrator.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Under "Quick links", click **Update license**.
@@ -64,8 +63,7 @@ You can use {% data variables.product.prodname_github_connect %} to automaticall
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 5. Under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**.

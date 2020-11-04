@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问组织仪表板
@@ -28,7 +29,7 @@ versions:
 
 在消息馈送的“All activity（所有活动）”部分，您可以查看来自组织中其他团队和仓库的更新。
 
-“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
+“All activity（所有活动）”部分显示组织中所有最近的活动，包括您未订阅的仓库中以及您未关注的人员的活动。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}" and "[Following people](/articles/following-people)."
 
 例如，当组织中有人执行以下操作时，组织消息馈送会显示更新：
  - 创建新分支。

@@ -1,6 +1,6 @@
 ---
 title: Enabling alerts for vulnerable dependencies on GitHub Enterprise Server
-intro: 'You can connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_ghe_cloud %} and enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies in repositories in your instance.'
+intro: 'You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_ghe_cloud %} and enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies in repositories in your instance.'
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -14,14 +14,17 @@ versions:
 
 {% data reusables.repositories.tracks-vulnerabilities %} For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)."
 
-You can connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %}, then sync vulnerability data to your instance and generate {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts in repositories with a vulnerable dependency.
+You can connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}, then sync vulnerability data to your instance and generate {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts in repositories with a vulnerable dependency.
 
-After connecting {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %} and enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies, vulnerability data is synced from {% data variables.product.prodname_dotcom_the_website %} to your instance once every hour. Sie können die Schwachstellendaten auch jederzeit manuell synchronisieren. Es werden weder Code noch Informationen zu Code von {% data variables.product.product_location_enterprise %} auf {% data variables.product.prodname_dotcom_the_website %} hochgeladen.
+After connecting {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %} and enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies, vulnerability data is synced from {% data variables.product.prodname_dotcom_the_website %} to your instance once every hour. Sie können die Schwachstellendaten auch jederzeit manuell synchronisieren. Es werden weder Code noch Informationen zu Code von {% data variables.product.product_location %} auf {% data variables.product.prodname_dotcom_the_website %} hochgeladen.
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location_enterprise %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and send {% data variables.product.prodname_dependabot_short %} alerts to owners and people with admin access in those repositories. They can customize how they receive {% data variables.product.prodname_dependabot_short %} alerts. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)." |
+{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate {% data variables.product.prodname_dependabot_short %} alerts. You can customize how you receive {% data variables.product.prodname_dependabot_short %} alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)."
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.21" or currentVersion == "enterprise-server@2.21" %}When {% data variables.product.product_location_enterprise %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and send security alerts to owners and people with admin access in those repositories. Sie können anpassen, wie sie Sicherheitsmeldungen empfangen möchten. For more information, see "[About alerts for vulnerable dependencies](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)." |
+{% if currentVersion == "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate security alerts. You can customize how you receive security alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)."
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate security alerts. You can customize how you receive security alerts. Weitere Informationen finden Sie unter „[Auslieferungsmethode für Ihre Benachrichtigungen wählen](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications#choosing-the-delivery-method-for-security-alerts-for-vulnerable-dependencies)“.
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -30,7 +33,7 @@ After connecting {% data variables.product.product_location_enterprise %} to {% 
 ### Sicherheitsmeldungen für angreifbare Abhängigkeiten auf {% data variables.product.prodname_ghe_server %} aktivieren
 {% endif %}
 
-Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}, you must connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %}. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %} mit {% data variables.product.prodname_ghe_cloud %} verbinden](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)“.
+Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location %}, you must connect {% data variables.product.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. Weitere Informationen finden Sie unter „[{% data variables.product.prodname_ghe_server %} mit {% data variables.product.prodname_ghe_cloud %} verbinden](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)“.
 
 {% if currentVersion ver_gt "enterprise-server@2.20" %}
 
@@ -41,14 +44,20 @@ Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data v
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. In the administrative shell, enable the {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}:
+1. In the administrative shell, enable the {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location %}:
  ``` shell
 $ ghe-dep-graph-enable
 ```
+   {% note %}
+
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+
+   {% endnote %}
+
 3. Return to
+
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}{% if currentVersion ver_gt "enterprise-server@2.20" %}
 5. Under "Repositories can be scanned for vulnerabilities", use the drop-down menu and select **Enabled without notifications**. Optionally, to enable alerts with notifications, select **Enabled with notifications**.{% else %}
@@ -58,7 +67,7 @@ $ ghe-dep-graph-enable
 
 ### Angreifbare Abhängigkeiten auf {% data variables.product.prodname_ghe_server %} anzeigen
 
-Sie können alle Schwachstellen in {% data variables.product.product_location_enterprise %} anzeigen und Schwachstellendaten von {% data variables.product.prodname_dotcom_the_website %} manuell synchronisieren, um die Liste zu aktualisieren.
+Sie können alle Schwachstellen in {% data variables.product.product_location %} anzeigen und Schwachstellendaten von {% data variables.product.prodname_dotcom_the_website %} manuell synchronisieren, um die Liste zu aktualisieren.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. Klicken Sie auf der linken Seitenleiste auf **Vulnerabilities** (Schwachstellen). ![Registerkarte „Vulnerabilities“ (Schwachstellen) auf der Seitenleiste für Websiteadministratoren](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)

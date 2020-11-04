@@ -10,9 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% data reusables.notifications.outbound_email_tip %}
 
 Cada notificação de e-mail para um push no repositório lista os novos commits e os vincula a um diff contendo apenas esses commits. Na notificação de e-mail, você verá:
 
@@ -24,7 +25,7 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 - Os arquivos que foram alterados como parte do commit
 - A mensagem do commit;
 
-É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. Para obter mais informações, consulte {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}"[Configurar notificações](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[Sobre e-mails de notificação](/github/receiving-notifications-about-activity-on-github/about-email-notifications)". Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
+É possível filtrar notificações de e-mail que você recebe para pushes em um repositório. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." Você também pode desativar notificações por email para pushes. Para obter mais informações, consulte "
 [Escolher o método de entrega das suas notificações](/enterprise/{{ page.version }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}".</p> 
 
 
@@ -51,7 +52,7 @@ Cada notificação de e-mail para um push no repositório lista os novos commits
 
 ### Leia mais
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 - "[Sobre notificações](/github/managing-subscriptions-and-notifications-on-github/about-notifications)" 
   
