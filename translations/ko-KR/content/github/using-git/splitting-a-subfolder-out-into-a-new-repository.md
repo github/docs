@@ -7,6 +7,7 @@ intro: You can turn a folder within a Git repository into a brand new repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.

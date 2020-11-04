@@ -1,5 +1,5 @@
 ---
-title: Removing workflow artifacts
+title: 删除工作流程构件
 intro: '您可以在构件于 {% data variables.product.product_name %} 上过期之前删除它们，回收已经使用的 {% data variables.product.prodname_actions %} 存储。'
 product: '{% data reusables.gated-features.actions %}'
 versions:
@@ -26,7 +26,7 @@ versions:
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
-1. Under **Artifacts**, click {% octicon "trashcan" aria-label="The trashcan icon" %} next to the artifact you want to remove. ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact.png)
+1. 在 **Artifacts（构件）**下，单击您要删除的构件旁边的 {% octicon "trashcan" aria-label="The trashcan icon" %}。 ![删除构件下拉菜单](/assets/images/help/repository/actions-delete-artifact.png)
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
 ### 设置构件的保留期

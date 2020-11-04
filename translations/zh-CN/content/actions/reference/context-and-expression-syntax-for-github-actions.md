@@ -59,7 +59,7 @@ env:
 | ---------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `github`   | `对象` | 工作流程运行的相关信息。 更多信息请参阅 [`github` 上下文](#github-context)。                                                                               |
 | `env`      | `对象` | 包含工作流程、作业或步骤中设置的环境变量。 更多信息请参阅 [`env` 上下文](#env-context)。                                                                            |
-| `job`      | `对象` | 当前执行的作业相关信息。 更多信息请参阅 [`job` 上下文](#job-context)。                                                                                     |
+| `作业`       | `对象` | 当前执行的作业相关信息。 更多信息请参阅 [`job` 上下文](#job-context)。                                                                                     |
 | `steps`    | `对象` | 此作业中已经运行的步骤的相关信息。 更多信息请参阅 [`steps` 上下文](#steps-context)。                                                                            |
 | `runner`   | `对象` | 运行当前作业的运行程序相关信息。 更多信息请参阅 [`runner` 上下文](#runner-context)。                                                                           |
 | `secrets`  | `对象` | 启用对密码的访问权限。 有关密码的更多信息，请参阅“[创建和使用加密密码](/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)”。 |
@@ -93,7 +93,7 @@ env:
 | `github.event_path`       | `字符串` | 运行器上完整事件 web 挂钩有效负载的路径。                                                                                                                                                                                                 |
 | `github.head_ref`         | `字符串` | 工作流程运行中拉取请求的 `head_ref` 或来源分支。 此属性仅在触发工作流程运行的事件为 `pull_request` 时才可用。                                                                                                                                                   |
 | `github.job`              | `字符串` | 当前作业的 [`job_id`](/actions/reference/workflow-syntax-for-github-actions#jobsjob_id)。                                                                                                                                     |
-| `github.ref`              | `字符串` | 触发工作流程的分支或标记参考。                                                                                                                                                                                                         |
+| `github.ref`              | `字符串` | 触发工作流程的分支或标记参考。 对于分支，使用格式 `refs/heads/<branch_name>`，对于标记是 `refs/tags/<tag_name>`。                                                                                                                          |
 | `github.repository`       | `字符串` | 所有者和仓库名称。 例如 `Codertocat/Hello-World`。                                                                                                                                                                                  |
 | `github.repository_owner` | `字符串` | 仓库所有者的名称。 例如 `Codertocat`。                                                                                                                                                                                              |
 | `github.run_id`           | `字符串` | {% data reusables.github-actions.run_id_description %}
@@ -123,7 +123,7 @@ env:
 
 | 属性名称                                      | 类型    | 描述                                                                                                                                                     |
 | ----------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `job`                                     | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从作业中的任何步骤访问此上下文。                                                                                                             |
+| `作业`                                      | `对象`  | 此上下文针对工作流程运行中的每项作业而改变。 您可以从作业中的任何步骤访问此上下文。                                                                                                             |
 | `job.container`                           | `对象`  | 作业的容器相关信息。 有关容器的更多信息，请参阅“[{% data variables.product.prodname_actions %} 的工作流程语法](/articles/workflow-syntax-for-github-actions#jobsjob_idcontainer)”。   |
 | `job.container.id`                        | `字符串` | 容器的 id。                                                                                                                                                |
 | `job.container.network`                   | `字符串` | 容器网络的 id。 运行程序创建作业中所有容器使用的网络。                                                                                                                          |

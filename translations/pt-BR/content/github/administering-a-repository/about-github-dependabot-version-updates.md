@@ -17,7 +17,7 @@ Você habilita o {% data variables.product.prodname_dependabot_version_updates %
 
 Quando {% data variables.product.prodname_dependabot_short %} identifica uma dependência desatualizada, ele cria uma pull request para atualizar o manifesto para a última versão da dependência. Para dependências de vendor, {% data variables.product.prodname_dependabot_short %} levanta um pull request para substituir diretamente a dependência desatualizada pela nova versão. Você verifica se os seus testes passam, revisa o changelog e lança observações incluídas no resumo do pull request e, em seguida, faz a mesclagem. Para obter detalhes, consulte "[Habilitando e desabilitando atualizações da versão](/github/administering-a-repository/enabling-and-disabling-version-updates)."
 
-Se você habilitar atualizações de segurança, {% data variables.product.prodname_dependabot %} também promove pull requests para atualizar dependências vulneráveis. Para obter mais informações, consulte "[Configurando {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)."
+Se você habilitar atualizações de segurança, {% data variables.product.prodname_dependabot %} também promove pull requests para atualizar dependências vulneráveis. Para obter mais informações, consulte "[Sobre {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)".
 
 {% data reusables.dependabot.dependabot-tos %}
 

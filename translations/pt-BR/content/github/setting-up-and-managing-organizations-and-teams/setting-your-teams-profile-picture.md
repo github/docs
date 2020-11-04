@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Se você não configurar a foto de perfil da equipe, a foto da equipe será a foto de perfil da organização.

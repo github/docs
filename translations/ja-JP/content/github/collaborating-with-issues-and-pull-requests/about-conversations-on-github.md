@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### {% data variables.product.product_name %}上でのディスカッション
@@ -19,7 +20,7 @@ Issueは、バグレポートや計画された改善など、プロジェクト
 
 ### コメント中のアイデアへの反応
 
-議論の中のアイデアに対する賛意や異議を示すことができます。 Team ディスカッション、Issue、プルリクエストのコメントや本体に反応を加えても、その会話をサブスクライブしている人には通知が送信されません。 For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
+議論の中のアイデアに対する賛意や異議を示すことができます。 Team ディスカッション、Issue、プルリクエストのコメントや本体に反応を加えても、その会話をサブスクライブしている人には通知が送信されません。 For more information about subscriptions, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[About notifications](/github/managing-subscriptions-and-notifications-on-github/about-notifications){% else %}"[Subscribing to and unsubscribing from notifications](/github/receiving-notifications-about-activity-on-github/subscribing-to-and-unsubscribing-from-notifications){% endif %}."
 
 ![反応を含むIssueの例](/assets/images/help/repository/issue-reactions.png)
 

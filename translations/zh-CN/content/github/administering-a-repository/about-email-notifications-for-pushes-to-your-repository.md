@@ -10,9 +10,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% if currentVersion != "free-pro-team@latest" %}{% data reusables.notifications.outbound_email_tip %}{% endif %}
+{% data reusables.notifications.outbound_email_tip %}
 
 对于推送到仓库所发送的每封电子邮件通知都会列出新提交，以及只包含这些提交的差异的链接。 在电子邮件通知中，您会看到：
 
@@ -24,7 +25,7 @@ versions:
 - 作为提交一部分所更改的文件
 - 提交消息
 
-您可以过滤因推送到仓库而收到的电子邮件通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." 您还可以对推送关闭电子邮件通知。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}”。
+您可以过滤因推送到仓库而收到的电子邮件通知。 For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications#filtering-email-notifications){% else %}"[About notification emails](/github/receiving-notifications-about-activity-on-github/about-email-notifications)." 您还可以对推送关闭电子邮件通知。 更多信息请参阅“[选择通知的递送方式](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications){% endif %}”。
 
 ### 对推送到仓库启用电子邮件通知
 
@@ -36,7 +37,7 @@ versions:
 7. 单击 **Save settings（保存设置）**。 ![Save settings 按钮](/assets/images/help/settings/save_notification_settings.png)
 
 ### 延伸阅读
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 - "[关于通知](/github/managing-subscriptions-and-notifications-on-github/about-notifications)"
 {% else %}
 - "[关于通知](/enterprise/{{ currentVersion }}/user/github/receiving-notifications-about-activity-on-github/about-notifications)"

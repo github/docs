@@ -36,7 +36,7 @@ versions:
    - [{% data variables.product.prodname_dotcom %} 快速入门指南](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)网络直播
    - {% data variables.product.prodname_dotcom %} 指南中的[了解 {% data variables.product.prodname_dotcom %} 流程](https://guides.github.com/introduction/flow/)
    - {% data variables.product.prodname_dotcom %} 指南中的 [Hello World](https://guides.github.com/activities/hello-world/)
-3. 要配置实例以满足组织的需求，请参阅“[配置 {% data variables.product.prodname_ghe_server %} 设备](/enterprise/admin/installation/configuring-the-github-enterprise-server-appliance)”。
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 4. 要将 {% data variables.product.prodname_ghe_server %} 与您的身份提供程序集成，请参阅“[使用 SAML](/enterprise/admin/user-management/using-saml)”和“[使用 LDAP](/enterprise/admin/authentication/using-ldap)”。
 5. 邀请不限数量的人员加入您的试用版。
    - 使用内置身份验证或配置的身份提供程序将用户添加到 {% data variables.product.prodname_ghe_server %} 实例。 更多信息请参阅“[使用内置身份验证](/enterprise/admin/user-management/using-built-in-authentication)”。

@@ -45,4 +45,4 @@ Com as informações de dependência, é possível visualizar vulnerabilidades, 
    - "[Sobre organizações](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Explorar as dependências de um repositório](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - "[Alterar a visibilidade das informações de dependência da organização](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)"
-   - "[Aplicar uma política nas informações de dependência de sua conta corporativa](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".
+   - "[Aplicar uma política nas informações de dependência de sua conta corporativa](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)".

@@ -1,6 +1,6 @@
 ---
-title: Managing workflow runs
-shortTitle: Managing workflow runs
+title: ワークフロー実行を管理する
+shortTitle: ワークフロー実行を管理する
 intro: 'ワークフローの各ステップのステータスと結果の表示、保留中のワークフローのキャンセル、請求可能なジョブ実行時間の表示、失敗したワークフローのデバッグと再実行、ログの検索とダウンロード、アーティファクトのダウンロードを行うことができます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run

@@ -11,13 +11,13 @@ versions:
 
 ### Subdomain Isolationについて
 
-Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location_enterprise %}ではSubdomain Isolationを有効化することを強くお勧めします。
+Subdomain Isolationは、クロスサイトスクリプティングや関連するその他の脆弱性を緩和します。 詳しい情報については"Wikipediaの[クロスサイトスクリプティング](http://en.wikipedia.org/wiki/Cross-site_scripting)"を参照してください。 {% data variables.product.product_location %}ではSubdomain Isolationを有効化することを強くお勧めします。
 
 Subdomain Isolation が有効な場合、{% data variables.product.prodname_ghe_server %} はいくつかのパスをサブドメインで置き換えます。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-To use Docker with
-{% data variables.product.prodname_registry %}, you must also enable subdomain isolation. 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
+Docker を
+{% data variables.product.prodname_registry %} で使用するには、Subdomain Isolation も有効にする必要があります。 詳しい情報については、「[{% data variables.product.prodname_registry %} で使用するために Docker を設定する](/enterprise/{{ currentVersion }}/user/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages)」を参照してください。
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 |

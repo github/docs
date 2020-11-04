@@ -52,7 +52,7 @@ Geo-replication を使用している場合は、トラフィックを最も近�
 
 `ghe-repl-setup` コマンドは、{% data variables.product.prodname_ghe_server %} アプライアンスをレプリカスタンバイモードにします。
 
- - An encrypted WireGuard VPN tunnel is configured for communication between the two appliances.
+ - 2 つのアプライアンス間の通信のために、暗号化された WireGuard VPN トンネルが設定されます。
  - レプリケーションのためのデータベースサービスが設定され、起動されます。
  - アプリケーションサービスは無効化されます。 HTTP、Git、あるいはその他のサポートされているプロトコルでレプリカアプライアンスへアクセスしようとすると、"appliance in replica mode"メンテナンスページあるいはエラーメッセージが返されます。
 

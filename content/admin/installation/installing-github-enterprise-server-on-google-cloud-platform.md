@@ -20,7 +20,7 @@ versions:
 
 ### Determining the machine type
 
-Before launching {% data variables.product.product_location_enterprise %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
+Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
 
 #### Supported machine types
 

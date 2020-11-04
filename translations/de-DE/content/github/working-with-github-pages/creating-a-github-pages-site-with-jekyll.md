@@ -1,24 +1,25 @@
 ---
-title: Creating a GitHub Pages site with Jekyll
-intro: 'You can use Jekyll to create a {% data variables.product.prodname_pages %} site in a new or existing repository.'
+title: GitHub Pages-Website mit Jekyll erstellen
+intro: 'Sie können mit Jekyll eine {% data variables.product.prodname_pages %}-Website in einem neuen oder vorhandenen Repository erstellen.'
 product: '{% data reusables.gated-features.pages %}'
 redirect_from:
   - /articles/creating-a-github-pages-site-with-jekyll
-permissions: 'People with admin permissions for a repository can create a {% data variables.product.prodname_pages %} site with Jekyll.'
+permissions: 'Personen mit Administratorberechtigungen für ein Repository können mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Prerequisites
+### Vorrausetzungen
 
-Before you can use Jekyll to create a {% data variables.product.prodname_pages %} site, you must install Jekyll and Git. For more information, see [Installation](https://jekyllrb.com/docs/installation/) in the Jekyll documentation and "[Set up Git](/articles/set-up-git)."
+Bevor Du mit Jekyll eine {% data variables.product.prodname_pages %}-Website erstellen kannst, musst Du Jekyll und Git installieren. Weitere Informationen finden Sie unter „[Installation](https://jekyllrb.com/docs/installation/)“ in der Jekyll-Dokumentation und unter „[Git einrichten](/articles/set-up-git)“.
 
 {% data reusables.pages.recommend-bundler %}
 
 {% data reusables.pages.jekyll-install-troubleshooting %}
 
-### Creating a repository for your site
+### Ein Repository für eine Website erstellen
 
 {% data reusables.pages.new-or-existing-repo %}
 
@@ -29,59 +30,58 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.pages.create-repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 
-### Creating your site
+### Eine Website erstellen
 
 {% data reusables.pages.must-have-repo-first %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing _PARENT-FOLDER_ with the folder you want to contain the folder for your repository.
+2. Wenn Du noch keine lokale Kopie Deines Repositorys besitzt, navigiere zu dem Speicherort, an dem Du die Quelldateien Deiner Website speichern möchtest, und ersetze dabei _PARENT-FOLDER_ durch den Ordner, der den Ordner für Dein Repository enthalten soll.
   ```shell
   $ cd <em>PARENT-FOLDER</em>
   ```
-3. If you haven't already, initialize a local Git repository, replacing _REPOSITORY-NAME_ with the name of your repository.
+3. Wenn Du dies noch nicht getan hast, initialisiere ein lokales Git-Repository, und ersetzen dabei _REPOSITORY-NAME_ durch den Namen Deines Repositorys.
   ```shell
   $ git init <em>REPOSITORY-NAME</em>
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
-  # Creates a new folder on your computer, initialized as a Git repository
-  ```  
-  4. Change directories to the repository.
+  # Erstellt einen neuen Ordner auf Deinem Computer, der als Git-Repository initialisiert wird
+  ```
+  4. Wechsle in das Verzeichnis des Repositorys.
   ```shell
   $ cd <em>REPOSITORY-NAME</em>
-  # Changes the working directory
+  # Ändert das Arbeitsverzeichnis
   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
  ```shell
  $ mkdir docs
- # Creates a new folder called docs
+ # Erstellt einen neuen Ordner mit dem Namen docs
  $ cd docs
  ```
- If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
+ Wenn Du Deine Website aus dem `gh-pages`-Branch veröffentlichen möchtest, erstelle den `gh-pages`-Branch und checke ihn aus.
  ```shell
  $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages and switches to the gh-pages branch
+ # Erstellt einen neuen Branch, ohne Verlauf und Inhalte, mit dem namen gh-pages und wechselt zum gh-pages-Branch
  ```
- 7. To create a new Jekyll site, use the `jekyll new` command, replacing _VERSION_ with the current dependency version for Jekyll. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
-    - If you installed Bundler:
+ 7. Um eine neue Jekyll-Website zu erstellen, führe den Befehl `jekyll new` aus. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für Jekyll. Weitere Informationen findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
+    - Wenn Du Bundler installiert hast:
       ```shell
       $ bundle exec jekyll <em>VERSION</em> new .
-      # Creates a Jekyll site in the current directory
+      # Erstellt eine Jekyll-Website im aktuellen Verzeichnis
       ```
-    - If you don't have Bundler installed:
+    - Wenn Du Bundler nicht installiert hast:
      ```shell
      $ jekyll <em>VERSION</em> new .
-     # Creates a Jekyll site in the current directory
+     # Erstellt eine Jekyll-Website im aktuellen Verzeichnis
      ```
-8. Open the Gemfile that was created and follow the instructions in the Gemfile's comments to use {% data variables.product.prodname_pages %}.
-  ![Instructions for updating Gemfile](/assets/images/help/pages/gemfile-instructions.png)
-9. Update the `gem "github-pages"` line so that the line looks like this, replacing _VERSION_ with the current dependency version for `github-pages`. For more information, see "[Dependency versions](https://pages.github.com/versions/)" on the {% data variables.product.prodname_pages %} site.
+8. Öffne das gerade erstellte Gemfile, und befolge die Anweisungen in den Gemfile-Kommentaren, um {% data variables.product.prodname_pages %} zu verwenden. ![Anleitung zum Aktualisieren der Gemfile](/assets/images/help/pages/gemfile-instructions.png)
+9. Aktualisiere die Zeile `gem "github-pages"` so, dass sie wie folgt aussieht. Ersetze dabei _VERSION_ durch die aktuelle Abhängigkeitsversion für `github-pages`. Weitere Informationen findest Du unter „[Abhängigkeitsversionen](https://pages.github.com/versions/)“ auf der {% data variables.product.prodname_pages %}-Website.
 ```shell
 gem "github-pages", "~> <em>VERSION</em>", group: :jekyll_plugins
 ```
-10. Save and close the Gemfile.
-11. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
-12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if currentVersion != "free-pro-team@latest" %}_HOSTNAME_ with your appliance's hostname,{% endif %} _USER_ with the account that owns the repository{% if currentVersion != "free-pro-team@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
+10. Speichere und schließe das Gemfile.
+11. Teste Deine Website optional lokal. Weitere Informationen findest Du unter „[Deine {% data variables.product.prodname_pages %}-Website lokal mit Jekyll testen](/articles/testing-your-github-pages-site-locally-with-jekyll).“
+12. Add your {% data variables.product.product_name %} repository as a remote, replacing {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %},{% endif %} and _REPOSITORY_ with the name of the repository.
 ```shell
 {% if currentVersion == "free-pro-team@latest" %}
 $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
@@ -89,7 +89,7 @@ $ git remote add origin https://github.com/<em>USER</em>/<em>REPOSITORY</em>.git
 $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</em>.git
 {% endif %}
 ```
-13. Push the repository to {% data variables.product.product_name %}, replacing _BRANCH_ with the name of the branch you're working on.
+13. Übertrage das Repository zu {% data variables.product.product_name %}, und ersetze dabei _BRANCH_ durch den Namen des Branches, auf dem Du gerade arbeitest.
    ```shell
    $ git push -u origin <em>BRANCH</em>
    ```
@@ -100,8 +100,8 @@ $ git remote add origin https://<em>HOSTNAME</em>/<em>USER</em>/<em>REPOSITORY</
 
 {% data reusables.pages.admin-must-push %}
 
-### Next steps
+### Nächste Schritte:
 
-To add a new page or post to your site, see "[Adding content to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-content-to-your-github-pages-site-using-jekyll)."
+Informationen dazu, wie Du eine neue Seite oder einen neuen Beitrag zu Deiner Website hinzufügst, findest Du unter „[Inhalte zur {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-content-to-your-github-pages-site-using-jekyll).“
 
-{% data reusables.pages.add-jekyll-theme %} For more information, see "[Adding a theme to your {% data variables.product.prodname_pages %} site using Jekyll](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll)."
+{% data reusables.pages.add-jekyll-theme %} Weitere Informationen findest Du unter „[Ein Design zu Deiner {% data variables.product.prodname_pages %}-Website mit Jekyll hinzufügen](/articles/adding-a-theme-to-your-github-pages-site-using-jekyll).“

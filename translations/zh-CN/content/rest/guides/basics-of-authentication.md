@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -46,8 +47,9 @@ get '/' do
 end
 ```
 
-客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。 您应该**永_不_**将这些值存储在
-{% data variables.product.product_name %}--或任何其他公共位置，因为它们很重要。 我们建议将它们存储为
+客户端 ID 和客户端密钥[来自应用程序的配置页面][app settings]。
+{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [环境变量][about env vars]--我们正是这样做的。
 
 接下来，在 _views/index.erb_ 中粘贴此内容：
@@ -106,7 +108,7 @@ end
 
 #### 检查授予的作用域
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+用户可以通过直接更改 URL 来编辑您请求的范围。 这可以授予您的应用程序比您最初请求的更少的访问权限。 因此，在使用令牌发出任何请求之前，您应该检查用户为令牌授予的作用域。 有关请求和授予的范围的更多信息，请参阅“[OAuth 应用程序的范围](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)”。
 
 授予的作用域在交换令牌的响应中返回。
 
@@ -128,7 +130,7 @@ end
 
 仅在发出请求之前检查作用域是不够的，因为用户可能会在检查与实际请求之间的时间段更改作用域。 如果发生这种情况，您期望成功的 API 调用可能会以 `404` 或 `401` 状态失败，或者返回不同的信息子集。
 
-为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 除此之外，OAuth 应用程序 API 还提供 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[检查令牌的有效性\]\[/v3/apps/oauth_applications/#check-a-token\]{% else %}\[检查令牌的有效性\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %} 的端点。 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
+为了帮助您妥善处理这些情况，使用有效令牌发出请求的所有 API 响应还包含一个 [`X-OAuth-Scopes` 标头][oauth scopes]。 此标头包含用于发出请求的令牌的作用域列表。 In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. 使用此信息来检测令牌作用域中的更改，并将可用应用程序功能的更改告知用户。
 
 #### 发出经过身份验证的请求
 
