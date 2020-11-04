@@ -4,6 +4,7 @@ intro: Issueまたはプルリクエストの特定のコメントから新し�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コメントから開いたIssueには、コメントの元の投稿場所を示すスニペットが含まれています。

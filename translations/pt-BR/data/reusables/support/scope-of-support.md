@@ -1,7 +1,7 @@
 
 ### Escopo do suporte
 
-Se sua solicitação de suporte estiver fora do escopo do que nossa equipe pode ajudá-lo, podemos recomendar os próximos passos para resolver seu problema fora do {% data variables.contact.github_support %}. Sua solicitação de suporte está, possivelmente, fora do escopo do {% data variables.contact.github_support %} caso se refira, principalmente, a:
+Se sua solicitação de suporte estiver fora do escopo do que nossa equipe pode ajudá-lo, podemos recomendar os próximos passos para resolver seu problema fora do {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 - Integrações com terceiros
 - Configurações de hardware
 - CI/CD, como Jenkins

@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} Sie können eine Art von Merge-Methode, beispielsweise Commit-Squashing oder Rebasing, erzwingen, indem Sie nur die gewünschte Methode für Ihr Repository aktivieren.
 
 {% data reusables.pull_requests.default_merge_option %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 Die Standard-Mergemethode erzeugt einen Merge-Commit. Du kannst verhindern, dass Merge-Commits an einen geschützten Branch übertragen werden, indem Du einen linearen Commit-Verlauf erzwingst. Weitere Informationen findest Du unter „[Einen linearen Commit-Verlauf verlangen](/github/administering-a-repository/requiring-a-linear-commit-history)."{% endif %}
 
 ### Deine Merge-Commits squashen

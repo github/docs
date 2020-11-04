@@ -20,7 +20,7 @@ versions:
 
 ### 确定机器类型
 
-在 Google Cloud Platform 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的机器类型。
+在 Google Cloud Platform 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的机器类型。
 
 #### 支持的机器类型
 

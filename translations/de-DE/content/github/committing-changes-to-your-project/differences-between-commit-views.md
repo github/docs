@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Auf {% data variables.product.product_name %} können Sie den Commit-Verlauf eines Repositorys anzeigen, indem Sie

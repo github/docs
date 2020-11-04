@@ -67,7 +67,7 @@ GitHub アクションの使用は、
 
 - [リポジトリ内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/administering-a-repository/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
 - [Organization 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-organizations-and-teams/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
-- [Enterprise 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise-account/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
+- [Enterprise 内のアーティファクトとログの {% data variables.product.prodname_actions %} の保持期間を設定する](/github/setting-up-and-managing-your-enterprise/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-enterprise-account)
 {% endif %}
 
 ### リポジトリまたは Organization の {% data variables.product.prodname_actions %} を無効化または制限する
@@ -77,7 +77,7 @@ GitHub アクションの使用は、
 詳しい情報については、以下を参照してください。
 - 「[リポジトリの {% data variables.product.prodname_actions %} を無効化または制限する](/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository)」
 - 「[Organization の {% data variables.product.prodname_actions %} を無効化または制限する](/github/setting-up-and-managing-organizations-and-teams/disabling-or-limiting-github-actions-for-your-organization)」{% if currentVersion == "free-pro-team@latest" %}
-- {% data variables.product.prodname_ghe_cloud %}{% endif %} の「[Enterprise アカウントで {% data variables.product.prodname_actions %} ポリシーを適用する](/github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account)」
+- {% data variables.product.prodname_ghe_cloud %} の「[Enterprise アカウントでの {% data variables.product.prodname_actions %} ポリシーを適用する](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)」{% endif %}
 
 ### ワークフローの無効化と有効化
 

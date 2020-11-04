@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 对 Git 是否应该使用 `sudo` 命令？
@@ -27,7 +28,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
 > debug1: Connecting to {% data variables.command_line.codeblock %} port 22.
 ```
 
-The connection should be made on port 22{% if currentVersion == "free-pro-team@latest" %}, unless you're overriding settings to use [SSH over HTTPS](/articles/using-ssh-over-the-https-port){% endif %}.
+应连接端口 22{% if currentVersion == "free-pro-team@latest" %}，除非覆盖设置以使用[通过 HTTPS 的 SSH](/articles/using-ssh-over-the-https-port){% endif %}。
 
 ### 始终使用 "git" 用户
 
@@ -51,7 +52,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -86,7 +87,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>you</em>/.ssh/id_rsa (RSA)
@@ -108,7 +109,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+2. 确认您的私钥已生成并加载到 SSH。 {% if currentVersion ver_lt "enterprise-server@3.0" %}If you're using OpenSSH 6.7 or older:
   ```shell
   # start the ssh-agent in the background
   $ eval "$(ssh-agent -s)"
@@ -186,7 +187,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
   $ eval "$(ssh-agent -s)"
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+3. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
@@ -218,7 +219,7 @@ $ ssh -vT git@{% data variables.command_line.codeblock %}
   $ ssh-agent -s
   > Agent pid 59566
   ```
-3. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@2.23" %}If you're using OpenSSH 6.7 or older:
+3. 找到并记录公钥指纹。 {% if currentVersion ver_lt "enterprise-server@3.0" %}如果您使用的是 OpenSSH 6.7 或更早版本：
   ```shell
   $ ssh-add -l
   > 2048 <em>a0:dd:42:3c:5a:9d:e4:2a:21:52:4e:78:07:6e:c8:4d</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)

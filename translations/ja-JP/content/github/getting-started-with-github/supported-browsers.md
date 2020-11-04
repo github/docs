@@ -8,6 +8,7 @@ intro: '{% data variables.product.product_name %} は、最新の Web ブラウ�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Firefox の延長サポートリリース

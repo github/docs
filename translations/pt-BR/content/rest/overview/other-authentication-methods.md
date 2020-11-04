@@ -6,12 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 Embora a API forneça vários métodos para autenticação, é altamente recomendável usar [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) para aplicativos de produção. Os outros métodos fornecidos destinam-se a ser usados para scripts ou testes (ou seja, casos em que o OAuth completo seria exagerado). Aplicativos de terceiros que dependem de
 {% data variables.product.product_name %} para autenticação não devem pedir ou coletar credenciais de {% data variables.product.product_name %}.
 Em vez disso, eles devem usar o [Fluxo web do OAuth](/apps/building-oauth-apps/authorizing-oauth-apps/).
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+
+To authenticate we recommend using [OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/) tokens, such a personal access token through the [OAuth web flow](/apps/building-oauth-apps/authorizing-oauth-apps/).
+
+{% endif %}
 
 ### Autenticação básica
 
@@ -27,6 +37,7 @@ $ curl -u <em>username</em>:<em>token</em> {% data variables.product.api_url_pre
 
 Esta abordagem é útil se suas ferramentas são compatíveis apenas com a Autenticação Básica, mas você quer aproveitar os recursos de segurança do token de acesso do OAuth.
 
+{% if enterpriseServerVersions contains currentVersion %}
 #### Por meio do nome de usuário e senha
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -39,6 +50,8 @@ Por exemplo, se você estiver acessando a API via [cURL][curl], o comando a segu
 $ curl -u <em>username</em> {% data variables.product.api_url_pre %}/user
 ```
 Se você tem a autenticação de dois fatores ativada, certifique-se de entender como [funciona com a autenticação de dois fatores](/v3/auth/#working-with-two-factor-authentication).
+
+{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 #### Autenticar com o SSO do SAML
@@ -72,6 +85,7 @@ $ curl -v -H "Authorization: token <em>TOKEN</em>" {% data variables.product.api
 O valor das `organizações` é uma lista de ID de organizações separada por vírgula para organizações para as quais exige-se a autorização do seu token de acesso pessoal.
 {% endif %}
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ### Trabalhar com autenticação de dois fatores
 
 {% data reusables.apps.deprecating_password_auth %}
@@ -79,6 +93,8 @@ O valor das `organizações` é uma lista de ID de organizações separada por v
 Quando você tem a autenticação de dois fatores habilitada, a [Autenticação básica](#basic-authentication) para _a maioria dos_ pontos de extremidade na API REST exige que você use um token de acesso pessoal ou token do OAuth em vez de seu nome de usuário e senha.
 
 Você pode gerar um novo token de acesso pessoal {% if currentVersion == "free-pro-team@latest" %}com [configurações do desenvolvedor de {% data variables.product.product_name %}](https://github.com/settings/tokens/new){% endif %} ou usar o ponto de extremidade [Criar uma nova autorização][create-access]" na API de Autorização do OAuth para gerar um novo token do OAuth. Para obter mais informações, consulte "[Criar um token de acesso pessoal para a linha de comando](/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line)". Em seguida, você usaria esses tokens para [efetuar a autenticação usando o token do OAuth][oauth-auth] com a API do GitHub. A única vez que você precisa efetuar a autenticação com seu nome de usuário e senha é quando você cria seu token do OAuth ou usa a API de Autorização do OAuth.
+
+
 
 #### Usar a API de Autorização do OAuth com autenticação de dois fatores
 
@@ -96,6 +112,7 @@ $ curl --request POST \
   --header 'x-github-otp: <em>OTP</em>' \
   --data '{"scopes": ["public_repo"], "note": "test"}'
 ```
+{% endif %}
 
 [create-access]: /v3/oauth_authorizations/#create-a-new-authorization
 [curl]: http://curl.haxx.se/

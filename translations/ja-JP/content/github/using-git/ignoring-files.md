@@ -8,6 +8,7 @@ intro: '{% data variables.product.product_name %} にチェックインしたく
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 単一リポジトリについて無視するファイルを設定する

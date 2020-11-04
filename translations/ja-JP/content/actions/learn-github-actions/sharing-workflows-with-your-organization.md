@@ -14,7 +14,7 @@ versions:
 
 ### 概要
 
-ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 Organization を使用すると、シークレット、アーティファクト、およびセルフホストランナーを一元的に保存および管理できます。 `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
+ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
 
 ### ワークフロー テンプレートの作成
 

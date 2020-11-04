@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH キーをまだお持ちでない場合は、[新しい SSH キーを生成](#generating-a-new-ssh-key)する必要があります。 SSH キーを持っているかどうかわからない場合は、[既存のキー](/articles/checking-for-existing-ssh-keys)をチェックします。
