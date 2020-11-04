@@ -1,5 +1,5 @@
 ---
-title: Enterprise Administrators
+title: Kubera Propel
 redirect_from:
   - /enterprise/admin/hidden/migrating-from-github-fi/
   - /enterprise/admin

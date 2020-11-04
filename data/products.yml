@@ -2,12 +2,6 @@
 # the product IDs match keys in lib/all-products.js
 # note this file should not be translated
 productsInOrder:
-  - github
   - admin
-  - actions
-  - packages
   - developers
-  - rest
-  - graphql
-  - insights
   - desktop

@@ -1,7 +1,7 @@
 ---
-title: GitHub Desktop Documentation
-shortTitle: GitHub Desktop
-intro: Step-by-step guides to set up and use GitHub Desktop to manage your project work.
+title: Kubera Documentation
+shortTitle: Kubera
+intro: Step-by-step guides to set up and Kubera.
 versions:
   free-pro-team: '*'
 ---
