@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于主题
@@ -27,7 +28,7 @@ versions:
 
 ### 添加主题到仓库
 
-{% data reusables.repositories.navigate-to-repo %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. 在仓库说明下，单击 **Add topics（添加主题）**。 ![在仓库的主页面上添加主题链接](/assets/images/help/repository/add-topics-link.png)
 3. 键入要添加到仓库的主题，然后键入空格。 ![输入主题的表单](/assets/images/help/repository/add-topic-form.png)
 4. 完成添加主题后，单击 **Done（完成）**。 ![含主题列表和完成按钮的表单](/assets/images/help/repository/add-topics-done-button.png)

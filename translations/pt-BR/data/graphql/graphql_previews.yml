@@ -53,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: Acesso aos Repositórios com Gráfico de Dependência
   description: Esta visualização adiciona suporte para a leitura em um repositório com gráfico de dependência.

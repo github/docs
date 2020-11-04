@@ -87,11 +87,11 @@ versions:
 
 {% else %}
 
-{% data variables.product.product_location_enterprise %} 支持的软件包类型可能有所不同，因为您的网站管理员可能启用或禁用对不同软件包的支持。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
+{% data variables.product.product_location %} 支持的软件包类型可能有所不同，因为您的网站管理员可能启用或禁用对不同软件包的支持。 更多信息请参阅“[为企业管理 GitHub Packages](/enterprise/admin/packages)”。
 
-如果 {% data variables.product.product_location_enterprise %} 已启用子域隔离，则软件包注册表将使用 `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL，用软件包命名空间替换 `PACKAGE-TYPE`。 例如，Dockerfile 将托管在 `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 上。
+如果 {% data variables.product.product_location %} 已启用子域隔离，则软件包注册表将使用 `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL，用软件包命名空间替换 `PACKAGE-TYPE`。 例如，Dockerfile 将托管在 `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` 上。
 
-如果 {% data variables.product.product_location_enterprise %} 已禁用子域隔离，则软件包注册表将使用 `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL。 例如，Gemfile 将托管在 `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` 上，用 {% data variables.product.prodname_ghe_server %} 实例的主机名称替换 *HOSTNAME*。 |{% endif %}
+如果 {% data variables.product.product_location %} 已禁用子域隔离，则软件包注册表将使用 `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` 作为软件包主机 URL。 例如，Gemfile 将托管在 `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME` 上，用 {% data variables.product.prodname_ghe_server %} 实例的主机名称替换 *HOSTNAME*。 |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                                 |
@@ -104,7 +104,7 @@ versions:
 
 {% else %}
 
-在 {% data variables.product.product_location_enterprise %} 上启用了子域隔离：
+在 {% data variables.product.product_location %} 上启用了子域隔离：
 
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                           |
 | ---------- | ---------------------- | ----------------------------------- | ------------ | ----------------------------------------------- |
@@ -115,7 +115,7 @@ versions:
 | .NET       | .NET 的 NuGet 包管理       | `nupkg`                             | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | 不适用        | Docker 容器管理平台          | `Dockerfile`                        | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-在 {% data variables.product.product_location_enterprise %} 上禁用了子域隔离：
+在 {% data variables.product.product_location %} 上禁用了子域隔离：
 
 | 语言         | 描述                     | 包格式                                 | 包客户端         | 包命名空间                                                     |
 | ---------- | ---------------------- | ----------------------------------- | ------------ | --------------------------------------------------------- |

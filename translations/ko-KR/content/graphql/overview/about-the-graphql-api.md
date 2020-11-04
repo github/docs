@@ -4,6 +4,7 @@ intro: 'The {% data variables.product.prodname_dotcom %} GraphQL API offers flex
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 개요

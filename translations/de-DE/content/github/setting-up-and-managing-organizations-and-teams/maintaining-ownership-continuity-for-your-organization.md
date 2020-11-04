@@ -9,6 +9,7 @@ permissions: Organisationsinhaber können jedes Mitglied einer Organisation zum 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Über die Aufrechterhaltung der Inhaberkontinuität für Deine Organisation
