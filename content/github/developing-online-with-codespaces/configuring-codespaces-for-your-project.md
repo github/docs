@@ -77,10 +77,4 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 - `overrideCommand`
 - `dockerComposeFile`
 
-#### Not applicable for Codespaces (no plan to support)
-
-- `devPort`
-- `updateRemoteUserUID`
-- `shutdownAction`
-
 For more information about the available settings for `devcontainer.json`, see [devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json) in the {% data variables.product.prodname_vscode %} documentation.
