@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_dotcom %} GraphQL API 具有灵活性
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 概览

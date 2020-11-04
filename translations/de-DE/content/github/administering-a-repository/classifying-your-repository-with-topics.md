@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Themen
@@ -27,7 +28,7 @@ Du kannst nach Repositorys suchen, die mit einem bestimmten Thema verknüpft sin
 
 ### Themen zum Repository hinzufügen
 
-{% data reusables.repositories.navigate-to-repo %}{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. Klicke unter der Beschreibung des Repositorys auf **Add topics** (Themen hinzufügen). ![Link „Add topics“ (Themen hinzufügen) auf der Hauptseite eines Repositorys](/assets/images/help/repository/add-topics-link.png)
 3. Gib das Thema ein, das Du zum Repository hinzufügen möchtest, gefolgt von einem Leerzeichen. ![Formular zur Eingabe von Themen](/assets/images/help/repository/add-topic-form.png)
 4. Wenn Du mit dem Hinzufügen von Themen fertig bist, klicke auf **Done** (Fertig). ![Formular mit einer Liste an Themen und Schaltfläche „Done“ (Fertig)](/assets/images/help/repository/add-topics-done-button.png)

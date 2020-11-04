@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ライセンス API は、広く利用されているオープンソースライセンスに関するメタデータと、特定のプロジェクトのライセンスファイルに関する情報を返します。

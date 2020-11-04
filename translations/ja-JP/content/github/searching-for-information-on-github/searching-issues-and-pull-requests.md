@@ -7,14 +7,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} 全体にわたってグローバルに Issue およびプルリクエストを検索できます。あるいは、特定の Organization の Issue およびプルリクエストに限った検索もできます。 詳細は「[{% data variables.product.company_short %} での検索について](/articles/about-searching-on-github)」を参照してください。
 
 {% tip %}
 
-**ヒント:**{% if enterpriseServerVersions contains currentVersion %}
-  - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location_enterprise %} で使えます。{% endif %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - この記事には、{% data variables.product.prodname_dotcom %}.com のウェブサイトでの検索例が含まれています。ですが、同じ検索フィルターを {% data variables.product.product_location %} で使えます。{% endif %}
   - 検索結果を改良する検索修飾子を追加できる検索構文のリストについては、「[検索構文を理解する](/articles/understanding-the-search-syntax)」を参照してください。
   - 複数単語の検索用語は引用符で囲みます。 たとえば "In progress" というラベルを持つ Issue を検索したい場合は、`label:"in progress"` とします。 検索では、大文字と小文字は区別されません。
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -124,7 +125,7 @@ versions:
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** は、@defunkt または @jlord が関与している Issue にマッチします。               |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues)は、本文に「bootstrap」という単語を含まず、@mdo が関与している Issue にマッチします。 |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### リンクされた Issue とプルリクエストを検索する
 結果を絞り込んで、クローズしているリファレンスによってプルリクエストにリンクされている、またはプルリクエストによってクローズされる可能性がある Issue にリンクされている Issue のみを表示することができます。
 
@@ -229,7 +230,7 @@ versions:
 ### ドラフトプルリクエストを検索
 ドラフトプルリクエストをフィルタリングすることができます。 詳しい情報については[プルリクエストについて](/articles/about-pull-requests#draft-pull-requests)を参照してください。
 
-| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue)  はドラフトプルリクエストに一致します。 | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) は、レビューの準備ができたプルリクエストに一致します。{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) はドラフトプルリクエストに一致します。{% endif %}
 
 ### プルリクエストレビューのステータスおよびレビュー担当者で検索
 

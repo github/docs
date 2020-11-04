@@ -5,6 +5,7 @@ product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Team-Betreuer und Organisationsinhaber können Code-Review-Zuweisungen konfigurieren.

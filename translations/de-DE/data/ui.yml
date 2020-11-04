@@ -3,7 +3,7 @@ header:
   github_docs: GitHub Docs
   contact: Kontakt
   notices:
-    ghe_release_candidate: GitHub Enterprise Server 2.22 is currently under limited release as a release candidate.
+    ghae_silent_launch: GitHub AE is currently under limited release. Please <a href="https://enterprise.github.com/contact">contact our Sales Team</a> to find out more.
     localization_complete: Wir veröffentlichen regelmäßig Aktualisierungen unserer Dokumentation, und die Übersetzung dieser Seite kann noch im Gange sein. Die neuesten Informationen findest Du in der <a id="to-english-doc" href="/en">englischsprachigen Dokumentation</a>. <a href="https://github.com/contact?form[subject]=translation%20issue%20on%20help.github.com&form[comments]=">Informieren Sie uns bitte</a>, falls auf dieser Seite ein Problem mit den Übersetzungen vorliegt.
     localization_in_progress: Hallo, Entdecker! An dieser Seite wird aktiv gearbeitet, oder sie wird noch übersetzt. Die neuesten und genauesten Informationen findest Du in unserer <a id="to-english-doc" href="/en">englischsprachigen Dokumentation</a>.
     product_in_progress: '👋 Hallo, Entdecker! An dieser Seite wird aktiv gearbeitet. Die neuesten und genauesten Informationen findest du in unserer <a href="https://developer.github.com">Entwicklerdokumentation</a>.'

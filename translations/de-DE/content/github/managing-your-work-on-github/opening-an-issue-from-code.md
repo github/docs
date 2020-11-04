@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du einen Issue im Code öffnest, enthält der Issue einen Ausschnitt mit den ausgewählten Codezeilen. Du kannst einen Issue nur in dem Repository öffnen, in dem der Code gespeichert ist.

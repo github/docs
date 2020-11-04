@@ -41,16 +41,21 @@ For a list of the ecosystems that {% data variables.product.product_name %} can 
 
 {% data reusables.repositories.enable-security-alerts %}
 
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom %} detects and alerts users to vulnerable dependencies in _public_ repositories by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
+{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_dotcom %} detects vulnerable dependencies in _public_ repositories and generates {% data variables.product.prodname_dependabot_alerts %} by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
 
-You can also enable or disable {% data variables.product.prodname_dependabot %} alerts for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
+You can also enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your user account or organization. For more information, see "[Managing security and analysis settings for your user account](/github/setting-up-and-managing-your-github-user-account/managing-security-and-analysis-settings-for-your-user-account)" or "[Managing security and analysis settings for your organization](/github/setting-up-and-managing-organizations-and-teams/managing-security-and-analysis-settings-for-your-organization)."
 
-{% data variables.product.product_name %} starts generating the dependency graph immediately and sends alerts for any vulnerable dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
+{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any vulnerable dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[Managing data use settings for your private repository](/github/understanding-how-github-uses-and-protects-your-data/managing-data-use-settings-for-your-private-repository)."
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 When
-{% data variables.product.product_name %} identifies a vulnerable dependency, we send a {% data variables.product.prodname_dependabot_short %} alert to the maintainers of affected repositories with details of the vulnerability, a link to the affected file in the project, and information about a fixed version. {% if currentVersion == "free-pro-team@latest" %}For repositories that have enabled {% data variables.product.prodname_dependabot_security_updates %}, the alert will also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."{% endif %}
+{% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot_short %} alert and display it on the Security tab for the repository. The alert includes a link to the affected file in the project, and information about a fixed version. {% data variables.product.product_name %} also notifies the maintainers of affected repositories about the new alert according to their notification preferences. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
+For repositories where
+{% data variables.product.prodname_dependabot_security_updates %} are enabled, the alert may also contain a link to a pull request to update the manifest or lock file to the minimum version that resolves the vulnerability. Weitere Informationen findest Du unter „[ Über {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)."
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
@@ -60,7 +65,7 @@ When
 
 {% warning %}
 
-**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. Obwohl wir immer versuchen, unsere Datenbank an Sicherheitslücken zu aktualisieren und Ihnen unsere neuesten Informationen zur Verfügung zu stellen, können wir nicht alles erfassen oder Sie innerhalb eines garantierten Zeitrahmens über bekannte Sicherheitslücken informieren. Diese Funktionen ersetzen nicht die menschliche Überprüfung jeder Abhängigkeit auf potenzielle Sicherheitsrisiken oder andere Probleme. Daher empfehlen wir, einen Sicherheitsdienst zu konsultieren oder bei Bedarf eine gründliche Überprüfung der Sicherheitsrisiken durchzuführen.
+**Note**: {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. Though we are always trying to update our vulnerability database and generate alerts with our most up-to-date information, we will not be able to catch everything or tell you about known vulnerabilities within a guaranteed time frame. Diese Funktionen ersetzen nicht die menschliche Überprüfung jeder Abhängigkeit auf potenzielle Sicherheitsrisiken oder andere Probleme. Daher empfehlen wir, einen Sicherheitsdienst zu konsultieren oder bei Bedarf eine gründliche Überprüfung der Sicherheitsrisiken durchzuführen.
 
 {% endwarning %}
 
@@ -69,8 +74,8 @@ When
 You can see all of the alerts that affect a particular project{% if currentVersion == "free-pro-team@latest" %} on the repository's Security tab or{% endif %} in the repository's dependency graph.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Viewing and updating vulnerable dependencies in your repository](/articles/viewing-and-updating-vulnerable-dependencies-in-your-repository)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
-We send
-{% data variables.product.prodname_dependabot_short %} alerts to people with admin permissions in the affected repositories by default. {% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository.{% if currentVersion == "free-pro-team@latest" %} You can also enable {% data variables.product.prodname_dependabot_short %} alerts for additional people or teams working repositories that you own or have admin permissions for. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-github-dependabot-alerts)."{% endif %}
+By default, we notify people with admin permissions in the affected repositories about new
+{% data variables.product.prodname_dependabot_short %} alerts.{% endif %} {% if currentVersion == "free-pro-team@latest" %}{% data variables.product.product_name %} never publicly discloses identified vulnerabilities for any repository. You can also make {% data variables.product.prodname_dependabot_short %} alerts visible to additional people or teams working repositories that you own or have admin permissions for. For more information, see "[Managing security and analysis settings for your repository](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-github-dependabot-alerts)."
 {% endif %}
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}

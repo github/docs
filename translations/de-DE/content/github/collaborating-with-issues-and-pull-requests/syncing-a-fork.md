@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst, musst Du in Git [ein Remote-Repository konfigurieren, das auf das vorgelagerte Repository verweist](/articles/configuring-a-remote-for-a-fork).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
-3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits am `master`-Branch werden in einem lokalen Branch mit dem Namen `upstream/master` gespeichert.
+3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits to `main` will be stored in a local branch, `upstream/main`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.

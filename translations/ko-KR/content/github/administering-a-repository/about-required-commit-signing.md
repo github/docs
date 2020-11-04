@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 If you've enforced branch protections in your repository, you can set up required commit signing. For more information, see "[Configuring protected branches](/articles/configuring-protected-branches/)."

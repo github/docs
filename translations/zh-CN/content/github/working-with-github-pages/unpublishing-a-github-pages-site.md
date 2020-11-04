@@ -12,6 +12,7 @@ permissions: '拥有仓库管理员或维护员权限的人可取消发布 {% da
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 取消发布项目站点
