@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Your contribution graph shows activity from public repositories. You can choose to show activity from both public and private repositories, with specific details of your activity in private repositories anonymized. For more information, see "[Publicizing or hiding your private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)."
 
 {% note %}
 
-**Note:** Commits will only appear on your contributions graph if you have [added the email address you used for your local Git configuration to your {% data variables.product.product_name %} email settings](/articles/adding-an-email-address-to-your-github-account). For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)"
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. For more information, see "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)"
 
 {% endnote %}
 
@@ -25,7 +26,7 @@ On your profile page, certain actions count as contributions:
 - Committing to a repository's default branch or `gh-pages` branch
 - Opening an issue
 - Proposing a pull request
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -79,9 +80,11 @@ The contribution activity section includes a detailed timeline of your work, inc
 
 ![Contribution activity time filter](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Viewing contributions from {% data variables.product.product_location_enterprise %} on {% data variables.product.prodname_dotcom_the_website %}
 
 If your site administrator has enabled {% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. For more information, see "[Sending your {% data variables.product.prodname_ghe_server %} contributions to your {% data variables.product.prodname_dotcom_the_website %}](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)."
+{% endif %}
 
 ### Further reading
 

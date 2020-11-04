@@ -26,7 +26,7 @@ Secrets use [Libsodium sealed boxes](https://libsodium.gitbook.io/doc/public-key
 To help prevent accidental disclosure, {% data variables.product.product_name %} uses a mechanism that attempts to redact any secrets that appear in run logs. This redaction looks for exact matches of any configured secrets, as well as common encodings of the values, such as Base64. However, because there are multiple ways a secret value can be transformed, this redaction is not guaranteed. As a result, there are certain proactive steps and good practices you should follow to help ensure secrets are redacted, and to limit other risks associated with secrets:
 
 - **Never use structured data as a secret**
-    - Unstructured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
+    - Structured data can cause secret redaction within logs to fail, because redaction largely relies on finding an exact match for the specific secret value. For example, do not use a blob of JSON, XML, or YAML (or similar) to encapsulate a secret value, as this significantly reduces the probability the secrets will be properly redacted. Instead, create individual secrets for each sensitive value.
 - **Register all secrets used within workflows**
     - If a secret is used to generate another sensitive value within a workflow, that generated value should be formally [registered as a secret](https://github.com/actions/toolkit/tree/main/packages/core#setting-a-secret), so that it will be redacted if it ever appears in the logs. For example, if using a private key to generate a signed JWT to access a web API, be sure to register that JWT as a secret or else it won’t be redacted if it ever enters the log output.
     - Registering secrets applies to any sort of transformation/encoding as well. If your secret is transformed in some way (such as Base64 or URL-encoded), be sure to register the new value as a secret too.
@@ -95,3 +95,42 @@ As a result, self-hosted runners should almost [never be used for public reposit
 You should also consider the environment of the self-hosted runner machines:
 - What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others. 
 - Does the machine have network access to sensitive services? For example, Azure or AWS metadata services. The amount of sensitive information in this environment should be kept to a minimum, and you should always be mindful that any user capable of invoking workflows has access to this environment.
+
+### Auditing {% data variables.product.prodname_actions %} events
+
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account performed the action.
+
+For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets:
+  ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+
+The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see 
+"[Reviewing the audit log for your organization](/github/setting-up-and-managing-organizations-and-teams/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)."
+
+#### Events for secret management
+| Action | Description
+|------------------|-------------------
+| `action:org.create_actions_secret` | Triggered when a organization admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-an-organization).
+| `action:org.remove_actions_secret` | Triggered when a organization admin removes a {% data variables.product.prodname_actions %} secret.
+| `action:org.update_actions_secret` | Triggered when a organization admin updates a {% data variables.product.prodname_actions %} secret.
+| `action:repo.create_actions_secret ` | Triggered when a repository admin [creates a {% data variables.product.prodname_actions %} secret](/actions/reference/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+| `action:repo.remove_actions_secret` | Triggered when a repository admin removes a {% data variables.product.prodname_actions %} secret.
+| `action:repo.update_actions_secret` | Triggered when a repository admin updates a {% data variables.product.prodname_actions %} secret.
+
+#### Events for self-hosted runners
+| Action | Description
+|------------------|-------------------
+| `action:org.register_self_hosted_runner` | Triggered when an organization owner [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization).
+| `action:org.remove_self_hosted_runner` | Triggered when an organization owner [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization).
+| `action:repo.register_self_hosted_runner` | Triggered when a repository admin [registers a new self-hosted runner](/actions/hosting-your-own-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository). 
+| `action:repo.remove_self_hosted_runner` | Triggered when a repository admin [removes a self-hosted runner](/actions/hosting-your-own-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository). 
+
+#### Events for self-hosted runner groups
+| Action | Description
+|------------------|-------------------
+| `action:org.runner_group_created` | Triggered when an organization admin [creates a self-hosted runner group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization). 
+| `action:org.runner_group_removed` | Triggered when an organization admin removes a self-hosted runner group. 
+| `action:org.runner_group_renamed` | Triggered when an organization admin renames a self-hosted runner group. 
+| `action:org.runner_group_runners_added` | Triggered when an organization admin [adds a self-hosted runner to a group](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group). 
+| `action:org.runner_group_runners_removed` | Triggered when an organization admin removes a self-hosted runner from a group. 
+
+

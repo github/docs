@@ -1,6 +1,7 @@
 ---
 title: 漏洞依赖项检测疑难解答
 intro: '如果 {% data variables.product.product_name %} 报告的依赖项信息不符合您的预期，则需要考虑许多因素，您可以检查各种问题。'
+shortTitle: Troubleshooting detection
 versions:
   free-pro-team: '*'
 ---
@@ -14,9 +15,9 @@ versions:
 *   {% data variables.product.prodname_advisory_database %} 是 {% data variables.product.prodname_dotcom %} 用来识别漏洞依赖项的数据源之一。 它是一款免费的、具有整理功能的数据库，用于检测 {% data variables.product.prodname_dotcom %} 上常见软件包生态系统的漏洞信息。 它包括从 {% data variables.product.prodname_security_advisories %} 直接报告给 {% data variables.product.prodname_dotcom %} 的数据，以及官方馈送和社区来源。 这些数据由 {% data variables.product.prodname_dotcom %} 审查和整理，以确保不会与开发社区分享虚假或不可行的信息。 更多信息请参阅“[浏览 {% data variables.product.prodname_advisory_database %} 中的安全漏洞](/github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database)”和“[关于 {% data variables.product.prodname_security_advisories %}](/github/managing-security-vulnerabilities/about-github-security-advisories)”。
 *   依赖项图解析用户仓库中所有已知的包清单文件。 例如，对于 npm，它将解析 _package-lock.json_ 文件。 它构造所有仓库依赖项和公共依赖项的图表。 当启用依赖关系图时，当任何人推送到默认分支时，都会发生这种情况，其中包括对支持的清单格式进行更改的提交。 更多信息请参阅“[关于依赖关系图](/github/visualizing-repository-data-with-graphs/about-the-dependency-graph)”。
 *   {% data variables.product.prodname_dependabot_short %} 扫描对包含清单文件的默认分支的任何推送。 添加新的漏洞记录时，它会扫描所有现有仓库，并为每个存在漏洞的仓库生成警报。 {% data variables.product.prodname_dependabot_short %} 警报在仓库级别汇总，而不是针对每个漏洞创建一个警报。 更多信息请参阅“[关于易受攻击的依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”。
-*   {% data variables.product.prodname_dependabot_security_updates %} 在您收到关于仓库中漏洞依赖项的安全警报时触发。 {% data variables.product.prodname_dotcom %} 会自动在您的仓库中创建拉取请求，以将漏洞依赖项升级到避免漏洞所需的最低安全版本。 更多信息请参阅“[配置 {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/configuring-github-dependabot-security-updates)。”
+*   {% data variables.product.prodname_dependabot_security_updates %} are triggered when you receive an alert about a vulnerable dependency in your repository. Where possible, {% data variables.product.prodname_dependabot_short %} creates a pull request in your repository to upgrade the vulnerable dependency to the minimum possible secure version needed to avoid the vulnerability. For more information, see "[About {% data variables.product.prodname_dependabot_security_updates %}](/github/managing-security-vulnerabilities/about-github-dependabot-security-updates)" and "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors)."
 
-    {% data variables.product.prodname_dependabot_short %} 不会按计划扫描仓库，而是在发生某些变更时扫描仓库。 例如，当新的依赖项被添加到 {% data variables.product.prodname_dotcom %} 时（对于每次推送都会进行此项检查），或者当新的漏洞被发现并添加到通告数据库时，就会触发扫描。
+    {% data variables.product.prodname_dependabot_short %} doesn't scan repositories for vulnerable dependencies on a schedule, but rather when something changes. 例如，当新的依赖项被添加到 {% data variables.product.prodname_dotcom %} 时（对于每次推送都会进行此项检查），或者当新的漏洞被发现并添加到通告数据库时，就会触发扫描。
 
 ### 为什么我没有收到某些生态系统的漏洞警报？
 
@@ -97,3 +98,4 @@ versions:
 - “[关于有易受攻击依赖项的警报](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)”
 - "[查看和更新仓库中的漏洞依赖项](/github/managing-security-vulnerabilities/viewing-and-updating-vulnerable-dependencies-in-your-repository)"
 - "[管理仓库的安全和分析设置](/github/administering-a-repository/managing-security-and-analysis-settings-for-your-repository)"
+- "[Troubleshooting {% data variables.product.prodname_dependabot %} errors](/github/managing-security-vulnerabilities/troubleshooting-github-dependabot-errors)"

@@ -6,13 +6,16 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.owners-and-admins-can %} externe Mitarbeiter zu einem Repository hinzufügen, es sei denn, ein Organisationsinhaber hat die Möglichkeit zum Einladen von Mitarbeitern eingeschränkt. Weitere Informationen findest Du unter „[Berechtigungen zum Hinzufügen von externen Mitarbeitern festlegen](/articles/setting-permissions-for-adding-outside-collaborators)."
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 
+{% if currentVersion != "github-ae@latest" %}
 Wenn Deine Organisation [die Zwei-Faktor-Authentifizierung für Mitglieder und externe Mitarbeiter vorschreibt](/articles/requiring-two-factor-authentication-in-your-organization), müssen die Benutzer die Zwei-Faktor-Authentifizierung aktivieren, bevor sie Deine Einladung zur Zusammenarbeit an einem Repository der Organisation annehmen können.
+{% endif %}
 
 {% data reusables.organizations.outside_collaborator_forks %}
 

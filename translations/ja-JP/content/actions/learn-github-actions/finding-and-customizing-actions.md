@@ -149,7 +149,7 @@ outputs:
         私の最初のステップ: docker://alpine:3.8
 ```
 
-Dockerアクションの例については、[Docker-image.ymlのワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml)及び「[Dockerコンテナのアクションの作成](/articles/creating-a-docker-container-action)」を参照してください。
+Docker アクションの例については、[Docker-image.yml のワークフロー](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) および「[Docker コンテナのアクションを作成する](/articles/creating-a-docker-container-action)」を参照してください。
 
 ### 次のステップ
 

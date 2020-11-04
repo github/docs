@@ -1,6 +1,6 @@
 ---
 title: 配置 TLS
-intro: '您可以在 {% data variables.product.product_location_enterprise %} 上配置传输层安全 (TLS)，以便使用由可信证书颁发机构签名的证书。'
+intro: '您可以在 {% data variables.product.product_location %} 上配置传输层安全 (TLS)，以便使用由可信证书颁发机构签名的证书。'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -51,9 +51,9 @@ Let's Encrypt 是公共证书颁发机构，他们使用 ACME 协议颁发受浏
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-在您启用通过 Let's Encrypt 自动进行 TLS 证书管理后，{% data variables.product.product_location_enterprise %} 将与 Let's Encrypt 服务器通信，以获取证书。 要续订证书，Let's Encrypt 服务器必须通过入站 HTTP 请求验证已配置域名的控制。
+在您启用通过 Let's Encrypt 自动进行 TLS 证书管理后，{% data variables.product.product_location %} 将与 Let's Encrypt 服务器通信，以获取证书。 要续订证书，Let's Encrypt 服务器必须通过入站 HTTP 请求验证已配置域名的控制。
 
-您还可以在 {% data variables.product.product_location_enterprise %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
+您还可以在 {% data variables.product.product_location %} 上使用 `ghe-ssl-acme` 命令行实用程序自动生成 Let's Encrypt 证书。 更多信息请参阅“[命令行实用程序](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)”。
 
 ### 使用 Let's Encrypt 配置 TLS
 

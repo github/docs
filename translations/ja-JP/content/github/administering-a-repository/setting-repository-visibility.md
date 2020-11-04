@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### リポジトリの可視性の変更について
@@ -19,18 +20,18 @@ Organization のオーナーは、リポジトリの可視性を変更する機�
 
 #### リポジトリをプライベートにする
 
-   * {% data variables.product.prodname_dotcom %} はパブリックリポジトリのパブリックフォークを切り離し、新しいネットワークに追加します。 パブリックフォークはプライベートにはなりません。 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
+   * {% data variables.product.prodname_dotcom %} はパブリックリポジトリのパブリックフォークを切り離し、新しいネットワークに追加します。 パブリックフォークはプライベートにはなりません。 {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
    {% if currentVersion == "free-pro-team@latest" %}* If you're using {% data variables.product.prodname_free_user %} for user accounts or organizations, some features won't be available in the repository after you change the visibility to private. {% data reusables.gated-features.more-info %}
    * すべての公開済みの {% data variables.product.prodname_pages %} サイトは自動的に取り下げられます。 {% data variables.product.prodname_pages %} サイトにカスタムドメインを追加した場合、ドメインの乗っ取りリスクを回避するために、リポジトリをプライベートに設定する前に DNS レコードを削除または更新してください。 詳しい情報については、「[{% data variables.product.prodname_pages %} サイト用のカスタムドメインを管理する](/articles/managing-a-custom-domain-for-your-github-pages-site)」を参照してください。
    * 今後、{% data variables.product.prodname_dotcom %} は {% data variables.product.prodname_archive %} にリポジトリを含まなくなります。 詳しい情報については、「[{% data variables.product.prodname_dotcom %} のコンテンツとデータのアーカイブについて](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)」を参照してください。{% endif %}
-   {% if currentVersion != "free-pro-team@latest" %}* Anonymous Git read access is no longer available. For more information, see "[Enabling anonymous Git read access for a repository](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)."{% endif %}
+   {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}* Anonymous Git read access is no longer available. 詳しい情報については、「[リポジトリで匿名 Git 読み取りアクセスを有効化する](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)」を参照してください。{% endif %}
 
 #### リポジトリをパブリックにする
 
    * {% data variables.product.prodname_dotcom %} はプライベートフォークを切り離し、スタンドアロンのプライベートリポジトリに変換します。 詳細は「[リポジトリが削除されたり可視性が変更されたりするとフォークはどうなりますか？](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)」を参照してください。
    * If you're converting your private repository to a public repository as part of a move toward creating an open source project, see the [Open Source Guides](http://opensource.guide) for helpful tips and guidelines.{% if currentVersion == "free-pro-team@latest" %} You can also take a free course on managing an open source project with [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). リポジトリがパブリックになったら、コントリビューターをサポートするための最適な手法にプロジェクトが合致しているかどうかを確認するため、リポジトリのコミュニティプロフィールを表示できます。 詳細は「[コミュニティプロフィールを見る](/articles/viewing-your-community-profile)」を参照してください。{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 ### リポジトリの可視性を変更する
 

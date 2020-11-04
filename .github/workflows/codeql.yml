@@ -8,10 +8,6 @@ on:
 
 jobs:
   build:
-
-    strategy:
-      fail-fast: false
-
     runs-on: ubuntu-latest 
 
     steps:

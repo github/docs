@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Solicitações de servidor para servidor
@@ -45,7 +46,7 @@ Aplicam-se diferentes limites de taxa de solicitação de usuário para servidor
 
 {% endif %}
 
-As solicitações usuário para servidor são limitadas a 5.000 solicitações por hora e por usuário autenticado. Todos os aplicativos OAuth autorizados por esse usuário, tokens de acesso pessoal pertencentes a esse usuário, e pedidos autenticados com o nome de usuário e senha compartilham a mesma cota de 5.000 solicitações por hora para esse usuário.
+As solicitações usuário para servidor são limitadas a 5.000 solicitações por hora e por usuário autenticado. All OAuth applications authorized by that user, personal access tokens owned by that user, and requests authenticated with that user's{% if currentVersion == "github-ae@latest" %} token{% else %} username and password{% endif %} share the same quota of 5,000 requests per hour for that user.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -24,11 +25,11 @@ Você deve ter acesso de gravação em um repositório para criar um branch, abr
 
 {% data reusables.branches.new-repo-default-branch %} O branch-padrão é o branch que {% data variables.product.prodname_dotcom %} exibe quando alguém visita o seu repositório. O branch-padrão é também o branch inicial que o Git verifica localmente quando alguém clona o repositório. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-Por padrão, {% data variables.product.product_name %} nomeia o branch-padrão {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 3" %}`o principal`{% else %}`mestre`{% endif %} em qualquer novo repositório.
+By default, {% data variables.product.product_name %} names the default branch {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}`main`{% else %}`master`{% endif %} in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.branches.set-default-branch %}
 
@@ -40,7 +41,7 @@ Quando estiver satisfeito com seu trabalho, você poderá abrir uma pull request
 
 Depois que uma pull request tiver sido mesclada ou fechada, você poderá excluir o branch head, já que isso não é mais necessário. Você deve ter permissão de gravação no repositório para excluir branches. Não é possível excluir branches associados diretamente a pull requests abertas. Para obter mais informações, consulte "[Excluindo e recuperando branches em uma pull request](/github/administering-a-repository/deleting-and-restoring-branches-in-a-pull-request)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 {% data reusables.pull_requests.retargeted-on-branch-deletion %}
 Os seguintes diagramas ilustram isso.
 
@@ -73,7 +74,7 @@ Quando um branch estiver protegido:
 - Se as verificações de status obrigatórias forem habilitadas no branch, não será possível fazer merge das alterações no branch até que todos os testes de CI obrigatórios sejam aprovados. Para obter mais informações, consulte "[Sobre verificações de status](/articles/about-status-checks)".
 - Se as revisões obrigatórias de pull request forem habilitadas no branch, não será possível fazer merge de alterações no branch até que todos os requisitos na política da revisão de pull request tenham sido atendidos. Para obter mais informações, consulte "[Fazer merge de uma pull request](/articles/merging-a-pull-request)".
 - Se a revisão obrigatória de um proprietário do código for habilitada em um branch, e uma pull request modificar o código que tem um proprietário, um proprietário do código deverá aprovar a pull request para que ela possa passar por merge. Para obter mais informações, consulte "[Sobre proprietários do código](/articles/about-code-owners)".
-- Se a assinatura de commit obrigatória for habilitada em um branch, não será possível fazer push de qualquer commit no branch que não esteja assinado e verificado. Para obter mais informações, consulte "[Sobre verificação de assinatura de commit](/articles/about-commit-signature-verification)" e "[Sobre a assinatura de commit necessária](/articles/about-required-commit-signing). {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+- Se a assinatura de commit obrigatória for habilitada em um branch, não será possível fazer push de qualquer commit no branch que não esteja assinado e verificado. For more information, see "[About commit signature verification](/articles/about-commit-signature-verification)" and "[About required commit signing](/articles/about-required-commit-signing)."{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 - Se você usar o editor de conflitos do {% data variables.product.prodname_dotcom %} para corrigir conflitos para uma pull request que você criou de um branch protegido, o {% data variables.product.prodname_dotcom %}  ajuda você a criar um branch alternativo para o pull request, para que sua resolução de conflitos possa ser mesclada. Para obter mais informações, consulte "[Resolvendo um conflito de merge no {% data variables.product.prodname_dotcom %}](/github/collaborating-with-issues-and-pull-requests/resolving-a-merge-conflict-on-github)".{% endif %}
 
 ### Leia mais

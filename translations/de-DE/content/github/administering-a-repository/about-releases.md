@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Releases
@@ -20,11 +21,11 @@ Releases sind einsetzbare Software-Iterationen, die Du paketieren und für ein b
 
 Releases basieren auf [Git-Tags](https://git-scm.com/book/en/Git-Basics-Tagging), die einen bestimmten Punkt im Verlauf Deines Repositorys kennzeichnen. Ein Tag kann ein anderes Datum haben als ein Release, da sie zu unterschiedlichen Zeiten erstellt wurden. Weitere Informationen zum Anzeigen Deiner vorhandenen Tags findest Du unter „[Anzeigen der Releases und Tags Deines Repositorys](/github/administering-a-repository/viewing-your-repositorys-releases-and-tags)."
 
-Du kannst Benachrichtigungen erhalten, wenn neue Releases in einem Repository verfügbar sind, ohne Benachrichtigungen über andere Updates des gleichen Repositorys zu erhalten. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching releases for a repository](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
+Du kannst Benachrichtigungen erhalten, wenn neue Releases in einem Repository verfügbar sind, ohne Benachrichtigungen über andere Updates des gleichen Repositorys zu erhalten. For more information, see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching releases for a repository](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-releases-for-a-repository){% endif %}."
 
 Alle Personen mit Lesezugriff auf ein Repository können Releases anzeigen und vergleichen, aber nur Personen mit Schreibberechtigungen für ein Repository können Releases verwalten. Weitere Informationen findest Du unter „[Verwalten von Releases in einem Repository](/github/administering-a-repository/managing-releases-in-a-repository)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 People with admin permissions to a repository can choose whether
 {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[Managing {% data variables.large_files.product_name_short %} objects in archives of your repository](/github/administering-a-repository/managing-git-lfs-objects-in-archives-of-your-repository)."
 {% endif %}

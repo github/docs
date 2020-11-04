@@ -7,6 +7,7 @@ intro: Você pode criar diretrizes para informar como as pessoas devem contribui
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para ajudar os contribuidores do projeto a fazer um bom trabalho, você pode adicionar um arquivo com diretrizes de contribuição às pastas raiz, `docs` ou `.github` do repositório do projeto. Quando alguém abrir uma pull request ou criar um problema, verá um link para esse arquivo.
@@ -19,7 +20,7 @@ Para contribuidores, as diretrizes ajudam a verificar se eles estão enviando pu
 
 Para proprietários e contribuidores, as diretrizes de contribuição economizam tempo e evitam aborrecimentos causados por pull requests ou problemas incorretos que precisam ser rejeitados e enviados novamente.
 
-Você pode criar diretrizes de contribuição padrão para a organização{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} ou conta de usuário{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
+You can create default contribution guidelines for your organization{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %} or user account{% endif %}. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/github/building-a-strong-community/creating-a-default-community-health-file)."
 
 {% tip %}
 

@@ -35,7 +35,7 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_gt "enterprise-server@2.21" %}
 在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to
 {% data variables.product.prodname_dependabot_short %} 警报.
 
@@ -55,7 +55,7 @@ The dependency graph shows the dependencies{% if currentVersion == "free-pro-tea
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 在仓库的清单或锁定文件中指定的任何直接或间接依赖项按生态系统分组列出。 如果在仓库中检测到漏洞，这些漏洞将显示在视图顶部，供有权访问安全警报的用户查看。
 
 {% note %}

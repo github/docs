@@ -7,6 +7,7 @@ intro: Einzelne Ordner eines Git-Repositorys kannst Du in neue Repositorys ausla
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du bei der Erstellung eines Repository-Klons einen Ordner in ein separates Repository verschiebst, verlierst Du weder Deinen Git-Verlauf noch die bereits vorgenommenen Änderungen.

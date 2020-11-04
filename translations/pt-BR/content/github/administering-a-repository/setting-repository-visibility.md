@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre alterações de visibilidade do repositório
@@ -19,18 +20,18 @@ Recomendamos revisar as seguintes advertências antes de alterar a visibilidade 
 
 #### Tornar um repositório privado
 
-   * O {% data variables.product.prodname_dotcom %} destacará bifurcações públicas do repositório público e as colocará em uma nova rede. As bifurcações públicas não se tornam privadas. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 9" %}Se você alterar a visibilidade de um repositório interno para privado, {% data variables.product.prodname_dotcom %} removerá as bifurcações que pertencem a qualquer usuário sem acesso ao repositório privado recente.{% endif %} Para obter mais informações, consulte "[O que acontece com as bifurcações quando um repositório é excluído ou altera a visibilidade?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
+   * O {% data variables.product.prodname_dotcom %} destacará bifurcações públicas do repositório público e as colocará em uma nova rede. As bifurcações públicas não se tornam privadas. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}If you change a repository's visibility from internal to private, {% data variables.product.prodname_dotcom %} will remove forks that belong to any user without access to the newly private repository.{% endif %} For more information, see "[What happens to forks when a repository is deleted or changes visibility?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-public-repository-to-a-private-repository)"
    {% if currentVersion == "free-pro-team@latest" %}* Se você estiver usando {% data variables.product.prodname_free_user %} para contas de usuários ou organizações, alguns recursos não estarão disponíveis no repositório depois que você alterar a visibilidade para privada. {% data reusables.gated-features.more-info %}
    * Qualquer site publicado do {% data variables.product.prodname_pages %} terá sua publicação cancelada automaticamente. Se você adicionou um domínio personalizado ao site do {% data variables.product.prodname_pages %}, deverá remover ou atualizar os registros de DNS antes de tornar o repositório privado para evitar o risco de uma aquisição de domínio. Para obter mais informações, consulte "[Gerenciar um domínio personalizado para seu site do {% data variables.product.prodname_pages %}](/articles/managing-a-custom-domain-for-your-github-pages-site)".
    * O {% data variables.product.prodname_dotcom %} não incluirá mais o repositório no {% data variables.product.prodname_archive %}. Para obter mais informações, consulte "[Sobre como arquivar conteúdo e dados no {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program)".{% endif %}
-   {% if currentVersion != "free-pro-team@latest" %}* Anonymous Git read access is no longer available. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".{% endif %}
+   {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}* Anonymous Git read access is no longer available. Para obter mais informações, consulte "[Habilitar acesso de leitura anônimo do Git para um repositório](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)".{% endif %}
 
 #### Tornar um repositório público
 
    * O {% data variables.product.prodname_dotcom %} irá destacar bifurcações privadas e transformá-las em um repositório privado independente. Para obter mais informações, consulte "[O que acontece com as bifurcações quando um repositório é excluído ou muda de visibilidade?](/articles/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility#changing-a-private-repository-to-a-public-repository)"
    * Se você estiver convertendo seu repositório privado em um repositório público, como parte de um movimento para a criação de um projeto de código aberto, consulte os [Guias de Código Aberto](http://opensource.guide) para obter dicas e diretrizes úteis.{% if currentVersion == "free-pro-team@latest" %} Você também pode fazer um curso grátis sobre como gerenciar um projeto de código aberto com [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}). Quando seu repositório é público, você também pode visualizar o perfil da comunidade do repositório para ver se os projetos atendem às práticas recomendadas de suporte aos contribuidores. Para obter mais informações, consulte "[Exibir o perfil da comunidade](/articles/viewing-your-community-profile)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
 
 ### Alterar a visibilidade de um repositório
 

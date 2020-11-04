@@ -17,7 +17,7 @@ versions:
 
 此外，您可以对组织中的所有仓库启用 {% data variables.product.prodname_actions %}，但限制工作流程可以运行的操作。 {% data reusables.github-actions.enabled-local-github-actions %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.23" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.23" %}
 
 ### 管理组织的 {% data variables.product.prodname_actions %} 权限
 
@@ -40,7 +40,7 @@ You can disable all workflows for an organization or set a policy that configure
 
 {% note %}
 
-**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise-account/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
+**Note:** You might not be able to manage these settings if your organization is managed by an enterprise that has overriding policy. For more information, {% if currentVersion == "free-pro-team@latest" %}"[Enforcing {% data variables.product.prodname_actions %} policies in your enterprise account](/github/setting-up-and-managing-your-enterprise/enforcing-github-actions-policies-in-your-enterprise-account)."{% else %}"[Enforcing {% data variables.product.prodname_actions %} policies for your enterprise](/enterprise/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 
@@ -48,10 +48,10 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select an option. ![Set actions policy for this organization](/assets/images/help/organizations/actions-policy.png)
+1. Under **Policies**, select an option. ![设置此组织的操作策略](/assets/images/help/organizations/actions-policy.png)
 1. 单击 **Save（保存）**。
 
-### Allowing specific actions to run
+### 允许特定操作运行
 
 {% data reusables.actions.allow-specific-actions-intro %}
 
@@ -59,7 +59,7 @@ You can disable all workflows for an organization or set a policy that configure
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions %}
-1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![Add actions to allow list](/assets/images/help/organizations/actions-policy-allow-list.png)
+1. Under **Policies**, select **Allow specific actions** and add your required actions to the list. ![添加操作到允许列表](/assets/images/help/organizations/actions-policy-allow-list.png)
 1. 单击 **Save（保存）**。
 
 {% endif %}

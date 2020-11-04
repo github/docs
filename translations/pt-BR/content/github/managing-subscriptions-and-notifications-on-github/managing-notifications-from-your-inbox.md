@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### Sobre sua caixa de entrada
@@ -104,25 +105,30 @@ Para filtrar notificações por motivos pelos quais recebeu uma atualização, v
 | `reason:invitation`       | Quando você for convidado para uma equipe, organização ou repositório.                                                            |
 | `reason:manual`           | Quando você clicar em **Assinar** em um problema ou uma pull request que você ainda não estava inscrito.                          |
 | `reason:mention`          | Você foi @mencionado diretamente.                                                                                                 |
-| `reason:review-requested` | Você ou uma equipe da qual é integrante é solicitado a revisar uma pull request.                                                  |
-| `reason:security-alert`   | Quando um alerta de segurança é emitido para um repositório.                                                                      |
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`     | Quando o estado de uma pull request ou um problema é alterado. Por exemplo, um problema é fechado ou uma pull request é mesclada. |
 | `reason:team-mention`     | Quando uma equipe da qual você é integrante é @mencionada.                                                                        |
 | `reason:ci-activity`      | Quando um repositório tem uma atualização de CI, como um novo status de execução de fluxo de trabalho.                            |
 
 #### Consultas suportadas `is:`
 
-Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. Por exemplo, para visualizar apenas atualizações de convite do repositório, use `is:repository-invitation` e para visualizar apenas {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 1" %}{% data variables.product.prodname_dependabot_short %}{% else %} alertas de segurança{% endif %}, use `is:repository-vulnerability-alert`.
+Para filtrar notificações para uma atividade específica no {% data variables.product.product_name %}, você pode usar a  consulta `is`. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
 - `is:repository-vulnerability-alert`
-- `is:repository-advisory`
+- `is:repository-advisory`{% endif %}
 - `is:team-discussion`
+
+{% if currentVersion != "github-ae@latest" %}
+For information about reducing noise from notifications for
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
 
 Você também pode usar a consulta `is:` para descrever como a notificação passou pela triagem.
 

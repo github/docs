@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Query for values greater or less than another value
@@ -80,7 +81,7 @@ If your search query contains whitespace, you will need to surround it with quot
 
 Some non-alphanumeric symbols, such as spaces, are dropped from code search queries within quotation marks, so results can be unexpected.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Queries with usernames
 
 If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username, to specify a specific person, or `@me`, to specify the current user.

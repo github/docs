@@ -1,12 +1,13 @@
 ---
 title: Habilitar restrições de branch
-intro: 'Você pode aplicar restrições de branch para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %} ou aplicativos{% endif %} possam fazer push em um branch protegido em repositórios pertencentes à sua organização.'
+intro: 'You can enforce branch restrictions so that only certain users, teams, or apps can push to a protected branch in repositories owned by your organization.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/enabling-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Qualquer pessoa com permissões de administrador em um repositório organization-owned pode habilitar restrições de branch.

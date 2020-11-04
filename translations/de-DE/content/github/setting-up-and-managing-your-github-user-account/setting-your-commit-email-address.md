@@ -1,6 +1,6 @@
 ---
 title: E-Mail-Adresse für Commits festlegen
-intro: 'Du kannst auf {% data variables.product.product_name %} eine primäre E-Mail-Adresse festlegen, die den von Dir durchgeführten, webbasierten Git-Operationen wie Bearbeitungen und Merges zugeordnet wird.'
+intro: 'You can set the email address that is used to author commits on {% data variables.product.product_name %} and on your computer.'
 redirect_from:
   - /articles/keeping-your-email-address-private/
   - /articles/setting-your-commit-email-address-on-github/
@@ -13,6 +13,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu E-Mail-Adressen für Commits
@@ -37,7 +38,7 @@ Für webbasierte Git-Operationen legst Du die E-Mail-Adresse für Commits auf {%
 
 Du kannst auch festlegen, dass Commits, die Du über die Befehlszeile überträgst, blockiert werden, wenn diese Deine persönliche E-Mail-Adresse offenlegen. Weitere Informationen findest Du unter „[Pushes über die Befehlszeile blockieren, die Deine private E-Mail-Adresse offenlegen](/articles/blocking-command-line-pushes-that-expose-your-personal-email-address)“.{% endif %}
 
-To ensure that commits are attributed to you and appear in your contributions graph, use an email address that you've [added to your GitHub account](/articles/adding-an-email-address-to-your-github-account/){% if currentVersion == "free-pro-team@latest" %}, or the {% data variables.product.product_name %}-provided `noreply` email address provided to you in your email settings{% endif %}.
+To ensure that commits are attributed to you and appear in your contributions graph, use an email address that is connected to your {% data variables.product.product_name %} account{% if currentVersion == "free-pro-team@latest" %}, or the `noreply` email address provided to you in your email settings{% endif %}. {% if currentVersion != "github-ae@latest" %}For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 

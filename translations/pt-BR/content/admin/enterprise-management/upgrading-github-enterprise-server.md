@@ -150,7 +150,7 @@ Mesmo que seja possível usar um hotpatch para fazer a atualização do patch em
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location_enterprise %}.
+7. Em atualizações de appliance único, desabilite o modo de manutenção para os usuários poderem trabalhar com a {% data variables.product.product_location %}.
 
   {% note %}
 
@@ -203,7 +203,7 @@ Appliances configurados para alta disponibilidade e replicação geográfica usa
    1. Na instância de réplica, execute `ghe-repl-setup <primary-instance-ip>` mais uma vez.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location_enterprise %}.
+6. Ao concluir a atualização da última réplica e quando a ressincronização terminar, desabilite o modo de manutenção para que os usuários possam trabalhar na {% data variables.product.product_location %}.
 
 ### Restaurar após uma atualização com falha
 

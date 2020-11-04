@@ -1,6 +1,6 @@
 ---
 title: Verificações de atualizações automáticas
-intro: 'É possível habilitar as verificações de atualizações automáticas para que a {% data variables.product.product_location_enterprise %} verifique e baixe as versões mais recentes do {% data variables.product.prodname_ghe_server %}.'
+intro: 'É possível habilitar as verificações de atualizações automáticas para que a {% data variables.product.product_location %} verifique e baixe as versões mais recentes do {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin/installation/enabling-automatic-update-checks
   - /enterprise/admin/enterprise-management/enabling-automatic-update-checks
@@ -8,13 +8,13 @@ versions:
   enterprise-server: '*'
 ---
 
-Quando um pacote de atualização for baixado automaticamente para a {% data variables.product.product_location_enterprise %}, você receberá uma mensagem informando que pode atualizar o {% data variables.product.prodname_ghe_server %}. Os pacotes baixados ficam no diretório `/var/lib/ghe-updates` na {% data variables.product.product_location_enterprise %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)".
+Quando um pacote de atualização for baixado automaticamente para a {% data variables.product.product_location %}, você receberá uma mensagem informando que pode atualizar o {% data variables.product.prodname_ghe_server %}. Os pacotes baixados ficam no diretório `/var/lib/ghe-updates` na {% data variables.product.product_location %}. Para obter mais informações, consulte "[Atualizar o {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server)".
 
 Se houver algum hotpatch disponível para atualização, o `.hpkg` fará o download automaticamente. No console de gerenciamento, você pode instalar o hotpatch imediatamente ou agendar a instalação para outro período. Para obter mais informações, consulte "[Atualizar com hotpatch](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)".
 
 {% tip %}
 
-**Dica:** para habilitar as verificações de atualizações automáticas, a {% data variables.product.product_location_enterprise %} deve poder se conectar a `https://github-enterprise.s3.amazonaws.com`.
+**Dica:** para habilitar as verificações de atualizações automáticas, a {% data variables.product.product_location %} deve poder se conectar a `https://github-enterprise.s3.amazonaws.com`.
 
 {% endtip %}
 
