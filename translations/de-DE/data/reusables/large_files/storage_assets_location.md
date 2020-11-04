@@ -1,1 +1,4 @@
-Der {% data variables.large_files.product_name_long %}-Client speichert standardmäßig große Objekte auf dem gleichen Server, auf dem das Git-Repository gehostet wird. Wenn {% data variables.large_files.product_name_short %} auf der {% data variables.product.prodname_ghe_server %}-Appliance, aktiviert ist, werden große Objekte auf der Datenpartition in `/data/user/storage` gespeichert.
+{% if enterpriseServerVersions contains currentVersion %}
+By default, the
+{% data variables.large_files.product_name_long %} client stores large assets on the same server that hosts the Git repository. When {% data variables.large_files.product_name_short %} is enabled on {% data variables.product.product_location %}, large assets are stored on the data partition in `/data/user/storage`.
+{% endif %}

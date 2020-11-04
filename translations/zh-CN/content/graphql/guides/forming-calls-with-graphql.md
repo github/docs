@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 使用 GraphQL 进行身份验证
@@ -334,9 +335,9 @@ mutation AddReactionToIssue {
 
   让我们来检查这一行：
 
-    - `addReaction` 是突变的名称。
-    - `input` 是必需的参数键。 突变的参数键始终是 `input`。
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` 是必需的参数值。 突变的参数值始终是由输入字段（在本例中为 `subjectId` 和 `content`）组成的[输入对象](/v4/input_object/)（因此带有大括号）。
+  - `addReaction` 是突变的名称。
+  - `input` 是必需的参数键。 突变的参数键始终是 `input`。
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` 是必需的参数值。 突变的参数值始终是由输入字段（在本例中为 `subjectId` 和 `content`）组成的[输入对象](/v4/input_object/)（因此带有大括号）。
 
   我们怎么知道内容使用哪个值呢？ [`addReaction` 文档](/v4/mutation/addreaction/)告诉我们 `content` 字段的类型为 [`ReactionContent`](/v4/enum/reactioncontent/)，即一种[枚举类型](/v4/enum)，因为 GitHub 议题只支持某些表情符号反应。 这些是允许的反应值 （注意，某些值与其相应的表情符号名称不同）：
 

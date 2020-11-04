@@ -1,12 +1,13 @@
 ---
 title: Aktivitäts-Dashboard
-intro: 'Im Aktivitäts-Dashboard erhalten Sie einen Überblich über alle Aktivitäten auf {% data variables.product.product_location_enterprise %}.'
+intro: 'The Activity dashboard gives you an overview of all the activity in your enterprise.'
 redirect_from:
   - /enterprise/admin/articles/activity-dashboard/
   - /enterprise/admin/installation/activity-dashboard
   - /enterprise/admin/user-management/activity-dashboard
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafiken zur Anzahl der
@@ -22,7 +23,10 @@ Das Aktivitäts-Dashboard bietet wöchentliche, monatliche und jährliche Grafik
 
 ![Aktivitäts-Dashboard](/assets/images/enterprise/activity/activity-dashboard-yearly.png)
 
-Für weitere Analysen auf Basis der Daten von {% data variables.product.prodname_enterprise %} kannst Du {% data variables.product.prodname_insights %} erwerben. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)“.
+{% if enterpriseServerVersions contains currentVersion %}
+For more analytics based on data from
+{% data variables.product.product_name %}, you can purchase {% data variables.product.prodname_insights %}. Weitere Informationen findest Du unter „[Informationen zu {% data variables.product.prodname_insights %}](/insights/installing-and-configuring-github-insights/about-github-insights)“.
+{% endif %}
 
 ### Auf das Aktivitäts-Dashboard zugreifen
 

@@ -166,6 +166,12 @@ featuredLinks:
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
+### `changelog`
+
+- Purpose: Render a list of changelog items with timestamps on product pages (ex: `layouts/product-landing.html`)
+- Type: `Array`, items are objects `{ href: string, title: string, date: 'YYYY-MM-DD' }`
+- Optional.
+
 ### Escaping single quotes
 
 If you see two single quotes in a row (`''`) in YML frontmatter where you might expect to see one (`'`), this is the YML-preferred way to escape a single quote. From [the YAML spec](https://yaml.org/spec/history/2001-12-10.html):

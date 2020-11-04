@@ -53,7 +53,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/pe-repos'
+    - '@github/reponauts'
 - 
   title: 访问仓库依赖关系图
   description: 此预览支持读取仓库依赖关系图。

@@ -15,7 +15,7 @@ versions:
 
 ### リポジトリ内の脆弱性のある依存関係の更新について
 
-リポジトリに影響を与える脆弱性を検出すると、{% data variables.product.product_name %} は {% data variables.product.prodname_dependabot_alerts %} を送信します。 {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリで {% data variables.product.product_name %} が脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot_short %} はプルリクエストを作成して修正します。 プルリクエストは、脆弱性を回避するために必要最低限の安全なバージョンに依存関係をアップグレードします。
+{% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect vulnerabilities affecting your repository. {% data variables.product.prodname_dependabot_security_updates %} が有効になっているリポジトリで {% data variables.product.product_name %} が脆弱性のある依存関係を検出すると、{% data variables.product.prodname_dependabot_short %} はプルリクエストを作成して修正します。 プルリクエストは、脆弱性を回避するために必要最低限の安全なバージョンに依存関係をアップグレードします。
 
 ### 脆弱性のある依存関係を表示して更新する
 

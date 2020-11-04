@@ -6,14 +6,15 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问安全日志
 
-The security log lists all actions performed within the last 90 days{% if currentVersion ver_lt "enterprise-server@2.20" %}, up to 50{% endif %}.
+安全日志列出过去 90 天内执行的所有操作{% if currentVersion ver_lt "enterprise-server@2.20" %} 最多 50 条{% endif %}。
 
 {% data reusables.user_settings.access_settings %}
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 2. 在用户设置侧边栏中，单击 **Security log（安全日志）**。 ![安全日志选项卡](/assets/images/help/settings/audit-log-tab.png)
 {% else %}
 {% data reusables.user_settings.security %}
@@ -21,7 +22,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 4. 单击条目以查看有关该事件的更多信息。 ![安全日志](/assets/images/help/settings/user_security_history_action.png)
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 ### 搜索安全日志
 
 {% data reusables.audit_log.audit-log-search %}
@@ -31,22 +32,22 @@ The security log lists all actions performed within the last 90 days{% if curren
 ### 了解安全日志中的事件
 
 安全日志中列出的操作分为以下类别： |{% endif %}
-| 类别名称                                              | 描述                                                                                                                                                                                                                                                                                                       |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |{% if currentVersion == "free-pro-team@latest" %}
-| `account_recovery_token`                          | 包含与[添加恢复令牌](/articles/configuring-two-factor-authentication-recovery-methods)相关的所有活动。                                                                                                                                                                                                                    |
-| `计费，帐单`                                           | 包含与帐单信息相关的所有活动。                                                                                                                                                                                                                                                                                          |
-| `marketplace_agreement_signature`                 | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                                                                    |
+| 类别名称                                              | 描述                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |{% if currentVersion == "free-pro-team@latest" %}
+| `account_recovery_token`                          | 包含与[添加恢复令牌](/articles/configuring-two-factor-authentication-recovery-methods)相关的所有活动。                                                                                                                                                                                                                                                                                                                                          |
+| `计费，帐单`                                           | 包含与帐单信息相关的所有活动。                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `marketplace_agreement_signature`                 | 包含与签署 {% data variables.product.prodname_marketplace %} 开发者协议相关的所有活动。                                                                                                                                                                                                                                                                                                                                                          |
 | `marketplace_listing`                             | 包含与 {% data variables.product.prodname_marketplace %} 中列出的应用程序相关的所有活动。{% endif %}
-| `oauth_access`                                    | Contains all activities related to [{% data variables.product.prodname_oauth_app %}s](/articles/authorizing-oauth-apps) you've connected with.{% if currentVersion == "free-pro-team@latest" %}
+| `oauth_access`                                    | 包含与您已连接的 [{% data variables.product.prodname_oauth_app %}](/articles/authorizing-oauth-apps) 相关的所有活动。{% if currentVersion == "free-pro-team@latest" %}
 | `payment_method`                                  | 包含与 {% data variables.product.prodname_dotcom %} 订阅支付相关的所有活动。{% endif %}
-| `profile_picture`                                 | 包含与头像相关的所有活动。                                                                                                                                                                                                                                                                                            |
-| `project`                                         | 包含与项目板相关的所有活动。                                                                                                                                                                                                                                                                                           |
-| `public_key`                                      | 包含与[公共 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)相关的所有活动。                                                                                                                                                                                                                            |
-| `repo`                                            | Contains all activities related to the repositories you own.{% if currentVersion == "free-pro-team@latest" %}
-| `sponsors`                                        | 包含与 {% data variables.product.prodname_sponsors %}和赞助者按钮相关的所有事件（请参阅“[关于 {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)”和“[在仓库中显示赞助者按钮](/articles/displaying-a-sponsor-button-in-your-repository)”）{% endif %}{% if enterpriseServerVersions contains currentVersion %}
-| `团队`                                              | 包含与您作为成员的团队相关的所有活动。{% endif %}
-| `two_factor_authentication`                       | 包含与[双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)相关的所有活动。                                                                                                                                                                                                                  |
-| `用户`                                              | 包含与您的帐户相关的所有活动。                                                                                                                                                                                                                                                                                          |
+| `profile_picture`                                 | 包含与头像相关的所有活动。                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `project`                                         | 包含与项目板相关的所有活动。                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `public_key`                                      | 包含与[公共 SSH 密钥](/articles/adding-a-new-ssh-key-to-your-github-account)相关的所有活动。                                                                                                                                                                                                                                                                                                                                                  |
+| `repo`                                            | 包含与您拥有的仓库相关的所有活动。{% if currentVersion == "free-pro-team@latest" %}
+| `sponsors`                                        | Contains all events related to {% data variables.product.prodname_sponsors %} and sponsor buttons (see "[About {% data variables.product.prodname_sponsors %}](/articles/about-github-sponsors)" and "[Displaying a sponsor button in your repository](/articles/displaying-a-sponsor-button-in-your-repository)"){% endif %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| `团队`                                              | Contains all activities related to teams you are a part of.{% endif %}{% if currentVersion != "github-ae@latest" %}
+| `two_factor_authentication`                       | Contains all activities related to [two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa).{% endif %}
+| `用户`                                              | 包含与您的帐户相关的所有活动。                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 下面列出了这些类别中各事件的说明。
 
@@ -132,26 +133,26 @@ The security log lists all actions performed within the last 90 days{% if curren
 
 #### `repo` 类别
 
-| 操作                                    | 描述                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| access                                | 当您拥有的仓库[从“私有”切换到“公共”](/articles/making-a-private-repository-public)（反之亦然）时触发。                                                                                                                                                                                                                                                                      |
-| add_member                            | Triggered when a {% data variables.product.product_name %} user is {% if currentVersion == "free-pro-team@latest" %}[invited to have collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/articles/inviting-collaborators-to-a-personal-repository){% endif %} to a repository. |
-| add_topic                             | 当仓库所有者向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。                                                                                                                                                                                                                                                                             |
-| archived                              | 当仓库所有者[存档仓库](/articles/about-archiving-repositories)时触发。{% if enterpriseServerVersions contains currentVersion %}
-| config.disable_anonymous_git_access | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                                      |
-| config.enable_anonymous_git_access  | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                                                                                                      |
-| config.lock_anonymous_git_access    | 当仓库的[匿名 Git 读取权限设置被锁定](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。                                                                                                                                                                                                 |
+| 操作                                    | 描述                                                                                                                                                                                                                                                                  |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| access                                | 当您拥有的仓库[从“私有”切换到“公共”](/articles/making-a-private-repository-public)（反之亦然）时触发。                                                                                                                                                                                       |
+| add_member                            | 当 {% data variables.product.product_name %} 用户 {% if currentVersion == "free-pro-team@latest" %}[被邀请协作使用](/articles/inviting-collaborators-to-a-personal-repository){% else %}[被授权协作使用](/articles/inviting-collaborators-to-a-personal-repository){% endif %}仓库时触发。 |
+| add_topic                             | 当仓库所有者向仓库[添加主题](/articles/classifying-your-repository-with-topics)时触发。                                                                                                                                                                                              |
+| archived                              | Triggered when a repository owner [archives a repository](/articles/about-archiving-repositories).{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+| config.disable_anonymous_git_access | 当公共仓库中[禁用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                       |
+| config.enable_anonymous_git_access  | 当公共仓库中[启用匿名 Git 读取权限](/enterprise/{{ currentVersion }}/user/articles/enabling-anonymous-git-read-access-for-a-repository)时触发。                                                                                                                                       |
+| config.lock_anonymous_git_access    | 当仓库的[匿名 Git 读取权限设置被锁定](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。                                                                                                                  |
 | config.unlock_anonymous_git_access  | 当仓库的[匿名 Git 读取权限设置被解锁](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-anonymous-git-read-access)时触发。{% endif %}
-| create                                | 在[创建新仓库](/articles/creating-a-new-repository)时触发。                                                                                                                                                                                                                                                                                                  |
-| destroy                               | Triggered when [a repository is deleted](/articles/deleting-a-repository).{% if currentVersion == "free-pro-team@latest" %}
-| 禁用                                    | Triggered when a repository is disabled (e.g., for [insufficient funds](/articles/unlocking-a-locked-account)).{% endif %}{% if currentVersion == "free-pro-team@latest" %}
+| create                                | 在[创建新仓库](/articles/creating-a-new-repository)时触发。                                                                                                                                                                                                                   |
+| destroy                               | 当[仓库被删除](/articles/deleting-a-repository)时触发。{% if currentVersion == "free-pro-team@latest" %}
+| 禁用                                    | 当仓库被禁用（例如，因[资金不足](/articles/unlocking-a-locked-account)）时触发。{% endif %}{% if currentVersion == "free-pro-team@latest" %}
 | 启用                                    | 在重新启用仓库时触发。{% endif %}
-| remove_member                         | 从[仓库中删除 {% data variables.product.product_name %} 用户的协作者身份](/articles/removing-a-collaborator-from-a-personal-repository)时触发。                                                                                                                                                                                                                      |
-| remove_topic                          | 当仓库所有者从仓库中删除主题时触发。                                                                                                                                                                                                                                                                                                                                 |
-| rename                                | 当[仓库被重命名](/articles/renaming-a-repository)时触发。                                                                                                                                                                                                                                                                                                     |
-| 转让                                    | 当[仓库被转让](/articles/how-to-transfer-a-repository)时触发。                                                                                                                                                                                                                                                                                               |
-| transfer_start                        | 在仓库转让即将发生时触发。                                                                                                                                                                                                                                                                                                                                      |
-| unarchived                            | 当仓库所有者取消存档仓库时触发。                                                                                                                                                                                                                                                                                                                                   |
+| remove_member                         | 从[仓库中删除 {% data variables.product.product_name %} 用户的协作者身份](/articles/removing-a-collaborator-from-a-personal-repository)时触发。                                                                                                                                       |
+| remove_topic                          | 当仓库所有者从仓库中删除主题时触发。                                                                                                                                                                                                                                                  |
+| rename                                | 当[仓库被重命名](/articles/renaming-a-repository)时触发。                                                                                                                                                                                                                      |
+| 转让                                    | 当[仓库被转让](/articles/how-to-transfer-a-repository)时触发。                                                                                                                                                                                                                |
+| transfer_start                        | 在仓库转让即将发生时触发。                                                                                                                                                                                                                                                       |
+| unarchived                            | 当仓库所有者取消存档仓库时触发。                                                                                                                                                                                                                                                    |
 
 {% if currentVersion == "free-pro-team@latest" %}
 #### `sponsors` 类别
@@ -186,7 +187,7 @@ The security log lists all actions performed within the last 90 days{% if curren
 | revoke  | 当您撤销继承邀请时触发（请参阅“[保持用户帐户仓库的所有权连续性](/github/setting-up-and-managing-your-github-user-account/maintaining-ownership-continuity-of-your-user-accounts-repositories)”） |
 {% endif %}
 
-{% if enterpriseServerVersions contains currentVersion %}
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 
 #### `team` 类别
 
@@ -201,28 +202,30 @@ The security log lists all actions performed within the last 90 days{% if curren
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 #### `two_factor_authentication` 类别
 
 | 操作       | 描述                                                                                  |
 | -------- | ----------------------------------------------------------------------------------- |
 | enabled  | 在启用[双重身份验证](/articles/securing-your-account-with-two-factor-authentication-2fa)时触发。 |
 | disabled | 在禁用双重身份验证时触发。                                                                       |
+{% endif %}
 
 #### `user` 类别
 
-| 操作                                 | 描述                                                                                                                                                                                            |
-| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| add_email                          | 当您[添加新电子邮件地址](/articles/changing-your-primary-email-address)时触发。                                                                                                                              |
-| create                             | 当您创建新用户帐户时触发。                                                                                                                                                                                 |
-| remove_email                       | 当您删除电子邮件地址时触发。                                                                                                                                                                                |
-| rename                             | 当您重命名帐户时触发。                                                                                                                                                                                   |
-| change_password                    | 当您更改密码时触发。                                                                                                                                                                                    |
-| forgot_password                    | 当您要求[重置密码](/articles/how-can-i-reset-my-password)时触发。                                                                                                                                         |
-| login                              | 当您登录 {% data variables.product.product_location %} 时触发。                                                                                                                                       |
-| failed_login                       | 当您未能成功登录时触发。                                                                                                                                                                                  |
-| two_factor_requested             | 当 {% data variables.product.product_name %} 要求您提供[双重身份验证代码](/articles/accessing-github-using-two-factor-authentication)时触发。                                                                   |
-| show_private_contributions_count | 当您[在个人资料中公开私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                                                                              |
-| hide_private_contributions_count | Triggered when you [hide private contributions on your profile](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
+| 操作                                 | 描述                                                                                                                                                                                    |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| add_email                          | Triggered when you {% if currentVersion != "github-ae@latest" %}[add a new email address](/articles/changing-your-primary-email-address){% else %}add a new email address{% endif %}. |
+| create                             | 当您创建新用户帐户时触发。                                                                                                                                                                         |
+| remove_email                       | 当您删除电子邮件地址时触发。                                                                                                                                                                        |
+| rename                             | Triggered when you rename your account.{% if currentVersion != "github-ae@latest" %}
+| change_password                    | 当您更改密码时触发。                                                                                                                                                                            |
+| forgot_password                    | Triggered when you ask for [a password reset](/articles/how-can-i-reset-my-password).{% endif %}
+| login                              | 当您登录 {% data variables.product.product_location %} 时触发。                                                                                                                               |
+| failed_login                       | Triggered when you failed to log in successfully.{% if currentVersion != "github-ae@latest" %}
+| two_factor_requested             | Triggered when {% data variables.product.product_name %} asks you for [your two-factor authentication code](/articles/accessing-github-using-two-factor-authentication).{% endif %}
+| show_private_contributions_count | 当您[在个人资料中公开私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。                                                                                      |
+| hide_private_contributions_count | 当您[在个人资料中隐藏私有贡献](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)时触发。{% if currentVersion == "free-pro-team@latest" %}
 | report_content                     | 当您[举报议题或拉取请求，或者举报对议题、拉取请求或提交的评论](/articles/reporting-abuse-or-spam)时触发。{% endif %}
 
 #### `user_status` 类别

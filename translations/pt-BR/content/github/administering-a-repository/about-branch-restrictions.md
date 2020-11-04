@@ -1,12 +1,13 @@
 ---
 title: Sobre restrições de branch
-intro: 'Branches em repositórios pertencentes a organizações podem ser configurados para que apenas determinados usuários{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %},{% else %} ou{% endif %} equipes{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 8" %} ou aplicativos{% endif %} possam fazer push para o branch.'
+intro: 'Branches within repositories that belong to organizations can be configured so that only certain users, teams, or apps can push to the branch.'
 product: '{% data reusables.gated-features.branch-restrictions %}'
 redirect_from:
   - /articles/about-branch-restrictions
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Ao habilitar as restrições de branches, apenas usuários, equipes ou aplicativos com permissão podem fazer push para o branch protegido. Quando você habilita restrições de branch, somente usuários{% if page.version == "dotcom" or page.version ver_gt "2.18" %},{% else %} ou{% endif %} equipes{% if page.version == "dotcom" or page.version ver_gt "2.18" %}, ou apps{% endif %} que receberam permissão podem fazer push no branch protegido. Você pode visualizar e editar usuários, equipes ou aplicativos com acesso de push a um branch protegido nas configurações do branch protegido.

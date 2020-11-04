@@ -20,7 +20,7 @@ versions:
 
 ### Maschinentyp bestimmen
 
-Bevor Sie {% data variables.product.product_location_enterprise %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
+Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
 
 #### Unterstützte Maschinentypen
 

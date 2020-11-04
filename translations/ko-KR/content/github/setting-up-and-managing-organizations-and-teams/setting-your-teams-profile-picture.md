@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Unless you set a profile picture for a team, the team profile picture will match the organization's profile picture.

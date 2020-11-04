@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst die Möglichkeit der Änderung der Sichtbarkeit von Repositorys ausschließlich auf Organisationsinhaber beschränken oder auch Mitgliedern mit Administratorberechtigungen für ein Repository erlauben, die Sichtbarkeit des Repositorys von privat auf öffentlich oder von öffentlich auf privat zu ändern.

@@ -1,5 +1,5 @@
 ---
-title: Authentication in a workflow
+title: 工作流程中的身份验证
 intro: '{% data variables.product.prodname_dotcom %} 提供一个令牌，可用于代表 {% data variables.product.prodname_actions %} 进行身份验证。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
