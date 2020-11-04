@@ -7,6 +7,7 @@ permissions: リポジトリへの書き込みアクセスを持つユーザは�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}

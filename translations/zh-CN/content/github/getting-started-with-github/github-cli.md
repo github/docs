@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_cli %} 是用于在计算机上使用
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
 ### 关于 {% data variables.product.prodname_cli %}

@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.legacy-issue-template-tip %}
@@ -28,7 +29,7 @@ assignees: octocat
 ```
 {% note %}
 
-**注：**必须将 YAML 保留的字符（如 `:`）放在引号中。 例如 `":bug: Bug"`。
+**注：** 如果扉页值包含 YAML 保留字符，如 `:`，则您必须将整个值放入引号中。 例如，`":bug: Bug"` 或 `":new: triage needed, :bug: bug"`。
 
 {% endnote %}
 

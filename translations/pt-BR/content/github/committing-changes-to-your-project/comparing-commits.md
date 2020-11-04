@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode comparar o estado de seu repositório entre os branches, tags, commits e datas. Para comparar diferentes versões do repositório, adicione `/compare` ao caminho do seu repositório.
@@ -26,9 +27,9 @@ Veja a seguir um exemplo de uma [comparação entre dois branches](https://githu
 
 ### Comparar tags
 
-A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} Para obter mais informações, consulte "[Comparar versões](/github/administering-a-repository/comparing-releases)".{% endif %}
+A comparação de tags de versão irá mostrar alterações no seu repositório desde a última versão. {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} For more information, see "[Comparing releases](/github/administering-a-repository/comparing-releases)."{% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %}Para comparar tags, você pode selecionar o nome de uma tag no menu suspenso `comparar` na parte superior da página.{% else %} Em vez de digitar o nome de um branch, digite o nome da sua tag no menu suspenso `comparar`.{% endif %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}To compare tags, you can select a tag name from the `compare` drop-down menu at the top of the page.{% else %} Instead of typing a branch name, type the name of your tag in the `compare` drop down menu.{% endif %}
 
 Veja a seguir o exemplo de uma [comparação entre duas tags](https://github.com/octocat/linguist/compare/v2.2.0...octocat:v2.3.3).
 

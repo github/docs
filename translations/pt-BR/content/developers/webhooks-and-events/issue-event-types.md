@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -347,7 +348,7 @@ O problema ou pull request foi bloqueado.
 
 #### Propriedades do objeto do evento
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -713,7 +714,7 @@ O problema estava desbloqueado.
 
 #### Propriedades do objeto do evento
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

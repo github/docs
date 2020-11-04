@@ -20,13 +20,13 @@ versions:
 
 この図は、{% data variables.product.prodname_actions %} を使用してソフトウェアテストスクリプトを自動的に実行する方法を示しています。 イベントは、_ジョブ_を含む_ワークフロー_を自動的にトリガーします。 次に、ジョブは_ステップ_を使用して、_アクション_が実行される順序を制御します。 これらのアクションは、ソフトウェアテストを自動化するコマンドです。
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![ワークフローの概要](/assets/images/help/images/overview-actions-simple.png)
 
 ### {% data variables.product.prodname_actions %} のコンポーネント
 
 以下は、ジョブを実行するために連動する複数の {% data variables.product.prodname_actions %} コンポーネントのリストです。 これらのコンポーネントがどのように相互作用するかを確認できます。
 
-![Component and service overview](/assets/images/help/images/overview-actions-design.png)
+![コンポーネントとサービスの概要](/assets/images/help/images/overview-actions-design.png)
 
 #### ワークフロー
 
@@ -197,28 +197,28 @@ YAML 構文を使用してワークフローファイルを作成する方法を
 
 #### ワークフローファイルの視覚化
 
-In this diagram, you can see the workflow file you just created and how the {% data variables.product.prodname_actions %} components are organized in a hierarchy. Each step executes a single action. Steps 1 and 2 use prebuilt community actions. To find more prebuilt actions for your workflows, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+この図では、作成したワークフローファイルと、{% data variables.product.prodname_actions %} コンポーネントが階層にどのように整理されているかを確認できます。 各ステップでは、単一のアクションが実行されます。 ステップ 1 と 2 は、ビルド済みのコミュニティアクションを使用します。 ワークフローのビルド済みアクションの詳細については、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 
-![Workflow overview](/assets/images/help/images/overview-actions-event.png)
+![ワークフローの概要](/assets/images/help/images/overview-actions-event.png)
 
 
-### Viewing the job's activity
+### ジョブのアクティビティを表示する
 
-Once your job has started running, you can view each step's activity on {% data variables.product.prodname_dotcom %}.
+ジョブの実行が開始されると、{% data variables.product.prodname_dotcom %} で各ステップのアクティビティを表示できます。
 
 {% data reusables.repositories.navigate-to-repo %}
-1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![Navigate to repository](/assets/images/help/images/learn-github-actions-repository.png)
-1. In the left sidebar, click the workflow you want to see. ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
-1. Under "Workflow runs", click the name of the run you want to see. ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+1. リポジトリ名の下で**Actions（アクション）**をクリックしてください。 ![リポジトリに移動](/assets/images/help/images/learn-github-actions-repository.png)
+1. 左サイドバーで、表示するワークフローをクリックします。 ![ワークフロー結果のスクリーンショット](/assets/images/help/images/learn-github-actions-workflow.png)
+1. [Workflow runs] で、表示する実行の名前をクリックします。 ![ワークフロー実行のスクリーンショット](/assets/images/help/images/learn-github-actions-run.png)
 {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
-1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
+1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result-updated.png)
 {% else %}
-1. Click on the job name to see the results of each step. ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
+1. ジョブ名をクリックして、各ステップの結果を確認します。 ![ワークフロー実行の詳細のスクリーンショット](/assets/images/help/images/overview-actions-result.png)
 {% endif %}
 
 ### 次のステップ
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Finding and customizing actions](/actions/learn-github-actions/finding-and-customizing-actions)."
+{% data variables.product.prodname_actions %} について詳しくは、「[アクションの検索とカスタマイズ](/actions/learn-github-actions/finding-and-customizing-actions)」を参照してください。
 
 ### サポートへの連絡
 

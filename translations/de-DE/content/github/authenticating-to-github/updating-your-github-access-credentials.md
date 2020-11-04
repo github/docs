@@ -1,6 +1,6 @@
 ---
 title: Anmeldeinformationen für den Zugriff auf GitHub aktualisieren
-intro: 'Die Anmeldeinformationen von {% data variables.product.product_name %} umfassen nicht nur Ihr Passwort, sondern auch Ihre Zugriffstoken, SSH-Schlüssel und Anwendungs-API-Token für die Kommunikation mit {% data variables.product.product_name %}. Bei Bedarf kannst Du alle diese Anmeldeinformationen selber zurücksetzen.'
+intro: '{% data variables.product.product_name %} credentials include{% if currentVersion != "github-ae@latest" %} not only your password, but also{% endif %} the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Bei Bedarf kannst Du alle diese Anmeldeinformationen selber zurücksetzen.'
 redirect_from:
   - /articles/rolling-your-credentials/
   - /articles/how-can-i-reset-my-password/
@@ -8,8 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+{% if currentVersion != "github-ae@latest" %}
 ### Neues Passwort anfordern
 
 1. To request a new password, visit {% if currentVersion == "free-pro-team@latest" %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
@@ -38,7 +40,7 @@ Um Dein Passwort in Zukunft nicht mehr zu verlieren, empfehlen wir die Verwendun
 Für noch mehr Sicherheit empfehlen wir Dir zusätzlich zur Änderung Deines Passworts die Aktivierung der Zwei-Faktor-Authentifizierung. Details findest Du unter „[Informationen zur Zwei-Faktor-Authentifizierung](/articles/about-two-factor-authentication)“.
 
 {% endtip %}
-
+{% endif %}
 ### Zugriffstoken aktualisieren
 
 Anweisungen zum Überprüfen und Löschen Deiner Zugriffstokens findest Du unter „[Deine autorisierten Integrationen überprüfen](/articles/reviewing-your-authorized-integrations)“. To generate new access tokens, see "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)."
@@ -51,6 +53,8 @@ Anweisungen zum Überprüfen und Löschen von SSH-Schlüsseln findest Du unter �
 
 Wenn Sie bei {% data variables.product.product_name %} Anwendungen registriert haben, müssen Sie eventuell OAuth-Token zurücksetzen. For more information, see the "[Reset an authorization](/rest/reference/apps#reset-an-authorization)" endpoint.
 
+{% if currentVersion != "github-ae@latest" %}
 ### Nicht autorisierten Zugriff verhindern
 
 Weitere Empfehlungen zum Schutz Deines Kontos und zur Verhinderung von nicht autorisierten Zugriffen findest Du unter „[Nicht autorisierten Zugriff verhindern](/articles/preventing-unauthorized-access).“
+{% endif %}

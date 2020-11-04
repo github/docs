@@ -17,7 +17,7 @@ Organization の {% data variables.product.product_name %} の SCIM API と連�
 - Okta
 - OneLogin
 
-{% data reusables.scim.enterprise-account-scim %} 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)」を参照してください。
+{% data reusables.scim.enterprise-account-scim %} 詳細は、「[Enterprise アカウントでセキュリティ設定を強制する](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#managing-user-provisioning-for-organizations-in-your-enterprise-account)」を参照してください。
 
 ### 参考リンク
 

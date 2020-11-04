@@ -1,40 +1,42 @@
 ---
-title: File attachments on issues and pull requests
-intro: 'When you open issue or update a pull request, you can use issue attachments to upload images of proposed features or screenshots of bugs.'
+title: Issue およびプルリクエストのファイル添付
+intro: 'Issue を開いたりプルリクエストを更新したりする際に、Issue の添付を使用して機能の提案やバグのスクリーンショットの画像をアップロードできます。'
 redirect_from:
   - /articles/issue-attachments/
   - /articles/file-attachments-on-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
+
 {% warning %}
 
-**Warning:** If you add an image to a pull request or issue comment, anyone can view the anonymized image URL without authentication, even if the pull request is in a private repository{% if currentVersion != "free-pro-team@latest" %}, or if private mode is enabled{% endif %}. To keep sensitive images private, serve them from a private network or server that requires authentication. {% if currentVersion == "free-pro-team@latest" %}For more information on anonymized URLs see "[About anonymized image URLs](/articles/about-anonymized-image-urls)".{% endif %}
+**警告:**Pull Request や Issue へのコメントに画像添付を追加した場合、その Pull Request がプライベートリポジトリのものである場合、{% if enterpriseServerVersions contains currentVersion %}またはプライベートモードが有効化されている場合も、{% endif %}匿名化した画像 URL は認証なしに誰もが見ることができます。 機密の画像をプライベートにしておきたい場合は、それらを認証が必要なプライベートなネットワークあるいはサーバーから提供するようにしてください。 {% if currentVersion == "free-pro-team@latest" %}匿名化した URL の詳細については、「[匿名化された画像 URL について](/articles/about-anonymized-image-urls)」を参照してください。{% endif %}
 
 {% endwarning %}
 
-To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
+Issue やプルリクエストの会話にファイルを添付するには、コメントボックスにファイルをドラッグアンドドロップします。 または、コメントボックスの下部にあるバーをクリックしてコンピュータからファイルを参照、選択、追加することもできます。
 
-![Select attachments from computer](/assets/images/help/pull_requests/select-bar.png)
+![コンピュータから添付ファイルを選択する](/assets/images/help/pull_requests/select-bar.png)
 
 {% tip %}
 
-**Tip:** If you're using Chrome, you can also copy-and-paste images directly into the box.
+**Tip:** In many browsers, you can copy-and-paste images directly into the box.
 
 {% endtip %}
 
-The maximum size for files is 25MB and the maximum size for images is 10MB.
+ファイルの最大サイズは 25MB で、画像の最大サイズは 10MB です。
 
-We support these files:
+以下のファイルがサポートされています:
 
 * PNG (*.png*)
 * GIF (*.gif*)
 * JPEG (*.jpg*)
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
+* ログファイル (*.log*)
+* Microsoft Word (*.docx*)、Powerpoint (*.pptx*)、および Excel (*.xlsx*) 文書
+* テキストファイル (*.txt*)
+* PDF (*.pdf*)
 * ZIP (*.zip*, *.gz*)
 
-![Attachments animated GIF](/assets/images/help/pull_requests/dragging_images.gif)
+![添付アニメーション GIF](/assets/images/help/pull_requests/dragging_images.gif)

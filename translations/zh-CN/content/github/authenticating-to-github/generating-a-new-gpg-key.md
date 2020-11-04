@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -14,7 +15,7 @@ versions:
 
 {% note %}
 
-**注：**在生成新 GPG 密钥之前，请确保已验证您的电子邮件地址。 If you haven't verified your email address, you won't be able to sign commits and tags with GPG.{% if currentVersion == "free-pro-team@latest" %} For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."{% endif %}
+**注：**在生成新 GPG 密钥之前，请确保已验证您的电子邮件地址。 如果尚未验证电子邮件地址，您将无法使用 GPG 对提交和标记签名。{% if currentVersion == "free-pro-team@latest" %} 更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”。{% endif %}
 
 {% endnote %}
 
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认的 `RSA and DSA`。
+4. 在提示时，指定要生成的密钥类型，或按 `Enter` 键接受默认的 `RSA and RSA`。
 5. 输入所需的密钥长度。 密钥必须至少是 `4096` 位。
 6. 输入密钥的有效时长。 按 `Enter` 键将指定默认选择，表示该密钥不会过期。
 7. 验证您的选择是否正确。
@@ -37,7 +38,7 @@ versions:
 
   {% note %}
 
-  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  For more information, see "[Verifying your email address](/articles/verifying-your-email-address)" and "[Setting your commit email address](/articles/setting-your-commit-email-address)."{% endif %}
+  **注：**要求您输入电子邮件地址时，请确保输入您 GitHub 帐户的经验证电子邮件地址。 {% data reusables.gpg.private-email %} {% if currentVersion == "free-pro-team@latest" %}  更多信息请参阅“[验证电子邮件地址](/articles/verifying-your-email-address)”和“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。{% endif %}
 
   {% endnote %}
 

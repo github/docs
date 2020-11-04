@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### インボックスについて
@@ -95,34 +96,39 @@ To add a `repo:` filter, you must include the owner of the repository in the que
 
 To filter notifications by why you've received an update, you can use the `reason:` query. For example, to see notifications when you (or a team you're on) is requested to review a pull request, use `reason:review-requested`. 詳しい情報については、「[通知について](/github/managing-subscriptions-and-notifications-on-github/about-notifications#reasons-for-receiving-notifications)」を参照してください。
 
-| クエリ                       | 説明                                                                     |
-| ------------------------- | ---------------------------------------------------------------------- |
-| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                    |
-| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                              |
-| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                              |
-| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                  |
-| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                    |
-| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。            |
-| `reason:mention`          | 直接@メンションされたとき。                                                         |
-| `reason:review-requested` | 自分または自分が参加している Team が、プルリクエストのレビューをリクエストされたとき。                         |
-| `reason:security-alert`   | リポジトリに対してセキュリティアラートが発行されたとき。                                           |
-| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。 |
-| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                          |
-| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                 |
+| クエリ                       | 説明                                                                                                                 |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `reason:assign`           | 割り当てられている Issue またはプルリクエストに更新があるとき。                                                                                |
+| `reason:author`           | プルリクエストまたは Issue を開くと、更新または新しいコメントがあったとき。                                                                          |
+| `reason:comment`          | Issue、プルリクエスト、または Team ディスカッションにコメントしたとき。                                                                          |
+| `reason:participating`    | Issue、プルリクエスト、Team ディスカッションについてコメントしたり、@メンションされているとき。                                                              |
+| `reason:invitation`       | Team、Organization、またはリポジトリに招待されたとき。                                                                                |
+| `reason:manual`           | まだサブスクライブしていない Issue またはプルリクエストで [**Subscribe**] をクリックしたとき。                                                        |
+| `reason:mention`          | 直接@メンションされたとき。                                                                                                     |
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
+| `reason:state-change`     | プルリクエストまたは Issue の状態が変更されたとき。 たとえば、Issue がクローズされたり、プルリクエストがマージされた場合です。                                             |
+| `reason:team-mention`     | メンバーになっている Team が@メンションされたとき。                                                                                      |
+| `reason:ci-activity`      | リポジトリに、新しいワークフロー実行ステータスなどの CI 更新があるとき。                                                                             |
 
 #### サポートされている `is:` クエリ
 
-{% data variables.product.product_name %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
+{% data variables.product.product_name %} での特定のアクティビティの通知をフィルタするには、`is` クエリを使用できます。 For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
 - `is:repository-vulnerability-alert`
-- `is:repository-advisory`
+- `is:repository-advisory`{% endif %}
 - `is:team-discussion`
+
+{% if currentVersion != "github-ae@latest" %}
+For information about reducing noise from notifications for
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
 
 You can also use the `is:` query to describe how the notification was triaged.
 

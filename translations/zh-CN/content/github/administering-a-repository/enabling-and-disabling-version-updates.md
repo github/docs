@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.dependabot.initial-updates %} 更多信息请参阅“[自定义依赖项更新](/github/administering-a-repository/customizing-dependency-updates)。”
 
-### Enabling {% data variables.product.prodname_dependabot_version_updates %}
+### 启用 {% data variables.product.prodname_dependabot_version_updates %}
 
 {% note %}
 

@@ -1,1 +1,4 @@
-通过[设置提交电子邮件地址](/articles/setting-your-commit-email-address)将电子邮件地址添加到您的 {% data variables.product.product_name %} 帐户，这样，您的提交将归因于您并显示在您的贡献图中。
+{% if currentVersion != "github-ae@latest" %}
+Add the email address to your account on
+{% data variables.product.product_name %}, so that your commits are attributed to you and appear in your contributions graph. For more information, see "[Adding an email address to your {% data variables.product.prodname_dotcom %} account](/github/setting-up-and-managing-your-github-user-account/adding-an-email-address-to-your-github-account)."
+{% endif %}
