@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリへの書き込み権限があるユーザなら誰でもIssue およびプルリクエストをアサインできます。

@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 The GitHub Apps API enables you to get high-level information about a GitHub App as well as specific information about installations of the app. To learn more about GitHub Apps, see "[Authenticating as a GitHub App](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app)."
@@ -62,7 +63,7 @@ Be sure to replace stubbed endpoints with production endpoints before deploying 
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
 ## Webhooks
 
 {% for operation in currentRestOperations %}

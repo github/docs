@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du noch keinen SSH-Schlüssel besitzt, musst Du [einen neuen SSH-Schlüssel erzeugen](#generating-a-new-ssh-key). Wenn Du unsicher bist, ob Du bereits einen SSH-Schlüssel besitzt, suche nach [vorhandenen Schlüssel](/articles/checking-for-existing-ssh-keys).

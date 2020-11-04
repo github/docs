@@ -4,6 +4,7 @@ intro: É possível abrir um problema novo a partir de um comentário específic
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Quando você abre um problema a partir de um comentário, o problema contém um trecho mostrando onde o comentário foi originalmente publicado.

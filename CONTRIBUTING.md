@@ -45,7 +45,7 @@ When you're done making changes and you'd like to propose them for review, use t
 ### Your PR is merged!
 Congratulations! The whole GitHub community thanks you. :sparkles:
 
-Once your PR is merged, you can be added as a contributor in the [readme](README.md#contributors-).
+Once your PR is merged, you will be proudly listed as a contributor in the [contributor chart](https://github.com/github/docs/graphs/contributors).
 
 ### Keep contributing as you use GitHub Docs
 

@@ -1,7 +1,7 @@
 ---
 title: 向 GitHub 验证
 shortTitle: 身份验证
-intro: '使用双重身份验证、SSH 和提交签名验证等功能保护帐户和数据安全。'
+intro: 'Keep your account and data secure with features like {% if currentVersion != "github-ae@latest" %}two-factor authentication, {% endif %}SSH{% if currentVersion != "github-ae@latest" %},{% endif %} and commit signature verification.'
 redirect_from:
   - /categories/56/articles/
   - /categories/ssh/
@@ -16,6 +16,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 

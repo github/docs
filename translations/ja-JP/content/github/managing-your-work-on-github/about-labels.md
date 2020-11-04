@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ラベルは、作成されたリポジトリに結びつけられています。 一度ラベルができれば、そのリポジトリ内で任意の Issue あるいはプルリクエストに使うことができます。 詳細は「[ラベルの作成](/articles/creating-a-label/)」を参照してください。
@@ -30,7 +31,7 @@ versions:
 
 リポジトリの作成時に、すべての新しいリポジトリにデフォルトのラベルが含められますが、後でそのラベルを編集または削除できます。 詳細は「[ラベルの削除](/articles/deleting-a-label/)」を参照してください。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Organization のオーナーは、Organization 内のリポジトリのためのデフォルトラベルをカスタマイズできます。 詳しい情報については、「[Organization 内のリポジトリのためのデフォルトラベルを管理する](/articles/managing-default-labels-for-repositories-in-your-organization)」を参照してください。
 {% endif %}
 

@@ -1,11 +1,12 @@
 ---
 title: 跟踪项目板上的进度
-intro: 'You can see the overall progress of your project in a progress bar.'
+intro: You can see the overall progress of your project in a progress bar.
 redirect_from:
   - /articles/tracking-progress-on-your-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.project-management.project-progress-locations %}

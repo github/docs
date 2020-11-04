@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para poder sincronizar a bifurcação com o repositório upstream, você deve [configurar um remote que aponte para o repositório upstream](/articles/configuring-a-remote-for-a-fork) no Git.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Altere o diretório de trabalho atual referente ao seu projeto local.
-3. Obtenha os branches e os respectivos commits do repositório upstream. Os commits para `master` serão armazenados em um branch local, `upstream/master`.
+3. Obtenha os branches e os respectivos commits do repositório upstream. Commits to `main` will be stored in a local branch, `upstream/main`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.

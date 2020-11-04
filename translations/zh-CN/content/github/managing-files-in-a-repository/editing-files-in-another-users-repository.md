@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. 才其他用户的仓库中，浏览到包含要编辑文件的文件夹。 单击要编辑文件的名称。

@@ -27,29 +27,23 @@ redirect_from:
   - /enterprise/admin/policies/enforcing-repository-management-policies-in-your-enterprise
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### 在设备上配置新仓库的默认可见性
+### Configuring the default visibility of new repositories in your enterprise
 
-每次有人在 {% data variables.product.product_location_enterprise %} 上创建新仓库时，此人必须为仓库选择可见性。 当您为实例配置默认可见性设置时，需要选择默认可见性。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
+Each time someone creates a new repository on your enterprise, that person must choose a visibility for the repository. When you configure a default visibility setting for the enterprise, you choose which visibility is selected by default. 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
 
-如果站点管理员不允许成员创建某种类型的仓库，成员将无法创建此类仓库，即使可见性设置默认为此类型。 更多信息请参阅“[限制在实例中创建仓库](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)”。
+如果站点管理员不允许成员创建某种类型的仓库，成员将无法创建此类仓库，即使可见性设置默认为此类型。 For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
-{% tip %}
-
-**提示**：您可以将更改仓库可见性的权限仅分配给站点管理员。 更多信息请参阅“[阻止用户更改仓库可见性](/enterprise/{{ currentVersion }}/admin/guides/user-management/preventing-users-from-changing-a-repository-s-visibility)”。
-
-{% endtip %}
-
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-1. 在“默认仓库可见性”下，使用下拉菜单并选择默认可见性。 ![用于为实例选择默认仓库可见性的下拉菜单](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
+1. 在“默认仓库可见性”下，使用下拉菜单并选择默认可见性。 ![Drop-down menu to choose the default repository visibility for your enterprise](/assets/images/enterprise/site-admin-settings/default-repository-visibility-settings.png)
 
 {% data reusables.enterprise_installation.image-urls-viewable-warning %}
 
@@ -57,10 +51,9 @@ versions:
 
 当您阻止成员更改仓库可见性时，只有站点管理员可以将公共仓库设置为私有或者将私有仓库设置为公共。
 
-如果站点管理员仅允许组织所有者创建仓库，成员将无法更改仓库可见性。 如果站点管理员只允许成员创建私有仓库，则成员只能将仓库从公共更改为私有。 更多信息请参阅“[设置仓库创建策略](/enterprise/{{ currentVersion }}/admin/guides/user-management/restricting-repository-creation-in-your-instance)”。
+如果站点管理员仅允许组织所有者创建仓库，成员将无法更改仓库可见性。 如果站点管理员只允许成员创建私有仓库，则成员只能将仓库从公共更改为私有。 For more information, see "[Setting a policy for repository creation](#setting-a-policy-for-repository-creation)."
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. 在“Repository visibility change”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
@@ -71,12 +64,11 @@ versions:
 
 {% data reusables.organizations.repo-creation-constants %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. 在“Repository creation”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-{% if currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
 {% else %}
@@ -85,8 +77,7 @@ versions:
 
 ### 设置仓库删除和转移的策略
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 5. 在“Repository deletion and transfer”下，检查有关更改设置的信息。 {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
@@ -95,7 +86,7 @@ versions:
 
 ### 设置 Git 推送限制策略
 
-要使仓库大小保持可管理并防止发生性能问题，可以为实例上的仓库配置文件大小限制。
+To keep your repository size manageable and prevent performance issues, you can configure a file size limit for repositories in your enterprise.
 
 默认情况下，强制执行仓库上传限制时，无法添加或上传超过 100 MB 的文件。
 
@@ -107,24 +98,22 @@ versions:
 {% endtip %}
 {% endif %}
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Repository upload limit”下，使用下拉菜单，然后单击最大对象大小。 ![包含最大对象大小选项的下拉菜单](/assets/images/enterprise/site-admin-settings/repo-upload-limit-dropdown.png)
-5. 或者，要对 {% data variables.product.product_location_enterprise %} 上的所有仓库执行最大上传限制，请选择 select **Enforce on all repositories（对所有仓库强制执行）** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
+5. Optionally, to enforce a maximum upload limit for all repositories in your enterprise, select **Enforce on all repositories** ![对所有仓库选项强制执行最大对象限制](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
 ### 为仓库之间的拉取请求配置合并冲突编辑器
 
 要求用户在其计算机上本地解决合并冲突可以避免用户因疏忽而从分叉写入到上游仓库。
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -134,13 +123,12 @@ versions:
 
 ### 配置强制推送
 
-每个仓库都从其所属的用户帐户或组织的设置继承了默认强制推送设置。 同样，每个组织和用户帐户都会从整个设备的强制推送设置继承默认强制推送设置。 如果更改设备的强制推送设置，则会更改任何用户或组织拥有的所有仓库。
+每个仓库都从其所属的用户帐户或组织的设置继承了默认强制推送设置。 Likewise, each organization and user account inherits a default force push setting from the force push setting for the enterprise. If you change the force push setting for the enterprise, it will change for all repositories owned by any user or organization.
 
 #### 阻止设备上的所有强制推送
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -163,7 +151,7 @@ versions:
 
 #### 阻止对用户帐户或组织拥有的仓库进行强制推送
 
-仓库从它们所属的用户帐户或组织继承强制推送设置。 反过来，用户帐户和组织从整个设备的强制推送设置继承其强制推送设置。
+仓库从它们所属的用户帐户或组织继承强制推送设置。 User accounts and organizations in turn inherit their force push settings from the force push settings for the enterprise.
 
 您可以通过配置用户帐户或组织的设置来覆盖默认的继承设置。
 
@@ -176,17 +164,17 @@ versions:
 5. 在“Force pushes”部分的“Repository default settings”下，选择
     - **Block** 来阻止对所有分支进行强制推送。
     - **Block to the default branch** 来仅阻止对默认分支进行强制推送。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-force-pushes.png)
-6. 可以视情况选择 **Enforce on all repositories** 来覆盖仓库特定的设置。 注意，这**不**会覆盖设备范围的策略。 ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
+6. 可以视情况选择 **Enforce on all repositories** 来覆盖仓库特定的设置。 Note that this will **not** override an enterprise-wide policy. ![阻止强制推送](/assets/images/enterprise/site-admin-settings/user/user-block-all-force-pushes.png)
 
 ### 配置匿名 Git 读取访问
 
 {% data reusables.enterprise_user_management.disclaimer-for-git-read-access %}
 
-如果您已经在实例上[启用私密模式](/enterprise/admin/configuration/enabling-private-mode)，您可以允许仓库管理员启用对公共仓库的匿名 Git 读取访问。
+{% if enterpriseServerVersions contains currentVersion %}If you have [enabled private mode](/enterprise/admin/configuration/enabling-private-mode) on your enterprise, you {% else %}You {% endif %}can allow repository administrators to enable anonymous Git read access to public repositories.
 
-启用匿名 Git 读取允许用户在实例上为自定义工具绕过身份验证。 当您或仓库管理员为仓库启用此权限设置时，未经过身份验证的 Git 操作（和具有 {% data variables.product.prodname_ghe_server %} 的网络访问权限的任何人）将获得仓库的读取权限（无需身份验证）。
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. 当您或仓库管理员为仓库启用此权限设置时，未经过身份验证的 Git 操作（和具有 {% data variables.product.product_name %} 的网络访问权限的任何人）将获得仓库的读取权限（无需身份验证）。
 
-如有必要，您可以通过锁定仓库的访问设置，阻止仓库管理员更改 {% data variables.product.product_location_enterprise %} 上仓库的匿名 Git 访问设置。 在您锁定仓库的 Git 读取权限设置后，只有站点管理员可以更改设置。
+If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. 在您锁定仓库的 Git 读取权限设置后，只有站点管理员可以更改设置。
 
 {% data reusables.enterprise_site_admin_settings.list-of-repos-with-anonymous-git-read-access-enabled %}
 
@@ -194,17 +182,17 @@ versions:
 
 #### 设置所有仓库的匿名 Git 读取访问
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% if currentVersion ver_gt "enterprise-server@2.21" %}
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% else %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 4. 在“Anonymous Git read access”下，使用下列菜单并单击 **Enabled**。 ![匿名 Git 读取权限下拉菜单显示菜单选项"Enabled（已启用）"和"Disabled（已禁用）"](/assets/images/enterprise/site-admin-settings/enable-anonymous-git-read-access.png)
-3. 或者，如果要阻止仓库管理员为实例上的所有仓库更改匿名 Git 读取权限设置，请选择 **Prevent repository admins from changing anonymous Git read access**。 ![选中复选框可阻止仓库管理员更改实例上所有仓库的匿名 Git 读取权限设置。](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
+3. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**. ![Select checkbox to prevent repository admins from changing anonymous Git read access settings for all repositories on your enterprise](/assets/images/enterprise/site-admin-settings/globally-lock-repos-from-changing-anonymous-git-read-access.png)
 
+{% if enterpriseServerVersions contains currentVersion %}
 #### 设置特定仓库的匿名 Git 读取访问
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -215,4 +203,14 @@ versions:
 6. 在“Danger Zone”下的“Enable Anonymous Git read access”旁，请单击 **Enable**。 ![仓库站点管理员设置的危险区域中“Enable anonymous Git read access”下的“Enabled”按钮 ](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
 7. 审查更改。 要确认，请单击 **Yes, enable anonymous Git read access（是，启用匿名 Git 读取权限）**。 ![在弹出窗口中确认匿名 Git 读取权限设置](/assets/images/enterprise/site-admin-settings/confirm-anonymous-git-read-access-for-specific-repo-as-site-admin.png)
 8. 或者，如果要阻止仓库管理员为此仓库更改设置，请选择 **Prevent repository admins from changing anonymous Git read access**。 ![选中复选框可阻止仓库管理员更改此仓库的匿名 Git 读取权限。](/assets/images/enterprise/site-admin-settings/lock_anonymous_git_access_for_specific_repo.png)
+{% endif %}
 
+{% if currentVersion ver_gt "enterprise-server@2.22" or currentVersion == "github-ae@latest" %}
+### 对默认分支名称实施策略
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+3. 在 **Repository policies（仓库策略）**选项卡的“Default branch name（默认分支名称）”下，输入新仓库应使用的默认分支名称。 ![输入默认分支名称的文本框](/assets/images/help/business-accounts/default-branch-name-text.png)
+4. （可选）要对企业中的所有组织强制实施默认分支名称，请选择 **Enforce across this enterprise（在整个企业中实施）**。 ![强制实施复选框](/assets/images/help/business-accounts/default-branch-name-enforce.png)
+5. 单击 **Update（更新）**。 ![更新按钮](/assets/images/help/business-accounts/default-branch-name-update.png)
+{% endif %}

@@ -7,6 +7,7 @@ intro: 'Se uma mensagem do commit contiver informações imprecisas, incorretas 
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Reescrever a mensagem do commit mais recente

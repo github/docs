@@ -9,5 +9,6 @@ intro: 'Organisationen eignen sich ideal zum Erstellen von getrennten Benutzergr
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

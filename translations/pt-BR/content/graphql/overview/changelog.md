@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 As alterações significativas incluem alterações que modificarão as consultas existentes ou podem afetar o comportamento do tempo de execução dos clientes. Para obter uma lista de alterações significativas e quando ocorrerão, consulte o nosso [registro de alterações significativas](/v4/breaking_changes).
