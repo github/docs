@@ -37,6 +37,9 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Check out repo
         uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+        with:
+          # Enables cloning the Early Access repo later with the relevant PAT
+          persist-credentials: 'false'
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Setup node
@@ -108,10 +111,6 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Install dependencies
         run: npm ci
-
-      - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
-        name: Clear out the Actions git authorization extraHeader config
-        run: git config --local "http.https://github.com/.extraheader" ""
 
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' && github.repository == 'github/docs-internal' }}
         name: Clone early access
