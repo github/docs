@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -27,7 +28,7 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 * Users **must** SSH in to deploy; automated deploy processes can't be used.
 * SSH agent forwarding can be troublesome to run for Windows users.
 
-##### Setup
+##### セットアップ
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
 2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this: `ssh -A serverA 'bash -s' < deploy.sh`
@@ -49,7 +50,7 @@ If you don't want to use SSH keys, you can use [HTTPS with OAuth tokens][git-aut
 * You must make sure that you configure your token with the correct access scopes.
 * Tokens are essentially passwords, and must be protected the same way.
 
-##### Setup
+##### セットアップ
 
 See [our guide on Git automation with tokens][git-automation].
 
@@ -70,7 +71,7 @@ See [our guide on Git automation with tokens][git-automation].
 * Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
 * Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
 
-##### Setup
+##### セットアップ
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public/private rsa key pair.
 2. In the upper-right corner of any {% data variables.product.product_name %} page, click your profile photo, then click **Your profile**. ![Navigation to profile](/assets/images/profile-page.png)
@@ -110,7 +111,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 * Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
 * Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
-##### Setup
+##### セットアップ
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
 2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.

@@ -14,7 +14,7 @@ versions:
 ### 基本要求
 
 - {% data reusables.enterprise_installation.software-license %}
-- 您必须为将要运行 {% data variables.product.product_location_enterprise %} 的裸金属机应用 VMware vSphere ESXi Hypervisor。 我们支持版本 5.5 到 6.7。 ESXi Hypervisor 免费提供，不包含（可选）vCenter Server。 更多信息请参阅 [VMware ESXi 文档](https://www.vmware.com/products/esxi-and-esx.html)。
+- 您必须为将要运行 {% data variables.product.product_location %} 的裸金属机应用 VMware vSphere ESXi Hypervisor。 我们支持版本 5.5 到 6.7。 ESXi Hypervisor 免费提供，不包含（可选）vCenter Server。 更多信息请参阅 [VMware ESXi 文档](https://www.vmware.com/products/esxi-and-esx.html)。
 - 您将需要访问 vSphere Client。 如果您有 vCenter Server，可以使用 vSphere Web Client。 更多信息请参阅 VMware 指南“[使用 vSphere Web Client 登录 vCenter Server](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)”。
 
 ### 硬件考量因素

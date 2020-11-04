@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -17,9 +18,9 @@ versions:
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% tip %}
-Please contact
+お問い合わせください。
 
-{% data variables.contact.contact_support %} if you want to turn off issues because of abuse from strangers.
+他者による悪用を防ぐため Issues をオフにしたい場合は、{% data variables.contact.contact_support %} までご連絡ください。
 {% data reusables.policies.abuse %}
 
 {% endtip %}

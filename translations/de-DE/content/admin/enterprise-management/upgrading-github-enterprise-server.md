@@ -150,7 +150,7 @@ Obwohl Sie einen Hotpatch verwenden können, um ein Upgrade auf die neueste Patc
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. Deaktivieren Sie bei einzelnen Appliance-Upgrades den Wartungsmodus, damit Benutzer {% data variables.product.product_location_enterprise %} verwenden können.
+7. Deaktivieren Sie bei einzelnen Appliance-Upgrades den Wartungsmodus, damit Benutzer {% data variables.product.product_location %} verwenden können.
 
   {% note %}
 
@@ -203,7 +203,7 @@ Für die Hochverfügbarkeit und Geo-Replikation konfigurierte Appliances verwend
    1. Führen Sie auf der Replikatinstanz den Befehl `ghe-repl-setup <primary-instance-ip>` erneut aus.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. Deaktivieren Sie nach dem Upgrade-Abschluss des letzten Replikats und nach dem Abschluss der erneuten Synchronisierung den Wartungsmodus, damit Benutzer {% data variables.product.product_location_enterprise %} verwenden können.
+6. Deaktivieren Sie nach dem Upgrade-Abschluss des letzten Replikats und nach dem Abschluss der erneuten Synchronisierung den Wartungsmodus, damit Benutzer {% data variables.product.product_location %} verwenden können.
 
 ### Wiederherstellung nach einem fehlgeschlagenen Upgrade
 

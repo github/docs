@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Para obter mais informações sobre revisões obrigatórias, consulte "[Sobre revisões obrigatórias para pull requests](/articles/about-required-reviews-for-pull-requests)".

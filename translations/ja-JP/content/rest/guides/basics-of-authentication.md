@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -21,7 +22,7 @@ versions:
 
 ### アプリケーションの登録
 
-まず、[アプリケーションの登録][new oauth app]が必要です。 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
+First, you'll need to [register your application][new oauth app]. 登録された各 OAuth アプリケーションには、一意のクライアント ID とクライアントシークレットが割り当てられます。 クライアントシークレットは共有しないでください。 共有には、文字列をリポジトリにチェックインすることも含まれます。
 
 どのような情報を入力しても構いませんが、**認証コールバック URL** は例外です。 これが、アプリケーションの設定にあたってもっとも重要な情報と言えるでしょう。 認証の成功後に {% data variables.product.product_name %} がユーザに返すのは、コールバックURLなのです。
 
@@ -46,8 +47,9 @@ get '/' do
 end
 ```
 
-クライアント ID とクライアントシークレットは、[アプリケーションの設定ページ][app settings]から取得されます。 You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
+Your client ID and client secret keys come from [your application's configuration page][app settings].
+{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 次に、_views/index.erb_に以下の内容を貼り付けてください。
@@ -128,7 +130,7 @@ end
 
 リクエストを行う前にのみスコープを確認するだけでは不十分です。確認時と実際のリクエスト時の間に、ユーザがスコープを変更する可能性があります。 このような場合には、成功すると思っていたAPIの呼び出しが`404`または`401`ステータスになって失敗したり、情報の別のサブセットを返したりします。
 
-この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/v3/apps/oauth_applications/#check-a-token\]{% else %}\[check a token for validity\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
+この状況にうまく対応できるように、有効なトークンによるリクエストに対するすべてのAPIレスポンスには、[`X-OAuth-Scopes`ヘッダ][oauth scopes]も含まれています。 このヘッダには、リクエストを行うために使用されたトークンのスコープのリストが含まれています。 In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %} \[check a token for validity\]\[/rest/reference/apps#check-a-token\]{% else %}\[check a token for validity\]\[/v3/apps/oauth_applications/#check-an-authorization\]{% endif %}. この情報を使用してトークンのスコープにおける変更を検出し、利用可能なアプリケーション機能の変更をユーザに通知します。
 
 #### 認証リクエストの実施
 

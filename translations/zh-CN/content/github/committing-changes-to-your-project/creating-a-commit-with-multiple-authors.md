@@ -1,48 +1,49 @@
 ---
-title: Creating a commit with multiple authors
-intro: 'You can attribute a commit to more than one author by adding one or more `Co-authored-by` trailers to the commit''s message. Co-authored commits are visible on {% data variables.product.product_name %}{% if currentVersion != "free-pro-team@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
+title: 创建有多个作者的提交
+intro: '通过在提交消息中添加一个或多个 `Co-authored-by` 尾行，可将提交归属于多个作者。 Co-authored commits are visible on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} and can be included in the profile contributions graph and the repository''s statistics{% endif %}.'
 redirect_from:
   - /articles/creating-a-commit-with-multiple-authors
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-### Required co-author information
+### 必需的合作作者信息
 
-Before you can add a co-author to a commit, you must know the appropriate email to use for each co-author. For the co-author's commit to count as a contribution, you must use the email associated with their {% data variables.product.product_name %} account.
+向提交添加合作作者之前，您必须知道用于每个合作作者的适当电子邮件地址。 对于计为贡献的合作作者提交，必须使用与其 {% data variables.product.product_name %} 帐户相关联的电子邮件地址。
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-If a person chooses to keep their email address private, you should use their {% data variables.product.product_name %}-provided `no-reply` email to protect their privacy. Otherwise, the co-author's email will be available to the public in the commit message. If you want to keep your email private, you can choose to use a {% data variables.product.product_name %}-provided `no-reply` email for Git operations and ask other co-authors to list your `no-reply` email in commit trailers.
+如果有人选择对其电子邮件地址保密，则应使用其 {% data variables.product.product_name %}-提供的 `no-reply` 电子邮件地址以保护其隐私。 否则，合作作者的电子邮件地址将在提交消息中公开。 如果要保密您的电子邮件地址，您可以选择使用 {% data variables.product.product_name %}-为 Git 操作提供的 `no-reply` 电子邮件地址，并要求其他合作作者在提交尾行中列出您的 `no-reply` 电子邮件地址。
 
-For more information, see "[Setting your commit email address](/articles/setting-your-commit-email-address)."
+更多信息请参阅“[设置提交电子邮件地址](/articles/setting-your-commit-email-address)”。
 
   {% tip %}
 
-  **Tip:** You can help a co-author find their preferred email address by sharing this information:
-  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
-  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
+  **提示：**通过分享此信息可帮助合作作者找到其首选电子邮件地址：
+  - 要查找 {% data variables.product.product_name %}-提供的 `no-reply` 电子邮件地址，请导航至“Keep my email address private（对我的电子邮件地址保密）”下的电子邮件设置页面。
+  - 要在计算机上查找用于配置 Git 的电子邮件地址，请在命令行上运行 `git config user.email`。
 
   {% endtip %}
 
 {% endif %}
 
-### Creating co-authored commits using {% data variables.product.prodname_desktop %}
+### 使用 {% data variables.product.prodname_desktop %} 创建合作提交
 
-You can use {% data variables.product.prodname_desktop %} to create a commit with a co-author. For more information, see "[Write a commit message and push your changes](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" and [{% data variables.product.prodname_desktop %}](https://desktop.github.com).
+可以使用 {% data variables.product.prodname_desktop %} 创建合作提交。 更多信息请参阅“[编写提交消息并推送更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”和 [{% data variables.product.prodname_desktop %}](https://desktop.github.com)。
 
-![Add a co-author to the commit message](/assets/images/help/desktop/co-authors-demo-hq.gif)
+![添加合作作者到提交消息](/assets/images/help/desktop/co-authors-demo-hq.gif)
 
-### Creating co-authored commits on the command line
+### 在命令行上创建合作提交
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
 {% data reusables.pull_requests.commit-message-with-trailer-beginning %}
 
-3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
+3. 在提交消息的下一行，根据每个合作作者的特定信息键入 `Co-authored-by: name <name@example.com>`。 在合作作者的信息后面，添加一个右引号。
 
-  If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+  如果要添加多个合作作者，请为每个合作作者键入一个 `Co-authored-by:` 提交尾行。
   ```shell
   $ git commit -m "Refactor usability tests.
   >
@@ -51,27 +52,26 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
   Co-authored-by: <em>another-name</em> &lt;<em>another-name@example.com</em>&gt;"
   ```
 
-The new commit and message will appear on {% data variables.product.product_location %} the next time you push. For more information, see "[Pushing changes to a remote repository](/articles/pushing-commits-to-a-remote-repository/)."
+在下次推送时，新的提交和消息将显示在 {% data variables.product.product_location %} 上。 更多信息请参阅“[推送更改到远程仓库](/articles/pushing-commits-to-a-remote-repository/)”。
 
-### Creating co-authored commits on {% data variables.product.product_name %}
+### 在 {% data variables.product.product_name %} 上创建合作提交
 
-After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a co-authored commit by adding a `Co-authored-by:` trailer to the commit's message.
+在 {% data variables.product.product_name %} 上使用 web 编辑器对文件进行更改后，您可以通过在提交消息中添加 `Co-authored-by:` 尾行来创建合作提交。
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
-2. After making your changes together, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-3. In the text box below your commit message, add `Co-authored-by: name <name@example.com>` with specific information for each co-author. If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+2. 合作进行更改后，在页面底部键入简短、有意义的提交消息，以描述你们所做的更改。 ![有关更改的提交消息](/assets/images/help/repository/write-commit-message-quick-pull.png)
+3. 在提交消息下方的文本框中，根据每个合作作者的特定信息添加 `Co-authored-by: name <name@example.com>`。 如果要添加多个合作作者，请为每个合作作者键入一个 `Co-authored-by:` 提交尾行。
 
-  ![Commit message co-author trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+  ![第二个提交消息文本框中的提交消息合作作者尾行示例](/assets/images/help/repository/write-commit-message-co-author-trailer.png)
+4. 单击 **Commit changes（提交更改）**或 **Propose changes（提议更改）**。
 
-The new commit and message will appear on {% data variables.product.product_location %}.
+新的提交和消息将显示在 {% data variables.product.product_location %} 上。
 
-### Further reading
-{% if currentVersion != "free-pro-team@latest" %}
-- "[Viewing contributions on your profile](/articles/viewing-contributions-on-your-profile)"
-- "[Why are my contributions not showing up on my profile?](/articles/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}
-- "[Viewing a summary of repository activity](/articles/viewing-a-summary-of-repository-activity)"
-- "[Viewing a project's contributors](/articles/viewing-a-projects-contributors)"
-- "[Changing a commit message](/articles/changing-a-commit-message)"
-- "[Committing and reviewing changes to your project](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)" in the {% data variables.product.prodname_desktop %} documentation
+### 延伸阅读
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+- "[在个人资料中查看贡献](/articles/viewing-contributions-on-your-profile)"
+- “[为什么我的贡献没有在我的个人资料中显示？](/articles/why-are-my-contributions-not-showing-up-on-my-profile)”{% endif %}
+- “[查看仓库活动的摘要](/articles/viewing-a-summary-of-repository-activity)”
+- “[查看项目的贡献者](/articles/viewing-a-projects-contributors)”
+- “[更改提交消息](/articles/changing-a-commit-message)”
+- {% data variables.product.prodname_desktop %} 文档中的“[提交和审查对项目的更改](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project#3-write-a-commit-message-and-push-your-changes)”

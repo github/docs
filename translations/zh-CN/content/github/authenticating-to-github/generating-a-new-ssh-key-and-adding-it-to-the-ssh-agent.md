@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您还没有 SSH 密钥，则必须[生成新 SSH 密钥](#generating-a-new-ssh-key)。 如果您不确定是否已有 SSH 密钥，请检查[现有密钥](/articles/checking-for-existing-ssh-keys)。

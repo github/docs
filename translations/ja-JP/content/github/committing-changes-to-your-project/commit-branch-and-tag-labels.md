@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コミットがデフォルトブランチにない場合、コミットを含むブランチが表示されます。 コミットがマージされていないプルリクエストの一部である場合は、リンクが表示されます。

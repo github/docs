@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
@@ -29,7 +30,7 @@ versions:
       ```shell
       $ gpg --default-new-key-algo rsa4096 --gen-key
       ```
-4. プロンプトで、必要なキーの種類を指定するか、`Enter` キーを押してデフォルトの `RSA and DSA` を受け入れます。
+4. プロンプトで、必要なキーの種類を指定するか、`Enter` キーを押してデフォルトの `RSA and RSA` を受け入れます。
 5. 希望のキーサイズを入力します。 キーは少なくとも `4096` ビットである必要があります。
 6. キーの有効期間を入力します。 `Enter` キーを押して、無期限を示すデフォルトの選択を指定します。
 7. 選択内容が正しいことを確認します。

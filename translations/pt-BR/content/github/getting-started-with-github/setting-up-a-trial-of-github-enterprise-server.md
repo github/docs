@@ -36,7 +36,7 @@ Siga estas etapas para aproveitar ao máximo a versão de avaliação:
    - Webcast [Guia de início rápido do {% data variables.product.prodname_dotcom %}](https://resources.github.com/webcasts/Quick-start-guide-to-GitHub/)
    - [Entender o fluxo do {% data variables.product.prodname_dotcom %}](https://guides.github.com/introduction/flow/) nos guias do {% data variables.product.prodname_dotcom %}
    - [Hello World](https://guides.github.com/activities/hello-world/) nos guias do {% data variables.product.prodname_dotcom %}
-3. Para configurar sua instância de acordo com as necessidades da organização, consulte "[Configurar o appliance do {% data variables.product.prodname_ghe_server %}](/enterprise/admin/installation/configuring-the-github-enterprise-server-appliance)".
+3. To configure your instance to meet your organization's needs, see "[Configuring your enterprise](/admin/configuration/configuring-your-enterprise)."
 4. Para integrar o {% data variables.product.prodname_ghe_server %} ao seu provedor de identidade, consulte "[Usar SAML](/enterprise/admin/user-management/using-saml)" e "[Usar LDAP](/enterprise/admin/authentication/using-ldap)".
 5. Convite o número desejado de pessoas (sem limite) para fazer parte da versão de avaliação.
    - Adicione os usuários à sua instância do {% data variables.product.prodname_ghe_server %} usando autenticação integrada ou seu provedor de identidade configurado. Para obter mais informações, consulte "[Usar autenticação integrada](/enterprise/admin/user-management/using-built-in-authentication)".

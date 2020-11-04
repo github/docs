@@ -7,6 +7,7 @@ intro: Here's a short tutorial on using `git rebase` on the command line.
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 In this example, we will cover all of the `git rebase` commands available, except for `exec`.

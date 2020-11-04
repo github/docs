@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 {% data variables.product.product_name %} APIは、開発者が消費するための膨大な情報を提供します。 ほとんどの場合は、要求している情報が_多すぎる_ということに気付くかもしれません。サーバーに負担をかけすぎないため、API は自動的に[リクエストされたアイテムをページネーション][pagination]します。
 
@@ -31,8 +32,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 `-I`パラメータは、実際のコンテンツではなくヘッダのみを扱うことを示します。 結果を調べると、Linkヘッダの中に以下のような情報があることに気付くでしょう。
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last"
 
 さて、細かく見ていきましょう。 `rel="next"`には、次のページが`page=2`だと書かれています。 これは納得できる話です。というのも、デフォルトでは、すべてのページネーションされたクエリは`1`ページから始まります。`rel="last"`には追加情報があり、最後のページは`34`ページになると書かれています。 つまり、`addClass`で利用できる情報はあと33ページあるということですね。 よし！
 
@@ -48,10 +49,10 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 ここでもう一度リンクヘッダを見てみます。
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=15>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=34>; rel="last",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=1>; rel="first",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&page=13>; rel="prev"
 
 予想通り`rel="next"`は15で、`rel="last"`は34のままです。 しかし今度は少し情報が増えています。`rel="first"`は、、_最初_のページのURLを示しています。さらに重要なこととして、`rel="prev"`は前のページのページ番号を示しています。 この情報を用いて、APIの呼び出しでリストの最初、前、次、最後にユーザがジャンプできるUIを構築できるでしょう。
 
@@ -65,8 +66,8 @@ $ curl -I "{% data variables.product.api_url_pre %}/search/code?q=addClass+user:
 
 ヘッダのレスポンスに何が起こるかに注目してください。
 
-    Link: <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
-      <{% data variables.product.api_url_code %}/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
+    Link: <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=2>; rel="next",
+      <https://api.github.com/search/code?q=addClass+user%3Amozilla&per_page=50&page=20>; rel="last"
 
 ご想像の通り、`rel="last"`情報には、最後のページが20になったと書かれています。 これは、結果のページごとに、より多くの情報を要求しているからです。
 

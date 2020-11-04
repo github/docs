@@ -93,7 +93,7 @@ Recovery Accounts Elsewhere を使用して、あなたの {% data variables.pro
 
 1. Sign in to your Facebook account, then return to
 
-{% data variables.product.product_name %}.
+{% data variables.product.product_name %} の Enterprise 設定を使用してアナウンスバナーを設定することもできます。
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
 4. 新しいトークンを生成するため、[Recovery tokens] の下にある [**Store new token**] をクリックします。 ![新しいリカバリトークンを保存するボタン](/assets/images/help/settings/store-new-recovery-token.png)

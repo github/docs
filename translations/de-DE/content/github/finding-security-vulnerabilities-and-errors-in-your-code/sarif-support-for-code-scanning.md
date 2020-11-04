@@ -36,6 +36,8 @@ If you upload a SARIF file without fingerprint data using the `/code-scanning/sa
 
 ### Validating your SARIF file
 
+<!--UI-LINK: When code scanning fails, the error banner shown in the Security > Code scanning alerts view links to this anchor.-->
+
 If your SARIF file doesn't include `partialFingerprints`, the `partialFingerprints` field will be calculated when you upload the SARIF file using {% data variables.product.prodname_actions %}. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
 
 ### Supported SARIF output file properties

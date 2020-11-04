@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以将更改仓库可见性的权限仅限于组织所有者，或者允许具有仓库管理员权限的成员在私有与公开之间更改仓库可见性。

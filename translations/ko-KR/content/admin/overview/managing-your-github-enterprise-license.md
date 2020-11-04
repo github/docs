@@ -30,14 +30,13 @@ After you purchase a new license or upgrade an existing license from {% data var
 
 If you'd like to renew or add user licenses to {% data variables.product.prodname_enterprise %}, contact {% data variables.contact.contact_enterprise_sales %}. Your new license file will be available for download immediately after you complete your order.
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. In the left sidebar, click **Enterprise licensing**. !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Under "Enterprise Server Instances", click {% octicon "download" aria-label="The download icon" %} to download your license file. ![Download GitHub Enterprise Server license](/assets/images/help/business-accounts/download-ghes-license.png)
 5. Log into your
 {% data variables.product.prodname_ghe_server %} instance as a site administrator.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 12. Under "Quick links", click **Update license**. ![Update license link](/assets/images/enterprise/business-accounts/update-license-link.png)
@@ -46,9 +45,9 @@ If you'd like to renew or add user licenses to {% data variables.product.prodnam
 
 ### Viewing license usage
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. In the left sidebar, click **Enterprise licensing**. !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
 
 ### Automatically syncing user license usage with {% data variables.product.prodname_ghe_cloud %}
@@ -59,15 +58,15 @@ You can use {% data variables.product.prodname_github_connect %} to automaticall
 
 You can download a JSON file from {% data variables.product.prodname_ghe_server %} and upload the file to {% data variables.product.prodname_ghe_cloud %} to manually sync user license usage between the two deployments.
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-5. Under "Quick links", to download a file containing your current license usage on {% data variables.product.prodname_ghe_server %}, click **Export license usage**. ![Export license usage link](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
-6. Navigate to
-{% data variables.product.prodname_ghe_cloud %}.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+{% data reusables.enterprise-accounts.license-tab %}
+5. Under "Quick links", to download a file containing your current license usage on
+{% data variables.product.prodname_ghe_server %}, click **Export license usage**.
+  ![Export license usage link](/assets/images/enterprise/business-accounts/export-license-usage-link.png)
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.enterprise-accounts.settings-tab %}
+8. In the left sidebar, click **Enterprise licensing**. !["Enterprise licensing" tab in the enterprise account settings sidebar](/assets/images/help/enterprises/enterprise-licensing-tab.png)
+{% data reusables.enterprise-accounts.license-tab %}
 10. Under "Enterprise Server Instances", click **Add server usage**. ![Upload GitHub Enterprise Servers usage link](/assets/images/help/business-accounts/upload-ghe-server-usage-link.png)
 11. Upload the JSON file you downloaded from {% data variables.product.prodname_ghe_server %}. ![Drag and drop or select a file to upload](/assets/images/help/business-accounts/upload-ghe-server-usage-file.png)

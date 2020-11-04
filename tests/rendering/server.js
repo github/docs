@@ -49,14 +49,12 @@ describe('server', () => {
     expect(csp.get('connect-src').includes('*.algolianet.com')).toBe(true)
 
     expect(csp.get('img-src').includes("'self'")).toBe(true)
-    expect(csp.get('img-src').includes('*.google-analytics.com')).toBe(true)
     expect(csp.get('img-src').includes('github-images.s3.amazonaws.com')).toBe(true)
     expect(csp.get('img-src').includes('octodex.github.com')).toBe(true)
 
     expect(csp.get('script-src').includes("'self'")).toBe(true)
     expect(csp.get('script-src').includes("'unsafe-eval'")).toBe(true) // exception for Algolia instantsearch
     expect(csp.get('script-src').includes("'unsafe-inline'")).toBe(true)
-    expect(csp.get('script-src').includes('*.google-analytics.com')).toBe(true)
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
@@ -128,9 +126,10 @@ describe('server', () => {
     expect($.text()).toContain('You can follow people on GitHub')
   })
 
-  test('converts Markdown in permissions statements frontmatter', async () => {
-    const $ = await getDOM('/en/github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account')
-    expect($('div.permissions-statement a[href="/articles/inviting-people-to-manage-your-enterprise-account"]').length).toBe(1)
+  test('injects site variables into rendered permissions statements frontmatter', async () => {
+    // markdown source: {% data variables.product.prodname_pages %} site
+    const $ = await getDOM('/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site')
+    expect($('div.permissions-statement').text()).toContain('GitHub Pages site')
   })
 
   // see https://github.com/github/docs-internal/issues/9678
@@ -245,7 +244,7 @@ describe('server', () => {
     })
 
     test('renders mini TOC in articles that includes h4s when specified by frontmatter', async () => {
-      const $ = await getDOM('/en/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account')
+      const $ = await getDOM('/en/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account')
       expect($('h3#in-this-article').length).toBe(1)
       expect($('h3#in-this-article + ul li.ml-0').length).toBeGreaterThan(0) // non-indented items
       expect($('h3#in-this-article + ul li.ml-3').length).toBeGreaterThan(0) // indented items
@@ -269,7 +268,8 @@ describe('server', () => {
 
   describe('image asset paths', () => {
     const localImageBasePath = '/assets/images'
-    const enterpriseImageBasePath = 'https://github-images.s3.amazonaws.com/enterprise'
+    const s3BasePath = 'https://github-images.s3.amazonaws.com'
+    const enterpriseImageBasePath = `${s3BasePath}/enterprise`
     const latestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.latest}`
     const oldestEnterprisePath = `/en/enterprise/${enterpriseServerReleases.oldestSupported}`
 
@@ -296,6 +296,16 @@ describe('server', () => {
     test('links that point to /assets are not rewritten with a language code', async () => {
       const $ = await getDOM('/en/github/site-policy/github-privacy-statement')
       expect($('#french').next().children('a').attr('href').startsWith(localImageBasePath)).toBe(true)
+    })
+
+    test('github articles on GHAE have images that point to S3', async () => {
+      const $ = await getDOM('/en/github-ae@latest/github/administering-a-repository/changing-the-default-branch')
+      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
+    })
+
+    test('admin articles on GHAE have images that point to S3', async () => {
+      const $ = await getDOM('/en/github-ae@latest/admin/user-management/managing-dormant-users')
+      expect($('img').first().attr('src').startsWith(`${s3BasePath}/github-ae/assets`)).toBe(true)
     })
   })
 
@@ -698,8 +708,9 @@ describe('static routes', () => {
 
   it('serves schema files from the /data/graphql directory at /public', async () => {
     expect((await get('/public/schema.docs.graphql')).statusCode).toBe(200)
-    expect((await get(`/public/${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`)).statusCode).toBe(200)
-    expect((await get(`/public/${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`)).statusCode).toBe(200)
+    expect((await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`)).statusCode).toBe(200)
+    expect((await get(`/public/ghes-${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`)).statusCode).toBe(200)
+    expect((await get('/public/ghae/schema.docs-ghae.graphql')).statusCode).toBe(200)
   })
 
   it('does not serve repo contents that live outside the /assets directory', async () => {
