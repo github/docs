@@ -24,6 +24,7 @@ This example action demonstrates how to reference an existing secret as an envir
 ```yaml
 jobs:
   example-job:
+    runs-on: ubuntu-latest
     steps:
       - name: Retrieve secret
         env:
