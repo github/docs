@@ -1,11 +1,12 @@
 ---
 title: Sichtbarkeitsänderungen von Repositorys in Deiner Organisation einschränken
-intro: Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Änderung der Sichtbarkeit von Repositorys in Deiner Organisation konfigurieren.
+intro: 'Zum Schutz Deiner Organisationsdaten kannst Du die Berechtigungen für die Änderung der Sichtbarkeit von Repositorys in Deiner Organisation konfigurieren.'
 redirect_from:
   - /articles/restricting-repository-visibility-changes-in-your-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst die Möglichkeit der Änderung der Sichtbarkeit von Repositorys ausschließlich auf Organisationsinhaber beschränken oder auch Mitgliedern mit Administratorberechtigungen für ein Repository erlauben, die Sichtbarkeit des Repositorys von privat auf öffentlich oder von öffentlich auf privat zu ändern.

@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Die Diagramme eines Repositorys geben Dir Informationen über {% if currentVersion == "free-pro-team@latest" %}Traffic, vom Repository abhängige Projekte, {% endif %}Mitarbeiter und Commits des Repositorys sowie die Forks und das Netzwerk eines Repositorys. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
+A repository's graphs give you information on {% if currentVersion == "free-pro-team@latest" %} traffic, projects that depend on the repository,{% endif %} contributors and commits to the repository, and a repository's forks and network. Wenn Du ein Repository verwaltest, kannst Du diese Daten verwenden, um besser zu verstehen, wer Dein Repository verwendet und warum es verwendet wird.
 
 {% if currentVersion == "free-pro-team@latest" %}
 

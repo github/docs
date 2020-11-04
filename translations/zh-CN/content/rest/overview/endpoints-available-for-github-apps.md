@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您必须使用安装访问令牌通过 {% data variables.product.prodname_github_app %} 访问端点。 更多信息请参阅“[向 {% data variables.product.prodname_github_apps %} 验证](/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-an-installation)”。
 
-{% for thing in rest.operationsEnabledForApps[currentVersion] %}
+{% for thing in rest.operationsEnabledForGitHubApps[currentVersion] %}
 {% assign category = thing[0] %}
 {% assign operations = thing[1] %}
 {% if operations.size > 0 %}

@@ -14,7 +14,7 @@ versions:
 
 {% data reusables.dependabot.initial-updates %} 詳しい情報については、「[依存関係の更新をカスタマイズする](/github/administering-a-repository/customizing-dependency-updates)」をご覧ください。
 
-### {% data variables.product.prodname_dependabot_version_updates %} の有効化
+### Enabling {% data variables.product.prodname_dependabot_version_updates %}
 
 {% note %}
 

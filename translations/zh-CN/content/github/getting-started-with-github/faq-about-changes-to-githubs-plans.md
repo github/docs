@@ -1,6 +1,6 @@
 ---
 title: 有关 GitHub 计划变更的常见问题解答
-intro: GitHub 宣布，从 2020 年 4 月 14 日起，向所有人免费提供所有核心 GitHub 功能。
+intro: 'GitHub 宣布，从 2020 年 4 月 14 日起，向所有人免费提供所有核心 GitHub 功能。'
 versions:
   free-pro-team: '*'
 ---
@@ -83,8 +83,8 @@ GitHub Community Support 包括通过我们的[社区论坛](https://github.comm
 
 如果您目前是发票客户，请向您的销售代表发送电子邮件以获取更多信息。 如果不确定您的销售代表是谁，请联系您的帐单管理员或帐户所有者。
 
-### How will this impact users and organizations in regions where U.S. government sanctions are applied? government sanctions are applied?
+### How will this impact users and organizations in regions where U.S. government sanctions are applied? 政府制裁是否适用？
 
-Due to U.S. Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. 请阅读 [GitHub 和贸易管制](https://help.github.com/github/site-policy/github-and-trade-controls)了解更多信息。 sanctioned regions. 但是，GitHub 保留了对免费公共仓库服务的使用权。 请阅读 [GitHub 和贸易管制](/github/site-policy/github-and-trade-controls)了解更多信息。
+由于美国 Due to U.S. trade controls law restrictions, GitHub is unable to provide private repository services and paid services to accounts in U.S. sanctioned regions. GitHub has preserved, however, access to free public repository services. 请阅读 [GitHub 和贸易管制](https://help.github.com/github/site-policy/github-and-trade-controls)了解更多信息。 受制裁区域。 但是，GitHub 保留了对免费公共仓库服务的使用权。 请阅读 [GitHub 和贸易管制](/github/site-policy/github-and-trade-controls)了解更多信息。
 
-GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. 我们认为，提供这些免费服务有助于美国关于鼓励这些地区的信息自由流动和言论自由的外交政策。 foreign policy of encouraging the free flow of information and free speech in those regions.
+GitHub will continue advocating with U.S. regulators for the greatest possible access to free code collaboration services to developers in sanctioned regions, including free private repositories. We believe that offering those free services supports U.S. foreign policy of encouraging the free flow of information and free speech in those regions. 监管机构提倡让受制裁地区的开发者尽可能获得免费代码协作服务，包括访问免费私有仓库。 我们认为，提供这些免费服务有助于美国关于鼓励这些地区的信息自由流动和言论自由的外交政策。 关于鼓励这些市场的信息自由流动和言论自由的外交政策。

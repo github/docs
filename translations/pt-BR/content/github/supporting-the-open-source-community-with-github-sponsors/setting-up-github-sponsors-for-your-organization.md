@@ -50,7 +50,7 @@ Para se juntar ao {% data variables.product.prodname_sponsors %} como colaborado
 
 ### Enviando informações bancárias
 
-Como organização patrocinada, você deve receber pagamentos em uma conta bancária exclusiva para sua organização em uma região apoiada. Você pode ter uma conta bancária jurídica por meio de serviços como [Open Collective](https://opencollective.com/) e [Stripe Atlas](https://stripe.com/atlas). {% data reusables.sponsors.stripe-supported-regions %}
+Como organização patrocinada, você deve receber pagamentos em uma conta bancária exclusiva para sua organização em uma região apoiada. Você pode ter uma conta bancária jurídica por meio de serviços como [Open Collective](https://opencollective.com/) e [Stripe Atlas](https://stripe.com/atlas). A região em que sua organização opera legalmente e a região da sua conta bancária devem corresponder. A pessoa que criou o {% data variables.product.prodname_sponsors %} para a organização também deve morar na mesma região suportada. {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

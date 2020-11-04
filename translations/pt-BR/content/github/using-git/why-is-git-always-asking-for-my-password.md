@@ -6,14 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Usar uma URL remota do tipo HTTPS tem algumas vantagens em comparação com o uso de SSH. É mais fácil configurar do que SSH e geralmente funciona por meio de firewalls e proxies rigorosos. No entanto, também exige que você insira suas credenciais do GitHub toda vez que você faz pull ou push em um repositório.
+Usar uma URL remota do tipo HTTPS tem algumas vantagens em comparação com o uso de SSH. É mais fácil configurar do que SSH e geralmente funciona por meio de firewalls e proxies rigorosos. However, it also prompts you to enter your {% data variables.product.product_name %} credentials every time you pull or push a repository.
 
-Você pode evitar que seja solicitada a sua senha ao configurar o Git para [armazenar suas credenciais](/github/using-git/caching-your-github-credentials-in-git) para você. {% data reusables.user_settings.password-authentication-deprecation %}
+{% data reusables.user_settings.password-authentication-deprecation %}
 
-Uma vez que você configurado o armazenamento de credenciais, o Git usa automaticamente seu token de acesso pessoal armazenado no lugar de uma senha quando você extrai ou faz push de um repositório usando HTTPS.
-
+Você pode evitar que seja solicitada a sua senha ao configurar o Git para [armazenar suas credenciais](/github/using-git/caching-your-github-credentials-in-git) para você. Once you've configured credential caching, Git automatically uses your cached personal access token when you pull or push a repository using HTTPS.
 
 ### Leia mais
 

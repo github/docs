@@ -1,12 +1,13 @@
 ---
 title: Arten erforderlicher Statuschecks
-intro: 'Du kannst die erforderlichen Statusprüfungen entweder als "loose" (locker) oder als "strict" (streng) einrichten. Die Art der erforderlichen Statuschecks bestimmt, ob Dein Branch vor dem Zusammenführen auf dem aktuellen Stand mit dem Basisbranch sein muss.'
+intro: Du kannst die erforderlichen Statusprüfungen entweder als "loose" (locker) oder als "strict" (streng) einrichten. Die Art der erforderlichen Statuschecks bestimmt, ob Dein Branch vor dem Zusammenführen auf dem aktuellen Stand mit dem Basisbranch sein muss.
 product: '{% data reusables.gated-features.protected-branches %}'
 redirect_from:
   - /articles/types-of-required-status-checks
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 | Art des erforderlichen Statuschecks | Einstellung                                                                                                                                                   | Merge-Anforderungen                                                                    | Erwägungen                                                                                                                                                                                                                                                                                                 |

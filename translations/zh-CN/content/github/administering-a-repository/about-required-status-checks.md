@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于必需状态检查
@@ -23,7 +24,7 @@ versions:
 
 {% endtip %}
 
-即使必需状态检查失败或待处理，仓库管理员也可以合并受保护分支。 You can require administrators to be subject to required status checks. 更多信息请参阅“[启用必需状态检查](/github/administering-a-repository/enabling-required-status-checks)”。
+即使必需状态检查失败或待处理，仓库管理员也可以合并受保护分支。 您可以要求管理员接受所需的状态检查。 更多信息请参阅“[启用必需状态检查](/github/administering-a-repository/enabling-required-status-checks)”。
 
 ![管理员合并受保护分支](/assets/images/help/repository/req-status-check-admin-merge.png)
 
@@ -59,7 +60,7 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 有时，测试合并提交与头部提交的状态检查结果存在冲突。 如果测试合并提交具有状态，则必须传递该状态。 否则，必须传递头部提交的状态后才可合并该分支。 有关合并提交的更多信息，请参阅“[拉取请求](/v3/pulls/#response-1)”。
 

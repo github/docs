@@ -1,14 +1,15 @@
 ---
 title: 锁定对话
-intro: 仓库所有者和协作者以及对仓库具有写入权限的人员，能够永久或临时锁定关于议题、拉取请求和提交的对话，以缓和激烈的交互。
+intro: '仓库所有者和协作者以及对仓库具有写入权限的人员，能够永久或临时锁定关于议题、拉取请求和提交的对话，以缓和激烈的交互。'
 redirect_from:
   - /articles/locking-conversations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-当整个对话没有建设性或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %}或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %}时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。
+当整个对话没有建设性或者违反社区的行为准则{% if currentVersion == "free-pro-team@latest" %} 或 GitHub 的[社区指导方针](/articles/github-community-guidelines){% endif %} 时，锁定对话是明智之举。 在锁定对话时，也可公开说明锁定的原因。
 
 锁定对话会创建对仓库具有读取权限的所有人可见的时间表事件。 但对话锁定者的用户名只有能够写入仓库的人可见。 对于没有写入权限的任何人，时间表事件会匿名化。
 

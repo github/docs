@@ -8,11 +8,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode adicionar informações pessoais sobre si mesmo na bio, como locais em que trabalhou anteriormente, os projetos com os quais contribuiu ou interesses que você tem que outras pessoas talvez gostem de saber. Para obter mais informações, consulte "[Adicionar uma bio ao seu perfil](/articles/personalizing-your-profile/#adding-a-bio-to-your-profile)".
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 {% data reusables.profile.profile-readme %}
 
@@ -26,7 +27,7 @@ Elas também podem ver:
 
 - Repositórios e gists que você possui ou com os quais contribui. Você pode exibir seu melhor trabalho fixando repositórios e gists no seu perfil. Para obter mais informações, consulte "[Fixar itens no seu perfil](/github/setting-up-and-managing-your-github-profile/pinning-items-to-your-profile)".
 - Repositórios que você salvou com estrela. Para obter mais informações, consulte "[Salvar repositórios com estrelas](/articles/saving-repositories-with-stars/)"
-- Uma visão geral da sua atividade em organizações, repositórios e equipes nos quais você está mais ativo. Para obter mais informações, consulte "[Exibir uma visão geral da sua atividade no seu perfil](/articles/showing-an-overview-of-your-activity-on-your-profile).{% if currentVersion == "free-pro-team@latest" %}
+- Uma visão geral da sua atividade em organizações, repositórios e equipes nos quais você está mais ativo. Para obter mais informações, consulte "[Exibir uma visão geral da sua atividade no seu perfil.](/articles/showing-an-overview-of-your-activity-on-your-profile){% if currentVersion == "free-pro-team@latest" %}
 - Selos que anunciam sua participação em programas como {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %} ou o no programa de desenvolvedor de {% data variables.product.company_short %}.
 - Se você está usando o {% data variables.product.prodname_pro %}. Para obter mais informações, consulte "[Personalizar seu perfil](/articles/personalizing-your-profile)".{% endif %}
 

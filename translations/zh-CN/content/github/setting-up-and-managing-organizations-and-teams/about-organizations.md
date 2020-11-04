@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.organizations_include %}
@@ -25,5 +26,4 @@ versions:
 
 实体（如公司、非营利组织或集团）可同意用于其组织的标准服务条款或公司服务条款。 更多信息请参阅“[升级到公司服务条款](/articles/upgrading-to-the-corporate-terms-of-service)”。
 
-{% data reusables.organizations.enter-data-protection-agreement %} 更多信息请参阅“[与 {% data variables.product.prodname_dotcom %} 签订符合 GDPR 规范的数据保护协议](/articles/entering-a-data-protection-agreement-with-github-for-gdpr-compliance)”。
 {% endif %}

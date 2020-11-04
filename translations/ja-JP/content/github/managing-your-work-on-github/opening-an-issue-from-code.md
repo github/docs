@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コードから Issue を開くと、Issue には選択した行またはコードの範囲を示すスニペットが含まれています。 Issue を開くことができるのは、コードを保存したのと同じリポジトリでだけです。
@@ -19,7 +20,7 @@ versions:
     - ファイルのコードに関する Issue を開くには、そのファイルに移動します。
     - プルリクエストのコードに関する Issue を開くには、そのプルリクエストに移動し、{% octicon "diff" aria-label="The file diff icon" %}[**Files changed**] をクリックします。 次に、コメントに含めたいコードを持っているファイルを探し、[**View**] をクリックします。
 {% data reusables.repositories.choose-line-or-range %}
-4. To the left of the code range, click
+4. コード範囲の左で、
 {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}. ドロップダウンメニューで、[**Reference in new issue**] をクリックします。
   ![選択した行から新しいIssueを開くオプションのある三点メニュー](/assets/images/help/repository/open-new-issue-specific-line.png)
 {% data reusables.repositories.type-issue-title-and-description %}

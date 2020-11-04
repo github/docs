@@ -1,17 +1,20 @@
 ---
 title: Enviar um tíquete
-intro: 'Envie um tíquete de suporte usando o {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} ou o portal de suporte. Você pode marcar o tíquete como urgente quando o sistema de produção do {% data variables.product.prodname_ghe_server %} estiver instável ou fora do ar.'
+intro: 'You can submit a support ticket using the {% if enterpriseServerVersions contains currentVersion %}{% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %} or{% endif %} the support portal.'
 redirect_from:
   - /enterprise/admin/enterprise-support/submitting-a-ticket
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Como enviar um tíquete
 
 Antes de enviar um ticket, reúna informações úteis sobre o {% data variables.contact.github_support %} e defina a melhor pessoa para fazer o contato. Para obter mais informações, consulte "[Preparar para enviar um tíquete](/enterprise/admin/guides/enterprise-support/preparing-to-submit-a-ticket)".
 
-Depois de enviar sua solicitação de suporte e as informações opcionais de diagnóstico, o {% data variables.contact.github_support %} pode solicitar que você baixe e compartilhe conosco um pacote de suporte. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
+{% if enterpriseServerVersions contains currentVersion %}
+After submitting your support request and optional diagnostic information,
+{% data variables.contact.github_support %} may ask you to download and share a support bundle with us. Para obter mais informações, consulte "[Enviar dados ao {% data variables.contact.github_support %}](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support)".
 
 ### Enviar um tíquete usando o {% data variables.contact.enterprise_portal %}
 
@@ -22,15 +25,15 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 
 ### Enviando um tíquete usando sua conta corporativa
 
-{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.enterprise-licensing-tab %}
+3. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba "Licenciamento empresarial" na barra lateral de configurações da conta corporativa](/assets/images/help/enterprises/enterprise-licensing-tab.png)
 4. Em "Ajuda {% data variables.product.prodname_enterprise %}", clique em Portal **{% data variables.contact.enterprise_support %}**. ![Link para navegar para o site de Suporte do Enterprise](/assets/images/enterprise/support/enterprise-support-link.png)
 5. Clique em **Enviar um tíquete** ![Enviar um tíquete para a equipe de Suporte do Enterprise](/assets/images/enterprise/support/submit-ticket-button.png)
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-first-section %}
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 
-### Enviar um tíquete usando o {% data variables.product.prodname_ghe_server %} {% data variables.enterprise.management_console %}
+### Enviar um tíquete usando o {% data variables.product.product_name %} {% data variables.enterprise.management_console %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -44,7 +47,17 @@ Depois de enviar sua solicitação de suporte e as informações opcionais de di
 {% data reusables.enterprise_enterprise_support.submit-support-ticket-second-section %}
 7. Clique em **Enviar**.
 
+{% endif %}
+{% if currentVersion == "github-ae@latest" %}
+### Enviar um tíquete usando o {% data variables.contact.ae_azure_portal %}
+
+Commercial customers can submit a support request in the {% data variables.contact.contact_ae_portal %}. Government customers should use the [Azure portal for government customers](https://portal.azure.us/#blade/Microsoft_Azure_Support/HelpAndSupportBlade). For more information, see [Create an Azure support request](https://docs.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request) in the Microsoft documentation.
+
+For urgent issues, to ensure a quick response, after you submit a ticket, please call the support hotline immediately. Your Technical Support Account Manager (TSAM) will provide you with the number to use in your onboarding session.
+
+{% endif %}
+
 ### Leia mais
 
-- [Sobre o {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)
-- [Sobre o {% data variables.contact.premium_support %} para {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server).
+- "[About {% data variables.contact.enterprise_support %}](/enterprise/admin/guides/enterprise-support/about-github-enterprise-support)"{% if enterpriseServerVersions contains currentVersion %}
+- "[About {% data variables.contact.premium_support %} for {% data variables.product.prodname_ghe_server %}](/enterprise/admin/guides/enterprise-support/about-github-premium-support-for-github-enterprise-server)."{% endif %}

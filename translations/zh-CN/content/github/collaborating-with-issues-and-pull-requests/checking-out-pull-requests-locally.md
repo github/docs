@@ -7,6 +7,7 @@ permissions: 对仓库具有写入权限的任何人都可以在本地向下拉�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
   {% note %}
@@ -44,7 +45,7 @@ versions:
   [main] $ git checkout <em>BRANCHNAME</em>
   > Switched to a new branch '<em>BRANCHNAME</em>'
   ```
-7. 现在，您可以使用此分支执行任何操作。 You can run some local tests, or merge other branches into the branch.
+7. 现在，您可以使用此分支执行任何操作。 您可以运行一些本地测试，或者将其他分支合并到该分支。
 8. 准备就绪后，可以向上推送新分支：
   ```shell
   [pull-inactive-pull-request] $ git push origin <em>BRANCHNAME</em>

@@ -1,20 +1,21 @@
 ---
 title: Issues und Pull Requests durchsuchen
-intro: 'Auf {% data variables.product.product_name %} kannst Du nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Qualifizierern in beliebiger Kombination eingrenzen.'
+intro: 'Auf {% data variables.product.product_name %} können Sie nach Issues und Pull Requests suchen und die Suchergebnisse mit den folgenden Suchkennzeichnern in beliebiger Kombination eingrenzen.'
 redirect_from:
   - /articles/searching-issues/
   - /articles/searching-issues-and-pull-requests
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Du kannst global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation nach Issues und Pull Requests suchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
+Sie können Issues und Pull Requests global auf {% data variables.product.product_name %} oder in einer bestimmten Organisation durchsuchen. Weitere Informationen findest Du unter „[Informationen zur Suche auf {% data variables.product.company_short %}](/articles/about-searching-on-github).“
 
 {% tip %}
 
-**Tipps:**{% if currentVersion != "free-pro-team@latest" %}
-  - Dieser Artikel enthält Beispielsuchen für die Website {% data variables.product.prodname_dotcom %}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {% data variables.product.product_location_enterprise %} verwenden.{% endif %}
+**Tips:**{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+  - Dieser Artikel enthält Beispielsuchen für die Website {% data variables.product.prodname_dotcom %}.com. Die gleichen Suchfilter kannst Du jedoch auch auf {% data variables.product.product_location %} verwenden.{% endif %}
   - Eine Liste mit Suchsyntax, die Du jedem Qualifizierer hinzufügen kannst, um Deine Ergebnisse zu verbessern, findest Du unter „[Grundlagen der Suchsyntax](/articles/understanding-the-search-syntax)“.
   - Schließe Suchbegriffe, die aus mehreren Wörtern bestehen, in Anführungszeichen ein. Möchtest Du beispielsweise nach Issues mit der Kennzeichnung „In progress“ suchen, gib `label:"in progress"` ein. Bei der Suche wird die Groß-/Kleinschreibung ignoriert.
   - {% data reusables.search.search_issues_and_pull_requests_shortcut %}
@@ -65,7 +66,7 @@ Mit dem Qualifizierer `state` oder `is` kannst Du Issues und Pull Requests danac
 
 ### Suche nach öffentlichen oder privaten Repositorys
 
-Wenn Du [{% data variables.product.product_name %} vollständig durchsuchst](https://github.com/search), ist ein Filtern der Ergebnisse nach öffentlichen oder privaten Repositorys oft sehr nützlich. Hierzu verwendest Du die Qualifizierer `is:public` und `is:private`.
+Wenn Sie [{% data variables.product.product_name %} vollständig durchsuchen](https://github.com/search), ist eine Filterung der Ergebnisse nach öffentlichen oder privaten Repositorys oft sehr nützlich. Hierzu verwendest Du die Qualifizierer `is:public` und `is:private`.
 
 | Qualifizierer | Beispiel                                                                                                                                                                                     |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,7 +125,7 @@ Mit dem Qualifizierer `involves` kannst Du Issues suchen, an denen auf die eine 
 | <code>involves:<em>USERNAME</em></code> | **[involves:defunkt involves:jlord](https://github.com/search?q=involves%3Adefunkt+involves%3Ajlord&type=Issues)** sucht Issues, an denen entweder @defunkt oder @jlord beteiligt ist.                                           |
 |                           | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) sucht Issues, an denen @mdo beteiligt ist, die im Textteil jedoch nicht das Wort „bootstrap“ enthalten. |
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 ### Suche nach verknüpften Issues und Pull Request
 Du kannst Deine Ergebnisse auf Issues einschränken, die mit einem Pull-Request verknüpft sind, indem Du eine schließende Referenz verwendest, oder auf Pull-Requests, die mit einem Issue verbunden sind, den der Pull-Request schließen kann.
 
@@ -229,7 +230,7 @@ Mit dem Qualifizierer `reactions` kannst Du Issues und Pull Requests nach der An
 ### Suche nach Pull-Request-Entwürfen
 Du kannst nach Pull-Request-Entwürfen suchen. Weitere Informationen findest Du unter „[Informationen zu Pull Requests](/articles/about-pull-requests#draft-pull-requests).“
 
-| Qualifizierer    | Beispiel | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) findet Pull-Request-Entwürfe. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
+| Qualifier        | Example | ------------- | -------------{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %} | `draft:true` | [**draft:true**](https://github.com/search?q=draft%3Atrue) matches draft pull requests. | `draft:false` | [**draft:false**](https://github.com/search?q=draft%3Afalse) findet Pull Requests, die bereit sind für den Review.{% else %} | `is:draft` | [**is:draft**](https://github.com/search?q=is%3Adraft) findet Pull-Request-Entwürfe.{% endif %}
 
 ### Suche nach Review-Status und Reviewer eines Pull-Requests
 

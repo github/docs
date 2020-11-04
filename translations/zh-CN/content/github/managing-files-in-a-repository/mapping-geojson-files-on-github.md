@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.product.product_name %} 支持在 {% data variables.product.product_name %} 仓库中渲染 geoJSON 和 topoJSON 地图文件。 只需像平常一样提交扩展名为 `.geojson` 或 `.topojson` 的文件。 也支持扩展名为 `.json` 的文件，但仅当 `type` 设置为 `FeatureCollection`、`GeometryCollection` 或 `topology` 时才支持。 然后导航到 GitHub.com 上 geoJSON 文件的路径。
@@ -50,7 +51,7 @@ versions:
 
 {% tip %}
 
-**Note**: `ref` can be a branch or the hash to an individual commit (like `2391ae`).
+**注**：`ref` 可以是分支或个别提交的哈希（如 `2391ae`）。
 
 {% endtip %}
 

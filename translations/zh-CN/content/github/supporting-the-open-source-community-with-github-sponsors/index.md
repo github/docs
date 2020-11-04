@@ -1,7 +1,7 @@
 ---
 title: 通过 GitHub 赞助者支持开源社区
 shortTitle: GitHub 赞助者
-intro: 'You can support the people and organizations who design, build, and maintain the open source projects you depend on by compensating them via {% data variables.product.prodname_dotcom %}.'
+intro: '您可以通过 {% data variables.product.prodname_dotcom %} 提供赞助，以支持设计、构建和维护开源项目的个人和组织。'
 redirect_from:
   - /categories/supporting-the-open-source-community-with-github-sponsors
 versions:

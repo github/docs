@@ -1,6 +1,6 @@
 ---
 title: Fortschritt Deiner Arbeit in Projektboards verfolgen
-intro: 'Du kannst den Fortschritt Deiner Arbeit auf {% data variables.product.product_name %} verfolgen und priorisieren, indem Du ein Projektboard mit zugehörigen Issues, Pull Requests und Hinweisen erstellst.'
+intro: 'Sie können den Fortschritt Ihrer Arbeit auf {% data variables.product.product_name %} in Projektboards, die Sie für Issues, Pull Requests und Hinweise erstellen, verfolgen und priorisieren.'
 redirect_from:
   - /articles/tracking-the-progress-of-your-work-with-projects/
   - /articles/tracking-the-progress-of-your-work-with-project-boards
@@ -8,5 +8,6 @@ mapTopic: true
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

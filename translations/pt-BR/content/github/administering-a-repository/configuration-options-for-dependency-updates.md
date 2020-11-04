@@ -37,13 +37,14 @@ O arquivo *dependabot.yml* deve começar com `versão: 2` seguido por uma série
 | [`schedule.time`](#scheduletime)                                           |             | Hora do dia para procurar atualizações (hh:mm)               |
 | [`schedule.timezone`](#scheduletimezone)                                   |             | Fuso horário para hora do dia (identificador de zona)        |
 | [`target-branch`](#target-branch)                                          |             | Branch para criar pull requests contra                       |
+| [`vendor`](#vendor)                                                        |             | Atualizar dependências de vendor ou armazenadas em cache     |
 | [`versioning-strategy`](#versioning-strategy)                              |             | Como atualizar os requisitos da versão do manifesto          |
 
 Estas opções se encaixam, geralmente, nas seguintes categorias.
 
 - Opções de configuração essenciais que você deve incluir em todas as configurações: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Opções para personalizar o agendamento da atualização: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Opções para controlar quais dependências são atualizadas: [`allow`](#allow), [`ignore`](#ignore).
+- Opções para controlar quais dependências são atualizadas: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
 - Opções para adicionar metadata a pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Opções para alterar o comportamento dos pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
@@ -61,7 +62,7 @@ Em geral, as atualizações de segurança usam quaisquer opções de configuraç
 
 ### `package-ecosystem`
 
-**Obrigatório** Você adiciona um elemento `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio de cada um desses gerentes de pacotes.
+**Obrigatório** Você adiciona um elemento de `package-ecosystem` para cada gerenciador de pacotes que você deseja que {% data variables.product.prodname_dependabot_short %} monitore para novas versões. O repositório também deve conter um manifesto de dependência ou um arquivo de bloqueio para cada um desses gerenciadores de pacotes. Se você quiser habilitar o vendoring para um gerente de pacotes com o qual é compatível, as dependências do vendor devem estar localizadas no diretório necessário. Para obter mais informações, consulte o [`vendor`](#vendor) abaixo.
 
 {% data reusables.dependabot.supported-package-managers %}
 
@@ -307,7 +308,7 @@ atualizações:
 
 {% note %}
 
-O {% data variables.product.prodname_dependabot_version_updates %} não pode executar atualizações de versão para quaisquer dependências no manifesto que contém dependências do Git privadas ou registros Git privados, mesmo se você adicionar as dependências privadas à opção de `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
+**Observação**: {% data variables.product.prodname_dependabot_version_updates %} não pode executar atualizações de versão para nenhuma dependência no manifesto que contém dependências do git privadas ou registros do git privados, mesmo que você adicione as dependências privadas à opção `ignorar` do seu arquivo de configuração. Para obter mais informações, consulte "[Sobre o {% data variables.product.prodname_dependabot_version_updates %}](/github/administering-a-repository/about-github-dependabot#supported-repositories-and-ecosystems)".
 
 {% endnote %}
 
@@ -539,6 +540,31 @@ updates:
     labels:
       - "npm dependencies"
 ```
+
+### `vendor`
+
+Use a opção `vendor` para dizer {% data variables.product.prodname_dependabot_short %} para dependências de vendor ao atualizá-las.
+
+```yaml
+# Configure version updates for both dependencies defined in manifests and vendored dependencies
+
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    # Raise pull requests to update vendored dependencies that are checked in to the repository
+    vendor: true
+    directory: "/"
+    schedule:
+      interval: "weekly"
+```
+
+{% data variables.product.prodname_dependabot_short %} atualiza apenas as dependências de vendor localizadas em diretórios específicos em um repositório.
+
+| Gerenciador de pacotes | Caminho de arquivo necessário para dependências delegadas                                                         | Mais informações                                                             |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `bundler`              | As dependências devem estar no diretório _vendor/cache_.</br>Outros caminhos de arquivo não são compatíveis.      | [documentação de `bundle cache`](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`                | Nenhuma exigência de caminho (as dependências geralmente estão localizadas no diretório do _vendor_ do diretório) | [documentação de `go mod vendor`](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

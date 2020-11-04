@@ -20,7 +20,8 @@ You can execute these commands from anywhere on the VM after signing in as an SS
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
+You can also set an announcement banner using the enterprise settings on
+{% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
 {% endif %}
 
 ```shell
@@ -63,7 +64,7 @@ ghe-cleanup-settings
 
 #### ghe-config
 
-With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location_enterprise %}.
+With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-config <em>core.github-hostname</em>
@@ -181,7 +182,6 @@ This utility allows you to control the state of the installation's maintenance m
 ghe-maintenance -h
 ```
 
-{% if currentVersion ver_gt "enterprise-server@2.17" %}
 #### ghe-motd
 
 This utility re-displays the message of the day (MOTD) that administrators see when accessing the instance via the administrative shell. The output contains an overview of the instance's state.
@@ -189,7 +189,6 @@ This utility re-displays the message of the day (MOTD) that administrators see w
 ```shell
 ghe-motd
 ```
-{% endif %}
 
 #### ghe-nwo
 
@@ -396,7 +395,7 @@ This utility allows you to install a custom root CA certificate on your {% data 
 
 Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[About commit signature verification](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)."
 
-Run this utility when {% data variables.product.product_location_enterprise %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location_enterprise %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
+Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
 ```
 SSL-Session:
@@ -454,7 +453,7 @@ $ ghe-storage-extend
 
 #### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.product.product_location_enterprise %}.
+This utility prints the version, platform, and build of {% data variables.product.product_location %}.
 
 ```shell
 $ ghe-version

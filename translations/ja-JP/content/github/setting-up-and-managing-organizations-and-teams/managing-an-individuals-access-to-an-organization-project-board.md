@@ -1,12 +1,13 @@
 ---
 title: Organization のプロジェクトボードに対する個々のアクセスを管理する
-intro: Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。
+intro: 'Organization のオーナーまたはプロジェクトボードの管理者は、Organization で所有しているプロジェクトボードに対する個々のメンバーのアクセスを管理できます。'
 redirect_from:
   - /articles/managing-an-individual-s-access-to-an-organization-project-board
   - /articles/managing-an-individuals-access-to-an-organization-project-board
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -24,7 +25,9 @@ versions:
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
-9. [Search by username, full name or email address] で、コラボレーターの名前、ユーザ名、または {% data variables.product.prodname_dotcom %} メールを入力します。 ![Octocat のユーザ名が検索フィールドに入力されているコラボレーターセクション](/assets/images/help/projects/org-project-collaborators-find-name.png)
+9. \[Search by username, full name or email address\] (ユーザ名、フルネーム、メールアドレスでの検索) の下で、コラボレータの名前、ユーザ名、または
+{% data variables.product.prodname_dotcom %}メールを入力してください。
+   ![Octocat のユーザ名が検索フィールドに入力されているコラボレーターセクション](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
 {% data reusables.project-management.collaborator-permissions %}
 

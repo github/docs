@@ -1,5 +1,3 @@
-# Please ping @github/docs-localization in the PR whenever you update this file!
-
 name: Crowdin Sync
 
 on:
@@ -25,18 +23,20 @@ jobs:
           
           # Using a custom config temporarily to avoid clobbering the existing crowdin.yml
           # that is used by the github-help-docs OAuth integration.
-          config: 'crowdin-actions-config.yml'
+          config: 'crowdin.yml'
 
           # This is the name of the git branch that Crowdin will create when opening a pull request.
           # This branch does NOT need to be manually created. It will be created automatically by the action.
-          localization_branch_name: automated-crowdin-translations
+          localization_branch_name: translations
 
           # This is the name of the top-level directory that Crowdin will use for files.
           # Note that this is not a "branch" in the git sense, but more like a top-level directory in your Crowdin project.
           # This branch does NOT need to be manually created. It will be created automatically by the action.
-          crowdin_branch_name: crowdin-main
+          crowdin_branch_name: main
 
         env:
+          # Using an @octoglot token instead of the default Actions-provided GITHUB_TOKEN here 
+          # so that subsequent workflows will be able to run on the pull request created by this workflow.
           GITHUB_TOKEN: ${{ secrets.OCTOGLOT_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
           # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string

@@ -17,7 +17,7 @@ versions:
  - 変換したユーザアカウントには、サインイン**できなくなります**。
  - 変換したユーザアカウントが所有していた Gist を作成や変更することは**できなくなります**。
  - Organization をユーザに変換して元に戻すことは**できません**。
- - SSH キー、OAuth トークン、ジョブプロフィール、{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}リアクション、{% endif %}および関連するユーザ情報は、Organization に移譲**されません**。 これは、変換されたユーザアカウントのみに該当し、ユーザアカウントのコラボレーターには該当しません。
+ - The SSH keys, OAuth tokens, job profile,  reactions, and associated user information, **will not** be transferred to the organization. これは、変換されたユーザアカウントのみに該当し、ユーザアカウントのコラボレーターには該当しません。
  - 変換したユーザアカウントによるコミットは、アカウントに**リンクされなくなります**。 コミットそのものは、**そのまま残ります**。
 
 {% endwarning %}
@@ -35,7 +35,7 @@ Organization の名前を、あなたの個人アカウントが使用してい�
 あなたの個人ユーザアカウントを Organization に直接変換することも可能です。 アカウントを変換すると、以下のことが起こります:
  - リポジトリはそのまま保持されます。他のアカウントに手動で移譲する必要はありません。
  - コラボレーターを、Team に自動的に招待します。コラボレーターの権限は、以前のものがそのまま引き継がれます。
- {% if currentVersion == "free-pro-team@latest" %}- {% data variables.product.prodname_pro %} のユーザアカウントでは、支払い情報の入力や支払いサイクルの調整も必要なく、また二重の支払いもすることなく、自動的に[有料 {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) に移行できます。{% endif %}
+ {% if currentVersion == "free-pro-team@latest" %}- For user accounts on {% data variables.product.prodname_pro %}, automatically transitions billing to [the paid {% data variables.product.prodname_team %}](/articles/about-billing-for-github-accounts) without the need to re-enter payment information, adjust your billing cycle, or double pay at any time{% endif %}
 
 1. GitHub にサインインし、変換後に Organization やリポジトリにアクセスするために使う、新しい個人アカウントを作成します。
 2.  変換するアカウントで参加している、[すべての Organization から自分を削除](/articles/removing-yourself-from-an-organization)してください。
@@ -56,5 +56,5 @@ Organization の名前を、あなたの個人アカウントが使用してい�
 
 ### 参考リンク
 - [Team の設定](/articles/setting-up-teams)
-{% if currentVersion == "free-pro-team@latest" %}-"[Organization に参加するようユーザを招待する](/articles/inviting-users-to-join-your-organization){% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Inviting users to join your organization](/articles/inviting-users-to-join-your-organization)"{% endif %}
 - [Organization にアクセスする](/articles/accessing-an-organization)

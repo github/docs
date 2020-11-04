@@ -25,9 +25,9 @@ versions:
 
 You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user *~/.npmrc* file to include your personal access token or by logging in to npm on the command line using your username and personal access token.
 
-To authenticate by adding your personal access token to your *~/.npmrc* file, edit the *~/.npmrc* file for your project to include the following line, replacing {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*TOKEN* with your personal access token.  Create a new *~/.npmrc* file if one doesn't exist.
+To authenticate by adding your personal access token to your *~/.npmrc* file, edit the *~/.npmrc* file for your project to include the following line, replacing {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*TOKEN* with your personal access token.  Create a new *~/.npmrc* file if one doesn't exist.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
@@ -35,7 +35,7 @@ If your instance has subdomain isolation enabled:
 //{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}/:_authToken=<em>TOKEN</em>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```shell
@@ -45,7 +45,7 @@ If your instance has subdomain isolation disabled:
 
 To authenticate by logging in to npm, use the `npm login` command, replacing *USERNAME* with your {% data variables.product.prodname_dotcom %} username, *TOKEN* with your personal access token, and *PUBLIC-EMAIL-ADDRESS* with your email address.
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
@@ -56,7 +56,7 @@ $ npm login --registry=https://{% if currentVersion == "free-pro-team@latest" %}
 > Email: <em>PUBLIC-EMAIL-ADDRESS</em>
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```shell
@@ -97,7 +97,7 @@ You can use an *.npmrc* file to configure the scope mapping for your project. In
 You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
 1. Edit the *package.json* file for your package and include a `publishConfig` entry.
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation enabled:
   {% endif %}
   ```shell
@@ -105,7 +105,7 @@ You can use `publishConfig` element in the *package.json* file to specify the re
     "registry":"https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}"
   },
   ```
-  {% if currentVersion != "free-pro-team@latest" %}
+  {% if enterpriseServerVersions contains currentVersion %}
   If your instance has subdomain isolation disabled:
    ```shell
    "publishConfig": {
@@ -166,9 +166,9 @@ You also need to add the *.npmrc* file to your project so all requests to instal
 
 #### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if currentVersion != "free-pro-team@latest" %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project. {% data reusables.package_registry.lowercase-name-field %}
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your *.npmrc* file, replacing {% if enterpriseServerVersions contains currentVersion %}*HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance and {% endif %}*OWNER* with the name of the user or organization account that owns the repository containing your project. {% data reusables.package_registry.lowercase-name-field %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation enabled:
 {% endif %}
 
@@ -178,7 +178,7 @@ registry=https://{% if currentVersion == "free-pro-team@latest" %}npm.pkg.github
 @<em>OWNER</em>:registry={% if currentVersion == "free-pro-team@latest" %}npm.pkg.github.com{% else %}npm.<em>HOSTNAME</em>/{% endif %}
 ```
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 If your instance has subdomain isolation disabled:
 
 ```shell

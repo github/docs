@@ -1,6 +1,6 @@
 ---
 title: 交付部署
-intro: 使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。
+intro: '使用部署 REST API，您可以构建与您的服务器和第三方应用程序交互的自定义工具。'
 redirect_from:
   - /guides/delivering-deployments/
   - /guides/automating-deployments-to-integrators/
@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
+ 
+  
 
 [部署 API][deploy API] 为您托管在 {% data variables.product.product_name %} 上的项目提供在您自己的服务器上启动它们的功能。 结合 [状态 API][status API]，您将能够在您的代码到达 `master` 时协调部署。
 

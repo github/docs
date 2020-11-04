@@ -1,6 +1,6 @@
 ---
 title: Configurar o TLS
-intro: 'Você pode configurar o protocolo de Segurança de Camada de Transporte (TLS, Transport Layer Security) na {% data variables.product.product_location_enterprise %} para uso de certificados assinados por uma autoridade de certificação confiável.'
+intro: 'Você pode configurar o protocolo de Segurança de Camada de Transporte (TLS, Transport Layer Security) na {% data variables.product.product_location %} para uso de certificados assinados por uma autoridade de certificação confiável.'
 redirect_from:
   - /enterprise/admin/articles/ssl-configuration/
   - /enterprise/admin/guides/installation/about-tls/
@@ -51,9 +51,9 @@ Let's Encrypt é uma autoridade de certificação pública que emite certificado
 
 {% data reusables.enterprise_installation.lets-encrypt-prerequisites %}
 
-Ao habilitar a automação do gerenciamento de certificados TLS usando o Let's Encrypt, sua {% data variables.product.product_location_enterprise %} entrará em contato com os servidores do Let's Encrypt para obter um certificado. Para renovar um certificado, os servidores do Let's Encrypt devem validar o controle do nome de domínio configurado com solicitações HTTP de entrada.
+Ao habilitar a automação do gerenciamento de certificados TLS usando o Let's Encrypt, sua {% data variables.product.product_location %} entrará em contato com os servidores do Let's Encrypt para obter um certificado. Para renovar um certificado, os servidores do Let's Encrypt devem validar o controle do nome de domínio configurado com solicitações HTTP de entrada.
 
-Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% data variables.product.product_location_enterprise %} para gerar automaticamente um certificado Let's Encrypt. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)".
+Você também pode usar o utilitário de linha de comando `ghe-ssl-acme` na {% data variables.product.product_location %} para gerar automaticamente um certificado Let's Encrypt. Para obter mais informações, consulte "[Utilitários de linha de comando](/enterprise/{{ currentVersion }}/admin/guides/installation/command-line-utilities#ghe-ssl-acme)".
 
 ### Configurar o TLS usando Let's Encrypt
 

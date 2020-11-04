@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% note %}
@@ -38,7 +39,7 @@ versions:
 
 ![差异查看选项菜单](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}、显示您是其代码所有者的文件、隐藏您查看过的文件{% endif %}或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
+为简化审查大型拉取请求中的更改，您可以过滤差异，只显示所选的文件类型、显示您是其代码所有者的文件、隐藏您查看过的文件或隐藏已删除的文件。 更多信息请参阅“[按文件类型过滤拉取请求中的文件](/articles/filtering-files-in-a-pull-request)”。
 
   ![文件过滤器下拉菜单](/assets/images/help/pull_requests/file-filter-menu.png)
 

@@ -1,47 +1,45 @@
 ---
-title: Creating a custom badge for your OAuth App
+title: OAuth App のカスタムバッジを作成する
 intro: '{% data reusables.shortdesc.creating_custom_badges_oauth_apps %}'
 redirect_from:
   - /apps/building-oauth-apps/creating-custom-badges-for-oauth-apps
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
+デフォルトでは、新しい OAuth App に対して、[アイデンティコン](https://github.com/blog/1586-identicons)が自動的に生成されます。 アイデンティコンバッジとは、次のようなものです。
 
+![アイデンティコン](/assets/images/identicon.png)
 
+OAuth App の作成後、ロゴをアップロードし、背景色を設定することで、アプリケーションのバッジをカスタマイズできます。 バッジは、丸の中に正方形のロゴ画像があります。 バッジの背景色を選ぶと、他のアプリケーションと視覚的に区別させることができます。
 
-By default, a new OAuth App will have an automatically generated [identicon](https://github.com/blog/1586-identicons). An identicon badge looks something like this:
-
-![Identicon](/assets/images/identicon.png)
-
-After you create an OAuth App, you can customize the app's badge by uploading a logo and selecting a background color. A badge is a square logo image inside of a circular badge. You can choose a background color for the badge, which can be used to visually distinguish your app.
-
-Your logo should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend an image size of at least 200px x 200px. {% if currentVersion == "free-pro-team@latest" %}See "[Tips for logo and badge images](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)" for more guidance on customizing badges.{% endif %}
+ロゴは、1 MB 未満の PNG、JPG または GIF ファイルである必要があります。 最高の画質を得るため、画像の大きさは 200 x 200 ピクセル以上にすることをお勧めします。 {% if currentVersion == "free-pro-team@latest" %}バッジのカスタマイズに関する詳細については、「[ロゴとバッジ画像のためのヒント](/marketplace/listing-on-github-marketplace/writing-github-marketplace-listing-descriptions/#guidelines-for-logos)」を参照してください。{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
-You can change a custom badge for a GitHub App that already has an approved Marketplace listing by navigating to https://github.com/marketplace/manage.
+Marketplace に掲載が承認されている GitHub App のカスタムバッジを変更するには、https://github.com/marketplace/manage に移動します。
 
 {% endif %}
 
-To create a custom badge:
+カスタムバッジを作成するには、以下の手順に従います。
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
 {% data reusables.user-settings.modify_oauth_app %}
-5. In "Application logo", drag-and-drop an image from a local folder or click **Upload new logo** to select an image from your computer. ![Upload a logo](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
-6. 画像をクロッピングします。 When you're done, click **Set new application logo**. ![Crop and set logo](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
-7. In "Badge background color", type the [hexadecimal color code](http://www.color-hex.com/) of the background color for your badge.
-{% if currentVersion == "free-pro-team@latest" %}**Note:** The "Badge background color" input field will be visible after an application logo has been uploaded.{% endif %}
-![Badge background color](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
+1. [Application logo] にローカルフォルダの画像をドラッグアンドドロップするか、[**Upload new logo**] をクリックして、お手元のコンピューターから画像を選択します。 ![ロゴをアップロード](/assets/images/oauth-apps/oauth_apps_upload_logo.png)
+6. 画像をクロッピングします。 完了したら、[**Set new application logo**] をクリックします。 ![ロゴをトリミングして設定](/assets/images/oauth-apps/oauth_apps_crop_and_set_logo.png)
+7. [Badge background color] に、バッジの背景色を[16 進数カラーコード](http://www.color-hex.com/)で入力します。
+{% if currentVersion == "free-pro-team@latest" %}**注釈:** [Badge background color] 入力フィールドは、アプリケーションロゴをアップロードした後に表示されます。{% endif %}
+![バッジの背景色](/assets/images/oauth-apps/oauth_apps_badge_background_color.png)
 {% data reusables.user-settings.update_oauth_app %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 
 ### 次のステップ
 
-For more information about creating a Marketplace listing for this app, see "[Listing on GitHub Marketplace](/marketplace/listing-on-github-marketplace/)".
+このアプリケーションを Marketplace に掲載する方法の詳細については、「[GitHub Marketplace に掲載する](/marketplace/listing-on-github-marketplace/)」を参照してください。
 
 {% endif %}

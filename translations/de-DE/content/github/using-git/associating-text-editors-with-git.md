@@ -1,6 +1,6 @@
 ---
 title: Texteditoren mit Git verknüpfen
-intro: 'Verwende einen Texteditor, um Dateien mit Git zu öffnen und zu bearbeiten.'
+intro: Verwende einen Texteditor, um Dateien mit Git zu öffnen und zu bearbeiten.
 redirect_from:
   - /textmate/
   - /articles/using-textmate-as-your-default-editor/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% mac %}

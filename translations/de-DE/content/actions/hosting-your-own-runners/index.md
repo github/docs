@@ -1,6 +1,6 @@
 ---
 title: Deinen eigenen Runner hosten
-intro: 'Du kannst selbst-gehostete Runner erstellen, um Workflows in einer hochgradig anpassbaren Umgebung zu betreiben.'
+intro: Du kannst selbst-gehostete Runner erstellen, um Workflows in einer hochgradig anpassbaren Umgebung zu betreiben.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
   - /actions/automating-your-workflow-with-github-actions/hosting-your-own-runners

@@ -1,7 +1,7 @@
-The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
+O pull request irá atualizar a dependência para a versão minimamente segura possível, o que é necessário para evitar a vulnerabilidade.
 
 {% note %}
 
-**Note:** It's good practice to have automated tests and acceptance processes in place so that checks are carried out before the pull request is merged. This is particularly important if the suggested version to upgrade to contains additional functionality, or a change that breaks your project's code. For more information about continuous integration, see "[About continuous integration](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)."
+**Observação:** É uma prática recomendada ter testes automatizados e processos de aceitação em vigor para que as verificações sejam realizadas antes do merge do pull request. Isso é especialmente importante se a versão sugerida a ser atualizada contiver funcionalidades adicionais ou se uma mudança que quebrar o código do seu projeto. Para obter mais informações sobre a integração contínua, consulte "[Sobre integração contínua](/actions/building-and-testing-code-with-continuous-integration/about-continuous-integration)".
 
 {% endnote %}
