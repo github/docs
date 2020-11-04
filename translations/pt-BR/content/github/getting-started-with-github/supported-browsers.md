@@ -4,10 +4,11 @@ redirect_from:
   - /articles/why-doesn-t-graphs-work-with-ie-8/
   - /articles/why-don-t-graphs-work-with-ie8/
   - /articles/supported-browsers
-intro: 'Nós projetamos o {% data variables.product.product_name %} para ser compatível com os navegadores web mais recentes. Oferecemos suporte às versões atuais de [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/), {% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.16" %}Internet Explorer 11, {% endif %}e [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
+intro: 'Nós projetamos o {% data variables.product.product_name %} para ser compatível com os navegadores web mais recentes. Oferecemos suporte às versões atuais de [Chrome](https://www.google.com/chrome/), [Firefox](http://www.mozilla.org/firefox/), [Safari](http://www.apple.com/safari/) e [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge).'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Versão de suporte estendido do Firefox

@@ -1,12 +1,13 @@
 ---
 title: 从组织中删除自己
-intro: 如果您是外部协作者或组织成员，您可以随时离开组织。
+intro: '如果您是外部协作者或组织成员，您可以随时离开组织。'
 redirect_from:
   - /articles/how-do-i-remove-myself-from-an-organization/
   - /articles/removing-yourself-from-an-organization
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

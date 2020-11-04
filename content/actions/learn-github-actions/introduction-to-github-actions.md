@@ -34,7 +34,7 @@ The workflow is an automated procedure that you add to your repository. Workflow
 
 #### Events
 
-An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the repository dispatch webhook to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
+An event is a specific activity that triggers a workflow. For example, activity can originate from {% data variables.product.prodname_dotcom %} when someone pushes a commit to a repository or when an issue or pull request is created. You can also use the [repository dispatch webhook](/rest/reference/repos#create-a-repository-dispatch-event) to trigger a workflow when an external event occurs. For a complete list of events that can be used to trigger workflows, see [Events that trigger workflows](/actions/reference/events-that-trigger-workflows).
 
 #### Jobs
 
@@ -213,8 +213,13 @@ Once your job has started running, you can view each step's activity on {% data 
     ![Screenshot of workflow results](/assets/images/help/images/learn-github-actions-workflow.png)
 1. Under "Workflow runs", click the name of the run you want to see.
     ![Screenshot of workflow runs](/assets/images/help/images/learn-github-actions-run.png)
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+1. Click on the job name to see the results of each step.
+    ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result-updated.png)
+{% else %}
 1. Click on the job name to see the results of each step.
     ![Screenshot of workflow run details](/assets/images/help/images/overview-actions-result.png)
+{% endif %}
 
 ### Next steps
 

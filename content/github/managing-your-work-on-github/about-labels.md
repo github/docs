@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Labels are tied to the repository they are created in. Once a label exists, you can use it on any issue or pull request within that repository. For more information, see "[Creating a label](/articles/creating-a-label/)."
@@ -30,7 +31,7 @@ Label | Description
 
 Default labels are included in every new repository when the repository is created, but you can edit or delete the labels later. For more information, see "[Deleting a label](/articles/deleting-a-label/)."
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 Organization owners can customize the default labels for repositories in their organization. For more information, see "[Managing default labels for repositories in your organization](/articles/managing-default-labels-for-repositories-in-your-organization)."
 {% endif %}
 

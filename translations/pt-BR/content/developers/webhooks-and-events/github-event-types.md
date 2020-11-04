@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -15,7 +16,6 @@ A API de eventos pode retornar diferentes tipos de eventos acionados por ativida
 {% if currentVersion == "free-pro-team@latest" %}
 
 {% endif %}
-
 
 ### Propriedades comuns do objeto de evento
 

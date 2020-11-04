@@ -1,11 +1,12 @@
 ---
 title: 共享过滤器
-intro: 当您过滤或排序议题和拉取请求时，浏览器的 URL 自动更新以匹配新视图。
+intro: '当您过滤或排序议题和拉取请求时，浏览器的 URL 自动更新以匹配新视图。'
 redirect_from:
   - /articles/sharing-filters
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以将议题生成的 URL 发送给任何用户，这些用户将能够看到与您所见相同的过滤视图。

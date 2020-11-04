@@ -1,10 +1,11 @@
 ---
 title: Code-Review-Zuweisung für Dein Team verwalten
-intro: 'Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.'
+intro: Die Zuweisung von Code-Reviews zeigt deutlich an, welche Mitglieder eines Teams einen Review für einen Pull Request einreichen sollen.
 product: '{% data reusables.gated-features.code-review-assignment %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.20'
+  github-ae: '*'
 ---
 
 Team-Betreuer und Organisationsinhaber können Code-Review-Zuweisungen konfigurieren.

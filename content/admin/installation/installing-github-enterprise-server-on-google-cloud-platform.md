@@ -20,12 +20,12 @@ versions:
 
 ### Determining the machine type
 
-Before launching {% data variables.product.product_location_enterprise %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
+Before launching {% data variables.product.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization.
 
 #### Supported machine types
 
 {% data variables.product.prodname_ghe_server %} is supported on the following Google Compute Engine (GCE) machine types. For more information, see [the Google Cloud Platform machine types article](https://cloud.google.com/compute/docs/machine-types).
-{% if currentVersion != "free-pro-team@latest" %}
+
 | High-memory   |
   ------------- |
 | n1-highmem-4  |
@@ -34,7 +34,6 @@ Before launching {% data variables.product.product_location_enterprise %} on Goo
 | n1-highmem-32 |
 | n1-highmem-64 |
 | n1-highmem-96 |
-{% endif %}
 
 #### Recommended machine types
 

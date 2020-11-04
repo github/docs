@@ -6,8 +6,21 @@ const layouts = require('../lib/layouts')
 const getMiniTocItems = require('../lib/get-mini-toc-items')
 const Page = require('../lib/page')
 
+// We've got lots of memory, let's use it
+// We can eventually throw this into redis
+const pageCache = {}
+
 module.exports = async function renderPage (req, res, next) {
   const page = req.context.page
+  const originalUrl = req.originalUrl
+
+  // Serve from the cache if possible (skip during tests)
+  if (!process.env.CI && process.env.NODE_ENV !== 'test') {
+    if (req.method === 'GET' && pageCache[originalUrl]) {
+      console.log(`Serving from cached version of ${originalUrl}`)
+      return res.send(pageCache[originalUrl])
+    }
+  }
 
   // render a 404 page
   if (!page) {
@@ -74,5 +87,13 @@ module.exports = async function renderPage (req, res, next) {
 
   const output = await liquid.parseAndRender(layout, context)
 
-  res.send(output)
+  // Save output to cache for the next time around
+  if (!process.env.CI) {
+    if (req.method === 'GET') {
+      pageCache[originalUrl] = output
+    }
+  }
+
+  // send response
+  return res.send(output)
 }

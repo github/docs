@@ -1,6 +1,6 @@
 ---
 title: About commit signature verification
-intro: 'Using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can trust that the changes come from a trusted source.'
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. These tags or commits are marked as verified on {% data variables.product.product_name %} so other people can trust that the changes come from a trusted source.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About commit signature verification
@@ -59,8 +60,9 @@ You don't need to upload your public key to {% data variables.product.product_na
 ### Signature verification for bots
 
 Organizations and {% data variables.product.prodname_github_app %}s that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.
+Signature verification for bots will only work if the request is verified and authenticated as the
 
-Signature verification for bots will only work if the request is verified and authenticated as the {% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
+{% data variables.product.prodname_github_app %} or bot and contains no custom author information, custom committer information, and no custom signature information, such as Commits API.
 {% endif %}
 
 ### Дополнительная литература

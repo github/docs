@@ -1,11 +1,12 @@
 ---
 title: Informationen zu Organisationen
-intro: 'Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Projekte übergreifend über mehrere Projekte gleichzeitig zusammenarbeiten können. Inhaber und Administratoren können den Mitgliederzugriff auf Daten und Projekte der Organisation mit komplexen Sicherheits- und Administrationsfunktionen verwalten.'
+intro: Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Projekte übergreifend über mehrere Projekte gleichzeitig zusammenarbeiten können. Inhaber und Administratoren können den Mitgliederzugriff auf Daten und Projekte der Organisation mit komplexen Sicherheits- und Administrationsfunktionen verwalten.
 redirect_from:
   - /articles/about-organizations
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.organizations_include %}
@@ -25,5 +26,4 @@ Bei Organisationen, die einem Enterprise-Konto angehören, wird die Abrechnung a
 
 Eine Entität, beispielsweise ein Unternehmen, eine gemeinnützige Organisation oder eine Gruppe, kann die Standardnutzungsbedingungen oder die Unternehmensnutzungsbedingungen für ihre Organisation akzeptieren. Weitere Informationen findest Du unter „[Auf Unternehmensnutzungsbedingungen umstellen](/articles/upgrading-to-the-corporate-terms-of-service).“
 
-{% data reusables.organizations.enter-data-protection-agreement %} Weitere Informationen findest Du unter „[Eine Datenschutzvereinbarung mit {% data variables.product.prodname_dotcom %} in Bezug auf die Einhaltung der DSGVO abschließen](/articles/entering-a-data-protection-agreement-with-github-for-gdpr-compliance).“
 {% endif %}

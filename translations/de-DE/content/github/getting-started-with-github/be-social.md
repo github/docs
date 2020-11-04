@@ -3,17 +3,18 @@ title: Soziale Interaktion
 redirect_from:
   - /be-social/
   - /articles/be-social
-intro: 'Du kannst mit Personen, Repositorys und Organisationen auf {% data variables.product.prodname_dotcom %} interagieren. Auf Deinem persönlichen Dashboard kannst Du sehen, woran andere gerade arbeiten und mit wem sie sich vernetzen.'
+intro: 'Sie können mit Personen, Repositorys und Organisationen auf {% data variables.product.prodname_dotcom %} interagieren. Auf Deinem persönlichen Dashboard kannst Du sehen, woran andere gerade arbeiten und mit wem sie sich vernetzen.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Informationen zum Zugriff auf Dein persönliches Dashboard findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 
 ### Personen folgen
 
-Wenn Du jemandem auf {% data variables.product.product_location %} folgst, wirst Du auf Deinem persönlichen Dashboard über die Aktivitäten dieser Person benachrichtigt. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
+Wenn Sie jemandem auf {% data variables.product.product_location %} folgen, werden Sie auf Ihrem persönlichen Dashboard über die Aktivitäten dieser Person benachrichtigt. Weitere Informationen findest Du unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard).“
 
 Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folgen.
 
@@ -21,7 +22,7 @@ Klicke auf der Profilseite einer Person auf **Follow** (Folgen), um ihr zu folge
 
 ### Ein Repository beobachten
 
-Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. Weitere Informationen findest Du auf {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}„[Deine Abonnements ansehen](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}[Benachrichtigungen von Repositorys aktivieren und deaktivieren](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+Du kannst ein Repository beobachten, um über neue Pull Requests und Issues benachrichtigt zu werden. Wenn der Inhaber das Repository aktualisiert, siehst Du die Änderungen auf Deinem persönlichen Dashboard. For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 Klicke oben bei einem Repository, das Du beobachten möchtest, auf **Watch** (Beobachten).
 
@@ -53,11 +54,11 @@ Organisationen sind gemeinsame Konten, in denen Unternehmen und Open-Source-Proj
 
 #### Andere Projekte auf {% data variables.product.prodname_dotcom %} entdecken
 
-Entdecke interessante Projekte durch {% data variables.explore.explore_github %}, [Repositories entdecken](https://github.com/explore) und der {% data variables.explore.trending_page %}. Markiere interessante Projekte mit einem Stern, um sie zu einem späteren Zeitpunkt erneut anzuschauen. Auf Deiner {% data variables.explore.your_stars_page %} kannst Du alle Projekte sehen, die Du mit einem Stern markiert hast.  Weitere Informationen finden Sie unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard/)“.
+Entdecke interessante Projekte durch {% data variables.explore.explore_github %}, [Repositories entdecken](https://github.com/explore) und der {% data variables.explore.trending_page %}. Markiere interessante Projekte mit einem Stern, um sie zu einem späteren Zeitpunkt erneut anzuschauen. Auf Ihrer {% data variables.explore.your_stars_page %} können Sie alle Projekte sehen, die Sie mit einem Stern markiert haben.  Weitere Informationen finden Sie unter „[Informationen zum persönlichen Dashboard](/articles/about-your-personal-dashboard/)“.
 
 ### Geschafft!
 
-Du bist jetzt mit der {% data variables.product.product_name %}-Community verbunden. Was möchtest Du als Nächstes tun?
+Sie sind jetzt mit der {% data variables.product.product_name %}-Community verbunden. Was möchtest Du als Nächstes tun?
 
 ![Ein Projekt mit Stern markieren](/assets/images/help/stars/star-a-project.png)
 

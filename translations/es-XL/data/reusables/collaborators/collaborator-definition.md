@@ -1,1 +1,0 @@
-la lista de colaboradores incluye a aquellos externos, miembros de la organización que son colaboradores directos, miembros de la organización con acceso a través de membrecías de equipo, miembros de la organización con acceso a través de permisos predeterminados de la organización, y propietarios de la organización.

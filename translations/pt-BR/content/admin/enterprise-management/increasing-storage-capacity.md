@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-À medida que mais usuários se juntam à sua {% data variables.product.product_location_enterprise %}, talvez seja necessário redimensionar o volume de armazenamento. Consulte a documentação da sua plataforma de virtualização para obter informações sobre como fazer isso.
+À medida que mais usuários se juntam à sua {% data variables.product.product_location %}, talvez seja necessário redimensionar o volume de armazenamento. Consulte a documentação da sua plataforma de virtualização para obter informações sobre como fazer isso.
 
 ### Requisitos e recomendações
 

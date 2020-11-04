@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 マージコンフリクトは、競合している変更がファイルの同じ行に行われるとき、またはある人があるファイルを編集し別の人が同じファイルを削除すると発生します。 詳細は「[マージコンフリクトについて](/articles/about-merge-conflicts/)」を参照してください。
@@ -83,8 +84,8 @@ ask your question in IRC.
 2. マージ コンフリクトの影響を受けるファイルのリストを生成します。 この例では、ファイル *README.md* にマージコンフリクトが発生しています。
   ```shell
   $ git status
-  > # On branch master
-  > # Your branch and 'origin/master' have diverged,
+  > # On branch main
+  > # Your branch and 'origin/main' have diverged,
   > # and have 1 and 2 different commits each, respectively.
   > #  (use "git pull" to merge the remote branch into yours)
   > # You have unmerged paths.

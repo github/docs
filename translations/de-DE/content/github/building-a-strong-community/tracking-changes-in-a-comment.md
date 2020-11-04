@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Änderungsverlauf eines Kommentars anzeigen
@@ -28,5 +29,5 @@ Wenn Du sensible Informationen aus dem Änderungsverlauf eines Kommentars lösch
 
 ### Weiterführende Informationen
 
-{% if currentVersion == "free-pro-team@latest" %}- „[Missbrauch oder Spam melden](/articles/reporting-abuse-or-spam)“{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}- "[Reporting abuse or spam](/articles/reporting-abuse-or-spam)"{% endif %}
 - „[Kommentar bearbeiten](/articles/editing-a-comment)“

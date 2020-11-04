@@ -5,7 +5,6 @@ redirect_from:
   - /enterprise/admin/guides/installation/using-github-enterprise-with-a-load-balancer/
   - /enterprise/admin/installation/using-github-enterprise-server-with-a-load-balancer
   - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
-  - /enterprise/admin/configuration/using-github-enterprise-server-with-a-load-balancer
 versions:
   enterprise-server: '*'
 ---
@@ -22,7 +21,7 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 {% data reusables.enterprise_clustering.proxy_xff_firewall_warning %}
 
-#### Enabling PROXY protocol support on {% data variables.product.product_location_enterprise %}
+#### Enabling PROXY protocol support on {% data variables.product.product_location %}
 
 We strongly recommend enabling PROXY protocol support for both your appliance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.6/doc/proxy-protocol.txt).
 
@@ -34,7 +33,7 @@ We strongly recommend enabling PROXY protocol support for both your appliance an
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
-#### Enabling X-Forwarded-For support on {% data variables.product.product_location_enterprise %}
+#### Enabling X-Forwarded-For support on {% data variables.product.product_location %}
 
 {% data reusables.enterprise_clustering.x-forwarded-for %}
 

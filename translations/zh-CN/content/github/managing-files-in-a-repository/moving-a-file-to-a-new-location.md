@@ -1,18 +1,19 @@
 ---
 title: 将文件移至新位置
-intro: 在编辑文件时，可以选择在仓库中随处移动，即使目录不存在。
+intro: '在编辑文件时，可以选择在仓库中随处移动，即使目录不存在。'
 redirect_from:
   - /articles/moving-a-file-to-a-new-location
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 除了更改文件位置之外，您也可以在同一提交中[更新文件内容](/articles/editing-files-in-your-repository)或[提供新名称](/articles/renaming-a-file)。
 
 {% tip %}
 
-**Tips**:
+**提示**：
 
 - 如果尝试在您没有访问权限的仓库中移动文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/articles/about-pull-requests)到原仓库。
 - 有些文件（如图像）需要您从命令行移动它们。 更多信息请参阅“[使用命令行将文件移至新位置](/articles/moving-a-file-to-a-new-location-using-the-command-line)”。

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.organizations_include %}
@@ -25,5 +26,4 @@ enterprise アカウントに属する Organization では、支払いは enterp
 
 会社、非営利団体、グループなどは、Organization として標準の利用規約あるいは企業向け利用規約に合意できます。 詳細は「[企業向け利用規約にアップグレードする](/articles/upgrading-to-the-corporate-terms-of-service)」を参照してください。
 
-{% data reusables.organizations.enter-data-protection-agreement %} 詳細は「[GDPR 準拠のために {% data variables.product.prodname_dotcom %} とデータ保護契約を締結する](/articles/entering-a-data-protection-agreement-with-github-for-gdpr-compliance)」を参照してください。
 {% endif %}

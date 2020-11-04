@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ![Lista de equipes em uma organização](/assets/images/help/teams/org-list-of-teams.png)
@@ -19,9 +20,9 @@ Para obter mais informações, consulte:
 
 ![Imagem de uma menção de equipe](/assets/images/help/teams/team-mention.png)
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
-Você também pode usar a sincronização LDAP para sincronizar os integrantes da equipe da {% data variables.product.product_location_enterprise %} e funções de equipe com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location_enterprise %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ currentVersion }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
+Você também pode usar a sincronização LDAP para sincronizar os integrantes e funções da equipe da {% data variables.product.product_location %} com os grupos LDAP estabelecidos. Isso permite estabelecer o controle de acesso baseado em função para usuários do servidor LDAP em vez de manualmente na {% data variables.product.product_location %}. Para obter mais informações, consulte "[Habilitar a Sincronização LDAP](/enterprise/{{ page.version }}/admin/guides/user-management/using-ldap#enabling-ldap-sync)".
 
 {% endif %}
 
@@ -55,11 +56,7 @@ Para entender facilmente quem compartilha permissões da equipe principal e faz 
 
 Você pode escolher uma principal quando criar a equipe ou pode mover uma equipe na hierarquia da organização posteriormente. Para obter mais informações, consulte "[Mover uma equipe na hierarquia da sua organização](/articles/moving-a-team-in-your-organization-s-hierarchy)".
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 {% data reusables.enterprise_user_management.ldap-sync-nested-teams %}
-
-{% endif %}
 
 ### Preparar para aninhar equipes em sua organização
 

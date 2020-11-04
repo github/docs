@@ -1,6 +1,6 @@
 ---
 title: Organization のインサイトを表示する
-intro: Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。
+intro: 'Organization のインサイトは、Organization のアクティビティ、コントリビューション、および依存関係についてのデータを提供します。'
 product: '{% data reusables.gated-features.org-insights %}'
 redirect_from:
   - /articles/viewing-insights-for-your-organization
@@ -45,4 +45,4 @@ dependency insights を使えば、あなたの Organization が頼るオープ�
    - [Organization について](/github/setting-up-and-managing-organizations-and-teams/about-organizations)
    - [リポジトリの依存関係を見る](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)
    - [Organization dependency insights の可視性を変更する](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)
-   - [Enterprise アカウントに dependency insights に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)
+   - [Enterprise アカウントに dependency insights に関するポリシーを施行する](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)

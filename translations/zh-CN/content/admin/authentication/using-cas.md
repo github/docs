@@ -25,14 +25,14 @@ versions:
 
 以下属性可用。
 
-| 属性名称  | 类型 | 描述                                                           |
-| ----- | -- | ------------------------------------------------------------ |
+| 属性名称  | 类型 | 描述                                                      |
+| ----- | -- | ------------------------------------------------------- |
 | `用户名` | 必选 | {% data variables.product.prodname_ghe_server %} 用户名。 |
 
 ### 配置 CAS
 {% warning %}
 
-**警告**：请注意，在 {% data variables.product.product_location_enterprise %} 上配置 CAS 之前，用户将无法使用他们的 CAS 用户名和密码通过 HTTP/HTTPS 对 API 请求或 Git 操作进行身份验证。 相反，他们将需要[创建访问令牌](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)。
+**警告**：请注意，在 {% data variables.product.product_location %} 上配置 CAS 之前，用户将无法使用他们的 CAS 用户名和密码通过 HTTP/HTTPS 对 API 请求或 Git 操作进行身份验证。 相反，他们将需要[创建访问令牌](/enterprise/{{ currentVersion }}/user/articles/creating-an-access-token-for-command-line-use)。
 
 {% endwarning %}
 

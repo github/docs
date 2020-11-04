@@ -4,9 +4,10 @@ intro: 'The {% data variables.product.prodname_cli %} is a command-line tool for
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.19'
+  github-ae: '*'
 ---
 
-### Informationen zu {% data variables.product.prodname_cli %}
+### Informationen zum {% data variables.product.prodname_cli %}
 
 {% data variables.product.prodname_cli %} is an open source tool for using {% data variables.product.product_name %} from your computer's command line. When you're working from the command line, you can use the {% data variables.product.prodname_cli %} to save time and avoid switching context.
 

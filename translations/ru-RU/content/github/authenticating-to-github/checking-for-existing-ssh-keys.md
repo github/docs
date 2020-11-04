@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.ssh.dsa-support %}
@@ -20,8 +21,7 @@ versions:
 3. Check the directory listing to see if you already have a public SSH key. By default, the filenames of the public keys are one of the following:
     - *id_rsa.pub*
     - *id_ecdsa.pub*
-    - *id_ed25519.pub*{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.19" %}
-    - *id_dsa.pub*{% endif %}
+    - *id_ed25519.pub*
 
 If you don't have an existing public and private key pair, or don't wish to use any that are available to connect to {% data variables.product.product_name %}, then [generate a new SSH key](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 

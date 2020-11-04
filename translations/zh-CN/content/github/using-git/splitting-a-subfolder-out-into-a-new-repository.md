@@ -7,6 +7,7 @@ intro: 您可以将 Git 仓库内的文件夹变为全新的仓库。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 如果您创建仓库的新克隆副本，则将文件夹拆分为单独的仓库时不会丢失任何 Git 历史记录或更改。
@@ -33,7 +34,7 @@ versions:
       {% endtip %}
 
     {% endwindows %}
-    - `BRANCH-NAME`：当前项目的默认分支，例如 `master` 或 `gh-pages`。
+    - `BRANCH-NAME`: The default branch for your current project, for example, `main` or `gh-pages`.
     ```shell
     $ git filter-branch --prune-empty --subdirectory-filter <em>FOLDER-NAME  BRANCH-NAME </em>
     # Filter the specified branch in your directory and remove empty commits

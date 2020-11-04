@@ -1,11 +1,12 @@
 ---
 title: Suchergebnisse sortieren
-intro: 'Du kannst Ergebnisse der [{% data variables.product.product_name %}-Suche](/articles/searching-on-github) mit den Optionen des Menüs „Sortieren“ oder durch einen „sort“-Qualifizierer in der Abfrage sortieren.'
+intro: 'Sie können Ergebnisse der [{% data variables.product.product_name %}-Suche](/articles/searching-on-github) mit den Optionen des Menüs „Sortieren“ oder durch einen „sort“-Kennzeichner in der Abfrage sortieren.'
 redirect_from:
   - /articles/sorting-search-results
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Über das Sortiermenü kannst Du die Ergebnisse nach Relevanz, Anzahl der Sterne, Anzahl der Forks und dem letzten Änderungsdatum sortieren.
@@ -18,8 +19,8 @@ Mit einem `sort`-Qualifizierer in der Abfrage kannst Du die Suchergebnisse nach 
 
 Der Qualifizierer `sort:interactions` sortiert in absteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare.
 
-| Qualifizierer                                     | Beispiel                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifizierer                                     | Beispiel                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:interactions` oder `sort:interactions-desc` | [**org:github sort:interactions**](https://github.com/search?q=org%3Agithub+sort%3Ainteractions&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare.                         |
 | `sort:interactions-asc`                           | [**org:github sort:interactions-asc**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Ainteractions-asc&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach der Gesamtzahl der Reaktionen und Kommentare. |
 
@@ -27,8 +28,8 @@ Der Qualifizierer `sort:interactions` sortiert in absteigender Reihenfolge nach 
 
 Der Qualifizierer `sort:reactions` sortiert nach der Anzahl oder dem Typ der Reaktionen.
 
-| Qualifizierer                               | Beispiel                                                                                                                                                                                                                                                                                                     |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Qualifizierer                               | Beispiel                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:reactions` oder `sort:reactions-desc` | [**org:github sort:reactions**](https://github.com/search?q=org%3Agithub+sort%3Areactions&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Anzahl der Reaktionen.                                               |
 | `sort:reactions-asc`                        | [**org:github sort:reactions-asc**](https://github.com/search?q=org%3Agithub+sort%3Areactions-asc&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach der Anzahl der Reaktionen.                                      |
 | <code>sort:reactions-<em>reaction</em></code>                   | [**org:github sort:reactions-+1**](https://github.com/search?q=org%3Agithub+sort%3Areactions-%2B1&type=Issues) sucht Issues in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach der Anzahl der :+1:-Reaktionen (Daumen nach oben).               |
@@ -41,8 +42,8 @@ Der Qualifizierer `sort:reactions` sortiert nach der Anzahl oder dem Typ der Rea
 
 Der Qualifizierer `sort:author-date` sortiert in absteigender oder aufsteigender Reihenfolge nach dem Verfassungsdatum.
 
-| Qualifizierer                                   | Beispiel                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Qualifizierer                                   | Beispiel                                                                                                                                                                                                                                                                                                                  |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:author-date` oder `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach dem Verfassungsdatum.          |
 | `sort:author-date-asc`                          | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach dem Verfassungsdatum. |
 
@@ -50,8 +51,8 @@ Der Qualifizierer `sort:author-date` sortiert in absteigender oder aufsteigender
 
 Der Qualifizierer `sort:committer-date` sortiert in absteigender oder aufsteigender Reihenfolge nach dem Commit-Datum.
 
-| Qualifizierer                                         | Beispiel                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifizierer                                         | Beispiel                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:committer-date` oder `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in absteigender Reihenfolge nach dem Commit-Datum.          |
 | `sort:committer-date-asc`                             | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) sucht Commits mit dem Wort „feature“ in {% data variables.product.product_name %}-Repositorys und sortiert sie in aufsteigender Reihenfolge nach dem Commit-Datum. |
 

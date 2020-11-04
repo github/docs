@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Here's an example of an HTTPS error you might receive:
@@ -72,7 +73,7 @@ When prompted for a username and password, make sure you use an account that has
 
 {% tip %}
 
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git).
+**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/github/using-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail. 
 
 {% endtip %}
 

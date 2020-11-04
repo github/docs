@@ -22,7 +22,7 @@ You can deploy {% data variables.product.prodname_ghe_server %} on global Azure 
 
 ### Determining the virtual machine type
 
-Before launching {% data variables.product.product_location_enterprise %} on Azure, you'll need to determine the type of virtual machine that best fits the needs of your organization.
+Before launching {% data variables.product.product_location %} on Azure, you'll need to determine the type of virtual machine that best fits the needs of your organization.
 
 #### Supported VM types and regions
 

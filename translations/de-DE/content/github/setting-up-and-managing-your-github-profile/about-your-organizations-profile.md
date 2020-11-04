@@ -7,11 +7,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst optional eine Beschreibung, einen Standort, eine Website und eine E-Mail-Adresse für Deine Organisation hinzufügen und wichtige Repositorys am Anfang der Seite anheften.
 
-{% if currentVersion == "free-pro-team@latest" %}Um die Identität Deiner Organisation zu bestätigen und einen „Verifiziert“-Badge auf der Profilseite Deiner Organisation anzuzeigen, musst Du die Domänen Deiner Organisation mit {% data variables.product.product_name %} verifizieren. Weitere Informationen findest Du unter „[Domänen Deiner Organisation überprüfen](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain).“
+{% if currentVersion == "free-pro-team@latest" %}To confirm your organization's identity and display a "Verified" badge on your organization profile page, you must verify your organization's domains with {% data variables.product.product_name %}. Weitere Informationen findest Du unter „[Domänen Deiner Organisation überprüfen](/github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain).“
 
 ![Beispiel einer verifizierten Profilseite einer Organisation](/assets/images/help/profile/org_profile_verified.png)
 {% else %}

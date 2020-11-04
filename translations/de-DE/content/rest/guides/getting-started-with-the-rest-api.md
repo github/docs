@@ -7,8 +7,8 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
 
 
 Let's walk through core API concepts as we tackle some everyday use cases.
@@ -24,7 +24,7 @@ There's no easier way to kick the tires than through [cURL][curl].{% if currentV
 Let's start by testing our setup. Open up a command prompt and enter the following command:
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}/zen
+$ curl https://api.github.com/zen
 
 > Keep it logically awesome.
 ```
@@ -35,7 +35,7 @@ Next, let's `GET` [Chris Wanstrath's][defunkt github] [GitHub profile][users api
 
 ```shell
 # GET /users/defunkt
-$ curl {% data variables.product.api_url_pre %}/users/defunkt
+$ curl https://api.github.com/users/defunkt
 
 > {
 >   "login": "defunkt",
@@ -49,13 +49,12 @@ $ curl {% data variables.product.api_url_pre %}/users/defunkt
 Mmmmm, tastes like [JSON][json]. Let's add the `-i` flag to include headers:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %}/users/defunkt
+$ curl -i https://api.github.com/users/defunkt
 
 > HTTP/1.1 200 OK
 > Server: GitHub.com
 > Date: Sun, 11 Nov 2012 18:43:28 GMT
 > Content-Type: application/json; charset=utf-8
-> Connection: keep-alive
 > Status: 200 OK
 > ETag: "bfd85cbf23ac0b0c8a29bee02e7117c6"
 > X-RateLimit-Limit: 60
@@ -112,7 +111,13 @@ When authenticating, you should see your rate limit bumped to 5,000 requests an 
 
 You can easily [create a **personal access token**][personal token] using your [Personal access tokens settings page][tokens settings]:
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 ![Personal Token selection](/assets/images/personal_token.png)
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" %}
+![Personal Token selection](/assets/images/help/personal_token_ghae.png)
+{% endif %}
 
 #### Get your own user profile
 
@@ -195,7 +200,8 @@ In this example, we grab only those repositories that octocat owns, not the ones
 #### Ein Repository erstellen
 
 Fetching information for existing repositories is a common use case, but the
-{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo], we need to `POST` some JSON containing the details and configuration options.
+{% data variables.product.product_name %} API supports creating new repositories as well. To [create a repository][create repo],
+we need to `POST` some JSON containing the details and configuration options.
 
 ```shell
 $ curl -i -H "Authorization: token 5199831f4dd3b79e7c5b7e0ebe75d67aa66e79d4" \

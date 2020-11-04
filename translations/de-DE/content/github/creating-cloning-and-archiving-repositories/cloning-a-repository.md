@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Über das Klonen eines Repositorys
@@ -16,7 +17,7 @@ Das Klonen eines Repository ruft eine vollständige Kopie aller Repository-Daten
 
 You can clone your existing repository or clone another person's existing repository to contribute to a project.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
 {% tip %}
 
 **Tip**: You can also clone a repository using the {% data variables.product.prodname_cli %}. For more information, see "[`gh repo clone`](https://cli.github.com/manual/gh_repo_clone)" in the {% data variables.product.prodname_cli %} documentation.
@@ -46,7 +47,7 @@ Weitere Informationen finden Sie unter „[Ein Repository von {% data variables.
 Ein leeres Repository enthält keine Dateien. Dies geschieht öfters, wenn Du das Repository bei der Erstellung nicht mit einer README-Datei initialisierst.
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Um Dein Repository über die Befehlszeile mit HTTPS zu klonen, klicke unter „Quick setup" (Schnelleinrichtung) auf {% octicon "clippy" aria-label="The clipboard icon" %}. Um das Repository mittels SSH-Schlüssel zu klonen{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.18" %}, einschließlich einem durch die SSH-Zertifizierungsstelle Deiner Organisation herausgegebenen Zertifikat,{% endif %} klicke auf **SSH** und dann auf {% octicon "clippy" aria-label="The clipboard icon" %}. ![Schaltfläche „Empty repository clone URL" (Leeres-Repository-Klonen-URL)](/assets/images/help/repository/empty-https-url-clone-button.png)
+2. Um Dein Repository über die Befehlszeile mit HTTPS zu klonen, klicke unter „Quick setup" (Schnelleinrichtung) auf {% octicon "clippy" aria-label="The clipboard icon" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "clippy" aria-label="The clipboard icon" %}. ![Schaltfläche „Empty repository clone URL" (Leeres-Repository-Klonen-URL)](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    Um Dein Repository alternativ in Desktop zu klonen, klicke {% octicon "desktop-download" aria-label="The desktop download button" %} **Set up in Desktop** (In Desktop aufsetzen) und folge den Anweisungen, um den Klon zu vervollständigen. ![Schaltfläche „Empty repository desktop" (Leeres-Repository-Klonen-Desktop)](/assets/images/help/repository/empty-desktop-clone-button.png)
 
@@ -54,7 +55,6 @@ Ein leeres Repository enthält keine Dateien. Dies geschieht öfters, wenn Du da
 {% data reusables.command_line.change-current-directory-clone %}
 {% data reusables.command_line.git-clone-url %}
 {% data reusables.command_line.local-clone-created %}
-
 
 ### Beheben von Fehlern beim Klonen
 
@@ -65,7 +65,6 @@ Wenn Du ein Repository nicht klonen kannst, überprüfe Folgendes:
 - Du kannst zu HTTPS verbinden. Weitere Informationen findest Du unter „[Fehler beim HTTPS-Klonen](/github/creating-cloning-and-archiving-repositories/https-cloning-errors)."
 - Du hast die Berechtigung zum Zugriff auf das Repository, das Du klonen willst. Weitere Informationen findest du auf „[Error: Repository not found](/github/creating-cloning-and-archiving-repositories/error-repository-not-found)" (Fehler: Repository nicht gefunden).
 - Der Standardbranch, den Du klonen willst, existiert immer noch. Für weitere Informationen, prüfe, ob Du die Berechtigungen zum Zugriff auf das zu klonende Repository hast. Weitere Informationen findest Du unter „[Error: Remote HEAD refers to nonexistent ref, unable to checkout](/github/creating-cloning-and-archiving-repositories/error-remote-head-refers-to-nonexistent-ref-unable-to-checkout)" (Fehler: HEAD des Remote enthält eine nicht existierende Referenz, auschecken nicht möglich).
-
 
 {% if currentVersion == "free-pro-team@latest" %}
 

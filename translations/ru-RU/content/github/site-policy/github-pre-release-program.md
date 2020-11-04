@@ -62,7 +62,7 @@ This Agreement is a legal agreement between you (“you”, "your") and GitHub, 
 
   Nothing in this Agreement will impair our right to develop, acquire, license, market, promote or distribute products, software or technologies that might compete with yours.
 
-### 11. Приватность
+### 11. Конфиденциальность
 
   As part of the development and evaluation of our pre-release programs, we need to collect information about how you use the services and how we can improve them. By agreeing to participate in GitHub's pre-release programs, you agree that you have read and consented to our [Full Privacy Policy](/articles/github-privacy-statement/).
 

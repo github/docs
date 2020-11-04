@@ -6,7 +6,8 @@ redirect_from:
   - /articles/managing-your-organizations-ssh-certificate-authorities
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.19'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários da organização podem gerenciar as autoridades certificadas (CA, certificate authorities) de SSH da organização.

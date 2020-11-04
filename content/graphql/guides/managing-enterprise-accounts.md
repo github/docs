@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About managing enterprise accounts with GraphQL
@@ -204,7 +205,7 @@ For more information about getting started with GraphQL, see "[Introduction to G
 
 Here's an overview of the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API.
 
-For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sdiebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
+For more details about the new queries, mutations, and schema defined types available for use with the Enterprise Accounts API, see the sidebar with detailed GraphQL definitions from any [GraphQL reference page](/v4/).
 
 You can access the reference docs from within the GraphQL explorer on GitHub. For more information, see "[Using the explorer](/v4/guides/using-the-explorer#accessing-the-sidebar-docs)."
 For other information, such as authentication and rate limit details, check out the [guides](/v4/guides).

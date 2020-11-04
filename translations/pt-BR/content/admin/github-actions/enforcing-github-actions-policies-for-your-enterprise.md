@@ -16,8 +16,7 @@ Ao habilitar o {% data variables.product.prodname_actions %} em {% data variable
 
 ### Gerenciar as permissões de {% data variables.product.prodname_actions %} para a sua empresa
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.actions.enterprise-actions-permissions %}
@@ -29,8 +28,7 @@ Ao habilitar o {% data variables.product.prodname_actions %} em {% data variable
 
 #### Configurar a política de uma bifurcação privada para a sua empresa
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.github-actions.private-repository-forks-configure %}

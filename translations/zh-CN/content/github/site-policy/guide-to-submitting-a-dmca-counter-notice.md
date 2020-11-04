@@ -10,17 +10,17 @@ versions:
 
 本指南介绍 GitHub 处理 DMCA 删除请求反通知所需的信息。 如果您对 DMCA 的概念或 GitHub 处理 DMCA 删除请求的方式有更多一般性疑问，请参阅我们的 [DMCA 删除政策](/articles/dmca-takedown-policy)。
 
-如果您认为 DMCA 删除请求误禁了您在 GitHub 上的内容，您有权通过提交反通知来反对删除。 如果您这样做，我们将等待 10-14 天，然后重新启用您的内容，除非版权所有者在此之前对您提起法律诉讼。 下述反通知形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 Copyright Office's official website: <https://www.copyright.gov>.
+如果您认为 DMCA 删除请求误禁了您在 GitHub 上的内容，您有权通过提交反通知来反对删除。 如果您这样做，我们将等待 10-14 天，然后重新启用您的内容，除非版权所有者在此之前对您提起法律诉讼。 下述反通知形式与 DMCA 法规建议的形式一致，您可以登录美国版权局官方网站：<https://www.copyright.gov> 查看该法规。 版权局官方网站：<https://www.copyright.gov>。
 
 与所有法律事务一样，就您的具体问题或情况咨询专业人员始终是最好的方式。 我们强烈建议您在采取任何可能影响您权利的行动之前这样做。 本指南不是法律意见，也不应作为法律意见。
 
 ### 开始前
 
-***说实话。***DMCA 要求您对自己的反通知宣誓，如有不实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 (*See* [U.S. Code, Title 18, Section 1621](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm).) （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。
+***说实话。***DMCA 要求您对自己的反通知宣誓，如有不实会*受到伪证处罚*。 在宣誓声明中故意说谎是一种联邦罪行 。 （*请参阅* [美国 法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） （*请参阅* [美国法典，第 18 章，第 1621 条](https://www.gpo.gov/fdsys/pkg/USCODE-2011-title18/html/USCODE-2011-title18-partI-chap79-sec1621.htm)。） 提交虚假信息还可能导致民事责任，也就是说，可能被诉经济赔偿。
 
 ***调查。***提交 DMCA 反通知可能会产生现实的法律后果。 如果投诉方不同意其删除通知有误，他们可自行决定对您提起诉讼以求继续禁用内容。 在提交反通知之前，您应该对删除通知中的指控进行彻底的调查，并在必要时咨询律师。
 
-***You Must Have a Good Reason to Submit a Counter Notice.*** In order to file a counter notice, you must have "a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material to be removed or disabled." ([U.S. Code, Title 17, Section 512(g)](https://www.copyright.gov/title17/92chap5.html#512).) Whether you decide to explain why you believe there was a mistake is up to you and your lawyer, but you *do* need to identify a mistake before you submit a counter notice. 我们在过去收到的反通知中，列举了一些删除通知中的错误，例如：投诉方没有版权；我有许可；该代码已在允许我使用的开源许可下发布；或投诉方没有考虑这一事实：我的使用受到合理使用原则的保护。 当然，删除通知中可能还有其他缺陷。
+***必须有充分的理由提交反通知。*** 要提交反通知，您必须“真正认为您的材料被删除或禁用是因为投诉有误或材料标识错误。” （[美国 法典，第 17 章，第 512(g) 条](https://www.copyright.gov/title17/92chap5.html#512)。） 是否要解释您认为存在错误的原因，取决于您和您的律师，但是在提交反通知之前，您*必须*找出错误。 我们在过去收到的反通知中，列举了一些删除通知中的错误，例如：投诉方没有版权；我有许可；该代码已在允许我使用的开源许可下发布；或投诉方没有考虑这一事实：我的使用受到合理使用原则的保护。 当然，删除通知中可能还有其他缺陷。
 
 ***版权法很复杂。***有时，删除通知可能以比较奇怪或间接的方式指控侵权。 版权法很复杂，可能会导致一些意想不到的结果。 在某些情况下，删除通知可能基于您的源代码在进行编译和运行后能够执行的操作，而指控它侵权。 例如：
   - 通知可能声称您的软件用于[规避版权作品的访问控制](https://www.copyright.gov/title17/92chap12.html)。

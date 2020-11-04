@@ -1,7 +1,7 @@
 ---
 title: '安装 {% data variables.product.prodname_enterprise %}'
-shortTitle: Installing
-intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
+shortTitle: 安装
+intro: '系统管理员以及操作和安全专业人员可以安装 {% data variables.product.prodname_ghe_server %}。'
 redirect_from:
   - /enterprise/admin-guide/
   - /enterprise/admin/guides/installation/

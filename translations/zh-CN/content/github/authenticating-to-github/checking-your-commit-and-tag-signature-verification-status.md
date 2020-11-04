@@ -7,11 +7,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 检查提交签名验证状态
 
-1. 在 {% data variables.product.product_name %} 上，导航到您的拉取请求。
+1. 在
+
+{% data variables.product.product_name %} 上，导航到您的拉取请求。
 {% data reusables.repositories.review-pr-commits %}
 3. 在提交的缩写提交哈希旁边有一个框，显示您的提交签名是否经过验证。 ![已签名提交](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. 要查看有关提交签名的更详细信息，请单击 **Verified（已验证）**或 **Unverified（未验证）**。 ![经验证签名提交](/assets/images/help/commits/gpg-signed-commit_verified_details.png)
