@@ -132,7 +132,7 @@ schedule:
 ## Headers
 
 Use H3 for headers, and H4 for subheaders. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licences”, view your total licenses.
+- **Use:** Under “User licenses”, view your total licenses.
 
 To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
 
