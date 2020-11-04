@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du in Deinem Repository Branch-Schutzmaßnahmen erzwungen hast, kannst Du die obligatorische Commit-Signatur einrichten. Weitere Informationen findest Du unter „[Geschützte Branches konfigurieren](/articles/configuring-protected-branches/).“

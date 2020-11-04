@@ -1,6 +1,6 @@
 ---
 title: 配置企业
-intro: '在 {% data variables.product.prodname_ghe_server %} 启动并运行后，您可以根据组织的需求对设备进行配置。'
+intro: "After {% data variables.product.product_name %} is up and running, you can configure your enterprise to suit your organization's needs."
 redirect_from:
   - /enterprise/admin/guides/installation/basic-configuration/
   - /enterprise/admin/guides/installation/administrative-tools/
@@ -11,5 +11,6 @@ redirect_from:
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

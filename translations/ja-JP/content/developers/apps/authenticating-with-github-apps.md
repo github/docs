@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}

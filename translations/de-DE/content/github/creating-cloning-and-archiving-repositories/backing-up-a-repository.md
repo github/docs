@@ -1,11 +1,12 @@
 ---
 title: Sicherung eines Repositorys durchführen
-intro: 'You can use{% if enterpriseServerVersions contains currentVersion %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -31,7 +32,7 @@ Wenn Du ein Repository oder Wiki klonst, werden nur Git-Daten wie Projektdateien
 - [Projekte](/v3/projects/#list-repository-projects)
 {% endif %}
 
-Sobald Sie {% if enterpriseServerVersions contains currentVersion %}eine lokale Version aller Inhalte haben, die Sie sichern möchten, können Sie ein ZIP-Archiv erstellen und {% else %}Ihr Archiv heruntergeladen haben, können Sie {% endif %}es auf eine externe Festplatte kopieren und/oder auf einen Cloud-basierten Dienst wie [Google Drive](https://www.google.com/drive/) oder [Dropbox](https://www.dropbox.com/) hochladen.
+Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### Backup-Tools (Sicherungswerkzeuge) von Drittanbietern

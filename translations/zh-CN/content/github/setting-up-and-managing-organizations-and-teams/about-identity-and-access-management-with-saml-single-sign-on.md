@@ -14,7 +14,7 @@ versions:
 
 配置 SAML SSO 后，{% data variables.product.prodname_dotcom %} 组织的成员将继续登录到他们在 {% data variables.product.prodname_dotcom %} 上的用户帐户。 当成员访问组织内使用 SAML SSO 的资源时，{% data variables.product.prodname_dotcom %} 会将该成员重定向到 IdP 进行身份验证。 身份验证成功后，IdP 将该成员重定向回 {% data variables.product.prodname_dotcom %}，然后成员可以访问组织的资源。
 
-企业所有者还可以对企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise-account/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
+企业所有者还可以对企业帐户中的所有组织强制实施 SAML SSO。 更多信息请参阅“[在企业帐户中实施安全设置](/github/setting-up-and-managing-your-enterprise/enforcing-security-settings-in-your-enterprise-account#enabling-saml-single-sign-on-for-organizations-in-your-enterprise-account)”。
 
 {% data reusables.saml.outside-collaborators-exemption %}
 
@@ -26,7 +26,7 @@ versions:
 
 要在命令行使用 API 和 Git 访问组织受保护的资源，成员必须授权并使用个人访问令牌或 SSH 密钥验证身份。 更多信息请参阅“[授权个人访问令牌用于 SAML 单点登录](/github/authenticating-to-github/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)”和“[授权 SSH 密钥用于 SAML 单点登录](/github/authenticating-to-github/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)”。
 
-成员第一次使用 SAML SSO 访问您的组织时，{% data variables.product.prodname_dotcom %} 会自动创建一条记录，以链接您的组织、成员的 {% data variables.product.prodname_dotcom %} 帐户以及成员在 IdP 上的帐户。 您可以查看和撤销组织成员或企业帐户关联的 SAML 身份、活动的会话以及授权的凭据。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)”和“[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)”。
+成员第一次使用 SAML SSO 访问您的组织时，{% data variables.product.prodname_dotcom %} 会自动创建一条记录，以链接您的组织、成员的 {% data variables.product.prodname_dotcom %} 帐户以及成员在 IdP 上的帐户。 您可以查看和撤销组织成员或企业帐户关联的 SAML 身份、活动的会话以及授权的凭据。 更多信息请参阅“[查看和管理成员对组织的 SAML 访问](/github/setting-up-and-managing-organizations-and-teams/viewing-and-managing-a-members-saml-access-to-your-organization)”和“[查看和管理用户对企业帐户的 SAML 访问](/github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account)”。
 
 如果成员在创建新的仓库时使用 SAML SSO 会话登录，则该仓库的默认可见性为私密。 否则，默认可见性为公开。 有关仓库可见性的更多信息，请参阅“[关于仓库可见性](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)。”
 

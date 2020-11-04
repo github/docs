@@ -7,8 +7,9 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
+ 
 
 
 在本指南中，我们将使用 API 来获取有关我们拥有的仓库以及构成这些仓库的编程语言的信息。 然后，我们将使用 [D3.js][D3.js] 库来以几种不同的方式可视化这些信息。 为了与 {% data variables.product.product_name %} API 进行交互，我们将使用卓越的 Ruby 库 [Octokit][Octokit]。

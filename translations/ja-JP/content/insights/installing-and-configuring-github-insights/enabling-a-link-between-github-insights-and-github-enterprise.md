@@ -19,8 +19,7 @@ versions:
   ```
 3. 次に、
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 7. Under
 {% octicon "gear" aria-label="The Settings gear" %} **Settings**, click **{% data variables.product.prodname_insights %}**.

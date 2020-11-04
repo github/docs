@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 必須ステータスチェックについて
@@ -59,7 +60,7 @@ remote: error: Required status check "ci-build" is failing
 
 {% endnote %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 テストマージコミットと head コミットのステータスチェックの結果が競合する場合があります。 テストマージコミットにステータスがある場合、必ずパスする必要があります。 それ以外の場合、ヘッドコミットのステータスは、ブランチをマージする前にパスする必要があります。 テストマージコミットに関する詳しい情報については、「[プルリクエスト](/v3/pulls/#response-1)」を参照してください。
 

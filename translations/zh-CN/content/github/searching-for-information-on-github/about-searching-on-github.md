@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以全局搜索所有 {% data variables.product.product_name %}，也可搜索特定仓库或组织。
@@ -54,6 +55,7 @@ versions:
 
 ![高级搜索](/assets/images/help/search/advanced_search_demo.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 ### 同时搜索 {% data variables.product.prodname_enterprise %} 和 {% data variables.product.prodname_dotcom_the_website %}
 
 如果使用 {% data variables.product.prodname_enterprise %}，并且您是使用 {% data variables.product.prodname_ghe_cloud %} 的 {% data variables.product.prodname_dotcom_the_website %} 组织的成员，则 {% data variables.product.prodname_enterprise %} 网站管理员可以启用 {% data variables.product.prodname_github_connect %}，让您同时搜索两个环境。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 与 {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com) 之间启用 {% data variables.product.prodname_unified_search %}”。
@@ -61,8 +63,10 @@ versions:
 只能从 {% data variables.product.prodname_enterprise %} 搜索这两个环境。 要按环境限制搜索范围，可以使用 {% data variables.search.advanced_url %} 上的过滤选项，或者使用 `environment:` 搜索前缀。 若只搜索 {% data variables.product.prodname_enterprise %} 上的内容，请使用搜索语法 `environment:local`。 若只搜索 {% data variables.product.prodname_dotcom_the_website %} 上的内容，则使用 `environment:github`。
 
 {% data variables.product.prodname_enterprise %} 网站管理员可对连接的 {% data variables.product.prodname_ghe_cloud %} 组织中的所有公共仓库、私有仓库或特定私有仓库启用 {% data variables.product.prodname_unified_search %}。
+If your site administrator enables
 
-如果网站管理员在私有仓库中启用 {% data variables.product.prodname_unified_search %}，您只能在连接的 {% data variables.product.prodname_dotcom_the_website %} 组织中搜索管理员启用了 {% data variables.product.prodname_unified_search %} 并且您具有访问权限的私有仓库。 {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_enterprise %} 管理员和组织所有者无法搜索您的帐户所拥有的私有仓库。 要搜索相关的私有仓库，必须在 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.prodname_enterprise %} 上对您的个人帐户启用私有仓库搜索。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 帐户中启用私有 {% data variables.product.prodname_dotcom_the_website %} 仓库搜索](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)”。
+{% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. {% data variables.product.prodname_dotcom_the_website %} 上的 {% data variables.product.prodname_enterprise %} 管理员和组织所有者无法搜索您的帐户所拥有的私有仓库。 要搜索相关的私有仓库，必须在 {% data variables.product.prodname_dotcom_the_website %} 和 {% data variables.product.prodname_enterprise %} 上对您的个人帐户启用私有仓库搜索。 更多信息请参阅“[在 {% data variables.product.prodname_enterprise %} 帐户中启用私有 {% data variables.product.prodname_dotcom_the_website %} 仓库搜索](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)”。
+{% endif %}
 
 ### 延伸阅读
 

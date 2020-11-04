@@ -9,6 +9,7 @@ intro: 'Depois de abrir uma pull request em um repositório, os colaboradores ou
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Sobre comentários da pull request

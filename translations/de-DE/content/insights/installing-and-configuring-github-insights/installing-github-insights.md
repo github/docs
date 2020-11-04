@@ -61,7 +61,7 @@ To connect {% data variables.product.prodname_insights %} to {% data variables.p
     - Repository
     - Team ![Subscribe to events checkboxes](/assets/images/help/apps/github_apps_subscribe_to_events_pr_push_repository.png)
 
-13. To enable the {% data variables.product.prodname_github_app %} to access data from any user or organization in {% data variables.product.product_location_enterprise %}, under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Any account**. ![Radio buttons to enable access to any account](/assets/images/help/apps/github_apps_installation_options_any_account.png)
+13. To enable the {% data variables.product.prodname_github_app %} to access data from any user or organization in {% data variables.product.product_location %}, under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Any account**. ![Radio buttons to enable access to any account](/assets/images/help/apps/github_apps_installation_options_any_account.png)
 14. Click **Create {% data variables.product.prodname_github_app %}**. ![Create GitHub App button](/assets/images/help/apps/github_apps_create_github_app.png)
 15. Review your app's configuration.
 16. Under "Private keys", click **Generate a private key**. ![Generate a private key button](/assets/images/help/apps/generate-private-key.png)

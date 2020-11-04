@@ -9,5 +9,6 @@ intro: 'Organizations are great for creating distinct groups of users within you
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

@@ -5,6 +5,7 @@ permissions: 组织所有者可设置组织的基本权限。
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 关于组织的基本权限

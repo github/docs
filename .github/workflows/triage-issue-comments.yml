@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Check if the event originated from a team member
-      uses: actions/github-script@6e5ee1dc1cb3740e5e5e76ad668e3f526edbfe45
+      uses: actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9
       id: is-internal-contributor
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}

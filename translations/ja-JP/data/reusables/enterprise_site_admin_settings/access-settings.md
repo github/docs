@@ -1,1 +1,1 @@
-1. 任意のページの右上で {% octicon "rocket" aria-label="The rocket ship" %} をクリックします。 ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
+1. From an administrative account on {% data variables.product.product_name %}, click {% octicon "rocket" aria-label="The rocket ship" %} in the upper-right corner of any page. ![サイトアドミン設定にアクセスするための宇宙船のアイコン](/assets/images/enterprise/site-admin-settings/access-new-settings.png)
