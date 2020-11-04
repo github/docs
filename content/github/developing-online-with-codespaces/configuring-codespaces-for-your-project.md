@@ -73,8 +73,6 @@ You can use configuration keys supported by {% data variables.product.prodname_c
 - `containerUser`
 - `remoteUser`
 - `mounts`
-- `workspaceMount` (Not yet supported)
-- `workspaceFolder` (Not yet supported)
 - `runArgs`
 - `overrideCommand`
 - `dockerComposeFile`
