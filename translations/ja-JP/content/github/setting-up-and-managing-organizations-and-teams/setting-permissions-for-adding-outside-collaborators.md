@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリに対する管理者権限を持つ Organization のオーナーとメンバーは、リポジトリで作業するように外部のコラボレーターを招待できます。 外部のコラボレーターの招待権限を、Organization のオーナーに制限することもできます。
@@ -18,6 +19,6 @@ versions:
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. [Repository invitations] で、[**Allow members to invite outside collaborators to repositories for this organization**] を選択します。.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
+5. Under "Repository invitations", select **Allow members to invite outside collaborators to repositories for this organization**.{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox-updated.png){% else %}
 ![Checkbox to allow members to invite outside collaborators to organization repositories](/assets/images/help/organizations/repo-invitations-checkbox.png){% endif %}
 6. [**Save**] をクリックします。

@@ -150,7 +150,7 @@ versions:
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+7. 对于单个设备升级，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
   {% note %}
 
@@ -203,7 +203,7 @@ versions:
    1. 在副本实例上，再次运行 `ghe-repl-setup <primary-instance-ip>`。
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location_enterprise %}。
+6. 最后一个副本升级完毕且重新同步完成后，请禁用维护模式，以便用户能够使用 {% data variables.product.product_location %}。
 
 ### 从失败的升级中恢复
 

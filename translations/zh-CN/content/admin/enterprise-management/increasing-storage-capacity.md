@@ -10,7 +10,7 @@ versions:
 
 {% data reusables.enterprise_installation.warning-on-upgrading-physical-resources %}
 
-随着更多的用户加入 {% data variables.product.product_location_enterprise %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
+随着更多的用户加入 {% data variables.product.product_location %}，您可能需要调整存储卷大小。 有关调整存储容量的信息，请参阅虚拟平台的相关文档。
 
 ### 要求与建议
 

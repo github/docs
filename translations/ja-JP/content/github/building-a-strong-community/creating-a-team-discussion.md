@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.organizations.team-discussions-permissions %} 詳細は「[Team ディスカッションについて](/articles/about-team-discussions)」を参照してください。

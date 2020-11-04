@@ -3,7 +3,7 @@ title: Gerenciar alertas de verificação de código para o seu repositório
 shortTitle: Gerenciando alertas
 intro: 'You can view, fix, {% if currentVersion == "enterprise-server@2.22" %}or close{% else %}dismiss, or delete{% endif %} alerts for potential vulnerabilities or errors in your project''s code.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'As pessoas com permissão de gravação em um repositório podem gerenciar alertas de {% data variables.product.prodname_code_scanning %} do repositório.'
+permissions: 'If you have write permission to a repository you can manage {% data variables.product.prodname_code_scanning %} alerts for that repository.'
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.22'

@@ -11,13 +11,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
+{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1){% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser{% endif %}.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 To authorize your OAuth app, consider which authorization flow best fits your app.
 
@@ -110,7 +111,7 @@ The web application flow to authorize users for your app is:
 curl -H "Authorization: token OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
 ```
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 ### Device flow
 
 {% note %}
@@ -234,11 +235,13 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 非 web 身份验证适用于测试等有限的情况。 如果您需要，可以使用[基本验证](/v3/auth#basic-authentication)，通过[个人访问令牌设置页面](/articles/creating-an-access-token-for-command-line-use)创建个人访问令牌。 此方法支持用户随时撤销访问权限。
 
+{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
 {% note %}
 
 **注：**使用非 web 应用流程创建 OAuth2 令牌时，如果您或您的用户已启用双重身份验证，请确保明白如何[使用双重身份验证](/v3/auth/#working-with-two-factor-authentication)。
 
 {% endnote %}
+{% endif %}
 
 ### 重定向 URL
 
@@ -292,6 +295,6 @@ For more information, see the "[OAuth 2.0 Device Authorization Grant](https://to
 
 * "[对授权请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-authorization-request-errors)"
 * "[对 OAuth 应用程序访问令牌请求错误进行故障排除](/apps/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 * "[Device flow errors](#errors-for-the-device-flow)"
 {% endif %}

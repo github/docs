@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zu Gists
@@ -50,7 +51,7 @@ Gists unterstützen den Gebrauch von geoJSON-Dateien. Diese Karten werden in ein
 
 Du kannst auch eine Textdatei per Drag-and-Drop von Deinem Desktop direkt in den Gist-Editor ziehen.
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

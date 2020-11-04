@@ -1,12 +1,25 @@
 ---
 title: SAMLのシングルサインオンでの認証について
-intro: 'SAMLシングルサインオン（SSO）を使うOrganizationには、アイデンティティプロバイダ（IdP）を通じての認証を受けてアクセスできます。 Organization が SAML SSO を実施するときにコマンドラインで API または Git で認証するには、個人アクセストークンまたは SSH キーを承認する必要があります。'
+intro: 'You can access {% if currentVersion == "github-ae@latest" %}{% data variables.product.product_location %}{% elsif currentVersion == "free-pro-team@latest" %}an organization that uses SAML single sign-on (SSO){% endif %} by authenticating {% if currentVersion == "github-ae@latest" %}with SAML single sign-on (SSO) {% endif %}through an identity provider (IdP).{% if currentVersion == "free-pro-team@latest" %}To authenticate with the API or Git on the command line when an organization enforces SAML SSO, you must authorize your personal access token or SSH key.{% endif %}'
 product: '{% data reusables.gated-features.saml-sso %}'
 redirect_from:
   - /articles/about-authentication-with-saml-single-sign-on
 versions:
   free-pro-team: '*'
+  github-ae: '*'
 ---
+
+{% if currentVersion == "github-ae@latest" %}
+
+SAML SSO allows an enterprise owner to centrally control and secure access to {% data variables.product.product_name %} from a SAML IdP. When you visit {% data variables.product.product_location %} in a browser, {% data variables.product.product_name %} will redirect you to your IdP to authenticate. After you successfully authenticate with an account on the IdP, the IdP redirects you back to {% data variables.product.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access.
+
+{% data reusables.saml.you-must-periodically-authenticate %}
+
+If you can't access {% data variables.product.product_name %}, contact your local enterprise owner or administrator for {% data variables.product.product_name %}. You may be able to locate contact information for your enterprise by clicking **Support** at the bottom of any page on {% data variables.product.product_name %}. {% data variables.product.company_short %} and {% data variables.contact.github_support %} do not have access to your IdP, and cannot troubleshoot authentication problems.
+
+{% endif %}
+
+{% if currentVersion == "free-pro-team@latest" %}
 
 {% data reusables.saml.dotcom-saml-explanation %}Organization のオーナーは、{% data variables.product.prodname_dotcom %}でユーザアカウントを SAML SSO を使用する Organization に招待できます。これにより、Organization に貢献することができ、{% data variables.product.prodname_dotcom %}の既存の ID とコントリビューションを保持できます。
 
@@ -16,7 +29,7 @@ SAML SSO を使用する Organization のリソースにアクセスすると、
 
 最近ブラウザで Organization の SAML IdP が認証された場合、SAML SSO を使う {% data variables.product.prodname_dotcom %} の Organization へのアクセスは自動的に認可されます。 最近ブラウザで Organization の SAML IdP が認証されていない場合は、Organization にアクセスする前に SAML IdP で認証を受ける必要があります。
 
-{% data variables.product.prodname_dotcom %}で Organization のリソースの認証を受けてアクセスするには、SAML IdP で定期的に認証を受けておく必要があります。 このログイン間隔は利用しているアイデンティティプロバイダ (IdP) によって指定されますが、一般的には 24 時間です。 このように定期的にログインしなければならないことから、アクセスの長さには制限があり、アクセスを続行するには再認証が必要になります。 アクティブな SAMLセッションは、セキュリティの設定で表示し、管理できます。 詳細は「[アクティブなSAMLセッションの表示と管理](/articles/viewing-and-managing-your-active-saml-sessions)」を参照してください。
+{% data reusables.saml.you-must-periodically-authenticate %}
 
 SAML SSL を要求する Organization 内の保護されたコンテンツにアクセスするために API またはコマンドライン上の Git を利用するには、認可された個人のアクセストークンを HTTPS 経由で使うか、認可された SSH キーを使う必要があります。 {% data variables.product.prodname_oauth_app %} アクセストークンはデフォルトで認可されます。
 
@@ -26,6 +39,9 @@ SAML SSL を要求する Organization 内の保護されたコンテンツにア
 
 {% data variables.product.prodname_oauth_app %}を認証するたびにアクティブなSAML セッションが必要です。
 
+{% endif %}
+
 ### 参考リンク
 
-- 「[SAML シングルサインオンを使うアイデンティティおよびアクセス管理について](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)」
+{% if currentVersion == "free-pro-team@latest" %}- "[About identity and access management with SAML single sign-on](/github/setting-up-and-managing-organizations-and-teams/about-identity-and-access-management-with-saml-single-sign-on)"{% endif %}
+{% if currentVersion == "github-ae@latest" %}- "[About identity and access management for your enterprise](/admin/authentication/about-identity-and-access-management-for-your-enterprise)"{% endif %}
