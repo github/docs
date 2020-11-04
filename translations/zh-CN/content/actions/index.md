@@ -2,13 +2,16 @@
 title: GitHub Actions文档
 shortTitle: GitHub Actions
 intro: '在 {% data variables.product.prodname_actions %} 的仓库中自动化、自定义和执行软件开发工作流程。 您可以发现、创建和共享操作以执行您喜欢的任何作业（包括 CI/CD），并将操作合并到完全自定义的工作流程中。'
+introLinks:
+  quickstart: /actions/quickstart
+  learn: /actions/learn-github-actions
 featuredLinks:
   gettingStarted:
-    - /actions/quickstart
-    - /actions/learn-github-actions
-  guide:
     - /actions/managing-workflow-runs
     - /actions/hosting-your-own-runners
+  guide:
+    - /actions/guides/setting-up-continuous-integration-using-workflow-templates
+    - /actions/guides/about-packaging-with-github-actions
   popular:
     - /actions/reference/workflow-syntax-for-github-actions
     - /actions/reference/events-that-trigger-workflows
@@ -40,7 +43,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">{% data ui.toc.guides %}</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.gettingStarted %}
+      {% for link in featuredLinks.guide %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -62,7 +65,7 @@ versions:
       <h3 class="f5 text-normal text-mono underline-dashed color-gray-5">管理工作流程</h3>
     </div>
     <ul class="list-style-none">
-      {% for link in featuredLinks.guide %}
+      {% for link in featuredLinks.gettingStarted %}
         <li>{% include featured-link %}</li>
       {% endfor %}
     </ul>
@@ -157,8 +160,8 @@ versions:
     <div class="col-12 col-lg-4 mb-4">
       <a class="Box d-block hover-grow no-underline text-gray-dark" href="/actions/guides/publishing-nodejs-packages">
         <div class="p-4">
-          <h4>Publishing Node.js packages</h4>
-          <p class="mt-2 mb-4">Use GitHub Actions to push your Node.js package to GitHub Packages or npm.</p>
+          <h4>发布 Node.js 包</h4>
+          <p class="mt-2 mb-4">使用 GitHub Actions 将 Node.js 包发布到 GitHub Packages 或 npm。</p>
           <div class="d-flex">
             <span class="IssueLabel text-white bg-blue mr-2">JavaScript/TypeScript</span>
             <span class="IssueLabel text-white bg-blue mr-2">CI</span>

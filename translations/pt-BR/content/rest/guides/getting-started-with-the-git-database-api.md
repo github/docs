@@ -4,6 +4,7 @@ intro: 'A API do banco de dados do Git dá acesso para ler e gravar objetos do G
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Visão Geral

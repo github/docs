@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Você pode pesquisar globalmente em todo o {% data variables.product.product_name %} ou definir o escopo da sua pesquisa para uma organização ou um repositório específico.
@@ -54,6 +55,7 @@ A {% data variables.search.advanced_url %} fornece uma interface visual para con
 
 ![Pesquisa avançada](/assets/images/help/search/advanced_search_demo.gif)
 
+{% if currentVersion != "github-ae@latest" %}
 ### Pesquisar no {% data variables.product.prodname_enterprise %} e {% data variables.product.prodname_dotcom_the_website %} simultaneamente
 
 Se você usar o {% data variables.product.prodname_enterprise %} e for integrante de uma organização do {% data variables.product.prodname_dotcom_the_website %} que usa o {% data variables.product.prodname_ghe_cloud %}, o administrador do site do {% data variables.product.prodname_enterprise %} pode habilitar o {% data variables.product.prodname_github_connect %} para que você possa pesquisar em ambos os ambientes ao mesmo tempo. Para obter mais informações, consulte "[Habilitar a {% data variables.product.prodname_unified_search %} entre o {% data variables.product.prodname_enterprise %} e o {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/guides/developer-workflow/enabling-unified-search-between-github-enterprise-server-and-github-com)".
@@ -61,8 +63,10 @@ Se você usar o {% data variables.product.prodname_enterprise %} e for integrant
 É possível pesquisar em ambos os ambientes apenas no {% data variables.product.prodname_enterprise %}. Para definir o escopo da pesquisa por ambiente, você pode usar uma opção de filtro na {% data variables.search.advanced_url %} ou pode usar o prefixo de pesquisa `environment:`. Para pesquisar apenas por conteúdo no {% data variables.product.prodname_enterprise %}, use a sintaxe de pesquisa `environment:local`. Para pesquisar apenas por conteúdo no {% data variables.product.prodname_dotcom_the_website %}, use `environment:github`.
 
 O administrador do site do {% data variables.product.prodname_enterprise %} pode habilitar a {% data variables.product.prodname_unified_search %} para todos os repositórios públicos, todos os repositórios privados ou apenas determinados repositórios privados na organização do {% data variables.product.prodname_ghe_cloud %} conectado.
+If your site administrator enables
 
-Se o administrador do site habilitar a {% data variables.product.prodname_unified_search %} em repositórios privados, você poderá pesquisar apenas em repositórios privados em que o administrador habilitou a {% data variables.product.prodname_unified_search %} e aos quais você tem acesso na organização do {% data variables.product.prodname_dotcom_the_website %} conectado. Os administradores do {% data variables.product.prodname_enterprise %} e os proprietários da organização no {% data variables.product.prodname_dotcom_the_website %} não podem pesquisar repositórios privados que pertencem à sua conta. Para pesquisar repositórios privados aplicáveis, você deve habilitar a pesquisa de repositório privado para suas contas pessoais no {% data variables.product.prodname_dotcom_the_website %} e no {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Habilitar pesquisa de repositório privado do {% data variables.product.prodname_dotcom_the_website %} na sua conta do {% data variables.product.prodname_enterprise %}](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)".
+{% data variables.product.prodname_unified_search %} in private repositories, you can only search in the private repositories that the administrator enabled {% data variables.product.prodname_unified_search %} for and that you have access to in the connected {% data variables.product.prodname_dotcom_the_website %} organization. Os administradores do {% data variables.product.prodname_enterprise %} e os proprietários da organização no {% data variables.product.prodname_dotcom_the_website %} não podem pesquisar repositórios privados que pertencem à sua conta. Para pesquisar repositórios privados aplicáveis, você deve habilitar a pesquisa de repositório privado para suas contas pessoais no {% data variables.product.prodname_dotcom_the_website %} e no {% data variables.product.prodname_enterprise %}. Para obter mais informações, consulte "[Habilitar pesquisa de repositório privado do {% data variables.product.prodname_dotcom_the_website %} na sua conta do {% data variables.product.prodname_enterprise %}](/articles/enabling-private-github-com-repository-search-in-your-github-enterprise-server-account)".
+{% endif %}
 
 ### Leia mais
 

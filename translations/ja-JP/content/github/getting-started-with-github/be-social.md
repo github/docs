@@ -7,6 +7,7 @@ intro: '{% data variables.product.prodname_dotcom %} 上で、人々、リポジ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 個人ダッシュボードへのアクセスについて学ぶには、「[個人ダッシュボードについて](/articles/about-your-personal-dashboard)」を参照してください。
@@ -21,7 +22,7 @@ versions:
 
 ### リポジトリを Watch する
 
-リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+リポジトリを Watch して、新しいプルリクエストと Issue に関する通知を受け取ることができます。 オーナーがリポジトリを更新すると、個人ダッシュボード上で変更を見ることができます。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 リポジトリを Watch するには、リポジトリの上部で [**Watch**] をクリックします。
 

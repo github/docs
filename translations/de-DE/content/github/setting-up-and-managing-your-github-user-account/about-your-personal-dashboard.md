@@ -8,6 +8,7 @@ intro: 'Über Dein persönliches Dashboard kannst Du über Issues und Pull Reque
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Auf Dein persönliches Dashboard zugreifen

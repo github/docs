@@ -6,13 +6,14 @@ product: '{% data reusables.gated-features.pages %}'
 versions:
   free-pro-team: '*'
   enterprise-server: '>2.22'
+  github-ae: '*'
 ---
 
 ### {% data variables.product.prodname_pages %} サイトの公開に関する制限について
 
 {% data variables.product.prodname_pages %} を使用して Organization のメンバーが Organization のリポジトリから Web サイトを公開できるかどうかを制御できます。 {% data variables.product.prodname_pages %} の詳細については、「[{% data variables.product.prodname_pages %} について](/github/working-with-github-pages/about-github-pages)」を参照してください。
 
-{% if enterpriseServerVersions contains currentVersion %}サイト管理者がPublic Pagesを有効化している場合、{% endif %}サイトのリポジトリがプライベート{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}または内部{% endif %}の場合でも、{% data variables.product.prodname_pages %}サイトはインターネット上でパブリックにアクセスできるようになります。 詳しい情報については{% if enterpriseServerVersions contains currentVersion %}「[アプライアンス上での{% data variables.product.prodname_pages %}の設定](/enterprise/admin/installation/configuring-github-pages-on-your-appliance#making-github-pages-publicly-accessible)」及び{% endif %}「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}If your site administrator has enabled Public Pages, {% endif %}{% data variables.product.prodname_pages %} sites are publicly available on the internet, even if the repository for the site is private{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %} or internal{% endif %}. For more information, see{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} "[Configuring {% data variables.product.prodname_pages %} for your enterprise](/admin/configuration/configuring-github-pages-for-your-enterprise#enabling-public-sites-for-github-pages)" and{% endif %} "[About repository visibility](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)."
 
 ### {% data variables.product.prodname_pages %} サイトの公開を無効化する
 

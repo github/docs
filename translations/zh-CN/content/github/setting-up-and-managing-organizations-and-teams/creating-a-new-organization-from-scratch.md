@@ -1,11 +1,13 @@
 ---
 title: 从头开始创建新组织
 intro: 创建组织以对仓库应用更细化的访问权限。
-redirect_from:
-  - /articles/creating-a-new-organization-from-scratch
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+redirect_from:
+  - /articles/creating-a-new-organization-from-scratch
+  - /admin/user-management/creating-organizations
 ---
 
 从头开始创建新组织时，它没有任何与之关联的仓库。 有关为组织添加仓库的更多信息，请参阅“[创建新仓库](/articles/creating-a-new-repository)”和“[转让仓库](/articles/transferring-a-repository)”。

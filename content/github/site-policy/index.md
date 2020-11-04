@@ -17,6 +17,7 @@ versions:
 {% link_in_list /global-privacy-practices %}
 {% link_in_list /github-enterprise-server-license-agreement %}
 {% link_in_list /github-ae-data-protection-agreement %}
+{% link_in_list /github-ae-product-specific-terms %}
 {% link_in_list /github-enterprise-service-level-agreement %}
 {% link_in_list /github-connect-addendum-to-the-github-enterprise-license-agreement %}
 {% link_in_list /github-supplemental-terms-for-microsoft-volume-licensing %}
@@ -25,7 +26,6 @@ versions:
 {% link_in_list /github-enterprise-cloud-evaluation-agreement %}
 {% link_in_list /github-sponsors-additional-terms %}
 {% link_in_list /github-additional-product-terms %}
-{% link_in_list /github-ae-product-specific-terms %}
 {% link_in_list /github-logo-policy %}
 {% link_in_list /github-username-policy %}
 {% link_in_list /submitting-content-removal-requests %}

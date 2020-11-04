@@ -9,5 +9,6 @@ intro: '组织适合在您的公司内创建不同的用户组，例如部门或
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

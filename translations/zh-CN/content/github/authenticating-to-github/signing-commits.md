@@ -1,6 +1,6 @@
 ---
 title: 对提交签名
-intro: 'You can sign commits locally using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}.'
+intro: You can sign commits locally using GPG or S/MIME.
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg/
   - /articles/signing-commits-using-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.gpg.desktop-support-for-commit-signing %}
@@ -40,7 +41,7 @@ versions:
   # Pushes your local commits to the remote repository
   ```
 4. 在
-{% data variables.product.product_name %}, navigate to your pull request.
+{% data variables.product.product_name %} 上，导航到您的拉取请求。
 {% data reusables.repositories.review-pr-commits %}
 5. 要查看关于已验证签名的更多详细信息，请单击 Verified（已验证）。 ![已签名提交](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 A barra de pesquisa de problemas e pull requests permite que você defina seus próprios filtros personalizados e ordene por uma ampla variedade de critérios. A barra de pesquisa pode ser encontrada nas guias **Problemas** e **Pull requests** de cada repositório nos [Painéis de problemas e pull requests](/articles/viewing-all-of-your-issues-and-pull-requests).
@@ -25,7 +26,7 @@ Com os termos da pesquisa de problemas e pull requests, é possível:
 - Filtrar problemas e pull requests por responsável: `state:open type:issue assignee:octocat`
 - Filtrar problemas e pull requests por etiqueta: `state:open type:issue label:"bug"`
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 Para problemas, você também pode usar a busca para:
 
 - Filtrar por problemas que estão vinculados a uma pull request por uma referência de fechamento: `linked:pr`
@@ -39,7 +40,7 @@ Para pull requests, você também pode usar a pesquisa para:
 - Filtrar pull requests nas quais um revisor tenha solicitado alterações: `state:open type:pr review:changes_requested`
 - Filtrar pull requests por [revisor](/articles/about-pull-request-reviews/): `state:open type:pr reviewed-by:octocat`
 - Filtrar pull requests pelo usuário específico [solicitado para revisão](/articles/requesting-a-pull-request-review): `state:open type:pr review-requested:octocat`
-- Filtre pull requests pela equipe solicitada para revisão: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+- Filter pull requests by the team requested for review: `state:open type:pr team-review-requested:github/atom`{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" or currentVersion == "github-ae@latest" %}
 - Filtro por pull requests que estão vinculadas a um problema que a pull request pode concluir: `linked:issue`{% endif %}
 
 ### Leia mais

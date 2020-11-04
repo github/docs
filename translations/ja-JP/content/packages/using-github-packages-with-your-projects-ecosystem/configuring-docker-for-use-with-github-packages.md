@@ -23,7 +23,7 @@ versions:
 
 {% if enterpriseServerVersions contains currentVersion %}
 
-Docker レジストリを {% data variables.product.prodname_registry %} で使用する前に、{% data variables.product.product_location_enterprise %} のサイト管理者がインスタンスに対し Docker のサポートとand Subdomain Isolation を有効化する必要があります。 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
+Before you can use the Docker registry on {% data variables.product.prodname_registry %}, the site administrator for {% data variables.product.product_location %} must enable Docker support and subdomain isolation for your instance. 詳しい情報については、「[Enterprise 向けの GitHub Packages を管理する](/enterprise/admin/packages)」を参照してください。
 
 {% endif %}
 
@@ -66,7 +66,7 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 {% endraw %}
 {% endif %}
 
-To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location_enterprise %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
+To use this example login command, replace `USERNAME` with your {% data variables.product.product_name %} username{% if enterpriseServerVersions contains currentVersion %}, `HOSTNAME` with the URL for {% data variables.product.product_location %},{% endif %} and `~/TOKEN.txt` with the file path to your personal access token for {% data variables.product.product_name %}.
 
 詳しい情報については「[Docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)」を参照してください。
 
@@ -92,7 +92,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
   > <em>IMAGE_NAME</em>        <em>VERSION</em>    <em>IMAGE_ID</em>       4 weeks ago  1.11MB
   ```
 2. 新しいDockerイメージを初めて公開し、`monalisa`という名前にできます。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *VERSION* with package version at build time.
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *VERSION* with package version at build time.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker tag <em>IMAGE_ID</em> docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
@@ -103,7 +103,7 @@ To use this example login command, replace `USERNAME` with your {% data variable
   ```
   {% endif %}
 3. パッケージ用のDockerイメージをまだ構築していないなら、イメージを構築してください。 *OWNER*をリポジトリを所有しているユーザあるいはOrganizationのアカウント名で、*REPOSITORY*をプロジェクトを含むリポジトリ名で、*IMAGE_NAME*をパッケージもしくはイメージの名前で、*VERSION*をビルド時点のパッケージバージョンで置き換え、イメージが現在のワーキングディレクトリにないなら*PATH*をイメージへのパスで置き換えてください。
-{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location_enterprise %},{% endif %} and *PATH* to the image if it isn't in the current working directory.s
+{% if enterpriseServerVersions contains currentVersion %} *HOSTNAME* with the hostname of {% data variables.product.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
   {% if currentVersion == "free-pro-team@latest" %}
   ```shell
   $ docker build -t docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em> <em>PATH</em>

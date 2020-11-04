@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Commits sind nur an Pull-Request-Branches möglich, auf die Folgendes zutrifft:

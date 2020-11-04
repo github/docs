@@ -87,11 +87,11 @@ Os registros do pacote usam `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-
 
 {% else %}
 
-Os tipos de pacotes suportados no {% data variables.product.product_location_enterprise %} podem variar, uma vez que o administrador do site pode habilitar ou desabilitar o suporte para diferentes tipos de pacotes. Para obter mais informações, consulte "[Gerenciar pacotes do GitHub para a sua empresa](/enterprise/admin/packages)".
+Os tipos de pacotes suportados no {% data variables.product.product_location %} podem variar, uma vez que o administrador do site pode habilitar ou desabilitar o suporte para diferentes tipos de pacotes. Para obter mais informações, consulte "[Gerenciar pacotes do GitHub para a sua empresa](/enterprise/admin/packages)".
 
-Se {% data variables.product.product_location_enterprise %} tiver o isolamento de subdomínio habilitado, os registros dos pacotes usarão `PACKAGE-TYPE. OSTNAME/OWNER/REPOSITORY/IMAGE-NAME` como a URL hospedada do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu arquivo Docker será hospedado em `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
+Se {% data variables.product.product_location %} tiver o isolamento de subdomínio habilitado, os registros dos pacotes usarão `PACKAGE-TYPE. OSTNAME/OWNER/REPOSITORY/IMAGE-NAME` como a URL hospedada do pacote, substituindo `PACKAGE-TYPE` pelo espaço de nome do pacote. Por exemplo, o seu arquivo Docker será hospedado em `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
 
-Se o {% data variables.product.product_location_enterprise %} tiver o isolamento de subdomínio desabilitado, os registros do pacote usarão `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` como URL de host do pacote. Por exemplo, o seu Gemfile será hospedado em `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, substituindo *NOME DE HOST* pelo nome do host da sua instância do {% data variables.product.prodname_ghe_server %}. |{% endif %}
+Se o {% data variables.product.product_location %} tiver o isolamento de subdomínio desabilitado, os registros do pacote usarão `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` como URL de host do pacote. Por exemplo, o seu Gemfile será hospedado em `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, substituindo *NOME DE HOST* pelo nome do host da sua instância do {% data variables.product.prodname_ghe_server %}. |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | Linguagem  | Descrição                                                             | Formato do pacote                    | Cliente do pacote | Espaço de nome do pacote                              |
@@ -104,7 +104,7 @@ Se o {% data variables.product.product_location_enterprise %} tiver o isolamento
 
 {% else %}
 
-Com o isolamento de subdomínio habilitado em {% data variables.product.product_location_enterprise %}:
+Com o isolamento de subdomínio habilitado em {% data variables.product.product_location %}:
 
 | Linguagem  | Descrição                                                             | Formato do pacote                    | Cliente do pacote | Espaço de nome do pacote                        |
 | ---------- | --------------------------------------------------------------------- | ------------------------------------ | ----------------- | ----------------------------------------------- |
@@ -115,7 +115,7 @@ Com o isolamento de subdomínio habilitado em {% data variables.product.product_
 | .NET       | Gerenciamento de pacotes NuGet para .NET                              | `nupkg`                              | `dotnet` CLI      | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | N/A        | Gerenciamento do contêiner do Docker                                  | `arquivo Docker`                     | `Docker`          | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-Com o isolamento de subdomínio desabilitado em {% data variables.product.product_location_enterprise %}:
+Com o isolamento de subdomínio desabilitado em {% data variables.product.product_location %}:
 
 | Linguagem  | Descrição                                                             | Formato do pacote                    | Cliente do pacote | Espaço de nome do pacote                                  |
 | ---------- | --------------------------------------------------------------------- | ------------------------------------ | ----------------- | --------------------------------------------------------- |

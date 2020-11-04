@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.pre-release-program.content-attachments-public-beta %}
@@ -123,8 +124,8 @@ To quickly setup a GitHub App that can use the {% data variables.product.prodnam
 
 To create a Probot App, follow these steps:
 
-1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
-2. Open the project you created, and customize the settings in the `app.yml` file. Subscribe to the `content_reference` event and enable `content_references` write permissions:
+1. [新しい GitHub App を作成](https://probot.github.io/docs/development/#generating-a-new-app)します。
+2. 作成したプロジェクトを開き、 `app.yml` ファイルの設定をカスタマイズします。 Subscribe to the `content_reference` event and enable `content_references` write permissions:
 
    ``` yml
 
@@ -167,7 +168,7 @@ To create a Probot App, follow these steps:
 
 4. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally). Navigate to [localhost:3000](http://localhost:3000), and click the **Register GitHub App** button:
 
-   ![Register a Probot GitHub App](/assets/images/github-apps/github_apps_probot-registration.png)
+   ![Probot GitHub App の登録](/assets/images/github-apps/github_apps_probot-registration.png)
 
 5. Install the app on a test repository.
 6. Create an issue in your test repository.
