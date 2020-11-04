@@ -6,21 +6,22 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
 ### About {% data variables.product.prodname_github_app %} URL parameters
 
 You can add query parameters to these URLs to preselect the configuration of a {% data variables.product.prodname_github_app %} on a personal or organization account:
-* **User account:** `https://github.com/settings/apps/new`
-* **Organization account:** `https://github.com/organizations/:org/settings/apps/new`
+* **User account:** `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* **Organization account:** `{% data variables.product.oauth_host_code %}/:org/settings/apps/new`
 
 The person creating the app can edit the preselected values from the {% data variables.product.prodname_github_app %} registration page, before submitting the app. If you do not include required parameters in the URL query string, like `name`, the person creating the app will need to input a value before submitting the app.
 
 The following URL creates a new public app called `octocat-github-app` with a preconfigured description and callback URL. This URL also selects read and write permissions for `checks`, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
   ```
-  https://github.com/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
+  {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_url=https://example.com&request_oauth_on_install=true&public=true&checks=write&events[]=check_run&events[]=check_suite
   ```
 
 The complete list of available query parameters, permissions, and events is listed in the sections below.
@@ -41,7 +42,8 @@ The complete list of available query parameters, permissions, and events is list
 `webhook_secret` | `string` | You can specify a secret to secure your webhooks. See "[Securing your webhooks](/webhooks/securing/)" for more details.
 `events` | `array of strings` | Webhook events. Some webhook events require `read` or `write` permissions for a resource before you can select the event when registering a new {% data variables.product.prodname_github_app %}. See the "[{% data variables.product.prodname_github_app %} webhook events](#github-app-webhook-events)" section for available events and their required permissions. You can select multiple events in a query string. For example, `events[]=public&events[]=label`.
 `domain` | `string` | The URL of a content reference.
-`single_file_name` | `string` | When you grant `read` or `write` access to the `single_file` permission, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage.
+`single_file_name` | `string` | This is a narrowly-scoped permission that allows the app to access a single file in any repository. When you set the `single_file` permission to `read` or `write`, this field provides the path to the single file your {% data variables.product.prodname_github_app %} will manage. {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %} If you need to manage multiple files, see `single_file_paths` below. {% endif %}{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+`single_file_paths` | `array of strings` | This allows the app to access up ten specified files in a repository. When you set the `single_file` permission to `read` or `write`, this array can store the paths for up to ten files that your {% data variables.product.prodname_github_app %} will manage. These files all receive the same permission set by `single_file`, and do not have separate individual permissions. When two or more files are configured, the API returns `multiple_single_files=true`, otherwise it returns `multiple_single_files=false`.{% endif %} 
 
 ### {% data variables.product.prodname_github_app %} permissions
 
@@ -54,8 +56,8 @@ Permission | Description
 [`checks`](/rest/reference/permissions-required-for-github-apps/#permission-on-checks) | Grants access to the [Checks API](/v3/checks/). Can be one of: `none`, `read`, or `write`.
 `content_references` | Grants access to the "[Create a content attachment](/v3/apps/installations/#create-a-content-attachment)" endpoint. Can be one of: `none`, `read`, or `write`.
 [`contents`](/rest/reference/permissions-required-for-github-apps/#permission-on-contents) |  Grants access to various endpoints that allow you to modify repository contents. Can be one of: `none`, `read`, or `write`.
-[`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/v3/repos/deployments/). Can be one of: `none`, `read`, or `write`.
-[`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/v3/users/emails/). Can be one of: `none`, `read`, or `write`.
+[`deployments`](/rest/reference/permissions-required-for-github-apps/#permission-on-deployments) | Grants access to the [Deployments API](/rest/reference/repos#deployments). Can be one of: `none`, `read`, or `write`.{% if currentVersion == "free-pro-team@latest" or enterpriseServerVersions contains currentVersion %}
+[`emails`](/rest/reference/permissions-required-for-github-apps/#permission-on-emails) | Grants access to the [Emails API](/v3/users/emails/). Can be one of: `none`, `read`, or `write`.{% endif %}
 [`followers`](/rest/reference/permissions-required-for-github-apps/#permission-on-followers) | Grants access to the [Followers API](/v3/users/followers/). Can be one of: `none`, `read`, or `write`.
 [`gpg_keys`](/rest/reference/permissions-required-for-github-apps/#permission-on-gpg-keys) | Grants access to the [GPG Keys API](/v3/users/gpg_keys/). Can be one of: `none`, `read`, or `write`.
 [`issues`](/rest/reference/permissions-required-for-github-apps/#permission-on-issues) | Grants access to the [Issues API](/v3/issues/). Can be one of: `none`, `read`, or `write`.
@@ -63,11 +65,11 @@ Permission | Description
 [`members`](/rest/reference/permissions-required-for-github-apps/#permission-on-members) |  Grants access to manage an organization's members. Can be one of: `none`, `read`, or `write`.{% if currentVersion == "free-pro-team@latest" %}
 [`metadata`](/rest/reference/permissions-required-for-github-apps/#metadata-permissions) | Grants access to read-only endpoints that do not leak sensitive data. Can be `read` or `none`. Defaults to `read` when you set any permission, or defaults to `none` when you don't specify any permissions for the {% data variables.product.prodname_github_app %}.
 [`organization_administration`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-administration) | Grants access to "[Update an organization](/v3/orgs/#update-an-organization)" endpoint and the [Organization Interaction Restrictions API](/v3/interactions/orgs/#set-interaction-restrictions-for-an-organization). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`organization_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-hooks) | Grants access to the [Organization Webhooks API](/v3/orgs/hooks/). Can be one of: `none`, `read`, or `write`.
+[`organization_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-hooks) | Grants access to the [Organization Webhooks API](/rest/reference/orgs#webhooks/). Can be one of: `none`, `read`, or `write`.
 `organization_plan` | Grants access to get information about an organization's plan using the "[Get an organization](/v3/orgs/#get-an-organization)" endpoint. Can be one of: `none` or `read`.
 [`organization_projects`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects) |  Grants access to the [Projects API](/v3/projects/). Can be one of: `none`, `read`, `write`, or `admin`.{% if currentVersion == "free-pro-team@latest" %}
 [`organization_user_blocking`](/rest/reference/permissions-required-for-github-apps/#permission-on-organization-projects) | Grants access to the [Blocking Organization Users API](/v3/orgs/blocking/). Can be one of: `none`, `read`, or `write`.{% endif %}
-[`pages`](/rest/reference/permissions-required-for-github-apps/#permission-on-pages) | Grants access to the [Pages API](/v3/repos/pages/). Can be one of: `none`, `read`, or `write`.
+[`pages`](/rest/reference/permissions-required-for-github-apps/#permission-on-pages) | Grants access to the [Pages API](/rest/reference/repos#pages). Can be one of: `none`, `read`, or `write`.
 `plan` | Grants access to get information about a user's GitHub plan using the "[Get a user](/v3/users/#get-a-user)" endpoint. Can be one of: `none` or `read`.
 [`pull_requests`](/rest/reference/permissions-required-for-github-apps/#permission-on-pull-requests) | Grants access to various pull request endpoints. Can be one of: `none`, `read`, or `write`.
 [`repository_hooks`](/rest/reference/permissions-required-for-github-apps/#permission-on-repository-hooks) | Grants access to the [Repository Webhooks API](/v3/repos/hooks/). Can be one of: `none`, `read`, or `write`.

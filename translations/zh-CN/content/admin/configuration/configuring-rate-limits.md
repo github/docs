@@ -10,10 +10,10 @@ versions:
 
 ### 为 {% data variables.product.prodname_enterprise_api %} 启用速率限制
 
-在 {% data variables.product.prodname_enterprise_api %} 上启用速率限制可以防止个别用户或未通过身份验证的用户过度使用资源。 For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+在 {% data variables.product.prodname_enterprise_api %} 上启用速率限制可以防止个别用户或未通过身份验证的用户过度使用资源。 更多信息请参阅“[REST API 中的资源](/rest/overview/resources-in-the-rest-api#rate-limiting)”。
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
-You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see "[Command-line utilities](/enterprise/admin/configuration/command-line-utilities#ghe-config)."
+您可以使用管理 shell 中的 `ghe-config` 实用程序从 API 速率限制中排除用户列表。 更多信息请参阅“[命令行实用程序](/enterprise/admin/configuration/command-line-utilities#ghe-config)”。
 {% endif %}
 
 {% note %}
@@ -30,7 +30,7 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 ### 启用滥用率限制
 
-设置滥用率限制可保护 {% data variables.product.product_location_enterprise %} 上的整体服务等级。
+设置滥用率限制可保护 {% data variables.product.product_location %} 上的整体服务等级。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}

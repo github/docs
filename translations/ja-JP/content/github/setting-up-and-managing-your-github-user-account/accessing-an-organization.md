@@ -1,6 +1,6 @@
 ---
 title: Organization へのアクセス
-intro: 自分がメンバーになっている Organization にアクセスするには、個人ユーザアカウントにサインインしなければなりません。
+intro: '自分がメンバーになっている Organization にアクセスするには、個人ユーザアカウントにサインインしなければなりません。'
 redirect_from:
   - /articles/error-cannot-log-in-that-account-is-an-organization/
   - /articles/cannot-log-in-that-account-is-an-organization/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}

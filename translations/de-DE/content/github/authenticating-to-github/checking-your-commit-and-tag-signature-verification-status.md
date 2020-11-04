@@ -1,17 +1,20 @@
 ---
 title: Verifizierungsstatus der Commit- und Tag-Signaturen prüfen
-intro: 'Du kannst den Verifizierungsstatus Deiner Commit- und Tag-Signaturen auf {% data variables.product.product_name %} überprüfen.'
+intro: 'Sie können den Verifizierungsstatus Ihrer Commit- und Tag-Signaturen auf {% data variables.product.product_name %} überprüfen.'
 redirect_from:
   - /articles/checking-your-gpg-commit-and-tag-signature-verification-status/
   - /articles/checking-your-commit-and-tag-signature-verification-status
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Den Verifizierungsstatus Deiner Commit-Signatur prüfen
 
-1. Navigieren Sie auf {% data variables.product.product_name %} zu Ihrem Pull Request.
+1. On
+
+{% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 3. Das Feld neben dem verkürzten Commit-Hash Deines Commits zeigt, ob die Commit-Signatur verifiziert ist oder nicht. ![Signierter Commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
 4. Um detailliertere Informationen zur Commit-Signatur anzuzeigen, klicke auf **Verified** (Verifiziert) oder **Unverified** (Nicht verifiziert). ![Verifizierter signierter Commit](/assets/images/help/commits/gpg-signed-commit_verified_details.png)

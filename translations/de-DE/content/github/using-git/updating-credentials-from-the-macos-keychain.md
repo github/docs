@@ -1,12 +1,13 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or personal access token on {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.password-authentication-deprecation %}
@@ -15,14 +16,12 @@ versions:
 
 1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app. ![ Suchleiste von Spotlight](/assets/images/help/setup/keychain-access.png)
 2. Suche in Keychain Access nach **{% data variables.command_line.backticks %}**.
-3. Suche den Eintrag „internet password“ (Internet-Passwort) für `{% data variables.command_line.backticks %}`. ![Eintrag des GitHub-Passworts in Keychain](/assets/images/help/setup/keychain-entry.png)
-4. Bearbeite oder lösche den Eintrag je nach Bedarf.
+3. Suchen Sie den Eintrag „internet password“ (Internetpasswort) für `{% data variables.command_line.backticks %}`.
+4. Bearbeiten oder löschen Sie den Eintrag je nach Änderungssituation.
 
 ### Anmeldeinformationen über die Befehlszeile löschen
 
-In der Befehlszeile kannst Du den Keychain-Eintrag direkt über den Credential-Helfer löschen.
-
-Gib hierzu den folgenden Befehl ein:
+Through the command line, you can use the credential helper directly to erase the keychain entry.
 
 ```shell
 $ git credential-osxkeychain erase
@@ -31,7 +30,7 @@ protocol=https
 > <em>[Press Return]</em>
 ```
 
-Bei erfolgreicher Ausführung des Befehls erhältst Du keine Rückmeldung. Wenn Du testen möchtest, ob der Befehl funktioniert hat, klone ein Repository aus {% data variables.product.product_location %}. Wenn Du nach einem Passwort gefragt wirst, wurde der Keychain-Eintrag gelöscht.
+Bei erfolgreicher Ausführung des Befehls erhältst Du keine Rückmeldung. To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ### Weiterführende Informationen
 

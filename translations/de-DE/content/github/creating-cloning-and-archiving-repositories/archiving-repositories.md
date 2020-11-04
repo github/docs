@@ -1,11 +1,12 @@
 ---
 title: Repositorys archivieren
-intro: 'Du kannst ein Repository archivieren, damit es allen Benutzern nur mit Lesezugriff zur Verfügung steht und damit klar ist, dass es nicht mehr aktiv unterhalten wird. Du kannst die Archivierung eines Repository auch wieder aufheben.'
+intro: Du kannst ein Repository archivieren, damit es allen Benutzern nur mit Lesezugriff zur Verfügung steht und damit klar ist, dass es nicht mehr aktiv unterhalten wird. Du kannst die Archivierung eines Repository auch wieder aufheben.
 redirect_from:
   - /articles/archiving-repositories
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.archiving-repositories-recommendation %}

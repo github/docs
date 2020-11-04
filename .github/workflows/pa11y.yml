@@ -1,11 +1,14 @@
 name: "Pa11y"
-on: [push]
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "25 17 * * *" # once a day at 17:25 UTC / 11:50 PST
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
 
       - name: Get npm cache directory
         id: npm-cache
@@ -13,7 +16,7 @@ jobs:
           echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
         with:
           path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -162,7 +163,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
 {% endnote %}
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.21" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.21" %}
 {% data reusables.pre-release-program.fury-pre-release %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

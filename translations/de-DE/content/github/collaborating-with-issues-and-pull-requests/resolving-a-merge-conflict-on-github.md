@@ -6,20 +6,24 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-Auf {% data variables.product.product_name %} kannst Du nur Mergekonflikte beheben, die durch konkurrierende Zeilenänderungen verursacht werden, beispielsweise, wenn mehrere Personen unterschiedliche Änderungen an der gleichen Zeile in der gleichen Datei in verschiedenen Branches Deines Git-Repositorys vornehmen. Alle anderen Mergekonflikte musst Du lokal in der Befehlszeile beheben. Weitere Informationen findest Du unter „[Einen Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line/).“
+Auf {% data variables.product.product_name %} können Sie nur Mergekonflikte beheben, die durch konkurrierende Zeilenänderungen verursacht werden, beispielsweise, wenn mehrere Personen unterschiedliche Änderungen an der gleichen Zeile in der gleichen Datei in verschiedenen Branches Ihres Git-Repositorys vornehmen. Alle anderen Mergekonflikte musst Du lokal in der Befehlszeile beheben. Weitere Informationen findest Du unter „[Einen Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line/).“
 
-{% if currentVersion != "free-pro-team@latest" %}
-Wenn ein Websiteadministrator den Editor für Mergekonflikte für Pull Requests zwischen Repositorys deaktiviert, kannst Du den Konflikteditor auf {% data variables.product.product_name %} nicht verwenden und musst Mergekonflikte auf der Befehlszeile beheben. Beispielsweise kannst du den Mergekonflikt-Editor, wenn er deaktiviert ist, nicht für Pull Requests zwischen einem Fork und einem vorgelagerten Repository verwenden.
+{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
+If a site administrator disables the merge conflict editor for pull requests between repositories, you cannot use the conflict editor on
+{% data variables.product.product_name %} and must resolve merge conflicts on the command line. Beispielsweise können Sie den Mergekonflikteditor, sofern er deaktiviert ist, nicht für Pull Requests zwischen einem Fork und einem vorgelagerten Repository verwenden.
 {% endif %}
 
 {% warning %}
 
 {% if currentVersion ver_lt "enterprise-server@2.22" %}
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten.
+**Warning:** When you resolve a merge conflict on
+{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch), even if the head branch is the default branch of your repository or a protected branch. Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten.
 {% else %}
-**Warnung:** Wenn Du einen Mergekonflikt auf {% data variables.product.product_name %} auflöst, wird der gesamte [Basis-Branch](/github/getting-started-with-github/github-glossary#base-branch) Deines Pull Requests in den [Head-Branch](/github/getting-started-with-github/github-glossary#head-branch) zusammengeführt. Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. Wenn der Head-Branch geschützt ist, kannst Du Deine Konflikt-Auflösung nicht zusammenführen, deshalb wirst Du aufgefordert werden, einen neuen Head-Branch zu erstellen. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
+**Warning:** When you resolve a merge conflict on
+{% data variables.product.product_name %},  the entire [base branch](/github/getting-started-with-github/github-glossary#base-branch) of your pull request is merged into the [head branch](/github/getting-started-with-github/github-glossary#head-branch). Vergewissern Sie sich, dass es wirklich dieser Branch ist, den Sie festschreiben möchten. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. Wenn der Head-Branch geschützt ist, kannst Du Deine Konflikt-Auflösung nicht zusammenführen, deshalb wirst Du aufgefordert werden, einen neuen Head-Branch zu erstellen. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/github/administering-a-repository/about-protected-branches).“
 {% endif %}
 
 {% endwarning %}
@@ -30,7 +34,7 @@ Wenn ein Websiteadministrator den Editor für Mergekonflikte für Pull Requests 
 
  {% tip %}
 
- **Tipp:** Wenn die Schaltfläche **Resolve conflicts** (Konflikte beheben) deaktiviert ist, ist der Mergekonflikt Deines Pull Requests für eine Behebung auf {% data variables.product.product_name %} zu komplex{% if currentVersion != "free-pro-team@latest" %} oder der Konflikteditor wurde vom Websiteadministrator für Pull Requests zwischen Repositorys deaktiviert{% endif %}. Du musst den Mergekonflikt mit einem alternativen Git-Client auflösen, oder durch Verwendung von Git auf der Befehlszeile. Weitere Informationen findest Du unter „[Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line).“
+ **Tip:** If the **Resolve conflicts** button is deactivated, your pull request's merge conflict is too complex to resolve on {% data variables.product.product_name %}{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} or the site administrator has disabled the conflict editor for pull requests between repositories{% endif %}. Du musst den Mergekonflikt mit einem alternativen Git-Client auflösen, oder durch Verwendung von Git auf der Befehlszeile. Weitere Informationen findest Du unter „[Mergekonflikt in der Befehlszeile beheben](/articles/resolving-a-merge-conflict-using-the-command-line).“
 
  {% endtip %}
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %}

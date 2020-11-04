@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Weitere Informationen zu den Berechtigungen für {% data variables.product.prodname_github_app %}-Manager findest Du unter „[Berechtigungsebenen für eine Organisation](/articles/permission-levels-for-an-organization#github-app-managers).“
@@ -24,7 +25,9 @@ Weitere Informationen zu den Berechtigungen für {% data variables.product.prodn
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.github-apps-settings-sidebar %}
-1. Klicke unter „{% data variables.product.prodname_github_app %}s“ auf den Avatar der App, für die Du einen {% data variables.product.prodname_github_app %}-Manager entfernen möchtest. ![{% data variables.product.prodname_github_app %} auswählen](/assets/images/help/organizations/select-github-app.png)
+1. Under "
+{% data variables.product.prodname_github_app %}s", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
+![{% data variables.product.prodname_github_app %} auswählen](/assets/images/help/organizations/select-github-app.png)
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Suche unter „App managers“ (App-Manager) den Benutzernamen der Person, deren {% data variables.product.prodname_github_app %}-Managerberechtigungen Du entziehen möchtest, und klicke auf **Revoke** (Entziehen). ![{% data variables.product.prodname_github_app %}-Managerberechtigungen entziehen](/assets/images/help/organizations/github-app-manager-revoke-permissions-individual-app.png)
 

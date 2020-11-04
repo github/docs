@@ -1,6 +1,6 @@
 ---
 title: Code-Navigation auf GitHub
-intro: 'Du kannst die Beziehungen innerhalb von Repositorys wie auch Repository-übergreifend durch die Code-Navigation direkt in {% data variables.product.product_name %} nachvollziehen.'
+intro: 'Sie können die Beziehungen in Repositorys und Repository-übergreifend durch die Code-Navigation direkt in {% data variables.product.product_name %} nachvollziehen.'
 redirect_from:
   - /articles/navigating-code-on-github
 versions:
@@ -10,6 +10,7 @@ versions:
 ### Über Code-Navigation auf {% data variables.product.prodname_dotcom %}
 
 Code-Navigationsfunktionen verwenden die [Semantik](https://github.com/github/semantic) der Open-Source-Bibliothek. Die folgenden Sprachen werden unterstützt:
+- C#
 - CodeQL
 - Go
 - Java

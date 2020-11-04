@@ -3,10 +3,11 @@ title: Inhaberschaft an einer Organisation übertragen
 redirect_from:
   - /articles/needs-polish-how-do-i-give-ownership-to-an-organization-to-someone-else/
   - /articles/transferring-organization-ownership
-intro: 'Wenn Du Deine Inhaberschaft an einem Organisationskonto auf eine andere Person übertragen möchtest, musst Du einen neuen Inhaber hinzufügen{% if currentVersion == "free-pro-team@latest" %}, sicherstellen, dass die Abrechnungsinformationen aktualisiert werden{% endif %}, und Dich dann selbst aus dem Konto entfernen.'
+intro: 'To make someone else the owner of an organization account, you must add a new owner{% if currentVersion == "free-pro-team@latest" %}, ensure that the billing information is updated,{% endif %} and then remove yourself from the account.'
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 1. Wenn Du das einige Mitglied mit *Inhaber*-Berechtigungen bist, gib einem anderen Organisationsmitglied ebenfalls die Inhaberrolle. Weitere Informationen findest Du unter „[Ernennung eines Organisationsinhabers](/github/setting-up-and-managing-organizations-and-teams/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."

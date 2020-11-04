@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
@@ -18,8 +19,8 @@ To sort by interactions, reactions, author date, committer date, or how recently
 
 The `sort:interactions` qualifier sorts by the highest combined number of reactions and comments.
 
-| Qualifier                                       | 예시                                                                                                                                                                                                                                                                                          |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                       | 예시                                                                                                                                                                                                                                                                                     |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:interactions` or `sort:interactions-desc` | [**org:github sort:interactions**](https://github.com/search?q=org%3Agithub+sort%3Ainteractions&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by the highest combined number of reactions and comments.                       |
 | `sort:interactions-asc`                         | [**org:github sort:interactions-asc**](https://github.com/search?utf8=%E2%9C%93&q=org%3Agithub+sort%3Ainteractions-asc&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by the lowest combined number of reactions and comments. |
 
@@ -27,8 +28,8 @@ The `sort:interactions` qualifier sorts by the highest combined number of reacti
 
 The `sort:reactions` qualifier sorts by the number or type of reactions.
 
-| Qualifier                                 | 예시                                                                                                                                                                                                                                                                       |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Qualifier                                 | 예시                                                                                                                                                                                                                                                                  |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:reactions` or `sort:reactions-desc` | [**org:github sort:reactions**](https://github.com/search?q=org%3Agithub+sort%3Areactions&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by the highest number of reactions.                                |
 | `sort:reactions-asc`                      | [**org:github sort:reactions-asc**](https://github.com/search?q=org%3Agithub+sort%3Areactions-asc&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by ascending number of reactions (the fewest to the most). |
 | <code>sort:reactions-<em>reaction</em></code>                 | [**org:github sort:reactions-+1**](https://github.com/search?q=org%3Agithub+sort%3Areactions-%2B1&type=Issues) matches issues in repositories owned by {% data variables.product.product_name %}, sorted by most thumbs up (:+1:) reactions.                        |
@@ -41,8 +42,8 @@ The `sort:reactions` qualifier sorts by the number or type of reactions.
 
 The `sort:author-date` qualifier sorts by descending or ascending author date.
 
-| Qualifier                                     | 예시                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                     | 예시                                                                                                                                                                                                                                                                                                    |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:author-date` or `sort:author-date-desc` | [**feature org:github sort:author-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by descending author date.        |
 | `sort:author-date-asc`                        | [**feature org:github sort:author-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Aauthor-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending author date. |
 
@@ -50,8 +51,8 @@ The `sort:author-date` qualifier sorts by descending or ascending author date.
 
 The `sort:committer-date` qualifier sorts by descending or ascending committer date.
 
-| Qualifier                                           | 예시                                                                                                                                                                                                                                                                                                                  |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Qualifier                                           | 예시                                                                                                                                                                                                                                                                                                             |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `sort:committer-date` or `sort:committer-date-desc` | [**feature org:github sort:committer-date**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by descending committer date.        |
 | `sort:committer-date-asc`                           | [**feature org:github sort:committer-date-asc**](https://github.com/search?utf8=%E2%9C%93&q=feature+org%3Agithub+sort%3Acommitter-date-asc&type=Commits) matches commits containing the word "feature" in repositories owned by {% data variables.product.product_name %}, sorted by ascending committer date. |
 

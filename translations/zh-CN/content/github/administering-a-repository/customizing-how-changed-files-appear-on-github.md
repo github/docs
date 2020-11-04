@@ -1,11 +1,12 @@
 ---
 title: 自定义更改的文件在 GitHub 中如何显示
-intro: 要确保某些文件默认显示差异，或者计入仓库语言，您可以使用 *.gitattributes* 文件中的 `linguist-generated` 属性标记它们。
+intro: '要确保某些文件默认显示差异，或者计入仓库语言，您可以使用 *.gitattributes* 文件中的 `linguist-generated` 属性标记它们。'
 redirect_from:
   - /articles/customizing-how-changed-files-appear-on-github
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 使用 *.gitattributes* 文件标记与给定“模式”（含指定属性）匹配的文件。 *.gitattributes* 文件采用与 _.gitignore_ 文件相同的匹配规则。 更多信息请参阅 Git 文档中的[模式格式](https://www.git-scm.com/docs/gitignore#_pattern_format)。

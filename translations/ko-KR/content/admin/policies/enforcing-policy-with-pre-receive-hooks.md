@@ -5,7 +5,6 @@ mapTopic: true
 redirect_from:
   - /enterprise/admin/developer-workflow/using-pre-receive-hooks-to-enforce-policy
   - /enterprise/admin/policies/enforcing-policy-with-pre-receive-hooks
-  - /enterprise/admin/policies/enforcing-policy-with-pre-receive-hooks
 versions:
   enterprise-server: '*'
 ---

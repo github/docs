@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -56,8 +57,8 @@ end
 ```
 
 Your client ID and client secret keys come from [your application's configuration
-page][app settings]. You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter. We recommend storing them as
+page][app settings].{% if currentVersion == "free-pro-team@latest" %} You should **never, _ever_** store these values in
+{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
 [environment variables][about env vars]--which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -127,10 +128,7 @@ application, you should probably use [a library written in the language of your 
 
 #### Checking granted scopes
 
-In the future, users will be able to [edit the scopes you requested][edit scopes post],
-and your application might be granted less access than you originally asked for.
-So, before making any requests with the token, you should check the scopes that
-were granted for the token by the user.
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[Scopes for OAuth Apps](/developers/apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
 
 The scopes that were granted are returned as a part of the response from
 exchanging a token.
@@ -167,7 +165,7 @@ To help you gracefully handle these situations, all API responses for requests
 made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the OAuth Applications API provides an endpoint to {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-[check a token for validity][/v3/apps/oauth_applications/#check-a-token]{% else %}[check a token for validity][/v3/apps/oauth_applications/#check-an-authorization]{% endif %}.
+[check a token for validity][/rest/reference/apps#check-a-token]{% else %}[check a token for validity][/v3/apps/oauth_applications/#check-an-authorization]{% endif %}.
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
@@ -365,7 +363,6 @@ we would've seen the same confirmation dialog from earlier pop-up and warn us.
 [REST Client]: https://github.com/archiloque/rest-client
 [libraries]: /libraries/
 [oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
-[edit scopes post]: https://developer.github.com/changes/2013-10-04-oauth-changes-coming/
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/basics-of-authentication
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers

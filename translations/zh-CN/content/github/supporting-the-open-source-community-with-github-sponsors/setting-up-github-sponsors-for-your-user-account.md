@@ -12,7 +12,7 @@ versions:
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} {% data reusables.sponsors.stripe-supported-regions %}
 
-To join {% data variables.product.prodname_sponsors %} as an organization, see "[Setting up {% data variables.product.prodname_sponsors %} for your organization](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+要作为组织加入 {% data variables.product.prodname_sponsors %}，请参阅“[为组织设置 {% data variables.product.prodname_sponsors %}](/github/supporting-the-open-source-community-with-github-sponsors/setting-up-github-sponsors-for-your-organization)”。
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 2. 如果您是组织所有者，则有多个符合条件的帐户。 单击 **View your eligible accounts（查看符合条件的帐户）**，然后在帐户列表中找到您的用户帐户。
@@ -50,7 +50,7 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 ### 提交您的银行信息
 
-如果您居住在受支持的区域，可以按照这些说明创建 Stripe Connect 帐户来提交银行信息。 {% data reusables.sponsors.stripe-supported-regions %}
+如果您居住在受支持的区域，可以按照这些说明创建 Stripe Connect 帐户来提交银行信息。 您居住的区域与您的银行帐户所在区域必须匹配。 {% data reusables.sponsors.stripe-supported-regions %}
 
 {% data reusables.sponsors.double-check-stripe-info %}
 

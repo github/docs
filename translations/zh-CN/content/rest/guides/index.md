@@ -1,15 +1,14 @@
 ---
 title: 指南
-intro: 了解如何开始使用 REST API、身份验证以及如何使用 REST API 完成各种任务。
+intro: '了解如何开始使用 REST API、身份验证以及如何使用 REST API 完成各种任务。'
 redirect_from:
   - /guides/
   - /v3/guides
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
 
 本文档的这一部分旨在让您熟悉并运行实际的 {% data variables.product.product_name %} API 应用程序。 我们将涵盖您需要知道的一切，从身份验证到操作结果，再到将结果与其他应用程序相结合。
 

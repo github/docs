@@ -6,11 +6,12 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% tip %}
 
-**Tips**:
+**提示**：
 
 - 如果您尝试在没有访问权限的仓库中重命名文件，我们会将项目复刻到您的用户帐户，并在您提交更改后帮助您发送[拉取请求](/articles/about-pull-requests)到原始仓库。
 - 通过 Web 界面创建的文件名只能包含字母数字字符和连字符 (`-`)。 要使用其他字符，请在本地创建和提交文件，然后将它们推送到仓库。

@@ -1,6 +1,6 @@
 ---
 title: 禁用个人帐户的双重身份验证
-intro: 如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。
+intro: '如果禁用个人帐户的双重身份验证，可能失去对所属组织的访问权限。'
 redirect_from:
   - /articles/disabling-two-factor-authentication-for-your-personal-account
 versions:
@@ -24,7 +24,7 @@ versions:
 
 {% data reusables.user_settings.access_settings %}
 {% data reusables.user_settings.security %}
-3. Click **Disable**. ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
+3. 单击 **Disable（禁用）**。 ![禁用双重身份验证](/assets/images/help/2fa/disable-two-factor-authentication.png)
 
 ### 延伸阅读
 

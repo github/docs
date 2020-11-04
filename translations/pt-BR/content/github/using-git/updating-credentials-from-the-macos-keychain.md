@@ -1,12 +1,13 @@
 ---
 title: Atualizar credenciais da keychain OSX
-intro: 'Você precisará atualizar suas credenciais salvas no auxiliar `git-credential-osxkeychain` se você alterar seu nome de usuário, senha ou token de acesso pessoal no {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your{% if currentVersion != "github-ae@latest" %} username, password, or{% endif %} personal access token on {% data variables.product.product_name %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - Entrada de senha do GitHub na keychain
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.user_settings.password-authentication-deprecation %}
@@ -15,14 +16,12 @@ versions:
 
 1. Clique no ícone do Spotlight (lente ampliada) no lado direito da barra de menu. Digite `Acesso da Keychain` e, em seguida, pressione a chave Enter para iniciar o aplicativo. ![Barra de pesquisa do Spotlight](/assets/images/help/setup/keychain-access.png)
 2. No Keychain Access, procure por **{% data variables.command_line.backticks %}**.
-3. Localize a entrada "internet password" (senha da internet) referente a `{% data variables.command_line.backticks %}`. ![Entrada de senha do GitHub na keychain](/assets/images/help/setup/keychain-entry.png)
+3. Localize a entrada "internet password" (senha da internet) referente a `{% data variables.command_line.backticks %}`.
 4. Edite ou exclua a entrada de acordo.
 
 ### Excluir credenciais pela linha de comando
 
-É possível usar o auxiliar de credenciais diretamente na linha de comando para apagar a entrada de keychain.
-
-Para fazer isso, digite este comando:
+Through the command line, you can use the credential helper directly to erase the keychain entry.
 
 ```shell
 $ git credential-osxkeychain erase
@@ -31,7 +30,7 @@ protocol=https
 > <em>[Pressione Return]</em>
 ```
 
-Se a ação for bem-sucedida, nada será impresso. Para testar se funcionou, experimente clonar um repositório do {% data variables.product.product_location %}. Se for solicitada uma senha, significa que a entrada de keychain foi excluída.
+Se a ação for bem-sucedida, nada será impresso. To test that it works, try and clone a repository from {% data variables.product.product_location %}. If you are prompted for a password, the keychain entry was deleted.
 
 ### Leia mais
 

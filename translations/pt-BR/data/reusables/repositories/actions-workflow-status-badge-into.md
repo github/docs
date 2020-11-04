@@ -1,3 +1,3 @@
-Status badges show whether a workflow is currently failing or passing. A common place to add a status badge is in the README.md file of your repository, but you can add it to any web page you'd like. By default, badges display the status of your default branch. You can also display the status of a workflow run for a specific branch or event using the `branch` and `event` query parameters in the URL.
+Um selo de status mostra se um fluxo de trabalho está falhando ou passando. Um lugar comum para adicionar um selo de status é o arquivo README.md do seu repositório, mas você pode adicioná-lo a qualquer página web que desejar. Por padrão, os selos exibem o status do seu branch-padrão. Também é possível exibir o status de uma execução de fluxo de trabalho para um branch ou evento específico usando os parâmetros de consulta do `branch` e `evento` na URL.
 
-![example status badge](/assets/images/help/repository/actions-workflow-status-badge.png)
+![exemplo de selo de status](/assets/images/help/repository/actions-workflow-status-badge.png)

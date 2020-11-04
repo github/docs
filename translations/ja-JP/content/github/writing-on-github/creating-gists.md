@@ -1,6 +1,6 @@
 ---
 title: Gist の作成
-intro: 2 種類の Gist、つまりパブリックとシークレットを作成できます。 自分のアイデアを共有する準備ができていればパブリック Gist を、まだの場合はシークレット Gist を作成します。
+intro: '2 種類の Gist、つまりパブリックとシークレットを作成できます。 自分のアイデアを共有する準備ができていればパブリック Gist を、まだの場合はシークレット Gist を作成します。'
 redirect_from:
   - /articles/about-gists/
   - /articles/cannot-delete-an-anonymous-gist/
@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Gistについて
@@ -17,9 +18,9 @@ versions:
 
 Gist はパブリックまたはプライベートにできます。 パブリックGistは{% data variables.gists.discover_url %}に表示されます。ここでは作成されたばかりの新しいGistをブラウズできます。 それらのGistは検索もできるので、他の人々に自分の作業を探して見てもらうために使うこともできます。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}
 
-シークレット Gist は {% data variables.gists.discover_url %} では表示されず{% if currentVersion != "free-pro-team@latest" %}、{% endif %}検索もできません。 {% data reusables.gist.cannot-convert-public-gists-to-secret %}シークレット Gist は、プライベートではありません。 シークレット Gist の URL を友人に送信すれば、見てもらえるようになります。 ただし、知人ではない誰かがその URL を見つけたなら、その人もその Gist を見ることができます。 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
+Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable. {% data reusables.gist.cannot-convert-public-gists-to-secret %}シークレット Gist は、プライベートではありません。 シークレット Gist の URL を友人に送信すれば、見てもらえるようになります。 ただし、知人ではない誰かがその URL を見つけたなら、その人もその Gist を見ることができます。 好奇心の強い眼から自分のコードを守っておきたいなら、[プライベートリポジトリを作成](/articles/creating-a-new-repository)するとよいでしょう。
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if enterpriseServerVersions contains currentVersion %}
 
 サイト管理者がプライベートモードを無効化している場合は、匿名 Gist を使うこともできます。匿名 Gist はパブリックもしくはシークレットにできます。
 
@@ -27,13 +28,10 @@ Gist はパブリックまたはプライベートにできます。 パブリ�
 
 {% endif %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.17" %}
-
 通知は以下の場合に送られます:
 - あなたが Gist の作者である場合。
 - 誰かがあなたを Gist 中でメンションした場合。
 - いずれかの Gist の上部で [** Subscribe**] をクリックして、Gist をサブスクライブした場合。
-{% endif %}
 
 You can pin gists to your profile so other people can see them easily. 詳しい情報については、「[プロフィールにアイテムをピン止めする](/articles/pinning-items-to-your-profile)」を参照してください。
 
@@ -53,7 +51,7 @@ Gist は GeoJSON ファイルのマッピングをサポートしています。
 
 テキストファイルをデスクトップから直接 Gist エディターにドラッグアンドドロップすることもできます。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 {% note %}
 
 You can also create a gist using the {% data variables.product.prodname_cli %}. For more information, see "[`gh gist create`](https://cli.github.com/manual/gh_gist_create)" in the {% data variables.product.prodname_cli %} documentation.

@@ -6,7 +6,8 @@ redirect_from:
   - /articles/managing-the-display-of-member-names-in-your-organization
 versions:
   free-pro-team: '*'
-  enterprise-server: '>=2.18'
+  enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Proprietários de organização podem gerenciar a exibição do nome de integrantes na organização.

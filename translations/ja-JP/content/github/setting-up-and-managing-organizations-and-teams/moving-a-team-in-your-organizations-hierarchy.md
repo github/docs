@@ -1,6 +1,6 @@
 ---
 title: Organization 階層内で Team を移動する
-intro: チームメンテナと Organization のオーナーは、親チームの下に Team を入れ子にしたり、ネストした入れ子チームの親を変更または削除したりすることができます。
+intro: 'チームメンテナと Organization のオーナーは、親チームの下に Team を入れ子にしたり、ネストした入れ子チームの親を変更または削除したりすることができます。'
 redirect_from:
   - /articles/changing-a-team-s-parent/
   - /articles/moving-a-team-in-your-organization-s-hierarchy
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Organization のオーナーは、Team の親を変更できます。 チームメンテナは、子チームと親チーム両方のメンテナであれば、Team の親を変更できます。 子チームでのメンテナ権限を持たないチームメンテナは、親または子チームの追加をリクエストできます。 詳細は「[親チームの追加または変更をリクエストする](/articles/requesting-to-add-or-change-a-parent-team)」および「[子チームの追加をリクエストする](/articles/requesting-to-add-a-child-team)」を参照してください。

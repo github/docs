@@ -10,6 +10,6 @@
 - [OrganizationのメンバーのTeamへの追加](/articles/adding-organization-members-to-a-team)
 - [OrganizationメンバーのTeamからの削除](/articles/removing-organization-members-from-a-team)
 - [既存のTeamメンバーのチームメンテナへの昇格](/articles/giving-team-maintainer-permissions-to-an-organization-member)
-- リポジトリへのTeamのアクセスの削除{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
-- [Teamのためのコードレビューの割り当て管理](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
+- Remove the team's access to repositories{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
+- [Manage code review assignment for the team](/github/setting-up-and-managing-organizations-and-teams/managing-code-review-assignment-for-your-team){% endif %}{% if currentVersion == "free-pro-team@latest" %}
 - [プルリクエストのスケジュールされたリマインダーの管理](/github/setting-up-and-managing-organizations-and-teams/managing-scheduled-reminders-for-pull-requests){% endif %}

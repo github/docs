@@ -11,9 +11,11 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-O {% data variables.product.product_name %} usa a [biblioteca Linguist](https://github.com/github/linguist) de código aberto para determinar as linguagens de arquivo para destaque da sintaxe e estatísticas de repositório. As estatísticas da linguagem serão atualizadas após você fazer push de alterações no seu branch-padrão.
+{% data variables.product.product_name %} usa [Biblioteca Linguist](https://github.com/github/linguist) a de código aberto para
+determinar as linguagens de arquivo para destacar a sintaxe e estatísticas do repositório. As estatísticas da linguagem serão atualizadas após você fazer push de alterações no seu branch-padrão.
 
 Alguns arquivos são difíceis de identificar e, às vezes, os projetos contêm mais arquivos de fornecedor e biblioteca do que código primário. Se estiver recebendo resultados incorretos, consulte o [guia de solução de problemas](https://github.com/github/linguist#troubleshooting) do Linguist para obter ajuda.
 
