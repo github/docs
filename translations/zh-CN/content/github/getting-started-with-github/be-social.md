@@ -7,6 +7,7 @@ intro: '您可以在 {% data variables.product.prodname_dotcom %} 上与人员�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 要了解有关访问个人仪表板的信息，请参阅“[关于个人仪表板](/articles/about-your-personal-dashboard)”。
@@ -21,7 +22,7 @@ versions:
 
 ### 关注仓库
 
-您可以关注仓库以接收有关新拉取请求和议题的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
+您可以关注仓库以接收有关新拉取请求和议题的通知。 当所有者更新仓库时，您将在个人仪表板中看到其更改。 For more information see {% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}"[Viewing your subscriptions](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions){% else %}"[Watching and unwatching repositories](/github/receiving-notifications-about-activity-on-github/watching-and-unwatching-repositories){% endif %}."
 
 在仓库顶部单击 **Watch（关注）**可关注它。
 

@@ -20,13 +20,12 @@ versions:
 
 ### Maschinentyp bestimmen
 
-Bevor Sie {% data variables.product.product_location_enterprise %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
+Bevor Sie {% data variables.product.product_location %} auf Google Cloud Platform starten, müssen Sie den Maschinentyp ermitteln, der den Anforderungen Ihrer Organisation am besten gerecht wird.
 
 #### Unterstützte Maschinentypen
 
 {% data variables.product.prodname_ghe_server %} wird auf den folgenden Google Compute Engine-Maschinentypen (GCE) unterstützt. Weitere Informationen finden Sie im Google Cloud Platform-Artikel zu den „[Maschinentypen](https://cloud.google.com/compute/docs/machine-types)“.
-|
-{% if currentVersion != "free-pro-team@latest" %}
+
 |  | Oberer Speicher |
 |  | --------------- |
 |  | n1-highmem-4    |
@@ -35,7 +34,6 @@ Bevor Sie {% data variables.product.product_location_enterprise %} auf Google Cl
 |  | n1-highmem-32   |
 |  | n1-highmem-64   |
 |  | n1-highmem-96   |
-{% endif %}
 
 #### Empfohlene Maschinentypen
 

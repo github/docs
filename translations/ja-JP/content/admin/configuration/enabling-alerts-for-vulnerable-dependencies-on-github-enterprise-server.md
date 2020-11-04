@@ -1,11 +1,11 @@
 ---
 title: GitHub Enterprise Serverで脆弱性のある依存関係に対するアラートを有効化する
-intro: 'You can connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_ghe_cloud %} and enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies in repositories in your instance.'
+intro: '{% data variables.product.product_location %} を {% data variables.product.prodname_ghe_cloud %} に接続し、インスタンス内のリポジトリの脆弱な依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効にすることができます。'
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
   - /enterprise/admin/configuration/enabling-alerts-for-vulnerable-dependencies-on-github-enterprise-server
-permissions: 'Site administrators for {% data variables.product.prodname_ghe_server %} who are also owners of the connected {% data variables.product.prodname_ghe_cloud %} organization or enterprise account can enable {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.prodname_ghe_server %}.'
+permissions: '接続された {% data variables.product.prodname_ghe_cloud %} Organization または Enterprise アカウントの所有者でもある {% data variables.product.prodname_ghe_server %} のサイト管理者は、{% data variables.product.prodname_ghe_server %} の脆弱性のある依存関係に対して{% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} セキュリティ{% endif %}アラートを有効にできます。'
 versions:
   enterprise-server: '*'
 ---
@@ -14,14 +14,17 @@ versions:
 
 {% data reusables.repositories.tracks-vulnerabilities %} 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies)」を参照してください。
 
-You can connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %}, then sync vulnerability data to your instance and generate {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts in repositories with a vulnerable dependency.
+{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性データをインスタンスに同期して、脆弱性のある依存関係を持つリポジトリで {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを生成できます。
 
-After connecting {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %} and enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies, vulnerability data is synced from {% data variables.product.prodname_dotcom_the_website %} to your instance once every hour. また、脆弱性データはいつでも手動で同期することができます。 {% data variables.product.product_location_enterprise %} からのコードまたはコードに関する情報は、{% data variables.product.prodname_dotcom_the_website %} にアップロードされません。
+{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続し、脆弱性のある依存関係に対して {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効化すると、脆弱性データは 1 時間に 1 回 {% data variables.product.prodname_dotcom_the_website %} からインスタンスに同期されます。 また、脆弱性データはいつでも手動で同期することができます。 {% data variables.product.product_location %} からのコードまたはコードに関する情報は、{% data variables.product.prodname_dotcom_the_website %} にアップロードされません。
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location_enterprise %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and send {% data variables.product.prodname_dependabot_short %} alerts to owners and people with admin access in those repositories. {% data variables.product.prodname_dependabot_short %} アラートを受け取る方法をカスタマイズできます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)」を参照してください。
+{% if currentVersion ver_gt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate {% data variables.product.prodname_dependabot_short %} alerts. You can customize how you receive {% data variables.product.prodname_dependabot_short %} alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-github-dependabot-alerts)."
 {% endif %}
 
-{% if currentVersion ver_lt "enterprise-server@2.21" or currentVersion == "enterprise-server@2.21" %}When {% data variables.product.product_location_enterprise %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and send security alerts to owners and people with admin access in those repositories. セキュリティアラートの受信方法をカスタマイズすることができます。 詳しい情報については、「[脆弱性のある依存関係に対するアラートについて](/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)」を参照してください。
+{% if currentVersion == "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate security alerts. You can customize how you receive security alerts. For more information, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies/#configuring-notifications-for-security-alerts)."
+{% endif %}
+
+{% if currentVersion ver_lt "enterprise-server@2.21" %}When {% data variables.product.product_location %} receives information about a vulnerability, it will identify repositories in your instance that use the affected version of the dependency and generate security alerts. You can customize how you receive security alerts. 詳しい情報については「[通知の配信方法を選択する](/github/receiving-notifications-about-activity-on-github/choosing-the-delivery-method-for-your-notifications#choosing-the-delivery-method-for-security-alerts-for-vulnerable-dependencies)」を参照してください。
 {% endif %}
 
 {% if currentVersion ver_gt "enterprise-server@2.21" %}
@@ -30,25 +33,31 @@ After connecting {% data variables.product.product_location_enterprise %} to {% 
 ### {% data variables.product.prodname_ghe_server %}で脆弱性のある依存関係に対するアラートを有効化する
 {% endif %}
 
-Before enabling {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}, you must connect {% data variables.product.product_location_enterprise %} to {% data variables.product.prodname_dotcom_the_website %}. 詳細は、「[{% data variables.product.prodname_ghe_server %}を{% data variables.product.prodname_ghe_cloud %}に接続する](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
+{% data variables.product.product_location %} 上の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} セキュリティ{% endif %}アラートを有効にする前に、{% data variables.product.product_location %} を {% data variables.product.prodname_dotcom_the_website %} に接続する必要があります。 詳細は、「[{% data variables.product.prodname_ghe_server %}を{% data variables.product.prodname_ghe_cloud %}に接続する](/enterprise/{{ currentVersion }}/admin/guides/installation/connecting-github-enterprise-server-to-github-enterprise-cloud)」を参照してください。
 
 {% if currentVersion ver_gt "enterprise-server@2.20" %}
 
-{% if currentVersion ver_gt "enterprise-server@2.21" %}We recommend configuring {% data variables.product.prodname_dependabot_short %} alerts without notifications for the first few days to avoid an overload of emails. 数日後、通知を有効化すれば、通常どおり {% data variables.product.prodname_dependabot_short %} アラートを受信できます。{% endif %}
+{% if currentVersion ver_gt "enterprise-server@2.21" %}メールの過負荷を避けるため、最初の数日間は {% data variables.product.prodname_dependabot_short %} アラートを通知なしに設定することをお勧めします。 数日後、通知を有効化すれば、通常どおり {% data variables.product.prodname_dependabot_short %} アラートを受信できます。{% endif %}
 
-{% if currentVersion == "enterprise-server@2.21" %}We recommend configuring security alerts without notifications for the first few days to avoid an overload of emails. 数日後、通知を有効化すれば、通常どおりセキュリティアラートを受信できます。{% endif %}
+{% if currentVersion == "enterprise-server@2.21" %}メールの過負荷を避けるため、最初の数日間はセキュリティアラートを通知なしに設定することをお勧めします。 数日後、通知を有効化すれば、通常どおりセキュリティアラートを受信できます。{% endif %}
 
 {% endif %}
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
-1. In the administrative shell, enable the {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}security{% endif %} alerts for vulnerable dependencies on {% data variables.product.product_location_enterprise %}:
+1. 管理シェルで、{% data variables.product.product_location %} の脆弱性のある依存関係に対する {% if currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %}セキュリティ{% endif %}アラートを有効にします。
  ``` shell
 $ ghe-dep-graph-enable
 ```
-3. Return to
+   {% note %}
+
+   **Note**: For more information about enabling access to the administrative shell via SSH, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/configuration/accessing-the-administrative-shell-ssh)."
+
+   {% endnote %}
+
+3. 次に、
+
 {% data variables.product.prodname_ghe_server %}.
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.github-connect-tab %}{% if currentVersion ver_gt "enterprise-server@2.20" %}
 5. [Repositories can be scanned for vulnerabilities] で、ドロップダウンメニューを使用して、[**Enabled without notifications**] を選択します。 必要に応じて、通知を含むアラートを有効化にするには、[**Enabled with notifications**] を選択します。{% else %}
@@ -58,7 +67,7 @@ $ ghe-dep-graph-enable
 
 ### {% data variables.product.prodname_ghe_server %}で脆弱性のある依存関係を表示する
 
-{% data variables.product.product_location_enterprise %}ですべての脆弱性を表示し、{% data variables.product.prodname_dotcom_the_website %}から脆弱性データを手動で同期して、リストを更新することができます。
+{% data variables.product.product_location %}ですべての脆弱性を表示し、{% data variables.product.prodname_dotcom_the_website %}から脆弱性データを手動で同期して、リストを更新することができます。
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 2. 左サイドバーで [**Vulnerabilities**] をクリックします。 ![サイト管理サイドバーの [Vulnerabilities] タブ](/assets/images/enterprise/business-accounts/vulnerabilities-tab.png)

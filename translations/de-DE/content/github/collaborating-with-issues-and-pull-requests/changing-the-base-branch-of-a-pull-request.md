@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% warning %}
@@ -19,6 +20,12 @@ versions:
 3. Klicke neben dem Titel des Pull Requests auf **Edit** (Bearbeiten). ![Schaltfläche „Pull Request edit" (Bearbeiten eines Pull Request)](/assets/images/help/pull_requests/pull-request-edit.png)
 4. Wähle im Basis-Branch-Dropdownmenü den Basis-Branch aus, mit dem Du [die Änderungen vergleichen](/github/committing-changes-to-your-project/comparing-commits#comparing-branches) möchtest. ![Basis-Branch-Dropdownmenü ](/assets/images/help/pull_requests/pull-request-edit-base-branch.png)
 5. Lies die Informationen zum Ändern des Basis-Branch, und klicke auf **Change base** (Basis ändern). ![Schaltfläche „Base branch change confirmation" (Bestätigen der Basis-Branch-Änderung) ](/assets/images/help/pull_requests/pull-request-base-branch-confirm.png)
+
+{% tip %}
+
+**Tip:** When you open a pull request, {% data variables.product.product_name %} will set the base to the commit that branch references. If the branch is updated in the future, {% data variables.product.product_name %} will not update the base branch's commit.
+
+{% endtip %}
 
 ### Weiterführende Informationen
 

@@ -22,7 +22,7 @@ versions:
 
 ### 确定虚拟机类型
 
-在 Azure 上启动 {% data variables.product.product_location_enterprise %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
+在 Azure 上启动 {% data variables.product.product_location %} 之前，您需要确定最符合您的组织需求的虚拟机类型。
 
 #### 支持的 VM 类型和地区
 

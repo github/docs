@@ -4,6 +4,7 @@ intro: '为帮助您有效地管理通知，提供了多种取消订阅的方法
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 为帮助您了解您的订阅和决定是否取消订阅，请参阅“[查看您的订阅](/github/managing-subscriptions-and-notifications-on-github/viewing-your-subscriptions)”。
@@ -38,7 +39,7 @@ versions:
 
 {% data reusables.notifications.access_notifications %}
 1. 从通知收件箱中选择您想要取消订阅的通知。
-2. 使用 **selected（已选择）** {% octicon "triangle-down" aria-label="The down triangle icon" %} 下拉列表单击 **Unsubscribe（取消订阅）**。 ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
+2. Use the **selected** {% octicon "triangle-down" aria-label="The down triangle icon" %} drop-down to click **Unsubscribe.** ![主收件箱中的取消订阅选项](/assets/images/help/notifications-v2/unsubscribe-from-main-inbox.png)
 
 ### 从订阅页面取消订阅通知
 

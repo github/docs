@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### GraphQLでの認証
@@ -334,9 +335,9 @@ IDが分かれば、ミューテーションで先に進むことができます
 
   この行を調べましょう。
 
-    - `addReaction`はミューテーションの名前です。
-    - `input`は必須の引数のキーです。 ミューテーションではこれは常に`input`になります。
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}`は必須の引数の値です。 ミューテーションでは、これは常に入力フィールド（このケースでは`subjectId`と`content`）から構成される[入力オブジェクト](/v4/input_object/)（そのため波括弧です）になります。
+  - `addReaction`はミューテーションの名前です。
+  - `input`は必須の引数のキーです。 ミューテーションではこれは常に`input`になります。
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}`は必須の引数の値です。 ミューテーションでは、これは常に入力フィールド（このケースでは`subjectId`と`content`）から構成される[入力オブジェクト](/v4/input_object/)（そのため波括弧です）になります。
 
   どの値がcontentとして使われるのかは、どのように分かるのでしょうか？ [`addReaction`のドキュメント](/v4/mutation/addreaction/)は、`content`フィールドが[`ReactionContent`](/v4/enum/reactioncontent/)という型を持っていることを教えてくれます。GitHubのIssueでは特定の絵文字リアクションだけがサポートされているので、これは[enum](/v4/enum)です。 リアクションとして使える値は以下のとおりです（いくつかの値は対応する絵文字の名前とは異なっていることに注意してください）。
 

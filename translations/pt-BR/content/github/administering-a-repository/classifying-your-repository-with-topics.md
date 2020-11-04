@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### About topics
@@ -27,7 +28,7 @@ You can search for repositories that are associated with a particular topic. For
 
 ### Adding topics to your repository
 
-{% data reusables.repositories.navigate-to-repo %}{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% data reusables.repositories.navigate-to-repo %}{% if currentVersion ver_lt "enterprise-server@2.22" %}
 2. Under your repository description, click **Add topics**.
   ![Add topics link on a repository's main page](/assets/images/help/repository/add-topics-link.png)
 3. Type the topic you want to add to your repository, then type a space.

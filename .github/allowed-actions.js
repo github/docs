@@ -4,17 +4,13 @@
 // can be added it this list.
 
 module.exports = [
-  'actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe',
-  'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16',
-  'actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675',
-  'actions/github-script@5d03ada4b0a753e9460b312e61cc4f8fdeacf163',
-  'actions/github-script@6e5ee1dc1cb3740e5e5e76ad668e3f526edbfe45',
-  'actions/github-script@44b873bc975058192f5279ebe7579496381f575d',
-  'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9',
-  'actions/labeler@5f867a63be70efff62b767459b009290364495eb',
-  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d',
-  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526',
-  'actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8',
+  'actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16', //actions/cache@v2.1.2
+  'actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675', //actions/checkout@v2.3.3
+  'actions/github-script@626af12fe9a53dc2972b48385e7fe7dec79145c9', //actions/script@v3.0.0
+  'actions/labeler@5f867a63be70efff62b767459b009290364495eb', //actions/labeler@v2.2.0
+  'actions/setup-node@56899e050abffc08c2b3b61f3ec6a79a9dc3223d', //actions/setup-node@v1.4.4
+  'actions/setup-ruby@5f29a1cd8dfebf420691c4c9a0e832e2fae5a526', //actions/setup-ruby@v1.1.2
+  'actions/stale@44f9eae0adddf72dbf3eedfacc999f70afcec1a8', //actions/stale@v3.0.12
   'crowdin/github-action@fd9429dd63d6c0f8a8cb4b93ad8076990bd6e688',
   'dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911',
   'docker://chinthakagodawita/autoupdate-action:v1',
@@ -31,7 +27,7 @@ module.exports = [
   'rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9',
   'rachmari/labeler@832d42ec5523f3c6d46e8168de71cd54363e3e2e',
   'repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88',
-  'repo-sync/pull-request@ea6773388b83b337e4da9a223293309f2c3670e7',
+  'repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d',
   'rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815',
   'tjenkinson/gh-action-auto-merge-dependency-updates@cee2ac0'
 ]

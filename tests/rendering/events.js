@@ -411,4 +411,52 @@ describe('POST /events', () => {
       checkEvent({ ...experimentExample, experiment_success: undefined }, 201)
     )
   })
+
+  describe('redirect', () => {
+    const redirectExample = {
+      ...baseExample,
+      type: 'redirect',
+      redirect_from: 'http://example.com/a',
+      redirect_to: 'http://example.com/b'
+    }
+
+    it('should record an redirect event', () =>
+      checkEvent(redirectExample, 201)
+    )
+
+    it('redirect_from is required url', () =>
+      checkEvent({ ...redirectExample, redirect_from: ' ' }, 400)
+    )
+
+    it('redirect_to is required url', () =>
+      checkEvent({ ...redirectExample, redirect_to: undefined }, 400)
+    )
+  })
+
+  describe('clipboard', () => {
+    const clipboardExample = {
+      ...baseExample,
+      type: 'clipboard',
+      clipboard_operation: 'copy'
+    }
+
+    it('should record an clipboard event', () =>
+      checkEvent(clipboardExample, 201)
+    )
+
+    it('clipboard_operation is required copy, paste, cut', () =>
+      checkEvent({ ...clipboardExample, clipboard_operation: 'destroy' }, 400)
+    )
+  })
+
+  describe('print', () => {
+    const printExample = {
+      ...baseExample,
+      type: 'print'
+    }
+
+    it('should record a print event', () =>
+      checkEvent(printExample, 201)
+    )
+  })
 })

@@ -116,6 +116,8 @@ jobs:
       - if: ${{ needs.see_if_should_skip.outputs.should_skip != 'true' }}
         name: Run tests
         run: npx jest tests/${{ matrix.test-group }}/
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Send Slack notification if workflow fails
         uses: rtCamp/action-slack-notify@e17352feaf9aee300bf0ebc1dfbf467d80438815

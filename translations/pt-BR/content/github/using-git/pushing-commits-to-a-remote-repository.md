@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 O comando `git push` usa dois argumentos:
@@ -97,3 +98,4 @@ Para obter mais informações sobre como trabalhar com bifurcações, consulte "
 - [Página do manual `git remote`](https://git-scm.com/docs/git-remote.html)
 - "[Folha de consultas Git](/articles/git-cheatsheet)"
 - "[Fluxos de trabalho Git](/articles/git-workflows)"
+- "[Git Handbook](https://guides.github.com/introduction/git-handbook/)"

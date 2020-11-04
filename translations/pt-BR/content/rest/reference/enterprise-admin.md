@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints to administer your enterprise account.
@@ -21,31 +22,34 @@ You can use these {{ site.data.variables.product.prodname_ghe_cloud }} endpoints
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 ### URLs do ponto de extremidade
 
-Os endpoints da API REST — exceto endpoints da API [Console de Gerenciamento](#management-console) — são prefixados com a seguinte URL:
+REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
 http(s)://<em>hostname</em>/api/v3/
 ```
 
+{% if enterpriseServerVersions contains currentVersion %}
 Os endpoints de API [Console de gerenciamento](#management-console)  somente são prefixados com um nome de host:
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
-
+{% endif %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### Autenticação
 
-Os endpoints de API da sua instalação do {% data variables.product.product_name %} aceitam [os mesmos métodos de autenticação](/rest/overview/resources-in-the-rest-api#authentication) da API do GitHub.com. Você pode se autenticar com **[tokens OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que podem ser criados usando a [API de Autorizações](/rest/reference/oauth-authorizations#create-a-new-authorization)) ou **[autenticação básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} Os tokens OAuth devem ter o escopo do OAuth `site_admin` [](/developers/apps/scopes-for-oauth-apps#available-scopes) quando usados com pontos de extremidades específicos da empresa.{% endif %}
+Os endpoints de API da sua instalação do {% data variables.product.product_name %} aceitam [os mesmos métodos de autenticação](/rest/overview/resources-in-the-rest-api#authentication) da API do GitHub.com. Você pode se autenticar com **[tokens OAuth](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (que podem ser criados usando a [API de Autorizações](/rest/reference/oauth-authorizations#create-a-new-authorization)) ou **[autenticação básica](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} Os tokens OAuth devem ter o `site_admin` [escopo OAuth](/developers/apps/scopes-for-oauth-apps#available-scopes) quando usados com endpoints específicos da Enterprise.{% endif %}
 
-Os endpoints da API de administração da empresa somente são acessíveis para administradores do site autenticados pelo {% data variables.product.product_name %}, exceto a API [Console de gerenciamento](#management-console), que requer a [senha do Console de Gerenciamento](/enterprise/admin/articles/accessing-the-management-console/).
+Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### Informações da versão
 
-A versão atual de uma instância do {% data variables.product.product_name %} é retornada no cabeçalho de resposta de cada API: `X-GitHub-Enterprise-Versão: {{currentVersion}}.0` Você também pode ler a versão atual chamando o [meta endpoint](/rest/reference/meta/).
+The current version of your enterprise is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -54,7 +58,6 @@ A versão atual de uma instância do {% data variables.product.product_name %} �
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-
 ## Cobrança
 
 {% for operation in currentRestOperations %}
@@ -135,8 +138,19 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" %}
 
+## Encryption at rest
+
+You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Estatísticas de admin
 
 A API de Estatísticas Administrativas fornece uma variedade de métricas sobre sua instalação. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
@@ -145,9 +159,25 @@ A API de Estatísticas Administrativas fornece uma variedade de métricas sobre 
   {% if operation.subcategory == 'admin-stats' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+## Announcements
+
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'announcement' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+
 ## Webhooks globais
 
-Webhooks globais são instalados em uma instância do {% data variables.product.prodname_enterprise %}. Você pode usar webhooks globais para monitorar, responder ou impor regras automaticamente para usuários, organizações, equipes e repositórios em sua instância. Webhooks globais podem se inscrever para os tipos de eventos  [organização](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [usuário](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repositório](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [equipe](/developers/webhooks-and-events/webhook-events-and-payloads#team), [integrante](/developers/webhooks-and-events/webhook-events-and-payloads#member), [filiação](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [bifurcação](/developers/webhooks-and-events/webhook-events-and-payloads#fork)e [ping](/developers/webhooks-and-events/about-webhooks#ping-event).
+Global webhooks are installed on your enterprise. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your enterprise. Webhooks globais podem se inscrever para os tipos de eventos  [organização](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [usuário](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repositório](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [equipe](/developers/webhooks-and-events/webhook-events-and-payloads#team), [integrante](/developers/webhooks-and-events/webhook-events-and-payloads#member), [filiação](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [bifurcação](/developers/webhooks-and-events/webhook-events-and-payloads#fork)e [ping](/developers/webhooks-and-events/about-webhooks#ping-event).
 
 *Esta API está disponível somente para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la. Para aprender como configurar webhooks globais, consulte [Sobre webhooks globais](/enterprise/admin/user-management/about-global-webhooks).
 
@@ -155,16 +185,24 @@ Webhooks globais são instalados em uma instância do {% data variables.product.
   {% if operation.subcategory == 'global-webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## LDAP
 
-Você pode usar a API LDAP para atualizar as relações de conta entre um usuário ou equipe {% data variables.product.prodname_ghe_server %} e sua entrada LDAP vinculada ou enfileirar uma nova sincronização.
+Você pode usar a API LDAP para atualizar as relações de conta entre um usuário ou equipe {% data variables.product.product_name %} e sua entrada LDAP vinculada ou enfileirar uma nova sincronização.
 
-Com os endpoints de mapeamento LDAP, você é capaz de atualizar o Nome Distinto (DN) para o qual um usuário ou uma equipe mapeia. Note que os endpoints LDAP são geralmente eficazes apenas se o seu appliance {% data variables.product.prodname_ghe_server %} tiver [Sincronização LDAP habilitada](/enterprise/admin/authentication/using-ldap). O endpoint [mapeamento LDAP de atualização para um usuário](#update-ldap-mapping-for-a-user) pode ser usado quando o LDAP é habilitado, mesmo que a sincronização LDAP esteja desativada.
+Com os endpoints de mapeamento LDAP, você é capaz de atualizar o Nome Distinto (DN) para o qual um usuário ou uma equipe mapeia. Note que os endpoints LDAP são geralmente eficazes apenas se o seu appliance {% data variables.product.product_name %} tiver [Sincronização LDAP habilitada](/enterprise/admin/authentication/using-ldap). O endpoint [mapeamento LDAP de atualização para um usuário](#update-ldap-mapping-for-a-user) pode ser usado quando o LDAP é habilitado, mesmo que a sincronização LDAP esteja desativada.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Licença
 
 A API de Licença fornece informações sobre sua licença empresarial. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
@@ -173,17 +211,21 @@ A API de Licença fornece informações sobre sua licença empresarial. *Só est
   {% if operation.subcategory == 'license' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Console de gerenciamento
 
-A API do Console de Gerenciamento ajuda você a gerenciar sua instalação do {% data variables.product.prodname_ghe_server %}.
+A API do Console de Gerenciamento ajuda você a gerenciar sua instalação do {% data variables.product.product_name %}.
 
 {% tip %}
 
-Você deve definir explicitamente o número da porta ao fazer chamadas de API para o Console de Gerenciamento. Se o TLS estiver ativado na sua instância empresarial, o número da porta é `8443`; caso contrário, o número da porta é `8080`.
+Você deve definir explicitamente o número da porta ao fazer chamadas de API para o Console de Gerenciamento. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
 
 Se não quiser fornecer um número da porta, você precisará configurar sua ferramenta para seguir os redirecionamentos automaticamente.
 
-Talvez você também precise adicionar o [`sinalizador`-k](http://curl.haxx.se/docs/manpage.html#-k) quando estiver usando `cURL`, pois {% data variables.product.prodname_ghe_server %} usa um certificado autoassinado antes de você [adicionar seu próprio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
+Talvez você também precise adicionar o [`sinalizador`-k](http://curl.haxx.se/docs/manpage.html#-k) quando estiver usando `cURL`, pois {% data variables.product.product_name %} usa um certificado autoassinado antes de você [adicionar seu próprio certificado TLS](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
@@ -207,14 +249,21 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Organizações
 
-A API de administração da organização permite criar organizações em um appliance do {% data variables.product.prodname_ghe_server %}. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
+The Organization Administration API allows you to create organizations on your enterprise. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## Hooks pre-receive da organização
 
 A API de Hooks pre-receive da Organização permite que você veja e modifique a aplicação dos hooks pre-receive disponíveis para uma organização.
@@ -236,6 +285,10 @@ Os valores possíveis para *aplicação* são `habilitado`, `desabilitado` e`tes
   {% if operation.subcategory == 'org-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Ambientes pre-receive
 
 A API de Ambientes Pre-receive permite que você crie, liste, atualize e apague ambientes para hooks pre-receive. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
@@ -244,13 +297,13 @@ A API de Ambientes Pre-receive permite que você crie, liste, atualize e apague 
 
 #### Ambiente pre-receive
 
-| Nome                  | Tipo      | Descrição                                                                                   |
-| --------------------- | --------- | ------------------------------------------------------------------------------------------- |
-| `name`                | `string`  | O nome do ambiente conforme exibido na interface do usuário.                                |
-| `image_url`           | `string`  | URL do tarball que será baixado e extraído.                                                 |
-| `default_environment` | `boolean` | Se este é o ambiente-padrão que vem com {% data variables.product.prodname_ghe_server %}. |
-| `download`            | `objeto`  | Status do download deste ambiente.                                                          |
-| `hooks_count`         | `inteiro` | O número de hooks de pre-receive que usam este ambiente.                                    |
+| Nome                  | Tipo      | Descrição                                                                          |
+| --------------------- | --------- | ---------------------------------------------------------------------------------- |
+| `name`                | `string`  | O nome do ambiente conforme exibido na interface do usuário.                       |
+| `image_url`           | `string`  | URL do tarball que será baixado e extraído.                                        |
+| `default_environment` | `boolean` | Se este é o ambiente-padrão que vem com {% data variables.product.product_name %}. |
+| `download`            | `objeto`  | Status do download deste ambiente.                                                 |
+| `hooks_count`         | `inteiro` | O número de hooks de pre-receive que usam este ambiente.                           |
 
 #### Download do ambiente pre-receive
 
@@ -266,6 +319,9 @@ Os valores possíveis para o `estado` são `not_started,` `in_progress,` `sucess
   {% if operation.subcategory == 'pre-receive-environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## Hooks pre-receive
 
 A API de hooks pre-receive permite que você crie, liste, atualize e apague hooks pre-receive. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
@@ -289,6 +345,10 @@ Os valores possíveis para *aplicação* são `habilitado`, `desabilitado` e`tes
   {% if operation.subcategory == 'pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Hooks pre-receive do repositório
 
 A API de Hooks pre-receive do Repositório permite que você veja e modifique a aplicação dos hooks pre-receive disponíveis para um repositório.
@@ -309,17 +369,12 @@ Os valores possíveis para *aplicação* são `habilitado`, `desabilitado` e`tes
   {% if operation.subcategory == 'repo-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Pesquisar nos índices
+{% endif %}
 
-A API de pesquisa nos índices permite que você faça fila com uma variedade de tarefas de indexação de pesquisa. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `404` se tentarem acessá-la.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'search-indexing' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Usuários
 
-A API de Administração do Usuário permite que você promova, rebaixe, suspenda, e cancele a suspensão dos usuários em um aplicativo de {% data variables.product.prodname_ghe_server %}. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `403` se tentarem acessá-la.
+The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *Só está disponível para [administradores do site](/rest/overview/resources-in-the-rest-api#authentication) autenticados.* Usuários normais receberão uma mensagem `403` se tentarem acessá-la.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

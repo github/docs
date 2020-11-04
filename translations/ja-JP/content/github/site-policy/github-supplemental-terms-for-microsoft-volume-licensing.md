@@ -175,7 +175,7 @@ If GitHub has reason to believe the Content of a Private Repository is in violat
 
 #### 2.5.2 Copyright Infringement and DMCA Policy.
 
-お客様が著作権所有者であり、「サービス」上のコンテンツがお客様の著作権を侵害していると考えられる場合、お客様は[GitHubのデジタルミレニアム著作権法 (DMCA) ポリシー](https://github.com/contact/dmca)に従って、[DMCAの様式](https://github.com/contact/dmca-notice)でGitHubに通知するか、またはcopyright@github.com.に電子メールを送信すして、GitHubに連絡することができます。
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may contact GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](https://github.com/contact/dmca) by notifying GitHub via its [DMCA Form](https://github.com/contact/dmca-notice) or by emailing copyright@github.com.
 
 #### 2.5.3 GitHub Trademarks and Logos.
 

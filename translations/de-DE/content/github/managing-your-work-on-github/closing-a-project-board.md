@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Wenn Du ein Projektboard schließt, wird jede konfigurierte Workflow-Automatisierung standardmäßig pausiert.

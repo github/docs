@@ -1,11 +1,12 @@
 ---
 title: Organization アカウントの削除
-intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、プロジェクトページや Organization ページもすべて削除されます。 {% if currentVersion == "free-pro-team@latest" %}The organization name becomes available for use on a new user or organization account, and your billing will end.{% endif %}'
+intro: 'Organization を削除すると、リポジトリ、プライベートリポジトリのフォーク、ウィキ、Issue、プルリクエスト、プロジェクトページや Organization ページもすべて削除されます。 {% if currentVersion == "free-pro-team@latest" %}Organization 名は新しいユーザや Organization のアカウントで使用できるようになり、支払いは終了します。{% endif %}'
 redirect_from:
   - /articles/deleting-an-organization-account
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}

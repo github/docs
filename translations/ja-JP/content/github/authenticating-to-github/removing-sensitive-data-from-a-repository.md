@@ -9,6 +9,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 `git filter-branch` コマンドと BFG Repo-Cleaner は、リポジトリの履歴を書き換えます。変更を加えた既存のコミットや依存関係にあるコミットの SHA を変更します。 コミットの SHA が変更されると、リポジトリでオープンされたプルリクエストに影響する可能性があります。 ファイルをリポジトリから削除する前に、オープンプルリクエストをすべてマージまたはクローズすることを推奨します。
@@ -134,7 +135,7 @@ $ bfg --replace-text passwords.txt
 
   {% endnote %}
 
-## 将来にわたって誤ったコミットを回避する
+### 将来にわたって誤ったコミットを回避する
 
 コミット対象でないものがコミットされるのを回避するためのシンプルな方法がいくつかあります。
 
@@ -145,5 +146,5 @@ $ bfg --replace-text passwords.txt
 
 ### 参考リンク
 
-- [`git filter-branch` メインページ](https://git-scm.com/docs/git-filter-branch)
+- [`git filter-branch` man page](https://git-scm.com/docs/git-filter-branch)
 - [Pro Git：Git ツール - 履歴の書き換え](https://git-scm.com/book/en/Git-Tools-Rewriting-History)

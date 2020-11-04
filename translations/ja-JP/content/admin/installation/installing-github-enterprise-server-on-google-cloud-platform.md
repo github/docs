@@ -20,13 +20,12 @@ versions:
 
 ### マシンタイプの決定
 
-Google Cloud Platformde{% data variables.product.product_location_enterprise %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。
+Google Cloud Platformde{% data variables.product.product_location %}を起動する前に、組織の要求に最も適したマシンタイプを決定する必要があります。
 
 #### サポートされているマシンタイプ
 
 {% data variables.product.prodname_ghe_server %} は、次の Google Compute Engine (GCE) マシンタイプでサポートされています。 詳しい情報については[Google Cloud Platformのマシンタイプの記事](https://cloud.google.com/compute/docs/machine-types)を参照してください。
-|
-{% if currentVersion != "free-pro-team@latest" %}
+
 |  | ハイメモリ         |
 |  | ------------- |
 |  | n1-highmem-4  |
@@ -35,7 +34,6 @@ Google Cloud Platformde{% data variables.product.product_location_enterprise %}�
 |  | n1-highmem-32 |
 |  | n1-highmem-64 |
 |  | n1-highmem-96 |
-{% endif %}
 
 #### 推奨マシンタイプ
 

@@ -5,13 +5,14 @@ permissions: Organization のオーナーは、Organization に対して基本�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Organization の基本レベルの権限について
 
 Organization のリポジトリにアクセスするとき Organization の全メンバーに適用される基本レベルの権限を設定できます。 基本レベルの権限は、外部のコラボレーターには適用されません。
 
-{% if currentVersion == "free-pro-team@latest" %}By default, members of an organization will have **Read** permissions to the organization's repositories.{% endif %}
+{% if currentVersion == "free-pro-team@latest" %}デフォルトでは、Organization のメンバーは Organization のリポジトリに対する**読み取り**権限を付与されます。{% endif %}
 
 Organization のリポジトリに対する管理者権限があるユーザが、リポジトリに対してそれより高いレベルの権限を付与すると、基本レベルの権限は、付与された高い権限によってオーバーライドされます。
 

@@ -1,6 +1,6 @@
 ---
 title: Configurar servidor proxy web de saída
-intro: 'Servidores proxy geram uma camada extra de segurança para a {% data variables.product.product_location_enterprise %}.'
+intro: 'Servidores proxy geram uma camada extra de segurança para a {% data variables.product.product_location %}.'
 redirect_from:
   - /enterprise/admin/guides/installation/configuring-a-proxy-server/
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
@@ -9,11 +9,11 @@ versions:
   enterprise-server: '*'
 ---
 
-Quando houver um servidor proxy habilitado para a {% data variables.product.product_location_enterprise %}, as mensagens de saída enviadas para o {% data variables.product.prodname_ghe_server %} sairão primeiramente pelo servidor proxy, a menos que o host de destino seja adicionado como exclusão de proxy HTTP. Os tipos de mensagens de saída incluem webhooks de saída, pacotes para upload e fetch de avatares herdados. A URL do servidor proxy é o protocolo, domínio ou endereço IP e o número da porta, por exemplo: `http://127.0.0.1:8123`.
+Quando houver um servidor proxy habilitado para a {% data variables.product.product_location %}, as mensagens de saída enviadas para o {% data variables.product.prodname_ghe_server %} sairão primeiramente pelo servidor proxy, a menos que o host de destino seja adicionado como exclusão de proxy HTTP. Os tipos de mensagens de saída incluem webhooks de saída, pacotes para upload e fetch de avatares herdados. A URL do servidor proxy é o protocolo, domínio ou endereço IP e o número da porta, por exemplo: `http://127.0.0.1:8123`.
 
 {% note %}
 
-**Observação:** para conectar a {% data variables.product.product_location_enterprise %} ao {% data variables.product.prodname_dotcom_the_website %}, a sua configuração de proxy deve permitir conectividade com `github.com` e `api.github.com`. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)".
+**Observação:** para conectar a {% data variables.product.product_location %} ao {% data variables.product.prodname_dotcom_the_website %}, a sua configuração de proxy deve permitir conectividade com `github.com` e `api.github.com`. Para obter mais informações, consulte "[Conectar o {% data variables.product.prodname_ghe_server %} ao {% data variables.product.prodname_dotcom_the_website %}](/enterprise/{{ currentVersion }}/admin/guides/developer-workflow/connecting-github-enterprise-server-to-github-com)".
 
 {% endnote %}
 

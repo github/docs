@@ -1,7 +1,7 @@
 ---
-title: Sharing workflows with your organization
-shortTitle: Sharing workflows with your organization
-intro: 'Learn how you can use organization features to collaborate with your team, by sharing workflow templates, secrets, and self-hosted runners.'
+title: ワークフローを Organization と共有する
+shortTitle: ワークフローを Organization と共有する
+intro: 'ワークフローテンプレート、シークレット、およびセルフホストランナーを共有することで、Organization 機能を使用して Team とコラボレーションする方法を学びます。'
 redirect_from:
   - /actions/configuring-and-managing-workflows/sharing-workflow-templates-within-your-organization
 versions:
@@ -14,7 +14,7 @@ versions:
 
 ### 概要
 
-If you need to share workflows and other {% data variables.product.prodname_actions %} features with your team, then consider collaborating within a {% data variables.product.prodname_dotcom %} organization. An organization allows you to centrally store and and manage secrets, artifacts, and self-hosted runners. You can also create workflow templates in the `.github` repository and share them with other users in your organization.
+ワークフローやその他の {% data variables.product.prodname_actions %} 機能を Team と共有する必要がある場合は、{% data variables.product.prodname_dotcom %} Organization 内でのコラボレーションを検討します。 An organization allows you to centrally store and manage secrets, artifacts, and self-hosted runners. `.github` リポジトリにワークフローテンプレートを作成して、Organization 内の他のユーザと共有することもできます。
 
 ### ワークフロー テンプレートの作成
 
@@ -83,9 +83,9 @@ If you need to share workflows and other {% data variables.product.prodname_acti
 組織のワークフロー テンプレートは、組織名で作成されたワークフロー</em>"というタイトルの独自 _セクションにあります。 使いたいテンプレート名の下で、**Set up this workflow（このワークフローをセットアップする）**をクリックしてください。 ![このワークフローを設定します](/assets/images/help/settings/actions-create-starter-workflow.png)</p></li> </ol>
 
 
-### Sharing secrets within an organization
+### Organization 内でシークレットを共有する
 
-You can centrally manage your secrets within an organization, and then make them available to selected repositories. This also means that you can update a secret in one location, and have the change apply to all repository workflows that use the secret.
+Organization 内でシークレットを一元管理し、選択したリポジトリで使用できるようにすることができます。 これは、1 つの場所でシークレットを更新し、その変更をシークレットを使用するすべてのリポジトリワークフローに適用できるということを示します。
 
 組織でシークレットを作成する場合、ポリシーを使用して、そのシークレットにアクセスできるリポジトリを制限できます。 たとえば、すべてのリポジトリにアクセスを許可したり、プライベート リポジトリまたは指定したリポジトリ のリストのみにアクセスを制限したりできます。
 
@@ -100,13 +100,13 @@ You can centrally manage your secrets within an organization, and then make them
 1 [ **リポジトリアクセス** ドロップダウン リストから、アクセス ポリシーを選択します。
 1 [**Add secret**] をクリックします。</ol>
 
-### Share self-hosted runners within an organization
+### Organization 内でセルフホストランナーを共有する
 
-Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
+Organization の管理者は、セルフホストランナーをグループに追加してから、グループにアクセスできるリポジトリを制御するポリシーを作成できます。
 
 詳しい情報については、「[グループを使用したセルフホストランナーへのアクセスを管理する](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)」を参照してください。
 
 
 ### 次のステップ
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Security hardening for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/security-hardening-for-github-actions)."
+{% data variables.product.prodname_actions %} の詳細については、「[{% data variables.product.prodname_actions %} のセキュリティ強化](/actions/learn-github-actions/security-hardening-for-github-actions)」を参照してください。

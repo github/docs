@@ -8,13 +8,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 コントリビューショングラフは、パブリックリポジトリからのアクティビティを表示します。 パブリックリポジトリとプライベートリポジトリの両方からアクティビティを表示するように選択できます。プライベートリポジトリでは、アクティビティの詳細を表示できます。 詳細は「[プライベートコントリビューションをプロフィールで公開または非公開にする](/articles/publicizing-or-hiding-your-private-contributions-on-your-profile)」を参照してください。
 
 {% note %}
 
-**メモ:** [ローカル Git 設定に使用したメールアドレスを {% data variables.product.product_name %} メール設定](/articles/adding-an-email-address-to-your-github-account)に追加した場合のみ、コミットがコントリビューショングラフに表示されます。 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#you-havent-added-your-local-git-commit-email-to-your-profile)」を参照してください。
+**Note:** Commits will only appear on your contributions graph if the email address you used to author the commits is connected to your account on {% data variables.product.product_name %}. 詳細は「[コントリビューションがプロフィールに表示されないのはなぜですか？](/articles/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account)」を参照してください。
 
 {% endnote %}
 
@@ -25,7 +26,7 @@ versions:
 - リポジトリのデフォルトブランチまたは `gh-pages` ブランチにコミットすること
 - Issue を開くこと
 - プルリクエストを提案すること
-- Submitting a pull request review{% if currentVersion != "free-pro-team@latest" %}
+- Submitting a pull request review{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}
 - リポジトリのデフォルトのブランチまたは `gh-pages` ブランチでコミットを共作{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
@@ -79,9 +80,12 @@ versions:
 
 ![コントリビューションアクティビティ時間フィルター](/assets/images/help/profile/contributions_activity_time_filter.png)
 
+{% if currentVersion != "github-ae@latest" %}
 ### {% data variables.product.prodname_dotcom_the_website %} 上の {% data variables.product.product_location_enterprise %} からコントリビューションを表示する
+If your site administrator has enabled
 
-サイト管理者が、{% data variables.product.prodname_unified_contributions %} を有効にしている場合、{% data variables.product.prodname_enterprise %} コントリビューションカウントを {% data variables.product.prodname_dotcom_the_website %} プロフィールに送信できます。 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
+{% data variables.product.prodname_unified_contributions %}, you can send {% data variables.product.prodname_enterprise %} contribution counts to your {% data variables.product.prodname_dotcom_the_website %} profile. 詳細は「[{% data variables.product.prodname_ghe_server %} コントリビューションを {% data variables.product.prodname_dotcom_the_website %} に送信する](/articles/sending-your-github-enterprise-server-contributions-to-your-github-com-profile)」を参照してください。
+{% endif %}
 
 ### 参考リンク
 
