@@ -165,7 +165,7 @@ echo "::error file=app.js,line=10,col=15::Something went wrong"
 ::endgroup::
 ```
 
-Emitting a `group` with a title will instruct the logs to create a collapsible region up to the next `endgroup` command.
+Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
 #### Example
 
