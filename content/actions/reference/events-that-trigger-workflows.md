@@ -316,7 +316,7 @@ on:
 
 The `issue_comment` event occurs for comments on both issues and pull requests. To determine whether the `issue_comment` event was triggered from an issue or pull request, you can check the event payload for the `issue.pull_request` property and use it as a condition to skip a job.
 
-For example, you can choose to run the `pr_commented` job when comments are added to a pull request, and the `issue_commented` job when comments are added to an issue.
+For example, you can choose to run the `pr_commented` job when comment events occur in a pull request, and the `issue_commented` job when comment events occur in an issue.
 
 ```yaml
 on: issue_comment
