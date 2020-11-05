@@ -26,9 +26,10 @@ const yaml = require('js-yaml')
 const eaConfig = yaml.load(fs.readFileSync(path.join(process.cwd(), 'ea-config.yml'), 'utf8'))
 
 // Early Access details
-const earlyAccessOwner = 'docs'
-const earlyAccessDir = 'early-access-test'
-const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessDir}`
+const earlyAccessOwner = 'github'
+const earlyAccessRepo = 'docs-early-access'
+const earlyAccessDir = 'early-access'
+const earlyAccessFullRepo = `https://${DOCUBOT_REPO_PAT}@github.com/${earlyAccessOwner}/${earlyAccessRepo}`
 const earlyAccessContentDir = path.join(process.cwd(), 'content', earlyAccessDir)
 
 // Production vs. staging environment
@@ -41,7 +42,7 @@ const earlyAccessBranch = HEROKU_PRODUCTION_APP ? eaConfig.EA_PRODUCTION_BRANCH 
 // Confirm that the branch exists in the remote
 const branchExists = execSync(`git ls-remote --heads ${earlyAccessFullRepo} ${earlyAccessBranch}`).toString()
 if (!branchExists) {
-  console.log(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessDir}. Exiting!`)
+  console.log(`The branch '${earlyAccessBranch}' was not found in ${earlyAccessOwner}/${earlyAccessRepo}. Exiting!`)
   process.exit(0)
 }
 
