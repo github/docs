@@ -98,7 +98,7 @@ You should also consider the environment of the self-hosted runner machines:
 
 ### Auditing {% data variables.product.prodname_actions %} events
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account perfomed the action.
+You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which user account performed the action.
 
 For example, you can use the audit log to track the `action:org.update_actions_secret` event, which tracks changes to organization secrets:
   ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
