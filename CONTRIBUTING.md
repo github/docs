@@ -30,9 +30,9 @@ Fork using the command line:
 
 - [Fork the repo](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo#fork-an-example-repository) so that you can make your changes without affecting the original project until you're ready to merge them.
 
-Fork, edit and preview using [GitHub Codespaces](https://github.com/features/codespaces):
+Fork with [GitHub Codespaces](https://github.com/features/codespaces):
 
-- With one click of a button, simply fork, start to edit and preview the documentation, without having to install anything.
+[Fork, edit, and preview](https://docs.github.com/en/free-pro-team@latest/github/developing-online-with-codespaces/creating-a-codespace) using [GitHub Codespaces](https://github.com/features/codespaces) without having to install and run the project locally.
 
   ![](./assets/images/codespaces.gif)
 
