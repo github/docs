@@ -25,9 +25,7 @@ When you're ready to stop your local server, type <kbd>CTRL</kbd><kbd>c</kbd> in
 
 ### Using GitHub Codespaces
 
-As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces):
-
-![](../assets/images/codespaces.gif)
+As an alternative, you can simply use [GitHub Codespaces](https://github.com/features/codespaces).
 
 In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
 
