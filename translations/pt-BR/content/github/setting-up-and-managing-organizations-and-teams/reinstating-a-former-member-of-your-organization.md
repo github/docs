@@ -6,9 +6,13 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
+permissions: 'Organization owners can reinstate a former member of an organization.'
 ---
 
-Se você [remover um usuário da organização](/articles/removing-a-member-from-your-organization), [converter um integrante da organização em um colaborador externo](/articles/converting-an-organization-member-to-an-outside-collaborator), ou se um usuário for removido da organização porque você [exigiu que os integrantes e colaboradores externos habilitassem a autenticação de dois fatores (2FA)](/articles/requiring-two-factor-authentication-in-your-organization), as configurações e os privilégios de acesso do usuário serão mantidos por três meses. Você pode restaurar os privilégios do usuário se você {% if currentVersion =="free-pro-team@latest" %}convidá-los{% else %}adicioná-los{% endif %} à organização nesse período de tempo.
+### About member reinstatement
+
+If you [remove a user from your organization](/articles/removing-a-member-from-your-organization){% if currentVersion == "github-ae@latest" %} or{% else %},{% endif %} [convert an organization member to an outside collaborator](/articles/converting-an-organization-member-to-an-outside-collaborator){% if currentVersion != "github-ae@latest" %}, or a user is removed from your organization because you've [required members and outside collaborators to enable two-factor authentication (2FA)](/articles/requiring-two-factor-authentication-in-your-organization){% endif %}, the user's access privileges and settings are saved for three months. Você pode restaurar os privilégios do usuário se você {% if currentVersion =="free-pro-team@latest" %}convidá-los{% else %}adicioná-los{% endif %} à organização nesse período de tempo.
 
 {% data reusables.two_fa.send-invite-to-reinstate-user-before-2fa-is-enabled %}
 
@@ -21,21 +25,15 @@ Ao restabelecer um ex-integrante da organização, você pode restaurar:
  - As atribuições de problemas na organização
  - As assinaturas do repositório (configurações de notificação para inspecionar, não inspecionar ou ignorar as atividades de um repositório)
 
-    {% tip %}
+{% if enterpriseServerVersions contains currentVersion %}
+Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
+{% endif %}
 
-    {% if currentVersion == "free-pro-team@latest" %}
-    **Dicas**:
-    - Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
-    - Somente proprietários da organização podem convidar usuários para participar de uma organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
-    - Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}
+{% if currentVersion == "free-pro-team@latest" %}
+Se a sua organização tem uma assinatura paga por usuário, uma licença não utilizada deve estar disponível antes de você poder restabelecer um antigo integrante da organização. Para obter mais informações, consulte "[Sobre preços por usuário](/articles/about-per-user-pricing)". {% data reusables.organizations.org-invite-expiration %}
+{% endif %}
 
-   {% else %}
-    **Dicas**:
-    - Se um integrante foi removido da organização por não usar a autenticação de dois fatores e a organização ainda exigir essa autenticação, o ex-integrante precisará habilitar a autenticação de dois fatores antes de você restabelecer a associação.
-    - Somente proprietários da organização podem adicionar usuários a uma organização. Para obter mais informações, consulte "[Níveis de permissão para uma organização](/articles/permission-levels-for-an-organization)".
-   {% endif %}
-
-   {% endtip %}
+### Restabelecer ex-integrantes da organização
 
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}

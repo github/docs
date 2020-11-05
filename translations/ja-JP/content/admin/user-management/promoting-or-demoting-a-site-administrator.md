@@ -19,8 +19,7 @@ versions:
 
 ### Enterprise設定からユーザを昇格させる
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 5. ページの右上にある[**Add owner**] をクリックします。 ![管理者を追加するボタン](/assets/images/help/business-accounts/business-account-add-admin-button.png)
@@ -28,8 +27,7 @@ versions:
 
 ### Enterprise設定からサイト管理者を降格させる
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. ウィンドウの左上にある [Find an administrator] 検索フィールドに、降格させたい人物のユーザ名を入力します。 ![管理者を見つけるための検索フィールド](/assets/images/help/business-accounts/business-account-search-for-admin.png)

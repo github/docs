@@ -30,7 +30,7 @@ You can connect to {% data variables.product.product_name %} repositories within
 
 ### 项目管理工具
 
-You can integrate your {% data variables.product.product_name %} personal account or organization with third-party project management tools, such as Jira or Slack.
+您可以将 {% data variables.product.product_name %} 个人帐户或组织与 Jira 或 Slack 等第三方项目管理工具集成。
 
 #### Jira Cloud 与 {% data variables.product.product_name %}.com 集成
 

@@ -7,9 +7,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
-
+ 
 
 Ao fazer solicitações autenticadas para a API do {% data variables.product.product_name %}, os aplicativos geralmente precisam obter repositórios e organizações do usuário atual. Neste guia, explicaremos como descobrir esses recursos de forma confiável.
 

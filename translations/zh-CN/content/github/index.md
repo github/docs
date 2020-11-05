@@ -8,6 +8,7 @@ intro: '适用于软件开发者、设计师和项目经理的文档、指南和
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% link_in_list /getting-started-with-github %}
@@ -31,7 +32,7 @@ versions:
 {% link_in_list /setting-up-and-managing-organizations-and-teams %}
 
 <!-- if currentVersion == "free-pro-team@latest" -->
-{% link_in_list /setting-up-and-managing-your-enterprise-account %}
+{% link_in_list /setting-up-and-managing-your-enterprise %}
 <!-- endif -->
 
 <!-- if currentVersion == "free-pro-team@latest" -->

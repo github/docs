@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Authenticating with GraphQL
@@ -334,9 +335,9 @@ With the ID known, we can proceed with the mutation:
 
   Let's examine this line:
 
-    - `addReaction` is the name of the mutation.
-    - `input` is the required argument key. This will always be `input` for a mutation.
-    - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/v4/input_object/) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
+  - `addReaction` is the name of the mutation.
+  - `input` is the required argument key. This will always be `input` for a mutation.
+  - `{subjectId:"MDU6SXNzdWUyMzEzOTE1NTE=",content:HOORAY}` is the required argument value. This will always be an [input object](/v4/input_object/) (hence the curly braces) composed of input fields (`subjectId` and `content` in this case) for a mutation.
 
   How do we know which value to use for the content? The [`addReaction` docs](/v4/mutation/addreaction/) tell us the `content` field has the type [`ReactionContent`](/v4/enum/reactioncontent/), which is an [enum](/v4/enum) because only certain emoji reactions are supported on GitHub issues. These are the allowed values for reactions (note some values differ from their corresponding emoji names):
 

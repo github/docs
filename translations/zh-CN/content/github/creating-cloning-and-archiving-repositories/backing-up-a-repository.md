@@ -1,11 +1,12 @@
 ---
 title: 备份仓库
-intro: 'You can use{% if enterpriseServerVersions contains currentVersion %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
+intro: 'You can use{% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %} Git and{% endif %} the API {% if currentVersion == "free-pro-team@latest" %}or a third-party tool {% endif %}to back up your repository.'
 redirect_from:
   - /articles/backing-up-a-repository
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% if currentVersion == "free-pro-team@latest" %}
@@ -31,13 +32,13 @@ versions:
 - [项目](/v3/projects/#list-repository-projects)
 {% endif %}
 
-一旦您拥有{% if enterpriseServerVersions contains currentVersion %}所有要备份内容的本地版本，您就可以创建一个 zip 存档并{% else %}下载您的存档。您可以{% endif %}将其复制到外部硬盘和/或将其上传到基于云的备份服务，例如 [Google Drive](https://www.google.com/drive/) 或 [Dropbox](https://www.dropbox.com/)。
+Once you have {% if enterpriseServerVersions contains currentVersion or currentVersion == "github-ae@latest" %}a local version of all the content you want to back up, you can create a zip archive and {% else %}downloaded your archive, you can {% endif %}copy it to an external hard drive and/or upload it to a cloud-based backup service such as [Google Drive](https://www.google.com/drive/) or [Dropbox](https://www.dropbox.com/).
 
 {% if currentVersion == "free-pro-team@latest" %}
 ### 第三方备份工具
 
 有许多自助服务工具可自动备份仓库。 与存档项目不同，存档项目将将_所有_公共仓库存档在未选择退出的 {% data variables.product.product_name %} 上，并让任何人都可以访问数据，而备份工具将从_特定_仓库下载数据并组织在新分支或目录中。 有关存档项目的更多信息，请参阅“[关于在 {% data variables.product.prodname_dotcom %}](/github/creating-cloning-and-archiving-repositories/about-archiving-content-and-data-on-github#about-the-github-archive-program) 上存档内容和数据”。
-You can back up all of a repository's Git data (such as project files and commit history), as well as much data from
+利用
 
-{% data variables.product.product_name %} (such as issues and pull requests), with [BackHub](https://github.com/marketplace/backhub), which creates daily recurring backups of your repositories with snapshots up to 30 days back in time. BackHub 可在 {% data variables.product.prodname_marketplace %} 中找到。
+[BackHub](https://github.com/marketplace/backhub)，您可以备份仓库的所有 Git 数据（例如项目文件和提交历史记录），以及许多来自 {% data variables.product.product_name %} 的数据（例如议题和拉取请求），通过该工具可创建每日定期备份仓库计划，并且可查看过去最多 30 天的快照。 BackHub 可在 {% data variables.product.prodname_marketplace %} 中找到。
 {% endif %}

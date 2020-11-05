@@ -8,6 +8,7 @@ intro: '如果需要管理单一仓库中的多个项目，可以使用*子树�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 通常，子树合并用于在仓库中包含仓库。 “子仓库”存储在主仓库的文件夹中。

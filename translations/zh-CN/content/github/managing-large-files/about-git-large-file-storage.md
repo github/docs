@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data variables.large_files.product_name_short %} 处理大文件的方式是存储对仓库中文件的引用，而不实际文件本身。 为满足 Git 的架构要求，{% data variables.large_files.product_name_short %} 创建了指针文件，用于对实际文件（存储在其他位置）的引用。 {% data variables.product.product_name %} 在仓库中管理此指针文件。 克隆仓库时，{% data variables.product.product_name %} 使用指针文件作为映射来查找大文件。

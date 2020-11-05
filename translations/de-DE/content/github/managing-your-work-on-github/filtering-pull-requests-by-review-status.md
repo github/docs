@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Du kannst die Pull-Request-Liste eines Repositorys filtern, um folgende Pull Requests zu finden:

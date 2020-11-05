@@ -10,6 +10,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Hier siehst Du ein Beispiel für einen möglichen HTTPS-Fehler:

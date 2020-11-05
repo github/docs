@@ -1,6 +1,6 @@
 ---
 title: 设置暂存实例
-intro: '您可以先使用*暂存实例*测试修改，然后再将修改应用到 {% data variables.product.product_location_enterprise %}。 例如，您可以使用暂存实例测试新的 {% data variables.product.prodname_ghe_server %} 更新或练习导入迁移数据。'
+intro: '您可以先使用*暂存实例*测试修改，然后再将修改应用到 {% data variables.product.product_location %}。 例如，您可以使用暂存实例测试新的 {% data variables.product.prodname_ghe_server %} 更新或练习导入迁移数据。'
 redirect_from:
   - /enterprise/admin/installation/setting-up-a-staging-instance
 versions:

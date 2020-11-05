@@ -11,6 +11,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 更改头像
@@ -49,7 +50,7 @@ versions:
 
 在个人资料中添加个人简历，与其他 {% data variables.product.product_name %} 用户共享您自己的信息。 借助 [@提及](/articles/basic-writing-and-formatting-syntax)和表情符号，可以包含您当前或以前的工作经历、工作类型甚至您喜欢的咖啡种类。
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %}
 
 要以更长和更突出的方式显示有关自己的自定义信息，您还可以使用个人资料自述文件。 有关个人资料自述文件的更多信息，请参阅“[管理个人资料自述文件](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)”。
 
