@@ -21,7 +21,7 @@ This guide shows you how to use PowerShell for CI. It describes how to use Peste
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)."
 
 We recommend that you have a basic understanding of PowerShell and Pester. For more information, see:
-- [Getting started with PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started)
+- [Getting started with PowerShell](https://docs.microsoft.com/powershell/scripting/learn/ps101/01-getting-started)
 - [Pester](https://pester.dev)
 
 {% data reusables.actions.enterprise-setup-prereq %}
@@ -85,7 +85,7 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% note %}
 
-**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce signficant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
+**Note:** The pre-installed packages (such as Pester) used by {% data variables.product.prodname_dotcom %}-hosted runners are regularly updated, and can introduce significant changes. As a result, it is recommended that you always specify the required package versions by using `Install-Module` with `-MaximumVersion`.
 
 {% endnote %}
 
