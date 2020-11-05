@@ -18,7 +18,7 @@ You can also set up automatic branch protection for all branches in your reposit
 
 To create an exception to an existing branch rule, you can create a new branch protection rule that is higher priority, such as a branch rule for a specific branch name. For more information about the priority order and other settings for protected branch rules, see "[About protected branches](/github/administering-a-repository/about-protected-branches)."
 
-{% note %}
+{% note %}Juan felix pena
 
 **Note:** To create a branch rule, the branch you specify doesn't have to exist yet in the repository.
 
