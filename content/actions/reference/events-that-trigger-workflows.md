@@ -100,7 +100,7 @@ You can manually trigger a workflow run using the {% data variables.product.prod
 
 ##### Example workflow configuration
 
-This example defines the `name` and `home` inputs and prints them using the `github.event.inputs.name` and `github.event.inputs.home` contexts. If a `name` isn't provided, the default value 'Mona the Octocat' is printed.
+This example defines the `name` and `home` inputs and prints them using the `github.event.inputs.name` and `github.event.inputs.home` contexts. If a `home` isn't provided, the default value 'The Octoverse' is printed.
 
 {% raw %}
 ```yaml
@@ -115,6 +115,7 @@ on:
       home:
         description: 'location'
         required: false
+        default: 'The Octoverse'
 
 jobs:
   say_hello:
