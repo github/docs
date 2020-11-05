@@ -88,11 +88,12 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
         UseKeychain yes
         IdentityFile ~/.ssh/id_rsa
       ```
-  {% note %}
 
-  **Note:** If you are not using the passphrase and if you get an error then try removing the UseKeychain line.
+     {% note %}
+
+     **Note:** If you chose not to add a passphrase to your key, you should omit the `UseKeychain` line.
   
-  {% endnote %}
+     {% endnote %}
   
 3. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    ```shell
