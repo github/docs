@@ -50,3 +50,7 @@ You can view a list of all dormant users who have not been suspended and who are
 {% data reusables.enterprise-accounts.options-tab %}
 4. Under "Dormancy threshold", use the drop-down menu, and click the desired dormancy threshold.
 ![The Dormancy threshold drop-down menu](/assets/images/enterprise/site-admin-settings/dormancy-threshold-menu.png)
+
+
+
+cf تسجيل الدخول -a api.fr.cloud.gov --sso
