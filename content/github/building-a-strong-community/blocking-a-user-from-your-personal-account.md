@@ -49,6 +49,9 @@ In repositories you own, blocked users also cannot:
 - Comment on issues, pull requests, or commits
 - Add or edit wiki pages
 
+(Keep in mind users you block will not receive email notifications of
+comments you make, even if [@mentioning](/articles/basic-writing-and-formatting-syntax/#mentioning-people-and-teams) them directly.)
+
 ### Blocking a user in your account settings
 
 {% data reusables.user_settings.access_settings %}
