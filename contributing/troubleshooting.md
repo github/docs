@@ -90,7 +90,7 @@ Again, you should see more information about the error either in your browser or
 
 The `check internal links` test reports any broken links on the site, including images. The test reports the URL of the broken link, _not_ the file that includes that link, so you'll need to search the `docs` repository to find the file.
 
-Broken images include `assets/images/` in the URL and are often caused by images being versioned for previous versions of GHES but not uploaded to the appropriate folder in S3. Search the `docs` repository for the file name (e.g., `assets/images/help/repository/security-tab.png`), then make sure the image is versioned correctly in each result. If the image is in a reusable, you'll also need to search for each occurence of that reusable. If the image is versioned correctly, upload the image to the appropriate folder(s) in S3.
+Broken images include `assets/images/` in the URL and are often caused by images being versioned for previous versions of GHES but not uploaded to the appropriate folder in S3. Search the `docs` repository for the file name (e.g., `assets/images/help/repository/security-tab.png`), then make sure the image is versioned correctly in each result. If the image is in a reusable, you'll also need to search for each occurrence of that reusable. If the image is versioned correctly, upload the image to the appropriate folder(s) in S3.
 
 For broken links to articles on our site, find the file that contains the link by searching the `docs` repository for the file name (e.g., `incorporating-feedback-in-your-pull-request`). Try the following fixes:
 
