@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### About your inbox
@@ -104,25 +105,30 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:invitation`       | When you're invited to a team, organization, or repository.                                                        |
 | `reason:manual`           | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.                        |
 | `reason:mention`          | You were directly @mentioned.                                                                                      |
-| `reason:review-requested` | You or a team you're on have been requested to review a pull request.                                              |
-| `reason:security-alert`   | When a security alert is issued for a repository.                                                                  |
+| `reason:review-requested` | You or a team you're on have been requested to review a pull request.{% if currentVersion != "github-ae@latest" %}
+| `reason:security-alert`   | When a security alert is issued for a repository.{% endif %}
 | `reason:state-change`     | When the state of a pull request or issue is changed. For example, an issue is closed or a pull request is merged. |
 | `reason:team-mention`     | When a team you're a member of is @mentioned.                                                                      |
 | `reason:ci-activity`      | When a repository has a CI update, such as a new workflow run status.                                              |
 
 #### Supported `is:` queries
 
-To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.
+To filter notifications for specific activity on {% data variables.product.product_name %}, you can use the  `is` query. For example, to only see repository invitation updates, use `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}, and to only see {% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_short %}{% else %} security{% endif %} alerts, use `is:repository-vulnerability-alert`.{% endif %}
 
 - `is:check-suite`
 - `is:commit`
 - `is:gist`
 - `is:issue-or-pull-request`
 - `is:release`
-- `is:repository-invitation`
+- `is:repository-invitation`{% if currentVersion != "github-ae@latest" %}
 - `is:repository-vulnerability-alert`
-- `is:repository-advisory`
+- `is:repository-advisory`{% endif %}
 - `is:team-discussion`
+
+{% if currentVersion != "github-ae@latest" %}
+For information about reducing noise from notifications for
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.21" %}{% data variables.product.prodname_dependabot_alerts %}{% else %}security alerts{% endif %}, see "[Configuring notifications for vulnerable dependencies](/github/managing-security-vulnerabilities/configuring-notifications-for-vulnerable-dependencies)."
+{% endif %}
 
 You can also use the `is:` query to describe how the notification was triaged.
 

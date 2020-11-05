@@ -545,12 +545,6 @@ updates:
 
 Use the `vendor` option to tell {% data variables.product.prodname_dependabot_short %} to vendor dependencies when updating them.
 
-{% note %}
-
-Currently, {% data variables.product.prodname_dependabot_short %} only supports vendoring dependencies for Bundler.
-
-{% endnote %}
-
 ```yaml
 # Configure version updates for both dependencies defined in manifests and vendored dependencies
 
@@ -564,7 +558,13 @@ updates:
       interval: "weekly"
 ```
 
-{% data variables.product.prodname_dependabot_short %} only updates the vendored dependencies located in specific directories in a repository. For Bundler, the dependencies must be in the _vendor/cache_ directory. Other file paths are not supported. For more information, see the [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html).
+{% data variables.product.prodname_dependabot_short %} only updates the vendored dependencies located in specific directories in a repository.
+
+| Paketmanager | Required file path for vendored dependencies                                                      | Weitere Informationen                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `bundler`    | The dependencies must be in the _vendor/cache_ directory.</br>Other file paths are not supported. | [`bundle cache` documentation](https://bundler.io/man/bundle-cache.1.html) |
+| `gomod`      | No path requirement (dependencies are usually located in the _vendor_ directory)                  | [`go mod vendor` documentation](https://golang.org/ref/mod#go-mod-vendor)  |
+
 
 ### `versioning-strategy`
 

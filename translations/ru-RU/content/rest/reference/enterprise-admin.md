@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 You can use these endpoints to administer your enterprise.
@@ -21,31 +22,34 @@ You can use these endpoints to administer your enterprise.
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
-
 ### Endpoint URLs
 
-REST API endpoints—except [Management Console](#management-console) API endpoints—are prefixed with the following URL:
+REST API endpoints{% if enterpriseServerVersions contains currentVersion %}—except [Management Console](#management-console) API endpoints—{% endif %} are prefixed with the following URL:
 
 ```shell
 http(s)://<em>hostname</em>/api/v3/
 ```
 
+{% if enterpriseServerVersions contains currentVersion %}
 [Management Console](#management-console) API endpoints are only prefixed with a hostname:
 
 ```shell
 http(s)://<em>hostname</em>/
 ```
-
+{% endif %}
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### Authentication
 
-Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if currentVersion != "free-pro-team@latest" %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
+Your {% data variables.product.product_name %} installation's API endpoints accept [the same authentication methods](/rest/overview/resources-in-the-rest-api#authentication) as the GitHub.com API. You can authenticate yourself with **[OAuth tokens](/apps/building-integrations/setting-up-and-registering-oauth-apps/)** (which can be created using the [Authorizations API](/rest/reference/oauth-authorizations#create-a-new-authorization)) or **[basic authentication](/rest/overview/resources-in-the-rest-api#basic-authentication)**. {% if enterpriseServerVersions contains currentVersion %} OAuth tokens must have the `site_admin` [OAuth scope](/developers/apps/scopes-for-oauth-apps#available-scopes) when used with Enterprise-specific endpoints.{% endif %}
 
-Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/).
+Enterprise administration API endpoints are only accessible to authenticated {% data variables.product.product_name %} site administrators{% if enterpriseServerVersions contains currentVersion %}, except for the [Management Console](#management-console) API, which requires the [Management Console password](/enterprise/admin/articles/accessing-the-management-console/){% endif %}.
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ### Version information
 
-The current version of a {% data variables.product.product_name %} instance is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
+The current version of your enterprise is returned in the response header of every API: `X-GitHub-Enterprise-Version: {{currentVersion}}.0` You can also read the current version by calling the [meta endpoint](/rest/reference/meta/).
 
 {% for operation in currentRestOperations %}
   {% unless operation.subcategory %}{% include rest_operation %}{% endunless %}
@@ -54,7 +58,6 @@ The current version of a {% data variables.product.product_name %} instance is r
 {% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
-
 ## Billing
 
 {% for operation in currentRestOperations %}
@@ -135,8 +138,19 @@ GET /scim/v2/enterprises/{enterprise}/Users/{scim_user_id}
 
 {% endif %}
 
-{% if currentVersion != "free-pro-team@latest" %}
+{% if currentVersion == "github-ae@latest" %}
 
+## Encryption at rest
+
+You can use the encryption at rest API to manage the key that encrypts your data on {% data variables.product.product_name %}. For more information, see "[Configuring data encryption for your enterprise](/admin/configuration/configuring-data-encryption-for-your-enterprise)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'encryption-at-rest' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Admin stats
 
 The Admin Stats API provides a variety of metrics about your installation. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -145,9 +159,25 @@ The Admin Stats API provides a variety of metrics about your installation. *It i
   {% if operation.subcategory == 'admin-stats' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.22" %}
+
+## Announcements
+
+The Announcements API allows you to manage the global announcement banner in your enterprise. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+{% for operation in currentRestOperations %}
+  {% if operation.subcategory == 'announcement' %}{% include rest_operation %}{% endif %}
+{% endfor %}
+
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
+
 ## Global webhooks
 
-Global webhooks are installed on a {% data variables.product.prodname_enterprise %} instance. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your instance. Global webhooks can subscribe to the [organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [user](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repository](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [team](/developers/webhooks-and-events/webhook-events-and-payloads#team), [member](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membership](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [fork](/developers/webhooks-and-events/webhook-events-and-payloads#fork), and [ping](/developers/webhooks-and-events/about-webhooks#ping-event) event types.
+Global webhooks are installed on your enterprise. You can use global webhooks to automatically monitor, respond to, or enforce rules for users, organizations, teams, and repositories on your enterprise. Global webhooks can subscribe to the [organization](/developers/webhooks-and-events/webhook-events-and-payloads#organization), [user](/developers/webhooks-and-events/webhook-events-and-payloads#user), [repository](/developers/webhooks-and-events/webhook-events-and-payloads#repository), [team](/developers/webhooks-and-events/webhook-events-and-payloads#team), [member](/developers/webhooks-and-events/webhook-events-and-payloads#member), [membership](/developers/webhooks-and-events/webhook-events-and-payloads#membership), [fork](/developers/webhooks-and-events/webhook-events-and-payloads#fork), and [ping](/developers/webhooks-and-events/about-webhooks#ping-event) event types.
 
 *This API is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it. To learn how to configure global webhooks, see [About global webhooks](/enterprise/admin/user-management/about-global-webhooks).
 
@@ -155,16 +185,24 @@ Global webhooks are installed on a {% data variables.product.prodname_enterprise
   {% if operation.subcategory == 'global-webhooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## LDAP
 
-You can use the LDAP API to update account relationships between a {% data variables.product.prodname_ghe_server %} user or team and its linked LDAP entry or queue a new synchronization.
+You can use the LDAP API to update account relationships between a {% data variables.product.product_name %} user or team and its linked LDAP entry or queue a new synchronization.
 
-With the LDAP mapping endpoints, you're able to update the Distinguished Name (DN) that a user or team maps to. Note that the LDAP endpoints are generally only effective if your {% data variables.product.prodname_ghe_server %} appliance has [LDAP Sync enabled](/enterprise/admin/authentication/using-ldap). The [Update LDAP mapping for a user](#update-ldap-mapping-for-a-user) endpoint can be used when LDAP is enabled, even if LDAP Sync is disabled.
+With the LDAP mapping endpoints, you're able to update the Distinguished Name (DN) that a user or team maps to. Note that the LDAP endpoints are generally only effective if your {% data variables.product.product_name %} appliance has [LDAP Sync enabled](/enterprise/admin/authentication/using-ldap). The [Update LDAP mapping for a user](#update-ldap-mapping-for-a-user) endpoint can be used when LDAP is enabled, even if LDAP Sync is disabled.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'ldap' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Лицензия
 
 The License API provides information on your Enterprise license. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -173,17 +211,21 @@ The License API provides information on your Enterprise license. *It is only ava
   {% if operation.subcategory == 'license' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Management console
 
-The Management Console API helps you manage your {% data variables.product.prodname_ghe_server %} installation.
+The Management Console API helps you manage your {% data variables.product.product_name %} installation.
 
 {% tip %}
 
-You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your Enterprise instance, the port number is `8443`; otherwise, the port number is `8080`.
+You must explicitly set the port number when making API calls to the Management Console. If TLS is enabled on your enterprise, the port number is `8443`; otherwise, the port number is `8080`.
 
 If you don't want to provide a port number, you'll need to configure your tool to automatically follow redirects.
 
-You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.prodname_ghe_server %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
+You may also need to add the [`-k` flag](http://curl.haxx.se/docs/manpage.html#-k) when using `curl`, since {% data variables.product.product_name %} uses a self-signed certificate before you [add your own TLS certificate](/enterprise/admin/guides/installation/configuring-tls/).
 
 {% endtip %}
 
@@ -207,14 +249,21 @@ $ curl -L 'https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>
   {% if operation.subcategory == 'management-console' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Organizations
 
-The Organization Administration API allows you to create organizations on a {% data variables.product.prodname_ghe_server %} appliance. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
+The Organization Administration API allows you to create organizations on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'orgs' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## Organization pre-receive hooks
 
 The Organization Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to an organization.
@@ -236,6 +285,10 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
   {% if operation.subcategory == 'org-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Pre-receive environments
 
 The Pre-receive Environments API allows you to create, list, update and delete environments for pre-receive hooks. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -244,13 +297,13 @@ The Pre-receive Environments API allows you to create, list, update and delete e
 
 #### Pre-receive Environment
 
-| Name                  | Тип       | Description                                                                                                 |
-| --------------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| `name`                | `строка`  | The name of the environment as displayed in the UI.                                                         |
-| `image_url`           | `строка`  | URL to the tarball that will be downloaded and extracted.                                                   |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.prodname_ghe_server %}. |
-| `download`            | `объект`  | This environment's download status.                                                                         |
-| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                                  |
+| Name                  | Тип       | Description                                                                                        |
+| --------------------- | --------- | -------------------------------------------------------------------------------------------------- |
+| `name`                | `строка`  | The name of the environment as displayed in the UI.                                                |
+| `image_url`           | `строка`  | URL to the tarball that will be downloaded and extracted.                                          |
+| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
+| `download`            | `объект`  | This environment's download status.                                                                |
+| `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                                         |
 
 #### Pre-receive Environment Download
 
@@ -266,6 +319,9 @@ Possible values for `state` are `not_started`, `in_progress`, `success`, `failed
   {% if operation.subcategory == 'pre-receive-environments' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
 ## Pre-receive hooks
 
 The Pre-receive Hooks API allows you to create, list, update and delete pre-receive hooks. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
@@ -289,6 +345,10 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
   {% if operation.subcategory == 'pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
+{% endif %}
+
+{% if enterpriseServerVersions contains currentVersion %}
+
 ## Repository pre-receive hooks
 
 The Repository Pre-receive Hooks API allows you to view and modify enforcement of the pre-receive hooks that are available to a repository.
@@ -309,17 +369,12 @@ Possible values for *enforcement* are `enabled`, `disabled` and`testing`. `disab
   {% if operation.subcategory == 'repo-pre-receive-hooks' %}{% include rest_operation %}{% endif %}
 {% endfor %}
 
-## Search indexing
+{% endif %}
 
-The Search Indexing API allows you to queue up a variety of search indexing tasks. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `404` response if they try to access it.
-
-{% for operation in currentRestOperations %}
-  {% if operation.subcategory == 'search-indexing' %}{% include rest_operation %}{% endif %}
-{% endfor %}
-
+{% if currentVersion == "github-ae@latest" or enterpriseServerVersions contains currentVersion %}
 ## Users
 
-The User Administration API allows you to promote, demote, suspend, and unsuspend users on a {% data variables.product.prodname_ghe_server %} appliance. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
+The User Administration API allows you to suspend{% if enterpriseServerVersions contains currentVersion %}, unsuspend, promote, and demote{% endif %}{% if currentVersion == "github-ae@latest" %} and unsuspend{% endif %} users on your enterprise. *It is only available to [authenticated](/rest/overview/resources-in-the-rest-api#authentication) site administrators.* Normal users will receive a `403` response if they try to access it.
 
 {% for operation in currentRestOperations %}
   {% if operation.subcategory == 'users' %}{% include rest_operation %}{% endif %}

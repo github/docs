@@ -6,13 +6,14 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst, musst Du in Git [ein Remote-Repository konfigurieren, das auf das vorgelagerte Repository verweist](/articles/configuring-a-remote-for-a-fork).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Wechsle Dein aktuelles Arbeitsverzeichnis in das lokale Projekt.
-3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits am `master`-Branch werden in einem lokalen Branch mit dem Namen `upstream/master` gespeichert.
+3. Rufe die Branches und die jeweiligen Commits aus dem vorgelagerten Repository ab. Commits to `main` will be stored in a local branch, `upstream/main`.
   ```shell
   $ git fetch upstream
   > remote: Counting objects: 75, done.
@@ -20,16 +21,16 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
   > remote: Total 62 (delta 27), reused 44 (delta 9)
   > Unpacking objects: 100% (62/62), done.
   > From https://{% data variables.command_line.codeblock %}/<em>ORIGINAL_OWNER</em>/<em>ORIGINAL_REPOSITORY</em>
-  >  * [new branch]      master     -> upstream/master
+  >  * [new branch]      main     -> upstream/main
   ```
-4. Checke den lokalen `master`-Branch Deiner Fork aus.
+4. Check out your fork's local `main` branch.
   ```shell
-  $ git checkout master
-  > Switched to branch 'master'
+  $ git checkout main
+  > Switched to branch 'main'
   ```
-5. Führe die Änderungen aus dem Branch `upstream/master` in Deinen lokalen `master`-Branch zusammen. Dadurch wird der `master`-Branch Deiner Fork ohne Verlust der lokalen Änderungen mit dem vorgelagerten Repository synchronisiert.
+5. Merge the changes from `upstream/main` into your local `main` branch. This brings your fork's `main` branch into sync with the upstream repository, without losing your local changes.
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating a422352..5fdff0f
   > Fast-forward
   >  README                    |    9 -------
@@ -39,7 +40,7 @@ Bevor Du einen Fork mit dem ihm vorgelagerten Repository synchronisieren kannst,
   >  create mode 100644 README.md
   ``` If your local branch didn't have any unique commits, Git will instead perform a "fast-forward":
   ```shell
-  $ git merge upstream/master
+  $ git merge upstream/main
   > Updating 34e91da..16c56ad
   > Fast-forward
   >  README.md                 |    5 +++--

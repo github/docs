@@ -1,29 +1,29 @@
-| 包管理器                       | Supports vendoring |
-| -------------------------- |:------------------:|
-| Bundler: `bundler`         |       **X**        |
-| Cargo: `cargo`             |                    |
-| Composer: `composer`       |                    |
-| Docker: `docker`           |                    |
-| Elm: `elm`                 |                    |
-| Git 子模块：`gitsubmodule`     |                    |
-| GitHub 操作：`github-actions` |                    |
-| Go 模块：`gomod`              |                    |
-| Gradle: `gradle`           |                    |
-| Maven: `maven`             |                    |
-| Mix: `mix`                 |                    |
-| npm: `npm`                 |                    |
-| NuGet: `nuget`             |                    |
-| pip: `pip`                 |                    |
-| Terraform: `terraform`     |                    |
+| 包管理器                       | 支持供应  |
+| -------------------------- |:-----:|
+| Bundler: `bundler`         | **X** |
+| Cargo: `cargo`             |       |
+| Composer: `composer`       |       |
+| Docker: `docker`           |       |
+| Elm: `elm`                 |       |
+| Git 子模块：`gitsubmodule`     |       |
+| GitHub 操作：`github-actions` |       |
+| Go 模块：`gomod`              | **X** |
+| Gradle: `gradle`           |       |
+| Maven: `maven`             |       |
+| Mix: `mix`                 |       |
+| npm: `npm`                 |       |
+| NuGet: `nuget`             |       |
+| pip: `pip`                 |       |
+| Terraform: `terraform`     |       |
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dependabot_short %} also supports the following package managers:
+**注**：{% data variables.product.prodname_dependabot_short %} 也支持以下软件包管理器：
 
--`yarn` (v1 only) (specify `npm`)
+-`yarn`（仅限 v1）（指定 `npm`）
 
--`pipenv`, `pip-compile`, and `poetry` (specify `pip`)
+-`pipenv`、`pip-compile` 和 `poetry`（指定 `pip`）
 
-For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot_short %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your *dependabot.yml* file.
+例如，如果您使用 `poetry` 来管理 Python 依赖项，并且希望 {% data variables.product.prodname_dependabot_short %} 监控新版本的依赖项清单文件，请在 *dependabot.yml* 文件中使用 `package-ecosystem: "pip"`。
 
 {% endnote %}

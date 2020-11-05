@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -229,7 +230,7 @@ The issue or pull request was referenced from another issue or pull request.
 | --------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `actor`         | `개체`  | The person who generated the event.                                                                                                                                                                                                                                                                                           |
 | `created_at`    | `문자열` | The timestamp indicating when the cross-reference was added.                                                                                                                                                                                                                                                                  |
-| `updated_at`    | `문자열` | The timestamp indicating when the cross-refererence was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                          |
+| `updated_at`    | `문자열` | The timestamp indicating when the cross-reference was updated or created, if the cross-reference is never updated.                                                                                                                                                                                                            |
 | `source`        | `개체`  | The issue or pull request that added a cross-reference.                                                                                                                                                                                                                                                                       |
 | `source[type]`  | `문자열` | This value will always be `"issue"` because pull requests are of type issue. Only cross-reference events triggered by issues or pull requests are returned in the Timeline Events API. To determine if the issue that triggered the event is a pull request, you can check if the `source[issue][pull_request` object exists. |
 | `source[issue]` | `개체`  | The `issue` object that added the cross-reference.                                                                                                                                                                                                                                                                            |
@@ -347,7 +348,7 @@ The issue or pull request was locked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}
@@ -664,7 +665,7 @@ The issue was unlocked.
 
 #### Event object properties
 
-{% if currentVersion != "free-pro-team@latest" and currentVersion ver_lt "enterprise-server@2.22" %}
+{% if enterpriseServerVersions contains currentVersion and currentVersion ver_lt "enterprise-server@2.22" %}
 {% data reusables.pre-release-program.sailor-v-preview %}
 {% data reusables.pre-release-program.api-preview-warning %}
 {% endif %}

@@ -1,6 +1,7 @@
 name: Algolia
 
 on:
+  workflow_dispatch:
   push:
     branches:
     - main
@@ -17,7 +18,7 @@ jobs:
       with:
         node-version: 14.x
     - name: cache node modules
-      uses: actions/cache@70655ec8323daeeaa7ef06d7c56e1b9191396cbe
+      uses: actions/cache@d1255ad9362389eac595a9ae406b8e8cb3331f16
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}

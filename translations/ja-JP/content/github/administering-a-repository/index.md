@@ -5,6 +5,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -26,7 +27,7 @@ versions:
     {% link_in_list /viewing-deployment-activity-for-your-repository %}
 <!-- endif -->
     {% link_in_list /managing-the-forking-policy-for-your-repository %}
-<!-- if currentVersion != "free-pro-team@latest" -->
+<!-- if enterpriseServerVersions contains currentVersion -->
     {% link_in_list /setting-the-default-branch %}
     {% link_in_list /disabling-or-limiting-github-actions-for-a-repository %}
     {% link_in_list /managing-git-lfs-objects-in-archives-of-your-repository %}

@@ -1,6 +1,6 @@
 ---
 title: Alterar o stage de uma pull request
-intro: 'Você pode marcar um rascunho de pull request como pronto para a revisão{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2. 0" %} ou converter um pull request em um rascunho{% endif %}.'
+intro: 'You can mark a draft pull request as ready for review{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %} or convert a pull request to a draft{% endif %}.'
 permissions: Pessoas com permissões de gravação em um repositório e autores de pull request podem alterar o stage de uma pull request.
 product: '{% data reusables.gated-features.draft-prs %}'
 redirect_from:
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Marcando uma pull request como pronta para revisão
@@ -18,7 +19,7 @@ versions:
 2. Na lista "Pull requests", clique na pull request que deseja marcar como pronta para revisão.
 3. Na caixa de merge, clique em **Pronto para revisar**. ![Botão Ready for review (Pronta para revisão)](/assets/images/help/pull_requests/ready-for-review-button.png)
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion == "github-ae@latest" or currentVersion ver_gt "enterprise-server@2.20" %}
 
 ### Convertendo uma pull request em rascunho
 

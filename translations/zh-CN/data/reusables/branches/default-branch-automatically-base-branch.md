@@ -1,2 +1,2 @@
-Unless you specify a different branch, the default branch in a repository is the base branch for new pull requests and code commits.
+除非指定不同的分支，否则仓库中的默认分支是新拉取请求和代码提交的基础分支。
 

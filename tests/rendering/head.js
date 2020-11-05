@@ -17,7 +17,6 @@ describe('<head>', () => {
     const $ = await getDOM('/en/articles/about-ssh')
     const $description = $('meta[name="description"]')
     expect($description.attr('content').startsWith('Using the SSH protocol')).toBe(true)
-    expect($description.attr('content').endsWith('password at each visit.')).toBe(true)
   })
 
   test('renders `description` meta tag in plaintext (no HTML)', async () => {

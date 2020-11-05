@@ -150,7 +150,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
-7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location_enterprise %}.
+7. For single appliance upgrades, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
   {% note %}
 
@@ -203,7 +203,7 @@ Appliances configured for high-availability and geo-replication use replica inst
    1. On the replica instance, run `ghe-repl-setup <primary-instance-ip>` again.
    {% data reusables.enterprise_installation.start-replication %}
    {% data reusables.enterprise_installation.replication-status %}
-6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location_enterprise %}.
+6. When you have completed upgrading the last replica, and the resync is complete, disable maintenance mode so users can use {% data variables.product.product_location %}.
 
 ### Restoring from a failed upgrade
 

@@ -55,12 +55,7 @@ Os executores auto-hospedados são automaticamente atribuídos ao grupo-padrão 
 
 Ao criar um grupo, é necessário escolher uma política que conceda acesso a todas as organizações da empresa ou escolher organizações específicas.
 
-{% if currentVersion == "free-pro-team@latest" %}
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% else if currentVersion != "free-pro-team@latest" and currentVersion ver_gt "enterprise-server@2.21"%}
-{% data reusables.enterprise_site_admin_settings.access-settings %}
-{% data reusables.enterprise_site_admin_settings.business %}
-{% endif %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 1. Clique na aba **Executores auto-hospedados**.

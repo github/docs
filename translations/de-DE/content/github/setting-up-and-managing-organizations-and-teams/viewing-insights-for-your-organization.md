@@ -45,4 +45,4 @@ Mithilfe von Abhängigkeits-Einblicken kannst Du Schwachstellen, Lizenzen und an
    - „[Über Organisationen](/github/setting-up-and-managing-organizations-and-teams/about-organizations)"
    - "[Exploring the dependencies of a repository](/github/visualizing-repository-data-with-graphs/exploring-the-dependencies-of-a-repository)"
    - „[Die Sichtbarkeit der Einblicke zu den Abhängigkeiten Ihrer Organisation ändern](/github/setting-up-and-managing-organizations-and-teams/changing-the-visibility-of-your-organizations-dependency-insights)“
-   - „[Eine Richtlinie für Einblicke in die Abhängigkeiten in Ihrem Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise-account/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)“
+   - „[Eine Richtlinie für Einblicke in die Abhängigkeiten in Ihrem Enterprise-Konto erzwingen](/github/setting-up-and-managing-your-enterprise/enforcing-a-policy-on-dependency-insights-in-your-enterprise-account)“

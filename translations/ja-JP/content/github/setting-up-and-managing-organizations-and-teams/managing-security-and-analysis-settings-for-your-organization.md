@@ -35,7 +35,7 @@ versions:
 
 ### 参考リンク
 
-{% if currentVersion == "free-pro-team@latest" %}- "[About securing your repository](/github/administering-a-repository/about-securing-your-repository)"
+{% if currentVersion == "free-pro-team@latest" %}- [リポジトリのセキュリティ保護について](/github/administering-a-repository/about-securing-your-repository)
 - [シークレットスキャンニングについて](/github/administering-a-repository/about-secret-scanning)
 - [依存関係を自動的に更新する](/github/administering-a-repository/keeping-your-dependencies-updated-automatically)
 {% endif %}

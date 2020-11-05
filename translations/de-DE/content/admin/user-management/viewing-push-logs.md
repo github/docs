@@ -1,12 +1,13 @@
 ---
 title: Push-Protokolle anzeigen
-intro: 'Websiteadministratoren können eine Liste der Git-Push-Vorgänge für Repositorys auf {% data variables.product.product_location_enterprise %} anzeigen.'
+intro: 'Site administrators can view a list of Git push operations for any repository on the enterprise.'
 redirect_from:
   - /enterprise/admin/articles/viewing-push-logs/
   - /enterprise/admin/installation/viewing-push-logs
   - /enterprise/admin/user-management/viewing-push-logs
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Push-Protokolleinträge zeigen:
@@ -26,6 +27,7 @@ Push-Protokolleinträge zeigen:
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 4. Klicken Sie auf der linken Seitenleiste auf **Push Log** (Push-Protokoll). ![Registerkarte „Push log“ (Push-Protokoll)](/assets/images/enterprise/site-admin-settings/push-log-tab.png)
 
+{% if enterpriseServerVersions contains currentVersion %}
 ### Push-Protokolle eines Repositorys an der Befehlszeile anzeigen
 
 1. Stellen Sie eine SSH-Verbindung zu Ihrer Appliance her. Weitere Informationen finden Sie unter „[Auf die Verwaltungsshell (SSH) zugreifen](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)“.
@@ -33,3 +35,4 @@ Push-Protokolleinträge zeigen:
   ```shell
   ghe-repo <em>owner</em>/<em>repository</em> -c "less audit_log"
   ```
+{% endif %}

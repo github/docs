@@ -1,5 +1,5 @@
 ---
-title: Specifications for GitHub-hosted runners
+title: GitHub 托管的运行器的规格
 intro: '{% data variables.product.prodname_dotcom %} 提供托管的虚拟机来运行工作流程。 虚拟机包含可供 {% data variables.product.prodname_actions %} 使用的工具、包和设置。'
 product: '{% data reusables.gated-features.actions %}'
 redirect_from:
@@ -50,12 +50,13 @@ Windows 虚拟机配置为以禁用了用户帐户控制 (UAC) 的管理员身�
 {% data reusables.github-actions.supported-github-runners %}
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
-Workflow logs list the runner used to run a job. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+工作流程日志列出用于运行作业的运行器。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
-### Supported software
+### 支持的软件
 
-The software tools included in {% data variables.product.prodname_dotcom %}-hosted runners are updated weekly. 有关每个运行器操作系统包含的工具最新列表，请参阅以下链接：
+{% data variables.product.prodname_dotcom %} 托管的运行器中包含的软件工具每周更新。 有关每个运行器操作系统包含的工具最新列表，请参阅以下链接：
 
 * [Ubuntu 20.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu2004-README.md)
 * [Ubuntu 18.04 LTS](https://github.com/actions/virtual-environments/blob/main/images/linux/Ubuntu1804-README.md)
@@ -63,16 +64,18 @@ The software tools included in {% data variables.product.prodname_dotcom %}-host
 * [Windows Server 2019](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2019-Readme.md)
 * [Windows Server 2016](https://github.com/actions/virtual-environments/blob/main/images/win/Windows2016-Readme.md)
 * [MacOS 10.15](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-10.15-Readme.md)
+* [MacOS 11.0](https://github.com/actions/virtual-environments/blob/main/images/macos/macos-11.0-Readme.md)
 
 {% data reusables.github-actions.ubuntu-runner-preview %}
+{% data reusables.github-actions.macos-runner-preview %}
 
 {% data variables.product.prodname_dotcom %} 托管的运行器除了上述参考中列出的包之外，还包括操作系统的默认内置工具。 例如，Ubuntu 和 macOS 运行器除了其他默认工具之外，还包括 `grep`、`find` 和 `which`。
 
-Workflow logs include a link to the preinstalled tools on the runner. For more information, see "[Viewing workflow run history](/actions/managing-workflow-runs/viewing-workflow-run-history)."
+工作流程日志包括指向运行器上预安装的工具的链接。 更多信息请参阅“[查看工作流程运行历史记录](/actions/managing-workflow-runs/viewing-workflow-run-history)”。
 
 如果有您想要请求的工具，请在 [actions/virtual-environments](https://github.com/actions/virtual-environments) 打开一个议题。
 
-### IP addresses
+### IP 地址
 
 {% note %}
 
@@ -119,7 +122,7 @@ JSON 文件包含一个名为 `values` 的数组。 例如，在该数组内，�
 }
 ```
 
-### File systems
+### 文件系统
 
 {% data variables.product.prodname_dotcom %} 在虚拟机上的特定目录中执行操作和 shell 命令。 虚拟机上的文件路径不是静态的。 使用环境变量 {% data variables.product.prodname_dotcom %} 提供 `home`、`workspace` 和 `workflow` 目录的构建文件路径。
 
