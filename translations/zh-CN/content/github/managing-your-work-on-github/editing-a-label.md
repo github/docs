@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -23,6 +24,6 @@ versions:
 - “[创建标签](/articles/creating-a-label)”
 - “[删除标签](/articles/deleting-a-label)”
 - “[应用标签到议题和拉取请求](/articles/applying-labels-to-issues-and-pull-requests)”
-- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+- "[Filtering issues and pull requests by labels](/articles/filtering-issues-and-pull-requests-by-labels)"{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 - "[管理组织中仓库的默认标签](/articles/managing-default-labels-for-repositories-in-your-organization)"
 {% endif %}

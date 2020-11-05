@@ -1,6 +1,6 @@
 ---
 title: Informationen zur Verifizierung einer Commit-Signatur
-intro: 'Using GPG{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.14" %} or S/MIME{% endif %}, you can sign tags and commits locally. Diese Tags oder Commits werden auf {% data variables.product.product_name %} als verifiziert gekennzeichnet, sodass andere Personen darauf vertrauen können, dass die Änderungen aus einer vertrauenswürdigen Quelle stammen.'
+intro: 'Using GPG or S/MIME, you can sign tags and commits locally. Diese Tags oder Commits werden auf {% data variables.product.product_name %} als verifiziert gekennzeichnet, sodass andere Personen darauf vertrauen können, dass die Änderungen aus einer vertrauenswürdigen Quelle stammen.'
 redirect_from:
   - /articles/about-gpg-commit-and-tag-signatures/
   - /articles/about-gpg/
@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### Informationen zur Verifizierung einer Commit-Signatur

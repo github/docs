@@ -9,5 +9,6 @@ intro: 'As organizações são uma forma excelente de criar conjuntos distintos 
 mapTopic: true
 versions:
   enterprise-server: '*'
+  github-ae: '*'
 ---
 

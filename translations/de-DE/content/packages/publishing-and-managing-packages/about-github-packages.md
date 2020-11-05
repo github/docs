@@ -87,11 +87,11 @@ Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 
 {% else %}
 
-The package types supported on {% data variables.product.product_location_enterprise %} may vary since your site administrator can enable or disable support for different package types. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
+The package types supported on {% data variables.product.product_location %} may vary since your site administrator can enable or disable support for different package types. For more information, see "[Managing GitHub Packages for your enterprise](/enterprise/admin/packages)."
 
-If {% data variables.product.product_location_enterprise %} has subdomain isolation enabled, then package registries will use `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Dockerfile will be hosted at `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
+If {% data variables.product.product_location %} has subdomain isolation enabled, then package registries will use `PACKAGE-TYPE.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Dockerfile will be hosted at `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`.
 
-If {% data variables.product.product_location_enterprise %} has subdomain isolation disabled, then package registries will use `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL. For example, your Gemfile will be hosted at `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, replacing *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance. |{% endif %}
+If {% data variables.product.product_location %} has subdomain isolation disabled, then package registries will use `HOSTNAME/_registry/PACKAGE-TYPE/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL. For example, your Gemfile will be hosted at `HOSTNAME/_registry/rubygems/OWNER/REPOSITORY/IMAGE-NAME`, replacing *HOSTNAME* with the host name of your {% data variables.product.prodname_ghe_server %} instance. |{% endif %}
 
 {% if currentVersion == "free-pro-team@latest" %}
 | Sprache    | Beschreibung                                           | Paketformat                            | Paketclient  | Package namespace                                     |
@@ -104,7 +104,7 @@ If {% data variables.product.product_location_enterprise %} has subdomain isolat
 
 {% else %}
 
-With subdomain isolation enabled on {% data variables.product.product_location_enterprise %}:
+With subdomain isolation enabled on {% data variables.product.product_location %}:
 
 | Sprache    | Beschreibung                                           | Paketformat                            | Paketclient  | Package namespace                               |
 | ---------- | ------------------------------------------------------ | -------------------------------------- | ------------ | ----------------------------------------------- |
@@ -115,7 +115,7 @@ With subdomain isolation enabled on {% data variables.product.product_location_e
 | .NET       | NuGet-Paketmanagement für .NET                         | `nupkg`                                | `dotnet` CLI | `nuget.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`    |
 | N/A        | Docker container management                            | `Dockerfile`                           | `Docker`     | `docker.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`   |
 
-With subdomain isolation disabled on {% data variables.product.product_location_enterprise %}:
+With subdomain isolation disabled on {% data variables.product.product_location %}:
 
 | Sprache    | Beschreibung                                           | Paketformat                            | Paketclient  | Package namespace                                         |
 | ---------- | ------------------------------------------------------ | -------------------------------------- | ------------ | --------------------------------------------------------- |

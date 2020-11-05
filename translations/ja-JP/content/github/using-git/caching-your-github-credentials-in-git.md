@@ -8,6 +8,7 @@ intro: '[HTTPS で {% data variables.product.product_name %} リポジトリを�
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH で {% data variables.product.product_name %} リポジトリをクローンする場合、他の認証情報ではなく SSH キーで認証します。 SSH 接続のセットアップについては「[SSH キーを生成する](/articles/generating-an-ssh-key)」を参照してください。

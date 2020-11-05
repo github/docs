@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 リポジトリのフォークはリポジトリのコピーと似ていますが、次の 2 つの大きな違いがあります。

@@ -4,6 +4,7 @@ intro: '要创建对通知分类的理想工作流程，可以调整和自定义
 versions:
   free-pro-team: '*'
   enterprise-server: '>=2.21'
+  github-ae: '*'
 ---
 
 ### 开始收件箱分类

@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
+ 
+  
 
 The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with the capability to launch them on a server that you own. Combined with [the Status API][status API], you'll be able to coordinate your deployments the moment your code lands on the default branch.
 

@@ -8,9 +8,10 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
-
-
+ 
+  
 
 A [API de Implantações][deploy API] fornece seus projetos hospedados em {% data variables.product.product_name %} com a capacidade de lançá-los em um servidor do qual você é proprietário. Combinado com [a API de Status][status API], você será capaz de coordenar suas implantações no momento em que seu código chegar ao branch-padrão.
 

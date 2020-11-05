@@ -7,6 +7,7 @@ intro: '{% data variables.product.prodname_dotcom %} で使用できるリポジ
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 アカウントにサインインしているときにリポジトリを表示すると、プロジェクトを自分のコンピュータに複製するために使用できるURLがリポジトリの詳細の下に表示されます:
@@ -47,7 +48,7 @@ SSH URL を使用して、`git clone`、`git fetch`、`git pull` または `git 
 
 {% endtip %}
 
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" %}
+{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@2.19" or currentVersion == "github-ae@latest" %}
 
 ### Cloning with {% data variables.product.prodname_cli %}
 
@@ -55,11 +56,14 @@ You can also install {% data variables.product.prodname_cli %} to use {% data va
 
 {% endif %}
 
+{% if currentVersion != "github-ae@latest" %}
 ### Subversion を使って複製する
 
 [Subversion](https://subversion.apache.org/) クライアントを使用して、{% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 Subversion と Git では、提供する機能群に違いがあります。 詳しい情報については、「[Subversion と Git の違い](/github/importing-your-projects-to-github/what-are-the-differences-between-subversion-and-git)」を参照してください。
+You can also access repositories on
 
-Subversion クライアントから {% data variables.product.prodname_dotcom %} のリポジトリにアクセスすることもできます。 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
+{% data variables.product.prodname_dotcom %} from Subversion clients. 詳細は、「[Subversion クライアントのサポート](/github/importing-your-projects-to-github/support-for-subversion-clients)」を参照してください。
+{% endif %}
 
 ### 参考リンク
 

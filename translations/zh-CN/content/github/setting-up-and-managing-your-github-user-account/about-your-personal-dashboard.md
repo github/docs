@@ -8,6 +8,7 @@ intro: '您可以访问个人仪表板，以跟踪您参与或关注的议题和
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 ### 访问个人仪表板

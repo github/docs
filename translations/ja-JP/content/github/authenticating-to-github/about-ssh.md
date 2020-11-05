@@ -1,11 +1,12 @@
 ---
 title: SSH について
-intro: 'SSH プロトコルを利用すれば、リモートのサーバーやサービスに接続し、認証を受けられます。 SSH キーがあれば、ユーザ名やパスワードをアクセスのたびに入力することなく {% data variables.product.product_name %}に接続できます。'
+intro: 'SSH プロトコルを利用すれば、リモートのサーバーやサービスに接続し、認証を受けられます。 With SSH keys, you can connect to {% data variables.product.product_name %} without supplying your username and personal access token at each visit.'
 redirect_from:
   - /articles/about-ssh
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 SSH をセットアップする際には、[SSH キーを生成し、ssh-agent に追加](/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)し、それから [ キーを自分の {% data variables.product.product_name %}アカウントに追加](/articles/adding-a-new-ssh-key-to-your-github-account)します。 SSH キーを ssh-agent に追加することで、パスフレーズの利用を通じて SSH キーに追加のセキュリティのレイヤーを持たせることができます。 詳しい情報については[SSH キーのパスフレーズを使う](/articles/working-with-ssh-key-passphrases)を参照してください。

@@ -8,6 +8,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 您可以在所有 {% data variables.product.product_name %} 内全局搜索代码，也可以在特定仓库或组织内搜索代码。 要在所有公共仓库内搜索代码，您必须登录到 {% data variables.product.product_name %} 帐户。 更多信息请参阅“[关于在 GitHub 上搜索](/articles/about-searching-on-github)”。

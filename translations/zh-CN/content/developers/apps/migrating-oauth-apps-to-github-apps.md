@@ -6,6 +6,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 
@@ -18,7 +19,7 @@ This article provides guidelines for existing integrators who are considering mi
 - [Fine-grained permissions](/apps/differences-between-apps/#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
 - [Short-lived tokens](/apps/differences-between-apps/#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
 - [Built-in, centralized webhooks](/apps/differences-between-apps/#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
-- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {% data variables.product.prodname_ghe_server %} seat and remain installed even when the person who initially installed the app leaves the organization.
+- [Bot accounts](/apps/differences-between-apps/#machine-vs-bot-accounts) don't consume a {% data variables.product.product_name %} seat and remain installed even when the person who initially installed the app leaves the organization.
 - Built-in support for OAuth is still available to GitHub Apps using [user-to-server endpoints](/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps/).
 - Dedicated [API rate limits](/apps/building-github-apps/understanding-rate-limits-for-github-apps/) for bot accounts scale with your integration.
 - Repository owners can [install GitHub Apps](/apps/differences-between-apps/#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.

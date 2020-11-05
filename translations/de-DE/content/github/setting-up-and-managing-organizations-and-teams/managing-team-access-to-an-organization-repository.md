@@ -7,6 +7,7 @@ redirect_from:
 versions:
   free-pro-team: '*'
   enterprise-server: '*'
+  github-ae: '*'
 ---
 
 Personen mit Administratorzugriff auf ein Repository können den Zugriff eines Teams auf das Repository verwalten. Team-Betreuer können einem Team den Zugriff auf ein Repository entziehen.

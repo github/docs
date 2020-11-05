@@ -85,7 +85,7 @@ For more information about the container support offered by {% data variables.pr
 #### Support for package registries
 
 {% if currentVersion == "free-pro-team@latest" %}
-Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygem.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
+Package registries use `PACKAGE-TYPE.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME` as the package host URL, replacing `PACKAGE-TYPE` with the Package namespace. For example, your Gemfile will be hosted at `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`.
 
 {% else %}
 
@@ -103,8 +103,8 @@ If {% data variables.product.product_location %} has subdomain isolation disable
 | --- | --- | --- | --- | --- |
 | JavaScript | Node package manager | `package.json`  | `npm` | `npm.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 | Ruby |  RubyGems package manager | `Gemfile` |  `gem` | `rubygems.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
-| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.HOSTNAME/OWNER/REPOSITORY/IMAGE-NAME`
+| Java | Apache Maven project management and comprehension tool | `pom.xml` |  `mvn` | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
+| Java | Gradle build automation tool for Java | `build.gradle` or `build.gradle.kts`  | `gradle`  | `maven.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 | .NET | NuGet package management for .NET | `nupkg`  |  `dotnet` CLI | `nuget.pkg.github.com/OWNER/REPOSITORY/IMAGE-NAME`
 
 {% else %}

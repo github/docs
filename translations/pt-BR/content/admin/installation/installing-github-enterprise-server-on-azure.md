@@ -22,7 +22,7 @@ Você pode implantar o {% data variables.product.prodname_ghe_server %} no Azure
 
 ### Determinar o tipo de máquina virtual
 
-Antes de iniciar a {% data variables.product.product_location_enterprise %} no Azure, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
+Antes de iniciar a {% data variables.product.product_location %} no Azure, você terá que determinar o tipo de máquina virtual que melhor se adapta às demandas da sua organização.
 
 #### Regiões e tipos de VM compatíveis
 
